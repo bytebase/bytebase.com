@@ -2,11 +2,9 @@
 title: Change Workflow
 ---
 
-SQL Review is the classic and widely used process for developers and DBAs to coordinate database schema changes.
+For a typical change workflow, a developer first submits the SQL statement for DBA to review. After review is approved, the SQL statement will then be applied to the corresponding database. For a single change, this step would normally be repeated for each environment (e.g. integration, staging, prod).
 
-Developers first submit their SQL statement for DBA to review. After review is approved, the SQL statement will then be applied to the corresponding database. For a single change, this step would normally be repeated for each environment (e.g. integration, staging, prod).
-
-To facilitate this heavily used process, Bytebase has designed a comprehensive interface to unify the stage progression and the collaboration experience into a single page.
+To facilitate this heavily used process, Bytebase has designed a comprehensive dashboard to unify the stage progression and the collaboration experience into a single page.
 
 ![Issue detail interface](/static/docs/issue-view-annotated.png)
 
