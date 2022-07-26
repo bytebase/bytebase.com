@@ -1,9 +1,13 @@
 ---
 # expand_section_list is the list of default expanded sections.
-expand_section_list: ["ClickHouse"]
+expand_section_list: ["Workflow", "ClickHouse"]
 ---
 
-# database_how_to_layout
+# how_to_layout
+
+## Workflow
+
+### [GitOps with Feature Branch](/how-to/workflow/gitops-feature-branch)
 
 ## ClickHouse
 

@@ -27,9 +27,7 @@
           >API</a
         >
         <a
-          :href="
-            localePath('/docs/how-to/clickhouse/how-to-run-clickhouse-docker')
-          "
+          :href="localePath('/docs/how-to/workflow/gitops-feature-branch')"
           class="header-link"
           @click="track('database-how-to.header')"
           >How-To</a
