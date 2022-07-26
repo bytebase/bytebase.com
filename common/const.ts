@@ -13,6 +13,6 @@ export const validDocsCategoryList = [
   {
     category: "how-to",
     name: "How-To",
-    path: "/how-to/clickhouse/how-to-run-clickhouse-docker",
+    path: "/how-to/workflow/gitops-feature-branch",
   },
 ];
