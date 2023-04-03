@@ -9,6 +9,6 @@ const Route = {
   CHANGELOG: '/changelog',
   BLOG: '/blog',
   DOCS: '/docs',
-}
+};
 
 export default Route;

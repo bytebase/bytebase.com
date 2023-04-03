@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    container: {
-      center: true,
-    },
     fontFamily: {
       'sans-default': ['Inter', 'Inter Fallback', ...defaultTheme.fontFamily.sans],
       'sans-titles': ['Sharp Grotesk', 'Sharp Grotesk Fallback', ...defaultTheme.fontFamily.sans],
@@ -68,5 +65,8 @@ module.exports = {
       sm: { max: '639px' },
       xs: { max: '413px' },
     },
+  },
+  corePlugins: {
+    container: false,
   },
 };
