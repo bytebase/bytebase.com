@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-ts-tailwind-starter",
+  "name": "bytebase-next-tailwind",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -15,9 +15,12 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "file-loader": "^6.2.0",
     "next": "^13.2.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "svgo-loader": "^4.0.0",
+    "url-loader": "^4.1.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.5.0",
