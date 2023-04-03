@@ -1,0 +1,26 @@
+/* Imported from app/layout.tsx */
+/* Tailwind initialization and import of general website CSS rules */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './fonts.css';
+
+/* @layer components {
+  .container {
+    @apply mx-auto;
+  }
+} */
+
+/* Handy CSS class to prevent Input background color becomes yellow in Chrome on autofill. Works as well with inputs with transparent background  */
+/* https://stackoverflow.com/questions/2781549/removing-input-background-colour-for-chrome-autocomplete */
+@layer utilities {
+  .remove-autocomplete-styles {
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      transition: background-color 5000s;
+    }
+  }
+}
