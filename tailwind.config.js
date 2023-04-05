@@ -5,8 +5,8 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
-      'sans-default': ['Inter', 'Inter Fallback', ...defaultTheme.fontFamily.sans],
-      'sans-titles': ['Sharp Grotesk', 'Sharp Grotesk Fallback', ...defaultTheme.fontFamily.sans],
+      sans: ['Inter', 'Inter Fallback', ...defaultTheme.fontFamily.sans],
+      title: ['Sharp Grotesk', 'Sharp Grotesk Fallback', ...defaultTheme.fontFamily.sans],
     },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
@@ -99,7 +99,22 @@ module.exports = {
       104: '104px',
       112: '112px',
     },
+    letterSpacing: {
+      tighter: '-0.025em',
+      tight: '-0.02em',
+      normal: '0',
+      wide: '0.02em',
+    },
+    extend: {
+      spacing: {
+        4.5: '1.125rem',
+      },
+      boxShadow: {
+        menu: '0px 5px 15px 0px rgba(172, 178, 210, 0.5)',
+      },
+    },
   },
+
   corePlugins: {
     container: false,
   },

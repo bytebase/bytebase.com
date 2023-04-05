@@ -1,26 +1,4 @@
-@tailwind base;
-@tailwind components;
 @tailwind utilities;
-
-@import './fonts.css';
-
-@layer components {
-  .container {
-    @apply mx-auto w-full max-w-[1568px] px-12;
-
-    @screen 2xl {
-      @apply px-11;
-    }
-
-    @screen lg {
-      @apply px-7;
-    }
-
-    @screen md {
-      @apply px-4;
-    }
-  }
-}
 
 @layer utilities {
   /*

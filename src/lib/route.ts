@@ -9,6 +9,12 @@ const Route = {
   CHANGELOG: '/changelog',
   BLOG: '/blog',
   DOCS: '/docs',
+  SOLUTIONS: '/solutions',
+  DISCORD: 'https://discord.com/invite/huyw7gRsyA',
+  TWITTER: 'https://twitter.com/Bytebase',
+  GITHUB: 'https://github.com/bytebase/bytebase',
+  TERMS: '/terms',
+  PRIVACY: '/privacy',
 };
 
 export default Route;
