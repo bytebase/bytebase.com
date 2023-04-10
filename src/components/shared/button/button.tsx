@@ -7,8 +7,8 @@ const styles = {
   base: 'inline-flex items-center justify-center leading-none text-center whitespace-nowrap rounded transition-colors duration-200 outline-none',
   size: {
     sm: 'text-13 font-bold py-3 px-4.5 uppercase',
-    md: 'text-13 font-bold py-4.5 px-6 xs:w-full uppercase',
-    lg: 'text-16 font-bold py-6 px-9 xs:w-full uppercase',
+    md: 'text-13 font-bold py-4.5 px-6 2xs:w-full uppercase',
+    lg: 'text-16 font-bold py-6 px-9 2xs:w-full uppercase',
   },
   theme: {
     'primary-filled':

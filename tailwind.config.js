@@ -59,11 +59,13 @@ module.exports = {
     screens: {
       '3xl': { max: '1919px' },
       '2xl': { max: '1599px' },
-      xl: { max: '1279px' },
-      lg: { max: '1023px' },
-      md: { max: '767px' },
-      sm: { max: '639px' },
-      xs: { max: '413px' },
+      xl: { max: '1439px' },
+      lg: { max: '1279px' },
+      md: { max: '1023px' },
+      sm: { max: '767px' },
+      xs: { max: '639px' },
+      '2xs': { max: '413px' },
+      '3xs': { max: '359px' },
     },
     fontSize: {
       12: '12px',

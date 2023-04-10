@@ -103,12 +103,12 @@ const MobileMenu = ({ isOpen }: MobileMenuProps) => {
   return (
     <LazyMotion features={domAnimation}>
       <m.nav
-        className="fixed bg-black bg-opacity-80 w-full -z-10 hidden lg:flex safe-paddings inset-0 h-full text-gray-15 justify-end"
+        className="fixed bg-black bg-opacity-80 w-full -z-10 hidden md:flex safe-paddings inset-0 h-full text-gray-15 justify-end"
         initial="from"
         animate={controls}
         variants={variants}
       >
-        <div className="pt-[72px] md:pt-20 flex flex-col justify-between bg-white md:w-full w-[53%] h-full px-7 pb-8 sm:px-4 sm:pb-5">
+        <div className="pt-[72px] sm:pt-20 flex flex-col justify-between bg-white sm:w-full w-[53%] h-full px-7 pb-8 xs:px-4 xs:pb-5">
           <ul className="flex flex-col items-stretch divide-y divide-gray-90">
             {MENUS.mobile.map(({ title, href = '', items }: MobileLinksProps, index: number) => (
               <li key={index} className="first:-mt-4 relative last:border-b last:border-gray-90">

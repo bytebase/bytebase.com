@@ -26,11 +26,11 @@ const socialLinks = [
 ];
 
 const Footer = () => (
-  <footer className="pt-20 xl:pt-14 md:pt-12 sm:pt-10 safe-paddings z-50 shrink-0 container">
-    <div className="grid grid-cols-12 gap-x-10 2xl:gap-x-9 xl:gap-x-6 lg:gap-x-5 md:grid-cols-4 md:gap-x-4 md:gap-y-10">
+  <footer className="pt-20 lg:pt-14 sm:pt-12 xs:pt-10 safe-paddings z-50 shrink-0 container">
+    <div className="grid grid-cols-12 gap-x-10 xl:gap-x-9 lg:gap-x-6 md:gap-x-5 sm:grid-cols-4 sm:gap-x-4 sm:gap-y-10">
       {MENUS.footer.map(({ name, items }, idx) => (
         <div
-          className="col-span-3 lg:last:col-start-11 lg:last:col-span-2 lg:last:justify-self-center lg:[&:nth-child(3)]:justify-self-center md:col-span-2 md:!justify-self-start md:last:col-start-3"
+          className="col-span-3 md:last:col-start-11 md:last:col-span-2 md:last:justify-self-center md:[&:nth-child(3)]:justify-self-center sm:col-span-2 sm:!justify-self-start sm:last:col-start-3"
           key={idx}
         >
           <h3 className="text-14 font-bold leading-none tracking-wide text-gray-60">{name}</h3>
@@ -57,13 +57,13 @@ const Footer = () => (
         </div>
       ))}
     </div>
-    <div className="mt-20 xl:mt-16 grid grid-cols-12 gap-x-10 2xl:gap-x-9 xl:gap-x-6 lg:gap-x-5 sm:gap-x-0 py-6 border-t-4 border-tones-purple-light lg:grid-rows-2 lg:gap-y-6 lg:py-5 sm:grid-rows-4 lg:mt-[50px] sm:mt-[42px]">
-      <div className="col-span-4 2xl:col-span-5 xl:col-span-6 flex items-center gap-x-9 lg:flex-col lg:gap-x-0 lg:gap-y-6 lg:items-start lg:justify-center lg:row-span-2 sm:row-span-1 sm:col-span-full">
+    <div className="mt-20 lg:mt-16 grid grid-cols-12 gap-x-10 xl:gap-x-9 lg:gap-x-6 md:gap-x-5 xs:gap-x-0 py-6 border-t-4 border-tones-purple-light md:grid-rows-2 md:gap-y-6 md:py-5 xs:grid-rows-4 md:mt-[50px] xs:mt-[42px]">
+      <div className="col-span-4 xl:col-span-5 lg:col-span-6 flex items-center gap-x-9 md:flex-col md:gap-x-0 md:gap-y-6 md:items-start md:justify-center md:row-span-2 xs:row-span-1 xs:col-span-full">
         <Link additionalClassName="shrink-0" to="/">
           <span className="sr-only">Bytebase Logo</span>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            className="h-8 w-[150px] 2xl:w-[132px] 2xl:h-7"
+            className="h-8 w-[150px] xl:w-[132px] xl:h-7"
             src="/images/logo.svg"
             alt="Bytebase logo"
             width={150}
@@ -71,11 +71,11 @@ const Footer = () => (
             loading="eager"
           />
         </Link>
-        <p className="whitespace-nowrap text-16 font-medium leading-none tracking-tight text-gray-60 sm:hidden">
+        <p className="whitespace-nowrap text-16 font-medium leading-none tracking-tight text-gray-60 xs:hidden">
           © {new Date().getFullYear()} Bytebase. All Rights Reserved.
         </p>
       </div>
-      <div className="col-start-7 col-span-2 xl:col-span-3 xl:justify-self-end flex items-center gap-x-5 lg:col-start-10 lg:row-start-1 lg:row-span-1 lg:col-span-3 sm:col-span-full sm:row-start-2 sm:col-start-1 sm:justify-self-start">
+      <div className="col-start-7 col-span-2 lg:col-span-3 lg:justify-self-end flex items-center gap-x-5 md:col-start-10 md:row-start-1 md:row-span-1 md:col-span-3 xs:col-span-full xs:row-start-2 xs:col-start-1 xs:justify-self-start">
         {socialLinks.map(({ name, href, icon }, idx) => (
           <Link
             key={idx}
@@ -93,23 +93,23 @@ const Footer = () => (
         ))}
       </div>
 
-      <div className="col-start-10 xl:col-start-11 flex items-center gap-x-8 xl:gap-x-6 lg:col-start-10 lg:row-start-2 lg:col-span-3 lg:justify-self-end sm:row-start-3 sm:justify-self-start sm:col-start-1">
+      <div className="col-start-10 lg:col-start-11 flex items-center gap-x-8 lg:gap-x-6 md:col-start-10 md:row-start-2 md:col-span-3 md:justify-self-end xs:row-start-3 xs:justify-self-start xs:col-start-1">
         <Link
-          additionalClassName="text-16 sm:text-14 font-medium leading-none tracking-tight"
+          additionalClassName="text-16 xs:text-14 font-medium leading-none tracking-tight"
           theme="gray"
           to={ROUTE.TERMS}
         >
           Terms
         </Link>
         <Link
-          additionalClassName="text-16 sm:text-14 font-medium leading-none tracking-tight"
+          additionalClassName="text-16 xs:text-14 font-medium leading-none tracking-tight"
           theme="gray"
           to={ROUTE.PRIVACY}
         >
           Policy
         </Link>
       </div>
-      <p className="whitespace-nowrap text-14 font-medium leading-none tracking-tight text-gray-60 hidden sm:block sm:row-start-4 sm:row-span-1 sm:col-span-full">
+      <p className="whitespace-nowrap text-14 font-medium leading-none tracking-tight text-gray-60 hidden xs:block xs:row-start-4 xs:row-span-1 xs:col-span-full">
         © {new Date().getFullYear()} Bytebase. All Rights Reserved.
       </p>
     </div>
