@@ -38,14 +38,16 @@ const Footer = () => (
             {items.map(({ name: childName, linkUrl, isExternal, withGithubIcon }, childIdx) => (
               <li className="leading-none" key={childIdx}>
                 <Link
-                  additionalClassName="group font-medium tracking-tight flex items-center"
+                  additionalClassName="group font-medium tracking-tight flex items-center md:-mt-1 sm:mt-0"
                   size="md"
                   theme="gray"
                   to={linkUrl}
                 >
                   <span>{childName}</span>
                   {withGithubIcon && (
-                    <GithubIcon className="ml-1.5 shrink-0 fill-gray-15 group-hover:fill-primary-1 h-5 w-5" />
+                    <div className="relative w-[20px] ml-3">
+                      <GithubIcon className="absolute top-0 -translate-x-1/4 -translate-y-1/2 shrink-0 fill-gray-15 group-hover:fill-primary-1 h-5 w-5" />
+                    </div>
                   )}
                   {isExternal && (
                     <ExternalIcon className="ml-3 shrink-0 stroke-gray-15 group-hover:stroke-primary-1 h-4 w-4" />
@@ -57,7 +59,7 @@ const Footer = () => (
         </div>
       ))}
     </div>
-    <div className="mt-20 lg:mt-16 grid grid-cols-12 gap-x-10 xl:gap-x-9 lg:gap-x-6 md:gap-x-5 xs:gap-x-0 py-6 border-t-4 border-tones-purple-light md:grid-rows-2 md:gap-y-6 md:py-5 xs:grid-rows-4 md:mt-[50px] xs:mt-[42px]">
+    <div className="mt-[76px] lg:mt-[58px] md:mt-[44px] grid grid-cols-12 gap-x-10 xl:gap-x-9 lg:gap-x-6 md:gap-x-5 xs:gap-x-0 py-6 border-t-4 border-tones-purple-light md:grid-rows-2 md:gap-y-6 md:py-5 xs:grid-rows-4  xs:mt-[34px]">
       <div className="col-span-4 xl:col-span-5 lg:col-span-6 flex items-center gap-x-9 md:flex-col md:gap-x-0 md:gap-y-6 md:items-start md:justify-center md:row-span-2 xs:row-span-1 xs:col-span-full">
         <Link additionalClassName="shrink-0" to="/">
           <span className="sr-only">Bytebase Logo</span>
@@ -75,7 +77,7 @@ const Footer = () => (
           © {new Date().getFullYear()} Bytebase. All Rights Reserved.
         </p>
       </div>
-      <div className="col-start-7 col-span-2 lg:col-span-3 lg:justify-self-end flex items-center gap-x-5 md:col-start-10 md:row-start-1 md:row-span-1 md:col-span-3 xs:col-span-full xs:row-start-2 xs:col-start-1 xs:justify-self-start">
+      <div className="col-start-7 col-span-2 lg:col-span-3 lg:justify-self-end flex items-center gap-x-5 md:col-start-10 md:row-start-1 md:row-span-1 md:col-span-3 xs:col-span-full xs:row-start-2 xs:col-start-1 xs:justify-self-start xs:-mt-1">
         {socialLinks.map(({ name, href, icon }, idx) => (
           <Link
             key={idx}
@@ -92,8 +94,7 @@ const Footer = () => (
           </Link>
         ))}
       </div>
-
-      <div className="col-start-10 lg:col-start-11 flex items-center gap-x-8 lg:gap-x-6 md:col-start-10 md:row-start-2 md:col-span-3 md:justify-self-end xs:row-start-3 xs:justify-self-start xs:col-start-1">
+      <div className="col-start-10 lg:col-start-11 flex items-center gap-x-8 lg:gap-x-6 lg:mt-1 md:col-start-10 md:row-start-2 md:col-span-3 md:justify-self-end xs:row-start-3 xs:justify-self-start xs:col-start-1">
         <Link
           additionalClassName="text-16 xs:text-14 font-medium leading-none tracking-tight"
           theme="gray"
