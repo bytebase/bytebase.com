@@ -95,4 +95,8 @@
     line-gap-override: 0%;
     size-adjust: 102.92%;
   }
+
+  html {
+    @apply text-gray-15;
+  }
 }

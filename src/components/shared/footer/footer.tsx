@@ -1,10 +1,10 @@
-import ExternalIcon from '@/svgs/external.inline.svg';
-import GithubIcon from '@/svgs/github.inline.svg';
-
 import Link from '@/components/shared/link';
 
 import { MENUS } from '@/lib/menus.js';
 import ROUTE from '@/lib/route';
+
+import ExternalIcon from '@/svgs/external.inline.svg';
+import GithubIcon from '@/svgs/github.inline.svg';
 
 const socialLinks = [
   {
@@ -26,7 +26,7 @@ const socialLinks = [
 ];
 
 const Footer = () => (
-  <footer className="pt-20 lg:pt-14 sm:pt-12 xs:pt-10 safe-paddings z-50 shrink-0 container">
+  <footer className="pt-20 lg:pt-14 md:pt-12 xs:pt-10 safe-paddings z-50 shrink-0 container">
     <div className="grid grid-cols-12 gap-x-10 xl:gap-x-9 lg:gap-x-6 md:gap-x-5 sm:grid-cols-4 sm:gap-x-4 sm:gap-y-10">
       {MENUS.footer.map(({ name, items }, idx) => (
         <div
@@ -39,7 +39,7 @@ const Footer = () => (
               <li className="leading-none" key={childIdx}>
                 <Link
                   additionalClassName="group font-medium tracking-tight flex items-center md:-mt-1 sm:mt-0"
-                  size="md"
+                  size="sm"
                   theme="gray"
                   to={linkUrl}
                 >
@@ -59,7 +59,7 @@ const Footer = () => (
         </div>
       ))}
     </div>
-    <div className="mt-[76px] lg:mt-[58px] md:mt-[44px] grid grid-cols-12 gap-x-10 xl:gap-x-9 lg:gap-x-6 md:gap-x-5 xs:gap-x-0 py-6 border-t-4 border-tones-purple-light md:grid-rows-2 md:gap-y-6 md:py-5 xs:grid-rows-4  xs:mt-[34px]">
+    <div className="mt-[76px] lg:mt-[58px] md:mt-11 grid grid-cols-12 gap-x-10 xl:gap-x-9 lg:gap-x-6 md:gap-x-5 xs:gap-x-0 py-6 border-t-4 border-tones-purple-light md:grid-rows-2 md:gap-y-6 md:py-5 xs:grid-rows-4  xs:mt-[34px]">
       <div className="col-span-4 xl:col-span-5 lg:col-span-6 flex items-center gap-x-9 md:flex-col md:gap-x-0 md:gap-y-6 md:items-start md:justify-center md:row-span-2 xs:row-span-1 xs:col-span-full">
         <Link additionalClassName="shrink-0" to="/">
           <span className="sr-only">Bytebase Logo</span>

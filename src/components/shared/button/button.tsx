@@ -1,7 +1,8 @@
-import ArrowIcon from '@/svgs/arrow.inline.svg';
 import clsx from 'clsx';
 
 import Link from '@/components/shared/link';
+
+import ArrowIcon from '@/svgs/arrow.inline.svg';
 
 const styles = {
   base: 'inline-flex items-center justify-center leading-none text-center whitespace-nowrap rounded transition-colors duration-200 outline-none',

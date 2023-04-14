@@ -10,7 +10,7 @@
     "^@/types/(.*)$",
     "^@/lib/(.*)$",
     "^@/styles/(.*)$",
-    "^@/assets/(.*)$",
+    "^@/svgs/(.*)$",
     "^[./]"
   ],
   "importOrderSeparation": true,

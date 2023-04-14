@@ -2,11 +2,6 @@
 
 import { useState } from 'react';
 
-import APIIcon from '@/svgs/api.inline.svg';
-import CLIIcon from '@/svgs/cli.inline.svg';
-import DiagonalArrowIcon from '@/svgs/diagonal-arrow.inline.svg';
-import HowToIcon from '@/svgs/how-to.inline.svg';
-import RocketIcon from '@/svgs/rocket.inline.svg';
 import clsx from 'clsx';
 
 import Button from '@/components/shared/button';
@@ -15,6 +10,12 @@ import Link from '@/components/shared/link';
 import MobileMenu from '@/components/shared/mobile-menu';
 
 import { MENUS } from '@/lib/menus';
+
+import APIIcon from '@/svgs/api.inline.svg';
+import CLIIcon from '@/svgs/cli.inline.svg';
+import DiagonalArrowIcon from '@/svgs/diagonal-arrow.inline.svg';
+import HowToIcon from '@/svgs/how-to.inline.svg';
+import RocketIcon from '@/svgs/rocket.inline.svg';
 
 import Burger from './burger';
 
@@ -66,7 +67,7 @@ const Header = () => {
                     <Link
                       additionalClassName="font-medium px-3 py-[9px]"
                       to={href}
-                      size="md"
+                      size="sm"
                       theme="gray"
                     >
                       {title}
@@ -93,7 +94,7 @@ const Header = () => {
                               <li key={index} className="pt-6 first:pt-0">
                                 <Link
                                   additionalClassName="whitespace-nowrap group/link block"
-                                  size="md"
+                                  size="sm"
                                   theme="gray"
                                   to={linkUrl}
                                 >

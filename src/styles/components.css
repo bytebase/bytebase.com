@@ -4,16 +4,58 @@
   .container {
     @apply mx-auto w-full max-w-[1568px] px-12;
 
-    @screen 2xl {
+    @screen xl {
       @apply px-11;
     }
 
-    @screen lg {
+    @screen md {
       @apply px-7;
     }
 
-    @screen md {
+    @screen sm {
       @apply px-4;
+    }
+  }
+
+  .grid-gap {
+    @apply gap-x-10;
+
+    @screen 2xl {
+      @apply gap-x-9;
+    }
+
+    @screen xl {
+      @apply gap-x-6;
+    }
+
+    @screen md {
+      @apply gap-x-5;
+    }
+  }
+
+  .logos {
+    @apply bg-center bg-repeat-x;
+
+    height: 96px;
+    background-image: url(/images/logos.svg),
+      linear-gradient(
+        272.14deg,
+        #1fd68a 1.82%,
+        #c4ff99 19.31%,
+        #1fd68a 48.1%,
+        #1fd68a 56.4%,
+        #cceeff 71.99%,
+        #1fd68a 98.18%
+      );
+
+    @screen lg {
+      @apply bg-1024;
+    }
+    @screen md {
+      @apply bg-768;
+    }
+    @screen sm {
+      @apply bg-360;
     }
   }
 }

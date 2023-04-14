@@ -1,10 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import APIIcon from '@/svgs/api.inline.svg';
-import ChevronIcon from '@/svgs/chevron.inline.svg';
-import CLIIcon from '@/svgs/cli.inline.svg';
-import HowToIcon from '@/svgs/how-to.inline.svg';
-import RocketIcon from '@/svgs/rocket.inline.svg';
 import clsx from 'clsx';
 import { LazyMotion, domAnimation, m, useAnimation } from 'framer-motion';
 
@@ -13,6 +8,12 @@ import GithubStarsButton from '@/components/shared/github-stars-button';
 import Link from '@/components/shared/link';
 
 import { MENUS } from '@/lib/menus.js';
+
+import APIIcon from '@/svgs/api.inline.svg';
+import ChevronIcon from '@/svgs/chevron.inline.svg';
+import CLIIcon from '@/svgs/cli.inline.svg';
+import HowToIcon from '@/svgs/how-to.inline.svg';
+import RocketIcon from '@/svgs/rocket.inline.svg';
 
 interface Icons {
   [key: string]: any;
@@ -153,7 +154,7 @@ const MobileMenu = ({ isOpen }: MobileMenuProps) => {
                           <li className="w-full last:pb-4 first:-mt-4" key={name}>
                             <Link
                               additionalClassName="group block pt-4"
-                              size="md"
+                              size="sm"
                               theme="gray"
                               to={linkUrl}
                             >

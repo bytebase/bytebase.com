@@ -1,14 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import NextLink from 'next/link';
 
-import ArrowIcon from '@/svgs/arrow.inline.svg';
 import clsx from 'clsx';
+
+import ArrowIcon from '@/svgs/arrow.inline.svg';
 
 const styles = {
   transition: 'transition-colors duration-200',
   base: 'inline-flex leading-none items-center',
   size: {
-    md: 'text-16',
+    sm: 'text-16',
   },
   theme: {
     gray: 'text-gray-15 hover:text-primary-1 disabled:text-gray-60',

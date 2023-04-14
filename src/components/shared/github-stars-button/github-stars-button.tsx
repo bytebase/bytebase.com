@@ -1,6 +1,6 @@
-import GitHubIcon from '@/svgs/github.inline.svg';
-
 import Button from '@/components/shared/button';
+
+import GitHubIcon from '@/svgs/github.inline.svg';
 
 //TODO: add github stars fetching
 
