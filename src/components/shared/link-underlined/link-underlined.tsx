@@ -25,7 +25,7 @@ const LinkUnderlined = ({ to, theme, children, className }: LinkProps) => {
     <Link href={to} className="py-2">
       <div
         className={clsx(
-          'pb-1 w-fit border-b-[3px] leading-4 tracking-[1%] border-secondary-2 text-16 md:text-13 font-bold uppercase',
+          'w-fit border-b-[3px] border-secondary-2 pb-1 text-16 font-bold uppercase leading-4 tracking-[1%] md:text-13',
           linkClassName,
         )}
       >

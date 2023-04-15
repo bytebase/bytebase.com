@@ -41,9 +41,10 @@ type Header = {
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
   return (
     <>
-      <header className="safe-paddings absolute top-0 left-0 right-0 z-[1000] h-[72px] w-full">
+      <header className="safe-paddings absolute top-0 left-0 right-0 z-[999] h-[72px] w-full">
         <nav
           className="container flex items-center justify-between py-4.5 md:py-0"
           aria-label="Global"
@@ -67,7 +68,7 @@ const Header = () => {
                     <Link
                       additionalClassName="font-medium px-3 py-[9px]"
                       to={href}
-                      size="sm"
+                      size="md"
                       theme="gray"
                     >
                       {title}
@@ -75,7 +76,7 @@ const Header = () => {
                   ) : (
                     <button
                       className={clsx(
-                        'font-medium text-16 leading-none transition-colors duration-200 rounded-[44px] px-3 py-[9px]',
+                        'rounded-[44px] px-3 py-[9px] text-16 font-medium leading-none transition-colors duration-200',
                         {
                           'group-hover:bg-gray-94': items,
                         },
@@ -85,8 +86,8 @@ const Header = () => {
                     </button>
                   )}
                   {items?.length && (
-                    <div className="top-6 -left-5 absolute transition-[opacity,visibility] duration-200 group-hover:visible invisible opacity-0 group-hover:opacity-100 pt-6">
-                      <div className="z-30 relative rounded-lg border border-gray-80 bg-white p-4 pl-8 flex items-center gap-x-[30px] before:bg-white before:h-4 before:w-4 before:absolute before:-top-[8.5px] before:-z-50 before:rotate-45 before:border-gray-80 before:border-t before:border-l before:rounded-tl before:left-11 shadow-menu">
+                    <div className="invisible absolute top-6 -left-5 pt-6 opacity-0 transition-[opacity,visibility] duration-200 group-hover:visible group-hover:opacity-100">
+                      <div className="relative z-30 flex items-center gap-x-[30px] rounded-lg border border-gray-80 bg-white p-4 pl-8 shadow-menu before:absolute before:-top-[8.5px] before:left-11 before:-z-50 before:h-4 before:w-4 before:rotate-45 before:rounded-tl before:border-t before:border-l before:border-gray-80 before:bg-white">
                         <ul className="flex flex-col">
                           {items?.map(({ name, linkUrl, description, iconName }, index) => {
                             const Icon = icons[iconName];
@@ -94,13 +95,13 @@ const Header = () => {
                               <li key={index} className="pt-6 first:pt-0">
                                 <Link
                                   additionalClassName="whitespace-nowrap group/link block"
-                                  size="sm"
+                                  size="md"
                                   theme="gray"
                                   to={linkUrl}
                                 >
                                   <div className="flex flex-col gap-y-2.5">
-                                    <div className="flex gap-x-2 items-center group-hover/link:text-primary-1">
-                                      <Icon className="w-5 h-5 shrink-0" />
+                                    <div className="flex items-center gap-x-2 group-hover/link:text-primary-1">
+                                      <Icon className="h-5 w-5 shrink-0" />
                                       <span className="font-medium tracking-tight">{name}</span>
                                     </div>
                                     <span className="text-16 leading-normal text-gray-40">
@@ -116,9 +117,9 @@ const Header = () => {
                           additionalClassName="bg-gray-97 group/box rounded-md p-6 pt-4.5 h-full grow hover:bg-gray-94 flex flex-col justify-between min-h-[324px] w-[244px] text-gray-40"
                           to="/"
                         >
-                          <div className="flex justify-between items-center group-hover/box:text-gray-15">
+                          <div className="flex items-center justify-between group-hover/box:text-gray-15">
                             <span className="text-16 leading-normal">Start Learning</span>
-                            <DiagonalArrowIcon className="w-4 h-4 shrink-0" />
+                            <DiagonalArrowIcon className="h-4 w-4 shrink-0" />
                           </div>
                           <div className="flex flex-col gap-y-3">
                             <span className="text-20 leading-none text-gray-15">Tutorials</span>

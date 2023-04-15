@@ -20,7 +20,7 @@
   .grid-gap {
     @apply gap-x-10;
 
-    @screen 2xl {
+    @screen 3xl {
       @apply gap-x-9;
     }
 
@@ -30,6 +30,10 @@
 
     @screen md {
       @apply gap-x-5;
+    }
+
+    @screen sm {
+      @apply gap-x-4;
     }
   }
 

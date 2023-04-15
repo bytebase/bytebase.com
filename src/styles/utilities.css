@@ -12,4 +12,10 @@
   .remove-autocomplete-styles:-webkit-autofill:focus {
     transition: background-color 5000s;
   }
+
+  .with-medium-text {
+    b {
+      @apply font-medium text-gray-15;
+    }
+  }
 }

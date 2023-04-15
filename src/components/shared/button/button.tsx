@@ -7,19 +7,19 @@ import ArrowIcon from '@/svgs/arrow.inline.svg';
 const styles = {
   base: 'inline-flex items-center justify-center leading-none text-center whitespace-nowrap rounded transition-colors duration-200 outline-none',
   size: {
-    sm: 'text-13 font-bold py-3 px-4.5 uppercase',
-    md: 'text-13 font-bold py-4.5 px-6 2xs:w-full uppercase',
-    lg: 'text-16 font-bold py-6 px-9 2xs:w-full uppercase',
+    sm: 'h-9 text-13 font-bold py-3 px-4.5 uppercase',
+    md: 'h-12 text-13 font-bold py-4.5 px-6 2xs:w-full uppercase',
+    lg: 'h-16 text-16 font-bold py-[21px] px-9 2xs:w-full uppercase md:py-4.5 md:text-13 md:h-12',
   },
   theme: {
     'primary-filled':
-      'text-white bg-primary-1 hover:bg-primary-2 disabled:tones-purple-dark tracking-tighter rounded-full',
+      'text-white bg-primary-1 hover:bg-primary-2 disabled:tones-purple-dark tracking-wide rounded-full',
     'primary-outline':
-      'text-black border-[3px] border-primary-1 hover:border-gray-15 disabled:text-gray-60 disabled:border-tones-purple-dark rounded-full tracking-tighter',
+      'text-black border-[3px] border-primary-1 hover:border-gray-15 disabled:text-gray-60 disabled:border-tones-purple-dark rounded-full tracking-wide',
     'gray-filled':
-      'bg-gray-15 text-white hover:bg-gray-40 disabled:bg-gray-80 tracking-tighter rounded-full',
+      'bg-gray-15 text-white hover:bg-gray-40 disabled:bg-gray-80 tracking-wide rounded-full',
     'green-underline':
-      'text-black border-b-[3px] border-secondary-2 pb-4.5 hover:border-tones-green-dark tracking-tight disabled:text-gray-60 disabled:border-tones-purple-dark',
+      'text-black border-b-[3px] border-secondary-2 pb-4.5 hover:border-tones-green-dark tracking-wide disabled:text-gray-60 disabled:border-tones-purple-dark',
   },
 };
 

@@ -26,7 +26,7 @@ const Accordion = ({
   const handleClick = onChange || handleToggleLocalIsOpen;
 
   return (
-    <div className="bg-tones-green-light w-full">
+    <div className="w-full bg-tones-green-light">
       <div
         className={clsx(
           isOpen
@@ -42,13 +42,13 @@ const Accordion = ({
                 <img
                   src="/images/accordion-arrow.svg"
                   alt=""
-                  className="h-8 md:h-7 shadow-icon-green rounded-[100%] shrink-0"
+                  className="h-8 shrink-0 rounded-[100%] shadow-icon-green md:h-7"
                 />
-                <p className="ml-4 md:ml-3 font-bold leading-extra-tight -tracking-wider lg:tracking-normal text-24 lg:text-20 md:text-18 md:font-semibold">
+                <p className="ml-4 text-24 font-bold leading-extra-tight -tracking-wider lg:text-20 lg:tracking-normal md:ml-3 md:text-18 md:font-semibold">
                   {title}
                 </p>
               </div>
-              <p className="pl-12 md:pl-10 mt-[11px] 2xl:mt-2 lg:mt-1 md:mt-1.5 pb-6 2xl:pb-5 md:pb-4 sm:pb-3 text-16 lg:text-14 leading-normal lg:leading-snug">
+              <p className="mt-[11px] pl-12 pb-6 text-16 leading-normal 2xl:mt-2 2xl:pb-5 lg:mt-1 lg:text-14 lg:leading-snug md:mt-1.5 md:pl-10 md:pb-4 sm:pb-3">
                 {description}
               </p>
             </>
@@ -57,10 +57,10 @@ const Accordion = ({
               <img
                 src="/images/accordion-arrow-green.svg"
                 alt=""
-                className="h-8 md:h-7 rounded-[100%] shrink-0"
+                className="h-8 shrink-0 rounded-[100%] md:h-7"
               />
               <div className="ml-4 md:ml-3">
-                <p className="font-bold leading-tight -tracking-wider lg:tracking-normal text-24 lg:text-20 md:text-18 md:font-semibold">
+                <p className="text-24 font-bold leading-tight -tracking-wider lg:text-20 lg:tracking-normal md:text-18 md:font-semibold">
                   {title}
                 </p>
               </div>
