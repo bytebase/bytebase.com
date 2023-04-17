@@ -45,7 +45,7 @@ const Accordion = ({
       <div
         className={clsx(
           isOpen
-            ? 'container grid-gap grid cursor-pointer grid-cols-12 py-0 md:pt-11 sm:grid-cols-4 sm:pt-9'
+            ? 'container gap-x-grid grid cursor-pointer grid-cols-12 py-0 md:pt-11 sm:grid-cols-4 sm:pt-9'
             : 'container cursor-pointer border-none py-[26px] md:py-6 sm:py-5',
         )}
         onClick={handleClick}

@@ -43,7 +43,7 @@ const Features = () => {
           control systems for a GitOps workflow.
         </p>
       </header>
-      <ul className="grid-gap mt-14 grid grid-cols-3 gap-y-8 2xl:mt-12 lg:mt-11 lg:grid-cols-12 md:mt-9 sm:mt-6 sm:flex sm:flex-col">
+      <ul className="gap-x-grid mt-14 grid grid-cols-3 gap-y-8 2xl:mt-12 lg:mt-11 lg:grid-cols-12 md:mt-9 sm:mt-6 sm:flex sm:flex-col">
         {cards.map((card, idx) => (
           <li key={idx} className="xl:col-span-4">
             <Card {...card} />

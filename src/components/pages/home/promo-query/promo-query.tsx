@@ -61,7 +61,7 @@ const PromoQuery = () => {
           </mark>
         </h2>
       </header>
-      <div className="grid-gap mt-[46px] grid grid-cols-12 lg:mt-7 md:mt-11 sm:mt-7 sm:flex sm:flex-col-reverse">
+      <div className="gap-x-grid mt-[46px] grid grid-cols-12 lg:mt-7 md:mt-11 sm:mt-7 sm:flex sm:flex-col-reverse">
         <div className="col-span-full row-span-full sm:mt-2">
           <Image
             src="/images/interface.png"

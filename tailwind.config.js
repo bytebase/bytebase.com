@@ -111,6 +111,8 @@ module.exports = {
     backgroundImage: {
       'pricing-hero':
         'radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0) 67.27%, #FAFBFF 100%)',
+      cite: 'radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0) 34.28%, rgba(240, 242, 255, 0.5) 100%)',
+      pricing: '0px 5px 15px 0px rgba(15, 22, 36, 0.2)',
     },
     extend: {
       lineHeight: {
@@ -129,15 +131,6 @@ module.exports = {
         icon: '0px 5px 15px rgba(172, 178, 210, 0.8)',
         'icon-green': '0px 5px 10px rgba(156, 201, 182, 0.8)',
       },
-      backgroundImage: {
-        cite: 'radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0) 34.28%, rgba(240, 242, 255, 0.5) 100%)',
-        pricing: '0px 5px 15px 0px rgba(15, 22, 36, 0.2)',
-      },
-    },
-    backgroundSize: {
-      1024: '1100px',
-      768: '990px',
-      360: '800px',
     },
   },
 

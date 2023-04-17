@@ -1,10 +1,12 @@
 import Link from '@/components/shared/link';
 
+import QuoteIcon from '@/svgs/quote.inline.svg';
+
 import { COLORS } from '../table/data/pricing-plans';
 import Card from './card';
 
 type TCard = {
-  image: '/images/pricing/free.jpg' | '/images/pricing/team.jpg' | '/images/pricing/enterprise.jpg';
+  image: string;
   planTitle: keyof typeof COLORS;
   price: string | number;
   description: string;
@@ -18,7 +20,7 @@ type TCard = {
 
 const cards: TCard[] = [
   {
-    image: '/images/pricing/free.jpg',
+    image: '/images/page/pricing/free.jpg',
     planTitle: 'free',
     price: 0,
     description: 'Up to 10 seats and&nbsp;10&nbsp;instances',
@@ -35,7 +37,7 @@ const cards: TCard[] = [
     ],
   },
   {
-    image: '/images/pricing/team.jpg',
+    image: '/images/page/pricing/team.jpg',
     planTitle: 'team',
     price: 19,
     priceDescription: '/ starts at month',
@@ -55,7 +57,7 @@ const cards: TCard[] = [
     ],
   },
   {
-    image: '/images/pricing/enterprise.jpg',
+    image: '/images/page/pricing/enterprise.jpg',
     planTitle: 'enterprise',
     price: 'Custom',
     description: 'Customized, billed&nbsp;annually',
@@ -75,12 +77,11 @@ const cards: TCard[] = [
 ];
 
 const Hero = () => (
-  <section className="hero bg-pricing-hero pt-[120px] pb-20 2xl:pt-[108px] lg:pb-16 md:pt-24 md:pb-[54px] sm:pb-11">
+  <section className="bg-pricing-hero pt-[120px] pb-20 2xl:pt-[108px] lg:pb-16 md:pt-24 md:pb-[54px] sm:pb-11">
     <div className="container max-w-[1396px] 2xl:max-w-full">
       <header className="text-center">
         <h1 className="sr-only">Bytebase pricing page</h1>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/quote.svg" alt="" className="mx-auto md:h-auto md:w-10" />
+        <QuoteIcon width={50} height={40} className="mx-auto w-auto lg:h-8 md:h-7 sm:h-6" />
         <p className="mx-auto mt-5 max-w-[1048px] text-40 font-semibold leading-tight tracking-tighter lg:max-w-[800px] lg:text-30 lg:leading-extra-tight md:mt-6 md:max-w-[670px] md:text-24 md:tracking-tight sm:mt-4 xs:text-20 xs:leading-tight xs:tracking-normal">
           Bytebase is not a better tool to manage database changes. It&apos;s a better way to manage
           database changes.
@@ -89,43 +90,22 @@ const Hero = () => (
           Built by engineers knowing database development flow
         </p>
         <ul className="mt-11 flex items-center justify-center gap-x-16 lg:gap-x-[52px] md:mt-10 md:gap-x-10 sm:mt-6 sm:flex-wrap sm:gap-y-4 sm:gap-x-14">
-          <li>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/pricing/microsoft.svg"
-              alt="Microsoft logo"
-              className="h-10 w-auto lg:h-9 md:h-[30px]"
-            />
-          </li>
-          <li>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/pricing/google.svg"
-              alt="Google logo"
-              className="h-10 w-auto lg:h-9 md:h-[30px]"
-            />
-          </li>
-          <li>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/pricing/ant-group.svg"
-              alt="Ant Group logo"
-              className="h-10 w-auto lg:h-9 md:h-[30px]"
-            />
-          </li>
-          <li>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/pricing/pingcap.svg"
-              alt="Pingcap logo"
-              className="h-10 w-auto lg:h-9 md:h-[30px]"
-            />
-          </li>
+          {[
+            '/images/page/pricing/microsoft.svg',
+            '/images/page/pricing/google.svg',
+            '/images/page/pricing/ant-group.svg',
+            '/images/page/pricing/pingcap.svg',
+          ].map((src) => (
+            <li key={src}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={src} alt="" height={40} className="w-auto lg:h-9 md:h-[30px]" />
+            </li>
+          ))}
         </ul>
       </header>
       <ul className="mt-14 flex gap-x-8 lg:mt-12 lg:gap-x-6 md:gap-x-5 sm:flex-wrap sm:gap-x-0 sm:gap-y-5">
-        {cards.map((card, idx) => (
-          <li className="grow basis-1/3 sm:basis-full" key={idx}>
+        {cards.map((card) => (
+          <li className="grow basis-1/3 sm:basis-full" key={card.planTitle}>
             <Card {...card} />
           </li>
         ))}

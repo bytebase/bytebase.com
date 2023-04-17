@@ -5,7 +5,7 @@ import { LinkUnderlined } from '@/components/shared/link-underlined';
 const PromoChangeDatabase = () => {
   return (
     <section className="change mt-[160px] bg-black text-white 2xl:mt-36 lg:mt-32 md:mt-24 md:pt-16 sm:mt-20 xs:pt-[58px]">
-      <div className="container grid-gap grid grid-cols-12">
+      <div className="container gap-x-grid grid grid-cols-12">
         <div className="col-start-1 col-end-7 self-center lg:col-end-6 lg:mt-[140px] lg:self-auto md:col-end-13 md:mt-0">
           <span className="inline-flex rounded-3xl bg-primary-1 px-2.5 py-2 text-12 font-bold uppercase leading-none tracking-wider xs:leading-95">
             Change

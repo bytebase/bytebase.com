@@ -6,7 +6,7 @@ import Route from '@/lib/route';
 const SubscriptionForm = () => {
   return (
     <section className="mt-[206px] bg-primary-1 text-white 2xl:mt-[186px] lg:mt-[134px] md:mt-[74px] sm:mt-9">
-      <div className="container grid-gap grid grid-cols-12 overflow-x-clip sm:flex sm:flex-col">
+      <div className="container gap-x-grid grid grid-cols-12 overflow-x-clip sm:flex sm:flex-col">
         <div className="col-span-5 col-start-2 -ml-10 lg:col-start-1 lg:ml-0 sm:relative">
           <Image
             className="-mt-[46px] -mb-[22px] lg:-mt-6 lg:h-[422px] lg:w-[376px] md:-mt-[15px] md:h-[342px] md:min-w-[305px] md:max-w-[305px] sm:hidden sm:h-[201px] sm:w-[170px]"

@@ -3,7 +3,7 @@ const Logos = () => {
     <div className="relative mt-[164px] 2xl:mt-36 lg:mt-[130px] md:mt-[94px] sm:mt-[76px]">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/logos-caption.svg"
+        src="/images/page/main/logos-caption.svg"
         alt="Built by engineers knowing database development flow"
         width={321}
         height={64}

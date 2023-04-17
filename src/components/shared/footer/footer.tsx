@@ -1,27 +1,29 @@
 import Link from '@/components/shared/link';
 
 import { MENUS } from '@/lib/menus.js';
-import ROUTE from '@/lib/route';
+import Route from '@/lib/route';
 
+import DiscordIcon from '@/svgs/discord.inline.svg';
 import ExternalIcon from '@/svgs/external.inline.svg';
 import GithubIcon from '@/svgs/github.inline.svg';
+import TwitterIcon from '@/svgs/twitter.inline.svg';
 
 const socialLinks = [
   {
     name: 'Discord',
-    href: ROUTE.DISCORD,
-    icon: 'images/discord.svg',
+    href: Route.DISCORD,
+    icon: DiscordIcon,
   },
   {
     name: 'Twitter',
-    href: ROUTE.TWITTER,
-    icon: 'images/twitter.svg',
+    href: Route.TWITTER,
+    icon: TwitterIcon,
   },
 
   {
     name: 'Github',
-    href: ROUTE.GITHUB,
-    icon: 'images/github.svg',
+    href: Route.GITHUB,
+    icon: GithubIcon,
   },
 ];
 
@@ -78,18 +80,17 @@ const Footer = () => (
         </p>
       </div>
       <div className="col-span-2 col-start-7 flex items-center gap-x-5 lg:col-span-3 lg:justify-self-end md:col-span-3 md:col-start-10 md:row-span-1 md:row-start-1 xs:col-span-full xs:col-start-1 xs:row-start-2 xs:-mt-1 xs:justify-self-start">
-        {socialLinks.map(({ name, href, icon }, idx) => (
+        {socialLinks.map(({ name, href, icon: Icon }, idx) => (
           <Link
             key={idx}
             to={href}
             additionalClassName="flex items-center justify-center rounded-full"
           >
             <span className="sr-only">{name}</span>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={icon}
-              className="h-6 w-6 shrink-0 transition-opacity duration-200 hover:opacity-80"
-              alt={name}
+            <Icon
+              width={24}
+              height={24}
+              className="shrink-0 transition-opacity duration-200 hover:opacity-80"
             />
           </Link>
         ))}
@@ -98,14 +99,14 @@ const Footer = () => (
         <Link
           additionalClassName="text-16 xs:text-14 font-medium leading-none tracking-tight"
           theme="gray"
-          to={ROUTE.TERMS}
+          to={Route.TERMS}
         >
           Terms
         </Link>
         <Link
           additionalClassName="text-16 xs:text-14 font-medium leading-none tracking-tight"
           theme="gray"
-          to={ROUTE.PRIVACY}
+          to={Route.PRIVACY}
         >
           Policy
         </Link>

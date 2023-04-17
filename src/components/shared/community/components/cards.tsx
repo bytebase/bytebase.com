@@ -6,7 +6,7 @@ import TwitterIcon from '@/svgs/twitter.inline.svg';
 
 const Cards = () => {
   return (
-    <ul className="grid-gap mt-11 grid grid-cols-3 text-center 2xl:mt-[26px] lg:mt-[34px] md:mt-[25px] sm:-mt-[70px] sm:flex sm:flex-col sm:gap-y-4">
+    <ul className="gap-x-grid mt-11 grid grid-cols-3 text-center 2xl:mt-[26px] lg:mt-[34px] md:mt-[25px] sm:-mt-[70px] sm:flex sm:flex-col sm:gap-y-4">
       <li className="-translate-y-[132px] bg-tones-purple-light shadow-[inset_6px_6px_0_#fff,0_5px_15px_rgba(172,178,210,0.5)] 2xl:-translate-y-[128px] lg:max-h-[400px] lg:-translate-y-[57px] md:max-h-[368px] md:-translate-y-12 sm:-translate-y-0 sm:items-start">
         <div className="flex h-full flex-col items-center justify-between p-9 pb-14 shadow-[inset_0_0_0_1px_rgba(172,178,210,0.5)] 2xl:p-[31px] lg:max-h-[400px] lg:p-[23px] lg:pb-8 md:max-h-[368px] md:p-[19px] md:pb-7 md:pt-7 sm:px-6 sm:pt-7 sm:pb-5">
           <div className="flex flex-col items-center justify-between sm:items-start">
