@@ -133,8 +133,8 @@ const MobileMenu = ({ isOpen }: MobileMenuProps) => {
                   </button>
                 ) : (
                   <Link
-                    to={href}
-                    additionalClassName="flex w-full flex-col items-start justify-center whitespace-nowrap text-20 font-medium leading-none tracking-tight transition-colors duration-200 hover:cursor-pointer py-5"
+                    href={href}
+                    className="flex w-full flex-col items-start justify-center whitespace-nowrap py-5 text-20 font-medium leading-none tracking-tight transition-colors duration-200 hover:cursor-pointer"
                   >
                     <span>{title}</span>
                   </Link>
@@ -153,10 +153,10 @@ const MobileMenu = ({ isOpen }: MobileMenuProps) => {
                         return (
                           <li className="w-full first:-mt-4 last:pb-4" key={name}>
                             <Link
-                              additionalClassName="group block pt-4"
+                              className="group block pt-4"
                               size="lg"
                               theme="gray"
-                              to={linkUrl}
+                              href={linkUrl}
                             >
                               <div className="flex flex-col gap-y-1">
                                 <div className="flex items-center gap-x-2 group-hover:text-primary-1">
@@ -179,7 +179,7 @@ const MobileMenu = ({ isOpen }: MobileMenuProps) => {
           </ul>
           <div className="mt-10 flex flex-col gap-4">
             <GithubStarsButton />
-            <Button to="/" theme="gray-filled" size="md">
+            <Button href="/" theme="gray-filled" size="md">
               Sign up for Cloud
             </Button>
           </div>

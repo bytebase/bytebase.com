@@ -24,8 +24,8 @@ const styles = {
 };
 
 type ButtonProps = {
-  additionalClassName?: string;
-  to: string;
+  className?: string;
+  href: string;
   size?: keyof typeof styles.size;
   theme?: keyof typeof styles.theme;
   children: React.ReactNode;
@@ -35,10 +35,10 @@ type ButtonProps = {
 };
 
 const Button = ({
-  additionalClassName,
+  className: additionalClassName,
   size,
   theme,
-  to,
+  href,
   children,
   withArrow = false,
   ...props
@@ -50,7 +50,7 @@ const Button = ({
     additionalClassName,
   );
 
-  const Tag = to ? Link : 'button';
+  const Tag = href ? Link : 'button';
 
   const content = (
     <>
@@ -60,7 +60,7 @@ const Button = ({
   );
 
   return (
-    <Tag className={className} to={to} {...props}>
+    <Tag className={className} href={href} {...props}>
       {content}
     </Tag>
   );

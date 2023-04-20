@@ -6,8 +6,8 @@ import GitHubIcon from '@/svgs/github.inline.svg';
 
 const GithubStarsButton = () => (
   <Button
-    additionalClassName="group max-w-[120px] md:max-w-full md:bg-gray-30 md:text-white md:py-2 md:uppercase font-bold text-14 leading-none md:text-13 md:rounded-full"
-    to="https://github.com/bytebase/bytebase"
+    className="group max-w-[120px] text-14 font-bold leading-none md:max-w-full md:rounded-full md:bg-gray-30 md:py-2 md:text-13 md:uppercase md:text-white"
+    href="https://github.com/bytebase/bytebase"
     target="_blank"
     rel="noopener noreferrer"
   >

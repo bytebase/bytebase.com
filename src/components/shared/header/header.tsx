@@ -49,7 +49,7 @@ const Header = () => {
           className="container flex items-center justify-between py-4.5 md:py-0"
           aria-label="Global"
         >
-          <Link to="/">
+          <Link href="/">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="h-8 w-auto xl:h-7"
@@ -65,12 +65,7 @@ const Header = () => {
               return (
                 <li key={title} className="group relative inline-block">
                   {href ? (
-                    <Link
-                      additionalClassName="font-medium px-3 py-[9px]"
-                      to={href}
-                      size="md"
-                      theme="gray"
-                    >
+                    <Link className="px-3 py-[9px] font-medium" href={href} size="md" theme="gray">
                       {title}
                     </Link>
                   ) : (
@@ -94,10 +89,10 @@ const Header = () => {
                             return (
                               <li key={index} className="pt-6 first:pt-0">
                                 <Link
-                                  additionalClassName="whitespace-nowrap group/link block"
+                                  className="group/link block whitespace-nowrap"
                                   size="md"
                                   theme="gray"
-                                  to={linkUrl}
+                                  href={linkUrl}
                                 >
                                   <div className="flex flex-col gap-y-2.5">
                                     <div className="flex items-center gap-x-2 group-hover/link:text-primary-1">
@@ -114,8 +109,8 @@ const Header = () => {
                           })}
                         </ul>
                         <Link
-                          additionalClassName="bg-gray-97 group/box rounded-md p-6 pt-4.5 h-full grow hover:bg-gray-94 flex flex-col justify-between min-h-[324px] w-[244px] text-gray-40"
-                          to="/"
+                          className="group/box flex h-full min-h-[324px] w-[244px] grow flex-col justify-between rounded-md bg-gray-97 p-6 pt-4.5 text-gray-40 hover:bg-gray-94"
+                          href="/"
                         >
                           <div className="flex items-center justify-between group-hover/box:text-gray-15">
                             <span className="text-16 leading-normal">Start Learning</span>
@@ -135,7 +130,7 @@ const Header = () => {
           </ul>
           <div className="flex items-center gap-x-9 xl:gap-x-7 lg:gap-x-5 md:hidden">
             <GithubStarsButton />
-            <Button to="/" theme="gray-filled" size="sm">
+            <Button href="/" theme="gray-filled" size="sm">
               Sign up for Cloud
             </Button>
           </div>

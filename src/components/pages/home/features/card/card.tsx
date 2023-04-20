@@ -24,7 +24,7 @@ const Card = ({ icon, title, href, description }: CardProps) => {
       <p className="mt-4 max-w-[449px] text-20 leading-normal 2xl:mt-5 lg:mt-4 lg:text-18 lg:leading-snug md:mt-2 md:text-16 sm:mt-2.5 sm:max-w-[296px] ">
         {description}
       </p>
-      <LinkUnderlined className="mt-6 h-6 lg:mt-5 md:mt-3 sm:mt-2.5 sm:tracking-wide" to={href}>
+      <LinkUnderlined className="mt-6 h-6 lg:mt-5 md:mt-3 sm:mt-2.5 sm:tracking-wide" href={href}>
         Learn more
       </LinkUnderlined>
     </article>

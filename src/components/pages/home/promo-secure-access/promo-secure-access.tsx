@@ -18,7 +18,7 @@ const PromoSecureAccess = () => {
             version control systems for a GitOps workflow.
           </p>
           <div className="col-span-4 mt-8 self-start md:mt-3 sm:mt-3">
-            <LinkUnderlined to="">Learn more</LinkUnderlined>
+            <LinkUnderlined href="">Learn more</LinkUnderlined>
           </div>
         </div>
         <div className="col-start-7 col-end-13 2xl:col-start-7 lg:col-start-6">

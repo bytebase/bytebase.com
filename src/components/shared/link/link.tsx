@@ -21,8 +21,8 @@ const styles = {
 };
 
 type LinkProps = {
-  additionalClassName?: string;
-  to: string;
+  className?: string;
+  href: string;
   size?: keyof typeof styles.size;
   theme?: keyof typeof styles.theme;
   children: React.ReactNode;
@@ -32,10 +32,10 @@ type LinkProps = {
 };
 
 const Link = ({
-  additionalClassName,
+  className: additionalClassName,
   size,
   theme,
-  to,
+  href,
   children,
   withArrow = false,
   ...props
@@ -55,16 +55,16 @@ const Link = ({
     </>
   );
 
-  if (to.startsWith('/')) {
+  if (href.startsWith('/')) {
     return (
-      <NextLink className={linkClassName} href={to} {...props}>
+      <NextLink className={linkClassName} href={href} {...props}>
         {content}
       </NextLink>
     );
   }
 
   return (
-    <a className={linkClassName} href={to} {...props}>
+    <a className={linkClassName} href={href} {...props}>
       {content}
     </a>
   );

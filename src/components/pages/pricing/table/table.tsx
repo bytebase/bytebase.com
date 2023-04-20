@@ -135,12 +135,7 @@ const Table = () => {
         <div className="col-span-7 col-start-5 pt-7 3xl:col-span-8 3xl:col-start-5 xl:pt-6 md:pt-4 sm:col-span-12 sm:col-start-1 sm:pt-3">
           <p className="text-center text-15 leading-snug text-gray-40 xl:text-14 xl:leading-tight">
             You can upgrade, downgrade, or{' '}
-            <Link
-              size="sm"
-              to="/refund"
-              theme="primary-1"
-              additionalClassName="xl:text-14 sm:inline"
-            >
+            <Link className="xl:text-14 sm:inline" size="sm" href="/refund" theme="primary-1">
               cancel your subscription
             </Link>{' '}
             anytime. No hidden charges.

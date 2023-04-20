@@ -33,10 +33,10 @@ const PlanCard = ({
           dangerouslySetInnerHTML={{ __html: description }}
         />
         <Button
+          className="mx-auto mt-5 w-[232px] 3xl:w-full xl:mt-4 md:mt-5 sm:mt-3"
           theme={buttonTheme}
           size="md"
-          to={buttonUrl}
-          additionalClassName="mt-5 w-[232px] 3xl:w-full mx-auto xl:mt-4 md:mt-5 sm:mt-3"
+          href={buttonUrl}
         >
           {buttonText}
         </Button>

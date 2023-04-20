@@ -74,10 +74,10 @@ const Card = ({
           dangerouslySetInnerHTML={{ __html: description }}
         />
         <Button
-          additionalClassName="w-full mt-5 sm:w-auto sm:mt-7 2xs:w-full sm:z-10"
+          className="mt-5 w-full sm:z-10 sm:mt-7 sm:w-auto 2xs:w-full"
           size="lg"
           theme={buttonTheme}
-          to={buttonLink}
+          href={buttonLink}
         >
           {buttonText}
         </Button>
