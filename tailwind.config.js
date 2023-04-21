@@ -39,6 +39,7 @@ module.exports = {
       },
       tones: {
         'purple-light': '#F0F2FF',
+        'purple-medium': '#E0E7FF',
         'purple-dark': '#ACB2D2',
         'blue-light': '#F0FAFE',
         'blue-dark': '#9CBAC9',
@@ -135,6 +136,8 @@ module.exports = {
       },
     },
   },
+
+  plugins: [require('@tailwindcss/line-clamp')],
 
   corePlugins: {
     container: false,

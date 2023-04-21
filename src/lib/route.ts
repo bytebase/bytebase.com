@@ -8,6 +8,7 @@ const Route = {
   DATABASE_GLOSSARY: '/database-glossary',
   CHANGELOG: '/changelog',
   BLOG: '/blog',
+  BLOG_CATEGORY: '/blog/category',
   DOCS: '/docs',
   SOLUTIONS: '/solutions',
   DISCORD: 'https://discord.com/invite/huyw7gRsyA',
