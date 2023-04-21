@@ -1,18 +1,52 @@
 // TODO: add tooltip values
 import { Plan } from '@/types/pricing';
 
-const COLORS = { team: '#5647EB', free: '#3DB8F5', enterprise: '#172136' };
+const COLORS = { pro: '#5647EB', free: '#3DB8F5', enterprise: '#172136' };
 
-const PLANS: { free: Plan; team: Plan; enterprise: Plan } = {
+// FIXME: mv the order of plans based on Object.keys(PLANS) to Array
+// const PLANS_ORDER = {
+//   changeManagement: [
+//     'user',
+//     'instance',
+//     'environment',
+//     'schema',
+//     'sql-check',
+//     'disaster-recovery',
+//     'batch-change',
+//     'change-history',
+//     'synchronize',
+//     'terraform',
+//     'schedule',
+//   ],
+//   sql: ['auto-complete', 'schema editor', 'schema-diagram', 'csv', 'admin', 'connection', 'script'],
+//   collaboration: ['seat', 'inbox', 'ui', 'gitops', 'shared', 'webhook'],
+//   security: [
+//     'archiving',
+//     'anomaly',
+//     'rbac',
+//     'approval',
+//     'sso',
+//     'dba',
+//     'environment',
+//     'masking',
+//     'access-control',
+//     'watermark',
+//     'audit-log',
+//   ],
+//   bespoke: ['support', 'logo', 'roadmap', 'msa'],
+// };
+
+const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   free: {
     title: 'free',
-    description: `Personal project or small team, no&nbsp;DBA`,
+    description: `Team essentials to centralize database lifecycle management`,
     buttonText: 'Free Deploy',
     buttonTheme: 'primary-outline',
     buttonUrl: '/docs/get-started/install/deploy-with-docker',
     changeManagement: {
-      instance: 'Up to 10',
+      user: 'Unlimited',
       environment: 'Unlimited',
+      instance: 'Unlimited',
       schema: { value: 'Basic', tooltip: 'Syntax check, connection check' },
       'sql-check': { value: 'Basic', tooltip: 'Syntax check, connection check' },
       'disaster-recovery': { value: 'Basic', tooltip: 'Data backup / restore' },
@@ -59,17 +93,22 @@ const PLANS: { free: Plan; team: Plan; enterprise: Plan } = {
       msa: false,
     },
   },
-  team: {
-    title: 'team',
-    description: 'Medium size team, has dedicated DBA or TL for engineering velocity',
+  pro: {
+    title: 'pro',
+    description:
+      'More collaboration and control policies for advanced database lifecycle management',
     buttonText: 'Try Free now',
     buttonTheme: 'primary-filled',
     buttonUrl:
       'https://bytebase-hub-prod.us.auth0.com/u/login?state=hKFo2SByU1VxQzVzb0JpSm01TjF5TjZmU1JoTTVndXNpU3FuY6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIF9JakVqd1RRaVBjczh0NTVEQmxqSHo3ZGxzWV9zelBUo2NpZNkgN0IySDFrb05Sa3hQY0pENzBHeVJEbzVIbVNNMGI5V1E',
     additionalDescription: 'Free trial for 14 days.',
     changeManagement: {
-      instance: 'Up to 10',
+      user: 'Unlimited',
       environment: 'Unlimited',
+      instance: {
+        value: 'Up to 20',
+        tooltip: 'Maximum 20. Talk to us for pricing if your instances go over the limit.',
+      },
       schema: { value: 'Advanced', tooltip: 'Basic + Customized SQL review rules' },
       'sql-check': { value: 'Advanced', tooltip: 'Basic + Customized SQL review rules' },
       'disaster-recovery': {
@@ -126,8 +165,9 @@ const PLANS: { free: Plan; team: Plan; enterprise: Plan } = {
     buttonTheme: 'primary-outline',
     buttonUrl: 'mailto:support@bytebase.com',
     changeManagement: {
-      instance: 'Customized',
+      user: 'Unlimited',
       environment: 'Unlimited',
+      instance: 'Unlimited',
       schema: { value: 'Advanced', tooltip: 'Basic + Customized SQL review rules' },
       'sql-check': { value: 'Advanced', tooltip: 'Basic + Customized SQL review rules' },
       'disaster-recovery': {
@@ -189,8 +229,9 @@ const LABELS = [
   {
     title: 'Change Management',
     items: {
-      instance: 'Instance count',
+      user: 'User count',
       environment: 'Environment count',
+      instance: 'Instance count',
       schema: 'Schema and data change',
       'sql-check': 'Automated SQL check',
       'disaster-recovery': 'Disaster recovery',

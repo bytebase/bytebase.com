@@ -23,7 +23,7 @@ const cards: TCard[] = [
     image: '/images/page/pricing/free.jpg',
     planTitle: 'free',
     price: 0,
-    description: 'Up to 10 seats and&nbsp;10&nbsp;instances',
+    description: 'Unlimited users, environments and instances',
     buttonText: 'Free Deploy',
     buttonTheme: 'primary-outline',
     buttonLink: '/docs/get-started/install/deploy-with-docker',
@@ -38,10 +38,10 @@ const cards: TCard[] = [
   },
   {
     image: '/images/page/pricing/team.jpg',
-    planTitle: 'team',
-    price: 19,
-    priceDescription: '/ starts at month',
-    description: 'Up to 10 seats and 10 instances (first 3 FREE)',
+    planTitle: 'pro',
+    price: 100,
+    priceDescription: '/&nbsp;instances at month',
+    description: 'Up to 20 instances',
     additionalDescription: 'You can start <b>a&nbsp;free&nbsp;trial for 14 days.</b>',
     buttonText: 'Try Free now',
     buttonTheme: 'primary-filled',
@@ -77,11 +77,11 @@ const cards: TCard[] = [
 ];
 
 const Hero = () => (
-  <section className="bg-pricing-hero pt-[120px] pb-20 2xl:pt-[108px] lg:pb-16 md:pt-24 md:pb-[54px] sm:pb-11">
+  <section className="bg-pricing-hero pt-[120px] pb-20 xl:pt-[112px] lg:pb-16 md:pt-24 md:pb-[54px] sm:pb-11">
     <div className="container max-w-[1396px] 2xl:max-w-full">
       <header className="text-center">
         <h1 className="sr-only">Bytebase pricing page</h1>
-        <QuoteIcon width={50} height={40} className="mx-auto w-auto lg:h-8 md:h-7 sm:h-6" />
+        <QuoteIcon width={50} height={40} className="mx-auto w-auto md:h-7 sm:h-6" />
         <p className="mx-auto mt-5 max-w-[1048px] text-40 font-semibold leading-tight tracking-tighter lg:max-w-[800px] lg:text-30 lg:leading-extra-tight md:mt-6 md:max-w-[670px] md:text-24 md:tracking-tight sm:mt-4 xs:text-20 xs:leading-tight xs:tracking-normal">
           Bytebase is not a better tool to manage database changes. It&apos;s a better way to manage
           database changes.
@@ -91,14 +91,14 @@ const Hero = () => (
         </p>
         <ul className="mt-11 flex items-center justify-center gap-x-16 lg:gap-x-[52px] md:mt-10 md:gap-x-10 sm:mt-6 sm:flex-wrap sm:gap-y-4 sm:gap-x-14">
           {[
-            '/images/page/pricing/microsoft.svg',
-            '/images/page/pricing/google.svg',
-            '/images/page/pricing/ant-group.svg',
-            '/images/page/pricing/pingcap.svg',
-          ].map((src) => (
-            <li key={src}>
+            { src: '/images/page/pricing/microsoft.svg', width: 152, height: 40 },
+            { src: '/images/page/pricing/google.svg', width: 118, height: 40 },
+            { src: '/images/page/pricing/ant-group.svg', width: 94, height: 40 },
+            { src: '/images/page/pricing/pingcap.svg', width: 152, height: 40 },
+          ].map((image) => (
+            <li key={image.src}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={src} alt="" height={40} className="w-auto lg:h-9 md:h-[30px]" />
+              <img {...image} className="xl:h-9 xl:w-auto md:h-[30px]" />
             </li>
           ))}
         </ul>

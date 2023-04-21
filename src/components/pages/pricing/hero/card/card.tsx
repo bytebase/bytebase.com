@@ -59,18 +59,19 @@ const Card = ({
         <span
           className={clsx(
             'relative mt-4 font-title text-104 font-semibold leading-none tracking-tighter text-gray-15 lg:text-72 lg:tracking-normal md:mt-3 md:text-56',
-            { 'text-primary-1': planTitle.toLowerCase() === 'team' },
+            { 'text-primary-1 xl:-ml-2': planTitle.toLowerCase() === 'pro' },
           )}
         >
           {typeof price === 'number' ? `$${price}` : price}
           {priceDescription && (
-            <span className="absolute -right-[76px] top-4 max-w-[64px] font-sans text-15 font-normal leading-none tracking-normal text-gray-15 lg:-right-[72px] md:top-2 md:text-14">
-              {priceDescription}
-            </span>
+            <span
+              className="absolute -right-[76px] top-4 max-w-[64px] font-sans text-15 font-normal leading-none tracking-normal text-gray-15 lg:-right-[72px] md:top-2 md:text-14"
+              dangerouslySetInnerHTML={{ __html: priceDescription }}
+            />
           )}
         </span>
         <p
-          className="mt-2 text-center text-16 leading-normal text-gray-30 lg:mt-3.5 lg:max-w-[180px] lg:leading-snug md:mt-1.5 md:text-14 sm:mt-4 sm:max-w-full sm:text-left sm:leading-normal 2xs:max-w-[180px]"
+          className="mt-2 text-center text-16 leading-normal text-gray-30 xl:mt-3.5 xl:min-h-[48px] xl:leading-snug md:mt-1.5 md:text-14 sm:mt-4 sm:max-w-full sm:text-left sm:leading-normal 2xs:max-w-[180px]"
           dangerouslySetInnerHTML={{ __html: description }}
         />
         <Button
