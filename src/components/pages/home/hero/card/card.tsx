@@ -4,49 +4,61 @@ import clsx from 'clsx';
 
 import { LinkUnderlined } from '@/components/shared/link-underlined';
 
-interface CardProps {
+export type CardProps = {
+  video: Record<string, string>;
+  color: 'blue' | 'green' | 'red';
   cover: string;
   href: string;
   title: string;
   description: string;
-  image?: string;
-}
+  className?: string;
+};
 
-const Card = ({ cover, title, href, description, image }: CardProps) => {
+const Card = ({ color, className, cover, video, title, href, description }: CardProps) => {
   return (
-    <article className="relative">
-      {image && (
-        <Image
-          src={image}
-          width={92}
-          height={65}
-          alt=""
-          className="absolute -top-7 -left-9 lg:-top-4.5 lg:-left-6 lg:h-[42px] lg:w-[58px] sm:h-[46px] sm:w-16"
-        />
-      )}
-      <Image
-        className={clsx({
-          'w-full shadow-[0px_5px_15px_0px_rgba(156,186,201,0.5)]':
-            cover === '/images/change-database.png',
-          'w-full shadow-[0px_5px_15px_0px_rgba(143,188,169,0.4)]':
-            cover === '/images/query-data.png',
-          'w-full shadow-[0px_5px_15px_0px_rgba(210,172,210,0.4)]':
-            cover === '/images/secure-access.png',
-        })}
-        src={cover}
-        width={464}
-        height={600}
-        alt=""
-      />
-      <h3 className="mt-8 text-36 font-bold leading-extra-tight tracking-tighter lg:mt-6 lg:text-32 lg:tracking-normal md:mt-5 md:text-30">
-        {title}
-      </h3>
-      <p className="mt-4 max-w-[75%] text-20 leading-normal 2xl:max-w-none lg:mt-3 lg:text-18 lg:leading-snug md:mt-1.5 md:text-16">
-        {description}
-      </p>
-      <LinkUnderlined href={href} className="mt-6 lg:mt-5 md:mt-3">
-        Learn more
-      </LinkUnderlined>
+    <article className={clsx('perspective-1000', className)}>
+      <div className="group-[.done]:rotate-y-180 transform-3d sm:rotate-y-180 grid transition-transform delay-[inherit] duration-1000 sm:transition-none">
+        <div className="backface-hidden col-span-full row-span-full border border-gray-40 shadow-[0_5px_15px_0_rgba(15,22,36,0.2)] sm:hidden">
+          <video
+            className="h-auto w-full"
+            controls={false}
+            width={464}
+            height={604}
+            loop
+            playsInline
+            autoPlay
+            muted
+          >
+            {Object.entries(video).map(([type, src]) => (
+              <source key={type} src={src} type={type} />
+            ))}
+          </video>
+        </div>
+        <div className="rotate-y-180 backface-hidden col-span-full row-span-full">
+          <Image
+            className={clsx('h-auto w-full', {
+              'shadow-blue': color === 'blue',
+              'shadow-green': color === 'green',
+              'shadow-red': color === 'red',
+            })}
+            src={cover}
+            width={464}
+            height={604}
+            alt=""
+          />
+        </div>
+      </div>
+      <div className="invisible translate-y-24 opacity-0 transition-all duration-700 group-[.done]:visible group-[.done]:translate-y-0 group-[.done]:opacity-100 sm:visible sm:translate-y-0 sm:opacity-100 sm:transition-none">
+        <h3 className="mt-8 overflow-hidden text-ellipsis whitespace-nowrap text-36 font-bold leading-extra-tight tracking-tighter xl:mt-6 xl:text-32 md:mt-5 md:text-30">
+          {title}
+        </h3>
+        <p className="mt-4 h-[90px] w-3/4 text-20 leading-normal 3xl:w-full xl:relative xl:mt-3 xl:h-[81px] xl:overflow-hidden xl:text-18 xl:after:absolute xl:after:bottom-0 xl:after:right-0 xl:after:h-[30px] xl:after:w-2/3 xl:after:bg-gradient-to-r xl:after:from-transparent xl:after:to-white md:mt-1.5 md:h-[72px] md:text-16 sm:h-auto sm:leading-snug sm:after:hidden">
+          {description}
+        </p>
+        <LinkUnderlined href={href} className="mt-6 xl:mt-5 md:mt-3">
+          Learn more
+        </LinkUnderlined>
+      </div>
     </article>
   );
 };

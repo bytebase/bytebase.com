@@ -15,6 +15,9 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@react-hook/intersection-observer": "^3.1.1",
+    "@react-hook/window-scroll": "^1.3.0",
+    "@rive-app/react-canvas": "^3.0.43",
     "@tailwindcss/line-clamp": "^0.4.4",
     "clsx": "^1.2.1",
     "date-fns": "^2.29.3",

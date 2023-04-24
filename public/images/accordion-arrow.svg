@@ -1,9 +1,0 @@
-<svg width="56" height="56" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#a)">
-<path d="M0 28c0 15.464 12.536 28 28 28s28-12.536 28-28S43.464 0 28 0 0 12.536 0 28Z" fill="#fff"/>
-<path d="m19 25 9 10 9-10" stroke="#172136" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<clipPath id="a"><path fill="#fff" d="M0 0h56v56H0z"/></clipPath>
-</defs>
-</svg>
