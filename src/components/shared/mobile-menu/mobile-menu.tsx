@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
+import useClickOutside from '@/hooks/use-click-outside';
 import clsx from 'clsx';
 import { LazyMotion, domAnimation, m, useAnimation } from 'framer-motion';
 
@@ -66,6 +67,7 @@ const dropdownVariants = {
 
 type MobileMenuProps = {
   isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
 };
 
 interface MobileMenuItem {
@@ -81,9 +83,9 @@ type MobileLinksProps = {
   items?: Array<MobileMenuItem>;
 };
 
-const MobileMenu = ({ isOpen }: MobileMenuProps) => {
+const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(-1);
-
+  const menuRef = useRef<HTMLDivElement>(null);
   const controls = useAnimation();
 
   useEffect(() => {
@@ -101,6 +103,10 @@ const MobileMenu = ({ isOpen }: MobileMenuProps) => {
   const handleDropdownOpen = (index: number) =>
     isDropdownOpen === index ? setIsDropdownOpen(-1) : setIsDropdownOpen(index);
 
+  useClickOutside([menuRef], () => {
+    setIsOpen(false);
+  });
+
   return (
     <LazyMotion features={domAnimation}>
       <m.nav
@@ -109,7 +115,10 @@ const MobileMenu = ({ isOpen }: MobileMenuProps) => {
         animate={controls}
         variants={variants}
       >
-        <div className="flex h-full w-[53%] flex-col justify-between bg-white px-7 pt-[72px] pb-8 sm:w-full sm:pt-20 xs:px-4 xs:pb-5">
+        <div
+          className="flex h-full w-[53%] flex-col justify-between bg-white px-7 pt-[72px] pb-8 sm:w-full sm:pt-20 xs:px-4 xs:pb-5"
+          ref={menuRef}
+        >
           <ul className="flex flex-col items-stretch divide-y divide-gray-90">
             {MENUS.mobile.map(({ title, href = '', items }: MobileLinksProps, index: number) => (
               <li key={index} className="relative first:-mt-4 last:border-b last:border-gray-90">

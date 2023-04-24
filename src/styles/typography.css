@@ -1,0 +1,73 @@
+@layer components {
+  .content {
+    @apply leading-normal xl:text-16;
+
+    @apply prose-headings:mt-11 prose-headings:mb-5 prose-headings:font-semibold prose-p:my-5 prose-a:font-semibold prose-a:text-primary-1 prose-a:no-underline prose-ul:my-5 xl:prose-headings:mt-10 xl:prose-headings:mb-4;
+
+    figure {
+      @apply my-11 xl:my-10;
+    }
+
+    .table-wrapper {
+      @apply overflow-x-auto;
+    }
+
+    table {
+      @apply w-full min-w-[716px] border border-gray-90 text-14 2xl:min-w-[654px] xl:min-w-[696px] md:min-w-[500px];
+
+      a {
+        @apply font-normal;
+      }
+
+      th {
+        @apply border border-gray-90 bg-gray-97 p-3.5 md:px-2;
+      }
+
+      td {
+        @apply border border-gray-90 p-3.5 md:px-2;
+      }
+    }
+
+    pre {
+      @apply rounded-sm !bg-gray-15 text-14;
+
+      code {
+        text-shadow: unset !important;
+
+        @apply highlighted-code !font-mono !text-white;
+      }
+    }
+
+    :not(pre) > code {
+      @apply rounded-md bg-gray-97 px-1.5 py-0.5 font-mono text-14 text-gray-15;
+
+      &::before,
+      &::after {
+        @apply hidden;
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      > code {
+        @apply rounded-md bg-gray-97 px-1.5 py-0.5 font-mono text-gray-15;
+        font-size: inherit;
+
+        &::before,
+        &::after {
+          @apply hidden;
+        }
+      }
+    }
+
+    li {
+      &::marker {
+        @apply text-primary-1;
+      }
+    }
+  }
+}

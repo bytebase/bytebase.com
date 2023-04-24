@@ -1,0 +1,63 @@
+@layer components {
+  .highlighted-code {
+    .token.keyword,
+    .token.class-name,
+    .token.url,
+    .token.tag {
+      @apply text-[#66CCFF];
+    }
+
+    .token.console,
+    .token.class-name.namespace,
+    .token.tag.attr-name {
+      @apply text-white;
+    }
+
+    .token.builtin,
+    .token.function,
+    .token.string,
+    .token.char,
+    .token.selector,
+    .token.tag.attr-value,
+    .token.atrule,
+    .token.inserted {
+      @apply text-[#3DF57A];
+    }
+
+    .token.boolean,
+    .token.number,
+    .token.symbol,
+    .token.variable,
+    .token.constant,
+    .token.property,
+    .token.property-access,
+    .token.deleted {
+      @apply text-[#B938FA];
+    }
+
+    .token.regex,
+    .token.important {
+      @apply text-[#FFBF66];
+    }
+
+    .token.operator,
+    .token.entity {
+      @apply text-[#BA8C5E];
+    }
+
+    .token.punctuation {
+      @apply text-[#808080];
+    }
+
+    .token.comment,
+    .token.prolog,
+    .token.doctype,
+    .token.cdata {
+      @apply text-gray-50;
+    }
+
+    .react-syntax-highlighter-line-number.linenumber {
+      @apply !min-w-[2.25em] text-gray-50;
+    }
+  }
+}

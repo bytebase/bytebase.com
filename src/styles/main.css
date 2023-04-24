@@ -1,3 +1,5 @@
 @import './base.css';
 @import './components.css';
 @import './utilities.css';
+@import './typography.css';
+@import './highlighted-code.css';

@@ -141,7 +141,7 @@ const Header = () => {
           />
         </nav>
       </header>
-      <MobileMenu isOpen={isMobileMenuOpen} />
+      <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
     </>
   );
 };

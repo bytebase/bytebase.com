@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ['Inter', 'Inter Fallback', ...defaultTheme.fontFamily.sans],
+      mono: ['IBM Plex Mono', 'IBM Plex Mono Fallback', ...defaultTheme.fontFamily.mono],
       title: ['Sharp Grotesk', 'Sharp Grotesk Fallback', ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
@@ -147,7 +148,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [require('@tailwindcss/line-clamp'), require('@tailwindcss/typography')],
   corePlugins: {
     container: false,
   },
