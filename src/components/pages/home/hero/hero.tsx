@@ -16,9 +16,16 @@ import Card, { type CardProps } from './card';
 // TODO: prepare webm videos and optimize them
 const cards: CardProps[] = [
   {
-    video: {
-      'video/mp4': '/videos/page/main/hero/1.mp4',
-    },
+    videos: [
+      {
+        type: 'video/webm',
+        src: '/videos/page/main/hero/1.webm',
+      },
+      {
+        type: 'video/mp4',
+        src: '/videos/page/main/hero/1.mp4',
+      },
+    ],
     color: 'blue',
     href: '#',
     cover: '/images/page/main/hero/change-database.png',
@@ -27,9 +34,16 @@ const cards: CardProps[] = [
       'Simplify database changes with standardization, lint rules, and GitOps integration.',
   },
   {
-    video: {
-      'video/mp4': '/videos/page/main/hero/2.mp4',
-    },
+    videos: [
+      {
+        type: 'video/webm',
+        src: '/videos/page/main/hero/2.webm',
+      },
+      {
+        type: 'video/mp4',
+        src: '/videos/page/main/hero/2.mp4',
+      },
+    ],
     color: 'green',
     href: '#',
     cover: '/images/page/main/hero/query-data.png',
@@ -38,9 +52,16 @@ const cards: CardProps[] = [
       "Perform complex SQL tasks and protect data privacy with ByteBase's web-based IDE.",
   },
   {
-    video: {
-      'video/mp4': '/videos/page/main/hero/3.mp4',
-    },
+    videos: [
+      {
+        type: 'video/webm',
+        src: '/videos/page/main/hero/3.webm',
+      },
+      {
+        type: 'video/mp4',
+        src: '/videos/page/main/hero/3.mp4',
+      },
+    ],
     color: 'red',
     href: '#',
     cover: '/images/page/main/hero/secure-access.png',
@@ -63,7 +84,7 @@ const Hero = () => {
   // TODO: update on resize
   useEffect(() => {
     if (containerRef.current) {
-      const topPosition = topPositionRef.current;
+      const topPosition = topPositionRef.current - 200; // 200 is the same value as used for sticky top property value
       const isDone = containerRef.current.classList.contains('done');
 
       if (scrollY >= topPosition && !isDone) {
@@ -91,11 +112,11 @@ const Hero = () => {
             </span>
           </span>
           <div className="relative mt-4 xl:mt-3.5 sm:mt-3">
-            <h1 className="font-title text-112 font-semibold leading-none 3xl:max-w-4xl xl:max-w-2xl xl:text-90 xl:leading-95 md:max-w-lg md:text-80 sm:text-48">
+            <h1 className="font-title text-112 font-semibold leading-none 3xl:max-w-4xl xl:max-w-2xl xl:text-90 xl:leading-95 md:max-w-2xl md:text-80 sm:text-48">
               <mark className="bg-transparent text-primary-1">Database</mark> schema change and
               version control
             </h1>
-            <p className="absolute top-[244px] left-[338px] max-w-lg text-20 leading-140 3xl:left-[345px] 3xl:max-w-xl xl:top-[177px] xl:left-[271px] xl:text-18 xl:leading-snug md:left-[230px] md:top-[158px] md:max-w-sm md:text-16 sm:static sm:mt-3 sm:max-w-full">
+            <p className="absolute top-[244px] left-[338px] max-w-lg text-20 leading-140 xl:top-[177px] xl:left-[271px] xl:max-w-md xl:text-18 xl:leading-snug md:left-[230px] md:top-[158px] md:max-w-sm md:text-16 sm:static sm:mt-3 sm:max-w-full">
               Bytebase offers a web-based collaboration workspace to help DBAs and Developers manage
               the lifecycle of application database schemas.
             </p>
@@ -115,7 +136,7 @@ const Hero = () => {
       </section>
       <div className="col-span-full col-start-1 row-start-2 h-20 3xl:h-[72px] xl:h-20 md:h-[60px] sm:hidden" />
       <div
-        className="col-start-1 col-end-5 row-start-3 row-end-4 min-h-[1200px] xl:min-h-[900px] md:min-h-[700px] sm:col-auto sm:row-auto sm:mt-8 sm:min-h-0"
+        className="col-start-1 col-end-5 row-start-3 row-end-4 sm:col-auto sm:row-auto sm:mt-8 sm:min-h-0"
         ref={anchorRef}
       >
         <Card className="sticky top-[200px]" {...cards[0]} />

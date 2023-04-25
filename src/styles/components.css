@@ -9,8 +9,66 @@
     @apply gap-x-10 3xl:gap-x-9 xl:gap-x-6 md:gap-x-5 sm:gap-x-4;
   }
 
+  @keyframes ticker {
+    0% {
+      background-position: 0 center;
+    }
+
+    100% {
+      background-position: -1472px center;
+    }
+  }
+
+  @keyframes ticker-lg {
+    0% {
+      background-position: 0 center;
+    }
+
+    100% {
+      background-position: -1100px center;
+    }
+  }
+
+  @keyframes ticker-md {
+    0% {
+      background-position: 0 center;
+    }
+
+    100% {
+      background-position: -990px center;
+    }
+  }
+
+  @keyframes ticker-sm {
+    0% {
+      background-position: 0 center;
+    }
+
+    100% {
+      background-position: -800px center;
+    }
+  }
+
   .logos {
-    @apply bg-[length:1472px_auto] bg-center bg-repeat-x lg:bg-[length:1100px_auto] md:bg-[length:990px_auto] sm:bg-[length:800px_auto];
+    @apply bg-[length:1472px_auto] bg-repeat-x lg:bg-[length:1100px_auto] md:bg-[length:990px_auto] sm:bg-[length:800px_auto];
+
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    animation-name: ticker;
+
+    @media screen(lg) {
+      animation-name: ticker-lg;
+    }
+
+    @media screen(md) {
+      animation-name: ticker-md;
+    }
+
+    @media screen(sm) {
+      animation-name: ticker-sm;
+    }
 
     height: 96px;
     background-image: url(/images/page/main/logos.svg),
@@ -23,5 +81,9 @@
         #cceeff 71.99%,
         #1fd68a 98.18%
       );
+
+    &:hover {
+      animation-play-state: paused;
+    }
   }
 }

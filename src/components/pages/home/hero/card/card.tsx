@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { LinkUnderlined } from '@/components/shared/link-underlined';
 
 export type CardProps = {
-  video: Record<string, string>;
+  videos: Array<{ type: string; src: string }>;
   color: 'blue' | 'green' | 'red';
   cover: string;
   href: string;
@@ -14,7 +14,7 @@ export type CardProps = {
   className?: string;
 };
 
-const Card = ({ color, className, cover, video, title, href, description }: CardProps) => {
+const Card = ({ color, className, cover, videos, title, href, description }: CardProps) => {
   return (
     <article className={clsx('perspective-1000', className)}>
       <div className="group-[.done]:rotate-y-180 transform-3d sm:rotate-y-180 grid transition-transform delay-[inherit] duration-1000 sm:transition-none">
@@ -29,8 +29,8 @@ const Card = ({ color, className, cover, video, title, href, description }: Card
             autoPlay
             muted
           >
-            {Object.entries(video).map(([type, src]) => (
-              <source key={type} src={src} type={type} />
+            {videos.map((video) => (
+              <source key={video.type} src={video.src} type={video.type} />
             ))}
           </video>
         </div>

@@ -44,7 +44,7 @@ const PromoAutomationChanges = () => {
             Change
           </span>
           <h2 className="mt-3 font-title text-112 font-semibold leading-none 3xl:mt-3.5 xl:mt-2.5 xl:text-90 xl:leading-95 lg:mt-3 lg:text-80 md:mt-1.5 sm:mt-2 sm:text-48">
-            <span className="bg-transparent text-secondary-1">Automate</span> database changes
+            <mark className="bg-transparent text-secondary-1">Automate</mark> database changes
           </h2>
           <p className="-mr-10 mt-8 text-20 leading-normal xl:mt-5 xl:mr-0 xl:text-18 xl:leading-snug lg:mt-2 md:mt-4 md:max-w-xl md:text-16 sm:mt-3 sm:max-w-none">
             Bytebase streamlines database deployment from non-prod to prod by integrating with
