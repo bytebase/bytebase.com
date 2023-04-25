@@ -20,12 +20,17 @@ const isActiveItem = (children: SidebarItem[] | undefined, currentUrl: string): 
   );
 };
 
-interface ItemProps extends SidebarItem {
+const Item = ({
+  title,
+  url,
+  children,
+  depth,
+  currentUrl,
+  expandedList,
+}: {
   currentUrl: string;
   expandedList?: string[];
-}
-
-const Item = ({ title, url, children, depth, currentUrl, expandedList }: ItemProps) => {
+} & SidebarItem) => {
   const hasActiveChild = isActiveItem(children, currentUrl);
   const [isOpen, setIsOpen] = useState(() => {
     return (
@@ -49,7 +54,7 @@ const Item = ({ title, url, children, depth, currentUrl, expandedList }: ItemPro
     >
       <Tag
         className={clsx(
-          'text-gray-30 text-15 py-2 flex items-center w-full hover:text-gray-60 duration-200 transition-colors relative before:absolute before:transition-colors before:duration-200 before:w-0.5 before:h-4/5 before:rounded-sm before:top-1/2 before:-translate-y-1/2 before:-left-[14.5px]',
+          'relative flex w-full items-center py-2 text-15 text-gray-30 transition-colors duration-200 before:absolute before:top-1/2 before:-left-[14.5px] before:h-4/5 before:w-0.5 before:-translate-y-1/2 before:rounded-sm before:transition-colors before:duration-200 hover:text-gray-60',
           depth === 1 ? 'font-semibold' : 'font-medium',
           url === currentUrl && 'text-primary-1',
           depth === 1 && hasActiveChild && 'text-black',
@@ -61,7 +66,7 @@ const Item = ({ title, url, children, depth, currentUrl, expandedList }: ItemPro
         {children && (
           <ChevronIcon
             className={clsx(
-              'w-[5px] h-1.5 mr-2 transition-transform duration-200 shrink-0',
+              'mr-2 h-1.5 w-[5px] shrink-0 transition-transform duration-200',
               depth === 1 && hasActiveChild && 'text-primary-1',
               {
                 'rotate-90': isOpen,
@@ -75,8 +80,8 @@ const Item = ({ title, url, children, depth, currentUrl, expandedList }: ItemPro
       {children && (
         <ul
           className={clsx(
-            'w-full before:absolute before:left-0.5 before:h-full before:w-px before:bg-gray-90 relative flex flex-col',
-            isOpen ? 'h-auto opacity-100 pointer-events-auto' : 'h-0 opacity-0 pointer-events-none',
+            'relative flex w-full flex-col before:absolute before:left-0.5 before:h-full before:w-px before:bg-gray-90',
+            isOpen ? 'pointer-events-auto h-auto opacity-100' : 'pointer-events-none h-0 opacity-0',
           )}
         >
           {children.map((item, index) => (

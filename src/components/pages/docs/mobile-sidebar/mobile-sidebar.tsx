@@ -11,13 +11,6 @@ import { SidebarItem } from '@/types/docs';
 
 import Item from '../sidebar/item';
 
-interface MobileSidebarProps {
-  className?: string;
-  data: SidebarItem[];
-  currentUrl: string;
-  expandedList?: string[];
-}
-
 const ANIMATION_DURATION = 0.2;
 
 const variants = {
@@ -41,7 +34,17 @@ const variants = {
   },
 };
 
-const MobileSidebar = ({ className, data, currentUrl, expandedList }: MobileSidebarProps) => {
+const MobileSidebar = ({
+  className,
+  data,
+  currentUrl,
+  expandedList,
+}: {
+  className?: string;
+  data: SidebarItem[];
+  currentUrl: string;
+  expandedList?: string[];
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [containerHeight, setContainerHeight] = useState<string | undefined>(undefined);
   const { height } = useWindowSize();
@@ -71,7 +74,7 @@ const MobileSidebar = ({ className, data, currentUrl, expandedList }: MobileSide
     <LazyMotion features={domAnimation}>
       <nav className={clsx('safe-paddings relative', className)} ref={wrapperRef}>
         <button
-          className="relative z-10 flex w-full border-t border-b border-gray-94 cursor-pointer leading-none justify-between appearance-none items-center text-ellipsis bg-gray-97 py-4 outline-none transition-colors duration-200 hover:bg-gray-90 active:bg-gray-90 px-7 sm:px-4"
+          className="relative z-10 flex w-full cursor-pointer appearance-none items-center justify-between text-ellipsis border-t border-b border-gray-94 bg-gray-97 py-4 px-7 leading-none outline-none transition-colors duration-200 hover:bg-gray-90 active:bg-gray-90 sm:px-4"
           type="button"
           onClick={toggleMenu}
         >
@@ -95,7 +98,7 @@ const MobileSidebar = ({ className, data, currentUrl, expandedList }: MobileSide
 
         <m.ul
           className={clsx(
-            'fixed inset-x-0 top-[122px] flex flex-col bottom-0 z-20 overflow-y-scroll bg-white px-7 py-4 sm:px-4',
+            'fixed inset-x-0 top-[122px] bottom-0 z-20 flex flex-col overflow-y-scroll bg-white px-7 py-4 sm:px-4',
           )}
           initial="from"
           animate={controls}

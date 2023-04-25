@@ -16,11 +16,9 @@ import CLIIcon from '@/svgs/cli.inline.svg';
 import HowToIcon from '@/svgs/how-to.inline.svg';
 import RocketIcon from '@/svgs/rocket.inline.svg';
 
-interface Icons {
+const icons: {
   [key: string]: any;
-}
-
-const icons: Icons = { rocket: RocketIcon, api: APIIcon, cli: CLIIcon, howTo: HowToIcon };
+} = { rocket: RocketIcon, api: APIIcon, cli: CLIIcon, howTo: HowToIcon };
 
 const ANIMATION_DURATION = 0.2;
 const MOTION_EASY = [0.25, 0.1, 0.25, 1];
@@ -70,12 +68,12 @@ type MobileMenuProps = {
   setIsOpen: (isOpen: boolean) => void;
 };
 
-interface MobileMenuItem {
+type MobileMenuItem = {
   name: string;
   description: string;
   iconName: string;
   linkUrl: string;
-}
+};
 
 type MobileLinksProps = {
   title: string;

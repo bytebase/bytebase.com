@@ -3,7 +3,7 @@ import Image from 'next/image';
 import getBlogCardColors from '@/utils/get-blog-card-colors';
 import slugifyText from '@/utils/slugify-text';
 import clsx from 'clsx';
-import { format } from 'date-fns';
+import format from 'date-fns/format';
 
 import Link from '@/components/shared/link';
 
@@ -20,7 +20,7 @@ const BlogPostHero = ({ post, isBlogPost = true }: BlogPostHeroProps) => {
   const { tags, author, title, feature_image, slug, published_at } = post;
   const categorySlug = slugifyText(tags);
   const { tagColors, titleHover } = getBlogCardColors(categorySlug);
-  const date = new Date(post.published_at);
+  const date = new Date(published_at);
   const formattedDate = format(date, 'MMM dd, yyyy');
 
   const WrapperTag = isBlogPost ? 'div' : 'article';

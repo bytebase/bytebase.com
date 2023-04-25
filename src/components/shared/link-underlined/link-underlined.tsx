@@ -11,14 +11,17 @@ const styles = {
   },
 };
 
-interface LinkProps {
+const LinkUnderlined = ({
+  href,
+  theme,
+  children,
+  className,
+}: {
   children: ReactNode;
   className?: string;
   href: string;
   theme?: keyof typeof styles.theme;
-}
-
-const LinkUnderlined = ({ href, theme, children, className }: LinkProps) => {
+}) => {
   const linkClassName = clsx(className, theme && styles.theme[theme]);
 
   return (

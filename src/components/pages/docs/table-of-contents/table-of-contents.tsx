@@ -6,17 +6,17 @@ import clsx from 'clsx';
 
 import BackToTopIcon from '@/svgs/back-to-top.inline.svg';
 
-interface TOCItem {
+type TOCItem = {
   id: string;
   text: string;
   level: number;
-}
+};
 
-interface TableOfContentsProps {
+const TableOfContents = ({
+  contentRef,
+}: {
   contentRef: RefObject<HTMLDivElement>;
-}
-
-const TableOfContents = ({ contentRef }: TableOfContentsProps): JSX.Element | null => {
+}): JSX.Element | null => {
   const [items, setItems] = useState<TOCItem[]>([]);
   const [activeAnchor, setActiveAnchor] = useState<string | null>(null);
   const [debouncedActiveAnchor, setDebouncedActiveAnchor] = useState<string | null>(null);
@@ -82,15 +82,15 @@ const TableOfContents = ({ contentRef }: TableOfContentsProps): JSX.Element | nu
 
   return (
     <nav className="table-of-contents">
-      <div className="pl-5 relative before:absolute before:w-px before:h-full before:bg-gray-90 before:top-0 before:left-px">
-        <h3 className="uppercase font-bold text-14 leading-none tracking-tight">
+      <div className="relative pl-5 before:absolute before:top-0 before:left-px before:h-full before:w-px before:bg-gray-90">
+        <h3 className="text-14 font-bold uppercase leading-none tracking-tight">
           Table of contents
         </h3>
         <ul className="mt-3 flex flex-col border-b border-gray-90 pb-6">
           {items.map(({ id, text, level }) => (
             <li
               className={clsx(
-                'py-2 text-15 relative before:absolute before:w-0.5 before:h-4/5 before:-left-[19.5px] before:duration-200 before:transition-colors before:rounded-sm before:top-1/2 before:-translate-y-1/2 font-medium',
+                'relative py-2 text-15 font-medium before:absolute before:-left-[19.5px] before:top-1/2 before:h-4/5 before:w-0.5 before:-translate-y-1/2 before:rounded-sm before:transition-colors before:duration-200',
                 {
                   'before:bg-primary-1': debouncedActiveAnchor === `#${id}`,
                 },
@@ -99,7 +99,7 @@ const TableOfContents = ({ contentRef }: TableOfContentsProps): JSX.Element | nu
             >
               <a
                 className={clsx(
-                  'flex hover:text-gray-60 transition-colors text-gray-30 duration-200',
+                  'flex text-gray-30 transition-colors duration-200 hover:text-gray-60',
                   {
                     'pl-2.5': level === 3,
                     'text-primary-1': debouncedActiveAnchor === `#${id}`,
@@ -116,11 +116,11 @@ const TableOfContents = ({ contentRef }: TableOfContentsProps): JSX.Element | nu
       </div>
 
       <button
-        className="flex gap-x-2 pl-5 pb-5 text-15 text-gray-30 hover:text-gray-60 duration-200 transition-colors mt-8 items-center font-medium"
+        className="mt-8 flex items-center gap-x-2 pl-5 pb-5 text-15 font-medium text-gray-30 transition-colors duration-200 hover:text-gray-60"
         type="button"
         onClick={backToTop}
       >
-        <BackToTopIcon className="w-[18px] h-[18px]" />
+        <BackToTopIcon className="h-[18px] w-[18px]" />
         <span>Back to top</span>
       </button>
     </nav>

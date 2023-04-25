@@ -3,11 +3,6 @@ import clsx from 'clsx';
 import InfoIcon from '@/svgs/info.inline.svg';
 import WarningIcon from '@/svgs/warning.inline.svg';
 
-interface HintBlockProps {
-  type: 'info' | 'warning';
-  children: React.ReactNode;
-}
-
 const typeClassNames = {
   info: {
     wrapper: 'border-tones-purple-dark shadow-[0px_5px_15px_rgba(156,186,201,0.5)]',
@@ -28,7 +23,7 @@ const icons = {
   warning: WarningIcon,
 };
 
-const HintBlock = ({ type = 'info', children }: HintBlockProps) => {
+const HintBlock = ({ type, children }: { type: 'info' | 'warning'; children: React.ReactNode }) => {
   const Icon = icons[type];
 
   return (

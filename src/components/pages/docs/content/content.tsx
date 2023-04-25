@@ -12,11 +12,6 @@ import DocLinkBlock from '../doc-link-block';
 import HintBlock from '../hint-block';
 import IncludeBlock from '../include-block';
 
-interface ContentProps {
-  className?: string;
-  content: string;
-}
-
 const components = {
   table: (props: any) => (
     <figure className="table-wrapper">
@@ -48,7 +43,7 @@ const components = {
   IncludeBlock,
 };
 
-const Content = ({ className, content }: ContentProps) => {
+const Content = ({ className, content }: { className?: string; content: string }) => {
   return (
     <div className={clsx(className, 'content prose prose-lg max-w-none')}>
       {/* @ts-expect-error Server Component */}

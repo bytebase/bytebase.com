@@ -4,13 +4,9 @@ import { Breadcrumb } from '@/types/docs';
 
 import Route from '@/lib/route';
 
-interface BreadcrumbsProps {
-  breadcrumbs: Breadcrumb[];
-}
-
-const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => (
+const Breadcrumbs = ({ breadcrumbs }: { breadcrumbs: Breadcrumb[] }) => (
   <nav>
-    <ul className="text-15 font-medium mb-7 text-gray-30 flex items-center  gap-x-[11px]">
+    <ul className="mb-7 flex items-center gap-x-[11px] text-15 font-medium  text-gray-30">
       {breadcrumbs.map(({ title: breadcrumbTitle, url }, index) => (
         <li className="inline-flex items-center gap-x-[11px]" key={url}>
           {index !== 0 && <span>/</span>}

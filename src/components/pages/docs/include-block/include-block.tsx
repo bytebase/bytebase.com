@@ -2,11 +2,7 @@ import { getPostBySlug } from '@/lib/api-docs';
 
 import Content from '../content';
 
-interface IncludeBlockProps {
-  url: string;
-}
-
-const IncludeBlock = ({ url }: IncludeBlockProps) => {
+const IncludeBlock = ({ url }: { url: string }) => {
   const post = getPostBySlug(url.replace(/^\//, ''));
 
   if (!post) return null;

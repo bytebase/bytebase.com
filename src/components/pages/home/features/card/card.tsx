@@ -1,13 +1,16 @@
 import { LinkUnderlined } from '@/components/shared/link-underlined';
 
-interface CardProps {
+const Card = ({
+  icon,
+  title,
+  href,
+  description,
+}: {
   href: string;
   icon: string;
   title: string;
   description: string;
-}
-
-const Card = ({ icon, title, href, description }: CardProps) => {
+}) => {
   return (
     <article className="">
       {/* eslint-disable-next-line @next/next/no-img-element */}

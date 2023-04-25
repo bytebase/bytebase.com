@@ -19,18 +19,21 @@ import RocketIcon from '@/svgs/rocket.inline.svg';
 
 import Burger from './burger';
 
-interface Icons {
+const icons: {
   [key: string]: any;
-}
+} = {
+  rocket: RocketIcon,
+  api: APIIcon,
+  cli: CLIIcon,
+  howTo: HowToIcon,
+};
 
-const icons: Icons = { rocket: RocketIcon, api: APIIcon, cli: CLIIcon, howTo: HowToIcon };
-
-interface MenuItem {
+type MenuItem = {
   name: string;
   description: string;
   iconName: string;
   linkUrl: string;
-}
+};
 
 type Header = {
   title: string;
