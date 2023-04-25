@@ -1,11 +1,21 @@
 @layer components {
   .content {
-    @apply leading-normal xl:text-16;
+    > * {
+      &:first-child {
+        @apply mt-0;
+      }
 
-    @apply prose-headings:mt-11 prose-headings:mb-5 prose-headings:font-semibold prose-p:my-5 prose-a:font-semibold prose-a:text-primary-1 prose-a:no-underline prose-ul:my-5 xl:prose-headings:mt-10 xl:prose-headings:mb-4;
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+
+    @apply leading-normal xl:text-16 md:leading-snug sm:text-14;
+
+    @apply prose-headings:mt-11 prose-headings:mb-5 prose-headings:font-semibold prose-p:my-5 prose-a:font-semibold prose-a:text-primary-1 prose-a:no-underline prose-ul:my-5 xl:prose-headings:mt-10 xl:prose-headings:mb-4 xl:prose-p:my-4 sm:prose-headings:leading-tight;
 
     figure {
-      @apply my-11 xl:my-10;
+      @apply my-11 xl:my-10 md:my-9 sm:my-8;
     }
 
     .table-wrapper {
@@ -20,11 +30,11 @@
       }
 
       th {
-        @apply border border-gray-90 bg-gray-97 p-3.5 md:px-2;
+        @apply border border-gray-90 bg-gray-97 px-4 py-3 leading-normal;
       }
 
       td {
-        @apply border border-gray-90 p-3.5 md:px-2;
+        @apply border border-gray-90 px-4 py-3 leading-normal;
       }
     }
 
@@ -64,7 +74,25 @@
       }
     }
 
+    ul,
+    ol {
+      @apply my-5 pl-9 xl:my-4 sm:pl-5;
+
+      ul,
+      ol {
+        @apply my-2.5 pl-5 xl:my-2 sm:pl-2.5;
+      }
+    }
+
+    ol {
+      li {
+        @apply pl-2;
+      }
+    }
+
     li {
+      @apply my-2.5 pl-0 xl:my-2;
+
       &::marker {
         @apply text-primary-1;
       }

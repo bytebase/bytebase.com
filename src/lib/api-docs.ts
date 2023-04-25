@@ -1,9 +1,16 @@
 import { parseLine } from '@/utils/docs';
+import slugifyText from '@/utils/slugify-text';
 import fs from 'fs';
 import * as glob from 'glob';
 import matter from 'gray-matter';
 
-import { Breadcrumb, PostData, PreviousAndNextLinks, SidebarItem } from '@/types/docs';
+import {
+  Breadcrumb,
+  PostData,
+  PreviousAndNextLinks,
+  SidebarItem,
+  TableOfContents,
+} from '@/types/docs';
 
 const DOCS_DIR_PATH = 'content/docs';
 
@@ -136,6 +143,22 @@ const getBreadcrumbs = (slug: string, flatSidebar: SidebarItem[]): Breadcrumb[] 
   return [];
 };
 
+const getTableOfContents = (content: string): TableOfContents[] => {
+  const headings = content.match(/(#+)\s(.*)/g) || [];
+  const arr = headings.map((item) => item.replace(/(#+)\s/, '$1 '));
+
+  const toc: TableOfContents[] = [];
+
+  arr.forEach((item) => {
+    const [depth, title] = parseLine(item);
+    if (title && depth && depth <= 2) {
+      toc.push({ title, id: slugifyText(title), level: depth + 1 });
+    }
+  });
+
+  return toc;
+};
+
 export {
   getPostSlugs,
   getPostBySlug,
@@ -144,4 +167,5 @@ export {
   getFlatSidebar,
   getDocPreviousAndNextLinks,
   getBreadcrumbs,
+  getTableOfContents,
 };

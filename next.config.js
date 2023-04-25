@@ -1,10 +1,20 @@
 /** @type {import('next').NextConfig} */
+
 module.exports = {
   poweredByHeader: false,
   trailingSlash: true,
   swcMinify: false,
   experimental: {
     appDir: true,
+  },
+  async redirects() {
+    return [
+      {
+        source: '/docs',
+        destination: '/docs/introduction/what-is-bytebase',
+        permanent: true,
+      },
+    ];
   },
   webpack: (config) => {
     config.module.rules.push({

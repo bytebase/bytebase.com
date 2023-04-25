@@ -10,6 +10,7 @@ import Link from '@/components/shared/link';
 import MobileMenu from '@/components/shared/mobile-menu';
 
 import { MENUS } from '@/lib/menus';
+import ROUTE from '@/lib/route';
 
 import APIIcon from '@/svgs/api.inline.svg';
 import CLIIcon from '@/svgs/cli.inline.svg';
@@ -113,7 +114,7 @@ const Header = () => {
                         </ul>
                         <Link
                           className="group/box flex h-full min-h-[324px] w-[244px] grow flex-col justify-between rounded-md bg-gray-97 p-6 pt-4.5 text-gray-40 hover:bg-gray-94"
-                          href="/"
+                          href={ROUTE.DOCS_TUTORIALS}
                         >
                           <div className="flex items-center justify-between group-hover/box:text-gray-15">
                             <span className="text-16 leading-normal">Start Learning</span>

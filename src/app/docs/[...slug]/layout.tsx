@@ -22,7 +22,7 @@ export default function DocLayout({
         currentUrl={currentUrl}
         expandedList={expandedList}
       />
-      <div className="container grid grid-cols-12 gap-x-10 pt-36 2xl:pt-[137px] xl:gap-x-9 xl:pt-32 lg:gap-x-6 md:mt-6 md:gap-x-5 md:pt-0 sm:gap-x-4">
+      <div className="container grid grid-cols-12 gap-x-10 pt-36 2xl:pt-[140px] xl:gap-x-9 xl:pt-32 lg:gap-x-6 md:mt-6 md:gap-x-5 md:pt-0 sm:gap-x-4">
         <Sidebar
           className="col-span-3 md:hidden"
           data={sidebar}
@@ -33,7 +33,7 @@ export default function DocLayout({
         {children}
       </div>
 
-      <SubscriptionForm />
+      <SubscriptionForm className="md:!mt-[117px]" />
     </>
   );
 }

@@ -7,10 +7,11 @@ import { useEffect, useRef } from 'react';
 
 import useIntersectionObserver from '@react-hook/intersection-observer';
 import { Alignment, Fit, Layout, useRive, useStateMachineInput } from '@rive-app/react-canvas';
+import clsx from 'clsx';
 
 import Route from '@/lib/route';
 
-const SubscriptionForm = () => {
+const SubscriptionForm = ({ className }: { className?: string }) => {
   const ref = useRef(null);
 
   const { isIntersecting } = useIntersectionObserver(ref);
@@ -37,7 +38,10 @@ const SubscriptionForm = () => {
   }, [rive, isIntersecting]);
   return (
     <section
-      className="mt-[124px] bg-primary-1 text-white 3xl:mt-[110px] xl:mt-[97px] md:mt-[54px] sm:mt-4.5"
+      className={clsx(
+        'mt-[124px] bg-primary-1 text-white 3xl:mt-[110px] xl:mt-[97px] md:mt-[54px] sm:mt-4.5',
+        className,
+      )}
       ref={ref}
     >
       <div className="container gap-x-grid grid grid-cols-12 overflow-x-clip sm:flex sm:flex-col">

@@ -1,19 +1,23 @@
+import { getBlogPostBySlug } from '@/lib/api-blog';
 import { getPostBySlug } from '@/lib/api-docs';
 
 import Content from '../content';
 
+const getPost = (url: string) => {
+  if (url.startsWith('/blog')) {
+    return getBlogPostBySlug(url);
+  }
+  return getPostBySlug(url);
+};
+
 const IncludeBlock = ({ url }: { url: string }) => {
-  const post = getPostBySlug(url.replace(/^\//, ''));
+  const post = getPost(url);
 
-  if (!post) return null;
+  if (!post) {
+    return null;
+  }
 
-  const { content } = post;
-
-  return (
-    <figure className="include-block">
-      <Content content={content} />
-    </figure>
-  );
+  return <Content content={post.content} />;
 };
 
 export default IncludeBlock;

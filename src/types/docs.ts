@@ -24,4 +24,10 @@ type PostData = {
   content: string;
 };
 
-export type { SidebarItem, PreviousAndNextLinks, Breadcrumb, PostData };
+type TableOfContents = {
+  title: string;
+  id: string;
+  level: number;
+};
+
+export type { SidebarItem, PreviousAndNextLinks, Breadcrumb, PostData, TableOfContents };

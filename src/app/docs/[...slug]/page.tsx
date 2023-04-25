@@ -10,6 +10,7 @@ import {
   getFlatSidebar,
   getPostBySlug,
   getSidebar,
+  getTableOfContents,
 } from '@/lib/api-docs';
 
 export function generateStaticParams() {
@@ -44,12 +45,15 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
     content,
   } = post;
 
+  const tableOfContents = getTableOfContents(content);
+
   return (
     <PostLayout
       title={title}
       currentSlug={currentSlug}
       breadcrumbs={breadcrumbs}
       navigationLinks={navigationLinks}
+      tableOfContents={tableOfContents}
     >
       <Content content={content} />
     </PostLayout>
