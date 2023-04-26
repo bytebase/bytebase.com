@@ -28,7 +28,7 @@ const socialLinks = [
 ];
 
 const Footer = () => (
-  <footer className="safe-paddings container z-50 shrink-0 pt-20 lg:pt-14 md:pt-12 xs:pt-10">
+  <footer className="safe-paddings container relative z-10 shrink-0 pt-20 lg:pt-14 md:pt-12 xs:pt-10">
     <div className="grid grid-cols-12 gap-x-10 xl:gap-x-9 lg:gap-x-6 md:gap-x-5 sm:grid-cols-4 sm:gap-x-4 sm:gap-y-10">
       {MENUS.footer.map(({ name, items }, idx) => (
         <div

@@ -8,7 +8,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="h-full">
       <body className="flex h-full flex-col">
         <Header />
-        <main className="shrink-0 grow basis-auto">{children}</main>
+        <main className="relative z-20 shrink-0 grow basis-auto">{children}</main>
         <Footer />
       </body>
     </html>
