@@ -8,6 +8,7 @@ import SubscriptionForm from '@/components/shared/subscription-form';
 const AboutUsPage = () => {
   return (
     <>
+      <h1 className="sr-only">About us</h1>
       <Hero />
       <MeetCrew />
       <Crew />

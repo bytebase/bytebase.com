@@ -25,17 +25,15 @@ const LinkUnderlined = ({
   const linkClassName = clsx(className, theme && styles.theme[theme]);
 
   return (
-    <div className="py-2">
-      <Link
-        href={href}
-        className={clsx(
-          'block w-fit border-b-[3px] border-secondary-2 pb-1 text-16 font-bold uppercase leading-none tracking-wide transition-colors duration-200 hover:border-tones-green-dark active:border-tones-green-dark md:text-13',
-          linkClassName,
-        )}
-      >
-        {children}
-      </Link>
-    </div>
+    <Link
+      href={href}
+      className={clsx(
+        'block w-fit border-b-[3px] border-secondary-2 pb-1 text-16 font-bold uppercase leading-none tracking-wide transition-colors duration-200 hover:border-tones-green-dark active:border-tones-green-dark md:text-13',
+        linkClassName,
+      )}
+    >
+      {children}
+    </Link>
   );
 };
 

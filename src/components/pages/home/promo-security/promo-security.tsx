@@ -8,6 +8,7 @@ import useIntersectionObserver from '@react-hook/intersection-observer';
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 
 import { LinkUnderlined } from '@/components/shared/link-underlined';
+import Pill from '@/components/shared/pill';
 
 const PromoSecurity = () => {
   const ref = useRef(null);
@@ -37,9 +38,7 @@ const PromoSecurity = () => {
     <section className="bg-black text-white" ref={ref}>
       <div className="container gap-x-grid grid grid-cols-12 md:grid-cols-none">
         <div className="col-start-1 col-end-5 py-[216px] 3xl:col-end-7 3xl:py-[200px] xl:col-end-6 xl:pt-[154px] xl:pb-[183px] md:col-auto md:pt-16 md:pb-0 sm:pt-[58px]">
-          <span className="inline-flex rounded-3xl bg-secondary-1 px-2.5 py-2 text-12 font-bold uppercase leading-none tracking-wider text-gray-15">
-            Secure
-          </span>
+          <Pill theme="secondary-1">Secure</Pill>
           <h2 className="mt-3 font-title text-112 font-semibold leading-none 3xl:mt-3.5 xl:mt-2.5 xl:text-90 xl:leading-95 md:mt-2 md:text-80 sm:text-48">
             <mark className="bg-transparent text-secondary-3">Security</mark> by&nbsp;design
           </h2>

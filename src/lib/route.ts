@@ -20,6 +20,7 @@ const Route = {
   GITHUB: 'https://github.com/bytebase/bytebase',
   TERMS: '/terms',
   PRIVACY: '/privacy',
+  JOBS: '/jobs',
 };
 
 export default Route;

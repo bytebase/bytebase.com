@@ -8,6 +8,8 @@ import useIntersectionObserver from '@react-hook/intersection-observer';
 import { Alignment, Fit, Layout, useRive, useStateMachineInput } from '@rive-app/react-canvas';
 import clsx from 'clsx';
 
+import Pill from '@/components/shared/pill';
+
 import Accordion from './accordion';
 
 export type AccordionData = {
@@ -84,10 +86,7 @@ const PromoSQLEditor = () => {
         <RiveComponent />
       </div>
       <header>
-        {/* TODO: move to separate <Label /> component */}
-        <span className="inline-flex rounded-3xl bg-secondary-1 px-2.5 py-2 text-12 font-bold uppercase leading-none tracking-wider text-gray-15">
-          Query
-        </span>
+        <Pill theme="secondary-1">Query</Pill>
         <h2 className="mt-3 max-w-3xl font-title text-88 font-semibold leading-none xl:mt-3 xl:max-w-2xl xl:text-68 xl:leading-104 md:mt-3 md:max-w-lg md:text-54 md:leading-none sm:text-48 sm:leading-95">
           Explore data with <span className="whitespace-nowrap">all-in-one</span>{' '}
           <mark className="whitespace-nowrap bg-transparent text-center text-primary-1 sm:whitespace-normal">

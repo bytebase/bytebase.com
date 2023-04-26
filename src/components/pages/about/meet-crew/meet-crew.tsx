@@ -1,71 +1,56 @@
 import Image from 'next/image';
 
-const MeetCrew = () => (
-  <section className="container gap-x-grid grid grid-cols-12 sm:grid-cols-4">
-    <div className="relative col-span-12">
-      <Image
-        src="/images/page/about/crew-ellipse.svg"
-        alt="Built by engineers knowing database development flow"
-        width={832}
-        height={600}
-        className="absolute -bottom-[260px] -right-[90px] mt-36"
-      />
-      <div className="mt-56">
-        <span className="w-fit rounded-[20px] bg-secondary-1 py-2 px-2.5 text-12 font-bold uppercase leading-none tracking-wider">
-          Team
-        </span>
-        <h2 className="mt-5 font-title text-88 font-semibold leading-none">Meet our crew</h2>
-      </div>
-    </div>
-    <div className="relative col-span-6 row-start-2 mt-[220px] -translate-y-[133px] bg-tones-blue-light shadow-[inset_6px_6px_0_#fff,0_5px_15px_rgba(172,178,210,0.5)]">
-      <div className="flex items-start gap-1 pt-8 pb-6 pl-8 pr-2 shadow-[inset_0_0_0_1px_rgba(156,186,201,0.5)]">
-        <div>
-          <span className="text-18 font-semibold text-tones-deep-blue-dark">Co-Founder & CTO</span>
-          <p className="mt-2 font-title text-56 font-semibold leading-none">Danny</p>
-          <p className="font-regular mt-5 text-18">
-            Danny was the Staff Engineer at Google Cloud and TL overseeing Cloud SQL and API &
-            Service Infrastructure. He has won Google&apos;s highest engineering award twice.
-          </p>
-        </div>
-        <Image
-          src="/images/page/about/danny.webp"
-          alt=""
-          width={244}
-          height={244}
-          className="shrink-0"
-        />
-      </div>
-      <Image
-        src="/images/hat.png"
-        width={92}
-        height={65}
-        alt=""
-        className="absolute -top-7 -left-9 lg:-top-4.5 lg:-left-6 lg:h-[42px] lg:w-[58px] sm:h-[46px] sm:w-16"
-      />
-    </div>
+import Pill from '@/components/shared/pill';
 
-    <div className="col-span-6 row-start-2 mt-[220px] bg-tones-green-light shadow-[inset_6px_6px_0_#fff,0_5px_20px_rgba(143,188,169,0.4)]">
-      <div className="flex items-start gap-1 pt-8 pb-6 pl-2 pr-8 shadow-[inset_0_0_0_1px_rgba(143,188,169,0.4)]">
+import Founder from './founder';
+
+const MeetCrew = () => (
+  <section className="container pt-56 pb-20 3xl:pt-52 3xl:pb-16 xl:pt-[158px] xl:pb-14 md:pt-[106px] md:pb-12 sm:pt-[83px] sm:pb-10">
+    <div className="gap-x-grid grid grid-cols-12 items-start sm:grid-cols-4">
+      <div className="relative col-span-full mb-[225px] grid xl:mb-[164px] md:mb-[134px] sm:mb-0 sm:flex sm:flex-col sm:pb-[279px] sm:text-center">
+        <Pill theme="secondary-1" className="sm:mx-auto">
+          Team
+        </Pill>
+        <h2 className="mt-3.5 font-title text-88 font-semibold leading-none xl:mt-3 xl:text-68 md:mt-2 md:text-54 sm:text-48 sm:leading-95">
+          Meet our crew
+        </h2>
         <Image
-          src="/images/page/about/tianzhou.webp"
-          alt=""
-          width={244}
-          height={244}
-          className="shrink-0"
+          src="/images/page/about/crew-ellipse.webp"
+          alt="Built by engineers knowing database development flow"
+          width={832}
+          height={600}
+          className="pointer-events-none absolute -bottom-[260px] -right-20 3xl:-right-[76px] xl:hidden"
         />
-        <div>
-          <span className="text-18 font-semibold text-tones-deep-green-dark">Co-Founder & CEO</span>
-          <p className="mt-2 font-title text-56 font-semibold leading-none">Tianzhou</p>
-          <p className="mt-5 text-18">
-            Tianzhou was the TL of Google Cloud SQL, the maintainer of Google&apos;s internal
-            PostgreSQL and MySQL branch. He was the head of Database/
-            <wbr />
-            DevTools/
-            <wbr />
-            Collaboration group in Ant Group.
-          </p>
-        </div>
+        <Image
+          src="/images/page/about/crew-ellipse-lg.webp"
+          alt="Built by engineers knowing database development flow"
+          width={628}
+          height={517}
+          className="pointer-events-none absolute -bottom-[231px] -right-11 hidden xl:block md:hidden"
+        />
+        <Image
+          src="/images/page/about/crew-ellipse-md.webp"
+          alt="Built by engineers knowing database development flow"
+          width={474}
+          height={394}
+          className="pointer-events-none absolute -bottom-[173px] -right-7 hidden md:block sm:hidden"
+        />
+        <Image
+          src="/images/page/about/crew-ellipse-sm.png"
+          alt="Built by engineers knowing database development flow"
+          width={360}
+          height={260}
+          className="pointer-events-none absolute bottom-1 left-1/2 hidden max-w-none -translate-x-1/2 justify-self-center sm:block"
+        />
       </div>
+      <Founder
+        id="danny"
+        className="col-span-6 -translate-y-[133px] xl:-translate-y-[89px] md:min-h-[429px] md:-translate-y-[62px] sm:col-span-full sm:min-h-0 sm:translate-y-0"
+      />
+      <Founder
+        id="tianzhou"
+        className="col-span-6 md:min-h-[429px] sm:col-span-full sm:mt-4 sm:min-h-0"
+      />
     </div>
   </section>
 );
