@@ -14,6 +14,34 @@
 
     @apply prose-headings:mt-11 prose-headings:mb-5 prose-headings:font-semibold prose-p:my-5 prose-a:font-semibold prose-a:text-primary-1 prose-a:no-underline prose-ul:my-5 xl:prose-headings:mt-10 xl:prose-headings:mb-4 xl:prose-p:my-4 sm:prose-headings:leading-tight;
 
+    > * {
+      &:first-child {
+        @apply mt-0;
+      }
+
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+
+    blockquote {
+      @apply my-11 border-l-0 pl-0 text-36 font-semibold not-italic leading-tight tracking-tight lg:my-10 lg:text-30 lg:tracking-normal md:my-9 md:text-24 sm:my-8 sm:text-20 sm:leading-snug;
+
+      & p {
+        &:first-of-type {
+          @apply mt-0;
+        }
+        &:last-child {
+          @apply mb-0;
+        }
+
+        &::before,
+        &::after {
+          @apply hidden;
+        }
+      }
+    }
+
     figure {
       @apply my-11 xl:my-10 md:my-9 sm:my-8;
     }
@@ -94,7 +122,7 @@
       @apply my-2.5 pl-0 xl:my-2;
 
       &::marker {
-        @apply text-primary-1;
+        @apply font-semibold text-primary-1;
       }
     }
   }

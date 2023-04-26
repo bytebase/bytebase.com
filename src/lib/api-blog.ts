@@ -52,10 +52,22 @@ const getBlogPostBySlug = (slug: string): BlogPost | null => {
       ...data,
       content,
       slug,
+      timeToRead: getTimeToRead(content),
     } as BlogPost;
   } catch (e) {
     return null;
   }
+};
+
+const getTimeToRead = (content: string): string => {
+  const wordsPerMinute = 200;
+  const wordAmount = content.split(' ').length;
+  if (wordAmount <= wordsPerMinute) {
+    return '< 1 min read';
+  }
+
+  const count = Math.ceil(wordAmount / wordsPerMinute);
+  return `${count} min read`;
 };
 
 type PostPerPageProps = {

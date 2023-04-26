@@ -6,4 +6,5 @@ export type BlogPost = {
   author: string;
   tags: string;
   slug: string;
+  timeToRead: string;
 };

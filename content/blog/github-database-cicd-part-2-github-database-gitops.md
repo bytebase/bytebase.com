@@ -125,11 +125,11 @@ bytebase/bytebase:%%bb_version%% \
 
 7. Create a sql script following the name convention `{{ENV_ID}}/{{DB_NAME}}##{{VERSION}}##{{TYPE}}##{{DESCRIPTION}}.sql`, and here we create `employeeGitHub##202208171630##ddl##add_nickname.sql` under the `test` directory.
 
-- `test` corresponds to {{ENV_ID}}
-- `employeeGitHub` corresponds to {{DB_NAME}}
-- `202208171630` corresponds to {{VERSION}}
-- `ddl` corresponds to {{TYPE}}
-- `add_nickname` corresponds to {{DESCRIPTION}}
+- `test` corresponds to `{{ENV_ID}}`
+- `employeeGitHub` corresponds to `{{DB_NAME}}`
+- `202208171630` corresponds to `{{VERSION}}`
+- `ddl` corresponds to `{{TYPE}}`
+- `add_nickname` corresponds to `{{DESCRIPTION}}`
 
 ![create-migration-sql](/blog/github-database-cicd-part-2-github-database-gitops/create-migration-sql.webp)
 

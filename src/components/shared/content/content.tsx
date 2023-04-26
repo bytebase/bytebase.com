@@ -9,11 +9,13 @@ import remarkGfm from 'remark-gfm';
 
 import CodeBlock from '@/components/shared/code-block';
 
-import DocLinkBlock from '../doc-link-block';
-import HintBlock from '../hint-block';
-import IncludeBlock from '../include-block';
-import TutorialTallCard from '../tutorial-tall-card';
-import TutorialWideCard from '../tutorial-wide-card';
+import QuoteIcon from '@/svgs/quote.inline.svg';
+
+import DocLinkBlock from './doc-link-block';
+import HintBlock from './hint-block';
+import IncludeBlock from './include-block';
+import TutorialTallCard from './tutorial-tall-card';
+import TutorialWideCard from './tutorial-wide-card';
 
 const flattenChildrenToString = (children: ReactNode): string => {
   return Children.toArray(children)
@@ -74,6 +76,14 @@ const components = {
         style={{ width: '100%', height: '100%' }}
         alt={alt}
       />
+    );
+  },
+  blockquote: (props: any) => {
+    return (
+      <blockquote {...props}>
+        <QuoteIcon className="mb-6 h-10 lg:mb-5 lg:h-9 sm:mb-2 sm:h-7" />
+        {props.children}
+      </blockquote>
     );
   },
   HintBlock,

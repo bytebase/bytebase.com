@@ -119,11 +119,11 @@ bytebase/bytebase:%%bb_version%% \
 1. In your GitHub repository `snowflake-test-bb-local`, create a folder `bytebase`, then create a subfolder `test`, and create an SQL file following the pattern `{{ENV_ID}}/{{DB_NAME}}##{{VERSION}}##{{TYPE}}##{{DESCRIPTION}}.sql`. It is the default configuration for file path template setting when you configure the project version control previously.
 
 - `test/DB_DEMO_BB##202212152000##ddl##create_hello_world.sql`
-- `test` corresponds to {{ENV_ID}}
-- `DB_DEMO_BB` corresponds to {{DB_NAME}}
-- `202212152000` corresponds to {{VERSION}}
-- `ddl` corresponds to {{TYPE}}
-- `create_hello_world corresponds` to {{DESCRIPTION}}
+- `test` corresponds to `{{ENV_ID}}`
+- `DB_DEMO_BB` corresponds to `{{DB_NAME}}`
+- `202212152000` corresponds to `{{VERSION}}`
+- `ddl` corresponds to `{{TYPE}}`
+- `create_hello_world corresponds` to `{{DESCRIPTION}}`
 
 Paste the sql script in it.
 

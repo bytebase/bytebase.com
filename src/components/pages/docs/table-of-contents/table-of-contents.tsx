@@ -10,7 +10,12 @@ import { TableOfContents as TOCProps } from '@/types/docs';
 
 import BackToTopIcon from '@/svgs/back-to-top.inline.svg';
 
-const TableOfContents = ({ items }: { items: TOCProps[] }) => {
+type TableOfContentsProps = {
+  items: TOCProps[];
+  hasBackToTop?: boolean;
+};
+
+const TableOfContents = ({ items, hasBackToTop }: TableOfContentsProps) => {
   const [activeAnchor, setActiveAnchor] = useState<string | null>(null);
   const [debouncedActiveAnchor, setDebouncedActiveAnchor] = useState<string | null>(null);
 
@@ -59,12 +64,12 @@ const TableOfContents = ({ items }: { items: TOCProps[] }) => {
     });
   };
   return (
-    <nav className="table-of-contents">
+    <nav className="table-of-contents lg:hidden">
       <div className="relative pl-5 before:absolute before:top-0 before:left-px before:h-full before:w-px before:bg-gray-90">
         <h3 className="text-14 font-bold uppercase leading-none tracking-tight">
           Table of contents
         </h3>
-        <ul className="mt-3 flex flex-col border-b border-gray-90 pb-6">
+        <ul className={clsx(hasBackToTop && 'border-b border-gray-90 pb-6', 'mt-3 flex flex-col ')}>
           {items.map(({ id, title, level }) => (
             <li
               className={clsx(
@@ -92,15 +97,16 @@ const TableOfContents = ({ items }: { items: TOCProps[] }) => {
           ))}
         </ul>
       </div>
-
-      <button
-        className="mt-8 flex items-center gap-x-2 pl-5 pb-5 text-15 font-medium text-gray-30 transition-colors duration-200 hover:text-gray-60"
-        type="button"
-        onClick={backToTop}
-      >
-        <BackToTopIcon className="h-[18px] w-[18px]" />
-        <span>Back to top</span>
-      </button>
+      {hasBackToTop && (
+        <button
+          className="mt-8 flex items-center gap-x-2 pl-5 pb-5 text-15 font-medium text-gray-30 transition-colors duration-200 hover:text-gray-60"
+          type="button"
+          onClick={backToTop}
+        >
+          <BackToTopIcon className="h-[18px] w-[18px]" />
+          <span>Back to top</span>
+        </button>
+      )}
     </nav>
   );
 };

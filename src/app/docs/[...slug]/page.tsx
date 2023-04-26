@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 
-import Content from '@/components/pages/docs/content';
 import PostLayout from '@/components/pages/docs/post-layout';
+import Content from '@/components/shared/content';
 
 import {
   getAllPosts,

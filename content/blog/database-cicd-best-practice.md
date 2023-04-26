@@ -98,12 +98,12 @@ Bytebase aims to fully automate the change release process. This is achieved by 
 In this directory structure,
 
 - Base_DIR is the specified root directory (can be multi-level).
-- {{ENV_ID}} should match the destined environment identifier of the database.
+- `{{ENV_ID}}` should match the destined environment identifier of the database.
 - \*\* is a wildcard to match one or more directories.
-- {{DB_NAME}} is the database name to be changed.
-- {{VERSION}} is the version number of this change.
-- {{TYPE}} is the change type (DDL or DML).
-- {{DESCRIPTION}} is an optional description string.
+- `{{DB_NAME}}` is the database name to be changed.
+- `{{VERSION}}` is the version number of this change.
+- `{{TYPE}}` is the change type (DDL or DML).
+- `{{DESCRIPTION}}` is an optional description string.
 
 **By combining placeholders with wildcards, you can precisely match the target database managed by Bytebase in any directory structure.**
 

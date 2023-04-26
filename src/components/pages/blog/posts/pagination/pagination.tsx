@@ -6,12 +6,15 @@ import ReactPaginate from 'react-paginate';
 
 import ROUTE from '@/lib/route';
 
+import Arrow from '@/svgs/arrow.inline.svg';
+
 type PaginationProps = {
   currentPageIndex: number;
   pageCount: number;
   categoryPath?: string;
 };
 
+// TODO: design disable state for prev/next links
 const Pagination = ({ currentPageIndex, pageCount, categoryPath = '' }: PaginationProps) => {
   const router = useRouter();
 
@@ -34,29 +37,19 @@ const Pagination = ({ currentPageIndex, pageCount, categoryPath = '' }: Paginati
         activeLinkClassName="bg-primary-1 text-white pointer-events-none"
         previousClassName="mr-auto"
         nextClassName="ml-auto"
-        previousLinkClassName="flex items-center text-18 gap-x-2 px-5 bg-gray-97 rounded-full h-10 font-medium hover:bg-gray-90 md:w-10 md:justify-center md:px-0"
-        nextLinkClassName="flex items-center text-18 gap-x-2 px-5 bg-gray-97 rounded-full h-10 font-medium hover:bg-gray-90 md:w-10 md:justify-center md:px-0"
-        disabledLinkClassName="pointer-events-none"
+        previousLinkClassName="flex items-center text-18 gap-x-2 px-5 bg-gray-97 rounded-full h-10 font-medium transition-colors hover:bg-gray-90 md:w-10 md:justify-center md:px-0"
+        nextLinkClassName="flex items-center text-18 gap-x-2 px-5 bg-gray-97 rounded-full h-10 font-medium transition-colors hover:bg-gray-90 md:w-10 md:justify-center md:px-0"
+        disabledLinkClassName="pointer-events-none text-gray-60"
         previousLabel={
           <>
-            <img
-              className="block h-3 w-5 -rotate-180"
-              width="20"
-              height="12"
-              src="/images/arrow-navigation-blog.svg"
-            />
+            <Arrow className="w-5 -rotate-180" />
             <span className="pt-0.5 leading-none md:hidden">Previous</span>
           </>
         }
         nextLabel={
           <>
             <span className="pt-0.5 leading-none md:hidden">Next</span>
-            <img
-              className="block h-3 w-5"
-              width="20"
-              height="12"
-              src="/images/arrow-navigation-blog.svg"
-            />
+            <Arrow className="w-5" />
           </>
         }
         renderOnZeroPageCount={null}

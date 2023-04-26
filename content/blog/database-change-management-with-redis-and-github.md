@@ -124,11 +124,11 @@ bytebase/bytebase:%%bb_version%% \
 
    `test/0##2023041410400000##dml##add_country.sql`
 
-   - `test` corresponds to {{ENV_ID}}
-   - `0` corresponds to {{DB_NAME}}
-   - `2023041410400000` corresponds to {{VERSION}}
-   - `dml` corresponds to {{TYPE}}
-   - `add_country` corresponds to {{DESCRIPTION}}
+   - `test` corresponds to `{{ENV_ID}}`
+   - `0` corresponds to `{{DB_NAME}}`
+   - `2023041410400000` corresponds to `{{VERSION}}`
+   - `dml` corresponds to `{{TYPE}}`
+   - `add_country` corresponds to `{{DESCRIPTION}}`
 
    Paste the sql script in it.
 

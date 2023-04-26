@@ -125,11 +125,11 @@ bytebase/bytebase:%%bb_version%% \
 
    `test/db_demo##202303020000##ddl##create_t2.sql`
 
-   - `test` corresponds to {{ENV_ID}}
-   - `db_demo` corresponds to {{DB_NAME}}
-   - `202303020000` corresponds to {{VERSION}}
-   - `ddl` corresponds to {{TYPE}}
-   - `create_t2` corresponds to {{DESCRIPTION}}
+   - `test` corresponds to `{{ENV_ID}}`
+   - `db_demo` corresponds to `{{DB_NAME}}`
+   - `202303020000` corresponds to `{{VERSION}}`
+   - `ddl` corresponds to `{{TYPE}}`
+   - `create_t2` corresponds to `{{DESCRIPTION}}`
 
    Paste the sql script in it.
 

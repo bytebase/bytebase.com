@@ -4,7 +4,7 @@ import slugifyText from '@/utils/slugify-text';
 
 import BlogPostHero from '@/components/pages/blog/blog-post-hero';
 import Posts from '@/components/pages/blog/posts';
-import RelatedPosts from '@/components/pages/blog/related-posts';
+import RecentPosts from '@/components/pages/blog/recent-posts/recent-posts';
 import SubscribeCta from '@/components/pages/blog/subscribe-cta';
 
 import { getAllBlogPosts, getBlogPostsPerPage } from '@/lib/api-blog';
@@ -20,7 +20,7 @@ export default function BlogCategoryPage({ params }: { params: { category: strin
   return (
     <>
       <BlogPostHero post={posts[0]} isBlogPost={false} />
-      <RelatedPosts posts={posts.slice(1, 5)} />
+      <RecentPosts posts={posts.slice(1, 5)} />
       <SubscribeCta />
       <Posts posts={posts} tabs={tags} page={1} pageCount={pageCount} category={category} />
     </>
