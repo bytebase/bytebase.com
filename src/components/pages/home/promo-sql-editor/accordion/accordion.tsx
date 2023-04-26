@@ -1,50 +1,29 @@
-'use client';
-
-import { useState } from 'react';
-
 import clsx from 'clsx';
 
-const data = [
-  {
-    title: 'Explore the schema',
-    description:
-      'Perform complex SQL tasks and protect data privacy with ByteBase’s web-based IDE, anonymization engine, and access controls.',
-  },
-  {
-    title: 'Run and explain query',
-    description:
-      'Perform complex SQL tasks and protect data privacy with ByteBase’s web-based IDE, anonymization engine, and access controls.',
-  },
-  {
-    title: 'Anonymize data',
-    description:
-      'Perform complex SQL tasks and protect data privacy with ByteBase’s web-based IDE, anonymization engine, and access controls.',
-  },
-  {
-    title: 'Database access control',
-    description:
-      'Perform complex SQL tasks and protect data privacy with ByteBase’s web-based IDE, anonymization engine, and access controls.',
-  },
-];
+import { AccordionData } from '../promo-sql-editor';
 
-const Accordion = ({ onChange }: { onChange: () => void }) => {
-  const [openedItemIdx, setOpenedItemIdx] = useState(0);
-
+// TODO: refactor markup for chevrons to span > image.svg
+const Accordion = ({
+  onChange,
+  activeIndex,
+  items,
+}: {
+  onChange: (index: number) => void;
+  activeIndex: number;
+  items: AccordionData[];
+}) => {
   return (
     <ul className="divide-y divide-tones-green-dark">
-      {data.map(({ title, description }, idx) => (
+      {items.map(({ title, description }, idx) => (
         <li
           key={idx}
           className={clsx('py-6 first:pt-0 last:pb-0 xl:py-5 md:py-4.5 sm:py-4', {
-            'cursor-pointer': openedItemIdx !== idx,
+            'cursor-pointer': activeIndex !== idx,
           })}
-          onClick={() => {
-            setOpenedItemIdx(idx);
-            onChange();
-          }}
+          onClick={() => onChange(idx)}
         >
           <p className="flex items-center gap-4 text-24 leading-extra-tight tracking-tight xl:text-20 xl:leading-tight xl:tracking-normal md:gap-3 md:text-18">
-            {openedItemIdx === idx ? (
+            {activeIndex === idx ? (
               <img
                 src="/images/page/main/accordion-opened.svg"
                 alt=""
@@ -63,7 +42,7 @@ const Accordion = ({ onChange }: { onChange: () => void }) => {
             )}
             <b className="font-bold md:font-semibold">{title}</b>
           </p>
-          {openedItemIdx === idx && (
+          {activeIndex === idx && (
             <p className="pt-2 pl-12 text-16 xl:pt-1 xl:text-14 xl:leading-snug md:pt-1.5 md:pl-10">
               {description}
             </p>

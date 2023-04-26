@@ -2,15 +2,50 @@
 
 import Image from 'next/image';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import useIntersectionObserver from '@react-hook/intersection-observer';
 import { Alignment, Fit, Layout, useRive, useStateMachineInput } from '@rive-app/react-canvas';
+import clsx from 'clsx';
 
 import Accordion from './accordion';
 
+export type AccordionData = {
+  title: string;
+  description: string;
+  image: string;
+};
+
+const data: AccordionData[] = [
+  {
+    title: 'Run and explain query',
+    description:
+      'Perform complex SQL tasks and protect data privacy with ByteBase’s web-based IDE, anonymization engine, and access controls.',
+    image: '/images/page/main/sql-editor/interface-run.jpg',
+  },
+  {
+    title: 'Explore the schema',
+    description:
+      'Perform complex SQL tasks and protect data privacy with ByteBase’s web-based IDE, anonymization engine, and access controls.',
+    image: '/images/page/main/sql-editor/interface-explore.jpg',
+  },
+  {
+    title: 'Anonymize data',
+    description:
+      'Perform complex SQL tasks and protect data privacy with ByteBase’s web-based IDE, anonymization engine, and access controls.',
+    image: '/images/page/main/sql-editor/interface-anonymize.jpg',
+  },
+  {
+    title: 'Database access control',
+    description:
+      'Perform complex SQL tasks and protect data privacy with ByteBase’s web-based IDE, anonymization engine, and access controls.',
+    image: '/images/page/main/sql-editor/interface-database.jpg',
+  },
+];
+
 const PromoSQLEditor = () => {
   const ref = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const { isIntersecting } = useIntersectionObserver(ref);
 
@@ -34,6 +69,11 @@ const PromoSQLEditor = () => {
       rive.play();
     }
   }, [rive, isIntersecting]);
+
+  const handleAccordionClick = (index: number) => {
+    input?.fire();
+    setActiveIndex(index);
+  };
 
   return (
     <section
@@ -65,17 +105,24 @@ const PromoSQLEditor = () => {
         />
         <div className="relative z-10 col-start-9 col-end-13 row-span-full 3xl:col-start-8 3xl:col-end-12 xl:col-end-13 md:col-start-7 sm:col-span-full sm:row-auto">
           <div className="mr-10 -mt-10 border border-tones-green-dark bg-tones-green-light px-6 py-10 shadow-[inset_6px_6px_0_#fff,0_5px_15px_rgba(143,188,169,0.5)] 3xl:mr-0 xl:-mt-6 xl:-translate-x-6 xl:px-5 xl:py-8 md:mr-4.5 md:translate-x-0 md:px-4 md:py-7 sm:mt-0 sm:mr-0">
-            <Accordion onChange={() => input?.fire()} />
+            <Accordion activeIndex={activeIndex} items={data} onChange={handleAccordionClick} />
           </div>
         </div>
         <div className="relative z-0 col-span-full row-span-full sm:row-auto sm:mt-6">
-          <Image
-            src="/images/interface.png"
-            className="h-auto w-full rounded shadow-[0_5px_15px_rgba(15,22,36,0.2)]"
-            width={1472}
-            height={845}
-            alt=""
-          />
+          {data.map(({ image, title }, index) => (
+            <Image
+              className={clsx(
+                index != 0 ? 'absolute top-0 left-0 h-full' : 'relative h-auto',
+                activeIndex === index ? 'z-10 opacity-100' : 'opacity-0',
+                'w-full rounded shadow-[0_5px_15px_rgba(15,22,36,0.2)] transition-opacity duration-[400ms]',
+              )}
+              src={image}
+              width={1472}
+              height={845}
+              alt={title}
+              key={index}
+            />
+          ))}
         </div>
       </div>
     </section>
