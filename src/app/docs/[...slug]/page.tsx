@@ -1,4 +1,8 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+
+import { getExcerpt } from '@/utils/get-excerpt';
+import getMetadata from '@/utils/get-metadata';
 
 import PostLayout from '@/components/pages/docs/post-layout';
 import Content from '@/components/shared/content';
@@ -12,6 +16,7 @@ import {
   getSidebar,
   getTableOfContents,
 } from '@/lib/api-docs';
+import Route from '@/lib/route';
 
 export function generateStaticParams() {
   const posts = getAllPosts();
@@ -58,4 +63,31 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
       <Content content={content} />
     </PostLayout>
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string[] };
+}): Promise<Metadata> {
+  const { slug } = params;
+  const currentSlug = slug.join('/');
+  const currentPath = `/${currentSlug}`;
+
+  const post = getPostBySlug(currentSlug);
+
+  if (!post) return notFound();
+
+  const {
+    data: { title },
+    content,
+  } = post;
+
+  const description = getExcerpt({ content, length: 160 });
+
+  return getMetadata({
+    title,
+    description,
+    pathname: `${Route.DOCS}${currentPath}/`,
+  });
 }

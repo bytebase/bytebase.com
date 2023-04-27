@@ -38,4 +38,7 @@ next-env.d.ts
 # eslint
 .eslintcache
 
+# env
+.env
+
 .vscode/snipsnap.code-snippets

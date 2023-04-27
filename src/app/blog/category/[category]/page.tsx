@@ -1,5 +1,7 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import getMetadata from '@/utils/get-metadata';
 import slugifyText from '@/utils/slugify-text';
 
 import BlogPostHero from '@/components/pages/blog/blog-post-hero';
@@ -7,7 +9,9 @@ import Posts from '@/components/pages/blog/posts';
 import RecentPosts from '@/components/pages/blog/recent-posts/recent-posts';
 import SubscribeCta from '@/components/pages/blog/subscribe-cta';
 
-import { getAllBlogPosts, getBlogPostsPerPage } from '@/lib/api-blog';
+import { getAllBlogPosts, getBlogPostsPerPage, getTagNameBySlug } from '@/lib/api-blog';
+import Route from '@/lib/route';
+import SEO_DATA from '@/lib/seo-data';
 
 export default function BlogCategoryPage({ params }: { params: { category: string } }) {
   const { category } = params;
@@ -33,4 +37,16 @@ export async function generateStaticParams() {
   return tags.map((tag) => ({ category: slugifyText(tag) }));
 }
 
-export const revalidate = 60;
+export async function generateMetadata({
+  params,
+}: {
+  params: { category: string };
+}): Promise<Metadata> {
+  const { category } = params;
+
+  return getMetadata({
+    ...SEO_DATA.BLOG,
+    title: `${SEO_DATA.BLOG.title} - ${getTagNameBySlug(category)}`,
+    pathname: `${Route.BLOG_CATEGORY}/${category}/`,
+  });
+}

@@ -78,7 +78,9 @@ type PostPerPageProps = {
 const getBlogPostsPerPage = ({
   page,
   category = '',
-}: PostPerPageProps): (BlogPostsWithTags & { pageCount: number }) | null => {
+}: PostPerPageProps):
+  | (BlogPostsWithTags & { pageCount: number; recentPosts: BlogPost[] })
+  | null => {
   const startIndex = (page - 1) * POSTS_PER_PAGE;
 
   const { posts, tags } = getAllBlogPosts();
@@ -91,10 +93,30 @@ const getBlogPostsPerPage = ({
   if (result.length === 0) return null;
 
   return {
+    recentPosts: postsInCategory.slice(0, 5),
     pageCount: Math.ceil(postsInCategory.length / POSTS_PER_PAGE),
     posts: result,
     tags,
   };
 };
 
-export { getAllBlogPosts, getBlogPostBySlug, getBlogPostsPerPage, POSTS_PER_PAGE };
+const getTagNameBySlug = (tagSlag: string): string => {
+  const tags: Record<string, string> = {
+    announcement: 'Announcement',
+    industry: 'Industry',
+    explanation: 'Explanation',
+    engineering: 'Engineering',
+    'how-to': 'How-To',
+    'case-study': 'Case Study',
+  };
+
+  return tags[tagSlag];
+};
+
+export {
+  getAllBlogPosts,
+  getBlogPostBySlug,
+  getBlogPostsPerPage,
+  getTagNameBySlug,
+  POSTS_PER_PAGE,
+};

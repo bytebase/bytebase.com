@@ -1,4 +1,8 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+
+import { getExcerpt } from '@/utils/get-excerpt';
+import getMetadata from '@/utils/get-metadata';
 
 import BlogPostHero from '@/components/pages/blog/blog-post-hero';
 import PostLayout from '@/components/pages/blog/post-layout';
@@ -15,6 +19,8 @@ import {
   getBlogPostsPerPage,
 } from '@/lib/api-blog';
 import { getTableOfContents } from '@/lib/api-docs';
+import Route from '@/lib/route';
+import SEO_DATA from '@/lib/seo-data';
 
 export default function Blog({ params }: { params: { slug: string } }) {
   const { slug } = params;
@@ -24,12 +30,12 @@ export default function Blog({ params }: { params: { slug: string } }) {
 
     if (!data) return notFound();
 
-    const { posts, tags, pageCount } = data;
+    const { posts, recentPosts, tags, pageCount } = data;
 
     return (
       <>
-        <BlogPostHero post={posts[0]} isBlogPost={false} />
-        <RecentPosts posts={posts.slice(1, 5)} />
+        <BlogPostHero post={recentPosts[0]} isBlogPost={false} />
+        <RecentPosts posts={recentPosts.slice(1, 5)} />
         <SubscribeCta />
         <Posts posts={posts} tabs={tags} page={+slug} pageCount={pageCount} />
       </>
@@ -68,4 +74,31 @@ export async function generateStaticParams() {
   for (let i = 1; i <= pageCount; i += 1) pages.push({ slug: i.toString() });
 
   return pages;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const { slug } = params;
+
+  const post = getBlogPostBySlug(slug);
+
+  if (!post)
+    return getMetadata({
+      ...SEO_DATA.BLOG,
+      pathname: `${Route.BLOG}/${slug}/`,
+    });
+
+  const { content, title, feature_image } = post;
+
+  const description = getExcerpt({ content, length: 160 });
+
+  return getMetadata({
+    title,
+    description,
+    pathname: `${Route.BLOG}/${slug}/`,
+    imagePath: feature_image,
+  });
 }
