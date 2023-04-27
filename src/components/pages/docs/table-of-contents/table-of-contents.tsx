@@ -73,10 +73,6 @@ const TableOfContents = ({ items, hasBackToTop }: TableOfContentsProps) => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  if (items.length === 0) {
-    return null;
-  }
-
   return (
     <nav className="table-of-contents lg:hidden">
       <div className="relative pl-5 before:absolute before:top-0 before:left-px before:h-full before:w-px before:bg-gray-90">
@@ -92,7 +88,8 @@ const TableOfContents = ({ items, hasBackToTop }: TableOfContentsProps) => {
                   'before:bg-primary-1': currentAnchor === id,
                 },
               )}
-              key={id}
+              // use index as key because of duplicated ids in the docs
+              key={idx}
             >
               <a
                 className={clsx(

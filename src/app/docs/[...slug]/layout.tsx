@@ -1,6 +1,6 @@
 import MobileSidebar from '@/components/pages/docs/mobile-sidebar';
 import Sidebar from '@/components/pages/docs/sidebar';
-import SubscriptionForm from '@/components/shared/subscription-form';
+import SubscriptionForm from '@/components/shared/subscription';
 
 import { getSidebar } from '@/lib/api-docs';
 

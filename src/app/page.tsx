@@ -9,7 +9,7 @@ import PromoAutomationChanges from '@/components/pages/home/promo-automation-cha
 import PromoSecurity from '@/components/pages/home/promo-security';
 import PromoSQLEditor from '@/components/pages/home/promo-sql-editor';
 import Community from '@/components/shared/community';
-import SubscriptionForm from '@/components/shared/subscription-form';
+import SubscriptionForm from '@/components/shared/subscription';
 
 import SEO_DATA from '@/lib/seo-data';
 

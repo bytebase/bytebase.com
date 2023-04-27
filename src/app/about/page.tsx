@@ -5,7 +5,7 @@ import Crew from '@/components/pages/about/crew';
 import Hero from '@/components/pages/about/hero';
 import MeetCrew from '@/components/pages/about/meet-crew';
 import Community from '@/components/shared/community';
-import SubscriptionForm from '@/components/shared/subscription-form';
+import SubscriptionForm from '@/components/shared/subscription';
 
 import SEO_DATA from '@/lib/seo-data';
 

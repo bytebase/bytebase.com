@@ -33,19 +33,19 @@ const cards: TCard[] = [
 
 const Features = () => {
   return (
-    <section className="container mt-40 2xl:mt-36 lg:mt-32 md:mt-24 sm:mt-20">
+    <section className="container mt-40 3xl:mt-36 xl:mt-32 md:mt-24 sm:mt-20">
       <header className="flex flex-col items-center text-center sm:items-start sm:text-start">
-        <h2 className="font-title text-88 font-semibold leading-95 lg:text-68 lg:leading-104 md:text-54 sm:text-48">
+        <h2 className="font-title text-88 font-semibold leading-95 xl:text-68 xl:leading-104 md:text-54 sm:text-48">
           Stay confident
         </h2>
-        <p className="mt-5 max-w-[716px] text-20 leading-normal 2xl:mt-[22px] lg:mt-5 lg:text-18 lg:leading-snug md:mt-3 md:max-w-[468px] md:text-14 sm:mt-2">
+        <p className="mt-5 max-w-[716px] text-20 leading-normal 3xl:mt-[22px] xl:mt-5 xl:text-18 xl:leading-snug md:mt-3 md:max-w-[468px] md:text-14 sm:mt-2">
           Bytebase streamlines database deployment from non-prod to prod by integrating with version
           control systems for a GitOps workflow.
         </p>
       </header>
-      <ul className="gap-x-grid mt-14 grid grid-cols-3 gap-y-8 2xl:mt-12 lg:mt-11 lg:grid-cols-12 md:mt-9 sm:mt-6 sm:flex sm:flex-col">
+      <ul className="gap-x-grid mt-14 grid grid-cols-12 3xl:mt-12 xl:mt-11 md:mt-9 sm:mt-6 sm:gap-y-8">
         {cards.map((card, idx) => (
-          <li key={idx} className="xl:col-span-4">
+          <li key={idx} className="col-span-4 sm:col-span-full">
             <Card {...card} />
           </li>
         ))}

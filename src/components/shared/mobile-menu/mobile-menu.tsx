@@ -115,7 +115,7 @@ const MobileMenu = () => {
                             isDropdownOpened ? setOpenedDropdown(-1) : setOpenedDropdown(idx)
                           }
                         >
-                          <div className="flex w-full items-center justify-between">
+                          <span className="flex w-full items-center justify-between">
                             <span>{title}</span>
                             {items && (
                               <span className="relative">
@@ -133,7 +133,7 @@ const MobileMenu = () => {
                                 />
                               </span>
                             )}
-                          </div>
+                          </span>
                         </button>
                       ) : (
                         <Link
