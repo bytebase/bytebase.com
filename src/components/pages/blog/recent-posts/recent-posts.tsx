@@ -11,6 +11,7 @@ const RecentPosts = ({ posts }: RecentPostsProps) => {
 
   return (
     <section className="container recent-posts">
+      <h2 className="sr-only">Recent posts</h2>
       <ul className="gap-x-grid mt-14 grid grid-cols-12 lg:mt-12 md:mt-10 md:gap-y-8 sm:mt-8 sm:gap-y-6">
         {posts.map((post, index) => (
           <li

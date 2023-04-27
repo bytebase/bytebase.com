@@ -28,7 +28,7 @@ const cards: CardProps[] = [
     ],
     color: 'blue',
     href: '#',
-    cover: '/images/page/main/hero/change-database.png',
+    cover: '/images/page/main/hero/change-database.webp',
     title: 'Change database',
     description:
       'Simplify database changes with standardization, lint rules, and GitOps integration.',
@@ -46,7 +46,7 @@ const cards: CardProps[] = [
     ],
     color: 'green',
     href: '#',
-    cover: '/images/page/main/hero/query-data.png',
+    cover: '/images/page/main/hero/query-data.webp',
     title: 'Query data',
     description:
       "Perform complex SQL tasks and protect data privacy with ByteBase's web-based IDE.",
@@ -64,7 +64,7 @@ const cards: CardProps[] = [
     ],
     color: 'red',
     href: '#',
-    cover: '/images/page/main/hero/secure-access.png',
+    cover: '/images/page/main/hero/secure-access.webp',
     title: 'Secure access',
     description:
       'Eliminate administrative complexity and ensure compliance with one-stop resource management.',

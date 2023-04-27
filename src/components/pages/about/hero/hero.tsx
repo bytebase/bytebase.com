@@ -27,7 +27,6 @@ const Hero = () => {
           width={1229}
           height={631}
           className="col-span-11 col-start-2 mt-[62px] hidden 3xl:block xl:hidden"
-          priority
         />
         <Image
           src="/images/page/about/why-we-build-xl.webp"
@@ -35,7 +34,6 @@ const Hero = () => {
           width={936}
           height={528}
           className="col-span-full mt-16 hidden xl:block md:hidden"
-          priority
         />
         <Image
           src="/images/page/about/why-we-build-md.webp"
@@ -43,7 +41,6 @@ const Hero = () => {
           width={712}
           height={388}
           className="col-span-full mt-6 hidden md:block sm:hidden"
-          priority
         />
         <Image
           src="/images/page/about/why-we-build-sm.webp"
@@ -51,7 +48,6 @@ const Hero = () => {
           width={328}
           height={298}
           className="col-span-full mt-9 hidden sm:block"
-          priority
         />
         <Image
           src="/images/page/about/database.webp"

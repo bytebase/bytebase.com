@@ -29,7 +29,7 @@ const Backed = () => (
           className="self-start 3xl:hidden xl:w-[206px] md:w-[198px] md:self-center sm:w-[124px]"
         />
         <Image
-          src="/images/page/about/cto-2xl.webp"
+          src="/images/page/about/cto-3xl.webp"
           alt=""
           width={296}
           height={296}

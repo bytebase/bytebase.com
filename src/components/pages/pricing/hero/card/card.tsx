@@ -52,7 +52,7 @@ const Card = ({
           src={image}
           width={240}
           height={240}
-          alt={planTitle}
+          alt=""
           className="mt-3 lg:w-[220px] md:w-[180px] sm:absolute sm:top-0 sm:right-4 xs:w-[140px]"
           priority
         />

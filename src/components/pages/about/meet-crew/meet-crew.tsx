@@ -22,7 +22,7 @@ const MeetCrew = () => (
           className="pointer-events-none absolute -bottom-[260px] -right-20 3xl:-right-[76px] xl:hidden"
         />
         <Image
-          src="/images/page/about/crew-ellipse-lg.webp"
+          src="/images/page/about/crew-ellipse-xl.webp"
           alt="Built by engineers knowing database development flow"
           width={628}
           height={517}
@@ -36,7 +36,7 @@ const MeetCrew = () => (
           className="pointer-events-none absolute -bottom-[173px] -right-7 hidden md:block sm:hidden"
         />
         <Image
-          src="/images/page/about/crew-ellipse-sm.png"
+          src="/images/page/about/crew-ellipse-sm.webp"
           alt="Built by engineers knowing database development flow"
           width={360}
           height={260}

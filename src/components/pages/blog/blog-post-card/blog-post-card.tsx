@@ -70,6 +70,7 @@ const BlogPostCard = ({
       )}
       <div className="flex flex-col gap-y-3 md:gap-y-2">
         <Link
+          aria-label={`Posts of ${post.tags} category`}
           className={clsx(
             tagColors,
             'inline-flex max-w-fit rounded-full px-3 py-[5px] text-14 font-medium leading-none',

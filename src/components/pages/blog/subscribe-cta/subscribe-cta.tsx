@@ -32,19 +32,25 @@ const SubscribeCta = () => {
               type="email"
               placeholder="Your email address..."
             />
-            <button className="flex-shrink-0 rounded-r-full bg-black py-6 px-11 text-16 font-bold uppercase leading-none xl:py-4 xl:px-[22px] md:py-3 md:px-5">
+            <button
+              aria-label="Subscribe"
+              className="flex-shrink-0 rounded-r-full bg-black py-6 px-11 text-16 font-bold uppercase leading-none xl:py-4 xl:px-[22px] md:py-3 md:px-5"
+            >
               <span className="leading-none md:hidden">Subscribe</span>{' '}
               <img
                 className="hidden h-6 w-6 md:block"
                 src="/images/arrow-form.svg"
-                alt="Subscribe"
+                alt=""
                 width={24}
                 height={24}
                 loading="lazy"
               />
             </button>
           </div>
-          <p className="mt-3 pl-7 text-14 leading-snug xl:mt-3 xl:max-w-[290px] xl:pl-5 md:mt-2 sm:max-w-full sm:pl-0">
+          <p
+            aria-label="By subscribing, you agree with Revue's Terms of Service and Privacy Policy"
+            className="mt-3 pl-7 text-14 leading-snug xl:mt-3 xl:max-w-[290px] xl:pl-5 md:mt-2 sm:max-w-full sm:pl-0"
+          >
             By subscribing, you agree with Revue&apos;s{' '}
             <Link
               className="whitespace-nowrap font-semibold underline decoration-[#ffffff40] decoration-2 underline-offset-[5px]"

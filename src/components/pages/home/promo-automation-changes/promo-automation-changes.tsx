@@ -76,7 +76,7 @@ const PromoAutomationChanges = () => {
             {isIntersecting ? <RiveComponent /> : null}
           </div>
           <Image
-            src="/images/page/main/automation-changes-tablet.png"
+            src="/images/page/main/automation-changes-tablet.webp"
             width={626}
             height={614}
             alt=""
@@ -84,7 +84,7 @@ const PromoAutomationChanges = () => {
             className="relative mx-auto hidden md:block sm:hidden"
           />
           <Image
-            src="/images/page/main/automation-changes-phone.png"
+            src="/images/page/main/automation-changes-phone.webp"
             width={348}
             height={408}
             alt=""

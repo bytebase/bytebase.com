@@ -42,14 +42,14 @@ const Pagination = ({ currentPageIndex, pageCount, categoryPath = '' }: Paginati
         disabledLinkClassName="pointer-events-none text-gray-60"
         previousLabel={
           <>
-            <Arrow className="w-5 -rotate-180" />
+            <Arrow className="w-5 -rotate-180" alt="" />
             <span className="pt-0.5 leading-none md:hidden">Previous</span>
           </>
         }
         nextLabel={
           <>
             <span className="pt-0.5 leading-none md:hidden">Next</span>
-            <Arrow className="w-5" />
+            <Arrow className="w-5" alt="" />
           </>
         }
         renderOnZeroPageCount={null}

@@ -22,7 +22,10 @@ const Posts = ({ posts, tabs, page = 1, category = '', pageCount }: PostsProps) 
   return (
     <section className="posts mt-20 lg:mt-[78px] md:mt-16 sm:mt-14">
       <div className="container">
-        <h1 className="font-title text-72 leading-none lg:text-50 md:text-46 sm:text-34">
+        <h1
+          aria-hidden="true"
+          className="font-title text-72 leading-none lg:text-50 md:text-46 sm:text-34"
+        >
           Bytebase blog
         </h1>
         <Tabs items={tabsWithSlug} currentSlug={category} />

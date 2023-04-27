@@ -42,7 +42,7 @@ const Table = () => {
         <h2 className="sr-only">Rate plans comparison</h2>
         <div className="relative z-20 col-span-3 col-start-2 3xl:col-span-4 3xl:col-start-1 sm:col-span-6">
           <Image
-            src="/images/page/pricing/table-decor.png"
+            src="/images/page/pricing/table-decor.webp"
             width={338}
             height={330}
             alt=""
@@ -133,7 +133,10 @@ const Table = () => {
           </div>
         </div>
         <div className="col-span-7 col-start-5 pt-7 3xl:col-span-8 3xl:col-start-5 xl:pt-6 md:pt-4 sm:col-span-12 sm:col-start-1 sm:pt-3">
-          <p className="text-center text-15 leading-snug text-gray-40 xl:text-14 xl:leading-tight">
+          <p
+            aria-label="You can upgrade, downgrade, or cancel your subscription anytime. No hidden charges"
+            className="text-center text-15 leading-snug text-gray-40 xl:text-14 xl:leading-tight"
+          >
             You can upgrade, downgrade, or{' '}
             <Link className="xl:text-14 sm:inline" size="sm" href="/refund" theme="primary-1">
               cancel your subscription

@@ -21,6 +21,7 @@ export default async function Blog() {
 
   return (
     <>
+      <h1 className="sr-only">Bytebase blog</h1>
       <BlogPostHero post={posts[0]} isBlogPost={false} />
       <RecentPosts posts={posts.slice(1, 5)} />
       <SubscribeCta />

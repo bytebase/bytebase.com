@@ -193,6 +193,7 @@ const SubscriptionForm = ({ className }: { className?: string }) => {
                 onChange={handleInputChange}
               />
               <button
+                aria-label="Subscribe"
                 className={clsx(
                   'trans flex-shrink-0 rounded-r-full bg-center bg-no-repeat py-6 px-11 text-16 font-bold uppercase leading-none transition-colors duration-200 xl:py-4 md:py-3 md:px-5 sm:px-5 sm:py-3',
                   formState === STATES.SUCCESS
@@ -236,7 +237,10 @@ const SubscriptionForm = ({ className }: { className?: string }) => {
                 message={errorMessage}
               />
             </div>
-            <p className="mt-5 text-14 leading-snug xl:mt-3 xl:max-w-[290px] md:mt-2">
+            <p
+              aria-label="By subscribing, you agree with Revue's Terms of Service and Privacy Policy."
+              className="mt-5 text-14 leading-snug xl:mt-3 xl:max-w-[290px] md:mt-2"
+            >
               By subscribing, you agree with Revue&apos;s{' '}
               <NextLink href={Route.TERMS} className="border-b-2 border-white border-opacity-40">
                 Terms of Service
