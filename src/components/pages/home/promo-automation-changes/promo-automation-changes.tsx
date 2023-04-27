@@ -13,7 +13,7 @@ import Pill from '@/components/shared/pill';
 const PromoAutomationChanges = () => {
   const ref = useRef(null);
 
-  const { isIntersecting } = useIntersectionObserver(ref, { rootMargin: '-150px' });
+  const { isIntersecting } = useIntersectionObserver(ref, { rootMargin: '-150px', threshold: 0.3 });
 
   const { rive, RiveComponent } = useRive({
     src: '/rive/automation-changes.riv',

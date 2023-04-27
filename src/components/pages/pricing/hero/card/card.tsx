@@ -38,7 +38,7 @@ const Card = ({
     >
       <div
         className={clsx(
-          'flex min-h-[548px] w-full flex-col items-center lg:min-h-[525px] md:min-h-[462px] sm:min-h-0 sm:items-start',
+          'flex min-h-[548px] w-full flex-col items-center xl:min-h-[588px] lg:min-h-[525px] md:min-h-[462px] sm:min-h-0 sm:items-start',
           additionalDescription ? 'sm:pb-4' : 'sm:pb-6',
         )}
       >
@@ -59,7 +59,7 @@ const Card = ({
         <span
           className={clsx(
             'relative mt-4 font-title text-104 font-semibold leading-none tracking-tighter text-gray-15 lg:text-72 lg:tracking-normal md:mt-3 md:text-56',
-            { 'text-primary-1 xl:-ml-2': planTitle.toLowerCase() === 'pro' },
+            { 'text-primary-1 lg:-ml-11 sm:ml-0': planTitle.toLowerCase() === 'pro' },
           )}
         >
           {typeof price === 'number' ? `$${price}` : price}
