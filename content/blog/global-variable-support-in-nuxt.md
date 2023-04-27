@@ -53,7 +53,7 @@ So following Nuxt Content's [instruction](https://content.nuxtjs.org/v1/getting-
 
 and place it under `/components/global`:
 
-```
+```bash
 components/
   global/
     Version.vue
@@ -91,7 +91,7 @@ Usually, our Developer Marketing team updates the version number on every new re
 
 To achieve this, we create a file named `VERSION` and put it under the root directory. This file only contains one line of the exact latest version number:
 
-```
+```bash
 %%bb_version%%
 ```
 

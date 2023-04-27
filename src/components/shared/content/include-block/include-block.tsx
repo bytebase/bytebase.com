@@ -1,7 +1,7 @@
+import Content from '@/components/shared/content';
+
 import { getBlogPostBySlug } from '@/lib/api-blog';
 import { getPostBySlug } from '@/lib/api-docs';
-
-import Content from '@/components/shared/content';
 
 const getPost = (url: string) => {
   if (url.startsWith('/blog')) {

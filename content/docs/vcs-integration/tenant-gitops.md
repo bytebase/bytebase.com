@@ -54,7 +54,7 @@ statement: |
 
 Both SQL files and YAML manifests can co-exist and be used on per-migration basis depending on your needs. After several migrations, your VCS repository for storing migration scripts could look like follows:
 
-```
+```bash
 bytebase/0001##ddl##add-company-table.sql
 bytebase/0002##ddl##add-payout-table.sql
 bytebase/0003##dml##insert-companies.yml

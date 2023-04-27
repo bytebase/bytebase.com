@@ -16,7 +16,7 @@ All commands that operate databases require this option, including:
 
 The supported format is
 
-```
+```bash
 driver://username[:password]@host[:port]/[dbName][?param=value&...&param=value]
 ```
 

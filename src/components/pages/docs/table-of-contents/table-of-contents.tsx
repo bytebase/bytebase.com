@@ -1,9 +1,8 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
-import { useDebounce } from 'react-use';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
-import debounce from '@/utils/debounce';
+import { useThrottleCallback } from '@react-hook/throttle';
 import clsx from 'clsx';
 
 import { TableOfContents as TOCProps } from '@/types/docs';
@@ -15,67 +14,82 @@ type TableOfContentsProps = {
   hasBackToTop?: boolean;
 };
 
-const TableOfContents = ({ items, hasBackToTop }: TableOfContentsProps) => {
-  const [activeAnchor, setActiveAnchor] = useState<string | null>(null);
-  const [debouncedActiveAnchor, setDebouncedActiveAnchor] = useState<string | null>(null);
+const backToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+};
 
-  const handleScroll = useCallback(() => {
-    const anchors = items.map(({ id }) => document.getElementById(id));
-    const currentActiveAnchor = anchors.find((anchor) => {
-      const top = anchor?.getBoundingClientRect()?.top;
-      return top && top >= 0 && top <= window.innerHeight;
-    });
-    if (currentActiveAnchor) {
-      setActiveAnchor(`#${currentActiveAnchor.id}`);
-    }
-  }, [items]);
+const onClick = (evt: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  evt.preventDefault();
+
+  document.getElementById(id)?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+
+  // Changing hash without default jumps to anchor
+  if (history.pushState) {
+    history.pushState(false, '', `#${id}`);
+  } else {
+    // Old browser support
+    window.location.hash = `#${id}`;
+  }
+};
+
+const CURRENT_ANCHOR_GAP_PX = 16;
+
+const TableOfContents = ({ items, hasBackToTop }: TableOfContentsProps) => {
+  const titles = useRef<HTMLElement[]>([]);
+  const [currentAnchor, setCurrentAnchor] = useState<string | null>(null);
 
   useEffect(() => {
-    const cb = debounce(handleScroll, 250);
-    window.addEventListener('scroll', cb);
-    return () => {
-      window.removeEventListener('scroll', cb);
-    };
-  }, [handleScroll]);
+    titles.current = items
+      .map(({ id }) => document.getElementById(id))
+      .filter((anchor): anchor is HTMLElement => anchor !== null);
+  }, []);
 
-  useDebounce(() => setDebouncedActiveAnchor(activeAnchor), 10, [activeAnchor]);
+  const updateCurrentAnchor = useCallback(() => {
+    const currentTitleIdx = titles.current.findIndex(
+      (anchor) => anchor.getBoundingClientRect().top - CURRENT_ANCHOR_GAP_PX >= 0,
+    );
 
-  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, anchor: string) => {
-    e.preventDefault();
-    document.querySelector(anchor)?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
-    // changing hash without default jumps to anchor
-    // eslint-disable-next-line no-restricted-globals
-    if (history.pushState) {
-      // eslint-disable-next-line no-restricted-globals
-      history.pushState(false, '', anchor.toString());
-    } else {
-      // old browser support
-      window.location.hash = anchor;
-    }
-  };
+    const idx =
+      currentTitleIdx === -1 ? titles.current.length - 1 : Math.max(currentTitleIdx - 1, 0);
 
-  const backToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
+    const currentTitle = titles.current[idx];
+
+    setCurrentAnchor(currentTitle.id);
+  }, []);
+
+  const onScroll = useThrottleCallback(updateCurrentAnchor, 5);
+
+  useEffect(() => {
+    updateCurrentAnchor();
+
+    window.addEventListener('scroll', onScroll);
+
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  if (items.length === 0) {
+    return null;
+  }
+
   return (
     <nav className="table-of-contents lg:hidden">
       <div className="relative pl-5 before:absolute before:top-0 before:left-px before:h-full before:w-px before:bg-gray-90">
         <h3 className="text-14 font-bold uppercase leading-none tracking-tight">
           Table of contents
         </h3>
-        <ul className={clsx(hasBackToTop && 'border-b border-gray-90 pb-6', 'mt-3 flex flex-col ')}>
-          {items.map(({ id, title, level }) => (
+        <ul className={clsx(hasBackToTop && 'border-b border-gray-90 pb-6', 'mt-3 flex flex-col')}>
+          {items.map(({ id, title, level }, idx) => (
             <li
               className={clsx(
                 'relative py-2 text-15 font-medium before:absolute before:-left-[19.5px] before:top-1/2 before:h-4/5 before:w-0.5 before:-translate-y-1/2 before:rounded-sm before:transition-colors before:duration-200',
                 {
-                  'before:bg-primary-1': debouncedActiveAnchor === `#${id}`,
+                  'before:bg-primary-1': currentAnchor === id,
                 },
               )}
               key={id}
@@ -85,11 +99,11 @@ const TableOfContents = ({ items, hasBackToTop }: TableOfContentsProps) => {
                   'flex text-gray-30 transition-colors duration-200 hover:text-gray-60',
                   {
                     'pl-2.5': level === 3,
-                    'text-primary-1': debouncedActiveAnchor === `#${id}`,
+                    'text-primary-1': currentAnchor === id,
                   },
                 )}
                 href={`#${id}`}
-                onClick={(e) => handleAnchorClick(e, `#${id}`)}
+                onClick={(e) => onClick(e, id)}
               >
                 {title}
               </a>

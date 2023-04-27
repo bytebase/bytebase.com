@@ -17,7 +17,7 @@ In the [1.2.1 release](/changelog/bytebase-1-2-1), we found that the [GoReleaser
 
 ![exclude-all-go-files-error](/blog/how-we-explored-the-best-practices-of-goreleaser-x-cgo/exclude-all-go-files-error.webp)
 
-```
+```bash
 build constraints exclude all Go files in /go/pkg/mod/github.com/pganalyze/pg_query_go/v2@2.1.2/parser
 ```
 
@@ -98,7 +98,7 @@ We used GoReleaser's ["overrides"](https://goreleaser.com/customization/build/) 
 
 Up to this point, we can use GoReleaser to compile when CGO is on, but the story is not over yet. The ultimate goal of GoReleaser is to release, and if we use GoReleaser twice as we currently do, we will generate two releases. But compared to the cross-compilation headache, this is a piece of cake.
 
-## Release!
+## Release
 
 The main idea here is simple: separate the building process from the release.
 

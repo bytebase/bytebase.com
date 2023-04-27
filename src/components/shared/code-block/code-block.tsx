@@ -1,6 +1,13 @@
 'use client';
 
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import bash from 'react-syntax-highlighter/dist/esm/languages/prism/bash';
+import diff from 'react-syntax-highlighter/dist/esm/languages/prism/diff';
+import javascript from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
+import markdown from 'react-syntax-highlighter/dist/esm/languages/prism/markdown';
+import nginx from 'react-syntax-highlighter/dist/esm/languages/prism/nginx';
+import sql from 'react-syntax-highlighter/dist/esm/languages/prism/sql';
+import yaml from 'react-syntax-highlighter/dist/esm/languages/prism/yaml';
 
 import useCopyToClipboard from '@/hooks/use-copy-to-clipboard';
 
@@ -8,6 +15,14 @@ import CheckIcon from './images/check.inline.svg';
 import CopyIcon from './images/copy.inline.svg';
 
 const DEFAULT_LANGUAGE = 'bash';
+
+SyntaxHighlighter.registerLanguage('javascript', javascript);
+SyntaxHighlighter.registerLanguage('bash', bash);
+SyntaxHighlighter.registerLanguage('sql', sql);
+SyntaxHighlighter.registerLanguage('markdown', markdown);
+SyntaxHighlighter.registerLanguage('yaml', yaml);
+SyntaxHighlighter.registerLanguage('diff', diff);
+SyntaxHighlighter.registerLanguage('nginx', nginx);
 
 const CodeBlock = ({
   className,
@@ -24,7 +39,7 @@ const CodeBlock = ({
 
   return (
     <figure className="code-block group relative" {...otherProps}>
-      <SyntaxHighlighter className="no-scrollbars" language={language} useInlineStyles={false}>
+      <SyntaxHighlighter className="scrollbar-hidden" language={language} useInlineStyles={false}>
         {code}
       </SyntaxHighlighter>
       <button
