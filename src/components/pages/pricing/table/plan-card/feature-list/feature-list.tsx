@@ -7,8 +7,12 @@ import { PricingTableItem } from '@/types/pricing';
 import { calculateCellHeight } from '../../data/calculate-cell-height';
 import { COLORS } from '../../data/pricing-plans';
 
-const presentFeature = <img src="/images/check.svg" alt="Present Feature" className="h-6 w-6" />;
-const missingFeature = <img src="/images/cross.svg" className="h-6 w-6" alt="Missing Feature" />;
+const presentFeature = (
+  <img src="/images/check.svg" className="h-6 w-6" alt="Present Feature" loading="lazy" />
+);
+const missingFeature = (
+  <img src="/images/cross.svg" className="h-6 w-6" alt="Missing Feature" loading="lazy" />
+);
 
 const renderFeature = (feature: boolean | { value: string; tooltip: string } | string) => {
   if (typeof feature === 'boolean') {

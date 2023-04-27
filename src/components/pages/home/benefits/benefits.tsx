@@ -54,11 +54,12 @@ const Benefits = () => {
                 <div className="col-span-7 pt-[165px] 3xl:pt-[124px] xl:col-span-6 xl:pt-[120px] md:col-auto md:pt-0">
                   <div className="flex items-center gap-[30px] xl:gap-6 md:gap-4 sm:gap-3">
                     <img
+                      className="h-14 w-14 rounded-full shadow-[0_5px_15px_0_rgba(172,178,210,0.8)] xl:h-11 xl:w-11 md:h-9 md:w-9 sm:h-7 sm:w-7"
                       width={44}
                       height={44}
                       src="/images/page/main/accordion-opened.svg"
                       alt=""
-                      className="h-14 w-14 rounded-full shadow-[0_5px_15px_0_rgba(172,178,210,0.8)] xl:h-11 xl:w-11 md:h-9 md:w-9 sm:h-7 sm:w-7"
+                      loading="lazy"
                     />
                     <h3 className="text-44 font-bold leading-extra-tight tracking-tighter xl:text-36 md:text-30 sm:text-24">
                       {title}
@@ -79,11 +80,12 @@ const Benefits = () => {
             ) : (
               <div className="container flex items-center gap-7 py-[26px] xl:gap-6 md:gap-4 md:py-6 sm:gap-3 sm:py-[30px]">
                 <img
+                  className="ml-1.5 h-11 w-11 xl:ml-0 xl:h-[38px] xl:w-[38px] md:h-8 md:w-8 sm:h-7 sm:w-7"
                   src="/images/page/main/accordion-closed-primary-1.svg"
                   alt=""
                   width={44}
                   height={44}
-                  className="ml-1.5 h-11 w-11 xl:ml-0 xl:h-[38px] xl:w-[38px] md:h-8 md:w-8 sm:h-7 sm:w-7"
+                  loading="lazy"
                 />
                 <p className="text-30 font-bold leading-extra-tight xl:text-24 md:text-20 sm:text-18">
                   {title}

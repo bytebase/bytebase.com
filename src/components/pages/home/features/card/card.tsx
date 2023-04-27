@@ -15,11 +15,12 @@ const Card = ({
     <article className="">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
+        className="h-[96px] xl:h-[88px] lg:w-[88px] md:h-[60px] md:w-[60px]"
         src={icon}
         alt=""
         width={96}
         height={96}
-        className="h-[96px] xl:h-[88px] lg:w-[88px] md:h-[60px] md:w-[60px]"
+        loading="lazy"
       />
       <h3 className="mt-5 font-title text-56 font-semibold leading-none 2xl:mt-4 lg:text-44 md:mt-1 md:text-34">
         {title}

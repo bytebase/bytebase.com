@@ -72,7 +72,7 @@ const Footer = () => (
             alt="Bytebase logo"
             width={150}
             height={32}
-            loading="eager"
+            loading="lazy"
           />
         </Link>
         <p className="whitespace-nowrap text-16 font-medium leading-none tracking-tight text-gray-60 xs:hidden">

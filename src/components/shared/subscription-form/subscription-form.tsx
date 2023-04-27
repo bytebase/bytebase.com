@@ -5,9 +5,9 @@ import NextLink from 'next/link';
 
 import { useEffect, useRef, useState } from 'react';
 
+import useIntersectionObserver from '@/hooks/use-intersection-observer';
 import useLocalStorage from '@/hooks/use-local-storage';
 import useSegment from '@/hooks/use-segment';
-import useIntersectionObserver from '@react-hook/intersection-observer';
 import { Alignment, Fit, Layout, useRive, useStateMachineInput } from '@rive-app/react-canvas';
 import clsx from 'clsx';
 
@@ -47,16 +47,24 @@ const ErrorMessage = ({ className, message }: { className?: string; message: str
 );
 
 const SubscriptionForm = ({ className }: { className?: string }) => {
-  const ref = useRef(null);
+  const containerRef = useRef(null);
+
   const [email, setEmail] = useState('');
   const [formState, setFormState] = useState(STATES.DEFAULT);
   const [submittedEmail, setSubmittedEmail] = useLocalStorage('submittedEmailNewsletterForm', []);
   const [errorMessage, setErrorMessage] = useState('');
   const { analytics } = useSegment();
 
-  const { isIntersecting } = useIntersectionObserver(ref);
+  const { isIntersecting } = useIntersectionObserver(containerRef, {
+    once: true,
+    rootMargin: '500px 0px 0px 0px',
+  });
 
-  const { rive, RiveComponent } = useRive({
+  const {
+    rive,
+    RiveComponent,
+    setContainerRef: setRiveRef,
+  } = useRive({
     src: '/rive/rocket.riv',
     autoplay: false,
     stateMachines: 'SM',
@@ -78,8 +86,9 @@ const SubscriptionForm = ({ className }: { className?: string }) => {
   }, [rive, isIntersecting]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.currentTarget.value.trim());
+    input?.fire();
     setFormState(STATES.DEFAULT);
+    setEmail(event.currentTarget.value.trim());
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -140,13 +149,16 @@ const SubscriptionForm = ({ className }: { className?: string }) => {
         'mt-[124px] bg-primary-1 text-white 3xl:mt-[110px] xl:mt-[97px] md:mt-[54px] sm:mt-4.5',
         className,
       )}
-      ref={ref}
+      ref={containerRef}
     >
       <div className="container gap-x-grid grid grid-cols-12 overflow-x-clip sm:flex sm:flex-col">
         <div className="relative col-span-5 col-start-2 -ml-10 xl:col-span-6 xl:col-start-1 xl:ml-0">
           <div className="absolute -top-14 -bottom-10 w-full xl:-top-6 xl:-bottom-8 md:-top-4.5 md:-bottom-4.5 sm:hidden">
-            <div className="aspect-square w-full max-w-[520px] 3xl:-ml-2 3xl:max-w-[510px] xl:ml-0 xl:max-w-[410px] md:max-w-full">
-              <RiveComponent />
+            <div
+              className="aspect-square w-full max-w-[520px] 3xl:-ml-2 3xl:max-w-[510px] xl:ml-0 xl:max-w-[410px] md:max-w-[370px] sm:max-w-full"
+              ref={setRiveRef}
+            >
+              {isIntersecting ? <RiveComponent /> : null}
             </div>
           </div>
           <Image
@@ -178,7 +190,6 @@ const SubscriptionForm = ({ className }: { className?: string }) => {
                 value={email}
                 placeholder="Your email address..."
                 disabled={formState === STATES.LOADING || formState === STATES.SUCCESS}
-                onInput={() => input?.fire()}
                 onChange={handleInputChange}
               />
               <button
@@ -213,6 +224,7 @@ const SubscriptionForm = ({ className }: { className?: string }) => {
                   alt=""
                   width={24}
                   height={24}
+                  loading="lazy"
                 />
               </button>
               <ErrorMessage

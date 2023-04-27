@@ -4,18 +4,30 @@ import Image from 'next/image';
 
 import { useEffect, useRef } from 'react';
 
-import useIntersectionObserver from '@react-hook/intersection-observer';
+import useIntersectionObserver from '@/hooks/use-intersection-observer';
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 
 import { LinkUnderlined } from '@/components/shared/link-underlined';
 import Pill from '@/components/shared/pill';
 
 const PromoSecurity = () => {
-  const ref = useRef(null);
+  const containerRef = useRef(null);
+  const animationRef = useRef(null);
 
-  const { isIntersecting } = useIntersectionObserver(ref, { rootMargin: '-150px' });
+  const { isIntersecting } = useIntersectionObserver(containerRef, {
+    once: true,
+    rootMargin: '500px 0px 0px 0px',
+  });
+  const { isIntersecting: isVisible } = useIntersectionObserver(animationRef, {
+    once: true,
+    threshold: 0.4,
+  });
 
-  const { rive, RiveComponent } = useRive({
+  const {
+    rive,
+    RiveComponent,
+    setContainerRef: setRiveRef,
+  } = useRive({
     src: '/rive/security.riv',
     autoplay: false,
     stateMachines: 'SM',
@@ -29,13 +41,13 @@ const PromoSecurity = () => {
   });
 
   useEffect(() => {
-    if (rive && isIntersecting) {
+    if (rive && isVisible) {
       rive.play();
     }
-  }, [rive, isIntersecting]);
+  }, [rive, isVisible]);
 
   return (
-    <section className="bg-black text-white" ref={ref}>
+    <section className="bg-black text-white" ref={containerRef}>
       <div className="container gap-x-grid grid grid-cols-12 md:grid-cols-none">
         <div className="col-start-1 col-end-5 py-[216px] 3xl:col-end-7 3xl:py-[200px] xl:col-end-6 xl:pt-[154px] xl:pb-[183px] md:col-auto md:pt-16 md:pb-0 sm:pt-[58px]">
           <Pill theme="secondary-1">Secure</Pill>
@@ -50,25 +62,31 @@ const PromoSecurity = () => {
             Learn more
           </LinkUnderlined>
         </div>
-        <div className="relative col-start-5 col-end-13 self-stretch pt-[95px] before:absolute before:bottom-0 before:top-0 before:right-[166px] before:w-[252px] before:bg-security 3xl:col-start-7 3xl:pt-[80px] 3xl:before:right-[104px] xl:col-start-6 xl:before:right-[106px] xl:before:w-[216px] md:col-auto md:-mx-7 md:pt-[49px] md:pb-[39px] md:before:right-0 md:before:top-auto md:before:h-[427px] md:before:w-full md:before:bg-security-phone sm:-mx-4 sm:pb-[32px] sm:pt-[31px] sm:before:h-[324px]">
-          <div className="relative mr-[9px] ml-auto aspect-[1.0597014925] w-full max-w-[710px] 3xl:-mr-7 xl:mr-0 md:hidden">
-            <RiveComponent />
+        <div
+          className="relative col-start-5 col-end-13 self-stretch pt-[95px] before:absolute before:bottom-0 before:top-0 before:right-[166px] before:w-[252px] before:bg-security 3xl:col-start-7 3xl:pt-[80px] 3xl:before:right-[104px] xl:col-start-6 xl:before:right-[106px] xl:before:w-[216px] md:col-auto md:-mx-7 md:pt-[49px] md:pb-[39px] md:before:right-0 md:before:top-auto md:before:h-[427px] md:before:w-full md:before:bg-security-phone sm:-mx-4 sm:pb-[32px] sm:pt-[31px] sm:before:h-[324px]"
+          ref={animationRef}
+        >
+          <div
+            className="relative mr-[9px] ml-auto aspect-[1.0597014925] w-full max-w-[710px] 3xl:-mr-7 xl:mr-0 md:hidden"
+            ref={setRiveRef}
+          >
+            {isIntersecting ? <RiveComponent /> : null}
           </div>
           <Image
+            className="relative mx-auto hidden md:block sm:hidden"
             src="/images/page/main/security-tablet.png"
             width={629}
             height={715}
             alt=""
             loading="lazy"
-            className="relative mx-auto hidden md:block sm:hidden"
           />
           <Image
+            className="relative mx-auto hidden sm:block"
             src="/images/page/main/security-phone.png"
             width={350}
             height={505}
             alt=""
             loading="lazy"
-            className="relative mx-auto hidden sm:block"
           />
         </div>
       </div>

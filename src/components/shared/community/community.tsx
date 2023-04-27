@@ -4,17 +4,24 @@ import Image from 'next/image';
 
 import { useEffect, useRef } from 'react';
 
-import useIntersectionObserver from '@react-hook/intersection-observer';
+import useIntersectionObserver from '@/hooks/use-intersection-observer';
 import { Alignment, Fit, Layout, useRive, useStateMachineInput } from '@rive-app/react-canvas';
 
 import Cards from './cards';
 
 const Community = () => {
-  const ref = useRef(null);
+  const containerRef = useRef(null);
 
-  const { isIntersecting } = useIntersectionObserver(ref);
+  const { isIntersecting } = useIntersectionObserver(containerRef, {
+    once: true,
+    rootMargin: '500px 0px 0px 0px',
+  });
 
-  const { rive, RiveComponent } = useRive({
+  const {
+    rive,
+    RiveComponent,
+    setContainerRef: setRiveRef,
+  } = useRive({
     src: '/rive/community.riv',
     autoplay: true,
     stateMachines: 'SM',
@@ -38,7 +45,7 @@ const Community = () => {
   return (
     <section
       className="container mt-[160px] pb-20 3xl:mt-[144px] xl:mt-[128px] xl:pb-[58px] md:mt-[96px] md:pb-10 sm:mt-7"
-      ref={ref}
+      ref={containerRef}
     >
       <header className="gap-x-grid grid grid-cols-12 sm:grid-cols-none sm:gap-3">
         <div className="col-span-5 xl:col-span-6 sm:col-span-full">
@@ -46,11 +53,12 @@ const Community = () => {
             <span className="inline-flex items-center">
               <mark className="whitespace-nowrap bg-transparent text-primary-1">Join</mark>
               <img
+                className="ml-1.5 mr-[6px] mt-3.5 h-20 w-20 lg:mt-1 lg:h-[62px] lg:w-[62px] md:mt-1 md:h-[55px] md:w-[55px] sm:mx-1 sm:mt-2 sm:h-[39px] sm:w-[39px]"
                 src="/images/plus-icon.svg"
                 alt=""
                 width={80}
                 height={80}
-                className="ml-1.5 mr-[6px] mt-3.5 h-20 w-20 lg:mt-1 lg:h-[62px] lg:w-[62px] md:mt-1 md:h-[55px] md:w-[55px] sm:mx-1 sm:mt-2 sm:h-[39px] sm:w-[39px]"
+                loading="lazy"
               />
               the
             </span>{' '}
@@ -63,14 +71,17 @@ const Community = () => {
         </div>
         <div className="col-span-5 col-start-7 3xl:col-span-6 3xl:col-start-7 sm:col-span-full">
           <Image
+            className="mx-auto hidden sm:block"
             src="/images/page/main/community.png"
             alt=""
             width={328}
             height={270}
-            className="mx-auto hidden sm:block"
           />
-          <div className="aspect-square w-full 3xl:ml-auto 3xl:max-w-[600px] xl:max-w-[400px] md:w-full sm:hidden">
-            <RiveComponent />
+          <div
+            className="aspect-square w-full 3xl:ml-auto 3xl:max-w-[600px] xl:max-w-[400px] md:w-full sm:hidden"
+            ref={setRiveRef}
+          >
+            {isIntersecting ? <RiveComponent /> : null}
           </div>
         </div>
       </header>
