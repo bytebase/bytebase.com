@@ -87,7 +87,7 @@ const Benefits = () => {
                   height={44}
                   loading="lazy"
                 />
-                <p className="text-30 font-bold leading-extra-tight xl:text-24 md:text-20 sm:text-18">
+                <p className="text-30 font-bold leading-extra-tight tracking-tighter xl:text-24 md:text-20 sm:text-18">
                   {title}
                 </p>
               </div>

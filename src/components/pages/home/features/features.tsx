@@ -33,9 +33,9 @@ const cards: TCard[] = [
 
 const Features = () => {
   return (
-    <section className="container mt-[232px] 2xl:mt-[138px] lg:mt-[124px] md:mt-[90px] sm:mt-[76px]">
+    <section className="container mt-40 2xl:mt-36 lg:mt-32 md:mt-24 sm:mt-20">
       <header className="flex flex-col items-center text-center sm:items-start sm:text-start">
-        <h2 className="font-title text-88 font-semibold leading-none lg:text-68 lg:leading-104 md:text-54 sm:text-48">
+        <h2 className="font-title text-88 font-semibold leading-95 lg:text-68 lg:leading-104 md:text-54 sm:text-48">
           Stay confident
         </h2>
         <p className="mt-5 max-w-[716px] text-20 leading-normal 2xl:mt-[22px] lg:mt-5 lg:text-18 lg:leading-snug md:mt-3 md:max-w-[468px] md:text-14 sm:mt-2">
