@@ -24,7 +24,7 @@ const getAllBlogPosts = (): BlogPostsWithTags => {
       const slug = file.replace('.md', '');
       const post = getBlogPostBySlug(slug);
 
-      if (!post || post.tags === 'Tutorial' || post.tags.includes('Hidden')) return null;
+      if (!post || post.tags.includes('Hidden')) return null;
 
       post.tags.split(',').forEach((el) => {
         tagsSet.add(el.trim());
@@ -88,15 +88,18 @@ const getBlogPostsPerPage = ({
   const postsInCategory = posts.filter(
     (el) => category === '' || category === slugifyText(el.tags),
   );
-  const result = postsInCategory.slice(startIndex, startIndex + POSTS_PER_PAGE);
+
+  const postsWithoutTutorial = postsInCategory.filter((el) => el.tags !== 'Tutorial');
+
+  const result = postsWithoutTutorial.slice(startIndex, startIndex + POSTS_PER_PAGE);
 
   if (result.length === 0) return null;
 
   return {
-    recentPosts: postsInCategory.slice(0, 5),
-    pageCount: Math.ceil(postsInCategory.length / POSTS_PER_PAGE),
+    recentPosts: postsWithoutTutorial.slice(0, 5),
+    pageCount: Math.ceil(postsWithoutTutorial.length / POSTS_PER_PAGE),
     posts: result,
-    tags,
+    tags: tags.filter((el) => el !== 'Tutorial'),
   };
 };
 

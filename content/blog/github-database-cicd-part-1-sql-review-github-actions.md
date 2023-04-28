@@ -22,7 +22,7 @@ This is a series of articles about Database CI/CD with GitHub
 
 In the last article [The Database CI/CD Best Practice with GitHub](/blog/database-cicd-best-practice-with-github), we raised a question: "can we treat database the same way we treat application code?" and presented a complete database CI/CD workflow with GitHub.
 
-To bring the idea into reality, we broke it down into a three-part tutorial series <How to Setup Database CI/CD with GitHub>:
+To bring the idea into reality, we broke it down into a three-part tutorial series **How to Setup Database CI/CD with GitHub**:
 
 1. Enable SQL Review with GitHub Actions (this one)
 2. GitHub.com Database GitOps
@@ -38,7 +38,7 @@ _Bytebase deployment is not needed for this tutorial._
 
 Here is a completed example repository: [https://github.com/Bytebase/sql-review-action-example](https://github.com/Bytebase/sql-review-action-example).
 
-## Step 1 - Create a Repository on GitHub with two folders:
+## Step 1 - Create a Repository on GitHub with two folders
 
 - `.github/workflows/` to put the configuration files
 - `github-action-test/` to put the test SQLs, actually you can name the folder whatever you want.

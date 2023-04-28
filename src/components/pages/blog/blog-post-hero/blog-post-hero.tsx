@@ -19,6 +19,8 @@ type BlogPostHeroProps = {
 const BlogPostHero = ({ post, isBlogPost = true }: BlogPostHeroProps) => {
   const { tags, author, title, feature_image, slug, published_at, timeToRead } = post;
   const categorySlug = slugifyText(tags);
+  const categoryUrl =
+    tags === 'Tutorial' ? ROUTE.DOCS_TUTORIALS : `${ROUTE.BLOG_CATEGORY}/${categorySlug}`;
   const { tagColors, titleHover } = getBlogCardColors(categorySlug);
   const date = new Date(published_at);
   const formattedDate = format(date, 'MMM dd, yyyy');
@@ -32,7 +34,7 @@ const BlogPostHero = ({ post, isBlogPost = true }: BlogPostHeroProps) => {
         <div className="col-span-6 flex flex-col gap-y-6 2xl:gap-y-5 xl:gap-y-3 md:col-span-full">
           <Link
             aria-label={`Posts of ${tags} category`}
-            href={`${ROUTE.BLOG_CATEGORY}/${categorySlug}`}
+            href={categoryUrl}
             className={clsx(
               tagColors,
               'inline-flex max-w-fit rounded-full px-3 py-[5px] text-14 font-medium leading-none',
