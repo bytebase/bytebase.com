@@ -44,6 +44,7 @@ const Footer = () => (
                   size="md"
                   theme="gray"
                   href={linkUrl}
+                  target={isExternal ? 'blank' : undefined}
                 >
                   <span>{childName}</span>
                   {withGithubIcon && (
@@ -81,7 +82,7 @@ const Footer = () => (
       </div>
       <div className="col-span-2 col-start-7 flex items-center gap-x-5 lg:col-span-3 lg:justify-self-end md:col-span-3 md:col-start-10 md:row-span-1 md:row-start-1 xs:col-span-full xs:col-start-1 xs:row-start-2 xs:-mt-1 xs:justify-self-start">
         {socialLinks.map(({ name, href, icon: Icon }, idx) => (
-          <Link key={idx} href={href} className="flex items-center justify-center rounded-full">
+          <Link className="flex items-center justify-center rounded-full" key={idx} href={href}>
             <span className="sr-only">{name}</span>
             <Icon
               width={24}

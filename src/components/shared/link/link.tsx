@@ -28,6 +28,7 @@ type LinkProps = {
   theme?: keyof typeof styles.theme;
   children: React.ReactNode;
   withArrow?: boolean;
+  prefetch?: boolean;
   target?: string;
   rel?: string;
   onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;

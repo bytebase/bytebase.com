@@ -10,6 +10,7 @@ import GithubStarsButton from '@/components/shared/github-stars-button';
 import Link from '@/components/shared/link';
 
 import { MENUS } from '@/lib/menus.js';
+import Route from '@/lib/route';
 
 import APIIcon from '@/svgs/api.inline.svg';
 import CLIIcon from '@/svgs/cli.inline.svg';
@@ -139,6 +140,7 @@ const MobileMenu = () => {
                         <Link
                           className="flex w-full flex-col items-start justify-center whitespace-nowrap py-5 text-20 font-medium leading-none tracking-tight transition-colors duration-200 hover:cursor-pointer"
                           href={href}
+                          prefetch={href === Route.BLOG ? false : undefined}
                           onClick={toggleMenu}
                         >
                           {title}
@@ -163,6 +165,7 @@ const MobileMenu = () => {
                                       size="lg"
                                       theme="gray"
                                       href={linkUrl}
+                                      prefetch={false}
                                       onClick={() => {
                                         toggleMenu();
                                         setOpenedDropdown(-1);

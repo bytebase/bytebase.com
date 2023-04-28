@@ -61,7 +61,13 @@ const Header = () => {
               return (
                 <li key={title} className="group relative inline-block">
                   {href ? (
-                    <Link className="px-3 py-[9px] font-medium" href={href} size="md" theme="gray">
+                    <Link
+                      className="px-3 py-[9px] font-medium"
+                      prefetch={href === Route.BLOG ? false : undefined}
+                      href={href}
+                      size="md"
+                      theme="gray"
+                    >
                       {title}
                     </Link>
                   ) : (
@@ -89,6 +95,7 @@ const Header = () => {
                                   size="md"
                                   theme="gray"
                                   href={linkUrl}
+                                  prefetch={false}
                                 >
                                   <div className="flex flex-col gap-y-2.5">
                                     <div className="flex items-center gap-x-2 group-hover/link:text-primary-1">
@@ -107,6 +114,7 @@ const Header = () => {
                         <Link
                           className="group/box flex h-full min-h-[324px] w-[244px] grow flex-col justify-between rounded-md bg-gray-97 p-6 pt-4.5 text-gray-40 hover:bg-gray-94"
                           href={Route.DOCS_TUTORIALS}
+                          prefetch={false}
                         >
                           <div className="flex items-center justify-between group-hover/box:text-gray-15">
                             <span className="text-16 leading-normal">Start Learning</span>
