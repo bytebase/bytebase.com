@@ -46,7 +46,7 @@ const data: AccordionData[] = [
 ];
 
 const PromoSQLEditor = () => {
-  const containerRef = useRef(null);
+  const containerRef = useRef<null | HTMLDivElement>(null);
 
   const [activeIndex, setActiveIndex] = useState(0);
 

@@ -122,7 +122,7 @@ const Hero = () => {
             </p>
           </div>
         </header>
-        <footer className="mt-14 flex items-center gap-9 xl:mt-11 md:mt-7 sm:mt-6 sm:gap-3.5">
+        <footer className="mt-14 flex items-center gap-9 2xl:gap-8 xl:mt-11 xl:gap-6 md:mt-7 sm:mt-6 sm:gap-3.5">
           <Button
             href={Route.INDEX}
             theme="primary-filled"
@@ -134,17 +134,17 @@ const Hero = () => {
           <LinkUnderlined href={Route.INDEX}>See Live Demo</LinkUnderlined>
         </footer>
       </section>
-      <div className="col-span-full col-start-1 row-start-2 h-20 3xl:h-[72px] xl:h-20 md:h-[60px] sm:hidden" />
+      <div className="col-span-full col-start-1 row-start-2 h-20 md:h-[60px] sm:hidden" />
       <div
         className="col-start-1 col-end-5 row-start-3 row-end-4 sm:col-auto sm:row-auto sm:mt-8 sm:min-h-0"
         ref={anchorRef}
       >
         <Card className="sticky top-[200px]" {...cards[0]} />
       </div>
-      <div className="col-start-5 col-end-9 row-start-1 row-end-4 pt-[461px] 3xl:pt-[459px] xl:row-start-2 xl:pt-[30px] sm:col-auto sm:row-auto sm:mt-8 sm:pt-0">
+      <div className="col-start-5 col-end-9 row-start-1 row-end-4 pt-[461px] 3xl:pt-[459px] xl:row-start-2 xl:-mt-5 xl:pt-0 lg:mt-0 lg:pt-7 sm:col-auto sm:row-auto sm:mt-8 sm:pt-0">
         <Card className="sticky top-[200px] delay-150 sm:static" {...cards[1]} />
       </div>
-      <div className="col-start-9 col-end-13 row-start-1 row-end-4 pt-[136px] 3xl:pt-[140px] xl:row-start-2 xl:-mt-[40px] xl:pt-0 md:-mt-[29px] sm:col-auto sm:row-auto sm:mt-8">
+      <div className="col-start-9 col-end-13 row-start-1 row-end-4 pt-[136px] 3xl:pt-[140px] lg:row-start-2 lg:-mt-20 lg:pt-0 md:-mt-7 sm:col-auto sm:row-auto sm:mt-8">
         <Card className="sticky top-[200px] delay-300 sm:static" {...cards[2]} />
       </div>
     </div>

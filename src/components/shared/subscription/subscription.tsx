@@ -14,7 +14,7 @@ import Route from '@/lib/route';
 import Form from './form';
 
 const Subscription = ({ className }: { className?: string }) => {
-  const containerRef = useRef(null);
+  const containerRef = useRef<null | HTMLDivElement>(null);
 
   const { isIntersecting } = useIntersectionObserver(containerRef, {
     once: true,

@@ -11,8 +11,8 @@ import { LinkUnderlined } from '@/components/shared/link-underlined';
 import Pill from '@/components/shared/pill';
 
 const PromoAutomationChanges = () => {
-  const containerRef = useRef(null);
-  const animationRef = useRef(null);
+  const containerRef = useRef<null | HTMLDivElement>(null);
+  const animationRef = useRef<null | HTMLDivElement>(null);
 
   const { isIntersecting } = useIntersectionObserver(containerRef, {
     once: true,

@@ -48,7 +48,7 @@ const MobileSidebar = ({
   const [isOpen, setIsOpen] = useState(false);
   const [containerHeight, setContainerHeight] = useState<string | undefined>(undefined);
   const { height } = useWindowSize();
-  const wrapperRef = useRef(null);
+  const wrapperRef = useRef<null | HTMLDivElement>(null);
   const controls = useAnimation();
   const toggleMenu = () => setIsOpen((prev) => !prev);
 

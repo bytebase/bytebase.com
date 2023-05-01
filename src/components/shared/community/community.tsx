@@ -10,7 +10,7 @@ import { Alignment, Fit, Layout, useRive, useStateMachineInput } from '@rive-app
 import Cards from './cards';
 
 const Community = () => {
-  const containerRef = useRef(null);
+  const containerRef = useRef<null | HTMLDivElement>(null);
 
   const { isIntersecting } = useIntersectionObserver(containerRef, {
     once: true,

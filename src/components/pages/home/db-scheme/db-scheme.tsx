@@ -8,8 +8,8 @@ import useIntersectionObserver from '@/hooks/use-intersection-observer';
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 
 const DBScheme = () => {
-  const containerRef = useRef(null);
-  const animationRef = useRef(null);
+  const containerRef = useRef<null | HTMLDivElement>(null);
+  const animationRef = useRef<null | HTMLDivElement>(null);
 
   const { isIntersecting } = useIntersectionObserver(containerRef, {
     once: true,
