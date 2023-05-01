@@ -61,7 +61,10 @@ const PromoAutomationChanges = () => {
             Bytebase streamlines database deployment from non-prod to prod by integrating with
             version control systems for a GitOps workflow.
           </p>
-          <LinkUnderlined className="mt-8 xl:mt-7 md:mt-4 sm:mt-3" href="#">
+          <LinkUnderlined
+            className="mt-8 text-white hover:text-secondary-2 xl:mt-7 md:mt-4 sm:mt-3"
+            href="#"
+          >
             Learn more
           </LinkUnderlined>
         </div>
@@ -70,7 +73,7 @@ const PromoAutomationChanges = () => {
           ref={animationRef}
         >
           <div
-            className="relative ml-auto mr-[64px] aspect-[1.0597014925] w-full max-w-[710px] 3xl:-mr-[60px] xl:-mr-[46px] md:hidden"
+            className="relative ml-auto mr-[64px] aspect-[1.0597014925] w-[710px] 3xl:-mr-[60px] xl:-mr-[46px] xl:w-[560px] md:hidden"
             ref={setRiveRef}
           >
             {isIntersecting ? <RiveComponent /> : null}

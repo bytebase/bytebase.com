@@ -33,6 +33,7 @@ const Route = {
   USECASE_DBA: '/usecase/dba',
   USECASE_TECHLEAD: '/usecase/techlead',
   USECASE_DEVELOPER: '/usecase/developer',
+  SELF_HOST: '/docs/get-started/install/deploy-with-docker',
   DISCORD: 'https://discord.com/invite/huyw7gRsyA',
   TWITTER: 'https://twitter.com/Bytebase',
   GITHUB: 'https://github.com/bytebase/bytebase',

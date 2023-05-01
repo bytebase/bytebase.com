@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 
 import Button from '@/components/shared/button';
-import GithubStarsButton from '@/components/shared/github-stars-button';
 import Link from '@/components/shared/link';
 import MobileMenu from '@/components/shared/mobile-menu';
 
@@ -11,6 +10,7 @@ import Route from '@/lib/route';
 import APIIcon from '@/svgs/api.inline.svg';
 import CLIIcon from '@/svgs/cli.inline.svg';
 import DiagonalArrowIcon from '@/svgs/diagonal-arrow.inline.svg';
+import GitHubIcon from '@/svgs/github.inline.svg';
 import HowToIcon from '@/svgs/how-to.inline.svg';
 import RocketIcon from '@/svgs/rocket.inline.svg';
 
@@ -46,7 +46,6 @@ const Header = () => {
           aria-label="Global"
         >
           <Link href="/">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="h-8 w-auto xl:h-7"
               src="/images/logo.svg"
@@ -132,10 +131,22 @@ const Header = () => {
               );
             })}
           </ul>
-          <div className="flex items-center gap-x-9 xl:gap-x-7 lg:gap-x-5 md:hidden">
-            <GithubStarsButton />
-            <Button href="/" theme="gray-filled" size="sm">
-              Sign up for Cloud
+          <div className="flex items-center gap-5 md:hidden">
+            <Link
+              href={Route.GITHUB}
+              className="inline-flex items-center gap-2 text-14 font-bold uppercase leading-none"
+            >
+              {/* TODO: add github stars fetching */}
+              <GitHubIcon width={22} height={22} />
+              4.7k
+            </Link>
+            <span className="h-5 w-px bg-gray-80" />
+            <Button href={Route.SELF_HOST} theme="primary-outline" size="sm">
+              Self host
+            </Button>
+            {/* TODO: add auth0 */}
+            <Button href="#" theme="gray-filled" size="sm">
+              Sign Up for Cloud
             </Button>
           </div>
         </nav>

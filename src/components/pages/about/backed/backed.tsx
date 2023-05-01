@@ -11,13 +11,13 @@ const Backed = () => (
       <h2 className="col-span-full mt-3.5 justify-self-center text-center font-title text-88 font-semibold leading-none xl:mt-4 xl:text-68 md:mt-2 md:text-54 sm:text-48 sm:leading-95">
         Backed by the best
       </h2>
-      <div className="col-span-6 row-start-3 mt-16 grid place-items-center border border-gray-90 bg-gray-97 py-[91px] 3xl:py-[83px] xl:mt-12 xl:py-[58px] md:mt-11 md:py-[105px] sm:col-span-4 sm:mt-9 sm:py-16">
+      <div className="md:py-21 col-span-6 row-start-3 mt-16 grid place-items-center border border-gray-90 bg-gray-97 py-20 xl:mt-12 xl:py-10 md:mt-11 sm:col-span-4 sm:mt-9 sm:py-12">
         <Image
           src="/images/page/about/matrix-logo.svg"
           alt="Matrix Partners"
-          width={353}
-          height={142}
-          className="3xl:w-[324px] xl:w-[225px] md:w-[218px] sm:w-[172px]"
+          width={303}
+          height={164}
+          className="xl:h-[126px] xl:w-[233px] sm:h-[100px] sm:w-[185px]"
         />
       </div>
       <div className="col-span-6 row-start-3 mt-16 flex items-center border border-gray-90 xl:mt-12 md:mt-11 md:flex-col md:py-6 md:text-center sm:col-span-4 sm:row-start-4 sm:mt-4">

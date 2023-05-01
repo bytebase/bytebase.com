@@ -28,7 +28,7 @@ const LinkUnderlined = ({
     <Link
       href={href}
       className={clsx(
-        'block w-fit border-b-[3px] border-secondary-2 pb-1 text-16 font-bold uppercase leading-none tracking-wide transition-colors duration-200 hover:border-tones-green-dark active:border-tones-green-dark md:text-13',
+        'block w-fit border-b-[3px] border-secondary-2 pb-1 text-16 font-bold uppercase leading-none tracking-wide text-black transition-colors duration-200 hover:border-transparent hover:text-primary-1 active:border-transparent active:text-primary-1 md:text-13',
         linkClassName,
       )}
     >

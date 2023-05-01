@@ -87,7 +87,7 @@ const PromoSQLEditor = () => {
 
   return (
     <section
-      className="container relative py-40 2xl:py-36 xl:py-32 md:py-24 sm:overflow-hidden sm:py-20"
+      className="container relative mt-[62px] pt-[98px] pb-[192px] 3xl:mt-[62px] 3xl:pt-[84px] 3xl:pb-36 xl:mt-10 xl:pt-[88px] xl:pb-[126px] md:mt-[30px] md:pt-[66px] md:pb-24 sm:mt-20 sm:overflow-hidden sm:pt-0 sm:pb-[78px]"
       ref={containerRef}
     >
       <div

@@ -43,9 +43,9 @@ const Benefits = () => {
         {benefits.map(({ title, description, image }, idx) => (
           <li
             key={idx}
-            className={clsx({
-              'bg-radial-blue': openedItemIdx === idx,
-              'cursor-pointer bg-tones-purple-light': openedItemIdx !== idx,
+            className={clsx('bg-tones-purple-light', {
+              'bg-opacity-20': openedItemIdx === idx,
+              'cursor-pointer': openedItemIdx !== idx,
             })}
             onClick={() => setOpenedItemIdx(idx)}
           >
@@ -69,7 +69,7 @@ const Benefits = () => {
                     {description}
                   </p>
                 </div>
-                <div className="col-span-5 flex items-center justify-end self-stretch xl:col-span-6 md:col-auto md:mt-6 md:-mb-5 md:justify-center sm:-mx-4 sm:mb-0">
+                <div className="col-span-5 flex items-center justify-end self-stretch xl:col-span-6 md:col-auto md:mt-6 md:-mb-5 md:justify-center sm:mb-0">
                   <Image
                     {...image}
                     alt=""

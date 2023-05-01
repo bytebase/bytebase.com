@@ -88,8 +88,8 @@ const Card = ({
             'mt-auto w-fit rounded-full px-14 py-6 text-center text-16 font-bold uppercase leading-none tracking-wide text-white transition-colors duration-300 xl:w-full xl:px-2 md:py-4.5 md:text-13',
             {
               'bg-primary-1 group-hover:bg-primary-2': name === 'Discord',
-              'bg-secondary-3 group-hover:bg-[#3DB8F5]': name === 'Twitter',
-              'bg-gray-15 group-hover:bg-[#172136]': name === 'GitHub',
+              'bg-secondary-3 group-hover:bg-[#0B95DA]': name === 'Twitter',
+              'bg-gray-15 group-hover:bg-[#364563]': name === 'GitHub',
             },
           )}
         >
