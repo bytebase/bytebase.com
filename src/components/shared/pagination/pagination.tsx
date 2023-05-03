@@ -4,23 +4,20 @@ import { useRouter } from 'next/navigation';
 
 import ReactPaginate from 'react-paginate';
 
-import ROUTE from '@/lib/route';
-
 import Arrow from '@/svgs/arrow.inline.svg';
 
 type PaginationProps = {
   currentPageIndex: number;
   pageCount: number;
-  categoryPath?: string;
+  path: string;
 };
 
 // TODO: design disable state for prev/next links
-const Pagination = ({ currentPageIndex, pageCount, categoryPath = '' }: PaginationProps) => {
+const Pagination = ({ currentPageIndex, pageCount, path = '' }: PaginationProps) => {
   const router = useRouter();
 
   const handlePageClick = ({ selected }: { selected: number }) => {
-    const blogPath = !categoryPath ? ROUTE.BLOG : `${ROUTE.BLOG_CATEGORY}/${categoryPath}`;
-    const navigateTo = blogPath + (!selected ? '' : `/${selected + 1}`);
+    const navigateTo = path + (!selected ? '' : `/${selected + 1}`);
     router.push(navigateTo);
   };
 
@@ -28,7 +25,8 @@ const Pagination = ({ currentPageIndex, pageCount, categoryPath = '' }: Paginati
     <div className="mt-16 border-t border-gray-90 pt-8 xl:mt-14 md:mt-12 sm:mt-8">
       <ReactPaginate
         breakLabel="..."
-        pageRangeDisplayed={2}
+        pageRangeDisplayed={1}
+        marginPagesDisplayed={1}
         pageCount={pageCount}
         forcePage={currentPageIndex - 1}
         containerClassName="flex justify-center items-center gap-x-5 sm:gap-x-2.5"
@@ -37,8 +35,8 @@ const Pagination = ({ currentPageIndex, pageCount, categoryPath = '' }: Paginati
         activeLinkClassName="bg-primary-1 text-white pointer-events-none"
         previousClassName="mr-auto"
         nextClassName="ml-auto"
-        previousLinkClassName="flex items-center text-18 gap-x-2 px-5 bg-gray-97 rounded-full h-10 font-medium transition-colors hover:bg-gray-90 md:w-10 md:justify-center md:px-0"
-        nextLinkClassName="flex items-center text-18 gap-x-2 px-5 bg-gray-97 rounded-full h-10 font-medium transition-colors hover:bg-gray-90 md:w-10 md:justify-center md:px-0"
+        previousLinkClassName="flex items-center text-18 gap-x-2 px-5 bg-gray-97 rounded-full h-10 font-medium transition-colors hover:bg-gray-90 md:w-10 md:justify-center md:px-0 3xs:hidden"
+        nextLinkClassName="flex items-center text-18 gap-x-2 px-5 bg-gray-97 rounded-full h-10 font-medium transition-colors hover:bg-gray-90 md:w-10 md:justify-center md:px-0 3xs:hidden"
         disabledLinkClassName="pointer-events-none text-gray-60"
         previousLabel={
           <>

@@ -33,7 +33,7 @@ export default function DocLayout({
         {children}
       </div>
 
-      <SubscriptionForm className="md:!mt-[117px]" />
+      <SubscriptionForm className="mt-[124px] 3xl:mt-[110px] xl:mt-[97px] md:mt-[117px] sm:mt-4.5" />
     </>
   );
 }

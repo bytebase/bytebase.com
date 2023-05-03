@@ -12,7 +12,7 @@
 
     @apply leading-normal xl:text-16 md:leading-snug sm:text-14;
 
-    @apply prose-headings:mt-11 prose-headings:mb-5 prose-headings:font-semibold prose-p:my-5 prose-a:font-semibold prose-a:text-primary-1 prose-a:no-underline prose-a:transition-colors prose-a:duration-200 hover:prose-a:text-gray-60 prose-ul:my-5 xl:prose-headings:mt-10 xl:prose-headings:mb-4 xl:prose-p:my-4 sm:prose-headings:leading-tight;
+    @apply prose-headings:mt-11 prose-headings:mb-5 prose-headings:font-semibold prose-p:my-5 prose-a:break-words prose-a:font-semibold prose-a:text-primary-1 prose-a:no-underline prose-a:transition-colors prose-a:duration-200 hover:prose-a:text-gray-60 prose-ul:my-5 xl:prose-headings:mt-10 xl:prose-headings:mb-4 xl:prose-p:my-4 sm:prose-headings:leading-tight;
 
     > * {
       &:first-child {
@@ -83,6 +83,10 @@
       &::after {
         @apply hidden;
       }
+    }
+
+    h2 {
+      @apply text-30 lg:text-24 md:text-20 sm:text-18;
     }
 
     h1,

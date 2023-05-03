@@ -18,7 +18,7 @@ const SEO_DATA = {
   },
   CHANGELOG: {
     title: 'Changelog',
-    desctiption: 'Safer and faster database change and version control for DBAs and Developers',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
     pathname: `${Route.CHANGELOG}/`,
   },
   BLOG: {
