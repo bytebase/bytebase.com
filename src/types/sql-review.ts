@@ -61,6 +61,7 @@ export type RuleTemplate = {
 };
 
 export type RuleConfigComponent = {
+  type: string;
   key: string;
   payload: StringPayload | NumberPayload | TemplatePayload | StringArrayPayload | BooleanPayload;
 };
