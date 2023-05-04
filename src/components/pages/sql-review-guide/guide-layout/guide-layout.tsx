@@ -17,8 +17,8 @@ import TidbIcon from '@/svgs/tidb.inline.svg';
 
 const icons: Record<string, JSXElementConstructor<{ key: string; className: string }>> = {
   MYSQL: MySQLIcon,
-  TIDB: PostgresIcon,
-  POSTGRES: TidbIcon,
+  TIDB: TidbIcon,
+  POSTGRES: PostgresIcon,
 };
 
 type JSONStructure = { [key: string]: string | JSONStructure | any };
