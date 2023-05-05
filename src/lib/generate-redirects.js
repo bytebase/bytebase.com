@@ -11,7 +11,6 @@ const generateRedirects = () => {
     '/changelog/:path*',
     '/terms',
     '/privacy',
-    '/sql-review-guide',
     '/bytebase-plus',
     '/database/mysql',
     '/database/postgres',
