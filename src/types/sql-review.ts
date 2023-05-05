@@ -1,8 +1,4 @@
-export const RuleLevel = {
-  DISABLED: 'DISABLED',
-  ERROR: 'ERROR',
-  WARNING: 'WARNING',
-};
+import { RuleLevel } from '@/utils/sql-review';
 
 // The category type for rule template
 export type CategoryType =
@@ -45,6 +41,17 @@ type BooleanPayload = {
   type: 'BOOLEAN';
   default: boolean;
   value?: boolean;
+};
+
+export type FilterItem = {
+  id: string;
+  type: 'engine' | 'level';
+  checked: boolean;
+};
+
+export type GuidelineTemplate = {
+  id: string;
+  ruleList: RuleTemplate[];
 };
 
 export type RuleCategory = {

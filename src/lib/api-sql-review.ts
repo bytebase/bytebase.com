@@ -1,16 +1,11 @@
-import { RuleLevel, RuleTemplate } from '@/types/sql-review';
+import { RuleLevel } from '@/utils/sql-review';
+
+import { GuidelineTemplate, RuleTemplate } from '@/types/sql-review';
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 const jsYaml = require('js-yaml');
 const fs = require('fs');
 const path = require('path');
-
-export const LEVEL_LIST = [RuleLevel.ERROR, RuleLevel.WARNING, RuleLevel.DISABLED];
-
-export type GuidelineTemplate = {
-  id: string;
-  ruleList: RuleTemplate[];
-};
 
 export const sqlReviewSchema = jsYaml.load(
   fs.readFileSync(path.resolve('data/sql-review-schema.yaml'), 'utf8'),

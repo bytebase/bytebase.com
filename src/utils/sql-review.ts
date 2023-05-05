@@ -1,3 +1,5 @@
+import translationEn from '@/locales/sql-review/en.json';
+
 import { CategoryType, RuleCategory, RuleTemplate } from '@/types/sql-review';
 
 export const getRuleLocalizationKey = (type: string): string => {
@@ -33,3 +35,15 @@ export const convertToCategoryList = (
       (categoryOrder.get(c1.id as CategoryType) || 0),
   );
 };
+
+export const RuleLevel = {
+  DISABLED: 'DISABLED',
+  ERROR: 'ERROR',
+  WARNING: 'WARNING',
+};
+
+export const LEVEL_LIST = [RuleLevel.ERROR, RuleLevel.WARNING, RuleLevel.DISABLED];
+
+export type JSONStructure = { [key: string]: string | JSONStructure | any };
+
+export const en: JSONStructure = translationEn;
