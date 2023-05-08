@@ -48,10 +48,10 @@ const SubscribeCta = () => {
             </button>
           </div>
           <p
-            aria-label="By subscribing, you agree with Revue's Terms of Service and Privacy Policy"
+            aria-label="By subscribing, you agree with Bytebase's Terms of Service and Privacy Policy"
             className="mt-3 pl-7 text-14 leading-snug xl:mt-3 xl:max-w-[290px] xl:pl-5 md:mt-2 sm:max-w-full sm:pl-0"
           >
-            By subscribing, you agree with Revue&apos;s{' '}
+            By subscribing, you agree with Bytebase&apos;s{' '}
             <Link
               className="whitespace-nowrap font-semibold underline decoration-[#ffffff40] decoration-2 underline-offset-[5px]"
               href={ROUTE.TERMS}

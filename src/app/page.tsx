@@ -11,14 +11,18 @@ import PromoSQLEditor from '@/components/pages/home/promo-sql-editor';
 import Community from '@/components/shared/community';
 import SubscriptionForm from '@/components/shared/subscription';
 
+import { getLatestChangelogPost } from '@/lib/api-changelog';
 import SEO_DATA from '@/lib/seo-data';
 
 export const metadata = getMetadata(SEO_DATA.INDEX);
 
 export default function Page() {
+  const latestChangelogPost = getLatestChangelogPost();
+  const latestVersion = latestChangelogPost?.title.replace(/^bytebase\s/gi, '');
+
   return (
     <>
-      <Hero />
+      <Hero latestVersion={latestVersion} />
       <DBScheme />
       <PromoAutomationChanges />
       <Benefits />

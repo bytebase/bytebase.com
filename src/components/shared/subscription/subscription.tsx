@@ -82,10 +82,10 @@ const Subscription = ({
             </h3>
             <Form fireInput={fireInput} />
             <p
-              aria-label="By subscribing, you agree with Revue's Terms of Service and Privacy Policy."
+              aria-label="By subscribing, you agree with Bytebase's Terms of Service and Privacy Policy."
               className="mt-5 text-14 leading-snug xl:mt-3 xl:max-w-[290px] md:mt-2"
             >
-              By subscribing, you agree with Revue&apos;s{' '}
+              By subscribing, you agree with Bytebase&apos;s{' '}
               <NextLink href={Route.TERMS} className="border-b-2 border-white border-opacity-40">
                 Terms of Service
               </NextLink>{' '}

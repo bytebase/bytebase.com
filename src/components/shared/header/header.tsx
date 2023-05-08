@@ -10,9 +10,10 @@ import Route from '@/lib/route';
 import APIIcon from '@/svgs/api.inline.svg';
 import CLIIcon from '@/svgs/cli.inline.svg';
 import DiagonalArrowIcon from '@/svgs/diagonal-arrow.inline.svg';
-import GitHubIcon from '@/svgs/github.inline.svg';
 import HowToIcon from '@/svgs/how-to.inline.svg';
 import RocketIcon from '@/svgs/rocket.inline.svg';
+
+import GithubStarCounter from './github-star-counter';
 
 // FIXME: Set the correct type for `icons`.
 const icons: {
@@ -132,14 +133,7 @@ const Header = () => {
             })}
           </ul>
           <div className="flex items-center gap-5 md:hidden">
-            <Link
-              href={Route.GITHUB}
-              className="inline-flex items-center gap-2 text-14 font-bold uppercase leading-none"
-            >
-              {/* TODO: add github stars fetching */}
-              <GitHubIcon width={22} height={22} />
-              4.7k
-            </Link>
+            <GithubStarCounter />
             <span className="h-5 w-px bg-gray-80" />
             <Button href={Route.SELF_HOST} theme="primary-outline" size="sm">
               Self host

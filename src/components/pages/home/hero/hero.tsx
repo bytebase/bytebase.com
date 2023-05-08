@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import useScrollPosition from '@react-hook/window-scroll';
 
 import Button from '@/components/shared/button';
+import Link from '@/components/shared/link';
 import { LinkUnderlined } from '@/components/shared/link-underlined';
 
 import Route from '@/lib/route';
@@ -71,7 +72,7 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
   },
 ];
 
-const Hero = () => {
+const Hero = ({ latestVersion }: { latestVersion?: string }) => {
   const [autoplay, setAutoplay] = useState(false);
   const loadRef = useRef<boolean[]>([]);
   const containerRef = useRef<null | HTMLDivElement>(null);
@@ -112,14 +113,17 @@ const Hero = () => {
     >
       <section className="col-start-1 col-end-8 row-start-1 row-end-2 3xl:col-end-9 xl:col-end-10 md:col-end-12 sm:col-auto sm:row-auto">
         <header>
-          {/* TODO: wrap to a link */}
-          <span className="inline-flex items-center gap-1 rounded-full bg-tones-purple-light p-1 text-12 font-semibold leading-none text-primary-1">
-            <span className="rounded-full bg-primary-1 px-2 py-1 text-white">What’s new?</span>
-            <span className="flex items-center gap-1.5 px-2">
-              1.10.0 Released
-              <SmallArrowIcon width={7} height={6} />
-            </span>
-          </span>
+          {latestVersion && (
+            <Link href={Route.CHANGELOG}>
+              <span className="inline-flex items-center gap-1 rounded-full bg-tones-purple-light p-1 text-12 font-semibold leading-none text-primary-1">
+                <span className="rounded-full bg-primary-1 px-2 py-1 text-white">What’s new?</span>
+                <span className="flex items-center gap-1.5 px-2">
+                  {latestVersion} Released
+                  <SmallArrowIcon width={7} height={6} />
+                </span>
+              </span>
+            </Link>
+          )}
           <div className="relative mt-4 xl:mt-3.5 sm:mt-3">
             <h1 className="font-title text-112 font-semibold leading-none 3xl:max-w-4xl xl:max-w-2xl xl:text-90 xl:leading-95 md:max-w-2xl md:text-80 sm:text-48">
               <mark className="bg-transparent text-primary-1">Database</mark> schema change and
