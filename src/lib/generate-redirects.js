@@ -9,8 +9,6 @@ const generateRedirects = () => {
     '/techstack',
     '/changelog',
     '/changelog/:path*',
-    '/terms',
-    '/privacy',
     '/sql-review-guide',
     '/bytebase-plus',
     '/database/mysql',
