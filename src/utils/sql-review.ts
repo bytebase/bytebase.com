@@ -1,6 +1,6 @@
 import translationEn from '@/locales/sql-review/en.json';
 
-import { CategoryType, RuleCategory, RuleTemplate } from '@/types/sql-review';
+import { CategoryType, FilterItem, RuleCategory, RuleTemplate } from '@/types/sql-review';
 
 export const getRuleLocalizationKey = (type: string): string => {
   return type.split('.').join('-');
@@ -47,3 +47,25 @@ export const LEVEL_LIST = [RuleLevel.ERROR, RuleLevel.WARNING, RuleLevel.DISABLE
 export type JSONStructure = { [key: string]: string | JSONStructure | any };
 
 export const en: JSONStructure = translationEn;
+
+const baseFilterOptionList: FilterItem[] = LEVEL_LIST.map((level) => ({
+  id: level,
+  type: 'level',
+  checked: false,
+}));
+
+export const getFilterOptionList = (ruleList: RuleTemplate[]): FilterItem[] => {
+  const engineSet = new Set<string>();
+  for (const rule of ruleList) {
+    for (const engine of rule.engineList) {
+      engineSet.add(engine);
+    }
+  }
+  const engineFilterOptionList: FilterItem[] = Array.from(engineSet.keys()).map((engine) => ({
+    id: engine,
+    type: 'engine',
+    checked: false,
+  }));
+
+  return [...engineFilterOptionList, ...baseFilterOptionList];
+};

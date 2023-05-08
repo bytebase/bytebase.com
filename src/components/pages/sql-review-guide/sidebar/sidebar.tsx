@@ -2,7 +2,13 @@ import { en, getRuleLocalizationKey } from '@/utils/sql-review';
 
 import { GuidelineTemplate } from '@/types/sql-review';
 
-const Sidebar = ({ categoryList }: { categoryList: GuidelineTemplate[] }) => {
+const Sidebar = ({
+  className,
+  categoryList,
+}: {
+  className: string;
+  categoryList: GuidelineTemplate[];
+}) => {
   const onClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
 
@@ -24,7 +30,7 @@ const Sidebar = ({ categoryList }: { categoryList: GuidelineTemplate[] }) => {
   };
 
   return (
-    <aside className="col-span-3">
+    <aside className={className}>
       <h3 className="text-14 font-bold uppercase leading-none tracking-[-0.025em] text-gray-15">
         Rules
       </h3>
@@ -37,12 +43,12 @@ const Sidebar = ({ categoryList }: { categoryList: GuidelineTemplate[] }) => {
               <h4 className="text-14 font-bold uppercase leading-none tracking-[-0.025em] text-gray-15">
                 {en.category[lowerCaseId]}
               </h4>
-              <ul className="mt-4">
+              <ul className="mt-4 flex flex-col">
                 {ruleList.map(({ type }) => {
                   const key: string = getRuleLocalizationKey(type);
 
                   return (
-                    <li className="group" key={type}>
+                    <li className="group flex leading-tight" key={type}>
                       <a
                         className="py-[5px] text-14 leading-tight tracking-tight text-gray-40 group-first:pt-0 group-last:pb-0"
                         href={`#${key}`}
