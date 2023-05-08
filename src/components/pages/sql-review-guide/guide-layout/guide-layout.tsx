@@ -4,6 +4,7 @@ import { JSXElementConstructor, useState } from 'react';
 
 import { convertToCategoryList, en, getRuleLocalizationKey } from '@/utils/sql-review';
 import clsx from 'clsx';
+import format from 'date-fns/format';
 
 import { GuidelineTemplate } from '@/types/sql-review';
 
@@ -70,7 +71,7 @@ const GuideLayout = ({
                                   {en.level[lowerCaseLevel]}
                                 </span>
                                 <h4
-                                  className="mt-2 text-18 font-medium leading-none text-gray-15"
+                                  className="mt-2 text-18 font-medium leading-tight text-gray-15"
                                   id={anchor}
                                 >
                                   {en.rule[key].title}
@@ -102,23 +103,25 @@ const GuideLayout = ({
                             <p className="mt-3 text-14 leading-tight tracking-tight text-gray-40">
                               {en.rule[key].description}
                             </p>
-                            <div className="mt-5">
-                              {componentList.map((config, index) => {
-                                const defaultPayload =
-                                  config.payload.type === 'STRING_ARRAY'
-                                    ? config.payload.default.join(', ')
-                                    : config.payload.default.toString();
+                            {componentList?.length > 0 && (
+                              <div className="mt-5">
+                                {componentList.map((config, index) => {
+                                  const defaultPayload =
+                                    config.payload.type === 'STRING_ARRAY'
+                                      ? config.payload.default.join(', ')
+                                      : config.payload.default.toString();
 
-                                return (
-                                  <div className="text-14" key={index}>
-                                    <span className="leading-none text-gray-40">
-                                      {en.rule[key].component[config.key].title}
-                                    </span>
-                                    : <span>{config.payload.value || defaultPayload}</span>
-                                  </div>
-                                );
-                              })}
-                            </div>
+                                  return (
+                                    <div className="text-14" key={index}>
+                                      <span className="leading-none text-gray-40">
+                                        {en.rule[key].component[config.key].title}
+                                      </span>
+                                      : <span>{config.payload.value || defaultPayload}</span>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            )}
                           </div>
                         </li>
                       );
@@ -128,6 +131,17 @@ const GuideLayout = ({
               );
             })}
           </div>
+          <span className="mt-20 inline-flex w-full items-center border-t border-gray-90 pt-8 text-18 font-medium leading-none">
+            Made by{' '}
+            <img
+              className="mx-2"
+              src="/images/logo-full.svg"
+              width={96}
+              height={20}
+              loading="lazy"
+            />
+            at {format(new Date(), 'yyyy-MM-dd')}
+          </span>
         </article>
         <FilterBar
           schema={schema}

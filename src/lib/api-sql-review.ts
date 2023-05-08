@@ -20,7 +20,7 @@ const sqlReviewDevTemplate = jsYaml.load(
 );
 
 // Build the frontend template list based on schema and template.
-export const guidelineTemplateList: GuidelineTemplate[] = (function () {
+export const getGuidelineTemplateList = (): GuidelineTemplate[] => {
   const ruleSchemaMap = (sqlReviewSchema.ruleList as RuleTemplate[]).reduce((map, ruleSchema) => {
     map.set(ruleSchema.type, ruleSchema);
     return map;
@@ -68,4 +68,4 @@ export const guidelineTemplateList: GuidelineTemplate[] = (function () {
       ruleList,
     };
   });
-})();
+};
