@@ -58,7 +58,10 @@ const DBScheme = () => {
           in a single place
         </h2>
       </header>
-      <div className="mt-14 3xl:mt-12 xl:mt-10 md:mt-9 sm:mt-5" ref={animationRef}>
+      <div
+        className="3xl:mt-12 2xl:px-5 xl:mt-10 md:mt-9 md:px-3 sm:mt-5 sm:px-0"
+        ref={animationRef}
+      >
         <div
           className="mx-auto aspect-[2.2676470588] h-auto w-auto max-w-[1542px] sm:hidden"
           ref={setRiveRef}

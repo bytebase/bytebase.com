@@ -164,7 +164,7 @@ const MobileMenu = () => {
                                       size="lg"
                                       theme="gray"
                                       href={linkUrl}
-                                      prefetch={false}
+                                      prefetch={isDropdownOpened && items ? false : undefined}
                                       onClick={() => {
                                         toggleMenu();
                                         setOpenedDropdown(-1);
@@ -194,18 +194,16 @@ const MobileMenu = () => {
                   <Link
                     className="flex w-full flex-col items-start justify-center whitespace-nowrap py-5 text-20 font-medium leading-none tracking-tight transition-colors duration-200 hover:cursor-pointer"
                     href={Route.GITHUB}
-                    prefetch={false}
                   >
                     GitHub
                   </Link>
                 </li>
               </ul>
               <div className="mt-10 flex flex-col gap-4">
-                {/* TODO: add auth0 */}
-                <Button href="/" theme="gray-filled" size="md">
+                <Button href="https://hub.bytebase.com/workspace" theme="gray-filled" size="md">
                   Sign up for Cloud
                 </Button>
-                <Button href={Route.SELF_HOST} theme="primary-outline" size="md">
+                <Button href={Route.DOCS_SELF_HOST} theme="primary-outline" size="md">
                   Self host
                 </Button>
               </div>

@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { useWindowSize } from 'react-use';
 
 import useClickOutside from '@/hooks/use-click-outside';
+import { useWindowHeight } from '@react-hook/window-size';
 import clsx from 'clsx';
 import { LazyMotion, domAnimation, m, useAnimation } from 'framer-motion';
 
@@ -47,7 +47,7 @@ const MobileSidebar = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [containerHeight, setContainerHeight] = useState<string | undefined>(undefined);
-  const { height } = useWindowSize();
+  const height = useWindowHeight();
   const wrapperRef = useRef<null | HTMLDivElement>(null);
   const controls = useAnimation();
   const toggleMenu = () => setIsOpen((prev) => !prev);

@@ -13,27 +13,6 @@ import ROUTE from '@/lib/route';
 
 export type BlogPostTCardThemes = 'default' | 'small' | 'large';
 
-const themes = {
-  large: {
-    image: {
-      width: 716,
-      height: 345,
-    },
-  },
-  default: {
-    image: {
-      width: 474,
-      height: 229,
-    },
-  },
-  small: {
-    image: {
-      width: 474,
-      height: 229,
-    },
-  },
-};
-
 const BlogPostCard = ({
   post,
   hasImage = true,
@@ -57,14 +36,14 @@ const BlogPostCard = ({
     >
       {hasImage && post?.feature_image && (
         <Link
-          className="relative aspect-[2.07] overflow-hidden rounded-[4px] lg:aspect-[2.084] sm:aspect-[2.1]"
+          className="relative aspect-[2.07] overflow-hidden rounded-[4px] border border-gray-90 lg:aspect-[2.084] sm:aspect-[2.1]"
           href={`${ROUTE.BLOG}/${post.slug}`}
         >
           <Image
-            className="absolute left-1/2 top-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover"
+            className="absolute left-0 top-0 min-h-full min-w-full object-cover"
             src={post.feature_image}
             alt={post.title}
-            {...themes[theme].image}
+            fill
           />
         </Link>
       )}

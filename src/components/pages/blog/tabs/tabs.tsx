@@ -1,16 +1,17 @@
+import slugifyText from '@/utils/slugify-text';
 import clsx from 'clsx';
 
 import Link from '@/components/shared/link';
 
 import ROUTE from '@/lib/route';
 
-export type TabCategory = {
+type TabCategory = {
   label: string;
   slug?: string;
 };
 
 type TabsProps = {
-  items: TabCategory[];
+  items: string[];
   currentSlug?: string;
 };
 
@@ -51,26 +52,31 @@ const getTabStyles = (slug: keyof typeof tabThemes | '', currentSlug: string) =>
 };
 
 const Tabs = ({ items, currentSlug = '' }: TabsProps) => {
+  const tabsWithSlug: TabCategory[] = items.map((tag) => ({ label: tag, slug: slugifyText(tag) }));
+  tabsWithSlug.unshift({ label: 'All Posts' });
+
   return (
-    <nav className="scrollbar-hidden mt-10 overflow-auto lg:-mx-11 lg:mt-12 lg:px-11 md:-mx-7 md:mt-6 md:px-7 xs:-mx-4 xs:mt-5 xs:px-4">
-      <ul className="flex w-max gap-x-4 text-black lg:gap-x-3 md:gap-x-2">
-        {items.map(({ label, slug = '' }, index) => (
-          <li key={index}>
-            <Link
-              aria-label={!slug ? `${label}` : `Posts of ${label} category`}
-              className={clsx(
-                getTabStyles(slug as keyof typeof tabThemes | '', currentSlug),
-                slug === currentSlug && 'text-white',
-                'block rounded-full border-2 px-[18px] py-[7px] text-16 font-medium leading-none md:text-14 xs:text-12',
-              )}
-              href={!slug ? ROUTE.BLOG : `${ROUTE.BLOG_CATEGORY}/${slug}`}
-            >
-              {label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div className="container mt-24 md:mt-[88px] sm:mt-[84px]">
+      <nav className="scrollbar-hidden overflow-auto lg:-mx-11 lg:mt-12 lg:px-11 md:-mx-7 md:mt-6 md:px-7 xs:-mx-4 xs:mt-5 xs:px-4">
+        <ul className="flex w-max gap-x-4 text-black lg:gap-x-3 md:gap-x-2">
+          {tabsWithSlug.map(({ label, slug = '' }, index) => (
+            <li key={index}>
+              <Link
+                aria-label={!slug ? `${label}` : `Posts of ${label} category`}
+                className={clsx(
+                  getTabStyles(slug as keyof typeof tabThemes | '', currentSlug),
+                  slug === currentSlug && 'text-white',
+                  'block rounded-full border-2 px-[18px] py-[7px] text-16 font-medium leading-none md:text-14 xs:text-12',
+                )}
+                href={!slug ? ROUTE.BLOG : `${ROUTE.BLOG_CATEGORY}/${slug}`}
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
   );
 };
 

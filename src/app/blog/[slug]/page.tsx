@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 
 import { getExcerpt } from '@/utils/get-excerpt';
 import getMetadata from '@/utils/get-metadata';
+import slugifyText from '@/utils/slugify-text';
 
 import BlogPostHero from '@/components/pages/blog/blog-post-hero';
 import PostLayout from '@/components/pages/blog/post-layout';
@@ -10,6 +11,7 @@ import Posts from '@/components/pages/blog/posts';
 import RecentPosts from '@/components/pages/blog/recent-posts/recent-posts';
 import RelatedPosts from '@/components/pages/blog/related-posts';
 import SubscribeCta from '@/components/pages/blog/subscribe-cta';
+import Tabs from '@/components/pages/blog/tabs';
 import Content from '@/components/shared/content';
 
 import {
@@ -34,10 +36,11 @@ export default function Blog({ params }: { params: { slug: string } }) {
 
     return (
       <>
+        <Tabs items={tags} />
         <BlogPostHero post={recentPosts[0]} isBlogPost={false} />
         <RecentPosts posts={recentPosts.slice(1, 5)} />
         <SubscribeCta />
-        <Posts posts={posts} tabs={tags} page={+slug} pageCount={pageCount} />
+        <Posts title="Bytebase blog" posts={posts} page={+slug} pageCount={pageCount} />
       </>
     );
   }

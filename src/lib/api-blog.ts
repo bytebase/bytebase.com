@@ -79,6 +79,8 @@ const getBlogPostsPerPage = ({
     (el) => category === '' || category === slugifyText(el.tags),
   );
 
+  const recentPosts = posts.filter((el) => el.tags !== 'Tutorial').slice(0, 5);
+
   const postsWithoutTutorial = postsInCategory.filter((el) => el.tags !== 'Tutorial');
 
   const result = postsWithoutTutorial.slice(startIndex, startIndex + POSTS_PER_PAGE);
@@ -86,7 +88,7 @@ const getBlogPostsPerPage = ({
   if (result.length === 0) return null;
 
   return {
-    recentPosts: postsWithoutTutorial.slice(0, 5),
+    recentPosts,
     pageCount: Math.ceil(postsWithoutTutorial.length / POSTS_PER_PAGE),
     posts: result,
     tags: tags.filter((el) => el !== 'Tutorial'),

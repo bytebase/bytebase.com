@@ -1,3 +1,5 @@
+import Route from '@/lib/route';
+
 import Card from './card';
 
 type TCard = {
@@ -9,21 +11,21 @@ type TCard = {
 
 const cards: TCard[] = [
   {
-    href: '#',
+    href: Route.DOCS_ANOMALY_CENTER,
     icon: '/images/attention.svg',
     title: 'Anomaly center',
     description:
       'Simplify database changes with standardization, lint rules, and GitOps integration. It automatically starts deployment processes for new database change scripts.',
   },
   {
-    href: '#',
+    href: Route.DOCS_DRIFT_DETECTION,
     icon: '/images/database.svg',
     title: 'Drift detection',
     description:
       "Perform complex SQL tasks and protect data privacy with ByteBase's web-based IDE, anonymization engine, and access controls.",
   },
   {
-    href: '#',
+    href: Route.DOCS_DISASTER_RECOVERY,
     icon: '/images/disk.svg',
     title: 'Disaster recovery',
     description:
