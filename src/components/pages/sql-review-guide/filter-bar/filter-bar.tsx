@@ -2,6 +2,8 @@ import { LEVEL_LIST, convertToCategoryList, en, getRuleLocalizationKey } from '@
 
 import { FilterItem, GuidelineTemplate, RuleCategory, RuleTemplate } from '@/types/sql-review';
 
+import InfoIcon from '@/svgs/info.inline.svg';
+
 const baseFilterOptionList: FilterItem[] = LEVEL_LIST.map((level) => ({
   id: level,
   type: 'level',
@@ -22,27 +24,6 @@ const getFilterOptionList = (ruleList: RuleTemplate[]): FilterItem[] => {
   }));
 
   return [...engineFilterOptionList, ...baseFilterOptionList];
-};
-
-const Checkbox = ({
-  filter,
-  count,
-}: {
-  filter: FilterItem;
-  count: number;
-  isFilteredRule: (rule: RuleTemplate) => boolean;
-}) => {
-  const { id, type, checked } = filter;
-  const key: string = id.toLocaleLowerCase();
-  return (
-    <li className="flex items-center" key={id}>
-      <input type="checkbox" name={type} id={id} value={id} />
-      <label className="ml-2 font-medium text-gray-30" htmlFor={id}>
-        {en[type][key]}
-      </label>
-      <span>{count}</span>
-    </li>
-  );
 };
 
 const FilterBar = ({
@@ -109,6 +90,7 @@ const FilterBar = ({
               return (
                 <li className="flex cursor-pointer items-center" key={id}>
                   <input
+                    className="relative h-4 w-4 appearance-none rounded-full border border-gray-30 transition-colors duration-100 after:absolute after:top-1/2 after:left-1/2 after:h-1.5 after:w-1.5 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-white checked:border-primary-1 checked:bg-primary-1"
                     type="radio"
                     name="template"
                     id={id}
@@ -119,6 +101,9 @@ const FilterBar = ({
                   <label className="ml-2 font-medium text-gray-30" htmlFor={id}>
                     {en.template[key]}
                   </label>
+                  <div className="ml-2 inline-flex h-[18px] w-[18px] items-center justify-center rounded-full bg-gray-94">
+                    <InfoIcon className="h-2.5 w-auto rotate-180" />
+                  </div>
                 </li>
               );
             })}
@@ -133,7 +118,14 @@ const FilterBar = ({
               const key: string = id.toLocaleLowerCase();
               return (
                 <li className="flex items-center" key={id}>
-                  <input type="checkbox" name={type} id={id} value={id} onChange={onFilterChange} />
+                  <input
+                    className="h-4 w-4 appearance-none rounded-sm border border-gray-30 bg-center bg-no-repeat transition-colors duration-100 checked:border-primary-1 checked:bg-primary-1 checked:bg-[url('/images/check-checkbox.svg')]"
+                    type="checkbox"
+                    name={type}
+                    id={id}
+                    value={id}
+                    onChange={onFilterChange}
+                  />
                   <label className="ml-2 font-medium text-gray-30" htmlFor={id}>
                     {en[type][key]}
                   </label>
