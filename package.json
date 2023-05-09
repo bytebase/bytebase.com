@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbult": "NODE_ENV=production node ./scripts/fetch-sql-review.js",
     "start": "next start",
     "type-check": "tsc",
     "lint": "next lint",
