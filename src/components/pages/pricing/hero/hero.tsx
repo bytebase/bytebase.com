@@ -1,5 +1,7 @@
 import Link from '@/components/shared/link';
 
+import Route from '@/lib/route';
+
 import QuoteIcon from '@/svgs/quote.inline.svg';
 
 import { COLORS } from '../table/data/pricing-plans';
@@ -115,7 +117,7 @@ const Hero = () => (
         className="mt-9 text-center text-15 leading-snug text-gray-40 lg:mt-8 lg:text-14 lg:leading-tight md:mt-7 sm:mt-6"
       >
         You can upgrade, downgrade, or{' '}
-        <Link className="lg:text-14 sm:inline" size="sm" href="/refund" theme="primary-1">
+        <Link className="lg:text-14 sm:inline" size="sm" href={Route.REFUND} theme="primary-1">
           cancel your subscription
         </Link>{' '}
         anytime. No hidden charges.

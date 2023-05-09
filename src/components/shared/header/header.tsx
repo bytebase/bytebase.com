@@ -1,3 +1,7 @@
+'use client';
+
+import { useState } from 'react';
+
 import clsx from 'clsx';
 
 import Button from '@/components/shared/button';
@@ -10,9 +14,10 @@ import Route from '@/lib/route';
 import APIIcon from '@/svgs/api.inline.svg';
 import CLIIcon from '@/svgs/cli.inline.svg';
 import DiagonalArrowIcon from '@/svgs/diagonal-arrow.inline.svg';
-import GitHubIcon from '@/svgs/github.inline.svg';
 import HowToIcon from '@/svgs/how-to.inline.svg';
 import RocketIcon from '@/svgs/rocket.inline.svg';
+
+import GithubStarCounter from './github-star-counter';
 
 // FIXME: Set the correct type for `icons`.
 const icons: {
@@ -38,6 +43,13 @@ type Header = {
 };
 
 const Header = () => {
+  const [canShowSubmenu, setCanShowSubmenu] = useState(true);
+
+  const handleSubmenuClick = () => {
+    setCanShowSubmenu(false);
+    setTimeout(() => setCanShowSubmenu(true), 300);
+  };
+
   return (
     <>
       <header className="safe-paddings absolute top-0 left-0 right-0 z-30 h-[72px] w-full md:py-[22px] sm:z-50">
@@ -81,7 +93,7 @@ const Header = () => {
                       {title}
                     </button>
                   )}
-                  {items?.length && (
+                  {items?.length && canShowSubmenu && (
                     <div className="invisible absolute top-6 -left-5 pt-6 opacity-0 transition-[opacity,visibility] duration-200 group-hover:visible group-hover:opacity-100">
                       <div className="relative flex items-center gap-x-[30px] rounded-lg border border-gray-80 bg-white p-4 pl-8 shadow-menu before:absolute before:-top-[8.5px] before:left-11 before:h-4 before:w-4 before:rotate-45 before:rounded-tl before:border-t before:border-l before:border-gray-80 before:bg-white">
                         <ul className="flex flex-col">
@@ -95,6 +107,7 @@ const Header = () => {
                                   theme="gray"
                                   href={linkUrl}
                                   prefetch={false}
+                                  onClick={handleSubmenuClick}
                                 >
                                   <div className="flex flex-col gap-y-2.5">
                                     <div className="flex items-center gap-x-2 group-hover/link:text-primary-1">
@@ -114,6 +127,7 @@ const Header = () => {
                           className="group/box flex h-full min-h-[324px] w-[244px] grow flex-col justify-between rounded-md bg-gray-97 p-6 pt-4.5 text-gray-40 hover:bg-gray-94"
                           href={Route.DOCS_TUTORIALS}
                           prefetch={false}
+                          onClick={handleSubmenuClick}
                         >
                           <div className="flex items-center justify-between group-hover/box:text-gray-15">
                             <span className="text-16 leading-normal">Start Learning</span>
@@ -132,20 +146,22 @@ const Header = () => {
             })}
           </ul>
           <div className="flex items-center gap-5 md:hidden">
-            <Link
-              href={Route.GITHUB}
-              className="inline-flex items-center gap-2 text-14 font-bold uppercase leading-none"
-            >
-              {/* TODO: add github stars fetching */}
-              <GitHubIcon width={22} height={22} />
-              4.7k
-            </Link>
+            <GithubStarCounter />
             <span className="h-5 w-px bg-gray-80" />
-            <Button href={Route.SELF_HOST} theme="primary-outline" size="sm">
+            <Button
+              href={Route.DOCS_SELF_HOST}
+              theme="primary-outline"
+              className="w-[116px]"
+              size="sm"
+            >
               Self host
             </Button>
-            {/* TODO: add auth0 */}
-            <Button href="#" theme="gray-filled" size="sm">
+            <Button
+              href="https://hub.bytebase.com/workspace"
+              className="w-[183px]"
+              theme="gray-filled"
+              size="sm"
+            >
               Sign Up for Cloud
             </Button>
           </div>

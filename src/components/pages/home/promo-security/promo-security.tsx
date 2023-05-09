@@ -10,6 +10,8 @@ import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 import { LinkUnderlined } from '@/components/shared/link-underlined';
 import Pill from '@/components/shared/pill';
 
+import Route from '@/lib/route';
+
 const PromoSecurity = () => {
   const containerRef = useRef<null | HTMLDivElement>(null);
   const animationRef = useRef<null | HTMLDivElement>(null);
@@ -60,7 +62,7 @@ const PromoSecurity = () => {
           </p>
           <LinkUnderlined
             className="mt-8 text-white hover:text-secondary-2 xl:mt-6 md:mt-4 sm:mt-3"
-            href="#"
+            href={Route.DOCS_VCS_INTEGRATION}
           >
             Learn more
           </LinkUnderlined>
@@ -70,7 +72,7 @@ const PromoSecurity = () => {
           ref={animationRef}
         >
           <div
-            className="relative mr-[9px] ml-auto aspect-[1.0597014925] w-[710px] 3xl:-mr-6 xl:mr-0 xl:w-[560px] md:hidden"
+            className="relative mr-[9px] ml-auto aspect-[1.0597014925] w-[710px] 3xl:-mr-14 xl:-mr-2 xl:w-[560px] lg:mx-auto lg:mr-0 lg:w-[530px] md:hidden"
             ref={setRiveRef}
           >
             {isIntersecting ? <RiveComponent /> : null}

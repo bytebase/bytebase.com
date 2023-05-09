@@ -46,7 +46,10 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     changeManagement: {
       user: 'Unlimited',
       environment: 'Unlimited',
-      instance: 'Unlimited',
+      instance: {
+        value: 'Up to 20',
+        tooltip: 'Maximum 20. Talk to us for pricing if your instances go over the limit.',
+      },
       schema: { value: 'Basic', tooltip: 'Syntax check, connection check' },
       'sql-check': { value: 'Basic', tooltip: 'Syntax check, connection check' },
       'disaster-recovery': { value: 'Basic', tooltip: 'Data backup / restore' },

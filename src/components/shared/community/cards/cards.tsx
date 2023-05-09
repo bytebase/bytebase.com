@@ -2,6 +2,8 @@ import NextLink from 'next/link';
 
 import clsx from 'clsx';
 
+import Route from '@/lib/route';
+
 import DiscordIcon from '@/svgs/discord.inline.svg';
 import GithubIcon from '@/svgs/github.inline.svg';
 import TwitterIcon from '@/svgs/twitter.inline.svg';
@@ -10,21 +12,21 @@ const socials = [
   {
     name: 'Discord',
     description: 'Participate in discussion with others DBAs or developers.',
-    href: 'https://discord.gg/bytebase',
+    href: Route.DISCORD,
     action: 'Join Us',
   },
   {
     name: 'Twitter',
     description:
       'Latest news and updates about Bytebase. Tag us if you need any help or want to share a feedback.',
-    href: 'https://twitter.com/bytebase',
+    href: Route.TWITTER,
     action: 'Follow Us',
   },
   {
     name: 'GitHub',
     description:
       "We appreciate any help even if it's a small typo change or an issue report. It's easy to become a contributor.",
-    href: 'https://twitter.com/bytebase',
+    href: Route.GITHUB,
     action: 'Explore Codebase',
   },
 ];

@@ -1,12 +1,11 @@
 import format from 'date-fns/format';
 
 import Content from '@/components/shared/content';
+import Pagination from '@/components/shared/pagination';
 
 import { ChangelogPost } from '@/types/changelog-post';
 
 import Route from '@/lib/route';
-
-import Pagination from '@/components/shared/pagination';
 
 type PostsProps = {
   posts: ChangelogPost[];

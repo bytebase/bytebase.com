@@ -28,7 +28,14 @@ const BlogPostHero = ({ post, isBlogPost = true }: BlogPostHeroProps) => {
   const WrapperTag = isBlogPost ? 'div' : 'article';
 
   return (
-    <section className="container pt-[136px] 2xl:pt-32 lg:pt-[120px] md:pt-[104px] sm:pt-24">
+    <section
+      className={clsx(
+        isBlogPost
+          ? 'pt-[136px] 2xl:pt-32 lg:pt-[120px] md:pt-[104px] sm:pt-24'
+          : 'mt-16 2xl:mt-14 lg:mt-12 md:mt-8',
+        'container',
+      )}
+    >
       {!isBlogPost && <h2 className="sr-only">Featured Post</h2>}
       <WrapperTag className="gap-x-grid grid grid-cols-12 items-center border-b border-gray-90 pb-14 lg:gap-y-6 lg:pb-12 md:gap-y-[18px] md:pb-10 sm:pb-8">
         <div className="col-span-6 flex flex-col gap-y-6 2xl:gap-y-5 xl:gap-y-3 md:col-span-full">

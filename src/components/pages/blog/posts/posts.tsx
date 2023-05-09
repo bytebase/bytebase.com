@@ -7,21 +7,16 @@ import { BlogPost } from '@/types/blog-post';
 import Route from '@/lib/route';
 
 import PostsGrid from './posts-grid';
-import Tabs from './tabs';
-import { TabCategory } from './tabs/tabs';
 
 type PostsProps = {
   posts: BlogPost[];
-  tabs: string[];
   page: number;
   category?: string;
+  title: string;
   pageCount: number;
 };
 
-const Posts = ({ posts, tabs, page = 1, category = '', pageCount }: PostsProps) => {
-  const tabsWithSlug = tabs.map((tab) => ({ label: tab, slug: slugifyText(tab) } as TabCategory));
-  tabsWithSlug.unshift({ label: 'All Posts' } as TabCategory);
-
+const Posts = ({ posts, title, page = 1, category = '', pageCount }: PostsProps) => {
   return (
     <section className="posts mt-20 lg:mt-[78px] md:mt-16 sm:mt-14">
       <div className="container">
@@ -29,9 +24,8 @@ const Posts = ({ posts, tabs, page = 1, category = '', pageCount }: PostsProps) 
           aria-hidden="true"
           className="font-title text-72 leading-none lg:text-50 md:text-46 sm:text-34"
         >
-          Bytebase blog
+          {title}
         </h1>
-        <Tabs items={tabsWithSlug} currentSlug={category} />
         <PostsGrid posts={posts} />
         {pageCount > 1 && (
           <Pagination
