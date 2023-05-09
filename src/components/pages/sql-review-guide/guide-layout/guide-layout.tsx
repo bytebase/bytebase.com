@@ -51,8 +51,8 @@ const GuideLayout = ({
     <>
       <MobileSidebar className="hidden lg:flex" categoryList={categoryList} />
       {children}
-      <section className="guide-layout container mt-11 lg:mt-10">
-        <div className="gap-x-grid grid grid-cols-12 border-t border-gray-90 pt-16 lg:pt-14 md:gap-y-8 md:pt-8">
+      <section className="guide-layout container mt-11 lg:mt-10 md:mt-8 xs:mt-6">
+        <div className="gap-x-grid grid grid-cols-12 border-t border-gray-90 pt-16 lg:pt-14 md:gap-y-8 md:pt-8 xs:pt-6">
           <DropdownFilterBar
             className="col-span-full hidden md:grid"
             templateList={templateList}

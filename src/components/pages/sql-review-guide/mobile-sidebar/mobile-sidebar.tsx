@@ -56,6 +56,27 @@ const MobileSidebar = ({
     controls.start(isOpen ? 'to' : 'from');
   }, [controls, isOpen]);
 
+  const onClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    setIsOpen(false);
+
+    const id = e.currentTarget.hash.slice(1);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+    // Changing hash without default jumps to anchor
+    if (history.pushState) {
+      history.pushState(false, '', `#${id}`);
+    } else {
+      // Old browser support
+      window.location.hash = `#${id}`;
+    }
+  };
+
   return (
     <LazyMotion features={domAnimation}>
       <nav className={clsx('mobile-sidebar pt-[75px]', className)} ref={wrapperRef}>
@@ -106,6 +127,7 @@ const MobileSidebar = ({
                         <a
                           className="py-[5px] text-14 leading-tight tracking-tight text-gray-40 group-first:pt-0 group-last:pb-0"
                           href={`#${key}`}
+                          onClick={onClick}
                         >
                           {en.rule[key].title}
                         </a>
