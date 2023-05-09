@@ -75,5 +75,5 @@ export type RuleConfigComponent = {
 
 export type ActiveFilters = {
   template: GuidelineTemplate;
-  categories: FilterItem[];
+  categories: (FilterItem | { id: string; type: string; checked: boolean })[];
 };
