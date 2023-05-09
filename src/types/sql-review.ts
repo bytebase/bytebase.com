@@ -72,3 +72,8 @@ export type RuleConfigComponent = {
   key: string;
   payload: StringPayload | NumberPayload | TemplatePayload | StringArrayPayload | BooleanPayload;
 };
+
+export type ActiveFilters = {
+  template: GuidelineTemplate;
+  categories: FilterItem[];
+};

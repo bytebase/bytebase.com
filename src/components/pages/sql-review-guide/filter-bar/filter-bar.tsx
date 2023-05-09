@@ -1,32 +1,26 @@
 import useSQLReviewFilter from '@/hooks/use-sql-review-filter';
 import { en, getRuleLocalizationKey } from '@/utils/sql-review';
 
-import { GuidelineTemplate, RuleCategory } from '@/types/sql-review';
+import { ActiveFilters, GuidelineTemplate } from '@/types/sql-review';
 
 import InfoIcon from '@/svgs/info.inline.svg';
 
 const FilterBar = ({
   className,
-  template,
   templateList,
-  setTemplate,
-  schema,
-  setCategoryList,
+  activeFilters,
+  setActiveFilters,
 }: {
   className: string;
-  template: GuidelineTemplate;
   templateList: GuidelineTemplate[];
-  setTemplate: (temp: GuidelineTemplate) => void;
-  schema: any;
-  setCategoryList: (list: RuleCategory[]) => void;
+  activeFilters: ActiveFilters;
+  setActiveFilters: (filter: ActiveFilters) => void;
 }) => {
-  const { filterOptionList, onTemplateChange, onFilterChange, filterItemCount } =
+  const { filterOptionList, onTemplateChange, onCategoryChange, filterItemCount } =
     useSQLReviewFilter({
-      template,
       templateList,
-      setTemplate,
-      schema,
-      setCategoryList,
+      activeFilters,
+      setActiveFilters,
     });
   return (
     <form className={className}>
@@ -44,10 +38,10 @@ const FilterBar = ({
                     <input
                       className="relative h-4 w-4 appearance-none rounded-full border border-gray-30 transition-colors duration-100 after:absolute after:top-1/2 after:left-1/2 after:h-1.5 after:w-1.5 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-white checked:border-primary-1 checked:bg-primary-1"
                       type="radio"
-                      name="template"
+                      name={id}
                       id={id}
                       value={id}
-                      checked={template.id === id}
+                      checked={activeFilters.template.id === id}
                       onChange={onTemplateChange}
                     />
                     <label className="ml-2 font-medium text-gray-30" htmlFor={id}>
@@ -71,17 +65,18 @@ const FilterBar = ({
               {filterOptionList.map((filter) => {
                 const { id, type } = filter;
                 const key: string = id.toLocaleLowerCase();
+
                 return (
                   <li className="flex items-center" key={id}>
                     <input
                       className="h-4 w-4 appearance-none rounded-sm border border-gray-30 bg-center bg-no-repeat transition-colors duration-100 checked:border-primary-1 checked:bg-primary-1 checked:bg-[url('/images/check-checkbox.svg')]"
                       type="checkbox"
                       name={type}
-                      id={id}
+                      id={key}
                       value={id}
-                      onChange={onFilterChange}
+                      onChange={onCategoryChange}
                     />
-                    <label className="ml-2 font-medium text-gray-30" htmlFor={id}>
+                    <label className="ml-2 font-medium text-gray-30" htmlFor={key}>
                       {en[type][key]}
                     </label>
                     <span className="ml-2 shrink-0 rounded-full bg-gray-94 p-1 text-14 font-medium leading-none text-gray-30">

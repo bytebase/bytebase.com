@@ -5,7 +5,7 @@ import { en, getRuleLocalizationKey } from '@/utils/sql-review';
 import clsx from 'clsx';
 import { LazyMotion, domAnimation, m } from 'framer-motion';
 
-import { GuidelineTemplate, RuleCategory } from '@/types/sql-review';
+import { ActiveFilters, GuidelineTemplate } from '@/types/sql-review';
 
 import ChevronIcon from '@/svgs/chevron.inline.svg';
 
@@ -21,28 +21,22 @@ const variants = {
 };
 const DropdownFilterBar = ({
   className,
-  template,
   templateList,
-  setTemplate,
-  schema,
-  setCategoryList,
+  activeFilters,
+  setActiveFilters,
 }: {
   className: string;
-  template: GuidelineTemplate;
   templateList: GuidelineTemplate[];
-  setTemplate: (temp: GuidelineTemplate) => void;
-  schema: any;
-  setCategoryList: (list: RuleCategory[]) => void;
+  activeFilters: ActiveFilters;
+  setActiveFilters: (filter: ActiveFilters) => void;
 }) => {
-  const [isFilterTemplateOpen, setIsFilterTemplateOpen] = useState(false);
-  const [isFilterCategoryOpen, setIsFilterCategoryOpen] = useState(false);
-  const { filterOptionList, onTemplateChange, onFilterChange, filterItemCount } =
+  const [isTemplateOpen, setIsTemplateOpen] = useState(false);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const { filterOptionList, onTemplateChange, onCategoryChange, filterItemCount } =
     useSQLReviewFilter({
-      template,
       templateList,
-      setTemplate,
-      schema,
-      setCategoryList,
+      activeFilters,
+      setActiveFilters,
     });
 
   return (
@@ -56,16 +50,16 @@ const DropdownFilterBar = ({
             <button
               className={clsx(
                 'group mt-4 flex w-full items-center justify-between rounded-xl border border-gray-70 py-3 pl-5 pr-4 leading-none',
-                isFilterTemplateOpen && 'rounded-b-none',
+                isTemplateOpen && 'rounded-b-none',
               )}
               type="button"
-              onClick={() => setIsFilterTemplateOpen((prev) => !prev)}
+              onClick={() => setIsTemplateOpen((prev) => !prev)}
             >
               <span className="whitespace-nowrap leading-none text-gray-60">Select a template</span>
               <ChevronIcon
                 className={clsx(
                   'h-auto w-4 text-gray-15 transition-transform duration-200',
-                  isFilterTemplateOpen ? '-rotate-180' : 'rotate-0',
+                  isTemplateOpen ? '-rotate-180' : 'rotate-0',
                 )}
               />
             </button>
@@ -74,7 +68,7 @@ const DropdownFilterBar = ({
           <m.ul
             className="absolute inset-x-0 flex flex-col gap-y-4 rounded-b-xl border border-t-0 border-gray-70 bg-white p-5"
             initial="hidden"
-            animate={isFilterTemplateOpen ? 'visible' : 'hidden'}
+            animate={isTemplateOpen ? 'visible' : 'hidden'}
             variants={variants}
             transition={{
               duration: 0.2,
@@ -92,7 +86,7 @@ const DropdownFilterBar = ({
                       name="template"
                       id={id}
                       value={id}
-                      checked={template.id === id}
+                      checked={activeFilters.template.id === id}
                       onChange={onTemplateChange}
                     />
                     <label className="ml-2 font-medium leading-none text-gray-30" htmlFor={id}>
@@ -115,10 +109,10 @@ const DropdownFilterBar = ({
           <button
             className={clsx(
               'group mt-4 flex w-full items-center justify-between rounded-xl border border-gray-70 py-3 pl-5 pr-4 leading-none',
-              isFilterCategoryOpen && 'rounded-b-none',
+              isCategoryOpen && 'rounded-b-none',
             )}
             type="button"
-            onClick={() => setIsFilterCategoryOpen((prev) => !prev)}
+            onClick={() => setIsCategoryOpen((prev) => !prev)}
           >
             <span className="whitespace-nowrap text-gray-60">Select a category</span>
             <ChevronIcon className="h-auto w-4 text-gray-15" />
@@ -127,7 +121,7 @@ const DropdownFilterBar = ({
           <m.ul
             className="absolute inset-x-0 flex flex-col gap-y-4 rounded-b-xl border border-t-0 border-gray-70 bg-white p-5"
             initial="hidden"
-            animate={isFilterCategoryOpen ? 'visible' : 'hidden'}
+            animate={isCategoryOpen ? 'visible' : 'hidden'}
             variants={variants}
             transition={{
               duration: 0.2,
@@ -144,7 +138,7 @@ const DropdownFilterBar = ({
                     name={type}
                     id={id}
                     value={id}
-                    onChange={onFilterChange}
+                    onChange={onCategoryChange}
                   />
                   <label className="ml-2 font-medium text-gray-30" htmlFor={id}>
                     {en[type][key]}

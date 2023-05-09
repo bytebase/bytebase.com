@@ -1,71 +1,70 @@
 import { useCallback } from 'react';
 
-import { convertToCategoryList, getFilterOptionList } from '@/utils/sql-review';
+import { getFilterOptionList } from '@/utils/sql-review';
 
-import { FilterItem, GuidelineTemplate, RuleCategory } from '@/types/sql-review';
+import { ActiveFilters, FilterItem, GuidelineTemplate } from '@/types/sql-review';
 
 const useSQLReviewFilter = ({
-  schema,
-  template,
   templateList,
-  setTemplate,
-  setCategoryList,
+  activeFilters,
+  setActiveFilters,
 }: {
-  template: GuidelineTemplate;
   templateList: GuidelineTemplate[];
-  setTemplate: (temp: GuidelineTemplate) => void;
-  schema: any;
-  setCategoryList: (list: RuleCategory[]) => void;
+  activeFilters: ActiveFilters;
+  setActiveFilters: (filter: ActiveFilters) => void;
 }) => {
-  const filterOptionList = getFilterOptionList(template.ruleList);
+  const filterOptionList = getFilterOptionList(activeFilters.template.ruleList);
 
-  const onTemplateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const id = event.target.id;
+  const onTemplateChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const id = event.target.id;
 
-    templateList.find((item) => {
-      if (item.id === id) {
-        const newTemplate = item;
-        setTemplate(newTemplate);
-        setCategoryList(convertToCategoryList(schema, newTemplate.ruleList));
-      }
-    });
-  };
+      templateList.find((item) => {
+        if (item.id === id) {
+          const newTemplate = item;
 
-  const onFilterChange = useCallback(
+          setActiveFilters({
+            ...activeFilters,
+            template: newTemplate,
+          });
+        }
+      });
+    },
+    [activeFilters, setActiveFilters, templateList],
+  );
+
+  const onCategoryChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const id = event.target.id;
       const type = event.target.name;
       const checked = event.target.checked;
 
-      const newRuleList = template.ruleList.filter((rule) => {
-        return (
-          !checked ||
-          (type === 'level' && id === (rule.level as unknown as string)) ||
-          (type === 'engine' && rule.engineList.some((engine) => engine === id))
-        );
+      setActiveFilters({
+        ...activeFilters,
+        categories: checked
+          ? [...activeFilters.categories, { id, type, checked }]
+          : activeFilters.categories.filter((item) => item.id !== id),
       });
-
-      setCategoryList(convertToCategoryList(schema, newRuleList));
     },
-    [setCategoryList, template.ruleList],
+    [activeFilters, setActiveFilters],
   );
 
   const filterItemCount = useCallback(
     (filter: FilterItem) => {
-      return template.ruleList.filter((r) => {
+      return activeFilters.template.ruleList.filter((r) => {
         return (
           (filter.type === 'level' && filter.id === (r.level as unknown as string)) ||
           (filter.type === 'engine' && r.engineList.some((engine) => engine === filter.id))
         );
       }).length;
     },
-    [template.ruleList],
+    [activeFilters.template.ruleList],
   );
 
   return {
     filterOptionList,
     onTemplateChange,
-    onFilterChange,
+    onCategoryChange,
     filterItemCount,
   };
 };

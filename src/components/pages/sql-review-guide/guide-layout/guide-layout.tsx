@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { convertToCategoryList } from '@/utils/sql-review';
 
 import MobileSidebar from '@/components/pages/sql-review-guide/mobile-sidebar';
 
-import { GuidelineTemplate } from '@/types/sql-review';
+import { ActiveFilters, GuidelineTemplate } from '@/types/sql-review';
 
 import Content from '../content';
 import DropdownFilterBar from '../dropdown-filter-bar';
@@ -22,10 +22,30 @@ const GuideLayout = ({
   templateList: GuidelineTemplate[];
   schema: any;
 }) => {
-  const [template, setTemplate] = useState(templateList[0]);
-  const [categoryList, setCategoryList] = useState(
-    convertToCategoryList(schema, template.ruleList),
-  );
+  const [activeFilters, setActiveFilters] = useState<ActiveFilters>({
+    template: templateList[0],
+    categories: [],
+  });
+
+  const categoryList = useMemo(() => {
+    const { template, categories } = activeFilters;
+
+    const ruleList = template.ruleList.filter((rule) => {
+      if (categories.length === 0) return true;
+
+      return categories.some(({ id, type, checked }) => {
+        if (type === 'level') {
+          return (rule.level as unknown as string) === id.toLocaleUpperCase() && checked;
+        }
+
+        if (type === 'engine') {
+          return rule.engineList.some((engine) => engine === id.toLocaleUpperCase()) && checked;
+        }
+      });
+    });
+
+    return convertToCategoryList(schema, ruleList);
+  }, [activeFilters, schema]);
 
   return (
     <>
@@ -35,11 +55,9 @@ const GuideLayout = ({
         <div className="gap-x-grid grid grid-cols-12 border-t border-gray-90 pt-16 lg:pt-14 md:gap-y-8 md:pt-8">
           <DropdownFilterBar
             className="col-span-full hidden md:grid"
-            schema={schema}
-            template={template}
             templateList={templateList}
-            setTemplate={setTemplate}
-            setCategoryList={setCategoryList}
+            activeFilters={activeFilters}
+            setActiveFilters={setActiveFilters}
           />
           <Sidebar className="col-span-3 lg:hidden" categoryList={categoryList} />
           <Content
@@ -48,11 +66,9 @@ const GuideLayout = ({
           />
           <FilterBar
             className="col-span-3 md:hidden"
-            schema={schema}
-            template={template}
             templateList={templateList}
-            setTemplate={setTemplate}
-            setCategoryList={setCategoryList}
+            activeFilters={activeFilters}
+            setActiveFilters={setActiveFilters}
           />
         </div>
       </section>
