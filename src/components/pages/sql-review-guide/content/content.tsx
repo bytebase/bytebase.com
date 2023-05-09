@@ -125,7 +125,11 @@ const Content = ({
                         })}
                       </div>
                     )}
-                    <EngineList className="mt-4" engineList={engineList} type={type} />
+                    <EngineList
+                      className="mt-4 hidden xs:flex"
+                      engineList={engineList}
+                      type={type}
+                    />
                   </li>
                 );
               })}
