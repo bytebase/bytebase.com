@@ -21,27 +21,23 @@ export type AccordionData = {
 const data: AccordionData[] = [
   {
     title: 'Run and explain query',
-    description:
-      'Perform complex SQL tasks and protect data privacy with ByteBase’s web-based IDE, anonymization engine, and access controls.',
-    image: '/images/page/main/sql-editor/interface-run.jpg',
+    description: 'Run ad-hoc queries to explore data.',
+    image: '/images/page/main/sql-editor/interface-run.webp',
   },
   {
     title: 'Explore the schema',
-    description:
-      'Perform complex SQL tasks and protect data privacy with ByteBase’s web-based IDE, anonymization engine, and access controls.',
-    image: '/images/page/main/sql-editor/interface-explore.jpg',
+    description: 'Navigate database schema to understand data.',
+    image: '/images/page/main/sql-editor/interface-explore.webp',
   },
   {
     title: 'Anonymize data',
-    description:
-      'Perform complex SQL tasks and protect data privacy with ByteBase’s web-based IDE, anonymization engine, and access controls.',
-    image: '/images/page/main/sql-editor/interface-anonymize.jpg',
+    description: 'Built-in data anonymization to protect sensitive information.',
+    image: '/images/page/main/sql-editor/interface-anonymize.webp',
   },
   {
     title: 'Database access control',
-    description:
-      'Perform complex SQL tasks and protect data privacy with ByteBase’s web-based IDE, anonymization engine, and access controls.',
-    image: '/images/page/main/sql-editor/interface-database.jpg',
+    description: 'Centralized access control to ensure data security.',
+    image: '/images/page/main/sql-editor/interface-database.webp',
   },
 ];
 
@@ -101,7 +97,7 @@ const PromoSQLEditor = () => {
         <h2 className="mt-3 max-w-3xl font-title text-88 font-semibold leading-none xl:mt-3 xl:max-w-2xl xl:text-68 xl:leading-104 md:mt-3 md:max-w-lg md:text-54 md:leading-none sm:text-48 sm:leading-95">
           Explore data with <span className="whitespace-nowrap">all-in-one</span>{' '}
           <mark className="whitespace-nowrap bg-transparent text-center text-primary-1 sm:whitespace-normal">
-            SQL editor
+            SQL Editor
           </mark>
         </h2>
       </header>

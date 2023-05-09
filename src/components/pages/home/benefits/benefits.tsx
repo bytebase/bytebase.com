@@ -14,22 +14,20 @@ const benefits = [
     image: { src: '/images/page/main/benefits/auto-style.png', width: 590, height: 320 },
   },
   {
-    title: 'Batch schema changes to tenant databases',
+    title: 'Batch changes to multi-environment, multi-tenant databases',
     description:
-      '100+ lint rules to detect SQL anti-patterns and enforce consistent SQL style in the organization.',
+      'Batch change to multiple databases across different environments and tenants in a single ticket.',
     image: { src: '/images/page/main/benefits/batch-schemas.png', width: 590, height: 300 },
   },
   {
-    title: 'Online schema change',
-    description:
-      '100+ lint rules to detect SQL anti-patterns and enforce consistent SQL style in the organization.',
-    image: { src: '/images/page/main/benefits/online-schemas.png', width: 464, height: 342 },
+    title: 'GitOps - Database-as-Code',
+    description: 'Reuse developer workflow and manage change scripts in VCS.',
+    image: { src: '/images/page/main/benefits/git-ops.png', width: 464, height: 346 },
   },
   {
-    title: 'GitOps',
-    description:
-      '100+ lint rules to detect SQL anti-patterns and enforce consistent SQL style in the organization.',
-    image: { src: '/images/page/main/benefits/git-ops.png', width: 464, height: 346 },
+    title: 'Online schema change',
+    description: 'Lockless schema change to reduce database downtime from hours to seconds.',
+    image: { src: '/images/page/main/benefits/online-schemas.png', width: 464, height: 342 },
   },
 ];
 

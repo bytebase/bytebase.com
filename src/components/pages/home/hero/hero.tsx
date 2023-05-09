@@ -33,7 +33,7 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
     cover: '/images/page/main/hero/change-database.webp',
     title: 'Change database',
     description:
-      'Simplify database changes with standardization, lint rules, and GitOps integration.',
+      'Standardize database changes with peer review, lint rules, and GitOps integration.',
   },
   {
     videos: [
@@ -50,8 +50,7 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
     href: Route.DOCS_SQL_EDITOR,
     cover: '/images/page/main/hero/query-data.webp',
     title: 'Query data',
-    description:
-      "Perform complex SQL tasks and protect data privacy with ByteBase's web-based IDE.",
+    description: 'Run ad-hoc SQL queries with built-in data privacy protection via web-based IDE.',
   },
   {
     videos: [
@@ -69,7 +68,7 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
     cover: '/images/page/main/hero/secure-access.webp',
     title: 'Secure access',
     description:
-      'Eliminate administrative complexity and ensure compliance with one-stop resource management.',
+      'Eliminate administrative complexity and ensure compliance with holistic policy control.',
   },
 ];
 
@@ -152,7 +151,7 @@ const Hero = ({ latestVersion }: { latestVersion?: string }) => {
             </h1>
             <p className="absolute top-[244px] left-[338px] max-w-lg text-20 leading-140 xl:top-[177px] xl:left-[271px] xl:max-w-md xl:text-18 xl:leading-snug md:left-[230px] md:top-[158px] md:max-w-sm md:text-16 sm:static sm:mt-3 sm:max-w-full">
               Bytebase offers a web-based collaboration workspace to help DBAs and Developers manage
-              the lifecycle of application database schemas.
+              the database development lifecycle.
             </p>
           </div>
         </header>

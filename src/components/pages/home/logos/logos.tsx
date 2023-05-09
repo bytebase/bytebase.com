@@ -42,12 +42,6 @@ const logos = [
     height: 64,
   },
   {
-    alt: 'Proton',
-    src: '/images/logos/proton.svg',
-    width: 136,
-    height: 64,
-  },
-  {
     alt: 'Evermos',
     src: '/images/logos/evermos.svg',
     width: 239,

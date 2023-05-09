@@ -11,21 +11,21 @@ import TwitterIcon from '@/svgs/twitter.inline.svg';
 const socials = [
   {
     name: 'Discord',
-    description: 'Participate in discussion with others DBAs or developers.',
+    description: 'Participate in discussion with other DBAs and developers.',
     href: Route.DISCORD,
     action: 'Join Us',
   },
   {
     name: 'Twitter',
     description:
-      'Latest news and updates about Bytebase. Tag us if you need any help or want to share a feedback.',
+      'Latest news and updates. Tag us if you need any help or want to share a feedback.',
     href: Route.TWITTER,
     action: 'Follow Us',
   },
   {
     name: 'GitHub',
     description:
-      "We appreciate any help even if it's a small typo change or an issue report. It's easy to become a contributor.",
+      "We appreciate any contribution even if it's a small typo change or an issue report.",
     href: Route.GITHUB,
     action: 'Explore Codebase',
   },

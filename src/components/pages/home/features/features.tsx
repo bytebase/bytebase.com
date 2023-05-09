@@ -14,22 +14,19 @@ const cards: TCard[] = [
     href: Route.DOCS_ANOMALY_CENTER,
     icon: '/images/attention.svg',
     title: 'Anomaly center',
-    description:
-      'Simplify database changes with standardization, lint rules, and GitOps integration. It automatically starts deployment processes for new database change scripts.',
+    description: 'Surface and review all databases anomalies in a single place.',
   },
   {
     href: Route.DOCS_DRIFT_DETECTION,
     icon: '/images/database.svg',
     title: 'Drift detection',
-    description:
-      "Perform complex SQL tasks and protect data privacy with ByteBase's web-based IDE, anonymization engine, and access controls.",
+    description: 'Proactively detect schema drift caused by unexpected out-of-band change.',
   },
   {
     href: Route.DOCS_DISASTER_RECOVERY,
     icon: '/images/disk.svg',
     title: 'Disaster recovery',
-    description:
-      'Eliminate administrative complexity and ensure compliance with one-stop resource management, policy enforcement and CLI-like SQL editor experience.',
+    description: 'Auto-backup, point-in-time-recovery (PITR) and statement rollback.',
   },
 ];
 
@@ -41,8 +38,7 @@ const Features = () => {
           Stay confident
         </h2>
         <p className="mt-5 max-w-[716px] text-20 leading-normal 3xl:mt-[22px] xl:mt-5 xl:text-18 xl:leading-snug md:mt-3 md:max-w-[468px] md:text-14 sm:mt-2">
-          Bytebase streamlines database deployment from non-prod to prod by integrating with version
-          control systems for a GitOps workflow.
+          Continous monitoring and always-on recovery plan to protect your database 7x24.
         </p>
       </header>
       <ul className="gap-x-grid mt-14 grid grid-cols-12 3xl:mt-12 xl:mt-11 md:mt-9 sm:mt-6 sm:gap-y-8">
