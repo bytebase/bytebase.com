@@ -1,15 +1,12 @@
 'use client';
 
 import Image from 'next/image';
-import NextLink from 'next/link';
 
 import { useCallback, useEffect, useRef } from 'react';
 
 import useIntersectionObserver from '@/hooks/use-intersection-observer';
 import { Alignment, Fit, Layout, useRive, useStateMachineInput } from '@rive-app/react-canvas';
 import clsx from 'clsx';
-
-import Route from '@/lib/route';
 
 import Form from './form';
 
@@ -80,21 +77,9 @@ const Subscription = ({
             <h3 className="font-title text-88 font-semibold leading-none xl:text-68 xl:leading-104 md:text-56 md:leading-none sm:text-48 sm:leading-95">
               Subscribe to&nbsp;Newsletter
             </h3>
-            <Form fireInput={fireInput} />
-            <p
-              aria-label="By subscribing, you agree with Bytebase's Terms of Service and Privacy Policy."
-              className="mt-5 text-14 leading-snug xl:mt-3 xl:max-w-[290px] md:mt-2"
-            >
-              By subscribing, you agree with Bytebase&apos;s{' '}
-              <NextLink href={Route.TERMS} className="border-b-2 border-white border-opacity-40">
-                Terms of Service
-              </NextLink>{' '}
-              and{' '}
-              <NextLink href={Route.PRIVACY} className="border-b-2 border-white border-opacity-40">
-                Privacy Policy
-              </NextLink>
-              .
-            </p>
+            <div className="mt-9 xl:mt-6 md:mt-4 sm:mt-5">
+              <Form fireInput={fireInput} />
+            </div>
           </div>
         </div>
       </div>

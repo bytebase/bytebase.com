@@ -1,8 +1,6 @@
 import Image from 'next/image';
 
-import Link from '@/components/shared/link';
-
-import ROUTE from '@/lib/route';
+import Form from '@/components/shared/subscription/form';
 
 const SubscribeCta = () => {
   return (
@@ -25,49 +23,9 @@ const SubscribeCta = () => {
         <h2 className="col-span-4 col-start-3 ml-4 font-title text-52 leading-none text-white 2xl:ml-[22px] 2xl:w-[calc(100%+22px)] xl:col-span-5 xl:col-start-3 xl:w-full xl:text-44 lg:ml-0 md:pl-11 md:text-38 sm:col-span-3 sm:col-start-1 sm:pl-0 sm:text-34">
           Learn product updates and database&nbsp;insight.
         </h2>
-        <form className="col-span-6 text-white 2xl:pl-12 xl:col-span-5 xl:pl-0 sm:col-span-full sm:mt-5">
-          <div className="flex">
-            <input
-              className="remove-autocomplete-styles h-16 flex-grow rounded-l-full px-7 text-16 leading-none text-gray-40 placeholder-gray-15 outline-none 2xl:tracking-tight xl:h-12 xl:py-4 xl:px-5"
-              type="email"
-              placeholder="Your email address..."
-            />
-            <button
-              aria-label="Subscribe"
-              className="flex-shrink-0 rounded-r-full bg-black py-6 px-11 text-16 font-bold uppercase leading-none xl:py-4 xl:px-[22px] md:py-3 md:px-5"
-            >
-              <span className="leading-none md:hidden">Subscribe</span>{' '}
-              <img
-                className="hidden h-6 w-6 md:block"
-                src="/images/arrow-form.svg"
-                alt=""
-                width={24}
-                height={24}
-                loading="lazy"
-              />
-            </button>
-          </div>
-          <p
-            aria-label="By subscribing, you agree with Bytebase's Terms of Service and Privacy Policy"
-            className="mt-3 pl-7 text-14 leading-snug xl:mt-3 xl:max-w-[290px] xl:pl-5 md:mt-2 sm:max-w-full sm:pl-0"
-          >
-            By subscribing, you agree with Bytebase&apos;s{' '}
-            <Link
-              className="whitespace-nowrap font-semibold underline decoration-[#ffffff40] decoration-2 underline-offset-[5px]"
-              href={ROUTE.TERMS}
-            >
-              Terms of Service
-            </Link>{' '}
-            and{' '}
-            <Link
-              className="whitespace-nowrap font-semibold underline decoration-[#ffffff40] decoration-2 underline-offset-[5px]"
-              href={ROUTE.PRIVACY}
-            >
-              Privacy Policy
-            </Link>
-            .
-          </p>
-        </form>
+        <div className="col-span-6 2xl:pl-12 xl:col-span-5 xl:pl-0 sm:col-span-full sm:mt-5">
+          <Form />
+        </div>
       </div>
     </section>
   );
