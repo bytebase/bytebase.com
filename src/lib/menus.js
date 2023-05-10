@@ -10,25 +10,25 @@ export const MENUS = {
       items: [
         {
           name: 'Get Started',
-          description: 'Instantly validates tax ID numbers',
+          description: 'Deploy Bytebase in 5 minutes',
           linkUrl: ROUTE.DOCS,
           iconName: 'rocket',
         },
         {
-          name: 'CLI',
-          description: 'Ensures your compliance with DAC7',
-          linkUrl: ROUTE.DOCS_CLI,
-          iconName: 'cli',
-        },
-        {
           name: 'API',
-          description: 'Issues locally compliant invoices',
+          description: 'Integrate Bytebase with your own tools',
           linkUrl: ROUTE.DOCS_API,
           iconName: 'api',
         },
         {
+          name: 'CLI',
+          description: 'Change database via CLI',
+          linkUrl: ROUTE.DOCS_CLI,
+          iconName: 'cli',
+        },
+        {
           name: 'How-To',
-          description: 'Sends authorities tax data in real',
+          description: 'Knowledge base and best practices',
           linkUrl: ROUTE.DOCS_HOW_TO,
           iconName: 'howTo',
         },
@@ -44,25 +44,25 @@ export const MENUS = {
       items: [
         {
           name: 'Get Started',
-          description: 'Instantly validates tax ID numbers ',
+          description: 'Deploy Bytebase in 5 minutes',
           linkUrl: ROUTE.DOCS,
           iconName: 'rocket',
         },
         {
-          name: 'CLI',
-          description: 'Ensures your compliance with DAC7',
-          linkUrl: ROUTE.DOCS_CLI,
-          iconName: 'cli',
-        },
-        {
           name: 'API',
-          description: 'Issues locally compliant invoices',
+          description: 'Integrate Bytebase with your own tools',
           linkUrl: ROUTE.DOCS_API,
           iconName: 'api',
         },
         {
+          name: 'CLI',
+          description: 'Change database via CLI',
+          linkUrl: ROUTE.DOCS_CLI,
+          iconName: 'cli',
+        },
+        {
           name: 'How-To',
-          description: 'Sends authorities tax data in real',
+          description: 'Knowledge base and best practices',
           linkUrl: ROUTE.DOCS_HOW_TO,
           iconName: 'howTo',
         },

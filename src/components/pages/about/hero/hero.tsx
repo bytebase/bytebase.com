@@ -10,8 +10,8 @@ const Hero = () => {
           Why we build
         </Pill>
         <h2 className="col-span-full mt-3.5 max-w-[1000px] text-center font-title text-88 font-semibold leading-none xl:max-w-[780px] xl:text-68 xl:leading-104 md:mt-2 md:max-w-[620px] md:text-54 sm:text-48 sm:leading-95">
-          Simplify database changes with{' '}
-          <mark className="bg-transparent text-primary-1">standardization</mark>, lint rules
+          Standardize database changes by{' '}
+          <mark className="bg-transparent text-primary-1">unification</mark>, lint rules
         </h2>
         <Image
           src="/images/page/about/why-we-build.webp"
