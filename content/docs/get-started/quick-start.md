@@ -36,20 +36,20 @@ curl -fsS https://raw.githubusercontent.com/bytebase/bytebase/main/quickstart/ge
 
 <HintBlock type="info">
 
-If the above command doesn't work, replace [https://raw.githubusercontent.com/bytebase/](https://raw.githubusercontent.com/bytebase/)... with the proxy version: [https://ghproxy.com/https://raw.githubusercontent.com/bytebase/](https://ghproxy.com/https://raw.githubusercontent.com/bytebase/)...
+If the above command doesn't work, replace https://raw.githubusercontent.com/bytebase/... with the proxy version: https://ghproxy.com/https://raw.githubusercontent.com/bytebase/...
 
 </HintBlock>
 
 When the Terminal shows the following message, the execution is successful.
 
-```bash
+```
 employee-prod_1  | 2022-06-21T02:35:01.128005Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.29) starting as process 63
 employee-prod_1  | 2022-06-21T02:35:01.150847Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
-bytebase         | 2022-06-21T02:35:01.449Z INFO Completed database initial migration with version 1.1.2.
-bytebase         | 2022-06-21T02:35:01.465Z INFO Current schema version after migration: 1.1.2
+bytebase         | 2022-06-21T02:35:01.449Z	INFO	Completed database initial migration with version 1.1.2.
+bytebase         | 2022-06-21T02:35:01.465Z	INFO	Current schema version after migration: 1.1.2
 employee-prod_1  | 2022-06-21T02:35:01.483013Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
-bytebase         | 2022-06-21T02:35:01.489Z INFO get project env {"env": "prod"}
-bytebase         | 2022-06-21T02:35:01.489Z INFO load public pem {"file": "keys/prod.pub.pem"}
+bytebase         | 2022-06-21T02:35:01.489Z	INFO	get project env	{"env": "prod"}
+bytebase         | 2022-06-21T02:35:01.489Z	INFO	load public pem	{"file": "keys/prod.pub.pem"}
 bytebase         |
 bytebase         | ██████╗ ██╗   ██╗████████╗███████╗██████╗  █████╗ ███████╗███████╗
 bytebase         | ██╔══██╗╚██╗ ██╔╝╚══██╔══╝██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝
@@ -86,7 +86,7 @@ Each MySQL instance has a copy of the sample dataset in it. It’s the dataset_s
 
 - Click **Environments** on the top bar and you will see **Test** and **Prod** environments. You can keep the default settings or adjust them based on your needs.
 
-Prod environment requires manual approval while Test environment skips that.
+Prod environment requires manual rolling out while Test environment skips that.
 
 #### 2.2 Add instances
 
@@ -150,7 +150,7 @@ Now you are ready to manage these two `employee` databases in your project. Your
 
 6. Click **Apply to other stages**, the SQL will be applied to **Prod** as well.
 7. Click **Create**, and you will see the **SQL Advisor** kicks off automatically — checks the SQL statements against various rules.
-8. As the Test environment doesn't require manual approval, the SQL will be applied to the database on Test environment automatically after passing those advisor checks. Then you are waiting for approval for the Prod environment.
+8. As the Test environment doesn't require manual rolling out, the SQL will be applied to the database on Test environment automatically after passing those advisor checks. Then you are waiting for rollout for the Prod environment.
 
 #### 3.3 Review the SQL issue
 

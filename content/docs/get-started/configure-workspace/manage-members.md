@@ -11,7 +11,6 @@ This document describes how to add new member, update the role and deactivate a 
 ## Prerequisites
 
 - **Workspace Owner** role
-- **Team plan** or **Enterprise plan**
 
 ## Add a team member
 

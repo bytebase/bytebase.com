@@ -2,6 +2,12 @@
 title: Point-in-time Recovery for MySQL
 ---
 
+<HintBlock type="info">
+
+This feature is only available in the Pro Plan and Enterprise Plan.
+
+</HintBlock>
+
 Point-in-time Recovery (for MySQL), also known as PITR, enables you to recover your database to any point in the history with valid logical backups and archived binlog files. PITR is a complicated task involving a series of operations and a deep understanding of the database, often requiring an experienced DBA. And it is always performed under dramatic pressure because you always wish to recover the database to a previous healthy state when disaster happens, such as accidentally dropped tables or columns, new release corrupted data, etc.
 
 Bytebase provides an all-in-one solution to ease the PITR process with a few clicks and a straightforward UI to present the essential progress information.
@@ -80,7 +86,7 @@ Choose the instance of the new database, and fill in the name of the new databas
 
 Click the "Confirm" button to create the PITR issue.
 
-<img alt="pitr-restore-new-db-step-2" src="/docs/disaster-recovery/point-in-time-recovery-for-mysql/pitr-restore-to-new-db-step-2.webp" />
+<img alt="pitr-restore-new-db-step-2" src="/docs/disaster-recovery/point-in-time-recovery-for-mysql/pitr-restore-to-new-db-step-2.webp" style={{ maxWidth: 540 }} />
 
 ### Step 3 - Approve the Create database task
 

@@ -53,7 +53,7 @@ foo/bytebase --port 8080
 
 You should see something like this in the console:
 
-<IncludeBlock url="/docs/get-started/install/terminal-output"  ></IncludeBlock>
+<IncludeBlock url="/docs/get-started/install/terminal-output"></IncludeBlock>
 
 ## Troubleshoot
 

@@ -5,7 +5,7 @@ description: This guide shows you how to use gh-ost to migrate your MySQL databa
 
 <HintBlock type="warning">
 
-This is currently a preview feature.
+This feature is in beta.
 
 </HintBlock>
 

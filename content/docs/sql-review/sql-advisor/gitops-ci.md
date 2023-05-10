@@ -2,12 +2,6 @@
 title: GitOps SQL Review CI
 ---
 
-<HintBlock type="warning">
-
-This feature requires Enterprise Plan.
-
-</HintBlock>
-
 ## Set up SQL Review CI
 
 This feature requires the **GitOps Workflow**. You can follow [GitOps Workflow](/docs/vcs-integration/overview) to set up.
@@ -33,3 +27,9 @@ After the setup, in every MR, the SQL review policy will check against changed f
 ![vcs-sql-review-gitlab](/docs/vcs-integration/enable-gitops-workflow/vcs-sql-review-gitlab.webp)
 
 And you can follow the doc [Create Schema Review Policy](/docs/sql-review/review-policy/create-schema-review-policy) to create the SQL review policy.
+
+## MyBatis3 Mapper SQL Review CI - Beta
+
+After enabling SQL-Review CI, Bytebase will attempt to review MyBatis 3 mapper files. When the changed file includes a MyBatis 3 mapper files, Bytebase will search for a MyBatis3 config files in the same and parent directories. Once found, Bytebase will match the **environment id** in the config file with the \*environment name\*\* in Bytebase. If there is a matching environment, Bytebase will apply that environment's SQL Review policy.
+
+![mybatis3-sql-review-github](/docs/vcs-integration/enable-gitops-workflow/mybatis-github-ci-example.webp)

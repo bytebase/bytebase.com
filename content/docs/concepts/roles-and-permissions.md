@@ -2,12 +2,6 @@
 title: Roles and Permissions (RBAC)
 ---
 
-<HintBlock type="info">
-
-RBAC is only available in Team and Enterprise plan. In Free plan, Bytebase does not enforce RBAC and every user has full permissions.
-
-</HintBlock>
-
 ## Overview
 
 Bytebase employs RBAC (Role-Based-Access-Control) and provides two role sets at the workspace and project level:
@@ -153,4 +147,4 @@ User can save sheets from [SQL Editor](/docs/sql-editor/overview). A sheet alway
 |     Subscribe/Unsubscribe |    ✔️    |   ✔️    |        ✔️         |      ✔️       | ✔️            | ✔️              |
 |               Add comment |    ✔️    |   ✔️    |        ✔️         |      ✔️       | ✔️            | ✔️              |
 
-\* `Project Owner` can change issue status when the current active [Environment Approval Policy](/docs/administration/environment-policy/approval-policy) is set to _Require manual approval_.
+\* `Project Owner` can change issue status when the current active [Environment Rollout Policy](/docs/administration/environment-policy/rollout-policy) is set to **Require manual rolling out**.
