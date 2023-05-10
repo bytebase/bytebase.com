@@ -34,12 +34,14 @@ const GuideLayout = ({
       if (categories.length === 0) return true;
 
       return categories.some(({ id, type, checked }) => {
-        if (type === 'level') {
-          return (rule.level as unknown as string) === id.toLocaleUpperCase() && checked;
-        }
+        if (checked) {
+          if (type === 'level') {
+            return (rule.level as unknown as string) === id.toLocaleUpperCase();
+          }
 
-        if (type === 'engine') {
-          return rule.engineList.some((engine) => engine === id.toLocaleUpperCase()) && checked;
+          if (type === 'engine') {
+            return rule.engineList.some((engine) => engine === id.toLocaleUpperCase());
+          }
         }
       });
     });
