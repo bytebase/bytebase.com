@@ -1,8 +1,21 @@
 /** @type {import('next').NextConfig} */
 
-// TODO: switch external redirects to rewrites
-/* eslint @typescript-eslint/no-var-requires: "off" */
-const generateRedirects = require('./src/lib/generate-redirects');
+const rewrites = [
+  '/brand',
+  '/database-review-guide',
+  '/demo-confirm',
+  '/jobs',
+  '/refund',
+  '/sql-review-guide',
+  '/techstack',
+  '/vcs',
+  '/webhook',
+  '/database-feature',
+  '/database-glossary',
+  '/database',
+  '/integration',
+  '/usecase',
+];
 
 module.exports = {
   poweredByHeader: false,
@@ -19,12 +32,42 @@ module.exports = {
         permanent: true,
       },
       {
-        source: '/tutorials',
+        source: '/tutorial',
         destination: '/docs/tutorials/overview/',
         permanent: true,
       },
-      ...generateRedirects(),
+      {
+        source: '/changelog/:slug',
+        destination: '/changelog',
+        permanent: true,
+      },
     ];
+  },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: '/_nuxt/:path*',
+          destination: 'https://old.bytebase.com/_nuxt/:path*',
+        },
+        {
+          source: '/bytebase-brand-kit.zip',
+          destination: 'https://old.bytebase.com/bytebase-brand-kit.zip',
+        },
+      ],
+      afterFiles: [
+        ...rewrites.map((section) => ({
+          source: `${section}/:path*`,
+          destination: `https://old.bytebase.com${section}/:path*`,
+        })),
+      ],
+      fallback: [
+        {
+          source: '/zh/:path*/',
+          destination: 'https://old.bytebase.com/zh/:path*/',
+        },
+      ],
+    };
   },
   webpack: (config) => {
     config.module.rules.push({
