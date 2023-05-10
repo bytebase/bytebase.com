@@ -43,7 +43,7 @@ const cards: TCard[] = [
     image: '/images/page/pricing/team.webp',
     planTitle: 'pro',
     price: 100,
-    priceDescription: '/&nbsp;instances at month',
+    priceDescription: 'instance per month',
     description: 'Up to 20 instances',
     additionalDescription: 'You can start <b>a&nbsp;free&nbsp;trial for 14 days.</b>',
     buttonText: 'Try Free now',
