@@ -60,12 +60,12 @@ const PromoAutomationChanges = () => {
             <mark className="bg-transparent text-secondary-1">Automate</mark> database changes
           </h2>
           <p className="-mr-10 mt-8 text-20 leading-normal xl:mt-5 xl:mr-0 xl:text-18 xl:leading-snug md:mt-4 md:max-w-xl md:text-16 sm:mt-3 sm:max-w-none">
-            Bytebase streamlines database deployment from non-prod to prod by integrating with
-            version control systems for a GitOps workflow.
+            Bytebase streamlines database deployment from non-prod to prod with change review
+            workflow and optional GitOps integration.
           </p>
           <LinkUnderlined
             className="mt-8 text-white hover:text-secondary-2 xl:mt-7 md:mt-4 sm:mt-3"
-            href={Route.DOCS_VCS_INTEGRATION}
+            href={Route.DOCS_CHANGE_DATABASE}
           >
             Learn more
           </LinkUnderlined>

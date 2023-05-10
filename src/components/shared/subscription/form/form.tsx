@@ -1,8 +1,12 @@
-import { useState } from 'react';
+'use client';
 
-import useLocalStorage from '@/hooks/use-local-storage';
-import useSegment from '@/hooks/use-segment';
+import { useCallback, useState } from 'react';
+
 import clsx from 'clsx';
+
+import Link from '@/components/shared/link';
+
+import Route from '@/lib/route';
 
 import InfoIcon from '@/svgs/info.inline.svg';
 import triangle from '@/svgs/triangle.svg';
@@ -37,133 +41,134 @@ const ErrorMessage = ({ className, message }: { className?: string; message: str
   </div>
 );
 
-const Form = ({ fireInput }: { fireInput: () => void }) => {
+const Form = ({ fireInput }: { fireInput?: () => void }) => {
   const [email, setEmail] = useState('');
   const [formState, setFormState] = useState(STATES.DEFAULT);
 
-  const [submittedEmail, setSubmittedEmail] = useLocalStorage('submittedEmailNewsletterForm', []);
   const [errorMessage, setErrorMessage] = useState('');
-  const { analytics } = useSegment();
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    fireInput();
+  const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    fireInput && fireInput();
     setFormState(STATES.DEFAULT);
     setEmail(event.currentTarget.value.trim());
-  };
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  }, []);
 
-    if (!email) {
-      setErrorMessage('Please enter your email');
-      setFormState(STATES.ERROR);
-    } else if (!EMAIL_REGEX.test(email)) {
-      setErrorMessage('Please enter a valid email');
-      setFormState(STATES.ERROR);
-    } else if (submittedEmail.includes(email)) {
-      setErrorMessage('You have already submitted this email');
-      setFormState(STATES.ERROR);
-    } else {
-      setSubmittedEmail([...submittedEmail, email]);
+  const onSubmit = useCallback(
+    async (evt: React.FormEvent<HTMLFormElement>) => {
+      evt.preventDefault();
+
+      if (!email) {
+        setErrorMessage('Please enter your email');
+        setFormState(STATES.ERROR);
+        return;
+      }
+
+      if (!EMAIL_REGEX.test(email)) {
+        setErrorMessage('Please enter a valid email');
+        setFormState(STATES.ERROR);
+        return;
+      }
+
       setFormState(STATES.LOADING);
       setErrorMessage('');
 
       try {
-        if (analytics) {
-          // Manually updating user subscription status to re-subscribe
-          // Doc: https://segment.com/docs/connections/destinations/catalog/mailchimp/#manually-updating-user-subscription-status
-          analytics.identify(
-            email,
-            {
-              category: 'subscribe-newsletter',
-            },
-            {
-              integrations: {
-                MailChimp: {
-                  subscriptionStatus: 'subscribed',
-                },
-              },
-            },
-          );
+        await fetch('/api/subscribe', {
+          method: 'POST',
+          body: JSON.stringify({ email }),
+        });
+
+        setTimeout(() => {
+          setFormState(STATES.SUCCESS);
+          setEmail('Thank you for subscribing!');
 
           setTimeout(() => {
-            setFormState(STATES.SUCCESS);
-            setEmail('Thank you for subscribing!');
-
-            setTimeout(() => {
-              setFormState(STATES.DEFAULT);
-              setEmail('');
-            }, 2000);
-          }, 2200);
-        }
+            setFormState(STATES.DEFAULT);
+            setEmail('');
+          }, 2000);
+        }, 2200);
       } catch (error: any) {
         setFormState(STATES.ERROR);
         setErrorMessage(error?.message ?? error);
       }
-    }
-  };
+    },
+    [email],
+  );
 
   return (
-    <form
-      className="relative mt-9 flex h-16 xl:mt-6 xl:h-12 md:mt-4 sm:mt-5"
-      noValidate
-      onSubmit={handleSubmit}
-    >
-      <input
-        className={clsx(
-          'remove-autocomplete-styles flex-grow rounded-l-full py-6 px-7 text-16 leading-none tracking-tight placeholder-gray-40 outline-none transition-colors duration-200 disabled:bg-white xl:py-4 xl:px-5 sm:px-5',
-          formState === STATES.ERROR ? 'text-secondary-6' : 'text-gray-15',
-        )}
-        type="email"
-        name="email"
-        autoComplete="email"
-        value={email}
-        placeholder="Your email address..."
-        disabled={formState === STATES.LOADING || formState === STATES.SUCCESS}
-        onChange={handleInputChange}
-      />
-      <button
-        aria-label="Subscribe"
-        className={clsx(
-          'trans flex-shrink-0 rounded-r-full bg-center bg-no-repeat py-6 px-11 text-16 font-bold uppercase leading-none transition-colors duration-200 xl:py-4 md:py-3 md:px-5 sm:px-5 sm:py-3',
-          formState === STATES.SUCCESS
-            ? 'bg-secondary-2 hover:bg-secondary-2'
-            : 'bg-black hover:bg-[#17225B]',
-          {
-            'bg-[url(/images/loader.svg)] bg-[length:40px_40px] xl:bg-[length:28px_28px]':
-              formState === STATES.LOADING,
-            'bg-[url(/images/check-form.svg)] bg-[length:32px_32px] xl:bg-[length:24px_24px]':
-              formState === STATES.SUCCESS,
-            'pointer-events-none': formState === STATES.LOADING || formState === STATES.SUCCESS,
-          },
-        )}
-        type="submit"
-      >
-        <span
-          className={clsx('md:hidden', {
-            'opacity-0': formState === STATES.LOADING || formState === STATES.SUCCESS,
-          })}
-        >
-          Subscribe
-        </span>
-        <img
-          className={clsx('hidden h-6 w-6 md:block', {
-            'opacity-0': formState === STATES.LOADING || formState === STATES.SUCCESS,
-          })}
-          src="/images/arrow-form.svg"
-          alt=""
-          width={24}
-          height={24}
-          loading="lazy"
+    <form className="text-white" noValidate onSubmit={onSubmit}>
+      <div className="relative flex h-16 xl:h-12">
+        <input
+          className={clsx(
+            'remove-autocomplete-styles flex-grow rounded-l-full py-6 px-7 text-16 leading-none tracking-tight placeholder-gray-40 outline-none transition-colors duration-200 disabled:bg-white xl:py-4 xl:px-5 sm:px-5',
+            formState === STATES.ERROR ? 'text-secondary-6' : 'text-gray-15',
+          )}
+          type="email"
+          name="email"
+          autoComplete="email"
+          value={email}
+          placeholder="Your email address..."
+          disabled={formState === STATES.LOADING || formState === STATES.SUCCESS}
+          onChange={onChange}
         />
-      </button>
-      <ErrorMessage
-        className={clsx(
-          formState === STATES.ERROR
-            ? 'pointer-events-auto visible opacity-100'
-            : 'pointer-events-auto invisible opacity-0',
-        )}
-        message={errorMessage}
-      />
+        <button
+          aria-label="Subscribe"
+          className={clsx(
+            'trans flex-shrink-0 rounded-r-full bg-center bg-no-repeat py-6 px-11 text-16 font-bold uppercase leading-none transition-colors duration-200 xl:py-4 md:py-3 md:px-5 sm:px-5 sm:py-3',
+            formState === STATES.SUCCESS
+              ? 'bg-secondary-2 hover:bg-secondary-2'
+              : 'bg-black hover:bg-[#17225B]',
+            {
+              'bg-[url(/images/loader.svg)] bg-[length:40px_40px] xl:bg-[length:28px_28px]':
+                formState === STATES.LOADING,
+              'bg-[url(/images/check-form.svg)] bg-[length:32px_32px] xl:bg-[length:24px_24px]':
+                formState === STATES.SUCCESS,
+              'pointer-events-none': formState === STATES.LOADING || formState === STATES.SUCCESS,
+            },
+          )}
+          type="submit"
+        >
+          <span
+            className={clsx('md:hidden', {
+              'opacity-0': formState === STATES.LOADING || formState === STATES.SUCCESS,
+            })}
+          >
+            Subscribe
+          </span>
+          <img
+            className={clsx('hidden h-6 w-6 md:block', {
+              'opacity-0': formState === STATES.LOADING || formState === STATES.SUCCESS,
+            })}
+            src="/images/arrow-form.svg"
+            alt=""
+            width={24}
+            height={24}
+            loading="lazy"
+          />
+        </button>
+        <ErrorMessage
+          className={clsx(
+            formState === STATES.ERROR
+              ? 'pointer-events-auto visible opacity-100'
+              : 'pointer-events-auto invisible opacity-0',
+          )}
+          message={errorMessage}
+        />
+      </div>
+      <p
+        aria-label="By subscribing, you agree with Bytebase's Terms of Service and Privacy Policy."
+        className="mt-5 text-14 leading-snug xl:mt-3 xl:max-w-[290px] md:mt-2"
+      >
+        By subscribing, you agree with Bytebase&apos;s{' '}
+        <Link href={Route.TERMS} className="border-b-2 border-white border-opacity-40">
+          Terms of Service
+        </Link>{' '}
+        and{' '}
+        <Link href={Route.PRIVACY} className="border-b-2 border-white border-opacity-40">
+          Privacy Policy
+        </Link>
+        .
+      </p>
     </form>
   );
 };

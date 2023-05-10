@@ -49,9 +49,4 @@ export const crewList = [
     name: 'Edward',
     position: 'Engineering',
   },
-  {
-    image: '/images/page/about/007.webp',
-    name: '007',
-    position: 'Special Agent',
-  },
 ];

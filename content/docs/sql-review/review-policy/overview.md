@@ -12,6 +12,5 @@ The SQL Review Policy is essentially a set of SQL lint rules defined in [SQL Rev
 - [Disable and Delete Schema Review Policy](/docs/sql-review/review-policy/disable-delete-policy)
 
 ## Prerequisites
-
-- **Free** version allows to configure limited review rules. **Team** or **Enterprise** version unlocks all review rules.
 - **Workspace Owner** or **Workspace DBA** role to configure the Review Policy.
+

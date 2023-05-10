@@ -6,3 +6,5 @@ Bytebase allows you to change a collection of databases in a single workflow. Th
 
 - [Change databases from multiple environments](/docs/batch-change/multi-environment-change)
 - [Change databases from multiple tenants](/docs/batch-change/multi-tenant-change)
+
+While multi-environment change also supports multiple databases in one environment, the main difference between these two is that for multi-tenant change, all the databases in the project have identical schemas.

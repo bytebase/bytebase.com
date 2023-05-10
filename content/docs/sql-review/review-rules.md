@@ -2,13 +2,7 @@
 title: Review Rules
 ---
 
-<HintBlock type="warning">
-
-Review rules only supports SQL checks in **Issue** now. Support for **SQL Editor** is coming soon.
-
-</HintBlock>
-
-Bytebase provides customizable SQL lint rules to check common issues in schema change process.
+Bytebase provides customizable SQL lint rules to check common issues in database change and query process.
 
 Different sets of rules can form different [SQL Review Policies](/docs/sql-review/review-policy/overview) for the respective environment.
 
@@ -815,7 +809,6 @@ Bytebase checks if the SQL statement will change the column type.
 
 Specifically, Bytebase checks:
 
-- `CREATE TABLE` statements
 - `ALTER TABLE` statements
 
 #### Support database engine
@@ -1183,6 +1176,8 @@ Specifically, Bytebase checks:
 #### Support database engine
 
 - PostgreSQL
+- MySQL
+- TiDB
 
 <h3 id="index.create-concurrently">Create index concurrently</h3>
 

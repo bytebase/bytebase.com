@@ -135,7 +135,7 @@ const Header = () => {
                           </div>
                           <div className="flex flex-col gap-y-3">
                             <span className="text-20 leading-none text-gray-15">Tutorials</span>
-                            <span>In this article, we’ll go over the benefits of</span>
+                            <span>Bytebase feature guides</span>
                           </div>
                         </Link>
                       </div>

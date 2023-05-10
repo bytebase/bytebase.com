@@ -105,6 +105,22 @@ In some GitLab self-hosted setups, the **Issuer** is `http://gitlab.acme.com` (H
    - **Display name**: `name`
    - **Email**: `email`
 
+### Casdoor
+
+1. Follow the Casdoor [casdoor documentation]https://casdoor.org/docs/basic/core-concepts) to create a new application.
+   1. Configure the **Client ID** and **\*Client secret** to be `bytebase`.
+   1. Configure the **Valid redirect URIs** to be `{EXTERNAL_URL}/oidc/callback`.
+1. In Bytebase, go to **Settings > SSO** to create a new OIDC provider (all values are examples):
+   - **Name**: `Casdoor`
+   - **Resource ID**: `casdoor`
+   - **Domain**: `<your casdoor host>`
+   - **Issuer**: `<your casdoor host>`
+   - **Client ID**: the client id of your application
+   - **Client secret**: the client secret of your application
+   - **Identifier**: `preferred_username`
+   - **Display name**: `name`
+   - **Email**: `email`
+
 ### Authing
 
 1. Follow the Authing [创建自建应用](https://docs.authing.cn/v2/guides/app-new/create-app/create-app.html) to create a new "标准 Web 应用" as "自建应用".

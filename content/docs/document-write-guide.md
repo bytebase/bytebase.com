@@ -128,6 +128,6 @@ Include another markdown and render inline.
 ## How to add a new page
 
 1. Add your .md file to the folder `/content/docs/xxx`.
-2. Add your images to the folder `/public/docs/xxx`.
+2. Add your images to the folder `/docs/xxx`.
 3. Add an entry for the document in `_layout.md`, under the proper section.
 4. Submit a PR with the changes to [our repo in GitHub](https://github.com/bytebase/bytebase.com).

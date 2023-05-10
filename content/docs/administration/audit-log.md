@@ -2,6 +2,12 @@
 title: Audit Log
 ---
 
+<HintBlock type="info">
+
+This feature is only available in the Enterprise Plan.
+
+</HintBlock>
+
 Workspace OWNER or DBA can view the audit log of the workspace. Currently, the audit log records following operations performed by users in workspace:
 
 - Create Member
