@@ -102,7 +102,7 @@ export const MENUS = {
         { name: 'Documentation', linkUrl: ROUTE.DOCS },
         { name: 'Blog', linkUrl: ROUTE.BLOG },
         { name: 'Changelog', linkUrl: OLD_SITE_URL + ROUTE.CHANGELOG },
-        { name: 'SQL Review Guide', linkUrl: OLD_SITE_URL + ROUTE.SQL_REVIEW_GUIDE },
+        { name: 'SQL Review Guide', linkUrl: ROUTE.SQL_REVIEW_GUIDE },
         { name: 'Database Glossary', linkUrl: OLD_SITE_URL + ROUTE.DATABASE_GLOSSARY },
         { name: 'Error Code', linkUrl: `${ROUTE.DOCS}/reference/error-code/overview/` },
         { name: 'DB Cost', linkUrl: ROUTE.DB_COST, isExternal: true },

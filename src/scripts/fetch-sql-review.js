@@ -3,13 +3,11 @@
 const { mkdir, writeFile } = require('fs');
 const { promisify } = require('util');
 const fetch = require('node-fetch');
+const { SCHEMA_FILE, PROD_TEMPLATE, DEV_TEMPLATE } = require('./constants');
 
 const mkdirAsync = promisify(mkdir);
 const writeFileAsync = promisify(writeFile);
 
-const SCHEMA_FILE = 'sql-review-schema.yaml';
-const PROD_TEMPLATE = 'sql-review.prod.yaml';
-const DEV_TEMPLATE = 'sql-review.dev.yaml';
 const LOCALIZATION_FOLDER = './src/locales';
 const CONSOLE_VERSION_FOR_PRICING = 'main';
 const CONSOLE_VERSION_FOR_SQL_REVIEW = 'main';
@@ -58,9 +56,9 @@ async function main() {
     await mkdirAsync(`${LOCALIZATION_FOLDER}/sql-review`, { recursive: true });
     await mkdirAsync(`${LOCALIZATION_FOLDER}/subscription`, { recursive: true });
 
-    for (let i = 0; i < input.length; i++) {
-      await downloadFile(input[i], output[i]);
-    }
+    const promises = input.map((inputUrl, index) => downloadFile(inputUrl, output[index]));
+    // eslint-disable-next-line no-undef
+    await Promise.all(promises);
 
     console.log('Successfully updated the SQL Review config file.');
   } catch (error) {

@@ -42,6 +42,11 @@ type BooleanPayload = {
   default: boolean;
   value?: boolean;
 };
+type RuleConfigComponent = {
+  type: string;
+  key: string;
+  payload: StringPayload | NumberPayload | TemplatePayload | StringArrayPayload | BooleanPayload;
+};
 
 export type FilterItem = {
   id: string;
@@ -65,12 +70,6 @@ export type RuleTemplate = {
   engineList: string[];
   componentList: RuleConfigComponent[];
   level: typeof RuleLevel;
-};
-
-export type RuleConfigComponent = {
-  type: string;
-  key: string;
-  payload: StringPayload | NumberPayload | TemplatePayload | StringArrayPayload | BooleanPayload;
 };
 
 export type ActiveFilters = {
