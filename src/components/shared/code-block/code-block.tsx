@@ -4,8 +4,10 @@ import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import bash from 'react-syntax-highlighter/dist/esm/languages/prism/bash';
 import diff from 'react-syntax-highlighter/dist/esm/languages/prism/diff';
 import javascript from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
+import json from 'react-syntax-highlighter/dist/esm/languages/prism/json';
 import markdown from 'react-syntax-highlighter/dist/esm/languages/prism/markdown';
 import nginx from 'react-syntax-highlighter/dist/esm/languages/prism/nginx';
+import shell from 'react-syntax-highlighter/dist/esm/languages/prism/powershell';
 import sql from 'react-syntax-highlighter/dist/esm/languages/prism/sql';
 import yaml from 'react-syntax-highlighter/dist/esm/languages/prism/yaml';
 
@@ -23,6 +25,8 @@ SyntaxHighlighter.registerLanguage('markdown', markdown);
 SyntaxHighlighter.registerLanguage('yaml', yaml);
 SyntaxHighlighter.registerLanguage('diff', diff);
 SyntaxHighlighter.registerLanguage('nginx', nginx);
+SyntaxHighlighter.registerLanguage('json', json);
+SyntaxHighlighter.registerLanguage('shell', shell);
 
 const CodeBlock = ({
   className,
