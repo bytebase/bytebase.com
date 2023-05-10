@@ -42,7 +42,7 @@ Our website is built with Nuxt Content v1, so I then looked through its document
 
 So following Nuxt Content's [instruction](https://content.nuxtjs.org/v1/getting-started/writing/#global-components), we create a global component named Version.vue,
 
-```vue
+```javascript
 // Version.vue
 
 <template>
@@ -99,7 +99,7 @@ Then we should make some changes to the version component to let it read the ver
 
 And rewrite our `Version.vue` into this:
 
-```vue
+```javascript
 // Version.vue
 
 <template>
