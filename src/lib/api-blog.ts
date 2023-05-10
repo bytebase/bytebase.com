@@ -43,15 +43,18 @@ const getAllBlogPosts = (): BlogPostsWithTags => {
 
 const getBlogPostBySlug = (slug: string): BlogPost | null => {
   try {
+    const VERSION = fs.readFileSync('VERSION').toString();
     const filePath = path.join(CONTENT_FOLDER.blog, `${slug}.md`);
     const markdownWithMeta = fs.readFileSync(filePath, 'utf-8');
     const { content, data } = matter(markdownWithMeta);
 
     if (!data || !content) return null;
 
+    const contentWithVersion: string = content.replace(/%%bb_version%%/g, VERSION);
+
     return {
       ...data,
-      content,
+      content: contentWithVersion,
       slug,
       timeToRead: getTimeToRead(content),
     } as BlogPost;

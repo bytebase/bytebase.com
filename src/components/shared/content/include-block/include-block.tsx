@@ -7,7 +7,8 @@ const getPost = (url: string) => {
   if (url.startsWith('/blog')) {
     return getBlogPostBySlug(url);
   }
-  return getPostBySlug(url);
+  const docUrl = url.replace('/docs/', '');
+  return getPostBySlug(docUrl);
 };
 
 const IncludeBlock = ({ url }: { url: string }) => {
