@@ -15,6 +15,7 @@ const rewrites = [
   '/database',
   '/integration',
   '/usecase',
+  '/tutorial',
 ];
 
 module.exports = {
@@ -32,14 +33,9 @@ module.exports = {
         permanent: true,
       },
       {
-        source: '/tutorial',
-        destination: '/docs/tutorials/overview/',
-        permanent: true,
-      },
-      {
         source: '/changelog/:slug',
         destination: '/changelog',
-        permanent: true,
+        permanent: false,
       },
     ];
   },
