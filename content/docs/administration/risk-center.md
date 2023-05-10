@@ -2,6 +2,12 @@
 title: Risk Center
 ---
 
+<HintBlock type="info">
+
+This feature is only available in the Enterprise Plan.
+
+</HintBlock>
+
 In **Settings > Risk Center**, you can define different risk levels for each operation types (DML, DDL and Create Database) with custom rules.
 
 Once an issue matches the risk conditions, it will be assigned to the corresponding risk level you've defined.

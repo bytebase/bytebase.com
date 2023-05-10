@@ -2,16 +2,18 @@
 title: Manage Bytebase with Terraform
 ---
 
+<HintBlock type="info">
+
+The Bytebase Provider itself is free to use. Some advanced resource operations require Pro or Enterprise Plan.
+
+</HintBlock>
+
 Bytebase provides the [Terraform Provider](https://registry.terraform.io/providers/bytebase/bytebase) to let you manage your Bytebase resources via Terraform. Users can use Terraform provider to manage following Bytebase resources:
 
 - Environment
 - Instance
 - Instance Role
 - More to come
-
-<HintBlock type="info">
-The Bytebase Provider itself is free to use. Some advanced resource operations require TEAM or ENTERPRISE plan.
-</HintBlock>
 
 ## Create service account
 

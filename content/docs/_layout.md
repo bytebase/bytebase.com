@@ -1,6 +1,6 @@
 ---
 # expand_section_list is the list of default expanded sections.
-expand_section_list: ['Introduction', 'Get Started']
+expand_section_list: ["Introduction", "Get Started"]
 ---
 
 ## Introduction
@@ -13,7 +13,7 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ## Get Started
 
-### [SaaS](/get-started/saas)
+### [Cloud](/get-started/cloud)
 
 ### [Self-Hosted](/get-started/self-hosted)
 
@@ -77,7 +77,7 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ---
 
-## SQL Review
+## [SQL Review](/sql-review/overview)
 
 ### [SQL Advisor](/sql-review/sql-advisor/overview)
 
@@ -108,8 +108,6 @@ expand_section_list: ['Introduction', 'Get Started']
 ## Change Database
 
 ### [Change Workflow](/change-database/change-workflow/overview)
-
-#### [LGTM Check](/change-database/change-workflow/lgtm)
 
 #### [Issue Need Attention](/change-database/change-workflow/issue-need-attention)
 
@@ -148,6 +146,7 @@ expand_section_list: ['Introduction', 'Get Started']
 ### [Admin Mode](/sql-editor/admin-mode)
 
 ### [Explore Schema](/sql-editor/explore-schema)
+### [ChatSQL](/sql-editor/chatsql)
 
 ## [VCS Integration (GitOps)](/vcs-integration/overview)
 
@@ -168,6 +167,12 @@ expand_section_list: ['Introduction', 'Get Started']
 ### [Batch Change Tenant Databases](/vcs-integration/tenant-gitops)
 
 ### [Troubleshoot](/vcs-integration/troubleshoot)
+
+## [Slow Query](/slow-query/overview)
+
+### [Enable slow query log for MySQL](/slow-query/enable-slow-query-log-for-mysql)
+
+### [Enable pg_stat_statements for PostgreSQL](/slow-query/enable-pg-stat-statements-for-postgresql)
 
 ## Disaster Recovery
 
@@ -209,11 +214,13 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Custom Approval](/administration/custom-approval)
 
+### [Custom Roles](/administration/custom-roles)
+
 ### [Environment Policy](/administration/environment-policy/overview)
 
 #### [Environment Tier](/administration/environment-policy/tier)
 
-#### [Approval Policy](/administration/environment-policy/approval-policy)
+#### [Rollout Policy](/administration/environment-policy/rollout-policy)
 
 #### [Backup Schedule Policy](/administration/environment-policy/backup-schedule-policy)
 
@@ -235,6 +242,10 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Archive](/administration/archive)
 
+### [Mail Delivery](/administration/mail-delivery)
+
+### [Secret](/administration/secret)
+
 ---
 
 ## Reference
@@ -248,68 +259,6 @@ expand_section_list: ['Introduction', 'Get Started']
 #### [Error Code for SQL Advisor](/reference/error-code/advisor)
 
 ---
-
-## API
-
-### [Getting Started](/api/overview)
-
-### [SQL Advise](/api/sql-advise)
-
----
-
-## CLI
-
-### [Getting Started](/cli/overview)
-
-### [Integrate with GitLab CI](/cli/integrate-with-gitlab)
-
-### [Reference](/cli/reference)
-
----
-
-## How-To
-
-### SQL Review Guide
-
-#### [PostgreSQL](/how-to/sql-review/postgres-sql-review-guide)
-
-### Workflow
-
-#### [GitOps with Feature Branch](/how-to/workflow/gitops-feature-branch)
-
-### Integrations
-
-#### [Supabase](/how-to/integrations/supabase)
-
-#### [Render](/how-to/integrations/render)
-
-#### [Neon](/how-to/integrations/neon)
-
-### ClickHouse
-
-#### [How to Run ClickHouse with Docker](/how-to/clickhouse/how-to-run-clickhouse-docker)
-
-#### [How to Connect ClickHouse with SSL](/how-to/clickhouse/how-to-connect-clickhouse-ssl)
-
-#### [How to Create a Database](/how-to/clickhouse/how-to-create-a-database-clickhouse)
-
-#### [How to Create a Table](/how-to/clickhouse/how-to-create-a-table-clickhouse)
-
-#### [How to List Tables from a Database](/how-to/clickhouse/how-to-list-tables-from-a-database-clickhouse)
-
-#### [How to Rename a Table](/how-to/clickhouse/how-to-rename-a-table-clickhouse)
-
-### Spanner
-
-#### [How to Find Project ID and Instance ID](/how-to/spanner/how-to-find-project-id-and-instance-id)
-
-#### [How to Create a Service Account for Bytebase](/how-to/spanner/how-to-create-a-service-account-for-bytebase)
-
----
-
-## Tutorials
-
-### [Overview](/tutorials/overview)
 
 ## [FAQ](/faq)
 

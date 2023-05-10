@@ -2,7 +2,7 @@
 title: Schema Diagram
 ---
 
-<HintBlock type="info">
+<HintBlock type="warning">
 
 This feature is in beta.
 

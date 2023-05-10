@@ -49,18 +49,19 @@ spec:
             limits:
               cpu: 0.5
               memory: 32Mi
-          image: bytebase/bytebase:1.11.0
+          image: bytebase/bytebase:%%bb_version%%
           imagePullPolicy: Always
+          env:
+          - name: PG_URL
+            value: "postgresql://test:2pk5Ra2FdqiF8idERi5Tn5yTbvqPslZaYSgw1Qh2y4MljWBkb2OTvpvK4lwmTVXM@acid-test.ns-8b66134e-5294-480f-b6c4-00243fc2488e.svc.cluster.local:5432/sealos"
           args:
             [
-              '--data',
-              '/var/opt/bytebase',
-              '--external-url',
-              'https://bytebase.cloud.sealos.io',
-              '--port',
-              '8080',
-              '--pg',
-              'postgresql://test:2pk5Ra2FdqiF8idERi5Tn5yTbvqPslZaYSgw1Qh2y4MljWBkb2OTvpvK4lwmTVXM@acid-test.ns-8b66134e-5294-480f-b6c4-00243fc2488e.svc.cluster.local:5432/sealos',
+              "--data",
+              "/var/opt/bytebase",
+              "--external-url",
+              "https://bytebase.cloud.sealos.io",
+              "--port",
+              "8080",
             ]
           ports:
             - containerPort: 8080
@@ -97,7 +98,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/backend-protocol: 'HTTP'
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
   name: bytebase
   labels:
     k8s-app: bytebase

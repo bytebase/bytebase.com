@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: SQL Editor
 ---
 
 ![SQL Editor Preview](/docs/sql-editor/preview.webp)

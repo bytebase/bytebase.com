@@ -32,17 +32,17 @@ Use animated recording judicious. Sometimes you have to use animation to showcas
 ## Documentation
 
 - Put documentation under https://github.com/bytebase/bytebase.com/tree/main/content/docs.
-- Put image under https://github.com/bytebase/bytebase.com/tree/main/static/docs.
+- Put image under https://github.com/bytebase/bytebase.com/tree/main/public/docs.
 - Check https://www.bytebase.com/docs/document-write-guide for supported markdown syntax.
 
 ## Blog
 
 - Put under https://github.com/bytebase/bytebase.com/tree/main/content/blog.
-- Under https://github.com/bytebase/bytebase.com/tree/main/static/blog, for each blog post, create a folder using the blog post file name and put all images for that post there.
+- Under https://github.com/bytebase/bytebase.com/tree/main/public/blog, for each blog post, create a folder using the blog post file name and put all images for that post there.
 - Use feature image.
 
 ## Changelog
 
 - Put under https://github.com/bytebase/bytebase.com/tree/main/content/changelog.
-- Under https://github.com/bytebase/bytebase.com/tree/main/static/changelog, for each changelog containing any image, create a folder using the changelog version and put all images for that changelog there.
+- Under https://github.com/bytebase/bytebase.com/tree/main/public/changelog, for each changelog containing any image, create a folder using the changelog version and put all images for that changelog there.
 - Do **NOT** use feature image
