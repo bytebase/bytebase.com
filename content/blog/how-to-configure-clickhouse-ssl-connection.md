@@ -306,7 +306,7 @@ Congratulations, you have now successfully connected to your ClickHouse server u
    d. Use MySQL Client to connect to ClickHouse Server
 
 | Step                                                        | File(s) you create               | File(s) you use                          |
-| :---------------------------------------------------------- | :------------------------------- | :--------------------------------------- |
+| ----------------------------------------------------------- | -------------------------------- | ---------------------------------------- |
 | 2.a - Set up OpenSSL config                                 | req.conf                         | None                                     |
 | 2.b - Generate Root CA key and certificate                  | ca.key ca.pem ca.srl             | req.conf                                 |
 | 2.c - Generate Server key and certificate                   | server.key server.pem server.csr | ca.pem                                   |

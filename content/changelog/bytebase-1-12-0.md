@@ -30,7 +30,7 @@ description: "- Configure policy via Terraform Bytebase Provider. - 21 new SQL R
 ## 💰 Pricing & Plan Change
 
 |                 **Post-change** | **Free Plan** | **Team Plan** | **Enterprise Plan** |
-| :------------------------------ | :---: | :--------: | :--: |
+| ------------------------------- | ----- | ---------- | :--: |
 | **Seat Count** | Up to 10 | Up to 10 | Unlimited |
 | **Task count in an issue** | Unlimited | Unlimited | Unlimited |
 | **Instance count** | Up to 10 | Up to 10 | Customized |
