@@ -12,6 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
         />
+        <script data-domain="bytebase.com" src="https://plausible.io/js/script.js" defer />
       </head>
       <body className="flex h-full flex-col">
         <Header />
