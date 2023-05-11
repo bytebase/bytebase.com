@@ -19,7 +19,7 @@ We are hiring. Check out our [jobs page](https://www.bytebase.com/jobs).
 1. Clone this repository or hit "Use this template" button
 
 ```bash
-git clone git@github.com:pixel-point/nextjs-typescript-tailwind-starter.git
+git clone git@github.com:bytebase/bytebase.com.git
 ```
 
 2. Install dependencies
