@@ -28,7 +28,7 @@ export const getGuidelineTemplateList = (): GuidelineTemplate[] => {
     id: string;
     ruleList: {
       type: string;
-      level: typeof RuleLevel;
+      level: keyof typeof RuleLevel;
       payload?: { [key: string]: any };
     }[];
   }[];

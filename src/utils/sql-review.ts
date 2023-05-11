@@ -2,10 +2,6 @@ import translationEn from '@/locales/sql-review/en.json';
 
 import { CategoryType, FilterItem, RuleCategory, RuleTemplate } from '@/types/sql-review';
 
-export const SCHEMA_FILE = 'sql-review-schema.yaml';
-export const PROD_TEMPLATE = 'sql-review.prod.yaml';
-export const DEV_TEMPLATE = 'sql-review.dev.yaml';
-
 export const getRuleLocalizationKey = (type: string): string => {
   return type.split('.').join('-');
 };
@@ -44,7 +40,7 @@ export const RuleLevel = {
   DISABLED: 'DISABLED',
   ERROR: 'ERROR',
   WARNING: 'WARNING',
-};
+} as const;
 
 export const LEVEL_LIST = [RuleLevel.ERROR, RuleLevel.WARNING, RuleLevel.DISABLED];
 

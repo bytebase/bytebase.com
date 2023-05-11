@@ -53,7 +53,7 @@ const useSQLReviewFilter = ({
     (filter: FilterItem) => {
       return activeFilters.template.ruleList.filter((r) => {
         return (
-          (filter.type === 'level' && filter.id === (r.level as unknown as string)) ||
+          (filter.type === 'level' && filter.id === r.level) ||
           (filter.type === 'engine' && r.engineList.some((engine) => engine === filter.id))
         );
       }).length;

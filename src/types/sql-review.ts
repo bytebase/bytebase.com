@@ -12,41 +12,21 @@ export type CategoryType =
   | 'INDEX'
   | 'SYSTEM';
 
-type StringPayload = {
-  type: 'STRING';
-  default: string;
-  value?: string;
+type Payload<N, T> = {
+  type: N;
+  default: T;
+  value?: T;
 };
 
-type NumberPayload = {
-  type: 'NUMBER';
-  default: number;
-  value?: number;
-};
-
-type StringArrayPayload = {
-  type: 'STRING_ARRAY';
-  default: string[];
-  value?: string[];
-};
-
-type TemplatePayload = {
-  type: 'TEMPLATE';
-  default: string;
-  templateList: string[];
-  value?: string;
-};
-
-type BooleanPayload = {
-  type: 'BOOLEAN';
-  default: boolean;
-  value?: boolean;
-};
-
-type RuleConfigComponent<T> = {
+type RuleConfigComponent = {
   type: string;
   key: string;
-  payload: T;
+  payload:
+    | Payload<'STRING', string>
+    | Payload<'NUMBER', number>
+    | Payload<'STRING_ARRAY', string[]>
+    | Payload<'BOOLEAN', boolean>
+    | (Payload<'TEMPLATE', string> & { templateList: string[] });
 };
 
 export type FilterItem = {
@@ -69,10 +49,8 @@ export type RuleTemplate = {
   type: string;
   category: CategoryType;
   engineList: string[];
-  componentList: RuleConfigComponent<
-    StringPayload | NumberPayload | StringArrayPayload | TemplatePayload | BooleanPayload
-  >[];
-  level: typeof RuleLevel;
+  componentList: RuleConfigComponent[];
+  level: keyof typeof RuleLevel;
 };
 
 export type ActiveFilters = {

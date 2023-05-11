@@ -36,7 +36,7 @@ const GuideLayout = ({
       return categories.some(({ id, type, checked }) => {
         if (checked) {
           if (type === 'level') {
-            return (rule.level as unknown as string) === id.toLocaleUpperCase();
+            return rule.level === id.toLocaleUpperCase();
           }
 
           if (type === 'engine') {

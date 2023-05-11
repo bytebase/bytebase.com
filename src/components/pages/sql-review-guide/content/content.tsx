@@ -71,8 +71,8 @@ const Content = ({
             <ul className="mt-8 lg:mt-6 md:mt-5 xs:mt-4">
               {ruleList.map(({ type, engineList, componentList, level }) => {
                 const key: string = getRuleLocalizationKey(type);
-                //FIXME: use proper ts type
-                const lowerCaseLevel: string = (level as unknown as string).toLocaleLowerCase();
+
+                const lowerCaseLevel: string = level.toLocaleLowerCase();
                 const anchor = getRuleLocalizationKey(type);
 
                 return (
