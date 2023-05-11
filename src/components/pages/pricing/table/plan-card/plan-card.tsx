@@ -29,7 +29,7 @@ const PlanCard = ({
           {title}
         </h3>
         <p
-          className="mx-auto mt-3 min-h-[54px] max-w-[244px] text-14 leading-tight tracking-tight text-gray-40 xl:mt-2 xl:min-h-[70px]"
+          className="mx-auto mt-3 min-h-[54px] max-w-[244px] text-14 leading-tight tracking-tight text-gray-40 xl:mt-2 xl:min-h-[70px] sm:min-h-[88px]"
           dangerouslySetInnerHTML={{ __html: description }}
         />
         <Button

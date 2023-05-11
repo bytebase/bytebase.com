@@ -43,10 +43,7 @@ const Community = () => {
   }, [rive, isIntersecting, input]);
 
   return (
-    <section
-      className="container mt-[160px] pb-20 3xl:mt-[144px] xl:mt-[128px] xl:pb-[58px] md:mt-[96px] md:pb-10 sm:mt-7"
-      ref={containerRef}
-    >
+    <section className="container mt-40 3xl:mt-36 xl:mt-32 md:mt-24 sm:mt-7" ref={containerRef}>
       <header className="gap-x-grid grid grid-cols-12 sm:grid-cols-none sm:gap-3">
         <div className="col-span-5 xl:col-span-6 sm:col-span-full">
           <h2 className="mt-[105px] font-title text-112 font-semibold leading-none 3xl:mt-[97px] xl:mt-[58px] xl:text-90 xl:leading-95 md:mt-12 md:text-80 sm:w-3/4 sm:text-56">

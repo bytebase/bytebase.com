@@ -6,16 +6,10 @@ import { useCallback, useEffect, useRef } from 'react';
 
 import useIntersectionObserver from '@/hooks/use-intersection-observer';
 import { Alignment, Fit, Layout, useRive, useStateMachineInput } from '@rive-app/react-canvas';
-import clsx from 'clsx';
 
 import Form from './form';
 
-// TODO: remove className prop
-const Subscription = ({
-  className = 'mt-[124px] 3xl:mt-[110px] xl:mt-[97px] md:mt-[54px] sm:mt-4.5',
-}: {
-  className?: string;
-}) => {
+const Subscription = () => {
   const containerRef = useRef(null);
 
   const { isIntersecting } = useIntersectionObserver(containerRef, {
@@ -53,7 +47,10 @@ const Subscription = ({
   }, [input]);
 
   return (
-    <section className={clsx('bg-primary-1 text-white', className)} ref={containerRef}>
+    <section
+      className="mt-[205px] bg-primary-1 text-white 3xl:mt-[189px] xl:mt-[156px] md:mt-[114px] sm:mt-[117px]"
+      ref={containerRef}
+    >
       <div className="container gap-x-grid grid grid-cols-12 sm:flex sm:flex-col sm:overflow-x-clip">
         <div className="relative col-span-5 col-start-2 -ml-10 xl:col-span-6 xl:col-start-1 xl:ml-0">
           <div className="absolute -top-12 -bottom-10 w-full 3xl:-top-10 xl:-top-6 md:-top-8 sm:hidden">
