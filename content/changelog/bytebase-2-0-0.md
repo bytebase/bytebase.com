@@ -9,7 +9,7 @@ description: "Support AI-based index optimization advisor for slow query"
 ## 🚀 New Features
 
 - Support [AI-based index optimization advisor](/docs/slow-query/index-advisor/) for slow query.
-- Support setting [secret variables](docs/administration/secret) at the database level and using it in SQL change workflow.
+- Support setting [secret variables](/docs/administration/secret) at the database level and using it in SQL change workflow.
 - Support [MyBatis 3 XML SQL Review](/docs/sql-review/sql-advisor/gitops-ci#mybatis3-mapper-sql-review-ci---beta) in the code repository as part of the GitOps workflow.
 - Support connection over SSH for MySQL instance.
 
@@ -25,7 +25,7 @@ description: "Support AI-based index optimization advisor for slow query"
 ## 🎠 Community
 
 - We are proud to unveil our [new official website](/).
-![](/changelog/2-0-0-banner.webp)
+![](/changelog/website-2-0.webp)
 - Bytebase 2.0 is now [live on Product Hunt](https://www.producthunt.com/posts/bytebase-2-0)! Help us spread the word by sharing, upvoting, and commenting. Thanks!
 - Thanks to @[bun4uk](https://github.com/bun4uk) for chore: update role.go [\#5888](https://github.com/bytebase/bytebase/pull/5888)
 
