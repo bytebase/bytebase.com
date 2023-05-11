@@ -18,13 +18,14 @@ import APIIcon from '@/svgs/api.inline.svg';
 import CLIIcon from '@/svgs/cli.inline.svg';
 import HowToIcon from '@/svgs/how-to.inline.svg';
 import RocketIcon from '@/svgs/rocket.inline.svg';
+import TutorialsIcon from '@/svgs/tutorials.inline.svg';
 
 import Burger from './burger';
 
 // FIXME: Set the correct type for `icons`.
 const icons: {
   [key: string]: any;
-} = { rocket: RocketIcon, api: APIIcon, cli: CLIIcon, howTo: HowToIcon };
+} = { rocket: RocketIcon, api: APIIcon, cli: CLIIcon, howTo: HowToIcon, tutorials: TutorialsIcon };
 
 const ANIMATION_DURATION = 0.2;
 const MOTION_EASY = [0.25, 0.1, 0.25, 1];

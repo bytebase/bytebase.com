@@ -64,6 +64,12 @@ export const MENUS = {
           linkUrl: Route.DOCS_HOW_TO,
           iconName: 'howTo',
         },
+        {
+          name: 'Tutorials',
+          description: 'Bytebase feature guides',
+          linkUrl: Route.DOCS_TUTORIALS,
+          iconName: 'tutorials',
+        },
       ],
     },
     { title: 'Pricing', href: Route.PRICING },
