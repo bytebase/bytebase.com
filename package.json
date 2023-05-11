@@ -1,7 +1,6 @@
 {
-  "name": "bytebase-typescript-next",
+  "name": "bytebase.com",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
