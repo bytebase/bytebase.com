@@ -14,7 +14,7 @@ The Bytebase index advisor based on the slow query logs and OpenAI API. Make sur
 
 Go to Bytebase console, click **Settings > General**. Scroll down to **AI Augmentation**, and fill in **OpenAI API Key** field.
 
-![settings-general-ai](/static/docs/sql-editor/settings-general-ai.webp)
+![settings-general-ai](/static/docs/slow-query/settings-general-ai.webp)
 
 ## Index Advisor
 
