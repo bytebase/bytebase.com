@@ -121,7 +121,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       schedule: true,
       'disaster-recovery': {
         value: 'Advanced',
-        tooltip: 'Database backup / restore + Point-in-Time-Recovery (PITR)',
+        tooltip: 'Basic + Point-in-Time-Recovery (PITR)',
       },
       synchronize: { value: 'Advanced', tooltip: 'Sync from arbitrary schema version' },
       'batch-change': { value: 'Basic', tooltip: 'Multi-environment change' },
@@ -140,7 +140,10 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       inbox: true,
       ui: true,
       shared: true,
-      gitops: { value: 'Advanced', tooltip: 'Sync from arbitrary schema version' },
+      gitops: {
+        value: 'Advanced',
+        tooltip: 'Basic + Latest Schema Write-back, SQL Scripts Sync, SQL Review CI',
+      },
       webhook: { value: 'Basic', tooltip: 'IM + Custom Webhook' },
     },
     security: {
@@ -184,7 +187,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       schedule: true,
       'disaster-recovery': {
         value: 'Advanced',
-        tooltip: 'Database backup / restore + Point-in-Time-Recovery (PITR)',
+        tooltip: 'Basic + Point-in-Time-Recovery (PITR)',
       },
       synchronize: { value: 'Advanced', tooltip: 'Sync from arbitrary schema version' },
       'batch-change': {

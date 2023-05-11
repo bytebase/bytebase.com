@@ -73,7 +73,7 @@ const components = {
         src={src}
         width={716}
         height={344}
-        style={{ width: '100%', height: '100%' }}
+        quality={100}
         alt={alt}
       />
     );

@@ -1,10 +1,13 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
+
 import { useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 import { AnimatePresence, LazyMotion, domAnimation, m, useAnimation } from 'framer-motion';
 
+import AlgoliaSearch from '@/components/pages/docs/algolia-search';
 import Button from '@/components/shared/button';
 import Link from '@/components/shared/link';
 
@@ -68,6 +71,7 @@ const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openedDropdown, setOpenedDropdown] = useState(-1);
   const controls = useAnimation();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (isOpen) {
@@ -83,8 +87,13 @@ const MobileMenu = () => {
 
   const toggleMenu = () => setIsOpen((prevIsOpen) => !prevIsOpen);
 
+  const isDocs = pathname?.startsWith(Route.DOCS);
+
   return (
     <>
+      {isDocs && (
+        <AlgoliaSearch className={clsx(isOpen ? 'z-40' : 'z-50', 'pelative hidden md:block')} />
+      )}
       <Burger className="hidden md:block" isToggled={isOpen} onClick={toggleMenu} />
       <LazyMotion features={domAnimation}>
         <m.nav

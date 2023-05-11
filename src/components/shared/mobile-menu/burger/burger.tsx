@@ -16,7 +16,7 @@ const Burger = ({
 }) => (
   <LazyMotion features={domAnimation}>
     <m.button
-      className={clsx('absolute top-0 right-0 z-50 p-[22px]', className)}
+      className={clsx('absolute top-0 right-0 z-50 p-[22px] sm:pl-3', className)}
       type="button"
       animate={isToggled ? 'toggled' : 'initial'}
       aria-label={isToggled ? 'Close menu' : 'Open menu'}

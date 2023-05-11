@@ -12,12 +12,12 @@ As Q1 2023 comes to an end, let's take a look back at what we've accomplished at
 
 ## 6 Releases
 
-- Jan 12 - [1.11.0](/bytebase-1-11-0)
-- Feb 2 - [1.12.0](/bytebase-1-12-0)
-- Feb 16 - [1.12.1](/bytebase-1-12-1)
-- Mar 2 - [1.13.0](/bytebase-1-13-0)
-- Mar 16 - [1.14.0](/bytebase-1-14-0)
-- Mar 30 - [1.15.0](/bytebase-1-15-0)
+- Jan 12 - [1.11.0](/changelog/bytebase-1-11-0)
+- Feb 2 - [1.12.0](/changelog/bytebase-1-12-0)
+- Feb 16 - [1.12.1](/changelog/bytebase-1-12-1)
+- Mar 2 - [1.13.0](/changelog/bytebase-1-13-0)
+- Mar 16 - [1.14.0](/changelog/bytebase-1-14-0)
+- Mar 30 - [1.15.0](/changelog/bytebase-1-15-0)
 
 ## Cloud
 

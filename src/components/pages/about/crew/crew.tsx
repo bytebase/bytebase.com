@@ -30,12 +30,16 @@ const Crew = () => (
         </li>
       ))}
       <li className="col-span-3 place-self-center sm:col-span-2">
-        <Link className="group flex flex-col items-center" href={ROUTE.JOBS}>
+        <a
+          className="group flex flex-col items-center"
+          href="mailto:hr@bytebase.com?subject=Hi, I am interested in Bytebase position&body=Hello Bytebase,%0D%0A%0D%0A"
+          target="_blank"
+        >
           <Image src="/images/page/about/join.webp" alt="" width={244} height={244} />
           <span className="mt-4.5 rounded-full border-[3px] border-primary-1 px-4.5 py-3.5 font-bold uppercase leading-none text-black transition-colors duration-300 group-hover:border-black">
             Join us
           </span>
-        </Link>
+        </a>
       </li>
     </ul>
   </section>

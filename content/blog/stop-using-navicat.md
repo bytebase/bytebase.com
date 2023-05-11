@@ -105,7 +105,7 @@ Bytebase is a web-based product with server-side capabilities that can fill the 
 Bytebase and Navicat both provide a UI for users to operate the database, the main difference is that Bytebase adds an extra layer of control over database queries, changes, and admin actions.
 
 |                                    | Navicat | Bytebase |
-| :--------------------------------: | :-----: | :------: |
+| ---------------------------------- | ------- | -------- |
 | Centralised control over password  |   ❌    |    ✅    |
 |      Database access control       |   ❌    |    ✅    |
 |         Data anonymization         |   ❌    |    ✅    |

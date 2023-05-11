@@ -29,7 +29,7 @@ Real-world scenarios:
 By default, the first registered user is granted the `Owner` role, all following registered users are granted `Developer` role. `Owner` can update any user's role later.
 
 |                         Workspace Permission |         Developer         | DBA | Owner |
-| -------------------------------------------: | :-----------------------: | :-: | :---: |
+| ------------------------------------------- | ----------------------- | --- | --- |
 |                 Change own name and password |            ✔️             | ✔️  |  ✔️   |
 |                                 Add new user |                           |     |  ✔️   |
 |                               View all users |            ✔️             | ✔️  |  ✔️   |
@@ -82,7 +82,7 @@ Any user can create project. By default, the project creator is granted the `Pro
 </HintBlock>
 
 |           Project Permission | Project Developer | Project Owner | Workspace DBA | Workspace Owner |
-| ---------------------------: | :---------------: | :-----------: | :-----------: | :-------------: |
+| ---------------------------- | ----------------- | ------------- | ------------- | --------------- |
 |          Sync sheet from VCS |        ✔️         |      ✔️       |      ✔️       |       ✔️        |
 |          Change project role |                   |      ✔️       |      ✔️       |       ✔️        |
 |                 Edit project |                   |      ✔️       |      ✔️       |       ✔️        |
@@ -94,7 +94,7 @@ Any user can create project. By default, the project creator is granted the `Pro
 Bytebase does not define database specific roles. Whether a user can perform certain action to the database is based on the user's Workspace role and the role of the project owning the database.
 
 | Database Permission |     Project Developer     | Project Owner | Workspace DBA | Workspace Owner |
-| ------------------: | :-----------------------: | :-----------: | :-----------: | :-------------: |
+| ------------------- | ------------------------- | ------------- | ------------- | ------------ |
 |  Take manual backup |            ✔️             |      ✔️       |      ✔️       |       ✔️        |
 |       Enable backup |                           |      ✔️       |      ✔️       |       ✔️        |
 | Edit database label |                           |      ✔️       |      ✔️       |       ✔️        |
@@ -111,7 +111,7 @@ User can save sheets from [SQL Editor](/docs/sql-editor/overview). A sheet alway
 ### Private Sheet
 
 | Permission | Creator | Project Developer | Project Owner | Workspace DBA | Workspace Owner |
-| ---------: | :-----: | :---------------: | :-----------: | ------------- | --------------- |
+| ---------- | ------- | ----------------- | ------------- | ------------- | --------------- |
 |       Star |   ✔️    |                   |               |               |                 |
 |       Read |   ✔️    |                   |               |               |                 |
 |      Write |   ✔️    |                   |               |               |                 |
@@ -120,7 +120,7 @@ User can save sheets from [SQL Editor](/docs/sql-editor/overview). A sheet alway
 ### Project Sheet
 
 | Permission | Creator | Project Developer | Project Owner | Workspace DBA | Workspace Owner |
-| ---------: | :-----: | :---------------: | :-----------: | :-----------: | :-------------: |
+| ---------- | ------- | ----------------- | ------------- | ------------- | --------------- |
 |       Star |   ✔️    |        ✔️         |      ✔️       |      ✔️       |       ✔️        |
 |       Read |   ✔️    |        ✔️         |      ✔️       |      ✔️       |       ✔️        |
 |      Write |   ✔️    |                   |      ✔️       |      ✔️       |       ✔️        |
@@ -129,7 +129,7 @@ User can save sheets from [SQL Editor](/docs/sql-editor/overview). A sheet alway
 ### Public Sheet
 
 | Permission | Creator | Project Developer | Project Owner | Others |
-| ---------: | :-----: | :---------------: | :-----------: | :----: |
+| ---------- | ------- | ----------------- | ------------- | ------ |
 |       Star |   ✔️    |        ✔️         |      ✔️       |   ✔️   |
 |       Read |   ✔️    |        ✔️         |      ✔️       |   ✔️   |
 |      Write |   ✔️    |                   |      ✔️       |        |
@@ -138,7 +138,7 @@ User can save sheets from [SQL Editor](/docs/sql-editor/overview). A sheet alway
 ## Issue permissions
 
 |          Issue Permission | Assignee | Creator | Project Developer | Project Owner | Workspace DBA | Workspace Owner |
-| ------------------------: | :------: | :-----: | :---------------: | :-----------: | ------------- | --------------- |
+| ------------------------- | -------- | ------- | ----------------- | ------------- | ------------- | --------------- |
 |              Create issue |   N/A    |   N/A   |        ✔️         |      ✔️       | ✔️            | ✔️              |
 |           Re-assign issue |    ✔️    |   ✔️    |                   |               | ✔️            | ✔️              |
 |       Change issue status |    ✔️    |         |                   |   Depends\*   | ✔️            | ✔️              |
