@@ -1,6 +1,6 @@
 # <a href="https://www.bytebase.com"><img alt="Bytebase" src="https://raw.githubusercontent.com/bytebase/bytebase/be87525c1228fe00cdcc3585859664bdd3167aca/frontend/src/assets/logo.svg" height="56px" /></a>
 
-We are hiring. Check out our [jobs page](https://www.bytebase.com/jobs).
+We are hiring. Please check out our [about page](https://www.bytebase.com/about) and submit inquiry from there.
 
 ## Table of Contents
 
