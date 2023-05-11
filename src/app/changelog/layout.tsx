@@ -6,7 +6,7 @@ export default function ChangelogLayout({ children }: { children: React.ReactNod
     <>
       <Hero />
       {children}
-      <SubscriptionForm className="mt-[205px] 3xl:mt-[189px] xl:mt-[156px] md:mt-[114px] sm:mt-[117px]" />
+      <SubscriptionForm />
     </>
   );
 }
