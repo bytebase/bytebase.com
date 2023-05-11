@@ -72,12 +72,12 @@
       code {
         text-shadow: unset !important;
 
-        @apply highlighted-code !font-mono !text-white;
+        @apply highlighted-code !font-mono !text-white sm:break-words;
       }
     }
 
     :not(pre) > code {
-      @apply rounded-md bg-gray-97 px-1.5 py-0.5 font-mono text-14 text-gray-15;
+      @apply rounded-md bg-gray-97 px-1.5 py-0.5 font-mono text-14 text-gray-15 sm:break-words;
 
       &::before,
       &::after {

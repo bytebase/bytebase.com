@@ -12,7 +12,7 @@ import {
   TableOfContents,
 } from '@/types/docs';
 
-const DOCS_DIR_PATH = 'content/docs';
+const DOCS_DIR_PATH = `${process.cwd()}/content/docs`;
 
 const getPostSlugs = (): string[] => {
   const files = glob.sync(`${DOCS_DIR_PATH}/**/*.md`, {

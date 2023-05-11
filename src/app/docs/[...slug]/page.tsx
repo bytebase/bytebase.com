@@ -4,7 +4,9 @@ import { notFound } from 'next/navigation';
 import { getExcerpt } from '@/utils/get-excerpt';
 import getMetadata from '@/utils/get-metadata';
 
+import MobileSidebar from '@/components/pages/docs/mobile-sidebar';
 import PostLayout from '@/components/pages/docs/post-layout';
+import Sidebar from '@/components/pages/docs/sidebar';
 import Content from '@/components/shared/content';
 
 import {
@@ -39,7 +41,8 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
 
   if (!post) return notFound();
 
-  const { sidebar } = getSidebar();
+  const currentUrl = `/${slug.join('/')}`;
+  const { sidebar, expandedList } = getSidebar();
   const flatSidebar = getFlatSidebar(sidebar);
 
   const breadcrumbs = getBreadcrumbs(currentPath, flatSidebar);
@@ -53,15 +56,26 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
   const tableOfContents = getTableOfContents(content);
 
   return (
-    <PostLayout
-      title={title}
-      currentSlug={currentSlug}
-      breadcrumbs={breadcrumbs}
-      navigationLinks={navigationLinks}
-      tableOfContents={tableOfContents}
-    >
-      <Content content={content} />
-    </PostLayout>
+    <>
+      <MobileSidebar
+        className="col-span-full hidden md:flex md:pt-[72px]"
+        data={sidebar}
+        currentUrl={currentUrl}
+        expandedList={expandedList}
+      />
+      <div className="container grid grid-cols-12 gap-x-10 pt-[136px] 2xl:pt-[140px] xl:gap-x-9 xl:pt-32 lg:gap-x-6 md:mt-6 md:gap-x-5 md:pt-0 sm:gap-x-4">
+        <Sidebar data={sidebar} expandedList={expandedList} currentUrl={currentUrl} />
+        <PostLayout
+          title={title}
+          currentSlug={currentSlug}
+          breadcrumbs={breadcrumbs}
+          navigationLinks={navigationLinks}
+          tableOfContents={tableOfContents}
+        >
+          <Content content={content} />
+        </PostLayout>
+      </div>
+    </>
   );
 }
 

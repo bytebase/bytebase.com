@@ -54,7 +54,7 @@ In the last release, we introduced data anonymization for MySQL.
 In this cycle, we have enhanced its capabilities, and it now tops the mainstream goInception-based solutions in the market.
 
 |                   Query Type | Bytebase | goInception |
-| ---------------------------: | :------: | :---------: |
+| ---------------------------- | -------- | ----------- |
 |      Simple query statements |    ✔️    |     ✔️      |
 |                     Subquery |    ✔️    |     ❌      |
 |                  NATURE JOIN |    ✔️    |     ❌      |

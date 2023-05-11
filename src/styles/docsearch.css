@@ -1,0 +1,200 @@
+@import '@docsearch/css';
+
+.DocSearch {
+  &-Button {
+    @apply relative ml-0 flex h-10 w-full max-w-[314px] items-center justify-between rounded-full !bg-gray-97 py-3 px-5 leading-none text-gray-40 transition duration-200 
+    before:absolute before:top-1/2 before:right-5 before:h-4 before:w-[46px] before:-translate-y-1/2 before:bg-[url(/images/page/docs/key-ctrl_k-hover.inline.svg)] before:opacity-0 before:transition-opacity before:duration-200 after:absolute
+    after:top-1/2 after:right-5 after:h-4 after:w-[46px] after:-translate-y-1/2 after:bg-[url(/images/page/docs/key-ctrl_k.inline.svg)] after:opacity-100 after:transition-opacity after:duration-200 hover:text-gray-15 hover:shadow-none
+    hover:before:opacity-100 hover:after:opacity-0
+    md:absolute md:right-[72px] md:top-[22px] md:z-30 md:h-7 md:w-7 md:justify-center md:!bg-transparent md:p-0 after:md:hidden sm:right-16;
+
+    &-Placeholder {
+      @apply pl-2.5 text-14 font-medium md:hidden;
+    }
+    &-Container {
+      @apply flex items-center;
+    }
+    &-Keys {
+      @apply hidden;
+    }
+  }
+
+  &-Cancel {
+    @apply absolute right-5 top-1/2 ml-0 -translate-y-1/2 rounded-full !bg-gray-94 p-2 text-14 font-medium leading-none text-gray-40 md:right-7 md:block sm:right-4;
+  }
+
+  &-SearchBar {
+    @apply relative border-b border-gray-90 p-0;
+  }
+
+  &-MagnifierLabel {
+    @apply hidden;
+  }
+
+  &-Search-Icon {
+    @apply h-4 w-4 md:h-5 md:w-5;
+  }
+
+  &-LoadingIndicator {
+    @apply absolute right-4 top-1/2 -translate-y-1/2 md:right-[103px] sm:right-[90px];
+  }
+
+  &-Form {
+    @apply h-[60px] p-0 shadow-none sm:h-[54px];
+  }
+
+  &-Input {
+    @apply h-[60px] w-full p-5 text-18 !outline-none md:pl-7 md:pr-28 sm:h-auto sm:py-4 sm:pl-4 sm:pr-32 sm:text-16;
+  }
+
+  &-Container {
+    @apply bg-[#0F1624] bg-opacity-30;
+  }
+
+  &-Dropdown {
+    @apply max-h-none grow px-5 md:px-7 md:pb-[60px] sm:px-4;
+  }
+
+  &-Screen-Icon {
+    @apply mx-auto h-24 w-24 bg-[url(/images/page/docs/not-found.svg)] bg-contain pb-0 [&>svg]:hidden;
+  }
+
+  &-Title {
+    @apply mt-2.5 text-20 leading-normal text-gray-50 line-clamp-1;
+
+    & strong {
+      @apply font-medium text-gray-15;
+    }
+  }
+
+  &-Hits {
+    @apply mt-2;
+  }
+  &-Hit {
+    @apply mb-2 pb-0;
+
+    &[aria-selected='true'] {
+      & a {
+        @apply bg-primary-1;
+      }
+
+      & mark {
+        @apply underline underline-offset-2;
+      }
+    }
+
+    & a {
+      @apply bg-gray-97 shadow-none;
+    }
+
+    &-Tree {
+      @apply hidden;
+    }
+
+    &-source {
+      @apply mb-3 text-14 font-semibold leading-normal text-gray-30;
+    }
+
+    & mark {
+      @apply text-primary-1;
+    }
+
+    &-title {
+      @apply mb-1.5 text-14 font-medium leading-snug text-black;
+    }
+
+    &-path {
+      @apply text-12 font-medium leading-extra-tight text-black;
+    }
+
+    &-source {
+      @apply bg-white;
+    }
+
+    &-content-wrapper {
+      @apply ml-3;
+    }
+  }
+
+  &-StartScreen {
+    @apply flex h-full min-h-[144px] items-center justify-center p-0;
+  }
+
+  &-NoResults {
+    @apply w-full pb-[30px] pt-8 md:flex md:min-h-full md:flex-col md:justify-center;
+
+    &-Prefill-List {
+      @apply w-full;
+
+      & .DocSearch-Help {
+        @apply mt-10 text-14 font-semibold leading-normal text-gray-30;
+      }
+
+      & ul {
+        @apply block pt-3;
+      }
+
+      & li {
+        @apply mb-2 list-none;
+
+        &::last-child {
+          @apply mb-0;
+        }
+      }
+    }
+  }
+  &-Prefill {
+    @apply relative w-full rounded !bg-gray-97 py-4 pl-3 text-left text-14 font-medium leading-snug text-black transition-colors duration-200 after:absolute after:right-3 after:top-1/2 after:h-5
+            after:w-5 after:-translate-y-1/2 after:bg-[url(/images/page/docs/arrow-enter.svg)] after:bg-contain after:opacity-0 after:transition-opacity after:duration-200 hover:!bg-primary-1 hover:text-white hover:no-underline hover:after:opacity-100;
+  }
+
+  &-Help {
+    @apply text-16 text-gray-60 md:text-20;
+  }
+
+  &-Reset {
+    @apply absolute top-1/2 right-4 h-6 w-6 -translate-y-1/2 p-0 md:right-[103px] sm:right-[90px] [&>svg]:h-full [&>svg]:w-full;
+  }
+
+  &-Modal {
+    @apply mt-[160px] flex max-h-[560px] min-h-[264px] w-full max-w-[564px] justify-between overflow-hidden rounded-2xl bg-white shadow-dark-big xl:mt-24 md:mt-0 md:h-full md:max-h-full md:w-full md:max-w-full md:rounded-none md:border-none;
+  }
+
+  &-Footer {
+    @apply h-[60px] border-t border-gray-90 px-5 py-4 shadow-none;
+  }
+
+  &-Logo {
+    a {
+      @apply items-center;
+    }
+
+    & svg {
+      @apply h-[18px] w-auto;
+    }
+  }
+
+  &-Label {
+    @apply pl-0.5 text-15 text-gray-40;
+  }
+
+  &-Commands {
+    @apply flex-row-reverse gap-x-4 md:hidden;
+
+    & li,
+    & li:not(:last-of-type) {
+      @apply mr-0;
+    }
+
+    & li:last-child {
+      & .DocSearch-Commands-Key {
+        @apply w-7;
+      }
+    }
+
+    &-Key {
+      --docsearch-key-gradient: rgb(237 239 242);
+      @apply mr-1 h-5 rounded-full text-gray-40 shadow-none;
+    }
+  }
+}
