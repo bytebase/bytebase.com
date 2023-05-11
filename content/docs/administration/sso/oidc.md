@@ -107,7 +107,7 @@ In some GitLab self-hosted setups, the **Issuer** is `http://gitlab.acme.com` (H
 
 ### Casdoor
 
-1. Follow the Casdoor [casdoor documentation]https://casdoor.org/docs/basic/core-concepts) to create a new application.
+1. Follow the Casdoor [casdoor documentation](https://casdoor.org/docs/basic/core-concepts) to create a new application.
    1. Configure the **Client ID** and **\*Client secret** to be `bytebase`.
    1. Configure the **Valid redirect URIs** to be `{EXTERNAL_URL}/oidc/callback`.
 1. In Bytebase, go to **Settings > SSO** to create a new OIDC provider (all values are examples):
