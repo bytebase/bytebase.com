@@ -10,13 +10,13 @@ description: Pioneering Database Change Management and bring the GitLab/GitHub e
 
 Recent AI breakthroughs have excited us all. However, developers still struggle with mundane daily tasks.
 One is dealing with databases, mundane yet requiring care—or you'll get a daring outage. Two years
-ago, we created Bytebase to address this, open-sourcing it on GitHub. Compared to incumbents, Bytebase's
-growth outpaces theirs.
+ago, we created Bytebase to address this, [open-sourcing it on GitHub](https://github.com/bytebase/bytebase).
+Compared to incumbents, Bytebase's growth outpaces theirs.
 
 ![star-history](/blog/bytebase-2-0/star-history.webp)
 
 A year ago, we monetized Bytebase 1.0, welcoming global customers across industries. Today marks another
-milestone: Bytebase 2.0.
+milestone: **Bytebase 2.0**.
 
 ## One to Twelve
 
@@ -38,7 +38,7 @@ Accessing databases often favors internal network. Bytebase provides easy on-pre
 a single binary, self-contained Docker image, and Helm chart. Though cloud services convenience
 rivals on-premise, we release Bytebase Cloud as an additional option. Bytebase Cloud equals the
 self-hosted version without user infrastructure management. To quickly experience Bytebase, sign up
-for our free cloud plan and follow the quickstart guide.
+for our [free cloud plan](https://hub.bytebase.com/workspace) and follow the quickstart guide.
 
 ![quickstart](/blog/bytebase-2-0/quick-start.webp)
 
@@ -83,7 +83,7 @@ Bytebase 2.0 adds a new AI capability: to provide index advice for slow queries.
 
 ![chat-to-sql](/blog/bytebase-2-0/index-advisor.webp)
 
-Last month, we also announced a new product: [SQL Chat](/blog/sql-chat/), a chat-based SQL client. Use natural language
+Last month, we also announced a new product: [SQL Chat](https://sqlchat.ai), a chat-based SQL client. Use natural language
 to query your database.
 
 ![sql chat](/blog/bytebase-2-0/sql-chat.webp)
