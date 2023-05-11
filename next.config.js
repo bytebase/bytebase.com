@@ -32,7 +32,7 @@ module.exports = {
         permanent: true,
       },
       {
-        source: '/changelog/:slug',
+        source: '/changelog/:slug(.+(?<!.webp)$)',
         destination: '/changelog',
         permanent: false,
       },
