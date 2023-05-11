@@ -48,7 +48,7 @@ Visit [our pricing page](/pricing) to learn more.
 
 - We introduced the MongoDB support in the last release. This is a milestone for us as it's also the first NoSQL database supported by Bytebase, [learn more](/blog/introducing-mongodb-support-in-bytebase)!
 - When Navicat is [no longer](/blog/stop-using-navicat) your best bet.
-- A step-by-step guide to [managing databases](/blog/manage-databases-in-bytebase-with-terraform) in Bytebase with Terraform.
+- A step-by-step guide to [managing databases](/docs/tutorials/manage-databases-in-bytebase-with-terraform) in Bytebase with Terraform.
 
 ## 📕 Installation and Upgrade
 
