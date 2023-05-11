@@ -71,8 +71,8 @@ const components = {
       <Image
         className="my-11 xl:my-10 md:my-9 sm:my-8"
         src={src}
-        width={716}
-        height={344}
+        width={842}
+        height={562}
         quality={100}
         alt={alt}
       />
