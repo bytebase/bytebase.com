@@ -32,6 +32,7 @@ module.exports = {
         permanent: true,
       },
       {
+        // TODO: this redirects all images under /public/changelog/
         source: '/changelog/:slug',
         destination: '/changelog',
         permanent: false,
