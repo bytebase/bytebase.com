@@ -1,9 +1,11 @@
 /* eslint-disable no-console */
-/* eslint-disable @typescript-eslint/no-var-requires */
-const { mkdir, writeFile } = require('fs');
-const { promisify } = require('util');
-const fetch = require('node-fetch');
-const { SCHEMA_FILE, PROD_TEMPLATE, DEV_TEMPLATE } = require('./constants');
+import { mkdir, writeFile } from 'fs';
+import fetch from 'node-fetch';
+import { promisify } from 'util';
+
+const SCHEMA_FILE = 'sql-review-schema.yaml';
+const PROD_TEMPLATE = 'sql-review.prod.yaml';
+const DEV_TEMPLATE = 'sql-review.dev.yaml';
 
 const mkdirAsync = promisify(mkdir);
 const writeFileAsync = promisify(writeFile);

@@ -1,4 +1,3 @@
-import { DEV_TEMPLATE, PROD_TEMPLATE, SCHEMA_FILE } from '@/scripts/constants';
 import { RuleLevel } from '@/utils/sql-review';
 import fs from 'fs';
 import jsYaml from 'js-yaml';
@@ -7,15 +6,15 @@ import path from 'path';
 import { GuidelineTemplate, RuleTemplate } from '@/types/sql-review';
 
 export const sqlReviewSchema: any = jsYaml.load(
-  fs.readFileSync(path.resolve(`data/${SCHEMA_FILE}`), 'utf8'),
+  fs.readFileSync(path.resolve(`data/sql-review-schema.yaml`), 'utf8'),
 );
 
 const sqlReviewProdTemplate = jsYaml.load(
-  fs.readFileSync(path.resolve(`data/${PROD_TEMPLATE}`), 'utf8'),
+  fs.readFileSync(path.resolve(`data/sql-review.prod.yaml`), 'utf8'),
 );
 
 const sqlReviewDevTemplate = jsYaml.load(
-  fs.readFileSync(path.resolve(`data/${DEV_TEMPLATE}`), 'utf8'),
+  fs.readFileSync(path.resolve(`data/sql-review.dev.yaml`), 'utf8'),
 );
 
 // Build the frontend template list based on schema and template.
