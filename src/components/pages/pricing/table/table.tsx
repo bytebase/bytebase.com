@@ -48,13 +48,13 @@ const Table = () => {
             alt=""
             className="absolute -top-[123px] -left-10 max-w-none 3xl:left-0 3xl:-top-[124px] 3xl:h-auto 3xl:w-[345px] xl:-top-[83px] xl:w-[280px] md:-top-[10px] md:w-[225px] sm:-top-px xs:-left-[68px] xs:w-[204px]"
           />
-          <div className="-mr-10 flex grow flex-col pt-[252px] shadow-labels 3xl:-mr-9 3xl:pt-[251px] xl:-mr-6 xl:pt-[250px] md:-mr-5 md:pt-[227px] sm:mr-0 sm:pt-[236px]">
+          <div className="-mr-10 flex grow flex-col pt-[252px] shadow-labels 3xl:-mr-9 3xl:pt-[251px] xl:-mr-6 xl:pt-[250px] md:-mr-5 md:pt-[227px] sm:mr-0 sm:pt-[258px] xs:pt-[236px]">
             {LABELS.map(({ title, items }, idx) => (
               <div
                 className="relative mt-11 border-b border-black border-opacity-10 first:mt-0 last:border-b-0"
                 key={`${title}_${idx}`}
               >
-                <p className="text-24 font-bold leading-none xl:text-20 xl:leading-tight sm:text-18">
+                <p className="text-24 font-bold leading-none xl:text-20 xl:leading-tight sm:text-18 xs:max-w-[180px]">
                   {title}
                 </p>
                 <ul className="mt-4 flex flex-col divide-y divide-black divide-opacity-10">

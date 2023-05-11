@@ -47,11 +47,14 @@ const Form = ({ fireInput }: { fireInput?: () => void }) => {
 
   const [errorMessage, setErrorMessage] = useState('');
 
-  const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    fireInput && fireInput();
-    setFormState(STATES.DEFAULT);
-    setEmail(event.currentTarget.value.trim());
-  }, []);
+  const onChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      fireInput && fireInput();
+      setFormState(STATES.DEFAULT);
+      setEmail(event.currentTarget.value.trim());
+    },
+    [fireInput],
+  );
 
   const onSubmit = useCallback(
     async (evt: React.FormEvent<HTMLFormElement>) => {

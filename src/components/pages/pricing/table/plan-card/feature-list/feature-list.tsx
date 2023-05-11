@@ -62,7 +62,7 @@ const FeatureList = ({
           className={clsx(
             'flex h-12 w-full items-center justify-center text-16 leading-normal text-gray-15',
             calculateCellHeight(item),
-            isActive ? (title === 'pro' ? 'bg-[#F9FAFF]' : 'bg-[#FCFBFF]') : '',
+            isActive ? 'bg-primary-1 bg-opacity-[0.04]' : '',
           )}
           data-row-id={`${item}-${idx}`}
           key={`${title}_${item}_${idx}`}

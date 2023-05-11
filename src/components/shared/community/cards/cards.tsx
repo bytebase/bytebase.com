@@ -104,7 +104,7 @@ const Card = ({
 
 const Cards = () => {
   return (
-    <ul className="gap-x-grid mt-[68px] grid grid-cols-3 pb-[80px] 3xl:mt-[39px] 3xl:pb-[76px] xl:mt-[49px] xl:pb-[58px] md:mt-9 sm:mt-0 sm:grid-cols-none sm:gap-4">
+    <ul className="gap-x-grid mt-[68px] grid grid-cols-3 pb-[80px] 3xl:mt-[39px] 3xl:pb-[76px] xl:mt-[49px] xl:pb-10 md:mt-9 sm:mt-0 sm:grid-cols-none sm:gap-4 sm:pb-0">
       {socials.map(({ name, description, href, action }) => (
         <li key={name} className="sm:col-span-full">
           <Card
