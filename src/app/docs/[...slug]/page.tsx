@@ -49,7 +49,7 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
   const navigationLinks = getDocPreviousAndNextLinks(currentPath, flatSidebar);
 
   const {
-    data: { title },
+    data: { title, feature_image },
     content,
   } = post;
 
@@ -67,6 +67,7 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
         <Sidebar data={sidebar} expandedList={expandedList} currentUrl={currentUrl} />
         <PostLayout
           title={title}
+          featureImage={feature_image || null}
           currentSlug={currentSlug}
           breadcrumbs={breadcrumbs}
           navigationLinks={navigationLinks}
