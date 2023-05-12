@@ -17,33 +17,35 @@ const rewrites = [
   '/usecase',
 ];
 
-const tutorialRedirects = [
-  'database-change-management-with-mysql',
+const tutorialBeginnerRedirects = [
   'database-change-management-using-bytebase-cloud',
-  'database-change-management-with-redis',
-  'database-change-management-with-mongodb',
   'database-change-management-with-amazon-aurora',
+  'database-change-management-with-clickhouse',
+  'database-change-management-with-mongodb',
+  'database-change-management-with-mysql',
   'database-change-management-with-postgresql',
-  'database-change-management-with-tidb',
+  'database-change-management-with-redis',
   'database-change-management-with-snowflake',
-  'database-change-management-with-github-using-bytebase-cloud',
-  'database-change-management-with-redis-and-github',
-  'database-change-management-with-mongodb-and-github',
+  'database-change-management-with-tidb',
+  'how-to-synchronize-database-schemas',
+];
+const tutorialIntermediateRedirects = [
   'database-change-management-with-amazon-aurora-and-github',
   'database-change-management-with-clickhouse-and-github',
-  'database-change-management-with-postgresql-and-github',
+  'database-change-management-with-github-using-bytebase-cloud',
+  'database-change-management-with-mongodb-and-github',
   'database-change-management-with-mysql-and-github',
-  'database-change-management-with-tidb-and-github',
+  'database-change-management-with-postgresql-and-github',
+  'database-change-management-with-redis-and-github',
   'database-change-management-with-snowflake-and-github',
-  'manage-databases-in-bytebase-with-terraform',
-  'how-to-synchronize-database-schemas',
-  'how-to-integrate-sql-review-into-gitlab-github-ci',
-  'how-to-configure-database-access-control-and-data-anonymization-for-developer',
-  'github-database-cicd-part-3-put-them-together',
-  'github-database-cicd-part-2-github-database-gitops',
-  'github-database-cicd-part-1-sql-review-github-actions',
+  'database-change-management-with-tidb-and-github',
   'database-cicd-best-practice-with-github',
-  'database-change-management-with-clickhouse',
+  'github-database-cicd-part-1-sql-review-github-actions',
+  'github-database-cicd-part-2-github-database-gitops',
+  'github-database-cicd-part-3-put-them-together',
+  'how-to-configure-database-access-control-and-data-anonymization-for-developer',
+  'how-to-integrate-sql-review-into-gitlab-github-ci',
+  'manage-databases-in-bytebase-with-terraform',
 ];
 
 const changelogRedirects = [
@@ -111,9 +113,14 @@ module.exports = {
         destination: '/docs/introduction/what-is-bytebase',
         permanent: true,
       },
-      ...tutorialRedirects.map((slug) => ({
+      ...tutorialBeginnerRedirects.map((slug) => ({
         source: `/blog/${slug}`,
-        destination: `/docs/tutorials/${slug}`,
+        destination: `/docs/tutorials/beginner/${slug}`,
+        permanent: true,
+      })),
+      ...tutorialIntermediateRedirects.map((slug) => ({
+        source: `/blog/${slug}`,
+        destination: `/docs/tutorials/intermediate/${slug}`,
         permanent: true,
       })),
       ...changelogRedirects.map((slug) => ({
