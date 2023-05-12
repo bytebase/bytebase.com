@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import format from 'date-fns/format';
 
 import Content from '@/components/shared/content';
@@ -12,12 +13,12 @@ const Posts = ({ posts }: PostsProps) => {
   return (
     <section className="posts mt-[60px] lg:mt-[52px] md:mt-10 sm:mt-8">
       <div className="container">
-        <ul className="relative flex flex-col gap-y-20 border-l border-gray-90 lg:gap-y-[72px] md:gap-y-16 sm:gap-y-14 sm:border-none">
-          {posts.map(({ slug, title, author, published_at, timeToRead, content }) => {
+        <ul className="relative flex flex-col gap-y-10 border-l border-gray-90 lg:gap-y-9 md:gap-y-16 sm:gap-y-7 sm:border-none">
+          {posts.map(({ slug, title, author, published_at, timeToRead, content }, index) => {
             const date = new Date(published_at);
             const formattedDate = format(date, 'MMM dd, yyyy');
             return (
-              <li key={slug} id={slug}>
+              <li key={slug} id={slug} className={clsx(index !== 0 && 'pt-10 lg:pt-9 sm:pt-7')}>
                 <article className="gap-x-grid grid auto-rows-min grid-cols-12">
                   <header
                     className="sticky top-[60px] col-span-3 flex h-min flex-col gap-y-2.5 pl-5 before:absolute  before:top-0 before:left-0 before:h-full
