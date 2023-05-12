@@ -1,30 +1,23 @@
 import format from 'date-fns/format';
 
 import Content from '@/components/shared/content';
-import Pagination from '@/components/shared/pagination';
 
 import { ChangelogPost } from '@/types/changelog-post';
 
-import Route from '@/lib/route';
-
 type PostsProps = {
   posts: ChangelogPost[];
-  page: number;
-  pageCount: number;
 };
 
-const Posts = ({ posts, page, pageCount }: PostsProps) => {
-  if (!posts) return null;
-
+const Posts = ({ posts }: PostsProps) => {
   return (
     <section className="posts mt-[60px] lg:mt-[52px] md:mt-10 sm:mt-8">
       <div className="container">
         <ul className="relative flex flex-col gap-y-20 border-l border-gray-90 lg:gap-y-[72px] md:gap-y-16 sm:gap-y-14 sm:border-none">
-          {posts.map((post, index) => {
-            const date = new Date(post.published_at);
+          {posts.map(({ slug, title, author, published_at, timeToRead, content }) => {
+            const date = new Date(published_at);
             const formattedDate = format(date, 'MMM dd, yyyy');
             return (
-              <li key={index}>
+              <li key={slug} id={slug}>
                 <article className="gap-x-grid grid auto-rows-min grid-cols-12">
                   <header
                     className="sticky top-[60px] col-span-3 flex h-min flex-col gap-y-2.5 pl-5 before:absolute  before:top-0 before:left-0 before:h-full
@@ -37,26 +30,25 @@ const Posts = ({ posts, page, pageCount }: PostsProps) => {
                       {formattedDate}
                     </time>
                     <div className="flex gap-x-2 text-14 leading-none text-gray-40">
-                      {post.author && (
+                      {author && (
                         <span className="relative pr-2 before:absolute before:right-0 before:top-1/2 before:block before:h-0.5 before:w-0.5 before:translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:bg-gray-40">
-                          {post.author}
+                          {author}
                         </span>
                       )}
-                      <span>{post.timeToRead}</span>
+                      <span>{timeToRead}</span>
                     </div>
                   </header>
                   <div className="col-span-6 -mt-1 lg:col-span-9 md:mt-0 sm:col-span-full sm:mt-4">
                     <h1 className="text-44 font-bold leading-extra-tight lg:text-36 md:text-30">
-                      {post.title}
+                      {title}
                     </h1>
-                    <Content content={post.content} className="mt-11 lg:mt-10 md:mt-9 sm:mt-8" />
+                    <Content content={content} className="mt-11 lg:mt-10 md:mt-9 sm:mt-8" />
                   </div>
                 </article>
               </li>
             );
           })}
         </ul>
-        <Pagination currentPageIndex={+page} pageCount={pageCount} path={Route.CHANGELOG} />
       </div>
     </section>
   );
