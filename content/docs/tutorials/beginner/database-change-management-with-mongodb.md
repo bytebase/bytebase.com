@@ -2,7 +2,7 @@
 title: Database Change Management with MongoDB
 author: Ningjing
 published_at: 2023/03/21 11:15
-feature_image: /docs/tutorials/database-change-management-with-mongodb/feature-image.webp
+feature_image: /docs/tutorials/beginner/database-change-management-with-mongodb/feature-image.webp
 tags: Tutorial
 integrations: MongoDB
 level: Beginner
@@ -12,7 +12,7 @@ description: MongoDB is a document database used to build highly available and s
 This is a series of articles about Database Change Management with MongoDB.
 
 - Database Change Management with MongoDB (this one)
-- [Database Change Management with MongoDB and GitHub](/docs/tutorials/database-change-management-with-mongodb-and-github)
+- [Database Change Management with MongoDB and GitHub](/docs/tutorials/intermediate/database-change-management-with-mongodb-and-github)
 
 ---
 
@@ -56,20 +56,20 @@ docker run --init \
 ```
 
 2. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`.
-   ![docker](/docs/tutorials/database-change-management-with-mongodb/docker.webp)
+   ![docker](/docs/tutorials/beginner/database-change-management-with-mongodb/docker.webp)
 
 3. Visit localhost:5678 in your browser. Register the first admin account which will be granted [`Workspace Owner`](/docs/concepts/roles-and-permissions).
-   ![register](/docs/tutorials/database-change-management-with-mongodb/register.webp)
+   ![register](/docs/tutorials/beginner/database-change-management-with-mongodb/register.webp)
 
 ## Step 2 - Add MongoDB in Bytebase
 
 In Bytebase, ​​an Instance could be your on-premises MySQL instance, an AWS RDS instance etc, in this tutorial, a MongoDB Atlas account or a MongoDB Server instance.
 
 1. Visit `localhost:5678` and log in as `Workspace Owner`.
-   ![login](/docs/tutorials/database-change-management-with-mongodb/login.webp)
+   ![login](/docs/tutorials/beginner/database-change-management-with-mongodb/login.webp)
 
 2. Click **Add Instance**.
-   ![bb-add-instance](/docs/tutorials/database-change-management-with-mongodb/bb-add-instance.webp)
+   ![bb-add-instance](/docs/tutorials/beginner/database-change-management-with-mongodb/bb-add-instance.webp)
 
 3. Add a **MongoDB instance** and click **Create**.
 
@@ -84,11 +84,11 @@ If you use Cloud version.
 Go to Atlas MongoDB **Security** > **Network Access** and add IP allowing access from `Anywhere`.
 
 Go to Atlas MongoDB **Deployment** > **Database**, and click **Connect**.
-![atlas-connect](/docs/tutorials/database-change-management-with-mongodb/atlas-connect.webp)
+![atlas-connect](/docs/tutorials/beginner/database-change-management-with-mongodb/atlas-connect.webp)
 
 Click **Connect to your application**.
 
-![atlas-connect-to-cluster](/docs/tutorials/database-change-management-with-mongodb/atlas-connect-to-cluster.webp)
+![atlas-connect-to-cluster](/docs/tutorials/beginner/database-change-management-with-mongodb/atlas-connect-to-cluster.webp)
 
 Find this string `cluster0.8bxxxbz.mongodb.net`. Go back to Bytebase, put the string into **Host or Socket**, and leave **Port** empty.
 
@@ -113,13 +113,13 @@ In Bytebase, **Project** is the container to group logically related **Databases
 In Bytebase, a **Database** is the one created by 'CREATE DATABASE xxx'. A database always belongs to a single **Project**. **Issue** represents a specific collaboration activity between Developer and DBA such as creating a database, altering a schema. It's similar to the issue concept in other issue management tools.
 
 1. Go into the project `TestMongo`. Click **New DB** on the project top bar.
-   ![bb-project-new-db](/docs/tutorials/database-change-management-with-mongodb/bb-project-new-db.webp)
+   ![bb-project-new-db](/docs/tutorials/beginner/database-change-management-with-mongodb/bb-project-new-db.webp)
 
 2. Fill the form with **New Database Name** - `dbdemo`, **New Collection Name** - `cdemo`, **Environment** - `Test`, and your created instance. Click **Create**.
-   ![bb-create-db](/docs/tutorials/database-change-management-with-mongodb/bb-create-db.webp)
+   ![bb-create-db](/docs/tutorials/beginner/database-change-management-with-mongodb/bb-create-db.webp)
 
 3. It will create an issue automatically. Because it’s for `Test` environment, the issue will run without waiting for your approval by default. Click **Resolve**, and the issue is `Done`. A database and a collection are created.
-   ![bb-issue-dbdemo-done](/docs/tutorials/database-change-management-with-mongodb/bb-issue-dbdemo-done.webp)
+   ![bb-issue-dbdemo-done](/docs/tutorials/beginner/database-change-management-with-mongodb/bb-issue-dbdemo-done.webp)
 
 4. Go back to the home page by clicking **Home** on the left sidebar. On the home page, you can see the project, the database, and the issue you just resolved.
 
@@ -128,10 +128,10 @@ In Bytebase, a **Database** is the one created by 'CREATE DATABASE xxx'. A datab
 In Step 4, you created an issue to create a database and a collection via UI workflow and then executed it. Let’s try to create another issue to add data to it.
 
 1. Go to project `TestMongoDB`, and click **Change Data**.
-   ![bb-project-change-data](/docs/tutorials/database-change-management-with-mongodb/bb-project-change-data.webp)
+   ![bb-project-change-data](/docs/tutorials/beginner/database-change-management-with-mongodb/bb-project-change-data.webp)
 
 2. Choose `dbdemo` and click **Next**. It could generate a pipeline if you have different databases for different environments.
-   ![bb-project-change-data-select-db](/docs/tutorials/database-change-management-with-mongodb/bb-project-change-data-select-db.webp)
+   ![bb-project-change-data-select-db](/docs/tutorials/beginner/database-change-management-with-mongodb/bb-project-change-data-select-db.webp)
 
 3. Input statement as follows, and click **Create**.
 
@@ -143,11 +143,11 @@ db.cdemo.insertOne({
 ```
 
 4. Bytebase will do some basic checks and then execute the statement. Since it’s for `Test` environment, the issue is automatically approved by default. Click **Resolve issue**, and the issue status will become `Done`.
-   ![bb-issue-insert-done](/docs/tutorials/database-change-management-with-mongodb/bb-issue-insert-done.webp)
+   ![bb-issue-insert-done](/docs/tutorials/beginner/database-change-management-with-mongodb/bb-issue-insert-done.webp)
 
 5. Go to **Change History** under the project to view the full history. Or go into a specific database to view its history.
-   ![bb-project-change-history](/docs/tutorials/database-change-management-with-mongodb/bb-project-change-history.webp)
-   ![bb-db-change-history](/docs/tutorials/database-change-management-with-mongodb/bb-db-change-history.webp)
+   ![bb-project-change-history](/docs/tutorials/beginner/database-change-management-with-mongodb/bb-project-change-history.webp)
+   ![bb-db-change-history](/docs/tutorials/beginner/database-change-management-with-mongodb/bb-db-change-history.webp)
 
 ## Summary and Next
 

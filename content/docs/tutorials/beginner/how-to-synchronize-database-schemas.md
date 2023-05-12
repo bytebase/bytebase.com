@@ -2,7 +2,7 @@
 title: How to Synchronize Database Schemas
 author: Ningjing
 published_at: 2022/11/24 18:00
-feature_image: /docs/tutorials/how-to-synchronize-database-schemas/sync-schema.webp
+feature_image: /docs/tutorials/beginner/how-to-synchronize-database-schemas/sync-schema.webp
 tags: Tutorial
 level: Beginner
 description: This article briefly describes the general scenarios of database schema synchronization and how to use this feature smoothly in Bytebase with pure UI operations.
@@ -35,7 +35,7 @@ In the Bytebase Console:
 
 Bytebase will then calculate the schema differences between these two and automatically generate the suggested DDL statements. (e.g., ALTER TABLE ......)
 
-![sync-schema](/docs/tutorials/how-to-synchronize-database-schemas/sync-schema-ui.webp)
+![sync-schema](/docs/tutorials/beginner/how-to-synchronize-database-schemas/sync-schema-ui.webp)
 
 ## Tutorial: Experience the feature in 5 mins
 
@@ -79,10 +79,10 @@ docker run --name mysqldprod \
 ```
 
 2. Register and sign in **Bytebase Console**. Add two instances in two environments (**Test**/**Prod**), respectively. Username: `root`, Password:`testpwd1`
-   ![2 instances](/docs/tutorials/how-to-synchronize-database-schemas/2instances.webp)
+   ![2 instances](/docs/tutorials/beginner/how-to-synchronize-database-schemas/2instances.webp)
 
 3. Create project **sync-schema**, and within the project, click **Create DB** to create databases as follows:
-   ![2 databases](/docs/tutorials/how-to-synchronize-database-schemas/2databases.webp)
+   ![2 databases](/docs/tutorials/beginner/how-to-synchronize-database-schemas/2databases.webp)
 
 4. Go back to project **sync-schema** page, and click **Alter Schema**. Choose **dbtest** in **Test**, and click **Next**. Copy and paste the SQL below and click **Create**.
 
@@ -108,13 +108,13 @@ CREATE TABLE t2 (
 ### Feature Experience Phase
 
 1. Go back to the project **sync-schema** page, click **Schema-Sync**, and fill in steps 1-3 to synchronize the schema of the **dbtest** database to **dbprod**:
-   ![sync-schema UI](/docs/tutorials/how-to-synchronize-database-schemas/sync-schema-ui.webp)
+   ![sync-schema UI](/docs/tutorials/beginner/how-to-synchronize-database-schemas/sync-schema-ui.webp)
 
 2. Click **Preview Issue**, you will go to the new issue page with preview:
-   ![issue SQL](/docs/tutorials/how-to-synchronize-database-schemas/issue-sql.webp)
+   ![issue SQL](/docs/tutorials/beginner/how-to-synchronize-database-schemas/issue-sql.webp)
 
 3. Click **Create**, and the **Issue** is truly created. **Approve** and **Fix** the issue, the schema synchronization will be completed.
-   ![dbprod t1](/docs/tutorials/how-to-synchronize-database-schemas/dbprod-t1.webp)
+   ![dbprod t1](/docs/tutorials/beginner/how-to-synchronize-database-schemas/dbprod-t1.webp)
 
 ## Enterprise Plan
 
@@ -122,7 +122,7 @@ In Bytebase **Free**, you can choose the latest history version; In **Pro Plan**
 
 From Bytebase [1.8.0](/changelog/bytebase-1-8-0), you can start a 14-day **Pro Plan** or **Enterprise Plan**
 trial without credit card.
-![dbprod t1](/docs/tutorials/how-to-synchronize-database-schemas/dbprod-t1.webp)
+![dbprod t1](/docs/tutorials/beginner/how-to-synchronize-database-schemas/dbprod-t1.webp)
 
 Is the experience smooth? Or do you encounter any problems? Feel free to join our [Discord Group](https://discord.gg/Fac9nmZ95j) to talk about it!
 

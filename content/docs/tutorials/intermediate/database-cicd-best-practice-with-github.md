@@ -2,7 +2,7 @@
 title: The Database CI/CD Best Practice with GitHub
 author: Changyu
 published_at: 2022/08/31 15:15
-feature_image: /docs/tutorials/database-cicd-best-practice-with-github/database-cicd-best-practice-with-github.webp
+feature_image: /docs/tutorials/intermediate/database-cicd-best-practice-with-github/database-cicd-best-practice-with-github.webp
 tags: Tutorial
 integrations: GitHub
 level: Intermediate
@@ -14,9 +14,9 @@ This is a series of articles about Database CI/CD with GitHub
 - The Database CI/CD Best Practice with GitHub (this one)
 
 - How to Setup Database CI/CD with GitHub Part 1-3
-  - [Part 1: Enable SQL Review with GitHub Actions](/docs/tutorials/github-database-cicd-part-1-sql-review-github-actions)
-  - [Part 2: GitHub.com Database GitOps](/docs/tutorials/github-database-cicd-part-2-github-database-gitops)
-  - [Part 3: Put Them Together](/docs/tutorials/github-database-cicd-part-3-put-them-together)
+  - [Part 1: Enable SQL Review with GitHub Actions](/docs/tutorials/intermediate/github-database-cicd-part-1-sql-review-github-actions)
+  - [Part 2: GitHub.com Database GitOps](/docs/tutorials/intermediate/github-database-cicd-part-2-github-database-gitops)
+  - [Part 3: Put Them Together](/docs/tutorials/intermediate/github-database-cicd-part-3-put-them-together)
 
 ---
 
@@ -63,9 +63,9 @@ So what should a developer-friendly SQL review tool look like?
 
 We usually perform the traditional code review process on version control systems (VCS), and the same should be applied to SQL. Therefore, SQL review tools should be integrated into the code review workflow. Bytebase has made [SQL Review Action available on the GitHub Marketplace](https://github.com/marketplace/actions/sql-review); once enabled, SQL Review Actions will be triggered as you submit PR on GitHub.
 
-![sql-review-gha](/docs/tutorials/database-cicd-best-practice-with-github/sql-review-gha.webp)
+![sql-review-gha](/docs/tutorials/intermediate/database-cicd-best-practice-with-github/sql-review-gha.webp)
 
-![sql-review-actions](/docs/tutorials/database-cicd-best-practice-with-github/sql-review-actions.webp)
+![sql-review-actions](/docs/tutorials/intermediate/database-cicd-best-practice-with-github/sql-review-actions.webp)
 
 Let’s look at how to implement streamlined SQL change rollouts.
 
@@ -77,15 +77,15 @@ Well, yes, we can!
 
 A SQL change rollout tool for Database CI/CD should have the ability to integrate with VCS. Once your SQL scripts have been vetted and merged into the target branch, the release process is triggered, and the scripts are automatically pushed to Bytebase. Of course, the DBA can perform another sanity check before executing the SQL against the target database.
 
-![create-table-github](/docs/tutorials/database-cicd-best-practice-with-github/create-table-github.webp)
+![create-table-github](/docs/tutorials/intermediate/database-cicd-best-practice-with-github/create-table-github.webp)
 
-![bytebase-vcs-issue](/docs/tutorials/database-cicd-best-practice-with-github/bytebase-vcs-issue.webp)
+![bytebase-vcs-issue](/docs/tutorials/intermediate/database-cicd-best-practice-with-github/bytebase-vcs-issue.webp)
 
 ## A Complete Database CI/CD Workflow
 
 Here, we present **a complete Database CI/CD workflow**:
 
-![database-devops-workflow](/docs/tutorials/database-cicd-best-practice-with-github/database-devops-workflow.webp)
+![database-devops-workflow](/docs/tutorials/intermediate/database-cicd-best-practice-with-github/database-devops-workflow.webp)
 
 1. The developer creates a Merge Request / Pull Request containing the SQL migration script;
 2. SQL Review Action is automatically triggered to review SQL and offers suggestions to assist the code review;
