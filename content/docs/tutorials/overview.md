@@ -14,6 +14,8 @@ title: Overview
 
 <TutorialWideCard title="Database Change Management with Amazon Aurora" url="/docs/tutorials/beginner/database-change-management-with-amazon-aurora" date="2023/03/09" logos="aurora"></TutorialWideCard>
 
+<TutorialWideCard title="Database Change Management with ClickHouse" url="/docs/tutorials/beginner/database-change-management-with-clickhouse" date="2023/03/01" logos="clickhouse"></TutorialWideCard>
+
 <TutorialWideCard title="Database Change Management with PostgreSQL" url="/docs/tutorials/beginner/database-change-management-with-postgresql" date="2023/02/14" logos="postgres"></TutorialWideCard>
 
 <TutorialWideCard title="Database Change Management with TiDB" url="/docs/tutorials/beginner/database-change-management-with-tidb" date="2023/01/03" logos="tidb"></TutorialWideCard>
