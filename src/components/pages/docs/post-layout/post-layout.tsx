@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+import clsx from 'clsx';
+
 import Link from '@/components/shared/link';
 
 import { Breadcrumb, TableOfContents as TOCProps } from '@/types/docs';
@@ -46,7 +48,7 @@ const PostLayout = ({
             priority
           />
         )}
-        <div className="mt-5 xl:mt-3.5">{children}</div>
+        <div className={clsx(!featureImage && 'mt-5 xl:mt-3.5')}>{children}</div>
         <Link
           className="mt-20 flex items-center text-18 font-medium leading-none text-gray-15 hover:text-gray-60 xl:mt-14 xl:text-16 sm:mt-10"
           href={`${FILE_ORIGIN_PATH}/${currentSlug}.md`}
