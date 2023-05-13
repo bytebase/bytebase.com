@@ -67,8 +67,7 @@ const cards: TCard[] = [
     description: 'Customized, billed&nbsp;annually',
     buttonText: 'Contact us',
     buttonTheme: 'primary-outline',
-    buttonLink:
-      'https://docs.google.com/forms/d/e/1FAIpQLSfe1JvroV4ckBMJo8hDXBYGeuzN0Sn1Ylg1lIUamN2jqu9Fcw/viewform',
+    buttonLink: 'https://airtable.com/shrS2Ot5BfGExwemj',
     planConditions: [
       'Dedicated line and SLA support',
       'Custom approval workflow',
