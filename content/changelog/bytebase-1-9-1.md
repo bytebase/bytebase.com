@@ -28,7 +28,7 @@ description: "- Support database access control. - Schema Editor for MySQL. - Ch
 
 - We asked ChatGPT how to choose the best database for a new project, and [here's the reply](/blog/how-to-choose-database-by-chatgpt).
 - The [pros and cons](/blog/integrate-sql-review-into-github) of 3 different ways to integrate SQL Review into your GitHub repo.
-- [Integrate SQL review CI](/blog/how-to-integrate-sql-review-into-gitlab-github-ci) into your preferred code repo (be it GitHub or GitLab), so that it's triggered automatically to check for violations in your SQL scripts
+- [Integrate SQL review CI](/docs/tutorials/intermediate/how-to-integrate-sql-review-into-gitlab-github-ci) into your preferred code repo (be it GitHub or GitLab), so that it's triggered automatically to check for violations in your SQL scripts
 - Database Schema Change Series
   - [What is Database Change Management (DCM)?](/blog/what-is-database-change-management)
   - [How to Handle Database Schema Change?](/blog/how-to-handle-database-schema-change)

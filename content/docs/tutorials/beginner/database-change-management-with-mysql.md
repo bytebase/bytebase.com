@@ -2,7 +2,7 @@
 title: Database Change Management with MySQL
 author: Mila
 published_at: 2023/02/07 11:15
-feature_image: /blog/database-change-management-with-mysql/feature-image.webp
+feature_image: /docs/tutorials/beginner/database-change-management-with-mysql/feature-image.webp
 tags: Tutorial
 integrations: MySQL
 level: Beginner
@@ -12,7 +12,7 @@ description: MySQL is the most popular open-source relational database managemen
 This is a series of articles about Database Change Management with MySQL.
 
 - Database Change Management with MySQL (this one)
-- [Database Change Management with MySQL and GitHub](/blog/database-change-management-with-mysql-and-github)
+- [Database Change Management with MySQL and GitHub](/docs/tutorials/intermediate/database-change-management-with-mysql-and-github)
 
 ---
 
@@ -52,10 +52,10 @@ docker run --init \
 
 2. Bytebase is now running via Docker, and you can access it via `localhost:5678`.
 
-![docker](/blog/database-change-management-with-mysql/docker.webp)
+![docker](/docs/tutorials/beginner/database-change-management-with-mysql/docker.webp)
 
 3. Visit `localhost:5678` in your browser. Register an account.
-   ![register](/blog/database-change-management-with-mysql/register.webp)
+   ![register](/docs/tutorials/beginner/database-change-management-with-mysql/register.webp)
 
 ## Step 2 - Add a MySQL Instance to Bytebase
 
@@ -64,10 +64,10 @@ In this tutorial, ​an **Instance** is your on-premises MySQL instance.
 1. Login to the Bytebase Console.
 
 2. Click **Add Instance**.
-   ![add-instance](/blog/database-change-management-with-mysql/add-instance.webp)
+   ![add-instance](/docs/tutorials/beginner/database-change-management-with-mysql/add-instance.webp)
 
 3. Add a MySQL instance. Pay attention to these fields:
-   ![create-instance](/blog/database-change-management-with-mysql/create-instance.webp)
+   ![create-instance](/docs/tutorials/beginner/database-change-management-with-mysql/create-instance.webp)
 
 - **Environment**: choose `Test`, if you choose `Prod`, you'll need approval for all future change requests, let's keep it simple for the sake of this tutorial.
 - **Username and password**: your MySQL username and password.
@@ -77,17 +77,17 @@ In this tutorial, ​an **Instance** is your on-premises MySQL instance.
 In Bytebase, **Project** groups logically-related **Databases, Issues** and **Users** together, which is similar to the project concept in other DevTools such as Jira and GitLab. So before you deal with the database, a Project must be created.
 
 1. After the instance is created, go to the **Projects** tab, click on **New Project** to create a new project.
-   ![create-project](/blog/database-change-management-with-mysql/create-project.webp)
+   ![create-project](/docs/tutorials/beginner/database-change-management-with-mysql/create-project.webp)
 
 ## Step 4 - Create a MySQL database via Bytebase
 
 In Bytebase, a **Database** is created by `CREATE DATABASE xxx`. A database always belongs to a single **Project**. An **Issue** represents a specific collaboration activity between Developer and DBA for when creating a database, altering a schema. It's similar to the issue concept in other issue management tools.
 
 1. After the project is created. Click on **New DB** to create a new database.
-   ![new-db](/blog/database-change-management-with-mysql/new-db.webp)
+   ![new-db](/docs/tutorials/beginner/database-change-management-with-mysql/new-db.webp)
 
 2. Fill the form, and pay attention to these fields:
-   ![create-db](/blog/database-change-management-with-mysql/create-db.webp)
+   ![create-db](/docs/tutorials/beginner/database-change-management-with-mysql/create-db.webp)
 
 - **Name**: can be anything, here we used `uni`
 - **Environment** - `Test`
@@ -97,7 +97,7 @@ And click on **Create**.
 
 3. Bytebase will create an issue to create the database automatically. As it's the `Test` environment, the issue will run without waiting for your approval by default. Click **Resolve**, and the database is created.
 
-![create-issue](/blog/database-change-management-with-mysql/create-issue.webp)
+![create-issue](/docs/tutorials/beginner/database-change-management-with-mysql/create-issue.webp)
 
 ## Step 5 - Create a table in MySQL via Bytebase
 
@@ -105,23 +105,23 @@ In Step 4, you actually created an issue using UI workflow and then executed it.
 
 1. Visit your project, and click on **Alter Schema**.
 
-![alter-schema](/blog/database-change-management-with-mysql/alter-schema.webp)
+![alter-schema](/docs/tutorials/beginner/database-change-management-with-mysql/alter-schema.webp)
 
 2. Choose your database and click **Next**. This is where you get to try out the new **Schema Editor**. It’s a visual editor for schema changes.
 
 Here, we are going to create a table called `student` with 2 columns: `id` and `last_name`.
 
-![schema-editor](/blog/database-change-management-with-mysql/schema-editor.webp)
+![schema-editor](/docs/tutorials/beginner/database-change-management-with-mysql/schema-editor.webp)
 
 3. Hit **Preview issue**, and Bytebase will automatically create an issue with the corresponding SQL statement to create a table with the columns. Check to see if it's correct, and click **Create**.
 
-![create-issue](/blog/database-change-management-with-mysql/create-issue.webp)
+![create-issue](/docs/tutorials/beginner/database-change-management-with-mysql/create-issue.webp)
 
 4. Since it’s for the `Test` environment, the issue is automatically approved by default. Click **Resolve issue**. The issue status will become Done.
 
 5. From the issue page, click **view migration**, and you can see differences.
 
-![issue-diff](/blog/database-change-management-with-mysql/issue-diff.webp)
+![issue-diff](/docs/tutorials/beginner/database-change-management-with-mysql/issue-diff.webp)
 
 ## Bonus Section - Schema Drift Detection
 
@@ -135,24 +135,24 @@ In this section, you’ll be guided through this process.
 
 1. Go to your Terminal, connect to MySQL, and add a column `age` to table `student`.
 
-![mysql-add-column](/blog/database-change-management-with-mysql/mysql-add-column.webp)
+![mysql-add-column](/docs/tutorials/beginner/database-change-management-with-mysql/mysql-add-column.webp)
 
 2. Wait for 10 mins (as Bytebase does the check roughly every 10 mins). Go back to Bytebase, and you can find the Schema Drift on database `student`:
 
-![schema-drift](/blog/database-change-management-with-mysql/schema-drift.webp)
+![schema-drift](/docs/tutorials/beginner/database-change-management-with-mysql/schema-drift.webp)
 
 3. Click on **View diff**, you will see the exact drift.
-   ![diff](/blog/database-change-management-with-mysql/diff.webp)
+   ![diff](/docs/tutorials/beginner/database-change-management-with-mysql/diff.webp)
 
 4. Go to **Databases** > select the database in drift > **Change History** > **Establish new baseline**, this step establishes a new baseline to reconcile the schema state from the live database schema.
 
-![establish-baseline](/blog/database-change-management-with-mysql/establish-baseline.webp)
+![establish-baseline](/docs/tutorials/beginner/database-change-management-with-mysql/establish-baseline.webp)
 
 4. Bytebase will create an issue to establish the new baseline, click **Create**, and then **Resolve** to mark it done.
-   ![establish-baseline-issue](/blog/database-change-management-with-mysql/establish-baseline-issue.webp)
+   ![establish-baseline-issue](/docs/tutorials/beginner/database-change-management-with-mysql/establish-baseline-issue.webp)
 
 5. Go back to your database page, where you will find the drift is gone and no anomalies detected.
-   ![no-anomalies](/blog/database-change-management-with-mysql/no-anomalies.webp)
+   ![no-anomalies](/docs/tutorials/beginner/database-change-management-with-mysql/no-anomalies.webp)
 
 ## Summary and What's Next
 

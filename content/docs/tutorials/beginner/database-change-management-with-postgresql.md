@@ -2,7 +2,7 @@
 title: Database Change Management with PostgreSQL
 author: Ningjing
 published_at: 2023/02/14 12:15
-feature_image: /blog/database-change-management-with-postgresql/feature-image.webp
+feature_image: /docs/tutorials/beginner/database-change-management-with-postgresql/feature-image.webp
 tags: Tutorial
 integrations: PostgreSQL
 level: Beginner
@@ -12,7 +12,7 @@ description: PostgreSQL is the world's most advanced open-source relational data
 This is a series of articles about Database Change Management with PostgreSQL.
 
 - Database Change Management with PostgreSQL (this one)
-- [Database Change Management with PostgreSQL and GitHub](/blog/database-change-management-with-postgresql-and-github/)
+- [Database Change Management with PostgreSQL and GitHub](/docs/tutorials/intermediate/database-change-management-with-postgresql-and-github/)
 
 ---
 
@@ -57,34 +57,34 @@ docker run --init \
 ```
 
 2. Bytebase is now running via Docker, and you can access it via `localhost:5678`.
-   ![docker](/blog/database-change-management-with-postgresql/docker.webp)
+   ![docker](/docs/tutorials/beginner/database-change-management-with-postgresql/docker.webp)
 
 1. Visit `localhost:5678` in your browser. Register the first admin account which will be granted [`Workspace Owner`](/docs/concepts/roles-and-permissions).
-   ![register](/blog/database-change-management-with-postgresql/register.webp)
+   ![register](/docs/tutorials/beginner/database-change-management-with-postgresql/register.webp)
 
 ## Step 2 - Add PostgreSQL in Bytebase
 
 In Bytebase, ​​an Instance could be your on-premises PostgreSQL instance, an AWS RDS instance etc, in this tutorial.
 
 1. Visit `localhost:5678` and log in.
-   ![login](/blog/database-change-management-with-postgresql/login.webp)
+   ![login](/docs/tutorials/beginner/database-change-management-with-postgresql/login.webp)
 
 2. Click **Instances** on the top bar you’ll see there is a sample PostgreSQL instance that is embedded. If you want to use your own instance, click **Add instance**. To keep it simple, we’ll use the built-in sample instance for this tutorial.
-   ![bb-instances](/blog/database-change-management-with-postgresql/bb-instances.webp)
+   ![bb-instances](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-instances.webp)
 
 ## Step 3 - Create a Project
 
 In Bytebase, **Project** is the container to group logically related **Databases**, **Issues** and **Users** together, which is similar to the project concept in other dev tools such as Jira, GitLab. So before you deal with the database, a project must be created.
 
 Click **Projects** on the top bar, and you’ll see there is already a sample project. We’ll use it for this tutorial. You can also click **New Project** to create a new one.
-![bb-projects](/blog/database-change-management-with-postgresql/bb-projects.webp)
+![bb-projects](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-projects.webp)
 
 ## Step 4 - Create a database in PostgreSQL via Bytebase
 
 In Bytebase, a **Database** is the one created by "CREATE DATABASE xxx". A database always belongs to a single **Project**. **Issue** represents a specific collaboration activity between Developer and DBA such as creating a database, altering a schema. It's similar to the issue concept in other issue management tools.
 
 1. Go back to **Home**, and click **New DB**.
-   ![bb-home-new-db](/blog/database-change-management-with-postgresql/bb-home-new-db.webp)
+   ![bb-home-new-db](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-home-new-db.webp)
 
 2. Fill the form with
 
@@ -94,50 +94,50 @@ In Bytebase, a **Database** is the one created by "CREATE DATABASE xxx". A datab
 - **Instance**: `Postgres Sample instance`
 - **Database owner name**: `bbsample`
   And click **Create**.
-  ![bb-create-db](/blog/database-change-management-with-postgresql/bb-create-db.webp)
+  ![bb-create-db](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-create-db.webp)
 
 3. It will create an issue "CREATE DATABASE …" automatically. Because it’s for `Prod` environment, the issue won’t run till you click **Approve**. Click **Resolve**, and the issue is `Done`. The database is created.
-   ![bb-issue-demo-approve](/blog/database-change-management-with-postgresql/bb-issue-demo-approve.webp)
+   ![bb-issue-demo-approve](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-issue-demo-approve.webp)
 
-![bb-issue-demo-done](/blog/database-change-management-with-postgresql/bb-issue-demo-done.webp)
+![bb-issue-demo-done](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-issue-demo-done.webp)
 
 4. Go back to the home page by clicking **Home** on the left sidebar. On the home page, you can see the newly created database `demo`, and the issue you just resolved.
-   ![bb-home-demo-created](/blog/database-change-management-with-postgresql/bb-home-demo-created.webp)
+   ![bb-home-demo-created](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-home-demo-created.webp)
 
 ## Step 5 - Create a table in PostgreSQL via Bytebase
 
 In Step 4, you actually created an issue in **UI workflow** and then executed it. Let’s make it more explicit.
 
 1. Go to project `Sample Project`, and click **Alter Schema**.
-   ![bb-project-alter-schema](/blog/database-change-management-with-postgresql/bb-project-alter-schema.webp)
+   ![bb-project-alter-schema](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-project-alter-schema.webp)
 
 2. Choose `demo` and click **Next**. It could generate a pipeline if you have different databases for different environments.
-   ![bb-alter-schema-demo](/blog/database-change-management-with-postgresql/bb-alter-schema-demo.webp)
+   ![bb-alter-schema-demo](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-alter-schema-demo.webp)
 
 3. There are two options **Schema Editor** and **Raw SQL**, here we choose **Schema Editor** to create a table `t1` via UI. Click **Add Column** to add a `name` column. Click **Preview issue**.
-   ![bb-schema-editor](/blog/database-change-management-with-postgresql/bb-schema-editor.webp)
+   ![bb-schema-editor](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-schema-editor.webp)
 
 4. **Title** and **SQL** will be filled automatically. You can select the **Assignee** to review the issue and then click **Create**.
-   ![bb-issue-new-t1](/blog/database-change-management-with-postgresql/bb-issue-new-t1.webp)
+   ![bb-issue-new-t1](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-issue-new-t1.webp)
 
 5. Bytebase will run some basic checks and wait for the **Assignee** to approve.
-   ![bb-issue-checks-approve](/blog/database-change-management-with-postgresql/bb-issue-checks-approve.webp)
+   ![bb-issue-checks-approve](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-issue-checks-approve.webp)
 
 6. Click **Approve** and the SQL will execute. Click **Resolve issue** and the issue status will become `Done`.
-   ![bb-issue-t1-resolve](/blog/database-change-management-with-postgresql/bb-issue-t1-resolve.webp)
+   ![bb-issue-t1-resolve](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-issue-t1-resolve.webp)
 
 7. On the issue page, click **View change**. You will see the database difference.
-   ![bb-view-change](/blog/database-change-management-with-postgresql/bb-view-change.webp)
+   ![bb-view-change](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-view-change.webp)
 
 8. You can also go to **Change History** under the project to view the full history. Or go into a specific database to view its history.
-   ![bb-project-change-history](/blog/database-change-management-with-postgresql/bb-project-change-history.webp)
+   ![bb-project-change-history](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-project-change-history.webp)
 
-![bb-db-demo-change-history](/blog/database-change-management-with-postgresql/bb-db-demo-change-history.webp)
+![bb-db-demo-change-history](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-db-demo-change-history.webp)
 
 ## Bonus Section - Schema Drift Detection
 
 This section requires you to have **Enterprise Plan** (you can start 14 days trial directly in the product without credit card).
-![bb-start-14-days-trial](/blog/database-change-management-with-postgresql/bb-start-14-days-trial.webp)
+![bb-start-14-days-trial](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-start-14-days-trial.webp)
 
 Now you can see the full change history of `demo`. However, what is Establish new baseline? When should it be used?
 
@@ -146,7 +146,7 @@ By adopting Bytebase, we expect teams to use Bytebase exclusively for all schema
 In this section, you’ll be guided through this process.
 
 1. You can use an external GUI or terminal to make a change to `demo`. In this tutorial, we use Bytebase **SQL Editor’s Admin mode** which also counts when we say **change outside of Bytebase**. Go to **SQL Editor**, and switch to **Admin mode**.
-   ![bb-sql-editor-admin](/blog/database-change-management-with-postgresql/bb-sql-editor-admin.webp)
+   ![bb-sql-editor-admin](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-sql-editor-admin.webp)
 
 When you make a change in Admin mode, it will not record any history as in a normal process [www.bytebase.com/docs/sql-editor/admin-mode](/docs/sql-editor/admin-mode)
 
@@ -170,27 +170,27 @@ WHERE
   table_name = 't1';
 ```
 
-![bb-sql-admin-verify](/blog/database-change-management-with-postgresql/bb-sql-admin-verify.webp)
+![bb-sql-admin-verify](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-sql-admin-verify.webp)
 Admin mode skips Bytebase system and works as an external input. The change will take effect in Bytebase GUI in the next sync.
 
 4. Wait for 10 mins. Go to **Anomaly Center**, and you can find the **Schema Drift**.
-   ![bb-anomaly-center-1-drift](/blog/database-change-management-with-postgresql/bb-anomaly-center-1-drift.webp)
+   ![bb-anomaly-center-1-drift](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-anomaly-center-1-drift.webp)
 
 5. Click View diff, and you’ll see the drift.
-   ![bb-drift-diff-age](/blog/database-change-management-with-postgresql/bb-drift-diff-age.webp)
+   ![bb-drift-diff-age](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-drift-diff-age.webp)
 
 6. You may also find the drift by clicking **Databases** > **demo**.
-   ![bb-databases-demo-1-drift](/blog/database-change-management-with-postgresql/bb-databases-demo-1-drift.webp)
+   ![bb-databases-demo-1-drift](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-databases-demo-1-drift.webp)
 
 7. Go to **Databases** > **demo** > **Change History** and click **Establish new baseline**.
-   ![bb-databases-demo-new-baseline](/blog/database-change-management-with-postgresql/bb-databases-demo-new-baseline.webp)
+   ![bb-databases-demo-new-baseline](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-databases-demo-new-baseline.webp)
 
 8. It will create an issue. Click **Approve** and **Resolve** to make it `Done`.
-   ![bb-issue-baseline-done](/blog/database-change-management-with-postgresql/bb-issue-baseline-done.webp)
+   ![bb-issue-baseline-done](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-issue-baseline-done.webp)
 
 9. Go back to **Databases** > **demo** or **Anomaly Center**, and you will find the drift is gone.
-   ![bb-databases-demo-0-drift](/blog/database-change-management-with-postgresql/bb-databases-demo-0-drift.webp)
-   ![bb-anomaly-center-0-drift](/blog/database-change-management-with-postgresql/bb-anomaly-center-0-drift.webp)
+   ![bb-databases-demo-0-drift](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-databases-demo-0-drift.webp)
+   ![bb-anomaly-center-0-drift](/docs/tutorials/beginner/database-change-management-with-postgresql/bb-anomaly-center-0-drift.webp)
 
 ## Summary and Next
 
