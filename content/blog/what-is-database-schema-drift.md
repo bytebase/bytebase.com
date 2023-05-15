@@ -9,10 +9,10 @@ description: Database schema drift is the case where the actual schema in the li
 
 This is a series of articles about Database-as-code (GitOps)
 
-- [Database as Code - the Good, the Bad and the Ugly](database-as-code)
-- [Database Version Control, State-based or Migration-based?](database-version-control-state-based-vs-migration-based)
+- [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
+- [Database Version Control, State-based or Migration-based?](/blog/database-version-control-state-based-vs-migration-based)
 - What is Database Schema Drift? (this one)
-- [The Database as Code Landscape](database-as-code-landscape)
+- [The Database as Code Landscape](/blog/database-as-code-landscape)
 
 ---
 
@@ -29,7 +29,7 @@ While the **source of truth part** is more complex...
 
 One may first wonder why we need to keep a separate source of truth. The reason is because the schema in the live database may not always be the desired state. Human error or software bugs could both accidentally change the database schema. So it's better to have a separate source of truth, this idea is similar to the classic [double-entry bookkeeping](https://en.wikipedia.org/wiki/Double-entry_bookkeeping) used in accounting.
 
-Naturally, a good place to store this source of truth is the version control system (VCS), the same place where the application code is stored. This is known as [database-as-code](database-as-code), a GitOps practice. Solutions like Liquibase, Flyway and etc all support this approach. Bytebase also supports this and even go a step further to provide point-and-click UI to configure this [VCS integration](/docs/vcs-integration/overview).
+Naturally, a good place to store this source of truth is the version control system (VCS), the same place where the application code is stored. This is known as [database-as-code](/blog/database-as-code), a GitOps practice. Solutions like Liquibase, Flyway and etc all support this approach. Bytebase also supports this and even go a step further to provide point-and-click UI to configure this [VCS integration](/docs/vcs-integration/overview).
 ![_](/blog/what-is-database-schema-drift/project-vcs.webp)
 
 ## The format of source of truth
@@ -39,7 +39,7 @@ After we figure out where to store the source of truth, next we need fo decide w
 - State-based approach stores the desired end state of the entire schema in the code repository
 - Migration-based approach stores the migration scripts in the repository. Each script contains a set of DDL statements such as CREATE/ALTER/DROP TABLE. The desired schema state is achieved by executing each of those scripts in a deterministic order.
 
-State-based approach is a more intuitive format since a single file corresponds to a database schema. However, state-based approach has its limitation and is hard to get right in all scenarios (check [state-based or migration-based](database-version-control-state-based-vs-migration-based) post for details). That's why Liquibase, Flyway as well as Bytebase all choose migration-based approach.
+State-based approach is a more intuitive format since a single file corresponds to a database schema. However, state-based approach has its limitation and is hard to get right in all scenarios (check [state-based or migration-based](/blog/database-version-control-state-based-vs-migration-based) post for details). That's why Liquibase, Flyway as well as Bytebase all choose migration-based approach.
 
 ## Schema drift detection
 
