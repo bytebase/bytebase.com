@@ -12,7 +12,7 @@ The slow query log consists of SQL statements that take more than long_query_tim
 
 To enable slow query log, you need to change the following MySQL configuration in MySQL configuration file (e.g. `/etc/mysql/my.cnf`):
 
-```
+```plain
 [mysqld]
 slow_query_log = ON
 long_query_time = 1

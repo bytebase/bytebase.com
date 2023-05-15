@@ -42,7 +42,7 @@ If the above command doesn't work, replace https://raw.githubusercontent.com/byt
 
 When the Terminal shows the following message, the execution is successful.
 
-```
+```bash
 employee-prod_1  | 2022-06-21T02:35:01.128005Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.29) starting as process 63
 employee-prod_1  | 2022-06-21T02:35:01.150847Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
 bytebase         | 2022-06-21T02:35:01.449Z	INFO	Completed database initial migration with version 1.1.2.
