@@ -17,7 +17,7 @@ export const crewList = [
   {
     image: '/images/page/about/steven.webp',
     name: 'Steven',
-    position: 'Intern',
+    position: 'Engineering',
   },
   {
     image: '/images/page/about/changyu.webp',
