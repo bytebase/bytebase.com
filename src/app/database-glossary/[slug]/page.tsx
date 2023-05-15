@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 
 import getMetadata from '@/utils/get-metadata';
 
+import Features from '@/components/pages/database-glossary/features';
 import Promo from '@/components/pages/database-glossary/promo';
 import WordArticle from '@/components/pages/database-glossary/word-article';
 
@@ -20,6 +21,7 @@ export default function GlossaryWordPage({ params }: { params: { slug: string } 
     <div className="container gap-x-grid grid grid-cols-12">
       <WordArticle post={post} />
       <Promo />
+      <Features />
     </div>
   );
 }
