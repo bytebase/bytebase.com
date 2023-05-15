@@ -17,7 +17,7 @@ export default function SQLReviewPage() {
       <GuideLayout templateList={guidelineTemplateList} schema={sqlReviewSchema}>
         <Hero />
       </GuideLayout>
-      <Subscription className="mt-52 2xl:mt-[189px] lg:mt-[156px] md:mt-[114px]" />
+      <Subscription />
     </>
   );
 }
