@@ -10,7 +10,7 @@ This section guides you through the workspace level configuration before you sta
 
 At workspace level, you can
 
-- [Register accounts](register-accounts) or [Add Owners, DBAs and Developers](manage-members) to the workspace.
-- [Set up environments](set-up-environments) (e.g. Test, Prod) to fit your working process.
-- [Add instances](add-an-instance) to make it possible to synchronize databases - if you don't have an existing instance on hand, you can [add a local MySQL instance](/docs/get-started/install/local-mysql-instance).
-- [Customize the Logo](customize-the-logo).
+- [Register accounts](/docs/get-started/configure-workspace/register-accounts) or [Add Owners, DBAs and Developers](/docs/get-started/configure-workspace/manage-members) to the workspace.
+- [Set up environments](/docs/get-started/configure-workspace/set-up-environments) (e.g. Test, Prod) to fit your working process.
+- [Add instances](/docs/get-started/configure-workspace/add-an-instance) to make it possible to synchronize databases - if you don't have an existing instance on hand, you can [add a local MySQL instance](/docs/get-started/install/local-mysql-instance).
+- [Customize the Logo](/docs/get-started/configure-workspace/customize-the-logo).
