@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 
 import getMetadata from '@/utils/get-metadata';
 
+import Promo from '@/components/pages/database-glossary/promo';
 import WordArticle from '@/components/pages/database-glossary/word-article';
 
 import { getAllGlossaryPosts, getGlossaryBySlug } from '@/lib/api-glossary';
@@ -18,6 +19,7 @@ export default function GlossaryWordPage({ params }: { params: { slug: string } 
   return (
     <div className="container gap-x-grid grid grid-cols-12">
       <WordArticle post={post} />
+      <Promo />
     </div>
   );
 }
