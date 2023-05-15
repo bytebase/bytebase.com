@@ -32,7 +32,7 @@ module.exports = {
         permanent: true,
       },
       {
-        source: `/changelog/:slug(^bytebase-.*)`,
+        source: `/changelog/(^bytebase-.*)`,
         destination: '/changelog',
         permanent: true,
       },
