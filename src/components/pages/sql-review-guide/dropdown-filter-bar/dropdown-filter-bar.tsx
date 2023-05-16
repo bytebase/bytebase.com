@@ -189,6 +189,9 @@ const DropdownFilterBar = ({
             {filterOptionList.map((filter) => {
               const { id, type } = filter;
               const key: string = id.toLocaleLowerCase();
+
+              if (filterItemCount(filter) === 0) return null;
+
               return (
                 <li className="flex items-center" key={id}>
                   <input
