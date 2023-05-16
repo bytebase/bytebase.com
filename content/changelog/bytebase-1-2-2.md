@@ -60,7 +60,7 @@ description: "- Added support for gh-ost. - Updated the way help tips are displa
 
 ## 🎠 Community
 
-- Thanks to @[tisonkun](https://github.com/tisonkun) for feat(schema system): support PG fk name convention rules [#1890](https://github.com/bytebase/bytebase/pull/1890)
+- Thanks to [@tisonkun](https://github.com/tisonkun) for feat(schema system): support PG fk name convention rules [#1890](https://github.com/bytebase/bytebase/pull/1890)
 
 ## 📕 Installation and Upgrade
 

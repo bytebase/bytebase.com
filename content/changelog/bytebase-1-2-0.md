@@ -27,10 +27,10 @@ Schema Review for SQL Editor
 
 ## 🎠 Community
 
-- Thanks to @[Cluas](https://github.com/Cluas) for:
+- Thanks to [@Cluas](https://github.com/Cluas) for:
   - fix: pg ExecuteContext do not return err [#1540](https://github.com/bytebase/bytebase/pull/1540)
   - fix: remove early check since we support create database idempotent [#1543](https://github.com/bytebase/bytebase/pull/1543)
-- Thanks to @[chiyutianyi](https://github.com/chiyutianyi) for: feat: prometheus integration and pprof registration simplification [#1550](https://github.com/bytebase/bytebase/pull/1550)
+- Thanks to [@chiyutianyi](https://github.com/chiyutianyi) for: feat: prometheus integration and pprof registration simplification [#1550](https://github.com/bytebase/bytebase/pull/1550)
 
 ## 📕 Installation and Upgrade
 

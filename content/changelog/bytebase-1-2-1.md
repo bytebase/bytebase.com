@@ -30,10 +30,10 @@ It allows users to perform SQL reviews via API after configuring the schema revi
 
 ## 🎠 Community
 
-- Thanks to @[Cluas](https://github.com/Cluas) for:
+- Thanks to [@Cluas](https://github.com/Cluas) for:
   - [fix(pg): need update current owner after switch database #1689](https://github.com/bytebase/bytebase/pull/1689)
   - [fix: ssl certs missing #1654](https://github.com/bytebase/bytebase/pull/1654)
-- Thanks to @[Innei](https://github.com/Innei) for:
+- Thanks to [@Innei](https://github.com/Innei) for:
   - [perf: concurrent request improve fetch table data speed #1674](https://github.com/bytebase/bytebase/pull/1674)
   - [pref: concurrent request improve fetch table data speed #1660](https://github.com/bytebase/bytebase/pull/1660)
   - [feat(editor): add spin when editor is loading.#1659](https://github.com/bytebase/bytebase/pull/1659)
