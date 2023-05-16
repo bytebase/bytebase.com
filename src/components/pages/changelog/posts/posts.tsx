@@ -46,7 +46,13 @@ const Posts = ({ posts }: PostsProps) => {
                     </div>
                   </header>
                   <div className="col-span-6 -mt-1 lg:col-span-9 md:mt-0 sm:col-span-full sm:mt-4">
-                    <h1 className="text-44 font-bold leading-extra-tight lg:text-36 md:text-30">
+                    <h1 className="group relative text-44 font-bold leading-extra-tight lg:text-36 md:text-30">
+                      <a
+                        href={`#${slug}`}
+                        className="absolute -left-2 top-3 -translate-x-full text-24 opacity-0 transition-opacity duration-200 group-hover:opacity-100 lg:top-2.5 lg:text-20 md:top-2 md:text-16 sm:-left-0.5"
+                      >
+                        #
+                      </a>
                       {title}
                     </h1>
                     <Content content={content} className="mt-11 lg:mt-10 md:mt-9 sm:mt-8" />
