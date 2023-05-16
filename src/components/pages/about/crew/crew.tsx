@@ -1,15 +1,13 @@
+'use client';
+
+import { sampleSize } from 'lodash-es';
 import Image from 'next/image';
-
-import Link from '@/components/shared/link';
-
-import ROUTE from '@/lib/route';
-
 import { crewList } from './data';
 
 const Crew = () => (
   <section className="container">
     <ul className="gap-x-grid grid grid-cols-12 gap-y-20 border-t border-gray-90 pt-[52px] 3xl:gap-y-16 3xl:pt-12 xl:gap-y-14 xl:pt-10 md:gap-y-8 md:pt-9 sm:grid-cols-4 sm:gap-y-6 sm:pt-6">
-      {crewList.map((member, index) => (
+      {sampleSize(crewList, crewList.length).map((member, index) => (
         <li
           className="col-span-3 flex flex-col items-center justify-start sm:col-span-2"
           key={index}
