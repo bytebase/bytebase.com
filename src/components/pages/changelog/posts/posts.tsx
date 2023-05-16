@@ -11,10 +11,10 @@ type PostsProps = {
 
 const Posts = ({ posts }: PostsProps) => {
   return (
-    <section className="posts mt-[60px] lg:mt-[52px] md:mt-10 sm:mt-8">
+    <section className="posts mt-1 md:mt-0 sm:mt-2">
       <div className="container">
-        <ul className="relative flex flex-col gap-y-6 border-l border-gray-90 sm:border-none">
-          {posts.map(({ slug, title, author, published_at, timeToRead, content }, index) => {
+        <ul className="relative flex flex-col gap-y-6 before:absolute before:left-0 before:top-14 before:h-[calc(100%-56px)] before:w-px before:bg-gray-90 lg:before:top-12 lg:before:h-[calc(100%-48px)] md:before:top-10 md:before:h-[calc(100%-40px)] sm:before:hidden">
+          {posts.map(({ slug, title, author, published_at, timeToRead, content }) => {
             const date = new Date(published_at);
             const formattedDate = format(date, 'MMM dd, yyyy');
             return (
@@ -23,7 +23,7 @@ const Posts = ({ posts }: PostsProps) => {
                   id={slug}
                   className={clsx(
                     'gap-x-grid grid auto-rows-min grid-cols-12',
-                    index !== 0 && 'pt-14 lg:pt-12 md:pt-10 sm:pt-6',
+                    'pt-14 lg:pt-12 md:pt-10 sm:pt-6',
                   )}
                 >
                   <header
