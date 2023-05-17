@@ -2,15 +2,23 @@
 title: Enable pg_stat_statements for PostgreSQL
 ---
 
-> The pg_stat_statements module provides a means for tracking planning and execution statistics of all SQL statements executed by a server.
+<HintBlock type="info">
+
+The pg_stat_statements module provides a means for tracking planning and execution statistics of all SQL statements executed by a server.
+
+</HintBlock>
 
 ## Modify PostgreSQL Configuration
 
-> The pg_stat_statements module must be loaded by adding pg_stat_statements to shared_preload_libraries in postgresql.conf, because it requires additional shared memory.
+<HintBlock type="warning">
+
+The pg_stat_statements module must be loaded by adding pg_stat_statements to shared_preload_libraries in postgresql.conf, because it requires additional shared memory.
+
+</HintBlock>
 
 To enable pg_stat_statements, you need to modify the following PostgreSQL configuration in PostgreSQL configuration file (e.g. `/etc/postgresql/12/main/postgresql.conf`):
 
-```
+```plain
 shared_preload_libraries = 'pg_stat_statements'
 pg_stat_statements.track = all
 ```
@@ -34,7 +42,6 @@ You can use the [Bytebase Batch Change](/docs/batch-change/overview) feature to 
 ```sql
 SELECT count(*) FROM pg_stat_statements;
 ```
-
 
 ## References
 

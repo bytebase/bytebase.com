@@ -67,7 +67,7 @@ const cards: TCard[] = [
     description: 'Customized, billed&nbsp;annually',
     buttonText: 'Contact us',
     buttonTheme: 'primary-outline',
-    buttonLink: 'mailto:support@bytebase.com',
+    buttonLink: 'https://airtable.com/shrS2Ot5BfGExwemj',
     planConditions: [
       'Dedicated line and SLA support',
       'Custom approval workflow',

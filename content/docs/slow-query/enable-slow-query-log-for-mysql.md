@@ -2,13 +2,17 @@
 title: Enable Slow Query Log for MySQL
 ---
 
-> The slow query log consists of SQL statements that take more than long_query_time seconds to execute and require at least min_examined_row_limit rows to be examined. The slow query log can be used to find queries that take a long time to execute and are therefore candidates for optimization.
+<HintBlock type="info">
+
+The slow query log consists of SQL statements that take more than long_query_time seconds to execute and require at least min_examined_row_limit rows to be examined. The slow query log can be used to find queries that take a long time to execute and are therefore candidates for optimization.
+
+</HintBlock>
 
 ## Modify MySQL Configuration
 
 To enable slow query log, you need to change the following MySQL configuration in MySQL configuration file (e.g. `/etc/mysql/my.cnf`):
 
-```
+```plain
 [mysqld]
 slow_query_log = ON
 long_query_time = 1

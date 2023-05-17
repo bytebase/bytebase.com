@@ -24,7 +24,7 @@ const Route = {
   DOCS_API: '/docs/api/overview',
   DOCS_CLI: '/docs/cli/overview',
   DOCS_HOW_TO: '/docs/how-to/sql-review/postgres-sql-review-guide',
-  DOCS_TUTORIALS: '/tutorial',
+  DOCS_TUTORIALS: '/docs/tutorials/overview',
   DOCS_CHANGE_DATABASE: '/docs/change-database/change-workflow/overview',
   DOCS_SQL_EDITOR: '/docs/sql-editor/overview',
   DOCS_ADMINISTRATION: '/docs/administration/database-access-control',
