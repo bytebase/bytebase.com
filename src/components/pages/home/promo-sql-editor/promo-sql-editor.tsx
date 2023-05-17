@@ -96,14 +96,14 @@ const PromoSQLEditor = () => {
         <Pill theme="secondary-1">Query</Pill>
         <h2 className="mt-3 max-w-3xl font-title text-88 font-semibold leading-none xl:mt-3 xl:max-w-2xl xl:text-68 xl:leading-104 md:mt-3 md:max-w-lg md:text-54 md:leading-none sm:text-48 sm:leading-95">
           Explore data with <span className="whitespace-nowrap">all-in-one</span>{' '}
-          <mark className="whitespace-nowrap bg-transparent text-center text-primary-1 sm:whitespace-normal">
+          <mark className="whitespace-nowrap bg-transparent text-center text-primary-1 sm:whitespace-normal xs:pr-24">
             SQL Editor
           </mark>
         </h2>
       </header>
-      <div className="gap-x-grid mt-12 grid grid-cols-12 xl:mt-7 md:mt-10 sm:relative sm:mt-6 sm:grid-cols-none">
+      <div className="gap-x-grid mt-12 grid grid-cols-12 xl:mt-7 md:mt-10 sm:relative sm:mt-10 sm:grid-cols-none">
         <Image
-          className="absolute -top-[72px] -right-8 z-20 hidden sm:block"
+          className="absolute -top-[88px] -right-8 z-20 hidden sm:block"
           width={141}
           height={135}
           src="/images/page/main/ufo.png"
