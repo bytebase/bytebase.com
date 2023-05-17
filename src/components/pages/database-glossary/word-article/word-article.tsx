@@ -8,7 +8,7 @@ import ExternalIcon from '@/svgs/external-square.inline.svg';
 
 const WordArticle = ({ post: { name, reference, description } }: { post: Glossary }) => {
   return (
-    <article className="col-span-6 col-start-4 border-b border-gray-90 pt-[136px] pb-14 2xl:pt-32 lg:col-span-8 lg:col-start-3 lg:pt-[120px] lg:pb-12 md:col-span-full md:pt-24 md:pb-10 sm:pb-9">
+    <article className="col-span-6 col-start-4 border-b border-gray-90 pt-[136px] pb-14 2xl:pt-32 xl:col-span-8 xl:col-start-3 xl:pt-[120px] xl:pb-12 md:col-span-full md:pt-24 md:pb-10 sm:pb-9">
       <nav className="flex gap-x-[11px] font-medium">
         <Link className="text-gray-30" href={Route.DATABASE_GLOSSARY}>
           Database glossary

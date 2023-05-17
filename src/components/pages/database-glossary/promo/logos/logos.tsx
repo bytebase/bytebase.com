@@ -52,13 +52,12 @@ const LOGOS = [
   },
 ];
 
-// TODO: update gaps, size to ceil
 const Logos = () => {
   return (
-    <ul className="mt-11 flex flex-wrap gap-x-[25px] gap-y-6 pt-7 pl-7 pb-8 pr-5 shadow-[0px_5px_15px_rgba(15,22,36,.2)] 2xl:gap-[21px] 2xl:pt-6 2xl:pl-6 2xl:pb-[30px] lg:mt-10 md:mt-9 md:gap-6 md:pl-7 md:pt-7 md:pb-8 sm:mt-8 sm:justify-center sm:pl-6 sm:pt-6">
+    <ul className="mt-11 flex flex-wrap justify-center gap-x-[25px] gap-y-6 px-7 pt-7 pb-8 shadow-[0px_5px_15px_rgba(15,22,36,.2)] 2xl:gap-[21px] 2xl:py-6 2xl:px-[29px] xl:gap-x-5 xl:px-[18px] lg:mt-10 md:mt-9 md:gap-6 md:px-[26px] md:pt-7 md:pb-8 sm:mt-8 sm:gap-y-[26px] sm:py-6 sm:pl-6 sm:pr-[22px]">
       {LOGOS.map(({ name, Icon }) => {
         return (
-          <li className="flex items-center gap-x-2" key={name}>
+          <li className="flex items-center gap-x-2 2xl:gap-x-[7px] md:gap-x-2" key={name}>
             <Icon className="w-6 2xl:w-[22px] md:w-6" />
             <span className="text-18 font-semibold 2xl:text-16 md:text-18">{name}</span>
           </li>
