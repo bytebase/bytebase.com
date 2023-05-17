@@ -7,6 +7,7 @@ import useGlossaryActiveHash from '@/hooks/use-glossary-active-hash';
 import { GlossaryLetterSet } from '@/types/glossary';
 
 import Aside from '../aside';
+import DropdownFilter from '../dropdown-filter';
 import Filter from '../filter';
 import MobileSidebar from '../mobile-sidebar';
 import Posts from '../posts';
@@ -50,9 +51,18 @@ const GlossaryLayout = ({ posts, filters, children }: GlossaryLayoutProps) => {
       {children}
       <section ref={wrapperRef} className="container pt-16 lg:pt-12 md:pt-8 sm:pt-6">
         <div className="gap-x-grid grid grid-cols-12">
+          <DropdownFilter
+            title="Category"
+            className="col-span-6 hidden md:block xs:col-span-full"
+            fieldsList={filters}
+            activeFilters={activeFilters}
+            setActiveFilters={setActiveFilters}
+            toggleFilter={toggleFilter}
+          />
           <Aside posts={filteredItems} activeHash={activeHash} />
           <Posts posts={filteredItems} />
           <Filter
+            title="Category"
             className="col-span-3 md:hidden"
             fieldsList={filters}
             activeFilters={activeFilters}
