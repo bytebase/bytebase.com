@@ -2,8 +2,11 @@
 
 import { ReactNode, useMemo, useRef, useState } from 'react';
 
+import useGlossaryActiveHash from '@/hooks/use-glossary-active-hash';
+
 import { GlossaryLetterSet } from '@/types/glossary';
 
+import Aside from '../aside';
 import Filter from '../filter';
 import Posts from '../posts';
 
@@ -15,6 +18,7 @@ type GlossaryLayoutProps = {
 
 const GlossaryLayout = ({ posts, filters, children }: GlossaryLayoutProps) => {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
+  const [activeHash] = useGlossaryActiveHash(activeFilters);
   const wrapperRef = useRef<HTMLElement>(null);
 
   const filteredItems = useMemo(() => {
@@ -44,6 +48,7 @@ const GlossaryLayout = ({ posts, filters, children }: GlossaryLayoutProps) => {
       {children}
       <section ref={wrapperRef} className="container pt-16 lg:pt-12 md:pt-8 sm:pt-6">
         <div className="gap-x-grid grid grid-cols-12">
+          <Aside posts={filteredItems} activeHash={activeHash} />
           <Posts posts={filteredItems} />
           <Filter
             className="col-span-3 md:hidden"
