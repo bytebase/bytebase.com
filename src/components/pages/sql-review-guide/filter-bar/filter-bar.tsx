@@ -37,9 +37,9 @@ const FilterBar = ({
                 const key: string = getRuleLocalizationKey(id);
                 return (
                   <li className="flex items-center" key={id}>
-                    <label className="flex items-center">
+                    <label className="group flex items-center">
                       <input
-                        className="relative h-4 w-4 appearance-none rounded-full border border-gray-30 transition-colors duration-100 after:absolute after:top-1/2 after:left-1/2 after:h-1.5 after:w-1.5 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-white checked:border-primary-1 checked:bg-primary-1"
+                        className="relative h-4 w-4 appearance-none rounded-full border border-gray-30 transition-colors duration-100 after:absolute after:top-1/2 after:left-1/2 after:h-1.5 after:w-1.5 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-white checked:border-primary-1 checked:bg-primary-1 hover:after:h-2 hover:after:w-2"
                         type="radio"
                         name={id}
                         id={id}
@@ -47,7 +47,7 @@ const FilterBar = ({
                         checked={activeFilters.template.id === id}
                         onChange={onTemplateChange}
                       />
-                      <span className="ml-2 font-medium text-gray-30">
+                      <span className="ml-2 font-medium text-gray-30 group-hover:text-gray-60">
                         {en.template[key].split(' ')[0]}
                       </span>
                     </label>
@@ -72,7 +72,7 @@ const FilterBar = ({
 
                 return (
                   <li className="flex items-center" key={id}>
-                    <label className="flex items-center">
+                    <label className="group flex items-center">
                       <input
                         className="h-4 w-4 appearance-none rounded-sm border border-gray-30 bg-center bg-no-repeat transition-colors duration-100 checked:border-primary-1 checked:bg-primary-1 checked:bg-[url('/images/check-checkbox.svg')]"
                         type="checkbox"
@@ -81,7 +81,9 @@ const FilterBar = ({
                         value={id}
                         onChange={onCategoryChange}
                       />
-                      <span className="ml-2 font-medium text-gray-30">{en[type][key]}</span>
+                      <span className="ml-2 font-medium text-gray-30 group-hover:text-gray-60">
+                        {en[type][key]}
+                      </span>
                     </label>
                     <span className="ml-2 shrink-0 rounded-full bg-gray-94 p-1 text-14 font-medium leading-none text-gray-30">
                       {filterItemCount(filter)}
