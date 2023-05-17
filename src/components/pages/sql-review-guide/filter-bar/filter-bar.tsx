@@ -1,6 +1,8 @@
 import useSQLReviewFilter from '@/hooks/use-sql-review-filter';
 import { en, getRuleLocalizationKey } from '@/utils/sql-review';
 
+import Tooltip from '@/components/shared/tooltip';
+
 import { ActiveFilters, GuidelineTemplate } from '@/types/sql-review';
 
 import InfoIcon from '@/svgs/info.inline.svg';
@@ -49,9 +51,7 @@ const FilterBar = ({
                         {en.template[key].split(' ')[0]}
                       </span>
                     </label>
-                    <div className="ml-2 inline-flex h-[18px] w-[18px] items-center justify-center rounded-full bg-gray-94">
-                      <InfoIcon className="h-2.5 w-auto rotate-180" />
-                    </div>
+                    <Tooltip text={en.template[`${key}-desc`]} />
                   </li>
                 );
               })}
