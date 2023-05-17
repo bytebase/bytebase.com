@@ -61,8 +61,12 @@ const PostLayout = ({
         <Navigation previousLink={previousLink} nextLink={nextLink} />
       </article>
       {tableOfContents && tableOfContents.length > 0 && (
-        <div className="sticky bottom-0 top-10 col-span-3 col-end-13 ml-auto max-h-[calc(100vh-40px)] w-full max-w-[314px] overflow-y-auto pt-2.5 xl:max-w-none lg:hidden">
-          <TableOfContents items={tableOfContents} hasBackToTop={true} />
+        <div className="col-span-3 col-end-13 ml-auto w-full max-w-[314px] pt-2.5 pb-28 xl:max-w-none lg:hidden">
+          <TableOfContents
+            items={tableOfContents}
+            className="scrollbar-hidden sticky top-10 max-h-[calc(100vh-40px)] overflow-y-auto"
+            hasBackToTop={true}
+          />
         </div>
       )}
     </>
