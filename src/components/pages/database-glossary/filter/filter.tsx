@@ -1,13 +1,15 @@
 type ActiveFilters = string[];
 
-type FilterProps = {
+export type FilterProps = {
+  title: string;
   className: string;
   fieldsList: [string, number][];
   activeFilters: ActiveFilters;
   toggleFilter: (filter: string) => void;
 };
 
-const Filter = ({ className, fieldsList, activeFilters, toggleFilter }: FilterProps) => {
+// TODO: customize component for usage with other filters
+const Filter = ({ title, className, fieldsList, activeFilters, toggleFilter }: FilterProps) => {
   if (fieldsList?.length === 0) return null;
 
   return (
@@ -15,7 +17,7 @@ const Filter = ({ className, fieldsList, activeFilters, toggleFilter }: FilterPr
       <div className="sticky top-10 ml-[25px] border-l border-gray-90 pl-5 2xl:ml-0">
         <fieldset>
           <legend className="mt-10 text-14 font-bold uppercase leading-none tracking-[-0.025em] text-gray-15">
-            Category
+            {title}
           </legend>
           <ul className="mt-5 flex flex-col gap-y-4">
             {fieldsList.map((filter) => {
@@ -27,7 +29,7 @@ const Filter = ({ className, fieldsList, activeFilters, toggleFilter }: FilterPr
                   <input
                     className="h-4 w-4 cursor-pointer appearance-none rounded-sm border border-gray-30 bg-[50%_30%] bg-no-repeat transition-colors duration-100 checked:border-primary-1 checked:bg-primary-1 checked:bg-[url('/images/check-checkbox.svg')]"
                     type="checkbox"
-                    name={key}
+                    name={`${title.toLocaleLowerCase()}[]`}
                     checked={activeFilters.includes(name)}
                     id={key}
                     value={name}
