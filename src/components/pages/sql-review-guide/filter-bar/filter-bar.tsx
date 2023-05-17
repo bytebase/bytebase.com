@@ -34,18 +34,20 @@ const FilterBar = ({
               {templateList.map(({ id }) => {
                 const key: string = getRuleLocalizationKey(id);
                 return (
-                  <li className="flex cursor-pointer items-center" key={id}>
-                    <input
-                      className="relative h-4 w-4 appearance-none rounded-full border border-gray-30 transition-colors duration-100 after:absolute after:top-1/2 after:left-1/2 after:h-1.5 after:w-1.5 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-white checked:border-primary-1 checked:bg-primary-1"
-                      type="radio"
-                      name={id}
-                      id={id}
-                      value={id}
-                      checked={activeFilters.template.id === id}
-                      onChange={onTemplateChange}
-                    />
-                    <label className="ml-2 font-medium text-gray-30" htmlFor={id}>
-                      {en.template[key].split(' ')[0]}
+                  <li className="flex items-center" key={id}>
+                    <label className="flex items-center">
+                      <input
+                        className="relative h-4 w-4 appearance-none rounded-full border border-gray-30 transition-colors duration-100 after:absolute after:top-1/2 after:left-1/2 after:h-1.5 after:w-1.5 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-white checked:border-primary-1 checked:bg-primary-1"
+                        type="radio"
+                        name={id}
+                        id={id}
+                        value={id}
+                        checked={activeFilters.template.id === id}
+                        onChange={onTemplateChange}
+                      />
+                      <span className="ml-2 font-medium text-gray-30">
+                        {en.template[key].split(' ')[0]}
+                      </span>
                     </label>
                     <div className="ml-2 inline-flex h-[18px] w-[18px] items-center justify-center rounded-full bg-gray-94">
                       <InfoIcon className="h-2.5 w-auto rotate-180" />
@@ -70,16 +72,16 @@ const FilterBar = ({
 
                 return (
                   <li className="flex items-center" key={id}>
-                    <input
-                      className="h-4 w-4 appearance-none rounded-sm border border-gray-30 bg-center bg-no-repeat transition-colors duration-100 checked:border-primary-1 checked:bg-primary-1 checked:bg-[url('/images/check-checkbox.svg')]"
-                      type="checkbox"
-                      name={type}
-                      id={key}
-                      value={id}
-                      onChange={onCategoryChange}
-                    />
-                    <label className="ml-2 font-medium text-gray-30" htmlFor={key}>
-                      {en[type][key]}
+                    <label className="flex items-center">
+                      <input
+                        className="h-4 w-4 appearance-none rounded-sm border border-gray-30 bg-center bg-no-repeat transition-colors duration-100 checked:border-primary-1 checked:bg-primary-1 checked:bg-[url('/images/check-checkbox.svg')]"
+                        type="checkbox"
+                        name={type}
+                        id={key}
+                        value={id}
+                        onChange={onCategoryChange}
+                      />
+                      <span className="ml-2 font-medium text-gray-30">{en[type][key]}</span>
                     </label>
                     <span className="ml-2 shrink-0 rounded-full bg-gray-94 p-1 text-14 font-medium leading-none text-gray-30">
                       {filterItemCount(filter)}
