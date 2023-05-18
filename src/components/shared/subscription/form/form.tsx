@@ -34,7 +34,7 @@ const ErrorMessage = ({ className, message }: { className?: string; message: str
         loading="lazy"
       />
       <span className="mr-2 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-secondary-6">
-        <InfoIcon className="inline-block h-auto w-2.5 rotate-180" />
+        <InfoIcon className="inline-block h-auto w-2.5 rotate-180 text-white" />
       </span>
       <span>{message}</span>
     </div>

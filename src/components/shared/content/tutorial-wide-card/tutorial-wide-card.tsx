@@ -62,7 +62,7 @@ const TutorialWideCard = ({
           </div>
           <span className="inline-flex items-center text-14 leading-none text-gray-40">
             <span>Read more</span>
-            <ExternalIcon className="ml-1 h-[13px] w-[13px]" />
+            <ExternalIcon className="ml-1 h-[13px] w-[13px] text-gray-40" />
           </span>
         </div>
       </Link>

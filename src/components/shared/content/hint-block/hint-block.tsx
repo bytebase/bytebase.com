@@ -40,7 +40,7 @@ const HintBlock = ({ type, children }: { type: 'info' | 'warning'; children: Rea
             typeClassNames[type].icon,
           )}
         >
-          <Icon className="h-4 w-4" />
+          <Icon className="h-4 w-4 text-white" />
         </span>
 
         <div className="flex flex-col">

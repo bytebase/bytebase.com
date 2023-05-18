@@ -36,6 +36,11 @@ const SEO_DATA = {
     description: 'Safer and faster database change and version control for DBAs and Developers',
     pathname: `${Route.PRIVACY}/`,
   },
+  SQL_REVIEW_GUIDE: {
+    title: 'Database Review Guide',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.SQL_REVIEW_GUIDE}/`,
+  },
 };
 
 export default SEO_DATA;

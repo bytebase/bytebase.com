@@ -72,7 +72,7 @@ const MobileSidebar = ({
   }, [controls, isOpen]);
   return (
     <LazyMotion features={domAnimation}>
-      <nav className={clsx('safe-paddings relative', className)} ref={wrapperRef}>
+      <nav className={clsx('relative', className)} ref={wrapperRef}>
         <button
           className="relative z-10 flex w-full cursor-pointer appearance-none items-center justify-between text-ellipsis border-t border-b border-gray-94 bg-gray-97 py-4 px-7 leading-none outline-none transition-colors duration-200 hover:bg-gray-90 active:bg-gray-90 sm:px-4"
           type="button"
