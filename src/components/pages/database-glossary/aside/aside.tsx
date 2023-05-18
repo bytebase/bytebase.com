@@ -27,7 +27,8 @@ const Aside = ({ posts, activeHash }: PostsProps) => {
     const item = document.querySelector(`.glossary-aside a[href="#${hash}"]`);
     if (item) {
       const itemRectTop = item.getBoundingClientRect().top;
-      navigationRef.current.scrollTop += itemRectTop - 200;
+      const containerTop = navigationRef.current.getBoundingClientRect().top;
+      navigationRef.current.scrollTop += itemRectTop - containerTop - 200;
     }
   };
 
@@ -41,11 +42,14 @@ const Aside = ({ posts, activeHash }: PostsProps) => {
     <aside className="glossary-aside col-span-3 lg:hidden">
       <nav
         ref={navigationRef}
-        className="scrollbar-hidden sticky top-0 flex max-h-[100vh] flex-col gap-y-11 overflow-y-auto border-l border-gray-90 pl-5"
+        className="scrollbar-hidden sticky -top-6 flex max-h-[calc(100vh+24px)] flex-col overflow-y-auto pt-16 pb-9"
       >
         {posts.map(({ letter, list }, index) => {
           return (
-            <div key={index} className="leading-none">
+            <div
+              key={index}
+              className={clsx(index !== 0 && 'pt-11', 'border-l border-gray-90 pl-5 leading-none')}
+            >
               <span className="text-14 font-bold tracking-wider">{letter}</span>
               <ul className="mt-4 flex flex-col gap-y-2.5">
                 {list.map(({ slug, name }) => {

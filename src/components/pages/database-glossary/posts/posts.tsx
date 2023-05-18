@@ -10,7 +10,7 @@ const Posts = ({ posts }: PostsProps) => {
   if (!posts) return null;
 
   return (
-    <ul className="col-span-6 flex flex-col gap-y-20 lg:col-span-9 lg:gap-y-[72px] md:col-span-full md:mt-8 md:gap-y-16 sm:mt-6 sm:gap-14">
+    <ul className="col-span-6 flex flex-col gap-y-20 pt-16 lg:col-span-9 lg:gap-y-[72px] lg:pt-0 md:col-span-full md:mt-8 md:gap-y-16 sm:mt-6 sm:gap-14">
       {posts.map(({ letter, list }) => {
         return (
           <li key={letter}>

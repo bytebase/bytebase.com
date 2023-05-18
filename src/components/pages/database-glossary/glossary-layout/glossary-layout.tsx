@@ -49,7 +49,7 @@ const GlossaryLayout = ({ posts, filters, children }: GlossaryLayoutProps) => {
     <>
       <MobileSidebar className="hidden lg:flex" categoryList={filteredItems} />
       {children}
-      <section ref={wrapperRef} className="container pt-16 lg:pt-12 md:pt-8 sm:pt-6">
+      <section ref={wrapperRef} className="container lg:pt-12 md:pt-8 sm:pt-6">
         <div className="gap-x-grid grid grid-cols-12">
           <DropdownFilter
             title="Category"
@@ -63,7 +63,7 @@ const GlossaryLayout = ({ posts, filters, children }: GlossaryLayoutProps) => {
           <Posts posts={filteredItems} />
           <Filter
             title="Category"
-            className="col-span-3 md:hidden"
+            className="col-span-3 pt-16 lg:pt-0 md:hidden"
             fieldsList={filters}
             activeFilters={activeFilters}
             toggleFilter={toggleFilter}
