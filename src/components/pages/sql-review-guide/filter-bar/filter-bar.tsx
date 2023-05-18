@@ -1,15 +1,14 @@
 import useSQLReviewFilter from '@/hooks/use-sql-review-filter';
 import { en, getRuleLocalizationKey } from '@/utils/sql-review';
 
-import Link from '@/components/shared/link';
 import Tooltip from '@/components/shared/tooltip';
 
 import { ActiveFilters, GuidelineTemplate } from '@/types/sql-review';
 
-import Route from '@/lib/route';
-
-import DownloadIcon from '@/svgs/download.inline.svg';
 import ExternalIcon from '@/svgs/external-sm.inline.svg';
+import DownloadIcon from '@/svgs/download.inline.svg';
+import Route from '@/lib/route';
+import Link from '@/components/shared/link';
 
 const FilterBar = ({
   className,
@@ -31,7 +30,7 @@ const FilterBar = ({
   return (
     <div className={className}>
       <form>
-        <div className="space-y-10 border-l border-gray-90 pb-8 pl-5">
+        <div className="space-y-10 border-l border-gray-90 pl-5 pb-8">
           {templateList.length > 0 && (
             <fieldset>
               <legend className="text-14 font-bold uppercase leading-none tracking-[-0.025em] text-gray-15">
@@ -44,7 +43,7 @@ const FilterBar = ({
                     <li className="flex items-center" key={id}>
                       <label className="group flex items-center">
                         <input
-                          className="relative h-4 w-4 appearance-none rounded-full border border-gray-30 transition-colors duration-100 after:absolute after:left-1/2 after:top-1/2 after:h-1.5 after:w-1.5 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-white checked:border-primary-1 checked:bg-primary-1 hover:after:h-2 hover:after:w-2"
+                          className="relative h-4 w-4 appearance-none rounded-full border border-gray-30 transition-colors duration-100 after:absolute after:top-1/2 after:left-1/2 after:h-1.5 after:w-1.5 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-white checked:border-primary-1 checked:bg-primary-1 hover:after:h-2 hover:after:w-2"
                           type="radio"
                           name={id}
                           id={id}
@@ -101,7 +100,7 @@ const FilterBar = ({
           )}
         </div>
       </form>
-      <div className="-mt-px ml-5 border-t border-gray-90 pt-8">
+      <div className="ml-5 -mt-px border-t border-gray-90 pt-8">
         <a
           href="/download/sql-review.yml"
           download="sql-review.yml"
@@ -119,7 +118,7 @@ const FilterBar = ({
             target="blank"
           >
             SQL Review Github Action
-            <ExternalIcon className="ml-1 mt-0.5" width={14} height={14} />
+            <ExternalIcon className="mt-0.5 ml-1" width={14} height={14} />
           </Link>
         </p>
       </div>

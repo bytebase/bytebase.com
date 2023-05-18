@@ -81,7 +81,7 @@ const MobileSidebar = ({
     <LazyMotion features={domAnimation}>
       <nav className={clsx('mobile-sidebar pt-[75px]', className)} ref={wrapperRef}>
         <button
-          className="flex w-full cursor-pointer appearance-none items-center justify-between text-ellipsis border-b border-t border-gray-94 bg-gray-97 px-11 py-4 leading-none tracking-tight text-gray-15 outline-none transition-colors duration-200 hover:bg-gray-90 active:bg-gray-90 md:px-7 sm:px-4"
+          className="flex w-full cursor-pointer appearance-none items-center justify-between text-ellipsis border-t border-b border-gray-94 bg-gray-97 px-11 py-4 leading-none tracking-tight text-gray-15 outline-none transition-colors duration-200 hover:bg-gray-90 active:bg-gray-90 md:px-7 sm:px-4"
           type="button"
           onClick={toggleMenu}
         >
@@ -89,13 +89,13 @@ const MobileSidebar = ({
           <span className="relative">
             <span
               className={clsx(
-                'absolute -left-3 top-1/2 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
+                'absolute top-1/2 -left-3 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
                 isOpen ? 'rotate-45' : 'rotate-[135deg]',
               )}
             />
             <span
               className={clsx(
-                'absolute -left-[7px] top-1/2 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
+                'absolute top-1/2 -left-[7px] h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
                 isOpen ? '-rotate-45' : '-rotate-[135deg]',
               )}
             />
@@ -104,7 +104,7 @@ const MobileSidebar = ({
 
         <m.ul
           className={clsx(
-            'fixed inset-x-0 bottom-0 top-[125px] z-20 flex flex-col gap-y-6 overflow-y-scroll bg-white px-11 py-6 md:px-7 sm:px-4',
+            'fixed inset-x-0 top-[125px] bottom-0 z-20 flex flex-col gap-y-6 overflow-y-scroll bg-white px-11 py-6 md:px-7 sm:px-4',
           )}
           initial="from"
           animate={controls}
