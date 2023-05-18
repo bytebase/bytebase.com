@@ -33,9 +33,7 @@ const Aside = ({ posts, activeHash }: PostsProps) => {
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      handleScrollToActiveItem(activeHash);
-    }
+    handleScrollToActiveItem(activeHash);
   }, [activeHash]);
 
   return (

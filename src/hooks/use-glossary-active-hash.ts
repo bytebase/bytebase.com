@@ -7,9 +7,7 @@ const useGlossaryActiveHash = (updater: string[]) => {
   const postsRefs = useRef<HTMLElement[]>([]);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      postsRefs.current = Array.from(document.querySelectorAll('.glossary-post'));
-    }
+    postsRefs.current = Array.from(document.querySelectorAll('.glossary-post'));
   }, [updater]);
 
   const handleChangeActiveHash = useCallback(() => {
@@ -31,15 +29,13 @@ const useGlossaryActiveHash = (updater: string[]) => {
   const onScroll = useThrottleCallback(handleChangeActiveHash, 10);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      handleChangeActiveHash();
+    handleChangeActiveHash();
 
-      window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll);
 
-      return () => {
-        window.removeEventListener('scroll', onScroll);
-      };
-    }
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
   }, []);
 
   return [activeHash];
