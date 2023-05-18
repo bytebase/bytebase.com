@@ -25,13 +25,13 @@ const Chevron = ({ isOpen }: { isOpen: boolean }) => (
   <span className="relative">
     <span
       className={clsx(
-        'absolute -left-3 top-1/2 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
+        'absolute top-1/2 -left-3 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
         isOpen ? 'rotate-45' : 'rotate-[135deg]',
       )}
     />
     <span
       className={clsx(
-        'absolute -left-[7px] top-1/2 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
+        'absolute top-1/2 -left-[7px] h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
         isOpen ? '-rotate-45' : '-rotate-[135deg]',
       )}
     />
@@ -165,7 +165,7 @@ const DropdownFilterBar = ({
             </button>
             {activeFilters.categories.length > 0 && (
               <button
-                className="absolute right-12 top-2 flex h-6 w-6 items-center justify-center"
+                className="absolute top-2 right-12 flex h-6 w-6 items-center justify-center"
                 type="button"
                 onClick={() => setActiveFilters({ ...activeFilters, categories: [] })}
               >

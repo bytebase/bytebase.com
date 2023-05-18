@@ -77,7 +77,7 @@ const Content = ({
 
                 return (
                   <li
-                    className="border-t border-gray-90 pb-8 pt-5 last:pb-0 lg:pb-6 md:pb-5 xs:py-4"
+                    className="border-t border-gray-90 pt-5 pb-8 last:pb-0 lg:pb-6 md:pb-5 xs:py-4"
                     key={type}
                   >
                     <div className="flex justify-between">
