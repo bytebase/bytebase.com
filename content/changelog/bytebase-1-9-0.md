@@ -32,7 +32,7 @@ description: "- Support managing with environment and instance via Terraform pro
 
 - [How to Manage Database Access Control](/blog/how-to-manage-database-access-control)
 - [MotherDuck, from SQLite to the Docker for Data](/blog/motherduck-from-sqlite-to-the-docker-for-data)
-- [How to Synchronize Database Schemas](/blog/how-to-synchronize-database-schemas)
+- [How to Synchronize Database Schemas](/docs/tutorials/beginner/how-to-synchronize-database-schemas)
 - [How Schema Sync Works in Bytebase](/blog/how-schema-sync-work)
 
 ## 📕 Installation and Upgrade

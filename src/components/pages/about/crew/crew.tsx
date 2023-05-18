@@ -1,8 +1,6 @@
+'use client';
+
 import Image from 'next/image';
-
-import Link from '@/components/shared/link';
-
-import ROUTE from '@/lib/route';
 
 import { crewList } from './data';
 
@@ -21,7 +19,7 @@ const Crew = () => (
             height={244}
             className="xl:w-full sm:-mt-2.5"
           />
-          <p className="-mt-1 text-24 font-bold leading-none 3xl:mt-0 xl:text-20 md:text-18">
+          <p className="text-24 font-bold leading-none 3xl:mt-0 xl:text-20 md:text-18">
             {member.name}
           </p>
           <p className="mt-1 text-center text-20 leading-snug xl:text-18 xl:leading-tight md:mt-0.5 md:text-16 md:leading-snug sm:mt-0">
@@ -29,14 +27,20 @@ const Crew = () => (
           </p>
         </li>
       ))}
-      <li className="col-span-3 place-self-center sm:col-span-2">
+      <li className="col-span-3 sm:col-span-2 sm:-mt-2.5">
         <a
           className="group flex flex-col items-center"
           href="mailto:hr@bytebase.com?subject=Hi, I am interested in Bytebase position&body=Hello Bytebase,%0D%0A%0D%0A"
           target="_blank"
         >
-          <Image src="/images/page/about/join.webp" alt="" width={244} height={244} />
-          <span className="mt-4.5 rounded-full border-[3px] border-primary-1 px-4.5 py-3.5 font-bold uppercase leading-none text-black transition-colors duration-300 group-hover:border-black">
+          <Image
+            src="/images/page/about/join.webp"
+            alt=""
+            className="-translate-y-1.5 xl:w-full sm:-translate-y-0"
+            width={244}
+            height={244}
+          />
+          <span className="flex h-12 w-[106px] items-center justify-center rounded-full border-[3px] border-primary-1 text-center text-14 font-bold uppercase leading-none tracking-tight text-black transition-colors duration-300 group-hover:border-black">
             Join us
           </span>
         </a>

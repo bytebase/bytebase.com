@@ -72,9 +72,9 @@ const MobileSidebar = ({
   }, [controls, isOpen]);
   return (
     <LazyMotion features={domAnimation}>
-      <nav className={clsx('safe-paddings relative', className)} ref={wrapperRef}>
+      <nav className={clsx('relative', className)} ref={wrapperRef}>
         <button
-          className="relative z-10 flex w-full cursor-pointer appearance-none items-center justify-between text-ellipsis border-t border-b border-gray-94 bg-gray-97 py-4 px-7 leading-none outline-none transition-colors duration-200 hover:bg-gray-90 active:bg-gray-90 sm:px-4"
+          className="relative z-10 flex w-full cursor-pointer appearance-none items-center justify-between text-ellipsis border-b border-t border-gray-94 bg-gray-97 px-7 py-4 leading-none outline-none transition-colors duration-200 hover:bg-gray-90 active:bg-gray-90 sm:px-4"
           type="button"
           onClick={toggleMenu}
         >
@@ -83,13 +83,13 @@ const MobileSidebar = ({
           <span className="relative">
             <span
               className={clsx(
-                'absolute top-1/2 -left-[17px] h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
+                'absolute -left-[17px] top-1/2 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
                 isOpen ? 'rotate-45' : 'rotate-[135deg]',
               )}
             />
             <span
               className={clsx(
-                'absolute top-1/2 -left-3 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
+                'absolute -left-3 top-1/2 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
                 isOpen ? '-rotate-45' : '-rotate-[135deg]',
               )}
             />
@@ -98,7 +98,7 @@ const MobileSidebar = ({
 
         <m.ul
           className={clsx(
-            'fixed inset-x-0 top-[122px] bottom-0 z-20 flex flex-col overflow-y-scroll bg-white px-7 py-4 sm:px-4',
+            'fixed inset-x-0 bottom-0 top-[122px] z-20 flex flex-col overflow-y-scroll bg-white px-7 py-4 sm:px-4',
           )}
           initial="from"
           animate={controls}

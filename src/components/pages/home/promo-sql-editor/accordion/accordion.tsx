@@ -42,7 +42,9 @@ const Accordion = ({
                 loading="lazy"
               />
             )}
-            <b className="font-bold md:font-semibold">{title}</b>
+            <b className={clsx(idx === 0 && '3xs:max-w-[55%]', 'font-bold md:font-semibold')}>
+              {title}
+            </b>
           </p>
           {activeIndex === idx && (
             <p className="pt-2 pl-12 text-16 xl:pt-1 xl:text-14 xl:leading-snug md:pt-1.5 md:pl-10">

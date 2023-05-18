@@ -1,0 +1,179 @@
+# This file is generated on https://www.bytebase.com/sql-review-guide#bb.sql-review.prod
+# You can use it with the SQL Review Action https://github.com/marketplace/actions/sql-review
+template: bb.sql-review.prod
+ruleList:
+  - type: engine.mysql.use-innodb # Doc: https://www.bytebase.com/docs/sql-review/review-rules#engine.mysql.use-innodb
+    level: ERROR
+  - type: table.require-pk # Doc: https://www.bytebase.com/docs/sql-review/review-rules#table.require-pk
+    level: ERROR
+  - type: table.no-foreign-key # Doc: https://www.bytebase.com/docs/sql-review/review-rules#table.no-foreign-key
+    level: ERROR
+  - type: table.drop-naming-convention # Doc: https://www.bytebase.com/docs/sql-review/review-rules#table.drop-naming-convention
+    level: ERROR
+    payload:
+      format: _del$
+  - type: table.disallow-partition # Doc: https://www.bytebase.com/docs/sql-review/review-rules#table.disallow-partition
+    level: ERROR
+  - type: table.comment # Doc: https://www.bytebase.com/docs/sql-review/review-rules#table.comment
+    level: ERROR
+    payload:
+      required: true
+      maxLength: 64
+  - type: statement.select.no-select-all # Doc: https://www.bytebase.com/docs/sql-review/review-rules#statement.select.no-select-all
+    level: ERROR
+  - type: statement.where.require # Doc: https://www.bytebase.com/docs/sql-review/review-rules#statement.where.require
+    level: ERROR
+  - type: statement.where.no-leading-wildcard-like # Doc: https://www.bytebase.com/docs/sql-review/review-rules#statement.where.no-leading-wildcard-like
+    level: ERROR
+  - type: statement.disallow-commit # Doc: https://www.bytebase.com/docs/sql-review/review-rules#statement.disallow-commit
+    level: ERROR
+  - type: statement.disallow-limit # Doc: https://www.bytebase.com/docs/sql-review/review-rules#statement.disallow-limit
+    level: ERROR
+  - type: statement.disallow-order-by # Doc: https://www.bytebase.com/docs/sql-review/review-rules#statement.disallow-order-by
+    level: ERROR
+  - type: statement.merge-alter-table # Doc: https://www.bytebase.com/docs/sql-review/review-rules#statement.merge-alter-table
+    level: ERROR
+  - type: statement.insert.must-specify-column # Doc: https://www.bytebase.com/docs/sql-review/review-rules#statement.insert.must-specify-column
+    level: ERROR
+  - type: statement.insert.disallow-order-by-rand # Doc: https://www.bytebase.com/docs/sql-review/review-rules#statement.insert.disallow-order-by-rand
+    level: ERROR
+  - type: statement.insert.row-limit # Doc: https://www.bytebase.com/docs/sql-review/review-rules#statement.insert.row-limit
+    level: WARNING
+    payload:
+      number: 1000
+  - type: statement.affected-row-limit # Doc: https://www.bytebase.com/docs/sql-review/review-rules#statement.affected-row-limit
+    level: WARNING
+    payload:
+      number: 1000
+  - type: statement.dml-dry-run # Doc: https://www.bytebase.com/docs/sql-review/review-rules#statement.dml-dry-run
+    level: WARNING
+  - type: statement.disallow-add-column-with-default # Doc: https://www.bytebase.com/docs/sql-review/review-rules#statement.disallow-add-column-with-default
+    level: WARNING
+  - type: statement.add-check-not-valid # Doc: https://www.bytebase.com/docs/sql-review/review-rules#statement.add-check-not-valid
+    level: WARNING
+  - type: statement.disallow-add-not-null # Doc: https://www.bytebase.com/docs/sql-review/review-rules#statement.disallow-add-not-null
+    level: WARNING
+  - type: naming.table # Doc: https://www.bytebase.com/docs/sql-review/review-rules#naming.table
+    level: WARNING
+    payload:
+      format: ^[a-z]+(_[a-z]+)*$
+      maxLength: 63
+  - type: naming.column # Doc: https://www.bytebase.com/docs/sql-review/review-rules#naming.column
+    level: WARNING
+    payload:
+      format: ^[a-z]+(_[a-z]+)*$
+      maxLength: 63
+  - type: naming.index.uk # Doc: https://www.bytebase.com/docs/sql-review/review-rules#naming.index.uk
+    level: WARNING
+    payload:
+      format: ^$|^uk_{{table}}_{{column_list}}$
+      maxLength: 63
+  - type: naming.index.pk # Doc: https://www.bytebase.com/docs/sql-review/review-rules#naming.index.pk
+    level: WARNING
+    payload:
+      format: ^$|^pk_{{table}}_{{column_list}}$
+      maxLength: 63
+  - type: naming.index.idx # Doc: https://www.bytebase.com/docs/sql-review/review-rules#naming.index.idx
+    level: WARNING
+    payload:
+      format: ^$|^idx_{{table}}_{{column_list}}$
+      maxLength: 63
+  - type: naming.index.fk # Doc: https://www.bytebase.com/docs/sql-review/review-rules#naming.index.fk
+    level: WARNING
+    payload:
+      format: ^$|^fk_{{referencing_table}}_{{referencing_column}}_{{referenced_table}}_{{referenced_column}}$
+      maxLength: 63
+  - type: naming.column.auto-increment # Doc: https://www.bytebase.com/docs/sql-review/review-rules#naming.column.auto-increment
+    level: WARNING
+    payload:
+      format: ^id$
+      maxLength: 63
+  - type: column.required # Doc: https://www.bytebase.com/docs/sql-review/review-rules#column.required
+    level: WARNING
+    payload:
+      list:
+        - id
+        - created_ts
+        - updated_ts
+        - creator_id
+        - updater_id
+  - type: column.type-disallow-list # Doc: https://www.bytebase.com/docs/sql-review/review-rules#column.type-disallow-list
+    level: ERROR
+    payload:
+      list:
+        - JSON
+  - type: column.no-null # Doc: https://www.bytebase.com/docs/sql-review/review-rules#column.no-null
+    level: WARNING
+  - type: column.disallow-change-type # Doc: https://www.bytebase.com/docs/sql-review/review-rules#column.disallow-change-type
+    level: ERROR
+  - type: column.set-default-for-not-null # Doc: https://www.bytebase.com/docs/sql-review/review-rules#column.set-default-for-not-null
+    level: ERROR
+  - type: column.disallow-change # Doc: https://www.bytebase.com/docs/sql-review/review-rules#column.disallow-change
+    level: ERROR
+  - type: column.disallow-changing-order # Doc: https://www.bytebase.com/docs/sql-review/review-rules#column.disallow-changing-order
+    level: ERROR
+  - type: column.auto-increment-must-integer # Doc: https://www.bytebase.com/docs/sql-review/review-rules#column.auto-increment-must-integer
+    level: ERROR
+  - type: column.disallow-set-charset # Doc: https://www.bytebase.com/docs/sql-review/review-rules#column.disallow-set-charset
+    level: ERROR
+  - type: column.auto-increment-must-unsigned # Doc: https://www.bytebase.com/docs/sql-review/review-rules#column.auto-increment-must-unsigned
+    level: ERROR
+  - type: column.comment # Doc: https://www.bytebase.com/docs/sql-review/review-rules#column.comment
+    level: ERROR
+    payload:
+      required: true
+      maxLength: 64
+  - type: column.maximum-character-length # Doc: https://www.bytebase.com/docs/sql-review/review-rules#column.maximum-character-length
+    level: WARNING
+    payload:
+      number: 20
+  - type: column.auto-increment-initial-value # Doc: https://www.bytebase.com/docs/sql-review/review-rules#column.auto-increment-initial-value
+    level: WARNING
+    payload:
+      number: 1
+  - type: column.current-time-count-limit # Doc: https://www.bytebase.com/docs/sql-review/review-rules#column.current-time-count-limit
+    level: WARNING
+  - type: column.require-default # Doc: https://www.bytebase.com/docs/sql-review/review-rules#column.require-default
+    level: WARNING
+  - type: schema.backward-compatibility # Doc: https://www.bytebase.com/docs/sql-review/review-rules#schema.backward-compatibility
+    level: WARNING
+  - type: database.drop-empty-database # Doc: https://www.bytebase.com/docs/sql-review/review-rules#database.drop-empty-database
+    level: ERROR
+  - type: index.no-duplicate-column # Doc: https://www.bytebase.com/docs/sql-review/review-rules#index.no-duplicate-column
+    level: ERROR
+  - type: index.type-no-blob # Doc: https://www.bytebase.com/docs/sql-review/review-rules#index.type-no-blob
+    level: ERROR
+  - type: index.pk-type-limit # Doc: https://www.bytebase.com/docs/sql-review/review-rules#index.pk-type-limit
+    level: ERROR
+  - type: index.key-number-limit # Doc: https://www.bytebase.com/docs/sql-review/review-rules#index.key-number-limit
+    level: WARNING
+    payload:
+      number: 5
+  - type: index.total-number-limit # Doc: https://www.bytebase.com/docs/sql-review/review-rules#index.total-number-limit
+    level: WARNING
+    payload:
+      number: 5
+  - type: index.primary-key-type-allowlist # Doc: https://www.bytebase.com/docs/sql-review/review-rules#index.primary-key-type-allowlist
+    level: ERROR
+    payload:
+      list:
+        - SERIAL
+        - BIGSERIAL
+        - INT
+        - BIGINT
+  - type: index.create-concurrently # Doc: https://www.bytebase.com/docs/sql-review/review-rules#index.create-concurrently
+    level: WARNING
+  - type: system.charset.allowlist # Doc: https://www.bytebase.com/docs/sql-review/review-rules#system.charset.allowlist
+    level: ERROR
+    payload:
+      list:
+        - utf8mb4
+  - type: system.collation.allowlist # Doc: https://www.bytebase.com/docs/sql-review/review-rules#system.collation.allowlist
+    level: ERROR
+    payload:
+      list:
+        - utf8mb4_0900_ai_ci
+  - type: system.comment.length # Doc: https://www.bytebase.com/docs/sql-review/review-rules#system.comment.length
+    level: WARNING
+    payload:
+      number: 64

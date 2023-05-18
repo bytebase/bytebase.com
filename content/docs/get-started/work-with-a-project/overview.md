@@ -10,4 +10,4 @@ Project is similar to the project concept in other dev tools such as Jira, GitLa
 
 There are two roles at the project level: **Owner** and **Developer**.
 
-To make changes to databases, you have to [create a project](create-a-project) first, and then [run a SQL workflow](run-a-ui-workflow).
+To make changes to databases, you have to [create a project](/docs/get-started/work-with-a-project/create-a-project) first, and then [run a SQL workflow](/docs/get-started/work-with-a-project/run-a-ui-workflow).

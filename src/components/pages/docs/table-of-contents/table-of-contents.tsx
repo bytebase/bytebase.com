@@ -12,6 +12,7 @@ import BackToTopIcon from '@/svgs/back-to-top.inline.svg';
 type TableOfContentsProps = {
   items: TOCProps[];
   hasBackToTop?: boolean;
+  className?: string;
 };
 
 const backToTop = () => {
@@ -40,7 +41,7 @@ const onClick = (evt: React.MouseEvent<HTMLAnchorElement>, id: string) => {
 
 const CURRENT_ANCHOR_GAP_PX = 16;
 
-const TableOfContents = ({ items, hasBackToTop }: TableOfContentsProps) => {
+const TableOfContents = ({ items, hasBackToTop, className }: TableOfContentsProps) => {
   const titles = useRef<HTMLElement[]>([]);
   const [currentAnchor, setCurrentAnchor] = useState<string | null>(null);
 
@@ -74,7 +75,7 @@ const TableOfContents = ({ items, hasBackToTop }: TableOfContentsProps) => {
   }, []);
 
   return (
-    <nav className="table-of-contents lg:hidden">
+    <nav className={clsx(className, 'table-of-contents lg:hidden')}>
       <div className="relative pl-5 before:absolute before:top-0 before:left-px before:h-full before:w-px before:bg-gray-90">
         <h3 className="text-14 font-bold uppercase leading-none tracking-tight">
           Table of contents
