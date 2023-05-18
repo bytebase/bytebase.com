@@ -24,8 +24,8 @@ const Filter = ({ title, className, fieldsList, activeFilters, toggleFilter }: F
   return (
     <form className={className}>
       <div className="sticky top-10 ml-[25px] 2xl:ml-0">
-        <fieldset className="border-l border-gray-90 pl-5">
-          <legend className="text-14 font-bold uppercase leading-none -tracking-tight text-gray-15">
+        <fieldset className="-mt-3 border-l border-gray-90 pl-5">
+          <legend className="pt-3 text-14 font-bold uppercase leading-none -tracking-tight text-gray-15">
             {title}
           </legend>
           <ul className="mt-5 flex flex-col gap-y-4">

@@ -40,7 +40,7 @@ const Aside = ({ posts, activeHash }: PostsProps) => {
     <aside className="glossary-aside col-span-3 lg:hidden">
       <nav
         ref={navigationRef}
-        className="scrollbar-hidden sticky -top-6 flex max-h-[calc(100vh+24px)] flex-col overflow-y-auto pt-16 pb-9"
+        className="scrollbar-hidden sticky -top-3.5 flex max-h-[calc(100vh+14px)] flex-col overflow-y-auto pt-16 pb-9"
       >
         {posts.map(({ letter, list }, index) => {
           return (
