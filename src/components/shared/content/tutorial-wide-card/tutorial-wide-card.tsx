@@ -42,14 +42,14 @@ const TutorialWideCard = ({
 
   return (
     <article className="tutorial-card not-prose my-5 xl:my-4">
-      <Link className="flex flex-col bg-gray-97 py-4 px-5 hover:bg-gray-94 sm:px-4" href={url}>
+      <Link className="flex flex-col bg-gray-97 px-5 py-4 hover:bg-gray-94 sm:px-4" href={url}>
         <h4 className="max-w-xs text-20 font-semibold leading-tight lg:text-18 sm:text-16">
           {title}
         </h4>
         <div className="mt-6 flex justify-between">
           <div className="flex items-center gap-x-4">
             {logos && (
-              <div className="relative flex items-center gap-x-2 after:absolute after:top-2 after:-right-2 after:h-0.5 after:w-0.5 after:rounded-full after:bg-gray-60">
+              <div className="relative flex items-center gap-x-2 after:absolute after:-right-2 after:top-2 after:h-0.5 after:w-0.5 after:rounded-full after:bg-gray-60">
                 {logos.split(',').map((logo) => {
                   const Logo = allLogos[logo];
                   return <Logo className="h-5 w-5" key={logo} />;
@@ -62,7 +62,7 @@ const TutorialWideCard = ({
           </div>
           <span className="inline-flex items-center text-14 leading-none text-gray-40">
             <span>Read more</span>
-            <ExternalIcon className="ml-1 h-[13px] w-[13px]" />
+            <ExternalIcon className="ml-1 h-[13px] w-[13px] text-gray-40" />
           </span>
         </div>
       </Link>

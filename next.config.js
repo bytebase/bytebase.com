@@ -6,7 +6,6 @@ const rewrites = [
   '/demo-confirm',
   '/jobs',
   '/refund',
-  '/sql-review-guide',
   '/techstack',
   '/vcs',
   '/webhook',

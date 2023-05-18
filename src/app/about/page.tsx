@@ -18,7 +18,6 @@ const AboutUsPage = () => {
       <Hero />
       <MeetCrew />
       <Crew />
-      <Backed />
       <Community />
       <SubscriptionForm />
     </>

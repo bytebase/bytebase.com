@@ -23,7 +23,7 @@ const STATES = {
 };
 
 const ErrorMessage = ({ className, message }: { className?: string; message: string }) => (
-  <div className={clsx('absolute top-full left-0 pt-3 transition-opacity duration-150', className)}>
+  <div className={clsx('absolute left-0 top-full pt-3 transition-opacity duration-150', className)}>
     <div className="relative flex rounded-lg border border-secondary-6 bg-[#EFDFDE] px-3.5 py-3 text-14 leading-tight tracking-tight text-secondary-6 shadow-[0px_0px_30px_rgba(0,0,0,0.2)]">
       <img
         className="absolute bottom-[calc(100%-1.5px)] left-5 h-auto w-5"
@@ -34,7 +34,7 @@ const ErrorMessage = ({ className, message }: { className?: string; message: str
         loading="lazy"
       />
       <span className="mr-2 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-secondary-6">
-        <InfoIcon className="inline-block h-auto w-2.5 rotate-180" />
+        <InfoIcon className="inline-block h-auto w-2.5 rotate-180 text-white" />
       </span>
       <span>{message}</span>
     </div>
@@ -103,7 +103,7 @@ const Form = ({ fireInput }: { fireInput?: () => void }) => {
       <div className="relative flex h-16 xl:h-12">
         <input
           className={clsx(
-            'remove-autocomplete-styles flex-grow rounded-l-full py-6 px-7 text-16 leading-none tracking-tight placeholder-gray-40 outline-none transition-colors duration-200 disabled:bg-white xl:py-4 xl:px-5 sm:px-5',
+            'remove-autocomplete-styles flex-grow rounded-l-full px-7 py-6 text-16 leading-none tracking-tight placeholder-gray-40 outline-none transition-colors duration-200 disabled:bg-white xl:px-5 xl:py-4 sm:px-5',
             formState === STATES.ERROR ? 'text-secondary-6' : 'text-gray-15',
           )}
           type="email"
@@ -117,7 +117,7 @@ const Form = ({ fireInput }: { fireInput?: () => void }) => {
         <button
           aria-label="Subscribe"
           className={clsx(
-            'trans flex-shrink-0 rounded-r-full bg-center bg-no-repeat py-6 px-11 text-16 font-bold uppercase leading-none transition-colors duration-200 xl:py-4 md:py-3 md:px-5 sm:px-5 sm:py-3',
+            'trans flex-shrink-0 rounded-r-full bg-center bg-no-repeat px-11 py-6 text-16 font-bold uppercase leading-none transition-colors duration-200 xl:py-4 md:px-5 md:py-3 sm:px-5 sm:py-3',
             formState === STATES.SUCCESS
               ? 'bg-secondary-2 hover:bg-secondary-2'
               : 'bg-black hover:bg-[#17225B]',
