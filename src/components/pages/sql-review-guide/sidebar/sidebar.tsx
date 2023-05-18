@@ -50,7 +50,7 @@ const Sidebar = ({
                   return (
                     <li className="group flex leading-tight" key={type}>
                       <a
-                        className="py-[5px] text-14 leading-tight tracking-tight text-gray-40 group-first:pt-0 group-last:pb-0"
+                        className="py-[5px] text-14 leading-tight tracking-tight text-gray-40 hover:text-primary-1 group-first:pt-0 group-last:pb-0"
                         href={`#${key}`}
                         onClick={onClick}
                       >

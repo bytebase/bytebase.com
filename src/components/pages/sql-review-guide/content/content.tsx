@@ -39,7 +39,7 @@ const EngineList = ({
       })}
     </div>
     <a
-      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-90"
+      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-90 transition-colors duration-200 hover:bg-gray-94"
       href={`/docs/sql-review/review-rules#${type}`}
       target="_blank"
       rel="noreferrer"

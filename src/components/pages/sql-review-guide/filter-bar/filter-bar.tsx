@@ -104,7 +104,7 @@ const FilterBar = ({
         <a
           href="/download/sql-review.yml"
           download="sql-review.yml"
-          className="inline-flex items-center gap-2 font-medium text-gray-30"
+          className="inline-flex items-center gap-2 font-medium text-gray-30 hover:text-gray-60"
         >
           <DownloadIcon width={18} height={18} />
           Download as YAML
@@ -114,7 +114,7 @@ const FilterBar = ({
           <br />
           <Link
             href={Route.SQL_GITHUB_APP}
-            className="inline-flex items-center underline"
+            className="inline-flex items-center underline hover:text-gray-60"
             target="blank"
           >
             SQL Review Github Action
