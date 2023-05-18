@@ -12,7 +12,7 @@ const Promo = () => {
       </h2>
       <p className="mt-5 text-18 xl:mt-4 xl:text-16 xl:leading-snug md:mt-4">
         Bytebase is an{' '}
-        <Link href={Route.GITHUB} className="font-semibold text-primary-1">
+        <Link href={Route.GITHUB} className="font-semibold text-primary-1 hover:text-primary-2">
           open source
         </Link>
         , web-based database schema change and version control tool for teams. It offers a web-based

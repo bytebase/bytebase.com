@@ -10,7 +10,7 @@ const WordArticle = ({ post: { name, reference, description } }: { post: Glossar
   return (
     <article className="col-span-6 col-start-4 border-b border-gray-90 pt-[136px] pb-14 2xl:pt-32 xl:col-span-8 xl:col-start-3 xl:pt-[120px] xl:pb-12 md:col-span-full md:pt-24 md:pb-10 sm:pb-9">
       <nav className="flex gap-x-[11px] font-medium">
-        <Link className="text-gray-30" href={Route.DATABASE_GLOSSARY}>
+        <Link className="text-gray-30 hover:text-gray-50" href={Route.DATABASE_GLOSSARY}>
           Database glossary
         </Link>
         <span>/</span>
@@ -22,7 +22,7 @@ const WordArticle = ({ post: { name, reference, description } }: { post: Glossar
       <p className="mt-4 text-18 lg:mt-3 md:mt-2 md:text-16 md:leading-snug">{description}</p>
       {reference && (
         <a
-          className="mt-11 flex items-center gap-x-2 text-18 font-medium leading-none lg:mt-10 md:mt-9 sm:mt-8 sm:text-16"
+          className="mt-11 flex items-center gap-x-2 text-18 font-medium leading-none transition-colors duration-200 hover:text-gray-40 lg:mt-10 md:mt-9 sm:mt-8 sm:text-16"
           href={reference}
           target="_blank"
         >
