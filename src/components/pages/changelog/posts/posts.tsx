@@ -1,31 +1,32 @@
-import clsx from 'clsx';
 import format from 'date-fns/format';
 
 import Content from '@/components/shared/content';
+import Pagination from '@/components/shared/pagination';
 
 import { ChangelogPost } from '@/types/changelog-post';
+import Route from '@/lib/route';
+import Link from '@/components/shared/link';
+import clsx from 'clsx';
 
 type PostsProps = {
   posts: ChangelogPost[];
+  page: number;
+  pageCount: number;
 };
 
-const Posts = ({ posts }: PostsProps) => {
+const Posts = ({ posts, page, pageCount }: PostsProps) => {
+  if (!posts) return null;
+
   return (
-    <section className="posts mt-1 md:mt-0 sm:mt-2">
+    <section className="posts mt-[60px] lg:mt-[52px] md:mt-10 sm:mt-8">
       <div className="container">
-        <ul className="relative flex flex-col gap-y-6 before:absolute before:left-0 before:top-14 before:h-[calc(100%-56px)] before:w-px before:bg-gray-90 lg:before:top-12 lg:before:h-[calc(100%-48px)] md:before:top-10 md:before:h-[calc(100%-40px)] sm:before:hidden">
-          {posts.map(({ slug, title, author, published_at, timeToRead, content }) => {
+        <ul className="relative flex flex-col gap-y-11 border-l border-gray-90 lg:gap-y-10 md:gap-y-9 sm:gap-y-14 sm:border-none">
+          {posts.map(({ slug, title, author, published_at, timeToRead, content }, index) => {
             const date = new Date(published_at);
             const formattedDate = format(date, 'MMM dd, yyyy');
             return (
               <li key={slug}>
-                <article
-                  id={slug}
-                  className={clsx(
-                    'gap-x-grid grid auto-rows-min grid-cols-12',
-                    'pt-14 lg:pt-12 md:pt-10 sm:pt-6',
-                  )}
-                >
+                <article className="gap-x-grid grid auto-rows-min grid-cols-12">
                   <header
                     className="sticky top-[60px] col-span-3 flex h-min flex-col gap-y-2.5 pl-5 before:absolute  before:top-0 before:left-0 before:h-full
                       before:w-0.5 before:-translate-x-1/2 before:rounded-full before:bg-primary-1 lg:top-[52px] md:top-10 md:gap-y-2 md:pl-4 sm:relative sm:top-auto sm:col-span-full sm:pl-0 sm:before:hidden"
@@ -45,23 +46,29 @@ const Posts = ({ posts }: PostsProps) => {
                       <span>{timeToRead}</span>
                     </div>
                   </header>
-                  <div className="col-span-6 -mt-1 lg:col-span-9 md:mt-0 sm:col-span-full sm:mt-4">
-                    <h1 className="group relative text-44 font-bold leading-extra-tight lg:text-36 md:text-30">
-                      <a
-                        href={`#${slug}`}
-                        className="absolute -left-2 top-3 -translate-x-full text-24 opacity-0 transition-opacity duration-200 group-hover:opacity-100 lg:top-2.5 lg:text-20 md:top-2 md:text-16 sm:-left-0.5"
+                  <div
+                    className={clsx(
+                      index !== 0 &&
+                        'border-t border-gray-90 pt-11 lg:pt-10 md:pt-9 sm:border-none sm:pt-0',
+                      'col-span-6 -mt-1 lg:col-span-9 md:mt-0 sm:col-span-full sm:mt-4',
+                    )}
+                  >
+                    <h2>
+                      <Link
+                        href={`${Route.CHANGELOG}/${slug}`}
+                        className="text-36 font-bold leading-extra-tight hover:text-primary-1 hover:underline hover:underline-offset-[7px] lg:text-30 md:text-24 sm:text-20"
                       >
-                        #
-                      </a>
-                      {title}
-                    </h1>
-                    <Content content={content} className="mt-11 lg:mt-10 md:mt-9 sm:mt-8" />
+                        {title}
+                      </Link>
+                    </h2>
+                    <Content content={content} className="mt-9 lg:mt-10 md:mt-9 sm:mt-8" />
                   </div>
                 </article>
               </li>
             );
           })}
         </ul>
+        <Pagination currentPageIndex={+page} pageCount={pageCount} path={Route.CHANGELOG} />
       </div>
     </section>
   );
