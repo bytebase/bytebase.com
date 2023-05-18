@@ -10,7 +10,6 @@ const rewrites = [
   '/vcs',
   '/webhook',
   '/database-feature',
-  '/database-glossary',
   '/database',
   '/integration',
   '/usecase',
