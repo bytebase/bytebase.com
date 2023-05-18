@@ -113,7 +113,7 @@ const DropdownFilterBar = ({
                   <div className="flex flex-col">
                     <div className="flex items-center">
                       <input
-                        className="relative h-4 w-4 shrink-0 appearance-none rounded-full border border-gray-30 transition-colors duration-100 after:absolute after:top-1/2 after:left-1/2 after:h-1.5 after:w-1.5 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-white checked:border-primary-1 checked:bg-primary-1"
+                        className="relative h-4 w-4 shrink-0 appearance-none rounded-full border border-gray-30 transition-colors duration-100 after:absolute after:left-1/2 after:top-1/2 after:h-1.5 after:w-1.5 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-white checked:border-primary-1 checked:bg-primary-1"
                         type="radio"
                         name="template"
                         id={id}
