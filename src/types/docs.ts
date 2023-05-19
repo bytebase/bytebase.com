@@ -11,11 +11,6 @@ type PreviousAndNextLinks = {
   nextLink: SidebarItem | undefined;
 };
 
-type Breadcrumb = {
-  title: string | null;
-  url: string | null;
-};
-
 type PostData = {
   slug: string;
   title: string;
@@ -30,4 +25,4 @@ type TableOfContents = {
   level: number;
 };
 
-export type { SidebarItem, PreviousAndNextLinks, Breadcrumb, PostData, TableOfContents };
+export type { SidebarItem, PreviousAndNextLinks, PostData, TableOfContents };
