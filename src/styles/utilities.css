@@ -13,6 +13,11 @@
     transition: background-color 5000s;
   }
 
+  /* this fixes the fixed width video embeds in docs */
+  iframe {
+    @apply max-w-full;
+  }
+
   .with-medium-text {
     b {
       @apply font-medium text-gray-15;
