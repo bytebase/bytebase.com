@@ -84,6 +84,8 @@ module.exports = {
         'purple-light': '#F0F2FF',
         'purple-medium': '#E0E7FF',
         'purple-dark': '#ACB2D2',
+        'deep-purple-light': '#E6EAFF',
+        'deep-purple-dark': '#DBE1FF',
         'blue-light': '#F0FAFE',
         'blue-dark': '#9CBAC9',
         'deep-blue-dark': '#176782',
