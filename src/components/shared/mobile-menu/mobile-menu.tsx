@@ -106,18 +106,18 @@ const MobileMenu = () => {
       <Burger className="hidden md:block" isToggled={isOpen} onClick={toggleMenu} />
       <LazyMotion features={domAnimation}>
         <m.nav
-          className="safe-paddings absolute inset-x-0 bottom-0 top-[72px] z-40 hidden bg-black bg-opacity-80"
+          className="safe-paddings absolute inset-x-0 bottom-0 top-0 z-40 hidden bg-black bg-opacity-80"
           initial="from"
           animate={controls}
           variants={menuVariants}
           ref={navRef}
-          style={{
-            height: `calc(100vh - ${navOffset}px)`,
-          }}
           onClick={toggleMenu}
         >
           <div
-            className="ml-auto flex h-full w-1/2 flex-col justify-between bg-white px-7 pb-8 pt-3 md:px-5 sm:w-full sm:px-4 xs:pb-5"
+            className="ml-auto flex h-full w-1/2 flex-col justify-between bg-white px-7 pb-8 pt-[84px] md:px-5 sm:w-full sm:px-4 xs:pb-5"
+            style={{
+              height: `calc(100vh - ${navOffset}px)`,
+            }}
             onClick={(evt) => evt.stopPropagation()}
           >
             <ul className="flex flex-col items-stretch divide-y divide-gray-90 overflow-y-auto">
