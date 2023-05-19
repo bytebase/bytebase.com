@@ -1,5 +1,6 @@
 import Script from 'next/script';
 
+import Banner from '@/components/shared/banner';
 import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
 
@@ -33,9 +34,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/wedzquzc';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();`,
           }}
         />
-        <Header />
-        <main className="relative z-20 shrink-0 grow basis-auto">{children}</main>
-        <Footer />
+        <Banner
+          bannerText="Announcing Bytebase 2.0 - the GitLab for Database DevOps."
+          bannerUrl="/blog/bytebase-2-0/"
+        />
+        <div className="relative flex min-h-screen flex-col">
+          <Header />
+          <main className="relative z-20 shrink-0 grow basis-auto">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
