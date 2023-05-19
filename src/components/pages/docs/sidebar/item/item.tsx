@@ -54,7 +54,7 @@ const Item = ({
     >
       <Tag
         className={clsx(
-          'relative flex w-full items-center py-2 text-15 text-gray-30 transition-colors duration-200 before:absolute before:top-1/2 before:-left-[14.5px] before:h-4/5 before:w-0.5 before:-translate-y-1/2 before:rounded-sm before:transition-colors before:duration-200 hover:text-gray-60',
+          'relative flex w-full items-center py-2 text-15 text-gray-30 transition-colors duration-200 before:absolute before:-left-[14.5px] before:top-1/2 before:h-4/5 before:w-0.5 before:-translate-y-1/2 before:rounded-sm before:transition-colors before:duration-200 hover:text-gray-60',
           depth === 1 ? 'font-semibold' : 'font-medium',
           url === currentUrl && 'text-primary-1',
           depth === 1 && hasActiveChild && 'text-black',
@@ -66,7 +66,7 @@ const Item = ({
         {children && (
           <ChevronIcon
             className={clsx(
-              'mr-2 h-1.5 w-[5px] shrink-0 transition-transform duration-200',
+              'mr-2 h-2 w-2 shrink-0 transition-transform duration-200',
               depth === 1 && hasActiveChild && 'text-primary-1',
               {
                 'rotate-90': isOpen,
