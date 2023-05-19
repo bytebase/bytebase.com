@@ -2,11 +2,10 @@ import { notFound } from 'next/navigation';
 
 import getMetadata from '@/utils/get-metadata';
 
-import Posts from '@/components/pages/changelog/posts';
-
 import { getChangelogPostsPerPage } from '@/lib/api-changelog';
 import SEO_DATA from '@/lib/seo-data';
 import Hero from '@/components/pages/changelog/hero';
+import PostsList from '@/components/pages/changelog/posts-list';
 
 export const metadata = getMetadata(SEO_DATA.CHANGELOG);
 
@@ -18,7 +17,7 @@ export default function ChangelogPage() {
   return (
     <>
       <Hero />
-      <Posts page={1} {...data} />
+      <PostsList page={1} {...data} />
     </>
   );
 }

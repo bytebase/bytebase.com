@@ -5,15 +5,21 @@ import { useRouter } from 'next/navigation';
 import ReactPaginate from 'react-paginate';
 
 import Arrow from '@/svgs/arrow.inline.svg';
+import clsx from 'clsx';
 
 type PaginationProps = {
   currentPageIndex: number;
   pageCount: number;
   path: string;
+  marginClassName?: string;
 };
 
-// TODO: design disable state for prev/next links
-const Pagination = ({ currentPageIndex, pageCount, path = '' }: PaginationProps) => {
+const Pagination = ({
+  currentPageIndex,
+  pageCount,
+  marginClassName,
+  path = '',
+}: PaginationProps) => {
   const router = useRouter();
 
   const handlePageClick = ({ selected }: { selected: number }) => {
@@ -22,7 +28,7 @@ const Pagination = ({ currentPageIndex, pageCount, path = '' }: PaginationProps)
   };
 
   return (
-    <div className="mt-16 border-t border-gray-90 pt-8 xl:mt-14 md:mt-12 sm:mt-8">
+    <div className={clsx(marginClassName, 'border-t border-gray-90 pt-8')}>
       <ReactPaginate
         breakLabel="..."
         pageRangeDisplayed={1}
