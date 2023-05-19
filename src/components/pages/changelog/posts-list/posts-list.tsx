@@ -64,7 +64,7 @@ const PostsList = ({ posts, page, pageCount }: PostsListProps) => {
                     <h2>
                       <Link
                         href={`${Route.CHANGELOG}/${slug}`}
-                        className="text-36 font-bold leading-extra-tight hover:text-primary-1 hover:underline hover:underline-offset-[7px] lg:text-30 lg:leading-tight md:text-24"
+                        className="text-36 font-bold leading-extra-tight underline-offset-8 hover:text-primary-1 hover:underline lg:text-30 lg:leading-tight lg:underline-offset-4 md:text-24"
                       >
                         {title}
                       </Link>
