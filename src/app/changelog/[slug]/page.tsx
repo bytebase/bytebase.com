@@ -5,11 +5,13 @@ import getMetadata from '@/utils/get-metadata';
 import {
   POSTS_PER_PAGE,
   getAllChangelogPosts,
+  getChangelogPostBySlug,
   getChangelogPostsPerPage,
 } from '@/lib/api-changelog';
 import SEO_DATA from '@/lib/seo-data';
 import Hero from '@/components/pages/changelog/hero';
 import PostsList from '@/components/pages/changelog/posts-list';
+import Post from '@/components/pages/changelog/post/post';
 
 export const metadata = getMetadata(SEO_DATA.CHANGELOG);
 
@@ -27,7 +29,11 @@ export default function ChangelogPage({ params: { slug } }: { params: { slug: st
     );
   }
 
-  return null;
+  const post = getChangelogPostBySlug(slug);
+
+  if (!post) return notFound();
+
+  return <Post post={post} />;
 }
 
 export async function generateStaticParams() {
