@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         <Banner
-          bannerText="Announcing Bytebase 2.0 - the GitLab for Database DevOps."
+          bannerText="Announcing Bytebase 2.0 - the GitLab for Database DevOps!"
           bannerUrl="/blog/bytebase-2-0/"
         />
         <div className="relative flex min-h-screen flex-col">

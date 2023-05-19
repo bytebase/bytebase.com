@@ -25,13 +25,13 @@ const Chevron = ({ isOpen }: { isOpen: boolean }) => (
   <span className="relative">
     <span
       className={clsx(
-        'absolute top-1/2 -left-3 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
+        'absolute -left-3 top-1/2 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
         isOpen ? 'rotate-45' : 'rotate-[135deg]',
       )}
     />
     <span
       className={clsx(
-        'absolute top-1/2 -left-[7px] h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
+        'absolute -left-[7px] top-1/2 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
         isOpen ? '-rotate-45' : '-rotate-[135deg]',
       )}
     />
@@ -113,7 +113,7 @@ const DropdownFilterBar = ({
                   <div className="flex flex-col">
                     <div className="flex items-center">
                       <input
-                        className="relative h-4 w-4 shrink-0 appearance-none rounded-full border border-gray-30 transition-colors duration-100 after:absolute after:top-1/2 after:left-1/2 after:h-1.5 after:w-1.5 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-white checked:border-primary-1 checked:bg-primary-1"
+                        className="relative h-4 w-4 shrink-0 appearance-none rounded-full border border-gray-30 transition-colors duration-100 after:absolute after:left-1/2 after:top-1/2 after:h-1.5 after:w-1.5 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-white checked:border-primary-1 checked:bg-primary-1"
                         type="radio"
                         name="template"
                         id={id}
@@ -165,11 +165,11 @@ const DropdownFilterBar = ({
             </button>
             {activeFilters.categories.length > 0 && (
               <button
-                className="absolute top-2 right-12 flex h-6 w-6 items-center justify-center"
+                className="absolute right-12 top-2 flex h-6 w-6 items-center justify-center"
                 type="button"
                 onClick={() => setActiveFilters({ ...activeFilters, categories: [] })}
               >
-                <CloseIcon className="h-3.5 w-3.5" />
+                <CloseIcon className="h-3.5 w-3.5 text-gray-15" />
               </button>
             )}
           </div>
