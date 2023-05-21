@@ -34,7 +34,7 @@ description: "- Support syncing schema for MySQL. - Support approving issues via
 
 ## 🎠 Community
 
-- Thanks to @[Zheaoli](https://github.com/Zheaoli) chore: fix dataDir format error when the `--data` arguments is `/` [#3176](https://github.com/bytebase/bytebase/pull/3176)
+- Thanks to [@Zheaoli](https://github.com/Zheaoli) chore: fix dataDir format error when the `--data` arguments is `/` [#3176](https://github.com/bytebase/bytebase/pull/3176)
 
 ## 📰 Fresh Off the Press
 

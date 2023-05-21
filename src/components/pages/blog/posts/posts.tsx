@@ -1,5 +1,3 @@
-import slugifyText from '@/utils/slugify-text';
-
 import Pagination from '@/components/shared/pagination/pagination';
 
 import { BlogPost } from '@/types/blog-post';
@@ -29,6 +27,7 @@ const Posts = ({ posts, title, page = 1, category = '', pageCount }: PostsProps)
         <PostsGrid posts={posts} />
         {pageCount > 1 && (
           <Pagination
+            marginClassName="mt-16 xl:mt-14 md:mt-12 sm:mt-8"
             currentPageIndex={page}
             path={category ? `${Route.BLOG_CATEGORY}/${category}` : Route.BLOG}
             pageCount={pageCount}
