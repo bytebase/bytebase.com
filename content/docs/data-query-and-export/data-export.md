@@ -42,7 +42,7 @@ In Enterprise plan, users need to apply for data exporter role before exporting 
    - **Export format**: The format of the exported file. The default is CSV.
    - **Reason**: The reason for applying for the exporter permission.
 
-3. Click the `Create` button to submit the request.
+3. Click **Create** to submit the request.
 
 4. After the request is approved, click the `Export` button to export the data.
 
