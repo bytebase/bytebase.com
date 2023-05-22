@@ -37,6 +37,6 @@ In Enterprise plan, user can apply for data querier role by submitting a request
    - **Expire days**: The number of days the query permission is valid. The default is 7 days.
    - **Reason**: The reason for applying for the query permission.
 
-3. Click the `Create` button to submit the request.
+3. Click **Create** to submit the request.
 
 After the request is approved, you can query the data in the specified database within the specified time.
