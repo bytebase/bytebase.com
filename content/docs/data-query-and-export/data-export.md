@@ -24,7 +24,7 @@ This feature is only available in the Enterprise Plan.
 
 </HintBlock>
 
-In Enterprise plan, users need to apply for data exporter role before exporting data for data security governance.
+In Enterprise plan, users need to apply for **Project Exporter** role before exporting data for data security governance.
 
 1. Go to the home page or project list page, and click **Export data**.
 
