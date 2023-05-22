@@ -2,7 +2,7 @@
 title: Bytebase 2.0 - the GitLab for Database DevOps
 author: Tianzhou
 published_at: 2023/05/11 11:00:00
-feature_image: /blog/bytebase-2-0/banner.jpeg
+feature_image: /blog/bytebase-2-0/banner.jpg
 tags: Announcement
 featured: true
 description: Pioneering Database Change Management and bring the GitLab/GitHub experience to database development
