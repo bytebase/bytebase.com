@@ -43,9 +43,13 @@ export default function getMetadata({
       title,
       description,
       url: canonicalUrl,
+      siteName,
       images: [
         {
           url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: siteName,
         },
       ],
     },
