@@ -5,7 +5,7 @@ published_at: 2023/05/19 18:21:21
 feature_image: /blog/how-to-handle-database-migration/banner.webp
 tags: Industry
 featured: true
-description: We can't avoid database schema changes, but we can make them less painful: Bytebase is a database change tool that incorporates the best practices of treating database changes like code changes and separating code changes from database changes.
+description: We can't avoid database schema changes, but we can make them less painful. Meeting Bytebase, a database change tool that incorporates the best practices of treating database changes like code changes and separating code changes from database changes.
 ---
 
 I recently noticed this post in Reddit's r/golang entitled "[How do you handle migrations ?](https://www.reddit.com/r/golang/comments/12mypec/how_do_you_handle_migrations/)" It got 40+ replies in less than a day.
