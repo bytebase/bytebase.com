@@ -10,7 +10,7 @@ In Free and Pro plan, user can add data exporter role manually.
 
 As a **Project Owner**, you can go to the project, click **Settings**, find the **Management members** section, and manually add the role of **Project Exporter**.
 
-Before adding the data exporter role, you need to add the data querier role first to ensure that the user has the permission to query the data.
+Before adding the **Project Exporter** role, you need to add the **Project Querier** role first to ensure that the user has permission to query the data.
 
 Once the data exporter role is added, the user can export the query result of the specified database in SQL Editor.
 
