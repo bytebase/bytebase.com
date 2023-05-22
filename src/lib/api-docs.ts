@@ -4,13 +4,10 @@ import fs from 'fs';
 import * as glob from 'glob';
 import matter from 'gray-matter';
 
-import {
-  Breadcrumb,
-  PostData,
-  PreviousAndNextLinks,
-  SidebarItem,
-  TableOfContents,
-} from '@/types/docs';
+import { Breadcrumb } from '@/types/breadcrumb';
+
+import { PostData, PreviousAndNextLinks, SidebarItem, TableOfContents } from '@/types/docs';
+import Route from './route';
 
 const DOCS_DIR_PATH = `${process.cwd()}/content/docs`;
 
@@ -136,7 +133,10 @@ const getBreadcrumbs = (slug: string, flatSidebar: SidebarItem[]): Breadcrumb[] 
       // @ts-ignore
       const current = prev?.[cur] || prev?.children?.[cur];
 
-      arr.push({ title: current.title, url: current.url });
+      arr.push({
+        title: current.title,
+        url: current.url ? `${Route.DOCS}${current.url}` : undefined,
+      });
       return current;
     }, sidebar as SidebarItem[] | SidebarItem);
 
@@ -156,7 +156,7 @@ const getTableOfContents = (content: string): TableOfContents[] => {
     const [depth, title] = parseLine(item);
     if (title && depth && depth <= 2) {
       toc.push({
-        title: title.replace(/[^a-zA-Z\s]/g, ''),
+        title: title.replace(/[^a-zA-Z0-9-\s]/g, ''),
         id: slugifyText(title),
         level: depth + 1,
       });

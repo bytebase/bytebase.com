@@ -5,7 +5,7 @@ import Pill from '@/components/shared/pill';
 import Founder from './founder';
 
 const MeetCrew = () => (
-  <section className="container pt-56 pb-20 3xl:pt-52 3xl:pb-16 xl:pt-[158px] xl:pb-14 md:pt-[106px] md:pb-12 sm:pt-[83px] sm:pb-10">
+  <section className="container overflow-x-hidden pt-56 pb-20 3xl:pt-52 3xl:pb-16 xl:pt-[158px] xl:pb-14 md:pt-[106px] md:pb-12 sm:pt-[83px] sm:pb-10">
     <div className="gap-x-grid grid grid-cols-12 items-start sm:grid-cols-4">
       <div className="relative col-span-full mb-[225px] grid xl:mb-[164px] md:mb-[134px] sm:mb-0 sm:flex sm:flex-col sm:pb-[279px] sm:text-center">
         <Pill theme="secondary-1" className="sm:mx-auto">

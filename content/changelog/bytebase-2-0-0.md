@@ -26,7 +26,7 @@ description: "Support AI-based index optimization advisor for slow query"
 
 - We are proud to unveil our [new official website](/).
 - Bytebase 2.0 is now [live on Product Hunt](https://www.producthunt.com/posts/bytebase-2-0)! Help us spread the word by sharing, upvoting, and commenting. Thanks!
-- Thanks to @[bun4uk](https://github.com/bun4uk) for chore: update role.go [\#5888](https://github.com/bytebase/bytebase/pull/5888)
+- Thanks to [@bun4uk](https://github.com/bun4uk) for chore: update role.go [\#5888](https://github.com/bytebase/bytebase/pull/5888)
 
 
 ## 📰 Fresh off the press

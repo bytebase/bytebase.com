@@ -66,8 +66,8 @@ Thus, we decide to retire this feature. Meanwhile we already have ideas for a mu
 
 ## 🎠 Community
 
-- Thanks to @[Innei](https://github.com/Innei) for PR [fix(bbmodal): subtitle bg keep out modal container content & add max-height padding](https://github.com/bytebase/bytebase/pull/679).
-- Thanks to @[tisonkun](https://github.com/tisonkun) for PR [refactor: update tidb dependency and remove workaround replacement](https://github.com/bytebase/bytebase/pull/611)
+- Thanks to [@Innei](https://github.com/Innei) for PR [fix(bbmodal): subtitle bg keep out modal container content & add max-height padding](https://github.com/bytebase/bytebase/pull/679).
+- Thanks to [@tisonkun](https://github.com/tisonkun) for PR [refactor: update tidb dependency and remove workaround replacement](https://github.com/bytebase/bytebase/pull/611)
 
 ## 📕 Upgrade instruction
 

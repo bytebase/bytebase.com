@@ -51,10 +51,22 @@ const getChangelogPostsPerPage = (
   };
 };
 
+const getChangelogPostBySlug = (slug: string): ChangelogPost | null => {
+  const posts = getAllChangelogPosts();
+
+  return posts.find((post) => post.slug === slug) || null;
+};
+
 const getLatestChangelogPost = (): ChangelogPost | null => {
   const posts = getAllChangelogPosts();
 
   return posts[0] || null;
 };
 
-export { getAllChangelogPosts, getChangelogPostsPerPage, getLatestChangelogPost, POSTS_PER_PAGE };
+export {
+  getAllChangelogPosts,
+  getChangelogPostsPerPage,
+  getLatestChangelogPost,
+  getChangelogPostBySlug,
+  POSTS_PER_PAGE,
+};

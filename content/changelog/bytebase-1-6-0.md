@@ -22,11 +22,11 @@ description: "- Support read-only data source for read-replica instance. - SQL E
 
 ## 🎠 Community
 
-- Thanks to @[fatelei](https://github.com/fatelei) for [#2965 feat(sql-review): implement postgresql check the number of index columns](https://github.com/bytebase/bytebase/pull/2965)
-- Thanks to @[zeroslope](https://github.com/zeroslope) for [#2929 feat(advisor): limit value list len in PostgreSQL INSERT statement](https://github.com/bytebase/bytebase/pull/2929)
-- Thanks to @[praneetloke](https://github.com/praneetloke) for [#2898 chore: improve error message when DB connection fails](https://github.com/bytebase/bytebase/pull/2898)
-- Thanks to @[Kikkon](https://github.com/Kikkon) for [#2874 feat(sql-review): limit PostgreSQL comment length](https://github.com/bytebase/bytebase/pull/2874)
-- Thanks to @[hamidzr](https://github.com/hamidzr) for [#2857 docs: fix minor typos](https://github.com/bytebase/bytebase/pull/2857)
+- Thanks to [@fatelei](https://github.com/fatelei) for [#2965 feat(sql-review): implement postgresql check the number of index columns](https://github.com/bytebase/bytebase/pull/2965)
+- Thanks to [@zeroslope](https://github.com/zeroslope) for [#2929 feat(advisor): limit value list len in PostgreSQL INSERT statement](https://github.com/bytebase/bytebase/pull/2929)
+- Thanks to [@praneetloke](https://github.com/praneetloke) for [#2898 chore: improve error message when DB connection fails](https://github.com/bytebase/bytebase/pull/2898)
+- Thanks to [@Kikkon](https://github.com/Kikkon) for [#2874 feat(sql-review): limit PostgreSQL comment length](https://github.com/bytebase/bytebase/pull/2874)
+- Thanks to [@hamidzr](https://github.com/hamidzr) for [#2857 docs: fix minor typos](https://github.com/bytebase/bytebase/pull/2857)
 
 ## 📕 Installation and Upgrade
 

@@ -17,8 +17,8 @@ description: "OB support"
 
 ## 🎠 Community
 
-- Thanks to @[Akrista](https://github.com/Akrista) for feat: 🇪🇸 Spanish Translation [\#5712](https://github.com/bytebase/bytebase/pull/5712)
-- Thanks to @[whhe](https://github.com/whhe) for feat: ssl support for OceanBase [\#5741](https://github.com/bytebase/bytebase/pull/5741)
+- Thanks to [@Akrista](https://github.com/Akrista) for feat: 🇪🇸 Spanish Translation [\#5712](https://github.com/bytebase/bytebase/pull/5712)
+- Thanks to [@whhe](https://github.com/whhe) for feat: ssl support for OceanBase [\#5741](https://github.com/bytebase/bytebase/pull/5741)
 - SQL Chat, crafted by Bytebase, is now [on Product Hunt](https://www.producthunt.com/products/sql-chat) 🐱
 
 ## 📰 Fresh off the press

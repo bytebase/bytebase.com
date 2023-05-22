@@ -140,6 +140,24 @@
     }
   }
 
+  .content-sm {
+    @apply text-16 md:leading-normal;
+
+    & h2,
+    & h3 {
+      @apply mt-9 mb-4 text-24 leading-tight lg:mt-6 lg:mb-3 lg:text-20 md:mt-5 md:mb-2 md:text-18;
+    }
+
+    & ul,
+    & ol {
+      @apply my-4 flex flex-col gap-y-3 pl-4 xl:my-3 lg:gap-y-2 md:my-2 sm:pl-3;
+    }
+
+    & li {
+      @apply my-0 xl:my-0;
+    }
+  }
+
   .content-legal {
     @apply text-18 leading-normal lg:text-16 lg:leading-snug sm:text-14;
     @apply prose-headings:mt-16 prose-headings:leading-tight lg:prose-headings:mt-14 md:prose-headings:mt-12 sm:prose-headings:mt-10;

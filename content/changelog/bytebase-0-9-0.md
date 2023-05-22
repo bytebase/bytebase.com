@@ -16,7 +16,7 @@ User can now use cmd+k to invoke the command bar to quickly navigate among diffe
 User can set up a webhook endpoint for the database and after a successful backup, Bytebase will send a POST request to the configured webhook endpoint.
 
 As an example, user can use this feature to integrate with Better Uptime's [Heartbeats](https://docs.betteruptime.com/features/heartbeats) feature to monitor the status of database backups. In case Bytebase does not regularly send requests to Heartbeat endpoint configured on Better Uptime, Better Uptime will trigger the corresponding alert rule.
-![_](//changelog/0.9.0/backup-webhook.webp)![_](/changelog/0.9.0/backup-webhook-better-uptime.webp)
+![_](/changelog/0.9.0/backup-webhook.webp)![_](/changelog/0.9.0/backup-webhook-better-uptime.webp)
 
 ### Gitpod Code Preview
 

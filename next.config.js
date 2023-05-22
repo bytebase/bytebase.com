@@ -10,7 +10,6 @@ const rewrites = [
   '/vcs',
   '/webhook',
   '/database-feature',
-  '/database-glossary',
   '/database',
   '/integration',
   '/usecase',
@@ -62,7 +61,7 @@ module.exports = {
         permanent: true,
       },
       {
-        source: `/changelog/:slug(^bytebase-.*)`,
+        source: `/changelog/(^bytebase-.*)`,
         destination: '/changelog',
         permanent: true,
       },
