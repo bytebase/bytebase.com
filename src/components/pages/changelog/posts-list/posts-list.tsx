@@ -24,14 +24,14 @@ const PostsList = ({ posts, page, pageCount }: PostsListProps) => {
   return (
     <section className="posts mt-[60px] lg:mt-12 md:mt-10 sm:mt-8">
       <div className="container">
-        <ul className="relative flex flex-col gap-y-11 border-l border-gray-90 lg:gap-y-9 md:gap-y-7 sm:mt-8 sm:gap-y-7 sm:border-none">
+        <ul className="relative flex flex-col gap-y-11 before:absolute before:left-0 before:top-1 before:h-[calc(100%-4px)] before:w-px before:bg-gray-90 lg:gap-y-9 md:gap-y-7 sm:mt-8 sm:gap-y-7 sm:before:hidden">
           {posts.map(({ slug, title, author, published_at, timeToRead, content }, index) => {
             const date = new Date(published_at);
             const formattedDate = format(date, 'MMM dd, yyyy');
             const preview = getPostPreview(content);
 
             return (
-              <li key={slug} className={clsx(index !== 0 && 'border-gray-90 pt-7 sm:border-t')}>
+              <li key={slug} className={clsx(index !== 0 && 'border-gray-90 sm:border-t sm:pt-7')}>
                 <article className="gap-x-grid grid auto-rows-min grid-cols-12">
                   <header
                     className={clsx(

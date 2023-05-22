@@ -13,7 +13,11 @@ const Hero = () => {
           Reliable Database change for DevOps and DBA teams.
           <br />
           Want to be notifed? Follow us on{' '}
-          <Link href={Route.TWITTER} target="_blank" className="font-semibold text-primary-1">
+          <Link
+            href={Route.TWITTER}
+            target="_blank"
+            className="font-semibold text-primary-1 hover:text-gray-60"
+          >
             Twitter
           </Link>
           .
