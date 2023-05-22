@@ -18,8 +18,6 @@ const styles = {
       'text-black border-[3px] border-primary-1 hover:border-gray-15 disabled:text-gray-60 disabled:border-tones-purple-dark rounded-full tracking-wide',
     'gray-filled':
       'bg-gray-15 text-white hover:bg-gray-40 disabled:bg-gray-80 tracking-wide rounded-full',
-    'green-underline':
-      'text-black border-b-[3px] border-secondary-2 pb-4.5 hover:border-tones-green-dark tracking-wide disabled:text-gray-60 disabled:border-tones-purple-dark',
   },
 };
 

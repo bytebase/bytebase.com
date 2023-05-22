@@ -84,6 +84,8 @@ module.exports = {
         'purple-light': '#F0F2FF',
         'purple-medium': '#E0E7FF',
         'purple-dark': '#ACB2D2',
+        'deep-purple-light': '#E6EAFF',
+        'deep-purple-dark': '#DBE1FF',
         'blue-light': '#F0FAFE',
         'blue-dark': '#9CBAC9',
         'deep-blue-dark': '#176782',
@@ -126,6 +128,7 @@ module.exports = {
         security:
           'linear-gradient(171.93deg, #3DB8F5 6.21%, #B3FFC6 32.27%, #FFF9B3 43.51%, #FFF9B3 58.72%, #B3FFC6 71.22%, #3DB8F5 93.79%)',
         'security-phone': 'linear-gradient(90deg, #3DB8F5 6.21%, #B3FFC6 85.12%)',
+        tutorials: 'linear-gradient(156.19deg, #F7F6FE 0.68%, #D5D1FA 90.99%);',
       },
       lineHeight: {
         95: '95%',
