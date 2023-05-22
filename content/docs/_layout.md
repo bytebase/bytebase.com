@@ -201,7 +201,7 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Data Query Approval Flow](/data-query-and-export/data-query)
 
-### [Data export approval flow](/data-query-and-export/data-export)
+### [Data Export Approval Flow](/data-query-and-export/data-export)
 
 ---
 
