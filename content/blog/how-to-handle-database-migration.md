@@ -1,5 +1,5 @@
 ---
-title: How Do You Handle Database Migrations?
+title: How Do You Handle Database (Schema) Migrations?
 author: Tianzhou
 published_at: 2023/05/19 18:21:21
 feature_image: /blog/how-to-handle-database-migration/banner.webp
