@@ -22,7 +22,7 @@ This feature is only available in the Enterprise Plan.
 
 In Enterprise plan, user can apply for data querier role by submitting a request grant issue.
 
-1. Go to the home page or project list page, and click the `Request query` button.
+1. Go to the home page or project list page, and click **Request query**.
 
    ![request-querier-or-exporter-role](/docs/data-query-and-export/request-querier-or-exporter-role.webp)
 
