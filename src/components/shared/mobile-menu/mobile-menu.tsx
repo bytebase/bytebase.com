@@ -73,7 +73,8 @@ const MobileMenu = () => {
   const [openedDropdown, setOpenedDropdown] = useState(-1);
   const controls = useAnimation();
   const pathname = usePathname();
-  const hasLocalStorage = typeof window !== 'undefined' && window.localStorage;
+  const hasLocalStorage =
+    typeof window !== 'undefined' && window.localStorage.getItem('isBanner') === 'true';
 
   useEffect(() => {
     if (isOpen) {
@@ -107,12 +108,12 @@ const MobileMenu = () => {
         >
           <div
             className={clsx(
-              'ml-auto flex h-full w-1/2 flex-col justify-between bg-white px-7 pb-8 pt-[84px] md:px-5 sm:w-full sm:px-4 xs:pb-5',
+              'ml-auto flex w-1/2 flex-col justify-between bg-white px-7 pb-8 pt-[84px] md:px-5 sm:w-full sm:px-4 xs:pb-5',
               hasLocalStorage ? 'h-[calc(100vh-56px)]' : 'h-full',
             )}
             onClick={(evt) => evt.stopPropagation()}
           >
-            <ul className="flex flex-col items-stretch divide-y divide-gray-90 overflow-y-auto">
+            <ul className="flex max-h-[70%] flex-col items-stretch divide-y divide-gray-90 overflow-y-auto">
               {MENUS.mobile.map(({ title, href = '', items }, idx) => {
                 const isDropdownOpened = openedDropdown === idx;
                 return (
@@ -209,7 +210,7 @@ const MobileMenu = () => {
                 </Link>
               </li>
             </ul>
-            <div className="sticky bottom-0 z-10 mt-auto flex flex-col gap-4">
+            <div className="sticky bottom-0 z-10 mt-auto flex flex-col gap-4 sm:gap-2">
               <Button href="https://hub.bytebase.com/workspace" theme="gray-filled" size="md">
                 Sign up for Cloud
               </Button>
