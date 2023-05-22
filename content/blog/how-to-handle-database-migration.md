@@ -2,7 +2,7 @@
 title: How Do You Handle Database (Schema) Migrations?
 author: Tianzhou
 published_at: 2023/05/19 18:21:21
-feature_image: /blog/how-to-handle-database-migration/banner.webp
+feature_image: /blog/how-to-handle-database-migration/banner.jpeg
 tags: Industry
 featured: true
 description: We can't avoid database schema changes, but we can make them less painful. Meeting Bytebase, a database change tool that incorporates the best practices of treating database changes like code changes and separating code changes from database changes.

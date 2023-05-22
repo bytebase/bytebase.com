@@ -2,7 +2,7 @@
 title: Free Tools to Start a Local Database Instance on Mac
 author: Mila
 published_at: 2023/04/24 21:21:21
-feature_image: /blog/local-db/banner.webp
+feature_image: /blog/local-db/banner.jpeg
 tags: Industry
 featured: true
 description: To manually spin up several different kinds (and versions) of database instances for testing can be gruesome. Here are some free tools to help you start a local database instance on Mac.
