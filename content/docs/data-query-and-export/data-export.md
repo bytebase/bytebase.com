@@ -44,7 +44,7 @@ In Enterprise plan, users need to apply for data exporter role before exporting 
 
 3. Click **Create** to submit the request.
 
-4. After the request is approved, click the `Export` button to export the data.
+4. After the request is approved, click **Export** to export the data.
 
    ![export-data-button](/docs/data-query-and-export/export-data-button.webp)
 
