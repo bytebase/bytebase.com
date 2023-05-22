@@ -4,7 +4,7 @@ title: Data query approval flow
 
 Bytebase supports data security governance functions within the organization and provides corresponding approval workflows. You can apply for permissions or approve permission requests submitted by other users.
 
-Project owners can manually add the role of data queriers to control data query permissions. In Enterprise plan, user can apply for data query roles by submitting a request grant issue.
+**Project Owners** can manually add the role of **Project Querier** to control data query permissions. In Enterprise plan, users can apply for  **Project Querier** roles by submitting a request grant issue.
 
 ## Add data querier role manually
 
