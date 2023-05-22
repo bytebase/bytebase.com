@@ -15,6 +15,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.0.12",
     "@docsearch/css": "^3.3.4",
     "@docsearch/react": "^3.3.4",
     "@react-hook/intersection-observer": "^3.1.1",

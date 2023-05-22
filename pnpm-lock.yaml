@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@calcom/embed-react':
+    specifier: ^1.0.12
+    version: 1.0.12(react-dom@18.2.0)(react@18.2.0)
   '@docsearch/css':
     specifier: ^3.3.4
     version: 3.3.4
@@ -1577,6 +1580,28 @@ packages:
       '@babel/helper-string-parser': 7.21.5
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
+
+  /@calcom/embed-core@1.1.5:
+    resolution: {integrity: sha512-iBVpTOemIq5bK5LiNFugnN9eK2CIVpejkylQw+nPBMttA6ypAlMf3SZmW7KsSjaeK9qYDxOoyvEwagsBygtPeA==}
+    dev: false
+
+  /@calcom/embed-react@1.0.12(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-JQb+WFvD+wMmOZIGSePvh6MHbg36tY2dA0q2LtB8ak2id6isvogrUPh0dSveiFYY0dd/xfPoNaiWwH3B8cmqcw==}
+    peerDependencies:
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    dependencies:
+      '@calcom/embed-core': 1.1.5
+      '@calcom/embed-snippet': 1.0.7
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@calcom/embed-snippet@1.0.7:
+    resolution: {integrity: sha512-OV/O9IvQ5xTVWkIqIPkJmdjA3X9AnpJH1dYEB7IVjy5wOCwpikruHAabEStrR4KVVTNn/jtskhavZgmOwQ5vHQ==}
+    dependencies:
+      '@calcom/embed-core': 1.1.5
+    dev: false
 
   /@commitlint/cli@17.5.0:
     resolution: {integrity: sha512-yNW3+M7UM1ioK28LKTrryIVB5qGpXlEv8+rJQiWPMZNayy9/1XR5+lL8qBTNlgopYtZWWnIm5RETcAN29ZTL/A==}
