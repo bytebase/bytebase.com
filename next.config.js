@@ -3,9 +3,7 @@
 const rewrites = [
   '/brand',
   '/database-review-guide',
-  '/demo-confirm',
   '/jobs',
-  '/refund',
   '/techstack',
   '/vcs',
   '/webhook',
