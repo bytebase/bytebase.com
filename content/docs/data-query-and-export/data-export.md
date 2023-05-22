@@ -8,7 +8,7 @@ Project owners can manually add the role of data exporter to control data export
 
 In Free and Pro plan, user can add data exporter role manually.
 
-As a project owner, you can go to the project member management page and manually add the role of data exporter.
+As a **Project Owner**, you can go to the project, click **Settings**, find the **Management members** section, and manually add the role of **Project Exporter**.
 
 Before adding the data exporter role, you need to add the data querier role first to ensure that the user has the permission to query the data.
 
