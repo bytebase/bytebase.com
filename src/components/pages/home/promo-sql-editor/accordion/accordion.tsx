@@ -24,11 +24,11 @@ const Accordion = ({
           onClick={() => onChange(idx)}
         >
           <p className="group flex items-center gap-4 text-24 leading-extra-tight tracking-tight xl:text-20 xl:leading-tight xl:tracking-normal md:gap-3 md:text-18">
-            <div
+            <span
               className={clsx(
-                'relative h-8 w-8 rounded-full bg-secondary-2 shadow-[0_5px_10px_0_rgba(156,201,182,0.8)] transition-colors duration-200 md:h-7 md:w-7',
+                'relative block h-8 w-8 rounded-full shadow-[0_5px_10px_0_rgba(156,201,182,0.8)] transition-colors duration-200 md:h-7 md:w-7',
                 activeIndex !== idx && 'group-hover:bg-tones-deep-green-dark',
-                activeIndex === idx && 'bg-white',
+                activeIndex === idx ? 'bg-white' : 'bg-secondary-2 ',
               )}
             >
               <ChevronIcon
@@ -37,7 +37,7 @@ const Accordion = ({
                   activeIndex === idx && 'rotate-90 !text-gray-15',
                 )}
               />
-            </div>
+            </span>
             <b
               className={clsx(
                 'font-bold text-gray-15 transition-colors duration-200 md:font-semibold',

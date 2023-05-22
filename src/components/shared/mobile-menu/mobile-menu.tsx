@@ -73,8 +73,11 @@ const MobileMenu = () => {
   const [openedDropdown, setOpenedDropdown] = useState(-1);
   const controls = useAnimation();
   const pathname = usePathname();
-  const hasLocalStorage =
-    typeof window !== 'undefined' && window.localStorage.getItem('isBanner') === 'true';
+  const [hasLocalStorage, setHasLocalStorage] = useState(false);
+
+  useEffect(() => {
+    setHasLocalStorage(typeof window !== 'undefined' && !!window.localStorage.getItem('isBanner'));
+  }, [hasLocalStorage]);
 
   useEffect(() => {
     if (isOpen) {

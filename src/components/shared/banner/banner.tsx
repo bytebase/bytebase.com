@@ -47,7 +47,7 @@ const Banner = ({ bannerText, bannerUrl }: { bannerText: string; bannerUrl: stri
           <p className="text-center text-16 font-medium leading-tight transition-colors duration-200 line-clamp-1 md:text-14">
             {bannerText}
           </p>
-          <ArrowIcon className="ml-2 h-2.5 w-4 shrink-0 transition-transform duration-200 group-hover/link:translate-x-[4px] md:inline-block xs:hidden" />
+          <ArrowIcon className="ml-2 h-2.5 w-4 shrink-0 transition-transform duration-200 group-hover/link:translate-x-1 md:inline-block xs:hidden" />
         </Link>
         <button
           type="button"
