@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 import { AnimatePresence, LazyMotion, domAnimation, m, useAnimation } from 'framer-motion';
@@ -73,14 +73,7 @@ const MobileMenu = () => {
   const [openedDropdown, setOpenedDropdown] = useState(-1);
   const controls = useAnimation();
   const pathname = usePathname();
-
-  const navRef = useRef<HTMLInputElement>(null);
-  const navOffset = useMemo(() => {
-    if (navRef.current && navRef.current.parentElement && isOpen) {
-      return navRef.current.offsetTop + navRef.current.parentElement.offsetTop;
-    }
-    return 0;
-  }, [isOpen]);
+  const hasLocalStorage = typeof window !== 'undefined' && window.localStorage;
 
   useEffect(() => {
     if (isOpen) {
@@ -110,14 +103,13 @@ const MobileMenu = () => {
           initial="from"
           animate={controls}
           variants={menuVariants}
-          ref={navRef}
           onClick={toggleMenu}
         >
           <div
-            className="ml-auto flex h-full w-1/2 flex-col justify-between bg-white px-7 pb-8 pt-[84px] md:px-5 sm:w-full sm:px-4 xs:pb-5"
-            style={{
-              height: `calc(100vh - ${navOffset}px)`,
-            }}
+            className={clsx(
+              'ml-auto flex h-full w-1/2 flex-col justify-between bg-white px-7 pb-8 pt-[84px] md:px-5 sm:w-full sm:px-4 xs:pb-5',
+              hasLocalStorage ? 'h-[calc(100vh-56px)]' : 'h-full',
+            )}
             onClick={(evt) => evt.stopPropagation()}
           >
             <ul className="flex flex-col items-stretch divide-y divide-gray-90 overflow-y-auto">

@@ -25,15 +25,12 @@ const animationVariants = {
 };
 
 const Banner = ({ bannerText, bannerUrl }: { bannerText: string; bannerUrl: string }) => {
-  const [isBannerLocalStorage, setIsBannerLocalStorage] = useLocalStorage(
-    'isBannerLocalStorage',
-    true,
-  );
+  const [hasBanner, setHasBanner] = useLocalStorage('isBanner', true);
 
   const isClient = typeof window !== 'undefined';
 
   const closeBanner = () => {
-    setIsBannerLocalStorage(false);
+    setHasBanner(false);
   };
   return (
     <LazyMotion features={domAnimation}>
@@ -41,7 +38,7 @@ const Banner = ({ bannerText, bannerUrl }: { bannerText: string; bannerUrl: stri
         className="banner relative z-20 bg-primary-1 text-white"
         variants={animationVariants}
         initial="closed"
-        animate={isBannerLocalStorage && isClient ? 'open' : 'closed'}
+        animate={hasBanner && isClient ? 'open' : 'closed'}
       >
         <Link
           className="container group/link relative flex h-14 max-w-[80%] items-center justify-center"

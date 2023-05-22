@@ -131,7 +131,7 @@ const Header = () => {
                           onClick={handleSubmenuClick}
                         >
                           <div className="flex flex-col">
-                            <TutorialsIcon className="h-7 w-7 shrink-0" />
+                            <TutorialsIcon className="h-7 w-7" />
                             <span className="mt-5 text-20 font-medium leading-none text-gray-15">
                               Tutorials
                             </span>
@@ -144,7 +144,7 @@ const Header = () => {
                             <span className="text-16 font-medium leading-normal">
                               Start Learning
                             </span>
-                            <ArrowIcon className="ml-1.5 h-4 w-4 shrink-0" />
+                            <ArrowIcon className="ml-1.5 h-4 w-4" />
                           </div>
                         </Link>
                       </div>
