@@ -199,7 +199,7 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ## Data Query and Export
 
-### [Data query approval flow](/data-query-and-export/data-query)
+### [Data Query Approval Flow](/data-query-and-export/data-query)
 
 ### [Data export approval flow](/data-query-and-export/data-export)
 
