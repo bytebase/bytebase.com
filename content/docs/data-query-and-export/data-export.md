@@ -26,7 +26,7 @@ This feature is only available in the Enterprise Plan.
 
 In Enterprise plan, users need to apply for data exporter role before exporting data for data security governance.
 
-1. Go to the home page or project list page, and click the `Export data` button.
+1. Go to the home page or project list page, and click **Export data**.
 
    ![request-querier-or-exporter-role](/docs/data-query-and-export/request-querier-or-exporter-role.webp)
 
