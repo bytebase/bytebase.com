@@ -10,9 +10,9 @@ description: The idea of codifying database schema changes (aka schema migration
 
 This is a series of articles about Database-as-code (GitOps)
 
-- [Database as Code - the Good, the Bad and the Ugly](database-as-code)
-- [Database Version Control, State-based or Migration-based?](database-version-control-state-based-vs-migration-based)
-- [What is Database Schema Drift?](what-is-database-schema-drift)
+- [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
+- [Database Version Control, State-based or Migration-based?](/blog/database-version-control-state-based-vs-migration-based)
+- [What is Database Schema Drift?](/blog/what-is-database-schema-drift)
 - The Database as Code Landscape (this one)
 
 ---
@@ -44,7 +44,7 @@ Plain SQL is also supported with proper annotation:
 
 ![_](/blog/database-as-code-landscape/liquibase-sql.webp)
 
-Liquibase is [migration-based](database-version-control-state-based-vs-migration-based). It records the incremental change instead of the desired end state of the target database schema.
+Liquibase is [migration-based](/blog/database-version-control-state-based-vs-migration-based). It records the incremental change instead of the desired end state of the target database schema.
 
 Recently, Liquibase introduced HUB, it's an information portal for paid customers to view, organize and monitor database change activity in real-time.
 
@@ -232,14 +232,14 @@ Bytebase is envisioned to be the counterpart of GitLab / GitHub to manage the da
 
 How Bytebase compares against other tools:
 
-|           |    Language     |      Change Format      |             Genre             | Interface | VCS Integration | Collaboration | Multi-tenancy |
+|           | Language        | Change Format           | Genre                         | Interface | VCS Integration | Collaboration | Multi-tenancy |
 | --------- | --------------- | ----------------------- | ----------------------------- | --------- | --------------- | ------------- | ------------- |
-| Liquibase |      Java       | XML / YAML / JSON / SQL |        Migration-based        |    CLI    |
-|  Flyway   |      Java       |           SQL           |        Migration-based        |    CLI    |
-|  Sqitch   |      Perl       |           SQL           |        Migration-based        |    CLI    |
-|   Atlas   |       Go        |       Custom DSL        | State-based & Migration-based |    CLI    |
-|  Prisma   |   TypeScript    |       Custom DSL        |          State-based          | CLI + UI  |       ✅        |      ✅       |
-| Bytebase  | Go + TypeScript |           SQL           |       Migration-based\*       | CLI + UI  |       ✅        |      ✅       | ✅            |
+| Liquibase | Java            | XML / YAML / JSON / SQL | Migration-based               | CLI       |
+| Flyway    | Java            | SQL                     | Migration-based               | CLI       |
+| Sqitch    | Perl            | SQL                     | Migration-based               | CLI       |
+| Atlas     | Go              | Custom DSL              | State-based & Migration-based | CLI       |
+| Prisma    | TypeScript      | Custom DSL              | State-based                   | CLI + UI  | ✅              | ✅            |
+| Bytebase  | Go + TypeScript | SQL                     | Migration-based\*             | CLI + UI  | ✅              | ✅            | ✅            |
 
 _\*Though Bytebase uses migration-based approach, it records schema snapshot before and after the migration. Thus it also retains some state-based benefits such as drift detection_
 

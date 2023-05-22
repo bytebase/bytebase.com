@@ -14,6 +14,7 @@ type PreviousAndNextLinks = {
 type PostData = {
   slug: string;
   title: string;
+  feature_image?: string;
   description: string;
   isDraft: boolean;
   content: string;

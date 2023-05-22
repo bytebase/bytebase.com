@@ -26,6 +26,11 @@ const SEO_DATA = {
     description: 'Safer and faster database change and version control for DBAs and Developers',
     pathname: `${Route.BLOG}/`,
   },
+  DATABASE_GLOSSARY: {
+    title: 'Database Glossary',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_GLOSSARY}/`,
+  },
   TERMS: {
     title: 'Bytebase Terms of Service',
     description: 'Safer and faster database change and version control for DBAs and Developers',
@@ -35,6 +40,11 @@ const SEO_DATA = {
     title: 'Bytebase Privacy Policy',
     description: 'Safer and faster database change and version control for DBAs and Developers',
     pathname: `${Route.PRIVACY}/`,
+  },
+  SQL_REVIEW_GUIDE: {
+    title: 'Database Review Guide',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.SQL_REVIEW_GUIDE}/`,
   },
 };
 

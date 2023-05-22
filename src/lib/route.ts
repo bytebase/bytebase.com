@@ -24,8 +24,10 @@ const Route = {
   DOCS_API: '/docs/api/overview',
   DOCS_CLI: '/docs/cli/overview',
   DOCS_HOW_TO: '/docs/how-to/sql-review/postgres-sql-review-guide',
-  DOCS_TUTORIALS: '/tutorial',
+  SQL_GITHUB_APP: '/docs/sql-review/sql-advisor/github-app',
+  DOCS_TUTORIALS: '/docs/tutorials/overview',
   DOCS_CHANGE_DATABASE: '/docs/change-database/change-workflow/overview',
+  DOCS_SQL_ADVISOR: '/docs/sql-review/sql-advisor/overview',
   DOCS_SQL_EDITOR: '/docs/sql-editor/overview',
   DOCS_ADMINISTRATION: '/docs/administration/database-access-control',
   DOCS_ANOMALY_CENTER: '/docs/anomaly-detection/anomaly-center',
@@ -33,6 +35,10 @@ const Route = {
   DOCS_DISASTER_RECOVERY: '/docs/disaster-recovery/backup-restore-database/overview',
   DOCS_VCS_INTEGRATION: '/docs/vcs-integration/overview',
   DOCS_SELF_HOST: '/docs/get-started/install/deploy-with-docker',
+  DOCS_BATCH_CHANGE: '/docs/batch-change/overview',
+  DOCS_ONLINE_SHEMA_CHANGE: '/docs/change-database/online-schema-migration-for-mysql',
+  DOCS_PITR: '/docs/disaster-recovery/point-in-time-recovery-for-mysql',
+  DOCS_RBAC: '/docs/concepts/roles-and-permissions',
 
   // databases
   DATABASE_MYSQL: '/database/mysql',

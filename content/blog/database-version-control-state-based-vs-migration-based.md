@@ -9,10 +9,10 @@ description: We dive the rationale behind the industry divergence between state-
 
 This is a series of articles about Database-as-code (GitOps)
 
-- [Database as Code - the Good, the Bad and the Ugly](database-as-code)
+- [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
 - Database Version Control, State-based or Migration-based? (this one)
-- [What is Database Schema Drift?](what-is-database-schema-drift)
-- [The Database as Code Landscape](database-as-code-landscape)
+- [What is Database Schema Drift?](/blog/what-is-database-schema-drift)
+- [The Database as Code Landscape](/blog/database-as-code-landscape)
 
 ---
 
@@ -102,4 +102,4 @@ The whole industry are not quite there yet, but at least Bytebase can bridge the
 
 ## Reference
 
-1. [Database as Code - the Good, the Bad and the Ugly](database-as-code) - our previous article touching Database Version Control (aka Database-as-Code) in details.
+1. [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code) - our previous article touching Database Version Control (aka Database-as-Code) in details.

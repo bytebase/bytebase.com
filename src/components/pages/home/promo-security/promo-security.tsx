@@ -49,7 +49,7 @@ const PromoSecurity = () => {
   }, [rive, isVisible]);
 
   return (
-    <section className="bg-black text-white" ref={containerRef}>
+    <section className="overflow-x-hidden bg-black text-white" ref={containerRef}>
       <div className="container gap-x-grid grid grid-cols-12 md:grid-cols-none">
         <div className="col-start-1 col-end-5 py-[216px] 3xl:col-end-7 3xl:py-[200px] xl:col-end-6 xl:py-[180px] md:col-auto md:pt-16 md:pb-0 sm:pt-14">
           <Pill theme="secondary-1">Secure</Pill>

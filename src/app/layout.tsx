@@ -1,7 +1,8 @@
+import Script from 'next/script';
+
 import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
 
-import Script from 'next/script';
 import '@/styles/main.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

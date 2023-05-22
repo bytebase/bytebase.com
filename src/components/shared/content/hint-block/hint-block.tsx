@@ -30,7 +30,7 @@ const HintBlock = ({ type, children }: { type: 'info' | 'warning'; children: Rea
     <figure className={clsx('hint-block border', typeClassNames[type].wrapper)}>
       <div
         className={clsx(
-          'flex gap-x-4 px-5 pt-6 pb-8 shadow-[inset_6px_6px_0_#fff,0_5px_15px_rgba(172,178,210,0.5)] md:gap-x-3 md:px-4 md:pt-5 md:pb-7 sm:gap-x-2 sm:px-3 sm:pt-4 sm:pb-5',
+          'flex gap-x-4 px-5 pb-8 pt-6 shadow-[inset_6px_6px_0_#fff,0_5px_15px_rgba(172,178,210,0.5)] md:gap-x-3 md:px-4 md:pb-7 md:pt-5 sm:gap-x-2 sm:px-3 sm:pb-5 sm:pt-4',
           typeClassNames[type].inner,
         )}
       >
@@ -40,7 +40,7 @@ const HintBlock = ({ type, children }: { type: 'info' | 'warning'; children: Rea
             typeClassNames[type].icon,
           )}
         >
-          <Icon className="h-4 w-4" />
+          <Icon className="h-4 w-4 text-white" />
         </span>
 
         <div className="flex flex-col">

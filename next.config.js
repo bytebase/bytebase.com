@@ -6,15 +6,44 @@ const rewrites = [
   '/demo-confirm',
   '/jobs',
   '/refund',
-  '/sql-review-guide',
   '/techstack',
   '/vcs',
   '/webhook',
   '/database-feature',
-  '/database-glossary',
   '/database',
   '/integration',
   '/usecase',
+];
+
+const tutorialBeginnerRedirects = [
+  'database-change-management-using-bytebase-cloud',
+  'database-change-management-with-amazon-aurora',
+  'database-change-management-with-clickhouse',
+  'database-change-management-with-mongodb',
+  'database-change-management-with-mysql',
+  'database-change-management-with-postgresql',
+  'database-change-management-with-redis',
+  'database-change-management-with-snowflake',
+  'database-change-management-with-tidb',
+  'how-to-synchronize-database-schemas',
+];
+const tutorialIntermediateRedirects = [
+  'database-change-management-with-amazon-aurora-and-github',
+  'database-change-management-with-clickhouse-and-github',
+  'database-change-management-with-github-using-bytebase-cloud',
+  'database-change-management-with-mongodb-and-github',
+  'database-change-management-with-mysql-and-github',
+  'database-change-management-with-postgresql-and-github',
+  'database-change-management-with-redis-and-github',
+  'database-change-management-with-snowflake-and-github',
+  'database-change-management-with-tidb-and-github',
+  'database-cicd-best-practice-with-github',
+  'github-database-cicd-part-1-sql-review-github-actions',
+  'github-database-cicd-part-2-github-database-gitops',
+  'github-database-cicd-part-3-put-them-together',
+  'how-to-configure-database-access-control-and-data-anonymization-for-developer',
+  'how-to-integrate-sql-review-into-gitlab-github-ci',
+  'manage-databases-in-bytebase-with-terraform',
 ];
 
 module.exports = {
@@ -46,6 +75,16 @@ module.exports = {
         destination: '/docs/tutorials/overview',
         permanent: true,
       },
+      ...tutorialBeginnerRedirects.map((slug) => ({
+        source: `/blog/${slug}`,
+        destination: `/docs/tutorials/beginner/${slug}`,
+        permanent: true,
+      })),
+      ...tutorialIntermediateRedirects.map((slug) => ({
+        source: `/blog/${slug}`,
+        destination: `/docs/tutorials/intermediate/${slug}`,
+        permanent: true,
+      })),
     ];
   },
   async rewrites() {
