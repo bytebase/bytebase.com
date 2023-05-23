@@ -27,7 +27,7 @@ const Hero = ({ title, description }: HeroProps) => {
           size="lg"
           className="sm:!w-fit sm:!px-6"
         >
-          Request a Demo
+          Learn More
         </Button>
         <LinkUnderlined href={Route.LIVE_DEMO}>See Live Demo</LinkUnderlined>
       </div>

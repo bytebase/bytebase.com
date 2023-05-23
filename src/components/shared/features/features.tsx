@@ -44,11 +44,7 @@ const ITEMS = [
   },
 ];
 
-type FeaturesProps = {
-  className?: string;
-};
-
-const Features = ({ className }: FeaturesProps) => {
+const Features = ({ className }: { className?: string }) => {
   return (
     <section
       className={clsx(
