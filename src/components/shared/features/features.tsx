@@ -59,7 +59,7 @@ const Features = ({ className }: { className?: string }) => {
             <li className="sm:col-span-full" key={index}>
               <Link
                 href={url}
-                className="group flex h-[61px] items-center justify-between border border-gray-90 px-4 pt-4 pb-5 hover:border-gray-60 2xl:h-[63px] 2xl:py-5 xl:h-[62px] xl:pr-3"
+                className="group flex h-[61px] items-center justify-between border border-gray-90 px-4 py-5 hover:border-gray-60 2xl:h-[63px] xl:h-[62px] xl:pr-3"
               >
                 <span className="text-20 font-semibold leading-tight 2xl:text-18 xl:text-16 xl:leading-snug">
                   {title}
