@@ -28,11 +28,12 @@ const LinkUnderlined = ({
     <Link
       href={href}
       className={clsx(
-        'block w-fit border-b-[3px] border-secondary-2 pb-1 text-16 font-bold uppercase leading-none tracking-wide text-black transition-colors duration-200 hover:border-transparent hover:text-primary-1 active:border-transparent active:text-primary-1 md:text-13',
+        'group/link relative block w-fit text-16 font-bold uppercase leading-none tracking-wide text-black transition-colors duration-200 hover:text-primary-1 active:border-transparent active:text-primary-1 md:text-13',
         linkClassName,
       )}
     >
       {children}
+      <span className="absolute -bottom-1.5 left-0 h-[3px] w-full rounded-full bg-secondary-2 transition-colors duration-200 group-hover/link:bg-transparent" />
     </Link>
   );
 };

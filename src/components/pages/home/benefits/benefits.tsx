@@ -43,7 +43,8 @@ const Benefits = () => {
             key={idx}
             className={clsx('bg-tones-purple-light', {
               'bg-opacity-20': openedItemIdx === idx,
-              'cursor-pointer': openedItemIdx !== idx,
+              'cursor-pointer transition-colors duration-200 hover:bg-tones-deep-purple-light':
+                openedItemIdx !== idx,
             })}
             onClick={() => setOpenedItemIdx(idx)}
           >
@@ -63,11 +64,11 @@ const Benefits = () => {
                       {title}
                     </h3>
                   </div>
-                  <p className="ml-[86px] mt-4 text-18 leading-tight xl:mt-2 xl:ml-[68px] xl:text-16 xl:leading-snug md:ml-[52px] md:max-w-xl md:text-14 sm:ml-10">
+                  <p className="ml-[86px] mt-4 text-18 leading-tight xl:ml-[68px] xl:mt-2 xl:text-16 xl:leading-snug md:ml-[52px] md:max-w-xl md:text-14 sm:ml-10">
                     {description}
                   </p>
                 </div>
-                <div className="col-span-5 flex items-center justify-end self-stretch xl:col-span-6 md:col-auto md:mt-6 md:-mb-5 md:justify-center sm:mb-0">
+                <div className="col-span-5 flex items-center justify-end self-stretch xl:col-span-6 md:col-auto md:-mb-5 md:mt-6 md:justify-center sm:mb-0">
                   <Image
                     {...image}
                     alt=""
