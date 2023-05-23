@@ -1,5 +1,5 @@
 ---
-title: DevOps: Database Change Management with MongoDB
+title: 'DevOps: Database Change Management with MongoDB'
 author: Ningjing
 published_at: 2023/03/21 11:15
 feature_image: /docs/tutorials/beginner/database-change-management-with-mongodb/feature-image.webp

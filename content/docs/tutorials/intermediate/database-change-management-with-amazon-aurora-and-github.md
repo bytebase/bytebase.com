@@ -1,5 +1,5 @@
 ---
-title: DevOps: Database Change Management with Amazon Aurora and GitHub
+title: 'DevOps: Database Change Management with Amazon Aurora and GitHub'
 author: Ningjing
 published_at: 2023/03/10 16:15
 feature_image: /docs/tutorials/intermediate/database-change-management-with-amazon-aurora-and-github/feature-image.webp

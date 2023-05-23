@@ -1,5 +1,5 @@
 ---
-title: DevOps: Database Change Management with TiDB and GitHub
+title: "DevOps: Database Change Management with TiDB and GitHub"
 author: Ningjing
 published_at: 2023/01/04 21:15
 feature_image: /docs/tutorials/intermediate/database-change-management-with-tidb-and-github/db-change-tidb-github.webp

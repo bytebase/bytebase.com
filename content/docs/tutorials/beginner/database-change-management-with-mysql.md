@@ -1,5 +1,5 @@
 ---
-title: DevOps: Database Change Management with MySQL
+title: 'DevOps: Database Change Management with MySQL'
 author: Mila
 published_at: 2023/02/07 11:15
 feature_image: /docs/tutorials/beginner/database-change-management-with-mysql/feature-image.webp

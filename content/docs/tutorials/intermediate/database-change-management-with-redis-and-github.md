@@ -1,5 +1,5 @@
 ---
-title: DevOps: Database Change Management with Redis and GitHub
+title: 'DevOps: Database Change Management with Redis and GitHub'
 author: Ningjing
 published_at: 2023/04/14 11:45
 feature_image: /docs/tutorials/intermediate/database-change-management-with-redis-and-github/feature-image.webp

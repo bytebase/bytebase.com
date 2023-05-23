@@ -1,5 +1,5 @@
 ---
-title: DevOps: Database Change Management with PostgreSQL and GitHub
+title: 'DevOps: Database Change Management with PostgreSQL and GitHub'
 author: Ningjing
 published_at: 2023/02/16 11:45
 feature_image: /docs/tutorials/intermediate/database-change-management-with-postgresql-and-github/feature-image.webp

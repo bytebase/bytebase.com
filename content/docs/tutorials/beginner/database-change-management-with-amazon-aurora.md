@@ -1,5 +1,5 @@
 ---
-title: DevOps: Database Change Management with Amazon Aurora
+title: 'DevOps: Database Change Management with Amazon Aurora'
 author: Ningjing
 published_at: 2023/03/09 11:15
 feature_image: /docs/tutorials/beginner/database-change-management-with-amazon-aurora/feature-image.webp

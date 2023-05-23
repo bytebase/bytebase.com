@@ -1,5 +1,5 @@
 ---
-title: DevOps: Database Change Management with MongoDB and GitHub
+title: 'DevOps: Database Change Management with MongoDB and GitHub'
 author: Ningjing
 published_at: 2023/03/22 11:45
 feature_image: /docs/tutorials/intermediate/database-change-management-with-mongodb-and-github/feature-image.webp

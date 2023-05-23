@@ -1,5 +1,5 @@
 ---
-title: DevOps: Database Change Management with Snowflake and GitHub
+title: 'DevOps: Database Change Management with Snowflake and GitHub'
 author: Ningjing
 published_at: 2022/12/26 21:15
 feature_image: /docs/tutorials/intermediate/database-change-management-with-snowflake-and-github/db-change-snowflake-github.webp

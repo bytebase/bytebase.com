@@ -1,5 +1,5 @@
 ---
-title: DevOps: Database Change Management with ClickHouse and GitHub
+title: 'DevOps: Database Change Management with ClickHouse and GitHub'
 author: Ningjing
 published_at: 2023/03/02 11:45
 feature_image: /docs/tutorials/intermediate/database-change-management-with-clickhouse-and-github/feature-image.webp
