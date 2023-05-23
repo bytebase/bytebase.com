@@ -46,6 +46,21 @@ const SEO_DATA = {
     description: 'Safer and faster database change and version control for DBAs and Developers',
     pathname: `${Route.SQL_REVIEW_GUIDE}/`,
   },
+  DBA: {
+    title: 'Bytebase for DBA',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DBA}/`,
+  },
+  DEVELOPER: {
+    title: 'Bytebase for Developer',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DEVELOPER}/`,
+  },
+  TECHLEAD: {
+    title: 'Bytebase for Tech Lead',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.TECHLEAD}/`,
+  },
 };
 
 export default SEO_DATA;
