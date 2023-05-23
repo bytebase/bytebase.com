@@ -6,12 +6,15 @@ import Features from '@/components/shared/features';
 import SEO_DATA from '@/lib/seo-data';
 import SEO_PAGES_DATA from '@/lib/seo-pages-data';
 
-export const metadata = getMetadata(SEO_DATA.DBA);
+export const metadata = getMetadata(SEO_DATA.TECHLEAD);
 
 export default function Page() {
   return (
     <div className="container gap-x-grid grid grid-cols-12">
-      <Hero title={SEO_PAGES_DATA.DBA.title} description={SEO_PAGES_DATA.DBA.description} />
+      <Hero
+        title={SEO_PAGES_DATA.TECHLEAD.title}
+        description={SEO_PAGES_DATA.TECHLEAD.description}
+      />
       <Features className="mt-40 2xl:mt-20 xl:mt-16 sm:mt-12" />
     </div>
   );

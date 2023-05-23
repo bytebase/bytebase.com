@@ -21,7 +21,7 @@ export default function GlossaryWordPage({ params }: { params: { slug: string } 
     <div className="container gap-x-grid grid grid-cols-12">
       <WordArticle post={post} />
       <Promo />
-      <Features />
+      <Features className="mt-20 xl:mt-16 md:mt-12" />
     </div>
   );
 }

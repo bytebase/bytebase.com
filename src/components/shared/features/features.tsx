@@ -3,6 +3,7 @@ import Link from '@/components/shared/link';
 import Route from '@/lib/route';
 
 import ExternalLinkIcon from '@/svgs/external-square.inline.svg';
+import clsx from 'clsx';
 
 const ITEMS = [
   {
@@ -43,9 +44,18 @@ const ITEMS = [
   },
 ];
 
-const Features = () => {
+type FeaturesProps = {
+  className?: string;
+};
+
+const Features = ({ className }: FeaturesProps) => {
   return (
-    <section className="col-span-6 col-start-4 mt-20 xl:col-span-8 xl:col-start-3 xl:mt-16 md:col-span-full md:mt-12">
+    <section
+      className={clsx(
+        'col-span-6 col-start-4 xl:col-span-8 xl:col-start-3 md:col-span-full',
+        className,
+      )}
+    >
       <h2 className="text-44 font-bold leading-extra-tight xl:text-36 md:text-30">Features</h2>
       <ul className="mt-11 grid grid-cols-2 gap-10 2xl:gap-9 xl:mt-10 xl:gap-6 md:mt-9 md:gap-5 sm:mt-6 sm:gap-3">
         {ITEMS.map(({ title, url }, index) => {
