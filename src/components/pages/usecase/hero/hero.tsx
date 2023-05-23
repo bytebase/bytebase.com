@@ -37,7 +37,6 @@ const Hero = ({ title, description }: HeroProps) => {
         height={545}
         alt="Bytebase Database scheme"
         className="mx-auto mt-20 lg:mt-16 md:mt-12 sm:hidden"
-        loading="lazy"
       />
       <Image
         className="mx-auto mt-12 hidden sm:order-3 sm:block"
