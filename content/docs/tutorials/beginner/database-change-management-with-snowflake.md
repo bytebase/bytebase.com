@@ -1,5 +1,5 @@
 ---
-title: Database Change Management with Snowflake
+title: DevOps: Database Change Management with Snowflake
 author: Ningjing
 published_at: 2022/12/22 21:15
 feature_image: /docs/tutorials/beginner/database-change-management-with-snowflake/db-change-snowflake.webp
@@ -9,10 +9,10 @@ level: Beginner
 description: This tutorial will guide you step-by-step to set up database change management for Snowflake in Bytebase.
 ---
 
-This is a series of articles about Database Change Management with Snowflake
+This is a series of articles about DevOps: Database Change Management with Snowflake
 
-- Database Change Management with Snowflake (this one)
-- [Database Change Management with Snowflake and GitHub](/docs/tutorials/intermediate/database-change-management-with-snowflake-and-github)
+- DevOps: Database Change Management with Snowflake (this one)
+- [DevOps: Database Change Management with Snowflake and GitHub](/docs/tutorials/intermediate/database-change-management-with-snowflake-and-github)
 
 ---
 

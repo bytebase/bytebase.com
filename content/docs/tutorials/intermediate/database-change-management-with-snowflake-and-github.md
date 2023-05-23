@@ -1,5 +1,5 @@
 ---
-title: Database Change Management with Snowflake and GitHub
+title: DevOps: Database Change Management with Snowflake and GitHub
 author: Ningjing
 published_at: 2022/12/26 21:15
 feature_image: /docs/tutorials/intermediate/database-change-management-with-snowflake-and-github/db-change-snowflake-github.webp
@@ -9,16 +9,16 @@ level: Intermediate
 description: This tutorial will bring your Snowflake schema change to the next level by introducing the GitOps workflow, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 ---
 
-This is a series of articles about Database Change Management with Snowflake
+This is a series of articles about DevOps: Database Change Management with Snowflake
 
-- [Database Change Management with Snowflake](/docs/tutorials/beginner/database-change-management-with-snowflake)
-- Database Change Management with Snowflake and GitHub (this one)
+- [DevOps: Database Change Management with Snowflake](/docs/tutorials/beginner/database-change-management-with-snowflake)
+- DevOps: Database Change Management with Snowflake and GitHub (this one)
 
 ---
 
 ## Overview
 
-In the last article [Database Change Management with Snowflake](/docs/tutorials/beginner/database-change-management-with-snowflake), you have tried **UI workflow** in Bytebase.
+In the last article [DevOps: Database Change Management with Snowflake](/docs/tutorials/beginner/database-change-management-with-snowflake), you have tried **UI workflow** in Bytebase.
 
 This tutorial will bring your Snowflake schema change to the next level by introducing the **GitOps workflow**, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
@@ -28,7 +28,7 @@ You can use Bytebase free version to finish the tutorial.
 
 Before you start this tutorial, make sure:
 
-- You have followed our previous UI-based change tutorial [Database Change Management with Snowflake](/docs/tutorials/beginner/database-change-management-with-snowflake).
+- You have followed our previous UI-based change tutorial [DevOps: Database Change Management with Snowflake](/docs/tutorials/beginner/database-change-management-with-snowflake).
 - You have a Snowflake account with the role `ACCOUNTADMIN`.
 - You have a GitHub account.
 - You have a public GitHub repository.

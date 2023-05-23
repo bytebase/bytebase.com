@@ -1,5 +1,5 @@
 ---
-title: Database Change Management with TiDB
+title: DevOps: Database Change Management with TiDB
 author: Ningjing
 published_at: 2023/01/03 21:15
 feature_image: /docs/tutorials/beginner/database-change-management-with-tidb/db-change-tidb.webp
@@ -9,10 +9,10 @@ level: Beginner
 description: TiDB is an open-source NewSQL database that supports Hybrid Transactional and Analytical Processing workloads. This tutorial will guide you step-by-step to set up database change management for TiDB in Bytebase.
 ---
 
-This is a series of articles about Database Change Management with TiDB
+This is a series of articles about DevOps: Database Change Management with TiDB
 
-- Database Change Management with TiDB (this one)
-- [Database Change Management with TiDB and GitHub](/docs/tutorials/intermediate/database-change-management-with-tidb-and-github)
+- DevOps: Database Change Management with TiDB (this one)
+- [DevOps: Database Change Management with TiDB and GitHub](/docs/tutorials/intermediate/database-change-management-with-tidb-and-github)
 
 ---
 

@@ -12,7 +12,7 @@ description: Bytebase provide its Cloud version since 1.15.0, this tutorial is a
 This is a series of articles about Database Change Management using Bytebase Cloud. We take Amazon Aurora MySQL as an example and is also applicable to Amazon Aurora Serverless.
 
 - Database Change Management using Bytebase Cloud (this one)
-- [Database Change Management with GitHub using Bytebase Cloud](/docs/tutorials/intermediate/database-change-management-with-github-using-bytebase-cloud)
+- [DevOps: Database Change Management with GitHub using Bytebase Cloud](/docs/tutorials/intermediate/database-change-management-with-github-using-bytebase-cloud)
 
 ---
 

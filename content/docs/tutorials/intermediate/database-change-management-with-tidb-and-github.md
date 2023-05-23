@@ -1,5 +1,5 @@
 ---
-title: Database Change Management with TiDB and GitHub
+title: DevOps: Database Change Management with TiDB and GitHub
 author: Ningjing
 published_at: 2023/01/04 21:15
 feature_image: /docs/tutorials/intermediate/database-change-management-with-tidb-and-github/db-change-tidb-github.webp
@@ -9,16 +9,16 @@ level: Intermediate
 description: This tutorial will bring your TiDB schema change to the next level by introducing the GitOps workflow, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 ---
 
-This is a series of articles about Database Change Management with TiDB
+This is a series of articles about DevOps: Database Change Management with TiDB
 
-- [Database Change Management with TiDB](/docs/tutorials/beginner/database-change-management-with-tidb)
-- Database Change Management with TiDB and GitHub (this one)
+- [DevOps: Database Change Management with TiDB](/docs/tutorials/beginner/database-change-management-with-tidb)
+- DevOps: Database Change Management with TiDB and GitHub (this one)
 
 ---
 
 ## Overview
 
-In the last article [Database Change Management with TiDB](/docs/tutorials/beginner/database-change-management-with-tidb), you have tried **UI workflow** in Bytebase.
+In the last article [DevOps: Database Change Management with TiDB](/docs/tutorials/beginner/database-change-management-with-tidb), you have tried **UI workflow** in Bytebase.
 
 This tutorial will bring your TiDB schema change to the next level by introducing the **GitOps workflow**, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
@@ -28,7 +28,7 @@ You can use Bytebase free version to finish the tutorial.
 
 Before you start this tutorial, make sure:
 
-- You have followed our previous UI-based change tutorial [Database Change Management with TiDB](/docs/tutorials/beginner/database-change-management-with-tidb).
+- You have followed our previous UI-based change tutorial [DevOps: Database Change Management with TiDB](/docs/tutorials/beginner/database-change-management-with-tidb).
 - You have [deployed a local TiDB Cluster](https://docs.pingcap.com/tidb/stable/quick-start-with-tidb).
 - You have a GitHub account.
 - You have a public GitHub repository.
