@@ -3,9 +3,9 @@ import { notFound } from 'next/navigation';
 
 import getMetadata from '@/utils/get-metadata';
 
-import Features from '@/components/pages/database-glossary/features';
 import Promo from '@/components/pages/database-glossary/promo';
 import WordArticle from '@/components/pages/database-glossary/word-article';
+import Features from '@/components/shared/features';
 
 import { getAllGlossaryPosts, getGlossaryBySlug } from '@/lib/api-glossary';
 import Route from '@/lib/route';
