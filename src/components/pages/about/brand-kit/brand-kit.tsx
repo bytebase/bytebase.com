@@ -10,7 +10,10 @@ import { brandColors, brandLogos } from './data';
 const BRANDKIT_FILE_PATH = '/data/bytebase-brand-kit.zip';
 
 const BrandKit = () => (
-  <section className="mt-40 w-full bg-tones-purple-light py-36 xl:mt-32 xl:py-32 md:mt-24 md:py-24 sm:mt-16 sm:py-16">
+  <section
+    className="mt-40 w-full bg-tones-purple-light py-36 xl:mt-32 xl:py-32 md:mt-24 md:py-24 sm:mt-16 sm:py-16"
+    id="brand-kit"
+  >
     <div className="container gap-x-grid grid grid-cols-12 sm:grid-cols-4">
       <Pill theme="secondary-1" className="col-span-full justify-self-center">
         Brand kit
@@ -39,7 +42,7 @@ const BrandKit = () => (
         </div>
       ))}
       <Button
-        className="col-span-full mt-14 w-[217px] justify-self-center xl:mt-12 sm:mt-10"
+        className="col-span-full mt-14 justify-self-center px-6 xl:mt-12 sm:mt-10"
         href={BRANDKIT_FILE_PATH}
         target="_blank"
         theme="primary-outline"
