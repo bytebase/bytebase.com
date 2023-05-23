@@ -1,5 +1,5 @@
 ---
-title: DevOps: Database Change Management with MySQL and GitHub
+title: 'DevOps: Database Change Management with MySQL and GitHub'
 author: Mila
 published_at: 2023/02/08 11:15
 feature_image: /docs/tutorials/intermediate/database-change-management-with-mysql-and-github/feature-image.webp

@@ -1,5 +1,5 @@
 ---
-title: DevOps: Database Change Management with GitHub using Bytebase Cloud
+title: 'DevOps: Database Change Management with GitHub using Bytebase Cloud'
 author: Ningjing
 published_at: 2023/04/17 16:15
 feature_image: /docs/tutorials/intermediate/database-change-management-with-github-using-bytebase-cloud/feature-image.webp
