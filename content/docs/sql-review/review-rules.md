@@ -131,6 +131,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- Oracle
 
 <h3 id="naming.column">Column naming convention</h3>
 
@@ -344,6 +345,46 @@ Specifically, Bytebase checks:
 - TiDB
 - PostgreSQL
 
+<h3 id="naming.table.no-keyword">Disallow keywords as table names</h3>
+
+Using keywords as table names in Oracle, or any other database management system, is generally not recommended for several reasons:
+
+1. Reserved Keywords: Database systems have a set of reserved keywords that are used for defining the structure and operations of the database. These keywords have specific meanings and functionalities within the system. If you use a reserved keyword as a table name, it can lead to conflicts and ambiguity when executing queries or performing operations on the table.
+
+2. Query Conflicts: When you use a reserved keyword as a table name, it can cause conflicts and confusion when constructing SQL queries. The database may interpret the keyword as a command or function instead of a table name, resulting in unexpected behavior or errors. It becomes necessary to use special techniques or syntax to differentiate the table name from the keyword, which can make the queries more complex and error-prone.
+
+3. Code Readability: Using keywords as table names can make the code less readable and maintainable. Table names are meant to represent the entities or concepts they represent in the system. Choosing descriptive and meaningful names for tables improves code clarity and understanding. When keywords are used, it can be challenging for developers, administrators, or future maintainers to grasp the purpose and usage of the tables quickly.
+
+4. Portability: If you decide to migrate your database from one DBMS to another in the future, using keywords as table names can cause compatibility issues. Different database systems have different sets of reserved keywords, and these keywords may vary in meaning and functionality. Migrating a database containing table names that are keywords in the target DBMS may require modifying the table names or using workarounds, which can be time-consuming and error-prone.
+
+![schema-review-naming-table-no-keyword](/docs/schema-review-naming-table-no-keyword.webp)
+
+#### Support database engine
+
+- Oracle
+
+<h3 id="naming.identifier.no-keyword">Disallow keywords as identifiers</h3>
+
+The same reason as [Disallow keywords as table names](#naming.table.no-keyword).
+
+![schema-review-naming-identifier-no-keyword](/docs/schema-review-naming-identifier-no-keyword.webp)
+
+#### Support database engine
+
+- Oracle
+
+<h3 id="naming.identifier.case">Identifier case</h3>
+
+Bytebase provides this rule to unify the identifier case.
+
+For Oracle, if the identifier is not quoted, it is converted to uppercase. In order to unify the identifier case, you can use this rule to disallow the lowercase identifier.
+
+![schema-review-naming-identifier-case](/docs/schema-review-naming-identifier-case.webp)
+
+#### Support database engine
+
+- Oracle
+
 ## Statement
 
 <h3 id="statement.select.no-select-all">Disallow SELECT *</h3>
@@ -365,6 +406,7 @@ Bytebase considers this rule to be violated if the SQL has `SELECT *`.
 - MySQL
 - TiDB
 - PostgreSQL
+- Oracle
 
 <h3 id="statement.where.require">Require WHERE</h3>
 
@@ -383,6 +425,7 @@ Bytebase considers this rule to be violated if the SQL has no WHERE clause.
 - MySQL
 - TiDB
 - PostgreSQL
+- Oracle
 
 <h3 id="statement.where.no-leading-wildcard-like">Disallow leading % in LIKE</h3>
 
@@ -399,6 +442,7 @@ Bytebase considers this rule to be violated if the SQL has leading wildcard LIKE
 - MySQL
 - TiDB
 - PostgreSQL
+- Oracle
 
 <h3 id="statement.disallow-commit">Disallow COMMIT</h3>
 
@@ -493,6 +537,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- Oracle
 
 <h3 id="statement.insert.disallow-order-by-rand">Disallow ORDER BY RAND in INSERT statements</h3>
 
@@ -623,6 +668,7 @@ Bytebase considers this rule to be violated if the SQL tries to create a no prim
 - MySQL
 - TiDB
 - PostgreSQL
+- Oracle
 
 <h3 id="table.no-foreign-key">Disallow foreign key</h3>
 
@@ -645,8 +691,8 @@ Bytebase considers this rule to be violated if the SQL tries to:
 
 - MySQL
 - TiDB
-
-Support for PostgreSQL is coming soon.
+- PostgreSQL
+- Oracle
 
 <h3 id="table.drop-naming-convention">Drop naming convention</h3>
 
@@ -759,6 +805,7 @@ Bytebase defaults all tables to meet the requirements. If the SQL tries to defin
 - MySQL
 - TiDB
 - PostgreSQL
+- Oracle
 
 <h3 id="column.disallow-list">Column type disallow list</h3>
 
@@ -780,6 +827,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- Oracle
 
 <h3 id="column.no-null">Columns no NULL value</h3>
 
@@ -796,6 +844,7 @@ Bytebase considers this rule to be violated if the SQL defines a column allowing
 - MySQL
 - TiDB
 - PostgreSQL
+- Oracle
 
 <h3 id="column.disallow-change-type">Disallow changing column type</h3>
 
@@ -836,6 +885,7 @@ Specifically, Bytebase checks:
 
 - MySQL
 - TiDB
+- Oracle
 
 Support for PostgreSQL is coming soon.
 
@@ -976,6 +1026,24 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- Oracle
+
+<h3 id="column.maximum-varchar-length">Maximum VARCHAR length</h3>
+
+![sql-review-column-maximum-varchar-length](/docs/sql-review-column-maximum-varchar-length.webp)
+
+#### How the rule works
+
+Bytebase checks the length for the VARCHAR type.
+
+Specifically, Bytebase checks:
+
+- `CREATE TABLE` statements
+- `ALTER TABLE` statements
+
+#### Support database engine
+
+- Oracle
 
 <h3 id="column.auto-increment-initial-value">Auto-increment initial value</h3>
 
@@ -1046,6 +1114,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- Oracle
 
 ## Index
 
@@ -1090,6 +1159,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- Oracle
 
 <h3 id="index.pk-type-limit">Limit key type for primary keys</h3>
 
