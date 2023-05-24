@@ -3,7 +3,7 @@ const Route = {
   ABOUT: '/about',
   USECASES: '/usecases',
   PRICING: '/pricing',
-  BRAND: '/brand',
+  BRAND: '/about#brand-kit',
   TECHSTACK: '/techstack',
   SQL_REVIEW_GUIDE: '/sql-review-guide',
   BYTEBASE_PLUS: '/bytebase-plus',
