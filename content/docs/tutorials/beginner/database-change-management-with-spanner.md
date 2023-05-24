@@ -2,7 +2,7 @@
 title: Database Change Management with Spanner
 author: Ningjing
 published_at: 2023/05/23 17:15
-feature_image: /docs/tutorials/beginner/database-change-management-with-spanner/feature-image.webp
+feature_image: /docs/tutorials/beginner/database-change-management-with-spanner/feature-image.webp?
 tags: Tutorial
 integrations: Spanner
 level: Beginner

@@ -3,7 +3,7 @@ title: Overview
 ---
 ## Beginner
 
-<TutorialWideCard title="Database Change Management with Spanner" url="/docs/tutorials/beginner/database-change-management-with-spanner" date="2023/05/23" logos="aurora"></TutorialWideCard>
+<TutorialWideCard title="Database Change Management with Spanner" url="/docs/tutorials/beginner/database-change-management-with-spanner" date="2023/05/23" logos="spanner"></TutorialWideCard>
 
 <TutorialWideCard title="Database Change Management with MySQL" url="/docs/tutorials/beginner/database-change-management-with-mysql" date="2023/04/23" logos="aurora"></TutorialWideCard>
 
@@ -29,7 +29,7 @@ title: Overview
 
 <TutorialCardsWrapper>
 
-<TutorialTallCard title="Database Change Management with Spanner and GitHub" url="/docs/tutorials/intermediate/database-change-management-with-spanner-and-github" logos="aurora,github" date="2023/05/24"></TutorialTallCard>
+<TutorialTallCard title="Database Change Management with Spanner and GitHub" url="/docs/tutorials/intermediate/database-change-management-with-spanner-and-github" logos="spanner,github" date="2023/05/24"></TutorialTallCard>
 
 <TutorialTallCard title="Database Change Management with GitHub using Bytebase Cloud" url="/docs/tutorials/intermediate/database-change-management-with-github-using-bytebase-cloud" logos="aurora,github" date="2023/04/17"></TutorialTallCard>
 
