@@ -78,6 +78,11 @@ module.exports = {
         destination: '/about#brand-kit',
         permanent: true,
       },
+      {
+        source: '/bytebase-brand-kit.zip',
+        destination: '/download/bytebase-brand-kit.zip',
+        permanent: true,
+      },
       ...tutorialBeginnerRedirects.map((slug) => ({
         source: `/blog/${slug}`,
         destination: `/docs/tutorials/beginner/${slug}`,
