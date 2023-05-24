@@ -2,7 +2,7 @@
 title: 'Introducing bb - a Bytebase CLI tool to manage database operations'
 author: Candy
 published_at: 2022/05/27 09:57:57
-feature_image: /blog/introducing-bb-bytebase-cli-to-manage-database-operations/bb.webp
+feature_image: /content/blog/introducing-bb-bytebase-cli-to-manage-database-operations/bb.webp
 tags: Announcement
 featured: true
 description: This article describes how to install and run Bytebase CLI bb
@@ -32,7 +32,7 @@ Install `bb` into the folder /usr/local/bin on macOS or Linux by entering the co
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/bytebase/install/HEAD/install.sh)"
 ```
 
-![installation](/blog/introducing-bb-bytebase-cli-to-manage-database-operations/bb-installing.webp)
+![installation](/content/blog/introducing-bb-bytebase-cli-to-manage-database-operations/bb-installing.webp)
 
 Enter the following command to verify the installation:
 
@@ -42,7 +42,7 @@ bb --help
 
 Then you should see help output:
 
-![help information](/blog/introducing-bb-bytebase-cli-to-manage-database-operations/bb-help.webp)
+![help information](/content/blog/introducing-bb-bytebase-cli-to-manage-database-operations/bb-help.webp)
 
 ## Running `bb`
 
@@ -58,7 +58,7 @@ bb dump --dsn mysql://root:passwd@localhost:3306/bytebase_test_todo --schema-onl
 
 You should see there is a table named "author":
 
-![the table named "author"](/blog/introducing-bb-bytebase-cli-to-manage-database-operations/bb-before-change.webp)
+![the table named "author"](/content/blog/introducing-bb-bytebase-cli-to-manage-database-operations/bb-before-change.webp)
 
 Then, add a column named "phone_no" into the table "author" with the following `migrate` command:
 
@@ -74,6 +74,6 @@ Finally, verify database schema with the following `dump` command:
 bb dump --dsn mysql://root:passwd@localhost:3306/bytebase_test_todo --schema-only
 ```
 
-![The schema of the table is changed](/blog/introducing-bb-bytebase-cli-to-manage-database-operations/bb-after-change.webp)
+![The schema of the table is changed](/content/blog/introducing-bb-bytebase-cli-to-manage-database-operations/bb-after-change.webp)
 
 Please try it out, head over to [the documentation](/docs/cli/overview) to learn more, let us know how we can [improve it](https://github.com/bytebase/bytebase/issues).

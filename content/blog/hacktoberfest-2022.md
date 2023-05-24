@@ -2,7 +2,7 @@
 title: Hacktoberfest 2022 with Bytebase
 author: Mila
 published_at: 2022/09/29 15:15
-feature_image: /blog/hacktoberfest-2022/bytebase-hacktoberfest-2022.webp
+feature_image: /content/blog/hacktoberfest-2022/bytebase-hacktoberfest-2022.webp
 tags: Announcement
 description: Bytebase is participating in Hacktoberfest 2022! Join the month long celebration of open source with us.
 ---

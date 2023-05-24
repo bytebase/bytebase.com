@@ -2,7 +2,7 @@
 title: The SQL Review Tool for Developers
 author: Changyu
 published_at: 2022/10/28 18:00
-feature_image: /blog/sql-review-tool-for-devs/dev-fighting-dba.webp
+feature_image: /content/blog/sql-review-tool-for-devs/dev-fighting-dba.webp
 tags: Industry
 featured: true
 description: Reviewing SQL can be somewhat tedious, yet is essential to keep your database fleet reliable. At Bytebase, we are building a developer-first SQL review tool to empower the DevOps system.
@@ -12,11 +12,11 @@ Treat SQL as code ("[Why](https://blog.devgenius.io/why-google-treats-sql-like-c
 
 Here’s where SQL review comes in. It is the practice of reviewing DDL and DML statements before applying them to the database. It is one of the most critical aspects of database schema management. In the past, DBAs were in charge of the database. They know the database best, and thus should be the ones reviewing the SQL. This is reasonable, but there is a contradiction: developers (database users) cannot understand the many restrictions and want the most freedom. At the same time, DBAs insist that stability triumphs over everything.
 
-![_](/blog/sql-review-tool-for-devs/dev-fighting-dba.webp)
+![_](/content/blog/sql-review-tool-for-devs/dev-fighting-dba.webp)
 
 With the proliferation of DevOps, the R&D process is also evolving, and many traditional "Ops" tasks are gradually integrated into the "Dev" team. Some organizations have even built "Platform Engineering" teams dedicated to providing tools and platforms for development teams, and the development teams themselves can do the Ops work.
 
-![_](/blog/sql-review-tool-for-devs/devops-view.webp)
+![_](/content/blog/sql-review-tool-for-devs/devops-view.webp)
 
 From the tooling’s point of view, what can be done to help the development teams complete the DevOps lifecycle? For example, how should the review process evolve? How to make it developer-friendly? Let’s break it down into the following six parts.
 

@@ -23,7 +23,7 @@ Visit Bytebase member management page (Click **Settings** on the navigation bar,
 
 Name your service account, and grant the **Owner** or **DBA** role to it.
 
-![create-service-account](/docs/get-started/work-with-terraform/create-service-account.webp)
+![create-service-account](/content/docs/get-started/work-with-terraform/create-service-account.webp)
 
 After creation, you can copy the service key as `service_key` and the email as `service_account` to initialize the Bytbase provider in next step.
 
@@ -33,7 +33,7 @@ You can only copy the key right after creating the service account. The key will
 
 </HintBlock>
 
-![service-account](/docs/get-started/work-with-terraform/service-account.webp)
+![service-account](/content/docs/get-started/work-with-terraform/service-account.webp)
 
 ## Configure Bytebase Terraform Provider
 

@@ -2,7 +2,7 @@
 title: What is Database Change Management (DCM)?
 author: Tianzhou
 published_at: 2022/12/09 09:00:00
-feature_image: /blog/what-is-database-change-management/change-path.webp
+feature_image: /content/blog/what-is-database-change-management/change-path.webp
 tags: Explanation
 featured: true
 description: What is Database Change Management (DCM), the challenges and solution.
@@ -60,7 +60,7 @@ challenges include:
   especially in large organizations where multiple teams and different applications may be making
   changes to the database at the same time.
 
-  ![_](/blog/what-is-database-change-management/common-situation.webp)
+  ![_](/content/blog/what-is-database-change-management/common-situation.webp)
 
 - **Avoiding errors and inconsistencies in the database.** Changes to the database can have
   unintended consequences, such as introducing errors or inconsistencies into the data. This can be
@@ -85,18 +85,18 @@ years. Among them, Bytebase stands out in several ways:
    control all [Human to Database](/blog/how-to-manage-database-access-control#human-to-database)
    access points in a single place.
 
-![_](/blog/what-is-database-change-management/ideal-situation.webp)
+![_](/content/blog/what-is-database-change-management/ideal-situation.webp)
 
 2. Embrace the latest industry methdology and trends. Bytebase brings DevOps into Database, has
    designed a `Project` model to separate the infrastructure from the application development.
 
-![](/blog/what-is-database-change-management/project.webp)
+![](/content/blog/what-is-database-change-management/project.webp)
 
 3. Use the state-of-the-art tech stack. Bytebase is built with the modern tech stack for the cloud
    era. Bytebase is the [only Database CI/CD solution acknowledged by CNCF](https://landscape.cncf.io/?selected=bytebase)
    and is gaining momentum among other incumbents.
 
-![bytebase-vs-liquibase-vs-flyway](/blog/what-is-database-change-management/star-history.webp)
+![bytebase-vs-liquibase-vs-flyway](/content/blog/what-is-database-change-management/star-history.webp)
 
 Learn more 👀 👇
 

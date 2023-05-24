@@ -2,7 +2,7 @@
 title: Bytebase 2.0 - the GitLab for Database DevOps
 author: Tianzhou
 published_at: 2023/05/11 11:00:00
-feature_image: /blog/bytebase-2-0/bytebase-database-devops-cover.jpg
+feature_image: /content/blog/bytebase-2-0/bytebase-database-devops-cover.jpg
 tags: Announcement
 featured: true
 description: Pioneering Database Change Management and bring the GitLab/GitHub experience to database development
@@ -13,14 +13,14 @@ One is dealing with databases, mundane yet requiring care—or you'll get a dari
 ago, we created Bytebase to address this, [open-sourcing it on GitHub](https://github.com/bytebase/bytebase).
 Compared to incumbents, Bytebase's growth outpaces theirs.
 
-![star-history](/blog/bytebase-2-0/star-history.webp)
+![star-history](/content/blog/bytebase-2-0/star-history.webp)
 
 A year ago, we monetized Bytebase 1.0, welcoming global customers across industries. Today marks another
 milestone: **Bytebase 2.0**.
 
 ## One to Twelve
 
-![supported-database](/blog/bytebase-2-0/supported-database.webp)
+![supported-database](/content/blog/bytebase-2-0/supported-database.webp)
 
 Bytebase initially supported MySQL. Bytebase 2.0 now supports twelve:
 
@@ -40,7 +40,7 @@ rivals on-premise, we release Bytebase Cloud as an additional option. Bytebase C
 self-hosted version without user infrastructure management. To quickly experience Bytebase, sign up
 for our [free cloud plan](https://hub.bytebase.com/workspace) and follow the quickstart guide.
 
-![quickstart](/blog/bytebase-2-0/quick-start.webp)
+![quickstart](/content/blog/bytebase-2-0/quick-start.webp)
 
 ## Pioneering Database Change Management (DCM)
 
@@ -56,7 +56,7 @@ Bytebase is establishing best practices for conducting database changes with its
 - Terraform like stated-based database schema migration.
 - Risk-centric, holistic view to manage database operations and custom approval flow.
 
-![risk-center](/blog/bytebase-2-0/risk-center.webp)
+![risk-center](/content/blog/bytebase-2-0/risk-center.webp)
 
 ## Enterprise-Ready
 
@@ -77,16 +77,16 @@ data change and access control out of the box.
 Bytebase incorporates recent AI breakthroughs into the product. You can already use natural language
 to query the database from the Bytebase SQL Editor.
 
-![chat-to-sql](/blog/bytebase-2-0/chat-to-sql.webp)
+![chat-to-sql](/content/blog/bytebase-2-0/chat-to-sql.webp)
 
 Bytebase 2.0 adds a new AI capability: to provide index advice for slow queries.
 
-![chat-to-sql](/blog/bytebase-2-0/index-advisor.webp)
+![chat-to-sql](/content/blog/bytebase-2-0/index-advisor.webp)
 
 Last month, we also announced a new product: [SQL Chat](https://sqlchat.ai), a chat-based SQL client. Use natural language
 to query your database.
 
-![sql chat](/blog/bytebase-2-0/sql-chat.webp)
+![sql chat](/content/blog/bytebase-2-0/sql-chat.webp)
 
 ## New Website and Enriched Free Plan
 
@@ -94,7 +94,7 @@ For the past several months, we have been partnered with the talented [Pixel Poi
 our marketing site. In addition to cool animations, we have completely rebuilt the site's content to
 deliver a better message to our audience.
 
-![hero-section](/blog/bytebase-2-0/hero-section.webp)
+![hero-section](/content/blog/bytebase-2-0/hero-section.webp)
 
 We want every development team, regardless of size, to adopt best practices for database change
 management. To achieve this, we make Bytebase more accessible to small and medium teams. As a
@@ -111,7 +111,7 @@ Bytebase was created to address a specific, long-standing problem: proper databa
 management. Bytebase 2.0 has evolved into a Database DevOps platform, being capable of managing the
 entire database development lifecycle: change, query, secure, govern all databases in a single place.
 
-![lifecycle](/blog/bytebase-2-0/lifecycle.webp)
+![lifecycle](/content/blog/bytebase-2-0/lifecycle.webp)
 
 Our goal has remained unchanged since incubating Bytebase two years ago, to bring the GitLab/GitHub
 experience to database development.

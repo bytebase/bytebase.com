@@ -2,7 +2,7 @@
 title: 'DBA, Database and Developer - The Decameron'
 author: Lucy
 published_at: 2022/06/08 10:18
-feature_image: /blog/dba-database-developer-decameron/roaring-dba.webp
+feature_image: /content/blog/dba-database-developer-decameron/roaring-dba.webp
 tags: Industry
 description: This is the first of the DDD series, consisting of 10 stories of DBA & Database & developer.
 ---
@@ -98,7 +98,7 @@ I'm now wondering if there is something about the role that lends itself to such
 Today these guys remind me a lot of JK Simmons character in "Whiplash"
 
 The screen displays an image this time:
-![roaring-dba](/blog/dba-database-developer-decameron/roaring-dba.webp)
+![roaring-dba](/content/blog/dba-database-developer-decameron/roaring-dba.webp)
 
 **The DBAs among these 10 people have been humble audiences for 5 days. This picture becomes the last straw to break their nerves. They decided to take the lead now.**
 

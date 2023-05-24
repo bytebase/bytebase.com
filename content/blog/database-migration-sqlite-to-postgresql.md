@@ -2,7 +2,7 @@
 title: 'Database Migration: SQLite to PostgreSQL'
 author: Danny
 published_at: 2022/04/15 06:37:17
-feature_image: /blog/database-migration-sqlite-to-postgresql/migration.webp
+feature_image: /content/blog/database-migration-sqlite-to-postgresql/migration.webp
 tags: Engineering
 description: This article describes the story of Bytebase migrating its storage from SQLite to PostgreSQL and the challenges on the way.
 ---
@@ -184,7 +184,7 @@ WHERE age > $1 AND city =$2;
 
 Mission completed! Real word navigation has a different feeling. After spending a couple of days in a hotel room, I decided to hang out with friends and visit some popular shops in Downtown Shanghai together. Yup, we got lost on the street constantly without having a written-down plan.
 
-![_](/blog/database-migration-sqlite-to-postgresql/city-sculpture.webp)_Picture of an interesting place @ Downtown Shanghai_
+![_](/content/blog/database-migration-sqlite-to-postgresql/city-sculpture.webp)_Picture of an interesting place @ Downtown Shanghai_
 
 ## Retrospect
 

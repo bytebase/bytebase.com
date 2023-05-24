@@ -11,7 +11,7 @@ Bytebase employs RBAC (Role-Based-Access-Control) and provides two role sets at 
 
 The workspace role maps to the role in an engineering organization, while the project level role maps to the role in a specific team or project. Every user is assigned a workspace role, and if a particular user is involved in a particular project, then she will also be assigned a project role accordingly.
 
-![org-role-mapping](/docs/rbac/org-role-mapping.webp)
+![org-role-mapping](/content/docs/rbac/org-role-mapping.webp)
 
 Above diagram describes the mapping between an engineering org and the corresponding roles in the Bytebase workspace. Note, a particular user can be assigned multiple roles as well:
 

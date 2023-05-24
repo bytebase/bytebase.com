@@ -2,7 +2,7 @@
 title: How schema sync works in Bytebase
 author: Zipeng
 published_at: 2022/11/27 15:40:00
-feature_image: /blog/how-schema-sync-work/feature.webp
+feature_image: /content/blog/how-schema-sync-work/feature.webp
 tags: Engineering
 description: Technical details about how Bytebase implements schema synchronization for MySQL.
 ---
@@ -15,7 +15,7 @@ Schema synchronization can calculate the difference between two database schemas
 
 Bytebase has supported MySQL schema synchronization since v1.8.0. Below is the workflow.
 
-![schema-diff-data-flow](/blog/how-schema-sync-work/schema-diff-data-flow.webp)
+![schema-diff-data-flow](/content/blog/how-schema-sync-work/schema-diff-data-flow.webp)
 
 ## Schema Diff Engine
 
@@ -23,13 +23,13 @@ Bytebase has supported MySQL schema synchronization since v1.8.0. Below is the w
 
 Bytebase first dumps the database schema and converts them into [abstract syntax tree (AST)](https://en.m.wikipedia.org/wiki/Abstract_syntax_tree) via the parser.
 
-![SQL-AST](/blog/how-schema-sync-work/sql-ast.webp)
+![SQL-AST](/content/blog/how-schema-sync-work/sql-ast.webp)
 
 ### Diff on SQL AST
 
 Bytebase then walks through the ASTs for both database schemas and compares two corresponding entities (which may not exist) from ASTs. The following chart shows a simple example:
 
-![diff-on-sql-ast](/blog/how-schema-sync-work/diff-on-sql-ast.webp)
+![diff-on-sql-ast](/content/blog/how-schema-sync-work/diff-on-sql-ast.webp)
 
 ### Handle Dependencies
 

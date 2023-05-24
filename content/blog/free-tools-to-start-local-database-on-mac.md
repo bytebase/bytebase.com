@@ -2,7 +2,7 @@
 title: Free Tools to Start a Local Database Instance on Mac
 author: Mila
 published_at: 2023/04/24 21:21:21
-feature_image: /blog/local-db/local-db-cover.jpg
+feature_image: /content/blog/local-db/local-db-cover.jpg
 tags: Industry
 featured: true
 description: To manually spin up several different kinds (and versions) of database instances for testing can be gruesome. Here are some free tools to help you start a local database instance on Mac.
@@ -18,17 +18,17 @@ Some background info: I'm not a dev (am a developer-marketer, I would test/try o
 
 [DBngin](https://dbngin.com/) currently supports PostgreSQL, MySQL and Redis. And it supports certain different versions of the same database, and can also run multiple versions of database instances on multiple ports at the same time, very convenient for testing!
 
-![dbngin-ui](/blog/local-db/dbngin-ui.webp)
+![dbngin-ui](/content/blog/local-db/dbngin-ui.webp)
 
 DBngin is [open source](https://github.com/TablePlus/DBngin), and they belong to the organization TablePlus (database GUI tool), which means DBngin can be connected to TablePlus, and you can visually manage your local databases.
 
-![dbngin-free](/blog/local-db/dbngin-free.webp)
+![dbngin-free](/content/blog/local-db/dbngin-free.webp)
 
 ## Postgres.app
 
 [Postgres.app](https://postgresapp.com/), as the name (and logo) implies, only supports Postgres.
 
-![postgresapp-db](/blog/local-db/postgresapp-db.webp)
+![postgresapp-db](/content/blog/local-db/postgresapp-db.webp)
 
 It's actually a complete PostgreSQL installer that packages Postgres into a standard Mac app, and it's perfectly fine if you don't know how to use the command line, because there's a super simple UI. So if you want to run PostgreSQL on your Mac, this is the one.
 
@@ -38,7 +38,7 @@ Postgres.app is also [open source](https://github.com/PostgresApp/PostgresApp) w
 
 [StackBricks](https://stackbricks.app/) supports MariaDB (points for being the only tool in this round-up that supports MariaDB!), MySQL, PostgreSQL and Redis, and a wide range of their versions, as well as the ability to start multiple local databases on multiple ports.
 
-![stackbricks](/blog/local-db/stackbricks.webp)
+![stackbricks](/content/blog/local-db/stackbricks.webp)
 
 StackBricks is not open source (but still free to use), but there is [an Issue Tracker](https://github.com/tpetry/stackbricks-community) for your feature requests.
 

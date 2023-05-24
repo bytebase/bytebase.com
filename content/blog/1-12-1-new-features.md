@@ -2,26 +2,26 @@
 title: 'Bytebase 1.12.1 Deep Dive'
 author: Tianzhou
 published_at: 2023/02/21 13:21:21
-feature_image: /blog/1-12-1-new-features/1-12-1-banner.webp
+feature_image: /content/blog/1-12-1-new-features/1-12-1-banner.webp
 tags: Explanation
 description: The second release of the 🐰  year, the version number was upgraded from 1.12.0 to 1.12.1, and although it was a minor upgrade (since no schema changes were involved), it still included 230 code commits
 ---
 
 The second release of the 🐰 year, the version number was upgraded from 1.12.0 to 1.12.1, and although it was a minor upgrade (since no schema changes were involved), it still included 230 code commits, so let's see what new features were included 👇
 
-![commits](/blog/1-12-1-new-features/commits.webp)
+![commits](/content/blog/1-12-1-new-features/commits.webp)
 
 ## Single Sign-On (SSO)
 
 Bytebase now supports Single Sign-On (SSO). As a hindsight, it was a bit late to add this feature. We released a preview version in the last release, and our customers can’t wait to try it out. Anyway, better late than never.
 
-![SSO](/blog/1-12-1-new-features/SSO.webp)
+![SSO](/content/blog/1-12-1-new-features/SSO.webp)
 
 ## Google Cloud Spanner
 
 We also extend our database engine support to include Google Cloud Spanner. AFAIK, Bytebase is the only database change management tool on the market that supports Spanner.
 
-![gcp](/blog/1-12-1-new-features/gcp.webp)
+![gcp](/content/blog/1-12-1-new-features/gcp.webp)
 
 ## Onboarding Guide
 
@@ -36,5 +36,5 @@ Well, that's it for this update, there are a lot of UX optimizations in this ver
 
 In addition, we also announced technical partnership with [GitHub](/blog/bytebase-github-technology-partner) and [PingCAP](/blog/streamline-database-change-management-for-tidb-cloud-with-bytebase) during this release cycle, and will continue to build product integrations with more talented peers in the industry.
 
-![gh-bb](/blog/1-12-1-new-features/gh-bb.webp)
-![pingcap-bb](/blog/1-12-1-new-features/pingcap-bb.webp)
+![gh-bb](/content/blog/1-12-1-new-features/gh-bb.webp)
+![pingcap-bb](/content/blog/1-12-1-new-features/pingcap-bb.webp)

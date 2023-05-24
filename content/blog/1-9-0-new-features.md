@@ -2,14 +2,14 @@
 title: 'Bytebase 1.9.0 Deep Dive'
 author: Tianzhou
 published_at: 2022/12/6 21:21:21
-feature_image: /blog/1-9-0-new-features/1-9-0-new-features-banner.webp
+feature_image: /content/blog/1-9-0-new-features/1-9-0-new-features-banner.webp
 tags: Explanation
 description: Last week, we released Bytebase 1.9.0. Let's take a deeper look into the new features - Sync Schema for PostgreSQL, SQL Editor Admin Mode, and External Approval via Feishu.
 ---
 
 [This release](/changelog/bytebase-1-9-0) brings Bytebase back to its regular schedule: once every two weeks. The version is upgraded from 1.8.0 to 1.9.0, the MINOR version upgrade also means that we have evolved Bytebase's schema again. With a total of 205 commits, let's check out what's new. 👇
 
-![_](/blog/1-9-0-new-features/1-9-0-commits.webp)
+![_](/content/blog/1-9-0-new-features/1-9-0-commits.webp)
 
 ## Bytebase Terraform Provider
 
@@ -17,11 +17,11 @@ First up is the [Bytebase Terraform Provider](https://registry.terraform.io/prov
 
 GitHub’s [Octoverse 2022](https://octoverse.github.com/) mentioned that HCL is the fastest-growing language on GitHub, and HCL corresponds to the popularity of Terraform.
 
-![_](/blog/1-9-0-new-features/octoverse-2022.webp)
+![_](/content/blog/1-9-0-new-features/octoverse-2022.webp)
 
 Whether you're a public cloud powerhouse or a SaaS newcomer, developing a Terraform Provider for your service has become a standard. As part of the toolset to manage your infra, Bytebase has received requests from users who wish to use Terraform to manage Bytebase resources.
 
-![_](/blog/1-9-0-new-features/bytebase-terraform-provider.webp)
+![_](/content/blog/1-9-0-new-features/bytebase-terraform-provider.webp)
 
 We present the first preview to manage your Bytebase **Environment** and **Database Instance**. Terraform and Bytebase are a natural pair, as Terraform provisions the database environment and then passes the information to the Bytebase Terraform Provider. A few HCL files are all it takes to automate the entire database development environment setup.
 
@@ -35,7 +35,7 @@ We are confident that Bytebase's schema sync for PostgreSQL solution is the best
 
 There is a lot more that a good parser can do. We have invested a lot of R&D work upfront and now we start to receive dividends to implement features like schema synchronization elegantly.
 
-![_](/blog/1-9-0-new-features/pg-schema-sync.webp)
+![_](/content/blog/1-9-0-new-features/pg-schema-sync.webp)
 
 ## Data Anonymization
 
@@ -51,7 +51,7 @@ When auditors arrive at a company for an IT data audit and see that they're usin
 
 Auditors, wait for it.
 
-![_](/blog/1-9-0-new-features/data-masking.webp)
+![_](/content/blog/1-9-0-new-features/data-masking.webp)
 
 ## SQL Editor Admin Mode
 
@@ -61,7 +61,7 @@ The last release introduced Admin mode, which allows DBAs to execute admin comma
 
 A picture is worth a thousand words. I'll bet $1,000 that of the 4 features introduced today, this must be DBAs’ favorite.
 
-![_](/blog/1-9-0-new-features/sql-editor-admin-mode.webp)
+![_](/content/blog/1-9-0-new-features/sql-editor-admin-mode.webp)
 
 ## Summary
 

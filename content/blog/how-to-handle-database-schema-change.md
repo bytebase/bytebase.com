@@ -2,7 +2,7 @@
 title: How to Handle Database Schema Change?
 author: Tianzhou
 published_at: 2022/12/05 18:00:00
-feature_image: /blog/how-to-handle-database-schema-change/change.webp
+feature_image: /content/blog/how-to-handle-database-schema-change/change.webp
 tags: Explanation
 description: The common mistakes when making schema changes and the best practice to avoid those pitfalls.
 ---

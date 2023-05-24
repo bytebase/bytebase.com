@@ -16,7 +16,7 @@ For example, **[Slack](https://slack.com/)**.
 
 Read [Project Webhook](/docs/administration/webhook-integration/project-webhook) in detail.
 
-![Post to a slack channel](/docs/webhook-slash-example.png)
+![Post to a slack channel](/content/docs/webhook-slash-example.png)
 
 ## Database webhook
 
@@ -24,7 +24,7 @@ User can configure database-level webhooks to let Bytebase post the configured w
 
 For example, **[Better Uptime Heartbeats](https://docs.betteruptime.com/monitoring/monitor-types/cron-and-heartbeat-monitor)**.
 
-![Integrate with Better Uptime Heartbeats](/docs/webhook-integrate-example.png)
+![Integrate with Better Uptime Heartbeats](/content/docs/webhook-integrate-example.png)
 
 Read [Database Webhook](/docs/administration/webhook-integration/database-webhook) in detail.
 

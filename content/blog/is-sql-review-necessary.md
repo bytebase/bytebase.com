@@ -2,7 +2,7 @@
 title: Ask Devs - Do DBAs impose strict requirements for database schema conventions at your org?
 author: Mila
 published_at: 2023/04/07 21:21:21
-feature_image: /blog/is-sql-review-necessary/banner.webp
+feature_image: /content/blog/is-sql-review-necessary/banner.webp
 tags: Industry
 featured: true
 description: Real talk, are strict requirements on database schema really necessary?
@@ -10,7 +10,7 @@ description: Real talk, are strict requirements on database schema really necess
 
 💡 This article is a compilation of this discussion on Reddit: [Do DBAs impose strict requirements for database schema conventions at your org?](https://www.reddit.com/r/ExperiencedDevs/comments/xcswje/do_dbas_impose_strict_requirements_for_database/)
 
-![_](/blog/is-sql-review-necessary/reddit.webp)
+![_](/content/blog/is-sql-review-necessary/reddit.webp)
 
 ## Background Info
 

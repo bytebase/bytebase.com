@@ -2,7 +2,7 @@
 title: 'VCS Integrated Database CI/CD Workflow Best Practice'
 author: Changyu
 published_at: 2022/12/21 19:21:21
-feature_image: /blog/database-cicd-best-practice/database-cicd-best-practice-banner.webp
+feature_image: /content/blog/database-cicd-best-practice/database-cicd-best-practice-banner.webp
 tags: How-To
 description: If we can develop a complete Database CI/CD workflow, and break the wall between developers and DBAs, will it improve release efficiency?
 ---
@@ -21,7 +21,7 @@ They may not sound so bad if you only need to manage one or two databases, but w
 
 All inefficient collaboration can be backtracked to fragmented processes and unshared information, if we can develop [a complete Database CI/CD workflow](/docs/tutorials/intermediate/database-cicd-best-practice-with-github), and break the wall between developers and DBAs, will it improve efficiency?
 
-![](/blog/database-cicd-best-practice/complete-cicd-workflow.webp)
+![](/content/blog/database-cicd-best-practice/complete-cicd-workflow.webp)
 
 In this article, we will cut through the lens of developer workflow and explore how to design a pragmatic VCS integration solution.
 
@@ -43,7 +43,7 @@ With a defined iteration process, it is natural to derive different ways of data
 2. The development teams are fully autonomous. This is usually because there is no DBA (or platform engineering) in the organization. The management boundary is drawn between different development teams, and each project team is only responsible for its own database.
 3. The DBA is in charge of database-related work, but the devs are more deeply involved. Some critical work still belongs to the DBA, while some work is assigned to the development teams, and also divided by project.
 
-![](/blog/database-cicd-best-practice/database-management.webp)
+![](/content/blog/database-cicd-best-practice/database-management.webp)
 
 In an organization aiming at Database DevOps, the development team should be encouraged to participate more in the database change work, while the DBA should work with infra and SRE teams to develop a database management framework. This includes tools selection, review policy development, and automated CI/CD process implementation to improve overall efficiency by empowering the devs instead of dealing with mundane work alone. After all, for most organizations, a single DBA often faces hundreds of devs. With this goal in mind, we recommend the third model in which the DBA (or underlying platform engineering team) works with the development team to build the database management framework and allows the development team to have controlled access to the database.
 
@@ -68,7 +68,7 @@ For organizations using decentralized iteration, most of the time, each database
 
 For organizations with centralized iterations, since each batch of changes may involve multiple applications and these scripts are interrelated and affect each other, it’s better to store change scripts grouped by batch in VCS rather than by application, which means that each batch directory contains change scripts for multiple databases. For easy management, it is recommended to group scripts by environment or database name. In Bytebase, it is recommended to group the scripts by application to manage database review access.
 
-![](/blog/database-cicd-best-practice/script-change-management.webp)
+![](/content/blog/database-cicd-best-practice/script-change-management.webp)
 
 ### Have the devs perform SQL review: the shift-left approach
 
@@ -86,7 +86,7 @@ To avoid complex SQL blocking your release, the shift-left approach should be in
 
 Bytebase has ~100 standard built-in SQL Lint and supports configuring review rules that incorporate your business needs. You can choose one of the following [rule level](/docs/sql-review/review-policy/create-schema-review-policy#change-rule-level)s: `Error`, `Warning` or `Disabled`. When the rule is `Disabled`, it will not take effect. To better implement the rules, it is highly recommended that the DBA and the dev teams agree on the SQL review rules, and rule levels and decide which rules should be enabled at which stage. In prod, an application often includes multiple environments: from dev, testing, staging to prod. To balance efficiency and security, different review policies should be used at different stages. Still, it is recommended that SQL scripts should be included in VCS management from the testing environment. An example of a strategy:
 
-![](/blog/database-cicd-best-practice/strategy.webp)
+![](/content/blog/database-cicd-best-practice/strategy.webp)
 
 - When creating your scripts, the SQL statements are pre-checked by Bytebase's [VCS-integrated review capabilities](/docs/tutorials/intermediate/github-database-cicd-part-1-sql-review-github-actions) to help identify violations.
 - During the execution phase, Bytebase will initiate a secondary check. The closer you get to prod, the tougher the rules.
@@ -109,11 +109,11 @@ In this directory structure,
 
 **If you manage scripts by application project**, the script categorization structure in VCS corresponds to the database categorization structure in Bytebase, and each Project in Bytebase monitors only the script changes in the directory corresponding to its own.
 
-![](/blog/database-cicd-best-practice/script-by-project.webp)
+![](/content/blog/database-cicd-best-practice/script-by-project.webp)
 
 **If you manage scripts by change batch**, the change scripts in each change in VCS have a one-to-many relationship with the database sorting structure in Bytebase, but each change script can still be precisely matched to the specified database by setting the placeholders appropriately.
 
-![](/blog/database-cicd-best-practice/script-by-change-batch.webp)
+![](/content/blog/database-cicd-best-practice/script-by-change-batch.webp)
 
 ## Finalize configuration in the Bytebase Console
 
@@ -123,14 +123,14 @@ This process can be divided into three main tasks:
 
 1. **[Create a Project](/docs/get-started/work-with-a-project/create-a-project).** Divide the databases into groups according to defined database management boundaries, and assigning them to different projects, with the development team's management boundaries defined by the project and the DBA/Ops/Platform teams having global access.
 
-   ![](/blog/database-cicd-best-practice/create-project.webp)
+   ![](/content/blog/database-cicd-best-practice/create-project.webp)
 
 2. **[Create Schema review policy](/docs/sql-review/review-policy/create-schema-review-policy).** Set up review policy for each environment, taking into account the specific policy and rule levels agreed upon with the development teams.
 
-   ![](/blog/database-cicd-best-practice/schema-review.webp)
+   ![](/content/blog/database-cicd-best-practice/schema-review.webp)
 
 3. **[Set up GitOps](/docs/vcs-integration/overview)**. Configure the GitOps workflow in a given project to monitor changes in the VCS and automatically kick start the review process.
 
-   ![](/blog/database-cicd-best-practice/gitops.webp)
+   ![](/content/blog/database-cicd-best-practice/gitops.webp)
 
 For a more detailed implementation, please refer to [How to Setup Database CI/CD with GitHub](/docs/tutorials/intermediate/github-database-cicd-part-2-github-database-gitops).

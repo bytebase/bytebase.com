@@ -10,12 +10,12 @@ If you have enabled automatic backup for a database, Bytebase will automatically
 
 If you have not enabled automatic backup for the database, click the "Enable backup" button. Otherwise, click the "Edit" button.
 
-![enable-backup](/docs/disaster-recovery/retention-policy/retention-policy-step-1.webp)
+![enable-backup](/content/docs/disaster-recovery/retention-policy/retention-policy-step-1.webp)
 
 ### Step 2 - Set retention period
 
 Set the days you want to preserve the backup. Bytebase will automatically delete the expired backups after the configured retention period.
 
-<img alt="set-retention-period" src="/docs/disaster-recovery/retention-policy/retention-policy-step-2.webp" style={{ maxWidth: 540 }} />
+<img alt="set-retention-period" src="/content/docs/disaster-recovery/retention-policy/retention-policy-step-2.webp" style={{ maxWidth: 540 }} />
 
 Now you have successfully configured the backup retention policy.

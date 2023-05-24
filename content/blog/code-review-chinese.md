@@ -2,7 +2,7 @@
 title: 令人头大的代码审核
 author: Lucy
 published_at: 2022/04/13 03:22:08
-feature_image: /blog/code-review/code-review.webp
+feature_image: /content/blog/code-review/code-review.webp
 tags: Hidden, Chinese
 description: Code review best practice, 代码审核的最佳实践
 ---
@@ -20,7 +20,7 @@ _原文链接 | [https://tylercipriani.com/blog/2022/03/12/code-review-procrasti
 
 ## 代码审核是对我意志力的考验
 
-![_](/blog/code-review/code-review.webp)_对于不合理审核请求的混乱邪恶回应_
+![_](/content/blog/code-review/code-review.webp)_对于不合理审核请求的混乱邪恶回应_
 
 即使只是针对一个很小的改动，代码审核也是一个相当大的任务。如果你的补丁  (patch) 又大又难搞，那么你是在要求我拿出多到足以移山填海的意志力。
 

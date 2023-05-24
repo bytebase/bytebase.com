@@ -2,7 +2,7 @@
 title: Streamline Database Change Management for TiDB Cloud with Bytebase
 author: Changyu
 published_at: 2023/02/15 11:37:27
-feature_image: /blog/streamline-database-change-management-for-tidb-cloud-with-bytebase/feature-image.webp
+feature_image: /content/blog/streamline-database-change-management-for-tidb-cloud-with-bytebase/feature-image.webp
 tags: Announcement
 integrations: TiDB, Terraform
 featured: true
@@ -21,11 +21,11 @@ Bytebase is a DevOps tool that gives you a unified web portal to change, query, 
 
 The following is a streamlined database change management flow for TiDB Cloud with Bytebase:
 
-![dcm-flow-tidb-bytebase](/blog/streamline-database-change-management-for-tidb-cloud-with-bytebase/dcm-flow-tidb-bytebase.webp)
+![dcm-flow-tidb-bytebase](/content/blog/streamline-database-change-management-for-tidb-cloud-with-bytebase/dcm-flow-tidb-bytebase.webp)
 
 1. DBA, platform, or self-service DevOps engineers provision the database instance on TiDB Cloud.
 2. They then add the instance into Bytebase. Bytebase will then automatically synchronize all the database schema information from the instance.
-   ![add-tidb-instance](/blog/streamline-database-change-management-for-tidb-cloud-with-bytebase/add-tidb-instance.webp)
+   ![add-tidb-instance](/content/blog/streamline-database-change-management-for-tidb-cloud-with-bytebase/add-tidb-instance.webp)
 
 3. Each database is transferred to the specific Bytebase project owned by the application team. At this point, the database joins the software development lifecycle (SDLC) and is ready to be used by application developers. This way, application development teams can collaborate and be involved in database change management.
 
@@ -33,7 +33,7 @@ The following is a streamlined database change management flow for TiDB Cloud wi
 
 Terraform is an Infrastructure-as-Code tool that defines and configures infra resources in a repeatable and predictable manner. This reduces human error, especially for large-scale infra management. Since both TiDB Cloud and Bytebase are verified Terraform providers, the workflow described above can be more streamlined with code (GitOps).
 
-![terraform-workflow](/blog/streamline-database-change-management-for-tidb-cloud-with-bytebase/terraform-workflow.webp)
+![terraform-workflow](/content/blog/streamline-database-change-management-for-tidb-cloud-with-bytebase/terraform-workflow.webp)
 
 1. Provision and configure TiDB Cloud instances with TiDB Cloud Terraform Provider. For more details, see [TiDB Cloud Terraform Integration Overview](https://docs.pingcap.com/tidbcloud/terraform-tidbcloud-provider-overview).
 

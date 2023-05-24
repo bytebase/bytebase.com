@@ -17,12 +17,12 @@ Bytebase supports both **Alter Schema** (DDL) and **Change Data** (DML). This do
 1. Go to the project page you created, click **Alter Schema**, and you will see an **Alter Schema** dialog box.
 2. Choose **Alter multiple databases**, it will display databases for each environment and the **Issue** will compose them into a **Pipeline** later. Here if you choose **Alter single database**, then it's all about that specific database.
 
-![alter-schema](/docs/get-started/work-with-a-project/run-a-ui-workflow/alter-schema.webp)
+![alter-schema](/content/docs/get-started/work-with-a-project/run-a-ui-workflow/alter-schema.webp)
 
 3. Click **Next**, choose **Normal migration**, and click **Next**, you will be redirected to the new issue page.
 4. Fill in the SQL query in the **SQL** box, put someone as **Assignee**, and click **Create**. Checks will run automatically. If any of the checks fail, you will need to fix the error and click **Retry**. If all checks pass, you can move on.
 
-![issue-form](/docs/get-started/work-with-a-project/run-a-ui-workflow/issue-form.webp)
+![issue-form](/content/docs/get-started/work-with-a-project/run-a-ui-workflow/issue-form.webp)
 
 ## Step 2 - Approve an issue
 
@@ -32,7 +32,7 @@ Only the **Assignee** or the **Project Owner** can approve an issue that require
 - The SQL will run, if it’s successful, it will display **Done** up there.
 - After SQL runs successfully for each environment in the pipeline is created, click **Resolve issue**, and the **Issue** is **Done**.
 
-![done](/docs/get-started/work-with-a-project/run-a-ui-workflow/done.webp)
+![done](/content/docs/get-started/work-with-a-project/run-a-ui-workflow/done.webp)
 
 ## Summary
 

@@ -2,7 +2,7 @@
 title: 20-Person Start-Up, 30+ SaaS Services, and $1,183 Monthly Bill
 author: Tianzhou
 published_at: 2022/7/26 17:00:00
-feature_image: /blog/30saas-services-behind-startup/30saas-services-behind-startup.webp
+feature_image: /content/blog/30saas-services-behind-startup/30saas-services-behind-startup.webp
 tags: Industry
 description: A breakdown of the 30+ SaaS services that we use daily at Bytebase, a 20-person 18-month tech startup, and how much they cost us monthly.
 ---
@@ -75,15 +75,15 @@ GitHub has a search function, but it’s far from satisfactory. So we use Sourec
 
 From our GitHub project page, we provide a 1-click button allowing users to deploy Bytebase on Gitpod.
 
-![_](/blog/30saas-services-behind-startup/bytebase-on-gitpod.webp)
+![_](/content/blog/30saas-services-behind-startup/bytebase-on-gitpod.webp)
 
 ### [Excalidraw](https://excalidraw.com/)
 
 Excalidraw is a virtual whiteboard tool with a hand-drawn feel. We use it to sketch wireframes, architecture diagrams, or feature explanation diagrams.
 
-![_](/blog/30saas-services-behind-startup/excalidraw-bytebase-console.webp)
+![_](/content/blog/30saas-services-behind-startup/excalidraw-bytebase-console.webp)
 
-![_](/blog/30saas-services-behind-startup/excalidraw-bytebase-architecture.webp)
+![_](/content/blog/30saas-services-behind-startup/excalidraw-bytebase-architecture.webp)
 
 ### [Figma](https://figma.com)
 
@@ -93,7 +93,7 @@ Figma manages our design materials.
 
 Better Uptime monitors our website in real-time and sends an alarm in case of any anomalies. It also provides a service status dashboard. See our status on [status.bytebase.com](https://status.bytebase.com).
 
-![_](/blog/30saas-services-behind-startup/website-status.webp)
+![_](/content/blog/30saas-services-behind-startup/website-status.webp)
 
 ### [Auth0](https://auth0.com)
 
@@ -126,7 +126,7 @@ We collect anonymous data for our products and website, which are sent to Segmen
 
 We use Metabase to build a dashboard for internal data visualization. The data is collected through Segment and saved in the PostgreSQL database on Render.
 
-![_](/blog/30saas-services-behind-startup/metabase.webp)
+![_](/content/blog/30saas-services-behind-startup/metabase.webp)
 
 ### [Paddle](https://Paddle.com)
 
@@ -140,7 +140,7 @@ We use Retool to build a list for displaying registered users, with which our te
 
 It is used to search for content on our [docs site](/docs/introduction/what-is-bytebase).
 
-![_](/blog/30saas-services-behind-startup/algolia-search.webp)
+![_](/content/blog/30saas-services-behind-startup/algolia-search.webp)
 
 ## Marketing
 
@@ -148,7 +148,7 @@ It is used to search for content on our [docs site](/docs/introduction/what-is-b
 
 Some users may contact us through the small bubble in the lower right corner of the official website.
 
-![_](/blog/30saas-services-behind-startup/intercom-bot.webp)
+![_](/content/blog/30saas-services-behind-startup/intercom-bot.webp)
 
 ### [Mailchimp](https://mailchimp.com)
 
@@ -200,19 +200,19 @@ We purchased Grammarly Business Edition to assist in English writing.
 
 From Google's go/ to the famous Stripe's o/, shortcut service is regarded as a must for Silicon Valley companies. Bytebase uses many SaaS services and creates many internal documents, which makes it difficult to remember all kinds of links. However, OSlash can convert these page links into more memorable ones. We also made an internal document on Lark noting all our shortcuts, which opens by o/link.
 
-![_](/blog/30saas-services-behind-startup/oslash.webp)
+![_](/content/blog/30saas-services-behind-startup/oslash.webp)
 
 ### [Causal](https://causal.app)
 
 Casual is used for financial model analysis. An intuitive model of financial reports is built after filling in the financial figures and making a few simple drag-and-drop operations, which is much easier to learn than Excel.
 
-![_](/blog/30saas-services-behind-startup/casual-dashboard.webp)
+![_](/content/blog/30saas-services-behind-startup/casual-dashboard.webp)
 
 ### [Pulley](https://Pulley.com)
 
 Pulley is used to manage the company's equity. It helps us track the company's cap table, issue and manage employee equities.
 
-![_](/blog/30saas-services-behind-startup/pulley.webp)
+![_](/content/blog/30saas-services-behind-startup/pulley.webp)
 
 ## Monthly Spending
 

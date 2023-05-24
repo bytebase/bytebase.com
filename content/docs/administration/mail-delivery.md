@@ -9,7 +9,7 @@ Bytebase uses an SMTP server of your choosing to send emails for slow query week
 To use Amazon SES with Bytebase, first [follow these steps to creating and verifying identities](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html). Then, use [AWS Access Management(IAM)](https://aws.amazon.com/iam/) to create an SMTP credential.
 Once you have an SMTP account, simply navigate to `Setting->Integrations->Mail Delivery` and fill in the configuration likes below:
 
-![_](/docs/administration/mail-delivery/aws-mail-delivery-example.webp)
+![_](/content/docs/administration/mail-delivery/aws-mail-delivery-example.webp)
 
 ## Configuring Bytebase to send email using another provider
 
@@ -27,4 +27,4 @@ Other providers such as Sendgrid may also be used with Bytebase. Any valid SMTP 
 
 To verify email sending is working correctly, fill in the `Send Test Email To` field and click `Send` button, Bytebase will send a test email using your SMTP configuration. If everything is correct, you will receive a mail like:
 
-![_](/docs/administration/mail-delivery/test-mail-example.webp)
+![_](/content/docs/administration/mail-delivery/test-mail-example.webp)

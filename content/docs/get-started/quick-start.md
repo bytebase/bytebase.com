@@ -70,13 +70,13 @@ Now you have three containers running in Docker:
 - A MySQL instance for the Test environment
 - A MySQL instance for the Prod environment
 
-![3-containers-in-docker](/docs/get-started/quick-start/3-containers-in-docker.webp)
+![3-containers-in-docker](/content/docs/get-started/quick-start/3-containers-in-docker.webp)
 
 Each MySQL instance has a copy of the sample dataset in it. It’s the dataset_small from [open-source database `employee`](https://github.com/bytebase/employee-sample-database-mysql).
 
 3. Open Bytebase in [localhost:5678](http://localhost:5678/), and you can see the following page in the browser.
 
-![welcome-page](/docs/get-started/quick-start/welcome-page.webp)
+![welcome-page](/content/docs/get-started/quick-start/welcome-page.webp)
 
 4. Create an admin account, and you are in the workspace.
 
@@ -92,7 +92,7 @@ Prod environment requires manual rolling out while Test environment skips that.
 
 1. Click **Instances** on the top bar.
 2. Click **Add Instance** on the instances page, and you will see **Create Instance** dialog box.
-   ![add-instance](/docs/get-started/quick-start/add-instance.webp)
+   ![add-instance](/content/docs/get-started/quick-start/add-instance.webp)
 3. Fill the fields as follows:
 
    - Choose **MySQL**
@@ -126,7 +126,7 @@ In Bytebase, **Project** is the unit to contain and manage databases. Therefore,
 2. Fill in **Project Name** with `Employee`, **Key** with the randomly generated one, and select **Mode** as Standard.
 3. The `Employee` project is created successfully and you are on its detail page.
 
-![create-a-project](/docs/get-started/quick-start/create-a-project.webp)
+![create-a-project](/content/docs/get-started/quick-start/create-a-project.webp)
 
 4. Choose **Transfer DB** to transfer in the two `Employee` databases from Test and Prod environment. They’re in the default project since they have not been transferred into any specific project yet.
 
@@ -139,7 +139,7 @@ Now you are ready to manage these two `employee` databases in your project. Your
 3. Choose **Alter multiple databases**, select **Test > employee, Prod > employee**, and click **Next**.
 4. An issue is created, and you will be navigated to the new issue page. On top of **SQL** box, You can find that the issue has a pipeline with two stages - Test and Prod. Test stage is active by default.
 
-![create-an-issue](/docs/get-started/quick-start/create-an-issue.webp)
+![create-an-issue](/content/docs/get-started/quick-start/create-an-issue.webp)
 
 5. Fill the fields as follows:
 
@@ -157,7 +157,7 @@ Now you are ready to manage these two `employee` databases in your project. Your
 1. Click **Approve** if everything is OK and the SQL will be applied to the database on Prod environment.
 2. Click **Resolve issue**, and the issue is **Done**.
 
-![issue-done](/docs/get-started/quick-start/issue-done.webp)
+![issue-done](/content/docs/get-started/quick-start/issue-done.webp)
 
 ### Step 4 - Verify the change is applied
 

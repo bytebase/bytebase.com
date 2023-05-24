@@ -86,7 +86,7 @@ the change history to `metadb2`.
 Locate the `migration_history` table in the dump file, and for each record, find the value `metadb`
 which corresponds to the `namespace` column, change each occurrence from `metadb` to `metadb2`.
 
-![change-migration-history](/docs/administration/back-up-data/change-migration-history.webp)
+![change-migration-history](/content/docs/administration/back-up-data/change-migration-history.webp)
 
 #### Step 2 - Restore metadata to `metadb2`
 
