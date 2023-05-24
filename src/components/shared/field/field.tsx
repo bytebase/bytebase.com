@@ -1,4 +1,4 @@
-import { ReactNode, Ref, forwardRef } from 'react';
+import { ReactNode, forwardRef } from 'react';
 
 import clsx from 'clsx';
 
@@ -29,7 +29,7 @@ const Field = forwardRef<any, FieldProps>(
       className = null,
       inputClassName = null,
       name,
-      borderColor = 'border-gray-80',
+      borderColor = 'border-gray-70',
       type = 'text',
       children = null,
       tag: Tag = 'input',
@@ -43,9 +43,9 @@ const Field = forwardRef<any, FieldProps>(
     <div className={clsx('relative flex flex-col items-start', className)}>
       <Tag
         className={clsx(
-          'remove-autocomplete-styles w-full appearance-none rounded border px-4 text-black transition-colors duration-200 placeholder:text-gray-70  placeholder-shown:text-gray-70 focus-within:outline-none',
-          (Tag === FIELD_TAGS.INPUT || Tag === FIELD_TAGS.SELECT) && 'h-12',
-          Tag === FIELD_TAGS.TEXTAREA && 'min-h-[128px] py-4',
+          'remove-autocomplete-styles w-full appearance-none rounded-md border px-4 text-black transition-colors duration-200 placeholder:text-gray-60 placeholder-shown:text-gray-70  focus-within:outline-none md:px-3',
+          (Tag === FIELD_TAGS.INPUT || Tag === FIELD_TAGS.SELECT) && 'h-14 md:h-12',
+          Tag === FIELD_TAGS.TEXTAREA && 'md:min-h-24 min-h-[104px] py-4',
           Tag === FIELD_TAGS.SELECT &&
             'bg-white bg-[url(/images/chevron-down.svg)] bg-[center_right_1rem] bg-no-repeat',
           error ? 'border-error' : borderColor,

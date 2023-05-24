@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Link from '@/components/shared/link';
 
 import ArrowIcon from '@/svgs/arrow.inline.svg';
+import { STATES } from '@/lib/states';
 
 const styles = {
   base: 'inline-flex items-center justify-center leading-none text-center whitespace-nowrap rounded transition-colors duration-200 outline-none',
@@ -23,21 +24,24 @@ const styles = {
 
 type ButtonProps = {
   className?: string;
-  href: string;
+  href?: string;
   size?: keyof typeof styles.size;
   theme?: keyof typeof styles.theme;
   children: React.ReactNode;
   withArrow?: boolean;
   target?: string;
   rel?: string;
+  type?: 'button' | 'submit' | 'reset';
+  state?: (typeof STATES)[keyof typeof STATES];
 };
 
 const Button = ({
   className: additionalClassName,
   size,
   theme,
-  href,
+  href = '',
   children,
+  state,
   withArrow = false,
   ...props
 }: ButtonProps) => {
@@ -46,16 +50,34 @@ const Button = ({
     size && styles.size[size],
     theme && styles.theme[theme],
     additionalClassName,
+    {
+      'pointer-events-none':
+        state === STATES.LOADING || state === STATES.SUCCESS || state === STATES.ERROR,
+    },
   );
 
   const Tag = href ? Link : 'button';
 
-  const content = (
-    <>
-      {withArrow ? <span>{children}</span> : children}
-      {withArrow && <ArrowIcon className={clsx('ml-5 w-4 shrink-0')} />}
-    </>
-  );
+  let content = null;
+
+  switch (state) {
+    case STATES.LOADING:
+      content = (
+        <span className="h-7 w-7 animate-spin rounded-full border-2 border-transparent border-b-white" />
+      );
+      break;
+    case STATES.SUCCESS:
+      content = <img className="w-7" src="/images/check-without-back.svg" alt="" aria-hidden />;
+      break;
+    case STATES.DEFAULT:
+    default:
+      content = (
+        <>
+          {withArrow ? <span>{children}</span> : children}
+          {withArrow && <ArrowIcon className={clsx('ml-5 w-4 shrink-0')} />}
+        </>
+      );
+  }
 
   return (
     <Tag className={className} href={href} {...props}>
