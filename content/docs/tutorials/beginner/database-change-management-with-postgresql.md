@@ -1,5 +1,5 @@
 ---
-title: Database Change Management with PostgreSQL
+title: 'DevOps: Database Change Management with PostgreSQL'
 author: Ningjing
 published_at: 2023/02/14 12:15
 feature_image: /docs/tutorials/beginner/database-change-management-with-postgresql/feature-image.webp
@@ -9,10 +9,10 @@ level: Beginner
 description: PostgreSQL is the world's most advanced open-source relational database management system. This tutorial will guide you step-by-step to set up database change management for PostgreSQL in Bytebase.
 ---
 
-This is a series of articles about Database Change Management with PostgreSQL.
+This is a series of articles about DevOps: Database Change Management with PostgreSQL.
 
-- Database Change Management with PostgreSQL (this one)
-- [Database Change Management with PostgreSQL and GitHub](/docs/tutorials/intermediate/database-change-management-with-postgresql-and-github/)
+- DevOps: Database Change Management with PostgreSQL (this one)
+- [DevOps: Database Change Management with PostgreSQL and GitHub](/docs/tutorials/intermediate/database-change-management-with-postgresql-and-github/)
 
 ---
 

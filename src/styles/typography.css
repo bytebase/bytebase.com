@@ -28,6 +28,11 @@
       }
     }
 
+    /* this fixes the fixed width video embeds in docs */
+    iframe {
+      @apply max-w-full;
+    }
+
     blockquote {
       @apply my-11 border-l-0 pl-0 text-36 font-semibold not-italic leading-tight tracking-tight lg:my-10 lg:text-30 lg:tracking-normal md:my-9 md:text-24 sm:my-8 sm:text-20 sm:leading-snug;
 

@@ -8,6 +8,11 @@ const Route = {
   SQL_REVIEW_GUIDE: '/sql-review-guide',
   BYTEBASE_PLUS: '/bytebase-plus',
 
+  // seo pages
+  DBA: '/usecase/dba',
+  DEVELOPER: '/usecase/developer',
+  TECHLEAD: '/usecase/techlead',
+
   // terms
   REFUND: '/refund',
   TERMS: '/terms',

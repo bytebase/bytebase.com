@@ -1,5 +1,5 @@
 ---
-title: Database Change Management with Redis
+title: 'DevOps: Database Change Management with Redis'
 author: Ningjing
 published_at: 2023/04/14 11:15
 feature_image: /docs/tutorials/beginner/database-change-management-with-redis/feature-image.webp
@@ -9,10 +9,10 @@ level: Beginner
 description: Redis is an open-source in-memory data structure store used as a database, cache, message broker, and streaming engine.This tutorial will guide you step-by-step to set up database change management for Redis in Bytebase.
 ---
 
-This is a series of articles about Database Change Management with Redis.
+This is a series of articles about DevOps: Database Change Management with Redis.
 
-- Database Change Management with Redis (this one)
-- [Database Change Management with Redis and GitHub](/docs/tutorials/intermediate/database-change-management-with-redis-and-github)
+- DevOps: Database Change Management with Redis (this one)
+- [DevOps: Database Change Management with Redis and GitHub](/docs/tutorials/intermediate/database-change-management-with-redis-and-github)
 
 ---
 

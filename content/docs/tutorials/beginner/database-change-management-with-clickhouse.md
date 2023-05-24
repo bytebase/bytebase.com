@@ -1,5 +1,5 @@
 ---
-title: Database Change Management with ClickHouse
+title: 'DevOps: Database Change Management with ClickHouse'
 author: Ningjing
 published_at: 2023/03/01 11:15
 feature_image: /docs/tutorials/beginner/database-change-management-with-clickhouse/feature-image.webp
@@ -9,10 +9,10 @@ level: Beginner
 description: ClickHouse is an open-source column-oriented DBMS for online analytical processing. This tutorial will guide you step-by-step to set up database change management for ClickHouse in Bytebase.
 ---
 
-This is a series of articles about Database Change Management with ClickHouse.
+This is a series of articles about DevOps: Database Change Management with ClickHouse.
 
-- Database Change Management with ClickHouse (this one)
-- [Database Change Management with ClickHouse and GitHub](/docs/tutorials/intermediate/database-change-management-with-clickhouse-and-github)
+- DevOps: Database Change Management with ClickHouse (this one)
+- [DevOps: Database Change Management with ClickHouse and GitHub](/docs/tutorials/intermediate/database-change-management-with-clickhouse-and-github)
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Database Change Management with Amazon Aurora and GitHub
+title: 'DevOps: Database Change Management with Amazon Aurora and GitHub'
 author: Ningjing
 published_at: 2023/03/10 16:15
 feature_image: /docs/tutorials/intermediate/database-change-management-with-amazon-aurora-and-github/feature-image.webp
@@ -9,14 +9,14 @@ level: Intermediate
 description: This tutorial will bring your Amazon Aurora schema change to the next level by introducing the GitOps workflow, where you commit schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 ---
 
-This is a series of articles about Database Change Management with Amazon Aurora, and is also applicable to Amazon Aurora Serverless.
+This is a series of articles about DevOps: Database Change Management with Amazon Aurora, and is also applicable to Amazon Aurora Serverless.
 
-- [Database Change Management with Amazon Aurora](/docs/tutorials/beginner/database-change-management-with-amazon-aurora)
-- Database Change Management with Amazon Aurora and GitHub (this one)
+- [DevOps: Database Change Management with Amazon Aurora](/docs/tutorials/beginner/database-change-management-with-amazon-aurora)
+- DevOps: Database Change Management with Amazon Aurora and GitHub (this one)
 
 ---
 
-In the last article [Database Change Management with Amazon Aurora](/docs/tutorials/beginner/database-change-management-with-amazon-aurora), you have tried **UI workflow** in Bytebase.
+In the last article [DevOps: Database Change Management with Amazon Aurora](/docs/tutorials/beginner/database-change-management-with-amazon-aurora), you have tried **UI workflow** in Bytebase.
 
 This tutorial will bring your Amazon Aurora schema change to the next level by introducing the **GitOps workflow**, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
@@ -31,7 +31,7 @@ You can use Bytebase free version to finish the tutorial.
 
 Before you start this tutorial, make sure you have the following ready:
 
-- Followed our previous UI-based change tutorial [Database Change Management with Amazon Aurora](/docs/tutorials/beginner/database-change-management-with-amazon-aurora).
+- Followed our previous UI-based change tutorial [DevOps: Database Change Management with Amazon Aurora](/docs/tutorials/beginner/database-change-management-with-amazon-aurora).
 - An Amazon Aurora MySQL instance.
 - A GitHub account.
 - A public GitHub repository, e.g  `aurora-test-bb-local`.
