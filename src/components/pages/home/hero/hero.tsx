@@ -134,9 +134,11 @@ const Hero = ({ latestVersion }: { latestVersion?: string }) => {
       <section className="col-start-1 col-end-8 row-start-1 row-end-2 3xl:col-end-9 xl:col-end-10 md:col-end-12 sm:col-auto sm:row-auto">
         <header>
           {latestVersion && (
-            <Link href={Route.CHANGELOG}>
-              <span className="inline-flex items-center gap-1 rounded-full bg-tones-purple-light p-1 text-12 font-semibold leading-none text-primary-1">
-                <span className="rounded-full bg-primary-1 px-2 py-1 text-white">What’s new?</span>
+            <Link href={Route.CHANGELOG} className="group/link">
+              <span className="inline-flex items-center gap-1 rounded-full bg-tones-purple-light p-1 text-12 font-semibold leading-none text-primary-1 transition-colors duration-200 group-hover/link:text-primary-2">
+                <span className="rounded-full bg-primary-1 px-2 py-1 text-white transition-colors duration-200 group-hover/link:bg-primary-2">
+                  What’s new?
+                </span>
                 <span className="flex items-center gap-1.5 px-2">
                   {latestVersion} Released
                   <SmallArrowIcon width={7} height={6} />

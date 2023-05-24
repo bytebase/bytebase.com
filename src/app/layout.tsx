@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           bannerUrl="/blog/bytebase-2-0/"
         />
         <div className="relative flex min-h-screen flex-col">
-          <Header />
+          <Header hasBanner />
           <main className="relative z-20 shrink-0 grow basis-auto">{children}</main>
           <Footer />
         </div>
