@@ -1,5 +1,5 @@
 ---
-title: Database Change Management with MongoDB and GitHub
+title: 'DevOps: Database Change Management with MongoDB and GitHub'
 author: Ningjing
 published_at: 2023/03/22 11:45
 feature_image: /docs/tutorials/intermediate/database-change-management-with-mongodb-and-github/feature-image.webp
@@ -9,14 +9,14 @@ level: Intermediate
 description: This tutorial will bring your MongoDB data change to the next level by introducing the GitOps workflow, where you commit data change script to the GitHub repository, which will in turn trigger the data change pipeline in Bytebase.
 ---
 
-This is a series of articles about Database Change Management with MongoDB
+This is a series of articles about DevOps: Database Change Management with MongoDB
 
-- [Database Change Management with MongoDB](/docs/tutorials/beginner/database-change-management-with-mongodb)
-- Database Change Management with MongoDB and GitHub (this one)
+- [DevOps: Database Change Management with MongoDB](/docs/tutorials/beginner/database-change-management-with-mongodb)
+- DevOps: Database Change Management with MongoDB and GitHub (this one)
 
 ---
 
-In the last article [Database Change Management with MongoDB](/docs/tutorials/beginner/database-change-management-with-mongodb), you have tried UI workflow in Bytebase.
+In the last article [DevOps: Database Change Management with MongoDB](/docs/tutorials/beginner/database-change-management-with-mongodb), you have tried UI workflow in Bytebase.
 
 This tutorial will bring you to the next level by introducing the GitOps workflow, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
@@ -31,7 +31,7 @@ You can use Bytebase free version to finish the tutorial.
 
 Before you start this tutorial, make sure:
 
-- You have followed our previous UI-based change tutorial [Database Change Management with MongoDB](/docs/tutorials/beginner/database-change-management-with-mongodb).
+- You have followed our previous UI-based change tutorial [DevOps: Database Change Management with MongoDB](/docs/tutorials/beginner/database-change-management-with-mongodb).
 - You have a [MongoDB Atlas](https://cloud.mongodb.com) account or a [MongoDB Server](https://www.mongodb.com/try/download/community) instance running.
 - You have a [GitHub](https://github.com/) account.
 - You have a public GitHub repository, e.g  `mongodb-test-bb-local`.

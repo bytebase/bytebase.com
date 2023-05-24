@@ -1,5 +1,5 @@
 ---
-title: Database Change Management with MySQL
+title: 'DevOps: Database Change Management with MySQL'
 author: Mila
 published_at: 2023/02/07 11:15
 feature_image: /docs/tutorials/beginner/database-change-management-with-mysql/feature-image.webp
@@ -9,10 +9,10 @@ level: Beginner
 description: MySQL is the most popular open-source relational database management system. This tutorial will guide you step-by-step to set up database change management for MySQL in Bytebase.
 ---
 
-This is a series of articles about Database Change Management with MySQL.
+This is a series of articles about DevOps: Database Change Management with MySQL.
 
-- Database Change Management with MySQL (this one)
-- [Database Change Management with MySQL and GitHub](/docs/tutorials/intermediate/database-change-management-with-mysql-and-github)
+- DevOps: Database Change Management with MySQL (this one)
+- [DevOps: Database Change Management with MySQL and GitHub](/docs/tutorials/intermediate/database-change-management-with-mysql-and-github)
 
 ---
 

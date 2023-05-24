@@ -43,7 +43,7 @@ type Header = {
   items?: MenuItem[];
 };
 
-const Header = () => {
+const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
   const [canShowSubmenu, setCanShowSubmenu] = useState(true);
 
   const handleSubmenuClick = () => {
@@ -176,7 +176,7 @@ const Header = () => {
           </div>
         </nav>
       </header>
-      <MobileMenu />
+      <MobileMenu hasBanner={hasBanner} />
     </>
   );
 };

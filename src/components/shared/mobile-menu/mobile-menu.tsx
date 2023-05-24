@@ -68,16 +68,11 @@ const dropdownVariants = {
   },
 };
 
-const MobileMenu = () => {
+const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [openedDropdown, setOpenedDropdown] = useState(-1);
   const controls = useAnimation();
   const pathname = usePathname();
-  const [hasLocalStorage, setHasLocalStorage] = useState(false);
-
-  useEffect(() => {
-    setHasLocalStorage(typeof window !== 'undefined' && !!window.localStorage.getItem('isBanner'));
-  }, [hasLocalStorage]);
 
   useEffect(() => {
     if (isOpen) {
@@ -112,7 +107,7 @@ const MobileMenu = () => {
           <div
             className={clsx(
               'ml-auto flex w-1/2 flex-col justify-between bg-white px-7 pb-8 pt-[84px] md:px-5 sm:w-full sm:px-4 xs:pb-5',
-              hasLocalStorage ? 'h-[calc(100vh-56px)]' : 'h-full',
+              hasBanner ? 'h-[calc(100vh-56px)] md:h-[calc(100vh-46px)]' : 'h-full',
             )}
             onClick={(evt) => evt.stopPropagation()}
           >

@@ -11,7 +11,6 @@ const rewrites = [
   '/database-feature',
   '/database',
   '/integration',
-  '/usecase',
 ];
 
 const tutorialBeginnerRedirects = [

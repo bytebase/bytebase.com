@@ -1,5 +1,5 @@
 ---
-title: Database Change Management with MongoDB
+title: 'DevOps: Database Change Management with MongoDB'
 author: Ningjing
 published_at: 2023/03/21 11:15
 feature_image: /docs/tutorials/beginner/database-change-management-with-mongodb/feature-image.webp
@@ -9,10 +9,10 @@ level: Beginner
 description: MongoDB is a document database used to build highly available and scalable internet applications. This tutorial will guide you step-by-step to set up database change management for MongoDB in Bytebase.
 ---
 
-This is a series of articles about Database Change Management with MongoDB.
+This is a series of articles about DevOps: Database Change Management with MongoDB.
 
-- Database Change Management with MongoDB (this one)
-- [Database Change Management with MongoDB and GitHub](/docs/tutorials/intermediate/database-change-management-with-mongodb-and-github)
+- DevOps: Database Change Management with MongoDB (this one)
+- [DevOps: Database Change Management with MongoDB and GitHub](/docs/tutorials/intermediate/database-change-management-with-mongodb-and-github)
 
 ---
 
