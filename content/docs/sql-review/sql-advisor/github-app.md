@@ -16,7 +16,7 @@ The GitHub App is free to use, you don't need any subscription plan.
 
 Install the app from GitHub [marketplace](https://github.com/marketplace/bytebase). During installation, you need to select the target GitHub account and grant repository permissions.
 
-![app-grant-permissions](/docs/app-grant-permissions.webp)
+![app-grant-permissions](/content/docs/app-grant-permissions.webp)
 
 ## Configure SQL review policy
 
@@ -26,7 +26,7 @@ After installation, you will be redirected to the Bytebase hub website to create
 
 Specify the basic information, including display name, target repositories, and SQL review policy template.
 
-![app-policy-step1](/docs/app-policy-step1.webp)
+![app-policy-step1](/content/docs/app-policy-step1.webp)
 
 Repository configuration:
 
@@ -38,13 +38,13 @@ Repository configuration:
 - **SQL file path**: the file path for the SQL files in the regex format. Only matched files will be checked in the pull request. We
   will subscribe all SQL files in the repository by default.
 
-![app-config-repo](/docs/app-config-repo.webp)
+![app-config-repo](/content/docs/app-config-repo.webp)
 
 ### Step 2 - Configure rules
 
 You can customize the rule level and payload in step 2. You can [follow this doc](/docs/sql-review/review-policy/create-schema-review-policy#step-2) for details about the rule configuration.
 
-![app-policy-step2](/docs/app-policy-step2.webp)
+![app-policy-step2](/content/docs/app-policy-step2.webp)
 
 ### Step 3 - Preview
 
@@ -56,10 +56,10 @@ If you create a pull request containing SQL file change, it will trigger the SQL
 
 The SQL review will run the check and comment on the pull request.
 
-![app-pr-comment](/docs/app-pr-comment.webp)
+![app-pr-comment](/content/docs/app-pr-comment.webp)
 
-![app-pr-check](/docs/app-pr-check.webp)
+![app-pr-check](/content/docs/app-pr-check.webp)
 
 You can also check the output messages on the files diff page.
 
-![app-pr-diff](/docs/app-pr-diff.webp)
+![app-pr-diff](/content/docs/app-pr-diff.webp)

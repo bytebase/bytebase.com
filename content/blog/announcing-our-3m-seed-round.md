@@ -2,7 +2,7 @@
 title: Announcing our $3M Seed Round
 author: Tianzhou
 published_at: 2021/11/19 11:29:26
-feature_image: /blog/announcing-our-3m-seed-round/banner.webp
+feature_image: /content/blog/announcing-our-3m-seed-round/banner.webp
 tags: Announcement
 featured: true
 description: We are excited to announce that we've raised a $3M seed round, led by Matrix Partners China with participation from Dongxu Huang, co-Founder/CTO of PingCAP (the company behind TiDB).
@@ -68,7 +68,7 @@ The current mainstream databases did not pay much attention to these scenarios w
 
 So, let's go for yet another database engine?
 
-![_](/blog/announcing-our-3m-seed-round/xkcd.webp)Standards from [https://xkcd.com/927](https://xkcd.com/927)
+![_](/content/blog/announcing-our-3m-seed-round/xkcd.webp)Standards from [https://xkcd.com/927](https://xkcd.com/927)
 
 ## Bytebase's take
 
@@ -90,7 +90,7 @@ Therefore, we look for venture funding to turbocharge our product development sp
 
 Bytebase has the honor to be backed by Matrix Partners China. There are accidental factors in play, initially, we were introduced by a middleman who got acquainted with our founder via a Chinchilla.
 
-![_](/blog/announcing-our-3m-seed-round/chinchilla.webp)The chinchilla leading the $$$ investment
+![_](/content/blog/announcing-our-3m-seed-round/chinchilla.webp)The chinchilla leading the $$$ investment
 
 More importantly, we do acknowledge each other's values and work ethic.
 
@@ -100,7 +100,7 @@ Matrix Partners China has been pioneering venture investment in open source infr
 
 Besides Matrix Partners China,  Dongxu Huang, co-founder/CTO of PingCAP also joins as our angel and advisor. This is another serendipity, we happened to sit with him in a meetup and poked him to try Bytebase inside a docker and watched him successfully deployed the application in 5 seconds. Guess he was pretty much sold on the spot since not a lot products can live up to their promise on the marketing site.
 
-![_](/blog/announcing-our-3m-seed-round/frontpage.webp)
+![_](/content/blog/announcing-our-3m-seed-round/frontpage.webp)
 
 ## We are hiring
 
@@ -112,4 +112,4 @@ We are looking for full-stack, front-end engineers as well as interns to join us
 
 Back to build 🚀
 
-![_](/blog/announcing-our-3m-seed-round/landing.webp)
+![_](/content/blog/announcing-our-3m-seed-round/landing.webp)

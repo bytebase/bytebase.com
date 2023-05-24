@@ -20,4 +20,4 @@ If the exposed port is not 80 or 443, please include the port number in --extern
 
 </HintBlock>
 
-![choose-repo](/docs/get-started/install/external-url-flow.webp)
+![choose-repo](/content/docs/get-started/install/external-url-flow.webp)

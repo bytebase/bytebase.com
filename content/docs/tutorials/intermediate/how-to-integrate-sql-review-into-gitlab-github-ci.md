@@ -2,7 +2,7 @@
 title: How to integrate SQL Review into Your GitLab or GitHub CI/CD
 author: Mila
 published_at: 2022/12/2 21:21:21
-feature_image: /docs/tutorials/intermediate/how-to-integrate-sql-review-into-gitlab-github-ci/sql-review-ci.webp
+feature_image: /content/docs/tutorials/intermediate/how-to-integrate-sql-review-into-gitlab-github-ci/sql-review-ci.webp
 tags: Tutorial
 integrations: GitHub, GitLab
 level: Intermediate
@@ -25,27 +25,27 @@ Please enable the [VCS workflow](/docs/vcs-integration/overview) for your Byteba
 
 After you enable VCS workflow from the Bytebase Console, under **Version Control** in your project, check the box to enable **SQL Review CI**.
 
-![_](/docs/tutorials/intermediate/how-to-integrate-sql-review-into-gitlab-github-ci/enable-sql-review-ci.webp)
+![_](/content/docs/tutorials/intermediate/how-to-integrate-sql-review-into-gitlab-github-ci/enable-sql-review-ci.webp)
 
 Click **Update.** Bytebase will create a Merge Request (MR) in your GitLab repository to set up SQL review CI.
 
-![_](/docs/tutorials/intermediate/how-to-integrate-sql-review-into-gitlab-github-ci/setup-sql-review-ci.webp)
+![_](/content/docs/tutorials/intermediate/how-to-integrate-sql-review-into-gitlab-github-ci/setup-sql-review-ci.webp)
 
 You will be redirected to your GitLab repository and see that an MR has been generated. Please review and merge this MR to complete the setup.
 
-![_](/docs/tutorials/intermediate/how-to-integrate-sql-review-into-gitlab-github-ci/gitlab-mr.webp)
+![_](/content/docs/tutorials/intermediate/how-to-integrate-sql-review-into-gitlab-github-ci/gitlab-mr.webp)
 
 ## Step 2 - Create an MR/PR to Trigger SQL Review
 
 Once you've set up the CI, if you create a GitLab MR / GitHub PR that contains the files matching [the file path template](/docs/vcs-integration/name-and-organize-schema-files#file-path-template), the SQL review policy will be automatically triggered to check against the changes.
 
-![_](/docs/tutorials/intermediate/how-to-integrate-sql-review-into-gitlab-github-ci/gitlab-sql-review.webp)
+![_](/content/docs/tutorials/intermediate/how-to-integrate-sql-review-into-gitlab-github-ci/gitlab-sql-review.webp)
 
 Similarly, in GitHub repos, SQL review will check against the changes through GitHub Actions.
 
 The following image shows the detailed results of a SQL review via GitHub Actions.
 
-![_](/docs/tutorials/intermediate/how-to-integrate-sql-review-into-gitlab-github-ci/gha-sql-review-details.webp)
+![_](/content/docs/tutorials/intermediate/how-to-integrate-sql-review-into-gitlab-github-ci/gha-sql-review-details.webp)
 
 Follow [this doc](/docs/sql-review/review-policy/create-schema-review-policy) to create and configure your own SQL review policy.
 

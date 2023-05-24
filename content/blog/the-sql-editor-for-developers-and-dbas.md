@@ -2,7 +2,7 @@
 title: The SQL Editor for Developers and DBAs
 author: Candy
 published_at: 2023/01/06 12:37:17
-feature_image: /blog/the-sql-editor-for-developers-and-dbas/cover.webp
+feature_image: /content/blog/the-sql-editor-for-developers-and-dbas/cover.webp
 tags: Announcement
 featured: true
 description: Introduce the new SQL Editor in Bytebase Console with six highlights - Admin mode, database-based access control, data anonymization, audit logs, collaborative sheets and easy to use.
@@ -32,27 +32,27 @@ Bytebase v1.9.1 releases a new SQL Editor with the following highlights:
 ### Admin Mode
 
 When users want to connect to databases to run admin commands, they can do it in SQL Editor Admin mode with a DBA account like the screenshot below. You can take a look at the document [Admin Mode](/docs/sql-editor/admin-mode) to learn more details.
-![admin-mode](/blog/the-sql-editor-for-developers-and-dbas/admin-mode.webp)
+![admin-mode](/content/blog/the-sql-editor-for-developers-and-dbas/admin-mode.webp)
 
 ### Database-based Access Control
 
 When users want to allow developers to access some databases in the production environment, they can mark the production environment as a protected environment and configure an allowlist. You can get more details from the document [Database Access Control](/docs/administration/database-access-control).
-![access-control](/blog/the-sql-editor-for-developers-and-dbas/access-control.webp)
+![access-control](/content/blog/the-sql-editor-for-developers-and-dbas/access-control.webp)
 
 ### Data Anonymization
 
 When developers query tables containing sensitive columns in SQL Editor, the result of these columns will display as "**\*\***". You can learn the configuration details from the document [Anonymize Data](/docs/administration/anonymize-data).
-![anonymize-data](/blog/the-sql-editor-for-developers-and-dbas/anonymize-data.webp)
+![anonymize-data](/content/blog/the-sql-editor-for-developers-and-dbas/anonymize-data.webp)
 
 ### Audit Logs
 
 DBAs can browse all queries executed in SQL Editor with the audit logs. You can check out the document [Audit Log](/docs/administration/audit-log) to get more details.
-![audit-log](/blog/the-sql-editor-for-developers-and-dbas/audit-log.webp)
+![audit-log](/content/blog/the-sql-editor-for-developers-and-dbas/audit-log.webp)
 
 ### Collaborative Sheets
 
 For commonly-used SQL statements, you can save them as sheets and set up a public SQL script library in your team. For large SQL scripts (up to 100M), you can use them in issues after uploading them as sheets (see the screenshot below). You can explore the document [Manage SQL Scripts with Sheet](/docs/sql-editor/manage-sql-scripts) to get additional details.
-![large-script](/blog/the-sql-editor-for-developers-and-dbas/large-script.webp)
+![large-script](/content/blog/the-sql-editor-for-developers-and-dbas/large-script.webp)
 
 ## Try it Out
 

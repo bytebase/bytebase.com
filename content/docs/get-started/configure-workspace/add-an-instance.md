@@ -25,7 +25,7 @@ This document describes how to add an instance in order to synchronize databases
    1. Choose **CA Certificate** to use SSL connection with CA certificate only.
    1. Choose **CA Certificate + Client Key + Client Certificate** to use a full SSL connection.
 
-![create-an-instance](/docs/get-started/configure-workspace/add-an-instance/add-an-instance.webp)
+![create-an-instance](/content/docs/get-started/configure-workspace/add-an-instance/add-an-instance.webp)
 
 <HintBlock type="info">
 

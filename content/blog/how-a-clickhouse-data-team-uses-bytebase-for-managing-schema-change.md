@@ -2,7 +2,7 @@
 title: How a Data Team Uses Bytebase to Manage Schema Change for ClickHouse
 author: Ningjing
 published_at: 2022/09/25 09:42:58
-feature_image: /blog/how-a-data-team-uses-bytebase-to-manage-schema-change-for-clickhouse/bytebase-for-feature-development.webp
+feature_image: /content/blog/how-a-data-team-uses-bytebase-to-manage-schema-change-for-clickhouse/bytebase-for-feature-development.webp
 tags: Case Study
 integrations: ClickHouse
 featured: true
@@ -36,7 +36,7 @@ Most of the tools require users to take care of the schema change versioning man
 
 We adopt the feature branch development workflow for our project, so people manage new migration scripts in their own dev (feature) branches and deploy them to the dev database. In the process, we sometimes want to merge the dev branch into the master to run the scripts on the production database.
 
-![feature-development](/blog/how-a-data-team-uses-bytebase-to-manage-schema-change-for-clickhouse/feature-development.webp)
+![feature-development](/content/blog/how-a-data-team-uses-bytebase-to-manage-schema-change-for-clickhouse/feature-development.webp)
 
 To prevent anyone from messing up the production scripts, we version all our changes. For example, we use `yyyymmddNNNN` for version naming, where `NNNN` is just an integer, starting from 0001 and then 0002, ... and so on.
 
@@ -67,7 +67,7 @@ Instead of using one project to handle two environments, we decided to use "one 
 
 The practice in detail is now in Bytebase’s recommended workflow: [https://www.bytebase.com/docs/how-to/workflow/gitops-feature-branch](/docs/how-to/workflow/gitops-feature-branch)
 
-![bytebase-for-feature-development](/blog/how-a-data-team-uses-bytebase-to-manage-schema-change-for-clickhouse/bytebase-for-feature-development.webp)
+![bytebase-for-feature-development](/content/blog/how-a-data-team-uses-bytebase-to-manage-schema-change-for-clickhouse/bytebase-for-feature-development.webp)
 
 ## Overall Benefits
 

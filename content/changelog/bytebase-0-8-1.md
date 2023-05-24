@@ -7,7 +7,7 @@ published_at: 2021/11/15 08:40:56
 
 - Updated logo font to use the open sourced [Cal Sans Semibold](https://github.com/calendso/font).
 
-![_](/changelog/0.8.1/logo-full.webp)
+![_](/content/changelog/0.8.1/logo-full.webp)
 
 ## 🎄 Enhancement
 

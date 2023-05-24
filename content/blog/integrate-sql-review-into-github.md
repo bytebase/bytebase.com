@@ -2,7 +2,7 @@
 title: Three Ways to Integrate Automatic SQL Review into GitHub
 author: Changyu
 published_at: 2022/12/08 09:00
-feature_image: /blog/integrate-sql-review-into-github/overview.webp
+feature_image: /content/blog/integrate-sql-review-into-github/overview.webp
 tags: Explanation
 integrations: GitHub
 featured: true
@@ -22,7 +22,7 @@ and perform SQL Review there. This eliminates the need to switch between multipl
 importantly, allowing SQL Review to be conducted at the Pull Request (PR) stage rather than waiting
 until the deployment stage (shift-left).
 
-![shift-left](/blog/integrate-sql-review-into-github/shift-left.webp)
+![shift-left](/content/blog/integrate-sql-review-into-github/shift-left.webp)
 
 To cope with different needs, Bytebase provides three integration modes for users to choose from:
 
@@ -64,7 +64,7 @@ Once configured, when SQL is detected in the submitted PR, the SQL Review proces
 triggered automatically and the detailed review results will be displayed inline in the changed
 file.
 
-![file-comment](/blog/integrate-sql-review-into-github/file-comment.webp)
+![file-comment](/content/blog/integrate-sql-review-into-github/file-comment.webp)
 
 ### Pros and Cons
 
@@ -112,11 +112,11 @@ submitted PR.
 
 You can see the overview of the SQL Review results in the PR overview.
 
-![file-comment](/blog/integrate-sql-review-into-github/file-comment.webp)
+![file-comment](/content/blog/integrate-sql-review-into-github/file-comment.webp)
 
 Per file detailed review results will also be displayed inline in the file.
 
-![pr-comment](/blog/integrate-sql-review-into-github/pr-comment.webp)
+![pr-comment](/content/blog/integrate-sql-review-into-github/pr-comment.webp)
 
 ### Pros and Cons
 
@@ -175,7 +175,7 @@ The Bytebase Console-based integration mode provides more powerful functionality
 Once configured, the review process will be triggered automatically when SQL is detected in the
 submitted PR.
 
-![file-comment](/blog/integrate-sql-review-into-github/file-comment.webp)
+![file-comment](/content/blog/integrate-sql-review-into-github/file-comment.webp)
 
 ### Pros and Cons
 

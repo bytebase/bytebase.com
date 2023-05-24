@@ -33,27 +33,27 @@ For an exhaustive list, please refer to this [doc](https://github.com/github/gh-
 
 Click "Alter Schema" on the database page.
 
-![The database detail page with "alter schema" button highlighted](/docs/gh-ost-step-1-1.webp)
+![The database detail page with "alter schema" button highlighted](/content/docs/gh-ost-step-1-1.webp)
 
 Choose "Online migration" and click "Next".
 
-![The migration mode option popup with online migration selected](/docs/gh-ost-step-1-2.webp)
+![The migration mode option popup with online migration selected](/content/docs/gh-ost-step-1-2.webp)
 
 The online migration mode has two tasks: The first task syncs your data to the ghost table. The second task replaces your original table with the ghost table.
 
 Select "Sync data" and enter your SQL statements in the editor. After that, click "Create".
 
-![The create issue page](/docs/gh-ost-step-1-3.webp)
+![The create issue page](/content/docs/gh-ost-step-1-3.webp)
 
 ### Step 2 - Approve the sync task
 
 After creating the issue, you should see something like this.
 
-![The issue detail page where gh-ost sync task is waiting approval.](/docs/gh-ost-step-2-1.webp)
+![The issue detail page where gh-ost sync task is waiting approval.](/content/docs/gh-ost-step-2-1.webp)
 
 Make sure that the gh-ost sync task check is passing. Then click "Approve" to run the sync task.
 
-![The task check result of gh-ost sync task, and gh-ost dry run passed](/docs/gh-ost-step-2-2.webp)
+![The task check result of gh-ost sync task, and gh-ost dry run passed](/content/docs/gh-ost-step-2-2.webp)
 
 The sync task reads rows on the original table and writes them to the ghost table, meanwhile propagating changes in the original table to the ghost table so that the ghost table can catch up with the original table.
 
@@ -72,14 +72,14 @@ The cutover task atomically renames `yourtablename`, `~yourtablename_{timestamp}
 
 Click "Approve" to perform the cutover task.
 
-![The issue detail page where the cutover task is waiting approval.](/docs/gh-ost-step-3-1.webp)
+![The issue detail page where the cutover task is waiting approval.](/content/docs/gh-ost-step-3-1.webp)
 
 ### Step 4 - Delete `~yourtablename_{timestamp}_del` after migration
 
 After migration, the original table is renamed to `~yourtablename_{timestamp}_del`. Make sure there is no data loss, then manually drop the original table if you wish. You can check the table by clicking "Show Bytebase reserved tables" on the database page.
 
-![A table list where "Show Bytebase reserved tables" button is highlighted](/docs/gh-ost-step-4-1.webp)
-![A table list which also shows reserved tables](/docs/gh-ost-step-4-2.webp)
+![A table list where "Show Bytebase reserved tables" button is highlighted](/content/docs/gh-ost-step-4-1.webp)
+![A table list which also shows reserved tables](/content/docs/gh-ost-step-4-2.webp)
 
 ## Interact with gh-ost
 
@@ -89,8 +89,8 @@ The UNIX socket file name is `/tmp/gh-ost.{taskID}.{databaseID}.{databaseName}.{
 
 To find the UNIX socket file, you must acquire the database and task id.
 
-![The issue detail page with task and task id highlighted](/docs/gh-ost-step-5-1.webp)
-![The database detail page with database id highlighted](/docs/gh-ost-step-5-2.webp)
+![The issue detail page with task and task id highlighted](/content/docs/gh-ost-step-5-1.webp)
+![The database detail page with database id highlighted](/content/docs/gh-ost-step-5-2.webp)
 
 In this example, my socket file name is `/tmp/gh-ost.109.103.db.sbtest2.sock`
 

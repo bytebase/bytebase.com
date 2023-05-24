@@ -10,4 +10,4 @@ This is not available in MongoDB because MongoDB is schemaless.
 
 </HintBlock>
 
-![Schema](/docs/sql-editor/schema.webp)
+![Schema](/content/docs/sql-editor/schema.webp)

@@ -8,13 +8,13 @@ description: "- In-place Point-in-time Recovery for the database (preview versio
 ## 🚀 New Features
 
 - In-place Point-in-time Recovery for the database (preview version).
-  ![restore-database](/changelog/1.2.1/restore-database.webp)
+  ![restore-database](/content/changelog/1.2.1/restore-database.webp)
 
 - Added GET /v1/sql/advise OpenAPI.
 
 It allows users to perform SQL reviews via API after configuring the schema review policy. Users can access its API documentation via `/swagger/index.html` once they start their Bytebase service.
 
-![sql-open-api](/changelog/1.2.1/sql-open-api.webp)
+![sql-open-api](/content/changelog/1.2.1/sql-open-api.webp)
 
 ## 🎄 Enhancements
 

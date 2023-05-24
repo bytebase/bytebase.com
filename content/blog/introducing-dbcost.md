@@ -2,7 +2,7 @@
 title: Introducing DB Cost, the simple cloud database pricing sheet for AWS RDS and Google Cloud SQL instance
 author: Xiong
 published_at: 2022/11/02 14:00
-feature_image: /blog/introducing-dbcost/background.webp
+feature_image: /content/blog/introducing-dbcost/background.webp
 tags: Announcement
 description: DB Cost is a tool for developers to compare performance and cost differences among cloud database providers.
 ---
@@ -20,7 +20,7 @@ As FinOps rises, teams become more sensitive to the cloud resource pricing than 
 5. Support filtering options like cloud providers, engine types, charge types, CPU / memory counts, and wildcard search.
 6. Support detailed pages for each instance and region, including interactive charts and related instances.
 
-![_](/blog/introducing-dbcost/site-shot.webp)
+![_](/content/blog/introducing-dbcost/site-shot.webp)
 
 ### The dashboard
 
@@ -35,15 +35,15 @@ Currently, DB Cost provides two kinds of detailed pages: the instance detail pag
 Detailed pages consist of three parts, too:
 
 1. The compare tables. For each instance, it lists all of the instance's available regions, and vice versa for each region.
-   ![_](/blog/introducing-dbcost/db.t4g.micro.webp)
-   ![_](/blog/introducing-dbcost/africa-cape-town.webp)
+   ![_](/content/blog/introducing-dbcost/db.t4g.micro.webp)
+   ![_](/content/blog/introducing-dbcost/africa-cape-town.webp)
 
 2. An interactive and sketching / xkcd feel chart to provide visual comparison.
-   ![_](/blog/introducing-dbcost/chart.webp)
+   ![_](/content/blog/introducing-dbcost/chart.webp)
 
 3. Related resources like similar instance types or nearby regions.
-   ![_](/blog/introducing-dbcost/related-instances.webp)
-   ![_](/blog/introducing-dbcost/related-regions.webp)
+   ![_](/content/blog/introducing-dbcost/related-instances.webp)
+   ![_](/content/blog/introducing-dbcost/related-regions.webp)
 
 ## 🧐 Use cases
 
@@ -51,20 +51,20 @@ Detailed pages consist of three parts, too:
 
 - Q: Our company is expanding our online service in East US, and we want to have some local DB instances. What choices do we have?
 - A: You can check all US East regions on the dashboard. Now every instance on the table is available in East US. They are sorted ASCEND based on the expected cost. Feel free to apply filter conditions to pick up your desired ones.
-  ![_](/blog/introducing-dbcost/us-east.webp)
+  ![_](/content/blog/introducing-dbcost/us-east.webp)
 
 ### Case 2: Want a specific type regardless of regions
 
 - Q: A minimal instance is sufficient for my small project. I'm going to purchase the db.t1.micro type and don't care which region it locates in. Can you show me if there are regions in which it's the cheapest?
 - A: You can type the name in the search bar, and click on the name (db.t1.micro) in the filtered result. Then you'll enter a detailed page of db.t1.micro. Here, you can view all its available regions and prices to pick the cheapest if you like.
-  ![_](/blog/introducing-dbcost/db.t1.micro.webp)
+  ![_](/content/blog/introducing-dbcost/db.t1.micro.webp)
 
 ### Case 3: Wonder whether to choose a reserved plan or on demand plan
 
 - Q: I want db.t4g.micro in Asia Pacific (Tokyo) for 3 years, and this instance is expected to be in use about 60% of the time. Should I choose a reserved plan or on demand plan?
 - A: You can filter out this instance, set the utilization to 60%, and set the lease length to 3 years. Then check out the pricing table.
   We can see that the best pricing plan is a 3-year reserved plan, with a full upfront payment. Which needs only $325.00, is 18% off compared with an on demand plan (will need $394).
-  ![_](/blog/introducing-dbcost/on-demand-vs-reserved.webp)
+  ![_](/content/blog/introducing-dbcost/on-demand-vs-reserved.webp)
 
 ## 🛠 Tech stacks
 
@@ -74,7 +74,7 @@ Its front-end part is built with Next.js and React 18, Ant Design as the compone
 
 The pricing data seeding process is done with Golang scripts. There's a CronJob running on GitHub Actions every day to generate the data file and compare it with the current one. If diff on the data file is detected, GitHub Actions will create a pull request to refresh the data.
 
-![_](/blog/introducing-dbcost/tech-stack.webp)
+![_](/content/blog/introducing-dbcost/tech-stack.webp)
 
 ## 💬 FAQ
 

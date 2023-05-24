@@ -2,13 +2,13 @@
 title: 'Bytebase 1.12.0 Deep Dive'
 author: Tianzhou
 published_at: 2023/02/07 13:21:21
-feature_image: /blog/1-12-0-new-features/1-12-0-banner.webp
+feature_image: /content/blog/1-12-0-new-features/1-12-0-banner.webp
 tags: Explanation
 description: First release of the Year of Rabbit 🐰 is out, the version number was upgraded from 1.11.0 to 1.12.0. - SQL Review Policy - Price Plan Update.
 ---
 
 First release of the Year of Rabbit 🐰 is out, the version number was upgraded from 1.11.0 to 1.12.0. The release cycle was 3 weeks because of the Chinese New Year. There were 264 code commits, a bit more than the normal bi-weekly release. Let's see what new capabilities are included 👇
-![github-commits](/blog/1-12-0-new-features/github-commits.webp)
+![github-commits](/content/blog/1-12-0-new-features/github-commits.webp)
 
 ## SQL Review Policy
 
@@ -30,15 +30,15 @@ It's been a while since we began our SQL Review journey about a year ago. From t
 
 Of course, this is only the first phase of SQL Review, we will optimize the configuration and experience of Bytebase SQL Review rules, and then we will move on to the next phase, index optimization suggestions with the help of database statistics.
 
-![bytebase-stage-prod](/blog/1-12-0-new-features/bytebase-stage-prod.webp)
+![bytebase-stage-prod](/content/blog/1-12-0-new-features/bytebase-stage-prod.webp)
 
-![hub-create-sql-review-policy](/blog/1-12-0-new-features/hub-create-sql-review-policy.webp)
+![hub-create-sql-review-policy](/content/blog/1-12-0-new-features/hub-create-sql-review-policy.webp)
 
-![sql-review-result](/blog/1-12-0-new-features/sql-review-result.webp)
+![sql-review-result](/content/blog/1-12-0-new-features/sql-review-result.webp)
 
-![github-sql-review](/blog/1-12-0-new-features/github-sql-review.webp)
+![github-sql-review](/content/blog/1-12-0-new-features/github-sql-review.webp)
 
-![gitlab-merge-request](/blog/1-12-0-new-features/gitlab-merge-request.webp)
+![gitlab-merge-request](/content/blog/1-12-0-new-features/gitlab-merge-request.webp)
 
 ## Price Plan Update
 
@@ -50,6 +50,6 @@ Since one of the core value propositions of Bytebase is the collaboration betwee
 
 For a formal engineering team developing serious products, we still recommend the Enterprise Plan. The capabilities of the Enterprise Plan have also been greatly enhanced in the past year. Attached is a feature comparison of the Enterprise Plan between 2022 and 2023 ⬇️
 
-![enterprise-plan](/blog/1-12-0-new-features/enterprise-plan.webp)
+![enterprise-plan](/content/blog/1-12-0-new-features/enterprise-plan.webp)
 
 Well, that's it for the feature deep dive. You can also read [1.12.0 full changelog](/changelog/bytebase-1-12-0). See you!

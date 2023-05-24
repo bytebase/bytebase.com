@@ -26,27 +26,27 @@ State-based migration requires the use of Schema Definition Language(SDL). SDL i
 
 Once enabled [GitOps workflow](/docs/vcs-integration/enable-gitops-workflow), in the project's **Version Control > Schema change type** option, select **State-based**.
 
-![select-schema-change-type](/docs/change-database/state-based-migration/overview/select-schema-change-type.webp)
+![select-schema-change-type](/content/docs/change-database/state-based-migration/overview/select-schema-change-type.webp)
 
 ### Step 2 - Update schema file
 
 In our example with GitLab self-hosted as our VCS, we create a new schema file in the connected repository whose path is matching the **Schema path template** we have configured as `.{{DB_NAME}}##LATEST.sql`, where `{{DB_NAME}}` is `mydb`. It is notable that we have also configured `bytebase` as the **Base directory**, so all files need to reside under this directory.
 
-![commit-new-schema-file](/docs/change-database/state-based-migration/overview/commit-new-schema-file.webp)
+![commit-new-schema-file](/content/docs/change-database/state-based-migration/overview/commit-new-schema-file.webp)
 
 Once committed the schema file to the target branch `main`, a new migration issue is created automatically with only the differentiate part of the schema.
 
 The `Schema change` tab shows the schema change between the actual database schema and the LATEST file. They are all in SDL syntax format.
 
-![new-migration-issue-diff](/docs/change-database/state-based-migration/overview/new-migration-issue-diff.webp)
+![new-migration-issue-diff](/content/docs/change-database/state-based-migration/overview/new-migration-issue-diff.webp)
 
 The `Generated DDL statements` tab previews the DDL that will be executed, which is calculated in real-time based on the differences between the actual database schema and the LATEST file.
 
-![new-migration-issue-ddl](/docs/change-database/state-based-migration/overview/new-migration-issue-ddl.webp)
+![new-migration-issue-ddl](/content/docs/change-database/state-based-migration/overview/new-migration-issue-ddl.webp)
 
 The `Full schema` tab shows the full LATEST file from version control system, such as GitLab or GitHub.
 
-![new-migration-issue-full-text](/docs/change-database/state-based-migration/overview/new-migration-issue-full-text.webp)
+![new-migration-issue-full-text](/content/docs/change-database/state-based-migration/overview/new-migration-issue-full-text.webp)
 
 Subsequent updates to the LATEST schema file without actually changing the database schema will not generate new migration issues.
 
