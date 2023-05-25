@@ -7,7 +7,7 @@ import SEO_DATA from '@/lib/seo-data';
 import { REFUND_FORM_ID } from '@/lib/forms';
 import { refundAndDemoLogos } from '@/lib/logos';
 
-export const metadata = getMetadata(SEO_DATA.PRIVACY);
+export const metadata = getMetadata(SEO_DATA.REFUND);
 
 export default function Page() {
   return (
