@@ -18,6 +18,7 @@ const Route = {
   TERMS: '/terms',
   PRIVACY: '/privacy',
   JOBS: '/jobs',
+  CONTACT: '/contact-us',
 
   DATABASE_GLOSSARY: '/database-glossary',
   CHANGELOG: '/changelog',

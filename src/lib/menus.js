@@ -125,7 +125,7 @@ export const MENUS = {
         { name: 'Pricing', linkUrl: Route.PRICING },
         { name: 'Careers', linkUrl: Route.JOBS },
         { name: 'Tech Stack', linkUrl: Route.TECHSTACK },
-        { name: 'Contact', linkUrl: 'mailto:support@bytebase.com' },
+        { name: 'Contact', linkUrl: Route.CONTACT },
       ],
     },
   ],
