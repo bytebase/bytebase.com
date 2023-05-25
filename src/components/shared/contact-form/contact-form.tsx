@@ -1,10 +1,9 @@
 'use client';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import { LazyMotion, domAnimation, m } from 'framer-motion';
 
 import Button from '@/components/shared/button';
 import Field from '@/components/shared/field';
@@ -14,17 +13,13 @@ import { STATES } from '@/lib/states';
 import Route from '@/lib/route';
 import SuccessState from './success-state';
 
-interface ContactFormProps {
-  className?: string;
-}
-
-interface ValueType {
+type ValueType = {
   firstname: string;
   lastname: string;
   email: string;
   company: string;
   message: string;
-}
+};
 
 const validationSchema = yup.object().shape({
   firstname: yup.string().trim().required('First name is a required field'),
@@ -37,7 +32,7 @@ const validationSchema = yup.object().shape({
   company: yup.string().trim().required('Company name is a required field'),
 });
 
-const ContactForm: FC<ContactFormProps> = ({ className }) => {
+const ContactForm = ({ className, formId }: { className: string; formId: number }) => {
   const [buttonState, setButtonState] = useState(STATES.DEFAULT);
   const [formState, setFormState] = useState(false);
   const [formError, setFormError] = useState('');
@@ -53,9 +48,8 @@ const ContactForm: FC<ContactFormProps> = ({ className }) => {
     const { firstname, lastname, email, company, message } = values;
     setButtonState(STATES.LOADING);
 
-    // TODO: add formId
     const body = JSON.stringify({
-      formId: '',
+      formId: formId,
       values: {
         fields: [
           {
@@ -86,14 +80,18 @@ const ContactForm: FC<ContactFormProps> = ({ className }) => {
         ],
       },
     });
-    // TODO: delete console.log
-    // console.log(body);
 
-    // TODO: add try / catch and fetch to server
-    setTimeout(() => {
-      const success = true; // Test variable to control the response
+    try {
+      const response = await fetch('', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json, text/plain, */*',
+        },
+        body: body,
+      });
 
-      if (success) {
+      if (response.ok) {
         setButtonState(STATES.SUCCESS);
         setTimeout(() => {
           setButtonState(STATES.DEFAULT);
@@ -107,7 +105,11 @@ const ContactForm: FC<ContactFormProps> = ({ className }) => {
         }, BUTTON_SUCCESS_TIMEOUT_MS);
         setFormError('Something went wrong. Please try again later.');
       }
-    }, 2000);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      setButtonState(STATES.DEFAULT);
+      setFormError(error?.message ?? error.toString());
+    }
   };
 
   return (

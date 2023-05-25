@@ -1,13 +1,13 @@
 import getMetadata from '@/utils/get-metadata';
 
 import Logos from '@/components/pages/contact/logos';
-import ContacForm from '@/components/shared/contact-form';
+import ContactForm from '@/components/shared/contact-form';
 
 import SEO_DATA from '@/lib/seo-data';
+import { CONTACT_FORM_ID } from '@/lib/forms';
 
 export const metadata = getMetadata(SEO_DATA.PRIVACY);
 
-// TODO: seo, complite form
 export default function Page() {
   return (
     <div className="container gap-x-grid relative grid grid-cols-12 sm:grid-cols-4">
@@ -20,7 +20,10 @@ export default function Page() {
           and answer any questions you have.
         </p>
       </div>
-      <ContacForm className="col-span-6 col-start-7 row-span-4 rounded-2xl bg-white p-8 shadow-dark-big lg:col-span-full lg:my-10 md:my-8 md:p-6 sm:p-5 sm:px-4 xs:my-7" />
+      <ContactForm
+        className="col-span-6 col-start-7 row-span-4 rounded-2xl bg-white p-8 shadow-dark-big lg:col-span-full lg:my-10 md:my-8 md:p-6 sm:p-5 sm:px-4 xs:my-7"
+        formId={CONTACT_FORM_ID}
+      />
       <Logos />
     </div>
   );

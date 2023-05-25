@@ -42,16 +42,15 @@ const ITEMS = [
     height: 40,
   },
 ];
-// TODO: replace logos if needed
 const Logos = () => {
   return (
     <div className="col-span-5 mt-9 border-t border-gray-90 pt-9 lg:col-span-8 lg:mt-0 lg:border-none lg:pt-0 sm:col-span-full">
       <p className="text-18 leading-extra-tight text-gray-40">
         Trusted by fast-growing companies worldwide
       </p>
-      <ul className="place-items-left sm:pag-x-6 mt-7 grid auto-rows-fr grid-cols-[repeat(4,auto)] items-center gap-x-9 gap-y-5 lg:gap-x-8 sm:gap-x-6 xs:mt-6 xs:grid-cols-[repeat(3,auto)] 3xs:grid-cols-[repeat(2,auto)]">
+      <ul className="place-items-left sm:pag-x-6 mt-7 grid auto-rows-fr grid-cols-[repeat(4,auto)] items-center gap-x-9 gap-y-5 lg:gap-x-8 sm:gap-x-6 xs:mt-6 xs:flex xs:flex-wrap">
         {ITEMS.map((logo, index) => (
-          <li key={index}>
+          <li key={index} className="w-full xs:w-fit">
             <img {...logo} />
           </li>
         ))}
