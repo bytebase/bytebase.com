@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import clsx from 'clsx';
 
 import Link from '@/components/shared/link';
@@ -54,7 +55,7 @@ const Button = ({
       'pointer-events-none':
         state === STATES.LOADING || state === STATES.SUCCESS || state === STATES.ERROR,
     },
-    { '!bg-tones-deep-green-dark transition-colors duration-200': state === STATES.SUCCESS },
+    { '!bg-secondary-2 transition-colors duration-200': state === STATES.SUCCESS },
     { '!bg-black transition-colors duration-200': state === STATES.ERROR },
   );
 
@@ -64,12 +65,12 @@ const Button = ({
 
   switch (state) {
     case STATES.LOADING:
-      content = (
-        <span className="h-7 w-7 animate-spin rounded-full border-2 border-transparent border-b-white" />
-      );
+      content = <img className="w-7" src="/images/loader.svg" alt="" aria-hidden />;
       break;
     case STATES.SUCCESS:
-      content = <img className="w-7" src="/images/check-form.svg" alt="" aria-hidden />;
+      content = (
+        <img className="w-7 stroke-white" src="/images/check-form.svg" alt="" aria-hidden />
+      );
       break;
     case STATES.ERROR:
       content = <span>Error</span>;

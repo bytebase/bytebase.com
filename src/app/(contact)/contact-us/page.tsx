@@ -20,7 +20,7 @@ export default function Page() {
           and answer any questions you have.
         </p>
       </div>
-      <ContacForm className="col-span-6 col-start-7 row-span-4 grid grid-cols-2 gap-5 rounded-2xl bg-white p-8 shadow-dark-big lg:col-span-full lg:my-10 md:my-8 md:p-6 sm:grid-cols-1 sm:gap-4 sm:p-5 sm:px-4 xs:my-7" />
+      <ContacForm className="col-span-6 col-start-7 row-span-4 rounded-2xl bg-white p-8 shadow-dark-big lg:col-span-full lg:my-10 md:my-8 md:p-6 sm:p-5 sm:px-4 xs:my-7" />
       <Logos />
     </div>
   );
