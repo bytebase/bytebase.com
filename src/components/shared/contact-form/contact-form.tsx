@@ -83,10 +83,12 @@ const ContactForm: FC<ContactFormProps> = ({ className }) => {
         ],
       },
     });
+    // TODO: delete console.log
+    // console.log(body);
 
     // TODO: add try / catch and fetch to server
     setTimeout(() => {
-      const success = false; // Test variable to control the response
+      const success = true; // Test variable to control the response
 
       if (success) {
         setButtonState(STATES.SUCCESS);
@@ -140,9 +142,9 @@ const ContactForm: FC<ContactFormProps> = ({ className }) => {
         error={errors?.message?.message}
         {...register('message')}
       />
-      <div className="relative col-span-full flex items-center gap-x-5 md:flex-col-reverse md:items-start md:gap-x-10">
+      <div className="relative col-span-full flex items-center gap-x-5 sm:flex-col-reverse sm:items-start sm:gap-y-3">
         <Button
-          className="w-60 shrink-0 p-4 lg:w-[212px] md:w-full"
+          className="w-60 shrink-0 p-4 lg:w-[320px] sm:w-full"
           theme="primary-filled"
           size="md"
           type="submit"
@@ -150,11 +152,11 @@ const ContactForm: FC<ContactFormProps> = ({ className }) => {
         >
           Submit
         </Button>
-        <p className="text-14 text-gray-50">
+        <p className="w-full max-w-[300px] text-14 text-gray-50 lg:max-w-full">
           By submiting, you agree with Bytebase&apos;s{' '}
           <Link className="font-semibold" theme="underline" size="xs" href={Route.PRIVACY}>
-            Terms of Service{' '}
-          </Link>
+            Terms of Service
+          </Link>{' '}
           and{' '}
           <Link className="font-semibold" theme="underline" size="xs" href={Route.TERMS}>
             Privacy Policy{' '}
@@ -162,7 +164,7 @@ const ContactForm: FC<ContactFormProps> = ({ className }) => {
         </p>
 
         {formError && (
-          <span className="text-error xl:text-10 sm:text-10 absolute top-[calc(100%+4px)] text-12 leading-none lg:text-12">
+          <span className="absolute top-[calc(100%+5px)] text-12 leading-none text-gray-40 sm:left-1/2 sm:min-w-[144px] sm:-translate-x-1/2 sm:text-center">
             {formError}
           </span>
         )}

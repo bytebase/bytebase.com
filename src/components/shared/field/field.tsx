@@ -61,7 +61,7 @@ const Field = forwardRef<any, FieldProps>(
       </Tag>
 
       {showErrorMessage && error && (
-        <span className="text-10 text-error absolute top-[calc(100%+0.25rem)] leading-none">
+        <span className="absolute top-[calc(100%+0.25rem)] text-12 leading-none text-gray-40">
           {error}
         </span>
       )}
