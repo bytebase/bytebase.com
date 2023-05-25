@@ -50,60 +50,58 @@ const ContactForm: FC<ContactFormProps> = ({ className }) => {
     const { firstname, lastname, email, company, message } = values;
     setButtonState(STATES.LOADING);
 
-    try {
-      const response = await fetch('/api/submit-hubspot-form', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json, text/plain, */*',
-        },
-        body: JSON.stringify({
-          formId: '',
-          values: {
-            fields: [
-              {
-                objectTypeId: '0-1',
-                name: 'firstname',
-                value: firstname,
-              },
-              {
-                objectTypeId: '0-1',
-                name: 'lastname',
-                value: lastname,
-              },
-              {
-                objectTypeId: '0-1',
-                name: 'email',
-                value: email,
-              },
-              {
-                objectTypeId: '0-1',
-                name: 'company',
-                value: company,
-              },
-              {
-                objectTypeId: '0-1',
-                name: 'message',
-                value: message,
-              },
-            ],
+    // TODO: add formId
+    const body = JSON.stringify({
+      formId: '',
+      values: {
+        fields: [
+          {
+            objectTypeId: '0-1',
+            name: 'firstname',
+            value: firstname,
           },
-        }),
-      });
-      if (response.ok) {
+          {
+            objectTypeId: '0-1',
+            name: 'lastname',
+            value: lastname,
+          },
+          {
+            objectTypeId: '0-1',
+            name: 'email',
+            value: email,
+          },
+          {
+            objectTypeId: '0-1',
+            name: 'company',
+            value: company,
+          },
+          {
+            objectTypeId: '0-1',
+            name: 'message',
+            value: message,
+          },
+        ],
+      },
+    });
+
+    // TODO: add try / catch and fetch to server
+    setTimeout(() => {
+      const success = false; // Test variable to control the response
+
+      if (success) {
         setButtonState(STATES.SUCCESS);
         setTimeout(() => {
           setButtonState(STATES.DEFAULT);
           reset();
         }, BUTTON_SUCCESS_TIMEOUT_MS);
       } else {
-        setButtonState(STATES.DEFAULT);
-        setFormError('Something went wrong. Please reload the page and try again.');
+        setButtonState(STATES.ERROR);
+        setTimeout(() => {
+          setButtonState(STATES.DEFAULT);
+        }, BUTTON_SUCCESS_TIMEOUT_MS);
+        setFormError('Something went wrong. Please try again later.');
       }
-    } catch (error: any) {
-      setButtonState(STATES.DEFAULT);
-      setFormError(error?.message ?? error.toString());
-    }
+    }, 2000);
   };
 
   return (

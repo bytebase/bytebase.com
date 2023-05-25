@@ -14,9 +14,9 @@ const styles = {
   },
   theme: {
     'primary-filled':
-      'text-white bg-primary-1 hover:bg-primary-2 disabled:tones-purple-dark tracking-wide rounded-full',
+      'text-white bg-primary-1 hover:bg-primary-2 disabled:tones-purple-dark tracking-wide rounded-full transition-colors duration-200',
     'primary-outline':
-      'text-black border-[3px] border-primary-1 hover:border-gray-15 disabled:text-gray-60 disabled:border-tones-purple-dark rounded-full tracking-wide',
+      'text-black border-[3px] border-primary-1 hover:border-gray-15 disabled:text-gray-60 disabled:border-tones-purple-dark rounded-full tracking-wide ',
     'gray-filled':
       'bg-gray-15 text-white hover:bg-gray-40 disabled:bg-gray-80 tracking-wide rounded-full',
   },
@@ -54,6 +54,8 @@ const Button = ({
       'pointer-events-none':
         state === STATES.LOADING || state === STATES.SUCCESS || state === STATES.ERROR,
     },
+    { '!bg-tones-deep-green-dark transition-colors duration-200': state === STATES.SUCCESS },
+    { '!bg-black transition-colors duration-200': state === STATES.ERROR },
   );
 
   const Tag = href ? Link : 'button';
@@ -67,7 +69,10 @@ const Button = ({
       );
       break;
     case STATES.SUCCESS:
-      content = <img className="w-7" src="/images/check-without-back.svg" alt="" aria-hidden />;
+      content = <img className="w-7" src="/images/check-form.svg" alt="" aria-hidden />;
+      break;
+    case STATES.ERROR:
+      content = <span>Error</span>;
       break;
     case STATES.DEFAULT:
     default:
