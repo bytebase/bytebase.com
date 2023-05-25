@@ -1,5 +1,5 @@
 ---
-title: Database Change Management with Spanner
+title: 'DevOps: Database Change Management with Spanner'
 author: Ningjing
 published_at: 2023/05/25 17:15
 feature_image: /content/docs/tutorials/beginner/database-change-management-with-spanner/feature-image.webp?
@@ -41,6 +41,7 @@ Before you start, make sure you have:
 ## Step 1 - Deploy Bytebase via Docker
 
 1. Make sure your Docker is running, and start the Bytebase Docker container with following command:
+
    ```bash
    docker run --init \
    --name bytebase \
@@ -77,8 +78,8 @@ In Bytebase, ​​an Instance could be your on-premises MySQL instance, an AWS 
 - **Environment**: choose `Test`, if you choose `Prod`, you'll need manual approval for all future change requests by default, let's keep it simple for this tutorial.
 - **Project ID** and **Instance ID**: [How to Find Project ID and Instance ID](docs/how-to/spanner/how-to-find-project-id-and-instance-id/)
 - **Credentials**: [How to Create a Service Account for Bytebase
-](/docs/how-to/spanner/how-to-create-a-service-account-for-bytebase/)
-![bb-create-instance-spanner](/content/docs/tutorials/beginner/database-change-management-with-spanner/bb-create-instance-spanner.webp)
+  ](/docs/how-to/spanner/how-to-create-a-service-account-for-bytebase/)
+  ![bb-create-instance-spanner](/content/docs/tutorials/beginner/database-change-management-with-spanner/bb-create-instance-spanner.webp)
 
 ## Step 3 - Create a Project
 
@@ -126,15 +127,17 @@ In Step 4, you created an issue to create a database using UI workflow and then 
 2. Go to the project, and click **Change Data**.
 3. Choose `test_db` and click **Next**.
 4. Fill in the SQL as follows and then click **Create**.
+
    ```sql
    INSERT INTO t1 VALUES (1, 'Adela');
    ```
 
-4. Wait for its execution and then the issue will become `Done`.
-5. Click **SQL Editor** on the left side bar. Input the query and click **Run**. You can see the new row is there.
+5. Wait for its execution and then the issue will become `Done`.
+6. Click **SQL Editor** on the left side bar. Input the query and click **Run**. You can see the new row is there.
    ```sql
    SELECT * FROM t1;
    ```
+
 ## Bonus Section - Schema Drift Detection
 
 To follow this section, you need to activate the **Enterprise Plan** (you can start a 14-day trial directly, no credit card required).
