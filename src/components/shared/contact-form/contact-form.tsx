@@ -178,7 +178,7 @@ const ContactForm = ({ className, formId }: { className: string; formId: number 
               </Link>{' '}
               and{' '}
               <Link className="font-semibold" theme="underline" size="xs" href={Route.TERMS}>
-                Privacy Policy{' '}
+                Privacy Policy
               </Link>
             </p>
           </div>
