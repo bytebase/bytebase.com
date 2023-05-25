@@ -65,7 +65,7 @@ export async function generateMetadata({
       pathname: `${Route.CHANGELOG}/${slug}/`,
     });
 
-  const { content, title } = post;
+  const { content, title, feature_image, og_image } = post;
 
   const description = getExcerpt({ content, length: 160 });
 
@@ -73,5 +73,7 @@ export async function generateMetadata({
     title,
     description,
     pathname: `${Route.CHANGELOG}/${slug}/`,
+    // TODO: stop using feature_image after all posts will be migrated to og_image
+    imagePath: og_image || feature_image,
   });
 }
