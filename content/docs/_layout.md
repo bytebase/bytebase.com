@@ -197,7 +197,7 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Anomaly Center](/anomaly-detection/anomaly-center)
 
-## Data Query and Export
+## [Data Query and Export](/data-query-and-export/overview)
 
 ### [Data Query Approval Flow](/data-query-and-export/data-query)
 
