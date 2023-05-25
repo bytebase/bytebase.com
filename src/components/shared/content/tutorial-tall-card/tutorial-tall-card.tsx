@@ -10,6 +10,7 @@ import MongoDBIcon from '@/svgs/mongodb.inline.svg';
 import PostgresIcon from '@/svgs/postgres.inline.svg';
 import RedisIcon from '@/svgs/redis.inline.svg';
 import SnowflakeIcon from '@/svgs/snowflake.inline.svg';
+import SpannerIcon from '@/svgs/spanner.inline.svg';
 import TerraformIcon from '@/svgs/terraform.inline.svg';
 import TidbIcon from '@/svgs/tidb.inline.svg';
 
@@ -20,6 +21,7 @@ const allLogos: { [key: string]: React.FunctionComponent<React.SVGProps<SVGSVGEl
   gitlab: GitLabIcon,
   postgres: PostgresIcon,
   snowflake: SnowflakeIcon,
+  spanner: SpannerIcon,
   terraform: TerraformIcon,
   tidb: TidbIcon,
   redis: RedisIcon,
@@ -51,7 +53,7 @@ const TutorialTallCard = ({
           </h4>
           <div className="mt-auto flex items-center gap-x-4">
             {logos && (
-              <div className="relative flex items-center gap-x-2 after:absolute after:top-2 after:-right-[9px] after:h-0.5 after:w-0.5 after:rounded-full after:bg-gray-60">
+              <div className="relative flex items-center gap-x-2 after:absolute after:-right-[9px] after:top-2 after:h-0.5 after:w-0.5 after:rounded-full after:bg-gray-60">
                 {logos.split(',').map((logo) => {
                   const Logo = allLogos[logo];
                   return <Logo className="h-5 w-5" key={logo} />;

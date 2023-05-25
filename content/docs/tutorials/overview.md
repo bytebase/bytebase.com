@@ -1,34 +1,40 @@
 ---
 title: Overview
 ---
-
 ## Beginner
 
-<TutorialWideCard title="DevOps: Database Change Management with MySQL" url="/docs/tutorials/beginner/database-change-management-with-mysql" date="2023/04/23" logos="aurora"></TutorialWideCard>
+<TutorialCardsWrapper>
 
-<TutorialWideCard title="Database Change Management using Bytebase Cloud" url="/docs/tutorials/beginner/database-change-management-using-bytebase-cloud" date="2023/04/17" logos="aurora"></TutorialWideCard>
+<TutorialTallCard title="Database Change Management with Spanner" url="/docs/tutorials/beginner/database-change-management-with-spanner" date="2023/05/23" logos="spanner"></TutorialTallCard>
 
-<TutorialWideCard title="DevOps: Database Change Management with Redis" url="/docs/tutorials/beginner/database-change-management-with-redis" date="2023/04/14" logos="redis"></TutorialWideCard>
+<TutorialTallCard title="Database Change Management with MySQL" url="/docs/tutorials/beginner/database-change-management-with-mysql" date="2023/04/23" logos="aurora"></TutorialTallCard>
 
-<TutorialWideCard title="DevOps: Database Change Management with MongoDB" url="/docs/tutorials/beginner/database-change-management-with-mongodb" date="2023/03/21" logos="mongodb"></TutorialWideCard>
+<TutorialTallCard title="Database Change Management using Bytebase Cloud" url="/docs/tutorials/beginner/database-change-management-using-bytebase-cloud" date="2023/04/17" logos="aurora"></TutorialTallCard>
 
-<TutorialWideCard title="DevOps: Database Change Management with Amazon Aurora" url="/docs/tutorials/beginner/database-change-management-with-amazon-aurora" date="2023/03/09" logos="aurora"></TutorialWideCard>
+<TutorialTallCard title="DevOps: Database Change Management with Redis" url="/docs/tutorials/beginner/database-change-management-with-redis" date="2023/04/14" logos="redis"></TutorialTallCard>
 
-<TutorialWideCard title="DevOps: Database Change Management with ClickHouse" url="/docs/tutorials/beginner/database-change-management-with-clickhouse" date="2023/03/01" logos="clickhouse"></TutorialWideCard>
+<TutorialTallCard title="DevOps: Database Change Management with MongoDB" url="/docs/tutorials/beginner/database-change-management-with-mongodb" date="2023/03/21" logos="mongodb"></TutorialTallCard>
 
-<TutorialWideCard title="DevOps: Database Change Management with PostgreSQL" url="/docs/tutorials/beginner/database-change-management-with-postgresql" date="2023/02/14" logos="postgres"></TutorialWideCard>
+<TutorialTallCard title="DevOps: Database Change Management with Amazon Aurora" url="/docs/tutorials/beginner/database-change-management-with-amazon-aurora" date="2023/03/09" logos="aurora"></TutorialTallCard>
 
-<TutorialWideCard title="DevOps: Database Change Management with TiDB" url="/docs/tutorials/beginner/database-change-management-with-tidb" date="2023/01/03" logos="tidb"></TutorialWideCard>
+<TutorialTallCard title="DevOps: Database Change Management with ClickHouse" url="/docs/tutorials/beginner/database-change-management-with-clickhouse" date="2023/03/01" logos="clickhouse"></TutorialTallCard>
 
-<TutorialWideCard title="DevOps: Database Change Management with Snowflake" url="/docs/tutorials/beginner/database-change-management-with-snowflake" date="2022/12/22" logos="snowflake"></TutorialWideCard>
+<TutorialTallCard title="DevOps: Database Change Management with PostgreSQL" url="/docs/tutorials/beginner/database-change-management-with-postgresql" date="2023/02/14" logos="postgres"></TutorialTallCard>
 
-<TutorialWideCard title="How to Synchronize Database Schemas" url="/docs/tutorials/beginner/how-to-synchronize-database-schemas" date="2022/11/24"></TutorialWideCard>
+<TutorialTallCard title="DevOps: Database Change Management with TiDB" url="/docs/tutorials/beginner/database-change-management-with-tidb" date="2023/01/03" logos="tidb"></TutorialTallCard>
 
+<TutorialTallCard title="DevOps: Database Change Management with Snowflake" url="/docs/tutorials/beginner/database-change-management-with-snowflake" date="2022/12/22" logos="snowflake"></TutorialTallCard>
+
+<TutorialTallCard title="How to Synchronize Database Schemas" url="/docs/tutorials/beginner/how-to-synchronize-database-schemas" date="2022/11/24"></TutorialTallCard>
+
+</TutorialCardsWrapper>
 ## Intermediate
 
 <TutorialCardsWrapper>
 
-<TutorialTallCard title="DevOps: Database Change Management with GitHub using Bytebase Cloud" url="/docs/tutorials/intermediate/database-change-management-with-github-using-bytebase-cloud" logos="aurora,github" date="2023/04/17"></TutorialTallCard>
+<TutorialTallCard title="Database Change Management with Spanner and GitHub" url="/docs/tutorials/intermediate/database-change-management-with-spanner-and-github" logos="spanner,github" date="2023/05/24"></TutorialTallCard>
+
+<TutorialTallCard title="Database Change Management with GitHub using Bytebase Cloud" url="/docs/tutorials/intermediate/database-change-management-with-github-using-bytebase-cloud" logos="aurora,github" date="2023/04/17"></TutorialTallCard>
 
 <TutorialTallCard title="DevOps: Database Change Management with Redis and GitHub" url="/docs/tutorials/intermediate/database-change-management-with-redis-and-github" logos="redis,github" date="2023/04/14"></TutorialTallCard>
 

@@ -329,6 +329,8 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### Beginner
 
+#### [Change Management with Spanner](/tutorials/beginner/database-change-management-with-spanner)
+
 #### [Change Management using Bytebase Cloud](/tutorials/beginner/database-change-management-using-bytebase-cloud)
 
 #### [Change Management with Amazon Aurora](/tutorials/beginner/database-change-management-with-amazon-aurora)
@@ -350,6 +352,8 @@ expand_section_list: ['Introduction', 'Get Started']
 #### [How to Synchronize Database Schemas](/tutorials/beginner/how-to-synchronize-database-schemas)
 
 ### Intermediate
+
+#### [Change Management with Spanner and GitHub](/tutorials/intermediate/database-change-management-with-spanner-and-github)
 
 #### [Change Management with Amazon Aurora and GitHub](/tutorials/intermediate/database-change-management-with-amazon-aurora-and-github)
 
