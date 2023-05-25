@@ -88,7 +88,7 @@ const ContactForm: FC<ContactFormProps> = ({ className }) => {
 
     // TODO: add try / catch and fetch to server
     setTimeout(() => {
-      const success = true; // Test variable to control the response
+      const success = false; // Test variable to control the response
 
       if (success) {
         setButtonState(STATES.SUCCESS);
@@ -142,16 +142,23 @@ const ContactForm: FC<ContactFormProps> = ({ className }) => {
         error={errors?.message?.message}
         {...register('message')}
       />
-      <div className="relative col-span-full flex items-center gap-x-5 sm:flex-col-reverse sm:items-start sm:gap-y-3">
-        <Button
-          className="w-60 shrink-0 p-4 lg:w-[320px] sm:w-full"
-          theme="primary-filled"
-          size="md"
-          type="submit"
-          state={buttonState}
-        >
-          Submit
-        </Button>
+      <div className="relative col-span-full flex items-center gap-x-5 sm:flex-col sm:items-start sm:gap-y-2">
+        <div className="flex w-full max-w-[260px] flex-col items-center lg:max-w-[320px] sm:max-w-full">
+          <Button
+            className="w-full shrink-0 p-4"
+            theme="primary-filled"
+            size="md"
+            type="submit"
+            state={buttonState}
+          >
+            Submit
+          </Button>
+          {formError && (
+            <span className="mt-1.5 text-12 leading-none text-secondary-6 sm:text-center 2xs:max-w-[144px]">
+              {formError}
+            </span>
+          )}
+        </div>
         <p className="w-full max-w-[300px] text-14 text-gray-50 lg:max-w-full">
           By submiting, you agree with Bytebase&apos;s{' '}
           <Link className="font-semibold" theme="underline" size="xs" href={Route.PRIVACY}>
@@ -162,12 +169,6 @@ const ContactForm: FC<ContactFormProps> = ({ className }) => {
             Privacy Policy{' '}
           </Link>
         </p>
-
-        {formError && (
-          <span className="absolute top-[calc(100%+5px)] text-12 leading-none text-gray-40 sm:left-1/2 sm:min-w-[144px] sm:-translate-x-1/2 sm:text-center">
-            {formError}
-          </span>
-        )}
       </div>
     </form>
   );

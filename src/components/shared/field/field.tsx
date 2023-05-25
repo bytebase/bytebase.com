@@ -43,12 +43,12 @@ const Field = forwardRef<any, FieldProps>(
     <div className={clsx('relative flex flex-col items-start', className)}>
       <Tag
         className={clsx(
-          'remove-autocomplete-styles w-full appearance-none rounded-md border px-4 text-black transition-colors duration-200 placeholder:text-gray-60 placeholder-shown:text-gray-70  focus-within:outline-none md:px-3',
+          'remove-autocomplete-styles w-full appearance-none rounded-md border px-4 text-black transition-colors duration-200 placeholder:text-gray-60 placeholder-shown:text-gray-70 focus:border-2 focus:border-primary-1 md:px-3',
           (Tag === FIELD_TAGS.INPUT || Tag === FIELD_TAGS.SELECT) && 'h-14 md:h-12',
           Tag === FIELD_TAGS.TEXTAREA && 'md:min-h-24 min-h-[104px] py-4',
           Tag === FIELD_TAGS.SELECT &&
             'bg-white bg-[url(/images/chevron-down.svg)] bg-[center_right_1rem] bg-no-repeat',
-          error ? 'border-error' : borderColor,
+          error ? 'border-2 border-secondary-6' : borderColor,
           inputClassName,
         )}
         ref={ref}
@@ -61,9 +61,7 @@ const Field = forwardRef<any, FieldProps>(
       </Tag>
 
       {showErrorMessage && error && (
-        <span className="absolute top-[calc(100%+0.25rem)] text-12 leading-none text-gray-40">
-          {error}
-        </span>
+        <span className="mt-1.5 text-12 leading-none text-secondary-6">{error}</span>
       )}
     </div>
   ),
