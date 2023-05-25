@@ -1,22 +1,21 @@
 ---
-title: Data export approval flow
+title: Data Export Approval Flow
 ---
+**Project Owners** can manually add the role of data exporter to control data export permissions. In **Enterprise Plan**, users can apply for data exporter roles by submitting a request grant issue.
 
-Project owners can manually add the role of data exporter to control data export permissions. In Enterprise plan, user can apply for data exporter roles by submitting a request grant issue.
-
-## Add data exporter role manually
-
-In Free and Pro plan, user can add data exporter role manually.
+## Add Exporter role manually
 
 As a **Project Owner**, you can go to the project, click **Settings**, find the **Management members** section, and manually add the role of **Project Exporter**.
 
 Before adding the **Project Exporter** role, you need to add the **Project Querier** role first to ensure that the user has permission to query the data.
 
-Once the **Project Exporter** role is added, the user can export the query result of the specified database in SQL Editor.
+In **Free or Pro Plan**, once the **Project Exporter** role is added, the user can export the query result of the specified database in SQL Editor.
 
-![export-data-button-in-sql-editor](/docs/data-query-and-export/export-data-button-in-sql-editor.webp)
+![export-data-button-in-sql-editor](/content/docs/data-query-and-export/export-data-button-in-sql-editor.webp)
 
-## Apply for data exporter role
+In **Enterprise Plan**, data export should be done by applying for **Exporter** role.
+
+## Apply for Exporter role
 
 <HintBlock type="info">
 
@@ -24,15 +23,15 @@ This feature is only available in the Enterprise Plan.
 
 </HintBlock>
 
-In Enterprise plan, users need to apply for **Project Exporter** role before exporting data for data security governance.
+In **Enterprise plan**, users need to apply for **Project Exporter** role before exporting data for data security governance.
 
 1. Go to the home page or project list page, and click **Export data**.
 
-   ![request-querier-or-exporter-role](/docs/data-query-and-export/request-querier-or-exporter-role.webp)
+   ![request-querier-or-exporter-role](/content/docs/data-query-and-export/request-querier-or-exporter-role.webp)
 
 2. Fill out the relevant form.
 
-   ![request-exporter-role-form](/docs/data-query-and-export/request-exporter-role-form.webp)
+   ![request-exporter-role-form](/content/docs/data-query-and-export/request-exporter-role-form.webp)
 
    Including the following information:
 
@@ -46,6 +45,6 @@ In Enterprise plan, users need to apply for **Project Exporter** role before exp
 
 4. After the request is approved, click **Export** to export the data.
 
-   ![export-data-button](/docs/data-query-and-export/export-data-button.webp)
+   ![export-data-button](/content/docs/data-query-and-export/export-data-button.webp)
 
    The export action only supports one-time export. If you need to export again, you need to submit a new request.

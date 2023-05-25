@@ -1,18 +1,15 @@
 ---
-title: Data query approval flow
+title: Data Query Approval flow
 ---
 
-Bytebase supports data security governance functions within the organization and provides corresponding approval workflows. You can apply for permissions or approve permission requests submitted by other users.
+**Project Owners** can manually add the role of **Project Querier** to control data query permissions. In **Enterprise Plan**, users can apply for **Project Querier** roles by submitting a request grant issue.
 
-**Project Owners** can manually add the role of **Project Querier** to control data query permissions. In Enterprise plan, users can apply for  **Project Querier** roles by submitting a request grant issue.
+## Add Querier role manually
 
-## Add data querier role manually
+As a **Project Owner**, you can go to the project, click **Settings**, find the **Management members** section, and manually add the role of **Project Querier**.
+![add-new-member-with-querier-role](/content/docs/data-query-and-export/add-new-member-with-querier-role.webp)
 
-As a project owner, you can go to the project member management page and manually add the role of data queriers.
-
-![add-new-member-with-querier-role](/docs/data-query-and-export/add-new-member-with-querier-role.webp)
-
-## Apply for data querier role
+## Apply for Querier role
 
 <HintBlock type="info">
 
@@ -20,15 +17,15 @@ This feature is only available in the Enterprise Plan.
 
 </HintBlock>
 
-In Enterprise plan, user can apply for data querier role by submitting a request grant issue.
+Users can apply for **Project Querier** role by submitting a request grant issue.
 
 1. Go to the home page or project list page, and click **Request query**.
 
-   ![request-querier-or-exporter-role](/docs/data-query-and-export/request-querier-or-exporter-role.webp)
+   ![request-querier-or-exporter-role](/content/docs/data-query-and-export/request-querier-or-exporter-role.webp)
 
 2. Fill out the relevant form.
 
-   ![request-querier-role-form](/docs/data-query-and-export/request-querier-role-form.webp)
+   ![request-querier-role-form](/content/docs/data-query-and-export/request-querier-role-form.webp)
 
    Including the following information:
 
