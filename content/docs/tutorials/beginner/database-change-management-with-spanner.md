@@ -187,4 +187,4 @@ In this section, you’ll be guided through this process.
 
 Now you have connected Spanner with Bytebase, and used the UI workflow to accomplish schema change and data change. Bytebase will record the full change history for you. Furthermore, the **Enterprise Plan** is equipped with **Schema Drift Detection** to detect out-of-band schema changes performed outside of Bytebase.
 
-In the next post, you’ll try out GitOps workflow: store your Spanner schema in GitHub and Bytebase will pick up the changes to the repo, bringing your Spanner change workflow to the next level, aka **Database DevOps** - [Database as Code](https://www.bytebase.com/blog/database-as-code).
+In the [next post](/content/docs/tutorials/intermediate/database-change-management-with-spanner-and-github), you’ll try out GitOps workflow: store your Spanner schema in GitHub and Bytebase will pick up the changes to the repo, bringing your Spanner change workflow to the next level, aka **Database DevOps** - [Database as Code](https://www.bytebase.com/blog/database-as-code).
