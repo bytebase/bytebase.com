@@ -323,55 +323,77 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ---
 
-## Tutorials
+## [Tutorials](/tutorials/overview)
 
-### [Overview](/tutorials/overview)
-
-### Beginner
-
-#### [Change Management with Spanner](/tutorials/database-change-management-with-spanner)
+### General
 
 #### [Change Management using Bytebase Cloud](/tutorials/database-change-management-using-bytebase-cloud)
 
-#### [Change Management with Amazon Aurora](/tutorials/database-change-management-with-amazon-aurora)
+#### [Change Management with GitHub using Bytebase Cloud](/tutorials/database-change-management-with-github-using-bytebase-cloud)
 
-#### [Change Management with ClickHouse](/tutorials/database-change-management-with-clickhouse)
-
-#### [Change Management with MongoDB](/tutorials/database-change-management-with-mongodb)
-
-#### [Change Management with MySQL](/tutorials/database-change-management-with-mysql)
-
-#### [Change Management with PostgreSQL](/tutorials/database-change-management-with-postgresql)
-
-#### [Change Management with Redis](/tutorials/database-change-management-with-redis)
-
-#### [Change Management with Snowflake](/tutorials/database-change-management-with-snowflake)
-
-#### [Change Management with TiDB](/tutorials/database-change-management-with-tidb)
+#### [How to Configure Database Access Control](/tutorials/how-to-configure-database-access-control-and-data-anonymization-for-developer)
 
 #### [How to Synchronize Database Schemas](/tutorials/how-to-synchronize-database-schemas)
 
-### Intermediate
+### MySQL
 
-#### [Change Management with Spanner and GitHub](/tutorials/database-change-management-with-spanner-and-github)
-
-#### [Change Management with Amazon Aurora and GitHub](/tutorials/database-change-management-with-amazon-aurora-and-github)
-
-#### [Change Management with ClickHouse and GitHub](/tutorials/database-change-management-with-clickhouse-and-github)
-
-#### [Change Management with GitHub using Bytebase Cloud](/tutorials/database-change-management-with-github-using-bytebase-cloud)
-
-#### [Change Management with MongoDB and GitHub](/tutorials/database-change-management-with-mongodb-and-github)
+#### [Change Management with MySQL](/tutorials/database-change-management-with-mysql)
 
 #### [Change Management with MySQL and GitHub](/tutorials/database-change-management-with-mysql-and-github)
 
+### Amazone Aurora
+
+#### [Change Management with Amazon Aurora](/tutorials/database-change-management-with-amazon-aurora)
+
+#### [Change Management with Amazon Aurora and GitHub](/tutorials/database-change-management-with-amazon-aurora-and-github)
+
+### PostgreSQL
+
+#### [Change Management with PostgreSQL](/tutorials/database-change-management-with-postgresql)
+
 #### [Change Management with PostgreSQL and GitHub](/tutorials/database-change-management-with-postgresql-and-github)
 
-#### [Change Management with Redis and GitHub](/tutorials/database-change-management-with-redis-and-github)
+### Snowflake
+
+#### [Change Management with Snowflake](/tutorials/database-change-management-with-snowflake)
 
 #### [Change Management with Snowflake and GitHub](/tutorials/database-change-management-with-snowflake-and-github)
 
+### TiDB
+
+#### [Change Management with TiDB](/tutorials/database-change-management-with-tidb)
+
 #### [Change Management with TiDB and GitHub](/tutorials/database-change-management-with-tidb-and-github)
+
+### MongoDB
+
+#### [Change Management with MongoDB](/tutorials/database-change-management-with-mongodb)
+
+#### [Change Management with MongoDB and GitHub](/tutorials/database-change-management-with-mongodb-and-github)
+
+### Redis
+
+#### [Change Management with Redis](/tutorials/database-change-management-with-redis)
+
+#### [Change Management with Redis and GitHub](/tutorials/database-change-management-with-redis-and-github)
+
+### ClickHouse
+
+#### [Change Management with ClickHouse](/tutorials/database-change-management-with-clickhouse)
+
+#### [Change Management with ClickHouse and GitHub](/tutorials/database-change-management-with-clickhouse-and-github)
+
+### Spanner
+
+#### [Change Management with Spanner](/tutorials/database-change-management-with-spanner)
+
+#### [Change Management with Spanner and GitHub](/tutorials/database-change-management-with-spanner-and-github)
+
+### GitOps
+
+#### [Manage Databases in Bytebase with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform)
+
+#### [How to integrate SQL Review into GitLab / GitHub](/tutorials/how-to-integrate-sql-review-into-gitlab-github-ci)
 
 #### [The Database CI/CD Best Practice with GitHub](/tutorials/database-cicd-best-practice-with-github)
 
@@ -380,12 +402,6 @@ expand_section_list: ['Introduction', 'Get Started']
 #### [How to Setup Database CI/CD with GitHub Database GitOps](/tutorials/github-database-cicd-part-2-github-database-gitops)
 
 #### [How to Setup Database CI/CD with GitHub: Put Them Together](/tutorials/github-database-cicd-part-3-put-them-together)
-
-#### [How to Configure Database Access Control](/tutorials/how-to-configure-database-access-control-and-data-anonymization-for-developer)
-
-#### [How to integrate SQL Review](/tutorials/how-to-integrate-sql-review-into-gitlab-github-ci)
-
-#### [Manage Databases in Bytebase with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform)
 
 ---
 
