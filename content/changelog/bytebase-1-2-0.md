@@ -8,7 +8,7 @@ description: Bytebase now supports Schema Review for SQL Editor.
 ## 🚀 New Feature
 
 Schema Review for SQL Editor
- ![sql-editor-schema-review](/changelog/1.2.0/sql-editor-schema-review.webp)
+ ![sql-editor-schema-review](/content/changelog/1.2.0/sql-editor-schema-review.webp)
 
 - After setting up the schema review policy, if the SQL statement violates the error rule, Bytebase prevents SQL execution and shows error messages
   - Users can change the rule level from "Error" to "Warning"
@@ -18,7 +18,7 @@ Schema Review for SQL Editor
 ## 🎄 Enhancements
 
 - Improved SQL Editor styles
-    ![sql-editor-improvement](/changelog/1.2.0/sql-editor-improvement.webp)
+    ![sql-editor-improvement](/content/changelog/1.2.0/sql-editor-improvement.webp)
 - Improved SQL Editor experience with auto-completion and code formatting on the issue page
 - Support to set SSL connection arguments for ClickHouse instances
 - Support to Approve/Run all tasks in a stage for tenant mode deployment issues

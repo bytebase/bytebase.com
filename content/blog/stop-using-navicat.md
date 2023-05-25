@@ -2,7 +2,7 @@
 title: Stop Using Navicat as Your SQL Client
 author: Tianzhou
 published_at: 2023/01/11 21:00
-feature_image: /blog/stop-using-navicat/feature-image.webp
+feature_image: /content/blog/stop-using-navicat/feature-image.webp
 tags: Industry
 featured: true
 description: Navicat is a great single-user SQL client. It, however, has a serious limitation in multi-user scenarios where team collaboration and centralized control is needed. This is where Bytebase comes in, a tool that enables teams to collaborate on database management in a safe and secure way.
@@ -10,11 +10,11 @@ description: Navicat is a great single-user SQL client. It, however, has a serio
 
 TL;DR Navicat is a great single-user SQL client. However, it has a serious limitation in multi-user scenarios where team collaboration and centralized control is needed.
 
-![_](/blog/stop-using-navicat/navicat.webp)
+![_](/content/blog/stop-using-navicat/navicat.webp)
 
 Navicat is a long-established database GUI. The first version was launched in 2001 and started with support for MySQL, and later added support for MariaDB, MongoDB, Oracle, SQLite, PostgreSQL, and Microsoft SQL Server. Navicat can run on Windows, Mac, and Linux simultaneously. However, as you can see from the interface, Navicat is developed using desktop technology rather than the modern web-based technology.
 
-![_](/blog/stop-using-navicat/navicat-interface.webp)
+![_](/content/blog/stop-using-navicat/navicat-interface.webp)
 
 After 20+ years, Navicat is one of the best products for operating databases alone. Although its interface is a bit old-school, it is fully functional, and the overall experience is smooth, so it has a good reputation among users. However, as a pure client-side desktop software, Navicat also has its own limitations.
 
@@ -44,15 +44,15 @@ Navicat makes it easy to make database changes: by writing an UPDATE, ALTER TABL
 
 Navicat is not cheap, the relatively comprehensive Navicat Premium costs $699.99 annually and $1,399 for a perpetual license.
 
-![_](/blog/stop-using-navicat/navicat-premium-cost.webp)
+![_](/content/blog/stop-using-navicat/navicat-premium-cost.webp)
 
 Even a lite version costs $349.
 
-![_](/blog/stop-using-navicat/navicat-lite-version.webp)
+![_](/content/blog/stop-using-navicat/navicat-lite-version.webp)
 
 The relatively high price entails Navicat a serious piracy problem.
 
-![_](/blog/stop-using-navicat/navicat-cracked.webp)
+![_](/content/blog/stop-using-navicat/navicat-cracked.webp)
 
 ### It’s your database security
 
@@ -66,39 +66,39 @@ Bytebase is a web-based product with server-side capabilities that can fill the 
 
 ### SQL Editor (Read-only Mode)
 
-![_](/blog/stop-using-navicat/bytebase-sql-editor.webp)
+![_](/content/blog/stop-using-navicat/bytebase-sql-editor.webp)
 
 ### SQL Editor (Admin/DBA Mode)
 
-![_](/blog/stop-using-navicat/bytebase-admin-mode.webp)
+![_](/content/blog/stop-using-navicat/bytebase-admin-mode.webp)
 
 ### Database Change Review Process (Change Process)
 
-![_](/blog/stop-using-navicat/bytebase-change-process.webp)
+![_](/content/blog/stop-using-navicat/bytebase-change-process.webp)
 
 ### Data Anonymization
 
-![_](/blog/stop-using-navicat/bytebase-data-anonymization.webp)
+![_](/content/blog/stop-using-navicat/bytebase-data-anonymization.webp)
 
 ### Database Access Control
 
-![_](/blog/stop-using-navicat/bytebase-access-control.webp)
+![_](/content/blog/stop-using-navicat/bytebase-access-control.webp)
 
 ### Saving and sharing SQL scripts among teams
 
-![_](/blog/stop-using-navicat/bytebase-share-scripts.webp)
+![_](/content/blog/stop-using-navicat/bytebase-share-scripts.webp)
 
 ### Integration with GitLab / GitHub to synchronize SQL scripts
 
-![_](/blog/stop-using-navicat/bytebase-vcs-integration.webp)
+![_](/content/blog/stop-using-navicat/bytebase-vcs-integration.webp)
 
 ### Audit Log
 
-![_](/blog/stop-using-navicat/bytebase-audit-log.webp)
+![_](/content/blog/stop-using-navicat/bytebase-audit-log.webp)
 
 ### SQL Review Policy
 
-![_](/blog/stop-using-navicat/bytebase-sql-review.webp)
+![_](/content/blog/stop-using-navicat/bytebase-sql-review.webp)
 
 ## Bytebase Vs. Navicat
 

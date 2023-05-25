@@ -2,7 +2,7 @@
 title: 'How to Manage Database Access Control'
 author: Tianzhou
 published_at: 2022/11/24 17:21:21
-feature_image: /blog/how-to-manage-database-access-control/freedom-control.webp
+feature_image: /content/blog/how-to-manage-database-access-control/freedom-control.webp
 tags: How-To
 featured: true
 description: Database access control can be a headache for DBAs and engineering teams. In this post, we explore database access control scenarios, and how Bytebase helps you to centralize database access control.
@@ -14,7 +14,7 @@ The extreme of the former is that all access to the database needs to be approve
 
 The latter, if taken to the extreme, is that database access is scattered everywhere, which causes potential data leaks. Without a standardized change process, this could also lead to serious incidents such as accidentally dropping databases.
 
-![_](/blog/how-to-manage-database-access-control/freedom-control.webp)
+![_](/content/blog/how-to-manage-database-access-control/freedom-control.webp)
 
 So, is there an ideal solution that can balance both control and efficiency?
 
@@ -24,7 +24,7 @@ Let's first dissect the scenarios requiring database access, afterwards, we will
 
 There are two categories for accessing databases: Machine to Database and Human to Database.
 
-![_](/blog/how-to-manage-database-access-control/machine-to-db-human-to-db.webp)
+![_](/content/blog/how-to-manage-database-access-control/machine-to-db-human-to-db.webp)
 
 ### Machine to Database
 
@@ -85,35 +85,35 @@ Below table shows how each Human to Database scenario is covered by the correspo
 | Interactive Query      | Developer and DBA | [SQL Editor Read-Only mode](/docs/sql-editor/run-queries)       |
 | Admin Operations       | DBA               | [SQL Editor Admin mode](/docs/sql-editor/admin-mode)            |
 
-![_](/blog/how-to-manage-database-access-control/machine-to-db-human-to-db-via-bb.webp)
+![_](/content/blog/how-to-manage-database-access-control/machine-to-db-human-to-db-via-bb.webp)
 
 Bytebase offers:
 
 - A two-tier permission model. One at the **workspace** level for global permissions and another at the **project** level for specific projects. These two levels of permissions correspond to the central DBA/platform engineering team and the development team of each application project group, respectively.
 
-![_](/blog/how-to-manage-database-access-control/permission-model.webp)
+![_](/content/blog/how-to-manage-database-access-control/permission-model.webp)
 
 - A UI to manage database schema and the change review process. It also **integrates with GitLab & GitHub**, providing a [Database-as-Code](/blog/database-as-code) process #GitOps.
 
-![_](/blog/how-to-manage-database-access-control/bytebase-ui.webp)
+![_](/content/blog/how-to-manage-database-access-control/bytebase-ui.webp)
 
 - A SQL Editor that allows developers to perform SELECT queries. For DBAs, you can enable the `Admin` mode to execute database administrative commands.
 
-![_](/blog/how-to-manage-database-access-control/sql-editor.webp)
+![_](/content/blog/how-to-manage-database-access-control/sql-editor.webp)
 
 - [SQL Review rules](/docs/sql-review/review-policy/overview). For example, the following rule prevents users from executing DELETE statements without WHERE. You can also configure different rules for different environments, such as `dev`, `test`, `prod`, etc.
 
-![_](/blog/how-to-manage-database-access-control/sql-review-rule.webp)
+![_](/content/blog/how-to-manage-database-access-control/sql-review-rule.webp)
 
 - [SQL review policies](/docs/sql-review/review-policy/create-schema-review-policy). For example, for the `dev` environment, you can skip review from the DBA; for the `prod` environment, review from either the DBA or project owner is mandatory.
 
-![_](/blog/how-to-manage-database-access-control/sql-review-policy.webp)
+![_](/content/blog/how-to-manage-database-access-control/sql-review-policy.webp)
 
 ## Summary
 
 You can never be too careful when it comes to operating databases, but while maintaining necessary caution, teams want efficiency. Bytebase is the [only Database CI/CD solution in the CNCF Landscape](/blog/cncf-landscape), providing an all-in-one database lifecycle management capability to accelerate software delivery.
 
-![_](/blog/how-to-manage-database-access-control/bytebase-cncf-landscape.webp)
+![_](/content/blog/how-to-manage-database-access-control/bytebase-cncf-landscape.webp)
 
 For DBAs and platform engineering teams, Bytebase enables you to have control over all human database access paths. For the application developers who need to use the database, Bytebase provides a developer-friendly UI to help you develop efficiently and safely.
 

@@ -8,13 +8,13 @@ After deploying Bytebase successfully, you need to register accounts for your te
 
 The first registered account after deployment will be granted a **Workspace Owner** role.
 
-![welcome-page](/docs/get-started/configure-workspace/register-accounts/welcome-page.webp)
+![welcome-page](/content/docs/get-started/configure-workspace/register-accounts/welcome-page.webp)
 
 ## **Register a regular account**
 
 After the admin account is created, you can register a regular account and will be granted **Workspace Developer** role.
 
-![normal-account](/docs/get-started/configure-workspace/register-accounts/normal-account.webp)
+![normal-account](/content/docs/get-started/configure-workspace/register-accounts/normal-account.webp)
 
 ## Login with GitLab / GitHub
 
@@ -32,7 +32,7 @@ In order to log in with GitLab,
 1. In Bytebase, the **Workspace Owner** completes [VCS configuration](/docs/vcs-integration/add-git-provider).
 2. When a user tries to use the GitLab Login, Bytebase will first try to match the GitLab public email with the existing member in Bytebase. In GitLab, the public email can be set here.
 
-   ![gitlab-public-email](/docs/get-started/configure-workspace/register-accounts/gitlab-public-email.webp)
+   ![gitlab-public-email](/content/docs/get-started/configure-workspace/register-accounts/gitlab-public-email.webp)
 
    If a matching member is found, then that user will login as that existing Bytebase member. Otherwise, Bytebase will create a new member with an unguessable random password, and allow the user to login as that created member. Later, user can visit her profile page to change the
    password, which enables her to login using password as well.

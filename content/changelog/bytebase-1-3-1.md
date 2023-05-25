@@ -8,17 +8,17 @@ description: "- SQL review now available on GitHub Actions. - MySQL database res
 ## 🚀 New Features
 
 * [SQL Review](https://github.com/marketplace/actions/sql-review) is now available on the GitHub Action Marketplace! 🐱
-![sql-revie-gha](/changelog/1.3.1/sql-revie-gha.webp)
+![sql-revie-gha](/content/changelog/1.3.1/sql-revie-gha.webp)
 
 ## 🎄 Enhancements
 
 - Speed up MySQL database restore by 20x. 🔥
 - Project owners can now be set as Issue approvers.
-  ![set-reviewer](/changelog/1.3.1/set-reviewer.webp)
+  ![set-reviewer](/content/changelog/1.3.1/set-reviewer.webp)
 - The "Alter Schema" page now supports searching for databases through a search box.
 - Alter a single database schema is now supported in tenant mode projects.
 - Updated the "Open connection" button in the SQL Editor.
-  ![sql-editor-button](/changelog/1.3.1/sql-editor-button.webp)
+  ![sql-editor-button](/content/changelog/1.3.1/sql-editor-button.webp)
 - Database instance tree in SQL editor now loads significantly faster.
 - Added the "LGTM" button in issue's comment area. 👍
 

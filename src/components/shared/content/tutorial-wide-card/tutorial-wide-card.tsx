@@ -11,6 +11,7 @@ import MongoDBIcon from '@/svgs/mongodb.inline.svg';
 import PostgresIcon from '@/svgs/postgres.inline.svg';
 import RedisIcon from '@/svgs/redis.inline.svg';
 import SnowflakeIcon from '@/svgs/snowflake.inline.svg';
+import SpannerIcon from '@/svgs/spanner.inline.svg';
 import TerraformIcon from '@/svgs/terraform.inline.svg';
 import TidbIcon from '@/svgs/tidb.inline.svg';
 
@@ -21,6 +22,7 @@ const allLogos: { [key: string]: React.FunctionComponent<React.SVGProps<SVGSVGEl
   gitlab: GitLabIcon,
   postgres: PostgresIcon,
   snowflake: SnowflakeIcon,
+  spanner: SpannerIcon,
   terraform: TerraformIcon,
   tidb: TidbIcon,
   redis: RedisIcon,

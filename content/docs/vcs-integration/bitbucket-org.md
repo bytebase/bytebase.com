@@ -11,11 +11,11 @@ title: Bitbucket.org
 
 Go to **Settings** from the top nav bar, select **GitOps** under **Workspace**, and then click **Add a Git provider**.
 
-![add-git-provider](/docs/vcs-integration/add-git-provider/add-git-provider.webp)
+![add-git-provider](/content/docs/vcs-integration/add-git-provider/add-git-provider.webp)
 
 Both the instance URL and Display name are pre-populated for you.
 
-![add-git-provider-steps](/docs/vcs-integration/add-git-provider/add-git-provider-bitbucket-org-step1.webp)
+![add-git-provider-steps](/content/docs/vcs-integration/add-git-provider/add-git-provider-bitbucket-org-step1.webp)
 
 ## Step 2 - OAuth consumer info
 
@@ -29,11 +29,11 @@ In this step, you need to register "Bytebase" as a [Bitbucket workspace-wide OAu
 
 Login as an workspace admin user to the Bitbucket.org. The account must be an workspace admin of the Bitbucket workspace (able to access the **Workspace settings** page):
 
-![bitbucket-admin-settings](/docs/vcs-integration/add-git-provider/bitbucket-admin-settings.webp)
+![bitbucket-admin-settings](/content/docs/vcs-integration/add-git-provider/bitbucket-admin-settings.webp)
 
 Go to **OAuth consumers** from the sidebar, then click **Add consumer** button.
 
-![vcs-bitbucket-step](/docs/vcs-integration/add-git-provider/vcs-bitbucket-step1.webp)
+![vcs-bitbucket-step](/content/docs/vcs-integration/add-git-provider/vcs-bitbucket-step1.webp)
 
 Fill in the form with the provided info on the Bytebase setup wizard:
 
@@ -47,7 +47,7 @@ Click the **Save** button after filling the info on Bitbucket.org and you will s
 
 Fill in the **Application ID** and **Secret** onto the corresponding fields on the Bytebase setup wizard:
 
-![vcs-bitbucket-step](/docs/vcs-integration/add-git-provider/vcs-bitbucket-step4.webp)
+![vcs-bitbucket-step](/content/docs/vcs-integration/add-git-provider/vcs-bitbucket-step4.webp)
 
 After you click "**Next**", Bytebase will kick off an OAuth flow to verify the setup. If you are not currently logged on Bitbucket.org. You will be prompted to login to complete the OAuth.
 
@@ -64,6 +64,6 @@ If you get an error in the OAuth popup window. Please double-check the following
 
 When everything is setup properly, you will be informed that the setup is correct. Click "**Confirm and add**".
 
-![vcs-bitbucket-step](/docs/vcs-integration/add-git-provider/vcs-bitbucket-step5.webp)
+![vcs-bitbucket-step](/content/docs/vcs-integration/add-git-provider/vcs-bitbucket-step5.webp)
 
 Now you have successfully added a Git provider, developers can now link their Bytebase projects with one of their owned repositories from this Git provider.

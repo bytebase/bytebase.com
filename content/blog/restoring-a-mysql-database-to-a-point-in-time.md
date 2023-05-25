@@ -2,7 +2,7 @@
 title: 'Restoring a MySQL Database to a Point in Time'
 author: Candy
 published_at: 2022/07/11 16:30:17
-feature_image: /blog/restoring-a-mysql-database-to-a-point-in-time/pitr-cover.webp
+feature_image: /content/blog/restoring-a-mysql-database-to-a-point-in-time/pitr-cover.webp
 tags: How-To
 integrations: MySQL
 description: This article describes how Point-in-Time-Recovery (PITR) works in Bytebase and the steps to restore a database using this feature.
@@ -31,30 +31,30 @@ The last step means Bytebase is doing an in-place database recovery and does not
 ## How to Restore a Database to a Point in Time?
 
 Let’s say there is a MySQL database `db_pitr_example` that has two tables `pitr_one` and `pitr_two`.
-![original](/blog/restoring-a-mysql-database-to-a-point-in-time/original.webp)
+![original](/content/blog/restoring-a-mysql-database-to-a-point-in-time/original.webp)
 
 Suddenly, the application goes down since someone accidentally deletes the table `pitr_two`. Then, the DBA or the on-call developer needs to restore that deleted table.
-![del](/blog/restoring-a-mysql-database-to-a-point-in-time/del.webp)
+![del](/content/blog/restoring-a-mysql-database-to-a-point-in-time/del.webp)
 
 The following steps demonstrate how to restore the database `db_pitr_example` with PITR.
 
 **Step1**. Click **Restore to point in time** under **Backup and restore**.
-![pitr-step1](/blog/restoring-a-mysql-database-to-a-point-in-time/pitr-step1.webp)
+![pitr-step1](/content/blog/restoring-a-mysql-database-to-a-point-in-time/pitr-step1.webp)
 
 **Step2**. Choose a point in time to restore the database, and click **Confirm**.
-![pitr-step2](/blog/restoring-a-mysql-database-to-a-point-in-time/pitr-step2.webp)
+![pitr-step2](/content/blog/restoring-a-mysql-database-to-a-point-in-time/pitr-step2.webp)
 
 **Step3**. Click **Approve** to execute the first task, or reassign it to someone else to review the task first.
-![pitr-step3](/blog/restoring-a-mysql-database-to-a-point-in-time/pitr-step3.webp)
+![pitr-step3](/content/blog/restoring-a-mysql-database-to-a-point-in-time/pitr-step3.webp)
 
 After the first task is completed, click **Approve** again to execute the second task.
-![pitr-step4](/blog/restoring-a-mysql-database-to-a-point-in-time/pitr-step4.webp)
+![pitr-step4](/content/blog/restoring-a-mysql-database-to-a-point-in-time/pitr-step4.webp)
 
 Now, the point-in-time recovery for the database is done. The result says that the database `db_pitr_example` has performed point-in-time recovery successfully.
-![result](/blog/restoring-a-mysql-database-to-a-point-in-time/result.webp)
+![result](/content/blog/restoring-a-mysql-database-to-a-point-in-time/result.webp)
 
 Let’s verify tables in the database `db_pitr_example`. The deleted table `pitr_two` is back again.
-![verify](/blog/restoring-a-mysql-database-to-a-point-in-time/verify.webp)
+![verify](/content/blog/restoring-a-mysql-database-to-a-point-in-time/verify.webp)
 
 ## Learn more
 

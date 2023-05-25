@@ -2,7 +2,7 @@
 title: 数据库年度报告：回望2021
 author: Tianzhou
 published_at: 2022/01/25 07:48:55
-feature_image: /blog/database-review-2021-andy-pavlo-chinese/top-10-database.webp
+feature_image: /content/blog/database-review-2021-andy-pavlo-chinese/top-10-database.webp
 tags: Hidden, Chinese
 description: 数据库产业经历了爆发式增长的一年。在这一年里，数据库产业后浪推前浪，厂商围绕性能测试结果展开角逐，更有一轮又一轮额度惊人的融资。同时，在经历了一系列并购、破产和退出之后，我们也不得不同一些熟悉的数据库告别。 年关将至，在正式进入2022年之前，这些事件也值得我们做一次盘点、总结与反思。以下是部分要点事件。关于它们在数据库领域的意义，我做的一些思考。
 ---
@@ -17,7 +17,7 @@ description: 数据库产业经历了爆发式增长的一年。在这一年里�
 
 另一个值得思考的点是 PostgreSQL 在线上社区中被提及的频次。这为我们提供了另一种视角，让我们窥见当人们讨论数据库时他们究竟在讨论什么。我下载了 2021 年度 [Reddit 中 Database 板块](https://www.reddit.com/r/Database/)上的所有评论，并清点了各个数据库名称在其中出现的频次 (当然我是用 PostgreSQL 做这项工作的)。我从我的 [Database of Databases](https://dbdb.io/) 中交叉引用了我了解的所有数据库的列表，对缩写做了清洗（例如， Postgres → PostgreSQL, Mongo → MongoDB, ES → Elasticsearch），最后计算出了十个最常被提及的 DBMS：
 
-![_](/blog/database-review-2021-andy-pavlo-chinese/top-10-database.webp)
+![_](/content/blog/database-review-2021-andy-pavlo-chinese/top-10-database.webp)
 
 当然这张排名表没那么科学，因为我没有对这些评论做情感分析。然而，它确实清晰地展现出，在过去一年里，相较于其他数据库，PostgreSQL 被人们提及的频次要更多。经常有开发者发帖询问该选择哪一个 DBMS 来开发新应用。社区成员对此的回答几乎总是 PostgreSQL。
 

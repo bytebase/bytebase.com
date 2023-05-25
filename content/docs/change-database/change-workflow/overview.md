@@ -6,7 +6,7 @@ For a typical change workflow, a developer first submits the SQL statement for D
 
 To facilitate this heavily used process, Bytebase has designed a comprehensive dashboard to unify the stage progression and the collaboration experience into a single page.
 
-![Issue detail interface](/docs/issue-view-annotated.png)
+![Issue detail interface](/content/docs/issue-view-annotated.png)
 
 1. Status banner highlighting the issue status.
 

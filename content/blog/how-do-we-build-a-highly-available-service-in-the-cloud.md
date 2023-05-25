@@ -2,7 +2,7 @@
 title: How to build a highly-available service in the Cloud?
 author: Danny
 published_at: 2022/02/11 08:48:04
-feature_image: /blog/how-do-we-build-a-highly-available-service-in-the-cloud/cloud.webp
+feature_image: /content/blog/how-do-we-build-a-highly-available-service-in-the-cloud/cloud.webp
 tags: Engineering
 description: This article describes how sharding can help building a highly-available services in the Cloud based on author's years of experience at Google Cloud.
 ---
@@ -17,11 +17,11 @@ The author has spent years in the past on building highly-available (HA) databas
 
 On the other hand, it’s extremely challenging to build such reliable Cloud services and infrastructures. Reliability is subjective, and availability is objective. One can never build a 100% available service because we can never guarantee humans or machines not to make mistakes. Industry uses a number of 9s to set the objection of service availability. Let’s take a look at numbers in the table below to get a sense of 9s.
 
-![_](/blog/how-do-we-build-a-highly-available-service-in-the-cloud/availability.webp)
+![_](/content/blog/how-do-we-build-a-highly-available-service-in-the-cloud/availability.webp)
 
 If someone has ever experienced an outage, it would be lucky to get service downtime within an hour based on past observation. It takes a lot of time to notice and declare an outage reported by customers or monitoring, escalate, root cause, find solutions, and mitigate. All these steps require interventions from multiple humans who are not as fast as programmed machines. Everyone get 2’9s, Oops!
 
-![_](/blog/how-do-we-build-a-highly-available-service-in-the-cloud/two-nine.webp)
+![_](/content/blog/how-do-we-build-a-highly-available-service-in-the-cloud/two-nine.webp)
 
 ## Sharding
 
@@ -39,11 +39,11 @@ Let's take a moment off and play an online game together. Fortnite time! Other t
 
 I cannot manage so many of them any more. DevOps tools are certainly here to help address the growing complexity. For example, Kubernetes is an open source system for managing containerized applications across multiple hosts. Knative is a Kubernetes-based platform to deploy and manage modern Serverless workloads. Nowadays, it’s easier to manage the computing part of a service than ever before with these tools.
 
-![_](/blog/how-do-we-build-a-highly-available-service-in-the-cloud/can-not-manage-them-all.webp)
+![_](/content/blog/how-do-we-build-a-highly-available-service-in-the-cloud/can-not-manage-them-all.webp)
 
 What about databases? Well, hum. A silence falls on the hall, till Bytebase comes to the show. Bytebase is an open source software offering a collaborative solution to help DBAs and Developers manage the lifecycle of application database schemas. Beyond that, it offers a Tenant Database Management solution allowing DBAs and Developers to manage a collection of databases with identical schemas. We believe this solution can help to complete multiple gaps in the DevOps space including database sharding for building HA service.
 
-![_](/blog/how-do-we-build-a-highly-available-service-in-the-cloud/tenant-mode.webp)_Screenshot for a Bytebase project in tenant mode. Four databases in the US, Asia, Europe, and Mars. And one database in the staging environment for testing before the change is applied to production._
+![_](/content/blog/how-do-we-build-a-highly-available-service-in-the-cloud/tenant-mode.webp)_Screenshot for a Bytebase project in tenant mode. Four databases in the US, Asia, Europe, and Mars. And one database in the staging environment for testing before the change is applied to production._
 
 ## Closing
 

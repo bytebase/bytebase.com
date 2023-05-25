@@ -2,7 +2,7 @@
 title: 'Bytebase 1.8.0 New Features Dive'
 author: Tianzhou
 published_at: 2022/11/22 17:21:21
-feature_image: /blog/1-8-0-new-features/1-8-0-new-feature-banner.webp
+feature_image: /content/blog/1-8-0-new-features/1-8-0-new-feature-banner.webp
 tags: Explanation
 description: Last week, we released Bytebase 1.8.0. Let's take a deeper look into the new features - MySQL Sync Schema, Admin Mode for SQL Editor, and External Approval via Feishu.
 ---
@@ -11,7 +11,7 @@ Last week, we released [Bytebase 1.8.0](/changelog/bytebase-1-8-0). Let's take a
 
 ## MySQL Sync Schema
 
-![_](/blog/1-8-0-new-features/mysql-sync-schema.webp)
+![_](/content/blog/1-8-0-new-features/mysql-sync-schema.webp)
 
 You can now specify to synchronize the schema from database A to database B, and Bytebase will automatically generate the intermediate DDL statements to be executed.
 
@@ -21,7 +21,7 @@ We are planning to add Sync Schema support for PostgreSQL soon.
 
 ## Admin Mode for SQL Editor
 
-![_](/blog/1-8-0-new-features/sql-editor-admin-mode.webp)
+![_](/content/blog/1-8-0-new-features/sql-editor-admin-mode.webp)
 
 A key selling point of Bytebase is that all scenarios that need database access can be done through Bytebase (aside from the app itself accessing the database). Before this release, Bytebase could already perform database changes and queries on behalf of the application developers.
 
@@ -35,6 +35,6 @@ Previously, you could configure to [get database change notifications via Webhoo
 
 Some users mentioned that they would like to approve changes directly in IM. In this release, we first [added support for Feishu](/docs/administration/webhook-integration/external-approval), and you can now review and approve Bytebase issues via `Feishu Approval`.
 
-![_](/blog/1-8-0-new-features/feishu-approval.webp)
+![_](/content/blog/1-8-0-new-features/feishu-approval.webp)
 
 We will continue to add support for other IMs as well. [Leave us an Issue](https://github.com/bytebase/bytebase) if you'd like to see the IM in your organization supported!

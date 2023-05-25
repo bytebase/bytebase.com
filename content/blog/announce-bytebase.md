@@ -2,7 +2,7 @@
 title: Announcing Bytebase. Open source, web-based, zero-config, dependency-free database schema change and version control tool for Developer and DBA
 author: Tianzhou
 published_at: 2021/07/12 08:27:00
-feature_image: /blog/announce-bytebase/logo-full.webp
+feature_image: /content/blog/announce-bytebase/logo-full.webp
 tags: Announcement
 description: Bytebase is a tool for database schema change and version control, its main audience are Developers and DBAs. We want to make Bytebase the industry benchmark solution for managing database schema change.
 ---
@@ -35,7 +35,7 @@ Many teams have already adopted tools like Flyway, Liquibase in their developmen
 
 Usually when the dev group reaches ~50 people, a dedicated DBA must be summoned. And for a typical middle-sized to large company, the ratio of DBAs to Developers is between 1:150 to 1:400. To improve serving bandwidth, DBAs have to rely on tools. Starting from the most basic SQL review ticket, DBAs often would roll their own by using Python + Django. These tools are often stacked up bit by bit, starting with SQL review ticket, then cron inspector, and then monitoring, backup/restore, approval workflow etc, and finally we get a classic internal company system, like this:
 
-![_](/blog/announce-bytebase/life-of-a-swe.webp)By Manu Cornet, [https://goomics.net/106/](https://goomics.net/106/)
+![_](/content/blog/announce-bytebase/life-of-a-swe.webp)By Manu Cornet, [https://goomics.net/106/](https://goomics.net/106/)
 
 3. Homegrown to open source tools
 
@@ -57,11 +57,11 @@ Since this is a launch post, we will cover some design aspects, more to be cover
 
 Data modeling is always the center piece of the software, it's the one determining the celling of the software and is very hard to change after launch. Even being veterans in the database domain, we have spent tremendous time to make the data modeling right. Below is Bytebase's essence, its v1 data model:
 
-![_](/blog/announce-bytebase/data-model.webp)
+![_](/content/blog/announce-bytebase/data-model.webp)
 
 This is actually the 3rd iteration, and every iteration causes a significant refactoring. As an example, the upper right is to model the execution pipeline, Bytebase has studied all mainstream pipeline design and came up with a solution:
 
-![_](/blog/announce-bytebase/data-model-pipeline.webp)
+![_](/content/blog/announce-bytebase/data-model-pipeline.webp)
 
 For those interested, please check our design notes: [https://github.com/bytebase/bytebase/tree/main/frontend/src/types/pipeline#readme](https://github.com/bytebase/bytebase/tree/main/frontend/src/types/pipeline#readme)
 
@@ -69,17 +69,17 @@ For those interested, please check our design notes: [https://github.com/bytebas
 
 To be honest, we lack the design skills to craft Bytebase to the level of the tools we aspire to like Figma, Notion, Linear. So our bottom line is to make it easy to use with a decent looking frontend. Looking at Bytebase's architecture graph:
 
-![_](/blog/announce-bytebase/architecture.webp)
+![_](/content/blog/announce-bytebase/architecture.webp)
 
 We deliberately put a large browser here to suggest the Bytebase console is a very critical piece of the product. Indeed, the frontend work takes 2/3 ~ 3/4 of the development time so far. And among those work, we spend most effort to polish the most frequently accessed UI - issue detail view.
 
 ### Issue detail view
 
-![_](/blog/announce-bytebase/issue-detail-annotated.webp)
+![_](/content/blog/announce-bytebase/issue-detail-annotated.webp)
 
 The number shows each sub-component of the issue detail view, let's take another look
 
-![_](/blog/announce-bytebase/issue-detail-link.webp)
+![_](/content/blog/announce-bytebase/issue-detail-link.webp)
 
 Each square shows an interactive area. Issue is the rendezvous, and we try to add link to every related object if possible.
 
@@ -87,7 +87,7 @@ Each square shows an interactive area. Issue is the rendezvous, and we try to ad
 
 Next let's talk about link, and in particular the slug part.
 
-![_](/blog/announce-bytebase/slug-design.webp)
+![_](/content/blog/announce-bytebase/slug-design.webp)
 
 The URL is reached by first clicking the stage progress bar, followed by clicking the 2nd activity. This slug consists of 4 parts:
 
@@ -116,11 +116,11 @@ The end result is the developer can just execute ./bytebase to start the entire 
 
 When startup process completes, the console will print out the Bytebase ASCII banner:
 
-![_](/blog/announce-bytebase/banner-hello.webp)
+![_](/content/blog/announce-bytebase/banner-hello.webp)
 
 First, this is for branding purpose. But more importantly, this is to allow user to easily identify the application status. Similarly, if Bytebase stops normally, it will print out the Bye ASCII banner:
 
-![_](/blog/announce-bytebase/banner-bye.webp)
+![_](/content/blog/announce-bytebase/banner-bye.webp)
 
 Both helps user to locate the Bytebase start/stop point among the abundant log entries.
 
@@ -134,7 +134,7 @@ Right before the launch, we made a minor change during the last thorough code re
 
 > _Tool not Platform (yet)_
 
-![_](/blog/announce-bytebase/tool-not-platform.webp)
+![_](/content/blog/announce-bytebase/tool-not-platform.webp)
 
 It has taken a lot of effort to bring Bytebase to the public. Yet, there is a lot of work ahead. We don't have any previous experience to run an open source community, neither do we have any marketing experience. The chosen tech stack and the data model still needs to stand the test of time. All in all, we still need to be pragmatic and focused on building a solid tool first.
 

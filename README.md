@@ -16,7 +16,7 @@ We are hiring. Please check out our [about page](https://www.bytebase.com/about)
 
 ## Getting Started
 
-1. Clone this repository or hit "Use this template" button
+1. Clone this repository
 
 ```bash
 git clone git@github.com:bytebase/bytebase.com.git

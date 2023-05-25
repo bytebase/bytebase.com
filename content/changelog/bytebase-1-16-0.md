@@ -2,7 +2,7 @@
 title: Bytebase 1.16.0
 author: Mila
 published_at: 2023/04/13 18:00:00
-feature_image: /changelog/1-16-0-banner.webp
+feature_image: /content/changelog/1-16-0-banner.webp
 description: "Customize Approval Workflow based on risk levels. Support databases: Oracle, MSSQL & MariaDB. Require two-factor authentication (2FA) for all users."
 ---
 

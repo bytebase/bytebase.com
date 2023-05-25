@@ -120,4 +120,4 @@ Response
 ]
 ```
 
-![openapi-sql-advise](/docs/openapi-sql-advise.webp)
+![openapi-sql-advise](/content/docs/openapi-sql-advise.webp)

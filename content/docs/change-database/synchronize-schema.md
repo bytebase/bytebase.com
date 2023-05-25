@@ -31,7 +31,7 @@ Click the "Sync schema" button in the left navigation bar.
 
 You need to select the project and source database schema version that you want to synchronize.
 
-![select-source-schema](/docs/change-database/synchronize-schema/select-source-schema.webp)
+![select-source-schema](/content/docs/change-database/synchronize-schema/select-source-schema.webp)
 
 <HintBlock type="info">
 
@@ -43,11 +43,11 @@ In the Enterprise Plan, you can select an arbitrary schema version from the migr
 
 Select the target databases that will be synchronized with the chosen schema version in the previous step.
 
-![select-target-databases](/docs/change-database/synchronize-schema/select-target-databases.webp)
+![select-target-databases](/content/docs/change-database/synchronize-schema/select-target-databases.webp)
 
 After you have selected a target database, Bytebase will show a schema diff between the two databases and generate the DDL statements. And you can further edit the generated content.
 
-![diff-preview](/docs/change-database/synchronize-schema/diff-preview.webp)
+![diff-preview](/content/docs/change-database/synchronize-schema/diff-preview.webp)
 
 ### Step 4 - Preview issue
 

@@ -8,13 +8,13 @@ description: "- Integrate PostgreSQL Explain Visualizer. - Support in-place back
 ## 🚀 New Features
 
 - Integrate PostgreSQL Explain Visualizer 👀.
-![pg-explain-visualizer](/changelog/1.3.2/pg-explain-visualizer.gif)
+![pg-explain-visualizer](/content/changelog/1.3.2/pg-explain-visualizer.gif)
 - Support in-place backup restore for PostgreSQL.
 - Support PITR to a new database for MySQL.
 - Users can mark an environment as "protected", and a shield badge 🛡️ will show up next to its name.
-![environment-protected](/changelog/1.3.2/environment-protected.webp)
+![environment-protected](/content/changelog/1.3.2/environment-protected.webp)
 - Users can view, copy and export server-side error info on Settings > Workspace > Debug Log.
-![debug-log](/changelog/1.3.2/debug-log.webp)
+![debug-log](/content/changelog/1.3.2/debug-log.webp)
 
 ## 🎄 Enhancements
 
@@ -41,7 +41,7 @@ description: "- Integrate PostgreSQL Explain Visualizer. - Support in-place back
 ## 🎠 Community
 
 - Add SQL review source code tour [https://sourcegraph.com/github.com/bytebase/bytebase/-/blob/docs/design/sql-review-source-code-tour.snb.md](https://sourcegraph.com/github.com/bytebase/bytebase/-/blob/docs/design/sql-review-source-code-tour.snb.md).
-![sql-review-tour](/changelog/1.3.2/sql-review-tour.webp)
+![sql-review-tour](/content/changelog/1.3.2/sql-review-tour.webp)
   
 - Refresh marketing site [https://bytebase.com](https://bytebase.com).
 - Thanks to [@KaiNiao](https://github.com/KaiNiao) for opening the issue (Schema Review) Add MySQL "Not Null field must provide default value" Rule [#2327](https://github.com/bytebase/bytebase/issues/2327)

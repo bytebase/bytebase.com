@@ -2,7 +2,7 @@
 title: Bytebase 1.13.0
 author: Ningjing
 published_at: 2023/03/02 17:00:00
-feature_image: /changelog/1-13-0-banner.webp
+feature_image: /content/changelog/1-13-0-banner.webp
 description: "- Generate SQL statements to rollback DML for MySQL. - Support Single Sign-On (SSO) with OIDC. - GitOps workflow now supports GitLab.com as a VCS provider."
 ---
 

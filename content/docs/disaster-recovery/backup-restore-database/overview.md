@@ -8,11 +8,11 @@ When Bytebase restores the backup to a new database, it also records the origina
 
 User accesses the database backup feature by visiting the "Backups" tab from the database page.
 
-![backup-example](/docs/backup-example.png)
+![backup-example](/content/docs/backup-example.png)
 
 At the workspace level, Bytebase also supports enforcing [backup schedule policy](/docs/administration/environment-policy/backup-schedule-policy) for each environment. e.g. DBA can require the database in `production` environment to have `daily` backups.
 
-![env-backup-configure](/docs/env-backup-configure.png)
+![env-backup-configure](/content/docs/env-backup-configure.png)
 
 ## Local Storage
 

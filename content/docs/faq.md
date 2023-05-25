@@ -53,7 +53,7 @@ You can pass [--debug](/docs/reference/command-line#--debug) when starting the B
 
 If you are an OWNER or DBA, you can also toggle debug mode at runtime. The toggle is under the top-right profile dropdown
 
-![_](/docs/troubleshoot-debug-mode.webp)
+![_](/content/docs/troubleshoot-debug-mode.webp)
 
 ## Which data does Bytebase collect?
 

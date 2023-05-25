@@ -2,8 +2,8 @@
 title: Bytebase 1.12.0
 author: Mila
 published_at: 2023/02/02 17:00:00
-feature_image: /changelog/1-12-0-banner.webp
-description: "- Configure policy via Terraform Bytebase Provider. - 21 new SQL Review Rules for PostgreSQL. - Updated pricing plan."
+feature_image: /content/changelog/1-12-0-banner.webp
+description: '- Configure policy via Terraform Bytebase Provider. - 21 new SQL Review Rules for PostgreSQL. - Updated pricing plan.'
 ---
 
 ## 🚀 New Features
@@ -29,15 +29,15 @@ description: "- Configure policy via Terraform Bytebase Provider. - 21 new SQL R
 
 ## 💰 Pricing & Plan Change
 
-|                 **Post-change** | **Free Plan** | **Team Plan** | **Enterprise Plan** |
-| ------------------------------- | ----- | ---------- | :--: |
-| **Seat Count** | Up to 10 | Up to 10 | Unlimited |
-| **Task count in an issue** | Unlimited | Unlimited | Unlimited |
-| **Instance count** | Up to 10 | Up to 10 | Customized |
-| **Environment count** | Unlimited | Unlimited | Unlimited |
-| **Subsription** |Free<br />(You can start a 14-day free trial for the Enterprise Plan - no credit card required)|Billed monthly: $19/seat/month<br />Billed annually: $190/seat/year<br />*$79/instance/month, first 3 FREE| Contact us at support@bytebase.com |
+| **Post-change**            | **Free Plan**                                                                                   | **Team Plan**                                                                                               |        **Enterprise Plan**         |
+| -------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | :--------------------------------: |
+| **Seat Count**             | Up to 10                                                                                        | Up to 10                                                                                                    |             Unlimited              |
+| **Task count in an issue** | Unlimited                                                                                       | Unlimited                                                                                                   |             Unlimited              |
+| **Instance count**         | Up to 10                                                                                        | Up to 10                                                                                                    |             Customized             |
+| **Environment count**      | Unlimited                                                                                       | Unlimited                                                                                                   |             Unlimited              |
+| **Subsription**            | Free<br />(You can start a 14-day free trial for the Enterprise Plan - no credit card required) | Billed monthly: $19/seat/month<br />Billed annually: $190/seat/year<br />\*$79/instance/month, first 3 FREE | Contact us at support@bytebase.com |
 
-*Team plan no longer supports Schema drift, Schema VCS write-back, and Sheet VCS sync. They are still available in the Enterprise plan.
+\*Team plan no longer supports Schema drift, Schema VCS write-back, and Sheet VCS sync. They are still available in the Enterprise plan.
 Visit [our pricing page](/pricing) to learn more.
 
 ## 🎠 Community
@@ -48,7 +48,7 @@ Visit [our pricing page](/pricing) to learn more.
 
 - We introduced the MongoDB support in the last release. This is a milestone for us as it's also the first NoSQL database supported by Bytebase, [learn more](/blog/introducing-mongodb-support-in-bytebase)!
 - When Navicat is [no longer](/blog/stop-using-navicat) your best bet.
-- A step-by-step guide to [managing databases](/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform) in Bytebase with Terraform.
+- A step-by-step guide to [managing databases](/docs/tutorials/manage-databases-in-bytebase-with-terraform) in Bytebase with Terraform.
 
 ## 📕 Installation and Upgrade
 

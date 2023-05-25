@@ -2,7 +2,7 @@
 title: Bytebase 1.9.0
 author: Ningjing
 published_at: 2022/12/1 17:00:00
-description: "- Support managing with environment and instance via Terraform provider. - Support synchronizing schema for PostgreSQL. - Support masking column-level sensitive data. - New UI for Admin mode of SQL Editor."
+description: '- Support managing with environment and instance via Terraform provider. - Support synchronizing schema for PostgreSQL. - Support masking column-level sensitive data. - New UI for Admin mode of SQL Editor.'
 ---
 
 ## 🚀 New Features
@@ -32,7 +32,7 @@ description: "- Support managing with environment and instance via Terraform pro
 
 - [How to Manage Database Access Control](/blog/how-to-manage-database-access-control)
 - [MotherDuck, from SQLite to the Docker for Data](/blog/motherduck-from-sqlite-to-the-docker-for-data)
-- [How to Synchronize Database Schemas](/docs/tutorials/beginner/how-to-synchronize-database-schemas)
+- [How to Synchronize Database Schemas](/docs/tutorials/how-to-synchronize-database-schemas)
 - [How Schema Sync Works in Bytebase](/blog/how-schema-sync-work)
 
 ## 📕 Installation and Upgrade

@@ -2,7 +2,7 @@
 title: Ask ChatGPT - How to Choose the Right Database for Your Next Project
 author: Tianzhou
 published_at: 2022/12/04 08:40:00
-feature_image: /blog/how-you-choose-database-by-chatgpt/choice.webp
+feature_image: /content/blog/how-you-choose-database-by-chatgpt/choice.webp
 tags: Industry
 description: A conversation with ChatGPT consulting which database to pick for your next software project.
 ---
@@ -226,7 +226,7 @@ technical question, ChatGPT's answer is mostly sane, albeit a bit out-dated. e.g
 the HTAP databases, it mentions MemSQL (which has already been rebranded to [SingleStore](https://www.singlestore.com/blog/revolution/)) and dissolved NuoDB, ClustrixDB, but ignores the starlet like [TiDB](https://www.vldb.org/pvldb/vol13/p3072-huang.pdf). This is understandable as ChatGPT confesses that its knowledge cutoff is September 2021,
 after I ask it to brief the AWS re:Invent 2022 happened just days ago.
 
-![_](/blog/how-you-choose-database-by-chatgpt/aws-reinvent.webp)
+![_](/content/blog/how-you-choose-database-by-chatgpt/aws-reinvent.webp)
 
 I believe the knowledge freshness gap will be shortened dramatically in the coming years, just like
 the data analysis industry, where those analysis taking days and weeks before now just take minutes
@@ -247,4 +247,4 @@ And we may all retire at that point regardless of whether willingly or not.
 
 Attached: my full conversation with ChatGPT.
 
-![_](/blog/how-you-choose-database-by-chatgpt/full-script.webp)
+![_](/content/blog/how-you-choose-database-by-chatgpt/full-script.webp)

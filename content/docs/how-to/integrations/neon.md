@@ -22,11 +22,11 @@ While Neon already has developer-oriented features like branching, Bytebase adds
 
 Once you have set up your project, an `.env` file will be generated that contains the connection details for your Neon databases, download the file (and make sure to keep it safe!).
 
-![neon-project-details](/docs/how-to/integrations/neon-project-details.webp)
+![neon-project-details](/content/docs/how-to/integrations/neon-project-details.webp)
 
 Within the file, we will need the following details to establish connection with Bytebase.
 
-![env-file-details](/docs/how-to/integrations/neon-env-file-details.webp)
+![env-file-details](/content/docs/how-to/integrations/neon-env-file-details.webp)
 
 ### Step 2 - Add Neon database instance to Bytebase
 
@@ -41,7 +41,7 @@ From your Bytebase **Create Instance** page, choose **Add Instance**, fill in th
 7. **Password:** copy the **PGPASSWORD** from the `.env` file
 8. **Database:** copy the **PGDATABASE** from the `.env` file
 
-![neon-bytebase-create-instance](/docs/how-to/integrations/neon-bytebase-create-instance.webp)
+![neon-bytebase-create-instance](/content/docs/how-to/integrations/neon-bytebase-create-instance.webp)
 
 See [Add an Instance](/docs/get-started/configure-workspace/add-an-instance) for more details.
 
@@ -49,8 +49,8 @@ See [Add an Instance](/docs/get-started/configure-workspace/add-an-instance) for
 
 All databases should be synced properly. Expect some delay if the database instance is large.
 
-![neon-bytebase-instance](/docs/how-to/integrations/neon-bytebase-instance.webp)
+![neon-bytebase-instance](/content/docs/how-to/integrations/neon-bytebase-instance.webp)
 
 So should the tables under the databases.
 
-![neon-bytebase-database](/docs/how-to/integrations/neon-bytebase-database.webp)
+![neon-bytebase-database](/content/docs/how-to/integrations/neon-bytebase-database.webp)

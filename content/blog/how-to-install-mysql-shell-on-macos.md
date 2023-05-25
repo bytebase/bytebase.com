@@ -2,7 +2,7 @@
 title: How to install MySQL Shell on Your Mac
 author: Mila
 published_at: 2022/06/30 17:30:30
-feature_image: /blog/how-to-install-mysql-shell-on-macos/mysql-mac.webp
+feature_image: /content/blog/how-to-install-mysql-shell-on-macos/mysql-mac.webp
 tags: How-To
 description: Learn how to install MySQL Shell on your macOS.
 ---
@@ -19,7 +19,7 @@ brew -v
 
 If you have, the terminal will display something like this:
 
-![_](/blog/how-to-install-mysql-shell-on-macos/brew-version.webp)
+![_](/content/blog/how-to-install-mysql-shell-on-macos/brew-version.webp)
 
 Otherwise, run the following command to install Homebrew first:
 
@@ -72,15 +72,15 @@ The second way is to download the [MySQL Shell for the macOS package](https://de
 
 Select the corresponding Operating System and OS Version of your Mac, and download the package.
 
-![_](/blog/how-to-install-mysql-shell-on-macos/mac-version.webp)
+![_](/content/blog/how-to-install-mysql-shell-on-macos/mac-version.webp)
 
 Double-click the downloaded DMG file, a Finder window will show up.
 
-![_](/blog/how-to-install-mysql-shell-on-macos/mysql-shell-pkg.webp)
+![_](/content/blog/how-to-install-mysql-shell-on-macos/mysql-shell-pkg.webp)
 
 Double-click to extract the .pkg file, and then follow the instructions as shown in the installation wizard.
 
-![_](/blog/how-to-install-mysql-shell-on-macos/mysql-install-wizard.webp)
+![_](/content/blog/how-to-install-mysql-shell-on-macos/mysql-install-wizard.webp)
 
 When the installer finishes, it means you have successfully installed MySQL Shell for Mac, feel free to eject the DMG and delete the file.
 

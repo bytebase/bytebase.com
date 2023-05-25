@@ -20,7 +20,7 @@ While Supabase already has an easy-to-use GUI to conduct database operations, By
 
 ### Step 1 - Visit Supabase project's database setting
 
-![supabase-database-setting](/docs/how-to/integrations/supabase-database-setting.webp)
+![supabase-database-setting](/content/docs/how-to/integrations/supabase-database-setting.webp)
 
 Note down the `Host` and `Port` info. For `User` and `Password`, we recommend creating a dedicated user for Bytebase instead of using the default postgres user.
 
@@ -28,20 +28,20 @@ Note down the `Host` and `Port` info. For `User` and `Password`, we recommend cr
 
 Visit Supabase SQL Editor and create a database user and grants it SUPERUSER role. Below example creates a user named "bytebase".
 
-![supabase-sql-editor](/docs/how-to/integrations/supabase-sql-editor.webp)
+![supabase-sql-editor](/content/docs/how-to/integrations/supabase-sql-editor.webp)
 
 ### Step 3 - Add the Supabase database instance to Bytebase
 
 Choose `PostgreSQL`, and copy the `Host`, `Port`, `User` and `Password` from the last two steps to the form and click "Create". See [Add an Instance](/docs/get-started/configure-workspace/add-an-instance) for more details.
 
-![supabase-bytebase-create-instance](/docs/how-to/integrations/supabase-bytebase-create-instance.webp)
+![supabase-bytebase-create-instance](/content/docs/how-to/integrations/supabase-bytebase-create-instance.webp)
 
 ### Step 4 - Check the database instance is properly imported
 
 All databases should be sycned properly. Expect some delay if the database instance is large.
 
-![supabase-bytebase-instance](/docs/how-to/integrations/supabase-bytebase-instance.webp)
+![supabase-bytebase-instance](/content/docs/how-to/integrations/supabase-bytebase-instance.webp)
 
 So should the tables under the databases.
 
-![supabase-bytebase-database](/docs/how-to/integrations/supabase-bytebase-database.webp)
+![supabase-bytebase-database](/content/docs/how-to/integrations/supabase-bytebase-database.webp)

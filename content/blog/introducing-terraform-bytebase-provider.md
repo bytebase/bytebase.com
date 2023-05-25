@@ -2,7 +2,7 @@
 title: Introducing Terraform Bytebase Provider
 author: Candy
 published_at: 2023/02/08 11:37:27
-feature_image: /blog/introducing-terraform-bytebase-provider/cover.webp
+feature_image: /content/blog/introducing-terraform-bytebase-provider/cover.webp
 tags: Announcement
 integrations: Terraform
 featured: true
@@ -24,19 +24,19 @@ The latest Terraform Bytebase Provider allows you to easily manage the following
 - **Instance roles**: At this time, it is only compatible with PostgreSQL. We are working on supporting for MySQL.
 
 Taking the database instances as an example, you want to add a MySQL instance to the environment `prod`. Initially, the environment `prod` has only one PostgreSQL instance `Postgres Sample Instance` as shown below.
-![before-terraform-config](/blog/introducing-terraform-bytebase-provider/before-terraform-config.webp)
+![before-terraform-config](/content/blog/introducing-terraform-bytebase-provider/before-terraform-config.webp)
 
 The code block below demonstrates how to add the instance `prod_instance` to the environment `prod`:
-![access-control-code](/blog/introducing-terraform-bytebase-provider/terraform-code.webp)
+![access-control-code](/content/blog/introducing-terraform-bytebase-provider/terraform-code.webp)
 
 Run `terraform init`, `terraform plan` and `terraform apply` in the terminal. The output below shows that the instance `prod_instance` has been successfully added.
-![run-terraform](/blog/introducing-terraform-bytebase-provider/run-terraform.webp)
+![run-terraform](/content/blog/introducing-terraform-bytebase-provider/run-terraform.webp)
 
 After running the Terraform commands, you can verify the instances list via the Bytebase Console, where you will observe the MySQL instance `prod_instance` listed in the instances list.
-![after-terraform](/blog/introducing-terraform-bytebase-provider/after-terraform.webp)
+![after-terraform](/content/blog/introducing-terraform-bytebase-provider/after-terraform.webp)
 
 ## Conclusion
 
-If you are already using Terraform to manage your infrastructure, the Terraform Bytebase Provider will allow you to codify the database configuration and consolidate your workflow. To get started, you can follow this tutorial [Manage databases in Bytebase with Terraform](https://www.bytebase.com/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform) and try it out by yourself. Additionally, you can find [more examples on GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples).
+If you are already using Terraform to manage your infrastructure, the Terraform Bytebase Provider will allow you to codify the database configuration and consolidate your workflow. To get started, you can follow this tutorial [Manage databases in Bytebase with Terraform](https://www.bytebase.com/docs/tutorials/manage-databases-in-bytebase-with-terraform) and try it out by yourself. Additionally, you can find [more examples on GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples).
 
 You are welcome to join [our discord](https://discord.gg/H7Ayn5NP) to learn more about database change management and discuss related topics.

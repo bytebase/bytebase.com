@@ -2,7 +2,7 @@
 title: Bytebase 1.12.1
 author: Ningjing
 published_at: 2023/02/16 17:00:00
-feature_image: /changelog/1-12-1-banner.webp
+feature_image: /content/changelog/1-12-1-banner.webp
 description: '- Support OAuth 2.0 for Single Sign-On (SSO). - Support change and query for Spanner. - Support watermark. - Mask sensitive fields for PostgreSQL '
 ---
 
@@ -41,8 +41,8 @@ description: '- Support OAuth 2.0 for Single Sign-On (SSO). - Support change and
   - Partnership with PingCAP, the company building TiDB, which provides scaling database infrastructure solutions via an open-source platform. [Streamline Database Change Management for TiDB Cloud with Bytebase](/blog/streamline-database-change-management-for-tidb-cloud-with-bytebase)
 - We officially announced [Terraform Bytebase Provider](/blog/introducing-terraform-bytebase-provider), which will allow you to codify the database configuration and consolidate your workflow.
 - Ready to bring your MySQL schema change to the next level? The Database Change Management tutorial series continues!
-  - Step 1 - [DevOps: Database Change Management with MySQL](/docs/tutorials/beginner/database-change-management-with-mysql)
-  - Step 2 - [DevOps: Database Change Management with MySQL and GitHub](/docs/tutorials/intermediate/database-change-management-with-mysql-and-github)
+  - Step 1 - [DevOps: Database Change Management with MySQL](/docs/tutorials/database-change-management-with-mysql)
+  - Step 2 - [DevOps: Database Change Management with MySQL and GitHub](/docs/tutorials/database-change-management-with-mysql-and-github)
 
 ## 📕 Installation and Upgrade
 

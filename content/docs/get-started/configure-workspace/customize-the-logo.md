@@ -24,4 +24,4 @@ This document shows you how to add a logo to your workspace.
 
 See the following example to see how to customize your workspace with the Bytebase logo:
 
-![customize-the-logo](/docs/get-started/configure-workspace/customize-the-logo/customize-the-logo.webp)
+![customize-the-logo](/content/docs/get-started/configure-workspace/customize-the-logo/customize-the-logo.webp)

@@ -13,11 +13,11 @@ title: Self-host GitLab EE/CE
 
 Go to **Settings** from the top nav bar, select **GitOps** under **Workspace**, and then click **Add a Git provider**.
 
-![add-git-provider](/docs/vcs-integration/add-git-provider/add-git-provider.webp)
+![add-git-provider](/content/docs/vcs-integration/add-git-provider/add-git-provider.webp)
 
 Fill in the URL where the GitLab instance is running.
 
-![add-git-provider-steps](/docs/vcs-integration/add-git-provider/add-git-provider-step1.webp)
+![add-git-provider-steps](/content/docs/vcs-integration/add-git-provider/add-git-provider-step1.webp)
 
 ## Step 2 - OAuth application info
 
@@ -39,15 +39,15 @@ A common mistake is when a user misconfigures the port when using port forwardin
 
 Login the GitLab instance specified in Step 1 as an Admin user. The admin user will see a wrench icon on the top nav bar like below:
 
-![gitlab-admin-area](/docs/vcs-integration/add-git-provider/gitlab-admin-area.webp)
+![gitlab-admin-area](/content/docs/vcs-integration/add-git-provider/gitlab-admin-area.webp)
 
 Go to "**Applications**" from the sidebar, then click "**New application**" button.
 
-![vcs-gitlab-step](/docs/vcs-integration/add-git-provider/vcs-gitlab-step1.webp)
+![vcs-gitlab-step](/content/docs/vcs-integration/add-git-provider/vcs-gitlab-step1.webp)
 
 Fill in the form with the provided info on the Bytebase setup wizard.
 
-![vcs-gitlab-step](/docs/vcs-integration/add-git-provider/vcs-gitlab-step2.webp)
+![vcs-gitlab-step](/content/docs/vcs-integration/add-git-provider/vcs-gitlab-step2.webp)
 
 Register info:
 
@@ -59,13 +59,13 @@ Register info:
 
 Click the "**Submit**" button after filling the info on GitLab and you will see a created application, like below:
 
-![vcs-gitlab-step](/docs/vcs-integration/add-git-provider/vcs-gitlab-step3.webp)
+![vcs-gitlab-step](/content/docs/vcs-integration/add-git-provider/vcs-gitlab-step3.webp)
 
 ### Step 2.2 - Verify setup
 
 Fill in the **Application ID** and **Secret** onto the corresponding fields on the Bytebase setup wizard:
 
-![vcs-gitlab-step](/docs/vcs-integration/add-git-provider/vcs-gitlab-step4.webp)
+![vcs-gitlab-step](/content/docs/vcs-integration/add-git-provider/vcs-gitlab-step4.webp)
 
 After you click "**Next**", Bytebase will kick off an OAuth flow to verify the setup. If you are not currently logged into the GitLab instance used in the setup. You will be prompted to login to complete the OAuth.
 
@@ -83,7 +83,7 @@ If you get an error in the OAuth popup window. Please double-check the following
 
 When everything is setup properly, you will be informed that the setup is correct. Click "**Confirm and add**".
 
-![vcs-gitlab-step](/docs/vcs-integration/add-git-provider/vcs-gitlab-step5.webp)
+![vcs-gitlab-step](/content/docs/vcs-integration/add-git-provider/vcs-gitlab-step5.webp)
 
 Now you have successfully added a Git provider, developers can now link their Bytebase projects with one of their owned repositories from this Git provider.
 
