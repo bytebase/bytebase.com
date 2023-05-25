@@ -19,7 +19,7 @@ Database change has long been the most critical step in a release. If you do it 
 
 They may not sound so bad if you only need to manage one or two databases, but when you face as few as a dozen to 1,000+ instances, this will be torture. We have a platform to manage code, a variety of issue trackers, and multiple SQL review tools, but why is this process still such a pain in the ass?
 
-All inefficient collaboration can be backtracked to fragmented processes and unshared information, if we can develop [a complete Database CI/CD workflow](/docs/tutorials/intermediate/database-cicd-best-practice-with-github), and break the wall between developers and DBAs, will it improve efficiency?
+All inefficient collaboration can be backtracked to fragmented processes and unshared information, if we can develop [a complete Database CI/CD workflow](/docs/tutorials/database-cicd-best-practice-with-github), and break the wall between developers and DBAs, will it improve efficiency?
 
 ![](/content/blog/database-cicd-best-practice/complete-cicd-workflow.webp)
 
@@ -88,7 +88,7 @@ Bytebase has ~100 standard built-in SQL Lint and supports configuring review rul
 
 ![](/content/blog/database-cicd-best-practice/strategy.webp)
 
-- When creating your scripts, the SQL statements are pre-checked by Bytebase's [VCS-integrated review capabilities](/docs/tutorials/intermediate/github-database-cicd-part-1-sql-review-github-actions) to help identify violations.
+- When creating your scripts, the SQL statements are pre-checked by Bytebase's [VCS-integrated review capabilities](/docs/tutorials/github-database-cicd-part-1-sql-review-github-actions) to help identify violations.
 - During the execution phase, Bytebase will initiate a secondary check. The closer you get to prod, the tougher the rules.
 
 ## Defining an automated deployment workflow
@@ -133,4 +133,4 @@ This process can be divided into three main tasks:
 
    ![](/content/blog/database-cicd-best-practice/gitops.webp)
 
-For a more detailed implementation, please refer to [How to Setup Database CI/CD with GitHub](/docs/tutorials/intermediate/github-database-cicd-part-2-github-database-gitops).
+For a more detailed implementation, please refer to [How to Setup Database CI/CD with GitHub](/docs/tutorials/github-database-cicd-part-2-github-database-gitops).

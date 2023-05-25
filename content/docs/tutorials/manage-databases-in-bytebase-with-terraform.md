@@ -2,7 +2,7 @@
 title: Manage Databases in Bytebase with Terraform
 author: Ningjing
 published_at: 2023/01/16 21:15
-feature_image: /content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/terraform-feature.webp
+feature_image: /content/docs/tutorials/manage-databases-in-bytebase-with-terraform/terraform-feature.webp
 tags: Tutorial
 integrations: Terraform
 level: Intermediate
@@ -83,29 +83,29 @@ docker run --name mysqldprod \
 ```
 
 3. Register admin account `DBA`. This account will be granted `Workspace Owner` role. [https://www.bytebase.com/docs/concepts/roles-and-permissions](https://www.bytebase.com/docs/concepts/roles-and-permissions)
-   ![register-admin](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/register-admin.webp)
+   ![register-admin](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/register-admin.webp)
 
 ## Add an Instance in Bytebase from GUI
 
 In this section, you'll follow the onboard guide to add an instance in Bytebase.
 
 1. Follow the onboard guide or click **Add instance** on home page.
-   ![add-instance](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/add-instance.webp)
+   ![add-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/add-instance.webp)
 
 2. Create an instance for `Test` Environment with the following configuration. Fill **username**/**password** as `root`/`testpwd1`
-   ![create-instance](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/create-instance.webp)
+   ![create-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/create-instance.webp)
 
 3. Follow the onboard guide or click **New Project** on Projects page. Create a project `Test` with key `TEST` and click **Create**.
-   ![create-project](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/create-project.webp)
+   ![create-project](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/create-project.webp)
 
 4. Follow the onboard guide or click **New DB** on the project `Test` page.
-   ![add-new-db](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/add-new-db.webp)
+   ![add-new-db](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/add-new-db.webp)
 
 5. Create a database `demo`, and click **Create**. This will take you to the issue page, an issue is created. Since it’s for `Test` environment, it will execute without approval from you. Click **Resolve issue**, and the issue will be done.
 
-![create-db-demo](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/create-db-demo.webp)
+![create-db-demo](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/create-db-demo.webp)
 
-![issue-db-demo](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/issue-db-demo.webp)
+![issue-db-demo](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/issue-db-demo.webp)
 
 ## Add Instances via Terraform
 
@@ -115,10 +115,10 @@ You’ve added an instance for the `Test` environment in Bytebase by clicking. W
 
 1. Create a new folder `learn-terraform-bytebase` and create a blank file `main.tf` in it.
 2. Go to [https://registry.terraform.io/providers/bytebase/bytebase/latest/docs](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs). Click **Use Provider**, copy and paste the whole code block in the gray box into `main.tf`. Pay attention to the **version**.
-   ![terraform-registration](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/terraform-registration.webp)
+   ![terraform-registration](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/terraform-registration.webp)
 
 3. Follow the document and go to **Example Usage**. Copy the following provider part and paste it in `main.tf`.
-   ![terraform-code-version](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/terraform-code-version.webp)
+   ![terraform-code-version](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/terraform-code-version.webp)
 
 ```other
 provider "bytebase" {
@@ -132,17 +132,17 @@ provider "bytebase" {
 
 1. Click **Settings** on the top navigation bar, and click **Workspace** > **Members**.
 2. Turn on **Create as service account**, fill email with prefix `tf`, and click **+ Add**.
-   ![bb-add-tf](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/bb-add-tf.webp)
+   ![bb-add-tf](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-tf.webp)
 
 3. Scroll down, and you can see the newly added account there. Click **Copy Service Key**.
-   ![bb-copy-tf-key](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/bb-copy-tf-key.webp)
+   ![bb-copy-tf-key](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-copy-tf-key.webp)
 
-![bb-key-copied](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/bb-key-copied.webp)
+![bb-key-copied](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-key-copied.webp)
 
 ### Step 3 - Query to list all resources
 
 1. Paste the **Service Key**, **Service Account Email**, and **URL** into `main.tf`.The file now should look like this:
-   ![vscode-tf-configure](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/vscode-tf-configure.webp)
+   ![vscode-tf-configure](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/vscode-tf-configure.webp)
 
 2. Paste the following queries after the **provider** block and save the file. What it does is to list all existing environments and instances and print those out in the terminal.
 
@@ -184,7 +184,7 @@ all_environments = {
 ```
 
 As we have two default environments in our Bytebase. Pay attention to `resource_id`, they are `test` and `prod` .
-![environments-test](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/environments-test.webp)
+![environments-test](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/environments-test.webp)
 
 ```other
 all_instances = {
@@ -213,7 +213,7 @@ all_instances = {
 ```
 
 As we can see, it’s the instance we just added. Follow `"title" = "MySQL Test"`, you'll find `"resource_id" = "instance-e14ae248"`.
-![instance-test](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/instance-test.webp)
+![instance-test](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/instance-test.webp)
 
 ### Step 4 - Add instances via Terraform
 
@@ -289,10 +289,10 @@ What it does is first to define some variables, and then add four resources:
 - two instances - `MySQL Test TF` and `MySQL Prod TF`
 
 2. Run `terraform init`, `terraform plan` and `terraform apply` one by one in the terminal. You will see this in the terminal.
-   ![terminal-ft-apply](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/terminal-ft-apply.webp)
+   ![terminal-ft-apply](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/terminal-ft-apply.webp)
 
 3. Go back to Bytebase, and click **Environments**. There is nothing changed with these two environments.
-   ![environments-test-prod](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/environments-test-prod.webp)
+   ![environments-test-prod](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/environments-test-prod.webp)
 
 If you go back to the previous query output
 
@@ -324,7 +324,7 @@ Environment test already exists, try to exec the update operation
 What happened is that the two existing environments match with the ones terraform declare by resource_id, so the Bytebase provider will attempt to update the environment.
 
 4. Click **Instances**. You’ll see there are two instances added.
-   ![2-instances-tf](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/2-instances-tf.webp)
+   ![2-instances-tf](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/2-instances-tf.webp)
 
 Why it's different from the environments?
 If you go back to query output for our existing instance which is added from GUI.
@@ -345,23 +345,23 @@ The `resource_id` generated by UI operation `instance-e14ae248` can’t match th
 ### Step 5 - Test if the instances added by Terraform are working
 
 1. Click **Projects** on the top navigation bar, and then click New Project. Create a new project called `TestTF`.
-   ![create-proj-tf](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/create-proj-tf.webp)
+   ![create-proj-tf](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/create-proj-tf.webp)
 
 2. Click TestTF on the left side bar, and click **New DB**.
-   ![testtf-new-db](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/testtf-new-db.webp)
+   ![testtf-new-db](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/testtf-new-db.webp)
 
 3. Fill out the form as follows and click **Create**.
 
 - **Name**: demotf
 - **Environment**: Test
 - **Instance**: MySQL Test TF
-  ![demotf-create-db](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/demotf-create-db.webp)
+  ![demotf-create-db](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/demotf-create-db.webp)
 
 4. You’ll be redirected to the issue page, and click **Resolve issue**.
-   ![issue-demotf-done](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/issue-demotf-done.webp)
+   ![issue-demotf-done](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/issue-demotf-done.webp)
 
 5. Click **Instances** on the top navigation bar, then select `MySQL Test TF`. You’ll see `demotf`.
-   ![test-tf-db](/content/docs/tutorials/intermediate/manage-databases-in-bytebase-with-terraform/test-tf-db.webp)
+   ![test-tf-db](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/test-tf-db.webp)
 
 ## Summary and Next
 

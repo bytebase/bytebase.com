@@ -85,12 +85,12 @@ module.exports = {
       },
       ...tutorialBeginnerRedirects.map((slug) => ({
         source: `/blog/${slug}`,
-        destination: `/docs/tutorials/beginner/${slug}`,
+        destination: `/docs/tutorials/${slug}`,
         permanent: true,
       })),
       ...tutorialIntermediateRedirects.map((slug) => ({
         source: `/blog/${slug}`,
-        destination: `/docs/tutorials/intermediate/${slug}`,
+        destination: `/docs/tutorials/${slug}`,
         permanent: true,
       })),
     ];

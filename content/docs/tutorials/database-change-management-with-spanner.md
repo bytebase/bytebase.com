@@ -2,7 +2,7 @@
 title: 'DevOps: Database Change Management with Spanner'
 author: Ningjing
 published_at: 2023/05/25 17:15
-feature_image: /content/docs/tutorials/beginner/database-change-management-with-spanner/feature-image.webp?
+feature_image: /content/docs/tutorials/database-change-management-with-spanner/feature-image.webp?
 tags: Tutorial
 integrations: Spanner
 level: Beginner
@@ -12,7 +12,7 @@ description: Spanner is a distributed SQL database management and storage servic
 This is a series of articles about Database Change Management with Spanner.
 
 - Database Change Management with Spanner (this one)
-- [Database Change Management with Spanner and GitHub](/docs/tutorials/intermediate/database-change-management-with-spanner-and-github)
+- [Database Change Management with Spanner and GitHub](/docs/tutorials/database-change-management-with-spanner-and-github)
 
 ---
 
@@ -58,17 +58,17 @@ Before you start, make sure you have:
    ```
 
 2. Bytebase is now running via Docker, and you can access it via `localhost:5678`.
-   ![docker](/content/docs/tutorials/beginner/database-change-management-with-spanner/docker.webp)
+   ![docker](/content/docs/tutorials/database-change-management-with-spanner/docker.webp)
 
 3. Visit `localhost:5678` in your browser. Register the first admin account which will be granted [`Workspace Owner`](/docs/concepts/roles-and-permissions).
-   ![bb-register](/content/docs/tutorials/beginner/database-change-management-with-spanner/bb-register.webp)
+   ![bb-register](/content/docs/tutorials/database-change-management-with-spanner/bb-register.webp)
 
 ## Step 2 - Add an Spanner Instance to Bytebase
 
 In Bytebase, ​​an Instance could be your on-premises MySQL instance, an AWS RDS instance etc, in this tutorial, ​an **Instance** is your `Spanner instance`.
 
 1. Visit `localhost:5678` and log in as `Workspace Owner`.
-   ![bb-login](/content/docs/tutorials/beginner/database-change-management-with-spanner/bb-login.webp)
+   ![bb-login](/content/docs/tutorials/database-change-management-with-spanner/bb-login.webp)
 
 2. On the home page, click **Add Instance**.
 
@@ -79,7 +79,7 @@ In Bytebase, ​​an Instance could be your on-premises MySQL instance, an AWS 
 - **Project ID** and **Instance ID**: [How to Find Project ID and Instance ID](docs/how-to/spanner/how-to-find-project-id-and-instance-id/)
 - **Credentials**: [How to Create a Service Account for Bytebase
   ](/docs/how-to/spanner/how-to-create-a-service-account-for-bytebase/)
-  ![bb-create-instance-spanner](/content/docs/tutorials/beginner/database-change-management-with-spanner/bb-create-instance-spanner.webp)
+  ![bb-create-instance-spanner](/content/docs/tutorials/database-change-management-with-spanner/bb-create-instance-spanner.webp)
 
 ## Step 3 - Create a Project
 
@@ -96,7 +96,7 @@ In Bytebase, a **Database** is created by `CREATE DATABASE xxx`. A database alwa
 1. Click **Projects** > `Demo UI` on the left sidebar. Click **New DB** to create a new database. You can click **Transfer in DB** to transfer in your existing databases.
 2. Fill the form with **Name** - `test_db`, **Environment** - `Test`, and **Instance** - `Test Spanner Instance`. Click **Create**.
 3. Bytebase will create an issue to create the database automatically. As it's the `Test` environment, the issue will run without waiting for your approval by default and then become `Done`.
-   ![bb-issue-new-db-test_db-done](/content/docs/tutorials/beginner/database-change-management-with-spanner/bb-issue-new-db-test_db-done.webp)
+   ![bb-issue-new-db-test_db-done](/content/docs/tutorials/database-change-management-with-spanner/bb-issue-new-db-test_db-done.webp)
 
 ## Step 5 - Create a Table in Spanner via Bytebase
 
@@ -113,10 +113,10 @@ In Step 4, you created an issue to create a database using UI workflow and then 
    ) PRIMARY KEY(Id);
    ```
 4. The issue is automatically approved by default since it’s for the `Test` environment. The issue will become `Done` after execution.
-   ![bb-issue-alter-schema-t1-done](/content/docs/tutorials/beginner/database-change-management-with-spanner/bb-issue-alter-schema-t1-done.webp)
+   ![bb-issue-alter-schema-t1-done](/content/docs/tutorials/database-change-management-with-spanner/bb-issue-alter-schema-t1-done.webp)
 
 5. From the issue page, click **View change**, and you can see schema diff.
-   ![bb-issue-alter-schema-t1-diff](/content/docs/tutorials/beginner/database-change-management-with-spanner/bb-issue-alter-schema-t1-diff.webp)
+   ![bb-issue-alter-schema-t1-diff](/content/docs/tutorials/database-change-management-with-spanner/bb-issue-alter-schema-t1-diff.webp)
 
 ## Step 6 - Add Some Data and Query via SQL Editor
 
@@ -152,7 +152,7 @@ In this section, you’ll be guided through this process.
 
    When you make a change in **Admin Mode**, it will not record any history as in a normal process [www.bytebase.com/docs/sql-editor/admin-mode](https://www.bytebase.com/docs/sql-editor/admin-mode)
 
-   ![bb-sql-editor-admin](/content/docs/tutorials/beginner/database-change-management-with-spanner/bb-sql-editor-admin.webp)
+   ![bb-sql-editor-admin](/content/docs/tutorials/database-change-management-with-spanner/bb-sql-editor-admin.webp)
 
 2. Paste the following and then press **Enter**:
 
@@ -174,12 +174,12 @@ In this section, you’ll be guided through this process.
    ```
 
 4. Wait for 10 mins (as Bytebase does the check roughly every 10 mins). Go to **Anomaly Center**, and you can find the **Schema Drift**.
-   ![bb-ac-schema-drift](/content/docs/tutorials/beginner/database-change-management-with-spanner/bb-ac-schema-drift.webp)
+   ![bb-ac-schema-drift](/content/docs/tutorials/database-change-management-with-spanner/bb-ac-schema-drift.webp)
 
 5. Click on **View diff**, you will see the exact drift.
 
 6. You may also find the drift by clicking **Databases** > `test_db`.
-   ![bb-db-schema-drift](/content/docs/tutorials/beginner/database-change-management-with-spanner/bb-db-schema-drift.webp)
+   ![bb-db-schema-drift](/content/docs/tutorials/database-change-management-with-spanner/bb-db-schema-drift.webp)
 
 7. Go to **Databases** > `test_db` > **Change History** and click **Establish new baseline**, this step establishes a new baseline to reconcile the schema state from the live database schema.
 
@@ -190,4 +190,4 @@ In this section, you’ll be guided through this process.
 
 Now you have connected Spanner with Bytebase, and used the UI workflow to accomplish schema change and data change. Bytebase will record the full change history for you. Furthermore, the **Enterprise Plan** is equipped with **Schema Drift Detection** to detect out-of-band schema changes performed outside of Bytebase.
 
-In the [next post](/docs/tutorials/intermediate/database-change-management-with-spanner-and-github), you’ll try out GitOps workflow: store your Spanner schema in GitHub and Bytebase will pick up the changes to the repo, bringing your Spanner change workflow to the next level, aka **Database DevOps** - [Database as Code](https://www.bytebase.com/blog/database-as-code).
+In the [next post](/docs/tutorials/database-change-management-with-spanner-and-github), you’ll try out GitOps workflow: store your Spanner schema in GitHub and Bytebase will pick up the changes to the repo, bringing your Spanner change workflow to the next level, aka **Database DevOps** - [Database as Code](https://www.bytebase.com/blog/database-as-code).
