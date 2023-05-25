@@ -2,7 +2,7 @@
 title: 'Bytebase 1.9.1 Deep Dive'
 author: Tianzhou
 published_at: 2022/12/20 17:21:21
-feature_image: /blog/1-9-1-new-features/1.9.1-banner.webp
+feature_image: /content/blog/1-9-1-new-features/1.9.1-banner.webp
 tags: Explanation
 description: Last week, we released Bytebase 1.9.1. Let's take a deeper look into the new features - schema editor, mark issues as Need Attention, database access control, and data anonymization.
 ---
@@ -15,7 +15,7 @@ First up is the [Schema editor](/docs/change-database/schema-editor).
 
 For most developers, handwriting SQL is troublesome and error-prone. So, we made a visual Schema Editor that can generate SQL statements with just a few clicks.
 
-![_](/blog/1-9-1-new-features/schema-editor.webp)
+![_](/content/blog/1-9-1-new-features/schema-editor.webp)
 
 We included the support for MySQL and TiDB first, and PostgreSQL will be available soon.
 
@@ -25,9 +25,9 @@ Next ups is a small yet sweet feature.
 
 The issue creator might want to remind the reviewer during the review process. We added the **[Need Attention](/docs/change-database/change-workflow/issue-need-attention)** feature, which adds a reminder bell to the Review interface. The corresponding issue title will become bold in the reviewer interface when you click it.
 
-![_](/blog/1-9-1-new-features/need-attention-bell.webp)
+![_](/content/blog/1-9-1-new-features/need-attention-bell.webp)
 
-![_](/blog/1-9-1-new-features/need-attention-bold.webp)
+![_](/content/blog/1-9-1-new-features/need-attention-bold.webp)
 
 The overall interaction took inspiration from Google’s internal Code Review tool. I remember clearly the day I first saw a bold entry in my review list. I’ve used it ever since, and I think it can improve the process’s efficiency.
 
@@ -41,9 +41,9 @@ We introduced [Database Access Control](/docs/administration/database-access-con
 
 Some users suggested that they don’t want developers to access all databases in the production environment by default. This can be achieved by the DBA setting the `Environment Tier` to `Protected`. But at the same time, the user wants to open access to some databases in this environment, which is possible by whitelisting those databases.
 
-![_](/blog/1-9-1-new-features/protected-env.webp)
+![_](/content/blog/1-9-1-new-features/protected-env.webp)
 
-![_](/blog/1-9-1-new-features/accesss-control-env.webp)
+![_](/content/blog/1-9-1-new-features/accesss-control-env.webp)
 
 The overall Bytebase design follows the same security practice of default blacklisting. This is yet another feature focusing on data security after [Data Anonymization](/docs/administration/anonymize-data).
 
@@ -77,10 +77,10 @@ At AWS re:Invent 2022, Amazon released its one-stop developer platform, CodeCata
 
 After all, databases are indispensable to most applications.
 
-![_](/blog/1-9-1-new-features/amazon-codecatalyst.webp)
+![_](/content/blog/1-9-1-new-features/amazon-codecatalyst.webp)
 
-![_](/blog/1-9-1-new-features/github.webp)
+![_](/content/blog/1-9-1-new-features/github.webp)
 
-![_](/blog/1-9-1-new-features/jetbrains.webp)
+![_](/content/blog/1-9-1-new-features/jetbrains.webp)
 
-![_](/blog/1-9-1-new-features/gitlab.webp)
+![_](/content/blog/1-9-1-new-features/gitlab.webp)

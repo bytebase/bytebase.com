@@ -2,7 +2,8 @@
 title: Bytebase Q1 2023 in Retrospect
 author: Tianzhou
 published_at: 2023/05/08 18:21:21
-feature_image: /blog/2023-q1-retrospect/q1-retrospect-cover.jpg
+feature_image: /content/blog/2023-q1-retrospect/q1-retrospect-cover.jpg
+og_image: /content/blog/2023-q1-retrospect/og-image.jpg
 tags: Announcement
 featured: true
 description: As Q1 2023 comes to an end, let's take a look back at what we've accomplished at Bytebase in the past three months.
@@ -23,19 +24,19 @@ As Q1 2023 comes to an end, let's take a look back at what we've accomplished at
 
 - Launch Bytebase Cloud at [https://hub.bytebase.com/workspace](https://hub.bytebase.com/workspace)
 
-![_](/blog/2023-q1-retrospect/bytebase-cloud.webp)
+![_](/content/blog/2023-q1-retrospect/bytebase-cloud.webp)
 
 ## New Supported Databases
 
 - Oracle, MongoDB, Redis, Google Cloud Spanner
 
-![_](/blog/2023-q1-retrospect/databases.webp)
+![_](/content/blog/2023-q1-retrospect/databases.webp)
 
 ## New Supported VCS for GitOps workflow
 
 - Bitbucket Cloud
 
-![_](/blog/2023-q1-retrospect/bitbucket.webp)
+![_](/content/blog/2023-q1-retrospect/bitbucket.webp)
 
 ## Database Change Management
 
@@ -43,7 +44,7 @@ As Q1 2023 comes to an end, let's take a look back at what we've accomplished at
 - (MySQL) State-based migration in GitOps workflow
 - (MySQL) Data change rollback
 
-![_](/blog/2023-q1-retrospect/sql-rollback.webp)
+![_](/content/blog/2023-q1-retrospect/sql-rollback.webp)
 
 - (PostgreSQL) UI-based Schema Editor to compose DDL
 - Optimize performance for issues with a large number of tasks (up to 200)
@@ -52,25 +53,25 @@ As Q1 2023 comes to an end, let's take a look back at what we've accomplished at
 
 - (MySQL & PostgreSQL) Entity Relationship (ER) Diagram to show database schema and their relationships
 
-![_](/blog/2023-q1-retrospect/er-diagram.webp)
+![_](/content/blog/2023-q1-retrospect/er-diagram.webp)
 
 - Query data using natural language in SQL Editor
 
-![_](/blog/2023-q1-retrospect/sqlchat.webp)
+![_](/content/blog/2023-q1-retrospect/sqlchat.webp)
 
 ## Data Security
 
 - Single Sign-On (SSO) with OAuth 2.0 and OIDC
 
-![_](/blog/2023-q1-retrospect/sso.webp)
+![_](/content/blog/2023-q1-retrospect/sso.webp)
 
 - Two-Factor Authentication
 
-![_](/blog/2023-q1-retrospect/2fa.webp)
+![_](/content/blog/2023-q1-retrospect/2fa.webp)
 
 - Watermarks to prevent data leak
 
-![_](/blog/2023-q1-retrospect/watermark.webp)
+![_](/content/blog/2023-q1-retrospect/watermark.webp)
 
 - (PostgreSQL) Support anonymizing data
 
@@ -78,8 +79,8 @@ As Q1 2023 comes to an end, let's take a look back at what we've accomplished at
 
 - Custom approval process based on the risk model
 
-![_](/blog/2023-q1-retrospect/custom-approval.webp)
+![_](/content/blog/2023-q1-retrospect/custom-approval.webp)
 
 - (PostgreSQL) 34 new SQL review lint rules (48 in total)
 
-![_](/blog/2023-q1-retrospect/pg-sql-review.webp)
+![_](/content/blog/2023-q1-retrospect/pg-sql-review.webp)

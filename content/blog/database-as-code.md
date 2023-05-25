@@ -2,7 +2,7 @@
 title: Database as Code - the Good, the Bad and the Ugly
 author: Tianzhou
 published_at: 2021/09/02 09:15:26
-feature_image: /blog/database-as-code/closet.webp
+feature_image: /content/blog/database-as-code/closet.webp
 tags: Explanation
 description: Database-as-Code has many benefits in today's DevOps world. However, there exists several missing bricks preventing its wider adoption. We touch many points around Database-as-Code and also explain why Bytebase could help the transition.
 ---

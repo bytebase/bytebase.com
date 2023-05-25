@@ -2,7 +2,7 @@
 title: Database Review 2021 and 2022 Prediction
 author: Tianzhou
 published_at: 2022/02/01 10:00:00
-feature_image: /blog/database-review-2021-bytebase/uncharted-waters.webp
+feature_image: /content/blog/database-review-2021-bytebase/uncharted-waters.webp
 tags: Industry
 description: What happend in database industry in 2021. OLAP (Snowflake, Databricks, ClickHouse, Firebolt, ClickHouse), OLTP (PostgreSQL, PlanetScale, SQLite) and open source.
 ---
@@ -11,7 +11,7 @@ description: What happend in database industry in 2021. OLAP (Snowflake, Databri
 
 Year 2021 is definitely a big year for the database industry. Though Snowflake and MongoDB have had their ups and downs in the secondary market, the former still stood over $100 billion market cap at the end of the year; the latter also crossed $35 billion mark, 50% YoY, and nearly 1700% gain since its listing 17 year ago.
 
-![_](/blog/database-review-2021-bytebase/stock.webp)
+![_](/content/blog/database-review-2021-bytebase/stock.webp)
 
 MongoDB  >> Snowflake >>> NASDAQ > S&P 500
 
@@ -80,11 +80,11 @@ Of course, it could be a key differentiator if the performance is way better. In
 
 ### ClickHouse
 
-![_](/blog/database-review-2021-bytebase/dbengine-clickhouse.webp)
+![_](/content/blog/database-review-2021-bytebase/dbengine-clickhouse.webp)
 
 As you can see from the DB-Engines chart, besides Snowflake, ClickHouse has the steepest curve. So is the GitHub star:
 
-![_](/blog/database-review-2021-bytebase/clickhouse-star-history.webp)
+![_](/content/blog/database-review-2021-bytebase/clickhouse-star-history.webp)
 
 Source [https://star-history.com/#ClickHouse/ClickHouse](https://star-history.com/#ClickHouse/ClickHouse)
 
@@ -100,8 +100,8 @@ If Firebolt is 50% of what it advertises, it's time to short Snowflake.
 
 Let’s take a look at the Firebolt manifesto:
 
-![_](/blog/database-review-2021-bytebase/firebolt-leap.webp)
-![_](/blog/database-review-2021-bytebase/snowflake-firebolt.webp)
+![_](/content/blog/database-review-2021-bytebase/firebolt-leap.webp)
+![_](/content/blog/database-review-2021-bytebase/snowflake-firebolt.webp)
 
 Of course, Snowflake is a great product, and over the years it has grown into a one-stop platform that Firebolt, as a startup, is nowhere near in terms of product breadth. But Firebolt is targeting Snowflake's core competence Price / Performance / Usability, and their website claims:
 
@@ -125,7 +125,7 @@ The AP segment is filled with new contenders Snowflake, Databricks, ClickHouse, 
 
 ### PostgreSQL
 
-![_](/blog/database-review-2021-bytebase/dbengine-postgres.webp)
+![_](/content/blog/database-review-2021-bytebase/dbengine-postgres.webp)
 
 Although AP systems are growing rapidly, the database industry is still dominated by TP systems in absolute terms, and among them, PostgreSQL (PG), a 25-year-old database, has been thriving in recent years.
 
@@ -146,7 +146,7 @@ Of course, PG still has some shortcomings, such as the infamous Transaction ID W
 
 PG has maintained the cadence of releasing a major version every year, so let's take a look at [PostgreSQL 14 release note](https://www.postgresql.org/about/news/postgresql-14-released-2318/):
 
-![_](/blog/database-review-2021-bytebase/postgres-14.webp)
+![_](/content/blog/database-review-2021-bytebase/postgres-14.webp)
 
 So whether it's Snowflake, Databricks or PostgreSQL, whether it's an AP or TP system, proprietary or open source, they all know that developers matter. And in 2021, a new TP database product was launched to specifically target the developers.
 
@@ -154,19 +154,19 @@ So whether it's Snowflake, Databricks or PostgreSQL, whether it's an AP or TP sy
 
 The company has been around since 2018, but what caught my attention was the article [Announcing PlanetScale: The database for developers](https://planetscale.com/blog/announcing-planetscale-the-database-for-developers) published on its website this year. Before that, the company offered managed Vitess, a distributed middleware based on MySQL, which originated from Youtube and supported the whole Youtube business for a long time (Youtube later switched to Spanner for the sake of unifying the Google storage technology stack). Although the underlying layer is still Vitess, PlanetScale has pivoted to address application development workflow, including schema changes, database branching, autoscaling, etc.
 
-![_](/blog/database-review-2021-bytebase/planetscale-workflow.webp)
+![_](/content/blog/database-review-2021-bytebase/planetscale-workflow.webp)
 
 In 2021, two companies that have re-defined the developer workflow today went IPO, GitLab and HashiCorp, both with a market cap of over $10 billion. PlanetScale folks also see this opportunity in the database market and they have also partnered with Vercel, the company about to redefine the frontend developer workflow.
 
-![_](/blog/database-review-2021-bytebase/vercel.webp)
+![_](/content/blog/database-review-2021-bytebase/vercel.webp)
 
 The tech stack started with LAMP (Linux + Apache + MySQL + PHP), then came MEAN (MongoDB + Express + Angular + Node), and now there is a new VP (Vercel + PlanetScale) stack that could introduce another paradigm shift.
 
-![_](/blog/database-review-2021-bytebase/planetscale.webp)
+![_](/content/blog/database-review-2021-bytebase/planetscale.webp)
 
 And when it comes to acronym names, there's another one coming up in 2021
 
-![_](/blog/database-review-2021-bytebase/gosh-stack.webp)
+![_](/content/blog/database-review-2021-bytebase/gosh-stack.webp)
 
 Oh my **GoSH**.
 
@@ -181,13 +181,13 @@ While the authors of curl [may not agree](https://daniel.haxx.se/blog/2021/10/21
 
 2021 SQLite hot topics on HackerNews.
 
-![_](/blog/database-review-2021-bytebase/sqlite-hacker-news.webp)
+![_](/content/blog/database-review-2021-bytebase/sqlite-hacker-news.webp)
 
 One of the nice features of SQLite is that it keeps all the data on a single file. Even though Apple is trying to hide the concept of files from users on mobile devices, the entire computer world, especially the developer world, operates on files as the atomic unit. AWS oldest service S3, provides the hosted files; Code repos tracks version info per file.
 
 SQLite's slogan - Small. Fast. Reliable. Choose any three.
 
-![_](/blog/database-review-2021-bytebase/sqlite.webp)
+![_](/content/blog/database-review-2021-bytebase/sqlite.webp)
 
 SQLite is also an open source software, released under the non-conventional Public Domain:
 
@@ -207,7 +207,7 @@ But while a lot of capital is pouring into companies in the open source industry
 
 Derived from the classic https://xkcd.com/2347
 
-![_](/blog/database-review-2021-bytebase/xkcd-dependency.png)
+![_](/content/blog/database-review-2021-bytebase/xkcd-dependency.png)
 
 So in 2021, we see a more polarized split, on one end, there are a group of open source enthusiasts hiding in a dark room, maintaining the core components that underpin the internet backbone. On the other end, another group of commercial companies, based on open source software, have received generous checks from VCs.
 

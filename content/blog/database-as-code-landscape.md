@@ -2,7 +2,7 @@
 title: The Database as Code Landscape
 author: Tianzhou
 published_at: 2022/06/15 09:00:00
-feature_image: /blog/database-as-code-landscape/database-as-code-landscape-2022.webp
+feature_image: /content/blog/database-as-code-landscape/database-as-code-landscape-2022.webp
 tags: Industry
 featured: true
 description: The idea of codifying database schema changes (aka schema migration) is not new. While we are observing an accelerated trend of embracing Database as Code (DaC) across the industry. In this blog, we will review the state-of-the-art in the Database as Code landscape and share our own insight into the current and future trends in this space.
@@ -23,7 +23,7 @@ In this blog, we will review the state-of-the-art in the Database as Code landsc
 
 ## The Overview
 
-![_](/blog/database-as-code-landscape/database-as-code-landscape-2022.webp)
+![_](/content/blog/database-as-code-landscape/database-as-code-landscape-2022.webp)
 
 ## The Gatekeepers
 
@@ -31,34 +31,34 @@ In this blog, we will review the state-of-the-art in the Database as Code landsc
 
 Started in 2006, Liquibase is arguably the most well-known product in this segment. When someone asks for database schema change advice on a forum, oftentimes, you will see a reply mentioning Liquibase.
 
-![_](/blog/database-as-code-landscape/liquibase-overview.webp)
+![_](/content/blog/database-as-code-landscape/liquibase-overview.webp)
 
 Liquibase is both an open source project as well as a company providing its commercial offering. The company used to be called Datical, and was renamed Liquibase to consolidate the branding (wise move).
 Liquibase main product is a Java-based CLI. Via the CLI, developer teams can integrate the database schema migration into their CI/CD workflow. For the Java application, Liquibase can also be used as a library. Applications usually embed Liquibase library to apply any applicable schema migration on startup.
 
 In Liquibase, a schema migration unit is encapsulated in a `Change Set`. Probably due to its age and root in Java, the most commonly used form is XML (YAML and JSON support have been added later):
 
-![_](/blog/database-as-code-landscape/liquibase-xml.webp)
+![_](/content/blog/database-as-code-landscape/liquibase-xml.webp)
 
 Plain SQL is also supported with proper annotation:
 
-![_](/blog/database-as-code-landscape/liquibase-sql.webp)
+![_](/content/blog/database-as-code-landscape/liquibase-sql.webp)
 
 Liquibase is [migration-based](/blog/database-version-control-state-based-vs-migration-based). It records the incremental change instead of the desired end state of the target database schema.
 
 Recently, Liquibase introduced HUB, it's an information portal for paid customers to view, organize and monitor database change activity in real-time.
 
-![_](/blog/database-as-code-landscape/liquibase-hub.webp)
+![_](/content/blog/database-as-code-landscape/liquibase-hub.webp)
 
 ### Flyway
 
-![_](/blog/database-as-code-landscape/flyway-overview.webp)
+![_](/content/blog/database-as-code-landscape/flyway-overview.webp)
 
 Flyway resembles Liquibase in many ways. It's an open source project with a long history and a large customer base. Its core product includes the CLI and a Java library. Flyway also recently announced a web portal named Hub.
 
 The commercial entity behind Flyway is Redgate through an acquisition. The branding may cause some confusion, while it also sets a boundary between the open source and commercial offering. Flyway carries a more casual branding tone:
 
-![_](/blog/database-as-code-landscape/flyway-migration.webp)
+![_](/content/blog/database-as-code-landscape/flyway-migration.webp)
 
 Flyway website is not as shining as those new DevTools companies using sophisticated gradients. You can even spot some basic UI spacing issues. Yet Flyway shows a classic example that content matters more than cosmetic beauty and its documentation stands out because of the clarity.
 
@@ -68,19 +68,19 @@ Liquibase and Flyway are neck and neck. The major difference lies in their respe
 
 Sqitch is also an open source project been on the market for a while. Sqitch is pure CLI-based and has no UI. Unlike Java-based Liquibase/Flyway, Sqitch is developed in Perl.
 
-![_](/blog/database-as-code-landscape/sqitch-overview.webp)
+![_](/content/blog/database-as-code-landscape/sqitch-overview.webp)
 
 Choosing Perl is not the only interesting aspect. Sqitch has its own design philosophy about how to manage database schema changes. Both Liquibase and Flyway use the file naming convention to control the schema migration behavior (convention over configuration):
 
-![_](/blog/database-as-code-landscape/flyway-migration-version.webp)
+![_](/content/blog/database-as-code-landscape/flyway-migration-version.webp)
 
 While Sqitch takes an explicit approach. In the below example, you need to name the schema migration as `appschema`:
 
-![_](/blog/database-as-code-landscape/sqitch-migration.webp)
+![_](/content/blog/database-as-code-landscape/sqitch-migration.webp)
 
 If you later want to apply another migration depending on `appschema`, you need to supply with `--requires`:
 
-![_](/blog/database-as-code-landscape/sqitch-migration-dependency.webp)
+![_](/content/blog/database-as-code-landscape/sqitch-migration-dependency.webp)
 
 Sqitch also provides the unique tag and bundle command for the schema change deployment, which grants teams more power to wire the schema deployment into the application development lifecycle.
 
@@ -88,18 +88,18 @@ Sqitch also provides the unique tag and bundle command for the schema change dep
 
 ### Atlas
 
-![_](/blog/database-as-code-landscape/atlas-overview.webp)
+![_](/content/blog/database-as-code-landscape/atlas-overview.webp)
 
 Atlas is a new database schema migration tool that debuted recently. It takes traits from existing tools:
 
 - It resembles Liquibase / Flyway / Sqitch in that it's mainly CLI focused, though it also has a lightweight UI to visualize the schema.
 - It resembles Prisma in that it designs its own Domain Specific Language (DSL) to define the database schema. Originally, it chooses the same state-based approach as Prisma, but looks like it also added the migration-based approach.
 
-![_](/blog/database-as-code-landscape/atlas-migration.webp)
+![_](/content/blog/database-as-code-landscape/atlas-migration.webp)
 
 - It's also heavily influenced by HashiCorp Terraform, using Go and inventing its own DSL. They even debuted as Terraform for Database Migrations on Hacker News:
 
-![_](/blog/database-as-code-landscape/atlas-terraform.webp)
+![_](/content/blog/database-as-code-landscape/atlas-terraform.webp)
 
 Altas current focus is on CLI. While stacking it against existing CLI tools like Liquibase / Flyway, it has the advantage of employing a modern programming language (Go instead of Java), and learnings from tools like Terraform and Prisma.
 
@@ -116,7 +116,7 @@ Though database schema migration falls into the backend category, the most recen
 
 ### Prisma
 
-![_](/blog/database-as-code-landscape/prisma-overview.webp)
+![_](/content/blog/database-as-code-landscape/prisma-overview.webp)
 
 Node.js unlocks the pandora box for frontend engineers to build full-stack applications. We call it pandora box because it brings both prosperity and chaos. Full-stack applications consist of 3 pieces:
 
@@ -128,19 +128,19 @@ To a typical frontend engineer wanting to build a sustainable full-stack applica
 
 For frontend engineers, usability and accessibility are especially important. They are used to perfect pixels and HCI, and are not versed in composing SQL. To lower the barrier of managing database schemas, Prisma specifically designs a DSL:
 
-![_](/blog/database-as-code-landscape/prisma-schema.webp)
+![_](/content/blog/database-as-code-landscape/prisma-schema.webp)
 
 The DSL takes the state-based approach (declarative), in that the DSL describes the desired end state of the targeting database schema instead of the incremental changes. This is different from Liquibase / Flyway / Sqitch.
 
 Prisma also invests heavily in the integration and development workflow.
 
-![_](/blog/database-as-code-landscape/prisma-stack.webp)
+![_](/content/blog/database-as-code-landscape/prisma-stack.webp)
 
-![_](/blog/database-as-code-landscape/prisma-lifecycle.webp)
+![_](/content/blog/database-as-code-landscape/prisma-lifecycle.webp)
 
 Unlike its backend ORM peers, Prisma takes a refreshing approach and offers a more holistic view of managing database data and schema throughout the application development lifecycle.
 
-![_](/blog/database-as-code-landscape/prisma-product-line.webp)
+![_](/content/blog/database-as-code-landscape/prisma-product-line.webp)
 
 By looking at their product line, you can easily tell their ambitions are definitely not limited to being an ORM and schema migration tool.
 
@@ -150,11 +150,11 @@ All tools described above work with many different database systems. While the a
 
 ### PlanetScale
 
-![_](/blog/database-as-code-landscape/planetscale-overview.webp)
+![_](/content/blog/database-as-code-landscape/planetscale-overview.webp)
 
 PlanetScale used to be a Vitess hosted service. They pivoted last year to focus on the developer workflow. Though you may still come across some Vitess footprint on their website, most new materials are talking about database development workflow features such as branching, online schema change, and the recently introduced rewind:
 
-![_](/blog/database-as-code-landscape/planetscale-rewind.webp)
+![_](/content/blog/database-as-code-landscape/planetscale-rewind.webp)
 
 When we covered Prisma above, we mentioned there are 3 pillars constituting a full-stack application:
 
@@ -168,11 +168,11 @@ For the data part, MongoDB is a popular choice, people choose it because of its 
 
 Neon is another open source database just announced.
 
-![_](/blog/database-as-code-landscape/neon-overview.webp)
+![_](/content/blog/database-as-code-landscape/neon-overview.webp)
 
 At a high level, it shares a lot of similarities with PlanetScale, serverless, developer productivity, fully managed.
 
-![_](/blog/database-as-code-landscape/neon-about.webp)
+![_](/content/blog/database-as-code-landscape/neon-about.webp)
 
 The major difference lies in the technology stack:
 
@@ -186,11 +186,11 @@ The love-hate relationship between MySQL and PostgreSQL is never-ending, from va
 
 ### Dolt
 
-![_](/blog/database-as-code-landscape/dolt-overview.webp)
+![_](/content/blog/database-as-code-landscape/dolt-overview.webp)
 
 Dolt is unique on its own. The website describes it as a database system with Git-like version control.
 
-![_](/blog/database-as-code-landscape/dolt-about.webp)
+![_](/content/blog/database-as-code-landscape/dolt-about.webp)
 
 Dolt is drastically different from other database systems because it builds an engine with built-in Git semantics. This is a double-edged sword, on one hand, it brings those desired Git properties, on the other hand, it imposes challenges of optimizing the typical OLTP workload.
 
@@ -198,7 +198,7 @@ Dolt takes a much bolder move to adopt Database as Code since it blurs the lines
 
 ## The Bytebase
 
-![_](/blog/database-as-code-landscape/bytebase-overview.webp)
+![_](/content/blog/database-as-code-landscape/bytebase-overview.webp)
 
 Bytebase is an open source project that started in Jan 2021. It also shares some traits with the aforementioned products:
 
@@ -207,7 +207,7 @@ Bytebase is an open source project that started in Jan 2021. It also shares some
 - Like Atlas, Bytebase employs a modern tech stack, using Go instead of Java.
 - Like PlanetScale / Neon, Bytebase focuses on developer experience. One example is the VCS integration, Bytebase provides a point-and-click wizard to configure VCS (the similar experience you find in Vercel / Netlify to link the code repository):
 
-![_](/blog/database-as-code-landscape/bytebase-vcs.webp)
+![_](/content/blog/database-as-code-landscape/bytebase-vcs.webp)
 
 Bytebase is a jack-of-all-trades and the master of team collaboration:
 
@@ -216,19 +216,19 @@ Bytebase is a jack-of-all-trades and the master of team collaboration:
 - It has native VCS integration to streamline the code and database development together.
   Bytebase has concepts Project, Issue because it resembles systems like Jira, GitLab / GitHub.
 
-![_](/blog/database-as-code-landscape/bytebase-issue-detail.webp)
+![_](/content/blog/database-as-code-landscape/bytebase-issue-detail.webp)
 
 It also has concepts `Tenant`, `Environment` to manage database changes for multi-tenant applications spanning multiple environments.
 
-![_](/blog/database-as-code-landscape/bytebase-tenant.webp)
+![_](/content/blog/database-as-code-landscape/bytebase-tenant.webp)
 
 Bytebase also provides built-in schema review policies to enforce the schema standard across the whole engineering organization.
 
-![_](/blog/database-as-code-landscape/bytebase-schema-review.webp)
+![_](/content/blog/database-as-code-landscape/bytebase-schema-review.webp)
 
 Bytebase is envisioned to be the counterpart of GitLab / GitHub to manage the database development aspect. It's positioned as a Database DevOps solution for team collaboration.
 
-![_](/blog/database-as-code-landscape/bytebase-position.webp)
+![_](/content/blog/database-as-code-landscape/bytebase-position.webp)
 
 How Bytebase compares against other tools:
 
@@ -251,7 +251,7 @@ Though the idea of Database as Code is not new, the trend and innovation have be
 - Commercial companies like HashiCorp leverages the Git infrastructure and build innovative products like Terraform. The success of Terraform in turn popularizes the GitOps workflow and transforms the industry mindset from point-and-click systems into code-based systems.
 - The proliferation of open source ecosystem. Coincidentally, all products in this space are either open source projects or their derivations.
 
-![_](/blog/database-as-code-landscape/star-history.webp)
+![_](/content/blog/database-as-code-landscape/star-history.webp)
 
 - New building primitives were invented to challenge the status quo:
   - The invention of the V8 JavaScript Engine and Node.js opens the door for frontend engineers to interact with the databases directly. The flock of frontend engineers demands a high bar for developer experience.
@@ -260,7 +260,7 @@ Though the idea of Database as Code is not new, the trend and innovation have be
 
 The iconic [Evolutionary Database Design](https://www.martinfowler.com/articles/evodb.html) was written in 2016. Though the phrase "Database as Code" was not coined there, that article summarized the accumulated wisdom of applying Database as Code practice in the decade before.
 
-![_](/blog/database-as-code-landscape/you-do-not-need-army-of-dba.webp)
+![_](/content/blog/database-as-code-landscape/you-do-not-need-army-of-dba.webp)
 
 The article also predicted a trend that a sizable DBA team will become less common. Nowadays, many serious engineering teams still need DBA's expertise, meanwhile, interacting with databases has also become developers' daily routine.
 
@@ -268,4 +268,4 @@ The power dynamics for managing database development have shifted over time, and
 
 It requires a delicate dance among the database systems, the database tools, and the industry mindset to conquer it. Database as Code is the critical puzzle and the timing couldn't be better to build in this space.
 
-![_](/blog/database-as-code-landscape/bytebase-land.webp)
+![_](/content/blog/database-as-code-landscape/bytebase-land.webp)

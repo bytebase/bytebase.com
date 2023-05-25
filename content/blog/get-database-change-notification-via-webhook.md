@@ -2,7 +2,7 @@
 title: Get Database Change Notification via Webhook
 author: Candy
 published_at: 2022/05/16 09:42:58
-feature_image: /blog/get-database-change-notification-via-webhook/fish-hook.webp
+feature_image: /content/blog/get-database-change-notification-via-webhook/fish-hook.webp
 tags: How-To
 description: For better collaboration, DBAs and developers need to be notified when there is any update of the database changes. With Bytebase, you can configure webhooks at a project-level so that Bytebase can post database change notifications to the webhook endpoint.
 ---
@@ -37,10 +37,10 @@ Special thanks to [@Cluas](https://github.com/Cluas) for the PR [feat: add custo
 You can complete the webhook configuration in 3 steps:
 
 **Step 1**. On the Project page, click "Webhooks"
-![_](/blog/get-database-change-notification-via-webhook/project-webhook.webp)
+![_](/content/blog/get-database-change-notification-via-webhook/project-webhook.webp)
 **Step 2**. Click "Add a webhook", then choose an endpoint (take Slack as an example), and enter "Name" and "[Webhook url](/docs/administration/webhook-integration/project-webhook#supported-webhook-endpoints)"
-![_](/blog/get-database-change-notification-via-webhook/webhook-config.webp)
+![_](/content/blog/get-database-change-notification-via-webhook/webhook-config.webp)
 **Step 3**. Select the triggers and click "Create"
-![_](/blog/get-database-change-notification-via-webhook/webhook-event-type.webp)
+![_](/content/blog/get-database-change-notification-via-webhook/webhook-event-type.webp)
 As a result, you can now receive database change notifications via Slack:
-![_](/blog/get-database-change-notification-via-webhook/webhook-slack.webp)
+![_](/content/blog/get-database-change-notification-via-webhook/webhook-slack.webp)

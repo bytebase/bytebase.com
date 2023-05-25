@@ -34,13 +34,13 @@ To create database secrets, you must be the Workspace Owner or Workspace DBA.
 
 Navigate to the database detail page. Click `Settings` tab and you will see the Secret block.
 
-![database-setting-tab-secret-block](/docs/administration/secret/database-setting-tab.webp)
+![database-setting-tab-secret-block](/content/docs/administration/secret/database-setting-tab.webp)
 
 ### Step 2 - Create a Secret
 
 Click `New Secret` and fill in the related fields, then click `Save`.
 
-![create-database-secret](/docs/administration/secret/create-salary-secret.webp)
+![create-database-secret](/content/docs/administration/secret/create-salary-secret.webp)
 
 ## Using Secrets in Change Workflow
 
@@ -52,4 +52,4 @@ If a secret has not been set, Bytebase will not replace the `${{ secrets.SECRET_
 
 </HintBlock>
 
-![using-secret-in-dml-issue](/docs/administration/secret/using-secret-in-dml-issue.webp)
+![using-secret-in-dml-issue](/content/docs/administration/secret/using-secret-in-dml-issue.webp)

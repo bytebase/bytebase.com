@@ -2,7 +2,7 @@
 title: 千帆竞速，各领江湖 | 万字长文回顾 2021 年数据库行业
 author: Tianzhou
 published_at: 2022/01/25 11:25:12
-feature_image: /blog/database-review-2021-bytebase/uncharted-waters.webp
+feature_image: /content/blog/database-review-2021-bytebase/uncharted-waters.webp
 tags: Industry, Hidden, Chinese
 description: 成熟的技术，注定的上云，疯狂的市场，割裂的开源。
 ---
@@ -11,7 +11,7 @@ description: 成熟的技术，注定的上云，疯狂的市场，割裂的开�
 
 21 年绝对是数据库的大年。二级市场上 Snowflake 和 MongoDB 起起伏伏，前者年底还是站上了 1000 亿美金市值；后者也收在了 350 亿美金，累计一年涨幅 50%，而和他 17 年上市相比，已经涨了近 17 倍。
 
-![_](/blog/database-review-2021-bytebase/stock.webp)
+![_](/content/blog/database-review-2021-bytebase/stock.webp)
 
 MongoDB  >> Snowflake >>> NASDAQ > S&P 500
 
@@ -69,11 +69,11 @@ Snowflake 和 Databricks 这次 benchmark 的事件还闹得不小，两边的 c
 
 ### ClickHouse
 
-![_](/blog/database-review-2021-bytebase/dbengine-clickhouse.webp)
+![_](/content/blog/database-review-2021-bytebase/dbengine-clickhouse.webp)
 
 从 DB-Engines 的涨幅可以看到，除开 Snowflake，ClickHouse 就是剩下最陡峭的那根了。GitHub star 也涨势喜人。
 
-![_](/blog/database-review-2021-bytebase/clickhouse-star-history.webp)
+![_](/content/blog/database-review-2021-bytebase/clickhouse-star-history.webp)
 
 Source [https://star-history.com/#ClickHouse/ClickHouse](https://star-history.com/#ClickHouse/ClickHouse)
 
@@ -93,8 +93,8 @@ ClickHouse 很好地诠释了『一力降十会』，如果和 Snowflake 做对�
 
 看一下 Firebolt 的宣言
 
-![_](/blog/database-review-2021-bytebase/firebolt-leap.webp)
-![_](/blog/database-review-2021-bytebase/snowflake-firebolt.webp)
+![_](/content/blog/database-review-2021-bytebase/firebolt-leap.webp)
+![_](/content/blog/database-review-2021-bytebase/snowflake-firebolt.webp)
 当然 Snowflake 是一个很优秀的产品，而且经过多年的积累，他已经长成了一站式平台， Firebolt 作为初创公司从产品广度上还是远远不及的。但 Firebolt 瞄准的是 Snowflake 的最核心点 Price / Performance / Usability。他们[官网上说](https://www.firebolt.io/blog/druid-clickhouse-and-pinot-vs-data-lakes-and-data-warehouses)：
 
 > Firebolt has shown that you can have the speed of ClickHouse or Druid with the simplicity and flexibility of Snowflake, and about 1/10th the cost of Snowflake, from gigabyte to petabyte scale.
@@ -123,7 +123,7 @@ ClickHouse 很好地诠释了『一力降十会』，如果和 Snowflake 做对�
 
 ### PostgreSQL
 
-![_](/blog/database-review-2021-bytebase/dbengine-postgres.webp)
+![_](/content/blog/database-review-2021-bytebase/dbengine-postgres.webp)
 虽然 AP 系统增长迅速，但从绝对值来看，数据库行业占主导的依然还是 TP 系统，而在这之中，PostgreSQL (PG) 作为一款有 25 年历史的数据库，近年来一直在蓬勃发展，即使和风头正劲的 MongoDB 相比也略胜一筹。
 
 事实上，PG 在过去 5 年 DB-Engine DBMS of the year 的评选中赢了 3 回 (2021 和 2019 分别是 Snowflake / MySQL)。尤其在国外，PG 的流行度越来越高，在笔者看来有几方面的原因 (因为 PG 的主要竞品是 MySQL, 所以如下更多是和 MySQL 进行比较):
@@ -148,21 +148,21 @@ ClickHouse 很好地诠释了『一力降十会』，如果和 Snowflake 做对�
 当然 PG 还有一些不足，比如容易造成大规模故障的 Transaction ID Wraparound，另外存储引擎如果采用 MySQL InnoDB / Oracle 的 undo logging 应该还能提速不少。但瑕不掩瑜，更何况 PG 不同于其他数据库系统，背后并没有一个金主爸爸，基本是一个纯靠社区维护的 Open Source 产品。
 
 PG 在社区的维护下保持着每年发一个大本版的稳定节奏，我们看看他今年 [PostgreSQL 14 发布时的文章](https://www.postgresql.org/about/news/postgresql-14-released-2318/)
-![_](/blog/database-review-2021-bytebase/postgres-14.webp)
+![_](/content/blog/database-review-2021-bytebase/postgres-14.webp)
 所以无论是 Snowflake，Databricks 还是 PostgreSQL，不管是 AP 还是 TP 系统，闭源还是开源，大家其实都很明白，帮助用户，帮助应用开发者才是关键。而在 21 年，一款以这个角度切入的新 TP 数据库产品问世了。
 
 ### PlanetScale
 
 从资料看这家公司 18 年就成立了，但引起笔者注意的还是今年他官网发布的一篇文章 [Announcing PlanetScale: The database for developers](https://planetscale.com/blog/announcing-planetscale-the-database-for-developers)。在这之前，这家公司提供的是 Vitess 托管服务，Vitess 是基于 MySQL 的分布式中间件，源于 Youtube，很长一段时间支撑了整个 Youtube 的业务 (出于统一 Google 存储技术栈的原因，Youtube 后来切换到了 Spanner)。所以说 PlanetScale 是进行了一次产品形态的转型，虽然底层还是 Vitess，但不再透出，而是主打应用开发场景，包括 Schema 变更，数据库分支构建，autoscaling 这些，就像他文章里说的
-![_](/blog/database-review-2021-bytebase/planetscale-workflow.webp)
+![_](/content/blog/database-review-2021-bytebase/planetscale-workflow.webp)
 又见 developer workflow
 
 21 年有两家定义当下 developer workflow 的公司 IPO 了，GitLab 和 HashiCorp，都是过百亿美金的市值。GitLab 定义的是代码托管和应用迭代发布的 workflow，HashiCorp 定义的是 Infra 管理的 workflow，而 PlanetScale 想定义的则是数据库应用开发的 workflow。这是一个很好的切入角度，同样是想重新定义前端开发 workflow 的 Vercel 也看到了这点，所以把 5 月才发布的 PlanetScale 放在了他们数据库集成的第一个位置。
-![_](/blog/database-review-2021-bytebase/vercel.webp)
+![_](/content/blog/database-review-2021-bytebase/vercel.webp)
 互联网服务的技术栈，一开始是 LAMP (Linux + Apache + MySQL + PHP)，后来出现了 MEAN (MongoDB + Express + Angular + Node)，而现在则有了新的 VP (Vercel + PlanetScale) 组合，可能会引发又一次的 paradigm shift。
-![_](/blog/database-review-2021-bytebase/planetscale.webp)
+![_](/content/blog/database-review-2021-bytebase/planetscale.webp)
 而说到首字母缩写梗，21 年还有一套组合也在冉冉升起。
-![_](/blog/database-review-2021-bytebase/gosh-stack.webp)
+![_](/content/blog/database-review-2021-bytebase/gosh-stack.webp)
 Oh my GoSH
 
 ### SQLite
@@ -175,11 +175,11 @@ Oh my GoSH
 4. [Datasette](https://datasette.io/),   基于 SQLite 的数据探索，分析和发布工具。
 
 Hacker News 上 21 年有关 SQLite 的话题。
-![_](/blog/database-review-2021-bytebase/sqlite-hacker-news.webp)
+![_](/content/blog/database-review-2021-bytebase/sqlite-hacker-news.webp)
 SQLite 一个很好的特性，就是把所有的数据都保存在一个单一文件上。即使 Apple 在移动设备上想把文件这个概念对用户隐藏起来，但是整个计算机世界，尤其是开发者的世界，都还是以文件作为原子单位进行操作的。AWS 最古老也是最基础的服务 S3 就是托管文件的；代码仓库是按照文件来记录版本的；像 Vercel，Netlify 这样的网站托管服务，也是以文件为基础进行托管的；而日常传输及备份数据的时候，也是以文件为单位的。
 
 SQLite 的 slogan 是 Small. Fast. Reliable. Choose any three.
-![_](/blog/database-review-2021-bytebase/sqlite.webp)
+![_](/content/blog/database-review-2021-bytebase/sqlite.webp)
 在其他 DBMS 大块头前，SQLite 这三条的结合则是一种另类的 powerful。 SQLite 还是一个开源软件，他的 License 用的也是相对另类的 Public Domain。这是什么意思呢，官网给的解释：
 
 SQLite is open-source, meaning that you can make as many copies of it as you want and do whatever you want with those copies, without limitation
@@ -197,7 +197,7 @@ SQLite is open-source, meaning that you can make as many copies of it as you wan
 但一边是大量资本涌入开源赛道上的公司，一边仍然是许多个人贡献者无法靠开源获得稳定的收入。GitHub Sponsors 在做积极的尝试，但还很难系统地解决这个问题。而年底爆出的 log4j 安全漏洞，又把这个问题摆上了台面，网友结合经典的 [https://xkcd.com/2347/](https://xkcd.com/2347/) 画出了这个
 ![_](/blog/database-review-2021-bytebase/xkcd-log4j.jpeg)
 原图
-![_](/blog/database-review-2021-bytebase/xkcd-dependency.png)
+![_](/content/blog/database-review-2021-bytebase/xkcd-dependency.png)
 所以 21 年又出现了这么一个魔幻的现象，一边是一群开源贡献者躲在小黑屋里继续用爱发电，维护着支撑各大互联网服务的核心组件，一边是另一帮基于开源软件的商业公司，拿着 VC 给的慷慨支票，高歌猛进，其中再穿插一些公有云大厂和商业公司之间的爱恨纠葛 (比如 [AWS vs Elasticsearch](https://aws.amazon.com/blogs/aws/amazon-elasticsearch-service-is-now-amazon-opensearch-service-and-supports-opensearch-10/))。
 
 笔者一直认同慈善要用商业化手段运营才可持续，所以认为运作开源项目也该如此，尤其是数据库这样的基础设施，PostgreSQL 的社区形态更多只能作为一个特例来看 (当然非常值得尊敬)。再看 MySQL，虽然许多人吐槽 Oracle 收购 MySQL / InnoDB 后的种种不作为，但事实上在 Oracle 稳定的财务支持下，MySQL 这几年做了很多重要的改进，[比如在 8.0 中，给数据库字典加上了事务性](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-0.html#mysqld-8-0-0-data-dictionary)。

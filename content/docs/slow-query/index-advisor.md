@@ -15,7 +15,7 @@ The Bytebase index advisor based on the slow query logs and OpenAI API. Make sur
 
 Go to Bytebase console, click **Settings > General**. Scroll down to **AI Augmentation**, and fill in **OpenAI API Key** field.
 
-![settings-general-ai](/docs/slow-query/settings-general-ai.webp)
+![settings-general-ai](/content/docs/slow-query/settings-general-ai.webp)
 
 ## Index Advisor
 
@@ -26,7 +26,7 @@ Go to Bytebase console, click **Settings > General**. Scroll down to **AI Augmen
    2. **Suggestions** section, which shows the indexes that can speed up the slow query.
    3. **Create Index** button, which allows you to create the suggested index.
 
-![slow-query-index-advisor](/docs/slow-query/index-advisor.webp)
+![slow-query-index-advisor](/content/docs/slow-query/index-advisor.webp)
 
 ## Data Privacy
 

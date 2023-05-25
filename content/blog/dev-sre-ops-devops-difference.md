@@ -2,7 +2,7 @@
 title: Dev, SRE, Operations, DevOps - What’s the Difference?
 author: Tianzhou
 published_at: 2022/07/15 08:00:00
-feature_image: /blog/dev-sre-ops-devops-difference/dev-sre-ops.webp
+feature_image: /content/blog/dev-sre-ops-devops-difference/dev-sre-ops.webp
 tags: Explanation
 description: Explain and address the confusion between Developer (Dev), Site Reliability Engineer (SRE), (Operations) Ops and DevOps.
 ---
@@ -19,7 +19,7 @@ Also called IT Operations, Production Engineer (PE), or simply Operations (Ops).
 
 _Veterans all remember the exciting days of carrying such a pager to be standby 7x24_
 
-![dev-sre-ops-intersection](/blog/dev-sre-ops-devops-difference/pager.webp)
+![dev-sre-ops-intersection](/content/blog/dev-sre-ops-devops-difference/pager.webp)
 
 ## SRE
 
@@ -45,7 +45,7 @@ SRE differs from Ops in the following ways:
 1. SRE employs a more systematic approach to ensure service stability, such as building automation tools and working with the development team together to develop [Service Level Objective (SLO)](https://en.wikipedia.org/wiki/Service-level_objective) / [Service Level Agreement (SLA)](https://en.wikipedia.org/wiki/Service-level_agreement) / [Service Level Indicator (SLI)](https://en.wikipedia.org/wiki/Service_level_indicator). This triplet is the contract between SREs and Developers to work towards a shared goal of providing a better service.
 1. SRE has a stronger engineering background. Some SREs possess quite strong engineering skills. For example, the creator of the monitoring software [Prometheus](https://prometheus.io/) was an SRE at Google.
 
-![dev-sre-ops-intersection](/blog/dev-sre-ops-devops-difference/dev-sre-ops.webp)
+![dev-sre-ops-intersection](/content/blog/dev-sre-ops-devops-difference/dev-sre-ops.webp)
 
 The above diagram depicts the boundary between Dev, SRE, and Ops. There is no intersection between Dev and Ops, while SRE, as mentioned earlier, is Ops with Dev skillset, but still a bit more on the Ops side.
 

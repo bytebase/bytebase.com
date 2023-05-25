@@ -2,7 +2,7 @@
 title: How Bytebase uses Render
 author: Zilong
 published_at: 2022/02/21 08:08:57
-feature_image: /blog/how-bytebase-uses-render/bytebase-use-render.webp
+feature_image: /content/blog/how-bytebase-uses-render/bytebase-use-render.webp
 tags: Engineering
 description: We recently moved most of our hosted service to render.com and also leverage its unique capability to improve our dev workflow. I was responsible for this task.
 ---
@@ -12,7 +12,7 @@ description: We recently moved most of our hosted service to render.com and also
 Bytebase is a start-up I currently take internship at. Its aspiration is to build an open-source, web-based database schema change and version control tool for team collaboration. We are a remote team and most of our development happens on GitHub.
 
 We recently moved most of our hosted service to [render.com](https://render.com) and also leverage its unique capability to improve our dev workflow. I was responsible for this task.
-![_](/blog/how-bytebase-uses-render/render-dashboard.webp)
+![_](/content/blog/how-bytebase-uses-render/render-dashboard.webp)
 
 ## Problems we faced
 
@@ -42,34 +42,34 @@ Configuring this on render is quite straightforward. Below are the steps to make
 
 1. **Create a new web service**
 
-   ![_](/blog/how-bytebase-uses-render/render-create-web-service.webp)
+   ![_](/content/blog/how-bytebase-uses-render/render-create-web-service.webp)
 
 2. **Link to our GitHub repo**
 
-   ![_](/blog/how-bytebase-uses-render/render-link-github.webp)
+   ![_](/content/blog/how-bytebase-uses-render/render-link-github.webp)
 
 3. **Config our service**
 
    The free tier is good enough for us.
-   ![_](/blog/how-bytebase-uses-render/render-free-tier.webp)
+   ![_](/content/blog/how-bytebase-uses-render/render-free-tier.webp)
 
 4. **Specify our building and starting scripts**
 
-   ![_](/blog/how-bytebase-uses-render/render-config.webp)
+   ![_](/content/blog/how-bytebase-uses-render/render-config.webp)
 
 After the setup, our demo page is updated automatically whenever a new commit is merged into the main branch.
-![_](/blog/how-bytebase-uses-render/render-deploy.webp)
+![_](/content/blog/how-bytebase-uses-render/render-deploy.webp)
 
 #### Staging environment for pre-release
 
 Every pre-release will also trigger an update for our staging environment ([staging.bytebase.com](https://staging.bytebase.com)). (We can also update this environment manually via [the action page](https://github.com/bytebase/bytebase/actions/workflows/staging.yml))
-![_](/blog/how-bytebase-uses-render/github-create-release.png)
+![_](/content/blog/how-bytebase-uses-render/github-create-release.png)
 
 #### Preview for each PR
 
 To be honest, we didn't expect this simple to gain this capability, but after we finish the previous configuration steps, we just need to turn on a single switch to enable the PR preview feature.
-![_](/blog/how-bytebase-uses-render/render-pr-preview.webp)
+![_](/content/blog/how-bytebase-uses-render/render-pr-preview.webp)
 Once configured, render will post the preview link on every Pull Request.
-![_](/blog/how-bytebase-uses-render/render-pr-bot.webp)
+![_](/content/blog/how-bytebase-uses-render/render-pr-bot.webp)
 It usually takes a couple minutes to deploy the service when a new commit is pushed to the source branch and I add a 5-digits commit hash to tell the commit from which the service is built.
-![_](/blog/how-bytebase-uses-render/bytebase-version.webp)
+![_](/content/blog/how-bytebase-uses-render/bytebase-version.webp)

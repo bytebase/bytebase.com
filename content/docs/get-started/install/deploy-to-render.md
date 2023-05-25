@@ -22,16 +22,16 @@ The free plan can only create at most one free PostgreSQL database. Because the 
 
 Visit https://dashboard.render.com/blueprints and follow [render doc](https://render.com/docs/infrastructure-as-code) to create the blueprint instance. When connecting the repository, choose our public repo https://github.com/bytebase/render or your forked repo.
 
-![choose-repo](/docs/get-started/install/render-blueprint-repo.webp)
+![choose-repo](/content/docs/get-started/install/render-blueprint-repo.webp)
 
 Choose a Service Group Name such as `bytebase`.
 
-![choose-repo](/docs/get-started/install/render-blueprint-name.webp)
+![choose-repo](/content/docs/get-started/install/render-blueprint-name.webp)
 
 After the deployment, you should see render has created a Web Service and a PostgreSQL database.
 
-![status](/docs/get-started/install/render-blueprint-status.webp)
+![status](/content/docs/get-started/install/render-blueprint-status.webp)
 
 Visit the created Web Service page and click the URL to start using Bytebase.
 
-![status](/docs/get-started/install/render-blueprint-web.webp)
+![status](/content/docs/get-started/install/render-blueprint-web.webp)

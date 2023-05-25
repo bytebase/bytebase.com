@@ -2,7 +2,7 @@
 title: gh-ost Based Online Schema Migration for MySQL
 author: Candy
 published_at: 2022/08/09 16:37:17
-feature_image: /blog/gh-ost-based-online-schema-migration-for-mysql/cover.webp
+feature_image: /content/blog/gh-ost-based-online-schema-migration-for-mysql/cover.webp
 tags: Announcement
 integrations: MySQL
 featured: true
@@ -26,7 +26,7 @@ In this blog post, we will introduce you to the beta release of Bytebase online 
 ## Why We Choose gh-ost
 
 All existing online schema change solutions share a similar workflow:
-![online-schema-migration](/blog/gh-ost-based-online-schema-migration-for-mysql/online-schema-migration.webp)
+![online-schema-migration](/content/blog/gh-ost-based-online-schema-migration-for-mysql/online-schema-migration.webp)
 
 1. Create a new, empty table (called ghost/shadow table) with an exact copy of the original table’s schema
 2. Apply schema migration to the ghost table
@@ -41,32 +41,32 @@ Why do we decide to integrate gh-ost into Bytebase? The most crucial factor is t
 Bytebase provides two types of schema migration: regular migration and gh-ost. You can operate it by creating an issue in three steps. Let’s demonstrate how to use gh-ost to alter schema.
 
 The screenshot below shows the table “sbtest1” information before applying schema migration. We can see that the table has 4 columns and 694 MB data.
-![overview](/blog/gh-ost-based-online-schema-migration-for-mysql/overview.webp)
+![overview](/content/blog/gh-ost-based-online-schema-migration-for-mysql/overview.webp)
 
 **Step 1**. Create a gh-ost issue
 
 1. Click **Alter Schema** on the database details page.
-   ![step_1_1](/blog/gh-ost-based-online-schema-migration-for-mysql/step_1_1.webp)
+   ![step_1_1](/content/blog/gh-ost-based-online-schema-migration-for-mysql/step_1_1.webp)
 
 2. Select **Online migration** and click **Next.**
-   ![step_1_2](/blog/gh-ost-based-online-schema-migration-for-mysql/step_1_2.webp)
+   ![step_1_2](/content/blog/gh-ost-based-online-schema-migration-for-mysql/step_1_2.webp)
 
 3. Enter SQL statements for the task “Sync data”, and click **Create** after selecting a reviewer to approve the issue.
-   ![step_1_3](/blog/gh-ost-based-online-schema-migration-for-mysql/step_1_3.webp)
+   ![step_1_3](/content/blog/gh-ost-based-online-schema-migration-for-mysql/step_1_3.webp)
 
 **Step 2**. Execute the task “Sync data”.
 The task “Sync data” runs after the designated reviewer clicks **Approve**. See the screenshot below, it shows that the progress of “Sync data” is 59%.
-![step_3](/blog/gh-ost-based-online-schema-migration-for-mysql/step_3.webp)
+![step_3](/content/blog/gh-ost-based-online-schema-migration-for-mysql/step_3.webp)
 
 **Step 3**. Perform the task “Switch tables”.
 The screenshot below shows that the first task has been completed.  
-![step_4_1](/blog/gh-ost-based-online-schema-migration-for-mysql/step_4_1.webp)
+![step_4_1](/content/blog/gh-ost-based-online-schema-migration-for-mysql/step_4_1.webp)
 
 Then the designated reviewer clicks **Approve** to execute the second task “Switch tables”.
-![step_4_2](/blog/gh-ost-based-online-schema-migration-for-mysql/step_4_2.webp)
+![step_4_2](/content/blog/gh-ost-based-online-schema-migration-for-mysql/step_4_2.webp)
 
 Here is the result of gh-ost. It says that the database performs gh-ost successfully.
-![result](/blog/gh-ost-based-online-schema-migration-for-mysql/result.webp)
+![result](/content/blog/gh-ost-based-online-schema-migration-for-mysql/result.webp)
 
 ## Learn More
 

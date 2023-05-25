@@ -9,25 +9,25 @@ description: Update CLI docs. Sync your SQL scripts stored in the linked VCS sys
 
 bb CLI is the command-line tool of Bytebase, helping developers integrate MySQL and PostgreSQL schema change into the existing CI/CD workflow. By integrating bb with your existing CI/CD system (GitLab CI, GitHub Actions, etc.), you can bring all best practices of CI/CD to the database.
 
-![_](/changelog/1.1.0/cli.webp)
+![_](/content/changelog/1.1.0/cli.webp)
 
 ## 🚀 Features
 
 - From SQL Editor, you can now sync your SQL scripts stored in the linked VCS system.
 
-![_](/changelog/1.1.0/sync-sheet-from-vcs.webp)
+![_](/content/changelog/1.1.0/sync-sheet-from-vcs.webp)
 
 - Star the sheets to save them in a list.
 
-![_](/changelog/1.1.0/star-sheet.webp)
+![_](/content/changelog/1.1.0/star-sheet.webp)
 
 - List database extensions for PostgreSQL.
 
-![_](/changelog/1.1.0/pg-extension.webp)
+![_](/content/changelog/1.1.0/pg-extension.webp)
 
 - Support creating a Postgres database with an owner.
 
-![_](/changelog/1.1.0/create-pg-database-with-owner.webp)
+![_](/content/changelog/1.1.0/create-pg-database-with-owner.webp)
 
 ## 🎄 Enhancement
 

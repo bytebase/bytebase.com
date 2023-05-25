@@ -15,9 +15,9 @@ With over a year of hard work and 3500+ commits, we finally reach the milestone 
 - Per-environment schema review and backup policy.
 
 The price starts at $29 per instance per month. Please visit our [pricing](https://bytebase.com/pricing) page for more details.
-![_](/changelog/1.0.0/pricing.webp)
+![_](/content/changelog/1.0.0/pricing.webp)
 You can visit [https://hub.bytebase.com/pricing](https://hub.bytebase.com/pricing) to purchase a subscription license and manage your team plan subscription in Settings page.
-![_](/changelog/1.0.0/subscription.webp)
+![_](/content/changelog/1.0.0/subscription.webp)
 
 ## 🎄 Enhancement
 
@@ -25,25 +25,25 @@ You can visit [https://hub.bytebase.com/pricing](https://hub.bytebase.com/pricin
 
 - Add an EXPLAIN button adjacent to the run button.
 
-![_](/changelog/1.0.0/sql-editor-explain.webp)
+![_](/content/changelog/1.0.0/sql-editor-explain.webp)
 
 - Redesign the database connection navigation and connection status.
 
-![_](/changelog/1.0.0/sql-editor-navigation.webp)![_](/changelog/1.0.0/sql-editor-conneciton-status.webp)
+![_](/content/changelog/1.0.0/sql-editor-navigation.webp)![_](/changelog/1.0.0/sql-editor-conneciton-status.webp)
 
 - Run non-SELECT SQL navigate to the different workflow.
 
-![_](/changelog/1.0.0/sql-editor-workflow.webp)
+![_](/content/changelog/1.0.0/sql-editor-workflow.webp)
 
 ### Sync project members from GitLab
 
 If a project is linked with GitLab repository, one can sync that repository's membership to the project's membership.
-![_](/changelog/1.0.0/project-membership-vcs-sync.webp)![_](/changelog/1.0.0/gitlab-role.webp)Membership from the linked GitLab repository
+![_](/content/changelog/1.0.0/project-membership-vcs-sync.webp)![_](/changelog/1.0.0/gitlab-role.webp)Membership from the linked GitLab repository
 
 ### Improved tenant project pipeline UI
 
 We improve the layout for showing the current database schema change progress across all tenants.
-![_](/changelog/1.0.0/tenant-matrix.webp)
+![_](/content/changelog/1.0.0/tenant-matrix.webp)
 
 ### Misc
 

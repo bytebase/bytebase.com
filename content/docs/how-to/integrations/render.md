@@ -20,7 +20,7 @@ You can create PostgreSQL databases on Render and use Bytebase to manage the dat
 
 Visit your Render dashboard and click on the database you created. We will need the connection details from this page.
 
-![render-database-connections](/docs/how-to/integrations/render-database-connections.webp)
+![render-database-connections](/content/docs/how-to/integrations/render-database-connections.webp)
 
 From your Bytebase **Create Instance** page, choose **Add Instance**, fill in the details to create the connection as follows:
 
@@ -33,7 +33,7 @@ From your Bytebase **Create Instance** page, choose **Add Instance**, fill in th
 7. **Password:** copy the **Password** from your Render database page.
 8. **Database:** copy the **Database** name from your Render database page.
 
-![render-bytebase-create-instance](/docs/how-to/integrations/render-bytebase-create-instance.webp)
+![render-bytebase-create-instance](/content/docs/how-to/integrations/render-bytebase-create-instance.webp)
 
 See [Add an Instance](/docs/get-started/configure-workspace/add-an-instance) for more details.
 
@@ -41,8 +41,8 @@ See [Add an Instance](/docs/get-started/configure-workspace/add-an-instance) for
 
 All databases should be synced properly. Expect some delay if the database instance is large.
 
-![render-bytebase-instance](/docs/how-to/integrations/render-bytebase-instance.webp)
+![render-bytebase-instance](/content/docs/how-to/integrations/render-bytebase-instance.webp)
 
 So should the tables under the databases.
 
-![render-bytebase-database](/docs/how-to/integrations/render-bytebase-database.webp)
+![render-bytebase-database](/content/docs/how-to/integrations/render-bytebase-database.webp)

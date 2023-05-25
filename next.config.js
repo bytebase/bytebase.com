@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 
 const rewrites = [
-  '/brand',
   '/database-review-guide',
   '/demo-confirm',
   '/jobs',
@@ -72,6 +71,16 @@ module.exports = {
       {
         source: '/docs/tutorials',
         destination: '/docs/tutorials/overview',
+        permanent: true,
+      },
+      {
+        source: '/brand',
+        destination: '/about#brand-kit',
+        permanent: true,
+      },
+      {
+        source: '/bytebase-brand-kit.zip',
+        destination: '/download/bytebase-brand-kit.zip',
         permanent: true,
       },
       ...tutorialBeginnerRedirects.map((slug) => ({

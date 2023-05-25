@@ -2,7 +2,7 @@
 title: Run ClickHouse with Docker and Connect Using MySQL Client
 author: Zhe
 published_at: 2021/11/15 05:28:33
-feature_image: /blog/how-to-run-clickhouse-with-docker-and-connect-using-mysql-client/docker-and-clickhouse.webp
+feature_image: /content/blog/how-to-run-clickhouse-with-docker-and-connect-using-mysql-client/docker-and-clickhouse.webp
 tags: How-To
 integrations: ClickHouse
 description: Run ClickHouse with Docker, and connect using MySQL client.

@@ -2,7 +2,7 @@
 title: Global variable support in Nuxt
 author: Xiong
 published_at: 2022/10/9 12:00:00
-feature_image: /blog/global-variable-support-in-nuxt/deliver-versions.webp
+feature_image: /content/blog/global-variable-support-in-nuxt/deliver-versions.webp
 tags: Engineering
 description: We recently introduced a global version variable in our Nuxt docs to ease the documentation update during release. This article describes how we implement this feature.
 ---
@@ -30,7 +30,7 @@ docker run --init \
 
 But at Bytebase, we release a new version biweekly, which means we need to update the latest version here (currently %%bb_version%%) every two weeks.
 
-![_](/blog/global-variable-support-in-nuxt/upgrade-in-the-old-way.webp)
+![_](/content/blog/global-variable-support-in-nuxt/upgrade-in-the-old-way.webp)
 
 This is painful and error-prone to change every version string during the upgrade. Ideally, we only need to change the latest version in one place, and let other files read and use it just like a global variable. Let's improve this procedure and say goodbye to the cumbersome manual operations!
 
@@ -211,7 +211,7 @@ Now there's no need for `<pre>` tags or extra loader packages, and the placehold
 
 [This](https://github.com/bytebase/bytebase.com/pull/506/files) is how we update our docs now. Just a single line change to update the version string and all version references scattered over the doc will get updated. Concise and effective.
 
-![_](/blog/global-variable-support-in-nuxt/upgrade-in-the-new-way.webp)
+![_](/content/blog/global-variable-support-in-nuxt/upgrade-in-the-new-way.webp)
 
 ## References
 

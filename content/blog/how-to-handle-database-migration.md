@@ -2,7 +2,7 @@
 title: How Do You Handle Database (Schema) Migrations?
 author: Tianzhou
 published_at: 2023/05/19 18:21:21
-feature_image: /blog/how-to-handle-database-migration/how-to-handle-database-migration-cover.jpg
+feature_image: /content/blog/how-to-handle-database-migration/how-to-handle-database-migration-cover.jpg
 tags: Industry
 featured: true
 description: We can't avoid database schema changes, but we can make them less painful. Meeting Bytebase, a database change tool that incorporates the best practices of treating database changes like code changes and separating code changes from database changes.
@@ -10,7 +10,7 @@ description: We can't avoid database schema changes, but we can make them less p
 
 I recently noticed this post in Reddit's r/golang entitled "[How do you handle migrations ?](https://www.reddit.com/r/golang/comments/12mypec/how_do_you_handle_migrations/)" It got 40+ replies in less than a day.
 
-![_](/blog/how-to-handle-database-migration/reddit.webp)
+![_](/content/blog/how-to-handle-database-migration/reddit.webp)
 
 True that database schema changes have always been a headache for developers, but can't avoid because business needs to develop and products need to iterate. Adding new features often means modifying database structure, such as adding a new field to save new information, which involves database schema changes.
 
@@ -50,23 +50,23 @@ As for database changes, because it involves data change, that is, the **state**
 
 ### Visualized Change UI
 
-![_](/blog/how-to-handle-database-migration/change-ui.webp)
+![_](/content/blog/how-to-handle-database-migration/change-ui.webp)
 
 Bytebase provides a web-based GUI for developers and DBAs to collaborate on database changes.
 
 ### Automated SQL Review Policies
 
-![_](/blog/how-to-handle-database-migration/sql-review-setup.webp)
+![_](/content/blog/how-to-handle-database-migration/sql-review-setup.webp)
 
 Bytebase has 100+ SQL review rules built-in, using the shift-left approach to pre-screen change scripts submitted by developers, before DBAs intervene.
 
 ### Database as Code (GitOps)
 
-![_](/blog/how-to-handle-database-migration/google.webp)
+![_](/content/blog/how-to-handle-database-migration/google.webp)
 
 Bytebase is a proponent and industry leader for Database-as-Code solution. As per Google, Bytebase is ranked #1 for Database as Code, ahead of established vendors like Liquibase and DBmaestro.
 
-![_](/blog/how-to-handle-database-migration/gitops.webp)
+![_](/content/blog/how-to-handle-database-migration/gitops.webp)
 
 Bytebase is the only tool in the industry that provides a point-and-click interface to configure a GitOps workflow, similar to the Terraform Cloud / Vercel experience. Once configured, devs can submit database change scripts through their familiar code repos. The deployment process will be automatically triggered by Bytebase after the change scripts are merged into the code repo.
 
@@ -82,15 +82,15 @@ Changing one database is hard enough, let alone a batch of databases at the same
 
 Bytebase allows you to [change a collection of databases with identical schemas](/docs/batch-change/multi-tenant-change/), as shown in the figure below: changing the database of a hospital SaaS system, for different hospital tenants in different environments, in just one sitting.
 
-![_](/blog/how-to-handle-database-migration/batch-changes.webp)
+![_](/content/blog/how-to-handle-database-migration/batch-changes.webp)
 
 ### Custom Approval Flow (Enterprise Plan)
 
 We recently introduced [custom approval flow](/docs/administration/custom-approval) based on risk level. You first define the risk level of operations done to your databases and configure the corresponding approval flows according to the different risk levels.
 
-![_](/blog/how-to-handle-database-migration/custom-approval.webp)
+![_](/content/blog/how-to-handle-database-migration/custom-approval.webp)
 
-![_](/blog/how-to-handle-database-migration/create-approval-flow.webp)
+![_](/content/blog/how-to-handle-database-migration/create-approval-flow.webp)
 
 The approval flow can be customized, thanks to Bytebase's [**Project**](/docs/concepts/data-model/#project) concept, meaning you can specify the approvers from a specific project.
 
@@ -107,7 +107,7 @@ When small teams first start out, they usually put database and code changes tog
 
 Stateful data and stateless code are two different species. While there are centralized CI/CD platforms like GitLab / GitHub + Octopus / Jenkins for releasing code changes, Bytebase plays a similar role in releasing **changes to the database**.
 
-![_](/blog/how-to-handle-database-migration/bytebase-landscape.webp)
+![_](/content/blog/how-to-handle-database-migration/bytebase-landscape.webp)
 
 That's why Bytebase can also be referred to as the GitLab for databases, taking on the role of Database DevOps. Like GitLab, we have adopted a similar open-source strategy, offering both a [hosted SaaS service](https://hub.bytebase.com/workspace) and [self-host](/docs/get-started/install/deploy-with-docker/) options.
 
@@ -115,6 +115,6 @@ That's why Bytebase can also be referred to as the GitLab for databases, taking 
 
 Bytebase aims to help DBA and developer teams from different industries to manage the change, query, security and governance of databases, on and off the cloud, across different clouds.
 
-![_](/blog/how-to-handle-database-migration/change-query-secure-govern.webp)
+![_](/content/blog/how-to-handle-database-migration/change-query-secure-govern.webp)
 
 Just like GitLab / GitHub when it comes to code hosting, Prometheus / Grafana when it comes to monitoring, and Terraform when it comes to multi-cloud management, Bytebase wants to become the default tool for database change management.

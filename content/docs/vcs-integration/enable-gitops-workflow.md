@@ -25,7 +25,7 @@ One project has to choose between the **UI workflow** and the **GitOps workflow*
 
 Go to the project you wish to enable GitOps workflow for. Choose **GitOps** and click **Configure GitOps**.
 
-![project-vcs-step](/docs/vcs-integration/enable-gitops-workflow/project-vcs-step1.webp)
+![project-vcs-step](/content/docs/vcs-integration/enable-gitops-workflow/project-vcs-step1.webp)
 
 ## Step 1 - Choose Git provider
 
@@ -43,7 +43,7 @@ If you encounter errors during this process, it's likely the Git provider is not
 
 </HintBlock>
 
-![project-vcs-step](/docs/vcs-integration/enable-gitops-workflow/project-vcs-step2.webp)
+![project-vcs-step](/content/docs/vcs-integration/enable-gitops-workflow/project-vcs-step2.webp)
 
 ## Step 2 - Select repository
 
@@ -55,13 +55,13 @@ For GitLab, Bytebase only lists repositories where you have at least the **Maint
 
 </HintBlock>
 
-![project-vcs-step](/docs/vcs-integration/enable-gitops-workflow/project-vcs-step3.webp)
+![project-vcs-step](/content/docs/vcs-integration/enable-gitops-workflow/project-vcs-step3.webp)
 
 Select the repository you want to link to the Bytebase project.
 
 ## Step 3 - Configure deploy
 
-![project-vcs-step](/docs/vcs-integration/enable-gitops-workflow/project-vcs-step4.webp)
+![project-vcs-step](/content/docs/vcs-integration/enable-gitops-workflow/project-vcs-step4.webp)
 
 The final step allows you to configure the following settings:
 
@@ -146,4 +146,4 @@ You can follow [GitOps SQL Review CI](/docs/sql-review/sql-advisor/gitops-ci) to
 
 You have now enabled the GitOps workflow for your project. Bytebase will start observe SQL file changes from the linked repository. The last task is to [name and organize the schema files](/docs/vcs-integration/name-and-organize-schema-files) in the linked repository directory so that Bytebase can figure out for a given SQL file change, which database it should apply to.
 
-![project-vcs-step](/docs/vcs-integration/enable-gitops-workflow/project-vcs-step5.webp)
+![project-vcs-step](/content/docs/vcs-integration/enable-gitops-workflow/project-vcs-step5.webp)

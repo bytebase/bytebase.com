@@ -29,10 +29,10 @@ SQL Editor provides an `Explain` button to run EXPLAIN on the selected query. Yo
 
 You can retrieve anything you want from query results quickly.
 
-![Search Result](/docs/sql-editor/search-result.webp)
+![Search Result](/content/docs/sql-editor/search-result.webp)
 
 ## Export Data
 
 SQL Editor allows exporting query results to `CSV` or `JSON` files.
 
-![Export Data](/docs/sql-editor/export-data.webp)
+![Export Data](/content/docs/sql-editor/export-data.webp)

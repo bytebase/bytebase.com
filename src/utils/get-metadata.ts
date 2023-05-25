@@ -15,9 +15,7 @@ export default function getMetadata({
 }: Metadata) {
   const SITE_URL = process.env.NEXT_PUBLIC_DEFAULT_SITE_URL;
   const canonicalUrl = SITE_URL + pathname;
-  // FIXME
-  const imageUrl =
-    imagePath === 'no-image' ? '' : imagePath.startsWith('http') ? imagePath : SITE_URL + imagePath;
+  const imageUrl = imagePath.startsWith('http') ? imagePath : SITE_URL + imagePath;
   const siteName = 'Bytebase';
 
   return {

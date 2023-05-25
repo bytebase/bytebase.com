@@ -12,7 +12,7 @@ Before starting, make sure you have sign up for an account on the [OpenAI platfo
 
 Go to Bytebase console, click **Settings > General**. Scroll down to **AI Augmentation**, and fill in **OpenAI API Key** field.
 
-![settings-general-ai](/docs/sql-editor/settings-general-ai.webp)
+![settings-general-ai](/content/docs/sql-editor/settings-general-ai.webp)
 
 ## Query in SQL Editor
 
@@ -20,7 +20,7 @@ Go to Bytebase console, click **Settings > General**. Scroll down to **AI Augmen
 2. Input in the natural language field and press **Enter**.
 3. You'll see the generated SQL on the left. Click the play icon and the SQL will execute.
 
-![sql-editor-chatsql](/docs/sql-editor/sql-editor-chatsql.webp)
+![sql-editor-chatsql](/content/docs/sql-editor/sql-editor-chatsql.webp)
 
 ## Data privacy
 
