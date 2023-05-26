@@ -1,4 +1,4 @@
-import Route from './route.ts';
+import Route from './route';
 
 export const MENUS = {
   header: [
@@ -125,7 +125,7 @@ export const MENUS = {
         { name: 'Pricing', linkUrl: Route.PRICING },
         { name: 'Careers', linkUrl: Route.JOBS },
         { name: 'Tech Stack', linkUrl: Route.TECHSTACK },
-        { name: 'Contact', linkUrl: Route.CONTACT },
+        { name: 'Contact', linkUrl: Route.CONTACTS },
       ],
     },
   ],
