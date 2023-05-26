@@ -8,7 +8,7 @@ const SuccessState = () => (
   >
     <div className="flex h-20 w-20 flex-col items-center justify-center rounded-full border-4 border-secondary-2">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/images/check-form-green.svg" alt="" aria-hidden />
+      <img className="w-7" src="/images/check-form-green.svg" alt="" aria-hidden />
     </div>
     <h2 className="mt-8 text-center font-title text-44 leading-none lg:text-40 md:mt-6 md:text-36">
       Your message has been sent
