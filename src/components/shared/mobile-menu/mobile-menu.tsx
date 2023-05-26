@@ -11,7 +11,7 @@ import AlgoliaSearch from '@/components/pages/docs/algolia-search';
 import Button from '@/components/shared/button';
 import Link from '@/components/shared/link';
 
-import { MENUS } from '@/lib/menus.js';
+import { MENUS } from '@/lib/menus';
 import Route from '@/lib/route';
 
 import APIIcon from '@/svgs/api.inline.svg';
