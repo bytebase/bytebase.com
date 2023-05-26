@@ -46,40 +46,8 @@ const ContactForm = ({ className, formId }: { className: string; formId: number 
 
   const onSubmit = async (values: ValueType) => {
     const { firstname, lastname, email, company, message } = values;
-    setButtonState(STATES.LOADING);
 
-    const body = JSON.stringify({
-      formId: formId,
-      values: {
-        fields: [
-          {
-            objectTypeId: '0-1',
-            name: 'firstname',
-            value: firstname,
-          },
-          {
-            objectTypeId: '0-1',
-            name: 'lastname',
-            value: lastname,
-          },
-          {
-            objectTypeId: '0-1',
-            name: 'email',
-            value: email,
-          },
-          {
-            objectTypeId: '0-1',
-            name: 'company',
-            value: company,
-          },
-          {
-            objectTypeId: '0-1',
-            name: 'message',
-            value: message,
-          },
-        ],
-      },
-    });
+    setButtonState(STATES.LOADING);
 
     try {
       const response = await fetch('', {
@@ -88,7 +56,38 @@ const ContactForm = ({ className, formId }: { className: string; formId: number 
           'Content-Type': 'application/json',
           Accept: 'application/json, text/plain, */*',
         },
-        body: body,
+        body: JSON.stringify({
+          formId: formId,
+          values: {
+            fields: [
+              {
+                objectTypeId: '0-1',
+                name: 'firstname',
+                value: firstname,
+              },
+              {
+                objectTypeId: '0-1',
+                name: 'lastname',
+                value: lastname,
+              },
+              {
+                objectTypeId: '0-1',
+                name: 'email',
+                value: email,
+              },
+              {
+                objectTypeId: '0-1',
+                name: 'company',
+                value: company,
+              },
+              {
+                objectTypeId: '0-1',
+                name: 'message',
+                value: message,
+              },
+            ],
+          },
+        }),
       });
 
       if (response.ok) {
