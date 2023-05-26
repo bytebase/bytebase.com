@@ -50,6 +50,7 @@ const ContactForm = ({ className, formId }: { className: string; formId: number 
     setButtonState(STATES.LOADING);
 
     try {
+      // TODO: Replace the empty string with the correct URL
       const response = await fetch('', {
         method: 'POST',
         headers: {
