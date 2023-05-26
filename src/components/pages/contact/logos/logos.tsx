@@ -1,11 +1,11 @@
-type ItemType = {
+type Item = {
   alt: string;
   src: string;
   width: number;
   height: number;
 };
 
-const Logos = ({ items }: { items: ItemType[] }) => {
+const Logos = ({ items }: { items: Item[] }) => {
   return (
     <div className="col-span-5 mt-9 border-t border-gray-90 pt-9 lg:col-span-8 lg:mt-0 lg:border-none lg:pt-0 sm:col-span-full">
       <p className="text-18 leading-extra-tight text-gray-40">

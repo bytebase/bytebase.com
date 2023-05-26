@@ -7,7 +7,7 @@ import SEO_DATA from '@/lib/seo-data';
 import { CONTACT_FORM_ID } from '@/lib/forms';
 import { contactLogos } from '@/lib/logos';
 
-export const metadata = getMetadata(SEO_DATA.CONTACT);
+export const metadata = getMetadata(SEO_DATA.CONTACTS);
 
 export default function Page() {
   return (

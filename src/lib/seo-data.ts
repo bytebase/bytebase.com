@@ -61,10 +61,10 @@ const SEO_DATA = {
     description: 'Safer and faster database change and version control for DBAs and Developers',
     pathname: `${Route.TECHLEAD}/`,
   },
-  CONTACT: {
+  CONTACTS: {
     title: 'Bytebase Contact',
     description: 'Safer and faster database change and version control for DBAs and Developers',
-    pathname: `${Route.CONTACT}/`,
+    pathname: `${Route.CONTACTS}/`,
   },
   REFUND: {
     title: 'Bytebase Refund',

@@ -34,7 +34,7 @@ const validationSchema = yup.object().shape({
 
 const ContactForm = ({ className, formId }: { className: string; formId: number }) => {
   const [buttonState, setButtonState] = useState(STATES.DEFAULT);
-  const [formState, setFormState] = useState(false);
+  const [isFormSuccess, setIsFormSuccess] = useState(false);
   const [formError, setFormError] = useState('');
 
   const {
@@ -95,7 +95,7 @@ const ContactForm = ({ className, formId }: { className: string; formId: number 
         setButtonState(STATES.SUCCESS);
         setTimeout(() => {
           setButtonState(STATES.DEFAULT);
-          setFormState(true);
+          setIsFormSuccess(true);
           reset();
         }, BUTTON_SUCCESS_TIMEOUT_MS);
       } else {
@@ -114,8 +114,8 @@ const ContactForm = ({ className, formId }: { className: string; formId: number 
 
   return (
     <div className={className}>
-      {formState && <SuccessState />}
-      {!formState && (
+      {isFormSuccess && <SuccessState />}
+      {!isFormSuccess && (
         <form
           className="grid grid-cols-2 gap-5 md:grid-cols-1 sm:gap-4"
           onSubmit={handleSubmit(onSubmit)}
