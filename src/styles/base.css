@@ -122,4 +122,8 @@
   body {
     @apply antialiased;
   }
+
+  iframe:focus-visible {
+    outline: none;
+  }
 }
