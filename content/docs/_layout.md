@@ -335,6 +335,20 @@ expand_section_list: ['Introduction', 'Get Started']
 
 #### [How to Synchronize Database Schemas](/tutorials/how-to-synchronize-database-schemas)
 
+### GitOps
+
+#### [Manage Databases in Bytebase with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform)
+
+#### [How to integrate SQL Review into GitLab / GitHub](/tutorials/how-to-integrate-sql-review-into-gitlab-github-ci)
+
+#### [The Database CI/CD Best Practice with GitHub](/tutorials/database-cicd-best-practice-with-github)
+
+#### [How to Setup Database CI/CD with GitHub Actions](/tutorials/github-database-cicd-part-1-sql-review-github-actions)
+
+#### [How to Setup Database CI/CD with GitHub Database GitOps](/tutorials/github-database-cicd-part-2-github-database-gitops)
+
+#### [How to Setup Database CI/CD with GitHub: Put Them Together](/tutorials/github-database-cicd-part-3-put-them-together)
+
 ### MySQL
 
 #### [Change Management with MySQL](/tutorials/database-change-management-with-mysql)
@@ -388,20 +402,6 @@ expand_section_list: ['Introduction', 'Get Started']
 #### [Change Management with Spanner](/tutorials/database-change-management-with-spanner)
 
 #### [Change Management with Spanner and GitHub](/tutorials/database-change-management-with-spanner-and-github)
-
-### GitOps
-
-#### [Manage Databases in Bytebase with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform)
-
-#### [How to integrate SQL Review into GitLab / GitHub](/tutorials/how-to-integrate-sql-review-into-gitlab-github-ci)
-
-#### [The Database CI/CD Best Practice with GitHub](/tutorials/database-cicd-best-practice-with-github)
-
-#### [How to Setup Database CI/CD with GitHub Actions](/tutorials/github-database-cicd-part-1-sql-review-github-actions)
-
-#### [How to Setup Database CI/CD with GitHub Database GitOps](/tutorials/github-database-cicd-part-2-github-database-gitops)
-
-#### [How to Setup Database CI/CD with GitHub: Put Them Together](/tutorials/github-database-cicd-part-3-put-them-together)
 
 ---
 
