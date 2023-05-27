@@ -174,7 +174,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     description: 'Large organization, has dedicated DBA group to manage database fleet',
     buttonText: 'Contact us',
     buttonTheme: 'primary-outline',
-    buttonUrl: 'https://airtable.com/shrS2Ot5BfGExwemj',
+    buttonUrl: '/contact-us',
     changeManagement: {
       user: 'Unlimited',
       environment: 'Unlimited',
