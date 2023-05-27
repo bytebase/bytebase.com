@@ -37,7 +37,7 @@ const Footer = () => (
         >
           <h3 className="text-14 font-bold leading-none tracking-wider text-gray-60">{name}</h3>
           <ul className="mt-7 flex flex-col gap-6">
-            {items.map(({ name: childName, linkUrl, isExternal, withGithubIcon }, childIdx) => (
+            {items.map(({ name: childName, linkUrl, isExternal }, childIdx) => (
               <li className="leading-none" key={childIdx}>
                 <Link
                   className="group flex items-center font-medium tracking-tight md:-mt-1 sm:mt-0"
@@ -47,11 +47,6 @@ const Footer = () => (
                   target={isExternal ? 'blank' : undefined}
                 >
                   <span>{childName}</span>
-                  {withGithubIcon && (
-                    <div className="relative ml-3 w-[20px]">
-                      <GithubIcon className="absolute top-0 h-5 w-5 shrink-0 -translate-x-1/4 -translate-y-1/2 fill-gray-15 group-hover:fill-primary-1" />
-                    </div>
-                  )}
                   {isExternal && (
                     <ExternalIcon className="ml-3 h-4 w-4 shrink-0 stroke-gray-15 group-hover:stroke-primary-1" />
                   )}
