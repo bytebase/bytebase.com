@@ -61,7 +61,7 @@ const PostsList = ({ posts, page, pageCount }: PostsListProps) => {
                       'col-span-6 lg:col-span-9 md:mt-0 sm:col-span-full sm:mt-5',
                     )}
                   >
-                    <h2>
+                    <h2 className="text-30 lg:text-24 md:text-20 sm:text-18">
                       <Link
                         href={`${Route.CHANGELOG}/${slug}`}
                         className="text-36 font-bold leading-extra-tight underline-offset-8 hover:text-primary-1 hover:underline lg:text-30 lg:leading-tight lg:underline-offset-4 md:text-24"

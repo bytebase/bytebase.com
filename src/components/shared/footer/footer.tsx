@@ -1,6 +1,6 @@
 import Link from '@/components/shared/link';
 
-import { MENUS } from '@/lib/menus.js';
+import { MENUS } from '@/lib/menus';
 import Route from '@/lib/route';
 
 import DiscordIcon from '@/svgs/discord.inline.svg';

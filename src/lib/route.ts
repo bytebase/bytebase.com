@@ -7,6 +7,7 @@ const Route = {
   TECHSTACK: '/techstack',
   SQL_REVIEW_GUIDE: '/sql-review-guide',
   BYTEBASE_PLUS: '/bytebase-plus',
+  DEMO: '/demo-confirm',
 
   // seo pages
   DBA: '/usecase/dba',
@@ -18,6 +19,7 @@ const Route = {
   TERMS: '/terms',
   PRIVACY: '/privacy',
   JOBS: '/jobs',
+  CONTACTS: '/contact-us',
 
   DATABASE_GLOSSARY: '/database-glossary',
   CHANGELOG: '/changelog',

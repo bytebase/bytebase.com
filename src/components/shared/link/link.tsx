@@ -9,6 +9,7 @@ const styles = {
   transition: 'transition-colors duration-200',
   base: 'inline-flex leading-none items-center',
   size: {
+    xs: 'text-14',
     sm: 'text-15',
     md: 'text-16',
     lg: 'text-18',
@@ -18,6 +19,8 @@ const styles = {
     'gray-30': 'text-gray-30 hover:text-primary-1 disabled:text-gray-60',
     'primary-1':
       'text-primary-1 border-b-2 border-primary-1 border-opacity-40 transition-opacity hover:border-opacity-100 pb-1 sm:pb-px',
+    underline:
+      'text-gray-60 hover:text-primary-1 border-b-2 border-gray-60 border-opacity-40 transition-opacity hover:border-opacity-100 hover:border-primary-1 pb-1 sm:pb-px',
   },
 };
 

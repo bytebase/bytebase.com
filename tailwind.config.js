@@ -150,6 +150,8 @@ module.exports = {
         green: '0px 5px 15px 0px rgba(143,188,169,0.4)',
         red: '0px 5px 15px 0px rgba(210,172,210,0.4)',
         'dark-big': '0px 0px 80px rgba(0, 0, 0, 0.15)',
+        'field-focus': '0 0 0 2px #5647EB',
+        'field-error': '0 0 0 2px #CC3333',
       },
     },
   },

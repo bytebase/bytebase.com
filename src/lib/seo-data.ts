@@ -61,6 +61,21 @@ const SEO_DATA = {
     description: 'Safer and faster database change and version control for DBAs and Developers',
     pathname: `${Route.TECHLEAD}/`,
   },
+  CONTACTS: {
+    title: 'Bytebase Contact',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.CONTACTS}/`,
+  },
+  REFUND: {
+    title: 'Bytebase Refund',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.REFUND}/`,
+  },
+  DEMO: {
+    title: 'Bytebase Request a demo',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DEMO}/`,
+  },
 };
 
 export default SEO_DATA;
