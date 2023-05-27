@@ -2,7 +2,6 @@ import Route from './route';
 
 export const MENUS = {
   header: [
-    { title: 'Blog', href: Route.BLOG },
     {
       title: 'Docs',
       items: [
@@ -32,11 +31,10 @@ export const MENUS = {
         },
       ],
     },
+    { title: 'Blog', href: Route.BLOG },
     { title: 'Pricing', href: Route.PRICING },
-    { title: 'About us', href: Route.ABOUT },
   ],
   mobile: [
-    { title: 'Blog', href: Route.BLOG },
     {
       title: 'Docs',
       items: [
@@ -72,8 +70,8 @@ export const MENUS = {
         },
       ],
     },
+    { title: 'Blog', href: Route.BLOG },
     { title: 'Pricing', href: Route.PRICING },
-    { title: 'About us', href: Route.ABOUT },
   ],
   footer: [
     {
@@ -102,7 +100,6 @@ export const MENUS = {
     {
       name: 'RESOURCES',
       items: [
-        { name: 'Blog', linkUrl: Route.BLOG },
         { name: 'Documentation', linkUrl: Route.DOCS },
         { name: 'Changelog', linkUrl: Route.CHANGELOG },
         { name: 'SQL Review Guide', linkUrl: Route.SQL_REVIEW_GUIDE },
@@ -118,6 +115,7 @@ export const MENUS = {
     {
       name: 'COMPANY',
       items: [
+        { name: 'Blog', linkUrl: Route.BLOG },
         { name: 'About', linkUrl: Route.ABOUT },
         { name: 'Brand', linkUrl: Route.BRAND },
         { name: 'Careers', linkUrl: Route.JOBS },
