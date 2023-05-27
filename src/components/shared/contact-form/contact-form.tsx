@@ -13,6 +13,11 @@ import { STATES } from '@/lib/states';
 import Route from '@/lib/route';
 import SuccessState from './success-state';
 
+const feishuWebhookList = [
+  'https://open.feishu.cn/open-apis/bot/v2/hook/30f98436-7921-4cf2-8535-522f0b5ba128',
+  'https://open.feishu.cn/open-apis/bot/v2/hook/5a2a1fe6-2ed8-4c0b-8621-0be9ebd188ec',
+];
+
 type ValueType = {
   firstname: string;
   lastname: string;
@@ -32,7 +37,7 @@ const validationSchema = yup.object().shape({
   company: yup.string().trim().required('Company name is a required field'),
 });
 
-const ContactForm = ({ className, formId }: { className: string; formId: number }) => {
+const ContactForm = ({ className, formId }: { className: string; formId: string }) => {
   const [buttonState, setButtonState] = useState(STATES.DEFAULT);
   const [isFormSuccess, setIsFormSuccess] = useState(false);
   const [formError, setFormError] = useState('');
@@ -50,48 +55,28 @@ const ContactForm = ({ className, formId }: { className: string; formId: number 
     setButtonState(STATES.LOADING);
 
     try {
-      // TODO: Replace the empty string with the correct URL
-      const response = await fetch('', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json, text/plain, */*',
-        },
-        body: JSON.stringify({
-          formId: formId,
-          values: {
-            fields: [
-              {
-                objectTypeId: '0-1',
-                name: 'firstname',
-                value: firstname,
-              },
-              {
-                objectTypeId: '0-1',
-                name: 'lastname',
-                value: lastname,
-              },
-              {
-                objectTypeId: '0-1',
-                name: 'email',
-                value: email,
-              },
-              {
-                objectTypeId: '0-1',
-                name: 'company',
-                value: company,
-              },
-              {
-                objectTypeId: '0-1',
-                name: 'message',
-                value: message,
-              },
-            ],
+      let success = true;
+      for (const url of feishuWebhookList) {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json, text/plain, */*',
           },
-        }),
-      });
+          body: JSON.stringify({
+            msg_type: 'text',
+            content: {
+              text: `${formId} by ${firstname} ${lastname}(${email}) from ${company}\n\n${message} `,
+            },
+          }),
+        });
 
-      if (response.ok) {
+        if (!response.ok) {
+          success = false;
+        }
+      }
+
+      if (success) {
         setButtonState(STATES.SUCCESS);
         setTimeout(() => {
           setButtonState(STATES.DEFAULT);
