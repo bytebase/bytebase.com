@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { crewList } from './data';
 
 const Crew = () => (
-  <section className="container">
+  <section className="container" id="crew">
     <ul className="gap-x-grid grid grid-cols-12 gap-y-20 border-t border-gray-90 pt-[52px] 3xl:gap-y-16 3xl:pt-12 xl:gap-y-14 xl:pt-10 md:gap-y-8 md:pt-9 sm:grid-cols-4 sm:gap-y-6 sm:pt-6">
       {crewList.map((member, index) => (
         <li

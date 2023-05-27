@@ -102,13 +102,11 @@ export const MENUS = {
     {
       name: 'RESOURCES',
       items: [
-        { name: 'GitHub', linkUrl: Route.GITHUB, withGithubIcon: true },
-        { name: 'Documentation', linkUrl: Route.DOCS },
         { name: 'Blog', linkUrl: Route.BLOG },
+        { name: 'Documentation', linkUrl: Route.DOCS },
         { name: 'Changelog', linkUrl: Route.CHANGELOG },
         { name: 'SQL Review Guide', linkUrl: Route.SQL_REVIEW_GUIDE },
         { name: 'Database Glossary', linkUrl: Route.DATABASE_GLOSSARY },
-        { name: 'Error Code', linkUrl: `${Route.DOCS}/reference/error-code/overview/` },
         { name: 'DB Cost', linkUrl: Route.DB_COST, isExternal: true },
         {
           name: 'Star History',
@@ -122,9 +120,8 @@ export const MENUS = {
       items: [
         { name: 'About', linkUrl: Route.ABOUT },
         { name: 'Brand', linkUrl: Route.BRAND },
-        { name: 'Pricing', linkUrl: Route.PRICING },
         { name: 'Careers', linkUrl: Route.JOBS },
-        { name: 'Tech Stack', linkUrl: Route.TECHSTACK },
+        { name: 'Pricing', linkUrl: Route.PRICING },
         { name: 'Contact', linkUrl: Route.CONTACTS },
       ],
     },
