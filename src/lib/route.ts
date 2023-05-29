@@ -8,7 +8,7 @@ const Route = {
   SQL_REVIEW_GUIDE: '/sql-review-guide',
   BYTEBASE_PLUS: '/bytebase-plus',
   DEMO: '/request-demo',
-  DEMO_CONFIRM: '/demo-confirm',
+  CONFIRM_DEMO: '/confirm-demo',
 
   // seo pages
   DBA: '/usecase/dba',
