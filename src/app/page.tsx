@@ -18,7 +18,12 @@ export const metadata = getMetadata(SEO_DATA.INDEX);
 
 export default function Page() {
   const latestChangelogPost = getLatestChangelogPost();
-  const latestVersion = latestChangelogPost?.title.replace(/^bytebase\s/gi, '');
+  const latestVersion = latestChangelogPost
+    ? {
+        number: latestChangelogPost.title.replace(/^bytebase\s/gi, ''),
+        slug: latestChangelogPost.slug,
+      }
+    : null;
 
   return (
     <>
