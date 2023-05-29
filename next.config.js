@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 
-const rewrites = [
+const skippedSectionsInNewWebsite = [
   '/database-review-guide',
-  '/jobs',
   '/techstack',
   '/vcs',
   '/webhook',
@@ -23,6 +22,7 @@ const tutorialBeginnerRedirects = [
   'database-change-management-with-tidb',
   'how-to-synchronize-database-schemas',
 ];
+
 const tutorialIntermediateRedirects = [
   'database-change-management-with-amazon-aurora-and-github',
   'database-change-management-with-clickhouse-and-github',
@@ -77,10 +77,20 @@ module.exports = {
         permanent: true,
       },
       {
+        source: '/jobs',
+        destination: '/about#team',
+        permanent: true,
+      },
+      {
         source: '/bytebase-brand-kit.zip',
         destination: '/download/bytebase-brand-kit.zip',
         permanent: true,
       },
+      ...skippedSectionsInNewWebsite.map((slug) => ({
+        source: slug,
+        destination: '/',
+        permanent: true,
+      })),
       ...tutorialBeginnerRedirects.map((slug) => ({
         source: `/blog/${slug}`,
         destination: `/docs/tutorials/${slug}`,
@@ -100,16 +110,6 @@ module.exports = {
           source: '/_nuxt/:path*',
           destination: 'https://old.bytebase.com/_nuxt/:path*',
         },
-        {
-          source: '/bytebase-brand-kit.zip',
-          destination: 'https://old.bytebase.com/bytebase-brand-kit.zip',
-        },
-      ],
-      afterFiles: [
-        ...rewrites.map((section) => ({
-          source: `${section}/:path*`,
-          destination: `https://old.bytebase.com${section}/:path*`,
-        })),
       ],
       fallback: [
         {
