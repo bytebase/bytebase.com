@@ -1,6 +1,6 @@
 import Link from '@/components/shared/link';
 
-import { MENUS } from '@/lib/menus';
+import { MENU } from '@/lib/menus';
 import Route from '@/lib/route';
 
 import DiscordIcon from '@/svgs/discord.inline.svg';
@@ -30,7 +30,7 @@ const socialLinks = [
 const Footer = () => (
   <footer className="safe-paddings container relative z-10 shrink-0 pt-20 lg:pt-14 md:pt-12 xs:pt-10">
     <div className="grid grid-cols-12 gap-x-10 xl:gap-x-9 lg:gap-x-6 md:gap-x-5 sm:grid-cols-4 sm:gap-x-4 sm:gap-y-10">
-      {MENUS.footer.map(({ name, items }, idx) => (
+      {MENU.footer.map(({ name, items }, idx) => (
         <div
           className="col-span-3 md:last:col-span-2 md:last:col-start-11 md:last:justify-self-center sm:col-span-2 sm:!justify-self-start sm:last:col-start-3 md:[&:nth-child(3)]:justify-self-center"
           key={idx}
