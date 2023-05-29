@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import ChevronIcon from '@/svgs/bold-chevron.inline.svg';
 import { AccordionData } from '../promo-sql-editor';
 
-// TODO: refactor markup for chevrons to span > image.svg
 const Accordion = ({
   onChange,
   activeIndex,

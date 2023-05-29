@@ -1,40 +1,6 @@
-// TODO: add tooltip values
 import { Plan } from '@/types/pricing';
 
 const COLORS = { pro: '#5647EB', free: '#3DB8F5', enterprise: '#172136' };
-
-// FIXME: mv the order of plans based on Object.keys(PLANS) to Array
-// const PLANS_ORDER = {
-//   changeManagement: [
-//     'user',
-//     'instance',
-//     'environment',
-//     'schema',
-//     'sql-check',
-//     'disaster-recovery',
-//     'batch-change',
-//     'change-history',
-//     'synchronize',
-//     'terraform',
-//     'schedule',
-//   ],
-//   sql: ['auto-complete', 'schema editor', 'schema-diagram', 'csv', 'admin', 'connection', 'script'],
-//   collaboration: ['seat', 'inbox', 'ui', 'gitops', 'shared', 'webhook'],
-//   security: [
-//     'archiving',
-//     'anomaly',
-//     'rbac',
-//     'approval',
-//     'sso',
-//     'dba',
-//     'environment',
-//     'masking',
-//     'access-control',
-//     'watermark',
-//     'audit-log',
-//   ],
-//   bespoke: ['support', 'logo', 'roadmap', 'msa'],
-// };
 
 const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   free: {
