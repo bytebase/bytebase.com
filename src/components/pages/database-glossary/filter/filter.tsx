@@ -17,7 +17,6 @@ export type FilterProps = {
   toggleFilter: (filter: string) => void;
 };
 
-// TODO: customize component for usage with other filters
 const Filter = ({ title, className, fieldsList, activeFilters, toggleFilter }: FilterProps) => {
   if (fieldsList?.length === 0) return null;
 

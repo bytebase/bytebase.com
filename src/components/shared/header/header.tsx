@@ -8,7 +8,7 @@ import Button from '@/components/shared/button';
 import Link from '@/components/shared/link';
 import MobileMenu from '@/components/shared/mobile-menu';
 
-import { MENUS } from '@/lib/menus';
+import { MENU } from '@/lib/menus';
 import Route from '@/lib/route';
 
 import APIIcon from '@/svgs/api.inline.svg';
@@ -20,8 +20,8 @@ import TutorialsIcon from '@/svgs/tutorials.inline.svg';
 
 import GithubStarCounter from './github-star-counter';
 
-// FIXME: Set the correct type for `icons`.
 const icons: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 } = {
   rocket: RocketIcon,
@@ -69,7 +69,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
             />
           </Link>
           <ul className="flex items-center gap-x-6 lg:gap-x-2 md:hidden">
-            {MENUS.header.map(({ title, href = '', items }: Header) => {
+            {MENU.header.map(({ title, href = '', items }: Header) => {
               return (
                 <li key={title} className="group relative inline-block">
                   {href ? (

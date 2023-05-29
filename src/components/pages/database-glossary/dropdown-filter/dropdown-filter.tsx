@@ -36,7 +36,6 @@ const Chevron = ({ isOpen }: { isOpen: boolean }) => (
   </span>
 );
 
-// TODO: customize component for usage with other filters
 const DropdownFilter = ({
   title,
   className,

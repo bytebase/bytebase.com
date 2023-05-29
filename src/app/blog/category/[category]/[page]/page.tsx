@@ -31,7 +31,6 @@ export default function BlogCategoryPage({
 
   return (
     <>
-      {/* TODO: h1 */}
       <Tabs items={tags} currentSlug={category} />
       <Posts
         title={getTagNameBySlug(category)}

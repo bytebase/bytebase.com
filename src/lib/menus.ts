@@ -1,6 +1,6 @@
 import Route from './route';
 
-export const MENUS = {
+export const MENU = {
   header: [
     {
       title: 'Docs',

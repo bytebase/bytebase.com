@@ -53,30 +53,28 @@ const ContactForm = ({ className, formId }: { className: string; formId: string 
     const { firstname, lastname, email, company, message } = values;
 
     setButtonState(STATES.LOADING);
+    setFormError('');
 
     try {
-      let success = true;
-      for (const url of feishuWebhookList) {
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json, text/plain, */*',
-          },
-          body: JSON.stringify({
-            msg_type: 'text',
-            content: {
-              text: `${formId} by ${firstname} ${lastname}(${email}) from ${company}\n\n${message} `,
+      const responses = await Promise.all(
+        feishuWebhookList.map((url) =>
+          fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json, text/plain, */*',
             },
+            body: JSON.stringify({
+              msg_type: 'text',
+              content: {
+                text: `${formId} by ${firstname} ${lastname} (${email}) from ${company}\n\n${message}`,
+              },
+            }),
           }),
-        });
+        ),
+      );
 
-        if (!response.ok) {
-          success = false;
-        }
-      }
-
-      if (success) {
+      if (responses.every((response) => response.ok)) {
         setButtonState(STATES.SUCCESS);
         setTimeout(() => {
           setButtonState(STATES.DEFAULT);

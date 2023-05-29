@@ -45,7 +45,6 @@ const Founder = ({ id, className }: { id: keyof typeof founder; className?: stri
         className,
       )}
     >
-      {/* TODO: replace to one image */}
       <Image
         src={image.default}
         alt=""

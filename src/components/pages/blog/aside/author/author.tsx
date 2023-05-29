@@ -20,7 +20,7 @@ const SocialItems = [
   },
 ] as SocialLink[];
 
-// TODO: prepare the component for the real information
+// TODO: fill the component of the real information
 const Author = ({ author }: AuthorProps) => {
   return (
     <figure className="rounded-xl bg-gray-97 p-5 lg:col-span-5 md:col-span-6 sm:col-span-full sm:rounded-[4px]">

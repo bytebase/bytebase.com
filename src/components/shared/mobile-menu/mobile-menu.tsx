@@ -11,7 +11,7 @@ import AlgoliaSearch from '@/components/pages/docs/algolia-search';
 import Button from '@/components/shared/button';
 import Link from '@/components/shared/link';
 
-import { MENUS } from '@/lib/menus';
+import { MENU } from '@/lib/menus';
 import Route from '@/lib/route';
 
 import APIIcon from '@/svgs/api.inline.svg';
@@ -22,8 +22,8 @@ import TutorialsIcon from '@/svgs/tutorials.inline.svg';
 
 import Burger from './burger';
 
-// FIXME: Set the correct type for `icons`.
 const icons: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 } = { rocket: RocketIcon, api: APIIcon, cli: CLIIcon, howTo: HowToIcon, tutorials: TutorialsIcon };
 
@@ -112,7 +112,7 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
             onClick={(evt) => evt.stopPropagation()}
           >
             <ul className="flex max-h-[70%] flex-col items-stretch divide-y divide-gray-90 overflow-y-auto">
-              {MENUS.mobile.map(({ title, href = '', items }, idx) => {
+              {MENU.mobile.map(({ title, href = '', items }, idx) => {
                 const isDropdownOpened = openedDropdown === idx;
                 return (
                   <li className="relative first:-mt-4 last:border-b last:border-gray-90" key={idx}>
