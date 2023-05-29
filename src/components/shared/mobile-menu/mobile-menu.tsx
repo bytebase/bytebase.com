@@ -22,8 +22,8 @@ import TutorialsIcon from '@/svgs/tutorials.inline.svg';
 
 import Burger from './burger';
 
-// FIXME: Set the correct type for `icons`.
 const icons: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 } = { rocket: RocketIcon, api: APIIcon, cli: CLIIcon, howTo: HowToIcon, tutorials: TutorialsIcon };
 
