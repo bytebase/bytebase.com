@@ -4,11 +4,11 @@ import Logos from '@/components/pages/contact/logos';
 
 import SEO_DATA from '@/lib/seo-data';
 
-export const metadata = getMetadata(SEO_DATA.DEMO);
+export const metadata = getMetadata(SEO_DATA.DEMO_CONFIRM);
 
 export default function Page() {
   return (
-    <div className="container flex flex-col">
+    <div className="container">
       <h1 className="font-title text-80 font-semibold leading-none 2xl:text-64 lg:text-56 sm:text-40">
         Demo Booking Confirmed!
       </h1>
