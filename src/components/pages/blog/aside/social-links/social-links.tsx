@@ -2,16 +2,16 @@ import Link from '@/components/shared/link';
 
 import LinkedinIcon from '@/svgs/linkedin.inline.svg';
 import TwitterIcon from '@/svgs/twitter.inline.svg';
+import clsx from 'clsx';
 
 const icons = {
   twitter: {
     Icon: TwitterIcon,
-    className: 'text-secondary-3 hover:text-primary-1',
+    className: 'text-secondary-3',
   },
-  // TODO: hover state for linkedin
   linkedIn: {
     Icon: LinkedinIcon,
-    className: '',
+    className: 'text-[#0077b5]',
   },
 };
 
@@ -33,7 +33,11 @@ const SocialLinks = ({ items }: SocialLinksProps) => {
         const { Icon, className } = icons[network];
         return (
           <li key={network}>
-            <Link className={className} href={url} aria-label={`Author on ${network}`}>
+            <Link
+              className={clsx(className, 'grayscale hover:grayscale-0')}
+              href={url}
+              aria-label={`Author on ${network}`}
+            >
               <Icon className="h-[26px] w-[26px]" role="presentation" />
             </Link>
           </li>
