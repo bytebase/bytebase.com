@@ -14,7 +14,7 @@ description: We use Better Uptime as a way to monitor our websites. With a featu
 ## Why we use Better Uptime
 
 [Better Uptime](https://betteruptime.com/) is the tool we use to monitor our websites.
-![_](/content/blog/how-to-use-bytebase-with-better-uptime/better-uptime-monitoring-dashboard.webp)![_](/blog/how-to-use-bytebase-with-better-uptime/better-uptime-page-detail.webp)
+![_](/content/blog/how-to-use-bytebase-with-better-uptime/better-uptime-monitoring-dashboard.webp)![_](/content/blog/how-to-use-bytebase-with-better-uptime/better-uptime-page-detail.webp)
 Of all the Better Uptime monitor types, there is a type called **heartbeats**. Here are the benefits of using heartbeats quoted from [Better Uptime documentation.](https://docs.betteruptime.com/monitoring/monitor-types/cron-and-heartbeat-monitor)
 
 > Every heartbeat comes with a unique URL you need to periodically make requests to in order for the heartbeat NOT to create a new incident.
@@ -29,4 +29,4 @@ In Bytebase [0.9.0](https://bytebase.com/changelog/bytebase-0-9-0), we introduce
 ## How to configure database webhook
 
 It's quite simple. Just copy the URL from Better Uptime and save it in Bytebase. You are ready to go.
-![_](/content/blog/how-to-use-bytebase-with-better-uptime/better-uptime-heartbeat.webp)![_](/blog/how-to-use-bytebase-with-better-uptime/bytebase-backup-webhook.webp)
+![_](/content/blog/how-to-use-bytebase-with-better-uptime/better-uptime-heartbeat.webp)![_](/content/blog/how-to-use-bytebase-with-better-uptime/bytebase-backup-webhook.webp)

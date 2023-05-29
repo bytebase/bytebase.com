@@ -101,7 +101,7 @@ Visit [GitLab docker hub](https://hub.docker.com/r/gitlab/gitlab-ee/tags?page=1&
 **PANIC, GitLab failed to start and kept crash looping 😫**
 
 Use `docker logs -f gitlab` to view the log and quickly realize we missed one critical steps already mentioned in the upgrade guide.
-![_](/content/blog/upgrade-gitlab-enterprise-edition-major-version-13-14/gitlab-14-upgrade-attention.webp)![_](/blog/upgrade-gitlab-enterprise-edition-major-version-13-14/gitlab-background-migration.webp)
+![_](/content/blog/upgrade-gitlab-enterprise-edition-major-version-13-14/gitlab-14-upgrade-attention.webp)![_](/content/blog/upgrade-gitlab-enterprise-edition-major-version-13-14/gitlab-background-migration.webp)
 And it's also mentioned in the major upgrade overview.
 ![_](/content/blog/upgrade-gitlab-enterprise-edition-major-version-13-14/upgrade-major-version.webp)
 And we still managed to miss those 😮‍💨
@@ -109,7 +109,7 @@ And we still managed to miss those 😮‍💨
 ## Step 4 - The Rollback
 
 Guess we are probably not alone and GitLab does provide a dedicated [troubleshooting guide](https://docs.gitlab.com/ee/user/admin_area/monitoring/background_migrations.html#troubleshooting)
-![_](/content/blog/upgrade-gitlab-enterprise-edition-major-version-13-14/gitlab-upgrade-troubleshoot.webp)![_](/blog/upgrade-gitlab-enterprise-edition-major-version-13-14/gitlab-upgrade-rollback.webp)
+![_](/content/blog/upgrade-gitlab-enterprise-edition-major-version-13-14/gitlab-upgrade-troubleshoot.webp)![_](/content/blog/upgrade-gitlab-enterprise-edition-major-version-13-14/gitlab-upgrade-rollback.webp)
 
 > **Fortunately, we took a snapshot in Step 1, so it's easier to just restore that snapshot.**
 

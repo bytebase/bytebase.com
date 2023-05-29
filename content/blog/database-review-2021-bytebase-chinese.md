@@ -195,7 +195,7 @@ SQLite is open-source, meaning that you can make as many copies of it as you wan
 而 TiDB 背后的 PingCAP 在 [20 年末的一笔巨额融资](https://techcrunch.com/2020/11/16/pingcap-the-open-source-developer-behind-tidb-closes-270-million-series-d/)，更是把国内投融资市场彻底拍醒 (或者说用力过猛直接拍晕 🤪)。21 年在 Infra 开源的投融资市场上，国内外基本是同频的，同频的疯狂。
 
 但一边是大量资本涌入开源赛道上的公司，一边仍然是许多个人贡献者无法靠开源获得稳定的收入。GitHub Sponsors 在做积极的尝试，但还很难系统地解决这个问题。而年底爆出的 log4j 安全漏洞，又把这个问题摆上了台面，网友结合经典的 [https://xkcd.com/2347/](https://xkcd.com/2347/) 画出了这个
-![_](/blog/database-review-2021-bytebase/xkcd-log4j.jpeg)
+![_](/content/blog/database-review-2021-bytebase/xkcd-log4j.jpeg)
 原图
 ![_](/content/blog/database-review-2021-bytebase/xkcd-dependency.png)
 所以 21 年又出现了这么一个魔幻的现象，一边是一群开源贡献者躲在小黑屋里继续用爱发电，维护着支撑各大互联网服务的核心组件，一边是另一帮基于开源软件的商业公司，拿着 VC 给的慷慨支票，高歌猛进，其中再穿插一些公有云大厂和商业公司之间的爱恨纠葛 (比如 [AWS vs Elasticsearch](https://aws.amazon.com/blogs/aws/amazon-elasticsearch-service-is-now-amazon-opensearch-service-and-supports-opensearch-10/))。

@@ -203,11 +203,11 @@ The database industry has just realized this a few years ago, mainly because it 
 
 But while a lot of capital is pouring into companies in the open source industry, many individual contributors are still unable to earn a steady income from open source. GitHub Sponsors is actively working on this problem, but it won’t happen overnight. The log4j vulnerability alarmed us again.
 
-![_](/blog/database-review-2021-bytebase/xkcd-log4j.jpeg)
+![_](/content/blog/database-review-2021-bytebase/xkcd-log4j.webp)
 
 Derived from the classic https://xkcd.com/2347
 
-![_](/content/blog/database-review-2021-bytebase/xkcd-dependency.png)
+![_](/content/blog/database-review-2021-bytebase/xkcd-dependency.webp)
 
 So in 2021, we see a more polarized split, on one end, there are a group of open source enthusiasts hiding in a dark room, maintaining the core components that underpin the internet backbone. On the other end, another group of commercial companies, based on open source software, have received generous checks from VCs.
 
@@ -228,3 +228,9 @@ So in 2021, we see a more polarized split, on one end, there are a group of open
 4. Choose PostgreSQL, you won’t regret it.
 
 See you in 2023!
+
+---
+
+_Continue reading other year's review:_
+
+- [Database Review 2022](/blog/database-review-2022)
