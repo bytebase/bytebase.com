@@ -76,10 +76,10 @@ const SEO_DATA = {
     description: 'Safer and faster database change and version control for DBAs and Developers',
     pathname: `${Route.DEMO}/`,
   },
-  DEMO_CONFIRM: {
+  CONFIRM_DEMO: {
     title: 'Demo Booking Confirmed',
     description: 'Safer and faster database change and version control for DBAs and Developers',
-    pathname: `${Route.DEMO_CONFIRM}/`,
+    pathname: `${Route.CONFIRM_DEMO}/`,
   },
 };
 

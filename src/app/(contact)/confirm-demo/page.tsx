@@ -4,7 +4,7 @@ import Logos from '@/components/pages/contact/logos';
 
 import SEO_DATA from '@/lib/seo-data';
 
-export const metadata = getMetadata(SEO_DATA.DEMO_CONFIRM);
+export const metadata = getMetadata(SEO_DATA.CONFIRM_DEMO);
 
 export default function Page() {
   return (
