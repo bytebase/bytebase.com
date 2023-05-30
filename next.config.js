@@ -6,7 +6,6 @@ const skippedSectionsInNewWebsite = [
   '/vcs',
   '/webhook',
   '/database-feature',
-  '/integration',
 ];
 
 const tutorialBeginnerRedirects = [

@@ -8,10 +8,5 @@ import SEO_PAGES_DATA from '@/lib/seo-pages-data';
 export const metadata = getMetadata(SEO_DATA.SNOWFLAKE);
 
 export default function Page() {
-  return (
-    <Hero
-      title={SEO_PAGES_DATA.SNOWFLAKE.title}
-      description={SEO_PAGES_DATA.SNOWFLAKE.description}
-    />
-  );
+  return <Hero {...SEO_PAGES_DATA.SNOWFLAKE} />;
 }

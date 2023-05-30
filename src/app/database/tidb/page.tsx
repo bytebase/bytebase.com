@@ -8,5 +8,5 @@ import SEO_PAGES_DATA from '@/lib/seo-pages-data';
 export const metadata = getMetadata(SEO_DATA.TIDB);
 
 export default function Page() {
-  return <Hero title={SEO_PAGES_DATA.TIDB.title} description={SEO_PAGES_DATA.TIDB.description} />;
+  return <Hero {...SEO_PAGES_DATA.TIDB} />;
 }

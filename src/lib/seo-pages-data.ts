@@ -1,3 +1,5 @@
+import Route from '@/lib/route';
+
 const SEO_PAGES_DATA = {
   TECHLEAD: {
     title: 'Improve team velocity and reduce risk',
@@ -17,7 +19,7 @@ const SEO_PAGES_DATA = {
   MYSQL: {
     title: 'MySQL + Bytebase',
     description:
-      "MySQL is the world's most popular open source database. Bytebase supports MySQL database natively to manage schema changes, backups, record migration history and etc",
+      "MySQL is the world's most popular open source database. Bytebase supports MySQL database natively to manage schema changes, backups, record migration history and etc.",
   },
   POSTGRES: {
     title: 'PostgreSQL + Bytebase',
@@ -38,46 +40,49 @@ const SEO_PAGES_DATA = {
     title: 'Snowflake + Bytebase',
     description: 'Snowflake-feature',
   },
-  // : {
-  //   title: '',
-  //   description:
-  //     "",
-  // },
-  // : {
-  //   title: '',
-  //   description:
-  //     "",
-  // },
-  // : {
-  //   title: '',
-  //   description:
-  //     "",
-  // },
-  // : {
-  //   title: '',
-  //   description:
-  //     "",
-  // },
-  // : {
-  //   title: '',
-  //   description:
-  //     "",
-  // },
-  // : {
-  //   title: '',
-  //   description:
-  //     "",
-  // },
-  // : {
-  //   title: '',
-  //   description:
-  //     "",
-  // },
-  // : {
-  //   title: '',
-  //   description:
-  //     "",
-  // },
+  GITLAB: {
+    title: 'GitLab + Bytebase Database-as-Code',
+    description:
+      'Bytebase integrates with GitLab to allow team to manage database migration scripts in the GitLab repository. Migration pipeline is triggered on observing new migration script push event.',
+    linkText: 'View detailed guide.',
+    linkUrl: `${Route.DOCS_GITLAB}/`,
+  },
+  GITHUB: {
+    title: 'GitHub + Bytebase Database-as-Code',
+    description:
+      'Bytebase integrates with GitHub to allow team to manage database migration scripts in the GitHub repository. Migration pipeline is triggered on observing new migration script push event.',
+    linkText: 'View detailed guide.',
+    linkUrl: `${Route.DOCS_GITHUB}/`,
+  },
+  SLACK: {
+    title: 'Slack + Bytebase',
+    description:
+      'Bytebase supports webhook to post database schema related events to the configured Slack channel. Those webhook events are specifically customized for Slack in order to display the optimal format.',
+  },
+  DISCORD: {
+    title: 'Discord + Bytebase',
+    description:
+      'Bytebase supports webhook to post database schema related events to the configured Discord channel. Those webhook events are specifically customized for Discord in order to display the optimal format.',
+  },
+  TEAMS: {
+    title: 'Teams + Bytebase',
+    description:
+      'Bytebase supports webhook to post database schema related events to the configured Microsoft Teams channel. Those webhook events are specifically customized for Teams in order to display the optimal format.',
+  },
+  DINGTALK: {
+    title: 'DingTalk + Bytebase',
+    description:
+      'Bytebase supports webhook to post database schema related events to the configured DingTalk group. Those webhook events are specifically customized for DingTalk in order to display the optimal format.',
+  },
+  LARK: {
+    title: 'Lark + Bytebase',
+    description:
+      'Bytebase supports webhook to post database schema related events to the configured Feishu group. Those webhook events are specifically customized for Feishu in order to display the optimal format.',
+  },
+  WECOM: {
+    title: 'WeCom + Bytebase',
+    description: 'integration.wecom-',
+  },
 };
 
 export default SEO_PAGES_DATA;

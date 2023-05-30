@@ -8,10 +8,5 @@ import SEO_PAGES_DATA from '@/lib/seo-pages-data';
 export const metadata = getMetadata(SEO_DATA.CLICKHOUSE);
 
 export default function Page() {
-  return (
-    <Hero
-      title={SEO_PAGES_DATA.CLICKHOUSE.title}
-      description={SEO_PAGES_DATA.CLICKHOUSE.description}
-    />
-  );
+  return <Hero {...SEO_PAGES_DATA.CLICKHOUSE} />;
 }

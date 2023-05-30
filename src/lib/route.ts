@@ -47,6 +47,8 @@ const Route = {
   DOCS_ONLINE_SHEMA_CHANGE: '/docs/change-database/online-schema-migration-for-mysql',
   DOCS_PITR: '/docs/disaster-recovery/point-in-time-recovery-for-mysql',
   DOCS_RBAC: '/docs/concepts/roles-and-permissions',
+  DOCS_GITLAB: '/docs/vcs-integration/self-host-gitlab/',
+  DOCS_GITHUB: '/docs/vcs-integration/github-com/',
 
   // databases
   DATABASE_MYSQL: '/database/mysql',
@@ -62,7 +64,7 @@ const Route = {
   INTEGRATION_DISCORD: '/integration/discord',
   INTEGRATION_TEAMS: '/integration/teams',
   INTEGRATION_DINGTALK: '/integration/dingtalk',
-  INTEGRATION_LARK: '/integration/feishu',
+  INTEGRATION_LARK: '/integration/lark',
   INTEGRATION_WECOM: '/integration/wecom',
 
   // usecases

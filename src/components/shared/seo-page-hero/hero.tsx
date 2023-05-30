@@ -1,23 +1,31 @@
 type HeroProps = {
   title: string;
   description: string;
+  linkText?: string;
+  linkUrl?: string;
 };
 
 import Button from '@/components/shared/button';
 import { LinkUnderlined } from '@/components/shared/link-underlined';
 import Logos from '@/components/shared/logos';
+import Link from '@/components/shared/link';
 
 import Route from '@/lib/route';
 import Image from 'next/image';
 
-const Hero = ({ title, description }: HeroProps) => {
+const Hero = ({ title, description, linkText, linkUrl }: HeroProps) => {
   return (
     <section className="col-span-6 col-start-4 flex flex-col pt-[136px] xl:col-span-8 xl:col-start-3 xl:pt-[120px] md:col-span-full md:pt-24">
       <h1 className="text-left font-title text-90 font-semibold leading-none xl:text-68 md:text-56 sm:text-48">
         {title}
       </h1>
       <p className="font-regular mt-4 text-18 leading-normal xl:text-16 xl:leading-snug lg:mt-3 md:mt-2 md:text-14 md:leading-tight sm:text-14">
-        {description}
+        {description}{' '}
+        {linkText && (
+          <Link theme="primary-1" size="lg" href={linkUrl || ''}>
+            {linkText}
+          </Link>
+        )}
       </p>
       <Logos className="sm:order-2" />
       <div className="mt-11 flex items-center gap-9 2xl:gap-8 xl:mt-10 md:mt-9 md:gap-5 sm:order-1 sm:mt-8">
