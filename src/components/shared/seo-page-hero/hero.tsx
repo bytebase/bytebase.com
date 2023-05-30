@@ -3,6 +3,7 @@ type HeroProps = {
   description: string;
   linkText?: string;
   linkUrl?: string;
+  linkTarget?: string;
 };
 
 import Button from '@/components/shared/button';
@@ -13,7 +14,7 @@ import Link from '@/components/shared/link';
 import Route from '@/lib/route';
 import Image from 'next/image';
 
-const Hero = ({ title, description, linkText, linkUrl }: HeroProps) => {
+const Hero = ({ title, description, linkText, linkUrl, linkTarget }: HeroProps) => {
   return (
     <section className="col-span-6 col-start-4 flex flex-col pt-[136px] xl:col-span-8 xl:col-start-3 xl:pt-[120px] md:col-span-full md:pt-24">
       <h1 className="text-left font-title text-90 font-semibold leading-none xl:text-68 md:text-56 sm:text-48">
@@ -22,7 +23,7 @@ const Hero = ({ title, description, linkText, linkUrl }: HeroProps) => {
       <p className="font-regular mt-4 text-18 leading-normal xl:text-16 xl:leading-snug lg:mt-3 md:mt-2 md:text-14 md:leading-tight sm:text-14">
         {description}{' '}
         {linkText && (
-          <Link theme="primary-1" size="lg" href={linkUrl || ''}>
+          <Link theme="primary-1" size="lg" target={linkTarget} href={linkUrl || ''}>
             {linkText}
           </Link>
         )}

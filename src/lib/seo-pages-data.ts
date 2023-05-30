@@ -20,25 +20,40 @@ const SEO_PAGES_DATA = {
     title: 'MySQL + Bytebase',
     description:
       "MySQL is the world's most popular open source database. Bytebase supports MySQL database natively to manage schema changes, backups, record migration history and etc.",
+    linkText: 'More about MySQL.',
+    linkUrl: 'https://www.mysql.com/',
+    linkTarget: '_blank',
   },
   POSTGRES: {
     title: 'PostgreSQL + Bytebase',
     description:
       "PostgreSQL is the world's most advanced open source relational database. Bytebase supports PostgreSQL database natively to manage schema changes, backups, record migration history and etc.",
+    linkText: 'More about PostgreSQL.',
+    linkUrl: 'https://www.postgresql.org/',
+    linkTarget: '_blank',
   },
   CLICKHOUSE: {
     title: 'ClickHouse + Bytebase',
     description:
       'ClickHouse is an open-source, high performance columnar OLAP database management system for real-time analytics using SQL.',
+    linkText: 'More about ClickHouse.',
+    linkUrl: 'https://clickhouse.com/',
+    linkTarget: '_blank',
   },
   TIDB: {
     title: 'TiDB + Bytebase',
     description:
       'TiDB is an open-source, cloud-native, distributed SQL database for elastic scale and real-time analytics. Bytebase supports TiDB database natively to manage schema changes, backups, record migration history and etc.',
+    linkText: 'More about TiDB.',
+    linkUrl: 'https://www.pingcap.com/',
+    linkTarget: '_blank',
   },
   SNOWFLAKE: {
     title: 'Snowflake + Bytebase',
     description: 'Snowflake-feature',
+    linkText: 'More about Snowflake.',
+    linkUrl: 'https://www.snowflake.com/en/',
+    linkTarget: '_blank',
   },
   GITLAB: {
     title: 'GitLab + Bytebase Database-as-Code',
