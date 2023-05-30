@@ -81,6 +81,71 @@ const SEO_DATA = {
     description: 'Safer and faster database change and version control for DBAs and Developers',
     pathname: `${Route.CONFIRM_DEMO}/`,
   },
+  MYSQL: {
+    title: 'Manage MySQL schema with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_MYSQL}/`,
+  },
+  POSTGRES: {
+    title: 'Manage PostgreSQL schema with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_POSTGRES}/`,
+  },
+  CLICKHOUSE: {
+    title: 'Manage ClickHouse schema with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_CLICKHOUSE}/`,
+  },
+  TIDB: {
+    title: 'Manage TiDB schema with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_TIDB}/`,
+  },
+  SNOWFLAKE: {
+    title: 'Manage Snowflake schema with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_SNOWFLAKE}/`,
+  },
+  GITLAB: {
+    title: 'Integration with GitLab',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.INTEGRATION_GITLAB}/`,
+  },
+  GITHUB: {
+    title: 'Integration with GitHub',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.INTEGRATION_GITHUB}/`,
+  },
+  SLACK: {
+    title: 'Integration with Slack',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.INTEGRATION_SLACK}/`,
+  },
+  DISCORD: {
+    title: 'Integration with Discord',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.INTEGRATION_DISCORD}/`,
+  },
+  TEAMS: {
+    title: 'Integration with Teams',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.INTEGRATION_TEAMS}/`,
+  },
+  DINGTALK: {
+    title: 'Integration with DingTalk',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.INTEGRATION_DINGTALK}/`,
+  },
+  LARK: {
+    title: 'Integration with Lark',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.INTEGRATION_LARK}/`,
+  },
+  WECOM: {
+    title: 'Integration with WeCom',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.INTEGRATION_WECOM}/`,
+  },
 };
 
 export default SEO_DATA;
