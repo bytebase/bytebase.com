@@ -81,6 +81,31 @@ const SEO_DATA = {
     description: 'Safer and faster database change and version control for DBAs and Developers',
     pathname: `${Route.CONFIRM_DEMO}/`,
   },
+  MYSQL: {
+    title: 'Manage MySQL schema with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_MYSQL}/`,
+  },
+  POSTGRES: {
+    title: 'Manage PostgreSQL schema with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_POSTGRES}/`,
+  },
+  CLICKHOUSE: {
+    title: 'Manage ClickHouse schema with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_CLICKHOUSE}/`,
+  },
+  TIDB: {
+    title: 'Manage TiDB schema with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_TIDB}/`,
+  },
+  SNOWFLAKE: {
+    title: 'Manage Snowflake schema with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_SNOWFLAKE}/`,
+  },
 };
 
 export default SEO_DATA;
