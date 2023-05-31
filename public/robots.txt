@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://www.bytebase.com/
-
-# Sitemaps
-Sitemap: https://www.bytebase.com/sitemap.xml
