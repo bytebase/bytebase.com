@@ -111,6 +111,10 @@ module.exports = {
       ],
       fallback: [
         {
+          source: '/zh',
+          destination: 'https://old.bytebase.com/zh',
+        },
+        {
           source: '/zh/:path*/',
           destination: 'https://old.bytebase.com/zh/:path*/',
         },
