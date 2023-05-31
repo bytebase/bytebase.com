@@ -331,6 +331,8 @@ expand_section_list: ['Introduction', 'Get Started']
 
 #### [Change Management with GitHub using Bytebase Cloud](/tutorials/database-change-management-with-github-using-bytebase-cloud)
 
+#### [Database Change Management with Risk-Adjusted Approval Flow](/tutorials/database-change-management-with-risk-adjusted-approval-flow)
+
 #### [How to Configure Database Access Control](/tutorials/how-to-configure-database-access-control-and-data-anonymization-for-developer)
 
 #### [How to Synchronize Database Schemas](/tutorials/how-to-synchronize-database-schemas)
