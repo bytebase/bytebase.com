@@ -79,9 +79,14 @@ export const MENU = {
       items: [
         { name: 'MySQL', linkUrl: Route.DATABASE_MYSQL },
         { name: 'PostgreSQL', linkUrl: Route.DATABASE_POSTGRES },
-        { name: 'ClickHouse', linkUrl: Route.DATABASE_CLICKHOUSE },
-        { name: 'TiDB', linkUrl: Route.DATABASE_TIDB },
         { name: 'Snowflake', linkUrl: Route.DATABASE_SNOWFLAKE },
+        { name: 'Oracle', linkUrl: Route.DATABASE_ORACLE },
+        { name: 'SQL Server', linkUrl: Route.DATABASE_SQLSERVER },
+        { name: 'MongoDB', linkUrl: Route.DATABASE_MONGO },
+        { name: 'Redis', linkUrl: Route.DATABASE_REDIS },
+        { name: 'Redshift', linkUrl: Route.DATABASE_REDSHIFT },
+        { name: 'TiDB', linkUrl: Route.DATABASE_TIDB },
+        { name: 'ClickHouse', linkUrl: Route.DATABASE_CLICKHOUSE },
       ],
     },
     {
@@ -89,6 +94,7 @@ export const MENU = {
       items: [
         { name: 'GitLab', linkUrl: Route.INTEGRATION_GITLAB },
         { name: 'GitHub', linkUrl: Route.INTEGRATION_GITHUB },
+        { name: 'Bitbucket', linkUrl: Route.INTEGRATION_BITBUCKET },
         { name: 'Slack', linkUrl: Route.INTEGRATION_SLACK },
         { name: 'Discord', linkUrl: Route.INTEGRATION_DISCORD },
         { name: 'Teams', linkUrl: Route.INTEGRATION_TEAMS },

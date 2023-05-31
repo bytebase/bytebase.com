@@ -106,6 +106,31 @@ const SEO_DATA = {
     description: 'Safer and faster database change and version control for DBAs and Developers',
     pathname: `${Route.DATABASE_SNOWFLAKE}/`,
   },
+  ORACLE: {
+    title: 'Manage Oracle schema with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_ORACLE}/`,
+  },
+  SQLSERVER: {
+    title: 'Manage SQL Server schema with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_SQLSERVER}/`,
+  },
+  MONGO: {
+    title: 'Manage MongoDB change management with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_MONGO}/`,
+  },
+  REDIS: {
+    title: 'Manage Redis change management with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_REDIS}/`,
+  },
+  REDSHIFT: {
+    title: 'Manage Redshift change management with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_REDSHIFT}/`,
+  },
   GITLAB: {
     title: 'Integration with GitLab',
     description: 'Safer and faster database change and version control for DBAs and Developers',
@@ -115,6 +140,11 @@ const SEO_DATA = {
     title: 'Integration with GitHub',
     description: 'Safer and faster database change and version control for DBAs and Developers',
     pathname: `${Route.INTEGRATION_GITHUB}/`,
+  },
+  BITBUCKET: {
+    title: 'Integration with Bitbucket',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.INTEGRATION_BITBUCKET}/`,
   },
   SLACK: {
     title: 'Integration with Slack',

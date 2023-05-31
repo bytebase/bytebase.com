@@ -49,17 +49,24 @@ const Route = {
   DOCS_RBAC: '/docs/concepts/roles-and-permissions',
   DOCS_GITLAB: '/docs/vcs-integration/self-host-gitlab/',
   DOCS_GITHUB: '/docs/vcs-integration/github-com/',
+  DOCS_BITBUCKET: '/docs/vcs-integration/bitbucket-org/',
 
   // databases
   DATABASE_MYSQL: '/database/mysql',
   DATABASE_POSTGRES: '/database/postgres',
+  DATABASE_SNOWFLAKE: '/database/snowflake',
+  DATABASE_ORACLE: '/database/oracle',
+  DATABASE_SQLSERVER: '/database/sqlserver',
+  DATABASE_MONGO: '/database/mongo',
+  DATABASE_REDIS: '/database/redis',
+  DATABASE_REDSHIFT: '/database/redshift',
   DATABASE_TIDB: '/database/tidb',
   DATABASE_CLICKHOUSE: '/database/clickhouse',
-  DATABASE_SNOWFLAKE: '/database/snowflake',
 
   // integrations
   INTEGRATION_GITLAB: '/integration/gitlab',
   INTEGRATION_GITHUB: '/integration/github',
+  INTEGRATION_BITBUCKET: '/integration/bitbucket',
   INTEGRATION_SLACK: '/integration/slack',
   INTEGRATION_DISCORD: '/integration/discord',
   INTEGRATION_TEAMS: '/integration/teams',

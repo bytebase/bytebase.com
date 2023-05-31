@@ -50,9 +50,44 @@ const SEO_PAGES_DATA = {
   },
   SNOWFLAKE: {
     title: 'Snowflake + Bytebase',
-    description: 'Snowflake-feature',
+    description: 'Snowflake database change management built for DevOps and team collaboration.',
     linkText: 'More about Snowflake.',
     linkUrl: 'https://www.snowflake.com/en/',
+    linkTarget: '_blank',
+  },
+  ORACLE: {
+    title: 'Oracle + Bytebase',
+    description: 'Oracle database change management built for DevOps and team collaboration.',
+    linkText: 'More about Oracle.',
+    linkUrl: 'https://www.oracle.com/',
+    linkTarget: '_blank',
+  },
+  SQLSERVER: {
+    title: 'SQL Server + Bytebase',
+    description: 'SQL Server schema change management built for DevOps and team collaboration.',
+    linkText: 'More about SQL Server.',
+    linkUrl: 'https://www.microsoft.com/en-us/sql-server/',
+    linkTarget: '_blank',
+  },
+  MONGO: {
+    title: 'MongoDB + Bytebase',
+    description: 'MongoDB database change management built for DevOps and team collaboration.',
+    linkText: 'More about MongoDB.',
+    linkUrl: 'https://www.mongodb.com/',
+    linkTarget: '_blank',
+  },
+  REDIS: {
+    title: 'Redis + Bytebase',
+    description: 'Redis database change management built for DevOps and team collaboration.',
+    linkText: 'More about Redis.',
+    linkUrl: 'https://redis.com/',
+    linkTarget: '_blank',
+  },
+  REDSHIFT: {
+    title: 'Redshift + Bytebase',
+    description: 'AWS Redshift database change management built for DevOps and team collaboration.',
+    linkText: 'More about AWS Redshift.',
+    linkUrl: 'https://aws.amazon.com/redshift/',
     linkTarget: '_blank',
   },
   GITLAB: {
@@ -68,6 +103,13 @@ const SEO_PAGES_DATA = {
       'Bytebase integrates with GitHub to allow team to manage database migration scripts in the GitHub repository. Migration pipeline is triggered on observing new migration script push event.',
     linkText: 'View detailed guide.',
     linkUrl: `${Route.DOCS_GITHUB}/`,
+  },
+  BITBUCKET: {
+    title: 'Bitbucket + Bytebase Database-as-Code',
+    description:
+      'Bytebase integrates with Bitbucket to allow team to manage database migration scripts in the Bitbucket repository. Migration pipeline is triggered on observing new migration script push event.',
+    linkText: 'View detailed guide.',
+    linkUrl: `${Route.DOCS_BITBUCKET}/`,
   },
   SLACK: {
     title: 'Slack + Bytebase',
@@ -87,16 +129,17 @@ const SEO_PAGES_DATA = {
   DINGTALK: {
     title: 'DingTalk + Bytebase',
     description:
-      'Bytebase supports webhook to post database schema related events to the configured DingTalk group. Those webhook events are specifically customized for DingTalk in order to display the optimal format.',
+      'Bytebase supports webhook to post database schema related events to the configured DingTalk (钉钉) group. Those webhook events are specifically customized for DingTalk in order to display the optimal format.',
   },
   LARK: {
     title: 'Lark + Bytebase',
     description:
-      'Bytebase supports webhook to post database schema related events to the configured Feishu group. Those webhook events are specifically customized for Feishu in order to display the optimal format.',
+      'Bytebase supports webhook to post database schema related events to the configured Lark (飞书) group. Those webhook events are specifically customized for Feishu in order to display the optimal format.',
   },
   WECOM: {
     title: 'WeCom + Bytebase',
-    description: 'integration.wecom-',
+    description:
+      'Bytebase supports webhook to post database schema related events to the configured WeCom (企业微信) group. Those webhook events are specifically customized for WeCom in order to display the optimal format.',
   },
 };
 
