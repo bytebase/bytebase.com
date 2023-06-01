@@ -109,7 +109,7 @@ CREATE TABLE `t1` (
 4. Logout and login as **Owner**. Go into the project `Demo AF` , find the issue and click **Rollout**. You can click the **View change** to see the difference.
 ![bb-issue-t1-done](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-t1-done.webp)
 
-## Step 3 Configure a custom schema approval and run a schema change
+## Step 3 Configure a custom approval flow and run a schema change
 
 1. Click **Settings** on the top bar, and then click **Security & Policy** > **Custom Approval**. Choose `Project Owner → DBA` for **DDL** > **High Risk** instead of `Skip manual approval` .
 ![bb-settings-custom-approval](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-settings-custom-approval.webp)
