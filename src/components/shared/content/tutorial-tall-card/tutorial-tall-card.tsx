@@ -13,6 +13,7 @@ import SnowflakeIcon from '@/svgs/snowflake.inline.svg';
 import SpannerIcon from '@/svgs/spanner.inline.svg';
 import TerraformIcon from '@/svgs/terraform.inline.svg';
 import TidbIcon from '@/svgs/tidb.inline.svg';
+import MySQLIcon from '@/svgs/mysql.inline.svg';
 
 const allLogos: { [key: string]: React.FunctionComponent<React.SVGProps<SVGSVGElement>> } = {
   aurora: AuroraIcon,
@@ -26,6 +27,7 @@ const allLogos: { [key: string]: React.FunctionComponent<React.SVGProps<SVGSVGEl
   tidb: TidbIcon,
   redis: RedisIcon,
   mongodb: MongoDBIcon,
+  mysql: MySQLIcon,
 };
 
 const TutorialTallCard = ({

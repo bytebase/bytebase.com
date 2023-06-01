@@ -33,6 +33,8 @@ title: Overview
 
 <TutorialCardsWrapper>
 
+<TutorialTallCard title="Database Change Management with Risk-Adjusted Approval Flow" url="/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow" date="2023/06/01" logos="mysql"></TutorialTallCard>
+
 <TutorialTallCard title="How to integrate SQL Review into Your GitLab or GitHub CI/CD" url="/docs/tutorials/how-to-integrate-sql-review-into-gitlab-github-ci" logos="github,gitlab" date="2022/12/02"></TutorialTallCard>
 
 <TutorialTallCard title="DevOps: Database Change Management with GitHub using Bytebase Cloud" url="/docs/tutorials/database-change-management-with-github-using-bytebase-cloud" logos="aurora,github" date="2023/04/17"></TutorialTallCard>
