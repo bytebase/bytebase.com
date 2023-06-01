@@ -107,7 +107,7 @@ CREATE TABLE `t1` (
 ![bb-issue-t1-waiting-rollout](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-t1-waiting-rollout.webp)
 
 4. Logout and login as **Owner**. Go into the project `Demo AF` , find the issue and click **Rollout**. You can click the **View change** to see the difference.
-![bb-issue-t1-done](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-t1-done.webp)
+![bb-issue-t1-done-no-af](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-t1-done-no-af.webp)
 
 ## Step 3 Configure a custom approval flow and run a schema change
 
