@@ -1,13 +1,14 @@
 ---
-title: "Database Change Management with Risk-Adjusted Approval Flow"
+title: 'Database Change Management with Risk-Adjusted Approval Flow'
 author: Ningjing
-published_at: 2023/04/17 16:15
+published_at: 2023/06/01 16:15
 feature_image: /content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/xxx.webp
 tags: Tutorial
 integrations: MySQL
 level: Intermediate
-description: "Bytebase provides a basic rollout mechanism by default. For more complicated enterprise-level cases, users may need different approval flows to handle database changes according to risk levels. "
+description: 'Bytebase provides a basic rollout mechanism by default. For more complicated enterprise-level cases, users may need different approval flows to handle database changes according to risk levels.'
 ---
+
 Bytebase provides a basic yet configurable rollout mechanism by default. This means that manual rollout is skipped for Test environments and required for Prod environments.
 
 However, for more complicated enterprise-level cases, users may need different approval flows to handle database changes according to different potential risks. For example, DDL in Prod environments is considered high risk, while DML in Test environments is low risk. Additionally, users may need to involve roles other than DBA/Developer/Project Leader, such as Testers.
