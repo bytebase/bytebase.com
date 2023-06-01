@@ -86,7 +86,6 @@ docker run --name mysqld-prod\
 8. Click **New DB** again. Fill in with **New database name**: `test_db`  / **Environment**: `Prod` / **Instance**: `MySQL Prod`  and click **Create.** It'll create an issue, by default there is no approval flow and since it's for Prod environment, you will need to click **Rollout**.
 
 9. Go back to the project, click **Databases**. You'll see there're two databases.
-
 ![bb-project-databases](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-project-databases.webp)
 
 ## Step 2 Run schema change without custom approval flow
@@ -120,7 +119,6 @@ CREATE TABLE `t1` (
 3. Logout and login as **Developer**. Go into the project `Demo AF`  , click **Alter Schema**, select both databases, and click **Next**.
 
 4. Click **Raw SQL**, paste the following snippet and click **Preview issue**.
-
 ```sql
 ALTER TABLE `t1` ADD COLUMN (`age` INT NOT NULL);
 ```
@@ -150,15 +148,15 @@ What if there is other roles in the team, for example, a `Tester` . Bytebase has
 3. Fill in the form like this, and click **Create**.
 ![bb-create-custom-approval-flow](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-create-custom-approval-flow.webp)
 
-4. Choose the approval flow `Tester->Project Owner->DBA` .
+1. Choose the approval flow `Tester->Project Owner->DBA` .
 ![bb-settings-custom-approval-tester-flow](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-settings-custom-approval-tester-flow.webp)
 
-5. Go to **Settings** > **Workspace** > **Members**, add `tester@x.com` as a new **Developer**. Go to project `Demo AF` , choose role `Tester` .
+1. Go to **Settings** > **Workspace** > **Members**, add `tester@x.com` as a new **Developer**. Go to project `Demo AF` , choose role `Tester` .
 ![bb-project-add-tester](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-project-add-tester.webp)
 
-6. Logout and login as **Developer**. Go into the project `Demo AF` , click **Alter Schema**, select both databases, and click **Next**.
+1. Logout and login as **Developer**. Go into the project `Demo AF` , click **Alter Schema**, select both databases, and click **Next**.
 
-7. Click **Raw SQL**, paste the following snippet and click **Preview issue**. You'll see the approval flow.
+2. Click **Raw SQL**, paste the following snippet and click **Preview issue**. You'll see the approval flow.
 ![bb-issue-waiting-review-tester](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-waiting-review-tester.webp)
 
 ## Summary
