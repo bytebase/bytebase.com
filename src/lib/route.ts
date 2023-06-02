@@ -62,6 +62,9 @@ const Route = {
   DATABASE_REDSHIFT: '/database/redshift',
   DATABASE_TIDB: '/database/tidb',
   DATABASE_CLICKHOUSE: '/database/clickhouse',
+  DATABASE_MARIADB: '/database/mariadb',
+  DATABASE_SPANNER: '/database/spanner',
+  DATABASE_OCEANBASE: '/database/oceanbase',
 
   // integrations
   INTEGRATION_GITLAB: '/integration/gitlab',

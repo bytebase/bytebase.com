@@ -85,8 +85,11 @@ export const MENU = {
         { name: 'MongoDB', linkUrl: Route.DATABASE_MONGO },
         { name: 'Redis', linkUrl: Route.DATABASE_REDIS },
         { name: 'Redshift', linkUrl: Route.DATABASE_REDSHIFT },
-        { name: 'TiDB', linkUrl: Route.DATABASE_TIDB },
         { name: 'ClickHouse', linkUrl: Route.DATABASE_CLICKHOUSE },
+        { name: 'TiDB', linkUrl: Route.DATABASE_TIDB },
+        { name: 'OceanBase', linkUrl: Route.DATABASE_OCEANBASE },
+        { name: 'Google Spanner', linkUrl: Route.DATABASE_SPANNER },
+        { name: 'MariaDB', linkUrl: Route.DATABASE_MARIADB },
       ],
     },
     {

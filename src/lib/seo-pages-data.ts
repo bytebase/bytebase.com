@@ -90,6 +90,28 @@ const SEO_PAGES_DATA = {
     linkUrl: 'https://aws.amazon.com/redshift/',
     linkTarget: '_blank',
   },
+  MARIADB: {
+    title: 'MariaDB + Bytebase',
+    description: 'MariaDB database change management built for DevOps and team collaboration.',
+    linkText: 'More about MariaDB',
+    linkUrl: 'https://mariadb.org/',
+    linkTarget: '_blank',
+  },
+  SPANNER: {
+    title: 'Spanner + Bytebase',
+    description:
+      'Google Cloud Spanner database change management built for DevOps and team collaboration.',
+    linkText: 'More about Google Cloud Spanner',
+    linkUrl: 'https://cloud.google.com/spanner',
+    linkTarget: '_blank',
+  },
+  OCEANBASE: {
+    title: 'OceanBase + Bytebase',
+    description: 'OceanBase database change management built for DevOps and team collaboration.',
+    linkText: 'More about OceanBase',
+    linkUrl: 'https://www.oceanbase.com/en/',
+    linkTarget: '_blank',
+  },
   GITLAB: {
     title: 'GitLab + Bytebase Database-as-Code',
     description:

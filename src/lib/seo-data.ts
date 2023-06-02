@@ -131,6 +131,21 @@ const SEO_DATA = {
     description: 'Safer and faster database change and version control for DBAs and Developers',
     pathname: `${Route.DATABASE_REDSHIFT}/`,
   },
+  MARIADB: {
+    title: 'Manage MariaDB change management with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_MARIADB}/`,
+  },
+  OCEANBASE: {
+    title: 'Manage OceanBase change management with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_OCEANBASE}/`,
+  },
+  SPANNER: {
+    title: 'Manage Google Cloud Spanner change management with Bytebase',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.DATABASE_SPANNER}/`,
+  },
   GITLAB: {
     title: 'Integration with GitLab',
     description: 'Safer and faster database change and version control for DBAs and Developers',
