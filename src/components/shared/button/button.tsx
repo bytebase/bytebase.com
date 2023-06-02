@@ -9,8 +9,8 @@ import { STATES } from '@/lib/states';
 const styles = {
   base: 'inline-flex items-center justify-center leading-none text-center whitespace-nowrap rounded transition-colors duration-200 outline-none',
   size: {
-    sm: 'h-9 text-13 font-bold py-3 px-4.5 uppercase',
-    md: 'h-12 text-13 font-bold py-4.5 px-6 2xs:w-full uppercase',
+    sm: 'h-9 text-14 font-bold py-3 px-4.5 uppercase',
+    md: 'h-12 text-14 font-bold py-4.5 px-6 2xs:w-full uppercase',
     lg: 'h-16 text-16 font-bold py-[21px] px-9 2xs:w-full uppercase md:py-4.5 md:text-13 md:h-12',
   },
   theme: {
