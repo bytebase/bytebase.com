@@ -2,11 +2,18 @@ import BitbucketIcon from '@/svgs/bitbucket.inline.svg';
 import ClickHouseIcon from '@/svgs/clickhouse.inline.svg';
 import GitHubIcon from '@/svgs/github.inline.svg';
 import GitLabIcon from '@/svgs/gitlab.inline.svg';
+import MariaDBIcon from '@/svgs/mariadb.inline.svg';
 import MongoDBIcon from '@/svgs/mongodb.inline.svg';
 import MySQLIcon from '@/svgs/mysql.inline.svg';
+import OceanBaseIcon from '@/svgs/oceanbase.inline.svg';
+import OracleIcon from '@/svgs/oracle.inline.svg';
 import PostgreSQLIcon from '@/svgs/postgres.inline.svg';
+import RedisIcon from '@/svgs/redis.inline.svg';
+import RedshiftIcon from '@/svgs/redshift.inline.svg';
 import SnowflakeIcon from '@/svgs/snowflake.inline.svg';
 import SpannerIcon from '@/svgs/spanner.inline.svg';
+import SQLServerIcon from '@/svgs/sqlserver.inline.svg';
+import TerraformIcon from '@/svgs/terraform.inline.svg';
 import TiDBIcon from '@/svgs/tidb.inline.svg';
 import clsx from 'clsx';
 
@@ -20,24 +27,48 @@ const LOGOS = [
     Icon: PostgreSQLIcon,
   },
   {
-    name: 'TiDB',
-    Icon: TiDBIcon,
-  },
-  {
     name: 'Snowflake',
     Icon: SnowflakeIcon,
   },
   {
-    name: 'ClickHouse',
-    Icon: ClickHouseIcon,
+    name: 'Oracle',
+    Icon: OracleIcon,
+  },
+  {
+    name: 'SQL Server',
+    Icon: SQLServerIcon,
   },
   {
     name: 'MongoDB',
     Icon: MongoDBIcon,
   },
   {
+    name: 'Redis',
+    Icon: RedisIcon,
+  },
+  {
+    name: 'Redshift',
+    Icon: RedshiftIcon,
+  },
+  {
+    name: 'ClickHouse',
+    Icon: ClickHouseIcon,
+  },
+  {
+    name: 'TiDB',
+    Icon: TiDBIcon,
+  },
+  {
+    name: 'OceanBase',
+    Icon: OceanBaseIcon,
+  },
+  {
     name: 'Spanner',
     Icon: SpannerIcon,
+  },
+  {
+    name: 'MariaDB',
+    Icon: MariaDBIcon,
   },
   {
     name: 'GitLab',
@@ -50,6 +81,10 @@ const LOGOS = [
   {
     name: 'Bitbucket',
     Icon: BitbucketIcon,
+  },
+  {
+    name: 'Terraform',
+    Icon: TerraformIcon,
   },
 ];
 
