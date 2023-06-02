@@ -17,6 +17,7 @@ import CLIIcon from '@/svgs/cli.inline.svg';
 import HowToIcon from '@/svgs/how-to.inline.svg';
 import RocketIcon from '@/svgs/rocket.inline.svg';
 import TutorialsIcon from '@/svgs/tutorials.inline.svg';
+import ChevronIcon from '@/svgs/chevron-menu-docs.inline.svg';
 
 import GithubStarCounter from './github-star-counter';
 
@@ -54,10 +55,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
   return (
     <>
       <header className="safe-paddings absolute left-0 right-0 top-0 z-30 h-[72px] w-full md:py-[22px] sm:z-50">
-        <nav
-          className="container flex items-center justify-between py-4.5 md:py-0"
-          aria-label="Global"
-        >
+        <nav className="container flex items-center py-4.5 md:py-0" aria-label="Global">
           <Link href="/">
             <img
               className="h-8 w-auto xl:h-7"
@@ -68,30 +66,24 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
               loading="eager"
             />
           </Link>
-          <ul className="flex items-center gap-x-6 lg:gap-x-2 md:hidden">
+          <ul className="mt-0.5 ml-9 flex items-center gap-1 md:hidden">
             {MENU.header.map(({ title, href = '', items }: Header) => {
               return (
                 <li key={title} className="group relative inline-block">
                   {href ? (
                     <Link
-                      className="px-3 py-[9px] font-medium"
+                      className="px-3 py-2.5 font-bold uppercase tracking-wider"
                       prefetch={href === Route.BLOG ? false : undefined}
                       href={href}
-                      size="md"
+                      size="xs"
                       theme="gray"
                     >
                       {title}
                     </Link>
                   ) : (
-                    <button
-                      className={clsx(
-                        'rounded-[44px] px-3 py-[9px] text-16 font-medium leading-none transition-colors duration-200',
-                        {
-                          'group-hover:bg-gray-94': items,
-                        },
-                      )}
-                    >
+                    <button className="inline-flex items-center gap-1 rounded-[44px] px-3 py-2.5 font-sans text-14 font-bold uppercase leading-none tracking-wider transition-colors duration-200 group-hover:bg-gray-94">
                       {title}
+                      <ChevronIcon className="h-3 w-3 transition-transform duration-200 group-hover:-rotate-180" />
                     </button>
                   )}
                   {items?.length && canShowSubmenu && (
@@ -154,7 +146,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
               );
             })}
           </ul>
-          <div className="flex items-center gap-5 md:hidden">
+          <div className="ml-auto flex items-center gap-5 md:mr-10 sm:hidden">
             <GithubStarCounter />
             <span className="h-5 w-px bg-gray-80" />
             <Button

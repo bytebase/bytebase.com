@@ -199,7 +199,7 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
                   </li>
                 );
               })}
-              <li className="relative first:-mt-4 last:border-b last:border-gray-90">
+              <li className="relative hidden first:-mt-4 last:border-b last:border-gray-90 sm:block">
                 <Link
                   className="flex w-full flex-col items-start justify-center whitespace-nowrap py-5 text-20 font-medium leading-none tracking-tight transition-colors duration-200 hover:cursor-pointer"
                   href={Route.GITHUB}
@@ -208,7 +208,7 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
                 </Link>
               </li>
             </ul>
-            <div className="sticky bottom-0 z-10 mt-auto flex flex-col gap-4 sm:gap-2">
+            <div className="sticky bottom-0 z-10 mt-auto hidden flex-col gap-4 sm:flex sm:gap-2">
               <Button href="https://hub.bytebase.com/workspace" theme="gray-filled" size="md">
                 Sign up for Cloud
               </Button>
