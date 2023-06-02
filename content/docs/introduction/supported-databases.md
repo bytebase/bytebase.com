@@ -52,7 +52,7 @@ Bytebase usually works fine with older database versions, we just won't support 
 |                            [RBAC](/docs/concepts/roles-and-permissions) |  ✔️    |     ✔️      |   ✔️  |      ✔️     |     ✔️     |    ✔️    |    ✔️    |   ✔️   |    ✔️   |       ✔️    |    ✔️     |      ✔️     |
 | [Database Access Control](/docs/administration/database-access-control) |  ✔️    |     ✔️      |   ✔️  |      ✔️     |     ✔️     |    ✔️    |    ✔️    |   ✔️   |    ✔️   |       ✔️    |    ✔️     |      ✔️     |
 |                             [Audit Log](/docs/administration/audit-log) |  ✔️    |     ✔️      |   ✔️  |      ✔️     |     ✔️     |    ✔️    |    ✔️    |   ✔️   |    ✔️   |       ✔️    |    ✔️     |      ✔️     |
-|               [Data Anonymization](/docs/administration/anonymize-data) |  ✔️    |            |      |            |           |         |         |       |        |            |          |            |
+|               [Data Anonymization](/docs/administration/anonymize-data) |  ✔️    |     ✔️      |   ✔️  |            |           |         |         |       |        |            |    ✔️     |      ✔️      |
 
 ### Disaster Recovery
 
