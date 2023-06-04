@@ -21,15 +21,7 @@ See [Supported Databases](/docs/introduction/supported-databases).
 
 ### Supported version control systems (VCS) and providers
 
-Bytebase only supports Git-based VCS. It currently supports:
-
-- Self-host GitLab EE/CE
-- GitLab.com
-- GitHub.com
-
-We plan to support more Git providers roughly in the following order:
-
-- GitHub Enterprise
+See [Git Provider](/docs/vcs-integration/add-git-provider).
 
 ## How to enable https
 
