@@ -79,7 +79,7 @@ Different sets of rules can form different [SQL Review Policies](/docs/sql-revie
 
 InnoDB is the default storage engine of MySQL 5.5+. It provides powerful transaction features. Normally, using InnoDB as the storage engine is the only option. Bytebase provides this rule to catch all scenarios where other engines are attempted.
 
-![schema-review-engine-mysql-use-innodb](/content/docs/schema-review-engine-mysql-use-innodb.webp)
+![schema-review-engine-mysql-use-innodb](/content/docs/sql-review/schema-review-engine-mysql-use-innodb.webp)
 
 #### How the rule works
 
@@ -114,7 +114,7 @@ The unified naming convention is desired by developers. And the same applies to 
 | lowerCamelCase   | `^[a-z]+([A-Z][a-z]*)*$` |
 | kebab-case       | `^[a-z]+(-[a-z]+)*$`     |
 
-![schema-review-naming-table](/content/docs/schema-review-naming-table.webp)
+![schema-review-naming-table](/content/docs/sql-review/schema-review-naming-table.webp)
 
 #### How the rule works
 
@@ -150,7 +150,7 @@ The unified naming convention is desired by developers. And the same applies to 
 | lowerCamelCase   | `^[a-z]+([A-Z][a-z]*)*$` |
 | kebab-case       | `^[a-z]+(-[a-z]+)*$`     |
 
-![schema-review-naming-column](/content/docs/schema-review-naming-column.webp)
+![schema-review-naming-column](/content/docs/sql-review/schema-review-naming-column.webp)
 
 #### How the rule works
 
@@ -211,7 +211,7 @@ For example, `^idx_{{table}}_{{column_list}}$` is a `template` where `{{table}}`
 
 It also limits the naming max length. The default maximum length is 64 characters. Length limit does not support PostgreSQL.
 
-![schema-review-naming-index-idx](/content/docs/schema-review-naming-index-idx.webp)
+![schema-review-naming-index-idx](/content/docs/sql-review/schema-review-naming-index-idx.webp)
 
 #### How the rule works
 
@@ -248,7 +248,7 @@ This rule does **NOT** support MySQL and TiDB. Because the name of a PRIMARY KEY
 
 For example, `^pk_{{table}}_{{column_list}}$` is a `template` where `{{table}}` is the table name and `{{column_list}}` is the list of the column name. So for primary key on `user(id, name)`, the legal name is `pk_user_id_name`.
 
-![schema-review-naming-index-pk](/content/docs/schema-review-naming-index-pk.webp)
+![schema-review-naming-index-pk](/content/docs/sql-review/schema-review-naming-index-pk.webp)
 
 #### How the rule works
 
@@ -283,7 +283,7 @@ For example, `^uk_{{table}}_{{column_list}}$` is a `template` where `{{table}}` 
 
 It also limits the naming max length. The default maximum length is 64 characters. Length limit does not support PostgreSQL.
 
-![schema-review-naming-index-uk](/content/docs/schema-review-naming-index-uk.webp)
+![schema-review-naming-index-uk](/content/docs/sql-review/schema-review-naming-index-uk.webp)
 
 #### How the rule works
 
@@ -321,7 +321,7 @@ For example, `^fk_{{referencing_table}}_{{referencing_column}}_{{referenced_tabl
 
 It also limits the naming max length. The default maximum length is 64 characters. Length limit does not support PostgreSQL.
 
-![schema-review-naming-index-fk](/content/docs/schema-review-naming-index-fk.webp)
+![schema-review-naming-index-fk](/content/docs/sql-review/schema-review-naming-index-fk.webp)
 
 #### How the rule works
 
@@ -357,7 +357,7 @@ Using keywords as table names in Oracle, or any other database management system
 
 4. Portability: If you decide to migrate your database from one DBMS to another in the future, using keywords as table names can cause compatibility issues. Different database systems have different sets of reserved keywords, and these keywords may vary in meaning and functionality. Migrating a database containing table names that are keywords in the target DBMS may require modifying the table names or using workarounds, which can be time-consuming and error-prone.
 
-![schema-review-naming-table-no-keyword](/docs/schema-review-naming-table-no-keyword.webp)
+![schema-review-naming-table-no-keyword](/docs/sql-review/schema-review-naming-table-no-keyword.webp)
 
 #### Support database engine
 
@@ -367,7 +367,7 @@ Using keywords as table names in Oracle, or any other database management system
 
 The same reason as [Disallow keywords as table names](#naming.table.no-keyword).
 
-![schema-review-naming-identifier-no-keyword](/docs/schema-review-naming-identifier-no-keyword.webp)
+![schema-review-naming-identifier-no-keyword](/docs/sql-review/schema-review-naming-identifier-no-keyword.webp)
 
 #### Support database engine
 
@@ -379,7 +379,7 @@ Bytebase provides this rule to unify the identifier case.
 
 For Oracle, if the identifier is not quoted, it is converted to uppercase. In order to unify the identifier case, you can use this rule to disallow the lowercase identifier.
 
-![schema-review-naming-identifier-case](/docs/schema-review-naming-identifier-case.webp)
+![schema-review-naming-identifier-case](/docs/sql-review/schema-review-naming-identifier-case.webp)
 
 #### Support database engine
 
@@ -395,7 +395,7 @@ For scenarios where all columns are not required, you should SELECT the columns 
 
 For scenarios where all columns are required, you should list all column names to avoid semantic ambiguity. Otherwise, the data consumer cannot know the column information. And `SELECT *` may bring additional modifications and errors when modifying the table schema.
 
-![schema-review-query-select-no-select-all](/content/docs/schema-review-query-select-no-select-all.webp)
+![schema-review-query-select-no-select-all](/content/docs/sql-review/schema-review-query-select-no-select-all.webp)
 
 #### How the rule works
 
@@ -414,7 +414,7 @@ There are countless stories about people forgetting the WHERE clause in an UPDAT
 
 If you are sure you need to act on all data, use `WHERE 1=1` to remind yourself of the consequences of that action.
 
-![schema-review-query-where-require](/content/docs/schema-review-query-where-require.webp)
+![schema-review-query-where-require](/content/docs/sql-review/schema-review-query-where-require.webp)
 
 #### How the rule works
 
@@ -431,7 +431,7 @@ Bytebase considers this rule to be violated if the SQL has no WHERE clause.
 
 Database cannot use an index to match entries when there is a leading wildcard. It can cause serious performance problems because it may scan the entire table.
 
-![schema-review-query-where-no-leading-wildcard-like](/content/docs/schema-review-query-where-no-leading-wildcard-like.webp)
+![schema-review-query-where-no-leading-wildcard-like](/content/docs/sql-review/schema-review-query-where-no-leading-wildcard-like.webp)
 
 #### How the rule works
 
@@ -448,7 +448,7 @@ Bytebase considers this rule to be violated if the SQL has leading wildcard LIKE
 
 Disallow using COMMIT statement.
 
-![sql-review-statement-disallow-commit](/content/docs/sql-review-statement-disallow-commit.webp)
+![sql-review-statement-disallow-commit](/content/docs/sql-review/sql-review-statement-disallow-commit.webp)
 
 #### How the rule works
 
@@ -464,7 +464,7 @@ Bytebase alerts users if there exists COMMIT statement.
 
 Disallow LIMIT clause for INSERT, UPDATE and DELETE statements.
 
-![sql-review-statement-disallow-limit](/content/docs/sql-review-statement-disallow-limit.webp)
+![sql-review-statement-disallow-limit](/content/docs/sql-review/sql-review-statement-disallow-limit.webp)
 
 #### How the rule works
 
@@ -485,7 +485,7 @@ Support for PostgreSQL is coming soon.
 
 Disallow ORDER BY clause for UPDATE and DELETE statements.
 
-![sql-review-statement-disallow-order-by](/content/docs/sql-review-statement-disallow-order-by.webp)
+![sql-review-statement-disallow-order-by](/content/docs/sql-review/sql-review-statement-disallow-order-by.webp)
 
 #### How the rule works
 
@@ -505,7 +505,7 @@ Support for PostgreSQL is coming soon.
 
 For readability, it's better not to use multiple `ALTER TABLE` statements for the same table.
 
-![sql-review-statement-merge-alter-table](/content/docs/sql-review-statement-merge-alter-table.webp)
+![sql-review-statement-merge-alter-table](/content/docs/sql-review/sql-review-statement-merge-alter-table.webp)
 
 #### How the rule works
 
@@ -524,7 +524,7 @@ Specifically, Bytebase checks:
 
 For readability, it's better to explicitly specify columns for INSERT statements, such as `INSERT INTO table_t(id, name) VALUES(...)`.
 
-![sql-review-statement-insert-must-specify-column](/content/docs/sql-review-statement-insert-must-specify-column.webp)
+![sql-review-statement-insert-must-specify-column](/content/docs/sql-review/sql-review-statement-insert-must-specify-column.webp)
 
 #### How the rule works
 
@@ -543,7 +543,7 @@ Specifically, Bytebase checks:
 
 The `ORDER BY RAND()` clause is not necessary for INSERT statements.
 
-![sql-review-statement-insert-disallow-order-by-rand](/content/docs/sql-review-statement-insert-disallow-order-by-rand.webp)
+![sql-review-statement-insert-disallow-order-by-rand](/content/docs/sql-review/sql-review-statement-insert-disallow-order-by-rand.webp)
 
 #### How the rule works
 
@@ -561,7 +561,7 @@ Specifically, Bytebase checks:
 
 Alert users if the inserted rows exceed the limit.
 
-![sql-review-statement-statement-insert-row-limit](/content/docs/sql-review-statement-insert-row-limit.webp)
+![sql-review-statement-statement-insert-row-limit](/content/docs/sql-review/sql-review-statement-insert-row-limit.webp)
 
 #### How the rule works
 
@@ -577,7 +577,7 @@ Alert users if the inserted rows exceed the limit.
 
 Alert users if the affected rows in `UPDATE` or `DELETE` exceed the limit.
 
-![sql-review-statement-affected-row-limit](/content/docs/sql-review-statement-affected-row-limit.webp)
+![sql-review-statement-affected-row-limit](/content/docs/sql-review/sql-review-statement-affected-row-limit.webp)
 
 #### How the rule works
 
@@ -592,7 +592,7 @@ For `UPDATE` and `DELETE` statements, Bytebase runs `EXPLAIN` statements for the
 
 Dry run DML statements for validation.
 
-![sql-review-statement-dml-dry-run](/content/docs/sql-review-statement-dml-dry-run.webp)
+![sql-review-statement-dml-dry-run](/content/docs/sql-review/sql-review-statement-dml-dry-run.webp)
 
 #### How the rule works
 
@@ -611,7 +611,7 @@ Dry run DML statements by `EXPLAIN` statements. Specifically, Bytebase checks:
 
 The PostgreSQL will lock the table and rewrite the whole table when you adding column with default value. You can separate the adding column, setting default value and backfilling all existing rows.
 
-![sql-review-statement-disallow-add-column-with-default](/content/docs/sql-review-statement-disallow-add-column-with-default.webp)
+![sql-review-statement-disallow-add-column-with-default](/content/docs/sql-review/sql-review-statement-disallow-add-column-with-default.webp)
 
 #### How the rule works
 
@@ -625,7 +625,7 @@ Bytebase checks all `ALTER TABLE ADD COLUMN` statements.
 
 Adding CHECK constraints without NOT VALID can cause downtime because it blocks reads and writes. You can manually verify all rows and validate the constraint after creating.
 
-![sql-review-statement-add-check-not-valid](/content/docs/sql-review-statement-add-check-not-valid.webp)
+![sql-review-statement-add-check-not-valid](/content/docs/sql-review/sql-review-statement-add-check-not-valid.webp)
 
 #### How the rule works
 
@@ -639,7 +639,7 @@ Bytebase checks all `ALTER TABLE ADD CONSTRAINT` statements.
 
 It can cause downtime because it blocks reads and writes. You can add CHECK(column IS NOT NULL) constraints with NOT VALID option to avoid this.
 
-![sql-review-statement-disallow-add-not-null](/content/docs/sql-review-statement-disallow-add-not-null.webp)
+![sql-review-statement-disallow-add-not-null](/content/docs/sql-review/sql-review-statement-disallow-add-not-null.webp)
 
 #### How the rule works
 
@@ -657,7 +657,7 @@ In almost all cases, each table needs a primary key.
 
 e.g. in MySQL, [the InnoDB storage engine always creates a primary key](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html) if you didn't specify it explicitly or didn't create a unique key, thus making an extra column you don't have access to.
 
-![schema-review-table-require-pk](/content/docs/schema-review-table-require-pk.webp)
+![schema-review-table-require-pk](/content/docs/sql-review/schema-review-table-require-pk.webp)
 
 #### How the rule works
 
@@ -678,7 +678,7 @@ A foreign key is a logical association of rows between two tables, in a parent-c
 
 `FOREIGN KEY` constraints are impossible to maintain once your data grows and is split over multiple database servers. This typically happens when you introduce functional partitioning/sharding and/or horizontal sharding.
 
-![schema-review-table-no-fk](/content/docs/schema-review-table-no-fk.webp)
+![schema-review-table-no-fk](/content/docs/sql-review/schema-review-table-no-fk.webp)
 
 #### How the rule works
 
@@ -700,7 +700,7 @@ Only tables named with specific naming patterns can be deleted. This requires us
 
 The naming convention uses [regular expression](https://en.wikipedia.org/wiki/Regular_expression) format. By default the table name must have `_del` suffix.
 
-![schema-review-table-drop-naming](/content/docs/schema-review-table-drop-naming.webp)
+![schema-review-table-drop-naming](/content/docs/sql-review/schema-review-table-drop-naming.webp)
 
 #### How the rule works
 
@@ -718,7 +718,7 @@ Specifically, Bytebase checks:
 
 <h3 id="table.disallow-partition">Disallow partition table</h3>
 
-![sql-review-table-disallow-partition](/content/docs/sql-review-table-disallow-partition.webp)
+![sql-review-table-disallow-partition](/content/docs/sql-review/sql-review-table-disallow-partition.webp)
 
 #### How the rule works
 
@@ -739,7 +739,7 @@ Specifically, Bytebase checks:
 
 Configure whether the table requires comments and the maximum comment length.
 
-![sql-review-table-comment](/content/docs/sql-review-table-comment.webp)
+![sql-review-table-comment](/content/docs/sql-review/sql-review-table-comment.webp)
 
 #### How the rule works
 
@@ -761,7 +761,7 @@ Specifically, Bytebase checks:
 
 Introducing backward incompatible schema changes is one of the most common mistakes made by developers. And enforcing backward compatible schema change is the standard practice adopted by many engineering organizations. Bytebase provides the built-in backward compatible check to catch all common incompatible schema change [scenarios](https://www.bytebase.com/doc/error#backward-incompatible-migration).
 
-![schema-review-schema-backward-compatibility](/content/docs/schema-review-schema-backward-compatibility.webp)
+![schema-review-schema-backward-compatibility](/content/docs/sql-review/schema-review-schema-backward-compatibility.webp)
 
 #### How the rule works
 
@@ -794,7 +794,7 @@ For most projects, you may want to enforce some columns for every table. For exa
 
 You can customize which columns are required.
 
-![schema-review-column-required](/content/docs/schema-review-column-required.webp)
+![schema-review-column-required](/content/docs/sql-review/schema-review-column-required.webp)
 
 #### How the rule works
 
@@ -811,7 +811,7 @@ Bytebase defaults all tables to meet the requirements. If the SQL tries to defin
 
 Set column type disallow list to ban column types.
 
-![sql-review-column-disallow-list](/content/docs/sql-review-column-disallow-list.webp)
+![sql-review-column-disallow-list](/content/docs/sql-review/sql-review-column-disallow-list.webp)
 
 #### How the rule works
 
@@ -833,7 +833,7 @@ Specifically, Bytebase checks:
 
 NULL is a special value. It can cause confusion or performance issues. Bytebase provides this rule to enforce that all columns cannot have NULL value.
 
-![schema-review-column-no-null](/content/docs/schema-review-column-no-null.webp)
+![schema-review-column-no-null](/content/docs/sql-review/schema-review-column-no-null.webp)
 
 #### How the rule works
 
@@ -850,7 +850,7 @@ Bytebase considers this rule to be violated if the SQL defines a column allowing
 
 Changing column type may fail because the data cannot be converted. Bytebase provides this rule to alert you that the SQL statement would change the column type.
 
-![sql-review-column-disallow-change-type](/content/docs/sql-review-column-disallow-changing-type.webp)
+![sql-review-column-disallow-change-type](/content/docs/sql-review/sql-review-column-disallow-changing-type.webp)
 
 #### How the rule works
 
@@ -870,7 +870,7 @@ Specifically, Bytebase checks:
 
 NOT NULL columns have no default value. It requires users to manually set default values for NOT NULL columns.
 
-![sql-review-column-set-default-for-not-null](/content/docs/sql-review-column-set-default-for-not-null.webp)
+![sql-review-column-set-default-for-not-null](/content/docs/sql-review/sql-review-column-set-default-for-not-null.webp)
 
 #### How the rule works
 
@@ -894,7 +894,7 @@ Support for PostgreSQL is coming soon.
 CHANGE COLUMN is a MySQL extension to standard SQL. CHANGE COLUMN can change column definition and names, or both.
 Most of the time, you just want to change one of two. So you need to use RENAME COLUMN and MODIFY COLUMN instead of CHANGE COLUMN to avoid unexpected modifications.
 
-![sql-review-column-disallow-change](/content/docs/sql-review-column-disallow-change.webp)
+![sql-review-column-disallow-change](/content/docs/sql-review/sql-review-column-disallow-change.webp)
 
 #### How the rule works
 
@@ -909,7 +909,7 @@ Bytebase checks if using `ALTER TABLE CHANGE COLUMN` statements.
 
 Changing column order may cause performance issues. Users should be cautious about this.
 
-![sql-review-column-disallow-changing-order](/content/docs/sql-review-column-disallow-changing-order.webp)
+![sql-review-column-disallow-changing-order](/content/docs/sql-review/sql-review-column-disallow-changing-order.webp)
 
 #### How the rule works
 
@@ -928,7 +928,7 @@ Specifically, Bytebase checks:
 
 The auto-increment column must be integer.
 
-![sql-review-column-auto-increment-must-integer](/content/docs/sql-review-column-auto-increment-must-integer.webp)
+![sql-review-column-auto-increment-must-integer](/content/docs/sql-review/sql-review-column-auto-increment-must-integer.webp)
 
 #### How the rule works
 
@@ -950,7 +950,7 @@ Support for PostgreSQL is coming soon.
 
 It's better to set the charset in the table or database.
 
-![sql-review-column-disallow-set-charset](/content/docs/sql-review-column-disallow-set-charset.webp)
+![sql-review-column-disallow-set-charset](/content/docs/sql-review/sql-review-column-disallow-set-charset.webp)
 
 #### How the rule works
 
@@ -970,7 +970,7 @@ Specifically, Bytebase checks:
 
 Setting unsigned attribute on auto-increment columns to avoid negative numbers.
 
-![sql-review-column-auto-increment-must-unsigned](/content/docs/sql-review-column-auto-increment-must-unsigned.webp)
+![sql-review-column-auto-increment-must-unsigned](/content/docs/sql-review/sql-review-column-auto-increment-must-unsigned.webp)
 
 #### How the rule works
 
@@ -990,7 +990,7 @@ Specifically, Bytebase checks:
 
 Configure whether the column requires comments and the maximum comment length.
 
-![sql-review-column-comment](/content/docs/sql-review-column-comment.webp)
+![sql-review-column-comment](/content/docs/sql-review/sql-review-column-comment.webp)
 
 #### How the rule works
 
@@ -1010,7 +1010,7 @@ Specifically, Bytebase checks:
 
 The CHAR type is the fixed-length type. A longer CHAR will require more storage space.
 
-![sql-review-column-maximum-character-length](/content/docs/sql-review-column-maximum-character-length.webp)
+![sql-review-column-maximum-character-length](/content/docs/sql-review/sql-review-column-maximum-character-length.webp)
 
 #### How the rule works
 
@@ -1030,7 +1030,7 @@ Specifically, Bytebase checks:
 
 <h3 id="column.maximum-varchar-length">Maximum VARCHAR length</h3>
 
-![sql-review-column-maximum-varchar-length](/docs/sql-review-column-maximum-varchar-length.webp)
+![sql-review-column-maximum-varchar-length](/content/docs/sql-review/sql-review-column-maximum-varchar-length.webp)
 
 #### How the rule works
 
@@ -1049,7 +1049,7 @@ Specifically, Bytebase checks:
 
 Set initial value for auto-increment columns.
 
-![sql-review-column-auto-increment-initial-value](/content/docs/sql-review-column-auto-increment-initial-value.webp)
+![sql-review-column-auto-increment-initial-value](/content/docs/sql-review/sql-review-column-auto-increment-initial-value.webp)
 
 #### How the rule works
 
@@ -1068,7 +1068,7 @@ Specifically, Bytebase checks:
 
 Limit the count of `NOW()`, `CURRENT_TIME()` and `CURRENT_TIMESTAMP()` columns.
 
-![sql-review-column-current-time-count-limit](/content/docs/sql-review-column-current-time-count-limit.webp)
+![sql-review-column-current-time-count-limit](/content/docs/sql-review/sql-review-column-current-time-count-limit.webp)
 
 #### How the rule works
 
@@ -1098,7 +1098,7 @@ Specifically, Bytebase checks:
 
 Require default value for all columns, except PRIMARY KEY, JSON, BLOB, TEXT, GEOMETRY, AUTO_INCREMENT, GENERATED columns.
 
-![sql-review-column-require-default](/content/docs/sql-review-column-require-default.webp)
+![sql-review-column-require-default](/content/docs/sql-review/sql-review-column-require-default.webp)
 
 #### How the rule works
 
@@ -1120,7 +1120,7 @@ Specifically, Bytebase checks:
 
 <h3 id="index.no-duplicate-column">Disallow duplicate column in index keys</h3>
 
-![sql-review-index-no-duplicate-column](/content/docs/sql-review-index-no-duplicate-column.webp)
+![sql-review-index-no-duplicate-column](/content/docs/sql-review/sql-review-index-no-duplicate-column.webp)
 
 #### How the rule works
 
@@ -1142,7 +1142,7 @@ Specifically, Bytebase checks:
 
 Limit the count of index keys in one index.
 
-![sql-review-index-key-number-limit](/content/docs/sql-review-index-key-number-limit.webp)
+![sql-review-index-key-number-limit](/content/docs/sql-review/sql-review-index-key-number-limit.webp)
 
 #### How the rule works
 
@@ -1165,7 +1165,7 @@ Specifically, Bytebase checks:
 
 Alert users if key type is not INT or BIGINT in primary keys.
 
-![sql-review-index-pk-type-limit](/content/docs/sql-review-index-pk-type-limit.webp)
+![sql-review-index-pk-type-limit](/content/docs/sql-review/sql-review-index-pk-type-limit.webp)
 
 #### How the rule works
 
@@ -1187,7 +1187,7 @@ Support for PostgreSQL is coming soon.
 
 Disallow using BLOB and TEXT type as index keys.
 
-![sql-review-index-type-no-blob](/content/docs/sql-review-index-disallow-blob.webp)
+![sql-review-index-type-no-blob](/content/docs/sql-review/sql-review-index-disallow-blob.webp)
 
 #### How the rule works
 
@@ -1210,7 +1210,7 @@ Support for PostgreSQL is coming soon.
 
 Limit the index count in one table.
 
-![sql-review-index-total-number-limit](/content/docs/sql-review-index-total-number-limit.webp)
+![sql-review-index-total-number-limit](/content/docs/sql-review/sql-review-index-total-number-limit.webp)
 
 #### How the rule works
 
@@ -1232,7 +1232,7 @@ Specifically, Bytebase checks:
 
 Limit the data type for primary key.
 
-![sql-review-index-primary-key-type-allowlist](/content/docs/sql-review-index-primary-key-type-allowlist.webp)
+![sql-review-index-primary-key-type-allowlist](/content/docs/sql-review/sql-review-index-primary-key-type-allowlist.webp)
 
 #### How the rule works
 
@@ -1253,7 +1253,7 @@ Specifically, Bytebase checks:
 
 Creating indexes blocks writes (but not reads) on the table until it's done. Use CONCURRENTLY when creates indexes can allow writes to continue.
 
-![sql-review-index-create-concurrently](/content/docs/sql-review-index-create-concurrently.webp)
+![sql-review-index-create-concurrently](/content/docs/sql-review/sql-review-index-create-concurrently.webp)
 
 #### How the rule works
 
@@ -1272,7 +1272,7 @@ Specifically, Bytebase checks:
 Can only drop the database if there's no table in it.
 It requires users to drop all containing tables first before dropping the database.
 
-![schema-review-drop-empty-db](/content/docs/schema-review-drop-empty-db.webp)
+![schema-review-drop-empty-db](/content/docs/sql-review/schema-review-drop-empty-db.webp)
 
 #### How the rule works
 
@@ -1293,7 +1293,7 @@ Support for PostgreSQL is coming soon.
 
 <h3 id="system.charset.allowlist">Charset allow list</h3>
 
-![sql-review-system-charset-allowlist](/content/docs/sql-review-system-charset-allow-list.webp)
+![sql-review-system-charset-allowlist](/content/docs/sql-review/sql-review-system-charset-allow-list.webp)
 
 #### How the rule works
 
@@ -1312,7 +1312,7 @@ Specifically, Bytebase checks:
 
 <h3 id="system.collation.allowlist">Collation allow list</h3>
 
-![sql-review-system-collation-allowlist](/content/docs/sql-review-system-collation-allowlist.webp)
+![sql-review-system-collation-allowlist](/content/docs/sql-review/sql-review-system-collation-allowlist.webp)
 
 #### How the rule works
 
@@ -1331,7 +1331,7 @@ Specifically, Bytebase checks:
 
 <h3 id="system.comment.length">Comment length limit</h3>
 
-![sql-review-system-comment-length](/content/docs/sql-review-system-comment-length.webp)
+![sql-review-system-comment-length](/content/docs/sql-review/sql-review-system-comment-length.webp)
 
 #### How the rule works
 

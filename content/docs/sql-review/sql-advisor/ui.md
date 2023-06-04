@@ -11,7 +11,7 @@ SQL advisor runs automatic SQL checks when:
 
 On a specific issue page, the advisor will run automatically after creation:
 
-![sql-advisor](/content/docs/schema-review-engine-mysql-use-innodb.webp)
+![sql-advisor](/content/docs/sql-review/schema-review-engine-mysql-use-innodb.webp)
 
 It currently supports the following checks:
 

@@ -6,11 +6,11 @@ There are two ways to create the `Schema Review Policy`.
 
 One is from `Schema Review Policy` dashboard in `Settings`.
 
-![schema-review-create-from-policy-dashboard](/content/docs/schema-review-create-from-policy-dashboard.gif)
+![schema-review-create-from-policy-dashboard](/content/docs/sql-review/schema-review-create-from-policy-dashboard.gif)
 
 The other is from `Environment` dashboard.
 
-![schema-review-create-from-environment-dashboard](/content/docs/schema-review-create-from-environment-dashboard.gif)
+![schema-review-create-from-environment-dashboard](/content/docs/sql-review/schema-review-create-from-environment-dashboard.gif)
 
 Creating the `Schema Review Policy` is a 3-step process.
 
@@ -36,7 +36,7 @@ You can choose one of `Error`, `Warning` and `Disabled`.
 
 When the rule is `Disabled`, it will not take effect.
 
-![schema-review-change-rule-level](/content/docs/schema-review-change-rule-level.gif)
+![schema-review-change-rule-level](/content/docs/sql-review/schema-review-change-rule-level.gif)
 
 ### Change rule configuration
 
@@ -46,19 +46,19 @@ There are currently three types of rules that need to be configured.
 
 The rule [Table Naming Convention](/docs/sql-review/review-rules#naming.table) and [Column Naming Convention](/docs/sql-review/review-rules#naming.column) use [regular expression](https://en.wikipedia.org/wiki/Regular_expression) as format.
 
-![schema-review-change-regex](/content/docs/schema-review-change-regex.gif)
+![schema-review-change-regex](/content/docs/sql-review/schema-review-change-regex.gif)
 
 #### Template
 
 The rule [Index Naming Convention](/docs/sql-review/review-rules#naming.index.idx), [Unique Key Naming Convention](/docs/sql-review/review-rules#naming.index.uk) and [Foreign Key Naming Convention](/docs/sql-review/review-rules#naming.index.fk) use `Template` as format.
 
-![schema-review-change-template](/content/docs/schema-review-change-template.gif)
+![schema-review-change-template](/content/docs/sql-review/schema-review-change-template.gif)
 
 #### Column list
 
 The rule [Enforce the Required Columns in Each Table](/docs/sql-review/review-rules#column.required) needs `Column List`.
 
-![schema-review-change-column-list](/content/docs/schema-review-change-column-list.gif)
+![schema-review-change-column-list](/content/docs/sql-review/schema-review-change-column-list.gif)
 
 Details of the rules can be found [here](/docs/sql-review/review-rules).
 
