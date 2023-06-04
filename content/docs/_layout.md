@@ -119,7 +119,7 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Change Secret](/change-database/secret)
 
-## [SQL Editor](/sql-editor/overview)
+## [Query Data](/sql-editor/overview)
 
 ### [Manage SQL Scripts with Sheet](/sql-editor/manage-sql-scripts)
 
@@ -133,7 +133,7 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [ChatSQL](/sql-editor/chatsql)
 
-## Data Security
+## Secure Data
 
 ### [Data Query Approval Flow](/security/data-query)
 
