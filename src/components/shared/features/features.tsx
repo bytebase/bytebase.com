@@ -11,16 +11,24 @@ const ITEMS = [
     url: Route.DOCS_CHANGE_DATABASE,
   },
   {
-    title: 'SQL Advisor',
-    url: Route.DOCS_SQL_ADVISOR,
+    title: 'Change Automation',
+    url: Route.DOCS_CHANGE_DATABASE,
   },
   {
     title: 'SQL Editor',
     url: Route.DOCS_SQL_EDITOR,
   },
   {
+    title: 'Data Security',
+    url: Route.DOCS_SECURITY,
+  },
+  {
     title: 'GitOps',
     url: Route.DOCS_VCS_INTEGRATION,
+  },
+  {
+    title: 'Index Advisor',
+    url: Route.DOCS_INDEX_ADVISOR,
   },
   {
     title: 'Batch Change',
@@ -39,8 +47,12 @@ const ITEMS = [
     url: Route.DOCS_DISASTER_RECOVERY,
   },
   {
-    title: 'RBAC & SSO',
+    title: 'RBAC',
     url: Route.DOCS_RBAC,
+  },
+  {
+    title: 'SSO',
+    url: Route.DOCS_SSO,
   },
 ];
 
