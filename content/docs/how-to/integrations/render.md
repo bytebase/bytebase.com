@@ -35,7 +35,7 @@ From your Bytebase **Create Instance** page, choose **Add Instance**, fill in th
 
 ![render-bytebase-create-instance](/content/docs/how-to/integrations/render-bytebase-create-instance.webp)
 
-See [Add an Instance](/docs/get-started/configure-workspace/add-an-instance) for more details.
+See [Add an Instance](/docs/get-started/step-by-step/add-an-instance) for more details.
 
 ### Step 2 - Check if the database instance is properly imported
 

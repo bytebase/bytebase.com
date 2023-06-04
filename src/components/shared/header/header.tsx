@@ -11,10 +11,10 @@ import MobileMenu from '@/components/shared/mobile-menu';
 import { MENU } from '@/lib/menus';
 import Route from '@/lib/route';
 
-import APIIcon from '@/svgs/api.inline.svg';
+import IntroIcon from '@/svgs/intro.inline.svg';
 import ArrowIcon from '@/svgs/arrow.inline.svg';
-import CLIIcon from '@/svgs/cli.inline.svg';
-import HowToIcon from '@/svgs/how-to.inline.svg';
+import ConceptIcon from '@/svgs/concept.inline.svg';
+import AdminIcon from '@/svgs/admin.inline.svg';
 import RocketIcon from '@/svgs/rocket.inline.svg';
 import TutorialsIcon from '@/svgs/tutorials.inline.svg';
 import ChevronIcon from '@/svgs/chevron-menu-docs.inline.svg';
@@ -26,9 +26,9 @@ const icons: {
   [key: string]: any;
 } = {
   rocket: RocketIcon,
-  api: APIIcon,
-  cli: CLIIcon,
-  howTo: HowToIcon,
+  concept: ConceptIcon,
+  intro: IntroIcon,
+  admin: AdminIcon,
 };
 
 type MenuItem = {

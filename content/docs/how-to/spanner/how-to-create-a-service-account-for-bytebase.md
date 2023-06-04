@@ -14,4 +14,4 @@ description: Step-by-Step guide about how to create a Google Cloud service accou
 1. At the top, click **Keys** and then **Add Key** and then **Create new key**. Make sure the key type is set to **JSON** and click **Create**.
 1. You'll get a message that the service account's private key JSON file was downloaded to your computer. Make a note of the file name and where your browser saves it. You'll need it later.
 
-When [adding an instance](/docs/get-started/configure-workspace/add-an-instance/#add-an-instance) in Bytebase, the `Credentials` input should be the content of the JSON file.
+When [adding an instance](/docs/get-started/step-by-step/add-an-instance/#add-an-instance) in Bytebase, the `Credentials` input should be the content of the JSON file.

@@ -11,7 +11,7 @@ This document guides you to create a project, transfer a database into the proje
 3. Enter **Project Name** and **Key**. Choose **Standard** Mode.
 4. Click **Create**, and you will be redirected to the new project page.
 
-![create-a-project](/content/docs/get-started/work-with-a-project/create-a-project/create-a-project.webp)
+![create-a-project](/content/docs/get-started/step-by-step/create-a-project/create-a-project.webp)
 
 Now the project is created successfully, it is still empty. Next, you need to fill it with some **Databases**.
 
@@ -24,7 +24,7 @@ To make changes to a database, you need to place it in a user project first. The
 - Option A) Transfer an existing database into the project.
 - Option B) Create a new database in the project.
 
-![add-databases](/content/docs/get-started/work-with-a-project/create-a-project/add-databases.webp)
+![add-databases](/content/docs/get-started/step-by-step/create-a-project/add-databases.webp)
 
 ### Option A) Transfer an existing database into the project
 
@@ -48,4 +48,4 @@ A project is only visible to its related **users**.
 2. Click **Settings** on the project tab bar, you will see **Manage members** section, and you’re **Project Owner** by default.
 3. Click **Select user** to add new project member from the users who have been already added at the workspace level.
 
-![project-members](/content/docs/get-started/work-with-a-project/create-a-project/project-members.webp)
+![project-members](/content/docs/get-started/step-by-step/create-a-project/project-members.webp)

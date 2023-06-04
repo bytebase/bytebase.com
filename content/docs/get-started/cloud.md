@@ -2,7 +2,7 @@
 title: Bytebase Cloud
 ---
 
-This document guides you to run the Cloud version of Bytebase.
+This document guides you to use the Bytebase Cloud.
 
 ## Create a workspace
 

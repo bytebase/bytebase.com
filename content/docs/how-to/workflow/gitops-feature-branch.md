@@ -54,7 +54,7 @@ With this setup,
 
 <HintBlock type="info">
 
-Bytebase only creates the issue with the migration change. Depending on the [environment approval policy](/docs/get-started/configure-workspace/set-up-environments), Bytebase will either apply the change immediately to the database or wait for approval.
+Bytebase only creates the issue with the migration change. Depending on the [environment approval policy](/docs/get-started/step-by-step/set-up-environments), Bytebase will either apply the change immediately to the database or wait for approval.
 
 </HintBlock>
 

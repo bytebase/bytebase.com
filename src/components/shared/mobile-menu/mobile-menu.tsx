@@ -14,9 +14,9 @@ import Link from '@/components/shared/link';
 import { MENU } from '@/lib/menus';
 import Route from '@/lib/route';
 
-import APIIcon from '@/svgs/api.inline.svg';
-import CLIIcon from '@/svgs/cli.inline.svg';
-import HowToIcon from '@/svgs/how-to.inline.svg';
+import IntroIcon from '@/svgs/intro.inline.svg';
+import ConceptIcon from '@/svgs/concept.inline.svg';
+import AdminIcon from '@/svgs/admin.inline.svg';
 import RocketIcon from '@/svgs/rocket.inline.svg';
 import TutorialsIcon from '@/svgs/tutorials.inline.svg';
 
@@ -25,7 +25,13 @@ import Burger from './burger';
 const icons: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
-} = { rocket: RocketIcon, api: APIIcon, cli: CLIIcon, howTo: HowToIcon, tutorials: TutorialsIcon };
+} = {
+  rocket: RocketIcon,
+  intro: IntroIcon,
+  concept: ConceptIcon,
+  admin: AdminIcon,
+  tutorials: TutorialsIcon,
+};
 
 const ANIMATION_DURATION = 0.2;
 const MOTION_EASY = [0.25, 0.1, 0.25, 1];

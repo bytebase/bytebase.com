@@ -94,7 +94,7 @@ bytebase/bytebase:%%bb_version%% \
 
 1. Go to **Instances** to add two instances for **Test** and **Prod** environments respectively. In our case, we use two AWS RDS MySQL instances with the same employee data set.
 
-- If you don’t have any database to use, check our docs to [run MySQL in docker](/docs/get-started/install/local-mysql-instance).
+- If you don’t have any database to use, check our docs to [run MySQL in docker](/docs/tutorials/local-mysql-instance).
 - We also open sourced the sample employee data set for MySQL, which you can import: [https://github.com/bytebase/employee-sample-database-mysql](https://github.com/bytebase/employee-sample-database-mysql). If you don't import this, you can also create databases and tables manually for your needs.
 
 ![add-two-instances](/content/docs/tutorials/github-database-cicd-part-2-github-database-gitops/add-two-instances.webp)
@@ -138,7 +138,7 @@ bytebase/bytebase:%%bb_version%% \
 
 ![new-issue](/content/docs/tutorials/github-database-cicd-part-2-github-database-gitops/new-issue.webp)
 
-10. Visit this issue, and click **Approve**. The SQL will execute against the `employeeGitHub` database in the `Test` environment, and it shows **Done**. You may also [configure the environment](/docs/get-started/configure-workspace/set-up-environments) to skip this manual approval step.
+10. Visit this issue, and click **Approve**. The SQL will execute against the `employeeGitHub` database in the `Test` environment, and it shows **Done**. You may also [configure the environment](/docs/get-started/step-by-step/set-up-environments) to skip this manual approval step.
 
 ![issue-waiting](/content/docs/tutorials/github-database-cicd-part-2-github-database-gitops/issue-waiting.webp)
 ![issue-done](/content/docs/tutorials/github-database-cicd-part-2-github-database-gitops/issue-done.webp)

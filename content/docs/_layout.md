@@ -13,57 +13,49 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ## Get Started
 
-### [Cloud](/get-started/cloud)
+### [5 Mins Quick Start](/get-started/quick-start)
 
-### [Self-Hosted](/get-started/self-hosted)
+### [Try Bytebase Cloud](/get-started/cloud)
 
-#### [5 Mins Quick Start](/get-started/quick-start)
+### [Self-host Bytebase](/get-started/install/overview)
 
-#### [Installation](/get-started/install/overview)
+#### [Option 1 Docker (5 seconds)](/get-started/install/deploy-with-docker)
 
-##### [Option 1 Docker (5 seconds)](/get-started/install/deploy-with-docker)
+#### [Option 2 Deploy to Kubernetes](/get-started/install/deploy-to-kubernetes)
 
-##### [Option 2 Deploy to Kubernetes](/get-started/install/deploy-to-kubernetes)
+#### [Option 3 Deploy to sealos](/get-started/install/deploy-to-sealos)
 
-##### [Option 3 Deploy to sealos](/get-started/install/deploy-to-sealos)
+#### [Option 4 Deploy to Rainbond](/get-started/install/deploy-to-rainbond)
 
-##### [Option 4 Deploy to Rainbond](/get-started/install/deploy-to-rainbond)
+#### [Option 5 Deploy to render](/get-started/install/deploy-to-render)
 
-##### [Option 5 Deploy to render](/get-started/install/deploy-to-render)
+#### [Option 6 Installation Script](/get-started/install/installation-script)
 
-##### [Option 6 Installation Script](/get-started/install/installation-script)
+#### [Option 7 Build from Source Code](/get-started/install/build-from-source-code)
 
-##### [Option 7 Build from Source Code](/get-started/install/build-from-source-code)
+#### [Configure External PostgreSQL](/get-started/install/external-postgres)
 
-##### [Configure External PostgreSQL](/get-started/install/external-postgres)
+#### [Configure External URL](/get-started/install/external-url)
 
-##### [Configure External URL](/get-started/install/external-url)
+### First Schema Change
 
-#### [Configure Testing MySQL Instance](/get-started/install/local-mysql-instance)
+#### [Step 1 - Register Accounts](/get-started/step-by-step/register-accounts)
 
-### [Configure Workspace](/get-started/configure-workspace/overview)
+#### [Step 2 - Manage Members](/get-started/step-by-step/manage-members)
 
-#### [Register Accounts](/get-started/configure-workspace/register-accounts)
+#### [Step 3 - Set up Environments](/get-started/step-by-step/set-up-environments)
 
-#### [Manage Members](/get-started/configure-workspace/manage-members)
+#### [Step 4 - Add an Instance](/get-started/step-by-step/add-an-instance)
 
-#### [Set up Environments](/get-started/configure-workspace/set-up-environments)
+#### [Step 5 - Create a Project](/get-started/step-by-step/create-a-project)
 
-#### [Add an Instance](/get-started/configure-workspace/add-an-instance)
-
-#### [Customize the Logo](/get-started/configure-workspace/customize-the-logo)
-
-### [Work with a Project](/get-started/work-with-a-project/overview)
-
-#### [Create a Project](/get-started/work-with-a-project/create-a-project)
-
-#### [Run a UI Workflow](/get-started/work-with-a-project/run-a-ui-workflow)
+#### [Step 6 - Change Schema ](/get-started/step-by-step/change-schema)
 
 ### [Manage with Terraform](/get-started/terraform)
 
 ---
 
-## Concepts
+## Core Concepts
 
 ### [Data Model](/concepts/data-model)
 
@@ -241,6 +233,8 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Watermark](/administration/watermark)
 
+### [Customize Logo](/administration/customize-logo)
+
 ### [Webhook Integration](/administration/webhook-integration/overview)
 
 #### [Project Webhook](/administration/webhook-integration/project-webhook)
@@ -356,6 +350,8 @@ expand_section_list: ['Introduction', 'Get Started']
 #### [Change Management with MySQL](/tutorials/database-change-management-with-mysql)
 
 #### [Change Management with MySQL and GitHub](/tutorials/database-change-management-with-mysql-and-github)
+
+#### [Run a Local MySQL Instance](/tutorials/local-mysql-instance)
 
 ### Amazone Aurora
 

@@ -121,7 +121,7 @@ The last thing we need to do is to implement the above in Bytebase.
 
 This process can be divided into three main tasks:
 
-1. **[Create a Project](/docs/get-started/work-with-a-project/create-a-project).** Divide the databases into groups according to defined database management boundaries, and assigning them to different projects, with the development team's management boundaries defined by the project and the DBA/Ops/Platform teams having global access.
+1. **[Create a Project](/docs/get-started/step-by-step/create-a-project).** Divide the databases into groups according to defined database management boundaries, and assigning them to different projects, with the development team's management boundaries defined by the project and the DBA/Ops/Platform teams having global access.
 
    ![](/content/blog/database-cicd-best-practice/create-project.webp)
 

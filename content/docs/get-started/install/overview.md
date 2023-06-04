@@ -1,14 +1,12 @@
 ---
-title: Deploy to Production
+title: Self-host Bytebase
 ---
 
 **Latest release version:** [**%%bb_version%%**](https://github.com/bytebase/bytebase/releases/latest)
 
-You have tried Bytebase via [quick start](/docs/get-started/quick-start), now it's time to deploy it to production.
-
 First, check [System Requirement and Support](/docs/faq#system-requirements-and-supported-versions).
 
-There are four different ways to deploy Bytebase to production:
+There are different ways to deploy Bytebase to production:
 
 1. [Docker](/docs/get-started/install/deploy-with-docker)
 2. [Deploy to Kubernetes](/docs/get-started/install/deploy-to-kubernetes)
