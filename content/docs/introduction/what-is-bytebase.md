@@ -33,4 +33,4 @@ Bytebase supports database-level manual and periodical backup.
 
 ### Tenant Database Management
 
-A multi-tenant service may provision separate [tenant databases](/docs/concepts/tenant-database) for each of its tenants. Bytebase comes with the [management capability](/docs/batch-change/overview) to provide robust schema change rollout for all tenants in a single workflow.
+A multi-tenant service may provision separate [tenant databases](/docs/concepts/tenant-database) for each of its tenants. Bytebase comes with the [management capability](/docs/change-database/batch-change) to provide robust schema change rollout for all tenants in a single workflow.

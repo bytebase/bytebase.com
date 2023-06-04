@@ -35,7 +35,7 @@ Currently, pg_stat_statements only tracks the statistics of the database where t
 CREATE EXTENSION IF NOT EXISTS pg_stat_statements;
 ```
 
-You can use the [Bytebase Batch Change](/docs/batch-change/overview) feature to create the extension for all databases.
+You can use the [Bytebase Batch Change](/docs/change-database/batch-change) feature to create the extension for all databases.
 
 ## Check pg_stat_statements
 

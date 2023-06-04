@@ -46,7 +46,7 @@ const Route = {
   DOCS_DISASTER_RECOVERY: '/docs/disaster-recovery/backup-restore-database/overview',
   DOCS_VCS_INTEGRATION: '/docs/vcs-integration/overview',
   DOCS_SELF_HOST: '/docs/get-started/install/deploy-with-docker',
-  DOCS_BATCH_CHANGE: '/docs/batch-change/overview',
+  DOCS_BATCH_CHANGE: '/docs/change-database/batch-change',
   DOCS_ONLINE_SHEMA_CHANGE: '/docs/change-database/online-schema-migration-for-mysql',
   DOCS_PITR: '/docs/disaster-recovery/point-in-time-recovery-for-mysql',
   DOCS_RBAC: '/docs/concepts/roles-and-permissions',

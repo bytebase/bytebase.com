@@ -80,7 +80,7 @@ Changing one database is hard enough, let alone a batch of databases at the same
 - Due to disaster recovery or data compliance requirements, different regions may also deploy their own databases;
 - Of course, let's not forget the common database sharding technique for handing massive data.
 
-Bytebase allows you to [change a collection of databases with identical schemas](/docs/batch-change/multi-tenant-change/), as shown in the figure below: changing the database of a hospital SaaS system, for different hospital tenants in different environments, in just one sitting.
+Bytebase allows you to [change a collection of databases with identical schemas](/docs/change-database/batch-change/multi-tenant-change/), as shown in the figure below: changing the database of a hospital SaaS system, for different hospital tenants in different environments, in just one sitting.
 
 ![_](/content/blog/how-to-handle-database-migration/batch-changes.webp)
 

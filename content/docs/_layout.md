@@ -103,6 +103,8 @@ expand_section_list: ['Introduction', 'Get Started']
 
 #### [Issue Need Attention](/change-database/change-workflow/issue-need-attention)
 
+### [Batch Change](/change-database/batch-change)
+
 ### [State-based Migration](/change-database/state-based-migration/overview)
 
 #### [Schema Definition Language](/change-database/state-based-migration/schema-definition-language)
@@ -120,12 +122,6 @@ expand_section_list: ['Introduction', 'Get Started']
 ### [Rollback Data Changes](/change-database/rollback-data-changes)
 
 ### [Online Schema Migration for MySQL](/change-database/online-schema-migration-for-mysql)
-
-## [Batch Change](/batch-change/overview)
-
-### [Change Multiple Environments](/batch-change/multi-environment-change)
-
-### [Change Multiple Tenants](/batch-change/multi-tenant-change)
 
 ## [SQL Editor](/sql-editor/overview)
 
