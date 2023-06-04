@@ -12,8 +12,6 @@ To install Rainbond, please refer to [Rainbond Quick Install](https://rainbond.c
 
 After logging in Rainbond, click `Market` in the left menu, switch to open source app store, and search `Bytebase` in the search box, and click the `Install` button.
 
-![](/content/docs/get-started/install/rainbond-install.webp)
-
 Fill in the following information, and click `Confirm` button to install.
 
 - Team: select a team or create a new team
