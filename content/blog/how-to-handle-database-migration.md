@@ -115,6 +115,6 @@ That's why Bytebase can also be referred to as the GitLab for databases, taking 
 
 Bytebase aims to help DBA and developer teams from different industries to manage the change, query, security and governance of databases, on and off the cloud, across different clouds.
 
-![_](/content/blog/how-to-handle-database-migration/change-query-secure-govern.webp)
+![_](/images/change-query-secure-govern.webp)
 
 Just like GitLab / GitHub when it comes to code hosting, Prometheus / Grafana when it comes to monitoring, and Terraform when it comes to multi-cloud management, Bytebase wants to become the default tool for database change management.

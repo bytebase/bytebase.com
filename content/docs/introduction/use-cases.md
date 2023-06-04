@@ -17,8 +17,7 @@ You can also integrate Bytebase's CLI bb into your existing CI/CD workflow.
 
 ## Data Access Control
 
-Organizations want to limit database access and enforce approval flow to conform compliance and avoid data leaks. Bytebase
-provides a suite of features to support this:
+Organizations want to limit database access and enforce approval flow to conform compliance and avoid data leaks. Bytebase provides a suite of features to support this:
 
 - [Data Query Approval Flow](/docs/security/data-query)
 - [Data Export Approval Flow](/docs/security/data-export)
