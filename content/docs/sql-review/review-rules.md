@@ -183,7 +183,7 @@ The unified naming convention is desired by developers. And the same applies to 
 | ---- | ------------------ |
 | id   | `^id$`             |
 
-![sql-review-naming-auto-increment](/content/docs/sql-reivew-naming-auto-increment.webp)
+![sql-review-naming-auto-increment](/content/docs/sql-review/sql-reivew-naming-auto-increment.webp)
 
 #### How the rule works
 
