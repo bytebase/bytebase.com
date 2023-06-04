@@ -99,9 +99,7 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ## Change Database
 
-### [Change Workflow](/change-database/change-workflow/overview)
-
-#### [Issue Need Attention](/change-database/change-workflow/issue-need-attention)
+### [Change Workflow](/change-database/change-workflow)
 
 ### [Batch Change](/change-database/batch-change)
 

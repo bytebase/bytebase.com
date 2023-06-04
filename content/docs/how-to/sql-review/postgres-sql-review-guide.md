@@ -628,7 +628,7 @@ $function$;
 
 <HintBlock type="info">
 
-You can use [Bytebase Change Workflow](/docs/change-database/change-workflow/overview) to streamline and bookkeep the deployment process.
+You can use [Bytebase Change Workflow](/docs/change-database/change-workflow) to streamline and bookkeep the deployment process.
 
 </HintBlock>
 

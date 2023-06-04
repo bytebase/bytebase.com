@@ -26,7 +26,7 @@ Bytebase usually works fine with older database versions, we just won't support 
 
 | Feature                                                                         | MySQL | PostgreSQL | TiDB | ClickHouse | Snowflake | MongoDB | Spanner | Redis | Oracle | SQL Server | MariaDB | OceanBase |
 | ------------------------------------------------------------------------------- | ----- | ---------- | ---- | ---------- | --------- | ------- | ------- | ----- | ------ | ---------- | ------- | --------- |
-| [UI Change Workflow](/docs/change-database/change-workflow/overview)            | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
+| [UI Change Workflow](/docs/change-database/change-workflow)                     | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
 | [GitOps Change Workflow](/docs/vcs-integration/overview)                        | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
 | [Tenant Database Management](/docs/change-database/batch-change)                | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
 | [Migration History](/docs/change-database/migration-history)                    | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
