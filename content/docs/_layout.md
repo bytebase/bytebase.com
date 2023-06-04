@@ -131,6 +131,20 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [ChatSQL](/sql-editor/chatsql)
 
+## Data Security
+
+### [Data Query Approval Flow](/security/data-query)
+
+### [Data Export Approval Flow](/security/data-export)
+
+### [Anonymize Data](/security/anonymize-data)
+
+### [Database Access Control](/security/database-access-control)
+
+### [Watermark](/security/watermark)
+
+### [Audit Log](/security/audit-log)
+
 ## [VCS Integration (GitOps)](/vcs-integration/overview)
 
 ### [Add Git Provider](/vcs-integration/add-git-provider)
@@ -179,12 +193,6 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Anomaly Center](/anomaly-detection/anomaly-center)
 
-## [Data Query and Export](/data-query-and-export/overview)
-
-### [Data Query Approval Flow](/data-query-and-export/data-query)
-
-### [Data Export Approval Flow](/data-query-and-export/data-export)
-
 ---
 
 ## Administration
@@ -214,14 +222,6 @@ expand_section_list: ['Introduction', 'Get Started']
 #### [Rollout Policy](/administration/environment-policy/rollout-policy)
 
 #### [Backup Schedule Policy](/administration/environment-policy/backup-schedule-policy)
-
-### [Database Access Control](/administration/database-access-control)
-
-### [Audit Log](/administration/audit-log)
-
-### [Anonymize Data](/administration/anonymize-data)
-
-### [Watermark](/administration/watermark)
 
 ### [Customize Logo](/administration/customize-logo)
 

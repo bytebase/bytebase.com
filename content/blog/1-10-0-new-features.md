@@ -11,7 +11,7 @@ This is the last release in 2022, and we upgraded Bytebase from 1.9.1 to [1.10.0
 
 ## Audit Log
 
-We continue to enhance Bytebase’s security control capabilities with the new [Audit Log](/docs/administration/audit-log) module, which is accessible to Workspace owners and DBAs. The current Audit Log records member changes, database transfers, and SQL Editor queries. In future releases, Bytebase will be able to capture more events in the Audit Log.
+We continue to enhance Bytebase’s security control capabilities with the new [Audit Log](/docs/security/audit-log) module, which is accessible to Workspace owners and DBAs. The current Audit Log records member changes, database transfers, and SQL Editor queries. In future releases, Bytebase will be able to capture more events in the Audit Log.
 
 ![_](/content/blog/1-10-0-new-features/audit-log.webp)
 

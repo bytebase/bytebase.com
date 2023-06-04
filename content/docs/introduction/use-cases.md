@@ -20,11 +20,12 @@ You can also integrate Bytebase's CLI bb into your existing CI/CD workflow.
 Organizations want to limit database access and enforce approval flow to conform compliance and avoid data leaks. Bytebase
 provides a suite of features to support this:
 
-- [Database Access Control](/docs/administration/database-access-control)
-- [Data Query and Export Approval Flow](/docs/data-query-and-export/overview/)
-- [Anonymize Data](/docs/administration/anonymize-data)
-- [Watermark](/docs/administration/watermark)
-- [Audit Log](/docs/administration/audit-log)
+- [Data Query Approval Flow](/docs/security/data-query)
+- [Data Export Approval Flow](/docs/security/data-export)
+- [Anonymize Data](/docs/security/anonymize-data)
+- [Database Access Control](/docs/security/database-access-control)
+- [Watermark](/docs/security/watermark)
+- [Audit Log](/docs/security/audit-log)
 
 ## Database Developer Portal
 

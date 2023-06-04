@@ -8,6 +8,6 @@ This feature is only available in the Enterprise Plan.
 
 </HintBlock>
 
-Workspace Owners and DBAs can [configure data sensitivity](/docs/administration/anonymize-data) to anonymize data.
+Workspace Owners and DBAs can [configure data sensitivity](/docs/security/anonymize-data) to anonymize data.
 
-![query result](/content/docs/administration/anonymize-data/anonymize-data-masked.webp)
+![query result](/content/docs/security/anonymize-data/anonymize-data-masked.webp)

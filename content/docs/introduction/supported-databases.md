@@ -47,12 +47,12 @@ Bytebase usually works fine with older database versions, we just won't support 
 
 ### Security
 
-| Feature                                                                 | MySQL | PostgreSQL | TiDB | ClickHouse | Snowflake | MongoDB | Spanner | Redis | Oracle | SQL Server | MariaDB | OceanBase |
-| ----------------------------------------------------------------------- | ----- | ---------- | ---- | ---------- | --------- | ------- | ------- | ----- | ------ | ---------- | ------- | --------- |
-| [RBAC](/docs/concepts/roles-and-permissions)                            | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
-| [Database Access Control](/docs/administration/database-access-control) | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
-| [Audit Log](/docs/administration/audit-log)                             | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
-| [Data Anonymization](/docs/administration/anonymize-data)               | ✔️    | ✔️         | ✔️   |            |           |         |         |       |        |            | ✔️      | ✔️        |
+| Feature                                                           | MySQL | PostgreSQL | TiDB | ClickHouse | Snowflake | MongoDB | Spanner | Redis | Oracle | SQL Server | MariaDB | OceanBase |
+| ----------------------------------------------------------------- | ----- | ---------- | ---- | ---------- | --------- | ------- | ------- | ----- | ------ | ---------- | ------- | --------- |
+| [RBAC](/docs/concepts/roles-and-permissions)                      | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
+| [Database Access Control](/docs/security/database-access-control) | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
+| [Audit Log](/docs/security/audit-log)                             | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
+| [Data Anonymization](/docs/security/anonymize-data)               | ✔️    | ✔️         | ✔️   |            |           |         |         |       |        |            | ✔️      | ✔️        |
 
 ### Disaster Recovery
 

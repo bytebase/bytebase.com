@@ -7,7 +7,7 @@ title: Data Query Approval flow
 ## Add Querier role manually
 
 As a **Project Owner**, you can go to the project, click **Settings**, find the **Management members** section, and manually add the role of **Project Querier**.
-![add-new-member-with-querier-role](/content/docs/data-query-and-export/add-new-member-with-querier-role.webp)
+![add-new-member-with-querier-role](/content/docs/security/data-query-and-export/add-new-member-with-querier-role.webp)
 
 ## Apply for Querier role
 
@@ -21,11 +21,11 @@ Users can apply for **Project Querier** role by submitting a request grant issue
 
 1. Go to the home page or project list page, and click **Request query**.
 
-   ![request-querier-or-exporter-role](/content/docs/data-query-and-export/request-querier-or-exporter-role.webp)
+   ![request-querier-or-exporter-role](/content/docs/security/data-query-and-export/request-querier-or-exporter-role.webp)
 
 2. Fill out the relevant form.
 
-   ![request-querier-role-form](/content/docs/data-query-and-export/request-querier-role-form.webp)
+   ![request-querier-role-form](/content/docs/security/data-query-and-export/request-querier-role-form.webp)
 
    Including the following information:
 

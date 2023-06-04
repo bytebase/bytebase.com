@@ -3,12 +3,12 @@ title: Bytebase 2.1.0
 author: Mila
 published_at: 2023/05/25 16:30:00
 feature_image: /content/changelog/2-1-0-banner.webp
-description: "Data Query and Data Export approval flow; SQL Review for Oracle; SSH tunneling for PostgreSQL and Redis."
+description: 'Data Query and Data Export approval flow; SQL Review for Oracle; SSH tunneling for PostgreSQL and Redis.'
 ---
 
 ## 🚀 New Features
 
-- Support [**Data Query**](/docs/data-query-and-export/data-query/) and [**Data Export**](/docs/data-query-and-export/data-export/) approval flow.
+- Support [**Data Query**](/docs/security/data-query) and [**Data Export**](/docs/security/data-export/data-export) approval flow.
 - Support SSH tunneling for PostgreSQL and Redis.
 - Support [SQL Review for Oracle](/docs/sql-review/review-rules/).
 

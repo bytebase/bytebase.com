@@ -40,7 +40,7 @@ const Route = {
   DOCS_CHANGE_DATABASE: '/docs/change-database/change-workflow',
   DOCS_SQL_ADVISOR: '/docs/sql-review/sql-advisor/overview',
   DOCS_SQL_EDITOR: '/docs/sql-editor/overview',
-  DOCS_ADMINISTRATION: '/docs/administration/database-access-control',
+  DOCS_ADMINISTRATION: '/docs/security/database-access-control',
   DOCS_ANOMALY_CENTER: '/docs/anomaly-detection/anomaly-center',
   DOCS_DRIFT_DETECTION: '/docs/anomaly-detection/drift-detection',
   DOCS_DISASTER_RECOVERY: '/docs/disaster-recovery/backup-restore-database/overview',

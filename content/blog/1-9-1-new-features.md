@@ -37,7 +37,7 @@ Regarding how to nudge people, some collaborative tools choose to ping others, o
 
 Now, let’s chat about Bytebase’s security capabilities.
 
-We introduced [Database Access Control](/docs/administration/database-access-control) with this release, leveraging Access Control Policy and Environment Tier.
+We introduced [Database Access Control](/docs/security/database-access-control) with this release, leveraging Access Control Policy and Environment Tier.
 
 Some users suggested that they don’t want developers to access all databases in the production environment by default. This can be achieved by the DBA setting the `Environment Tier` to `Protected`. But at the same time, the user wants to open access to some databases in this environment, which is possible by whitelisting those databases.
 
@@ -45,7 +45,7 @@ Some users suggested that they don’t want developers to access all databases i
 
 ![_](/content/blog/1-9-1-new-features/accesss-control-env.webp)
 
-The overall Bytebase design follows the same security practice of default blacklisting. This is yet another feature focusing on data security after [Data Anonymization](/docs/administration/anonymize-data).
+The overall Bytebase design follows the same security practice of default blacklisting. This is yet another feature focusing on data security after [Data Anonymization](/docs/security/anonymize-data).
 
 ## Data Anonymization
 
@@ -53,13 +53,13 @@ In the last release, we introduced data anonymization for MySQL.
 
 In this cycle, we have enhanced its capabilities, and it now tops the mainstream goInception-based solutions in the market.
 
-|                   Query Type | Bytebase | goInception |
+| Query Type                   | Bytebase | goInception |
 | ---------------------------- | -------- | ----------- |
-|      Simple query statements |    ✔️    |     ✔️      |
-|                     Subquery |    ✔️    |     ❌      |
-|                  NATURE JOIN |    ✔️    |     ❌      |
-|          JOIN ... USING(...) |    ✔️    |     ❌      |
-| Common Table Expression(CTE) |    ✔️    |     ❌      |
+| Simple query statements      | ✔️       | ✔️          |
+| Subquery                     | ✔️       | ❌          |
+| NATURE JOIN                  | ✔️       | ❌          |
+| JOIN ... USING(...)          | ✔️       | ❌          |
+| Common Table Expression(CTE) | ✔️       | ❌          |
 
 goInception claims to be able to anonymize data. Still, it’s a bit too easy to bypass😓. Companies, if you use goInception, I am sweating for your data security.
 

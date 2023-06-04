@@ -39,7 +39,7 @@ There is a lot more that a good parser can do. We have invested a lot of R&D wor
 
 ## Data Anonymization
 
-Previously, Bytebase was focused on database change management (DCM). And another critical piece is data security. This release is our first footstep into this territory, with the ability to [anonymize database fields by tagging them](/docs/administration/anonymize-data).
+Previously, Bytebase was focused on database change management (DCM). And another critical piece is data security. This release is our first footstep into this territory, with the ability to [anonymize database fields by tagging them](/docs/security/anonymize-data).
 
 There's not much to say about the feature alone, after all, many of our friends have them too. The difference is that Bytebase is only here now because we have just laid the groundwork for the system.
 

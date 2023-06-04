@@ -10,7 +10,7 @@ description: '- Support OAuth 2.0 for Single Sign-On (SSO). - Support change and
 
 - Support OAuth 2.0 for Single Sign-On (SSO) [www.bytebase.com/docs/administration/sso/oauth2](/docs/administration/sso/oauth2).
 - Support change and query for Spanner [www.bytebase.com/docs/introduction/supported-databases](/docs/introduction/supported-databases).
-- Support watermark [www.bytebase.com/docs/administration/watermark](/docs/administration/watermark).
+- Support watermark [www.bytebase.com/docs/security/watermark](/docs/security/watermark).
 - Terraform Bytebase provider supports MySQL role CRUD.
 - Mask sensitive fields for PostgreSQL.
 

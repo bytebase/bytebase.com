@@ -1,6 +1,7 @@
 ---
 title: Data Export Approval Flow
 ---
+
 **Project Owners** can manually add the role of data exporter to control data export permissions. In **Enterprise Plan**, users can apply for data exporter roles by submitting a request grant issue.
 
 ## Add Exporter role manually
@@ -11,7 +12,7 @@ Before adding the **Project Exporter** role, you need to add the **Project Queri
 
 In **Free or Pro Plan**, once the **Project Exporter** role is added, the user can export the query result of the specified database in SQL Editor.
 
-![export-data-button-in-sql-editor](/content/docs/data-query-and-export/export-data-button-in-sql-editor.webp)
+![export-data-button-in-sql-editor](/content/docs/security/data-query-and-export/export-data-button-in-sql-editor.webp)
 
 In **Enterprise Plan**, data export should be done by applying for **Exporter** role.
 
@@ -27,11 +28,11 @@ In **Enterprise plan**, users need to apply for **Project Exporter** role before
 
 1. Go to the home page or project list page, and click **Export data**.
 
-   ![request-querier-or-exporter-role](/content/docs/data-query-and-export/request-querier-or-exporter-role.webp)
+   ![request-querier-or-exporter-role](/content/docs/security/data-query-and-export/request-querier-or-exporter-role.webp)
 
 2. Fill out the relevant form.
 
-   ![request-exporter-role-form](/content/docs/data-query-and-export/request-exporter-role-form.webp)
+   ![request-exporter-role-form](/content/docs/security/data-query-and-export/request-exporter-role-form.webp)
 
    Including the following information:
 
@@ -45,6 +46,6 @@ In **Enterprise plan**, users need to apply for **Project Exporter** role before
 
 4. After the request is approved, click **Export** to export the data.
 
-   ![export-data-button](/content/docs/data-query-and-export/export-data-button.webp)
+   ![export-data-button](/content/docs/security/data-query-and-export/export-data-button.webp)
 
    The export action only supports one-time export. If you need to export again, you need to submit a new request.

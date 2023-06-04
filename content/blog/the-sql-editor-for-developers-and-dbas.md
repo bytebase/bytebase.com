@@ -36,17 +36,17 @@ When users want to connect to databases to run admin commands, they can do it in
 
 ### Database-based Access Control
 
-When users want to allow developers to access some databases in the production environment, they can mark the production environment as a protected environment and configure an allowlist. You can get more details from the document [Database Access Control](/docs/administration/database-access-control).
+When users want to allow developers to access some databases in the production environment, they can mark the production environment as a protected environment and configure an allowlist. You can get more details from the document [Database Access Control](/docs/security/database-access-control).
 ![access-control](/content/blog/the-sql-editor-for-developers-and-dbas/access-control.webp)
 
 ### Data Anonymization
 
-When developers query tables containing sensitive columns in SQL Editor, the result of these columns will display as "**\*\***". You can learn the configuration details from the document [Anonymize Data](/docs/administration/anonymize-data).
+When developers query tables containing sensitive columns in SQL Editor, the result of these columns will display as "**\*\***". You can learn the configuration details from the document [Anonymize Data](/docs/security/anonymize-data).
 ![anonymize-data](/content/blog/the-sql-editor-for-developers-and-dbas/anonymize-data.webp)
 
 ### Audit Logs
 
-DBAs can browse all queries executed in SQL Editor with the audit logs. You can check out the document [Audit Log](/docs/administration/audit-log) to get more details.
+DBAs can browse all queries executed in SQL Editor with the audit logs. You can check out the document [Audit Log](/docs/security/audit-log) to get more details.
 ![audit-log](/content/blog/the-sql-editor-for-developers-and-dbas/audit-log.webp)
 
 ### Collaborative Sheets
