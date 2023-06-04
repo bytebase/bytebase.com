@@ -33,6 +33,7 @@ export const MENU = {
     },
     { title: 'Blog', href: Route.BLOG },
     { title: 'Pricing', href: Route.PRICING },
+    { title: 'Contact', href: Route.CONTACTS },
   ],
   mobile: [
     {
@@ -66,6 +67,7 @@ export const MENU = {
     },
     { title: 'Blog', href: Route.BLOG },
     { title: 'Pricing', href: Route.PRICING },
+    { title: 'Contact', href: Route.CONTACTS },
   ],
   footer: [
     {
