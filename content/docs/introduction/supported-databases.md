@@ -58,8 +58,8 @@ Bytebase usually works fine with older database versions, we just won't support 
 
 | Feature                                                                                   | MySQL | PostgreSQL | TiDB | ClickHouse | Snowflake | MongoDB | Spanner | Redis | Oracle | SQL Server | MariaDB | OceanBase |
 | ----------------------------------------------------------------------------------------- | ----- | ---------- | ---- | ---------- | --------- | ------- | ------- | ----- | ------ | ---------- | ------- | --------- |
-| [Local Backup and Restore](/docs/disaster-recovery/backup-restore-database/overview)      | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        |         |         |       |        |            |         |           |
-| [Cloud Backup](/docs/disaster-recovery/backup-restore-database/cloud-backup)              | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        |         |         |       |        |            |         |           |
+| [Local Backup and Restore](/docs/disaster-recovery/backup)                                | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        |         |         |       |        |            |         |           |
+| [Cloud Backup](/docs/disaster-recovery/backup-restore-database/backup/#cloud-storage)     | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        |         |         |       |        |            |         |           |
 | [Point-in-time Recovery (PITR)](/docs/disaster-recovery/point-in-time-recovery-for-mysql) | ✔️    |            |      |            |           |         |         |       |        |            |         |           |
 
 ### Anomaly Detection

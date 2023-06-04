@@ -634,8 +634,7 @@ export const GLOSSARY_LIST: GlossaryLetterSet[] = [
         name: 'Restore',
         description: `A process to reset the database to a state based on a backup. Bytebase supports to restore
         a backup to a new database.`,
-        reference:
-          'https://www.bytebase.com/docs/disaster-recovery/backup-restore-database/overview',
+        reference: 'https://www.bytebase.com/docs/disaster-recovery/restore-from-backup',
         tagList: ['General', 'Bytebase'],
       },
       {

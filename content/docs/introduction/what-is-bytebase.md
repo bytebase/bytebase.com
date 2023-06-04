@@ -37,6 +37,6 @@ Bytebase keeps the complete schema change history. It also integrates with VCS s
 
 - [Statement-level rollback](/docs/change-database/rollback-data-changes/)
 
-- [Database-level manual and periodical backup and restore](/docs/disaster-recovery/backup-restore-database/overview/)
+- [Database-level manual and periodical backup and restore](/docs/disaster-recovery/backup/)
 
 - [Point-in-time recovery](/docs/disaster-recovery/point-in-time-recovery-for-mysql/)

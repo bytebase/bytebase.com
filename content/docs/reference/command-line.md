@@ -42,7 +42,7 @@ default: **""**
 
 If specified, Bytebase will store all of the backup data in the cloud bucket. For MySQL instances, this also means all binlog files are stored in the cloud bucket.
 
-For detailed instructions to setup the cloud bucket, please follow [this doc](/docs/disaster-recovery/backup-restore-database/cloud-backup).
+For detailed instructions to setup the cloud bucket, please follow [this doc](/docs/disaster-recovery/backup-restore-database/backup/#cloud-storage).
 
 ## --backup-credential &lt;&lt;string&gt;&gt;
 

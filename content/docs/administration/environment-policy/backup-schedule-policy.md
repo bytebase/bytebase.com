@@ -10,7 +10,7 @@ The backup enforcement is **NOT retroactive**, which means the updated policy **
 
 `Owner` or `DBA` can configure the backup schedule policy for a particular environment from the "Environment" detail page:
 
-![env-backup-configure](/content/docs/env-backup-configure.png)
+![env-backup-configure](/content/docs/disaster-recovery/backup/env-backup-configure.webp)
 
 ## Detect missing backup
 
@@ -22,4 +22,4 @@ Once policy is enforced, Bytebase will detect and report the missing backup acco
 
 Backup policy will also prevent user changing to a non-conforming backup schedule.
 
-![database-backup](/content/docs/database-backup.png)
+![database-backup](/content/docs/disaster-recovery/backup/database-backup.webp)

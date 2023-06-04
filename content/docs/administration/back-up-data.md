@@ -112,10 +112,10 @@ psql -h <<host>> -p <<port>> -U <<user>> postgres -c "DROP DATABASE metadb"
 
 ## Database Backup
 
-Bytebase allows users to take database [backups](/docs/disaster-recovery/backup-restore-database/overview).
+Bytebase allows users to take database [backups](/docs/disaster-recovery/backup).
 
 - Local backup: `backup` directory will be put under the `--data` directory.
 
-- [Cloud backup](/docs/disaster-recovery/backup-restore-database/cloud-backup): If Bytebase starts with
+- [Cloud backup](/docs/disaster-recovery/backup-restore-database/backup/#cloud-storage): If Bytebase starts with
   [cloud backup flags](/docs/reference/command-line#--backup-bucket-bucket), then the backup will be
   stored in the corresponding cloud storage.

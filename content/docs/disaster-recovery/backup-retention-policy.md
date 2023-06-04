@@ -2,7 +2,7 @@
 title: Backup Retention Policy
 ---
 
-If you have enabled automatic backup for a database, Bytebase will automatically backup the database at the configured schedule. If you have not enabled the [cloud backup feature](/docs/disaster-recovery/backup-restore-database/cloud-backup), the local disk will be gradually filled up. Retention policy can solve this problem by regularly deleting the unused old backups.
+If you have enabled automatic backup for a database, Bytebase will automatically backup the database at the configured schedule. If you have not enabled the [cloud backup feature](/docs/disaster-recovery/backup-restore-database/backup/#cloud-storage), the local disk will be gradually filled up. Retention policy can solve this problem by regularly deleting the unused old backups.
 
 ## Configuration
 

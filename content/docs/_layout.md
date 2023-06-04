@@ -177,13 +177,9 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ## Disaster Recovery
 
-### [Backup and Restore Database](/disaster-recovery/backup-restore-database/overview)
+### [Backup](/disaster-recovery/backup)
 
-#### [Backup](/disaster-recovery/backup-restore-database/backup)
-
-#### [Restore from Backup](/disaster-recovery/backup-restore-database/restore-from-backup)
-
-#### [Backup to the Cloud](/disaster-recovery/backup-restore-database/cloud-backup)
+### [Restore from Backup](/disaster-recovery/restore-from-backup)
 
 ### [Point-in-time Recovery for MySQL](/disaster-recovery/point-in-time-recovery-for-mysql)
 

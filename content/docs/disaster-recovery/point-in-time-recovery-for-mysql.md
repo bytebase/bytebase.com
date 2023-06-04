@@ -14,7 +14,7 @@ Bytebase provides an all-in-one solution to ease the PITR process with a few cli
 
 ## Backup
 
-It’s recommended to follow the [doc for backup](/docs/disaster-recovery/backup-restore-database/backup) to set up automatic backups. Bytebase will check that an instance meets all the prerequisites and automatically archives binlog files.
+It’s recommended to follow the [doc for backup](/docs/disaster-recovery/backup) to set up automatic backups. Bytebase will check that an instance meets all the prerequisites and automatically archives binlog files.
 
 Note that you can only restore to the point of time after a valid backup.
 
