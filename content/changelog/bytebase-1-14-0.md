@@ -3,14 +3,14 @@ title: Bytebase 1.14.0
 author: Mila
 published_at: 2023/03/16 17:00:00
 feature_image: /content/changelog/1-14-0-banner.webp
-description: "- ChatSQL: convert natural language to SQL, credit to OpenAI. - Support 2FA - State-based Migration for MySQL in GitOps workflow. - Support for Redis."
+description: '- ChatSQL: convert natural language to SQL, credit to OpenAI. - Support 2FA - State-based Migration for MySQL in GitOps workflow. - Support for Redis.'
 ---
 
 ## 🚀 New Features
 
 - ChatSQL: Use natural language and have it converted to SQL by Bytebase. Powered by OpenAI ⚡️.
 - Support [Two-Factor Authentication](/docs/administration/2fa) (2FA) for login.
-- Support [State-based Migration](/docs/change-database/state-based-migration/overview) for MySQL in GitOps workflow (Beta).
+- Support [State-based Migration](/docs/change-database/state-based-migration) for MySQL in GitOps workflow (Beta).
 - Added support for [Redis](/docs/introduction/supported-databases) ❤️.
 
 ## 🎄 Enhancements

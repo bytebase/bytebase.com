@@ -103,11 +103,7 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Batch Change](/change-database/batch-change)
 
-### [State-based Migration](/change-database/state-based-migration/overview)
-
-#### [Schema Definition Language](/change-database/state-based-migration/schema-definition-language)
-
-#### [Baseline SDL Schema](/change-database/state-based-migration/baseline-sdl-schema)
+### [State-based Migration](/change-database/state-based-migration)
 
 ### [Schema Editor](/change-database/schema-editor)
 
@@ -248,6 +244,8 @@ expand_section_list: ['Introduction', 'Get Started']
 ## Reference
 
 ### [Server Startup Options](/reference/command-line)
+
+### [Schema Definition Language](/reference/schema-definition-language)
 
 ### [Error Code](/reference/error-code/overview)
 

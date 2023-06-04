@@ -95,7 +95,7 @@ Bytebase provides two schema change type:
 Migration-based schema change type allows user to apply schema change by DDL.
 State-based schema change type provides a declarative way to describe the desired state of the schema.
 
-<DocLinkBlock url="/docs/change-database/state-based-migration/overview" title="State-based Migration"></DocLinkBlock>
+<DocLinkBlock url="/docs/change-database/state-based-migration" title="State-based Migration"></DocLinkBlock>
 
 #### File path template - Required
 
