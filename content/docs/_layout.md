@@ -117,6 +117,8 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Online Schema Migration for MySQL](/change-database/online-schema-migration-for-mysql)
 
+### [Change Secret](/change-database/secret)
+
 ## [SQL Editor](/sql-editor/overview)
 
 ### [Manage SQL Scripts with Sheet](/sql-editor/manage-sql-scripts)
@@ -236,8 +238,6 @@ expand_section_list: ['Introduction', 'Get Started']
 ### [SMTP and Email Delivery](/administration/mail-delivery)
 
 ### [Archive](/administration/archive)
-
-### [Secret](/administration/secret)
 
 ---
 
