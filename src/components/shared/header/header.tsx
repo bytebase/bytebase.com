@@ -14,7 +14,7 @@ import Route from '@/lib/route';
 import IntroIcon from '@/svgs/intro.inline.svg';
 import ArrowIcon from '@/svgs/arrow.inline.svg';
 import ConceptIcon from '@/svgs/concept.inline.svg';
-import AdminIcon from '@/svgs/admin.inline.svg';
+import DbIcon from '@/svgs/db.inline.svg';
 import RocketIcon from '@/svgs/rocket.inline.svg';
 import TutorialsIcon from '@/svgs/tutorials.inline.svg';
 import ChevronIcon from '@/svgs/chevron-menu-docs.inline.svg';
@@ -28,7 +28,7 @@ const icons: {
   rocket: RocketIcon,
   concept: ConceptIcon,
   intro: IntroIcon,
-  admin: AdminIcon,
+  db: DbIcon,
 };
 
 type MenuItem = {

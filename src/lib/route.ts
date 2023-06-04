@@ -31,7 +31,7 @@ const Route = {
   DOCS: '/docs',
   DOCS_INSTALL: '/docs/get-started/install/deploy-with-docker',
   DOCS_CONCEPT: '/docs/concepts/data-model',
-  DOCS_ADMIN: '/docs/administration/production-setup',
+  DOCS_DB: '/docs/introduction/supported-databases',
   DOCS_API: '/docs/api/overview',
   DOCS_CLI: '/docs/cli/overview',
   DOCS_HOW_TO: '/docs/how-to/sql-review/postgres-sql-review-guide',
