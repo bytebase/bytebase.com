@@ -7,13 +7,24 @@ Before understanding use cases, it's useful to know [what Bytebase is](/docs/int
 
 ## Multi-Database Management
 
-Organizations normally have more than one database system for managing OLTP and OLAP workload. Bytebase supports popular database systems including MySQL, PostgreSQL, ClickHouse, TiDB, and Snowflake.
+Organizations normally have more than one database system for managing OLTP and OLAP workload. Bytebase supports all [mainstream databases](/docs/introduction/supported-databases)
 
 ## Database Change Automation
 
 Similar to how GitLab/GitHub streamlines the code delivery, Bytebase streamlines the database change deployment from the non-prod environment all the way to the prod environment. Bytebase also integrates with VCS to enable GitOps workflow. You can manage database change scripts in VCS and Bytebase will start a new deployment process whenever observing the new change scripts.
 
 You can also integrate Bytebase's CLI bb into your existing CI/CD workflow.
+
+## Data Access Control
+
+Organizations want to limit database access and enforce approval flow to conform compliance and avoid data leaks. Bytebase
+provides a suite of features to support this:
+
+- [Database Access Control](/docs/administration/database-access-control)
+- [Data Query and Export Approval Flow](/docs/data-query-and-export/overview/)
+- [Anonymize Data](/docs/administration/anonymize-data)
+- [Watermark](/docs/administration/watermark)
+- [Audit Log](/docs/administration/audit-log)
 
 ## Database Developer Portal
 
