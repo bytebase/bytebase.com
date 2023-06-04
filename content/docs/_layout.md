@@ -199,21 +199,7 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Production Setup](/administration/production-setup)
 
-### [Single Sign-On](/administration/sso/overview)
-
-#### [OAuth 2.0](/administration/sso/oauth2)
-
-#### [OpenID Connect (OIDC)](/administration/sso/oidc)
-
-### [Two-Factor Authentication](/administration/2fa)
-
 ### [Back up Data](/administration/back-up-data)
-
-### [Risk Center](/administration/risk-center)
-
-### [Custom Approval](/administration/custom-approval)
-
-### [Custom Roles](/administration/custom-roles)
 
 ### [Environment Policy](/administration/environment-policy/overview)
 
@@ -223,7 +209,19 @@ expand_section_list: ['Introduction', 'Get Started']
 
 #### [Backup Schedule Policy](/administration/environment-policy/backup-schedule-policy)
 
-### [Customize Logo](/administration/customize-logo)
+### [Single Sign-On](/administration/sso/overview)
+
+#### [OAuth 2.0](/administration/sso/oauth2)
+
+#### [OpenID Connect (OIDC)](/administration/sso/oidc)
+
+### [Two-Factor Authentication](/administration/2fa)
+
+### [Risk Center](/administration/risk-center)
+
+### [Custom Approval](/administration/custom-approval)
+
+### [Custom Roles](/administration/custom-roles)
 
 ### [Webhook Integration](/administration/webhook-integration/overview)
 
@@ -233,9 +231,11 @@ expand_section_list: ['Introduction', 'Get Started']
 
 #### [External Approval](/administration/webhook-integration/external-approval)
 
-### [Archive](/administration/archive)
+### [Customize Logo](/administration/customize-logo)
 
-### [Mail Delivery](/administration/mail-delivery)
+### [SMTP and Email Delivery](/administration/mail-delivery)
+
+### [Archive](/administration/archive)
 
 ### [Secret](/administration/secret)
 

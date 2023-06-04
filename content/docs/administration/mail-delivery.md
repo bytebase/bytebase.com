@@ -1,5 +1,5 @@
 ---
-title: SMTP and mail delivery
+title: SMTP and Email Delivery
 ---
 
 Bytebase uses an SMTP server of your choosing to send emails for slow query weekly report.
