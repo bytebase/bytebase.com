@@ -13,7 +13,7 @@ export type SidebarProps = {
 
 const Sidebar = ({ currentUrl, data, expandedList }: SidebarProps) => {
   return (
-    <aside className="sidebar col-span-3 md:hidden">
+    <aside className="sidebar">
       <AlgoliaSearch />
       <nav className="mt-4 lg:mt-5">
         <ul>

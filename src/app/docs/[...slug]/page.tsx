@@ -4,20 +4,10 @@ import { notFound } from 'next/navigation';
 import { getExcerpt } from '@/utils/get-excerpt';
 import getMetadata from '@/utils/get-metadata';
 
-import MobileSidebar from '@/components/pages/docs/mobile-sidebar';
 import PostLayout from '@/components/pages/docs/post-layout';
-import Sidebar from '@/components/pages/docs/sidebar';
 import Content from '@/components/shared/content';
 
-import {
-  getAllPosts,
-  getBreadcrumbs,
-  getDocPreviousAndNextLinks,
-  getFlatSidebar,
-  getPostBySlug,
-  getSidebar,
-  getTableOfContents,
-} from '@/lib/api-docs';
+import { getAllPosts, getPostBySlug, getTableOfContents } from '@/lib/api-docs';
 import Route from '@/lib/route';
 
 export function generateStaticParams() {
@@ -35,18 +25,10 @@ export function generateStaticParams() {
 export default function DocPage({ params }: { params: { slug: string[] } }) {
   const { slug } = params;
   const currentSlug = slug.join('/');
-  const currentPath = `/${currentSlug}`;
 
   const post = getPostBySlug(currentSlug);
 
   if (!post) return notFound();
-
-  const currentUrl = `/${slug.join('/')}`;
-  const { sidebar, expandedList } = getSidebar();
-  const flatSidebar = getFlatSidebar(sidebar);
-
-  const breadcrumbs = getBreadcrumbs(currentPath, flatSidebar);
-  const navigationLinks = getDocPreviousAndNextLinks(currentPath, flatSidebar);
 
   const {
     data: { title, feature_image },
@@ -56,27 +38,19 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
   const tableOfContents = getTableOfContents(content);
 
   return (
-    <>
-      <MobileSidebar
-        className="col-span-full hidden md:flex md:pt-[72px]"
-        data={sidebar}
-        currentUrl={currentUrl}
-        expandedList={expandedList}
-      />
-      <div className="container grid grid-cols-12 gap-x-10 pt-[136px] 2xl:pt-[140px] xl:gap-x-9 xl:pt-32 lg:gap-x-6 md:mt-6 md:gap-x-5 md:pt-0 sm:gap-x-4">
-        <Sidebar data={sidebar} expandedList={expandedList} currentUrl={currentUrl} />
-        <PostLayout
-          title={title}
-          featureImage={feature_image || null}
-          currentSlug={currentSlug}
-          breadcrumbs={breadcrumbs}
-          navigationLinks={navigationLinks}
-          tableOfContents={tableOfContents}
-        >
-          <Content content={content} />
-        </PostLayout>
-      </div>
-    </>
+    <PostLayout
+      title={title}
+      featureImage={feature_image || null}
+      currentSlug={currentSlug}
+      breadcrumbs={[]}
+      navigationLinks={{
+        previousLink: void 0,
+        nextLink: void 0,
+      }}
+      tableOfContents={tableOfContents}
+    >
+      <Content content={content} />
+    </PostLayout>
   );
 }
 
