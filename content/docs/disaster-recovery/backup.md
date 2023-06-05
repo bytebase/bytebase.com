@@ -126,7 +126,7 @@ Automatic weekly backup can be enabled/disabled by the Owner of the project owni
 
 Whenever user (re-)enables the automatic backup, Bytebase will choose a random local time between 0:00 AM \~ 6:00 AM on Sunday.
 
-You can use [webhook](/docs/administration/webhook-integration/database-webhook) to monitor backup status.
+You can use [webhook](#post-backup-webhook) to monitor backup status.
 
 ## Manual backup
 
@@ -137,3 +137,13 @@ User who is the member of the project owning the database, as well as the Worksp
 </HintBlock>
 
 In addition to automatic backup, user can also take a manual backup whenever needed.
+
+## Post-backup webhook
+
+User can set post-backup webhook URLs for databases. After a successful backup, an HTTP POST request will be sent to it.
+
+![Better Uptime Heartbeat](/content/docs/disaster-recovery/backup/database-webhook.webp)
+
+For example, with **[Better Uptime Heartbeats](https://docs.betteruptime.com/monitoring/monitor-types/cron-and-heartbeat-monitor)**.
+
+![Integrate with Better Uptime Heartbeats](/content/docs/disaster-recovery/backup/database-webhook-bettteruptime.webp)

@@ -119,6 +119,8 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Change Secret](/change-database/secret)
 
+### [Project Webhook](/change-database/webhook)
+
 ## [Query Data](/sql-editor/overview)
 
 ### [Manage SQL Scripts with Sheet](/sql-editor/manage-sql-scripts)
@@ -221,13 +223,7 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Custom Roles](/administration/custom-roles)
 
-### [Webhook Integration](/administration/webhook-integration/overview)
-
-#### [Project Webhook](/administration/webhook-integration/project-webhook)
-
-#### [Database Webhook](/administration/webhook-integration/database-webhook)
-
-#### [External Approval](/administration/webhook-integration/external-approval)
+### [External Approval](/administration/external-approval)
 
 ### [Customize Logo](/administration/customize-logo)
 

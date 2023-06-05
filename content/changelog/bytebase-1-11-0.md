@@ -14,7 +14,7 @@ description: '- Added support for MongoDB. - View ER Diagrams with the new Schem
 
 ## 🎄 Enhancements
 
-- Send notifications via [webhook](/docs/administration/webhook-integration/project-webhook) when the stage status is changed.
+- Send notifications via [webhook](/docs/change-database/webhook) when the stage status is changed.
 - Added project view in SQL Editor's database tree to easily navigate different databases and projects.
 - Display inactive rules in the [Access Control](/docs/security/database-access-control) rule list.
 - Support [PostgreSQL SSL connection](/docs/get-started/step-by-step/add-an-instance#add-an-instance).

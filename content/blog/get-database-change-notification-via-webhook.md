@@ -28,7 +28,7 @@ With pre-defined webhook, users can receive database change notifications via Sl
 
 ## Custom webhook
 
-With custom webhook, Bytebase can post database change notifications to your own message systems such as in-house Ops Platform. For the HTTP message format of custom webhook, see [Project Webhook](/docs/administration/webhook-integration/project-webhook#custom).
+With custom webhook, Bytebase can post database change notifications to your own message systems such as in-house Ops Platform. For the HTTP message format of custom webhook, see [Project Webhook](/docs/change-database/webhook#custom).
 
 Special thanks to [@Cluas](https://github.com/Cluas) for the PR [feat: add custom project webhook](https://github.com/bytebase/bytebase/pull/1184)!
 
@@ -38,7 +38,7 @@ You can complete the webhook configuration in 3 steps:
 
 **Step 1**. On the Project page, click "Webhooks"
 ![_](/content/blog/get-database-change-notification-via-webhook/project-webhook.webp)
-**Step 2**. Click "Add a webhook", then choose an endpoint (take Slack as an example), and enter "Name" and "[Webhook url](/docs/administration/webhook-integration/project-webhook#supported-webhook-endpoints)"
+**Step 2**. Click "Add a webhook", then choose an endpoint (take Slack as an example), and enter "Name" and "[Webhook url](/docs/change-database/project#supported-webhook-endpoints)"
 ![_](/content/blog/get-database-change-notification-via-webhook/webhook-config.webp)
 **Step 3**. Select the triggers and click "Create"
 ![_](/content/blog/get-database-change-notification-via-webhook/webhook-event-type.webp)

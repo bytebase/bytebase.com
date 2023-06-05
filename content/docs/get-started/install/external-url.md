@@ -8,7 +8,7 @@ You must configure the correct --external-url otherwise following features won't
 
 - [VCS integration](/docs/vcs-integration/overview)
 - [SSO](/docs/administration/sso/overview)
-- [Webhook integration](/docs/administration/webhook-integration/overview)
+- [External approval](/docs/administration/external-approval)
 
 </HintBlock>
 

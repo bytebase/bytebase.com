@@ -33,7 +33,7 @@ Thus, all scenarios in which human beings deal with databases can be performed v
 
 Previously, you could configure to [get database change notifications via Webhook](/blog/get-database-change-notification-via-webhook).
 
-Some users mentioned that they would like to approve changes directly in IM. In this release, we first [added support for Feishu](/docs/administration/webhook-integration/external-approval), and you can now review and approve Bytebase issues via `Feishu Approval`.
+Some users mentioned that they would like to approve changes directly in IM. In this release, we first [added support for Feishu](/docs/administration/external-approval), and you can now review and approve Bytebase issues via `Feishu Approval`.
 
 ![_](/content/blog/1-8-0-new-features/feishu-approval.webp)
 

@@ -19,7 +19,7 @@ description: '- Support database access control. - Schema Editor for MySQL. - Ch
   - Manage [environment details](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/environment).
 - [Data masking](/docs/security/anonymize-data) for MySQL databases now supports all query types.
 - [Schema Sync for PostgreSQL](/docs/change-database/synchronize-schema) supports Enum Type, Function, Trigger, and Extension.
-- Trigger [Feishu external approval](/docs/administration/webhook-integration/external-approval) manually.
+- Trigger [Feishu external approval](/docs/administration/external-approval) manually.
 - [Tenant database label](/docs/change-database/batch-change) supports arbitrary values without pre-definition.
 - A fresh look for SQL Editor's [Admin mode](/docs/sql-editor/admin-mode) tabs.
 - Speed up issue creation and execution.
