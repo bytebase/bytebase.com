@@ -14,7 +14,7 @@ Data migration is the migration type for DML statements.
 
 ## Baseline Migration
 
-Baseline migration instructs Bytebase to use the latest live schema as the source of truth. This is normally used when [schema drift](/docs/anomaly-detection/drift-detection) occurs and Bytebase needs to re-establish the baseline based on the latest live schema.
+Baseline migration instructs Bytebase to use the latest live schema as the source of truth. This is normally used when [schema drift](/docs/change-database/drift-detection) occurs and Bytebase needs to re-establish the baseline based on the latest live schema.
 
 ## Branch Migration
 

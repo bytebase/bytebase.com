@@ -105,6 +105,8 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [State-based Migration](/change-database/state-based-migration)
 
+### [Drift Detection](/change-database/drift-detection)
+
 ### [Schema Editor](/change-database/schema-editor)
 
 ### [Schema Diagram](/change-database/schema-diagram)
@@ -121,7 +123,7 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Project Webhook](/change-database/webhook)
 
-## [Query Data](/sql-editor/overview)
+## [Query Data with SQL Editor](/sql-editor/overview)
 
 ### [Manage SQL Scripts with Sheet](/sql-editor/manage-sql-scripts)
 
@@ -187,12 +189,6 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Backup Retention Policy](/disaster-recovery/backup-retention-policy)
 
-## Anomaly Detection
-
-### [Drift Detection](/anomaly-detection/drift-detection)
-
-### [Anomaly Center](/anomaly-detection/anomaly-center)
-
 ---
 
 ## Administration
@@ -216,6 +212,8 @@ expand_section_list: ['Introduction', 'Get Started']
 #### [OpenID Connect (OIDC)](/administration/sso/oidc)
 
 ### [Two-Factor Authentication](/administration/2fa)
+
+### [Anomaly Center](/administration/anomaly-center)
 
 ### [Risk Center](/administration/risk-center)
 
