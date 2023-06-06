@@ -139,6 +139,6 @@ Typically, all tenant databases should have the same database name and will be p
 
 ### GitOps
 
-You can further adopt GitOps to batch change tenant databases.
+You can further adopt GitOps to batch change tenant databases:
 
 <DocLinkBlock url="/docs/vcs-integration/tenant-gitops" title="Batch Change Tenant Databases"></DocLinkBlock>
