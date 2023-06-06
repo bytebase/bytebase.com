@@ -36,4 +36,17 @@ Users can apply for **Project Querier** role by submitting a request grant issue
 
 3. Click **Create** to submit the request.
 
-After the request is approved, you can query the data in the specified database within the specified time.
+After the request is approved, you can query the data in SQL Editor from the specified databases within a valid time.
+
+## Apply for Querier role at table level
+Users can apply for **Project Querier** role for specific tables.
+
+1. Go to the home page or project list page, and click **Request query**.
+   ![request-querier-or-exporter-role](/content/docs/security/data-query-and-export/request-querier-or-exporter-role.webp)
+
+2. Click **Select** for **databases**, check the table you need on the left side and click **Confirm**.
+   ![request-query-table-level](/content/docs/security/data-query-and-export/request-query-table-level.webp)
+
+3. Click **Create** to submit the request.
+
+After the request is approved, you can query the data in SQL Editor from the specified tables within a valid time.
