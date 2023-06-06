@@ -41,7 +41,7 @@ After the request is approved, you can query the data in SQL Editor from the spe
 ## Apply for Querier role at table level
 Users can apply for **Project Querier** role for specific tables.
 
-1. When you're on `New grant querier request` page, click **Manual Select** on the **Database** row.
+1. In the request form, click **Manual Select** on the **Database** row.
    ![request-querier-manual-select](/content/docs/security/data-query-and-export/request-querier-manual-select.webp)
 
 2. Click **Select**, check the tables you need on the left side and click **Confirm**.
