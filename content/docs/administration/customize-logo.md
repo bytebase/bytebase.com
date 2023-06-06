@@ -4,7 +4,8 @@ title: Customize the workspace with your own logo
 
 <HintBlock type="info">
 
-This feature is only available in the Enterprise Plan.
+This feature is only available in the Enterprise Plan.  
+You can try Enterprise Plan for free for two weeks.
 
 </HintBlock>
 
@@ -12,14 +13,19 @@ This document shows you how to add a logo to your workspace.
 
 ## Prerequisites
 
-- **Team** or **Enterprise** plan
+- **Enterprise** plan
 - **Workspace Owner** or **Workspace DBA** role
 
 ## Procedure
 
-1. Click **Settings** on the top bar.
-2. Click **General** under **Workspace**, the **Branding** page is displayed.
-3. Upload or drag your logo file to the **Logo** area according to the requirement on the screen.
-4. Click **Update**, your logo will be uploaded and displayed on the left of your avatar.
-
-![customize-the-logo](/content/docs/administration/customize-logo/customize-logo.webp)
+1. After logging in or registering, click **Settings** on the top bar.
+![settings-top-bar](/public/content/docs/administration/customize-logo/settings-top-bar.webp)
+2. Click **General** under **Workspace** on the left side, the **Branding** page is displayed.
+![brand-page](/public/content/docs/administration/customize-logo/brand-page.webp)
+3. Upload or drag your logo file to the **Logo** area according to the requirements on the screen.
+![drag-logo](/public/content/docs/administration/customize-logo/drag-logo.webp)
+4. Click **Update**, your logo will be uploaded and displayed on the left of your avatar.  
+<small>*You might have to upgrade to **Enterprise Plan** to enjoy this premium feature.*</small>
+![update-logo](/public/content/docs/administration/customize-logo/update-logo.webp)
+5. Now, you can enjoy your customized workspace with your new logo.
+![new-logo](/public/content/docs/administration/customize-logo/new-logo.webp)
