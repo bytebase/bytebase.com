@@ -49,4 +49,4 @@ Users can apply for **Project Querier** role for specific tables.
 
 3. Click **Create** to submit the request.
 
-After the request is approved, you can query the data in SQL Editor from the specified tables within a valid time.
+After the request is approved, you can query the data in SQL Editor from the specified tables before the requested expiration time.
