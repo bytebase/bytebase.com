@@ -63,7 +63,7 @@ In general, if we say Liquibase is Git for database, then Bytebase is more than 
 
 ### Installation
 
-- **Liquibase**: Java-based tool, so you need to install a Java Virtual Machine (JVM) before you can install Liquibase.
+- **Liquibase**: Java-based tool, so you need to install a Java Virtual Machine (JVM) before users can install Liquibase.
 - **Bytebase**: Go-based tool, use docker to deploy.
 
 ### Change execution
@@ -120,7 +120,7 @@ SQL auto check (according to configured rules) helps developers write less buggy
 
 - **Liquibase**: Predefined, you may set levels while calling.
     ![liquibase-quality-check](/content/blog/bytebase-vs-liquibase/liquibase-quality-check.webp)
-- **Bytebase**: Rules are predefined, you can activate and choose error level for specific rules. The picked rule set will make a reusable policy which can be applied to environment, e.g. `Prod`.
+- **Bytebase**: Rules are predefined, users can activate and choose error level for specific rules. The picked rule set will make a reusable policy which can be applied to environment, e.g. `Prod`.
     ![bytebase-sql-review-rules](/content/blog/bytebase-vs-liquibase/bytebase-sql-review-rules.webp)
 
 
