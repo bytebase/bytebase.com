@@ -1,5 +1,5 @@
 ---
-title: 'Bytebase vs. Liquibase'
+title: 'Database schema migraiton tools: Bytebase vs Liquibase'
 author: Changyu
 published_at: 2023/06/08 19:21:21
 feature_image: /content/blog/bytebase-vs-liquibase/bytebase-vs-liquibase.webp
@@ -53,7 +53,7 @@ In general, if we say Liquibase is Git for database, then Bytebase is more than 
 
 ### Product form - How to interact
 
-- **Liquibase**: A command-line tool. A simple graphical user interface (GUI) called Liquibase Hub is available with the Pro Plan, but it has [sunset in May 2023](https://www.liquibase.com/blog/liquibase-hub-sunset).
+- **Liquibase**: A command-line tool. A simple graphical user interface (GUI) called Liquibase Hub is available with the Pro Plan, but it has sunset in May 2023.
 - **Bytebase**: A web-based GUI tool. It also provides a command-line interface (CLI) and an application programming interface (API).
 
 ### Supported databases
@@ -103,8 +103,8 @@ Both Bytebase and Liquibase can be configured to use Database GitOps. However, B
 
 SQL auto check (according to configured rules) helps developers write less buggy SQL and helps DBAs save efforts while achieving better results. They both support this.
 
-- **Liquibase**: SQL Quality check [https://www.liquibase.com/quality-checks](https://www.liquibase.com/quality-checks)
-- **Bytebase**: SQL Review [https://www.bytebase.com/docs/sql-review/review-rules/](https://www.bytebase.com/docs/sql-review/review-rules/)
+- **Liquibase**: SQL Quality check 
+- **Bytebase**: SQL Review
 
 #### Supported Plan
 
