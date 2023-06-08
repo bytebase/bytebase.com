@@ -1,5 +1,5 @@
 ---
-title: 'Database schema migraiton tools: Bytebase vs Liquibase'
+title: 'Database schema migraiton tools: Bytebase vs. Liquibase'
 author: Changyu
 published_at: 2023/06/08 19:21:21
 feature_image: /content/blog/bytebase-vs-liquibase/bytebase-vs-liquibase.webp
