@@ -118,7 +118,7 @@ SQL auto check (according to configured rules) helps developers write less buggy
 
 #### How to configure
 
-- **Liquibase**: Predefined, you may set levels while calling.
+- **Liquibase**: Predefined, users may set levels while calling.
     ![liquibase-quality-check](/content/blog/bytebase-vs-liquibase/liquibase-quality-check.webp)
 - **Bytebase**: Rules are predefined, users can activate and choose error level for specific rules. The picked rule set will make a reusable policy which can be applied to environment, e.g. `Prod`.
     ![bytebase-sql-review-rules](/content/blog/bytebase-vs-liquibase/bytebase-sql-review-rules.webp)
