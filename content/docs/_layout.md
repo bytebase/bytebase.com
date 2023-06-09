@@ -67,6 +67,8 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Tenant Database](/concepts/tenant-database)
 
+### [Grouping](/concepts/grouping)
+
 ---
 
 ## [SQL Review](/sql-review/overview)
