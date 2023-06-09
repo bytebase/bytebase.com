@@ -3,7 +3,7 @@ title: Case Study - Longbridge Whale
 author: Changyu
 published_at: 2023/06/09 21:21:21
 feature_image: /content/blog/longbridge-case-study/banner.webp
-tags: Industry
+tags: Case Study
 featured: true
 description: Learn how financial service SaaS provider cracked the problem of schema changes in tenant mode with Bytebase.
 ---
@@ -44,7 +44,7 @@ New tenants are usually created by the business side. For most SaaS companies, t
 
 ## The Solution: Bytebase
 
-As a financial SaaS provider, Longbridge Whale manage their database in tenant mode. With the growth of their business, the number of databases increased rapidly and schema management issues have become prominent.
+As a financial SaaS provider, Longbridge Whale manage their database in [tenant mode](/docs/concepts/tenant-database/). With the growth of their business, the number of databases increased rapidly and schema management issues have become prominent.
 
 Similar to many other tech startups, Longbridge Whale have established a basic database review and release platform based on open-source solutions. However, such platforms generally lack schema change management capabilities and can't cope with the current challenges faced by Longbridge Whale. In order to fundamentally solve these problems, Longbridge Whale turned to Bytebase.
 
@@ -76,11 +76,11 @@ In production environments, it is still difficult to avoid drifts. For example, 
 
 Once a drift occurs, Sync Schema can quickly compare the differences and generate issues to reconcile the drift.
 
-## Automated New Tenant Incorporation
+## Automated New Tenant Provision
 
 Another situation prone to schema drift is the supply of new tenant databases. Previously for Longbridge Whale, as the business side creates a new tenant (through the frontend), their platform automatically creates a tenant database, syncs it to match a certain version of the schema, and initializes data. Many SaaS companies have also adopted similar solutions.
 
-The problem that follows is that if the tech team uses a separate tool for change management, the new tenant database will not be automatically incorporated unless the team is notified or if they scan all databases on a regular basis. This gap is enough to produce new schema differences. Thus, it is necessary to integrate this entire supply process with management process to achieve full automation. Here, Bytebase offers two solutions:
+The problem that follows is that if the tech team uses a separate tool for change management, the new tenant database will not be automatically enlisted unless the team is notified or if they scan all databases on a regular basis. This gap is enough to produce new schema differences. Thus, it is necessary to integrate this entire supply process with management process to achieve full automation. Here, Bytebase offers two solutions:
 
 **API Solution**
 
@@ -92,7 +92,7 @@ The application will call on the Bytebase API to create a new database and autom
 
 ![_](/content/blog/longbridge-case-study/terraform-solution.webp)
 
-The application calls on the Terraform Provider of the database instance supplier to create a new database, and then calls the [Bytebase Terraform Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs) for automatic management. The rest is pretty similar: Bytebase syncs database schema and the application initialized data.
+The application calls on the Terraform Provider of the database instance supplier to create a new database, and then calls the [Bytebase Terraform Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs) for automatic management. The rest is pretty similar: Bytebase syncs database schema and the application initializes data.
 
 One small detail: if there are new changes being released during the creation of a new tenant database, this new change might be missing. Bytebase can detect such special situations and ensure that the new tenant database is consistent with baseline database schema.
 
@@ -104,7 +104,7 @@ Longbridge Whale has migrated their entire database management process to Byteba
 
 1. Whenever a new tenant is to be created, their SCM calls Bytebase API to create a new tenant database.
 2. Bytebase automatically synchronizes the schema of the new tenant database to the latest version.
-3. The application obtains database access permissions based on Vault and initializes data.
+3. The application obtains database access permissions based on HashiCorp Vault and initializes data.
 4. SRE and business development teams complete daily changes to tenant databases through Bytebase.
 
-At the moment, Longbridge Whale and Bytebase are working together to further incorporate Bytebase's capabilities into their development process. Stay tuned for the next case study.
+At the moment, Longbridge Whale and Bytebase are working together to further incorporate Bytebase's capabilities into their development process. Stay tuned for a followup case study.
