@@ -165,7 +165,7 @@ Follow the steps below to navigate through the process.
 
 ![bc-db-group-info](/content/docs/change-database/batch-change/bc-db-group-info.webp)
 
-3. Click **OK**, you'll see the newly created `db_group_demo` database group as below.
+3. Click **OK**, you'll see the newly created `hotel_global` database group as below.
 
 ![bc-db-group-done](/content/docs/change-database/batch-change/bc-db-group-done.webp)
 
@@ -179,35 +179,35 @@ Follow the steps below to navigate through the process.
 
 ![bc-tb-group-info](/content/docs/change-database/batch-change/bc-tb-group-info.webp)
 
-3. Click **OK** to create the newly created `tb_group_demo` table group. 
+3. Click **OK** to create the newly created `booking_global` table group. 
 
-Navigate to the details page of the `db_group_demo` database group, you'll see the `tb_group_demo` table group is already there.
+Navigate to the details page of the `hotel_global` database group, you'll see the `booking_global` table group is already there.
 
 ![bc-tb-group-done](/content/docs/change-database/batch-change/bc-tb-group-done.webp)
 
 ### Alter Schema for Table Groups
 
 1. Within a tenant project, click **Alter Schema**.
-2. Click **Munaul selection** and select **Database Group** to locate he `db_group_demo` database group.
+2. Click **Munaul selection** and select **Database Group** to locate he `hotel_global` database group.
+3. Select the `hotel_global` database group.
 
 ![bc-db-group-select](/content/docs/change-database/batch-change/bc-db-group-select.webp)
 
-3. Select the `db_group_demo` database group.
-4. Delete the '--' symbol and insert the provide SQL statements into the **Raw SQL**.
+4. Paste the provide SQL statements into the **Raw SQL** input box.
 ```sql
-ALTER TABLE "tb_group_demo"
-    ADD COLUMN "status" boolean NOT NULL;
+ALTER TABLE `booking_global`
+    ADD COLUMN `status` boolean NOT NULL;
 ```
 
 ![bc-db-group-sql](/content/docs/change-database/batch-change/bc-db-group-sql.webp)
 
-5. Click **Preview** to review the issue details on the issue details page.
+5. Click **Preview issue** to review the issue details on the issue details page.
 
 ![bc-db-group-preview](/content/docs/change-database/batch-change/bc-db-group-preview.webp)
 
 6. Click **Create** to finalize the alter schema issue creation.
-7. Click **Roll out** to apply the schema change.
+7. Click **Rollout current stage** to apply the schema change.
 
-Let's examine the schema of physical tables in the `tb_group_demo` table group with the following screenshots, you can see the newly added 'status' column in each physical table.
+Let's examine the change history of physical tables in the `booking_global` table group with the following screenshots, you can see the newly added 'status' column in each physical table.
 
 ![bc-db-group-result](/content/docs/change-database/batch-change/bc-db-group-result.webp)
