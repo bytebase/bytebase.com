@@ -1,11 +1,11 @@
 ---
 title: Evolution of Database Schema Change Tool
 author: Mila
-published_at: 2023/05/10 19:21:21
-feature_image: /content/blog/database-schema-change-tool-evolution/banner.wepb
+published_at: 2023/05/09 23:21:21
+feature_image: /content/blog/database-schema-change-tool-evolution/banner.webp
 tags: Industry
 featured: true
-description: Database migration tools have come a long way, from CLI to 
+description: Database schema migration have come a long way, from CLI to GUI, and all the way to GitOps/Database-as-Code. Let's take a look at the evolution of database schema migration tools.
 ---
 
 Database schema migration may be the riskiest area in application development - it's tough, risky, and painful. Database schema migration tools exist to alleviate pain, and have come a long way: from the basic CLI tools to ones that have embraced GitOps/Database-as-Code.
