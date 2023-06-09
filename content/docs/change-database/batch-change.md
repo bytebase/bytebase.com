@@ -148,6 +148,7 @@ You can further adopt GitOps to batch change tenant databases. Head over to the 
 <HintBlock type="info">
 
 This feature is only available in the Enterprise Plan.
+This feature is only available in tenant projects.
 
 </HintBlock>
 
@@ -157,7 +158,7 @@ Follow the steps below to navigate through the process.
 
 ### Create a Database Group
 
-1. Within a tenant project, click **New database group** in the **Database Groups** tab.
+1. Within a **tenant** project, click **New database group** in the **Database Groups** tab.
 
 ![bc-db-group-create](/content/docs/change-database/batch-change/bc-db-group-create.webp)
 
@@ -171,7 +172,7 @@ Follow the steps below to navigate through the process.
 
 ### Create a Table Group
 
-1. Within a tenant project, click **New table group** in the **Database Groups** tab.
+1. Within a **tenant** project, click **New table group** in the **Database Groups** tab.
 
 ![bc-tb-group-create](/content/docs/change-database/batch-change/bc-tb-group-create.webp)
 
@@ -185,15 +186,15 @@ Navigate to the details page of the `hotel_global` database group, you'll see th
 
 ![bc-tb-group-done](/content/docs/change-database/batch-change/bc-tb-group-done.webp)
 
-### Alter Schema for Table Groups
+### Batch Alter Schema All Tables in a Table Group
 
-1. Within a tenant project, click **Alter Schema**.
+1. Within a **tenant** project, click **Alter Schema**.
 2. Click **Munaul selection** and select **Database Group** to locate he `hotel_global` database group.
 3. Select the `hotel_global` database group.
 
 ![bc-db-group-select](/content/docs/change-database/batch-change/bc-db-group-select.webp)
 
-4. Paste the provide SQL statements into the **Raw SQL** input box.
+4. Enter the desired SQLs in the **Raw SQL** input box. For this example, enter the following SQL into the **Raw SQL** input box.
 ```sql
 ALTER TABLE `booking_global`
     ADD COLUMN `status` boolean NOT NULL;
