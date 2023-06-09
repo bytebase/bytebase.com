@@ -36,7 +36,7 @@ DBeaver's initial release came in 2010, and [scored a $6M seed round](https://te
 
 ### Navicat
 
-Navicat was first released back in 2001. It only supported MySQL back then, but later added more databases. Although Navicat's UI looks a bit outdated, it has complete functionality and provides a smooth overall experience when operating databases. However, you [might want to think twice before commiting to Navicat](https://www.bytebase.com/blog/stop-using-navicat/).
+Navicat was first released back in 2001. It only supported MySQL back then, but later added more databases. Although Navicat's UI looks a bit outdated, it has complete functionality and provides a smooth overall experience when operating databases. However, you [might want to think twice before commiting to Navicat](/blog/stop-using-navicat/).
 
 ![_](/content/blog/database-schema-change-tool-evolution/navicat.webp)
 
@@ -110,11 +110,11 @@ Bytebase provides a web-based UI where developers and DBAs can collaborate to wo
 
 **Database-as-Code**
 
-To better accommodate the working habits of developers, Bytebase has integrated capabilities into [code repositories such as GitLab and GitHub](https://www.bytebase.com/blog/integrate-sql-review-into-github/). With the GitOps workflow enabled, developers can submit database change files to familiar code repositories, and once review is completed and committed to the repo, the deployment will be automatically triggered by Bytebase. No need to switch between multiple tools!
+To better accommodate the working habits of developers, Bytebase has integrated capabilities into [code repositories such as GitLab and GitHub](/blog/integrate-sql-review-into-github/). With the GitOps workflow enabled, developers can submit database change files to familiar code repositories, and once review is completed and committed to the repo, the deployment will be automatically triggered by Bytebase. No need to switch between multiple tools!
 
 **Team Collaboration & Management**
 
-You can define different [roles](https://www.bytebase.com/docs/concepts/roles-and-permissions/) for members at two levels: Workspace and Project. You can assign different roles to your team members, so that they have different permissions for different projects; or configure approval workflows for each project, such as specifying specific DBAs or QA responsible for this specific project.
+You can define different [roles](/docs/concepts/roles-and-permissions/) for members at two levels: Workspace and Project. You can assign different roles to your team members, so that they have different permissions for different projects; or configure approval workflows for each project, such as specifying specific DBAs or QA responsible for this specific project.
 
 ![_](/content/blog/database-schema-change-tool-evolution/bytebase-roles.webp)
 
