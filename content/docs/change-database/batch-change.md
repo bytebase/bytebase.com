@@ -151,7 +151,7 @@ This feature is only available in the Enterprise Plan.
 
 </HintBlock>
 
-If you are responsible for managing horizontally partitioned databases that are distributed across multiple data centers worldwide, applying database changes from [database groups][/content/docs/concepts/grouping] empowers you to manage these databases effectively and easily.
+If you are responsible for managing horizontally partitioned databases that are distributed across multiple data centers worldwide, applying database changes from [database groups](/docs/concepts/grouping) empowers you to manage these databases effectively and easily.
 
 Follow the steps below to navigate through the process.
 
