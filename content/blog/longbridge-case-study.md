@@ -2,7 +2,7 @@
 title: Case Study - Longbridge Whale
 author: Changyu
 published_at: 2023/06/09 21:21:21
-feature_image: /content/blog/longbridge-case-study/banner.jpg
+feature_image: /content/blog/longbridge-case-study/banner.webp
 tags: Industry
 featured: true
 description: Learn how financial service SaaS provider cracked the problem of schema changes in tenant mode with Bytebase.
