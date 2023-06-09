@@ -2,10 +2,11 @@
 title: Batch Change
 ---
 
-Bytebase allows you to change a collection of databases in a single workflow. These databases usually have a homogenous structure while belong to different development environments, geographic locations, or SaaS tenants. Bytebase supports two most typical batch change scenarios:
+Bytebase allows you to change a collection of databases in a single workflow. These databases usually have a homogenous structure while belong to different development environments, geographic locations, SaaS tenants or data centers. Bytebase supports three most typical batch change scenarios:
 
 - [Change databases from multiple environments](#change-databases-from-multiple-environments)
 - [Change databases from multiple tenants](#change-databases-from-multiple-tenants)
+- [Change databases from database groups](#change-databases-from-database-groups)
 
 While multi-environment change also supports multiple databases in one environment, the main difference between these two is that for multi-tenant change, all the databases in the project have identical schemas.
 
@@ -139,6 +140,75 @@ Typically, all tenant databases should have the same database name and will be p
 
 ### GitOps
 
-You can further adopt GitOps to batch change tenant databases:
+You can further adopt GitOps to batch change tenant databases. Head over to the doc [Batch Change Tenant Databases
+](/docs/vcs-integration/tenant-gitops) for more details.
 
-<DocLinkBlock url="/docs/vcs-integration/tenant-gitops" title="Batch Change Tenant Databases"></DocLinkBlock>
+## Change databases from database groups
+
+<HintBlock type="info">
+
+This feature is only available in the Enterprise Plan.
+This feature is only available in tenant projects.
+
+</HintBlock>
+
+If you are responsible for managing horizontally partitioned databases that are distributed across multiple data centers worldwide, applying database changes from [database groups](/docs/concepts/grouping) empowers you to manage these databases effectively and easily.
+
+Follow the steps below to navigate through the process.
+
+### Create a Database Group
+
+1. Within a **tenant** project, click **New database group** in the **Database Groups** tab.
+
+![bc-db-group-create](/content/docs/change-database/batch-change/bc-db-group-create.webp)
+
+2. Fill in the required information. This includes details such as database group name, environment and rules for filtering the desired databases.
+
+![bc-db-group-info](/content/docs/change-database/batch-change/bc-db-group-info.webp)
+
+3. Click **OK**, you'll see the newly created `hotel_global` database group as below.
+
+![bc-db-group-done](/content/docs/change-database/batch-change/bc-db-group-done.webp)
+
+### Create a Table Group
+
+1. Within a **tenant** project, click **New table group** in the **Database Groups** tab.
+
+![bc-tb-group-create](/content/docs/change-database/batch-change/bc-tb-group-create.webp)
+
+2. Fill in the required information.
+
+![bc-tb-group-info](/content/docs/change-database/batch-change/bc-tb-group-info.webp)
+
+3. Click **OK** to create the newly created `booking_global` table group. 
+
+Navigate to the details page of the `hotel_global` database group, you'll see the `booking_global` table group is already there.
+
+![bc-tb-group-done](/content/docs/change-database/batch-change/bc-tb-group-done.webp)
+
+### Batch Alter Schema All Tables in a Table Group
+
+1. Within a **tenant** project, click **Alter Schema**.
+2. Click **Munaul selection** and select **Database Group** to locate he `hotel_global` database group.
+3. Select the `hotel_global` database group.
+
+![bc-db-group-select](/content/docs/change-database/batch-change/bc-db-group-select.webp)
+
+4. Enter the desired SQLs in the **Raw SQL** input box. For this example, enter the following SQL into the **Raw SQL** input box.
+```sql
+ALTER TABLE `booking_global`
+    ADD COLUMN `status` boolean NOT NULL;
+```
+
+![bc-db-group-sql](/content/docs/change-database/batch-change/bc-db-group-sql.webp)
+
+5. Click **Preview issue** to review the issue details on the issue details page.
+
+![bc-db-group-preview](/content/docs/change-database/batch-change/bc-db-group-preview.webp)
+
+6. Click **Create** to finalize the alter schema issue creation.
+7. Click **Rollout current stage** to apply the schema change.
+
+Let's examine the change history of physical tables in the `booking_global` table group with the following screenshots, you can see the newly added 'status' column in each physical table.
+
+![bc-db-group-result](/content/docs/change-database/batch-change/bc-db-group-result.webp)
