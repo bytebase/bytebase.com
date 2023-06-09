@@ -1,7 +1,7 @@
 ---
 title: Evolution of Database Schema Change Tool
 author: Mila
-published_at: 2023/05/09 23:21:21
+published_at: 2023/06/10 21:21:21
 feature_image: /content/blog/database-schema-change-tool-evolution/banner.webp
 tags: Industry
 featured: true
