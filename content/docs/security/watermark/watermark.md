@@ -10,10 +10,10 @@ This feature is only available in the Enterprise Plan.
 
 Workspace Owners can turn on / off watermark setting in **"Settings/ Workspace / General/Security/Enable watermark"**
 
-![watermark-setting.webp](/content/docs/security/watermark/watermark-setting.webp)
 
-
+![watermark-setting.webp](\content\docs\security\watermark\watermark-setting.webp)
 
 After ticking, watermark including current user's username, ID and email will be displayed on Bytebase console. Ticking again can erase the watermark.
 
-![watermark-displaying.webp](/content/docs/security/watermark/watermark-displaying.webp)
+
+![watermark-displaying.webp](\content\docs\security\watermark\watermark-displaying.webp)
