@@ -17,7 +17,7 @@ import TerraformIcon from '@/svgs/terraform.inline.svg';
 import TiDBIcon from '@/svgs/tidb.inline.svg';
 import clsx from 'clsx';
 
-const Integrations = [
+const IntegrationList = [
   {
     name: 'MySQL',
     Icon: MySQLIcon,
@@ -96,7 +96,7 @@ const Integrations = ({ className }: { className?: string }) => {
         className,
       )}
     >
-      {Integrations.map(({ name, Icon }) => {
+      {IntegrationList.map(({ name, Icon }) => {
         return (
           <li className="flex items-center gap-x-2 2xl:gap-x-[7px] md:gap-x-2" key={name}>
             <Icon className="w-6 2xl:w-[22px] md:w-6" />
