@@ -2,7 +2,6 @@ import getMetadata from '@/utils/get-metadata';
 
 import Hero from '@/components/pages/pricing/hero';
 import Table from '@/components/pages/pricing/table';
-import Logos from '@/components/pages/home/logos';
 
 import SEO_DATA from '@/lib/seo-data';
 
@@ -13,7 +12,6 @@ export default function Page() {
     <>
       <Hero />
       <Table />
-      <Logos />
     </>
   );
 }
