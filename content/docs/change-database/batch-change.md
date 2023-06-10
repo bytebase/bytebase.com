@@ -166,7 +166,7 @@ Follow the steps below to navigate through the process.
 
 ![bc-db-group-info](/content/docs/change-database/batch-change/bc-db-group-info.webp)
 
-3. Click **OK**, you'll see the newly created `hotel_global` database group as below.
+3. Click **Save**, you'll see the newly created `hotel_global` database group as below.
 
 ![bc-db-group-done](/content/docs/change-database/batch-change/bc-db-group-done.webp)
 
@@ -180,7 +180,7 @@ Follow the steps below to navigate through the process.
 
 ![bc-tb-group-info](/content/docs/change-database/batch-change/bc-tb-group-info.webp)
 
-3. Click **OK** to create the newly created `booking_global` table group. 
+3. Click **Save** to create the newly created `booking_global` table group. 
 
 Navigate to the details page of the `hotel_global` database group, you'll see the `booking_global` table group is already there.
 
