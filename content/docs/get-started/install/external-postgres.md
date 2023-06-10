@@ -10,18 +10,21 @@ Alternatively, you can supply [--pg](/docs/reference/command-line#--pg-string) o
 
 1. PostgreSQL 14 or above.
 1. All privileges on the [database object](https://www.postgresql.org/docs/current/sql-grant.html) including:
-   - SELECT
-   - INSERT
-   - UPDATE
-   - DELETE
-   - TRUNCATE
-   - REFERENCES
-   - TRIGGER
-   - CREATE
-   - CONNECT
-   - TEMPORARY
-   - EXECUTE
-   - USAGE
+  - SELECT
+  - INSERT
+  - UPDATE
+  - DELETE
+  - TRUNCATE
+  - REFERENCES
+  - TRIGGER
+  - CREATE
+  - CONNECT
+  - TEMPORARY
+  - EXECUTE
+  - USAGE
+1. For Cloud RDS, ensure that the user either owns the schema (public) and database, or has the necessary privileges to access them.
+  - ALTER SCHEMA public OWNER TO bytebase;
+
 
 ## --pg connection string
 
