@@ -1,77 +1,6 @@
-const logos = [
-  {
-    alt: 'Red Hat',
-    src: '/images/logos/redhat.svg',
-    width: 245,
-    height: 64,
-  },
-  {
-    alt: 'DingTalk',
-    src: '/images/logos/dingtalk.svg',
-    width: 180,
-    height: 64,
-  },
-  {
-    alt: 'Aptive',
-    src: '/images/logos/aptive.svg',
-    width: 144,
-    height: 64,
-  },
-  {
-    alt: 'Kakao Entertainment',
-    src: '/images/logos/kakao.svg',
-    width: 151,
-    height: 64,
-  },
-  {
-    alt: 'Kingsoft',
-    src: '/images/logos/kingsoft.svg',
-    width: 228,
-    height: 64,
-  },
-  {
-    alt: 'Human horizons',
-    src: '/images/logos/human-horizons.svg',
-    width: 160,
-    height: 64,
-  },
-  {
-    alt: 'Salla',
-    src: '/images/logos/salla.svg',
-    width: 119,
-    height: 64,
-  },
-  {
-    alt: 'Miotech',
-    src: '/images/logos/miotech.svg',
-    width: 194,
-    height: 64,
-  },
-  {
-    alt: 'Proton',
-    src: '/images/logos/proton.svg',
-    width: 252,
-    height: 64,
-  },
-  {
-    alt: 'Meta',
-    src: '/images/logos/meta.svg',
-    width: 189,
-    height: 64,
-  },
-  {
-    alt: 'Evermos',
-    src: '/images/logos/evermos.svg',
-    width: 239,
-    height: 64,
-  },
-  {
-    alt: 'Tencent',
-    src: '/images/logos/tencent.svg',
-    width: 476,
-    height: 64,
-  },
-];
+import Image from 'next/image';
+
+import LOGO_LIST from '@/lib/logo-data';
 
 const Logos = () => {
   return (
@@ -81,9 +10,9 @@ const Logos = () => {
           Trusted by engineers worldwide
         </h2>
         <ul className="mt-16 grid max-w-[1000px] grid-cols-4 gap-x-24 gap-y-12 2xl:mt-14 xl:mt-12 xl:max-w-[740px] xl:gap-y-8 xl:gap-x-16 md:mt-10 md:max-w-[660px] md:gap-y-7 md:gap-x-10 sm:mt-8 xs:flex xs:max-w-[460px] xs:flex-wrap xs:justify-center xs:gap-x-6 xs:gap-y-6">
-          {logos.map((logo) => (
+          {LOGO_LIST.map((logo) => (
             <li key={logo.alt} className="mx-auto flex items-center xs:mx-0">
-              <img
+              <Image
                 className="xl:h-12 xl:w-auto md:h-10 xs:h-8"
                 src={logo.src}
                 alt={logo.alt}
