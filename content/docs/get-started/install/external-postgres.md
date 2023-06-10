@@ -22,7 +22,7 @@ Alternatively, you can supply [--pg](/docs/reference/command-line#--pg-string) o
   - TEMPORARY
   - EXECUTE
   - USAGE
-2. For Cloud RDS, ensure that the user either owns the schema (public) and database, or has the necessary privileges to access them.
+1. For Cloud RDS, ensure that the user either owns the schema (public) and database, or has the necessary privileges to access them.
   - ALTER SCHEMA public OWNER TO bytebase;
 
 
