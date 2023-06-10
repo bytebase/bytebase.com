@@ -19,19 +19,19 @@ We are hiring. Please check out our [about page](https://www.bytebase.com/about)
 git clone git@github.com:bytebase/bytebase.com.git
 ```
 
-2. Install dependencies
+1. Install dependencies
 
 ```bash
 pnpm install
 ```
 
-## Usage
+1. Run website locally
 
 ```bash
 pnpm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the local running website.
 
 ## Content Guide
 
@@ -54,9 +54,9 @@ All lowercase with `-` as word separator:
 
 #### Image
 
-- Naming: choose a readable image name.
-- Sizing: use 16:9 ratio if possible. The feature image sizing **must** be 16:9.
-- Format: use WebP instead of PNG format to reduce image size.
+- Naming: choose a **readable** image name.
+- Sizing: use **16:9** ratio if possible. The feature image sizing **must** be 16:9.
+- Format: use **WebP** instead of PNG format to reduce image size.
 
 #### Recording
 
