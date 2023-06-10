@@ -1,0 +1,127 @@
+---
+title: Evolution of Database Schema Change Tool
+author: Mila
+published_at: 2023/06/10 21:21:21
+feature_image: /content/blog/database-schema-change-tool-evolution/banner.webp
+tags: Industry
+featured: true
+description: Database schema migration have come a long way, from CLI to GUI, and all the way to GitOps/Database-as-Code. Let's take a look at the evolution of database schema migration tools.
+---
+
+Database schema migration may be the riskiest area in application development - it's tough, risky, and painful. Database schema migration tools exist to alleviate pain, and have come a long way: from the basic CLI tools to ones that have embraced GitOps/Database-as-Code.
+
+## Command-Line Clients (CLI) - mysql / psql
+
+mysql and psql can directly interact with MySQL and PostgreSQL databases. You can send commands or queries directly to MySQL or PostgreSQL servers from the command line.
+
+![_](/content/blog/database-schema-change-tool-evolution/mysql.webp)
+
+Although the CLI interface is simple, it's not really user-friendly, especially for beginners. However, according to Timescale's State of PostgreSQL 2022 survey results, psql is the most popular tool for interacting with PostgreSQL, surpassing GUI tools like pgAdmin and DBeaver 🤯.
+
+![_](/content/blog/database-schema-change-tool-evolution/psql.webp)
+
+## GUI
+
+### phpMyAdmin, pgAdmin
+
+phpMyAdmin and pgAdmin are classic SQL clients. phpMyAdmin is already an established tool for managing MySQL and MySQL-compatible databases (e.g. MariaDB), while pgAdmin is the PostgreSQL counterpart, which has now evolved to pgAdmin 4. Compared with CLI tools, phpMyAdmin and pgAdmin provide a UI for running and executing SQL queries, making them user friendlier.
+
+![_](/content/blog/database-schema-change-tool-evolution/gui.webp)
+
+### DBeaver
+
+DBeaver's initial release came in 2010, and [scored a $6M seed round](https://techcrunch.com/2023/04/11/dbeaver-takes-6m-seed-investment-to-build-on-growing-popularity/) this past April. This open-source SQL client supports a whole range of databases (SQL, NoSQL, and cloud DBs), and keeps up with the latest trends in the AI realm by incorporating OpenAI's GPT-capabilities, allowing natural language to be converted into SQL.
+
+![_](/content/blog/database-schema-change-tool-evolution/dbeaver.webp)
+
+### Navicat
+
+Navicat was first released back in 2001. It only supported MySQL back then, but later added more databases. Although Navicat's UI looks a bit outdated, it has complete functionality and provides a smooth overall experience when operating databases. However, you [might want to think twice before commiting to Navicat](/blog/stop-using-navicat/).
+
+![_](/content/blog/database-schema-change-tool-evolution/navicat.webp)
+
+## GitOps / Database-as-Code
+
+To better manage and source control database schema changes, many tools have introduced the code change process into database changes, known as Database-as-Code.
+
+### Liquibase
+
+Liquibase started out in 2006 as an open-source library for tracking, managing and applying database changes. Fun fact: Liquibase was acquired by a company called Datical in 2012 and rebranded to Datical, but then changed their name back to Liquibase in 2020 (wise move, have you seen anyone mention Datical on a forum?).
+
+![_](/content/blog/database-schema-change-tool-evolution/liquibase.webp)
+
+Liquibase's main product is a Java-based CLI that allows developer teams to integrate database schema migration into their CI/CD workflows through the CLI.
+
+### Flyway
+
+Flyway shares similarities with Liquibase in many ways: they are both long-established, both have a customer base, and are open-source projects. Its core product is a CLI and a Java library.
+
+The commercial entity behind Flyway is Redgate (acquired in 2019). It's got 3 editions: community, team and enterprise. You can tell that they have marked a clear boundary between the open-source and commercial offerings: Flyway's website feels more casual overall, while Redgate's way more professional.
+
+![_](/content/blog/database-schema-change-tool-evolution/flyway-redgate.webp)
+
+Liquibase and Flyway are neck and neck. The main difference lies in their respective positioning: Liquibase is more suitable for enterprise users, while Flyway is better suited for developers.
+
+### Sqitch
+
+Sqitch is a purely open-source project with no commercial offerings that's been on the market since 2012. It is pure CLI and does not have a UI.
+
+![_](/content/blog/database-schema-change-tool-evolution/sqitch.webp)
+
+Unlike Java-based Liquibase and Flyway, Sqitch is developed using Perl. In addition, Sqitch has its own philosophy on how to manage database schema changes: Liquibase and Flyway both use file naming conventions to control schema migrations (convention over configuration).
+
+![_](/content/blog/database-schema-change-tool-evolution/schema-migration.webp)
+
+While Sqitch uses commands for schema migration, which gives teams more power to integrate database version control into the SDLC.
+
+![_](/content/blog/database-schema-change-tool-evolution/appschema.webp)
+
+### Atlas
+
+![_](/content/blog/database-schema-change-tool-evolution/atlas.webp)
+
+Atlas is an open-source tool built by Ariga, and promotes the term "database schema-as-code". Despite only debuting last year, they just announced [an $18M funding round](https://siliconangle.com/2023/06/01/database-schema-code-startup-ariga-raises-18m-funding/).
+
+You can tell that they have drawn lots of inspo from HashiCorp and dubbed itself "Terraform for Database Migrations" upon its first appearance on Hacker News. They also invented Atlas HCL based on HCL (HashiCorp Configuration Language).
+
+Atlas uses the modern programming language Go (unlike Liquibase/Flyway, which uses Java), and centers around CLI (similar to Liquibase/Flyway/Sqitch), but it also has a lightweight UI. Atlas Cloud is a commercial offering of the open-source version.
+
+## All in One: GUI + GitOps / Database-as-Code + Collaboration
+
+### Prisma
+
+ORMs like Prisma target the domain of how code interacts with data. Although this is more of a backend topic, Prisma is an ORM with frontend roots. Frontend engineers are probably not the most proficient in SQL. To lower the threshold for managing database schemas, Prisma uses their own DSL to define data models.
+
+![_](/content/blog/database-schema-change-tool-evolution/prisma.webp)
+
+DSL is state-based (declarative), which describes the end state of the database schema instead of incremental changes, which is different from Liquibase/Flyway/Sqitch. This way, Prisma is able to provide a more comprehensive view of database management throughout the entire application development cycle.
+
+Prisma ORM is open source and free to use, and their Data Platform offers a cloud-based collaborative platform with some advanced features (it's clear that their ambition goes beyond just an ORM and schema migration tool).
+
+### Bytebase
+
+Bytebase is an open-source database DevOps tool, covering database management scenarios from changes, queries, security, to governance with a visual web-based collaboration workspace
+
+**Visual change workflow**
+
+![_](/content/blog/database-schema-change-tool-evolution/bytebase-issue.webp)
+
+Bytebase provides a web-based UI where developers and DBAs can collaborate to work on database changes through the same interface.
+
+**Database-as-Code**
+
+To better accommodate the working habits of developers, Bytebase has integrated capabilities into [code repositories such as GitLab and GitHub](/blog/integrate-sql-review-into-github/). With the GitOps workflow enabled, developers can submit database change files to familiar code repositories, and once review is completed and committed to the repo, the deployment will be automatically triggered by Bytebase. No need to switch between multiple tools!
+
+**Team Collaboration & Management**
+
+You can define different [roles](/docs/concepts/roles-and-permissions/) for members at two levels: Workspace and Project. You can assign different roles to your team members, so that they have different permissions for different projects; or configure approval workflows for each project, such as specifying specific DBAs or QA responsible for this specific project.
+
+![_](/content/blog/database-schema-change-tool-evolution/bytebase-roles.webp)
+
+The difference between Prisma and Bytebase lies in the target audience. Prisma is mainly aimed at front-end/full-stack developers, while Bytebase is more focused on back-end and DBAs. Both products provide collaboration capabilities, with Prisma focusing on the collaboration between developers in a single business unit, while Bytebase targets all operations revolving database across the entire enterprise, i.e. developers and DBAs / Platform Engineering / Ops teams.
+
+## To Sum Up
+
+![_](/content/blog/database-schema-change-tool-evolution/bytebase-landscape.webp)
+
+If you are operating the database as an individual, the classic CLI or GUI SQL clients like Navicat will suffice. If you prefer integration with code repos, there are solutions like Liquibase and Flyway. However, for a GUI and project collaboration capabilities similar to Jira or GitLab, your options are Prisma and Bytebase. On top of that, Bytebase is the only tool that offers organization-wide management capabilities to ensure data security and governance, in addition to making database changes more efficient and safer.
