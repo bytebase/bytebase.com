@@ -8,7 +8,7 @@ type HeroProps = {
 
 import Button from '@/components/shared/button';
 import { LinkUnderlined } from '@/components/shared/link-underlined';
-import Logos from '@/components/shared/logos';
+import Logos from '@/components/shared/integrations';
 import Link from '@/components/shared/link';
 
 import Route from '@/lib/route';
