@@ -45,7 +45,7 @@ able to make it work 🫠.
 
 Around the same time. Vercel and Neon just [announced a partnership](https://vercel.com/blog/vercel-storage#vercel-postgres-complex-data-made-easy) to allow provisioning a Neon database
 right from the Vercel project. We have known Neon since its inception, so we took a deep look and
-gladly found that Neon provides [built-in connectioning pooling](https://neon.tech/docs/connect/connection-pooling).
+gladly found that Neon provides [built-in connection pooling](https://neon.tech/docs/connect/connection-pooling).
 
 We first tried to provision a Neon database from the Vercel console.
 
