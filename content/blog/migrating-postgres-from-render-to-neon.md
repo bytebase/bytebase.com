@@ -16,7 +16,7 @@ description: How we migrate the SQL Chat database from Render to Neon.
 natural language to interact with the database. It's offered as a service at [sqlchat.ai](https://sqlchat.ai)
 and is also [open-sourced](https://github.com/sqlchat/sqlchat) for self-hosting.
 
-Recently, we added account, subscription feature, which requires a database to host those info.
+Recently, we added account, subscription feature, which requires a database to store those info.
 Following describes SQL Chat Postgres transition from [Render](https://render.com) to [Neon](https://neon.tech).
 
 ## Starting with Render
@@ -36,7 +36,8 @@ connection limit.
 The common solution is using PgBouncer and Render does provide a [pre-built
 template](https://render.com/docs/databases#connection-pooling). The instruction is for deploying a
 PgBouncer as a private service. However, since SQL Chat is hosted on Vercel, we need to make PgBouncer
-public. We tried to run PgBouncer as a public web service, but we were not able to make it work 🫠.
+public. We tried to run Render's PgBouncer docker image as a public web service, but we were not
+able to make it work 🫠.
 
 ![render-web-service](/content/blog/migrating-postgres-from-render-to-neon/render-web-service.webp)
 
