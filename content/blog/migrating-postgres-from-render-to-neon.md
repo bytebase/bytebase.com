@@ -70,15 +70,15 @@ pooling endpoint for normal database access, on the other hand, for Prisma migra
 direct database connection. And since Prisma 4.10.0, it provides a `directUrl` setting to do that.
 We thus made the change and deployed, everything worked!
 
-![sample-connection](/content/blog/migrating-postgres-from-render-to-neon/sample-connection.webp)
-
 To further consolidate the stack, we also moved the SQL Chat sample database to Neon. Notice we also
 use the connection pooling endpoint.
 
-![neon-invoice](/content/blog/migrating-postgres-from-render-to-neon/neon-invoice.webp)
+![sample-connection](/content/blog/migrating-postgres-from-render-to-neon/sample-connection.webp)
 
 Last week, we received our first bill from Neon. Neon's pricing is usage based, $8/month for hosting
 2 postgres instance with conenction pooling included, not a bad deal.
+
+![neon-invoice](/content/blog/migrating-postgres-from-render-to-neon/neon-invoice.webp)
 
 ## Summary
 
