@@ -14,7 +14,7 @@ import SEO_DATA from '@/lib/seo-data';
 export const metadata = getMetadata(SEO_DATA.BLOG);
 
 export default async function Blog() {
-  const data = getBlogPostsPerPage({ page: 1 });
+  const data = getBlogPostsPerPage({ page: 1, featuredOnly: true });
 
   if (!data) return notFound();
 

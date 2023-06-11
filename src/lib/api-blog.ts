@@ -66,11 +66,13 @@ const getBlogPostBySlug = (slug: string): BlogPost | null => {
 type PostPerPageProps = {
   page: number;
   category?: string;
+  featuredOnly?: boolean;
 };
 
 const getBlogPostsPerPage = ({
   page,
   category = '',
+  featuredOnly = false,
 }: PostPerPageProps):
   | (BlogPostsWithTags & { pageCount: number; recentPosts: BlogPost[] })
   | null => {
@@ -82,7 +84,9 @@ const getBlogPostsPerPage = ({
     (el) => category === '' || category === slugifyText(el.tags),
   );
 
-  const recentPosts = posts.filter((el) => el.tags !== 'Tutorial').slice(0, 5);
+  const recentPosts = posts
+    .filter((el) => el.tags !== 'Tutorial' && (!featuredOnly || el.featured))
+    .slice(0, 5);
 
   const postsWithoutTutorial = postsInCategory.filter((el) => el.tags !== 'Tutorial');
 
