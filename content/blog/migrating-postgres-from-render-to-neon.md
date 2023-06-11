@@ -17,7 +17,7 @@ natural language to interact with the database. It's offered as a service at [sq
 and is also [open-sourced](https://github.com/sqlchat/sqlchat) for self-hosting.
 
 Recently, we added account, subscription feature, which requires a database to host those info.
-Following describes our Postgres journey from [Render](https://render.com) to [Neon](https://neon.tech).
+Following describes SQL Chat Postgres transition from [Render](https://render.com) to [Neon](https://neon.tech).
 
 ## Starting with Render
 
