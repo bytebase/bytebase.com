@@ -12,7 +12,7 @@ This is a series of articles about database schema change (aka schema migration)
 
 - [What is a Database Schema?](/blog/what-is-database-schema)
 - [How to Handle Database Schema Change?](/blog/how-to-handle-database-schema-change)
-- Top Database Schema Change Tools (this one)
+- Evolution of Top Database Schema Change Tools (this one)
 
 ---
 
