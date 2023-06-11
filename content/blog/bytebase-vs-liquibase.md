@@ -1,5 +1,5 @@
 ---
-title: 'Database CI/CD Tools: Bytebase vs Liquibase'
+title: 'Bytebase vs. Liquibase: a side-by-side database CI/CD tool comparison for 2023'
 author: Changyu
 published_at: 2023/06/08 19:21:21
 feature_image: /content/blog/bytebase-vs-liquibase/bytebase-vs-liquibase-banner.webp
@@ -129,13 +129,13 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 - **Bytebase**: Three places to trigger SQL review by default, users may manually integrate it to other scenarios by API as well:
 
   1. When a database change is created as an issue.
-      ![bytebase-issue-auto-sql-review](/content/blog/bytebase-vs-liquibase/bytebase-issue-auto-sql-review.webp)
+     ![bytebase-issue-auto-sql-review](/content/blog/bytebase-vs-liquibase/bytebase-issue-auto-sql-review.webp)
 
   2. When users query data from SQL Editor.
-      ![bytebase-sql-editor-review](/content/blog/bytebase-vs-liquibase/bytebase-sql-editor-review.webp)
+     ![bytebase-sql-editor-review](/content/blog/bytebase-vs-liquibase/bytebase-sql-editor-review.webp)
 
   3. When users enable GitOps workflow, before a new SQL is merged into the main branch.
-      ![bytebase-gitops-merge](/content/blog/bytebase-vs-liquibase/bytebase-gitops-merge.webp)
+     ![bytebase-gitops-merge](/content/blog/bytebase-vs-liquibase/bytebase-gitops-merge.webp)
 
 ### Approval flow
 
