@@ -184,7 +184,7 @@ The auto-increment column is not an integer. Check [Use integer for auto-increme
 
 <h3 id="411">411 - Disabled column type</h3>
 
-The column type is disabled. Check [Column type disallow list](/docs/sql-review/review-rules#column.disallow-list) for details.
+The column type is disabled. Check [Column type disallow list](/docs/sql-review/review-rules#column.type-disallow-list) for details.
 
 <h3 id="412">412 - Column already exists</h3>
 

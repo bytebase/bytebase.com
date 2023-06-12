@@ -44,7 +44,7 @@ Different sets of rules can form different [SQL Review Policies](/docs/sql-revie
   - [Backward incompatible schema change](/docs/sql-review/review-rules#schema.backward-compatibility)
 - Column
   - [Enforce the required columns in each table](/docs/sql-review/review-rules#column.required)
-  - [Column type disallow list](/docs/sql-review/review-rules#column.disallow-list)
+  - [Column type disallow list](/docs/sql-review/review-rules#column.type-disallow-list)
   - [Columns no NULL value](/docs/sql-review/review-rules#column.no-null)
   - [Disallow changing column type](/docs/sql-review/review-rules#column.disallow-change-type)
   - [Set DEFAULT value for NOT NULL columns](/docs/sql-review/review-rules#column.set-default-for-not-null)
@@ -832,7 +832,7 @@ Bytebase defaults all tables to meet the requirements. If the SQL tries to defin
 - Oracle
 - OceanBase
 
-<h3 id="column.disallow-list">Column type disallow list</h3>
+<h3 id="column.type-disallow-list">Column type disallow list</h3>
 
 Set column type disallow list to ban column types.
 
