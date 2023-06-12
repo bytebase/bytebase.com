@@ -27,9 +27,11 @@ const Item = ({
   depth,
   currentUrl,
   expandedList,
+  isParentOpen = true,
 }: {
   currentUrl: string;
   expandedList?: string[];
+  isParentOpen?: boolean;
 } & SidebarItem) => {
   const hasActiveChild = isActiveItem(children, currentUrl);
   const [isOpen, setIsOpen] = useState(() => {
@@ -48,9 +50,7 @@ const Item = ({
 
   return (
     <li
-      className={clsx('flex flex-col items-start', {
-        'pl-4': depth >= 2,
-      })}
+      className={clsx('flex flex-col items-start', depth >= 2 && 'pl-4', !isParentOpen && 'hidden')}
     >
       <Tag
         className={clsx(
@@ -85,7 +85,7 @@ const Item = ({
           )}
         >
           {children.map((item, index) => (
-            <Item {...item} currentUrl={currentUrl} key={index} />
+            <Item {...item} currentUrl={currentUrl} isParentOpen={isOpen || false} key={index} />
           ))}
         </ul>
       )}
