@@ -4,7 +4,7 @@ import ArrowIcon from '@/svgs/arrow.inline.svg';
 
 const Banner = ({ bannerText, bannerUrl }: { bannerText: string; bannerUrl: string }) => {
   return (
-    <div className="banner relative z-20 bg-primary-1 text-white transition-colors duration-200 hover:bg-primary-2">
+    <div className="top-banner relative z-20 bg-primary-1 text-white transition-colors duration-200 hover:bg-primary-2">
       <Link
         className="group/link relative -z-10 mx-auto flex h-14 w-full items-center justify-center px-4.5 md:h-[46px]"
         href={bannerUrl}
