@@ -7,7 +7,15 @@ import getMetadata from '@/utils/get-metadata';
 import PostLayout from '@/components/pages/docs/post-layout';
 import Content from '@/components/shared/content';
 
-import { getAllPosts, getPostBySlug, getTableOfContents } from '@/lib/api-docs';
+import {
+  getAllPosts,
+  getBreadcrumbs,
+  getDocPreviousAndNextLinks,
+  getFlatSidebar,
+  getPostBySlug,
+  getSidebar,
+  getTableOfContents,
+} from '@/lib/api-docs';
 import Route from '@/lib/route';
 
 export function generateStaticParams() {
@@ -25,10 +33,17 @@ export function generateStaticParams() {
 export default function DocPage({ params }: { params: { slug: string[] } }) {
   const { slug } = params;
   const currentSlug = slug.join('/');
+  const currentPath = `/${currentSlug}`;
 
   const post = getPostBySlug(currentSlug);
 
   if (!post) return notFound();
+
+  const { sidebar } = getSidebar();
+  const flatSidebar = getFlatSidebar(sidebar);
+
+  const breadcrumbs = getBreadcrumbs(currentPath, flatSidebar);
+  const navigationLinks = getDocPreviousAndNextLinks(currentPath, flatSidebar);
 
   const {
     data: { title, feature_image },
@@ -42,11 +57,8 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
       title={title}
       featureImage={feature_image || null}
       currentSlug={currentSlug}
-      breadcrumbs={[]}
-      navigationLinks={{
-        previousLink: void 0,
-        nextLink: void 0,
-      }}
+      breadcrumbs={breadcrumbs}
+      navigationLinks={navigationLinks}
       tableOfContents={tableOfContents}
     >
       <Content content={content} />
