@@ -14,6 +14,7 @@ import {
   getFlatSidebar,
   getPostBySlug,
   getSidebar,
+  getTableOfContents,
 } from '@/lib/api-docs';
 import Route from '@/lib/route';
 
@@ -49,6 +50,8 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
     content,
   } = post;
 
+  const tableOfContents = getTableOfContents(content);
+
   return (
     <PostLayout
       title={title}
@@ -56,6 +59,7 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
       currentSlug={currentSlug}
       breadcrumbs={breadcrumbs}
       navigationLinks={navigationLinks}
+      tableOfContents={tableOfContents}
     >
       <Content content={content} />
     </PostLayout>

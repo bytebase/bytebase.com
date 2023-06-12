@@ -38,12 +38,10 @@ const variants = {
 const MobileSidebar = ({
   className,
   data,
-  currentUrl,
   expandedList,
 }: {
   className?: string;
   data: SidebarItem[];
-  currentUrl: string;
   expandedList?: string[];
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -114,7 +112,7 @@ const MobileSidebar = ({
           style={{ maxHeight: containerHeight, top: `${122 + bannerSize}px` }}
         >
           {data.map((item, index) => (
-            <Item {...item} currentUrl={currentUrl} expandedList={expandedList} key={index} />
+            <Item {...item} closeMenu={toggleMenu} expandedList={expandedList} key={index} />
           ))}
         </m.ul>
       </nav>

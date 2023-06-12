@@ -11,6 +11,7 @@ import { SidebarItem } from '@/types/docs';
 import Route from '@/lib/route';
 
 import ChevronIcon from '../images/chevron.inline.svg';
+import { usePathname } from 'next/navigation';
 
 const isActiveItem = (children: SidebarItem[] | undefined, currentUrl: string): boolean => {
   if (!children) return false;
@@ -25,14 +26,16 @@ const Item = ({
   url,
   children,
   depth,
-  currentUrl,
   expandedList,
+  closeMenu,
   isParentOpen = true,
 }: {
-  currentUrl: string;
+  closeMenu?: () => void;
   expandedList?: string[];
   isParentOpen?: boolean;
 } & SidebarItem) => {
+  const pathname = usePathname();
+  const currentUrl = pathname.replace(Route.DOCS, '').slice(0, -1);
   const hasActiveChild = isActiveItem(children, currentUrl);
   const [isOpen, setIsOpen] = useState(() => {
     return (
@@ -43,6 +46,9 @@ const Item = ({
   });
 
   const toggle = () => {
+    if (closeMenu && url) {
+      closeMenu();
+    }
     setIsOpen((prev) => !prev);
   };
 
@@ -85,7 +91,7 @@ const Item = ({
           )}
         >
           {children.map((item, index) => (
-            <Item {...item} currentUrl={currentUrl} isParentOpen={isOpen || false} key={index} />
+            <Item {...item} closeMenu={closeMenu} isParentOpen={isOpen || false} key={index} />
           ))}
         </ul>
       )}
