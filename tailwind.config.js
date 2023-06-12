@@ -129,7 +129,8 @@ module.exports = {
           'linear-gradient(171.93deg, #3DB8F5 6.21%, #B3FFC6 32.27%, #FFF9B3 43.51%, #FFF9B3 58.72%, #B3FFC6 71.22%, #3DB8F5 93.79%)',
         'security-phone': 'linear-gradient(90deg, #3DB8F5 6.21%, #B3FFC6 85.12%)',
         tutorials: 'linear-gradient(156.19deg, #F7F6FE 0.68%, #D5D1FA 90.99%)',
-        'docs-sidebar': 'linear-gradient(189.61deg, rgba(255, 255, 255, 0) 7.24%, #FFFFFF 92.76%)',
+        'docs-sidebar':
+          'linear-gradient(180deg, #FFFFFF 46.08%, rgba(255, 255, 255, 0.8) 67.27%, rgba(255, 255, 255, 0.6) 78.12%, rgba(255, 255, 255, 0.3) 89.31%, rgba(255, 255, 255, 0) 100%)',
       },
       lineHeight: {
         95: '95%',

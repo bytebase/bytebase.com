@@ -14,8 +14,8 @@ export type SidebarProps = {
 const Sidebar = ({ currentUrl, data, expandedList }: SidebarProps) => {
   return (
     <aside className="sidebar">
-      <AlgoliaSearch className="sticky top-0" />
-      <nav className="scrollbar-hidden mt-4 max-h-[calc(100vh-90px)] overflow-y-scroll pb-10 lg:mt-5">
+      <AlgoliaSearch className="relative z-10" />
+      <nav className="scrollbar-hidden max-h-[calc(100vh-80px)] overflow-y-scroll pt-6 pb-10">
         <ul>
           {data.map((item, index) => (
             <Item {...item} currentUrl={currentUrl} expandedList={expandedList} key={index} />

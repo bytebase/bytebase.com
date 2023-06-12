@@ -30,6 +30,7 @@ const variants = {
   },
 };
 
+// TODO: refactor this component to use the same component instead of duplicating it
 const MobileSidebar = ({
   className,
   categoryList,
@@ -45,6 +46,7 @@ const MobileSidebar = ({
   const controls = useAnimation();
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
+  // NOTE: this effect is needed to get the height of the top banner if it exists
   useEffect(() => {
     const banner = document.querySelector('.top-banner');
     if (banner) {

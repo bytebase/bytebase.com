@@ -2,6 +2,7 @@ import Link from '@/components/shared/link';
 
 import ArrowIcon from '@/svgs/arrow.inline.svg';
 
+// NOTE: Height of this component is used in mobile sidebars components
 const Banner = ({ bannerText, bannerUrl }: { bannerText: string; bannerUrl: string }) => {
   return (
     <div className="top-banner relative z-20 bg-primary-1 text-white transition-colors duration-200 hover:bg-primary-2">

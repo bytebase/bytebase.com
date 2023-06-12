@@ -34,6 +34,7 @@ const variants = {
   },
 };
 
+// TODO: refactor this component to use the same component instead of duplicating it
 const MobileSidebar = ({
   className,
   data,
@@ -63,6 +64,7 @@ const MobileSidebar = ({
     document.body.style.overflow = isOpen ? 'hidden' : 'auto';
   }, [isOpen]);
 
+  // NOTE: this effect is needed to get the height of the top banner if it exists
   useEffect(() => {
     const banner = document.querySelector('.top-banner');
     if (banner) {
