@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getExcerpt } from '@/utils/get-excerpt';
 import slugifyText from '@/utils/slugify-text';
 import algoliasearch from 'algoliasearch';
+import crypto from 'crypto';
 
 import { getAllPosts } from '@/lib/api-docs';
 import Route from '@/lib/route';
@@ -133,12 +134,34 @@ const getRecords = () => {
   return resultObj;
 };
 
+const verifySignature = (payload: any, header: string | null, clientSecret: string) => {
+  if (!header) return false;
+
+  const signature = crypto
+    .createHmac('sha1', clientSecret)
+    .update(JSON.stringify(payload))
+    .digest('hex');
+
+  return signature === header;
+};
+
 export async function POST(request: NextRequest) {
   try {
-    if (
-      request.headers.get('x-vercel-signature') !== process.env.NEXT_PUBLIC_ALGOLIA_WEBHOOK_SECRET
-    ) {
-      return NextResponse.json({ error: 'Server error' }, { status: 500 });
+    const data = await request.json();
+
+    const valid = verifySignature(
+      data,
+      request.headers.get('x-vercel-signature'),
+      process.env.NEXT_PUBLIC_ALGOLIA_WEBHOOK_SECRET!,
+    );
+
+    if (!valid) {
+      return NextResponse.json(
+        {
+          error: 'Access denied',
+        },
+        { status: 401 },
+      );
     }
 
     const records = getRecords();
