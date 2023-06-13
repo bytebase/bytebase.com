@@ -17,6 +17,7 @@ import {
   getTableOfContents,
 } from '@/lib/api-docs';
 import Route from '@/lib/route';
+import TableOfContents from '@/components/pages/docs/table-of-contents';
 
 export function generateStaticParams() {
   const posts = getAllPosts();
@@ -53,16 +54,28 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
   const tableOfContents = getTableOfContents(content);
 
   return (
-    <PostLayout
-      title={title}
-      featureImage={feature_image || null}
-      currentSlug={currentSlug}
-      breadcrumbs={breadcrumbs}
-      navigationLinks={navigationLinks}
-      tableOfContents={tableOfContents}
-    >
-      <Content content={content} />
-    </PostLayout>
+    <>
+      <article className="col-span-6 col-start-4 flex flex-col lg:col-span-9 md:col-span-full">
+        <PostLayout
+          title={title}
+          featureImage={feature_image || null}
+          currentSlug={currentSlug}
+          breadcrumbs={breadcrumbs}
+          navigationLinks={navigationLinks}
+        >
+          <Content content={content} />
+        </PostLayout>
+      </article>
+      {tableOfContents && tableOfContents.length > 0 && (
+        <div className="col-span-3 col-end-13 ml-auto w-full max-w-[314px] pt-2.5 pb-28 xl:max-w-none lg:hidden">
+          <TableOfContents
+            items={tableOfContents}
+            className="scrollbar-hidden sticky top-10 max-h-[calc(100vh-40px)] overflow-y-auto"
+            hasBackToTop
+          />
+        </div>
+      )}
+    </>
   );
 }
 
