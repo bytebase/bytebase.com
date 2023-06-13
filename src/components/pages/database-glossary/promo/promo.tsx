@@ -2,7 +2,7 @@ import Link from '@/components/shared/link';
 
 import Route from '@/lib/route';
 
-import Logos from '@/components/shared/logos';
+import Logos from '@/components/shared/integrations';
 
 const Promo = () => {
   return (

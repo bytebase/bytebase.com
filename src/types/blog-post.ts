@@ -8,4 +8,5 @@ export type BlogPost = {
   tags: string;
   slug: string;
   timeToRead: string;
+  featured: boolean;
 };

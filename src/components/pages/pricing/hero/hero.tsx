@@ -2,10 +2,9 @@ import Link from '@/components/shared/link';
 
 import Route from '@/lib/route';
 
-import QuoteIcon from '@/svgs/quote.inline.svg';
-
 import { COLORS } from '../table/data/pricing-plans';
 import Card from './card';
+import Logos from './logos';
 
 type TCard = {
   image: string;
@@ -85,27 +84,7 @@ const Hero = () => (
     <div className="container max-w-[1396px] 2xl:max-w-full">
       <header className="text-center">
         <h1 className="sr-only">Bytebase pricing page</h1>
-        <QuoteIcon width={50} height={40} className="mx-auto w-auto md:h-7 sm:h-6" />
-        <p className="mx-auto mt-5 max-w-[1048px] text-40 font-semibold leading-tight tracking-tighter lg:max-w-[800px] lg:text-30 lg:leading-extra-tight md:mt-6 md:max-w-[670px] md:text-24 md:tracking-tight sm:mt-4 xs:text-20 xs:leading-tight xs:tracking-normal">
-          Bytebase is not a better tool to manage database changes. It&apos;s a better way to manage
-          database changes.
-        </p>
-        <p className="mt-2.5 text-18 leading-extra-tight text-gray-40 lg:text-16 lg:leading-snug md:mt-4.5 md:text-14 xs:mt-3.5">
-          Built by engineers knowing database development flow
-        </p>
-        <ul className="mt-11 flex items-center justify-center gap-x-16 lg:gap-x-[52px] md:mt-10 md:gap-x-10 sm:mt-6 sm:flex-wrap sm:gap-y-4 sm:gap-x-14">
-          {[
-            { src: '/images/page/pricing/microsoft.svg', width: 152, height: 40, alt: 'Microsoft' },
-            { src: '/images/page/pricing/google.svg', width: 118, height: 40, alt: 'Google' },
-            { src: '/images/page/pricing/ant-group.svg', width: 94, height: 40, alt: 'Ant Group' },
-            { src: '/images/page/pricing/pingcap.svg', width: 152, height: 40, alt: 'PingCap' },
-          ].map((image) => (
-            <li key={image.src}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img {...image} className="xl:h-9 xl:w-auto md:h-[30px]" />
-            </li>
-          ))}
-        </ul>
+        <Logos />
       </header>
       <ul className="mt-14 flex gap-x-8 lg:mt-12 lg:gap-x-6 md:gap-x-5 sm:flex-wrap sm:gap-x-0 sm:gap-y-5">
         {cards.map((card) => (

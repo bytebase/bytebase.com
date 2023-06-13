@@ -46,7 +46,7 @@ Database tools are also a subclass of DevTools. At Bytebase, We debated whether 
 
 ![_](/content/blog/sql-chat/supported-dbs.webp)
 
-✨ 100% open source, give us a star at: [https://github.com/bytebase/sqlchat](https://github.com/sqlchat/sqlchat)
+✨ 100% open source, give us a star at: [https://github.com/sqlchat/sqlchat](https://github.com/sqlchat/sqlchat)
 
 Many years ago, Alan Kay and other pioneers envisioned `Tools for Thought`. From the GUI era opened by HyperCard to the Internet era trailblazed by Netscape, to today's Chat era led by OpenAI, ChatGPT, GitHub Colipot,
 their idea is getting really close.
