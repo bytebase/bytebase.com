@@ -7,18 +7,17 @@ import Item from './item';
 
 export type SidebarProps = {
   data: SidebarItem[];
-  currentUrl: string;
   expandedList?: string[];
 };
 
-const Sidebar = ({ currentUrl, data, expandedList }: SidebarProps) => {
+const Sidebar = ({ data, expandedList }: SidebarProps) => {
   return (
-    <aside className="sidebar col-span-3 md:hidden">
-      <AlgoliaSearch />
-      <nav className="mt-4 lg:mt-5">
+    <aside className="sidebar">
+      <AlgoliaSearch className="relative z-10" />
+      <nav className="scrollbar-hidden max-h-[calc(100vh-80px)] overflow-y-scroll pt-6 pb-10">
         <ul>
           {data.map((item, index) => (
-            <Item {...item} currentUrl={currentUrl} expandedList={expandedList} key={index} />
+            <Item {...item} expandedList={expandedList} key={index} />
           ))}
         </ul>
       </nav>

@@ -31,6 +31,7 @@ const variants = {
   },
 };
 
+// TODO: refactor this component to use the same component instead of duplicating it
 const MobileSidebar = ({
   className,
   categoryList,
@@ -39,15 +40,25 @@ const MobileSidebar = ({
   categoryList: GlossaryLetterSet[];
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [bannerSize, setBannerSize] = useState(0);
   const [containerHeight, setContainerHeight] = useState<string | undefined>(undefined);
   const height = useWindowHeight();
   const wrapperRef = useRef<null | HTMLDivElement>(null);
   const controls = useAnimation();
   const toggleMenu = () => setIsOpen((prev) => !prev);
+
+  // NOTE: this effect is needed to get the height of the top banner if it exists
+  useEffect(() => {
+    const banner = document.querySelector('.top-banner');
+    if (banner) {
+      setBannerSize(banner.clientHeight);
+    }
+  }, []);
+
   // 125px is the height of header + button Documentation menu
   useEffect(() => {
-    setContainerHeight(`${height - 125}px`);
-  }, [height]);
+    setContainerHeight(`${height - 125 - bannerSize}px`);
+  }, [height, bannerSize]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'auto';
@@ -87,13 +98,11 @@ const MobileSidebar = ({
         </button>
 
         <m.ul
-          className={clsx(
-            'fixed inset-x-0 top-[125px] bottom-0 z-20 flex flex-col gap-y-6 overflow-y-scroll bg-white px-11 py-6 md:px-7 sm:px-4',
-          )}
+          className="fixed inset-x-0 bottom-0 z-20 flex flex-col gap-y-6 overflow-y-scroll bg-white px-11 py-6 md:px-7 sm:px-4"
           initial="from"
           animate={controls}
           variants={variants}
-          style={{ maxHeight: containerHeight }}
+          style={{ maxHeight: containerHeight, top: `${125 + bannerSize}px` }}
         >
           {categoryList.map(({ letter, list }) => {
             return (

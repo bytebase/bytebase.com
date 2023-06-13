@@ -4,9 +4,7 @@ import { notFound } from 'next/navigation';
 import { getExcerpt } from '@/utils/get-excerpt';
 import getMetadata from '@/utils/get-metadata';
 
-import MobileSidebar from '@/components/pages/docs/mobile-sidebar';
 import PostLayout from '@/components/pages/docs/post-layout';
-import Sidebar from '@/components/pages/docs/sidebar';
 import Content from '@/components/shared/content';
 
 import {
@@ -19,6 +17,7 @@ import {
   getTableOfContents,
 } from '@/lib/api-docs';
 import Route from '@/lib/route';
+import TableOfContents from '@/components/pages/docs/table-of-contents';
 
 export function generateStaticParams() {
   const posts = getAllPosts();
@@ -41,8 +40,7 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
 
   if (!post) return notFound();
 
-  const currentUrl = `/${slug.join('/')}`;
-  const { sidebar, expandedList } = getSidebar();
+  const { sidebar } = getSidebar();
   const flatSidebar = getFlatSidebar(sidebar);
 
   const breadcrumbs = getBreadcrumbs(currentPath, flatSidebar);
@@ -57,25 +55,26 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
 
   return (
     <>
-      <MobileSidebar
-        className="col-span-full hidden md:flex md:pt-[72px]"
-        data={sidebar}
-        currentUrl={currentUrl}
-        expandedList={expandedList}
-      />
-      <div className="container grid grid-cols-12 gap-x-10 pt-[136px] 2xl:pt-[140px] xl:gap-x-9 xl:pt-32 lg:gap-x-6 md:mt-6 md:gap-x-5 md:pt-0 sm:gap-x-4">
-        <Sidebar data={sidebar} expandedList={expandedList} currentUrl={currentUrl} />
+      <article className="col-span-6 col-start-4 flex flex-col lg:col-span-9 md:col-span-full">
         <PostLayout
           title={title}
           featureImage={feature_image || null}
           currentSlug={currentSlug}
           breadcrumbs={breadcrumbs}
           navigationLinks={navigationLinks}
-          tableOfContents={tableOfContents}
         >
           <Content content={content} />
         </PostLayout>
-      </div>
+      </article>
+      {tableOfContents && tableOfContents.length > 0 && (
+        <div className="col-span-3 col-end-13 ml-auto w-full max-w-[314px] pt-2.5 pb-28 xl:max-w-none lg:hidden">
+          <TableOfContents
+            items={tableOfContents}
+            className="scrollbar-hidden sticky top-10 max-h-[calc(100vh-40px)] overflow-y-auto"
+            hasBackToTop
+          />
+        </div>
+      )}
     </>
   );
 }
