@@ -8,13 +8,13 @@ const typeClassNames = {
     wrapper: 'border-tones-purple-dark shadow-[0px_5px_15px_rgba(156,186,201,0.5)]',
     inner: 'bg-tones-purple-light',
     icon: 'bg-primary-1',
-    text: 'prose-a:no-underline prose-a:text-primary-1 prose-a:font-semibold prose-li:before:!text-primary-1',
+    text: 'prose-a:no-underline prose-a:text-primary-1 prose-a:font-semibold prose-li:marker:!text-primary-1',
   },
   warning: {
     wrapper: 'border-[#D2ACB3] shadow-[0px_5px_15px_rgba(210,172,179,0.4)]',
     inner: 'bg-[#FDF2F3]',
     icon: 'bg-secondary-4',
-    text: 'prose-a:no-underline prose-a:text-secondary-4 prose-a:font-semibold prose-li:before:!text-secondary-4',
+    text: 'prose-a:no-underline prose-a:text-secondary-4 prose-a:font-semibold prose-li:marker:!text-secondary-4',
   },
 };
 
