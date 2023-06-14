@@ -19,6 +19,7 @@ const Route = {
   REFUND: '/refund',
   TERMS: '/terms',
   PRIVACY: '/privacy',
+  SLA: '/sla',
   JOBS: '/about#crew',
   CONTACTS: '/contact-us',
 
