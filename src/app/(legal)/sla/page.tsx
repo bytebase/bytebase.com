@@ -56,9 +56,9 @@ export default function Page() {
         Enterprise plans.
       </p>
       <p>
-        <strong>Note:</strong> The business hours which, due to 24x5， are defined as: Monday 9am
-        PST - Friday 5pm PST. The business hours which, due to 8x5， are defined as: 9am PST - 5pm
-        PST weekday.
+        <strong>Note:</strong> The business hours which, due to 24x5, are defined as: Monday 9am PST
+        - Friday 5pm PST. The business hours which, due to 8x5, are defined as: 9am PST - 5pm PST
+        weekday.
       </p>
     </>
   );
