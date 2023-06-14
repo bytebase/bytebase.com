@@ -111,30 +111,8 @@
       }
     }
 
-    ul,
-    ol {
-      @apply my-5 pl-9 xl:my-4 sm:pl-5;
-
-      ul,
-      ol {
-        @apply my-2.5 pl-5 xl:my-2 sm:pl-2;
-      }
-    }
-
-    ol {
-      @apply pl-8 sm:pl-4;
-
-      ol {
-        @apply pl-4 sm:pl-1;
-      }
-
-      li {
-        @apply pl-1;
-      }
-    }
-
     li {
-      @apply mt-2.5 mb-0 pl-0 first:mt-0;
+      @apply pl-0;
 
       &::marker {
         @apply font-semibold text-primary-1;
