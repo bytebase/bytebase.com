@@ -109,7 +109,7 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 
 #### Number of rules
 
-- **Flyway**: 10+ general rules or integrate a tool called SQLFluff to get more rules.
+- **Flyway**: 10+ general rules or integrate a python app called SQLFluff to get more rules.
 - **Bytebase**: 49 rules for MySQL, 38 rules for PostgreSQL, 18 rules for Oracle ...
 
 #### How to configure
