@@ -84,7 +84,7 @@ const MobileSidebar = ({
           <span className="relative">
             <span
               className={clsx(
-                'absolute -left-3 top-1/2 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
+                'absolute top-1/2 -left-3 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
                 isOpen ? 'rotate-45' : 'rotate-[135deg]',
               )}
             />
