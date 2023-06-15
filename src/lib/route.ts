@@ -59,6 +59,10 @@ const Route = {
   DOCS_BITBUCKET: '/docs/vcs-integration/bitbucket-org/',
 
   // databases
+  VS_LIQUIBASE: '/blog/bytebase-vs-liquibase',
+  VS_FLAYWAY: '/blog/bytebase-vs-flyway',
+
+  // databases
   DATABASE_MYSQL: '/database/mysql',
   DATABASE_POSTGRES: '/database/postgres',
   DATABASE_SNOWFLAKE: '/database/snowflake',
@@ -97,6 +101,7 @@ const Route = {
   GITHUB: 'https://github.com/bytebase/bytebase',
   STAR_HISTORY: 'https://star-history.com/#bytebase/bytebase',
   DB_COST: 'https://www.dbcost.com/',
+  SQL_CHAT: 'https://www.sqlchat.ai/',
 };
 
 export default Route;

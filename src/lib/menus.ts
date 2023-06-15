@@ -71,6 +71,13 @@ export const MENU = {
   ],
   footer: [
     {
+      name: 'COMPARISONS',
+      items: [
+        { name: 'vs Liquibase', linkUrl: Route.VS_LIQUIBASE },
+        { name: 'vs Flyway', linkUrl: Route.VS_FLAYWAY },
+      ],
+    },
+    {
       name: 'DATABASES',
       items: [
         { name: 'MySQL', linkUrl: Route.DATABASE_MYSQL },
@@ -109,6 +116,7 @@ export const MENU = {
         { name: 'Changelog', linkUrl: Route.CHANGELOG },
         { name: 'SQL Review Guide', linkUrl: Route.SQL_REVIEW_GUIDE },
         { name: 'Database Glossary', linkUrl: Route.DATABASE_GLOSSARY },
+        { name: 'SQL Chat', linkUrl: Route.SQL_CHAT, isExternal: true },
         { name: 'DB Cost', linkUrl: Route.DB_COST, isExternal: true },
         {
           name: 'Star History',
