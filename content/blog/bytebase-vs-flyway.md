@@ -1,13 +1,13 @@
 ---
-title: 'Bytebase vs. Flyway: a side-by-side database DevOps tool comparison for 2023'
+title: 'Bytebase vs. Flyway: a side-by-side database CI/CD tool comparison for 2023'
 author: Changyu
 published_at: 2023/06/14 19:21:21
 feature_image: /content/blog/bytebase-vs-flyway/bytebase-vs-flyway-banner.webp
 tags: Explanation
-description: 'When looking for a schema migration and database DevOps tool, Bytebase and flyway are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.'
+description: 'When looking for a database CI/CD and schema migration change tool, Bytebase and flyway are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.'
 ---
 
-When looking for a schema migration and database DevOps tool, Bytebase and flyway are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.
+When looking for a database CI/CD and schema migration change tool, Bytebase and flyway are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.
 
 ## What Bytebase and Flyway have in common
 
@@ -200,7 +200,7 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 
 ## Summary
 
-To summarize, Bytebase and Flyway are both viable options for database DevOps. Flyway deliver its feature via its CLI, while Bytebase
+To summarize, Bytebase and Flyway are both viable options for database CI/CD. Flyway deliver its feature via its CLI, while Bytebase
 offers a GUI-based collaboration space.
 
 As an analogy, **Flyway is Git for database, and Bytebase is GitHub/GitLab for database**. Git is good for local and personal use. On the other hand, for team development which needs collaboration, review, access control and etc, GitHub/GitLab is more suitable.
