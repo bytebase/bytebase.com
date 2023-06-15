@@ -31,6 +31,7 @@ const variants = {
   },
 };
 
+// TODO: refactor this component to use the same component instead of duplicating it
 const MobileSidebar = ({
   className,
   categoryList,
@@ -39,15 +40,25 @@ const MobileSidebar = ({
   categoryList: GlossaryLetterSet[];
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [bannerSize, setBannerSize] = useState(0);
   const [containerHeight, setContainerHeight] = useState<string | undefined>(undefined);
   const height = useWindowHeight();
   const wrapperRef = useRef<null | HTMLDivElement>(null);
   const controls = useAnimation();
   const toggleMenu = () => setIsOpen((prev) => !prev);
+
+  // NOTE: this effect is needed to get the height of the top banner if it exists
+  useEffect(() => {
+    const banner = document.querySelector('.top-banner');
+    if (banner) {
+      setBannerSize(banner.clientHeight);
+    }
+  }, []);
+
   // 125px is the height of header + button Documentation menu
   useEffect(() => {
-    setContainerHeight(`${height - 125}px`);
-  }, [height]);
+    setContainerHeight(`${height - 125 - bannerSize}px`);
+  }, [height, bannerSize]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'auto';
@@ -65,7 +76,7 @@ const MobileSidebar = ({
     <LazyMotion features={domAnimation}>
       <nav className={clsx('mobile-sidebar pt-[75px]', className)} ref={wrapperRef}>
         <button
-          className="flex w-full cursor-pointer appearance-none items-center justify-between text-ellipsis border-t border-b border-gray-94 bg-gray-97 px-11 py-4 leading-none tracking-tight text-gray-15 outline-none transition-colors duration-200 hover:bg-gray-90 active:bg-gray-90 md:px-7 sm:px-4"
+          className="flex w-full cursor-pointer appearance-none items-center justify-between text-ellipsis border-b border-t border-gray-94 bg-gray-97 px-11 py-4 leading-none tracking-tight text-gray-15 outline-none transition-colors duration-200 hover:bg-gray-90 active:bg-gray-90 md:px-7 sm:px-4"
           type="button"
           onClick={toggleMenu}
         >
@@ -73,13 +84,13 @@ const MobileSidebar = ({
           <span className="relative">
             <span
               className={clsx(
-                'absolute top-1/2 -left-3 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
+                'absolute -left-3 top-1/2 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
                 isOpen ? 'rotate-45' : 'rotate-[135deg]',
               )}
             />
             <span
               className={clsx(
-                'absolute top-1/2 -left-[7px] h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
+                'absolute -left-[7px] top-1/2 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
                 isOpen ? '-rotate-45' : '-rotate-[135deg]',
               )}
             />
@@ -87,13 +98,11 @@ const MobileSidebar = ({
         </button>
 
         <m.ul
-          className={clsx(
-            'fixed inset-x-0 top-[125px] bottom-0 z-20 flex flex-col gap-y-6 overflow-y-scroll bg-white px-11 py-6 md:px-7 sm:px-4',
-          )}
+          className="fixed inset-x-0 bottom-0 z-20 flex flex-col gap-y-6 overflow-y-scroll bg-white px-11 py-6 md:px-7 sm:px-4"
           initial="from"
           animate={controls}
           variants={variants}
-          style={{ maxHeight: containerHeight }}
+          style={{ maxHeight: containerHeight, top: `${125 + bannerSize}px` }}
         >
           {categoryList.map(({ letter, list }) => {
             return (

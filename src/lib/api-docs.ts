@@ -20,7 +20,7 @@ const getPostSlugs = (): string[] => {
 
 const getPostBySlug = (slug: string): { data: Record<string, any>; content: string } | null => {
   try {
-    const VERSION = fs.readFileSync('VERSION').toString();
+    const VERSION = fs.readFileSync(`${process.cwd()}/VERSION`).toString();
     const source = fs.readFileSync(`${DOCS_DIR_PATH}/${slug}.md`);
     const { data, content } = matter(source);
 

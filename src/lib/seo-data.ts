@@ -41,6 +41,11 @@ const SEO_DATA = {
     description: 'Safer and faster database change and version control for DBAs and Developers',
     pathname: `${Route.PRIVACY}/`,
   },
+  SLA: {
+    title: 'Service Level Agreement',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.SLA}/`,
+  },
   SQL_REVIEW_GUIDE: {
     title: 'Database Review Guide',
     description: 'Safer and faster database change and version control for DBAs and Developers',

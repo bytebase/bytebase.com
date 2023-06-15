@@ -34,18 +34,18 @@ const variants = {
   },
 };
 
+// TODO: refactor this component to use the same component instead of duplicating it
 const MobileSidebar = ({
   className,
   data,
-  currentUrl,
   expandedList,
 }: {
   className?: string;
   data: SidebarItem[];
-  currentUrl: string;
   expandedList?: string[];
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [bannerSize, setBannerSize] = useState(0);
   const [containerHeight, setContainerHeight] = useState<string | undefined>(undefined);
   const height = useWindowHeight();
   const wrapperRef = useRef<null | HTMLDivElement>(null);
@@ -62,10 +62,18 @@ const MobileSidebar = ({
     document.body.style.overflow = isOpen ? 'hidden' : 'auto';
   }, [isOpen]);
 
+  // NOTE: this effect is needed to get the height of the top banner if it exists
+  useEffect(() => {
+    const banner = document.querySelector('.top-banner');
+    if (banner) {
+      setBannerSize(banner.clientHeight);
+    }
+  }, []);
+
   // 122px is the height of header + button Documentation menu
   useEffect(() => {
-    setContainerHeight(`${height - 122}px`);
-  }, [height]);
+    setContainerHeight(`${height - 122 - bannerSize}px`);
+  }, [height, bannerSize]);
 
   useEffect(() => {
     controls.start(isOpen ? 'to' : 'from');
@@ -97,16 +105,14 @@ const MobileSidebar = ({
         </button>
 
         <m.ul
-          className={clsx(
-            'fixed inset-x-0 bottom-0 top-[122px] z-20 flex flex-col overflow-y-scroll bg-white px-7 py-4 sm:px-4',
-          )}
+          className="fixed inset-x-0 bottom-0 z-20 flex flex-col overflow-y-scroll bg-white px-7 py-4 sm:px-4"
           initial="from"
           animate={controls}
           variants={variants}
-          style={{ maxHeight: containerHeight }}
+          style={{ maxHeight: containerHeight, top: `${122 + bannerSize}px` }}
         >
           {data.map((item, index) => (
-            <Item {...item} currentUrl={currentUrl} expandedList={expandedList} key={index} />
+            <Item {...item} closeMenu={toggleMenu} expandedList={expandedList} key={index} />
           ))}
         </m.ul>
       </nav>
