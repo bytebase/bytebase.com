@@ -67,7 +67,7 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
         </PostLayout>
       </article>
       {tableOfContents && tableOfContents.length > 0 && (
-        <div className="col-span-3 col-end-13 ml-auto w-full max-w-[314px] pb-28 pt-2.5 xl:max-w-none lg:hidden">
+        <div className="col-span-3 col-end-13 ml-auto w-full max-w-[314px] pt-2.5 pb-28 xl:max-w-none lg:hidden">
           <TableOfContents
             items={tableOfContents}
             className="scrollbar-hidden sticky top-10 max-h-[calc(100vh-40px)] overflow-y-auto"
