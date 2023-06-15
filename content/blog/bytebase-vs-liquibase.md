@@ -25,23 +25,23 @@ While both Bytebase and Liquibase are tools for database CI/CD, there are some k
 product is its CLI and the java library. Bytebase also provides a CLI, while its main product is the GUI-based workspace
 for developers and DBAs to collaborate.
 
-|                                                                            | Liquibase       | Bytebase                             |
-| -------------------------------------------------------------------------- | --------------- | ------------------------------------ |
-| [Product position](#product-position)                                      | Schema change   | Schema Change, Data Query and Secure |
-| [Developer interface](#developer-interface)                                | CLI             | GUI                                  |
-| [Supported databases](#supported-databases)                                | 50              | 13                                   |
-| [Programming language and installation](#installation)                     | Java + JVM      | Go single binary without dependency  |
-| [Change execution](#change-execution)                                      | Changelog + CLI | Issue + GUI                          |
-| [Batch Change](#change-execution)                                          | -               | ✅ Multi-environment / Multi-tenant  |
-| [Database GitOps](#database-gitops-configuration)                          | ✅              | ✅                                   |
-| [SQL auto check](#sql-auto-check)                                          | ✅ Paid version | ✅ Available in Free version         |
-| [Approval flow](#approval-flow)                                            | -               | ✅                                   |
-| [Change history](#change-history)                                          | ✅              | ✅                                   |
-| [Sync schema](#sync-schema)                                                | ✅              | ✅                                   |
-| [Rollback](#rollback)                                                      | ✅ Manual       | ✅ Auto generated rollback statement |
-| [Schema drift detection](#schema-drift-detection)                          | -               | ✅                                   |
-| [Slow query detection and advisor](#slow-query-detection-and-advisor)      | -               | ✅                                   |
-| [Data query, security and compliance](#data-query-security-and-compliance) | -               | ✅                                   |
+|                                                                                              | Liquibase       | Bytebase                             |
+| -------------------------------------------------------------------------------------------- | --------------- | ------------------------------------ |
+| [Product position](#product-position)                                                        | Schema change   | Schema Change, Data Query and Secure |
+| [Developer interface](#developer-interface)                                                  | CLI             | GUI                                  |
+| [Supported databases](#supported-databases)                                                  | 50              | 13                                   |
+| [Programming language and installation](#installation)                                       | Java + JVM      | Go single binary without dependency  |
+| [Change execution](#change-execution)                                                        | Changelog + CLI | Issue + GUI                          |
+| [Batch Change](#change-execution)                                                            | -               | ✅ Multi-environment / Multi-tenant  |
+| [Database GitOps](#database-gitops-configuration)                                            | ✅              | ✅                                   |
+| [SQL auto check](#sql-auto-check)                                                            | ✅ Paid version | ✅ Available in Free version         |
+| [Approval flow](#approval-flow)                                                              | -               | ✅                                   |
+| [Change history](#change-history)                                                            | ✅              | ✅                                   |
+| [Sync schema](#sync-schema)                                                                  | ✅              | ✅                                   |
+| [Rollback](#rollback)                                                                        | ✅ Manual       | ✅ Auto generated rollback statement |
+| [Schema drift detection](#schema-drift-detection)                                            | -               | ✅                                   |
+| [Slow query detection and advisor](#slow-query-detection-and-advisor)                        | -               | ✅                                   |
+| [Data access control, security and compliance](#data-access-control-security-and-compliance) | -               | ✅                                   |
 
 ### Product position
 
@@ -178,7 +178,7 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 - **Bytebase**: Will auto detect slow queries and send weekly summary report. Provide an AI-based index advisor to provide query optimization advice.
   ![bytebase-slow-query](/content/blog/bytebase-vs-liquibase/bytebase-slow-query.webp)
 
-### Data query, security and compliance
+### Data access control, security and compliance
 
 - **Liquibase**: Not supported.
 
