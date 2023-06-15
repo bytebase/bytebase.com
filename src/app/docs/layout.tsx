@@ -19,7 +19,7 @@ export default function DocLayout({ children }: { children: React.ReactNode }) {
       <div className="container grid grid-cols-12 gap-x-10 pt-[136px] 2xl:pt-[140px] xl:gap-x-9 xl:pt-32 lg:gap-x-6 md:mt-6 md:gap-x-5 md:pt-0 sm:gap-x-4">
         <div
           className="sticky top-10 col-span-3 h-[calc(100vh-40px)] overflow-hidden 
-        before:absolute before:left-0 before:top-0 before:z-10 before:h-[72px] before:w-full before:bg-docs-sidebar 
+        before:absolute before:top-0 before:left-0 before:z-10 before:h-[72px] before:w-full before:bg-docs-sidebar 
         after:absolute after:bottom-0 after:left-0 after:z-10 after:h-10 after:w-full after:bg-gradient-to-b after:from-transparent after:to-white 
         md:hidden"
         >
