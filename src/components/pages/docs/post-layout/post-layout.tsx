@@ -37,7 +37,7 @@ const PostLayout = ({
       </h1>
       {featureImage && (
         <Image
-          className="my-11 w-full rounded lg:mb-8 lg:mt-10 sm:mb-6 sm:mt-5"
+          className="my-11 w-full rounded lg:mt-10 lg:mb-8 sm:mt-5 sm:mb-6"
           src={featureImage}
           alt={title}
           width={967}
