@@ -337,6 +337,12 @@ expand_section_list: ['Introduction', 'Get Started']
 
 #### [Run a Local MySQL Instance](/tutorials/local-mysql-instance)
 
+### MariaDB
+
+#### [Change Management with MariaDB](/tutorials/database-change-management-with-mariadb)
+
+#### [Change Management with MariaDB and GitHub](/tutorials/database-change-management-with-mariadb-and-github)
+
 ### Amazone Aurora
 
 #### [Change Management with Amazon Aurora](/tutorials/database-change-management-with-amazon-aurora)

@@ -10,6 +10,8 @@ title: Overview
 
 <TutorialTallCard title="DevOps: Database Change Management with MySQL" url="/docs/tutorials/database-change-management-with-mysql" date="2023/04/23" logos="aurora"></TutorialTallCard>
 
+<TutorialTallCard title="DevOps: Database Change Management with MariaDB" url="/docs/tutorials/database-change-management-with-mariadb" date="2023/06/16" logos="mariadb"></TutorialTallCard>
+
 <TutorialTallCard title="DevOps: Database Change Management with Amazon Aurora" url="/docs/tutorials/database-change-management-with-amazon-aurora" date="2023/03/09" logos="aurora"></TutorialTallCard>
 
 <TutorialTallCard title="DevOps: Database Change Management with PostgreSQL" url="/docs/tutorials/database-change-management-with-postgresql" date="2023/02/14" logos="postgres"></TutorialTallCard>
@@ -40,6 +42,9 @@ title: Overview
 <TutorialTallCard title="DevOps: Database Change Management with GitHub using Bytebase Cloud" url="/docs/tutorials/database-change-management-with-github-using-bytebase-cloud" logos="aurora,github" date="2023/04/17"></TutorialTallCard>
 
 <TutorialTallCard title="DevOps: Database Change Management with MySQL and GitHub" url="/docs/tutorials/database-change-management-with-mysql-and-github" logos="aurora,github" date="2023/02/08"></TutorialTallCard>
+
+<TutorialTallCard title="DevOps: Database Change Management with MariaDB and GitHub" url="/docs/tutorials/database-change-management-with-mariadb-and-github" logos="mariadb,github" date="2023/06/16"></TutorialTallCard>
+
 
 <TutorialTallCard title="DevOps: Database Change Management with Amazon Aurora and GitHub" url="/docs/tutorials/database-change-management-with-amazon-aurora-and-github" logos="aurora,github" date="2023/03/10"></TutorialTallCard>
 
