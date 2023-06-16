@@ -10,7 +10,8 @@ const DEV_TEMPLATE = 'sql-review.dev.yaml';
 const mkdirAsync = promisify(mkdir);
 const writeFileAsync = promisify(writeFile);
 
-const LOCALIZATION_FOLDER = './src/locales';
+const FILES_FOLDER = './data/sql-review';
+const LOCALIZATION_FOLDER = './data/locales';
 const CONSOLE_VERSION_FOR_SQL_REVIEW = 'main';
 const URL = 'https://raw.githubusercontent.com/bytebase/bytebase';
 
@@ -22,9 +23,9 @@ const input = [
 ];
 
 const output = [
-  `./data/${SCHEMA_FILE}`,
-  `./data/${PROD_TEMPLATE}`,
-  `./data/${DEV_TEMPLATE}`,
+  `${FILES_FOLDER}/${SCHEMA_FILE}`,
+  `${FILES_FOLDER}/${PROD_TEMPLATE}`,
+  `${FILES_FOLDER}/${DEV_TEMPLATE}`,
   `${LOCALIZATION_FOLDER}/sql-review/en.json`,
 ];
 
@@ -45,8 +46,8 @@ async function downloadFile(inputUrl, outputFile) {
 
 async function main() {
   try {
+    await mkdirAsync(FILES_FOLDER, { recursive: true });
     await mkdirAsync(`${LOCALIZATION_FOLDER}/sql-review`, { recursive: true });
-    await mkdirAsync(`${LOCALIZATION_FOLDER}/subscription`, { recursive: true });
 
     const promises = input.map((inputUrl, index) => downloadFile(inputUrl, output[index]));
 

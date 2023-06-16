@@ -12,7 +12,7 @@
     "lint:md": "markdownlint --ignore-path .gitignore .",
     "lint:md:fix": "markdownlint --fix --ignore-path .gitignore .",
     "format": "prettier --write \"**/*.{css,js,jsx,ts,tsx,json}\"",
-    "prepare": "husky install"
+    "prepare": "husky install && NODE_ENV=production node ./src/scripts/fetch-sql-review.mjs"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.0.12",
