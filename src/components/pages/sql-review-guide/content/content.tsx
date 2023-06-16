@@ -10,11 +10,13 @@ import MySQLIcon from '@/svgs/aurora.inline.svg';
 import ExternalIcon from '@/svgs/external-sm.inline.svg';
 import PostgresIcon from '@/svgs/postgres.inline.svg';
 import TidbIcon from '@/svgs/tidb.inline.svg';
+import OceanBaseIcon from '@/svgs/oceanbase.inline.svg';
 
 const icons: Record<string, JSXElementConstructor<{ key: string; className: string }>> = {
   MYSQL: MySQLIcon,
   TIDB: TidbIcon,
   POSTGRES: PostgresIcon,
+  OCEANBASE: OceanBaseIcon,
 };
 
 const EngineList = ({
@@ -29,13 +31,17 @@ const EngineList = ({
   <div className={clsx('flex space-x-3', className)}>
     <div
       className={clsx(
-        'flex h-10 items-center space-x-3 rounded-full border border-gray-90',
+        'flex h-10 items-center gap-3 rounded-full border border-gray-90',
         engineList.length === 1 ? 'px-2.5' : 'px-4',
       )}
     >
       {engineList.map((engine) => {
-        const Icon = icons[engine];
-        return <Icon className="h-5 w-5" key={engine} />;
+        if (icons[engine]) {
+          const Icon = icons[engine];
+          return <Icon className="h-5 w-5" key={engine} />;
+        }
+
+        return engine;
       })}
     </div>
     <a
