@@ -1,24 +1,24 @@
 ---
-title: 'DevOps: Database Change Management with PostgreSQL and GitHub'
+title: 'DevOps: Database Change Management with MariaDB and GitHub'
 author: Ningjing
 published_at: 2023/02/16 11:45
 feature_image: /content/docs/tutorials/database-change-management-with-postgresql-and-github/feature-image.webp
 tags: Tutorial
-integrations: PostgreSQL, GitHub
+integrations: MariaDB, GitHub
 level: Intermediate
-description: This tutorial will bring your PostgreSQL schema change to the next level by introducing the GitOps workflow, where you commit schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
+description: This tutorial will bring your MariaDB schema change to the next level by introducing the GitOps workflow, where you commit schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 ---
 
-This is a series of articles about DevOps: Database Change Management with PostgreSQL
+This is a series of articles about DevOps: Database Change Management with MariaDB
 
-- [DevOps: Database Change Management with PostgreSQL](/docs/tutorials/database-change-management-with-postgresql)
-- DevOps: Database Change Management with PostgreSQL and GitHub (this one)
+- [DevOps: Database Change Management with MariaDB](/docs/tutorials/database-change-management-with-postgresql)
+- DevOps: Database Change Management with MariaDB and GitHub (this one)
 
 ---
 
 ## Overview
 
-In the last article [DevOps: Database Change Management with PostgreSQL](/docs/tutorials/database-change-management-with-postgresql), you have tried UI workflow in Bytebase.
+In the last article [DevOps: Database Change Management with MariaDB](/docs/tutorials/database-change-management-with-postgresql), you have tried UI workflow in Bytebase.
 
 This tutorial will bring you to the next level by introducing the GitOps workflow, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
@@ -28,7 +28,7 @@ You can use Bytebase free version to finish the tutorial.
 
 Before you start this tutorial, make sure:
 
-- You have followed our previous UI-based change tutorial [DevOps: Database Change Management with PostgreSQL](/docs/tutorials/database-change-management-with-postgresql).
+- You have followed our previous UI-based change tutorial [DevOps: Database Change Management with MariaDB](/docs/tutorials/database-change-management-with-postgresql).
 - You have a GitHub account.
 - You have a public GitHub repository, e.g  `pg-test-bb-local`.
 - You have [Docker](https://www.docker.com/) installed locally.
@@ -70,7 +70,7 @@ bytebase/bytebase:%%bb_version%% \
 5. Bytebase is running successfully in Docker, and you can visit it via https://70ca-154-9-204-36.ngrok.io/
    ![docker](/content/docs/tutorials/database-change-management-with-postgresql-and-github/docker.webp)
 
-## Step 2 - Find your PostgreSQL instance in Bytebase
+## Step 2 - Find your MariaDB instance in Bytebase
 
 1. Visit [https://70ca-154-9-204-36.ngrok.io/](https://70ca-154-9-204-36.ngrok.io/) in your browser, and login using your admin account created from the previous article.
    ![bb-login](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-login.webp)
@@ -103,7 +103,7 @@ bytebase/bytebase:%%bb_version%% \
    ![gh-auth](/content/docs/tutorials/database-change-management-with-postgresql-and-github/gh-auth.webp)
    ![bb-settings-vc-step3](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-settings-vc-step3.webp)
 
-## Step 4 - Enable GitOps workflow with PostgreSQL
+## Step 4 - Enable GitOps workflow with MariaDB
 
 1. Go to project `Sample Project`, click **Version Control**, and choose **GitOps Workflow**. Click **Configure GitOps**.
    ![bb-project-vc-gitops](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-vc-gitops.webp)
@@ -115,7 +115,7 @@ bytebase/bytebase:%%bb_version%% \
 3. Keep the default setting, and click **Finish**.
    ![bb-project-vc-gitops-enabled](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-vc-gitops-enabled.webp)
 
-## Step 5 - Change schema for PostgreSQL by pushing SQL schema change files to GitHub
+## Step 5 - Change schema for MariaDB by pushing SQL schema change files to GitHub
 
 1. In your GitHub repository `pg-test-bb-local`, create a folder `bytebase`, then create a subfolder `Prod`, and create an sql file following the pattern `{{ENV_ID}}/{{DB_NAME}}##{{VERSION}}##{{TYPE}}##{{DESCRIPTION}}.sql`. It is the default configuration for file path template setting under project version control.
 
@@ -166,6 +166,6 @@ COMMENT
 
 ## Summary and Next
 
-Now you have tried out GitOps workflow, which will store your PostgreSQL schema in GitHub and trigger the change upon committing the change to the repository, to bring your PostgreSQL change workflow to the next level of Database DevOps - [Database as Code](blog/database-as-code).
+Now you have tried out GitOps workflow, which will store your MariaDB schema in GitHub and trigger the change upon committing the change to the repository, to bring your MariaDB change workflow to the next level of Database DevOps - [Database as Code](blog/database-as-code).
 
 In real world scenario, you might have separate features and main branches corresponding to your dev and production environment, you can check out [GitOps with Feature Branch Workflow](/docs/how-to/workflow/gitops-feature-branch) to learn the setup. Have a try and look forward to your feedback!
