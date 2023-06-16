@@ -1,4 +1,4 @@
-import translationEn from '@/locales/sql-review/en.json';
+import translationEn from '../../data/locales/sql-review/en.json';
 
 import { CategoryType, FilterItem, RuleCategory, RuleTemplate } from '@/types/sql-review';
 
