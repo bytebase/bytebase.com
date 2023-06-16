@@ -20,6 +20,8 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - ORACLE
+      - OCEANBASE
     componentList: []
   - type: table.no-foreign-key
     category: TABLE
@@ -27,6 +29,8 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - ORACLE
+      - OCEANBASE
     componentList: []
   - type: table.drop-naming-convention
     category: TABLE
@@ -34,6 +38,7 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - OCEANBASE
     componentList:
       - key: format
         payload:
@@ -44,6 +49,7 @@ ruleList:
     engineList:
       - MYSQL
       - TIDB
+      - OCEANBASE
     componentList:
       - key: required
         payload:
@@ -59,6 +65,7 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - OCEANBASE
     componentList: []
   - type: statement.select.no-select-all
     category: STATEMENT
@@ -66,6 +73,8 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - ORACLE
+      - OCEANBASE
     componentList: []
   - type: statement.where.require
     category: STATEMENT
@@ -73,6 +82,8 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - ORACLE
+      - OCEANBASE
     componentList: []
   - type: statement.where.no-leading-wildcard-like
     category: STATEMENT
@@ -80,6 +91,8 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - ORACLE
+      - OCEANBASE
     componentList: []
   - type: statement.disallow-commit
     category: STATEMENT
@@ -87,18 +100,21 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - OCEANBASE
     componentList: []
   - type: statement.disallow-limit
     category: STATEMENT
     engineList:
       - MYSQL
       - TIDB
+      - OCEANBASE
     componentList: []
   - type: statement.disallow-order-by
     category: STATEMENT
     engineList:
       - MYSQL
       - TIDB
+      - OCEANBASE
     componentList: []
   - type: statement.merge-alter-table
     category: STATEMENT
@@ -106,12 +122,14 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - OCEANBASE
     componentList: []
   - type: statement.insert.row-limit
     category: STATEMENT
     engineList:
       - MYSQL
       - POSTGRES
+      - OCEANBASE
     componentList:
       - key: number
         payload:
@@ -123,6 +141,8 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - ORACLE
+      - OCEANBASE
     componentList: []
   - type: statement.insert.disallow-order-by-rand
     category: STATEMENT
@@ -130,12 +150,14 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - OCEANBASE
     componentList: []
   - type: statement.affected-row-limit
     category: STATEMENT
     engineList:
       - MYSQL
       - POSTGRES
+      - OCEANBASE
     componentList:
       - key: number
         payload:
@@ -146,6 +168,7 @@ ruleList:
     engineList:
       - MYSQL
       - POSTGRES
+      - OCEANBASE
     componentList: []
   - type: statement.disallow-add-column-with-default
     category: STATEMENT
@@ -168,6 +191,8 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - ORACLE
+      - OCEANBASE
     componentList:
       - key: format
         payload:
@@ -183,6 +208,7 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - OCEANBASE
     componentList:
       - key: format
         payload:
@@ -198,6 +224,7 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - OCEANBASE
     componentList:
       - key: format
         payload:
@@ -216,6 +243,7 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - OCEANBASE
     componentList:
       - key: format
         payload:
@@ -234,6 +262,7 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - OCEANBASE
     componentList:
       - key: format
         payload:
@@ -269,6 +298,7 @@ ruleList:
     engineList:
       - MYSQL
       - TIDB
+      - OCEANBASE
     componentList:
       - key: format
         payload:
@@ -278,12 +308,33 @@ ruleList:
         payload:
           type: NUMBER
           default: 64
+  - type: naming.table.no-keyword
+    category: NAMING
+    engineList:
+      - ORACLE
+    componentList: []
+  - type: naming.identifier.no-keyword
+    category: NAMING
+    engineList:
+      - ORACLE
+    componentList: []
+  - type: naming.identifier.case
+    category: NAMING
+    engineList:
+      - ORACLE
+    componentList:
+      - key: upper
+        payload:
+          type: BOOLEAN
+          default: true
   - type: column.required
     category: COLUMN
     engineList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - ORACLE
+      - OCEANBASE
     componentList:
       - key: list
         payload:
@@ -300,6 +351,8 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - ORACLE
+      - OCEANBASE
     componentList: []
   - type: column.disallow-change-type
     category: COLUMN
@@ -307,30 +360,36 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - OCEANBASE
     componentList: []
   - type: column.set-default-for-not-null
     category: COLUMN
     engineList:
       - MYSQL
       - TIDB
+      - ORACLE
+      - OCEANBASE
     componentList: []
   - type: column.disallow-change
     category: COLUMN
     engineList:
       - MYSQL
       - TIDB
+      - OCEANBASE
     componentList: []
   - type: column.disallow-changing-order
     category: COLUMN
     engineList:
       - MYSQL
       - TIDB
+      - OCEANBASE
     componentList: []
   - type: column.comment
     category: COLUMN
     engineList:
       - MYSQL
       - TIDB
+      - OCEANBASE
     componentList:
       - key: required
         payload:
@@ -345,6 +404,7 @@ ruleList:
     engineList:
       - MYSQL
       - TIDB
+      - OCEANBASE
     componentList: []
   - type: column.type-disallow-list
     category: COLUMN
@@ -352,6 +412,8 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - ORACLE
+      - OCEANBASE
     componentList:
       - key: list
         payload:
@@ -362,6 +424,7 @@ ruleList:
     engineList:
       - MYSQL
       - TIDB
+      - OCEANBASE
     componentList: []
   - type: column.maximum-character-length
     category: COLUMN
@@ -369,16 +432,28 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - ORACLE
+      - OCEANBASE
     componentList:
       - key: number
         payload:
           type: NUMBER
           default: 20
+  - type: column.maximum-varchar-length
+    category: COLUMN
+    engineList:
+      - ORACLE
+    componentList:
+      - key: number
+        payload:
+          type: NUMBER
+          default: 2560
   - type: column.auto-increment-initial-value
     category: COLUMN
     engineList:
       - MYSQL
       - TIDB
+      - OCEANBASE
     componentList:
       - key: number
         payload:
@@ -389,12 +464,14 @@ ruleList:
     engineList:
       - MYSQL
       - TIDB
+      - OCEANBASE
     componentList: []
   - type: column.current-time-count-limit
     category: COLUMN
     engineList:
       - MYSQL
       - TIDB
+      - OCEANBASE
     componentList: []
   - type: column.require-default
     category: COLUMN
@@ -402,6 +479,8 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - ORACLE
+      - OCEANBASE
     componentList: []
   - type: schema.backward-compatibility
     category: SCHEMA
@@ -409,12 +488,14 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - OCEANBASE
     componentList: []
   - type: database.drop-empty-database
     category: DATABASE
     engineList:
       - MYSQL
       - TIDB
+      - OCEANBASE
     componentList: []
   - type: index.no-duplicate-column
     category: INDEX
@@ -422,6 +503,7 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - OCEANBASE
     componentList: []
   - type: index.key-number-limit
     category: INDEX
@@ -429,6 +511,8 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - ORACLE
+      - OCEANBASE
     componentList:
       - key: number
         payload:
@@ -439,12 +523,14 @@ ruleList:
     engineList:
       - MYSQL
       - TIDB
+      - OCEANBASE
     componentList: []
   - type: index.type-no-blob
     category: INDEX
     engineList:
       - MYSQL
       - TIDB
+      - OCEANBASE
     componentList: []
   - type: index.total-number-limit
     category: INDEX
@@ -452,6 +538,7 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - OCEANBASE
     componentList:
       - key: number
         payload:
@@ -463,6 +550,7 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - OCEANBASE
     componentList:
       - key: list
         payload:
@@ -479,6 +567,7 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - OCEANBASE
     componentList:
       - key: list
         payload:
@@ -490,6 +579,7 @@ ruleList:
       - MYSQL
       - TIDB
       - POSTGRES
+      - OCEANBASE
     componentList:
       - key: list
         payload:

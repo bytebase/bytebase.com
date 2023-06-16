@@ -44,7 +44,7 @@ Different sets of rules can form different [SQL Review Policies](/docs/sql-revie
   - [Backward incompatible schema change](/docs/sql-review/review-rules#schema.backward-compatibility)
 - Column
   - [Enforce the required columns in each table](/docs/sql-review/review-rules#column.required)
-  - [Column type disallow list](/docs/sql-review/review-rules#column.disallow-list)
+  - [Column type disallow list](/docs/sql-review/review-rules#column.type-disallow-list)
   - [Columns no NULL value](/docs/sql-review/review-rules#column.no-null)
   - [Disallow changing column type](/docs/sql-review/review-rules#column.disallow-change-type)
   - [Set DEFAULT value for NOT NULL columns](/docs/sql-review/review-rules#column.set-default-for-not-null)
@@ -132,6 +132,7 @@ Specifically, Bytebase checks:
 - TiDB
 - PostgreSQL
 - Oracle
+- OceanBase
 
 <h3 id="naming.column">Column naming convention</h3>
 
@@ -168,6 +169,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- OceanBase
 
 <h3 id="naming.column.auto-increment">Auto-increment column naming convention</h3>
 
@@ -198,6 +200,7 @@ Specifically, Bytebase checks:
 
 - MySQL
 - TiDB
+- OceanBase
 
 <h3 id="naming.index.idx">Index naming convention</h3>
 
@@ -236,6 +239,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- OceanBase
 
 <h3 id="naming.index.pk">Primary key naming convention</h3>
 
@@ -308,6 +312,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- OceanBase
 
 <h3 id="naming.index.fk">Foreign key naming convention</h3>
 
@@ -344,6 +349,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- OceanBase
 
 <h3 id="naming.table.no-keyword">Disallow keywords as table names</h3>
 
@@ -407,6 +413,7 @@ Bytebase considers this rule to be violated if the SQL has `SELECT *`.
 - TiDB
 - PostgreSQL
 - Oracle
+- OceanBase
 
 <h3 id="statement.where.require">Require WHERE</h3>
 
@@ -426,6 +433,7 @@ Bytebase considers this rule to be violated if the SQL has no WHERE clause.
 - TiDB
 - PostgreSQL
 - Oracle
+- OceanBase
 
 <h3 id="statement.where.no-leading-wildcard-like">Disallow leading % in LIKE</h3>
 
@@ -443,6 +451,7 @@ Bytebase considers this rule to be violated if the SQL has leading wildcard LIKE
 - TiDB
 - PostgreSQL
 - Oracle
+- OceanBase
 
 <h3 id="statement.disallow-commit">Disallow COMMIT</h3>
 
@@ -459,6 +468,7 @@ Bytebase alerts users if there exists COMMIT statement.
 - MySQL
 - TiDB
 - PostgreSQL
+- OceanBase
 
 <h3 id="statement.disallow-limit">Disallow LIMIT</h3>
 
@@ -478,6 +488,7 @@ Specifically, Bytebase checks:
 
 - MySQL
 - TiDB
+- OceanBase
 
 Support for PostgreSQL is coming soon.
 
@@ -498,6 +509,7 @@ Specifically, Bytebase checks:
 
 - MySQL
 - TiDB
+- OceanBase
 
 Support for PostgreSQL is coming soon.
 
@@ -519,6 +531,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- OceanBase
 
 <h3 id="statement.insert.must-specify-column">INSERT statements must specify columns</h3>
 
@@ -538,6 +551,7 @@ Specifically, Bytebase checks:
 - TiDB
 - PostgreSQL
 - Oracle
+- OceanBase
 
 <h3 id="statement.insert.disallow-order-by-rand">Disallow ORDER BY RAND in INSERT statements</h3>
 
@@ -556,6 +570,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- OceanBase
 
 <h3 id="statement.insert.row-limit">Limit the inserted rows</h3>
 
@@ -572,6 +587,7 @@ Alert users if the inserted rows exceed the limit.
 
 - MySQL
 - PostgreSQL
+- OceanBase
 
 <h3 id="statement.affected-row-limit">Limit affected row limit</h3>
 
@@ -587,6 +603,7 @@ For `UPDATE` and `DELETE` statements, Bytebase runs `EXPLAIN` statements for the
 
 - MySQL
 - PostgreSQL
+- OceanBase
 
 <h3 id="statement.dml-dry-run">Dry run DML statements</h3>
 
@@ -606,6 +623,7 @@ Dry run DML statements by `EXPLAIN` statements. Specifically, Bytebase checks:
 
 - MySQL
 - PostgreSQL
+- OceanBase
 
 <h3 id="statement.disallow-add-column-with-default">Disallow add column with default</h3>
 
@@ -669,6 +687,7 @@ Bytebase considers this rule to be violated if the SQL tries to create a no prim
 - TiDB
 - PostgreSQL
 - Oracle
+- OceanBase
 
 <h3 id="table.no-foreign-key">Disallow foreign key</h3>
 
@@ -693,6 +712,7 @@ Bytebase considers this rule to be violated if the SQL tries to:
 - TiDB
 - PostgreSQL
 - Oracle
+- OceanBase
 
 <h3 id="table.drop-naming-convention">Drop naming convention</h3>
 
@@ -715,6 +735,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- OceanBase
 
 <h3 id="table.disallow-partition">Disallow partition table</h3>
 
@@ -734,6 +755,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- OceanBase
 
 <h3 id="table.comment">Table comment convention</h3>
 
@@ -754,6 +776,7 @@ Specifically, Bytebase checks:
 
 - MySQL
 - TiDB
+- OceanBase
 
 ## Schema
 
@@ -785,6 +808,7 @@ If the following situation occurs, Bytebase considers this rule to be violated:
 - MySQL
 - TiDB
 - PostgreSQL
+- OceanBase
 
 ## Column
 
@@ -806,8 +830,9 @@ Bytebase defaults all tables to meet the requirements. If the SQL tries to defin
 - TiDB
 - PostgreSQL
 - Oracle
+- OceanBase
 
-<h3 id="column.disallow-list">Column type disallow list</h3>
+<h3 id="column.type-disallow-list">Column type disallow list</h3>
 
 Set column type disallow list to ban column types.
 
@@ -828,6 +853,7 @@ Specifically, Bytebase checks:
 - TiDB
 - PostgreSQL
 - Oracle
+- OceanBase
 
 <h3 id="column.no-null">Columns no NULL value</h3>
 
@@ -845,6 +871,7 @@ Bytebase considers this rule to be violated if the SQL defines a column allowing
 - TiDB
 - PostgreSQL
 - Oracle
+- OceanBase
 
 <h3 id="column.disallow-change-type">Disallow changing column type</h3>
 
@@ -865,6 +892,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- OceanBase
 
 <h3 id="column.set-default-for-not-null">Set DEFAULT value for NOT NULL columns</h3>
 
@@ -886,6 +914,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - Oracle
+- OceanBase
 
 Support for PostgreSQL is coming soon.
 
@@ -904,6 +933,7 @@ Bytebase checks if using `ALTER TABLE CHANGE COLUMN` statements.
 
 - MySQL
 - TiDB
+- OceanBase
 
 <h3 id="column.disallow-changing-order">Disallow changing column order</h3>
 
@@ -923,6 +953,7 @@ Specifically, Bytebase checks:
 
 - MySQL
 - TiDB
+- OceanBase
 
 <h3 id="column.auto-increment-must-integer">Use integer for auto-increment columns</h3>
 
@@ -943,6 +974,7 @@ Specifically, Bytebase checks:
 
 - MySQL
 - TiDB
+- OceanBase
 
 Support for PostgreSQL is coming soon.
 
@@ -965,6 +997,7 @@ Specifically, Bytebase checks:
 
 - MySQL
 - TiDB
+- OceanBase
 
 <h3 id="column.auto-increment-must-unsigned">Set unsigned attribute on auto-increment columns</h3>
 
@@ -985,6 +1018,7 @@ Specifically, Bytebase checks:
 
 - MySQL
 - TiDB
+- OceanBase
 
 <h3 id="column.comment">Column comment convention</h3>
 
@@ -1005,6 +1039,7 @@ Specifically, Bytebase checks:
 
 - MySQL
 - TiDB
+- OceanBase
 
 <h3 id="column.maximum-character-length">Maximum CHAR length</h3>
 
@@ -1027,6 +1062,7 @@ Specifically, Bytebase checks:
 - TiDB
 - PostgreSQL
 - Oracle
+- OceanBase
 
 <h3 id="column.maximum-varchar-length">Maximum VARCHAR length</h3>
 
@@ -1063,6 +1099,7 @@ Specifically, Bytebase checks:
 
 - MySQL
 - TiDB
+- OceanBase
 
 <h3 id="column.current-time-count-limit">Limit the count of current time columns</h3>
 
@@ -1093,6 +1130,7 @@ Specifically, Bytebase checks:
 
 - MySQL
 - TiDB
+- OceanBase
 
 <h3 id="column.require-default">Require column default value</h3>
 
@@ -1115,6 +1153,7 @@ Specifically, Bytebase checks:
 - TiDB
 - PostgreSQL
 - Oracle
+- OceanBase
 
 ## Index
 
@@ -1137,6 +1176,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- OceanBase
 
 <h3 id="index.key-number-limit">Limit the count of index keys</h3>
 
@@ -1160,6 +1200,7 @@ Specifically, Bytebase checks:
 - TiDB
 - PostgreSQL
 - Oracle
+- OceanBase
 
 <h3 id="index.pk-type-limit">Limit key type for primary keys</h3>
 
@@ -1180,6 +1221,7 @@ Specifically, Bytebase checks:
 
 - MySQL
 - TiDB
+- OceanBase
 
 Support for PostgreSQL is coming soon.
 
@@ -1203,6 +1245,7 @@ Specifically, Bytebase checks:
 
 - MySQL
 - TiDB
+- OceanBase
 
 Support for PostgreSQL is coming soon.
 
@@ -1227,6 +1270,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- OceanBase
 
 <h3 id="index.primary-key-type-allowlist">Primary key type allowlist</h3>
 
@@ -1248,6 +1292,7 @@ Specifically, Bytebase checks:
 - PostgreSQL
 - MySQL
 - TiDB
+- OceanBase
 
 <h3 id="index.create-concurrently">Create index concurrently</h3>
 
@@ -1286,6 +1331,7 @@ Specifically, Bytebase checks:
 
 - MySQL
 - TiDB
+- OceanBase
 
 Support for PostgreSQL is coming soon.
 
@@ -1309,6 +1355,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- OceanBase
 
 <h3 id="system.collation.allowlist">Collation allow list</h3>
 
@@ -1328,6 +1375,7 @@ Specifically, Bytebase checks:
 - MySQL
 - TiDB
 - PostgreSQL
+- OceanBase
 
 <h3 id="system.comment.length">Comment length limit</h3>
 
