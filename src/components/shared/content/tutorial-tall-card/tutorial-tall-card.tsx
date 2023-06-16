@@ -6,6 +6,7 @@ import AuroraIcon from '@/svgs/aurora.inline.svg';
 import ClickHouseIcon from '@/svgs/clickhouse.inline.svg';
 import GithubIcon from '@/svgs/github.inline.svg';
 import GitLabIcon from '@/svgs/gitlab.inline.svg';
+import MariaDBIcon from '@/svgs/mariadb.inline.svg';
 import MongoDBIcon from '@/svgs/mongodb.inline.svg';
 import PostgresIcon from '@/svgs/postgres.inline.svg';
 import RedisIcon from '@/svgs/redis.inline.svg';
@@ -28,6 +29,7 @@ const allLogos: { [key: string]: React.FunctionComponent<React.SVGProps<SVGSVGEl
   redis: RedisIcon,
   mongodb: MongoDBIcon,
   mysql: MySQLIcon,
+  mariadb: MariaDBIcon,
 };
 
 const TutorialTallCard = ({

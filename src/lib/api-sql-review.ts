@@ -6,15 +6,15 @@ import path from 'path';
 import { GuidelineTemplate, RuleTemplate } from '@/types/sql-review';
 
 export const sqlReviewSchema: any = jsYaml.load(
-  fs.readFileSync(path.resolve(`data/sql-review-schema.yaml`), 'utf8'),
+  fs.readFileSync(path.resolve(`data/sql-review/sql-review-schema.yaml`), 'utf8'),
 );
 
 const sqlReviewProdTemplate = jsYaml.load(
-  fs.readFileSync(path.resolve(`data/sql-review.prod.yaml`), 'utf8'),
+  fs.readFileSync(path.resolve(`data/sql-review/sql-review.prod.yaml`), 'utf8'),
 );
 
 const sqlReviewDevTemplate = jsYaml.load(
-  fs.readFileSync(path.resolve(`data/sql-review.dev.yaml`), 'utf8'),
+  fs.readFileSync(path.resolve(`data/sql-review/sql-review.dev.yaml`), 'utf8'),
 );
 
 // Build the frontend template list based on schema and template.

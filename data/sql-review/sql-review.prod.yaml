@@ -1,11 +1,11 @@
-id: bb.sql-review.dev
+id: bb.sql-review.prod
 ruleList:
   - type: engine.mysql.use-innodb
     level: ERROR
   - type: table.require-pk
     level: ERROR
   - type: table.no-foreign-key
-    level: WARNING
+    level: ERROR
   - type: table.drop-naming-convention
     level: ERROR
     payload:
@@ -13,28 +13,28 @@ ruleList:
   - type: table.disallow-partition
     level: ERROR
   - type: table.comment
-    level: WARNING
+    level: ERROR
     payload:
       required: true
       maxLength: 64
   - type: statement.select.no-select-all
-    level: WARNING
+    level: ERROR
   - type: statement.where.require
-    level: WARNING
+    level: ERROR
   - type: statement.where.no-leading-wildcard-like
-    level: WARNING
+    level: ERROR
   - type: statement.disallow-commit
-    level: WARNING
+    level: ERROR
   - type: statement.disallow-limit
-    level: WARNING
+    level: ERROR
   - type: statement.disallow-order-by
-    level: WARNING
+    level: ERROR
   - type: statement.merge-alter-table
-    level: WARNING
+    level: ERROR
   - type: statement.insert.must-specify-column
-    level: WARNING
+    level: ERROR
   - type: statement.insert.disallow-order-by-rand
-    level: WARNING
+    level: ERROR
   - type: statement.insert.row-limit
     level: WARNING
     payload:
@@ -56,6 +56,8 @@ ruleList:
     payload:
       format: "^[a-z]+(_[a-z]+)*$"
       maxLength: 63
+  - type: naming.table.no-keyword
+    level: WARNING
   - type: naming.column
     level: WARNING
     payload:
@@ -86,6 +88,12 @@ ruleList:
     payload:
       format: "^id$"
       maxLength: 63
+  - type: naming.identifier.no-keyword
+    level: WARNING
+  - type: naming.identifier.case
+    level: WARNING
+    payload:
+      upper: true
   - type: column.required
     level: WARNING
     payload:
@@ -96,7 +104,7 @@ ruleList:
         - creator_id
         - updater_id
   - type: column.type-disallow-list
-    level: WARNING
+    level: ERROR
     payload:
       list:
         - JSON
@@ -117,7 +125,7 @@ ruleList:
   - type: column.auto-increment-must-unsigned
     level: ERROR
   - type: column.comment
-    level: WARNING
+    level: ERROR
     payload:
       required: true
       maxLength: 64
@@ -125,6 +133,10 @@ ruleList:
     level: WARNING
     payload:
       number: 20
+  - type: column.maximum-varchar-length
+    level: WARNING
+    payload:
+      number: 2560
   - type: column.auto-increment-initial-value
     level: WARNING
     payload:
@@ -144,7 +156,7 @@ ruleList:
   - type: index.type-no-blob
     level: ERROR
   - type: index.pk-type-limit
-    level: WARNING
+    level: ERROR
   - type: index.key-number-limit
     level: WARNING
     payload:
@@ -164,12 +176,12 @@ ruleList:
   - type: index.create-concurrently
     level: WARNING
   - type: system.charset.allowlist
-    level: WARNING
+    level: ERROR
     payload:
       list:
         - utf8mb4
   - type: system.collation.allowlist
-    level: WARNING
+    level: ERROR
     payload:
       list:
         - utf8mb4_0900_ai_ci
