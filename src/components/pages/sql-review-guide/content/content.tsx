@@ -1,5 +1,3 @@
-import { JSXElementConstructor } from 'react';
-
 import { en, getRuleLocalizationKey } from '@/utils/sql-review';
 import clsx from 'clsx';
 import format from 'date-fns/format';
@@ -11,12 +9,15 @@ import ExternalIcon from '@/svgs/external-sm.inline.svg';
 import PostgresIcon from '@/svgs/postgres.inline.svg';
 import TidbIcon from '@/svgs/tidb.inline.svg';
 import OceanBaseIcon from '@/svgs/oceanbase.inline.svg';
+import OracleIcon from '@/svgs/oracle.inline.svg';
+import { JSXElementConstructor } from 'react';
 
 const icons: Record<string, JSXElementConstructor<{ key: string; className: string }>> = {
   MYSQL: MySQLIcon,
   TIDB: TidbIcon,
   POSTGRES: PostgresIcon,
   OCEANBASE: OceanBaseIcon,
+  ORACLE: OracleIcon,
 };
 
 const EngineList = ({
