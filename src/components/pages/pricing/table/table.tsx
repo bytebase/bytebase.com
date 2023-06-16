@@ -54,7 +54,12 @@ const Table = () => {
                 className="relative mt-11 border-b border-black border-opacity-10 first:mt-0 last:border-b-0"
                 key={`${title}_${idx}`}
               >
-                <p className="text-24 font-bold leading-none xl:text-20 xl:leading-tight sm:text-18 xs:max-w-[180px]">
+                <p
+                  className={clsx(
+                    title.length > 20 && 'flex items-center md:min-h-[50px] sm:min-h-[45px]',
+                    'text-24 font-bold leading-none xl:text-20 xl:leading-tight sm:text-18 xs:max-w-[180px]',
+                  )}
+                >
                   {title}
                 </p>
                 <ul className="mt-4 flex flex-col divide-y divide-black divide-opacity-10">
