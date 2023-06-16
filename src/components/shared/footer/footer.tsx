@@ -29,18 +29,15 @@ const socialLinks = [
 
 const Footer = () => (
   <footer className="safe-paddings container relative z-10 shrink-0 pt-20 lg:pt-14 md:pt-12 xs:pt-10">
-    <div className="grid grid-cols-10 gap-x-10 xl:gap-x-9 lg:gap-x-6 md:gap-x-5 sm:grid-cols-4 sm:gap-x-4 sm:gap-y-10">
+    <div className="grid grid-cols-10 gap-x-10 xl:gap-x-9 lg:gap-x-6 md:gap-x-7 sm:grid sm:grid-cols-4 sm:gap-x-4 sm:gap-y-14">
       {MENU.footer.map(({ name, items }, idx) => (
-        <div
-          className="col-span-2 md:last:col-span-2 md:last:col-start-9 md:last:justify-self-center sm:!justify-self-start sm:last:col-start-1 md:[&:nth-child(3)]:justify-self-center"
-          key={idx}
-        >
+        <div className="col-span-2" key={idx}>
           <h3 className="text-14 font-bold leading-none tracking-wider text-gray-60">{name}</h3>
-          <ul className="mt-7 flex flex-col gap-6">
+          <ul className="mt-7 flex flex-col gap-[18px]">
             {items.map(({ name: childName, linkUrl, isExternal }, childIdx) => (
               <li className="leading-none" key={childIdx}>
                 <Link
-                  className="group flex items-center font-medium tracking-tight md:-mt-1 sm:mt-0"
+                  className="group flex items-center font-medium !leading-snug tracking-tight md:-mt-1 sm:mt-0"
                   size="md"
                   theme="gray"
                   href={linkUrl}
