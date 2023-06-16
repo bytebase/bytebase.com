@@ -71,13 +71,6 @@ export const MENU = {
   ],
   footer: [
     {
-      name: 'COMPARISONS',
-      items: [
-        { name: 'vs Liquibase', linkUrl: Route.VS_LIQUIBASE },
-        { name: 'vs Flyway', linkUrl: Route.VS_FLAYWAY },
-      ],
-    },
-    {
       name: 'DATABASES',
       items: [
         { name: 'MySQL', linkUrl: Route.DATABASE_MYSQL },
@@ -134,6 +127,13 @@ export const MENU = {
         { name: 'Careers', linkUrl: Route.JOBS },
         { name: 'Pricing', linkUrl: Route.PRICING },
         { name: 'Contact', linkUrl: Route.CONTACTS },
+      ],
+    },
+    {
+      name: 'COMPARISONS',
+      items: [
+        { name: 'vs Liquibase', linkUrl: Route.VS_LIQUIBASE },
+        { name: 'vs Flyway', linkUrl: Route.VS_FLAYWAY },
       ],
     },
   ],
