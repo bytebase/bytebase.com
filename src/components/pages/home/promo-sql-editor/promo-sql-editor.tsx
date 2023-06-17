@@ -35,7 +35,7 @@ const data: AccordionData[] = [
     image: '/images/page/main/sql-editor/interface-anonymize.webp',
   },
   {
-    title: 'Control database access',
+    title: 'Control data access',
     description: 'Centralized access control to ensure data security.',
     image: '/images/page/main/sql-editor/interface-database.webp',
   },

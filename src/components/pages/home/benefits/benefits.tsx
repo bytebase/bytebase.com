@@ -14,7 +14,7 @@ const benefits = [
     image: { src: '/images/page/main/benefits/auto-style.png', width: 590, height: 320 },
   },
   {
-    title: 'Batch changes to multi-environment, multi-tenant databases',
+    title: 'Batch changes to multi-environment, multi-tenant or partitioned databases',
     description:
       'Batch change to multiple databases across different environments and tenants in a single ticket.',
     image: { src: '/images/page/main/benefits/batch-schemas.png', width: 590, height: 300 },
