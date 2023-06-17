@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 
-import clsx from 'clsx';
-
 import Button from '@/components/shared/button';
 import Link from '@/components/shared/link';
 import MobileMenu from '@/components/shared/mobile-menu';
@@ -34,7 +32,7 @@ const icons: {
 type MenuItem = {
   name: string;
   description: string;
-  iconName: string;
+  iconName?: string;
   linkUrl: string;
 };
 
