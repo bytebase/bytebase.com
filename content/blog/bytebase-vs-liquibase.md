@@ -7,6 +7,8 @@ tags: Explanation
 description: 'When looking for a database CI/CD and schema migration change tool, Bytebase and Liquibase are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.'
 ---
 
+> If Liquibase is Git, then Bytebase is GitHub/GitLab.
+
 When looking for a database CI/CD and schema migration change tool, Bytebase and Liquibase are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.
 
 ## What Bytebase and Liquibase have in common
