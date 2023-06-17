@@ -12,7 +12,8 @@ const Hero = () => {
         <h2 className="col-span-full mt-3.5 max-w-[1000px] text-center font-title text-88 font-semibold leading-none xl:max-w-[780px] xl:text-68 xl:leading-104 md:mt-2 md:max-w-[620px] md:text-54 sm:text-48 sm:leading-95">
           Read, Write, Admin Database
           <br />
-          for <mark className="bg-transparent text-primary-1">Team and Enterprise</mark>
+          Scale <mark className="bg-transparent text-primary-1">Hobby</mark> to{' '}
+          <mark className="bg-transparent text-primary-1">Enterprise</mark>
         </h2>
         <Image
           src="/images/page/about/why-we-build.webp"

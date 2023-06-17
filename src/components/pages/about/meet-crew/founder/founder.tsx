@@ -25,7 +25,7 @@ const founder = {
       sm: '/images/page/about/tianzhou-sm.webp',
     },
     about:
-      'Tianzhou was the TL of Google Cloud SQL, the maintainer of Google&apos;s internal PostgreSQL and MySQL branch. He was the head of Database/<wbr/>DevTools/<wbr/>Collaboration group in Ant Group.',
+      'Tianzhou was the TL of Google Cloud SQL, the maintainer of Google&apos;s internal PostgreSQL and MySQL branch. He also served as the head of Database/<wbr/>DevTools/<wbr/>Collaboration in Ant Group.',
   },
 };
 

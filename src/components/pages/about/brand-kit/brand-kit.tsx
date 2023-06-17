@@ -41,7 +41,7 @@ const BRANDKIT_FILE_PATH = '/download/bytebase-brand-kit.zip';
 
 const BrandKit = () => (
   <section
-    className="mt-40 w-full bg-tones-purple-light/30 py-36 xl:mt-32 xl:py-32 md:mt-24 md:py-24 sm:mt-16 sm:py-16"
+    className="w-full bg-tones-purple-light/30 py-36 xl:py-32 md:py-24 sm:py-16"
     id="brand-kit"
   >
     <div className="container gap-x-grid grid grid-cols-12 sm:grid-cols-4">
