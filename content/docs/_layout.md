@@ -61,7 +61,7 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Roles and Permissions](/concepts/roles-and-permissions)
 
-### [Schema Change Workflow](/concepts/schema-change-workflow)
+### [Database Change Workflow](/concepts/database-change-workflow)
 
 ### [Migration Types](/concepts/migration-types)
 

@@ -1,8 +1,8 @@
 ---
-title: Schema Change Workflow
+title: Database Change Workflow
 ---
 
-There are 2 typical workflows employed by the team to deal with database schema changes. [UI workflow](#ui-workflow) and [GitOps workflow (GitOps)](#gitops-workflow).
+There are 2 typical workflows employed by the team to deal with database schema changes (DDL) and data changes (DML). [UI workflow](#ui-workflow) and [GitOps workflow (GitOps)](#gitops-workflow).
 
 ## UI workflow
 

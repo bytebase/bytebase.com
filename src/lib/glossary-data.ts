@@ -437,7 +437,7 @@ export const GLOSSARY_LIST: GlossaryLetterSet[] = [
         successful schema migration requires coordination between developers, DBAs and the operating environment. Bytebase is a product
         built specifically for addressing the challenges involved in this database schema change process. It supports the 2 most common
         change workflows, 1) Classic UI-based SQL review workflow and 2) Version control based workflow (database-as-code).`,
-        reference: 'https://www.bytebase.com/docs/concepts/schema-change-workflow',
+        reference: 'https://www.bytebase.com/docs/concepts/database-change-workflow',
         tagList: ['General', 'Bytebase'],
       },
       {
