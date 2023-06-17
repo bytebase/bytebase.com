@@ -18,16 +18,20 @@ export const MENU = {
           iconName: 'rocket',
         },
         {
-          name: 'Concepts',
-          description: 'Learn Bytebase core concepts',
-          linkUrl: Route.DOCS_CONCEPT,
-          iconName: 'concept',
-        },
-        {
           name: 'Supported Database',
           description: 'Bytebase supported databases',
           linkUrl: Route.DOCS_DB,
           iconName: 'db',
+        },
+        {
+          name: 'Liquibase vs. Bytebase',
+          description: 'Side-by-side compare with Liquibase',
+          linkUrl: Route.VS_LIQUIBASE,
+        },
+        {
+          name: 'Flyway vs. Bytebase',
+          description: 'Side-by-side compare with Flyway',
+          linkUrl: Route.VS_FLYWAY,
         },
       ],
     },
@@ -52,16 +56,20 @@ export const MENU = {
           iconName: 'rocket',
         },
         {
-          name: 'Concepts',
-          description: 'Learn Bytebase core concepts',
-          linkUrl: Route.DOCS_CONCEPT,
-          iconName: 'concept',
-        },
-        {
           name: 'Supported Database',
           description: 'Bytebase supported databases',
           linkUrl: Route.DOCS_DB,
           iconName: 'db',
+        },
+        {
+          name: 'Bytebase vs Liquibase',
+          description: 'Compare to Liquibase',
+          linkUrl: Route.VS_LIQUIBASE,
+        },
+        {
+          name: 'Bytebase vs Flyway',
+          description: 'Compare to Flyway',
+          linkUrl: Route.VS_FLYWAY,
         },
       ],
     },
@@ -133,7 +141,7 @@ export const MENU = {
       name: 'COMPARISONS',
       items: [
         { name: 'vs Liquibase', linkUrl: Route.VS_LIQUIBASE },
-        { name: 'vs Flyway', linkUrl: Route.VS_FLAYWAY },
+        { name: 'vs Flyway', linkUrl: Route.VS_FLYWAY },
       ],
     },
   ],
