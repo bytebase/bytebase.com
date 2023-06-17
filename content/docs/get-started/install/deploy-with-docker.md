@@ -18,21 +18,21 @@ If you run Bytebase inside Docker on Linux and want to connect the database inta
 
 ## Run locally (e.g. localhost:5678)
 
-Run the following command to start Bytebase on container port 8080 and bind to localhost:5678.
+Run the following command to start Bytebase on container port 80 and bind to localhost:5678.
 
 ```bash
 docker run --init \
   --name bytebase \
   --platform linux/amd64 \
   --restart always \
-  --publish 5678:8080 \
+  --publish 5678:80 \
   --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
   --health-interval 5m \
   --health-timeout 60s \
   --volume ~/.bytebase/data:/var/opt/bytebase \
   bytebase/bytebase:%%bb_version%% \
   --data /var/opt/bytebase \
-  --port 8080
+  --port 80
 ```
 
 Bytebase will store its data under `~/.bytebase/data` , you can reset all data by running command:
@@ -58,7 +58,7 @@ docker run --init \
   --name bytebase \
   --platform linux/amd64 \
   --restart always \
-  --publish 80:8080 \
+  --publish 80:80 \
   --health-cmd "curl --fail http://localhost:80/healthz || exit 1" \
   --health-interval 5m \
   --health-timeout 60s \
@@ -66,7 +66,7 @@ docker run --init \
   bytebase/bytebase:%%bb_version%% \
   --data /var/opt/bytebase \
   --external-url https://bytebase.example.com \
-  --port 8080
+  --port 80
 ```
 
 ## Troubleshoot
@@ -94,9 +94,9 @@ docker run --init \
   --name bytebase \
   --platform linux/amd64 \
   --restart always \
-  --publish 80:8080 \
+  --publish 80:80 \
   --volume ~/.bytebase/data:/var/opt/bytebase bytebase/bytebase:%%bb_version%% \
   --data /var/opt/bytebase \
   --external-url https://bytebase.example.com \
-  --port 8080
+  --port 80
 ```
