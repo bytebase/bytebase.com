@@ -171,7 +171,7 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
                             variants={dropdownVariants}
                           >
                             {items.map(({ name, description, iconName, linkUrl }) => {
-                              const Icon = icons[iconName];
+                              const Icon = iconName ? icons[iconName] : null;
                               return (
                                 <li className="w-full first:-mt-4 last:pb-4" key={name}>
                                   <Link
@@ -187,7 +187,7 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
                                   >
                                     <div className="flex flex-col gap-y-1">
                                       <div className="flex items-center gap-x-2 group-hover:text-primary-1">
-                                        <Icon className="h-5 w-5 shrink-0" />
+                                        {Icon && <Icon className="h-5 w-5 shrink-0" />}
                                         <span className="font-medium tracking-tight">{name}</span>
                                       </div>
                                       <span className="text-16 leading-normal text-gray-40">
