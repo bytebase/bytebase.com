@@ -44,7 +44,7 @@ New tenants are usually created by the business side. For most SaaS companies, t
 
 ## The Solution: Bytebase
 
-As a financial SaaS provider, Longbridge Whale manage their database in [tenant mode](/docs/concepts/tenant-database/). With the growth of their business, the number of databases increased rapidly and schema management issues have become prominent.
+As a financial SaaS provider, Longbridge Whale manage their database in [tenant mode](/docs/concepts/batch-mode/#tenant-database/). With the growth of their business, the number of databases increased rapidly and schema management issues have become prominent.
 
 Similar to many other tech startups, Longbridge Whale have established a basic database review and release platform based on open-source solutions. However, such platforms generally lack schema change management capabilities and can't cope with the current challenges faced by Longbridge Whale. In order to fundamentally solve these problems, Longbridge Whale turned to Bytebase.
 

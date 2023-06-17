@@ -29,7 +29,7 @@ This feature is only available in the Enterprise Plan.
 
 </HintBlock>
 
-Bytebase allows you to change **a collection of databases with identical schemas**, these databases are often referred as [tenant databases](/docs/concepts/tenant-database).
+Bytebase allows you to change **a collection of databases with identical schemas**, these databases are often referred as [tenant databases](/docs/concepts/batch-mode/#tenant-database).
 
 ### Scenarios
 
@@ -152,7 +152,7 @@ This feature is only available in tenant projects.
 
 </HintBlock>
 
-If you are responsible for managing horizontally partitioned databases that are distributed across multiple data centers worldwide, applying database changes from [database groups](/docs/concepts/grouping) empowers you to manage these databases effectively and easily.
+If you are responsible for managing horizontally partitioned databases that are distributed across multiple data centers worldwide, applying database changes from [database groups](/docs/concepts/batch-mode/#database-group) empowers you to manage these databases effectively and easily.
 
 Follow the steps below to navigate through the process.
 
@@ -180,7 +180,7 @@ Follow the steps below to navigate through the process.
 
 ![bc-tb-group-info](/content/docs/change-database/batch-change/bc-tb-group-info.webp)
 
-3. Click **Save** to create the newly created `booking_global` table group. 
+3. Click **Save** to create the newly created `booking_global` table group.
 
 Navigate to the details page of the `hotel_global` database group, you'll see the `booking_global` table group is already there.
 
@@ -195,6 +195,7 @@ Navigate to the details page of the `hotel_global` database group, you'll see th
 ![bc-db-group-select](/content/docs/change-database/batch-change/bc-db-group-select.webp)
 
 4. Enter the desired SQLs in the **Raw SQL** input box. For this example, enter the following SQL into the **Raw SQL** input box.
+
 ```sql
 ALTER TABLE `booking_global`
     ADD COLUMN `status` boolean NOT NULL;

@@ -65,9 +65,7 @@ expand_section_list: ['Introduction', 'Get Started']
 
 ### [Migration Types](/concepts/migration-types)
 
-### [Tenant Database](/concepts/tenant-database)
-
-### [Grouping](/concepts/grouping)
+### [Batch Mode](/concepts/batch-mode)
 
 ---
 

@@ -30,9 +30,14 @@ Organizations want to limit database access and enforce approval flow to conform
 
 As the engineering team grows, there will form a platform team or a dedicated DBA team to manage the database infrastructure and support developers to interact with their application databases. Bytebase provides a centralized portal for Developers/DBAs/Platform Engineers to collaborate on database-related tasks such as reviewing database changes, querying data, backing up and restoring databases and etc.
 
+## Partitioned Database and Tables
+
+As data grows, databases and tables maybe partitioned into smaller chucks. Meanwhile, you still want to
+apply the same database change to all partitions. It's painful and error-prone to make sure a database change is consistently applied to each partition. Bytebase has [Database Group](/docs/concepts/batch-mode/#database-group) and can [change databases from database groups](/docs/change-database/batch-change/#change-databases-from-database-groups).
+
 ## Multi-Tenant Service
 
-A SaaS service may provision separate [tenant databases](/docs/concepts/tenant-database) for each of its tenants. It's painful and error-prone to make sure a database change is consistently applied to each individual tenant's database. Bytebase provides [management capability](/docs/change-database/batch-change) to group those databases and manages the lifecycle of those databases in a single workflow.
+A SaaS service may provision separate databases for each of its tenants. It's painful and error-prone to make sure a database change is consistently applied to each individual tenant's database. Bytebase has [Tenant database](/docs/concepts/batch-mode/#tenant-database) and can [change databases from multiple tenants](/docs/change-database/batch-change/#change-databases-from-multiple-tenants).
 
 ## Schema Enforcement and Engineering Excellence
 
