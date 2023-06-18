@@ -8,31 +8,31 @@ This document guides you to run Bytebase in docker, which takes less than 5 seco
 
 Before starting, make sure you have installed [Docker](https://www.docker.com/get-started/).
 
-### Special notes for running on Linux
+<HintBlock type="info">
 
-<HintBlock type="warning">
-
-If you run Bytebase inside Docker on Linux and want to connect the database intance on the same host, then you need to supply the additional `--add-host host.docker.internal:host-gateway --network host` flags.
+If you **run Bytebase inside Docker on Linux** and want to connect the database intance on the same host, then you need to supply the additional `--add-host host.docker.internal:host-gateway --network host` flags.
 
 </HintBlock>
 
 ## Run locally (e.g. localhost:5678)
 
-Run the following command to start Bytebase on container port 80 and bind to localhost:5678.
+By default, container listens on [port 80](https://github.com/bytebase/bytebase/blob/main/scripts/Dockerfile#L98). You can overwrite the port by supplying `--port`.
+
+Run the following command to start Bytebase on container port 8080 and bind to localhost:5678.
 
 ```bash
 docker run --init \
   --name bytebase \
   --platform linux/amd64 \
   --restart always \
-  --publish 5678:80 \
+  --publish 5678:8080 \
   --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
   --health-interval 5m \
   --health-timeout 60s \
   --volume ~/.bytebase/data:/var/opt/bytebase \
   bytebase/bytebase:%%bb_version%% \
   --data /var/opt/bytebase \
-  --port 80
+  --port 8080
 ```
 
 Bytebase will store its data under `~/.bytebase/data` , you can reset all data by running command:
@@ -51,14 +51,14 @@ For your setup, you need to replace https://bytebase.example.com with the actual
 
 </HintBlock>
 
-Run the following command to start Bytebase on port 80 and visit Bytebase from https://bytebase.example.com
+Run the following command to start Bytebase on port 8080 and visit Bytebase from https://bytebase.example.com
 
 ```bash
 docker run --init \
   --name bytebase \
   --platform linux/amd64 \
   --restart always \
-  --publish 80:80 \
+  --publish 80:8080 \
   --health-cmd "curl --fail http://localhost:80/healthz || exit 1" \
   --health-interval 5m \
   --health-timeout 60s \
@@ -66,7 +66,7 @@ docker run --init \
   bytebase/bytebase:%%bb_version%% \
   --data /var/opt/bytebase \
   --external-url https://bytebase.example.com \
-  --port 80
+  --port 8080
 ```
 
 ## Troubleshoot
@@ -94,9 +94,9 @@ docker run --init \
   --name bytebase \
   --platform linux/amd64 \
   --restart always \
-  --publish 80:80 \
+  --publish 80:8080 \
   --volume ~/.bytebase/data:/var/opt/bytebase bytebase/bytebase:%%bb_version%% \
   --data /var/opt/bytebase \
   --external-url https://bytebase.example.com \
-  --port 80
+  --port 8080
 ```
