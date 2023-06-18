@@ -33,10 +33,28 @@ Bytebase provides a suite of features to enable organizations to enforce data se
 
 Bytebase keeps the complete schema change history. It also integrates with VCS systems. Teams can manage the SQL migration scripts in the VCS and trigger schema deployment on code commit.
 
-### Data Rollback and Disaster Recovery
+### [Data Rollback and Disaster Recovery](/docs/change-database/rollback-data-changes/)
 
-- [Statement-level rollback](/docs/change-database/rollback-data-changes/)
+- Statement-level rollback
 
-- [Database-level manual and periodical backup and restore](/docs/disaster-recovery/backup/)
+- Database-level manual and periodical backup and restore
 
-- [Point-in-time recovery](/docs/disaster-recovery/point-in-time-recovery-for-mysql/)
+- Point-in-time recovery (PITR)
+
+## Comparison
+
+### Database Change Management
+
+If Liquibase, Flyway are Git, then Bytebase is GitLab/GitHub. And as an open source project. Bytebase
+is growing way faster.
+
+- [Bytebase vs. Liquibase](/blog/bytebase-vs-liquibase/)
+- [Bytebase vs. Flyway](/blog/bytebase-vs-flyway/)
+
+### SQL GUI Client
+
+SQL GUI Client such as MySQL Workbench, pgAdmin, DBeaver, Navicat provide a GUI to interact with the
+database. Bytebase not only provides a GUI client, it can also enforce centralized data access control
+for data security and governance.
+
+- [Bytebase vs. Navicat](/blog/stop-using-navicat/)
