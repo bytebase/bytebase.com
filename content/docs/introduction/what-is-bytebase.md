@@ -17,15 +17,15 @@ Bytebase complements the existing cloud provider's database platforms or the com
 
 Bytebase analyzes SQL changes to enforce rules in compliance with your organization's policy. The enforcement includes naming conventions, anti-SQL pattern detection and etc. Prod and non-prod environments can also enforce different rules respectively.
 
-### [Change Automation](/docs/change-database/change-workflow/)
+### [Database CI/CD and Change Automation](/docs/change-database/change-workflow/)
 
 Like code review, Bytebase streamlines the database change process. Within a single workflow, a database change can be reviewed and deployed from the dev environment all the way to the production environment.
 
-### [SQL Editor](/docs/sql-editor/overview/)
+### [SQL Web Editor](/docs/sql-editor/overview/)
 
 A web-based SQL Editor to query and export data. DBAs no longer need to give away sensitive database credentials when Developers need to access the data.
 
-### [Data Security](/docs/security/data-query/)
+### [Data Access Control and Governance](/docs/security/data-query/)
 
 Bytebase provides a suite of features to enable organizations to enforce data security policies, avoid data leaks and conform compliance.
 
