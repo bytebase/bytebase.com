@@ -1,6 +1,6 @@
 ---
 # expand_section_list is the list of default expanded sections.
-expand_section_list: ['Introduction', 'Get Started']
+expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 ---
 
 ## Introduction
