@@ -107,7 +107,7 @@ Required placeholders (must present in the template):
 
 - `{{DB_NAME}}` - Specify the database name.
 - `{{VERSION}}` - Specify the migration version.
-- `{{TYPE}}` - Specify the migration type. Can be either "ddl" for [schema migration](/docs/concepts/migration-types#schema-migration) or "dml" for [data migration](/docs/concepts/migration-types#data-migration). Alternatively, you can use the alias names "migrate" and "data" for "ddl" and "dml" respectively.
+- `{{TYPE}}` - Specify the migration type. Can be either "ddl" for [schema migration](/docs/concepts/database-change-workflow/#schema-migration) or "dml" for [data migration](/docs/concepts/database-change-workflow/#data-migration). Alternatively, you can use the alias names "migrate" and "data" for "ddl" and "dml" respectively.
 
 Optional placeholders
 

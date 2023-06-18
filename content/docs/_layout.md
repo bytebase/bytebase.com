@@ -61,9 +61,7 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ### [Roles and Permissions](/concepts/roles-and-permissions)
 
-### [Database Change Workflow](/concepts/database-change-workflow)
-
-### [Migration Types](/concepts/migration-types)
+### [Change Workflow](/concepts/database-change-workflow)
 
 ### [Batch Mode](/concepts/batch-mode)
 

@@ -18,8 +18,8 @@ The default separator is double pound signs `##`.
 
 Let's say the base directory is `bytebase` :
 
-- An example file path for [schema migration type](/docs/concepts/migration-types#schema-migration): `bytebase/env1/db1##202101131000##ddl##create_tablefoo_for_bar.sql`
-- An example file path for [data migration type](/docs/concepts/migration-types#data-migration): `bytebase/env1/db1##202101131000##dml##change_for_bar_data.sql`
+- An example file path for [schema migration type](/docs/concepts/database-change-workflow/#schema-migration): `bytebase/env1/db1##202101131000##ddl##create_tablefoo_for_bar.sql`
+- An example file path for [data migration type](/docs/concepts/database-change-workflow/#data-migration): `bytebase/env1/db1##202101131000##dml##change_for_bar_data.sql`
 
 #### Version (Required)
 
@@ -33,8 +33,8 @@ Database name should exactly match the destined database name. The match is **ca
 
 Bytebase currently supports following migration types:
 
-- [Schema migration](/docs/concepts/migration-types#schema-migration) - in this case, the file needs to use `ddl` as the keyword.
-- [Data change](/docs/concepts/migration-types#data-migration) - in this case, the file needs to use `dml` as the keyword.
+- [Schema migration](/docs/concepts/database-change-workflow/#schema-migration) - in this case, the file needs to use `ddl` as the keyword.
+- [Data change](/docs/concepts/database-change-workflow/#data-migration) - in this case, the file needs to use `dml` as the keyword.
 
 #### Environment Identifier (Optional)
 
