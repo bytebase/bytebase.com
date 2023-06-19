@@ -36,6 +36,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
 
         <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=G-4BZ4JH7449`}
+          strategy="afterInteractive"
+        />
+        <Script
           id="ga"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
