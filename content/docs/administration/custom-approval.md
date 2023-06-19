@@ -25,7 +25,7 @@ An approval flow must have at least one approval node.
 You can configure an approval node pointing to an external approval system. Bytebase will sync the
 approval status from the external system, and will approve the node once the external flow is approved there.
 
-Click the **External Approval** tab. Specify the external approval system API endpoint.
+Click the **External Approval** tab. Specify the external approval system API endpoint. The API endpoint needs to implement the [external approval API](/docs/api/external-approval).
 
 ![External Approval](/content/docs/administration/custom-approval/external-approval.webp)
 

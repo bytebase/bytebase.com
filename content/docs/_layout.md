@@ -249,6 +249,8 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ### [SQL Advise](/api/sql-advise)
 
+### [External Approval](/api/external-approval)
+
 ---
 
 ## CLI
