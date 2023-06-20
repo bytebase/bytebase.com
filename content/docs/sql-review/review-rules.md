@@ -383,7 +383,7 @@ Using keywords as table names in Oracle, or any other database management system
 <div id="naming.identifier.no-keyword"></div>
 ### Disallow keywords as identifiers
 
-The same reason as [Disallow keywords as table names](#disallow-keywords-as-table-names).
+The same reason as Disallow keywords as table names.
 
 ![schema-review-naming-identifier-no-keyword](/docs/sql-review/schema-review-naming-identifier-no-keyword.webp)
 
