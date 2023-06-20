@@ -19,7 +19,7 @@ export const MENU = {
         },
         {
           name: 'Supported Database',
-          description: 'Bytebase supported databases',
+          description: 'Supported databases & features',
           linkUrl: Route.DOCS_DB,
           iconName: 'db',
         },
