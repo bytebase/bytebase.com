@@ -107,7 +107,7 @@ Bytebase and Navicat both provide a UI for users to operate the database, the ma
 |                                    | Navicat | Bytebase |
 | ---------------------------------- | ------- | -------- |
 | Centralised control over password  | ❌      | ✅       |
-| Database access control            | ❌      | ✅       |
+| Data access control                | ❌      | ✅       |
 | Data anonymization                 | ❌      | ✅       |
 | Review process for database change | ❌      | ✅       |
 | SQL script sharing                 | ❌      | ✅       |

@@ -1,5 +1,5 @@
 ---
-title: Database Access Control
+title: Data Access Control
 ---
 
 <EnterpriseOnlyBlock />
