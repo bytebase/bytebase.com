@@ -1,0 +1,123 @@
+---
+title: Run Batch Change with Database Grouping
+author: Ningjing
+published_at: 2023/06/20 18:00
+feature_image: /content/docs/tutorials/batch-change-with-database-group/batch-change-group-banner.webp
+tags: Tutorial
+level: Intermediate
+description: This article briefly describes the general scenarios of database schema synchronization and how to use this feature smoothly in Bytebase with pure UI operations.
+---
+
+Bytebase [2.2.0](/changelog/bytebase-2-2-0/) introduced **database grouping**, a new feature that provides a third way to facilitate batch change, in addition to **multiple environments** and **multiple tenants**.
+
+## Step 1 - Start Bytebase and MySQL
+
+0. Make sure you installed and running [Docker](https://www.docker.com/).
+
+1. Copy and paste the commands to start one Bytebase and two MySQL instances via Docker.
+
+```bash
+docker run --init \
+  --name bytebase \
+  --platform linux/amd64 \
+  --restart always \
+  --publish 5678:8080 \
+  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
+  --health-interval 5m \
+  --health-timeout 60s \
+  --volume ~/.bytebase/data:/var/opt/bytebase \
+  bytebase/bytebase:$$bb_version$$ \
+  --data /var/opt/bytebase \
+  --port 8080
+```
+
+```bash
+docker run --name mysqldtest \
+  --publish 3307:3306 \
+  -e MYSQL_ROOT_HOST=172.17.0.1 \
+  -e MYSQL_ROOT_PASSWORD=testpwd1 \
+  mysql/mysql-server:8.0
+```
+
+```bash
+docker run --name mysqldprod \
+  --publish 3308:3306 \
+  -e MYSQL_ROOT_HOST=172.17.0.1 \
+  -e MYSQL_ROOT_PASSWORD=testpwd1 \
+  mysql/mysql-server:8.0
+```
+
+## Step 2 - Prepare the Console
+1. Register and sign in **Bytebase Console** via `localhost:5678`. Click **Add Instance** to add two instances in two environments respectively.
+
+   - **Host or Socket**: `host.docker.internal` | **Port**: `3307`/`3308`
+   - **Environment**: `Test`/`Prod`
+   - **Username**: `root` | **Password**:`testpwd1`.
+
+2. Create project `Group Demo` as **Name**, `GD` as **Key** `Batch Mode` as **Mode** and click **Create**. Here you need to upgrade to **Enterprise Plan** with 14 days trial period.
+   ![bb-create-project-upgrade](/content/docs/tutorials/batch-change-with-database-group/bb-create-project-upgrade.webp)
+
+3. Within the project, click **Create DB** to create eight databases as follows:
+   - `demo_db_test` in `Test` environment and it will run automatically. Because by default, issue in `Test` environment will rollout automatically;
+   - `demo_db_prod_asia` in `Prod` environment and click **Rollout**;
+   - `demo_db_prod_europe` in `Prod` environment and click **Rollout**;
+   - `demo_db_prod_africa` in `Prod` environment and click **Rollout**;
+   - `demo_db_prod_australia` in `Prod` environment and click **Rollout**;
+   - `demo_db_prod_north_america` in `Prod` environment and click **Rollout**;
+   - `demo_db_prod_south_america` in `Prod` environment and click **Rollout**;
+   - `demo_db_prod_antarctica` in `Prod` environment and click **Rollout**.
+
+## Step 3 - Group Databases and Run Batch Change
+
+1. Within the project `Group Demo`, click **Database Groups** tab, and click **New database group**. Fill in the form as follows:
+   - **Name**: `demo-all` | **Environment**: `Prod`
+   - **Condition**: Where `Database name` `startsWith` `demo_db_prod`
+   ![bb-new-db-group-demo-all](/content/docs/tutorials/batch-change-with-database-group/bb-new-db-group-demo-all.webp)
+   You may create other database group such as:
+   - **Name**: `demo-human` | **Environment**: `Prod`
+   - **Condition**: Where `Database name` `startsWith` `demo_db_prod`
+               `and` `Database name` `!=` `demo_db_prod_antarctica`
+   ![bb-new-db-group-demo-human](/content/docs/tutorials/batch-change-with-database-group/bb-new-db-group-demo-human.webp)
+
+2. Within the project, click **Alter Schema**. Choose **Manual Selection** > **Database Group** > `demo-all`, and click **Next**. Copy and paste the SQL below and click **Create**.
+   ```sql
+   CREATE TABLE t1 (
+      id INTEGER PRIMARY KEY
+   );
+   ```
+
+3. On the issue page, click the **down arrow** and choose **Rollout** to run one database first. If it's OK, then click **Rollout current stage** to run all.
+![bb-issue-7-db-t1](/content/docs/tutorials/batch-change-with-database-group/bb-issue-7-db-t1.webp)
+![bb-issue-7-db-t1-one-db-passed](/content/docs/tutorials/batch-change-with-database-group/bb-issue--7-db-t1-one-db-passed.webp)
+
+4. Repeat 2 to 3 to create another issue to create another table `t2`:
+   ```sql
+   CREATE TABLE t2 (
+      id INTEGER PRIMARY KEY
+   );
+   ```
+
+## Step 4 - Group Tables and Run Batch Change
+
+1. Within the project `Group Demo`, click **Database Groups** tab, and click **New table group**. Fill in the form as follows:
+   - **Database Group**: `demo-all` | **Environment**: `Prod` | **Name**: `demo-all-t`
+   - **Condition**: Where `Table name` `startsWith` `t`
+   ![bb-new-table-group-t](/content/docs/tutorials/batch-change-with-database-group/bb-new-table-group-t.webp)
+
+2. Click **New table group** again. Fill in the form as follows:
+   - **Database Group**: `demo-all` | **Environment**: `Prod` | **Name**: `demo-all-t1`
+   - **Condition**: Where `Table name` `==` `t1`
+
+3. Within the project, click **Alter Schema**. Choose **Manual Selection** > **Database Group** > `demo-all`, and click **Next**. You'll see the following field.
+![bb-table-alter-schema-t1-t](/content/docs/tutorials/batch-change-with-database-group/bb-table-alter-schema-t1-t.webp)
+
+4. Here we choose `demoall_t` which includes `t1` and `t2`. Copy and paste the SQL below and click **Create**. 
+   ```sql
+   ALTER TABLE demoall_t ADD COLUMN name VARCHAR(255) NOT NULL;
+   ```
+
+5. On the issue page, click the **down arrow** and choose **Rollout** to run one database first. If it's OK, then click **Rollout current stage** to run all.
+
+
+## Summary
+Now you have learned how to use database group to run batch change in Bytebase. Bytebase provides more other ways to help you run batch changes smoothly. Please refer to [Batch Change](/docs/change-database/batch-change/) for more details.
