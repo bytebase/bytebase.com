@@ -80,7 +80,7 @@ Bytebase is a web-based product with server-side capabilities that can fill the 
 
 ![_](/content/blog/stop-using-navicat/bytebase-data-anonymization.webp)
 
-### Database Access Control
+### Data Access Control
 
 ![_](/content/blog/stop-using-navicat/bytebase-access-control.webp)
 
@@ -106,14 +106,14 @@ Bytebase and Navicat both provide a UI for users to operate the database, the ma
 
 |                                    | Navicat | Bytebase |
 | ---------------------------------- | ------- | -------- |
-| Centralised control over password  |   ❌    |    ✅    |
-|      Database access control       |   ❌    |    ✅    |
-|         Data anonymization         |   ❌    |    ✅    |
-| Review process for database change |   ❌    |    ✅    |
-|         SQL script sharing         |   ❌    |    ✅    |
-|          VCS integration           |   ❌    |    ✅    |
-|             Audit log              |   ❌    |    ✅    |
-|         SQL review policy          |   ❌    |    ✅    |
+| Centralised control over password  | ❌      | ✅       |
+| Database access control            | ❌      | ✅       |
+| Data anonymization                 | ❌      | ✅       |
+| Review process for database change | ❌      | ✅       |
+| SQL script sharing                 | ❌      | ✅       |
+| VCS integration                    | ❌      | ✅       |
+| Audit log                          | ❌      | ✅       |
+| SQL review policy                  | ❌      | ✅       |
 
 In addition, Bytebase is [open-source](https://github.com/bytebase/bytebase), and adopts a usage based pricing model.
 

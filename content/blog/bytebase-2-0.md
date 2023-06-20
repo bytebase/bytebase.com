@@ -65,7 +65,7 @@ domain-specific enterprise features:
 
 - DBA workflow and environment tier to enforce operation policy
 - Sensitive data masking
-- Database access control
+- Data access control
 - Database anomaly detection such as schema drift detection
 
 Bytebase is Compliance-By-Design (CBD). We consult Big 4 auditing teams to design features understand

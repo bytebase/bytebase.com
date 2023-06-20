@@ -10,10 +10,10 @@ For databases in the [production environment](/docs/administration/environment-p
 
 Click **Add rule**, search and select databases in the production environments.
 
-![setting-add-rule](/content/docs/security/database-access-control/access-control-add-rule.webp)
+![setting-add-rule](/content/docs/security/data-access-control/access-control-add-rule.webp)
 
 See the following example, the `employee` database is configured as accessible to developers even if it is in a production environment.
 
-![setting](/content/docs/security/database-access-control/access-control-settings.webp)
+![setting](/content/docs/security/data-access-control/access-control-settings.webp)
 
 Then, developers are allowed to query the `employee` database from the [SQL Editor](/docs/sql-editor/overview).

@@ -73,7 +73,7 @@ const cards: TCard[] = [
       'Single Sign-On (SSO) and 2FA',
       'Multi-region / Multi-tenancy batch change',
       'Sensitive data masking',
-      'Database access control',
+      'Data access control',
       'Custom branding',
     ],
   },

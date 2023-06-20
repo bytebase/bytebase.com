@@ -185,7 +185,7 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 
 - **Flyway**: Not supported.
 
-- **Bytebase**: With centralized [SQL Editor](/docs/sql-editor/overview/), data access is [controlled](/docs/security/database-access-control/), [reviewed](/docs/security/data-query/), [audit-logged](/docs/security/audit-log/). Also provide [data anonymization](/docs/sql-editor/anonymize-data/), [watermark](/docs/security/watermark/).
+- **Bytebase**: With centralized [SQL Editor](/docs/sql-editor/overview/), data access is [controlled](/docs/security/data-access-control/), [reviewed](/docs/security/data-query/), [audit-logged](/docs/security/audit-log/). Also provide [data anonymization](/docs/sql-editor/anonymize-data/), [watermark](/docs/security/watermark/).
 
   ![bytebase-sql-editor](/content/blog/bytebase-vs-flyway/bytebase-sql-editor.webp)
 

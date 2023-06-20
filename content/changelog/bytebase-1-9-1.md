@@ -2,12 +2,12 @@
 title: Bytebase 1.9.1
 author: Mila
 published_at: 2022/12/15 17:00:00
-description: '- Support database access control. - Schema Editor for MySQL. - Check Mark as done to skip a task. - Mark issue as Needs Attention.'
+description: '- Support data access control. - Schema Editor for MySQL. - Check Mark as done to skip a task. - Mark issue as Needs Attention.'
 ---
 
 ## 🚀 New Features
 
-- Support [database access control](/docs/security/database-access-control).
+- Support [data access control](/docs/security/data-access-control).
 - [Schema Editor](/docs/change-database/schema-editor) for MySQL.
 - Check "Mark as done" to skip a task.
 - The issue creator can mark an issue as "Needs attention", which is highlighted in the assignee's view.

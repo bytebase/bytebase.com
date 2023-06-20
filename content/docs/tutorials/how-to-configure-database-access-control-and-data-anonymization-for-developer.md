@@ -1,16 +1,16 @@
 ---
-title: How to Configure Database Access Control and Data Anonymization for Developer
+title: How to Configure Data Access Control and Data Anonymization for Developer
 author: Ningjing
 published_at: 2023/01/05 21:15
 feature_image: /content/docs/tutorials/how-to-configure-database-access-control-and-data-anonymization-for-developer/ac-feature.webp
 tags: Tutorial
 level: Intermediate
-description: This tutorial will walk you through how database access control and data anonymization works in Bytebase. You’ll need two Bytebase accounts – one DBA and one Developer.
+description: This tutorial will walk you through how data access control and data anonymization works in Bytebase. You’ll need two Bytebase accounts – one DBA and one Developer.
 ---
 
-This tutorial will walk you through how **database access control** and **data anonymization** works in Bytebase. You’ll need two Bytebase accounts –  one **DBA** and one **Developer**. DBA is the one who configures the settings and Developer is the one who should only see information based on the configuration.
+This tutorial will walk you through how **data access control** and **data anonymization** works in Bytebase. You’ll need two Bytebase accounts –  one **DBA** and one **Developer**. DBA is the one who configures the settings and Developer is the one who should only see information based on the configuration.
 
-Both database access control and data anonymization are **Enterprise Plan** only features. However, you can start a **14-day trial of the Enterprise Plan** with one click without providing additional information (no credit card required).
+Both data access control and data anonymization are **Enterprise Plan** only features. However, you can start a **14-day trial of the Enterprise Plan** with one click without providing additional information (no credit card required).
 
 ## Preparation phase
 
@@ -179,7 +179,7 @@ Go to project `TestAccess` > **Settings** > **Manage members** to add Developer 
 
 ## Test phase
 
-### Test Database Access Control
+### Test Data Access Control
 
 1. Log in as DBA, and click **Environments** on the top navigation bar. Click **Prod**, and make sure the **Mark as protected environment** is unchecked. It means the prod environment is not protected.
 
@@ -241,4 +241,4 @@ Go to project `TestAccess` > **Settings** > **Manage members** to add Developer 
 
 ## Summary
 
-You have now tried out the basics of database access control and data anonymization in Bytebase. If you want to learn the overall picture of database access control, please check out [How to Manage Database Access Control](/blog/how-to-manage-database-access-control).
+You have now tried out the basics of data access control and data anonymization in Bytebase. If you want to learn the overall picture of data access control, please check out [How to Manage Data Access Control](/blog/how-to-manage-database-access-control).

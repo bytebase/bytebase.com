@@ -77,20 +77,20 @@ Bytebase usually works fine with older database versions, we just won't support 
 
 ### Security
 
-| Feature    | [RBAC](/docs/concepts/roles-and-permissions) | [Audit Log](/docs/security/audit-log) | [Database Access Control](/docs/security/database-access-control) | [Data Anonymization](/docs/security/anonymize-data) |
-| ---------- | -------------------------------------------- | ------------------------------------- | ----------------------------------------------------------------- | --------------------------------------------------- |
-| MySQL      | ✔️                                           | ✔️                                    | ✔️                                                                | ✔️                                                  |
-| PostgreSQL | ✔️                                           | ✔️                                    | ✔️                                                                | ✔️                                                  |
-| TiDB       | ✔️                                           | ✔️                                    | ✔️                                                                | ✔️                                                  |
-| ClickHouse | ✔️                                           | ✔️                                    | ✔️                                                                |                                                     |
-| Snowflake  | ✔️                                           | ✔️                                    | ✔️                                                                |                                                     |
-| MongoDB    | ✔️                                           | ✔️                                    | ✔️                                                                |                                                     |
-| Spanner    | ✔️                                           | ✔️                                    | ✔️                                                                |                                                     |
-| Redis      | ✔️                                           | ✔️                                    | ✔️                                                                |                                                     |
-| Oracle     | ✔️                                           | ✔️                                    | ✔️                                                                | ✔️                                                  |
-| SQL Server | ✔️                                           | ✔️                                    | ✔️                                                                |                                                     |
-| MariaDB    | ✔️                                           | ✔️                                    | ✔️                                                                | ✔️                                                  |
-| OceanBase  | ✔️                                           | ✔️                                    | ✔️                                                                | ✔️                                                  |
+| Feature    | [RBAC](/docs/concepts/roles-and-permissions) | [Audit Log](/docs/security/audit-log) | [Data Access Control](/docs/security/data-access-control) | [Data Anonymization](/docs/security/anonymize-data) |
+| ---------- | -------------------------------------------- | ------------------------------------- | --------------------------------------------------------- | --------------------------------------------------- |
+| MySQL      | ✔️                                           | ✔️                                    | ✔️                                                        | ✔️                                                  |
+| PostgreSQL | ✔️                                           | ✔️                                    | ✔️                                                        | ✔️                                                  |
+| TiDB       | ✔️                                           | ✔️                                    | ✔️                                                        | ✔️                                                  |
+| ClickHouse | ✔️                                           | ✔️                                    | ✔️                                                        |                                                     |
+| Snowflake  | ✔️                                           | ✔️                                    | ✔️                                                        |                                                     |
+| MongoDB    | ✔️                                           | ✔️                                    | ✔️                                                        |                                                     |
+| Spanner    | ✔️                                           | ✔️                                    | ✔️                                                        |                                                     |
+| Redis      | ✔️                                           | ✔️                                    | ✔️                                                        |                                                     |
+| Oracle     | ✔️                                           | ✔️                                    | ✔️                                                        | ✔️                                                  |
+| SQL Server | ✔️                                           | ✔️                                    | ✔️                                                        |                                                     |
+| MariaDB    | ✔️                                           | ✔️                                    | ✔️                                                        | ✔️                                                  |
+| OceanBase  | ✔️                                           | ✔️                                    | ✔️                                                        | ✔️                                                  |
 
 ### Disaster Recovery
 

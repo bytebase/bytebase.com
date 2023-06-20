@@ -16,14 +16,14 @@ description: '- Added support for MongoDB. - View ER Diagrams with the new Schem
 
 - Send notifications via [webhook](/docs/change-database/webhook) when the stage status is changed.
 - Added project view in SQL Editor's database tree to easily navigate different databases and projects.
-- Display inactive rules in the [Access Control](/docs/security/database-access-control) rule list.
+- Display inactive rules in the [Access Control](/docs/security/data-access-control) rule list.
 - Support [PostgreSQL SSL connection](/docs/get-started/step-by-step/add-an-instance#add-an-instance).
 - Added schema version in the startup log to avoid confusion with the server version.
 
 ## 📰 Fresh off the press
 
 - Compared to traditional SQL tools, such as the CLI or classic SQL Editor, a modern SQL Editor for DevOps teams should make secure changes and have a user-friendly UI: [see how](/blog/the-sql-editor-for-developers-and-dbas) Bytebase's new SQL Editor assists collaboration.
-- Follow [this handy tutorial](/docs/tutorials/how-to-configure-database-access-control-and-data-anonymization-for-developer) to try first-hand how database access control and data anonymization works in Bytebase.
+- Follow [this handy tutorial](/docs/tutorials/how-to-configure-database-access-control-and-data-anonymization-for-developer) to try first-hand how data access control and data anonymization works in Bytebase.
 - Ready to bring your TiDB schema change to the next level? The Database Change Management tutorial series continues!
   - Step 1 - [DevOps: Database Change Management with TiDB](/docs/tutorials/database-change-management-with-tidb)
   - Step 2 - [DevOps: Database Change Management with TiDB and GitHub](/docs/tutorials/database-change-management-with-tidb-and-github)
