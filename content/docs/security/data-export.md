@@ -2,46 +2,36 @@
 title: Data Export Approval Flow
 ---
 
-**Project Owners** can manually add the role of data exporter to control data export permissions. In **Enterprise Plan**, users can apply for data exporter roles by submitting a request grant issue.
+**Project Owner** can always export data directly from the result panel in SQL Editor. However, for **Project Exporter**, the behavior is different depending on the plan.
+   ![bb-request-export-owner](/content/docs/security/data-query-and-export/bb-request-export-owner.webp)
+## Enterprise Plan
 
-## Add Exporter role manually
+You need to have **Project Querier** role first, and then click **Request Export** either from the result panel in SQL Editor or from project page.
+   ![bb-request-export-querier-sql-editor](/content/docs/security/data-query-and-export/bb-request-export-querier-sql-editor.webp)
 
-As a **Project Owner**, you can go to the project, click **Settings**, find the **Management members** section, and manually add the role of **Project Exporter**.
+   ![bb-homepage-request-export](/content/docs/security/data-query-and-export/bb-homepage-request-export.webp)
 
-Before adding the **Project Exporter** role, you need to add the **Project Querier** role first to ensure that the user has permission to query the data.
+### How to Request Export
 
-In **Free or Pro Plan**, once the **Project Exporter** role is added, the user can export the query result of the specified database in SQL Editor.
+1. After clicking **Request Export**, fill out the relevant form. There're two methods: `SQL` and `Databases`.
+   ![bb-request-export-sql-db](/content/docs/security/data-query-and-export/bb-request-export-sql-db.webp)
 
-![export-data-button-in-sql-editor](/content/docs/security/data-query-and-export/export-data-button-in-sql-editor.webp)
+2. Click **Create** to submit the request and wait for approval.
+   ![bb-request-export-waiting](/content/docs/security/data-query-and-export/bb-request-export-waiting.webp)
 
-In **Enterprise Plan**, data export should be done by applying for **Exporter** role.
+### How to Download in Export Center
+Once the request is approved, you can go to the **Export Center** to download the exported file.
 
-## Apply for Exporter role
-
-<EnterpriseOnlyBlock />
-
-In **Enterprise plan**, users need to apply for **Project Exporter** role before exporting data for data security governance.
-
-1. Go to the home page or project list page, and click **Export data**.
-
-   ![request-querier-or-exporter-role](/content/docs/security/data-query-and-export/request-querier-or-exporter-role.webp)
-
-2. Fill out the relevant form.
-
-   ![request-exporter-role-form](/content/docs/security/data-query-and-export/request-exporter-role-form.webp)
-
-   Including the following information:
-
-   - **Project**: The project that the database belongs to.
-   - **Database**: The database you want to export.
-   - **Export rows**: The number of rows you want to export. The default is 1000 rows.
-   - **Export format**: The format of the exported file. The default is CSV.
-   - **Reason**: The reason for applying for the exporter permission.
-
-3. Click **Create** to submit the request.
-
-4. After the request is approved, click **Export** to export the data.
-
-   ![export-data-button](/content/docs/security/data-query-and-export/export-data-button.webp)
+   ![bb-export-center](/content/docs/security/data-query-and-export/bb-export-center.webp)
 
    The export action only supports one-time export. If you need to export again, you need to submit a new request.
+
+## Free or Pro Plan
+- **Project Querier** can't download data nor request export. The only way to export data is to ask **Project Owner** to assign **Project Exporter** role to you.
+
+   ![bb-export-sql-editor-no-perm](/content/docs/security/data-query-and-export/bb-export-sql-editor-no-perm.webp)
+
+- **Project Exporter** can export data directly from the result panel in SQL Editor. You need to have **Project Querier** role first to access data and the result panel.
+### How to Add Exporter role manually
+
+As a **Project Owner**, you can go to the project, and click **Members** tab. Find the user, click `+`  and choose **Project Exporter**. 
