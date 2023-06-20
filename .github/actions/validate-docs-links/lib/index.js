@@ -28256,7 +28256,7 @@ var __webpack_exports__ = {};
   var E = __nccwpck_require__(596);
   var _ = __nccwpck_require__.n(E);
   var w = __nccwpck_require__(9939);
-  const b = '/docs/';
+  const b = '/content/';
   const A = ['/docs/messages/'];
   const y = ['top'];
   const S = '\x3c!-- LINK_CHECKER_COMMENT --\x3e';
@@ -28273,7 +28273,7 @@ var __webpack_exports__ = {};
       const o = await t().stat(n);
       if (o.isDirectory()) {
         a = await getMdxFiles(n, a);
-      } else if (r().extname(i) === '.mdx') {
+      } else if (r().extname(i) === '.mdx' || r().extname(i) === '.md') {
         a.push(n);
       }
     }
