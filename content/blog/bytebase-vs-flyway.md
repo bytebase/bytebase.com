@@ -29,7 +29,7 @@ for developers and DBAs to collaborate.
 |                                                                                              | Flyway           | Bytebase                             |
 | -------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------ |
 | [Product position](#product-position)                                                        | Schema change    | Schema Change, Data Query and Secure |
-| [Main developer interface](#developer-interface)                                             | CLI              | GUI                                  |
+| [Developer interface](#developer-interface)                                                  | CLI              | GUI                                  |
 | [Supported databases](#supported-databases)                                                  | 22 Only SQL DB   | 13 SQL & NoSQL DB                    |
 | [Programming language and installation](#installation)                                       | Java + JVM       | Go single binary without dependency  |
 | [Change execution](#change-execution)                                                        | SQL script + CLI | Issue + GUI                          |
@@ -52,7 +52,7 @@ for developers and DBAs to collaborate.
 - **Bytebase**: In addition to database schema change and version control, Bytebase also provides data query, security, and governance features. It provides a GUI based collaboration workspace that helps DBAs and Developers manage the database development lifecycle.
   ![bytebase-position](/content/blog/bytebase-vs-flyway/bytebase-position.webp)
 
-### Main developer interface
+### Developer interface
 
 - **Flyway**: A command-line tool. With JVM, it also provides Java API, Maven plugin and Gradle plugin. A simple graphical user interface (GUI) called Flyway Desktop is available for SQL Server, PostgreSQL and MySQL.
 - **Bytebase**: A web-based GUI tool. It also provides a [command-line interface (CLI)](/docs/cli/overview/), [application programming interface (API)](/docs/api/overview/), [Terraform Provider](/docs/get-started/terraform/), and [GitHub App](/docs/sql-review/sql-advisor/github-app).
