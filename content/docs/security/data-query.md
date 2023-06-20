@@ -11,11 +11,7 @@ As a **Project Owner**, you can go to the project, click **Settings**, find the 
 
 ## Apply for Querier role
 
-<HintBlock type="info">
-
-This feature is only available in the Enterprise Plan.
-
-</HintBlock>
+<EnterpriseOnlyBlock />
 
 Users can apply for **Project Querier** role by submitting a request grant issue.
 
@@ -39,6 +35,7 @@ Users can apply for **Project Querier** role by submitting a request grant issue
 After the request is approved, you can query the data in SQL Editor from the specified databases before the requested expiration time.
 
 ## Apply for Querier role at table level
+
 Users can apply for **Project Querier** role for specific tables.
 
 1. In the request form, click **Manual Select** on the **Database** row.

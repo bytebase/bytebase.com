@@ -2,11 +2,7 @@
 title: Custom Approval
 ---
 
-<HintBlock type="info">
-
-This feature is only available in the Enterprise Plan.
-
-</HintBlock>
+<EnterpriseOnlyBlock />
 
 In **Settings > Custom Approval**, you can choose which approval flow to use for a [risk level](/docs/administration/risk-center) and define approval flows.
 

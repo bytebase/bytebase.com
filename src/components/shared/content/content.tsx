@@ -12,6 +12,7 @@ import CodeBlock from '@/components/shared/code-block';
 import QuoteIcon from '@/svgs/quote.inline.svg';
 
 import DocLinkBlock from './doc-link-block';
+import EnterpriseOnlyBlock from './enterprise-only-block';
 import HintBlock from './hint-block';
 import IncludeBlock from './include-block';
 import TutorialTallCard from './tutorial-tall-card';
@@ -88,6 +89,7 @@ const components = {
   },
   HintBlock,
   DocLinkBlock,
+  EnterpriseOnlyBlock,
   IncludeBlock,
   TutorialCardsWrapper: ({ children }: any) => (
     <ul className="not-prose my-11 grid list-none auto-rows-[268px] grid-cols-3 gap-5 !pl-0 xl:my-10 lg:gap-6 md:my-9 md:gap-5 sm:my-8 sm:auto-rows-[142px] sm:grid-cols-1 sm:gap-4">

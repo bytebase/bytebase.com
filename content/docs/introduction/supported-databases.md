@@ -1,7 +1,9 @@
 ---
-title: Supported Databases
+title: Supported Databases and Features
 description: The Bytebase supported databases and corresponding feature matrix
 ---
+
+## Supported Databases
 
 Bytebase officially supports the following major versions for each supported database engine:
 
@@ -22,51 +24,104 @@ Bytebase usually works fine with older database versions, we just won't support 
 
 ## Feature Matrix
 
-### Change Management
+### Change Workflow
 
-| Feature                                                                         | MySQL | PostgreSQL | TiDB | ClickHouse | Snowflake | MongoDB | Spanner | Redis | Oracle | SQL Server | MariaDB | OceanBase |
-| ------------------------------------------------------------------------------- | ----- | ---------- | ---- | ---------- | --------- | ------- | ------- | ----- | ------ | ---------- | ------- | --------- |
-| [UI Change Workflow](/docs/change-database/change-workflow)                     | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
-| [GitOps Change Workflow](/docs/vcs-integration/overview)                        | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
-| [Batch Change](/docs/change-database/batch-change)                              | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
-| [Migration History](/docs/change-database/migration-history)                    | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
-| [SQL Review Policy and Rules](/docs/sql-review/review-policy/overview)          | ✔️    | ✔️         | ✔️   |            |           |         |         |       |        |            |         |           |
-| [Schema Synchronization](/docs/change-database/synchronize-schema)              | ✔️    | ✔️         |      |            |           |         |         |       |        |            |         |           |
-| [Schema Editor](/docs/change-database/schema-editor)                            | ✔️    |            |      |            |           |         |         |       |        |            |         |           |
-| [State-based Migration](/docs/change-database/state-based-migration)            | ✔️    |            |      |            |           |         |         |       |        |            |         |           |
-| [Rollback Data Changes](/docs/change-database/rollback-data-changes)            | ✔️    |            |      |            |           |         |         |       |        |            |         |           |
-| [Online Schema Change](/docs/change-database/online-schema-migration-for-mysql) | ✔️    |            |      |            |           |         |         |       |        |            |         |           |
+| Feature    | [UI & GitOps Workflow](/docs/concepts/database-change-workflow) | [Migration History](/docs/change-database/migration-history) | [Batch Change](/docs/change-database/batch-change) | [SQL Lint](/docs/sql-review/review-policy/overview) |
+| ---------- | --------------------------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------- | --------------------------------------------------- |
+| MySQL      | ✔️                                                              | ✔️                                                           | ✔️                                                 | ✔️                                                  |
+| PostgreSQL | ✔️                                                              | ✔️                                                           | ✔️                                                 | ✔️                                                  |
+| TiDB       | ✔️                                                              | ✔️                                                           | ✔️                                                 | ✔️                                                  |
+| ClickHouse | ✔️                                                              | ✔️                                                           | ✔️                                                 |                                                     |
+| Snowflake  | ✔️                                                              | ✔️                                                           | ✔️                                                 | ✔️                                                  |
+| MongoDB    | ✔️                                                              | ✔️                                                           | ✔️                                                 |                                                     |
+| Spanner    | ✔️                                                              | ✔️                                                           | ✔️                                                 |                                                     |
+| Redis      | ✔️                                                              | ✔️                                                           | ✔️                                                 |                                                     |
+| Oracle     | ✔️                                                              | ✔️                                                           | ✔️                                                 | ✔️                                                  |
+| SQL Server | ✔️                                                              | ✔️                                                           | ✔️                                                 |                                                     |
+| MariaDB    | ✔️                                                              | ✔️                                                           | ✔️                                                 | ✔️                                                  |
+| OceanBase  | ✔️                                                              | ✔️                                                           | ✔️                                                 | ✔️                                                  |
+
+### Schema Management
+
+| Feature    | [Schema Synchronization](/docs/change-database/synchronize-schema) | [Schema Editor](/docs/change-database/schema-editor) | [State-based Migration](/docs/change-database/state-based-migration) | [Online Schema Change](/docs/change-database/online-schema-migration-for-mysql) |
+| ---------- | ------------------------------------------------------------------ | ---------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| MySQL      | ✔️                                                                 | ✔️                                                   | ✔️                                                                   | ✔️                                                                              |
+| PostgreSQL | ✔️                                                                 | ✔️                                                   | ✔️                                                                   |                                                                                 |
+| TiDB       | ✔️                                                                 | ✔️                                                   | ✔️                                                                   |                                                                                 |
+| ClickHouse |                                                                    |                                                      |                                                                      |                                                                                 |
+| Snowflake  |                                                                    |                                                      |                                                                      |                                                                                 |
+| MongoDB    |                                                                    |                                                      |                                                                      |                                                                                 |
+| Spanner    |                                                                    |                                                      |                                                                      |                                                                                 |
+| Redis      |                                                                    |                                                      |                                                                      |                                                                                 |
+| Oracle     |                                                                    |                                                      |                                                                      |                                                                                 |
+| SQL Server |                                                                    |                                                      |                                                                      |                                                                                 |
+| MariaDB    |                                                                    |                                                      |                                                                      |                                                                                 |
+| OceanBase  |                                                                    |                                                      |                                                                      |                                                                                 |
 
 ### SQL Editor
 
-|                                                 Feature | MySQL | PostgreSQL | TiDB | ClickHouse | Snowflake | MongoDB | Spanner | Redis | Oracle | SQL Server | MariaDB | OceanBase |
-| ------------------------------------------------------: | ----- | ---------- | ---- | ---------- | --------- | ------- | ------- | ----- | ------ | ---------- | ------- | --------- |
-|          [Read-only Mode](/docs/sql-editor/run-queries) | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        |         | ✔️      |       | ✔️     | ✔️         | ✔️      | ✔️        |
-|               [Admin Mode](/docs/sql-editor/admin-mode) | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
-| [Sheet Management](/docs/sql-editor/manage-sql-scripts) | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
+| Feature    | [Sheet Management](/docs/sql-editor/manage-sql-scripts) | [Query Mode](/docs/sql-editor/run-queries) | [Admin Mode](/docs/sql-editor/admin-mode) | [ChatSQL](/docs/sql-editor/chatsql) |
+| ---------- | ------------------------------------------------------- | ------------------------------------------ | ----------------------------------------- | ----------------------------------- |
+| MySQL      | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
+| PostgreSQL | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
+| TiDB       | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
+| ClickHouse | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
+| Snowflake  | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
+| MongoDB    | ✔️                                                      |                                            | ✔️                                        | ✔️                                  |
+| Spanner    | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
+| Redis      | ✔️                                                      |                                            | ✔️                                        | ✔️                                  |
+| Oracle     | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
+| SQL Server | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
+| MariaDB    | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
+| OceanBase  | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
 
 ### Security
 
-| Feature                                                           | MySQL | PostgreSQL | TiDB | ClickHouse | Snowflake | MongoDB | Spanner | Redis | Oracle | SQL Server | MariaDB | OceanBase |
-| ----------------------------------------------------------------- | ----- | ---------- | ---- | ---------- | --------- | ------- | ------- | ----- | ------ | ---------- | ------- | --------- |
-| [RBAC](/docs/concepts/roles-and-permissions)                      | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
-| [Database Access Control](/docs/security/database-access-control) | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
-| [Audit Log](/docs/security/audit-log)                             | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
-| [Data Anonymization](/docs/security/anonymize-data)               | ✔️    | ✔️         | ✔️   |            |           |         |         |       |        |            | ✔️      | ✔️        |
+| Feature    | [RBAC](/docs/concepts/roles-and-permissions) | [Audit Log](/docs/security/audit-log) | [Database Access Control](/docs/security/database-access-control) | [Data Anonymization](/docs/security/anonymize-data) |
+| ---------- | -------------------------------------------- | ------------------------------------- | ----------------------------------------------------------------- | --------------------------------------------------- |
+| MySQL      | ✔️                                           | ✔️                                    | ✔️                                                                | ✔️                                                  |
+| PostgreSQL | ✔️                                           | ✔️                                    | ✔️                                                                | ✔️                                                  |
+| TiDB       | ✔️                                           | ✔️                                    | ✔️                                                                | ✔️                                                  |
+| ClickHouse | ✔️                                           | ✔️                                    | ✔️                                                                |                                                     |
+| Snowflake  | ✔️                                           | ✔️                                    | ✔️                                                                |                                                     |
+| MongoDB    | ✔️                                           | ✔️                                    | ✔️                                                                |                                                     |
+| Spanner    | ✔️                                           | ✔️                                    | ✔️                                                                |                                                     |
+| Redis      | ✔️                                           | ✔️                                    | ✔️                                                                |                                                     |
+| Oracle     | ✔️                                           | ✔️                                    | ✔️                                                                | ✔️                                                  |
+| SQL Server | ✔️                                           | ✔️                                    | ✔️                                                                |                                                     |
+| MariaDB    | ✔️                                           | ✔️                                    | ✔️                                                                | ✔️                                                  |
+| OceanBase  | ✔️                                           | ✔️                                    | ✔️                                                                | ✔️                                                  |
 
 ### Disaster Recovery
 
-| Feature                                                                                   | MySQL | PostgreSQL | TiDB | ClickHouse | Snowflake | MongoDB | Spanner | Redis | Oracle | SQL Server | MariaDB | OceanBase |
-| ----------------------------------------------------------------------------------------- | ----- | ---------- | ---- | ---------- | --------- | ------- | ------- | ----- | ------ | ---------- | ------- | --------- |
-| [Local Backup and Restore](/docs/disaster-recovery/backup)                                | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        |         |         |       |        |            |         |           |
-| [Cloud Backup](/docs/disaster-recovery/backup-restore-database/backup/#cloud-storage)     | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        |         |         |       |        |            |         |           |
-| [Point-in-time Recovery (PITR)](/docs/disaster-recovery/point-in-time-recovery-for-mysql) | ✔️    |            |      |            |           |         |         |       |        |            |         |           |
+| Feature    | [Local Backup and Restore](/docs/disaster-recovery/backup) | [Cloud Backup](/docs/disaster-recovery/backup-restore-database/backup/#cloud-storage) | [Data Change Rollback](/docs/change-database/rollback-data-changes) | [Point-in-time Recovery (PITR)](/docs/disaster-recovery/point-in-time-recovery-for-mysql) |
+| ---------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| MySQL      | ✔️                                                         | ✔️                                                                                    | ✔️                                                                  | ✔️                                                                                        |
+| PostgreSQL | ✔️                                                         | ✔️                                                                                    |                                                                     |                                                                                           |
+| TiDB       | ✔️                                                         | ✔️                                                                                    |                                                                     |                                                                                           |
+| ClickHouse |                                                            |                                                                                       |                                                                     |                                                                                           |
+| Snowflake  | ✔️                                                         | ✔️                                                                                    |                                                                     |                                                                                           |
+| MongoDB    |                                                            |                                                                                       |                                                                     |                                                                                           |
+| Spanner    |                                                            |                                                                                       |                                                                     |                                                                                           |
+| Redis      |                                                            |                                                                                       |                                                                     |                                                                                           |
+| Oracle     |                                                            |                                                                                       |                                                                     |                                                                                           |
+| SQL Server |                                                            |                                                                                       |                                                                     |                                                                                           |
+| MariaDB    | ✔️                                                         | ✔️                                                                                    |                                                                     |                                                                                           |
+| OceanBase  |                                                            |                                                                                       |                                                                     |                                                                                           |
 
 ### Anomaly Detection
 
-| Feature                                                                                   | MySQL | PostgreSQL | TiDB | ClickHouse | Snowflake | MongoDB | Spanner | Redis | Oracle | SQL Server | MariaDB | OceanBase |
-| ----------------------------------------------------------------------------------------- | ----- | ---------- | ---- | ---------- | --------- | ------- | ------- | ----- | ------ | ---------- | ------- | --------- |
-| Database Connection Failure                                                               | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        | ✔️      | ✔️      | ✔️    | ✔️     | ✔️         | ✔️      | ✔️        |
-| [Drift Detection](/docs/change-database/drift-detection)                                  | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        |         | ✔️      |       |        |            |         |           |
-| [Backup Policy Violation](/docs/administration/environment-policy/backup-schedule-policy) | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        |         |         |       |        |            |         |           |
-| [Backup Missing](/docs/disaster-recovery/backup-restore-database/backup)                  | ✔️    | ✔️         | ✔️   | ✔️         | ✔️        |         |         |       |        |            |         |           |
+| Feature    | Connection Failure | [Drift Detection](/docs/change-database/drift-detection) | [Backup Policy Violation](/docs/administration/environment-policy/backup-schedule-policy) | [Backup Missing](/docs/disaster-recovery/backup-restore-database/backup) |
+| ---------- | ------------------ | -------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| MySQL      | ✔️                 | ✔️                                                       | ✔️                                                                                        | ✔️                                                                       |
+| PostgreSQL | ✔️                 | ✔️                                                       | ✔️                                                                                        | ✔️                                                                       |
+| TiDB       | ✔️                 | ✔️                                                       | ✔️                                                                                        | ✔️                                                                       |
+| ClickHouse | ✔️                 | ✔️                                                       |                                                                                           |                                                                          |
+| Snowflake  | ✔️                 | ✔️                                                       | ✔️                                                                                        | ✔️                                                                       |
+| MongoDB    | ✔️                 |                                                          |                                                                                           |                                                                          |
+| Spanner    | ✔️                 | ✔️                                                       |                                                                                           |                                                                          |
+| Redis      | ✔️                 |                                                          |                                                                                           |                                                                          |
+| Oracle     | ✔️                 | ✔️                                                       |                                                                                           |                                                                          |
+| SQL Server | ✔️                 | ✔️                                                       |                                                                                           |                                                                          |
+| MariaDB    | ✔️                 | ✔️                                                       | ✔️                                                                                        | ✔️                                                                       |
+| OceanBase  | ✔️                 | ✔️                                                       |                                                                                           |                                                                          |

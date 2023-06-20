@@ -2,11 +2,7 @@
 title: Custom Roles
 ---
 
-<HintBlock type="info">
-
-This feature is only available in the Enterprise Plan.
-
-</HintBlock>
+<EnterpriseOnlyBlock />
 
 In **Settings > Custom Roles**, you can define new custom roles and apply them to project members.
 

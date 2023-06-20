@@ -133,6 +133,7 @@ Specifically, Bytebase checks:
 - PostgreSQL
 - Oracle
 - OceanBase
+- Snowflake
 
 <h3 id="naming.column">Column naming convention</h3>
 
@@ -368,6 +369,7 @@ Using keywords as table names in Oracle, or any other database management system
 #### Support database engine
 
 - Oracle
+- Snowflake
 
 <h3 id="naming.identifier.no-keyword">Disallow keywords as identifiers</h3>
 
@@ -378,6 +380,7 @@ The same reason as [Disallow keywords as table names](#naming.table.no-keyword).
 #### Support database engine
 
 - Oracle
+- Snowfake
 
 <h3 id="naming.identifier.case">Identifier case</h3>
 
@@ -390,6 +393,7 @@ For Oracle, if the identifier is not quoted, it is converted to uppercase. In or
 #### Support database engine
 
 - Oracle
+- Snowflake
 
 ## Statement
 
@@ -434,6 +438,7 @@ Bytebase considers this rule to be violated if the SQL has no WHERE clause.
 - PostgreSQL
 - Oracle
 - OceanBase
+- Snowflake
 
 <h3 id="statement.where.no-leading-wildcard-like">Disallow leading % in LIKE</h3>
 
@@ -688,6 +693,7 @@ Bytebase considers this rule to be violated if the SQL tries to create a no prim
 - PostgreSQL
 - Oracle
 - OceanBase
+- Snowflake
 
 <h3 id="table.no-foreign-key">Disallow foreign key</h3>
 
@@ -713,6 +719,7 @@ Bytebase considers this rule to be violated if the SQL tries to:
 - PostgreSQL
 - Oracle
 - OceanBase
+- Snowflake
 
 <h3 id="table.drop-naming-convention">Drop naming convention</h3>
 
@@ -831,6 +838,7 @@ Bytebase defaults all tables to meet the requirements. If the SQL tries to defin
 - PostgreSQL
 - Oracle
 - OceanBase
+- Snowflake
 
 <h3 id="column.type-disallow-list">Column type disallow list</h3>
 
@@ -872,6 +880,7 @@ Bytebase considers this rule to be violated if the SQL defines a column allowing
 - PostgreSQL
 - Oracle
 - OceanBase
+- Snowflake
 
 <h3 id="column.disallow-change-type">Disallow changing column type</h3>
 
@@ -1080,6 +1089,7 @@ Specifically, Bytebase checks:
 #### Support database engine
 
 - Oracle
+- Snowflake
 
 <h3 id="column.auto-increment-initial-value">Auto-increment initial value</h3>
 

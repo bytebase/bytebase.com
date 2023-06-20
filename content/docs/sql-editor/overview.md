@@ -1,5 +1,5 @@
 ---
-title: Query Data with SQL Editor
+title: SQL Editor
 ---
 
 ![SQL Editor Preview](/content/docs/sql-editor/preview.webp)
