@@ -32,6 +32,6 @@ Once the request is approved, you can go to the **Export Center** to download th
    ![bb-export-sql-editor-no-perm](/content/docs/security/data-query-and-export/bb-export-sql-editor-no-perm.webp)
 
 - **Project Exporter** can export data directly from the result panel in SQL Editor. You need to have **Project Querier** role first to access data and the result panel.
-### How to Add Exporter role manually
+### How to Add Exporter Role Manually
 
 As a **Project Owner**, you can go to the project, and click **Members** tab. Find the user, click `+`  and choose **Project Exporter**. 
