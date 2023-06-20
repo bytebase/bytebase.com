@@ -18,11 +18,7 @@ In **Enterprise Plan**, data export should be done by applying for **Exporter** 
 
 ## Apply for Exporter role
 
-<HintBlock type="info">
-
-This feature is only available in the Enterprise Plan.
-
-</HintBlock>
+<EnterpriseOnlyBlock />
 
 In **Enterprise plan**, users need to apply for **Project Exporter** role before exporting data for data security governance.
 

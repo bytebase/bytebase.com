@@ -23,11 +23,7 @@ Then Bytebase will then create an issue to track the multi-database changes. You
 
 ## Change databases from multiple tenants
 
-<HintBlock type="info">
-
-This feature is only available in the Enterprise Plan.
-
-</HintBlock>
+<EnterpriseOnlyBlock />
 
 Bytebase allows you to change **a collection of databases with identical schemas**, these databases are often referred as [tenant databases](/docs/concepts/batch-mode/#tenant-database).
 
@@ -145,12 +141,7 @@ You can further adopt GitOps to batch change tenant databases. Head over to the 
 
 ## Change databases from database groups
 
-<HintBlock type="info">
-
-This feature is only available in the Enterprise Plan.
-This feature is only available in tenant projects.
-
-</HintBlock>
+<EnterpriseOnlyBlock />
 
 If you are responsible for managing horizontally partitioned databases that are distributed across multiple data centers worldwide, applying database changes from [database groups](/docs/concepts/batch-mode/#database-group) empowers you to manage these databases effectively and easily.
 

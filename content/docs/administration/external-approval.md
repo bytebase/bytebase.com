@@ -2,11 +2,7 @@
 title: External Approval
 ---
 
-<HintBlock type="info">
-
-This feature is only available in the Enterprise Plan.
-
-</HintBlock>
+<EnterpriseOnlyBlock />
 
 ## External Approval Flow
 
