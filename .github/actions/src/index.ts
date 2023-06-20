@@ -49,7 +49,7 @@ interface Comment {
   id: number;
 }
 
-const DOCS_PATH = '/docs/';
+const DOCS_PATH = '/content/';
 const EXCLUDED_PATHS = ['/docs/messages/'];
 const EXCLUDED_HASHES = ['top'];
 const COMMENT_TAG = '<!-- LINK_CHECKER_COMMENT -->';
@@ -62,7 +62,7 @@ const sha = pullRequest.head.sha;
 
 const slugger = new GithubSlugger();
 
-// Recursively traverses DOCS_PATH and collects all .mdx files
+// Recursively traverses DOCS_PATH and collects all .mdx and md files
 async function getMdxFiles(dir: string, fileList: string[] = []): Promise<string[]> {
   const files = await fs.readdir(dir);
 
@@ -72,7 +72,7 @@ async function getMdxFiles(dir: string, fileList: string[] = []): Promise<string
 
     if (stats.isDirectory()) {
       fileList = await getMdxFiles(filePath, fileList);
-    } else if (path.extname(file) === '.mdx') {
+    } else if (path.extname(file) === '.mdx' || path.extname(file) === '.md') {
       fileList.push(filePath);
     }
   }
