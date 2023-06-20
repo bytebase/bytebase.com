@@ -34,7 +34,7 @@ title: Overview
 ## Intermediate
 
 <TutorialCardsWrapper>
-<TutorialTallCard title="Run Batch Change with Database Grouping" url="/docs/tutorials/batch-change-with-database-group" date="2023/06/20" logos="mysql"></TutorialTallCard>
+<TutorialTallCard title="Batch Change with Database Grouping" url="/docs/tutorials/batch-change-with-database-group" date="2023/06/20" logos="mysql"></TutorialTallCard>
 
 <TutorialTallCard title="Database Change Management with Risk-Adjusted Approval Flow" url="/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow" date="2023/06/01" logos="mysql"></TutorialTallCard>
 
