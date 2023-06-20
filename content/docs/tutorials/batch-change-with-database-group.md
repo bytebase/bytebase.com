@@ -8,13 +8,14 @@ level: Intermediate
 description: This article briefly describes the general scenarios of database schema synchronization and how to use this feature smoothly in Bytebase with pure UI operations.
 ---
 
-Bytebase [2.2.0](/changelog/bytebase-2-2-0/) introduced **database grouping**, a new feature that provides a third way to facilitate batch change, in addition to **multiple environments** and **multiple tenants**.
+Bytebase [2.2.0](/changelog/bytebase-2-2-0/) introduced [**database grouping**](/docs/concepts/batch-mode/#database-group), a new feature that provides a third way to facilitate batch change, in addition to **multiple environments** and **multiple tenants**.
+
+## Prerequisites
+This tutorial requires [Docker](https://www.docker.com/) to be installed.
 
 ## Step 1 - Start Bytebase and MySQL
 
-0. Make sure you installed and running [Docker](https://www.docker.com/).
-
-1. Copy and paste the commands to start one Bytebase and two MySQL instances via Docker.
+1. Make sure your Docker daemon is running. Copy and paste the commands to start one Bytebase and two MySQL instances via Docker.
 
 ```bash
 docker run --init \
@@ -52,7 +53,7 @@ docker run --name mysqldprod \
 
    - **Host or Socket**: `host.docker.internal` | **Port**: `3307`/`3308`
    - **Environment**: `Test`/`Prod`
-   - **Username**: `root` | **Password**:`testpwd1`.
+   - **Username**: `root` | **Password**:`testpwd1`
 
 2. Create project `Group Demo` as **Name**, `GD` as **Key** `Batch Mode` as **Mode** and click **Create**. Here you need to upgrade to **Enterprise Plan** with 14 days trial period.
    ![bb-create-project-upgrade](/content/docs/tutorials/batch-change-with-database-group/bb-create-project-upgrade.webp)
@@ -67,7 +68,7 @@ docker run --name mysqldprod \
    - `demo_db_prod_south_america` in `Prod` environment and click **Rollout**;
    - `demo_db_prod_antarctica` in `Prod` environment and click **Rollout**.
 
-## Step 3 - Group Databases and Run Batch Change
+## Step 3 - Group Databases and Create Tables in Batch
 
 1. Within the project `Group Demo`, click **Database Groups** tab, and click **New database group**. Fill in the form as follows:
    - **Name**: `demo-all` | **Environment**: `Prod`
@@ -90,14 +91,14 @@ docker run --name mysqldprod \
 ![bb-issue-7-db-t1](/content/docs/tutorials/batch-change-with-database-group/bb-issue-7-db-t1.webp)
 ![bb-issue-7-db-t1-one-db-passed](/content/docs/tutorials/batch-change-with-database-group/bb-issue--7-db-t1-one-db-passed.webp)
 
-4. Repeat 2 to 3 to create another issue to create another table `t2`:
+4. Repeat 2 to 3 to create another issue for another table `t2`:
    ```sql
    CREATE TABLE t2 (
       id INTEGER PRIMARY KEY
    );
    ```
 
-## Step 4 - Group Tables and Run Batch Change
+## Step 4 - Group Tables and Alter tables in Batch
 
 1. Within the project `Group Demo`, click **Database Groups** tab, and click **New table group**. Fill in the form as follows:
    - **Database Group**: `demo-all` | **Environment**: `Prod` | **Name**: `demo-all-t`
@@ -109,15 +110,15 @@ docker run --name mysqldprod \
    - **Condition**: Where `Table name` `==` `t1`
 
 3. Within the project, click **Alter Schema**. Choose **Manual Selection** > **Database Group** > `demo-all`, and click **Next**. You'll see the following field.
-![bb-table-alter-schema-t1-t](/content/docs/tutorials/batch-change-with-database-group/bb-table-alter-schema-t1-t.webp)
+   ![bb-table-alter-schema-t1-t](/content/docs/tutorials/batch-change-with-database-group/bb-table-alter-schema-t1-t.webp)
 
-4. Here we choose `demoall_t` which includes `t1` and `t2`. Copy and paste the SQL below and click **Create**. 
+4. Here we choose `demoall_t` which includes `t1` and `t2`. Uncomment the last line, replace it with the SQL below and click **Create**.
    ```sql
    ALTER TABLE demoall_t ADD COLUMN name VARCHAR(255) NOT NULL;
    ```
 
 5. On the issue page, click the **down arrow** and choose **Rollout** to run one database first. If it's OK, then click **Rollout current stage** to run all.
-
+   ![bb-issue-14-alter-schema](/content/docs/tutorials/batch-change-with-database-group/bb-issue-14-alter-schema.webp)
 
 ## Summary
-Now you have learned how to use database group to run batch change in Bytebase. Bytebase provides more other ways to help you run batch changes smoothly. Please refer to [Batch Change](/docs/change-database/batch-change/) for more details.
+Now you have learned how to use database group and table group to run batch changes in Bytebase. Bytebase provides more other ways to help you run batch changes smoothly. Please refer to [Batch Change](/docs/change-database/batch-change/) for more details.
