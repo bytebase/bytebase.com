@@ -33,7 +33,7 @@ As the engineering team grows, there will form a platform team or a dedicated DB
 ## Partitioned Database and Tables
 
 As data grows, databases and tables maybe partitioned into smaller chucks. Meanwhile, you still want to
-apply the same database change to all partitions. It's painful and error-prone to make sure a database change is consistently applied to each partition. Bytebase has [Database Group](/docs/concepts/batch-mode/#database-group) and can [change databases from database groups](/docs/change-database/batch-change/#change-databases-from-database-groups).
+apply the same database change to all partitions since they share the same schema. It's painful and error-prone to make sure a database change is consistently applied to each partition. Bytebase has [Database Group](/docs/concepts/batch-mode/#database-group) and can [change databases from database groups](/docs/change-database/batch-change/#change-databases-from-database-groups).
 
 ## Multi-Tenant Service
 
