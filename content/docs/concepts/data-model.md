@@ -16,7 +16,7 @@ Internally, Bytebase uses term `Principal` instead of `User` because former is m
 
 ## Role
 
-See [Roles and Permissions](/docs/concepts/roles-and-permissions1).
+See [Roles and Permissions](/docs/concepts/roles-and-permissions).
 
 ## Environment
 
