@@ -75,7 +75,8 @@ Different sets of rules can form different [SQL Review Policies](/docs/sql-revie
 
 ## Engine
 
-<h3 id="engine.mysql.use-innodb">Require InnoDB</h3>
+<div id="engine.mysql.use-innodb"></div>
+### Require InnoDB
 
 InnoDB is the default storage engine of MySQL 5.5+. It provides powerful transaction features. Normally, using InnoDB as the storage engine is the only option. Bytebase provides this rule to catch all scenarios where other engines are attempted.
 
@@ -97,7 +98,8 @@ So if the following situation occurs, Bytebase considers this rule to be violate
 
 ## Naming
 
-<h3 id="naming.table">Table naming convention</h3>
+<div id="naming.table"></div>
+### Table naming convention
 
 The unified naming convention is desired by developers. And the same applies to the database space. Bytebase provides this rule to unify the table naming convention.
 
@@ -135,7 +137,8 @@ Specifically, Bytebase checks:
 - OceanBase
 - Snowflake
 
-<h3 id="naming.column">Column naming convention</h3>
+<div id="naming.column"></div>
+### Column naming convention
 
 The unified naming convention is desired by developers. And the same applies to the database space. Bytebase provides this rule to unify the column naming convention.
 
@@ -172,7 +175,8 @@ Specifically, Bytebase checks:
 - PostgreSQL
 - OceanBase
 
-<h3 id="naming.column.auto-increment">Auto-increment column naming convention</h3>
+<div id="naming.column.auto-increment"></div>
+### Auto-increment column naming convention
 
 The unified naming convention is desired by developers. And the same applies to the database space. Bytebase provides this rule to unify the auto-increment column naming convention.
 
@@ -203,7 +207,8 @@ Specifically, Bytebase checks:
 - TiDB
 - OceanBase
 
-<h3 id="naming.index.idx">Index naming convention</h3>
+<div id="naming.index.idx"></div>
+### Index naming convention
 
 The unified naming convention is desired by developers. And the same applies to the database space. Bytebase provides this rule to unify the index naming convention.
 
@@ -242,7 +247,8 @@ Specifically, Bytebase checks:
 - PostgreSQL
 - OceanBase
 
-<h3 id="naming.index.pk">Primary key naming convention</h3>
+<div id="naming.index.pk"></div>
+### Primary key naming convention
 
 The unified naming convention is desired by developers. And the same applies to the database space. Bytebase provides this rule to unify the primary key naming convention.
 This rule does **NOT** support MySQL and TiDB. Because the name of a PRIMARY KEY is always PRIMARY in MySQL and TiDB.
@@ -276,7 +282,8 @@ Specifically, Bytebase checks:
 
 - PostgreSQL
 
-<h3 id="naming.index.uk">Unique key naming convention</h3>
+<div id="naming.index.uk"></div>
+### Unique key naming convention
 
 The unified naming convention is desired by developers. And the same applies to the database space. Bytebase provides this rule to unify the unique key naming convention.
 
@@ -315,7 +322,8 @@ Specifically, Bytebase checks:
 - PostgreSQL
 - OceanBase
 
-<h3 id="naming.index.fk">Foreign key naming convention</h3>
+<div id="naming.index.fk"></div>
+### Foreign key naming convention
 
 The unified naming convention is desired by developers. And the same applies to the database space. Bytebase provides this rule to unify the foreign key naming convention.
 
@@ -352,7 +360,8 @@ Specifically, Bytebase checks:
 - PostgreSQL
 - OceanBase
 
-<h3 id="naming.table.no-keyword">Disallow keywords as table names</h3>
+<div id="naming.table.no-keyword"></div>
+### Disallow keywords as table names
 
 Using keywords as table names in Oracle, or any other database management system, is generally not recommended for several reasons:
 
@@ -371,7 +380,8 @@ Using keywords as table names in Oracle, or any other database management system
 - Oracle
 - Snowflake
 
-<h3 id="naming.identifier.no-keyword">Disallow keywords as identifiers</h3>
+<div id="naming.identifier.no-keyword"></div>
+### Disallow keywords as identifiers
 
 The same reason as [Disallow keywords as table names](#disallow-keywords-as-table-names).
 
@@ -382,7 +392,8 @@ The same reason as [Disallow keywords as table names](#disallow-keywords-as-tabl
 - Oracle
 - Snowfake
 
-<h3 id="naming.identifier.case">Identifier case</h3>
+<div id="naming.identifier.case"></div>
+### Identifier case
 
 Bytebase provides this rule to unify the identifier case.
 
@@ -397,7 +408,8 @@ For Oracle, if the identifier is not quoted, it is converted to uppercase. In or
 
 ## Statement
 
-<h3 id="statement.select.no-select-all">Disallow SELECT *</h3>
+<div id="statement.select.no-select-all"></div>
+### Disallow SELECT *
 
 `SELECT *` introduces additional performance cost or ambiguous semantics.
 
@@ -419,7 +431,8 @@ Bytebase considers this rule to be violated if the SQL has `SELECT *`.
 - Oracle
 - OceanBase
 
-<h3 id="statement.where.require">Require WHERE</h3>
+<div id="statement.where.require"></div>
+### Require WHERE
 
 There are countless stories about people forgetting the WHERE clause in an UPDATE or DELETE and losing data. In queries, not using WHERE can also cause performance issues.
 
@@ -440,7 +453,8 @@ Bytebase considers this rule to be violated if the SQL has no WHERE clause.
 - OceanBase
 - Snowflake
 
-<h3 id="statement.where.no-leading-wildcard-like">Disallow leading % in LIKE</h3>
+<div id="statement.where.no-leading-wildcard-like"></div>
+### Disallow leading % in LIKE
 
 Database cannot use an index to match entries when there is a leading wildcard. It can cause serious performance problems because it may scan the entire table.
 
@@ -458,7 +472,8 @@ Bytebase considers this rule to be violated if the SQL has leading wildcard LIKE
 - Oracle
 - OceanBase
 
-<h3 id="statement.disallow-commit">Disallow COMMIT</h3>
+<div id="statement.disallow-commit"></div>
+### Disallow COMMIT
 
 Disallow using COMMIT statement.
 
@@ -475,7 +490,8 @@ Bytebase alerts users if there exists COMMIT statement.
 - PostgreSQL
 - OceanBase
 
-<h3 id="statement.disallow-limit">Disallow LIMIT</h3>
+<div id="statement.disallow-limit"></div>
+### Disallow LIMIT
 
 Disallow LIMIT clause for INSERT, UPDATE and DELETE statements.
 
@@ -497,7 +513,8 @@ Specifically, Bytebase checks:
 
 Support for PostgreSQL is coming soon.
 
-<h3 id="statement.disallow-order-by">Disallow ORDER BY</h3>
+<div id="statement.disallow-order-by"></div>
+### Disallow ORDER BY
 
 Disallow ORDER BY clause for UPDATE and DELETE statements.
 
@@ -518,7 +535,8 @@ Specifically, Bytebase checks:
 
 Support for PostgreSQL is coming soon.
 
-<h3 id="statement.merge-alter-table">Merge ALTER TABLE</h3>
+<div id="statement.merge-alter-table"></div>
+### Merge ALTER TABLE
 
 For readability, it's better not to use multiple `ALTER TABLE` statements for the same table.
 
@@ -538,7 +556,8 @@ Specifically, Bytebase checks:
 - PostgreSQL
 - OceanBase
 
-<h3 id="statement.insert.must-specify-column">INSERT statements must specify columns</h3>
+<div id="statement.insert.must-specify-column"></div>
+### INSERT statements must specify columns
 
 For readability, it's better to explicitly specify columns for INSERT statements, such as `INSERT INTO table_t(id, name) VALUES(...)`.
 
@@ -558,7 +577,8 @@ Specifically, Bytebase checks:
 - Oracle
 - OceanBase
 
-<h3 id="statement.insert.disallow-order-by-rand">Disallow ORDER BY RAND in INSERT statements</h3>
+<div id="statement.insert.disallow-order-by-rand"></div>
+### Disallow ORDER BY RAND in INSERT statements
 
 The `ORDER BY RAND()` clause is not necessary for INSERT statements.
 
@@ -577,7 +597,8 @@ Specifically, Bytebase checks:
 - PostgreSQL
 - OceanBase
 
-<h3 id="statement.insert.row-limit">Limit the inserted rows</h3>
+<div id="statement.insert.row-limit"></div>
+### Limit the inserted rows
 
 Alert users if the inserted rows exceed the limit.
 
@@ -594,7 +615,8 @@ Alert users if the inserted rows exceed the limit.
 - PostgreSQL
 - OceanBase
 
-<h3 id="statement.affected-row-limit">Limit affected row limit</h3>
+<div id="statement.affected-row-limit"></div>
+### Limit affected row limit
 
 Alert users if the affected rows in `UPDATE` or `DELETE` exceed the limit.
 
@@ -610,7 +632,8 @@ For `UPDATE` and `DELETE` statements, Bytebase runs `EXPLAIN` statements for the
 - PostgreSQL
 - OceanBase
 
-<h3 id="statement.dml-dry-run">Dry run DML statements</h3>
+<div id="statement.dml-dry-run"></div>
+### Dry run DML statements
 
 Dry run DML statements for validation.
 
@@ -630,7 +653,8 @@ Dry run DML statements by `EXPLAIN` statements. Specifically, Bytebase checks:
 - PostgreSQL
 - OceanBase
 
-<h3 id="statement.disallow-add-column-with-default">Disallow add column with default</h3>
+<div id="statement.disallow-add-column-with-default"></div>
+### Disallow add column with default
 
 The PostgreSQL will lock the table and rewrite the whole table when you adding column with default value. You can separate the adding column, setting default value and backfilling all existing rows.
 
@@ -644,7 +668,8 @@ Bytebase checks all `ALTER TABLE ADD COLUMN` statements.
 
 - PostgreSQL
 
-<h3 id="statement.add-check-not-valid">Add CHECK constraints with NOT VALID option</h3>
+<div id="statement.add-check-not-valid"></div>
+### Add CHECK constraints with NOT VALID option
 
 Adding CHECK constraints without NOT VALID can cause downtime because it blocks reads and writes. You can manually verify all rows and validate the constraint after creating.
 
@@ -658,7 +683,8 @@ Bytebase checks all `ALTER TABLE ADD CONSTRAINT` statements.
 
 - PostgreSQL
 
-<h3 id="statement.disallow-add-not-null">Disallow add NOT NULL constraints to an existing column</h3>
+<div id="statement.disallow-add-not-null"></div>
+### Disallow add NOT NULL constraints to an existing column
 
 It can cause downtime because it blocks reads and writes. You can add CHECK(column IS NOT NULL) constraints with NOT VALID option to avoid this.
 
@@ -674,7 +700,8 @@ Bytebase checks all `ALTER TABLE ADD CONSTRAINT` statements.
 
 ## Table
 
-<h3 id="table.require-pk">Require primary key</h3>
+<div id="table.require-pk"></div>
+### Require primary key
 
 In almost all cases, each table needs a primary key.
 
@@ -695,7 +722,8 @@ Bytebase considers this rule to be violated if the SQL tries to create a no prim
 - OceanBase
 - Snowflake
 
-<h3 id="table.no-foreign-key">Disallow foreign key</h3>
+<div id="table.no-foreign-key"></div>
+### Disallow foreign key
 
 This rule disallows users to create foreign key in the table.
 
@@ -721,7 +749,8 @@ Bytebase considers this rule to be violated if the SQL tries to:
 - OceanBase
 - Snowflake
 
-<h3 id="table.drop-naming-convention">Drop naming convention</h3>
+<div id="table.drop-naming-convention"></div>
+### Drop naming convention
 
 Only tables named with specific naming patterns can be deleted. This requires users to do a rename and then drop the table.
 
@@ -744,7 +773,8 @@ Specifically, Bytebase checks:
 - PostgreSQL
 - OceanBase
 
-<h3 id="table.disallow-partition">Disallow partition table</h3>
+<div id="table.disallow-partition"></div>
+### Disallow partition table
 
 ![sql-review-table-disallow-partition](/content/docs/sql-review/sql-review-table-disallow-partition.webp)
 
@@ -764,7 +794,8 @@ Specifically, Bytebase checks:
 - PostgreSQL
 - OceanBase
 
-<h3 id="table.comment">Table comment convention</h3>
+<div id="table.comment"></div>
+### Table comment convention
 
 Configure whether the table requires comments and the maximum comment length.
 
@@ -787,7 +818,8 @@ Specifically, Bytebase checks:
 
 ## Schema
 
-<h3 id="schema.backward-compatibility">Backward incompatible schema change</h3>
+<div id="schema.backward-compatibility"></div>
+### Backward incompatible schema change
 
 Introducing backward incompatible schema changes is one of the most common mistakes made by developers. And enforcing backward compatible schema change is the standard practice adopted by many engineering organizations. Bytebase provides the built-in backward compatible check to catch all common incompatible schema change [scenarios](https://www.bytebase.com/doc/error#backward-incompatible-migration).
 
@@ -819,7 +851,8 @@ If the following situation occurs, Bytebase considers this rule to be violated:
 
 ## Column
 
-<h3 id="column.required">Enforce the required columns in each table</h3>
+<div id="column.required"></div>
+### Enforce the required columns in each table
 
 For most projects, you may want to enforce some columns for every table. For example, need `id` as identification and the primary key for each table or need `created_ts` and `updated_ts` to record creation and modification times.
 
@@ -840,7 +873,8 @@ Bytebase defaults all tables to meet the requirements. If the SQL tries to defin
 - OceanBase
 - Snowflake
 
-<h3 id="column.type-disallow-list">Column type disallow list</h3>
+<div id="column.type-disallow-list"></div>
+### Column type disallow list
 
 Set column type disallow list to ban column types.
 
@@ -863,7 +897,8 @@ Specifically, Bytebase checks:
 - Oracle
 - OceanBase
 
-<h3 id="column.no-null">Columns no NULL value</h3>
+<div id="column.no-null"></div>
+### Columns no NULL value
 
 NULL is a special value. It can cause confusion or performance issues. Bytebase provides this rule to enforce that all columns cannot have NULL value.
 
@@ -882,7 +917,8 @@ Bytebase considers this rule to be violated if the SQL defines a column allowing
 - OceanBase
 - Snowflake
 
-<h3 id="column.disallow-change-type">Disallow changing column type</h3>
+<div id="column.disallow-change-type"></div>
+### Disallow changing column type
 
 Changing column type may fail because the data cannot be converted. Bytebase provides this rule to alert you that the SQL statement would change the column type.
 
@@ -903,7 +939,8 @@ Specifically, Bytebase checks:
 - PostgreSQL
 - OceanBase
 
-<h3 id="column.set-default-for-not-null">Set DEFAULT value for NOT NULL columns</h3>
+<div id="column.set-default-for-not-null"></div>
+### Set DEFAULT value for NOT NULL columns
 
 NOT NULL columns have no default value. It requires users to manually set default values for NOT NULL columns.
 
@@ -927,7 +964,8 @@ Specifically, Bytebase checks:
 
 Support for PostgreSQL is coming soon.
 
-<h3 id="column.disallow-change">Disallow ALTER TABLE CHANGE COLUMN statements</h3>
+<div id="column.disallow-change"></div>
+### Disallow ALTER TABLE CHANGE COLUMN statements
 
 CHANGE COLUMN is a MySQL extension to standard SQL. CHANGE COLUMN can change column definition and names, or both.
 Most of the time, you just want to change one of two. So you need to use RENAME COLUMN and MODIFY COLUMN instead of CHANGE COLUMN to avoid unexpected modifications.
@@ -944,7 +982,8 @@ Bytebase checks if using `ALTER TABLE CHANGE COLUMN` statements.
 - TiDB
 - OceanBase
 
-<h3 id="column.disallow-changing-order">Disallow changing column order</h3>
+<div id="column.disallow-changing-order"></div>
+### Disallow changing column order
 
 Changing column order may cause performance issues. Users should be cautious about this.
 
@@ -964,7 +1003,8 @@ Specifically, Bytebase checks:
 - TiDB
 - OceanBase
 
-<h3 id="column.auto-increment-must-integer">Use integer for auto-increment columns</h3>
+<div id="column.auto-increment-must-integer"></div>
+### Use integer for auto-increment columns
 
 The auto-increment column must be integer.
 
@@ -987,7 +1027,8 @@ Specifically, Bytebase checks:
 
 Support for PostgreSQL is coming soon.
 
-<h3 id="column.disallow-set-charset">Disallow set charset for columns</h3>
+<div id="column.disallow-set-charset"></div>
+### Disallow set charset for columns
 
 It's better to set the charset in the table or database.
 
@@ -1008,7 +1049,8 @@ Specifically, Bytebase checks:
 - TiDB
 - OceanBase
 
-<h3 id="column.auto-increment-must-unsigned">Set unsigned attribute on auto-increment columns</h3>
+<div id="column.auto-increment-must-unsigned"></div>
+### Set unsigned attribute on auto-increment columns
 
 Setting unsigned attribute on auto-increment columns to avoid negative numbers.
 
@@ -1029,7 +1071,8 @@ Specifically, Bytebase checks:
 - TiDB
 - OceanBase
 
-<h3 id="column.comment">Column comment convention</h3>
+<div id="column.comment"></div>
+### Column comment convention
 
 Configure whether the column requires comments and the maximum comment length.
 
@@ -1050,7 +1093,8 @@ Specifically, Bytebase checks:
 - TiDB
 - OceanBase
 
-<h3 id="column.maximum-character-length">Maximum CHAR length</h3>
+<div id="column.maximum-character-length"></div>
+### Maximum CHAR length
 
 The CHAR type is the fixed-length type. A longer CHAR will require more storage space.
 
@@ -1073,7 +1117,8 @@ Specifically, Bytebase checks:
 - Oracle
 - OceanBase
 
-<h3 id="column.maximum-varchar-length">Maximum VARCHAR length</h3>
+<div id="column.maximum-varchar-length"></div>
+### Maximum VARCHAR length
 
 ![sql-review-column-maximum-varchar-length](/content/docs/sql-review/sql-review-column-maximum-varchar-length.webp)
 
@@ -1091,7 +1136,8 @@ Specifically, Bytebase checks:
 - Oracle
 - Snowflake
 
-<h3 id="column.auto-increment-initial-value">Auto-increment initial value</h3>
+<div id="column.auto-increment-initial-value"></div>
+### Auto-increment initial value
 
 Set initial value for auto-increment columns.
 
@@ -1111,7 +1157,8 @@ Specifically, Bytebase checks:
 - TiDB
 - OceanBase
 
-<h3 id="column.current-time-count-limit">Limit the count of current time columns</h3>
+<div id="column.current-time-count-limit"></div>
+### Limit the count of current time columns
 
 Limit the count of `NOW()`, `CURRENT_TIME()` and `CURRENT_TIMESTAMP()` columns.
 
@@ -1142,7 +1189,8 @@ Specifically, Bytebase checks:
 - TiDB
 - OceanBase
 
-<h3 id="column.require-default">Require column default value</h3>
+<div id="column.require-default"></div>
+### Require column default value
 
 Require default value for all columns, except PRIMARY KEY, JSON, BLOB, TEXT, GEOMETRY, AUTO_INCREMENT, GENERATED columns.
 
@@ -1167,7 +1215,8 @@ Specifically, Bytebase checks:
 
 ## Index
 
-<h3 id="index.no-duplicate-column">Disallow duplicate column in index keys</h3>
+<div id="index.no-duplicate-column"></div>
+### Disallow duplicate column in index keys
 
 ![sql-review-index-no-duplicate-column](/content/docs/sql-review/sql-review-index-no-duplicate-column.webp)
 
@@ -1188,7 +1237,8 @@ Specifically, Bytebase checks:
 - PostgreSQL
 - OceanBase
 
-<h3 id="index.key-number-limit">Limit the count of index keys</h3>
+<div id="index.key-number-limit"></div>
+### Limit the count of index keys
 
 Limit the count of index keys in one index.
 
@@ -1212,7 +1262,8 @@ Specifically, Bytebase checks:
 - Oracle
 - OceanBase
 
-<h3 id="index.pk-type-limit">Limit key type for primary keys</h3>
+<div id="index.pk-type-limit"></div>
+### Limit key type for primary keys
 
 Alert users if key type is not INT or BIGINT in primary keys.
 
@@ -1235,7 +1286,8 @@ Specifically, Bytebase checks:
 
 Support for PostgreSQL is coming soon.
 
-<h3 id="index.type-no-blob">Disallow BLOB and TEXT for index keys</h3>
+<div id="index.type-no-blob"></div>
+### Disallow BLOB and TEXT for index keys
 
 Disallow using BLOB and TEXT type as index keys.
 
@@ -1259,7 +1311,8 @@ Specifically, Bytebase checks:
 
 Support for PostgreSQL is coming soon.
 
-<h3 id="index.total-number-limit">Index count limit</h3>
+<div id="index.total-number-limit"></div>
+### Index count limit
 
 Limit the index count in one table.
 
@@ -1282,7 +1335,8 @@ Specifically, Bytebase checks:
 - PostgreSQL
 - OceanBase
 
-<h3 id="index.primary-key-type-allowlist">Primary key type allowlist</h3>
+<div id="index.primary-key-type-allowlist"></div>
+### Primary key type allowlist
 
 Limit the data type for primary key.
 
@@ -1304,7 +1358,8 @@ Specifically, Bytebase checks:
 - TiDB
 - OceanBase
 
-<h3 id="index.create-concurrently">Create index concurrently</h3>
+<div id="index.create-concurrently"></div>
+### Create index concurrently
 
 Creating indexes blocks writes (but not reads) on the table until it's done. Use CONCURRENTLY when creates indexes can allow writes to continue.
 
@@ -1322,7 +1377,8 @@ Specifically, Bytebase checks:
 
 ## Database
 
-<h3 id="database.drop-empty-database">Drop database restriction</h3>
+<div id="database.drop-empty-database"></div>
+### Drop database restriction
 
 Can only drop the database if there's no table in it.
 It requires users to drop all containing tables first before dropping the database.
@@ -1347,7 +1403,8 @@ Support for PostgreSQL is coming soon.
 
 ## System
 
-<h3 id="system.charset.allowlist">Charset allow list</h3>
+<div id="system.charset.allowlist"></div>
+### Charset allow list
 
 ![sql-review-system-charset-allowlist](/content/docs/sql-review/sql-review-system-charset-allow-list.webp)
 
@@ -1367,7 +1424,8 @@ Specifically, Bytebase checks:
 - PostgreSQL
 - OceanBase
 
-<h3 id="system.collation.allowlist">Collation allow list</h3>
+<div id="system.collation.allowlist"></div>
+### Collation allow list
 
 ![sql-review-system-collation-allowlist](/content/docs/sql-review/sql-review-system-collation-allowlist.webp)
 
@@ -1387,7 +1445,8 @@ Specifically, Bytebase checks:
 - PostgreSQL
 - OceanBase
 
-<h3 id="system.comment.length">Comment length limit</h3>
+<div id="system.comment.length"></div>
+### Comment length limit
 
 ![sql-review-system-comment-length](/content/docs/sql-review/sql-review-system-comment-length.webp)
 
