@@ -15,7 +15,7 @@ When looking for a database CI/CD and schema migration change tool, Bytebase and
 
 - Native SQL supported.
 - Database CI/CD with version control system #GitOps (see [Database GitOps configuration](#database-gitops-configuration)).
-- Auto SQL check (see [Auto SQL check](#sql-auto-check)).
+- Auto SQL check (see [Auto SQL check](#sql-auto-check1)).
 - Schema Synchronization (see [Sync schema](#sync-schema)).
 - Tiered pricing, offering both free and paid plan.
 - Open source, Liquibase has a long history, while Bytebase is growing faster.
