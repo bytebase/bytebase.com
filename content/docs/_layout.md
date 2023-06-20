@@ -121,7 +121,7 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ### [Project Webhook](/change-database/webhook)
 
-## [Query Data with SQL Editor](/sql-editor/overview)
+## [SQL Editor](/sql-editor/overview)
 
 ### [Manage SQL Scripts with Sheet](/sql-editor/manage-sql-scripts)
 

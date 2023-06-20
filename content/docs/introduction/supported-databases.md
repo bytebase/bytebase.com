@@ -3,6 +3,8 @@ title: Supported Databases and Features
 description: The Bytebase supported databases and corresponding feature matrix
 ---
 
+## Supported Databases
+
 Bytebase officially supports the following major versions for each supported database engine:
 
 - MySQL - 5.7 and 8.0
@@ -20,7 +22,9 @@ Bytebase officially supports the following major versions for each supported dat
 
 Bytebase usually works fine with older database versions, we just won't support features specific to those older versions. We may add other open source databases in the future.
 
-## Change Workflow
+## Feature Matrix
+
+### Change Workflow
 
 | Feature    | [UI & GitOps Workflow](/docs/concepts/database-change-workflow) | [Migration History](/docs/change-database/migration-history) | [Batch Change](/docs/change-database/batch-change) | [SQL Lint](/docs/sql-review/review-policy/overview) |
 | ---------- | --------------------------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------- | --------------------------------------------------- |
@@ -37,7 +41,7 @@ Bytebase usually works fine with older database versions, we just won't support 
 | MariaDB    | ✔️                                                              | ✔️                                                           | ✔️                                                 | ✔️                                                  |
 | OceanBase  | ✔️                                                              | ✔️                                                           | ✔️                                                 | ✔️                                                  |
 
-## Schema Management
+### Schema Management
 
 | Feature    | [Schema Synchronization](/docs/change-database/synchronize-schema) | [Schema Editor](/docs/change-database/schema-editor) | [State-based Migration](/docs/change-database/state-based-migration) | [Online Schema Change](/docs/change-database/online-schema-migration-for-mysql) |
 | ---------- | ------------------------------------------------------------------ | ---------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
@@ -54,7 +58,7 @@ Bytebase usually works fine with older database versions, we just won't support 
 | MariaDB    |                                                                    |                                                      |                                                                      |                                                                                 |
 | OceanBase  |                                                                    |                                                      |                                                                      |                                                                                 |
 
-## SQL Editor
+### SQL Editor
 
 | Feature    | [Sheet Management](/docs/sql-editor/manage-sql-scripts) | [Query Mode](/docs/sql-editor/run-queries) | [Admin Mode](/docs/sql-editor/admin-mode) | [ChatSQL](/docs/sql-editor/chatsql) |
 | ---------- | ------------------------------------------------------- | ------------------------------------------ | ----------------------------------------- | ----------------------------------- |
@@ -71,7 +75,7 @@ Bytebase usually works fine with older database versions, we just won't support 
 | MariaDB    | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
 | OceanBase  | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
 
-## Security
+### Security
 
 | Feature    | [RBAC](/docs/concepts/roles-and-permissions) | [Audit Log](/docs/security/audit-log) | [Database Access Control](/docs/security/database-access-control) | [Data Anonymization](/docs/security/anonymize-data) |
 | ---------- | -------------------------------------------- | ------------------------------------- | ----------------------------------------------------------------- | --------------------------------------------------- |
@@ -88,7 +92,7 @@ Bytebase usually works fine with older database versions, we just won't support 
 | MariaDB    | ✔️                                           | ✔️                                    | ✔️                                                                | ✔️                                                  |
 | OceanBase  | ✔️                                           | ✔️                                    | ✔️                                                                | ✔️                                                  |
 
-## Disaster Recovery
+### Disaster Recovery
 
 | Feature    | [Local Backup and Restore](/docs/disaster-recovery/backup) | [Cloud Backup](/docs/disaster-recovery/backup-restore-database/backup/#cloud-storage) | [Data Change Rollback](/docs/change-database/rollback-data-changes) | [Point-in-time Recovery (PITR)](/docs/disaster-recovery/point-in-time-recovery-for-mysql) |
 | ---------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
@@ -105,7 +109,7 @@ Bytebase usually works fine with older database versions, we just won't support 
 | MariaDB    | ✔️                                                         | ✔️                                                                                    |                                                                     |                                                                                           |
 | OceanBase  |                                                            |                                                                                       |                                                                     |                                                                                           |
 
-## Anomaly Detection
+### Anomaly Detection
 
 | Feature    | Connection Failure | [Drift Detection](/docs/change-database/drift-detection) | [Backup Policy Violation](/docs/administration/environment-policy/backup-schedule-policy) | [Backup Missing](/docs/disaster-recovery/backup-restore-database/backup) |
 | ---------- | ------------------ | -------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
