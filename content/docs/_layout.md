@@ -145,7 +145,7 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ### [Anonymize Data](/security/anonymize-data)
 
-### [Database Access Control](/security/database-access-control)
+### [Data Access Control](/security/data-access-control)
 
 ### [Watermark](/security/watermark)
 

@@ -45,7 +45,6 @@ title: Overview
 
 <TutorialTallCard title="DevOps: Database Change Management with MariaDB and GitHub" url="/docs/tutorials/database-change-management-with-mariadb-and-github" logos="mariadb,github" date="2023/06/16"></TutorialTallCard>
 
-
 <TutorialTallCard title="DevOps: Database Change Management with Amazon Aurora and GitHub" url="/docs/tutorials/database-change-management-with-amazon-aurora-and-github" logos="aurora,github" date="2023/03/10"></TutorialTallCard>
 
 <TutorialTallCard title="DevOps: Database Change Management with PostgreSQL and GitHub" url="/docs/tutorials/database-change-management-with-postgresql-and-github" logos="postgres,github" date="2023/02/16"></TutorialTallCard>
@@ -64,7 +63,7 @@ title: Overview
 
 <TutorialTallCard title="Manage Databases in Bytebase with Terraform" url="/docs/tutorials/manage-databases-in-bytebase-with-terraform" logos="terraform" date="2023/01/16"></TutorialTallCard>
 
-<TutorialTallCard title="How to Configure Database Access Control and Data Anonymization for Developer" url="/docs/tutorials/how-to-configure-database-access-control-and-data-anonymization-for-developer" date="2023/01/05"></TutorialTallCard>
+<TutorialTallCard title="How to Configure Data Access Control and Data Anonymization for Developer" url="/docs/tutorials/how-to-configure-database-access-control-and-data-anonymization-for-developer" date="2023/01/05"></TutorialTallCard>
 
 <TutorialTallCard title="The Database CI/CD Best Practice with GitHub" url="/docs/tutorials/database-cicd-best-practice-with-github" logos="github" date="2022/08/31"></TutorialTallCard>
 

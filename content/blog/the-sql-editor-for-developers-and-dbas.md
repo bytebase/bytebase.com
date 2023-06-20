@@ -36,7 +36,7 @@ When users want to connect to databases to run admin commands, they can do it in
 
 ### Database-based Access Control
 
-When users want to allow developers to access some databases in the production environment, they can mark the production environment as a protected environment and configure an allowlist. You can get more details from the document [Database Access Control](/docs/security/database-access-control).
+When users want to allow developers to access some databases in the production environment, they can mark the production environment as a protected environment and configure an allowlist. You can get more details from the document [Data Access Control](/docs/security/data-access-control).
 ![access-control](/content/blog/the-sql-editor-for-developers-and-dbas/access-control.webp)
 
 ### Data Anonymization

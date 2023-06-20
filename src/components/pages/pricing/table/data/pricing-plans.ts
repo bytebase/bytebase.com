@@ -263,7 +263,7 @@ const LABELS = [
       dba: 'DBA workflow',
       environment: 'Environment tier',
       masking: 'Sensitive data masking',
-      'access-control': 'Database access control',
+      'access-control': 'Data access control',
       watermark: 'Watermark',
       'audit-log': 'Audit log',
       'signup-restriction': 'Signup restriction',

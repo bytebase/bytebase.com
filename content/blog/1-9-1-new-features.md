@@ -4,7 +4,7 @@ author: Tianzhou
 published_at: 2022/12/20 17:21:21
 feature_image: /content/blog/1-9-1-new-features/1.9.1-banner.webp
 tags: Explanation
-description: Last week, we released Bytebase 1.9.1. Let's take a deeper look into the new features - schema editor, mark issues as Need Attention, database access control, and data anonymization.
+description: Last week, we released Bytebase 1.9.1. Let's take a deeper look into the new features - schema editor, mark issues as Need Attention, data access control, and data anonymization.
 ---
 
 The penultimate release of 2022 brings Bytebase from 1.9.0 to [1.9.1](/changelog/bytebase-1-9-1). Although it’s only a PATCH version, the 237 commits still bring us tons of new features. Let’s take a closer look at what's released during this World Cup cycle ⚽️.
@@ -33,11 +33,11 @@ The overall interaction took inspiration from Google’s internal Code Review to
 
 Regarding how to nudge people, some collaborative tools choose to ping others, others choose to use bolded font. Direct or restrained, the design philosophy is just included in these interaction details.
 
-## Database Access Control
+## Data Access Control
 
 Now, let’s chat about Bytebase’s security capabilities.
 
-We introduced [Database Access Control](/docs/security/database-access-control) with this release, leveraging Access Control Policy and Environment Tier.
+We introduced [Data Access Control](/docs/security/data-access-control) with this release, leveraging Access Control Policy and Environment Tier.
 
 Some users suggested that they don’t want developers to access all databases in the production environment by default. This can be achieved by the DBA setting the `Environment Tier` to `Protected`. But at the same time, the user wants to open access to some databases in this environment, which is possible by whitelisting those databases.
 
