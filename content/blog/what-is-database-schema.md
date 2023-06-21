@@ -10,7 +10,7 @@ description: The database schema describes the logical structure of the database
 This is a series of articles about database schema change / schema migration:
 
 - What is a Database Schema? (this one)
-- [How to Handle Database Schema Change?](/blog/how-to-handle-database-schema-change)
+- [How to Handle Database Migration / Schema Change?](/blog/how-to-handle-database-schema-change)
 - [Top Database Schema Change Tools in 2023](/blog/top-database-schema-change-tool-evolution)
 
 ---

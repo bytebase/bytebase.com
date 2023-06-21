@@ -99,6 +99,11 @@ module.exports = {
         destination: `/docs/tutorials/${slug}`,
         permanent: true,
       })),
+      {
+        source: '/blog/how-to-handle-database-migration/',
+        destination: '/blog/how-to-handle-database-schema-change/',
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
