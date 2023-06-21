@@ -2,7 +2,7 @@
 title: Batch Change with Database Group
 author: Ningjing
 published_at: 2023/06/20 18:00
-feature_image: /content/docs/tutorials/batch-change-with-database-group/batch-change-group-banner.webp
+feature_image: /content/docs/tutorials/batch-change-with-database-group/batch-change-db-group-banner.webp
 tags: Tutorial
 level: Intermediate
 description: This article describes using Database Group and Table Group to batch change databases.
