@@ -257,7 +257,7 @@ async function createCommitStatus(errorsExist: boolean, commentUrl?: string): Pr
   const state = errorsExist ? 'failure' : 'success';
   const description = errorsExist
     ? 'This PR introduces broken links to the docs. Click details for a list.'
-    : 'All broken links are now fixed, thank you!';
+    : 'No broken links found!';
 
   await octokit.rest.repos.createCommitStatus({
     owner,

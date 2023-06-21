@@ -28403,7 +28403,7 @@ var __webpack_exports__ = {};
     const a = e ? 'failure' : 'success';
     const r = e
       ? 'This PR introduces broken links to the docs. Click details for a list.'
-      : 'All broken links are now fixed, thank you!';
+      : 'No broken links found!';
     await N.rest.repos.createCommitStatus({
       owner: D,
       repo: O,
