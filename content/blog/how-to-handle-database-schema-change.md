@@ -7,11 +7,11 @@ tags: Explanation
 description: The common mistakes when making schema changes and the best practice to avoid those pitfalls.
 ---
 
-This is a series of articles about database schema change (aka schema migration):
+This is a series of articles about database schema change / schema migration:
 
 - [What is a Database Schema?](/blog/what-is-database-schema)
 - How to Handle Database Schema Change? (this one)
-- [Evolution of Top Database Schema Change Tools](/blog/top-database-schema-change-tool-evolution)
+- [Top Database Schema Change Tools in 2023](/blog/top-database-schema-change-tool-evolution)
 
 ---
 

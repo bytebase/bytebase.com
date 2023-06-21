@@ -1,22 +1,22 @@
 ---
-title: Evolution of Top Database Schema Change Tools
+title: Top Database Schema Change Tools in 2023
 author: Mila
 published_at: 2023/06/10 21:21:21
 feature_image: /content/blog/top-database-schema-change-tool-evolution/banner.webp
 tags: Industry
 featured: true
-description: Database schema migration have come a long way, from CLI to GUI, and all the way to GitOps/Database-as-Code. Let's take a look at the evolution of database schema migration tools.
+description: Database schema migration have come a long way, from CLI to GUI, and all the way to GitOps/Database-as-Code. Let's review the state-of-the-art of database schema chanage / migration tools in 2023.
 ---
 
-This is a series of articles about database schema change (aka schema migration):
+This is a series of articles about database schema change / schema migration:
 
 - [What is a Database Schema?](/blog/what-is-database-schema)
 - [How to Handle Database Schema Change?](/blog/how-to-handle-database-schema-change)
-- Evolution of Top Database Schema Change Tools (this one)
+- Top Database Schema Change Tools in 2023 (this one)
 
 ---
 
-Database schema migration may be the riskiest area in application development - it's tough, risky, and painful. Database schema migration tools exist to alleviate pain, and have come a long way: from the basic CLI tools to GUI tools, from simple SQL GUI clients to the all-in-one collaboration database platform.
+It's year 2023, database schema migration is still the riskiest area in application development - it's tough, risky, and painful. Database schema migration tools exist to alleviate pain, and have come a long way: from the basic CLI tools to GUI tools, from simple SQL GUI clients to the all-in-one collaboration database platform.
 
 ## Command-Line Clients (CLI) - mysql / psql
 
