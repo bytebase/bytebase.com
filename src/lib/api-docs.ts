@@ -85,7 +85,6 @@ const getSidebar = (): { sidebar: SidebarItem[]; expandedList: string[] } => {
 
   lines.forEach((line) => {
     const [depth, title, url] = parseLine(line);
-
     if (depth !== null) {
       currentSection = { title, url, depth };
       sidebar.push(currentSection);
