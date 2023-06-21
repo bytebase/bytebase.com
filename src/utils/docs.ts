@@ -1,6 +1,7 @@
 function parseLine(line: string): [number | null, string | null, string | null] {
   const match = line.match(/^#+\s*\[(.*?)\]\((.*?)\)$/);
   const matchWithoutLink = line.match(/^#+\s*(.*?)$/);
+  const separator = line.match(/^---$/);
 
   if (match) {
     const len = match[0]?.match(/^#+/)?.[0]?.length;
@@ -15,6 +16,8 @@ function parseLine(line: string): [number | null, string | null, string | null] 
     const title = matchWithoutLink[1];
 
     return [depth, title, null];
+  } else if (separator) {
+    return [1, '---', null];
   } else {
     return [null, null, null];
   }

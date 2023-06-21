@@ -54,6 +54,14 @@ const Item = ({
 
   const Tag = url ? Link : 'button';
 
+  if (title == '---') {
+    return (
+      <li>
+        <hr className={clsx('mb-2 ml-4 mt-2 w-2/5 opacity-10', '', '')} />
+      </li>
+    );
+  }
+
   return (
     <li
       className={clsx('flex flex-col items-start', depth >= 2 && 'pl-4', !isParentOpen && 'hidden')}
@@ -82,7 +90,6 @@ const Item = ({
         )}
         <span>{title}</span>
       </Tag>
-
       {children && (
         <ul
           className={clsx(
