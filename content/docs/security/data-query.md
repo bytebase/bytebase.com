@@ -1,47 +1,39 @@
 ---
-title: Data Query Approval flow
+title: Data Query Approval Flow
 ---
 
-**Project Owners** can manually add the role of **Project Querier** to control data query permissions. In **Enterprise Plan**, users can apply for **Project Querier** roles by submitting a request grant issue.
+**Project Owners** can always manually add the role of **Project Querier** to control data query permissions. In **Enterprise Plan**, users can apply for **Project Querier** roles by submitting a request grant issue.
 
-## Add Querier role manually
+## Add Querier Role Manually
 
-As a **Project Owner**, you can go to the project, click **Settings**, find the **Management members** section, and manually add the role of **Project Querier**.
-![add-new-member-with-querier-role](/content/docs/security/data-query-and-export/add-new-member-with-querier-role.webp)
+As a **Project Owner**, you can go to the project, click **Members** tab, find the user, click `+`  and choose **Project Querier**.
+![bb-project-members-add-querier](/content/docs/security/data-query-and-export/bb-project-members-add-querier.webp)
 
-## Apply for Querier role
+## Apply for Querier Role
 
 <EnterpriseOnlyBlock />
 
-Users can apply for **Project Querier** role by submitting a request grant issue.
+Users can apply for **Project Querier** role by submitting a request query issue.
 
-1. Go to the home page or project list page, and click **Request query**.
+1. Go to the home page or project page, and click **Request Query**.
 
-   ![request-querier-or-exporter-role](/content/docs/security/data-query-and-export/request-querier-or-exporter-role.webp)
+   ![bb-home-request-query](/content/docs/security/data-query-and-export/bb-home-request-query.webp)
 
 2. Fill out the relevant form.
 
-   ![request-querier-role-form](/content/docs/security/data-query-and-export/request-querier-role-form.webp)
-
-   Including the following information:
-
-   - **Project**: The project that the database belongs to.
-   - **Database**: The database you want to query. You can select all or multiple databases.
-   - **Expire days**: The number of days the query permission is valid. The default is 7 days.
-   - **Reason**: The reason for applying for the query permission.
+   ![bb-request-query-all](/content/docs/security/data-query-and-export/bb-request-query-all.webp)
 
 3. Click **Create** to submit the request.
 
 After the request is approved, you can query the data in SQL Editor from the specified databases before the requested expiration time.
 
-## Apply for Querier role at table level
+## Apply for Querier Role at Table Level
 
 Users can apply for **Project Querier** role for specific tables.
 
-1. In the request form, click **Manual Select** on the **Database** row.
-   ![request-querier-manual-select](/content/docs/security/data-query-and-export/request-querier-manual-select.webp)
+1. In the request form, choose `Manual Select` for **Database**.
 
-2. Click **Select**, check the tables you need on the left side and click **Confirm**.
-   ![request-query-table-level](/content/docs/security/data-query-and-export/request-query-table-level.webp)
+2. Select the databases and click **OK**.
+   ![bb-request-query-tables](/content/docs/security/data-query-and-export/bb-request-query-tables.webp)
 
 After the request is approved, you can query the data in SQL Editor from the specified tables before the requested expiration time.
