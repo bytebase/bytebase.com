@@ -13,6 +13,8 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ### [Supported Databases and Features](/introduction/supported-databases)
 
+### [FAQ](/faq)
+
 ## Get Started
 
 ### [Try Bytebase Cloud](/get-started/cloud)
@@ -227,8 +229,6 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ### [Archive](/administration/archive)
 
----
-
 ## Reference
 
 ### [Server Startup Options](/reference/command-line)
@@ -241,8 +241,6 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 #### [Error Code for SQL Advisor](/reference/error-code/advisor)
 
----
-
 ## API
 
 ### [Getting Started](/api/overview)
@@ -251,8 +249,6 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ### [External Approval](/api/external-approval)
 
----
-
 ## CLI
 
 ### [Getting Started](/cli/overview)
@@ -260,8 +256,6 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 ### [Integrate with GitLab CI](/cli/integrate-with-gitlab)
 
 ### [Reference](/cli/reference)
-
----
 
 ## How-To
 
@@ -296,9 +290,5 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 #### [How to Find Project ID and Instance ID](/how-to/spanner/how-to-find-project-id-and-instance-id)
 
 #### [How to Create a Service Account for Bytebase](/how-to/spanner/how-to-create-a-service-account-for-bytebase)
-
----
-
-## [FAQ](/faq)
 
 ## [Document Write Guide](/document-write-guide)
