@@ -15,8 +15,6 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ## Get Started
 
-### [5 Mins Quick Start](/get-started/quick-start)
-
 ### [Try Bytebase Cloud](/get-started/cloud)
 
 ### [Self-host Bytebase](/get-started/install/overview)
@@ -39,7 +37,7 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 #### [Configure External URL](/get-started/install/external-url)
 
-### First Schema Change
+### [Step-by-Step](/get-started/quick-start)
 
 #### [Step 1 - Register Accounts](/get-started/step-by-step/register-accounts)
 
