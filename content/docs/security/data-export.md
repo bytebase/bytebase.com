@@ -11,7 +11,7 @@ You need to have **Project Querier** role first, and then click **Request Export
 
    ![bb-homepage-request-export](/content/docs/security/data-query-and-export/bb-homepage-request-export.webp)
 
-### How to Request Export
+### Request Export
 
 1. After clicking **Request Export**, fill out the relevant form. There're two methods: `SQL` and `Databases`.
    ![bb-request-export-sql-db](/content/docs/security/data-query-and-export/bb-request-export-sql-db.webp)
@@ -19,7 +19,7 @@ You need to have **Project Querier** role first, and then click **Request Export
 2. Click **Create** to submit the request and wait for approval.
    ![bb-request-export-waiting](/content/docs/security/data-query-and-export/bb-request-export-waiting.webp)
 
-### How to Download in Export Center
+### Download in Export Center
 Once the request is approved, you can go to the **Export Center** to download the exported file.
 
    ![bb-export-center](/content/docs/security/data-query-and-export/bb-export-center.webp)
@@ -32,6 +32,6 @@ Once the request is approved, you can go to the **Export Center** to download th
    ![bb-export-sql-editor-no-perm](/content/docs/security/data-query-and-export/bb-export-sql-editor-no-perm.webp)
 
 - **Project Exporter** can export data directly from the result panel in SQL Editor. You need to have **Project Querier** role first to access data and the result panel.
-### How to Add Exporter Role Manually
+### Add Exporter Role Manually
 
 As a **Project Owner**, you can go to the project, and click **Members** tab. Find the user, click `+`  and choose **Project Exporter**. 
