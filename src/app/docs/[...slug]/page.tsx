@@ -18,6 +18,7 @@ import {
 } from '@/lib/api-docs';
 import Route from '@/lib/route';
 import TableOfContents from '@/components/pages/docs/table-of-contents';
+import Promo from './promo';
 
 export function generateStaticParams() {
   const posts = getAllPosts();
@@ -66,15 +67,18 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
           <Content content={content} />
         </PostLayout>
       </article>
-      {tableOfContents && tableOfContents.length > 0 && (
-        <div className="col-span-3 col-end-13 ml-auto w-full max-w-[314px] pt-2.5 pb-28 xl:max-w-none lg:hidden">
+      <div className="scrollbar-hidden sticky top-10 col-span-3 col-end-13 ml-auto w-full max-w-[314px] overflow-y-auto pt-2.5 pb-28 xl:max-w-none lg:hidden">
+        {tableOfContents && tableOfContents.length > 0 && (
           <TableOfContents
             items={tableOfContents}
-            className="scrollbar-hidden sticky top-10 max-h-[calc(100vh-40px)] overflow-y-auto"
+            className="max-h-[calc(100vh-40px)]"
             hasBackToTop
           />
-        </div>
-      )}
+        )}
+        {/* <div className="relative pl-5 before:absolute before:top-0 before:left-px before:h-full before:w-px before:bg-gray-90">
+          <Promo />
+        </div> */}
+      </div>
     </>
   );
 }

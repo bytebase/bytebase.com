@@ -12,6 +12,12 @@ const PROMO_DATA = {
     cta: 'See Features',
     pathname: `${ROUTE.PRICING}?source=blog`,
   },
+  DOC_ASIDE: {
+    title: 'Database Migration Best Practice',
+    description: 'Challenges, mistakes, and best practices for database schema migration',
+    cta: 'Read Now',
+    pathname: `/blog/how-to-handle-database-schema-change/?source=docs`,
+  },
 };
 
 export default PROMO_DATA;
