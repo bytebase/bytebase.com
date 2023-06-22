@@ -60,11 +60,6 @@ module.exports = {
         permanent: true,
       },
       {
-        source: '/tutorial',
-        destination: '/docs/tutorials/overview',
-        permanent: true,
-      },
-      {
         source: '/docs/tutorials',
         destination: '/docs/tutorials/overview',
         permanent: true,
