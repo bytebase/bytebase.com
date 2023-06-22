@@ -9,9 +9,9 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ### [Use Cases](/introduction/use-cases)
 
-### [Tutorials](/tutorials/overview)
+### [Supported Databases](/introduction/supported-databases)
 
-### [Supported Databases and Features](/introduction/supported-databases)
+### [Tutorials](/tutorials/overview)
 
 ### [FAQ](/faq)
 

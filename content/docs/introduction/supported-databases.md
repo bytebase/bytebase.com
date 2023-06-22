@@ -1,9 +1,7 @@
 ---
-title: Supported Databases and Features
+title: Supported Databases
 description: The Bytebase supported databases and corresponding feature matrix
 ---
-
-## Supported Databases
 
 Bytebase officially supports the following major versions for each supported database engine:
 
