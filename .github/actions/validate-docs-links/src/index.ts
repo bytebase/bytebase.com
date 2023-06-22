@@ -342,7 +342,7 @@ async function validateAllInternalLinks(): Promise<void> {
       commentUrl = await createComment(comment);
     }
   } else {
-    const comment = `${COMMENT_TAG}\nAll broken links are now fixed, thank you!`;
+    const comment = `${COMMENT_TAG}\nNo broken links found.`;
     if (botComment) {
       commentUrl = await updateComment(comment, botComment);
     } else {
