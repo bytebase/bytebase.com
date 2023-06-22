@@ -62,6 +62,9 @@ dependencies:
   gray-matter:
     specifier: ^4.0.3
     version: 4.0.3
+  he:
+    specifier: ^1.2.0
+    version: 1.2.0
   js-yaml:
     specifier: ^4.1.0
     version: 4.1.0
@@ -98,9 +101,9 @@ dependencies:
   remark-gfm:
     specifier: ^3.0.1
     version: 3.0.1
-  slugify:
-    specifier: ^1.6.6
-    version: 1.6.6
+  slug:
+    specifier: ^8.2.2
+    version: 8.2.2
   yup:
     specifier: ^1.1.1
     version: 1.1.1
@@ -121,6 +124,9 @@ devDependencies:
   '@trivago/prettier-plugin-sort-imports':
     specifier: ^4.1.1
     version: 4.1.1(prettier@2.8.7)
+  '@types/he':
+    specifier: ^1.2.0
+    version: 1.2.0
   '@types/md5':
     specifier: ^2.3.2
     version: 2.3.2
@@ -133,6 +139,9 @@ devDependencies:
   '@types/react-syntax-highlighter':
     specifier: ^15.5.6
     version: 15.5.6
+  '@types/slug':
+    specifier: ^5.0.3
+    version: 5.0.3
   '@typescript-eslint/eslint-plugin':
     specifier: ^5.56.0
     version: 5.56.0(@typescript-eslint/parser@5.59.5)(eslint@8.36.0)(typescript@5.0.2)
@@ -2473,6 +2482,10 @@ packages:
       '@types/unist': 2.0.6
     dev: false
 
+  /@types/he@1.2.0:
+    resolution: {integrity: sha512-uH2smqTN4uGReAiKedIVzoLUAXIYLBTbSofhx3hbNqj74Ua6KqFsLYszduTrLCMEAEAozF73DbGi/SC1bzQq4g==}
+    dev: true
+
   /@types/js-yaml@4.0.5:
     resolution: {integrity: sha512-FhpRzf927MNQdRZP0J5DLIdTXhjLYzeUTmLAu69mnVksLH9CJY3IuSeEgbKUki7GQZm0WqDkGzyxju2EZGD2wA==}
     dev: false
@@ -2541,6 +2554,10 @@ packages:
 
   /@types/semver@7.5.0:
     resolution: {integrity: sha512-G8hZ6XJiHnuhQKR7ZmysCeJWE08o8T0AXtk5darsCaTVsYZhhgUrq53jizaR2FvsoeCwJhlmwTjkXBY5Pn/ZHw==}
+    dev: true
+
+  /@types/slug@5.0.3:
+    resolution: {integrity: sha512-yPX0bb1SvrpaGlHuSiz6EicgRI4VBE+LO7IANlZagQwtaoKjLLcZc8y6s13vKp41mYvMCSzjtObxvU7/0JRPaA==}
     dev: true
 
   /@types/unist@2.0.6:
@@ -4763,6 +4780,11 @@ packages:
       hast-util-parse-selector: 2.2.5
       property-information: 5.6.0
       space-separated-tokens: 1.1.5
+    dev: false
+
+  /he@1.2.0:
+    resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
+    hasBin: true
     dev: false
 
   /highlight.js@10.7.3:
@@ -7223,9 +7245,9 @@ packages:
       is-fullwidth-code-point: 4.0.0
     dev: true
 
-  /slugify@1.6.6:
-    resolution: {integrity: sha512-h+z7HKHYXj6wJU+AnS/+IH8Uh9fdcX1Lrhg1/VMdf9PwoBQXFcXiAdsy2tSK0P6gKwJLXp02r90ahUCqHk9rrw==}
-    engines: {node: '>=8.0.0'}
+  /slug@8.2.2:
+    resolution: {integrity: sha512-5ByW6qXqPeG0Tmlkh24JhdXhvQsbaJSjVr3GgGxUV0BSskZKKBZZfFWxezap8+fh1vxBN9GVbqI1V6nqAFxlBg==}
+    hasBin: true
     dev: false
 
   /source-map-js@1.0.2:
