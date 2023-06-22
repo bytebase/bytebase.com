@@ -16,7 +16,7 @@ This is a series of articles about Database Change Management using Bytebase Clo
 
 ---
 
-Bytebase is an open-source database CI/CD tool for developers and DBAs. It provides its Cloud version since [1.15.0](/changelog/bytebase-1-15-0) in addition to the existing [self-hosted version](/docs/get-started/install/deploy-with-docker).
+Bytebase is an open-source database CI/CD tool for developers and DBAs. It provides its Cloud version since [1.15.0](/changelog/bytebase-1-15-0) in addition to the existing [self-hosted version](/docs/get-started/self-host/#docker).
 
 [Amazon Aurora](https://aws.amazon.com/rds/aurora/) is a fully managed relational database engine that's compatible with MySQL and PostgreSQL.
 

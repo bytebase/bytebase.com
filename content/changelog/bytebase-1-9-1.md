@@ -35,4 +35,4 @@ description: '- Support data access control. - Schema Editor for MySQL. - Check 
 
 ## 📕 Installation and Upgrade
 
-Follow [Installation](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the newest release binary.
+Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the newest release binary.

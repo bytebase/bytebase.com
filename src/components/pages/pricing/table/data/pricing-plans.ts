@@ -8,7 +8,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     description: `Team essentials to centralize database lifecycle management`,
     buttonText: 'Free Deploy',
     buttonTheme: 'primary-outline',
-    buttonUrl: '/docs/get-started/install/deploy-with-docker',
+    buttonUrl: '/docs/get-started/self-host/#docker',
     changeManagement: {
       user: 'Unlimited',
       environment: 'Unlimited',

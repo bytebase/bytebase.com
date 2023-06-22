@@ -3,7 +3,7 @@ title: Bytebase 2.2.0
 author: Ningjing
 published_at: 2023/06/09 16:30:00
 feature_image: /content/changelog/2-2-0-banner.webp
-description: "Support batch change by database groups in tenant projects; Support table-level data query requests; SQL Editor supports multiple running SQL SELECT statements in one query; Support SQL review for OceanBase."
+description: 'Support batch change by database groups in tenant projects; Support table-level data query requests; SQL Editor supports multiple running SQL SELECT statements in one query; Support SQL review for OceanBase.'
 ---
 
 ## 🚀 New Features
@@ -30,4 +30,4 @@ description: "Support batch change by database groups in tenant projects; Suppor
 
 ## 📕 Installation and Upgrade
 
-Follow [Installation](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary.
+Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the latest release binary.

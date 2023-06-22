@@ -52,4 +52,4 @@ Visit [our pricing page](/pricing) to learn more.
 
 ## 📕 Installation and Upgrade
 
-Follow [Installation](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary.
+Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the latest release binary.

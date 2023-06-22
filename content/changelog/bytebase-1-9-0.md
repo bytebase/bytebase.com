@@ -37,4 +37,4 @@ description: '- Support managing with environment and instance via Terraform pro
 
 ## 📕 Installation and Upgrade
 
-Follow [Installation](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the newest release binary.
+Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the newest release binary.

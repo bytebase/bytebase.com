@@ -2,7 +2,7 @@
 title: Bytebase 1.8.0
 author: Mila
 published_at: 2022/11/17 17:00:00
-description: "- Support syncing schema for MySQL. - Support approving issues via Lark (Feishu). - Support SQL Review CI in the GitOps workflow. "
+description: '- Support syncing schema for MySQL. - Support approving issues via Lark (Feishu). - Support SQL Review CI in the GitOps workflow. '
 ---
 
 ## 🚀 New Features
@@ -45,4 +45,4 @@ description: "- Support syncing schema for MySQL. - Support approving issues via
 
 ## 📕 Installation and Upgrade
 
-Follow [Installation](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the newest release binary.
+Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the newest release binary.

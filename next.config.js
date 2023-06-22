@@ -100,8 +100,28 @@ module.exports = {
         permanent: true,
       })),
       {
-        source: '/blog/how-to-handle-database-migration/',
+        source: '/blog/how-to-handle-database-migration',
         destination: '/blog/how-to-handle-database-schema-change/',
+        permanent: true,
+      },
+      {
+        source: `/docs/get-started/install/overview`,
+        destination: '/docs/get-started/self-host/',
+        permanent: true,
+      },
+      {
+        source: `/docs/get-started/install/deploy-with-docker`,
+        destination: '/docs/get-started/self-host/#docker',
+        permanent: true,
+      },
+      {
+        source: `/docs/get-started/install/deploy-to-kubernetes`,
+        destination: '/docs/get-started/self-host/#kubernetes',
+        permanent: true,
+      },
+      {
+        source: `/docs/get-started/install/build-from-source-code`,
+        destination: '/docs/get-started/self-host/#build-from-source',
         permanent: true,
       },
     ];

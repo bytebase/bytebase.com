@@ -27,7 +27,7 @@ const cards: TCard[] = [
     description: 'Unlimited users, environments',
     buttonText: 'Free Deploy',
     buttonTheme: 'primary-outline',
-    buttonLink: '/docs/get-started/install/deploy-with-docker',
+    buttonLink: '/docs/get-started/self-host/#docker',
     planConditions: [
       'Schema and data change review workflow',
       'Owner, DBA and Developer roles',
