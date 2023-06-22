@@ -2,7 +2,7 @@ import Link from '@/components/shared/link';
 
 import PROMO_DATA from '@/lib/promo-data';
 
-const WhatIsBytebase = () => {
+const Promo = () => {
   const aside = PROMO_DATA.BLOG_ASIDE;
 
   return (
@@ -21,4 +21,4 @@ const WhatIsBytebase = () => {
   );
 };
 
-export default WhatIsBytebase;
+export default Promo;

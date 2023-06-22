@@ -10,7 +10,7 @@ const PROMO_DATA = {
     description:
       'Bytebase offers a web-based collaboration workspace to help DBAs and Developers manage the lifecycle of application database schemas.',
     cta: 'See Features',
-    pathname: `${ROUTE.PRICING}/source=blog`,
+    pathname: `${ROUTE.PRICING}?source=blog`,
   },
 };
 
