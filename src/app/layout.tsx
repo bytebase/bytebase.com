@@ -5,8 +5,11 @@ import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
 
 import '@/styles/main.css';
+import PROMO_DATA from '@/lib/promo-data';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const topBanner = PROMO_DATA.TOP_BANNER;
+
   return (
     <html lang="en" className="h-full">
       <head>
@@ -53,10 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `,
           }}
         />
-        <Banner
-          bannerText="Bytebase vs Liquibase: a side-by-side comparison for Database CI/CD"
-          bannerUrl="/blog/bytebase-vs-liquibase/"
-        />
+        {topBanner && <Banner bannerText={topBanner.title} bannerUrl={topBanner.pathname} />}
         <div className="relative flex min-h-screen flex-col">
           <Header hasBanner />
           <main className="relative z-20 shrink-0 grow basis-auto">{children}</main>
