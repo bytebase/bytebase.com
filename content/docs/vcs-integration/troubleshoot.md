@@ -23,7 +23,7 @@ You should check the committed file conforms exactly to the [naming convention](
 
 In this case, you should visit the VCS project page and check the webhook event history. Some common mistakes:
 
-1. Make sure to [configure a proper --external-url](/docs/get-started/install/external-url).
+1. Make sure to configure a proper [External URL](/docs/get-started/install/external-url).
 
 1. Make sure that configured URL is network accessible from VCS.
 

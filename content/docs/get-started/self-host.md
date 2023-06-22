@@ -10,7 +10,7 @@ title: Self-host Bytebase
 
 - By default, Bytebase bundles an embedded PostgreSQL instance for storing its own metadata. For production setup, we recommend you to store the metadata in [an external PostgreSQL database](/docs/get-started/install/external-postgres).
 
-- After starting Bytebase, you should [configure the correct --external-url](/docs/get-started/install/external-url).
+- After starting Bytebase, you should configure [External URL](/docs/get-started/install/external-url).
 
 </HintBlock>
 
@@ -250,7 +250,7 @@ Kubernetes will rolling restart the pods of the deployment. Because we set `imag
 
 <HintBlock type="info">
 
-For production setup, you should [configure a proper --external-url](/docs/get-started/install/external-url).
+For production setup, you should configure a proper [External URL](/docs/get-started/install/external-url).
 
 </HintBlock>
 
