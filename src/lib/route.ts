@@ -30,7 +30,7 @@ const Route = {
 
   // docs
   DOCS: '/docs',
-  DOCS_INSTALL: '/docs/get-started/install/deploy-with-docker',
+  DOCS_SELF_HOST: '/docs/get-started/self-host',
   DOCS_CONCEPT: '/docs/concepts/data-model',
   DOCS_DB: '/docs/introduction/supported-databases',
   DOCS_API: '/docs/api/overview',
@@ -47,7 +47,6 @@ const Route = {
   DOCS_DRIFT_DETECTION: '/docs/change-database/drift-detection',
   DOCS_DISASTER_RECOVERY: '/docs/disaster-recovery/backup',
   DOCS_VCS_INTEGRATION: '/docs/vcs-integration/overview',
-  DOCS_SELF_HOST: '/docs/get-started/install/deploy-with-docker',
   DOCS_BATCH_CHANGE: '/docs/change-database/batch-change',
   DOCS_ONLINE_SHEMA_CHANGE: '/docs/change-database/online-schema-migration-for-mysql',
   DOCS_PITR: '/docs/disaster-recovery/point-in-time-recovery-for-mysql',

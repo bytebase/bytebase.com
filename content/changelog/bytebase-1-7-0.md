@@ -2,7 +2,7 @@
 title: Bytebase 1.7.0
 author: Mila
 published_at: 2022/10/27 17:00:00
-description: "- Added 31 review rules for MySQL. - Support DDL validation in SQL review. - Support canceling gh-ost sync tasks. "
+description: '- Added 31 review rules for MySQL. - Support DDL validation in SQL review. - Support canceling gh-ost sync tasks. '
 ---
 
 ## 🚀 Features
@@ -24,4 +24,4 @@ description: "- Added 31 review rules for MySQL. - Support DDL validation in SQL
 
 ## 📕 Installation and Upgrade
 
-Follow [Installation](/docs/get-started/install/overview). If you upgrade from a previous version, just restart after obtaining the new release binary.
+Follow [Installation](/docs/get-started/self-host). If you upgrade from a previous version, just restart after obtaining the new release binary.

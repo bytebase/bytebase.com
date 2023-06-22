@@ -2,7 +2,7 @@
 title: Deploy to sealos
 ---
 
-If you run [Bytebase on Kubernetes](/docs/get-started/install/deploy-to-kubernetes), you need to prepare a Kubernetes cluster, PostgreSQL instance, even storage driver, and ingress for external access.
+If you run [Bytebase on Kubernetes](/docs/get-started/self-host/#kubernetes), you need to prepare a Kubernetes cluster, PostgreSQL instance, even storage driver, and ingress for external access.
 
 sealos cloud, on the other hand, provides these dependencies out-of-the-box and [Bytebase](https://github.com/bytebase/bytebase) can be started quickly.
 
@@ -52,16 +52,16 @@ spec:
           image: bytebase/bytebase:%%bb_version%%
           imagePullPolicy: Always
           env:
-          - name: PG_URL
-            value: "postgresql://test:2pk5Ra2FdqiF8idERi5Tn5yTbvqPslZaYSgw1Qh2y4MljWBkb2OTvpvK4lwmTVXM@acid-test.ns-8b66134e-5294-480f-b6c4-00243fc2488e.svc.cluster.local:5432/sealos"
+            - name: PG_URL
+              value: 'postgresql://test:2pk5Ra2FdqiF8idERi5Tn5yTbvqPslZaYSgw1Qh2y4MljWBkb2OTvpvK4lwmTVXM@acid-test.ns-8b66134e-5294-480f-b6c4-00243fc2488e.svc.cluster.local:5432/sealos'
           args:
             [
-              "--data",
-              "/var/opt/bytebase",
-              "--external-url",
-              "https://bytebase.cloud.sealos.io",
-              "--port",
-              "8080",
+              '--data',
+              '/var/opt/bytebase',
+              '--external-url',
+              'https://bytebase.cloud.sealos.io',
+              '--port',
+              '8080',
             ]
           ports:
             - containerPort: 8080
@@ -98,7 +98,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/backend-protocol: 'HTTP'
   name: bytebase
   labels:
     k8s-app: bytebase

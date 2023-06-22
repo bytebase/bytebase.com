@@ -140,4 +140,4 @@ If you are operating the database as an individual, the classic CLI or GUI SQL c
 This wraps our 3 part database schema change series. Here at Bytebase, we are trying to deliver a schema
 change experience as close as to the code change experience, from both the individual perspective and the
 organization perspective. To give it a try, either [spin up a cloud workspace](https://hub.bytebase.com/workspace)
-for free or [start locally with a single command](/docs/get-started/install/deploy-with-docker/).
+for free or [start locally with a single command](/docs/get-started/self-host/#docker/).

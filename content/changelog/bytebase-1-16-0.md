@@ -3,7 +3,7 @@ title: Bytebase 1.16.0
 author: Mila
 published_at: 2023/04/13 18:00:00
 feature_image: /content/changelog/1-16-0-banner.webp
-description: "Customize Approval Workflow based on risk levels. Support databases: Oracle, MSSQL & MariaDB. Require two-factor authentication (2FA) for all users."
+description: 'Customize Approval Workflow based on risk levels. Support databases: Oracle, MSSQL & MariaDB. Require two-factor authentication (2FA) for all users.'
 ---
 
 ## 🚀 New Features
@@ -24,4 +24,4 @@ description: "Customize Approval Workflow based on risk levels. Support database
 
 ## 📕 Installation and Upgrade
 
-Follow [Installation](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary.
+Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the latest release binary.

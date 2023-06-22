@@ -15,7 +15,7 @@ In a Git feature branch workflow, all feature development takes place in a dedic
 2. One `dev` branch for the feature work corresponds to the `dev` environment, and it has a `db_dev` database.
    ![feature-branch-original-setup](/content/docs/how-to/workflow/gitops-feature-branch/original-setup.webp)
 
-- You [installed](/docs/get-started/install/overview) Bytebase and have **Workspace Owner** role.
+- You [installed](/docs/get-started/self-host) Bytebase and have **Workspace Owner** role.
 
 ## The Procedure
 

@@ -17,29 +17,17 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ## Get Started
 
-### [Try Bytebase Cloud](/get-started/cloud)
+### [Bytebase Cloud](/get-started/cloud)
 
-### [Self-host Bytebase](/get-started/install/overview)
+### [Self-host](/get-started/self-host)
 
-#### [Option 1 Docker (5 seconds)](/get-started/install/deploy-with-docker)
+### [Configure External PostgreSQL](/get-started/install/external-postgres)
 
-#### [Option 2 Deploy to Kubernetes](/get-started/install/deploy-to-kubernetes)
+### [Configure External URL](/get-started/install/external-url)
 
-#### [Option 3 Deploy to sealos](/get-started/install/deploy-to-sealos)
+### [Manage with Terraform](/get-started/terraform)
 
-#### [Option 4 Deploy to Rainbond](/get-started/install/deploy-to-rainbond)
-
-#### [Option 5 Deploy to render](/get-started/install/deploy-to-render)
-
-#### [Option 6 Installation Script](/get-started/install/installation-script)
-
-#### [Option 7 Build from Source Code](/get-started/install/build-from-source-code)
-
-#### [Configure External PostgreSQL](/get-started/install/external-postgres)
-
-#### [Configure External URL](/get-started/install/external-url)
-
-### [Step-by-Step](/get-started/quick-start)
+### [Step-by-Step Quick Start](/get-started/quick-start)
 
 #### [Step 1 - Register Accounts](/get-started/step-by-step/register-accounts)
 
@@ -52,8 +40,6 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 #### [Step 5 - Create a Project](/get-started/step-by-step/create-a-project)
 
 #### [Step 6 - Change Schema ](/get-started/step-by-step/change-schema)
-
-### [Manage with Terraform](/get-started/terraform)
 
 ---
 

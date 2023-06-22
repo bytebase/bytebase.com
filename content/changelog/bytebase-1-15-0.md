@@ -3,7 +3,7 @@ title: Bytebase 1.15.0
 author: Ningjing
 published_at: 2023/03/30 17:00:00
 feature_image: /content/changelog/1-15-0-banner.webp
-description: "- SaaS version - GitOps supports Bitbucket Cloud - SQL Chat"
+description: '- SaaS version - GitOps supports Bitbucket Cloud - SQL Chat'
 ---
 
 ## 🚀 New Features
@@ -28,4 +28,4 @@ description: "- SaaS version - GitOps supports Bitbucket Cloud - SQL Chat"
 
 ## 📕 Installation and Upgrade
 
-Follow [Installation](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary.
+Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the latest release binary.

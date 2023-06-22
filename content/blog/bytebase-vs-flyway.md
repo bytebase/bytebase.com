@@ -65,7 +65,7 @@ for developers and DBAs to collaborate.
 ### Installation
 
 - **Flyway**: Java-based tool, so you need to install a Java Virtual Machine (JVM) before users can install Flyway.
-- **Bytebase**: Go-based tool, a self-contained bianry with no external dependency. Also provides [Docker](/docs/get-started/install/deploy-with-docker/) and [Kubernetes](/docs/get-started/install/deploy-to-kubernetes/) deployment.
+- **Bytebase**: Go-based tool, a self-contained bianry with no external dependency. Also provides [Docker](/docs/get-started/self-host/#docker/) and [Kubernetes](/docs/get-started/self-host/#kubernetes/) deployment.
 
 ### Change execution
 

@@ -154,7 +154,7 @@ The Bytebase Console-based integration mode provides more powerful functionality
 1. Deploy Bytebase Console and complete the basic configuration
 
    This mode requires the deployment of Bytebase Console, and you need to import your database environment into Bytebase.
-   Please refer to [Bytebase Installation Guide](https://www.bytebase.com/docs/get-started/install/overview)
+   Please refer to [Bytebase Installation Guide](https://www.bytebase.com/docs/get-started/self-host)
    for the detailed process.
 
 1. Activate SQL Review CI with one click
