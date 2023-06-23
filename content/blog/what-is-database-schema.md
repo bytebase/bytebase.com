@@ -11,7 +11,7 @@ This is a series of articles about database schema change / schema migration:
 
 - What is a Database Schema? (this one)
 - [How to Handle Database Migration / Schema Change?](/blog/how-to-handle-database-schema-change)
-- [Top Database Schema Change Tools in 2023](/blog/top-database-schema-change-tool-evolution)
+- [Top Database Schema Migration Tools in 2023](/blog/top-database-schema-change-tool-evolution)
 
 ---
 

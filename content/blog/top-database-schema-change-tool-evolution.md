@@ -1,5 +1,5 @@
 ---
-title: Top Database Schema Change Tools in 2023
+title: Top Database Schema Migration Tools in 2023
 author: Mila
 published_at: 2023/06/10 21:21:21
 feature_image: /content/blog/top-database-schema-change-tool-evolution/banner.webp
@@ -12,7 +12,7 @@ This is a series of articles about database schema change / schema migration:
 
 - [What is a Database Schema?](/blog/what-is-database-schema)
 - [How to Handle Database Migration / Schema Change?](/blog/how-to-handle-database-schema-change)
-- Top Database Schema Change Tools in 2023 (this one)
+- Top Database Schema Migration Tools in 2023 (this one)
 
 ---
 

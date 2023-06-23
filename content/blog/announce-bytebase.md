@@ -13,7 +13,7 @@ After 6 months of intense development and over 2,000 commits, Bytebase version 0
 
 Bytebase is a tool for database schema change and version control, its main audience are Developers and DBAs.
 
-Database schema changes (aka database migrations), like code changes, are one of the routine tasks for developing applications. Although schema changes are not as frequent as code changes, they are much more dangerous. Since the data is stateful, unlike the fast code rollback, the database rollback is much more complicated. Besides database changes, network changes are also dangerous and can cause large-scale service failures. While network configurations are usually stateless, so rollback and recovery are also faster.
+Database schema migrations (aka database migrations), like code changes, are one of the routine tasks for developing applications. Although schema changes are not as frequent as code changes, they are much more dangerous. Since the data is stateful, unlike the fast code rollback, the database rollback is much more complicated. Besides database changes, network changes are also dangerous and can cause large-scale service failures. While network configurations are usually stateless, so rollback and recovery are also faster.
 
 > _Thus, database changes are usually the most likely ones causing long-lasting large-scale service outages. And in the extreme case, can even bankrupt the entire business._
 

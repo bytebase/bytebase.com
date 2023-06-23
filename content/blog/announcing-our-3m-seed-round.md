@@ -76,7 +76,7 @@ Bytebase did not choose to build a new database from scratch. Instead, we try to
 
 ## Bytebase's next step
 
-Database schema change is the unskippable step during the development process. MySQL/PostgreSQL has been popular for 20+ years, yet still, there is no complete schema change solution in the industry.
+Database schema migration is the unskippable step during the development process. MySQL/PostgreSQL has been popular for 20+ years, yet still, there is no complete schema change solution in the industry.
 
 This is a great entry point to start with.
 
