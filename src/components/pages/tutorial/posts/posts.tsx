@@ -1,54 +1,73 @@
-import clsx from 'clsx';
+import format from 'date-fns/format';
+import { BlogPost } from '@/types/blog-post';
+import Link from 'next/link';
 
-import { GlossaryLetterSet } from '@/types/glossary';
+import AuroraIcon from '@/svgs/aurora.inline.svg';
+import ClickHouseIcon from '@/svgs/clickhouse.inline.svg';
+import GithubIcon from '@/svgs/github.inline.svg';
+import GitLabIcon from '@/svgs/gitlab.inline.svg';
+import MariaDBIcon from '@/svgs/mariadb.inline.svg';
+import MongoDBIcon from '@/svgs/mongodb.inline.svg';
+import PostgresIcon from '@/svgs/postgres.inline.svg';
+import RedisIcon from '@/svgs/redis.inline.svg';
+import SnowflakeIcon from '@/svgs/snowflake.inline.svg';
+import SpannerIcon from '@/svgs/spanner.inline.svg';
+import TerraformIcon from '@/svgs/terraform.inline.svg';
+import TidbIcon from '@/svgs/tidb.inline.svg';
+import MySQLIcon from '@/svgs/mysql.inline.svg';
+
+const allIntegrations: { [key: string]: React.FunctionComponent<React.SVGProps<SVGSVGElement>> } = {
+  aurora: AuroraIcon,
+  clickhouse: ClickHouseIcon,
+  github: GithubIcon,
+  gitlab: GitLabIcon,
+  postgresql: PostgresIcon,
+  snowflake: SnowflakeIcon,
+  spanner: SpannerIcon,
+  terraform: TerraformIcon,
+  tidb: TidbIcon,
+  redis: RedisIcon,
+  mongodb: MongoDBIcon,
+  mysql: MySQLIcon,
+  mariadb: MariaDBIcon,
+};
 
 type PostsProps = {
-  posts: GlossaryLetterSet[];
+  posts: BlogPost[];
 };
 
 const Posts = ({ posts }: PostsProps) => {
-  if (!posts) return null;
-
   return (
-    <ul className="col-span-9 flex flex-col gap-y-20 pt-16 lg:col-span-9 lg:gap-y-[72px] lg:pt-0 md:col-span-full md:mt-8 md:gap-y-16 sm:mt-6 sm:gap-14">
-      {posts.map(({ letter, list }) => {
+    <ul className="col-span-9 flex flex-col gap-y-8 pt-16 lg:col-span-9 lg:pt-0 md:col-span-full md:mt-8 sm:mt-6">
+      {posts.map((post) => {
         return (
-          <li key={letter}>
-            <span className="text-44 font-bold leading-extra-tight lg:text-36 md:text-30">
-              {letter}
-            </span>
-            <ul className="mt-6 flex flex-col gap-y-6 lg:mt-5 lg:gap-y-5 md:mt-4 md:gap-y-4 sm:mt-1 sm:gap-y-1">
-              {list.map(({ slug, name, tagList, description }) => {
-                return (
-                  <li key={slug}>
-                    <article id={slug} className="glossary-post pt-5">
-                      <header className="flex flex-row gap-x-2">
-                        {tagList.map((tag, index) => {
-                          return (
-                            <span
-                              key={tag}
-                              className={clsx(
-                                index !== 0 &&
-                                  'pl-1.5 before:absolute before:left-0 before:top-1/2 before:h-0.5 before:w-0.5 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:bg-primary-1',
-                                'relative text-14 font-medium leading-none text-primary-1',
-                              )}
-                            >
-                              {tag}
-                            </span>
-                          );
-                        })}
-                      </header>
-                      <h2 className="mt-2 text-30 font-semibold leading-tight lg:text-24 md:text-20 sm:mt-1.5 sm:text-18 sm:leading-snug">
-                        {name}
-                      </h2>
-                      <p className="mt-5 text-18 lg:mt-4 lg:text-16 lg:leading-snug sm:mt-2">
-                        {description}
-                      </p>
-                    </article>
-                  </li>
-                );
-              })}
-            </ul>
+          <li key={post.slug} className="tutorial-card !my-0">
+            <article className="h-full w-full">
+              <Link
+                className="flex h-full flex-col space-y-4 border border-gray-90 p-4 hover:border-gray-60"
+                href={`docs/tutorials/${post.slug}`}
+              >
+                <h4 className="text-18 font-semibold leading-tight xl:text-16 xl:leading-snug">
+                  {post.title}
+                </h4>
+                <div className="mt-auto flex items-center gap-x-4">
+                  {post.integrations && (
+                    <div className="relative flex items-center gap-x-2 after:absolute after:-right-[9px] after:top-2 after:h-0.5 after:w-0.5 after:rounded-full after:bg-gray-60">
+                      {post.integrations.split(', ').map((integration) => {
+                        const Logo = allIntegrations[integration.toLowerCase()];
+                        return <Logo className="h-5 w-5" key={integration.toLowerCase()} />;
+                      })}
+                    </div>
+                  )}
+                  <time
+                    className="text-14 uppercase leading-none text-gray-40"
+                    dateTime={post.published_at}
+                  >
+                    {format(new Date(post.published_at), 'MMM dd, yyyy')}
+                  </time>
+                </div>
+              </Link>
+            </article>
           </li>
         );
       })}

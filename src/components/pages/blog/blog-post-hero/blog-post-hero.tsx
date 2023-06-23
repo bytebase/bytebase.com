@@ -19,8 +19,7 @@ type BlogPostHeroProps = {
 const BlogPostHero = ({ post, isBlogPost = true }: BlogPostHeroProps) => {
   const { tags, author, title, feature_image, slug, published_at, timeToRead } = post;
   const categorySlug = slugifyText(tags);
-  const categoryUrl =
-    tags === 'Tutorial' ? ROUTE.DOCS_TUTORIALS : `${ROUTE.BLOG_CATEGORY}/${categorySlug}`;
+  const categoryUrl = `${ROUTE.BLOG_CATEGORY}/${categorySlug}`;
   const { tagColors, titleHover } = getBlogCardColors(categorySlug);
   const date = new Date(published_at);
   const formattedDate = format(date, 'MMM dd, yyyy');

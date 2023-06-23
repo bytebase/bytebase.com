@@ -15,8 +15,6 @@ import DocLinkBlock from './doc-link-block';
 import EnterpriseOnlyBlock from './enterprise-only-block';
 import HintBlock from './hint-block';
 import IncludeBlock from './include-block';
-import TutorialTallCard from './tutorial-tall-card';
-import TutorialWideCard from './tutorial-wide-card';
 
 const flattenChildrenToString = (children: ReactNode): string => {
   return Children.toArray(children)
@@ -96,8 +94,6 @@ const components = {
       {children}
     </ul>
   ),
-  TutorialTallCard,
-  TutorialWideCard,
 };
 
 const Content = ({ className, content }: { className?: string; content: string }) => {

@@ -11,7 +11,7 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ### [Supported Databases](/introduction/supported-databases)
 
-### [Tutorials](/tutorials/overview)
+### [Tutorials](/tutorials)
 
 ### [FAQ](/faq)
 

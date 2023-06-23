@@ -15,15 +15,15 @@ type BlogPostsWithTags = {
   tags: string[];
 };
 
-const getAllBlogPosts = (): BlogPostsWithTags => {
-  const files = fs.readdirSync(CONTENT_FOLDER.blog).filter((file) => file.endsWith('.md'));
-
+const getAllBlogPosts = (category?: string): BlogPostsWithTags => {
+  const dir = category == 'Tutorial' ? CONTENT_FOLDER.tutorial : CONTENT_FOLDER.blog;
+  const files = fs.readdirSync(dir).filter((file) => file.endsWith('.md'));
   const tagsSet = new Set();
 
   const posts: BlogPost[] = files
     .map((file) => {
       const slug = file.replace('.md', '');
-      const post = getBlogPostBySlug(slug);
+      const post = getBlogPostBySlug(dir, slug);
 
       if (!post || post.tags.includes('Hidden')) return null;
 
@@ -35,16 +35,18 @@ const getAllBlogPosts = (): BlogPostsWithTags => {
         ...post,
       };
     })
-    .filter((post): post is BlogPost => Boolean(post))
+    .filter((post): post is BlogPost => {
+      return post && (!category || post?.tags.includes(category)) ? true : false;
+    })
     .sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime());
 
   return { posts, tags: Array.from(tagsSet) as string[] };
 };
 
-const getBlogPostBySlug = (slug: string): BlogPost | null => {
+const getBlogPostBySlug = (dir: string, slug: string): BlogPost | null => {
   try {
     const VERSION = fs.readFileSync('VERSION').toString();
-    const filePath = path.join(CONTENT_FOLDER.blog, `${slug}.md`);
+    const filePath = path.join(dir, `${slug}.md`);
     const markdownWithMeta = fs.readFileSync(filePath, 'utf-8');
     const { content, data } = matter(markdownWithMeta);
 

@@ -3,28 +3,28 @@ import getMetadata from '@/utils/get-metadata';
 import TutorialLayout from '@/components/pages/tutorial/tutorial-layout';
 import Hero from '@/components/pages/tutorial/hero';
 
-import { getAllGlossaryPosts } from '@/lib/api-glossary';
+import { getAllBlogPosts } from '@/lib/api-blog';
 import SEO_DATA from '@/lib/seo-data';
 
-export const metadata = getMetadata(SEO_DATA.DATABASE_GLOSSARY);
+export const metadata = getMetadata(SEO_DATA.TUTORIAL);
 
-export default function DatabaseGlossaryPage() {
-  const posts = getAllGlossaryPosts();
-  const categories = new Map();
-  posts.forEach(({ list }) => {
-    list.forEach(({ tagList }) =>
-      tagList.forEach((tag) => {
-        if (categories.has(tag)) {
-          categories.set(tag, categories.get(tag) + 1);
-        } else {
-          categories.set(tag, 1);
-        }
-      }),
-    );
+export default function TutorialPage() {
+  const posts = getAllBlogPosts('Tutorial');
+  const integrations = new Map();
+  posts.posts.forEach((post) => {
+    post.integrations?.split(', ').forEach((integration) => {
+      if (integrations.has(integration)) {
+        integrations.set(integration, integrations.get(integration) + 1);
+      } else {
+        integrations.set(integration, 1);
+      }
+    });
   });
 
+  const filters = Array.from(integrations.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+
   return (
-    <TutorialLayout posts={posts} filters={Array.from(categories.entries())}>
+    <TutorialLayout posts={posts.posts} filters={filters}>
       <Hero />
     </TutorialLayout>
   );

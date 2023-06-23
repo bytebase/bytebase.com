@@ -26,6 +26,11 @@ const SEO_DATA = {
     description: 'Safer and faster database change and version control for DBAs and Developers',
     pathname: `${Route.BLOG}/`,
   },
+  TUTORIAL: {
+    title: 'Bytebase Tutorial',
+    description: 'Safer and faster database change and version control for DBAs and Developers',
+    pathname: `${Route.TUTORIAL}/`,
+  },
   DATABASE_GLOSSARY: {
     title: 'Database Glossary',
     description: 'Safer and faster database change and version control for DBAs and Developers',

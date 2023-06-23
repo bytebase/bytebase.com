@@ -1,5 +1,6 @@
 export type BlogPost = {
   title: string;
+  description: string;
   content: string;
   og_image?: string;
   feature_image: string;
@@ -9,4 +10,5 @@ export type BlogPost = {
   slug: string;
   timeToRead: string;
   featured: boolean;
+  integrations?: string;
 };

@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 
 import { getExcerpt } from '@/utils/get-excerpt';
 import getMetadata from '@/utils/get-metadata';
-import slugifyText from '@/utils/slugify-text';
 
 import BlogPostHero from '@/components/pages/blog/blog-post-hero';
 import PostLayout from '@/components/pages/blog/post-layout';
@@ -23,6 +22,7 @@ import {
 import { getTableOfContents } from '@/lib/api-docs';
 import Route from '@/lib/route';
 import SEO_DATA from '@/lib/seo-data';
+import CONTENT_FOLDER from '@/lib/content-folder';
 
 export default function Blog({ params }: { params: { slug: string } }) {
   const { slug } = params;
@@ -44,7 +44,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
       </>
     );
   }
-  const post = getBlogPostBySlug(slug);
+  const post = getBlogPostBySlug(CONTENT_FOLDER.blog, slug);
 
   if (!post) return notFound();
 
@@ -86,7 +86,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = params;
 
-  const post = getBlogPostBySlug(slug);
+  const post = getBlogPostBySlug(CONTENT_FOLDER.blog, slug);
 
   if (!post)
     return getMetadata({

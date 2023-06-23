@@ -25,6 +25,7 @@ const Route = {
 
   DATABASE_GLOSSARY: '/database-glossary',
   CHANGELOG: '/changelog',
+  TUTORIAL: '/tutorial',
   BLOG: '/blog',
   BLOG_CATEGORY: '/blog/category',
 
@@ -37,7 +38,6 @@ const Route = {
   DOCS_CLI: '/docs/cli/overview',
   DOCS_HOW_TO: '/docs/how-to/sql-review/postgres-sql-review-guide',
   SQL_GITHUB_APP: '/docs/sql-review/sql-advisor/github-app',
-  DOCS_TUTORIALS: '/docs/tutorials/overview',
   DOCS_CHANGE_DATABASE: '/docs/change-database/change-workflow',
   DOCS_SQL_ADVISOR: '/docs/sql-review/sql-advisor/overview',
   DOCS_SQL_EDITOR: '/docs/sql-editor/overview',

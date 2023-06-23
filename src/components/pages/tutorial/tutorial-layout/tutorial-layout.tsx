@@ -5,12 +5,11 @@ import { ReactNode, useMemo, useRef, useState } from 'react';
 // import Aside from '../aside';
 import DropdownFilter from '../dropdown-filter';
 import Filter from '../filter';
-import MobileSidebar from '../mobile-sidebar';
 import Posts from '../posts';
-import { GlossaryLetterSet } from '@/types/glossary';
+import { BlogPost } from '@/types/blog-post';
 
 type TutorialLayoutProps = {
-  posts: GlossaryLetterSet[];
+  posts: BlogPost[];
   children: ReactNode;
   filters: [string, number][];
 };
@@ -22,13 +21,10 @@ const TutorialLayout = ({ posts, filters, children }: TutorialLayoutProps) => {
   const filteredItems = useMemo(() => {
     if (activeFilters.length === 0) return posts;
 
-    return posts
-      .map((post) => ({
-        ...post,
-        list: post.list.filter((item) => item.tagList.some((tag) => activeFilters.includes(tag))),
-      }))
-      .filter((post) => post.list.length > 0);
-  }, [activeFilters]);
+    return posts.filter((post) =>
+      post.integrations?.split(', ').some((integration) => activeFilters.includes(integration)),
+    );
+  }, [activeFilters, posts]);
 
   const toggleFilter = (filter: string) => {
     if (wrapperRef.current && window?.scrollY > wrapperRef?.current?.offsetTop) {
@@ -43,7 +39,6 @@ const TutorialLayout = ({ posts, filters, children }: TutorialLayoutProps) => {
 
   return (
     <>
-      <MobileSidebar className="hidden lg:flex" categoryList={filteredItems} />
       {children}
       <section ref={wrapperRef} className="container lg:pt-12 md:pt-8 sm:pt-6">
         <div className="gap-x-grid grid grid-cols-12">
@@ -55,7 +50,6 @@ const TutorialLayout = ({ posts, filters, children }: TutorialLayoutProps) => {
             setActiveFilters={setActiveFilters}
             toggleFilter={toggleFilter}
           />
-          {/* <Aside posts={filteredItems} /> */}
           <Posts posts={filteredItems} />
           <Filter
             title="Category"
