@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 
 import Button from '@/components/shared/button';
@@ -55,7 +56,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
       <header className="safe-paddings absolute left-0 right-0 top-0 z-30 h-[72px] w-full md:py-[22px] sm:z-50">
         <nav className="container flex items-center py-4.5 md:py-0" aria-label="Global">
           <Link href="/">
-            <img
+            <Image
               className="h-8 w-auto xl:h-7"
               src="/images/logo.svg"
               alt="Bytebase logo"

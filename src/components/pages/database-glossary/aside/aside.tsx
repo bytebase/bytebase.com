@@ -45,7 +45,7 @@ const Aside = ({ posts, activeHash }: PostsProps) => {
         {posts.map(({ letter, list }, index) => {
           return (
             <div
-              key={index}
+              key={letter}
               className={clsx(index !== 0 && 'pt-11', 'border-l border-gray-90 pl-5 leading-none')}
             >
               <span className="text-14 font-bold tracking-wider">{letter}</span>

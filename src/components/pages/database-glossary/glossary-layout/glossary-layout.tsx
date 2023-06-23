@@ -32,7 +32,7 @@ const GlossaryLayout = ({ posts, filters, children }: GlossaryLayoutProps) => {
         list: post.list.filter((item) => item.tagList.some((tag) => activeFilters.includes(tag))),
       }))
       .filter((post) => post.list.length > 0);
-  }, [activeFilters]);
+  }, [activeFilters, posts]);
 
   const toggleFilter = (filter: string) => {
     if (wrapperRef.current && window?.scrollY > wrapperRef?.current?.offsetTop) {
