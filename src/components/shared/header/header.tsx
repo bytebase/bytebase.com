@@ -89,10 +89,10 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                     <div className="invisible absolute -left-5 top-6 pt-6 opacity-0 transition-[opacity,visibility] duration-200 group-hover:visible group-hover:opacity-100">
                       <div className="relative flex items-center gap-x-[30px] rounded-lg border border-gray-80 bg-white p-4 pl-8 shadow-menu before:absolute before:-top-[8.5px] before:left-11 before:h-4 before:w-4 before:rotate-45 before:rounded-tl before:border-l before:border-t before:border-gray-80 before:bg-white">
                         <ul className="flex flex-col">
-                          {items?.map(({ name, linkUrl, description, iconName }, index) => {
+                          {items?.map(({ name, linkUrl, description, iconName }) => {
                             const Icon = iconName ? icons[iconName] : null;
                             return (
-                              <li key={index} className="pt-6 first:pt-0">
+                              <li key={name} className="pt-6 first:pt-0">
                                 <Link
                                   className="group/link block whitespace-nowrap"
                                   size="md"
