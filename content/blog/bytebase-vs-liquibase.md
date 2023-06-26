@@ -29,10 +29,10 @@ for developers and DBAs to collaborate.
 
 |                                                                                              | Liquibase       | Bytebase                                                 |
 | -------------------------------------------------------------------------------------------- | --------------- | -------------------------------------------------------- |
-| [Product position](#product-position)                                                        | Schema change   | Schema Change, Data Query and Secure                     |
+| [Product position](#product-position)                                                        | Schema change   | Schema Change                 |
 | [Developer interface](#developer-interface)                                                  | CLI             | GUI                                                      |
 | [Supported databases](#supported-databases)                                                  | 50              | 13                                                       |
-| [Programming language and installation](#installation)                                       | Java + JVM      | Golang and no other dependency binary without dependency |
+| [Programming language and installation](#installation)                                       | Java + JVM      | Golang and no other dependency |
 | [Change execution](#change-execution)                                                        | Changelog + CLI | Issue + GUI                                              |
 | [Batch Change](#change-execution)                                                            | -               | ✅ Multi-environment / Multi-tenant                      |
 | [Database GitOps](#database-gitops-configuration)                                            | ✅              | ✅                                                       |
