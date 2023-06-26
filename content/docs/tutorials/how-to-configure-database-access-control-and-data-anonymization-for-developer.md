@@ -4,6 +4,7 @@ author: Ningjing
 published_at: 2023/01/05 21:15
 feature_image: /content/docs/tutorials/how-to-configure-database-access-control-and-data-anonymization-for-developer/ac-feature.webp
 tags: Tutorial
+integrations: General
 level: Intermediate
 description: This tutorial will walk you through how data access control and data anonymization works in Bytebase. You’ll need two Bytebase accounts – one DBA and one Developer.
 ---
