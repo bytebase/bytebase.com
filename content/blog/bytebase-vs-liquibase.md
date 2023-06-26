@@ -41,7 +41,7 @@ for developers and DBAs to collaborate.
 | [Change history](#change-history)                                                            | ✅              | ✅                                                       |
 | [Sync schema](#sync-schema)                                                                  | ✅              | ✅                                                       |
 | [Rollback](#rollback)                                                                        | ✅ Manual       | ✅ Auto generated rollback statement                     |
-| [Schema drift detection](#schema-drift-detection)                                            | -               | ✅                                                       |
+| [Schema drift detection](#schema-drift-detection)                                            | ✅ Manual        | ✅ Auto                                                   |
 | [Slow query detection and advisor](#slow-query-detection-and-advisor)                        | -               | ✅                                                       |
 | [Data access control, security and compliance](#data-access-control-security-and-compliance) | -               | ✅                                                       |
 

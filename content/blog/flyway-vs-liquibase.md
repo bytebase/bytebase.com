@@ -33,11 +33,11 @@ While both Flyway and Liquibase are tools for database CI/CD, there are some key
 | [Change execution](#change-execution)                                                        | SQL script + CLI | Changelog (XML) + CLI
 | [Change order](#change-order)                                                        | Numbering of SQL files  | Changelog (XML)                                      |                                              |
 | [Database GitOps](#database-gitops-configuration)                                            | ✅              | ✅                                                       |
-| [SQL auto check](#sql-auto-check)                                                            | ✅ Paid version | ✅ Paid version version                             |
+| [SQL auto check](#sql-auto-check)                                                            | ✅  | ✅                            |
 | [Change history](#change-history)                                                            | ✅              | ✅                                                       |
 | [Sync schema](#sync-schema)                                                                  | ✅              | ✅                                                       |
-| [Rollback](#rollback)                                                                        | ✅       | ✅                    |
-| [Schema drift detection](#schema-drift-detection)                                            | ✅        | -                                                 |
+| [Rollback](#rollback)                                                                        | ✅      | ✅                    |
+| [Schema drift detection](#schema-drift-detection)                                            | ✅                                                                                                                                                                                 | ✅                                                 |
 
 ### Product position
 
@@ -146,10 +146,10 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 ### Schema drift detection
 
 - **Flyway**: Run `flyway check -drift ...` to produce a report indicating difference between target database and the one created by the migrations applied by Flyway.
-- **Liquibase**: Not supported.
+- **Liquibase**: Run `liquibase diff --format=json` to produce a report indicating difference between target database and source database.
 
 ## Summary
 
 Flyway and Liquibase are both popular tools for database CI/CD. Liquibase uses an XML format changelog, which makes it more flexible but also has a steeper learning curve. Flyway uses numeric ordering of SQL scripts, which is easier to learn but can lead to conflicts in collaboration.
 
-Ultimately, the choice between Flyway and Liquibase depends on your specific needs and preferences. Both tools are powerful and widely used in the industry.
+Ultimately, the choice between Flyway and Liquibase depends on your specific needs and preferences. Both are powerful CLI tools and widely used in the industry. If you are looking for a more interactive GUI and more collaboration features, you may consider [Bytebase](/).
