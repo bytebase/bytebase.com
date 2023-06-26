@@ -13,6 +13,7 @@ export default function TutorialPage() {
   const integrations = new Map();
   posts.posts.forEach((post) => {
     post.integrations?.split(', ').forEach((integration) => {
+      if (integration === 'General') return;
       if (integrations.has(integration)) {
         integrations.set(integration, integrations.get(integration) + 1);
       } else {

@@ -19,11 +19,22 @@ const TutorialLayout = ({ posts, filters, children }: TutorialLayoutProps) => {
   const wrapperRef = useRef<HTMLElement>(null);
 
   const filteredItems = useMemo(() => {
-    if (activeFilters.length === 0) return posts;
+    let filteredPosts = posts;
+    if (activeFilters.length > 0) {
+      filteredPosts = posts.filter((post) =>
+        post.integrations
+          ?.split(', ')
+          .some((integration) => integration == 'General' || activeFilters.includes(integration)),
+      );
+    }
 
-    return posts.filter((post) =>
-      post.integrations?.split(', ').some((integration) => activeFilters.includes(integration)),
-    );
+    return filteredPosts.sort((a, b) => {
+      const aHasGeneral = a.integrations?.includes('General');
+      if (aHasGeneral) return -1;
+      const bHasGeneral = b.integrations?.includes('General');
+      if (bHasGeneral) return 1;
+      return 0;
+    });
   }, [activeFilters, posts]);
 
   const toggleFilter = (filter: string) => {

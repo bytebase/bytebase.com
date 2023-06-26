@@ -3,6 +3,7 @@ import { BlogPost } from '@/types/blog-post';
 import Link from 'next/link';
 
 import AuroraIcon from '@/svgs/aurora.inline.svg';
+import BytebaseIcon from '@/svgs/bytebase.inline.svg';
 import ClickHouseIcon from '@/svgs/clickhouse.inline.svg';
 import GithubIcon from '@/svgs/github.inline.svg';
 import GitLabIcon from '@/svgs/gitlab.inline.svg';
@@ -18,6 +19,7 @@ import MySQLIcon from '@/svgs/mysql.inline.svg';
 
 const allIntegrations: { [key: string]: React.FunctionComponent<React.SVGProps<SVGSVGElement>> } = {
   aurora: AuroraIcon,
+  general: BytebaseIcon,
   clickhouse: ClickHouseIcon,
   github: GithubIcon,
   gitlab: GitLabIcon,
