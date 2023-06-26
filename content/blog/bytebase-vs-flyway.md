@@ -31,7 +31,7 @@ for developers and DBAs to collaborate.
 | [Product position](#product-position)                                                        | Schema change    | Schema Change, Data Query and Secure                     |
 | [Developer interface](#developer-interface)                                                  | CLI              | GUI                                                      |
 | [Supported databases](#supported-databases)                                                  | 22 Only SQL DB   | 13 SQL & NoSQL DB                                        |
-| [Programming language and installation](#installation)                                       | Java + JVM       | Golang and no other dependency binary without dependency |
+| [Programming language and installation](#installation)                                       | Java + JVM       | Golang and no other dependency |
 | [Change execution](#change-execution)                                                        | SQL script + CLI | Issue + GUI                                              |
 | [Batch Change](#change-execution)                                                            | -                | ✅ Multi-environment / Multi-tenant                      |
 | [Database GitOps](#database-gitops-configuration)                                            | ✅               | ✅                                                       |
@@ -59,7 +59,7 @@ for developers and DBAs to collaborate.
 
 ### Supported databases
 
-- **Flyway**: 22 SQL databases- MySQL, PostgreSQL, IBM DB2, MS SQL Server, Oracle, PostgreSQL, MySQL, Snowflake ...
+- **Flyway**: 22 SQL databases - MySQL, PostgreSQL, IBM DB2, MS SQL Server, Oracle, PostgreSQL, MySQL, Snowflake ...
 - **Bytebase**: 13 SQL and NoSQL databases - MySQL, PostgreSQL, ClickHouse, Snowflake, MongoDB, Redis, Redshift, Oracle, MS SQL Server ...
 
 ### Installation
