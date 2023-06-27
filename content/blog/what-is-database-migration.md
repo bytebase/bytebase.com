@@ -71,13 +71,13 @@ In summary, the future of database schema migrations is likely to be featured by
 
 Given the trends of database migration, we recommend the all-in-one database migration tool for you: [Bytebase](https://www.bytebase.com/)
 
-[overview](/content/blog/what-is-database-migration/overview.webp)
+![overview](/content/blog/what-is-database-migration/overview.webp)
 
 Bytebase is an open-source database DevOps tool, covering database management scenarios from changes, queries, security, to governance with a GUI web-based collaboration workspace.
 
 - **Visual workflow for database migration**
 
-[ui-workflow](/content/blog/what-is-database-migration/ui-workflow.webp)
+![ui-workflow](/content/blog/what-is-database-migration/ui-workflow.webp)
 
 Bytebase offers a visual workflow for database migration, allowing developers and DBAs to easily collaborate on the migration process through an intuitive UI.
 
@@ -87,13 +87,13 @@ Besides UI workflow, Bytebase integrates capabilities into code repositories suc
 
 - **Team Collaboration**
 
-[collaboration](/content/blog/what-is-database-migration/collaboration.webp)
+![collaboration](/content/blog/what-is-database-migration/collaboration.webp)
 
 Bytebase provides different roles for members at two levels: Workspace and Project. You can assign different roles to your team members, enabling them to have different permissions for different projects.
 
 - **AI-based index optimization advisor**
 
-[index-advisor](/content/blog/what-is-database-migration/index-advisor.webp)
+![index-advisor](/content/blog/what-is-database-migration/index-advisor.webp)
 
 Bytebase offers an index advisor based on OpenAI API, which analyzes the slow queries and recommends the indexes that can effectively speed up the slow queries.
 
