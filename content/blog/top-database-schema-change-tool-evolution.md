@@ -11,6 +11,7 @@ description: Database schema migration have come a long way, from CLI to GUI, an
 This is a series of articles about database schema change / schema migration:
 
 - [What is a Database Schema?](/blog/what-is-database-schema)
+- [What is a Database Schema Migration?](/blog/what-is-database-migration)
 - [How to Handle Database Migration / Schema Change?](/blog/how-to-handle-database-schema-change)
 - Top Database Schema Migration Tools in 2023 (this one)
 
