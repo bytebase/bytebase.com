@@ -116,6 +116,6 @@ Bytebase allows users to take database [backups](/docs/disaster-recovery/backup)
 
 - Local backup: `backup` directory will be put under the `--data` directory.
 
-- [Cloud backup](/docs/disaster-recovery/backup-restore-database/backup/#cloud-storage): If Bytebase starts with
+- [Cloud backup](/docs/disaster-recovery//backup/#cloud-storage): If Bytebase starts with
   [cloud backup flags](/docs/reference/command-line#--backup-bucket-bucket), then the backup will be
   stored in the corresponding cloud storage.

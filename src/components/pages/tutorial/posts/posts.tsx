@@ -47,7 +47,7 @@ const Posts = ({ posts }: PostsProps) => {
             <article className="h-full w-full">
               <Link
                 className="flex h-full flex-col space-y-4 border border-gray-90 p-4 hover:border-gray-60"
-                href={`docs/tutorials/${post.slug}`}
+                href={`/docs/tutorials/${post.slug}`}
               >
                 <h4 className="text-18 font-semibold leading-tight xl:text-16 xl:leading-snug">
                   {post.title}

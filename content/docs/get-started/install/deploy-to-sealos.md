@@ -21,8 +21,8 @@ Click the terminal icon to edit the yaml file.
 You need to modify:
 
 1. In Ingress section, the host needs to be unique such as `bytebase.cloud.sealos.io` in the example.
-1. [--external-url](/get-started/install/external-url) must be consistent with the above host name.
-1. [--pg](/get-started/install/external-postgres) value
+1. [--external-url](/docs/get-started/install/external-url) must be consistent with the above host name.
+1. [--pg](/docs/get-started/install/external-postgres) value
    can be copied from the PostgreSQL instance details created above.
 
 ```yaml

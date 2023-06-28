@@ -8,7 +8,7 @@ description: 'Data Query and Data Export approval flow; SQL Review for Oracle; S
 
 ## 🚀 New Features
 
-- Support [**Data Query**](/docs/security/data-query) and [**Data Export**](/docs/security/data-export/data-export) approval flow.
+- Support [**Data Query**](/docs/security/data-query) and [**Data Export**](/docs/security/data-export/) approval flow.
 - Support SSH tunneling for PostgreSQL and Redis.
 - Support [SQL Review for Oracle](/docs/sql-review/review-rules/).
 

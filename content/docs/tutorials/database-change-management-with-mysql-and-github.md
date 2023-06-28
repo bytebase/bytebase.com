@@ -170,6 +170,6 @@ ALTER TABLE subject ADD lecturer VARCHAR(255);
 
 Now that you have tried the **GitOps workflow**, which stores your MySQL schema in GitHub and trigger the change upon committing change to the repository, to bring your MySQL change workflow to the next level of Database DevOps - [Database as Code](/blog/database-as-code).
 
-You can check out [GitOps docs](docs/vcs-integration/overview) to learn more configuration details.
+You can check out [GitOps docs](/docs/vcs-integration/overview) to learn more configuration details.
 
 In the real world, you might have separated feature and main branches corresponding to your development and production environment, you can check out [GitOps with Feature Branch Workflow](/docs/how-to/workflow/gitops-feature-branch) to learn the setup. Have a try and look forward to your feedback!

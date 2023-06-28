@@ -68,7 +68,7 @@ The plural convention is something we also follow and I don't have very strong f
 
 It's a common practice to enforce some level of consistency. Many hours can be saved if the engineering org can agree on the same ID format, first name, last name format and etc.
 
-FWIW, there are tools like [GitHub SQL Review Action](<[https://github.com/marketplace/actions/sql-review](https://github.com/marketplace/actions/sql-review)>) to enforce schema consistency in the CI/CD process.
+FWIW, there are tools like [GitHub SQL Review Action](https://github.com/marketplace/actions/sql-review) to enforce schema consistency in the CI/CD process.
 
 ## Our Take on SQL Review
 

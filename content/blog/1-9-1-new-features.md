@@ -23,7 +23,7 @@ We included the support for MySQL and TiDB first, and PostgreSQL will be availab
 
 Next ups is a small yet sweet feature.
 
-The issue creator might want to remind the reviewer during the review process. We added the **[Need Attention](/docs/change-database/change-workflow/issue-need-attention)** feature, which adds a reminder bell to the Review interface. The corresponding issue title will become bold in the reviewer interface when you click it.
+The issue creator might want to remind the reviewer during the review process. We added the **[Need Attention](/docs/change-database/change-workflow/#issue-need-attention)** feature, which adds a reminder bell to the Review interface. The corresponding issue title will become bold in the reviewer interface when you click it.
 
 ![_](/content/blog/1-9-1-new-features/need-attention-bell.webp)
 

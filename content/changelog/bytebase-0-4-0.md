@@ -16,7 +16,7 @@ In the previous version, Bytebase couldn't sync the migration history properly b
 
 ## 🚀 New Features
 
-### Backup and restore ([detailed guide](https://docs.bytebase.com/use-bytebase/backup-restore-database))
+### Backup and restore ([detailed guide](https://docs.bytebase.com/docs/disaster-recovery/backup/))
 
 User can now configure weekly automatic backup for the database. Meanwhile, user can also take manual backup anytime. Later on, User can restore the backup to a new database.
 

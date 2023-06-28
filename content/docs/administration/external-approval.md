@@ -27,7 +27,7 @@ The IM approval is sent when either of the following happens:
 - Issue arrives at a new stage.
 - Issue assignee has changed.
 - Task SQL statement has changed.
-- The issue creator clicks on the [bell button](/docs/change-database/change-workflow/issue-need-attention)
+- The issue creator clicks on the [bell button](/docs/change-database/change-workflow/#issue-need-attention)
 
 ![issue detail page with the bell icon near the assignee highlighted](/content/docs/administration/external-approval/external-approval-im-bell.webp)
 

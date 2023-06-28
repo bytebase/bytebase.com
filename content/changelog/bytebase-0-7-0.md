@@ -31,7 +31,7 @@ We currently detect following anomalies and will add more in the future:
 
 ### Backward compatible schema migration check (MySQL/TiDB)
 
-In the last release, we introduce the task check system and introduced the basic SQL syntax check. In this release, we advance the check to catch backward incompatible schema migration (e.g. RENAME TABLE). Introducing backward incompatible schema changes is one of the most common mistakes made by developers and enforcing backward compatible schema change is the standard practice adopted by many engineering organizations. Bytebase now automatically checks all common incompatible schema change [scenarios](https://bytebase.com/doc/error#backward-incompatible-migration) and surface them in the SQL review panel:
+In the last release, we introduce the task check system and introduced the basic SQL syntax check. In this release, we advance the check to catch backward incompatible schema migration (e.g. RENAME TABLE). Introducing backward incompatible schema changes is one of the most common mistakes made by developers and enforcing backward compatible schema change is the standard practice adopted by many engineering organizations. Bytebase now automatically checks all common incompatible schema change [scenarios](https://bytebase.com/docs/reference/error-code/advisor/#compatibility) and surface them in the SQL review panel:
 ![_](/content/changelog/0.7.0/backward-compatible-check.webp)
 
 ### Backup schedule enforcement

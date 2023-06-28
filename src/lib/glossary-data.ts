@@ -51,7 +51,7 @@ export const GLOSSARY_LIST: GlossaryLetterSet[] = [
         name: 'Backup',
         description: `A copy of data taken and may be used to restore after a data loss event. Bytebase supports both the manual (on-demand)
         and the automatic per-database backup.`,
-        reference: 'https://www.bytebase.com/docs/use-bytebase/backup-restore-database',
+        reference: 'https://www.bytebase.com/docs/docs/disaster-recovery/backup/',
         tagList: ['General', 'Bytebase'],
       },
       {
@@ -708,7 +708,7 @@ export const GLOSSARY_LIST: GlossaryLetterSet[] = [
         opens a schema change ticket, then a DBA will be assigned the ticket to review and approve/reject the change.
         If the change is approved, then it will be applied to the database by the tooling system. Bytebase has built-in
         support for this SQL review workflow.`,
-        reference: 'https://www.bytebase.com/docs/features/sql-review',
+        reference: 'https://www.bytebase.com/docs/sql-review/overview',
         tagList: ['General', 'Bytebase'],
       },
       {
