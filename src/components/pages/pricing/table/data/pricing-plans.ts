@@ -5,12 +5,12 @@ const COLORS = { pro: '#5647EB', free: '#3DB8F5', enterprise: '#172136' };
 const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   free: {
     title: 'free',
-    description: `Team essentials to centralize database lifecycle management`,
+    description: `Team essentials to centralize database development lifecycle management`,
     buttonText: 'Free Deploy',
     buttonTheme: 'primary-outline',
     buttonUrl: '/docs/get-started/self-host/#docker',
     changeManagement: {
-      user: 'Unlimited',
+      user: 'Up to 20',
       environment: 'Unlimited',
       instance: 'Up to 20',
       'state-based-change': true,
@@ -67,7 +67,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   pro: {
     title: 'pro',
     description:
-      'More collaboration and control policies for advanced database lifecycle management',
+      'More collaboration and control policies for advanced database development lifecycle management',
     buttonText: 'Try Free now',
     buttonTheme: 'primary-filled',
     buttonUrl:
@@ -139,7 +139,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   },
   enterprise: {
     title: 'enterprise',
-    description: 'Large organization, has dedicated DBA group to manage database fleet',
+    description: 'Holistic database development lifecycle management for the entire organization',
     buttonText: 'Contact us',
     buttonTheme: 'primary-outline',
     buttonUrl: '/contact-us',
