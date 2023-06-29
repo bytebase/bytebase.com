@@ -79,3 +79,6 @@ After taking a look at [the history of pgAdmin](https://www.enterprisedb.com/blo
 We briefly looked at the history of a handful of SQL Clients to understand some of the more famous open source solutions, rather than comparing the product or their functions (I mean, after 20 years of refinement those vetran SQL clients can't be too bad, right?) . It seems that most of the authors began building because they were unable to find a product that fit their needs perfectly, but the story afterwards is very different: some tools were then commercialized, some continued on with a strong community, and some gradually faded out due to a change of focus.
 
 And we wonder, with the popularity of ChatGPT, will there be more open source SQL clients like SQL Chat based on Chat interaction?
+
+Beyond using the general SQL Client to interact with the databases, developers and DBAs also adopt
+a dedicated tool to compare and synchronize database schemas, go check out those [tools](/blog/top-mysql-schema-compare-tools-2023/).
