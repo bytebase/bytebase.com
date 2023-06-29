@@ -2,7 +2,7 @@
 title: Top 5 MySQL Schema Compare Tool to Diff and Sync Database in 2023
 author: Candy
 published_at: 2023/06/30 10:29:20
-feature_image: /content/blog/top-mysql-schema-cpmpare-tools-2023/cover.webp
+feature_image: /content/blog/top-mysql-schema-compare-tools-2023/cover.webp
 tags: Industry
 description: If great user experience is important to you, or multiple databases synchronization at the same time is required, your option is Bytebase
 ---
