@@ -65,7 +65,7 @@ execute-schema-migration:
 
 ## Configure DSN
 
-`bb` configures [`--dsn`](/content/docs/cli/reference/#data-source-name-dsn) to access databases. Here are a few examples:
+`bb` configures [--dsn](/docs/cli/reference/#data-source-name-dsn) to access databases. Here are a few examples:
 
 - mysql://root@localhost:3306/
 - postgresql://user:pass@localhost:5432/dbname?ssl-ca=a&ssl-cert=b&ssl-key=c
