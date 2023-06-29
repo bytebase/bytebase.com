@@ -42,13 +42,13 @@ It is only available on Windows.
 
 ## [Liquibase](https://www.liquibase.com/)
 
-Liquibase is an open source command-line tool, which helps you track, version, and deploy database changes with declarative and imperative approaches. It provides three Diff-based commands to discover the differences between databases and database snaphots: diff, diff-changelog, and generate-changelog. You can refer to the section of [Database inspection commands](https://docs.liquibase.com/commands/home.html#database-inspection-commands) for more details. The biggest advantage of Liquibase comparision feature is allow you to fit them into a lot of different workflows.
+Liquibase is an open source command-line tool, which helps you track, version, and deploy database changes with declarative and imperative approaches. It provides three Diff-based commands to discover the differences between databases and database snaphots: `diff`, `diff-changelog`, and `generate-changelog`. You can refer to the section of [Database inspection commands](https://docs.liquibase.com/commands/home.html#database-inspection-commands) for more details. The biggest advantage of Liquibase comparision feature is allow you to integrate them into various workflows.
 
 ![liquibase](/content/blog/top-mysql-schema-compare-tools-2023/liquibase.webp)
 
 ## [Flyway](https://flywaydb.org/)
 
-Flyway is a popular open source tool for database migration management using a declarative migration strategy. In addition to the command line, it offers Flyway Hub, which is a free cloud service and Flyway Desktop, which is a simple GUI on top of Flyway without advanced features. You can compare and synchronize schema bewteen databases via command lines and Flyway Desktop. Note that the comparison command is only available in Enterprise Edition.
+Flyway is a popular open source tool for database migration management using a declarative migration strategy. In addition to the command line, it offers Flyway Hub, which is a free cloud service, and Flyway Desktop, which is a simple GUI on top of Flyway without advanced features. You can compare and synchronize schema bewteen databases via command lines and Flyway Desktop. Note that the comparison command is only available in Enterprise Edition.
 
 ![flyway](/content/blog/top-mysql-schema-compare-tools-2023/flyway.webp)
 
@@ -78,4 +78,4 @@ What's more, the feature is available in Free Plan.
 
 If you are used to working with command line tools, Liquibase and Flyway are excellent choices. If you prefer the fine-grained control during the synchronization process, there are solutions like MySQL Workbench and dbForge Schema Compare for MySQL. However, if great user experience is important to you, or multiple databases synchronization at the same time is required, your option is Bytebase.
 
-For database developers and DBA, beside schema compare tools, SQL client is another commonly used tool. Bytebase provides SQL Editor, which is not only an alternative to SQL clients, but also ensures data security. For more SQL clients, you can check out [Top 8 Free, Open Source SQL Clients to Make Database Management Easier 2023](/blog/top-open-source-sql-clients).
+For Developers and DBAs, beside schema compare tools, SQL client is another commonly used tool. Bytebase provides SQL Editor, which not only is an alternative to SQL clients, but also ensures data security. For more SQL clients, you can check out [Top 8 Free, Open Source SQL Clients to Make Database Management Easier 2023](/blog/top-open-source-sql-clients).
