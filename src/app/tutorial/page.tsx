@@ -13,7 +13,6 @@ export default function TutorialPage() {
   const integrations = new Map();
   posts.posts.forEach((post) => {
     post.integrations?.split(', ').forEach((integration) => {
-      if (integration === 'General') return;
       if (integrations.has(integration)) {
         integrations.set(integration, integrations.get(integration) + 1);
       } else {
@@ -22,7 +21,11 @@ export default function TutorialPage() {
     });
   });
 
-  const filters = Array.from(integrations.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+  const filters = Array.from(integrations.entries()).sort((a, b) => {
+    if (a[0] === 'General') return -1;
+    if (b[0] === 'General') return 1;
+    return a[0].localeCompare(b[0]);
+  });
 
   return (
     <TutorialLayout posts={posts.posts} filters={filters}>
