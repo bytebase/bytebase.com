@@ -3,7 +3,8 @@ title: Get Database Change Notification via Webhook
 author: Candy
 published_at: 2022/05/16 09:42:58
 feature_image: /content/blog/get-database-change-notification-via-webhook/fish-hook.webp
-tags: How-To
+tags: Tutorial
+integrations: General
 description: For better collaboration, DBAs and developers need to be notified when there is any update of the database changes. With Bytebase, you can configure webhooks at a project-level so that Bytebase can post database change notifications to the webhook endpoint.
 ---
 
