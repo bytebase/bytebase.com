@@ -7,7 +7,7 @@ export const MENU = {
       items: [
         {
           name: 'What is Bytebase',
-          description: 'Learn what Bytebase is',
+          description: 'The GitLab for Database DevOps',
           linkUrl: Route.DOCS,
           iconName: 'intro',
         },
@@ -45,7 +45,7 @@ export const MENU = {
       items: [
         {
           name: 'What is Bytebase',
-          description: 'Learn what Bytebase is',
+          description: 'The GitLab for Database DevOps',
           linkUrl: Route.DOCS,
           iconName: 'intro',
         },

@@ -95,7 +95,7 @@ const PromoSQLEditor = () => {
       <header>
         <Pill theme="secondary-1">Query</Pill>
         <h2 className="mt-3 max-w-3xl font-title text-88 font-semibold leading-none xl:mt-3 xl:max-w-2xl xl:text-68 xl:leading-104 md:mt-3 md:max-w-lg md:text-54 md:leading-none sm:text-48 sm:leading-95">
-          Explore data with <span className="whitespace-nowrap">all-in-one</span>{' '}
+          Centralize data access with{' '}
           <mark className="whitespace-nowrap bg-transparent text-center text-primary-1 sm:whitespace-normal xs:pr-24">
             SQL Editor
           </mark>
