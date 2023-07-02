@@ -55,17 +55,6 @@ export const LOGO_LIST = [
     mobileOrderClassName: 'xs:order-6',
   },
   {
-    alt: 'Salla',
-    src: '/images/logos/salla.svg',
-    width: 119,
-    height: 64,
-    small: {
-      width: 75,
-      height: 40,
-    },
-    mobileOrderClassName: 'xs:order-8',
-  },
-  {
     alt: 'Miotech',
     src: '/images/logos/miotech.svg',
     width: 194,
@@ -75,6 +64,17 @@ export const LOGO_LIST = [
       height: 40,
     },
     mobileOrderClassName: 'xs:order-7',
+  },
+  {
+    alt: 'Salla',
+    src: '/images/logos/salla.svg',
+    width: 119,
+    height: 64,
+    small: {
+      width: 75,
+      height: 40,
+    },
+    mobileOrderClassName: 'xs:order-8',
   },
   {
     alt: 'Human horizons',
@@ -88,6 +88,17 @@ export const LOGO_LIST = [
     mobileOrderClassName: 'xs:order-5',
   },
   {
+    alt: 'Telkom Indonesia',
+    src: '/images/logos/telkom-indonesia.svg',
+    width: 116,
+    height: 64,
+    small: {
+      width: 72,
+      height: 40,
+    },
+    mobileOrderClassName: 'xs:order-12',
+  },
+  {
     alt: 'Proton',
     src: '/images/logos/proton.svg',
     width: 141,
@@ -97,17 +108,6 @@ export const LOGO_LIST = [
       height: 40,
     },
     mobileOrderClassName: 'xs:order-3',
-  },
-  {
-    alt: 'Evermos',
-    src: '/images/logos/evermos.svg',
-    width: 239,
-    height: 64,
-    small: {
-      width: 151,
-      height: 40,
-    },
-    mobileOrderClassName: 'xs:order-12',
   },
   {
     alt: 'Aptive',
