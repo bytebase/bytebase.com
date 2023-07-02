@@ -4,6 +4,7 @@ author: Candy
 published_at: 2023/06/30 10:29:20
 feature_image: /content/blog/top-mysql-schema-compare-tools-2023/cover.webp
 tags: Industry
+featured: true
 description: Database schema compare tool is used to diff and synchronize schemas between databases. This article reviews the top 5 common tools in this category.
 ---
 
