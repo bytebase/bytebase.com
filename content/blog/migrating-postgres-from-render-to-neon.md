@@ -99,6 +99,8 @@ On the other hand, there are 2 main reasons for adopting Neon in SQL Chat:
      instruction is right there. The [data import doc](https://neon.tech/docs/import/import-from-postgres)
      is also easy to follow to migrate the data.
 
-Having said that, our flagship product Bytebase is meant for teams to manage database changes in the same way as managing
+---
+
+BTW, our flagship product [Bytebase](/) is meant for teams to manage database changes in the same way as managing
 code changes using GitLab/GitHub. This expeirence of buliding SQL Chat on Vercel + Neon also teaches
 us to deliver a better product to our developers and DBAs.
