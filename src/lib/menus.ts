@@ -33,6 +33,11 @@ export const MENU = {
           description: 'Side-by-side compare with Flyway',
           linkUrl: Route.VS_FLYWAY,
         },
+        {
+          name: 'Navicat vs. Bytebase',
+          description: 'Why the bare SQL client is not enough',
+          linkUrl: Route.VS_NAVICAT,
+        },
       ],
     },
     { title: 'Blog', href: Route.BLOG },
@@ -142,6 +147,7 @@ export const MENU = {
       items: [
         { name: 'vs Liquibase', linkUrl: Route.VS_LIQUIBASE },
         { name: 'vs Flyway', linkUrl: Route.VS_FLYWAY },
+        { name: 'vs Navicat', linkUrl: Route.VS_NAVICAT },
       ],
     },
   ],

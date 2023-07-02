@@ -56,9 +56,10 @@ const Route = {
   DOCS_GITHUB: '/docs/vcs-integration/github-com/',
   DOCS_BITBUCKET: '/docs/vcs-integration/bitbucket-org/',
 
-  // databases
+  // comparison
   VS_LIQUIBASE: '/blog/bytebase-vs-liquibase',
   VS_FLYWAY: '/blog/bytebase-vs-flyway',
+  VS_NAVICAT: '/blog/stop-using-navicat',
 
   // databases
   DATABASE_MYSQL: '/database/mysql',

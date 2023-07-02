@@ -116,7 +116,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                           })}
                         </ul>
                         <Link
-                          className="group/box flex h-full min-h-[396px] w-[244px] grow flex-col justify-between rounded-md bg-tutorials p-5 text-gray-15"
+                          className="group/box flex h-full min-h-[480px] w-[244px] grow flex-col justify-between rounded-md bg-tutorials p-5 text-gray-15"
                           href={Route.TUTORIAL}
                           prefetch={false}
                           onClick={handleSubmenuClick}
