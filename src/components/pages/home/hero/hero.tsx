@@ -33,7 +33,7 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
     cover: '/images/page/main/hero/change-database.webp',
     title: 'Change database',
     description:
-      'Standardize database changes with peer review, lint rules, and GitOps integration.',
+      'Standardize database schema migrations and data changes with review, lint, and GitOps.',
   },
   {
     videos: [
