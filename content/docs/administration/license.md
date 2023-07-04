@@ -14,7 +14,7 @@ Both Pro and Enterprise plans require purchasing license. The license includes a
 
 <HintBlock type="info">
 
-The price is determined by the purchased instance quota. To save budget, you can just purchase the instance quota covering a subset of your instances (e.g. only production instances).
+The price is based on the Plan and the purchased instance quota. To save budget, you can just purchase the instance quota covering a subset of your instances (e.g. only production instances).
 
 </HintBlock>
 
