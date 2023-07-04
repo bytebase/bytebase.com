@@ -179,6 +179,8 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ## Administration
 
+### [License](/administration/license)
+
 ### [Production Setup](/administration/production-setup)
 
 ### [Back up Data](/administration/back-up-data)
