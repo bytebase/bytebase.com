@@ -13,7 +13,7 @@ The instance license enables features for instances. Once you bind a license to 
 
 ## Configure license
 
-Navigate to the Subscription page, paste your license into the input box, and click the Upload license button.
+Navigate to the **Subscription** page, paste your license into the input box, and click the **Upload license** button.
 
 ![license](/content/docs/administration/license/license.webp)
 
@@ -23,15 +23,15 @@ Navigate to the Subscription page, paste your license into the input box, and cl
 
 You can bind or unbind your license to instances in three ways on the configuration drawer shown above.
 
-- Go to the Subscription page, click the instance area or the edit icon, the license configuration drawer will appear.
+- Go to the **Subscription** page, click the instance area or the **edit icon** button, the license configuration drawer will appear.
 
 ![license-1](/content/docs/administration/license/license-1.webp)
 
-- On the instance details page, turn on or turn off the Assign License toggle, and click the Update button.
+- On the instance details page, turn on or turn off the **Assign License** toggle, and click the **Update** button.
 
 ![license-2](/content/docs/administration/license/license-2.webp)
 
-- Click the lock icon button or the Assign License button to open the license configuration drawer. See the example figures below for reference.
+- Click the **lock icon** button or the **Assign License** button to open the license configuration drawer. See the example figures below for reference.
 
 ![license-3](/content/docs/administration/license/license-3.webp)
 
