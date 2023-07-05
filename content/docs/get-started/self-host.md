@@ -57,6 +57,27 @@ rm -rf ~/.bytebase/data
 
 Check [Server Startup Options](/docs/reference/command-line) for other startup options.
 
+### Use external PostgreSQL to store metadata
+
+Check [Configure External PostgreSQL](/docs/get-started/install/external-postgres) for details.
+
+```bash
+docker run --init \
+  --name bytebase \
+  --platform linux/amd64 \
+  --restart always \
+  --publish 5678:8080 \
+  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
+  --health-interval 5m \
+  --health-timeout 60s \
+  --volume ~/.bytebase/data:/var/opt/bytebase \
+  bytebase/bytebase:%%bb_version%% \
+  --data /var/opt/bytebase \
+  --port 8080 \
+  # Use `host.docker.internal` as the host if you connect the pg instance on the same host.
+  --pg postgresql://user:secret@host:port/dbname
+```
+
 ### Allow external access via URL
 
 <HintBlock type="info">

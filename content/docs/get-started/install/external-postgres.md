@@ -50,3 +50,4 @@ Example:
 
 - `user` must be specified.
 - `dbname` must be specified and must be created in advance. The connecting `user` must have all the database privileges mentioned above.
+- `host`. If you **run Bytebase inside Docker** and want to connect the pg intance on the same host, then you need to use `host.docker.internal`.
