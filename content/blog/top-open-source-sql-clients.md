@@ -2,7 +2,7 @@
 title: Top 8 Free, Open Source SQL Clients to Make Database Management Easier 2023
 author: Mila
 published_at: 2023/04/28 21:21:21
-feature_image: /content/blog/os-sql-clients/os-sql-clients-cover.jpg
+feature_image: /content/blog/top-open-source-sql-clients/top-open-source-sql-clients-cover.jpg
 tags: Industry
 featured: true
 description: SQL clients makes it safer and easier to manage databases. In this post, we are taking a look at open source SQL clients options for you to try in 2023.
@@ -10,7 +10,7 @@ description: SQL clients makes it safer and easier to manage databases. In this 
 
 In the past, the only way to access or modify a database was through the command line, which was not only not intuitive, but also prone to errors that could lead to major problems. So people began to develop tools with a graphical user interface (GUI), and that became what we now know as SQL clients, which are basically front-end applications for database services. In this post, we are taking a look at some open source SQL clients options for you to try.
 
-![starhistory](/content/blog/os-sql-clients/starhistory.webp)
+![starhistory](/content/blog/top-open-source-sql-clients/starhistory.webp)
 
 ## SQL Chat
 
@@ -18,13 +18,13 @@ In the past, the only way to access or modify a database was through the command
 
 SQL Chat launched on [Product Hunt](https://www.producthunt.com/posts/sql-chat-2) mid April, and it gained lots of attention that there's a limit to the free service.
 
-![sqlchat](/content/blog/os-sql-clients/sqlchat.webp)
+![sqlchat](/content/blog/top-open-source-sql-clients/sqlchat.webp)
 
 ## DBeaver
 
 [DBeaver](https://github.com/dbeaver/dbeaver) is a veteran SQL client. In addition to basic visualization and management capabilities, it has a SQL editor, data and schema migration capabilities, monitor database connections, and more. It supports a full range of databases (both SQL and NoSQL). DBeaver is also hooked up with GPT-3, which converts your natural language to SQL.
 
-![dbeaver](/content/blog/os-sql-clients/dbeaver.webp)
+![dbeaver](/content/blog/top-open-source-sql-clients/dbeaver.webp)
 
 It's worth noting that DBeaver just [announced](https://techcrunch.com/2023/04/11/dbeaver-takes-6m-seed-investment-to-build-on-growing-popularity/) a $6M seed round two weeks ago (the press release also mentions that DBeaver has over 8M users and 5,000+ paying subscribers), and the first since the author built it in 2013.
 
@@ -32,7 +32,7 @@ It's worth noting that DBeaver just [announced](https://techcrunch.com/2023/04/1
 
 [Beekeeper Studio](https://github.com/beekeeper-studio/beekeeper-studio) is a modern (aesthetic) and lightweight SQL client that supports MySQL, Postgres, SQLite, SQL Server, etc. It is available on Linux, Mac and Windows.
 
-![beekeeper](/content/blog/os-sql-clients/beekeeper.webp)
+![beekeeper](/content/blog/top-open-source-sql-clients/beekeeper.webp)
 
 The author of Beekeeper Studio is an independent developer who started building this tool in 2019 because he couldn't find an easy-to-use cross-platform SQL client. After almost a year of hardwork, the first version was released in early 2020.
 
@@ -40,7 +40,7 @@ The author of Beekeeper Studio is an independent developer who started building 
 
 [DbGate](https://github.com/dbgate/dbgate) works in Windows, Linux, Mac, and your web browsers without compromises in functionality. Both SQL and noSQL databases are supported, from MySQL, PostgreSQL, SQL Server, MongoDB, SQLite, to CockroachDB.
 
-![dbgate](/content/blog/os-sql-clients/dbgate.webp)
+![dbgate](/content/blog/top-open-source-sql-clients/dbgate.webp)
 
 The author of DbGate [says](https://news.ycombinator.com/item?id=26899100) this was his passion project because he couldn't find a SQL client for Linux. He had built SQL clients for Windows in the past, so this was influenced by his own work experience.
 
@@ -48,7 +48,7 @@ The author of DbGate [says](https://news.ycombinator.com/item?id=26899100) this 
 
 [Sqlectron](https://github.com/sqlectron/sqlectron-gui) is lightweight SQL client with simplicity in mind. It has cross-database (PostgreSQL, Redshift, MySQL, MariaDB, SQL Server, Cassandra, SQLite) and platform (Mac, Linux, Windows) support.
 
-![sqlectron](/content/blog/os-sql-clients/sqlectron.webp)
+![sqlectron](/content/blog/top-open-source-sql-clients/sqlectron.webp)
 
 Similar to the story of the two aforementioned tools, the original authors of Sqlectron built this because he couldn't find a tool on the market that worked well and solved his pain points (a simple, lightweight SQL client desktop with cross-database and platform support), but 2018 he mentioned that he hadn't used SQL databases since changing jobs, and opened a [GitHub Issue](https://github.com/sqlectron/sqlectron-gui/issues/433) looking for a successor. It seems someone (semi-)took it over, with the most recent release last May.
 
@@ -56,7 +56,7 @@ Similar to the story of the two aforementioned tools, the original authors of Sq
 
 [HeidiSQL](https://github.com/HeidiSQL/HeidiSQL) is also a lightweight SQL client that supports a long list of databases including MariaDB, MySQL, MS SQL, PostgreSQL, SQLite, Interbase and Firebird. In addition to basic SQL client functionalities, users can export structures and data to SQL files or copy them to the clipboard or other servers.
 
-![heidisql](/content/blog/os-sql-clients/heidisql.webp)
+![heidisql](/content/blog/top-open-source-sql-clients/heidisql.webp)
 
 The codebase for HeidiSQL [originally came from](https://www.heidisql.com/forum.php?t=20155) the author's own MySQL-Front 2.5 software, but he later sold the MySQL-Front brand and the author renamed his project HeidiSQL and has maintained it to this day.
 
@@ -64,13 +64,13 @@ The codebase for HeidiSQL [originally came from](https://www.heidisql.com/forum.
 
 [phpMyAdmin](https://github.com/phpmyadmin/phpmyadmin) was born in 1998, written in PHP, and is a classic SQL client. It was the default tool for LAMP and MAMP at that time. phpMyAdmin has grown to become one of the leading tools for managing MySQL and MySQL-like databases (e.g. MariaDB) It has over 200,000 direct downloads per month (and countless other users install it using prepackaged installations or using package managers).
 
-![phpmyadmin](/content/blog/os-sql-clients/phpmyadmin.webp)
+![phpmyadmin](/content/blog/top-open-source-sql-clients/phpmyadmin.webp)
 
 ## pgAdmin 4
 
 [pgAdmin](https://github.com/pgadmin-org/pgadmin4) to PostgreSQL is what phpMyAdmin is to MySQL, and it can be used on Linux, Unix, macOS and Windows to manage PostgreSQL. pgAdmin 4, the latest pgAdmin, is a complete rewrite of pgAdmin using Python and Javascript/jQuery.
 
-![pgadmin](/content/blog/os-sql-clients/pgadmin.webp)
+![pgadmin](/content/blog/top-open-source-sql-clients/pgadmin.webp)
 
 After taking a look at [the history of pgAdmin](https://www.enterprisedb.com/blog/story-pgadmin), apparently the author came up with pgAdmin from scratch because the only option for managing PostgreSQL at that time (late 90s) was not working very well on Windows, which has since gone through many iterations.
 
@@ -81,4 +81,10 @@ We briefly looked at the history of a handful of SQL Clients to understand some 
 And we wonder, with the popularity of ChatGPT, will there be more open source SQL clients like SQL Chat based on Chat interaction?
 
 Beyond using the general SQL Client to interact with the databases, developers and DBAs also adopt
-a dedicated tool to compare and synchronize database schemas, go check out those [tools](/blog/top-mysql-schema-compare-tools-2023/).
+a dedicated tool to compare and synchronize database schemas, go check out [those tools](/blog/top-mysql-schema-compare-tools-2023/).
+
+And if you want an all-in-one tool to provide not only general SQL Client features, but also management
+capabilities such as change approval workflow, data access control, you can check out our open source
+project [Bytebase](/).
+
+![bytebase](/content/blog/top-open-source-sql-clients/bytebase.webp)
