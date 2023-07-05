@@ -259,6 +259,7 @@ const LABELS = [
       'approval-backup-policy': 'Approval and backup policy',
       sso: 'Single Sign-On (SSO)',
       twofa: 'Two-Factor Authentication (2FA)',
+      ssh: 'SSH Tunnel',
       'query-and-export-workflow': 'Query and export approval workflow',
       dba: 'DBA workflow',
       environment: 'Environment tier',
