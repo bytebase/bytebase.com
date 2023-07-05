@@ -2,7 +2,7 @@
 title: Top 8 Free, Open Source SQL Clients to Make Database Management Easier 2023
 author: Mila
 published_at: 2023/04/28 21:21:21
-feature_image: /content/blog/top-open-source-sql-clients/top-open-source-sql-clients-cover.jpg
+feature_image: /content/blog/top-open-source-sql-clients/os-sql-clients-cover.jpg
 tags: Industry
 featured: true
 description: SQL clients makes it safer and easier to manage databases. In this post, we are taking a look at open source SQL clients options for you to try in 2023.
