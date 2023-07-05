@@ -72,9 +72,9 @@ What's more, DB Cost allows you to compare two selected instances in a more intu
 
 ![dbcost-2](/content/blog/understanding-google-cloud-sql-pricing/dbcost-2.webp)
 
-## Tips for optimizing Google Cloud SQL Pricing
+## Tips for Optimizing Google Cloud SQL Pricing
 
-As mentioned above, one of the biggest concerns raised by reddit discussions is how to optimize Google Cloud SQL cost. Here are some common tips for optimizing Google Could SQL pricing collected from networks:
+As mentioned above, one of the biggest concerns raised by reddit discussions is how to optimize Google Cloud SQL cost. Here are some common tips collected from networks:
 
 - Take advantage of discounts for reserved instances: Cloud SQL offers committed use discounts that give you a 25% discount off of on-demand pricing for a one-year commitment and a 52% discount for a three-year commitment.
 
