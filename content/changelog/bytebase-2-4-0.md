@@ -23,7 +23,7 @@ description: 'Support data access control for query and export at workspace leve
 - Issue status activity sorting is more precise.
 
 ## 💰 Pricing
-- Support granular binding between instance and paid features. Users can import all instances into Bytebase to manage, meanwhile, they can just purchase less instance licenses and assign them a subset of instances requiring advanced features. [https://www.bytebase.com/docs/administration/license/](/docs/administration/license/)
+- Support granular binding between instance and paid features. Users can import all instances into Bytebase to manage, meanwhile, they can just purchase fewer instance licenses and assign them a subset of instances requiring advanced features. [https://www.bytebase.com/docs/administration/license/](/docs/administration/license/)
 
 - Change Free Plan to allow up to 20 users.
 
