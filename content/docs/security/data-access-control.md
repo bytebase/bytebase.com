@@ -4,16 +4,23 @@ title: Data Access Control
 
 <EnterpriseOnlyBlock />
 
-By default, instances and databases in a [production environment](/docs/administration/environment-policy/tier) will be inaccessible to users with Workspace Developer role from the [SQL Editor](/docs/sql-editor/overview).
+There're two types of data access for `Project Developer`:
+- **Query**: query data via [SQL Editor](/docs/sql-editor/overview)
+- **Export**: export data by SQL or Database
 
-For databases in the [production environment](/docs/administration/environment-policy/tier), workspace owners and DBAs can grant database access to workspace developers via **Settings / Workspace / Access Control**.
+`Project Owner` has both access within the project by default.
 
-Click **Add rule**, search and select databases in the production environments.
+At workspace level, `Workspace Owner`  or `DBA` can configure for a specific environment whether `Project Developer` needs to request approval to acquire access.
 
-![setting-add-rule](/content/docs/security/data-access-control/access-control-add-rule.webp)
+## Configure Data Access Control
 
-See the following example, the `employee` database is configured as accessible to developers even if it is in a production environment.
+This section is for `Workspace Owner` or `DBA` to configure data access control for `Project Developer`.
 
-![setting](/content/docs/security/data-access-control/access-control-settings.webp)
+1. Click **Settings** > **Security & Policy** > **Data Access Control**.
+![bb-dac](/content/docs/security/data-access-control/bb-dac.webp)
 
-Then, developers are allowed to query the `employee` database from the [SQL Editor](/docs/sql-editor/overview).
+2. If `Skip approval` for **Query Data** is checked, then by default `Project Developer` can query data from databases belonging to that Environment via SQL Editor; If unchecked, then `Project Developer` needs to **Request Query** for approval.
+3. If `Skip approval` for **Export Data** is checked, then by default `Project Developer` can export data from databases belonging to that Environment via SQL Editor;  If unchecked, then `Project Developer` needs to **Request Export** for approval.
+![bb-sql-editor-export](/content/docs/security/data-access-control/bb-sql-editor-export.webp)
+
+For how to request approval, please refer to [Request Query](/docs/security/data-query/) and [Request Export](/docs/security/data-export/).
