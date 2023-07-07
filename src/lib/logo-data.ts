@@ -33,15 +33,15 @@ export const LOGO_LIST = [
     mobileOrderClassName: 'xs:order-4',
   },
   {
-    alt: 'DingTalk',
-    src: '/images/logos/dingtalk.svg',
-    width: 180,
+    alt: 'Proton',
+    src: '/images/logos/proton.svg',
+    width: 141,
     height: 64,
     small: {
-      width: 112,
+      width: 91,
       height: 40,
     },
-    mobileOrderClassName: 'xs:order-2',
+    mobileOrderClassName: 'xs:order-3',
   },
   {
     alt: 'Kingsoft',
@@ -77,15 +77,15 @@ export const LOGO_LIST = [
     mobileOrderClassName: 'xs:order-8',
   },
   {
-    alt: 'Human horizons',
-    src: '/images/logos/human-horizons.svg',
-    width: 164,
+    alt: 'DingTalk',
+    src: '/images/logos/dingtalk.svg',
+    width: 180,
     height: 64,
     small: {
-      width: 103,
+      width: 112,
       height: 40,
     },
-    mobileOrderClassName: 'xs:order-5',
+    mobileOrderClassName: 'xs:order-2',
   },
   {
     alt: 'Telkom Indonesia',
@@ -99,15 +99,15 @@ export const LOGO_LIST = [
     mobileOrderClassName: 'xs:order-12',
   },
   {
-    alt: 'Proton',
-    src: '/images/logos/proton.svg',
-    width: 141,
+    alt: 'Evermos',
+    src: '/images/logos/evermos.svg',
+    width: 239,
     height: 64,
     small: {
-      width: 91,
+      width: 149,
       height: 40,
     },
-    mobileOrderClassName: 'xs:order-3',
+    mobileOrderClassName: 'xs:order-5',
   },
   {
     alt: 'Aptive',
