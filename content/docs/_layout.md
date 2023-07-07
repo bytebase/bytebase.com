@@ -21,6 +21,8 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ### [Self-host](/get-started/self-host)
 
+### [Configure Instance Connection](/get-started/instance)
+
 ### [Configure External PostgreSQL](/get-started/install/external-postgres)
 
 ### [Configure External URL](/get-started/install/external-url)
