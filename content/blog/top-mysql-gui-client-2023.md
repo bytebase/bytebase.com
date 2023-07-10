@@ -2,7 +2,7 @@
 title: Top 5 MySQL GUI Clients 2023
 author: Mila
 published_at: 2023/07/10 21:21:21
-feature_image: /content/blog/top-mysql-gui-client-2023/banner.jpg
+feature_image: /content/blog/top-mysql-gui-client-2023/banner.webp
 tags: Industry
 featured: true
 description: MySQL GUI clients makes it safer and easier to manage databases by providing a provide a graphical interface for MySQL databases. In this post, we are taking a look at top 5 MySQL GUI Clients.
