@@ -119,4 +119,4 @@ In addition, Bytebase is [open-source](https://github.com/bytebase/bytebase), an
 
 The key difference, of course, is in the use case.
 
-**Navicat is for individuals, and Bytebase is for teams**. Navicat is a pure client software with comprehensive capability and smooth experience if you need to operate a database for a personal project. However, when it comes to team use cases, where DBAs and developers need to collaborate, and DBAs need to control the database access, queries, changes, and other operations, products like Bytebase are desired to centralize the control and secure your orgnization’s most valuable asset, the database data.
+**Navicat is for individuals, and Bytebase is for teams**. Navicat is a pure client software with comprehensive capability and smooth experience if you need to operate a database for a personal project. However, when it comes to team use cases, where DBAs and developers need to collaborate, and DBAs need to control the database access, queries, changes, and other operations, products like Bytebase are desired to centralize the control and secure your organization’s most valuable asset, the database data.
