@@ -39,7 +39,7 @@ SSL connection configuration only supports PostgreSQL, MySQL, TiDB and ClickHous
 
 <EnterpriseOnlyBlock />
 
-To protect their databases, some hosting providers block direct remote access. However, they often enable SSH, which allows users to connect to their servers remotely using an SSH client. If you want to connect to a database on one of these servers from Bytebase, you will need to create an SSH tunnel. This will allow you to connect to the database without having to worry about security vulnerabilities.
+To protect their databases, some hosting providers block direct remote access. However, they often enable SSH, which allows users to connect to their servers remotely using an SSH client. If you want to connect to a database on one of these servers from Bytebase, you will need to create an SSH tunnel. This will allow you to connect to the database without compromising security.
 
 ![ssh explain](/content/docs/get-started/instance/ssh-explain.webp)
 
