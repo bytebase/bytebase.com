@@ -2,7 +2,7 @@
 title: Top 5 MySQL GUI Clients 2023
 author: Mila
 published_at: 2023/07/10 21:21:21
-feature_image: /content/blog/top-mysql-gui-client-2023/banner.webp
+feature_image: /content/blog/top-mysql-gui-client/banner.webp
 tags: Industry
 featured: true
 description: MySQL GUI clients makes it safer and easier to manage databases by providing a provide a graphical interface for MySQL databases. In this post, we are taking a look at top 5 MySQL GUI Clients.
@@ -18,15 +18,15 @@ MySQL Workbench's main features can be grouped threefold:
 
 1. Database design and modeling: you can create and edit your databases, tables, and their relationships visually. The ER diagram comes in handy for complex database architecture.
 
-    ![mysql-workbench-erd](/content/blog/top-mysql-gui-client-2023/mysql-workbench-erd.webp)
+    ![mysql-workbench-erd](/content/blog/top-mysql-gui-client/mysql-workbench-erd.webp)
 
 2. SQL development: with the built-in SQL editor, you can build, edit, and run SQL queries against MySQL databases. It includes some useful mechanisms to aid in writing and debugging SQL statements, including color syntax highlighting, context-sensitive help, and auto-complete.
 
-    ![mysql-workbench-sql-editor](/content/blog/top-mysql-gui-client-2023/mysql-workbench-sql-editor.webp)
+    ![mysql-workbench-sql-editor](/content/blog/top-mysql-gui-client/mysql-workbench-sql-editor.webp)
 
 3. Server Administration: MySQL Workbench offers a centralized platform to manage user accounts, export/import data, backup/restore databases, monitor server performance, and more to ease admin work.
 
-    ![mysql-workbench-dashboard](/content/blog/top-mysql-gui-client-2023/mysql-workbench-dashboard.webp)
+    ![mysql-workbench-dashboard](/content/blog/top-mysql-gui-client/mysql-workbench-dashboard.webp)
 
 ## The Old School: phpMyAdmin
 
@@ -34,7 +34,7 @@ MySQL Workbench's main features can be grouped threefold:
 
 A range of features are available (managing databases, tables, users, permissions, etc) and can be performed via the user-friendly interface, you can also execute SQL queries directly. However, being web-based has pros and cons: phpMyAdmin is available on all the platforms with a web browser, yet it can be prone to security attacks such as SQL injection, so make sure to take proper precautionary measures.
 
-![phpmyadmin](/content/blog/top-mysql-gui-client-2023/phpmyadmin.webp)
+![phpmyadmin](/content/blog/top-mysql-gui-client/phpmyadmin.webp)
 
 ## The Power Couple: Navicat & DBeaver
 
@@ -46,7 +46,7 @@ It is not open-source, nor does it have a free offering, you can only choose bet
 
 With Navicat, you can connect to multiple databases on a single GUI, which is convenient to manage and compare data across different platforms.
 
-![navicat](/content/blog/top-mysql-gui-client-2023/navicat.webp)
+![navicat](/content/blog/top-mysql-gui-client/navicat.webp)
 
 Other features Navicat offers include data modeling and design, data synchronization between databases, backup and restore, data import/export, and SQL Development (it has a built-in SQL editor for users to write and optimize SQL queries).
 
@@ -56,7 +56,7 @@ Overall, Navicat is a comprehensive database management tool for novice and expe
 
 Unlike Navicat, which only offers commercial versions, [DBeaver](https://dbeaver.io/) offers both open-source and commercial products. It started as a hobby project back in 2010 and was open-sourced for use in 2013. The OS version caters to most database management and administration needs, while the commercial version extends the capabilities with additional advanced features like reverse engineering, data modeling, collaboration tools, and tech support.
 
-![dbeaver](/content/blog/top-mysql-gui-client-2023/dbeaver.webp)
+![dbeaver](/content/blog/top-mysql-gui-client/dbeaver.webp)
 
 Currently, it supports 80+ databases (SQL, NoSQL, document-oriented, key-value, big data, cloud, you name it). DBeaver is a desktop client, if you prefer web-based tools, they also have CloudBeaver.
 
@@ -64,7 +64,7 @@ Currently, it supports 80+ databases (SQL, NoSQL, document-oriented, key-value, 
 
 Starting in 2017, [TablePlus](https://tableplus.com/) is the newbie on the list, and its modern and simple UI reflects it. It supports most relational databases and some NoSQL ones. When they just started, they only supported macOS, but it is now available on Windows, Linux, and iOS (!). It is not open-source, but the roadmap is open and anyone can open an issue on their GitHub Issue Tracker. TablePlus has two plans: a free tier (has no limit on trial time) and a paid subscription model (license) with extended features.
 
-![tableplus](/content/blog/top-mysql-gui-client-2023/tableplus.webp)
+![tableplus](/content/blog/top-mysql-gui-client/tableplus.webp)
 
 It's worth mentioning that DBngin, a tool to [spin up a local database server](/blog/free-tools-to-start-local-database-on-mac/) (currently supports PostgreSQL, MySQL, and Redis) on your Mac, belongs to TablePlus and is open-source. You can connect it to TablePlus, meaning you can manage your local databases visually all in one go.
 
