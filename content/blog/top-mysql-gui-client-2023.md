@@ -12,7 +12,7 @@ To interact with MySQL databases, it’s common to employ MySQL GUI clients. The
 
 ## The Official: MySQL Workbench
 
-MySQL Workbench is a free database design and model access tool for MySQL, meant for database architects, developers, and of course, DBAs. It is available on Windows, Linux, as well as MacOS. Since the official MySQL vendor offers it, it looks like it's going to be free and maintained for the foreseeable future. 
+[MySQL Workbench](https://www.mysql.com/products/workbench/) is a free database design and model access tool for MySQL, meant for database architects, developers, and of course, DBAs. It is available on Windows, Linux, as well as MacOS. Since the official MySQL vendor offers it, it looks like it's going to be free and maintained for the foreseeable future. 
 
 MySQL Workbench's main features can be grouped threefold:
 
@@ -30,7 +30,7 @@ MySQL Workbench's main features can be grouped threefold:
 
 ## The Old School: phpMyAdmin
 
-phpMyAdmin is a web-based interface to MySQL and MariaDB written in PHP that was first released back in 1998. It's open-source and free to use. For over 20 years, phpMyAdmin remains one of the most popular administration tools for MySQL databases, with a large community of users and contributors.
+[phpMyAdmin](https://www.phpmyadmin.net/) is a web-based interface to MySQL and MariaDB written in PHP that was first released back in 1998. It's open-source and free to use. For over 20 years, phpMyAdmin remains one of the most popular administration tools for MySQL databases, with a large community of users and contributors.
 
 A range of features are available (managing databases, tables, users, permissions, etc) and can be performed via the user-friendly interface, you can also execute SQL queries directly. However, being web-based has pros and cons: phpMyAdmin is available on all the platforms with a web browser, yet it can be prone to security attacks such as SQL injection, so make sure to take proper precautionary measures.
 
@@ -40,7 +40,7 @@ A range of features are available (managing databases, tables, users, permission
 
 ### Navicat
 
-Navicat's first release came in 2002 and back then, it was a simple application only available for MySQL on Windows. Now it's available on macOS and Linux, with a long list of compatible databases, including Redis, PostgreSQL, SQL Server, Oracle, MariaDB, SQLite, MongoDB, and a handful of cloud databases.
+[Navicat](https://navicat.com/)'s first release came in 2002 and back then, it was a simple application only available for MySQL on Windows. Now it's available on macOS and Linux, with a long list of compatible databases, including Redis, PostgreSQL, SQL Server, Oracle, MariaDB, SQLite, MongoDB, and a handful of cloud databases.
 
 It is not open-source, nor does it have a free offering, you can only choose between the premium and lite (with a compact list of features and database support as compared to the premium versions. 
 
@@ -54,7 +54,7 @@ Overall, Navicat is a comprehensive database management tool for novice and expe
 
 ### DBeaver
 
-Unlike Navicat, which only offers commercial versions, DBeaver offers both open-source and commercial products. It started as a hobby project back in 2010 and was open-sourced for use in 2013. The OS version caters to most database management and administration needs, while the commercial version extends the capabilities with additional advanced features like reverse engineering, data modeling, collaboration tools, and tech support.
+Unlike Navicat, which only offers commercial versions, [DBeaver](https://dbeaver.io/) offers both open-source and commercial products. It started as a hobby project back in 2010 and was open-sourced for use in 2013. The OS version caters to most database management and administration needs, while the commercial version extends the capabilities with additional advanced features like reverse engineering, data modeling, collaboration tools, and tech support.
 
 ![dbeaver](/content/blog/top-mysql-gui-client-2023/dbeaver.webp)
 
@@ -62,13 +62,11 @@ Currently, it supports 80+ databases (SQL, NoSQL, document-oriented, key-value, 
 
 ## The Starlet: TablePlus
 
-Starting in 2017, TablePlus is the newbie on the list, and its modern and simple UI reflects it. It supports most relational databases and some NoSQL ones. When they just started, they only supported macOS, but it is now available on Windows, Linux, and iOS (!). It is not open-source, but the roadmap is open and anyone can open an issue on their GitHub Issue Tracker. TablePlus has two plans: a free tier (has no limit on trial time) and a paid subscription model (license) with extended features.
+Starting in 2017, [TablePlus](https://tableplus.com/) is the newbie on the list, and its modern and simple UI reflects it. It supports most relational databases and some NoSQL ones. When they just started, they only supported macOS, but it is now available on Windows, Linux, and iOS (!). It is not open-source, but the roadmap is open and anyone can open an issue on their GitHub Issue Tracker. TablePlus has two plans: a free tier (has no limit on trial time) and a paid subscription model (license) with extended features.
 
 ![tableplus](/content/blog/top-mysql-gui-client-2023/tableplus.webp)
 
-Tabs for different tables
-
-It's worth mentioning that DBngin, a tool to spin up a local database server (currently supports PostgreSQL, MySQL, and Redis) on your Mac, belongs to TablePlus and is open-source. You can connect it to TablePlus, meaning you can manage your local databases visually all in one go.
+It's worth mentioning that DBngin, a tool to [spin up a local database server](/blog/free-tools-to-start-local-database-on-mac/) (currently supports PostgreSQL, MySQL, and Redis) on your Mac, belongs to TablePlus and is open-source. You can connect it to TablePlus, meaning you can manage your local databases visually all in one go.
 
 ## Final Thoughts
 
