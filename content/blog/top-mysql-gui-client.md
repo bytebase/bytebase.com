@@ -57,7 +57,6 @@ Overall, Navicat is a comprehensive database management tool for novice and expe
 Unlike Navicat, which only offers commercial versions, [DBeaver](https://dbeaver.io/) offers both open-source and commercial products. It started as a hobby project back in 2010 and was open-sourced for use in 2013. The OS version caters to most database management and administration needs, while the commercial version extends the capabilities with additional advanced features like reverse engineering, data modeling, collaboration tools, and tech support.
 
 ![dbeaver](/content/blog/top-mysql-gui-client/dbeaver.webp)
-
 Currently, it supports 80+ databases (SQL, NoSQL, document-oriented, key-value, big data, cloud, you name it). DBeaver is a desktop client, if you prefer web-based tools, they also have CloudBeaver.
 
 ## The Starlet: TablePlus
@@ -72,4 +71,4 @@ It's worth mentioning that DBngin, a tool to [spin up a local database server](/
 
 MySQL GUI Clients can be used to help you manage databases with more confidence. However, choosing the right option for your organization is important.
 
-Any of the aforementioned provides a UI for users to operate on databases, a SQL Editor, and the ability to export data, what’s the [key differentiator](/blog/stop-using-navicat/#bytebase-vs-navicat) for your organization, then?  If it’s an extra layer of control over database queries, changes, and admin actions, you need to try out [Bytebase](/workspace), an [open-source](https://github.com/bytebase/bytebase) Database DevOps and CI/CD tool for teams, designed to centralize the control and secure your organization’s most valuable asset, the database data.
+Any of the aforementioned provides a UI for users to operate on databases, a SQL Editor, and the ability to export data. On the other hand, if your organization needs are [beyond those](/blog/stop-using-navicat) and demands an extra layer of control over database queries, changes, and admin actions, you can try our [Bytebase](/), an [open-source](https://github.com/bytebase/bytebase) Database DevOps and CI/CD tool for teams, designed to centralize the control and secure your organization’s most valuable asset, the database data.
