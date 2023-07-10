@@ -35,6 +35,19 @@ See [Add an Instance](/docs/get-started/step-by-step/add-an-instance/#add-an-ins
 
 SSL connection configuration only supports PostgreSQL, MySQL, TiDB and ClickHouse for now.
 
+## Configure SSH tunnel
+
+<EnterpriseOnlyBlock />
+
+To protect their databases, some hosting providers block direct remote access. However, they often enable SSH, which allows users to connect to their servers remotely using an SSH client. If you want to connect to a database on one of these servers from Bytebase, you will need to create an SSH tunnel. This will allow you to connect to the database without compromising security.
+
+![ssh explain](/content/docs/get-started/instance/ssh-explain.webp)
+
+1. After filling in the standard database connection information, click **SSH Connection** > **Tunnel + Private Key**.
+1. Fill in the SSH connection information. The **Private Key** is used to authenticate the SSH connection. You can also use a password instead.
+![ssh tunnelling](/content/docs/get-started/instance/bb-instance-ssh-connection.webp)
+1. Click **Test Connection**. If the connection is successful, click **Create** to create this instance.
+
 ## Configure read-only connection
 
 <EnterpriseOnlyBlock />
