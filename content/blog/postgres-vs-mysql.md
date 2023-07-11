@@ -29,6 +29,7 @@ with both databases as well as their derivatives. Our founders also build [Googl
 Based on our operating experience, below we give an extensive comparision between Postgres and MySQL
 from the following dimensions:
 
+- [License](#license)
 - [Performance](#performance)
 - [Features](#features)
 - [Extensibility](#extensibility)
