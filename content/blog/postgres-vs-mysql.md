@@ -12,15 +12,30 @@ extensibility, usability, architecture, ecosystem and more.'
 The [2023 Stack Overflow survey](https://survey.stackoverflow.co/2023/) shows that Postgres has taken
 over the first place spot from MySQL and become the most admired, desired databases.
 
+![stackoverflow](/content/blog/postgres-vs-mysql/stackoverflow.webp)
+
 As Postgres gains more momentum, it becomes harder to pick between Postgres and MySQL. MySQL is
-probably still the world's most popular open source database by install base. While Postgres positions
-itself as the world's most advanced open source relational database.
+probably still the world's most popular open source database by install base.
+
+![mysql](/content/blog/postgres-vs-mysql/mysql.webp)
+
+While Postgres positions itself as the world's most advanced open source relational database.
+
+![postgres](/content/blog/postgres-vs-mysql/postgres.webp)
 
 At Bytebase, we work with both databases extensively since the Bytebase product needs to integrate
 with both databases as well as their derivatives. Our founders also build [Google Cloud SQL](https://cloud.google.com/sql), one of the largest hosted MySQL & Postgres cloud sevices.
 
 Based on our operating experience, below we give an extensive comparision between Postgres and MySQL
 from the following dimensions:
+
+- [Performance](#performance)
+- [Features](#features)
+- [Extensibility](#extensibility)
+- [Usability](#usability)
+- [Connection Model](#connection-model)
+- [Ecosystem](#ecosystem)
+- [Operability](#operability)
 
 _Unless otherwise specified, the comparison below are between the latest major release, Postgres 15 vs. MySQL 8.0 (using InnoDB)_
 
@@ -38,7 +53,7 @@ reason that MariaDB is forked from MySQL.
 For most workloads, the performance between Postgres and MySQL are comparable with at most 30% variations.
 On the other hand, regardless of which database you choose, if your query misses an index, it could be 10x ~ 1000x degradation.
 
-Saying that, MySQL does have an edge over Postgres for super heavy workloads. You can read following
+Saying that, MySQL does have an edge over Postgres for extreme write-intensive workloads. You can read following
 articles for details:
 
 - [Why Uber Engineering Switched from Postgres to MySQL](https://www.uber.com/en-SG/blog/postgres-to-mysql-migration/)
@@ -160,14 +175,7 @@ it's recommended to proxy the connection via a connection pooler such as [PgBoun
 
 ## Ecosystem
 
-All common SQL tools support both Postgres and MySQL well, check out the following list:
-
-- [Open Source SQL Clients](/blog/top-open-source-sql-clients/)
-- [Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)
-
-Because of Postgres extensible architecture and the fact that it's still owned by the community, the
-Postgres ecosystem is more thriving in recent years. For every application platform offering a hosted
-database service, they all choose Postgres. From the [Heroku](https://www.heroku.com/) in the early days to the new [Supabase](https://supabase.com/), [render](https://render.com/), [Fly.io](https://fly.io/).
+All common SQL tools support both Postgres and MySQL well. Because of Postgres extensible architecture and the fact that it's still owned by the community, the Postgres ecosystem is more thriving in recent years. For every application platform offering a hosted database service, they all choose Postgres. From the [Heroku](https://www.heroku.com/) in the early days to the new [Supabase](https://supabase.com/), [render](https://render.com/), [Fly.io](https://fly.io/).
 
 ## Operability
 
@@ -175,23 +183,39 @@ Due to the underlying storage engine design, Postgres has an infamous [XID wrapa
 
 For MySQL, we encountered a few replication bugs when operating a huge MySQL fleet at Google Cloud.
 
-Those issues only occur in extrem load. For normal workload, both Postgres and MySQL are mature and
+Those issues only occur in extreme load. For normal workload, both Postgres and MySQL are mature and
 reliable. Database hosting platforms also provide integrated backup/restore, monitoring.
 
-## Summary
+## Postgres or MySQL
+
+It's year 2023, and picking between Postgres and MySQL is still hard and often causes [heated debate](https://news.ycombinator.com/item?id=35906604).
+
+![hn](/content/blog/postgres-vs-mysql/hn.webp)
 
 |                  | Postgres                                                                             | MySQL                                                                |
 | ---------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------- |
-| License          | Postgres License (MIT Like)                                                          | GPL                                                                  |
-| Performance      | Internet scale proof                                                                 | Comparable with Postgres, better in extreme write-intensive workload |
-| Features         | More advanced in transaction, security, query optimizer, JSON, CTE, window functions | Decent                                                               |
+| License          | Postgres License (MIT alike)                                                         | GPL                                                                  |
+| Performance      | Internet scale                                                                       | Comparable with Postgres, better in extreme write-intensive workload |
+| Features         | More advanced in transaction, security, query optimizer, JSON, CTE, window functions | Capable                                                              |
 | Extensibility    | PAM + Extensions                                                                     | PAM                                                                  |
 | Usability        | Rigorous and follow standard                                                         | Forgivable and follow convention                                     |
 | Connection Model | Process per connection                                                               | Thread per connection                                                |
-| Ecosystem        | Thriving with more hosting options                                                   | Large install base                                                   |
-| Operability      | Good overall, a bit higher learning curve                                            | Good, easy to use and operate                                        |
+| Ecosystem        | Thriving community and more hosting providers                                        | Large install base                                                   |
+| Operability      | Good, a bit higher learning curve                                                    | Good, easy to use and operate                                        |
 
-Postgres is more feature rich
+Overall, Postgres has more features, a more thriving community and ecosystem. While MySQL has an easier learning curve and a larger user base.
+
+We observe the same industry trend as the stack overflow result, that Postgres is becoming more desired among developers.
+But from our operating experience, the sophistication of Postgres does cost some handiness. If you are not familiar with
+Postgres, we suggest you to spin up an instance from the cloud provider, run a couple of queries to get a feel. Sometimes,
+those extra goodies are not worthwhile and MySQL would be an easier choice.
+
+---
+
+It's also common that Postgres and MySQL co-exist inside an organization. And if you want to manage the development
+lifecycle for both of them, please check out [Bytebase](/).
+
+![bytebase](/content/blog/postgres-vs-mysql/bytebase.webp)
 
 ## Further Readings
 
@@ -201,3 +225,5 @@ Postgres is more feature rich
 - [Leaving MySQL](https://blog.sesse.net/blog/tech/2021-12-05-16-41_leaving_mysql.html)
 - [Let's make PostgreSQL multi-threaded](https://www.postgresql.org/message-id/31cc6df9-53fe-3cd9-af5b-ac0d801163f4%40iki.fi)
 - [Transaction ID Wraparound in Postgres](https://blog.sentry.io/transaction-id-wraparound-in-postgres/)
+- [Open Source SQL Clients](/blog/top-open-source-sql-clients/)
+- [Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)
