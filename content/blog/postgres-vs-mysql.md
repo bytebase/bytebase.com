@@ -37,7 +37,7 @@ from the following dimensions:
 - [Ecosystem](#ecosystem)
 - [Operability](#operability)
 
-_Unless otherwise specified, the comparison below are between the latest major release, Postgres 15 vs. MySQL 8.0 (using InnoDB)_. We also use Postgres instead of PostgreSQL throughout the article, though we know the latter is the official name, which is considerred as [the biggest mistake](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/).
+_Unless otherwise specified, the comparison below are between the latest major release, Postgres 15 vs. MySQL 8.0 (using InnoDB). We also use Postgres instead of PostgreSQL throughout the article, though we know the latter is the official name, which is considerred as [the biggest mistake](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)_.
 
 ## License
 
@@ -162,7 +162,7 @@ Postgres is more rigorous while MySQL is more forgivable:
 - MySQL allows to include non-aggregated columns in a SELECT that uses the GROUP BY clause. Postgres doesn't.
 - MySQL is case-insensitive by default. Postgres is case-sensitive by default.
 
-MySQL allows to join tables from different databases. For Postgres can only join table inside a single database,
+MySQL allows to join tables from different databases. Postgres can only join table inside a single database,
 unless using the FDW extension.
 
 ## Connection Model
