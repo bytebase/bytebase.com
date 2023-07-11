@@ -60,6 +60,7 @@ const Route = {
   VS_LIQUIBASE: '/blog/bytebase-vs-liquibase',
   VS_FLYWAY: '/blog/bytebase-vs-flyway',
   VS_NAVICAT: '/blog/stop-using-navicat',
+  PG_VS_MYSQL: '/blog/postgres-vs-mysql',
 
   // databases
   DATABASE_MYSQL: '/database/mysql',

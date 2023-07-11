@@ -37,7 +37,7 @@ from the following dimensions:
 - [Ecosystem](#ecosystem)
 - [Operability](#operability)
 
-_Unless otherwise specified, the comparison below are between the latest major release, Postgres 15 vs. MySQL 8.0 (using InnoDB)_
+_Unless otherwise specified, the comparison below are between the latest major release, Postgres 15 vs. MySQL 8.0 (using InnoDB)_.
 
 ## License
 

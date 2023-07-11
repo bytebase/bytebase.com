@@ -145,9 +145,10 @@ export const MENU = {
     {
       name: 'COMPARISONS',
       items: [
-        { name: 'vs Liquibase', linkUrl: Route.VS_LIQUIBASE },
-        { name: 'vs Flyway', linkUrl: Route.VS_FLYWAY },
-        { name: 'vs Navicat', linkUrl: Route.VS_NAVICAT },
+        { name: 'Bytebase vs. Liquibase', linkUrl: Route.VS_LIQUIBASE },
+        { name: 'Bytebase vs. Flyway', linkUrl: Route.VS_FLYWAY },
+        { name: 'Bytebase vs. Navicat', linkUrl: Route.VS_NAVICAT },
+        { name: 'Postgres vs. MySQL', linkUrl: Route.PG_VS_MYSQL },
       ],
     },
   ],
