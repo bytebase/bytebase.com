@@ -38,7 +38,7 @@ from the following dimensions:
 - [Ecosystem](#ecosystem)
 - [Operability](#operability)
 
-_Unless otherwise specified, the comparison below are between the latest major release, Postgres 15 vs. MySQL 8.0 (using InnoDB). We also use Postgres instead of PostgreSQL throughout the article, though we know the latter is the official name, which is considerred as [the biggest mistake](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)_.
+_Unless otherwise specified, the comparison below are between the latest major release, Postgres 15 vs. MySQL 8.0 (using InnoDB). We also use Postgres instead of PostgreSQL throughout the article, though we know the latter is the official name, which is considerred as [the biggest mistake in Postgres History](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)_.
 
 ## License
 
@@ -223,7 +223,7 @@ lifecycle for both of them, please check out [Bytebase](/).
 - [Ask HN: It's 2023, how do you choose between MySQL and Postgres?](https://news.ycombinator.com/item?id=35906604)
 - [Why Uber Engineering Switched from Postgres to MySQL](https://www.uber.com/en-SG/blog/postgres-to-mysql-migration/)
 - [The Part of PostgreSQL We Hate the Most](https://ottertune.com/blog/the-part-of-postgresql-we-hate-the-most/)
-- [Leaving MySQL](https://blog.sesse.net/blog/tech/2021-12-05-16-41_leaving_mysql.html)
+- [Leaving MySQL](https://news.ycombinator.com/item?id=29455852)
 - [Let's make PostgreSQL multi-threaded](https://www.postgresql.org/message-id/31cc6df9-53fe-3cd9-af5b-ac0d801163f4%40iki.fi)
 - [Transaction ID Wraparound in Postgres](https://blog.sentry.io/transaction-id-wraparound-in-postgres/)
 - [The biggest mistake Postgres ever made](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)
