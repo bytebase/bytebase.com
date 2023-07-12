@@ -155,7 +155,7 @@ const getTableOfContents = (content: string): TableOfContents[] => {
     const [depth, title] = parseLine(item);
     if (title && depth && depth <= 2) {
       toc.push({
-        title: title.replace(/[^a-zA-Z0-9+\-:<>&?()\s]/g, ''),
+        title: title.replace(/[^a-zA-Z0-9+\-_:<>&?()\s]/g, ''),
         id: slugifyText(title),
         level: depth + 1,
       });
