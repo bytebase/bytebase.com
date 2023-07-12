@@ -7,7 +7,10 @@ Bytebase is an open-source database DevOps tool, it's the GitLab for managing da
 
 ![lifecycle](/images/change-query-secure-govern.webp)
 
-As DevOps enters the mainstream, teams are adopting tools like GitLab/GitHub for managing code, and Terraform for managing Infrastructure. Similarly, Bytebase is the tool for managing databases during application development.
+> Bytebase is GitLab/GitHub for Database, built for team collaboration.
+
+As GitLab/GitHub provides a GUI and collaboration workspace for teams to manage code, Bytebase does the similar job for managing database.
+This is the **most significant difference from all existing schema migration, SQL client tools**.
 
 Bytebase complements the existing cloud provider's database platforms or the company's internal database operation platforms. While those platforms take care of the database instance level operations (e.g. provisioning a database instance), Bytebase helps teams to use the provisioned database to build their application.
 
