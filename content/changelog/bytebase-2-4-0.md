@@ -32,7 +32,7 @@ description: 'Support data access control for query and export at workspace leve
 
 - Schema change tools Flyway and Liquibase both exist for a long time, which one is better for you? Read [the comparison](/blog/flyway-vs-liquibase/).
 - What is database migration and what's the future trend for it? Check out [our latest guide](/blog/what-is-database-migration/).
-- To identify differences in the object structure within MySQL, and synchronize specific objects across multiple databases, you need [Schema Compare Tools](/blog/top-mysql-schema-compare-tools-2023/).
+- To identify differences in the object structure within MySQL, and synchronize specific objects across multiple databases, you need [Schema Compare Tools](/blog/top-mysql-schema-compare-tools/).
 - Google Cloud SQL is a great choice for organizations that need a full-managed relational database service. In order to get the best value for your money, it is essential to understand the [pricing structure](/blog/understanding-google-cloud-sql-pricing/).
 
 ## 📕 Installation and Upgrade

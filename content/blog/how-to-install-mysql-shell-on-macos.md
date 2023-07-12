@@ -7,6 +7,12 @@ tags: How-To
 description: Learn how to install MySQL Shell on your macOS.
 ---
 
+<HintBlock type="info">
+
+This article refers to the advanced MySQL Shell introduced in MySQL 8.0, if you want to install the advanced [MySQL Shell `mysqlsh`](https://dev.mysql.com/doc/mysql-shell/8.0/en/), check out [How to install MySQL Client on Your Mac, Ubuntu, Debian, Windows](/blog/how-to-install-mysql-client-on-mac-ubuntu-debian-windows).
+
+</HintBlock>
+
 [MySQL Shell](https://dev.mysql.com/doc/mysql-shell/8.0/en/) is an interactive JavaScript, Python, or SQL interface for MySQL Server and is a component that you can install separately. It can be installed on your Mac by using Homebrew or the official MySQL Shell package.
 
 ## Homebrew
@@ -112,3 +118,14 @@ mysqlsh
 ```
 
 This will start MySQL Shell in JavaScript mode (by default). To connect to a server, check out [MySQL Shell Connections](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-connections.html).
+
+---
+
+## More MySQL Tools
+
+MySQL Shell provides the advanced capabilities. Meanwhile you can also check out following tools
+
+1. [Classic `mysql`](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows), still the most widely used MySQL client.
+1. [Top MySQL GUI client](/blog/top-mysql-gui-client).
+1. [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools).
+1. [Top Free Open Source SQL Clients](/blog/top-open-source-sql-clients).

@@ -2,8 +2,8 @@ import ROUTE from '@/lib/route';
 
 const PROMO_DATA = {
   TOP_BANNER: {
-    title: 'Bytebase vs Liquibase: a side-by-side comparison for Database CI/CD',
-    pathname: '/blog/bytebase-vs-liquibase/',
+    title: 'Postgres vs. MySQL: a Complete Comparison in 2023',
+    pathname: '/blog/postgres-vs-mysql/',
   },
   BLOG_ASIDE: {
     title: 'What is Bytebase?',
