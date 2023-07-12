@@ -96,7 +96,12 @@ module.exports = {
       })),
       {
         source: '/blog/how-to-handle-database-migration',
-        destination: '/blog/how-to-handle-database-schema-change/',
+        destination: '/blog/how-to-handle-database-schema-change',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-mysql-schema-compare-tools-2023',
+        destination: '/blog/top-mysql-schema-compare-tools',
         permanent: true,
       },
       {

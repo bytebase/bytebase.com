@@ -127,5 +127,5 @@ MySQL Shell provides the advanced capabilities. Meanwhile you can also check out
 
 1. [Classic `mysql`](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows), still the most widely used MySQL client.
 1. [Top MySQL GUI client](/blog/top-mysql-gui-client).
-1. [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools-2023).
+1. [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools).
 1. [Top Free Open Source SQL Clients](/blog/top-open-source-sql-clients).

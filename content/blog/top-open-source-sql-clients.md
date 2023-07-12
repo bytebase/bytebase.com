@@ -81,7 +81,7 @@ We briefly looked at the history of a handful of SQL Clients to understand some 
 And we wonder, with the popularity of ChatGPT, will there be more open source SQL clients like SQL Chat based on Chat interaction?
 
 Beyond using the general SQL Client to interact with the databases, developers and DBAs also adopt
-a dedicated tool to compare and synchronize database schemas, go check out [those tools](/blog/top-mysql-schema-compare-tools-2023/).
+a dedicated tool to compare and synchronize database schemas, go check out [those tools](/blog/top-mysql-schema-compare-tools/).
 
 And if you want an all-in-one tool to provide not only general SQL Client features, but also management
 capabilities such as change approval workflow, data access control, you can check out our open source
@@ -94,4 +94,4 @@ project [Bytebase](/).
 ## More Specific SQL Client Tools
 
 1. [Top MySQL GUI client](/blog/top-mysql-gui-client).
-1. [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools-2023).
+1. [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools).

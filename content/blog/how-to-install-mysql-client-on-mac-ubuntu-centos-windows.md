@@ -154,5 +154,5 @@ The classic MySQL client is still the most widely used MySQL client. Meanwhile y
 
 1. [MySQL Shell `mysqlsh`](/blog/how-to-install-mysql-shell-on-macos) introduced in MySQL 8.0 to provide more advanced features over `mysql`.
 1. [Top MySQL GUI client](/blog/top-mysql-gui-client).
-1. [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools-2023).
+1. [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools).
 1. [Top Free Open Source SQL Clients](/blog/top-open-source-sql-clients).
