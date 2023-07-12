@@ -2,8 +2,8 @@
 title: Snowflake Schema Change Best Practice
 author: Ningjing
 published_at: 2023/07/11 18:00:00
-feature_image: /content/blog/snowflake-best-practice/snowflake-best-practice.webp
-tags: explanation
+feature_image: /content/blog/snowflake-schema-change/snowflake-schema-change.webp
+tags: Explanation
 description: While Snowflake revolutionizes data management and analytics, effectively managing schema changes and tracking change history becomes increasingly crucial.
 ---
 
@@ -19,11 +19,11 @@ The tutorial I followed can be found [here](https://quickstarts.snowflake.com/gu
 
 ### Preparation
 1. Manually fill in GitHub secrets and variables.
-    ![gh-actions-secrets](/content/blog/snowflake-best-practice/gh-actions-secrets.webp)
+    ![gh-actions-secrets](/content/blog/snowflake-schema-change/gh-actions-secrets.webp)
 
 2. Manually create a GitHub Action Workflow.
 3. Manually run the workflow to verify the connection is working.
-    ![gh-workflow-manual-run](/content/blog/snowflake-best-practice/gh-workflow-manual-run.webp)
+    ![gh-workflow-manual-run](/content/blog/snowflake-schema-change/gh-workflow-manual-run.webp)
 
 ### How to change
 1. Create a subfolder `migrations`, create a SQL file and push it to `main`. The sql file title is like  `migrations/V1.1.2__updated_objects.sql`.
@@ -31,7 +31,7 @@ The tutorial I followed can be found [here](https://quickstarts.snowflake.com/gu
 ### What you will get
 1. Any commit to the `main` branch will trigger the workflow and apply the change to the database.
 2. The change history is recorded in the `schema_history` table.
-  ![sf-change-history](/content/blog/snowflake-best-practice/sf-change-history.webp)
+  ![sf-change-history](/content/blog/snowflake-schema-change/sf-change-history.webp)
 
 
 ## Bytebase
@@ -40,12 +40,12 @@ The tutorial I followed can be found [here](/docs/tutorials/database-change-mana
 ### Preparation
 1. Run Bytebase locally with ngrok running to expose it to the internet or deploy it on a server directly.
 2. Activate the SQL Reviews rules you want to build SQL Policy and attach them to the environment.
-  ![bb-sql-review-policy](/content/blog/snowflake-best-practice/bb-sql-review-policy.webp)
+  ![bb-sql-review-policy](/content/blog/snowflake-schema-change/bb-sql-review-policy.webp)
 3. Configure a git provider to build the connection to GitHub.com.
 4. Add an instance of Snowflake and test the connection to make sure it works.
-  ![bb-test-connection](/content/blog/snowflake-best-practice/bb-test-connection.webp)
+  ![bb-test-connection](/content/blog/snowflake-schema-change/bb-test-connection.webp)
 5. Create a project, create a database on the instance and enable GitOps workflow in the project with SQL Review CI enabled.
-  ![bb-gitops-sql-review](/content/blog/snowflake-best-practice/bb-gitops-sql-review.webp)
+  ![bb-gitops-sql-review](/content/blog/snowflake-schema-change/bb-gitops-sql-review.webp)
 
 ### How to change
 1. Create a branch. Create a subfolder `bytebase` , create a SQL script  and push it to branch. Merge it to `main`. The sql file title is like `bytebase/test/demo##202101131000##ddl##create_tablefoo_for_bar.sql`.
@@ -54,10 +54,10 @@ The tutorial I followed can be found [here](/docs/tutorials/database-change-mana
 1. Only a PR merged into `main` branch will create an issue in Bytebase.
 2. If it's approved(you can configure it to skip approval too), it will apply the change to the database.
 3. You can view the change history in the Bytebase UI. Click any change, you can see the corresponding issue in detail.
-  ![bb-change-history](/content/blog/snowflake-best-practice/bb-change-history.webp)
-  ![bb-change-diff](/content/blog/snowflake-best-practice/bb-change-diff.webp)
+  ![bb-change-history](/content/blog/snowflake-schema-change/bb-change-history.webp)
+  ![bb-change-diff](/content/blog/snowflake-schema-change/bb-change-diff.webp)
 4. Because the SQL Review CI is enabled, before the PR is merged, the SQL Review will run automatically before the reviewer approve.
-  ![gh-sql-review-processing](/content/blog/snowflake-best-practice/gh-sql-review-processing.webp)
+  ![gh-sql-review-processing](/content/blog/snowflake-schema-change/gh-sql-review-processing.webp)
 
 
 ## The Comparison
@@ -77,14 +77,14 @@ On the other hand, Bytebase records the change history in the interactive UI. By
 
 ### SQL Review
 Schemachange doesn't include SQL Reviews. In contrast, Bytebase offers predefined rules for Snowflake SQL Review. You can select some of these rules as the environment SQL Review policy. By one click enabling SQL Review CI in the GitOps configuration, GitHub Actions are automatically built. Any PR involving SQL will then be reviewed automatically before it's merged. For a more detailed understanding of SQL Review in Bytebase CI/CD workflow, refer to [this article](/docs/tutorials/database-cicd-best-practice-with-github/).
-![complete-cicd-workflow](/content/blog/snowflake-best-practice/complete-cicd-workflow.webp)
+![complete-cicd-workflow](/content/blog/snowflake-schema-change/complete-cicd-workflow.webp)
 
 ## Summary and a Reddit Post
 If you are in need of a quick solution, Schemachange is a excellent choice. It's easy to set up and use. However, if you're seeking a more enhanced experience, Bytebase offers a user-friendly interface and a wider range of features.
 
 That might be why in [this Reddit post](https://www.reddit.com/r/snowflake/comments/13n9g0b/better_alternatives_to_schemachange_for_snowflake/), the author said he loved Bytebase the most.
-![reddit-question-sf](/content/blog/snowflake-best-practice/reddit-question-sf.webp)
-![reddit-bytebase-best](/content/blog/snowflake-best-practice/reddit-bytebase-best.webp)
+![reddit-question-sf](/content/blog/snowflake-schema-change/reddit-question-sf.webp)
+![reddit-bytebase-best](/content/blog/snowflake-schema-change/reddit-bytebase-best.webp)
 
 All the mentioned capabilities are included in the Bytebase Free Plan. However, if you require enterprise-level usage, you may want to explore the Bytebase Enterprise Plan.
 
