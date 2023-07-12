@@ -88,3 +88,10 @@ capabilities such as change approval workflow, data access control, you can chec
 project [Bytebase](/).
 
 ![bytebase](/content/blog/top-open-source-sql-clients/bytebase.webp)
+
+---
+
+## More Specific SQL Client Tools
+
+1. [Top MySQL GUI client](/blog/top-mysql-gui-client).
+1. [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools-2023).

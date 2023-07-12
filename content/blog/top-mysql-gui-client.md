@@ -12,21 +12,21 @@ To interact with MySQL databases, it’s common to employ MySQL GUI clients. The
 
 ## The Official: MySQL Workbench
 
-[MySQL Workbench](https://www.mysql.com/products/workbench/) is a free database design and model access tool for MySQL, meant for database architects, developers, and of course, DBAs. It is available on Windows, Linux, as well as MacOS. Since the official MySQL vendor offers it, it looks like it's going to be free and maintained for the foreseeable future. 
+[MySQL Workbench](https://www.mysql.com/products/workbench/) is a free database design and model access tool for MySQL, meant for database architects, developers, and of course, DBAs. It is available on Windows, Linux, as well as MacOS. Since the official MySQL vendor offers it, it looks like it's going to be free and maintained for the foreseeable future.
 
 MySQL Workbench's main features can be grouped threefold:
 
 1. Database design and modeling: you can create and edit your databases, tables, and their relationships visually. The ER diagram comes in handy for complex database architecture.
 
-    ![mysql-workbench-erd](/content/blog/top-mysql-gui-client/mysql-workbench-erd.webp)
+   ![mysql-workbench-erd](/content/blog/top-mysql-gui-client/mysql-workbench-erd.webp)
 
 2. SQL development: with the built-in SQL editor, you can build, edit, and run SQL queries against MySQL databases. It includes some useful mechanisms to aid in writing and debugging SQL statements, including color syntax highlighting, context-sensitive help, and auto-complete.
 
-    ![mysql-workbench-sql-editor](/content/blog/top-mysql-gui-client/mysql-workbench-sql-editor.webp)
+   ![mysql-workbench-sql-editor](/content/blog/top-mysql-gui-client/mysql-workbench-sql-editor.webp)
 
 3. Server Administration: MySQL Workbench offers a centralized platform to manage user accounts, export/import data, backup/restore databases, monitor server performance, and more to ease admin work.
 
-    ![mysql-workbench-dashboard](/content/blog/top-mysql-gui-client/mysql-workbench-dashboard.webp)
+   ![mysql-workbench-dashboard](/content/blog/top-mysql-gui-client/mysql-workbench-dashboard.webp)
 
 ## The Old School: phpMyAdmin
 
@@ -42,7 +42,7 @@ A range of features are available (managing databases, tables, users, permission
 
 [Navicat](https://navicat.com/)'s first release came in 2002 and back then, it was a simple application only available for MySQL on Windows. Now it's available on macOS and Linux, with a long list of compatible databases, including Redis, PostgreSQL, SQL Server, Oracle, MariaDB, SQLite, MongoDB, and a handful of cloud databases.
 
-It is not open-source, nor does it have a free offering, you can only choose between the premium and lite (with a compact list of features and database support as compared to the premium versions. 
+It is not open-source, nor does it have a free offering, you can only choose between the premium and lite (with a compact list of features and database support as compared to the premium versions.
 
 With Navicat, you can connect to multiple databases on a single GUI, which is convenient to manage and compare data across different platforms.
 
