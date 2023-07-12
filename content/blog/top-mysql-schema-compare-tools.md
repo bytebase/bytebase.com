@@ -32,7 +32,7 @@ It is available on Windows, Linux and Mac OS X.
 
 ## dbForge Schema Compare for MySQL
 
-[dbForge Schema Compare for MySQL](<(https://www.devart.com/dbforge/mysql/schemacompare/)>) is dbForge's flagship product for MySQL database development and management. It allows you to compare and synchronize database schema between databases and SQL files. dbForge Schema Compare for MySQL has two distinct advantages over other comparion tools:
+[dbForge Schema Compare for MySQL](https://www.devart.com/dbforge/mysql/schemacompare/) is dbForge's flagship product for MySQL database development and management. It allows you to compare and synchronize database schema between databases and SQL files. dbForge Schema Compare for MySQL has two distinct advantages over other comparion tools:
 
 - Diff and synchronize MySQL databases quickly and efficiently, even for extra-large ones
 - Automate routine tasks via CLI to schedule your comparison and synchronization tasks

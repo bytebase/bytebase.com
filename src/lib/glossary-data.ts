@@ -51,7 +51,7 @@ export const GLOSSARY_LIST: GlossaryLetterSet[] = [
         name: 'Backup',
         description: `A copy of data taken and may be used to restore after a data loss event. Bytebase supports both the manual (on-demand)
         and the automatic per-database backup.`,
-        reference: 'https://www.bytebase.com/docs/docs/disaster-recovery/backup/',
+        reference: 'https://www.bytebase.com/docs/disaster-recovery/backup/',
         tagList: ['General', 'Bytebase'],
       },
       {
