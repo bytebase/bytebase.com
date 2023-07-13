@@ -1,5 +1,5 @@
 ---
-title: 'Postgres vs. MySQL: a Complete Comparison in 2023'
+title: 'It's year 2023, and choosing between Postgres vs. MySQL is still hard'
 author: Tianzhou
 published_at: 2023/07/11 12:00
 feature_image: /content/blog/postgres-vs-mysql/cover.webp
@@ -8,6 +8,9 @@ featured: true
 description: 'An extensive comparison between Postgres and MySQL on performance, features, security,
 extensibility, usability, architecture, ecosystem and more.'
 ---
+
+It's year 2023, and choosing between Postgres and MySQL is still hard and often causes [heated debate](https://news.ycombinator.com/item?id=35906604).
+![hn](/content/blog/postgres-vs-mysql/hn.webp)
 
 The [2023 Stack Overflow survey](https://survey.stackoverflow.co/2023/) shows that Postgres has taken
 over the first place spot from MySQL and become the most admired, desired databases.
@@ -188,10 +191,6 @@ Those issues only occur in extreme load. For normal workload, both Postgres and 
 reliable. Database hosting platforms also provide integrated backup/restore, monitoring.
 
 ## Postgres or MySQL
-
-It's year 2023, and picking between Postgres and MySQL is still hard and often causes [heated debate](https://news.ycombinator.com/item?id=35906604).
-
-![hn](/content/blog/postgres-vs-mysql/hn.webp)
 
 |                  | Postgres                                                                             | MySQL                                                                |
 | ---------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------- |
