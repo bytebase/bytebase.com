@@ -28289,6 +28289,7 @@ var __webpack_exports__ = {};
           a += e.value;
         }
       });
+      a = a.replaceAll('_', '');
       t.push(P.slug(a));
     });
     return t;
