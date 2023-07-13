@@ -1,5 +1,5 @@
 ---
-title: 'It's year 2023, and choosing between Postgres vs. MySQL is still hard'
+title: "It's year 2023, and choosing between Postgres vs. MySQL is still hard"
 author: Tianzhou
 published_at: 2023/07/11 12:00
 feature_image: /content/blog/postgres-vs-mysql/cover.webp
