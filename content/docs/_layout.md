@@ -149,6 +149,8 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 #### [GitHub.com](/vcs-integration/github-com)
 
+#### [GitHub Enterprise](/vcs-integration/github-enterprise)
+
 #### [Bitbucket.org](/vcs-integration/bitbucket-org)
 
 ### [Enable GitOps Workflow in Project](/vcs-integration/enable-gitops-workflow)
