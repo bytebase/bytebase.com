@@ -4,7 +4,10 @@ title: Data Access Control
 
 <EnterpriseOnlyBlock />
 
+`Data Access Control` restricts how the developers access and export the data.
+
 There're two types of data access for `Project Developer`:
+
 - **Query**: query data via [SQL Editor](/docs/sql-editor/overview)
 - **Export**: export data by SQL or Database
 
