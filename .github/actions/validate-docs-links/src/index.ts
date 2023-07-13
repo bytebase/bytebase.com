@@ -94,6 +94,7 @@ function getHeadingsFromMarkdownTree(tree: Node<Data>): string[] {
         headingText += node.value;
       }
     });
+    headingText = headingText.replaceAll('_', '');
     headings.push(slugger.slug(headingText));
   });
 
