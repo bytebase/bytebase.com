@@ -126,6 +126,13 @@ const SEO_PAGES_DATA = {
     linkText: 'View detailed guide.',
     linkUrl: `${Route.DOCS_GITHUB}/`,
   },
+  GITHUB_ENTERPRISE: {
+    title: 'GitHub Enterprise + Bytebase Database-as-Code',
+    description:
+      'Bytebase integrates with GitHub to allow team to manage database migration scripts in the GitHub repository. Migration pipeline is triggered on observing new migration script push event.',
+    linkText: 'View detailed guide.',
+    linkUrl: `${Route.DOCS_GITHUB_ENTERPRISE}/`,
+  },
   BITBUCKET: {
     title: 'Bitbucket + Bytebase Database-as-Code',
     description:

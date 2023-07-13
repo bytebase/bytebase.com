@@ -54,6 +54,7 @@ const Route = {
   DOCS_SSO: '/docs/administration/sso/overview',
   DOCS_GITLAB: '/docs/vcs-integration/self-host-gitlab/',
   DOCS_GITHUB: '/docs/vcs-integration/github-com/',
+  DOCS_GITHUB_ENTERPRISE: '/docs/vcs-integration/github-enterprise/',
   DOCS_BITBUCKET: '/docs/vcs-integration/bitbucket-org/',
 
   // comparison
