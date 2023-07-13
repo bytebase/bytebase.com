@@ -241,6 +241,8 @@ To get the nearest neighbors to a vector:
    SELECT * FROM items ORDER BY embedding <-> '[3,1,2]' LIMIT 5;
    ```
 
+_Neon recently announced a simlar extension [`pg_embedding`](https://neon.tech/blog/pg-embedding-extension-for-vector-search). It claims to be 20x faster than pgvector_.
+
 ## Summary
 
 Postgres extension is a key differentiator from its main alternative MySQL. If the business requires geospatial
