@@ -12,7 +12,7 @@ import Route from '@/lib/route';
 
 import IntroIcon from '@/svgs/intro.inline.svg';
 import ArrowIcon from '@/svgs/arrow.inline.svg';
-import ConceptIcon from '@/svgs/concept.inline.svg';
+import UseCaseIcon from '@/svgs/usecase.inline.svg';
 import DbIcon from '@/svgs/db.inline.svg';
 import RocketIcon from '@/svgs/rocket.inline.svg';
 import TutorialsIcon from '@/svgs/tutorials.inline.svg';
@@ -25,7 +25,7 @@ const icons: {
   [key: string]: any;
 } = {
   rocket: RocketIcon,
-  concept: ConceptIcon,
+  usecase: UseCaseIcon,
   intro: IntroIcon,
   db: DbIcon,
 };
@@ -116,7 +116,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                           })}
                         </ul>
                         <Link
-                          className="group/box flex h-full min-h-[480px] w-[244px] grow flex-col justify-between rounded-md bg-tutorials p-5 text-gray-15"
+                          className="group/box flex h-full min-h-[324px] w-[244px] grow flex-col justify-between rounded-md bg-tutorials p-5 text-gray-15"
                           href={Route.TUTORIAL}
                           prefetch={false}
                           onClick={handleSubmenuClick}

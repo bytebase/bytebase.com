@@ -32,6 +32,7 @@ const Route = {
   // docs
   DOCS: '/docs',
   DOCS_SELF_HOST: '/docs/get-started/self-host',
+  DOCS_USE_CASE: '/docs/introduction/use-cases/',
   DOCS_CONCEPT: '/docs/concepts/data-model',
   DOCS_DB: '/docs/introduction/supported-databases',
   DOCS_API: '/docs/api/overview',
