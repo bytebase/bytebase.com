@@ -29,6 +29,8 @@ Flags:
       --data string                directory where Bytebase stores data. If relative path is supplied, then the path is relative to the directory where Bytebase is under (default ".")
       --debug                      whether to enable debug level logging
       --demo string                name of the demo to use. If specified, Bytebase will run in demo mode
+      --disable-metric             disable the metric collector
+      --disable-sample             disable the sample instance
       --external-url string        the external URL where user visits Bytebase, must start with http:// or https:// (default "https://www.bytebase.com/docs/get-started/install/external-url")
   -h, --help                       help for bytebase
       --pg string                  optional external PostgreSQL instance connection url(must provide dbname); for example postgresql://user:secret@masterhost:5432/dbname?sslrootcert=cert
@@ -67,6 +69,18 @@ The directory where Bytebase stores its own data. The directory must exist befor
 default: **false**
 
 If specified, Bytebase will emit more logs, this is only used when troubleshooting Bytebase issues.
+
+## --disable-metric
+
+default: **false**
+
+If specified, Bytebase will not collect usage metric.
+
+## --disable-sample
+
+default: **false**
+
+If specified, Bytebase will not start sample Postgres instance.
 
 ## --demo &lt;&lt;string&gt;&gt;
 
