@@ -39,4 +39,4 @@ You can only copy the key right after creating the service account. The key will
 
 Check https://registry.terraform.io/providers/bytebase/bytebase/latest/docs for the provider docs.
 
-Check https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples for the usage examples.
+Check https://github.com/bytebase/terraform-example for the usage examples.
