@@ -79,4 +79,7 @@ Most schema compare features are available in Bytebase's Free plan.
 
 If you are used to working with command line tools, Liquibase and Flyway are excellent choices. If you prefer the fine-grained control during the synchronization process, there are solutions like MySQL Workbench and dbForge Schema Compare for MySQL. On the other hand, if you need a fully-fledged GUI and a more streamlined experience to compare, review and deploy database schema, Bytebase will be a great fit.
 
-For Developers and DBAs, beside schema compare tools, SQL client is another commonly used tool. If you are looking for one, go check out [Top 8 Free, Open Source SQL Clients](/blog/top-open-source-sql-clients).
+## Further Readings
+
+- [Top 5 MySQL GUI Clients](/blog/top-mysql-gui-client)
+- [Top 8 Free, Open Source SQL Clients](/blog/top-open-source-sql-clients)

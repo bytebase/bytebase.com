@@ -1,5 +1,5 @@
 ---
-title: How to install MySQL Client on Your Mac, Ubuntu, CentOS, Windows
+title: How to Install MySQL Client on Your Mac, Ubuntu, CentOS, Windows
 author: Tianzhou
 published_at: 2023/07/13 09:00:00
 feature_image: /content/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows/cover.webp
@@ -153,6 +153,7 @@ mysql --version
 The classic MySQL client is still the most widely used MySQL client. Meanwhile you can also check out following tools
 
 1. [MySQL Shell `mysqlsh`](/blog/how-to-install-mysql-shell-on-macos) introduced in MySQL 8.0 to provide more advanced features over `mysql`.
-1. [Top MySQL GUI client](/blog/top-mysql-gui-client).
-1. [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools).
-1. [Top Free Open Source SQL Clients](/blog/top-open-source-sql-clients).
+1. [Top MySQL GUI client](/blog/top-mysql-gui-client)
+1. [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools)
+1. [Top Free Open Source SQL Clients](/blog/top-open-source-sql-clients)
+1. [Top mysql Commands with Examples](/blog/top-mysql-commands-with-examples)
