@@ -2,8 +2,9 @@ import ROUTE from '@/lib/route';
 
 const PROMO_DATA = {
   TOP_BANNER: {
-    title: 'Postgres vs. MySQL: a Complete Comparison in 2023',
-    pathname: '/blog/postgres-vs-mysql/',
+    title:
+      'Case Study for SaaS Vendors - Multi-Tenant Database Change Management at Longbridge Whale',
+    pathname: '/blog/longbridge-case-study/',
   },
   BLOG_ASIDE: {
     title: 'What is Bytebase?',
