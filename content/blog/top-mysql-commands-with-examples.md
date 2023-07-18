@@ -16,31 +16,31 @@ Below list the 10 most commonly used `mysql` commands with examples.
 
 ## 1. Connect to a database - mysql -u xxx -p -h xxx -P xxx db
 
-- Connects to the local MySQL server via socket /tmp/mysql.sock as the specified user and prompts for a password.
+Connects to the local MySQL server via socket /tmp/mysql.sock as the specified user and prompts for a password.
 
-  ```bash
-  mysql -u username -p
-  ```
+```bash
+mysql -u username -p
+```
 
-- Connects to the MySQL server on the specified host at port 3306 and prompts for a password.
+Connects to the MySQL server on the specified host at port 3306 and prompts for a password.
 
-  ```bash
-  mysql -u username -p -h hostname
-  ```
+```bash
+mysql -u username -p -h hostname
+```
 
-- Connects to the MySQL server on the specified host and port and prompts for a password.
+Connects to the MySQL server on the specified host and port and prompts for a password.
 
-  ```bash
-  mysql -u username -p -h hostname -P portnumber
-  ```
+```bash
+mysql -u username -p -h hostname -P portnumber
+```
 
-- Connects to the specified database on the specified host and port as the specified user and prompts for a password.
+Connects to the specified database on the specified host and port as the specified user and prompts for a password.
 
-  ```bash
-  mysql -u username -p -h hostname -P portnumber -D databasename
-  # can also omit -D
-  mysql -u username -p -h hostname -P portnumber databasename
-  ```
+```bash
+mysql -u username -p -h hostname -P portnumber -D databasename
+# can also omit -D
+mysql -u username -p -h hostname -P portnumber databasename
+```
 
 ## 2. Run a single command - mysql -e
 
