@@ -9,7 +9,7 @@ level: Intermediate
 description: This tutorial will bring your Amazon Aurora schema change to the next level by introducing the GitOps workflow, where you commit schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 ---
 
-This is a series of articles about DevOps: Database Change Management with Amazon Aurora, and is also applicable to Amazon Aurora Serverless.
+A series of articles about DevOps: Database Change Management with Amazon Aurora, and is also applicable to Amazon Aurora Serverless.
 
 - [DevOps: Database Change Management with Amazon Aurora](/docs/tutorials/database-change-management-with-amazon-aurora)
 - DevOps: Database Change Management with Amazon Aurora and GitHub (this one)

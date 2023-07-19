@@ -9,7 +9,7 @@ level: Beginner
 description: This tutorial will guide you step-by-step to set up database change management for Snowflake in Bytebase.
 ---
 
-This is a series of articles about DevOps: Database Change Management with Snowflake
+A series of articles about DevOps: Database Change Management with Snowflake
 
 - DevOps: Database Change Management with Snowflake (this one)
 - [DevOps: Database Change Management with Snowflake and GitHub](/docs/tutorials/database-change-management-with-snowflake-and-github)

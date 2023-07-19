@@ -9,7 +9,7 @@ level: Intermediate
 description: This first article will guide you to enable SQL Review GitHub actions (developed by Bytebase) when there is a pull request in your repository.
 ---
 
-This is a series of articles about Database CI/CD with GitHub
+A series of articles about Database CI/CD with GitHub
 
 - [The Database CI/CD Best Practice with GitHub](/docs/tutorials/database-cicd-best-practice-with-github)
 

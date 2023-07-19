@@ -9,7 +9,7 @@ level: Intermediate
 description: This tutorial will bring your Redis data change to the next level by introducing the GitOps workflow, where you commit data change script to the GitHub repository, which will in turn trigger the data change pipeline in Bytebase.
 ---
 
-This is a series of articles about DevOps: Database Change Management with Redis
+A series of articles about DevOps: Database Change Management with Redis
 
 - [DevOps: Database Change Management with Redis](/docs/tutorials/database-change-management-with-redis)
 - DevOps: Database Change Management with Redis and GitHub (this one)

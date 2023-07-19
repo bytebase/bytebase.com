@@ -9,7 +9,7 @@ level: Beginner
 description: MariaDB is the world's most advanced open-source relational database management system. This tutorial will guide you step-by-step to set up database change management for MariaDB in Bytebase.
 ---
 
-This is a series of articles about DevOps: Database Change Management with MariaDB.
+A series of articles about DevOps: Database Change Management with MariaDB.
 
 - DevOps: Database Change Management with MariaDB (this one)
 - [DevOps: Database Change Management with MariaDB and GitHub](/docs/tutorials/database-change-management-with-mariadb-and-github/)
@@ -33,9 +33,10 @@ In the end, there is a bonus section about **Schema Drift Detection** for those 
 
 ## Prerequisites
 
-Before you start, make sure you have 
+Before you start, make sure you have
+
 - [Docker](https://www.docker.com/) installed. You can follow the [official guide](https://docs.docker.com/get-docker/) to install it.
--  In this tutorial, we'll use [StackBricks](https://stackbricks.app/) to run MariaDB. You can also use other tools.
+- In this tutorial, we'll use [StackBricks](https://stackbricks.app/) to run MariaDB. You can also use other tools.
 
 ## Step 1 - Deploy Bytebase via Docker
 
@@ -56,7 +57,8 @@ Before you start, make sure you have
    --port 8080
    ```
 
-2. Run StackBricks, and create two MariaDB instances: 
+2. Run StackBricks, and create two MariaDB instances:
+
    - `mariaDB test`,`3307`
    - `mariaDB prod`,`3308`
 
@@ -73,6 +75,7 @@ In Bytebase, ​​an Instance could be your on-premises MySQL instance, an AWS 
    ![bb-register-admin.webp](/content/docs/tutorials/database-change-management-with-mariadb/bb-register-admin.webp)
 
 2. Click **Instances** on the top bar and click **Add instance**, choose `MariaDB`. Fill the form with the following information and click **Create**.
+
    - **Instance Name**: `MariaDB test`
    - **Environment**: `Test`
    - **Host or Socket** and **Port**: `host.docker.internal` and `3307`
@@ -83,7 +86,6 @@ In Bytebase, ​​an Instance could be your on-premises MySQL instance, an AWS 
    - **Environment**: `Prod`
    - **Host or Socket** and **Port**: `host.docker.internal` and `3307`
    - **Username and password**: `root` and your password
-  
 
 ## Step 3 - Create a Project
 
@@ -127,6 +129,7 @@ In Step 4, you actually created an issue in **UI workflow** and then executed it
 2. Check both `demo_db` and click **Next**. It will generate a pipeline.
 
 3. Input the SQL as following, and click **Apply to other tasks**. Click **Create**.
+
    ```sql
    CREATE TABLE t1(
       Id INT AUTO_INCREMENT,

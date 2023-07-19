@@ -7,7 +7,7 @@ tags: Explanation
 description: Database schema drift is the case where the actual schema in the live database is different from the source of truth. It's also one of the most frequent root cause of the database related outages.
 ---
 
-This is a series of articles about Database-as-code (GitOps)
+A series of articles about Database-as-code (GitOps)
 
 - [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
 - [Database Version Control, State-based or Migration-based?](/blog/database-version-control-state-based-vs-migration-based)

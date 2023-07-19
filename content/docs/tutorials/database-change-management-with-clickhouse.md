@@ -9,7 +9,7 @@ level: Beginner
 description: ClickHouse is an open-source column-oriented DBMS for online analytical processing. This tutorial will guide you step-by-step to set up database change management for ClickHouse in Bytebase.
 ---
 
-This is a series of articles about DevOps: Database Change Management with ClickHouse.
+A series of articles about DevOps: Database Change Management with ClickHouse.
 
 - DevOps: Database Change Management with ClickHouse (this one)
 - [DevOps: Database Change Management with ClickHouse and GitHub](/docs/tutorials/database-change-management-with-clickhouse-and-github)

@@ -9,7 +9,7 @@ level: Intermediate
 description: Now that you have finished Part 1 SQL Review GitHub Actions and Part 2 GitOps workflow, this final part will guide you through putting them together to run the whole process.
 ---
 
-This is a series of articles about Database CI/CD with GitHub
+A series of articles about Database CI/CD with GitHub
 
 - [The Database CI/CD Best Practice with GitHub](/docs/tutorials/database-cicd-best-practice-with-github)
 

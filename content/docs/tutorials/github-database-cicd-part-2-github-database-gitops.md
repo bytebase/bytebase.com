@@ -9,7 +9,7 @@ level: Intermediate
 description: This second part will guide you through configuring GitHub.com database GitOps with Bytebase. After following these steps, you can trigger database changes by merging sql files into your GitHub repository.
 ---
 
-This is a series of articles about Database CI/CD with GitHub
+A series of articles about Database CI/CD with GitHub
 
 - [The Database CI/CD Best Practice with GitHub](/docs/tutorials/database-cicd-best-practice-with-github)
 

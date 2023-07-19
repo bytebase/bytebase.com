@@ -9,7 +9,7 @@ level: Intermediate
 description: This tutorial will bring your MongoDB data change to the next level by introducing the GitOps workflow, where you commit data change script to the GitHub repository, which will in turn trigger the data change pipeline in Bytebase.
 ---
 
-This is a series of articles about DevOps: Database Change Management with MongoDB
+A series of articles about DevOps: Database Change Management with MongoDB
 
 - [DevOps: Database Change Management with MongoDB](/docs/tutorials/database-change-management-with-mongodb)
 - DevOps: Database Change Management with MongoDB and GitHub (this one)

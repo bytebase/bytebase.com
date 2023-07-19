@@ -9,7 +9,7 @@ level: Intermediate
 description: This tutorial will bring your MariaDB schema change to the next level by introducing the GitOps workflow, where you commit schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 ---
 
-This is a series of articles about DevOps: Database Change Management with MariaDB
+A series of articles about DevOps: Database Change Management with MariaDB
 
 - [DevOps: Database Change Management with MariaDB](/docs/tutorials/database-change-management-with-mariadb)
 - DevOps: Database Change Management with MariaDB and GitHub (this one)

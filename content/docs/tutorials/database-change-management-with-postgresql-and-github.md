@@ -9,7 +9,7 @@ level: Intermediate
 description: This tutorial will bring your PostgreSQL schema change to the next level by introducing the GitOps workflow, where you commit schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 ---
 
-This is a series of articles about DevOps: Database Change Management with PostgreSQL
+A series of articles about DevOps: Database Change Management with PostgreSQL
 
 - [DevOps: Database Change Management with PostgreSQL](/docs/tutorials/database-change-management-with-postgresql)
 - DevOps: Database Change Management with PostgreSQL and GitHub (this one)

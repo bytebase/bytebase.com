@@ -7,7 +7,7 @@ tags: Explanation
 description: The common mistakes when making schema migrations and the best practice to avoid those pitfalls.
 ---
 
-This is a series of articles about database migration / schema change:
+A series of articles about database migration / schema change:
 
 - [What is a Database Schema?](/blog/what-is-database-schema)
 - [What is a Database Schema Migration?](/blog/what-is-database-migration)
