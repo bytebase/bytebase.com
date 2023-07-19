@@ -45,8 +45,6 @@ from the following dimensions:
 - [Connection Model](#connection-model)
 - [Ecosystem](#ecosystem)
 - [Operability](#operability)
-- [Postgres or MySQL](#postgres-or-mysql)
-- [Further Readings](#further-readings)
 
 _Unless otherwise specified, the comparison below is between the latest major release, Postgres 15 vs. MySQL 8.0 (using InnoDB). We also use Postgres instead of PostgreSQL throughout the article, though we know the latter is the official name, which is considered as [the biggest mistake in Postgres History](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)_.
 
