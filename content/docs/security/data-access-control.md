@@ -10,15 +10,11 @@ There're two types of configurable data access for `Project Developer`:
 
 - **Query**: query data via [SQL Editor](/docs/sql-editor/overview)
 - **Export**: export data by SQL or Database
-
-`Project Owner` has both access within the project by default.
-
-At workspace level, `Workspace Owner`  or `DBA` can configure for a specific environment whether `Project Developer` needs to request approval to acquire access.
-
-There is one extra configurable data access for all:
 - **Copy from SQL Editor**: copy data after querying via SQL Editor
 
-![bb-sql-editor-copy-allow](/content/docs/security/data-access-control/bb-sql-editor-copy-allow.webp)
+`Project Owner` has all access within the project by default.
+
+At workspace level, `Workspace Owner`  or `DBA` can configure for a specific environment whether `Project Developer` needs to request approval to acquire **Query** or **Export** access, and if  `Project Developer`  has **Copy from SQL Editor** access.
 
 ## Configure Data Access Control
 
@@ -34,3 +30,5 @@ This section is for `Workspace Owner` or `DBA` to configure data access control 
 For how to request approval, please refer to [Request Query](/docs/security/data-query/) and [Request Export](/docs/security/data-export/).
 
 4. If `Disallowed` for **Copy Data From SQL Editor** is checked, then no one can copy data from databases belonging to that Environment via SQL Editor;  If unchecked, then all can copy data.
+
+![bb-sql-editor-copy-allow](/content/docs/security/data-access-control/bb-sql-editor-copy-allow.webp)
