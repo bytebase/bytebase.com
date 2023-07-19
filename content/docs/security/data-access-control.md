@@ -14,7 +14,9 @@ There're two types of configurable data access for `Project Developer`:
 
 `Project Owner` has all access within the project by default.
 
-At workspace level, `Workspace Owner`  or `DBA` can configure for a specific environment whether `Project Developer` needs to request approval to acquire **Query** or **Export** access, and if  `Project Developer`  has **Copy from SQL Editor** access.
+At workspace level, `Workspace Owner`  or `DBA` can configure for a specific environment whether `Project Developer`
+- needs to request approval to acquire **Query** or **Export** access.
+- has **Copy from SQL Editor** access.
 
 ## Configure Data Access Control
 
