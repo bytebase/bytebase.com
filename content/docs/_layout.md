@@ -127,13 +127,13 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ## Secure Data
 
+### [Data Access Control](/security/data-access-control)
+
 ### [Data Query Approval Flow](/security/data-query)
 
 ### [Data Export Approval Flow](/security/data-export)
 
 ### [Anonymize Data](/security/anonymize-data)
-
-### [Data Access Control](/security/data-access-control)
 
 ### [Watermark](/security/watermark)
 
