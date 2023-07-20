@@ -131,4 +131,4 @@ In this mode, Bytebase will manage the database as a whole.
 
 In this mode, Bytebase will manage the schema as a whole.
 
-- For any Oracle database, we treat the Oracle as a Bytebase database.
+- For any Oracle database, we treat the Oracle schema as a Bytebase database.
