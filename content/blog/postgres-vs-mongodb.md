@@ -202,6 +202,7 @@ lifecycle for both of them, please check out [Bytebase](/).
 
 ## Further Readings
 
+- [Postgres vs. MySQL](/blog/postgres-vs-mysql)
 - [Bye bye Mongo, Hello Postgres](https://www.theguardian.com/info/2018/nov/30/bye-bye-mongo-hello-postgres)
 - [Ask HN: Is MongoDB obsolote when Postgres and SQLite provide JSON types?](https://news.ycombinator.com/item?id=30464075)
 - [Proposal: Add JSON support for Postgres](https://www.postgresql.org/message-id/e7e5fefd1003281348v6feb1730u7d43ccf011be6976%40mail.gmail.com)
@@ -209,4 +210,3 @@ lifecycle for both of them, please check out [Bytebase](/).
 - [Sharding & IDs at Instagram](https://instagram-engineering.com/sharding-ids-at-instagram-1cf5a71e5a5c)
 - [Herding elephants: Lessons learned from sharding Postgres at Notion](https://www.notion.so/blog/sharding-postgres-at-notion)
 - [How to Handle Database Migration / Schema Change](/blog/how-to-handle-database-schema-change)
-- [Postgres vs. MySQL](/blog/postgres-vs-mysql)
