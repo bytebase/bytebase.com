@@ -9,7 +9,7 @@ description: List of Database-as-a-Service providers in 2023.
 
 Database-as-a-service (DBaaS) is a cloud computing service model where a third-party provider hosts and maintains a database for customers. This allows customers to use a database without having to set up and manage the underlying infrastructure themselves.
 
-[Bytebase](/) needs to integrate with different DBaaS providers to manage their databases. And when talking with our customers, the hosting provider is a common topic. Below we compile a non-ehausitive list of the DBaaS providers on the market.
+[Bytebase](/) needs to integrate with different DBaaS providers to manage their databases. And when talking with our customers, the hosting provider is a common topic. Below we compile a non-exhausitive list of the DBaaS providers on the market.
 The list is grouped by database types.
 
 ## MySQL
