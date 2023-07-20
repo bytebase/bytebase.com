@@ -181,7 +181,7 @@ export default function Page() {
         acceptance of your submission, we do not waive any rights to use similar ideas we already
         had or obtained from other sources.
       </p>
-      <h3>3.4 Beta Software.</h3>
+      <h3>3.5 Beta Software.</h3>
       <p>
         We may make beta and experimental products, features, and Documentation available to you on
         an early access basis (<strong>&quot;Beta Software&quot;</strong>). Beta Software is not
