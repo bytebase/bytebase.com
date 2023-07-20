@@ -220,7 +220,7 @@ those extra goodies are not worthwhile and MySQL would be an easier choice.
 
 ---
 
-It's also common that Postgres and MySQL co-exist inside an organization. And if you want to manage the development
+It's also common that Postgres and MySQL co-exist inside an organization. And if you want to manage the database development
 lifecycle for both of them, please check out [Bytebase](/).
 
 ![bytebase](/content/blog/postgres-vs-mysql/bytebase.webp)

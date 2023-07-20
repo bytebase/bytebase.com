@@ -160,17 +160,17 @@ Though Postgres and MongoDB take polarized approach to cultivate the ecosystem, 
 
 ## Postgres or MongoDB
 
-|              | Postgres                                 | MongoDB                                                 |
-| ------------ | ---------------------------------------- | ------------------------------------------------------- |
-| License      | Postgres License (MIT alike)             | SSPL                                                    |
-| Data Model   | Tabular, relational                      | Document                                                |
-| JSON Support | Capable and integrated with SQL          | Built-in schema validator                               |
-| Performance  | Optimized for complex query              | Optimized for de-normalized data                        |
-| Reliability  | Full ACID transaction support            | Transaction + built-in auto failover                    |
-| Scalability  | Scale-up                                 | Scale-out                                               |
-| Usability    | Rigorous and powerful query capability   | Relaxed enforcement and easy to start                   |
-| Operability  | Optimized for single node                | Optimized for multi-node and a polished hosting service |
-| Ecosystem    | Community driven, decentralized, vibrant | Business driven, centralized, integral                  |
+|              | Postgres                                                        | MongoDB                                                 |
+| ------------ | --------------------------------------------------------------- | ------------------------------------------------------- |
+| License      | Postgres License (MIT alike)                                    | SSPL                                                    |
+| Data Model   | Tabular, relational                                             | Document                                                |
+| JSON Support | Capable and integrated with SQL                                 | Built-in schema validator                               |
+| Performance  | Optimized for complex query                                     | Optimized for de-normalized data                        |
+| Reliability  | Full ACID transaction support                                   | Transaction + built-in auto failover                    |
+| Scalability  | Scale-up                                                        | Scale-out                                               |
+| Usability    | Rigorous and powerful query capability                          | Relaxed enforcement and easy to start                   |
+| Operability  | Optimized for single node and a wide range of hosting providers | Optimized for multi-node and a polished hosting service |
+| Ecosystem    | Community driven, decentralized, vibrant                        | Business driven, centralized, integral                  |
 
 There are obvious domains where one database is more suitable than the other:
 
@@ -185,7 +185,7 @@ Yet, majority application use cases fall between them and both databases are ver
   Postgres has been attracting them as every major 3rd party application platform offers managed Postgres service.
 - For backend developers, MongoDB becomes appealing ever since it added transaction support. Who doesn't want
   to avoid [stressful schema change procedure](/blog/how-to-handle-database-schema-change) and enjoy faster iteration cycle?
-- MongoDB Atlas has one of the most polished hosted database services. While many 3rd party venders, from large to small, all provide great Postgres hosting solutions.
+- MongoDB Atlas has built one of the most polished hosted database services. While many 3rd party venders, from large to small, all provide great Postgres hosting solutions.
 
 Overall, Postgres is a more versatile database. It adopts relational model, provides comprehensive SQL capability, carries an extensible architecture, and is driven by an enthusiastic community.
 MongoDB is a holistic database solution. It popularizes document model, provides built-in scaling and high availability, offeres an integral developer experience, and is driven by a sharp-minded for-profit business entity.
@@ -195,7 +195,7 @@ heading upwards, the choice will only become harder 🤷‍♂️.
 
 ---
 
-It's also common that Postgres and MongoDB co-exist inside an organization. And if you want to manage the development
+It's also common that Postgres and MongoDB co-exist inside an organization. And if you want to manage the database development
 lifecycle for both of them, please check out [Bytebase](/).
 
 ![bytebase](/content/blog/postgres-vs-mongodb/bytebase.webp)

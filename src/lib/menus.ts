@@ -119,6 +119,17 @@ export const MENU = {
       ],
     },
     {
+      name: 'COMPARISONS',
+      items: [
+        { name: 'Bytebase vs. Liquibase', linkUrl: Route.VS_LIQUIBASE },
+        { name: 'Bytebase vs. Flyway', linkUrl: Route.VS_FLYWAY },
+        { name: 'Bytebase vs. Navicat', linkUrl: Route.VS_NAVICAT },
+        { name: 'Bytebase vs. schemachange', linkUrl: Route.VS_SCHEMACHANGE },
+        { name: 'Postgres vs. MySQL', linkUrl: Route.PG_VS_MYSQL },
+        { name: 'Postgres vs. MongoDB', linkUrl: Route.PG_VS_MONGO },
+      ],
+    },
+    {
       name: 'COMPANY',
       items: [
         { name: 'Blog', linkUrl: Route.BLOG },
@@ -127,16 +138,6 @@ export const MENU = {
         { name: 'Careers', linkUrl: Route.JOBS },
         { name: 'Pricing', linkUrl: Route.PRICING },
         { name: 'Contact', linkUrl: Route.CONTACTS },
-      ],
-    },
-    {
-      name: 'COMPARISONS',
-      items: [
-        { name: 'Bytebase vs. Liquibase', linkUrl: Route.VS_LIQUIBASE },
-        { name: 'Bytebase vs. Flyway', linkUrl: Route.VS_FLYWAY },
-        { name: 'Bytebase vs. Navicat', linkUrl: Route.VS_NAVICAT },
-        { name: 'Bytebase vs. schemachange', linkUrl: Route.VS_SCHEMACHANGE },
-        { name: 'Postgres vs. MySQL', linkUrl: Route.PG_VS_MYSQL },
       ],
     },
   ],
