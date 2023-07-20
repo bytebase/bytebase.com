@@ -9,7 +9,7 @@ level: Intermediate
 description: We already have CI/CD for code delivery, why not the database? Imagine applying and deploying database changes the same way you would application code.
 ---
 
-This is a series of articles about Database CI/CD with GitHub
+A series of articles about Database CI/CD with GitHub
 
 - The Database CI/CD Best Practice with GitHub (this one)
 

@@ -9,7 +9,7 @@ level: Intermediate
 description: This tutorial will bring your ClickHouse schema change to the next level by introducing the GitOps workflow, where you commit schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 ---
 
-This is a series of articles about DevOps: Database Change Management with ClickHouse
+A series of articles about DevOps: Database Change Management with ClickHouse
 
 - [DevOps: Database Change Management with ClickHouse](/docs/tutorials/database-change-management-with-clickhouse)
 - DevOps: Database Change Management with ClickHouse and GitHub (this one)

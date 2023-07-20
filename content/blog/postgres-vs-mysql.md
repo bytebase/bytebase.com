@@ -30,6 +30,7 @@ Based on our operating experience, below we give an extensive comparison between
 from the following dimensions:
 
 - [License](#license)
+- [Connection Model](#connection-model)
 - [Performance](#performance)
 - [Features](#features)
   - [Object Hierarchy](#object-hierarchy)
@@ -42,11 +43,8 @@ from the following dimensions:
   - [Window Functions](#window-functions)
 - [Extensibility](#extensibility)
 - [Usability](#usability)
-- [Connection Model](#connection-model)
-- [Ecosystem](#ecosystem)
 - [Operability](#operability)
-- [Postgres or MySQL](#postgres-or-mysql)
-- [Further Readings](#further-readings)
+- [Ecosystem](#ecosystem)
 
 _Unless otherwise specified, the comparison below is between the latest major release, Postgres 15 vs. MySQL 8.0 (using InnoDB). We also use Postgres instead of PostgreSQL throughout the article, though we know the latter is the official name, which is considered as [the biggest mistake in Postgres History](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)_.
 
@@ -58,6 +56,14 @@ _Unless otherwise specified, the comparison below is between the latest major re
 
 Even though MySQL adopts GPL, some people still are concerned that MySQL is owned by Oracle. It's also the
 reason that MariaDB is forked from MySQL.
+
+## Connection Model
+
+Postgres uses process per connection where each connection spawns a new process. MySQL uses thread
+per connection where each connection spawns a new thread. Thus Postgres provides better isolation, e.g.
+an invalid memory access bug only crashes a single process instead of the entire database server. On
+the other hand, the process model consumes more resources. Thus for Postgres production deployment,
+it's recommended to proxy the connection via a connection pooler such as [PgBouncer](https://www.pgbouncer.org/) or [pgcat](https://github.com/postgresml/pgcat).
 
 ## Performance
 
@@ -176,18 +182,6 @@ Postgres is more rigorous while MySQL is more forgivable:
 MySQL allows to join tables from different databases. Postgres can only join tables inside a single database,
 unless using the FDW extension.
 
-## Connection Model
-
-Postgres uses process per connection where each connection spawns a new process. MySQL uses thread
-per connection where each connection spawns a new thread. Thus Postgres provides better isolation, e.g.
-an invalid memory access bug only crashes a single process instead of the entire database server. On
-the other hand, the process model consumes more resources. Thus for Postgres production deployment,
-it's recommended to proxy the connection via a connection pooler such as [PgBouncer](https://www.pgbouncer.org/) or [pgcat](https://github.com/postgresml/pgcat).
-
-## Ecosystem
-
-All common SQL tools support both Postgres and MySQL well. Because of Postgres' extensible architecture and the fact that it's still owned by the community, the Postgres ecosystem is more thriving in recent years. For every application platform offering a hosted database service, they all choose Postgres. From the [Heroku](https://www.heroku.com/) in the early days to the new [Supabase](https://supabase.com/), [render](https://render.com/), [Fly.io](https://fly.io/).
-
 ## Operability
 
 Due to the underlying storage engine design, Postgres has an infamous [XID wraparound issue](https://blog.sentry.io/transaction-id-wraparound-in-postgres/) under heavy load.
@@ -197,18 +191,22 @@ For MySQL, we encountered a few replication bugs when operating a huge MySQL fle
 Those issues only occur in extreme load. For normal workload, both Postgres and MySQL are mature and
 reliable. Database hosting platforms also provide integrated backup/restore, monitoring.
 
+## Ecosystem
+
+All common SQL tools support both Postgres and MySQL well. Because of Postgres' extensible architecture and the fact that it's still owned by the community, the Postgres ecosystem is more thriving in recent years. For every application platform offering a hosted database service, they all choose Postgres. From the [Heroku](https://www.heroku.com/) in the early days to the new [Supabase](https://supabase.com/), [render](https://render.com/), [Fly.io](https://fly.io/).
+
 ## Postgres or MySQL
 
 |                  | Postgres                                                                             | MySQL                                                                |
 | ---------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------- |
 | License          | Postgres License (MIT alike)                                                         | GPL                                                                  |
+| Connection Model | Process per connection                                                               | Thread per connection                                                |
 | Performance      | Internet scale                                                                       | Comparable with Postgres, better in extreme write-intensive workload |
 | Features         | More advanced in transaction, security, query optimizer, JSON, CTE, window functions | Capable                                                              |
 | Extensibility    | PAM + Extensions                                                                     | PAM                                                                  |
 | Usability        | Rigorous and follow standard                                                         | Forgivable and follow convention                                     |
-| Connection Model | Process per connection                                                               | Thread per connection                                                |
-| Ecosystem        | Thriving community and more hosting providers                                        | Large install base                                                   |
 | Operability      | Good, a bit higher learning curve                                                    | Good, easy to use and operate                                        |
+| Ecosystem        | Thriving community and more hosting providers                                        | Large install base                                                   |
 
 It's year 2023, and choosing between Postgres and MySQL is still hard and often causes [heated debate](https://news.ycombinator.com/item?id=35906604).
 ![hn](/content/blog/postgres-vs-mysql/hn.webp)

@@ -9,7 +9,7 @@ level: Beginner
 description: Amazon Aurora MySQL is a fully managed relational database engine that's compatible with MySQL.  This tutorial will guide you step-by-step to set up database change management for Amazon Aurora MySQL in Bytebase.
 ---
 
-This is a series of articles about DevOps: Database Change Management with Amazon Aurora.
+A series of articles about DevOps: Database Change Management with Amazon Aurora.
 
 - DevOps: Database Change Management with Amazon Aurora (this one)
 - [DevOps: Database Change Management with Amazon Aurora and GitHub](/docs/tutorials/database-change-management-with-amazon-aurora-and-github)

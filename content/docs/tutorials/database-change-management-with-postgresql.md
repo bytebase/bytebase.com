@@ -9,7 +9,7 @@ level: Beginner
 description: PostgreSQL is the world's most advanced open-source relational database management system. This tutorial will guide you step-by-step to set up database change management for PostgreSQL in Bytebase.
 ---
 
-This is a series of articles about DevOps: Database Change Management with PostgreSQL.
+A series of articles about DevOps: Database Change Management with PostgreSQL.
 
 - DevOps: Database Change Management with PostgreSQL (this one)
 - [DevOps: Database Change Management with PostgreSQL and GitHub](/docs/tutorials/database-change-management-with-postgresql-and-github/)

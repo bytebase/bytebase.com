@@ -9,7 +9,7 @@ level: Intermediate
 description: This tutorial will bring your Snowflake schema change to the next level by introducing the GitOps workflow, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 ---
 
-This is a series of articles about DevOps: Database Change Management with Snowflake
+A series of articles about DevOps: Database Change Management with Snowflake
 
 - [DevOps: Database Change Management with Snowflake](/docs/tutorials/database-change-management-with-snowflake)
 - DevOps: Database Change Management with Snowflake and GitHub (this one)

@@ -9,7 +9,7 @@ level: Beginner
 description: Spanner is a distributed SQL database management and storage service developed by Google. It provides features such as global transactions, strongly consistent reads, and automatic multi-site replication and failover. This tutorial will guide you step-by-step to set up database change management for Spanner in Bytebase.
 ---
 
-This is a series of articles about Database Change Management with Spanner.
+A series of articles about Database Change Management with Spanner.
 
 - Database Change Management with Spanner (this one)
 - [Database Change Management with Spanner and GitHub](/docs/tutorials/database-change-management-with-spanner-and-github)

@@ -9,7 +9,7 @@ level: Intermediate
 description: This tutorial will bring your Spanner schema change to the next level by introducing the GitOps workflow, where you commit schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 ---
 
-This is a series of articles about Database Change Management with Spanner, and is also applicable to Spanner Serverless.
+A series of articles about Database Change Management with Spanner, and is also applicable to Spanner Serverless.
 
 - [Database Change Management with Spanner](/docs/tutorials/database-change-management-with-spanner)
 - Database Change Management with Spanner and GitHub (this one)

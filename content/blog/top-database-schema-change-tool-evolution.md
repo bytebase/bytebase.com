@@ -8,7 +8,7 @@ featured: true
 description: Database schema migration have come a long way, from CLI to GUI, and all the way to GitOps/Database-as-Code. Let's review the state-of-the-art of database schema chanage / migration tools in 2023.
 ---
 
-This is a series of articles about database schema change / schema migration:
+A series of articles about database schema change / schema migration:
 
 - [What is a Database Schema?](/blog/what-is-database-schema)
 - [What is a Database Schema Migration?](/blog/what-is-database-migration)
