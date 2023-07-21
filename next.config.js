@@ -128,20 +128,14 @@ module.exports = {
   },
   async rewrites() {
     return {
-      beforeFiles: [
-        {
-          source: '/_nuxt/:path*',
-          destination: 'https://old.bytebase.com/_nuxt/:path*',
-        },
-      ],
       fallback: [
         {
           source: '/zh',
-          destination: 'https://old.bytebase.com/zh',
+          destination: '/',
         },
         {
           source: '/zh/:path*/',
-          destination: 'https://old.bytebase.com/zh/:path*/',
+          destination: '/:path*/',
         },
       ],
     };
