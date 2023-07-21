@@ -62,9 +62,10 @@ const Route = {
   VS_LIQUIBASE: '/blog/bytebase-vs-liquibase',
   VS_FLYWAY: '/blog/bytebase-vs-flyway',
   VS_NAVICAT: '/blog/stop-using-navicat',
+  VS_SCHEMACHANGE: '/blog/snowflake-schema-change',
+  FLYWAY_VS_LIQUIBASE: '/blog/flyway-vs-liquibase',
   PG_VS_MYSQL: '/blog/postgres-vs-mysql',
   PG_VS_MONGO: '/blog/postgres-vs-mongodb',
-  VS_SCHEMACHANGE: '/blog/snowflake-schema-change',
 
   // databases
   DATABASE_MYSQL: '/database/mysql',
