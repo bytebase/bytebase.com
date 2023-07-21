@@ -8,7 +8,8 @@ const Promo = () => {
   return (
     <section className="col-span-6 col-start-4 mt-14 xl:col-span-8 xl:col-start-3 xl:mt-12 md:col-span-full md:mt-10 sm:mt-9">
       <h2 className="text-44 font-bold leading-extra-tight xl:text-36 md:text-30">
-        Safer and faster database change and version control for DBAs and Developers
+        Database schema migration and version control, Database CI/CD, and DevOps for developers and
+        DBAs
       </h2>
       <p className="mt-5 text-18 xl:mt-4 xl:text-16 xl:leading-snug md:mt-4">
         Bytebase is an{' '}
