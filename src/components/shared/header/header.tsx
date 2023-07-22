@@ -10,6 +10,11 @@ import MobileMenu from '@/components/shared/mobile-menu';
 import { MENU } from '@/lib/menus';
 import Route from '@/lib/route';
 
+import AboutIcon from '@/svgs/about.inline.svg';
+import BlogIcon from '@/svgs/blog.inline.svg';
+import CaseStudyIcon from '@/svgs/case-study.inline.svg';
+import ChangelogIcon from '@/svgs/changelog.inline.svg';
+import ConceptIcon from '@/svgs/concept.inline.svg';
 import IntroIcon from '@/svgs/intro.inline.svg';
 import ArrowIcon from '@/svgs/arrow.inline.svg';
 import UseCaseIcon from '@/svgs/usecase.inline.svg';
@@ -24,7 +29,12 @@ const icons: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 } = {
+  about: AboutIcon,
+  blog: BlogIcon,
+  casestudy: CaseStudyIcon,
+  changelog: ChangelogIcon,
   rocket: RocketIcon,
+  concept: ConceptIcon,
   usecase: UseCaseIcon,
   intro: IntroIcon,
   db: DbIcon,
@@ -33,7 +43,7 @@ const icons: {
 type MenuItem = {
   name: string;
   description: string;
-  iconName?: string;
+  iconName: string;
   linkUrl: string;
 };
 
@@ -66,7 +76,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
             />
           </Link>
           <ul className="mt-0.5 ml-9 flex items-center gap-1 md:hidden">
-            {MENU.header.map(({ title, href = '', items }: Header) => {
+            {MENU.header.map(({ title, href = '', items, highlight }: Header) => {
               return (
                 <li key={title} className="group relative inline-block">
                   {href ? (
@@ -90,9 +100,9 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                       <div className="relative flex items-center gap-x-[30px] rounded-lg border border-gray-80 bg-white p-4 pl-8 shadow-menu before:absolute before:-top-[8.5px] before:left-11 before:h-4 before:w-4 before:rotate-45 before:rounded-tl before:border-l before:border-t before:border-gray-80 before:bg-white">
                         <ul className="flex flex-col">
                           {items?.map(({ name, linkUrl, description, iconName }) => {
-                            const Icon = iconName ? icons[iconName] : null;
+                            const Icon = icons[iconName];
                             return (
-                              <li key={name} className="pt-6 first:pt-0">
+                              <li key={name} className="pt-6 first:pt-2">
                                 <Link
                                   className="group/link block whitespace-nowrap"
                                   size="md"
@@ -103,7 +113,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                                 >
                                   <div className="flex flex-col gap-y-2.5">
                                     <div className="flex items-center gap-x-2 group-hover/link:text-primary-1">
-                                      {Icon && <Icon className="h-5 w-5 shrink-0" />}
+                                      <Icon className="h-5 w-5 shrink-0" />
                                       <span className="font-medium tracking-tight">{name}</span>
                                     </div>
                                     <span className="text-16 leading-normal text-gray-40">
@@ -115,29 +125,28 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                             );
                           })}
                         </ul>
-                        <Link
-                          className="group/box flex h-full min-h-[324px] w-[244px] grow flex-col justify-between rounded-md bg-tutorials p-5 text-gray-15"
-                          href={Route.TUTORIAL}
-                          prefetch={false}
-                          onClick={handleSubmenuClick}
-                        >
-                          <div className="flex flex-col">
-                            <TutorialsIcon className="h-7 w-7" />
-                            <span className="mt-5 text-20 font-medium leading-none text-gray-15">
-                              Tutorials
-                            </span>
-                            <span className="mt-2.5">
-                              Guides to help you maximize the benefits and leverage the full
-                              potential of Bytebase&apos;s features.
-                            </span>
-                          </div>
-                          <div className="flex items-center justify-start transition-colors duration-200 group-hover/box:text-primary-1">
-                            <span className="text-16 font-medium leading-normal">
-                              Start Learning
-                            </span>
-                            <ArrowIcon className="ml-1.5 h-4 w-4" />
-                          </div>
-                        </Link>
+                        {highlight && (
+                          <Link
+                            className="group/box flex h-full min-h-[324px] w-[244px] grow flex-col justify-between rounded-md bg-tutorials p-5 text-gray-15"
+                            href={highlight.linkUrl}
+                            prefetch={false}
+                            onClick={handleSubmenuClick}
+                          >
+                            <div className="flex flex-col">
+                              <TutorialsIcon className="h-7 w-7" />
+                              <span className="mt-5 text-20 font-medium leading-none text-gray-15">
+                                {highlight.name}
+                              </span>
+                              <span className="mt-2.5">{highlight.description}</span>
+                            </div>
+                            <div className="flex items-center justify-start transition-colors duration-200 group-hover/box:text-primary-1">
+                              <span className="text-16 font-medium leading-normal">
+                                {highlight.cta}
+                              </span>
+                              <ArrowIcon className="ml-1.5 h-4 w-4" />
+                            </div>
+                          </Link>
+                        )}
                       </div>
                     </div>
                   )}

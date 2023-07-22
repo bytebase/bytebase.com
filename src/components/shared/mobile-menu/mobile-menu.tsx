@@ -14,23 +14,30 @@ import Link from '@/components/shared/link';
 import { MENU } from '@/lib/menus';
 import Route from '@/lib/route';
 
-import IntroIcon from '@/svgs/intro.inline.svg';
+import AboutIcon from '@/svgs/about.inline.svg';
+import BlogIcon from '@/svgs/blog.inline.svg';
+import CaseStudyIcon from '@/svgs/case-study.inline.svg';
+import ChangelogIcon from '@/svgs/changelog.inline.svg';
 import ConceptIcon from '@/svgs/concept.inline.svg';
+import IntroIcon from '@/svgs/intro.inline.svg';
+import UseCaseIcon from '@/svgs/usecase.inline.svg';
 import DbIcon from '@/svgs/db.inline.svg';
 import RocketIcon from '@/svgs/rocket.inline.svg';
-import TutorialsIcon from '@/svgs/tutorials.inline.svg';
-
 import Burger from './burger';
 
 const icons: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 } = {
+  about: AboutIcon,
+  blog: BlogIcon,
+  casestudy: CaseStudyIcon,
+  changelog: ChangelogIcon,
   rocket: RocketIcon,
-  intro: IntroIcon,
   concept: ConceptIcon,
+  usecase: UseCaseIcon,
+  intro: IntroIcon,
   db: DbIcon,
-  tutorials: TutorialsIcon,
 };
 
 const ANIMATION_DURATION = 0.2;

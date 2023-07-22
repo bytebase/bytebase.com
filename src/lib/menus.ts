@@ -30,8 +30,44 @@ export const MENU = {
           iconName: 'db',
         },
       ],
+      highlight: {
+        name: 'Tutorial',
+        description:
+          "Guides to help you maximize the benefits and leverage the full potential of Bytebase's features.",
+        linkUrl: Route.TUTORIAL,
+        cta: 'Start Learning',
+        iconName: 'tutorial',
+      },
     },
-    { title: 'Blog', href: Route.BLOG },
+    {
+      title: 'Resources',
+      items: [
+        {
+          name: 'Blog',
+          description: 'Learn product and industry insight',
+          linkUrl: Route.BLOG,
+          iconName: 'blog',
+        },
+        {
+          name: 'Case Study',
+          description: 'How customers use Bytebase',
+          linkUrl: Route.BLOG_CASE_STUDY,
+          iconName: 'casestudy',
+        },
+        {
+          name: 'Changelog',
+          description: 'We release bi-weekly',
+          linkUrl: Route.CHANGELOG,
+          iconName: 'changelog',
+        },
+        {
+          name: 'About Us',
+          description: 'Why we build Bytebase',
+          linkUrl: Route.ABOUT,
+          iconName: 'about',
+        },
+      ],
+    },
     { title: 'Pricing', href: Route.PRICING },
     { title: 'Contact', href: Route.CONTACTS },
   ],
@@ -46,7 +82,7 @@ export const MENU = {
           iconName: 'intro',
         },
         {
-          name: 'Quick start',
+          name: 'Quick Start',
           description: 'Deploy Bytebase in 5 minutes',
           linkUrl: Route.DOCS_SELF_HOST,
           iconName: 'rocket',
@@ -59,13 +95,41 @@ export const MENU = {
         },
         {
           name: 'Supported Database',
-          description: 'Bytebase supported databases',
+          description: 'Supported databases & features',
           linkUrl: Route.DOCS_DB,
           iconName: 'db',
         },
       ],
     },
-    { title: 'Blog', href: Route.BLOG },
+    {
+      title: 'Resources',
+      items: [
+        {
+          name: 'Blog',
+          description: 'Learn product and industry insight',
+          linkUrl: Route.BLOG,
+          iconName: 'blog',
+        },
+        {
+          name: 'Case Study',
+          description: 'How customers use Bytebase',
+          linkUrl: Route.BLOG_CASE_STUDY,
+          iconName: 'casestudy',
+        },
+        {
+          name: 'Changelog',
+          description: 'We release bi-weekly',
+          linkUrl: Route.CHANGELOG,
+          iconName: 'changelog',
+        },
+        {
+          name: 'About Us',
+          description: 'Why we build Bytebase',
+          linkUrl: Route.ABOUT,
+          iconName: 'about',
+        },
+      ],
+    },
     { title: 'Pricing', href: Route.PRICING },
     { title: 'Contact', href: Route.CONTACTS },
   ],

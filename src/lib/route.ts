@@ -1,7 +1,6 @@
 const Route = {
   INDEX: '/',
   ABOUT: '/about',
-  USECASES: '/usecases',
   PRICING: '/pricing',
   BRAND: '/about#brand-kit',
   TECHSTACK: '/techstack',
@@ -57,6 +56,9 @@ const Route = {
   DOCS_GITHUB: '/docs/vcs-integration/github-com/',
   DOCS_GITHUB_ENTERPRISE: '/docs/vcs-integration/github-enterprise/',
   DOCS_BITBUCKET: '/docs/vcs-integration/bitbucket-org/',
+
+  // blog
+  BLOG_CASE_STUDY: '/blog/category/case-study',
 
   // comparison
   VS_LIQUIBASE: '/blog/bytebase-vs-liquibase',
