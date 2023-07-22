@@ -7,8 +7,14 @@ import DiscordIcon from '@/svgs/discord.inline.svg';
 import ExternalIcon from '@/svgs/external.inline.svg';
 import GithubIcon from '@/svgs/github.inline.svg';
 import TwitterIcon from '@/svgs/twitter.inline.svg';
+import LinkedInIcon from '@/svgs/linkedin.inline.svg';
 
 const socialLinks = [
+  {
+    name: 'Github',
+    href: Route.GITHUB,
+    icon: GithubIcon,
+  },
   {
     name: 'Discord',
     href: Route.DISCORD,
@@ -19,11 +25,10 @@ const socialLinks = [
     href: Route.TWITTER,
     icon: TwitterIcon,
   },
-
   {
-    name: 'Github',
-    href: Route.GITHUB,
-    icon: GithubIcon,
+    name: 'LinkedIn',
+    href: Route.LINKEDIN,
+    icon: LinkedInIcon,
   },
 ];
 

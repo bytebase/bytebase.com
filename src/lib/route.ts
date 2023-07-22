@@ -104,6 +104,7 @@ const Route = {
   DISCORD: 'https://discord.com/invite/huyw7gRsyA',
   TWITTER: 'https://twitter.com/Bytebase',
   GITHUB: 'https://github.com/bytebase/bytebase',
+  LINKEDIN: 'https://www.linkedin.com/company/bytebase',
   STAR_HISTORY: 'https://star-history.com/#bytebase/bytebase',
   DB_COST: 'https://www.dbcost.com/',
   SQL_CHAT: 'https://www.sqlchat.ai/',
