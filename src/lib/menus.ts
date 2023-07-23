@@ -19,7 +19,7 @@ export const MENU = {
         },
         {
           name: 'Use Cases',
-          description: 'How to empower your team',
+          description: 'Empower your Dev & DBA teams',
           linkUrl: Route.DOCS_USE_CASE,
           iconName: 'usecase',
         },
@@ -56,7 +56,7 @@ export const MENU = {
         },
         {
           name: 'Changelog',
-          description: 'We release bi-weekly',
+          description: 'Ship ~30 improvements bi-weekly',
           linkUrl: Route.CHANGELOG,
           iconName: 'changelog',
         },
@@ -89,7 +89,7 @@ export const MENU = {
         },
         {
           name: 'Use Cases',
-          description: 'How to empower your team',
+          description: 'Empower your Dev & DBA teams',
           linkUrl: Route.DOCS_USE_CASE,
           iconName: 'usecase',
         },
@@ -118,7 +118,7 @@ export const MENU = {
         },
         {
           name: 'Changelog',
-          description: 'We release bi-weekly',
+          description: 'Ship ~30 improvements bi-weekly',
           linkUrl: Route.CHANGELOG,
           iconName: 'changelog',
         },
