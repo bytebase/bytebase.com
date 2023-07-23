@@ -76,7 +76,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
             />
           </Link>
           <ul className="mt-0.5 ml-9 flex items-center gap-1 md:hidden">
-            {MENU.header.map(({ title, href = '', items, highlight }: Header) => {
+            {MENU.header.map(({ title, href = '', items }: Header) => {
               return (
                 <li key={title} className="group relative inline-block">
                   {href ? (
