@@ -14,7 +14,7 @@ The [2023 Stack Overflow survey](https://survey.stackoverflow.co/2023/) shows th
 
 ![stackoverflow](/content/blog/postgres-vs-mongodb/stackoverflow.webp)
 
-ICYDK, MongoDB used to hold that title for 4 consecutive years from 2017 to 2020. And according to DB-Engines. Postgres and MongoDB are among the top 5 databases. They are the two climbling the ladder and eating the shares of the big three, Oracle, MySQL, and Microsoft SQL Server.
+ICYDK, MongoDB used to hold that title for 4 consecutive years from 2017 to 2020. And according to DB-Engines, Postgres and MongoDB are among the top 5 databases. They are the two climbling the ladder and eating the shares of the big three, Oracle, MySQL, and Microsoft SQL Server.
 
 ![db-engines](/content/blog/postgres-vs-mongodb/db-engines.webp)
 
@@ -22,13 +22,13 @@ MongoDB is widely perceived as a NoSQL database which is opposite to the SQL dat
 But in recent years, they are converging:
 
 - MongoDB becomes more like a traditional RDBMS, adding multi-document ACID transaction, secondary-index, advanced
-  query capabilites.
+  query capabilities.
 - Postgres keeps improving its JSON capabilities such as indexing, query optimization, and more operators, which makes people wonder whether MongoDB becomes obsolete.
 
 ![hn](/content/blog/postgres-vs-mongodb/hn.webp)
 
 In 2018, folks at The Guardian wrote a [lengthy post](https://www.theguardian.com/info/2018/nov/30/bye-bye-mongo-hello-postgres) about migrating MongoDB to Postgres. A lot of things have changed since
-then, but one thing still holds true, it's always painful to migrate database.
+then, but one thing still holds true, it's always painful to migrate databases.
 
 ![hn](/content/blog/postgres-vs-mongodb/byebye-mongo.webp)
 
@@ -38,6 +38,7 @@ with both. Our founders also build [Google Cloud SQL](https://cloud.google.com/s
 Based on our operating experience, below we give an extensive comparison between Postgres and MongoDB
 from the following dimensions:
 
+- [Why Comparing Postgres and MongoDB](#why-comparing-postgres-and-mongodb)
 - [License](#license)
 - [Data Model](#data-model)
 - [JSON Support](#json-support)
@@ -47,6 +48,8 @@ from the following dimensions:
 - [Usability](#usability)
 - [Operability](#operability)
 - [Ecosystem](#ecosystem)
+- [Postgres or MongoDB](#postgres-or-mongodb)
+- [Further Readings](#further-readings)
 
 _Unless otherwise specified, the comparison below is between the latest major release, Postgres 15 vs. MongoDB 6. We also use Postgres instead of PostgreSQL throughout the article, though we know the latter is the official name, which is considered as [the biggest mistake in Postgres History](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)_.
 
@@ -55,8 +58,8 @@ _Unless otherwise specified, the comparison below is between the latest major re
 - Postgres is released under the PostgreSQL license which is a liberal Open Source license similar to
   the BSD or MIT licenses.
 
-- MongoDB community edition is released under [Server Side Public License (SSPL)](https://en.wikipedia.org/wiki/Server_Side_Public_License), a license created by MongoDB Inc. itself to prevent others offering the competing
-  MongoDB service. MongoDB Inc. also provides commerical licenses upon request.
+- MongoDB community edition is released under [Server Side Public License (SSPL)](https://en.wikipedia.org/wiki/Server_Side_Public_License), a license created by MongoDB Inc. itself to prevent others from offering the competing
+  MongoDB service. MongoDB Inc. also provides commercial licenses upon request.
 
 Most companies use databases to support their internal infrastructure, both Postgres and MongoDB permit this usage.
 
@@ -136,8 +139,8 @@ Running a multi-node MongoDB is easier than running a multi-node Postgres, since
 are already handled by MongoDB itself. On the other hand, if you run both databases on a single
 node, then those distributed features in MongoDB become an overhead.
 
-A variaty of 3rd party vendors provide Postgres hosting service. MongoDB's license has prevented
-3rd party providing the MongoDB hosting service, and their own MongoDB Altas is more polished than
+A variety of 3rd party vendors provide Postgres hosting service. MongoDB's license has prevented
+3rd party from providing the MongoDB hosting service, and their own MongoDB Altas is more polished than
 the equivalent Postgres hosting options. After all, it's hard for 3rd party to beat 1st party cloud service.
 
 ## Ecosystem
@@ -149,7 +152,7 @@ solid architecture, for every application platform offering a hosted database se
 
 MongoDB, as the most successful commercial open source business by market cap, takes a more commercialized
 approach. Whenever there emerges a good solution in the ecosystem, MongoDB Inc. would consider acquiring it
-to make sure it become a integral part of the overall MongoDB product line. Notable acquisitions including:
+to make sure it becomes an integral part of the overall MongoDB product line. Notable acquisitions include:
 
 - [WiredTiger](https://www.mongodb.com/press/wired-tige) for the storage engine.
 - [mLab](https://www.mongodb.com/press/mongodb-strengthens-global-cloud-database-with-acquisition-of-mlab) for the hosting service.
@@ -177,7 +180,7 @@ There are obvious domains where one database is more suitable than the other:
 - Choose Postgres if your application has complex business logic and requires complex queries.
 - Choose MongoDB if your application has a simple data model and handles web scale data.
 
-Yet, majority application use cases fall between them and both databases are very capable:
+Yet, the majority of application use cases fall between them and both databases are very capable:
 
 - MongoDB as a document database, naturally provides 1st class JSON support. While Postgres also has the best
   JSON support among all open source relational databases.
@@ -185,13 +188,13 @@ Yet, majority application use cases fall between them and both databases are ver
   Postgres has been attracting them as every major 3rd party application platform offers managed Postgres service.
 - For backend developers, MongoDB becomes appealing ever since it added transaction support. Who doesn't want
   to avoid [stressful schema change procedure](/blog/how-to-handle-database-schema-change) and enjoy faster iteration cycle?
-- MongoDB Atlas has built one of the most polished hosted database services. While many 3rd party venders, from large to small, all provide great Postgres hosting solutions.
+- MongoDB Atlas has built one of the most polished hosted database services. While many 3rd party vendors, from large to small, all provide great Postgres hosting solutions.
 
 Overall, Postgres is a more versatile database. It adopts relational model, provides comprehensive SQL capability, carries an extensible architecture, and is driven by an enthusiastic community.
-MongoDB is a holistic database solution. It popularizes document model, provides built-in scaling and high availability, offeres an integral developer experience, and is driven by a sharp-minded for-profit business entity.
 
-If choosing between [Postgres and MySQL](/blog/postgres-vs-mysql) is hard, then choosing between Postgres and MongoDB is no easier. And as both databases are
-heading upwards, the choice will only become harder 🤷‍♂️.
+MongoDB is a holistic database solution. It popularizes document model, provides built-in scaling and high availability, offers an integral developer experience, and is driven by a sharp-minded for-profit business entity.
+
+If choosing between [Postgres and MySQL](/blog/postgres-vs-mysql) is hard, then choosing between Postgres and MongoDB is no easier. And as both databases are heading upward, the choice will only become harder 🤷‍♂️.
 
 ---
 
