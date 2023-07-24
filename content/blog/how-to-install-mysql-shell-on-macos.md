@@ -9,7 +9,7 @@ description: Learn how to install MySQL Shell on your macOS.
 
 <HintBlock type="info">
 
-This article refers to the advanced MySQL Shell introduced in MySQL 8.0, if you want to install the advanced [MySQL Shell `mysqlsh`](https://dev.mysql.com/doc/mysql-shell/8.0/en/), check out [How to install MySQL Client on Your Mac, Ubuntu, Debian, Windows](/blog/how-to-install-mysql-client-on-mac-ubuntu-debian-windows).
+This article refers to the advanced MySQL Shell introduced in MySQL 8.0, if you want to install the advanced [MySQL Shell `mysqlsh`](https://dev.mysql.com/doc/mysql-shell/8.0/en/), check out [How to install MySQL Client on Your Mac, Ubuntu, Debian, Windows](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows).
 
 </HintBlock>
 
