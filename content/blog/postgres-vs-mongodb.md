@@ -38,7 +38,6 @@ with both. Our founders also build [Google Cloud SQL](https://cloud.google.com/s
 Based on our operating experience, below we give an extensive comparison between Postgres and MongoDB
 from the following dimensions:
 
-- [Why Comparing Postgres and MongoDB](#why-comparing-postgres-and-mongodb)
 - [License](#license)
 - [Data Model](#data-model)
 - [JSON Support](#json-support)
@@ -48,8 +47,6 @@ from the following dimensions:
 - [Usability](#usability)
 - [Operability](#operability)
 - [Ecosystem](#ecosystem)
-- [Postgres or MongoDB](#postgres-or-mongodb)
-- [Further Readings](#further-readings)
 
 _Unless otherwise specified, the comparison below is between the latest major release, Postgres 15 vs. MongoDB 6. We also use Postgres instead of PostgreSQL throughout the article, though we know the latter is the official name, which is considered as [the biggest mistake in Postgres History](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)_.
 
