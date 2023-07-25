@@ -16,7 +16,7 @@ title: Self-host Bytebase
 
 ## Docker
 
-The most convenient way is to run Bytebase in docker, which takes less than 5 seconds.
+The most convenient way is to run Bytebase in Docker, which takes less than 5 seconds.
 
 ### Prerequisites
 

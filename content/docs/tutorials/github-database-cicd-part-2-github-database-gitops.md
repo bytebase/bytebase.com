@@ -154,4 +154,4 @@ bytebase/bytebase:%%bb_version%% \
 
 Congratulations! Now you have 1) Enabled SQL Review GitHub Actions for your GitHub repo, 2) Tried out database GitOps with GitHub. In the upcoming final part, we’ll put these two together, and thus, implementing a complete database CI/CD workflow.
 
-Ready to try out this workflow yourself? Join our [Discord channel](https://discord.gg/6JYYBXvMDF) and share your experience.
+Ready to try out this workflow yourself? Join our [Discord channel](https://discord.gg/huyw7gRsyA) and share your experience.
