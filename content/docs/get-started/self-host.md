@@ -476,3 +476,7 @@ ulimit -n 10240
 ### [Deploy to sealos](/docs/get-started/install/deploy-to-sealos/)
 
 ### [Deploy to Rainbond](/docs/get-started/install/deploy-to-rainbond/)
+
+## Upgrade from 1.x
+
+If you are upgrading from 1.x, please first upgrade to 2.1.0 and then upgrade to the latest version.
