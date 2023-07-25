@@ -51,4 +51,4 @@ To learn details about how to configure SSO using OIDC, you can refer to the use
 
 SSO is available in the Enterprise plan, which enables users to authenticate once and then seamlessly access all authorized resources without re-entering their credentials. Bytebase supports using OAuth 2.0 and OIDC for configuring SSO. To get started, you can refer to the doc [Single Sign-On (SSO)](/docs/administration/sso/overview) and try it out by yourself.
 
-If you have any comments or questions, don’t hesitate to let us know. You can join our [discord](https://discord.gg/H7Ayn5NP) to learn more about Bytebase.
+If you have any comments or questions, don’t hesitate to let us know. You can join our [discord](https://discord.gg/huyw7gRsyA) to learn more about Bytebase.

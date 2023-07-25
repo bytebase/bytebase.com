@@ -98,4 +98,4 @@ Here, we present **a complete Database CI/CD workflow**:
 
 This workflow fits in nicely with the existing CI/CD process and is natural to the Developers. Acute readers may have already spotted the described steps are an implementation of the landmark article [Evolutionary Database Design](https://martinfowler.com/articles/evodb.html).
 
-Ready to taste this Database CI/CD workflow yourself? Join our [Discord channel](https://discord.gg/6JYYBXvMDF) and share your experience.
+Ready to taste this Database CI/CD workflow yourself? Join our [Discord channel](https://discord.gg/huyw7gRsyA) and share your experience.

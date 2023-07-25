@@ -39,4 +39,4 @@ After running the Terraform commands, you can verify the instances list via the 
 
 If you are already using Terraform to manage your infrastructure, the Terraform Bytebase Provider will allow you to codify the database configuration and consolidate your workflow. To get started, you can follow this tutorial [Manage databases in Bytebase with Terraform](https://www.bytebase.com/docs/tutorials/manage-databases-in-bytebase-with-terraform) and try it out by yourself. Additionally, you can find [more examples on GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples).
 
-You are welcome to join [our discord](https://discord.gg/H7Ayn5NP) to learn more about database change management and discuss related topics.
+You are welcome to join [our discord](https://discord.gg/huyw7gRsyA) to learn more about database change management and discuss related topics.

@@ -37,4 +37,4 @@ We've curated some [good first-time issues](https://github.com/bytebase/bytebase
 
 💡If this is your first time contributing to Bytebase, you can start with the [Bytebase source code tour walk-through](https://sourcegraph.com/github.com/bytebase/bytebase/-/blob/docs/design/sql-review-source-code-tour.snb.md). You can also refer to our [Contribution Guide](https://github.com/bytebase/bytebase#-interested-in-contributing).
 
-If you encounter any issues, or need a helping hand, feel free to join our [Discord](https://discord.gg/6JYYBXvMDF)!
+If you encounter any issues, or need a helping hand, feel free to join our [Discord](https://discord.gg/huyw7gRsyA)!
