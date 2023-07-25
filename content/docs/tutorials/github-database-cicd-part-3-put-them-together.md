@@ -74,4 +74,4 @@ Congratulations! Now you have implemented a complete database CI/CD workflow! Le
 7. There will be an auto-generated file `.xxx##LATEST.sql`, which is the latest schema written back by Bytebase after the migration.
 8. After all migrations are done, you can now deploy your application code that is dependent on the new schema.
 
-Customize the structure to fit your own needs! Feel free to Join our [Discord channel](https://discord.gg/6JYYBXvMDF) and share your experience.
+Customize the structure to fit your own needs! Feel free to Join our [Discord channel](https://discord.gg/huyw7gRsyA) and share your experience.

@@ -125,6 +125,6 @@ From Bytebase [1.8.0](/changelog/bytebase-1-8-0), you can start a 14-day **Pro P
 trial without credit card.
 ![dbprod t1](/content/docs/tutorials/how-to-synchronize-database-schemas/dbprod-t1.webp)
 
-Is the experience smooth? Or do you encounter any problems? Feel free to join our [Discord Group](https://discord.gg/Fac9nmZ95j) to talk about it!
+Is the experience smooth? Or do you encounter any problems? Feel free to join our [Discord Group](https://discord.gg/huyw7gRsyA) to talk about it!
 
 In the following article, we’ll explain how Bytebase implements schema synchronization for MySQL from a technical perspective. Stay tuned!
