@@ -30,6 +30,9 @@ The information is the base concept of [OAuth 2.0](https://oauth.net/2/) and com
 - **Scopes** is the scope parameter carried when accessing the OAuth2 URL, which is filled in according to the custom provider;
 - **Token URL** is the API address for obtaining access token;
 - **User information URL** is the API address for obtaining user information by access token;
+- **Auth style** specifies how the endpoint wants the client ID & client secret sent.
+  - **In params**: The `client_id` and `client_secret` will be sending in the POST body as application/x-www-form-urlencoded parameters.
+  - **In header**: The `client_id` and `client_secret` will be sending in HTTP Basic Authorization. This is an optional style described in the OAuth2 RFC 6749 section 2.3.1.
 
 ### User information mapping
 
