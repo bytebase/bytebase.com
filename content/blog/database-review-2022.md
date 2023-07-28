@@ -204,7 +204,7 @@ And this year PlanetScale has found a spiritual partner Neon, which also focuses
 ![_](/content/blog/database-review-2022/planetscale-slogan.webp)
 ![_](/content/blog/database-review-2022/neon-slogan.webp)
 
-The main difference between PlanetScale and Neon is MySQL-based vs PostgreSQLL-based . It seems that the love-hate relationship between MySQL and PostgreSQL will never end. From native MySQL vs PostgreSQL, to distributed TiDB vs CockroachDB, to cloud-native AWS Aurora vs GCP AlloyDB, and now with the focus on developer workflows in PlanetScale vs Neon.
+The main difference between PlanetScale and Neon is MySQL-based vs PostgreSQL-based . It seems that the love-hate relationship between MySQL and PostgreSQL will never end. From native MySQL vs PostgreSQL, to distributed TiDB vs CockroachDB, to cloud-native AWS Aurora vs GCP AlloyDB, and now with the focus on developer workflows in PlanetScale vs Neon.
 
 ### Tooling
 
