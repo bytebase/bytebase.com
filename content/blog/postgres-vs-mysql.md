@@ -103,14 +103,14 @@ Postgres employs a 5 level system:
 
 Both databases provide ACID transaction. Overall, Postgres provides a stronger transaction support:
 
-| Database         | Scenario | Supported?                                                                                                        |
-| ---------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| Before MySQL 8.0 | DML      | Yes                                                                                                               |
-| Since MySQL 8.0  | DML      | Yes                                                                                                               |
-| Before MySQL 8.0 | DDL      | No                                                                                                                |
-| Since MySQL 8.0  | DDL      | [Yes, but can't be performed within another transaction](https://dev.mysql.com/doc/refman/8.0/en/atomic-ddl.html) |
-| Postgres         | DML      | Yes                                                                                                               |
-| Postgres         | DDL      | Yes                                                                                                               |
+| Database         | Scenario | Supported?                                                                             |
+| ---------------- | -------- | -------------------------------------------------------------------------------------- |
+| Before MySQL 8.0 | DML      | Yes                                                                                    |
+| Since MySQL 8.0  | DML      | Yes                                                                                    |
+| Before MySQL 8.0 | DDL      | No                                                                                     |
+| Since MySQL 8.0  | DDL      | [Single statement atomic DDL](https://dev.mysql.com/doc/refman/8.0/en/atomic-ddl.html) |
+| Postgres         | DML      | Yes                                                                                    |
+| Postgres         | DDL      | Yes                                                                                    |
 
 ### Security
 
@@ -157,7 +157,7 @@ Range Units: MySQL only supports the UNBOUNDED PRECEDING and CURRENT ROW range u
 
 Performance: In general, Postgres implementation of window functions is considered more efficient and performant than MySQL implementation.
 
-Advanced Functions: Postgres supports more advanced window functions, such as LAG(), LEAD(), FIRST_VALUE(), and LAST_VALUE().
+~Advanced Functions: Postgres supports more advanced window functions, such as LAG(), LEAD(), FIRST_VALUE(), and LAST_VALUE()~. MySQL 8.0 also supports these [window functions](https://dev.mysql.com/doc/refman/8.0/en/window-function-descriptions.html).
 
 ## Extensibility
 
