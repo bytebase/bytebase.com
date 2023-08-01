@@ -18,7 +18,7 @@ The price is based on the Plan and the purchased instance quota. To save budget,
 
 </HintBlock>
 
-- For Pro plan, you need to purcahse a Pro license with a minimum 1 instance quota.
+- For Pro plan, you need to purchase a Pro license with a minimum 1 instance quota.
 - For Enterprise plan, you need to purchase an Enterprise license with a minimum 5 instance quota.
 
 Features like [SSO](/docs/administration/sso/overview/), [Watermark](/docs/security/watermark/) are Enterprise features and not specific to a particular instance. Thus as long as you have the Enterprise license, you can use those features.
