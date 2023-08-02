@@ -24,7 +24,7 @@ const cards: TCard[] = [
     image: '/images/page/pricing/free.webp',
     planTitle: 'free',
     price: 0,
-    description: 'Unlimited users, environments',
+    description: 'Up to 20 users, 10 instances',
     buttonText: 'Free Deploy',
     buttonTheme: 'primary-outline',
     buttonLink: '/docs/get-started/self-host/#docker',
