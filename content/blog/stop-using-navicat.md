@@ -28,7 +28,7 @@ As a client-side software, Navicat needs the username and password to access the
 
 Since database credentials are distributed directly to individuals, there is no finer access control, such as granting access to certain databases under one instance, but not the rest.
 
-### No data anonymization
+### No data masking
 
 Similarly, since database credentials are distributed directly to individuals, all data is exposed in the original text form.
 
@@ -76,9 +76,9 @@ Bytebase is a web-based product with server-side capabilities that can fill the 
 
 ![_](/content/blog/stop-using-navicat/bytebase-change-process.webp)
 
-### Data Anonymization
+### Data Masking
 
-![_](/content/blog/stop-using-navicat/bytebase-data-anonymization.webp)
+![_](/content/blog/stop-using-navicat/bytebase-data-masking.webp)
 
 ### Data Access Control
 
@@ -108,7 +108,7 @@ Bytebase and Navicat both provide a UI for users to operate the database, the ma
 | ---------------------------------- | ------- | -------- |
 | Centralised control over password  | ❌      | ✅       |
 | Data access control                | ❌      | ✅       |
-| Data anonymization                 | ❌      | ✅       |
+| Data masking                       | ❌      | ✅       |
 | Review process for database change | ❌      | ✅       |
 | SQL script sharing                 | ❌      | ✅       |
 | VCS integration                    | ❌      | ✅       |

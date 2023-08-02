@@ -3,13 +3,13 @@ title: Bytebase 2.3.0
 author: Mila
 published_at: 2023/06/21 17:21:21
 feature_image: /content/changelog/2-3-0-banner.webp
-description: 'SQL Review for Snowflake. Anonymize data for Oracle. Export Center for data exports.'
+description: 'SQL Review for Snowflake. Mask data for Oracle. Export Center for data exports.'
 ---
 
 ## 🚀 New Features
 
 - [SQL Review](/docs/sql-review/review-rules/) for Snowflake.
-- [Anonymize data](/docs/security/anonymize-data/) for Oracle.
+- [Mask data](/docs/security/mask-data/) for Oracle.
 - Introduced [Export Center](/docs/security/data-export/#download-in-export-center) for data exports.
 
 ## 🎄 Enhancements

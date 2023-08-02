@@ -21,7 +21,7 @@ Organizations want to limit database access and enforce approval flow to conform
 
 - [Data Query Approval Flow](/docs/security/data-query)
 - [Data Export Approval Flow](/docs/security/data-export)
-- [Anonymize Data](/docs/security/anonymize-data)
+- [Data Masking](/docs/security/mask-data)
 - [Data Access Control](/docs/security/data-access-control)
 - [Watermark](/docs/security/watermark)
 - [Audit Log](/docs/security/audit-log)

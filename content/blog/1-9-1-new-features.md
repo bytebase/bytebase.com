@@ -4,7 +4,7 @@ author: Tianzhou
 published_at: 2022/12/20 17:21:21
 feature_image: /content/blog/1-9-1-new-features/1.9.1-banner.webp
 tags: Explanation
-description: Last week, we released Bytebase 1.9.1. Let's take a deeper look into the new features - schema editor, mark issues as Need Attention, data access control, and data anonymization.
+description: Last week, we released Bytebase 1.9.1. Let's take a deeper look into the new features - schema editor, mark issues as Need Attention, data access control, and data masking.
 ---
 
 The penultimate release of 2022 brings Bytebase from 1.9.0 to [1.9.1](/changelog/bytebase-1-9-1). Although it’s only a PATCH version, the 237 commits still bring us tons of new features. Let’s take a closer look at what's released during this World Cup cycle ⚽️.
@@ -45,11 +45,11 @@ Some users suggested that they don’t want developers to access all databases i
 
 ![_](/content/blog/1-9-1-new-features/accesss-control-env.webp)
 
-The overall Bytebase design follows the same security practice of default blacklisting. This is yet another feature focusing on data security after [Data Anonymization](/docs/security/anonymize-data).
+The overall Bytebase design follows the same security practice of default blacklisting. This is yet another feature focusing on data security after [Data Masking](/docs/security/mask-data).
 
-## Data Anonymization
+## Data Masking
 
-In the last release, we introduced data anonymization for MySQL.
+In the last release, we introduced data masking for MySQL.
 
 In this cycle, we have enhanced its capabilities, and it now tops the mainstream goInception-based solutions in the market.
 
@@ -61,9 +61,9 @@ In this cycle, we have enhanced its capabilities, and it now tops the mainstream
 | JOIN ... USING(...)          | ✔️       | ❌          |
 | Common Table Expression(CTE) | ✔️       | ❌          |
 
-goInception claims to be able to anonymize data. Still, it’s a bit too easy to bypass😓. Companies, if you use goInception, I am sweating for your data security.
+goInception claims to be able to mask data. Still, it’s a bit too easy to bypass😓. Companies, if you use goInception, I am sweating for your data security.
 
-And unlike goInception, which only supports MySQL, we will soon bring full data anonymization capabilities to PostgreSQL.
+And unlike goInception, which only supports MySQL, we will soon bring full data masking capabilities to PostgreSQL.
 
 ## Summary
 

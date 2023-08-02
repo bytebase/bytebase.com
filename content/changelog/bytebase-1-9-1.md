@@ -17,7 +17,7 @@ description: '- Support data access control. - Schema Editor for MySQL. - Check 
 - Terraform Bytebase Provider
   - Manage [instance details](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/instance).
   - Manage [environment details](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/environment).
-- [Data masking](/docs/security/anonymize-data) for MySQL databases now supports all query types.
+- [Data masking](/docs/security/mask-data) for MySQL databases now supports all query types.
 - [Schema Sync for PostgreSQL](/docs/change-database/synchronize-schema) supports Enum Type, Function, Trigger, and Extension.
 - Trigger [Feishu external approval](/docs/administration/external-approval) manually.
 - [Tenant database label](/docs/change-database/batch-change) supports arbitrary values without pre-definition.

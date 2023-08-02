@@ -113,13 +113,13 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ## [SQL Editor](/sql-editor/overview)
 
-### [Manage SQL Scripts with Sheet](/sql-editor/manage-sql-scripts)
-
 ### [Run and EXPLAIN Query](/sql-editor/run-queries)
 
-### [Anonymize Data](/sql-editor/anonymize-data)
-
 ### [Admin Mode](/sql-editor/admin-mode)
+
+### [Data Masking](/sql-editor/mask-data)
+
+### [Manage SQL Scripts with Sheet](/sql-editor/manage-sql-scripts)
 
 ### [Explore Schema](/sql-editor/explore-schema)
 
@@ -127,13 +127,13 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ## Secure Data
 
+### [Data Masking](/security/mask-data)
+
 ### [Data Access Control](/security/data-access-control)
 
 ### [Data Query Approval Flow](/security/data-query)
 
 ### [Data Export Approval Flow](/security/data-export)
-
-### [Anonymize Data](/security/anonymize-data)
 
 ### [Watermark](/security/watermark)
 

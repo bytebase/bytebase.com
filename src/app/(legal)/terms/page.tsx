@@ -202,7 +202,7 @@ export default function Page() {
         You acknowledge and agree that Usage Data is owned solely and exclusively by us, and that we
         may use it for any legal purpose, including for purposes of operating, analyzing, improving,
         or marketing our products. If we share or publicly disclose any information constituting or
-        derived from Usage Data (e.g., in marketing materials), we will aggregate or anonymize that
+        derived from Usage Data (e.g., in marketing materials), we will aggregate or mask that
         information to avoid identification.
       </p>
       <h2>5. Data protection</h2>

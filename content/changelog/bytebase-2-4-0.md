@@ -10,7 +10,7 @@ description: 'Support data access control for query and export at workspace leve
 
 - Support [data access control for query and export at workspace level](/docs/security/data-access-control/) with custom approval integration.
 - Support Snowflake Task, Stream objects and data access control.
-- Support Redshift datashare query, data access control, and data anonymization.
+- Support Redshift datashare query, data access control, and data masking.
 - Support data export as `INSERT` DML script.
 - Support markdown in issue comment.
 - Support session in SQL Editor admin mode.

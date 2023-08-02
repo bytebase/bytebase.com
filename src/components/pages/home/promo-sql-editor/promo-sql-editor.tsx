@@ -30,9 +30,9 @@ const data: AccordionData[] = [
     image: '/images/page/main/sql-editor/interface-explore.webp',
   },
   {
-    title: 'Anonymize data',
-    description: 'Built-in data anonymization to protect sensitive information.',
-    image: '/images/page/main/sql-editor/interface-anonymize.webp',
+    title: 'Mask data',
+    description: 'Built-in data masking to protect sensitive information.',
+    image: '/images/page/main/sql-editor/interface-mask.webp',
   },
   {
     title: 'Control data access',

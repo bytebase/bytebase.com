@@ -37,9 +37,9 @@ There is a lot more that a good parser can do. We have invested a lot of R&D wor
 
 ![_](/content/blog/1-9-0-new-features/pg-schema-sync.webp)
 
-## Data Anonymization
+## Data Masking
 
-Previously, Bytebase was focused on database change management (DCM). And another critical piece is data security. This release is our first footstep into this territory, with the ability to [anonymize database fields by tagging them](/docs/security/anonymize-data).
+Previously, Bytebase was focused on database change management (DCM). And another critical piece is data security. This release is our first footstep into this territory, with the ability to [mask database fields by tagging them](/docs/security/mask-data).
 
 There's not much to say about the feature alone, after all, many of our friends have them too. The difference is that Bytebase is only here now because we have just laid the groundwork for the system.
 

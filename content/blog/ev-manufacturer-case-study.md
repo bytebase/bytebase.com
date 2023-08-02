@@ -81,4 +81,4 @@ The ultimate goal is to improve collaboration, rather than enforce strict contro
 
 ## To Wrap Up
 
-Currently, the EV manufacturer is still continuously optimizing their database management process and exploring more Bytebase capabilities such as [optimizing slow queries](/docs/slow-query/overview/) and [anonymizing data](/docs/security/anonymize-data/) to further empower the developer team. Stay tuned for a follow-up.
+Currently, the EV manufacturer is still continuously optimizing their database management process and exploring more Bytebase capabilities such as [optimizing slow queries](/docs/slow-query/overview/) and [anonymizing data](/docs/security/mask-data/) to further empower the developer team. Stay tuned for a follow-up.

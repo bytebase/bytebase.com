@@ -5,7 +5,7 @@ published_at: 2023/01/06 12:37:17
 feature_image: /content/blog/the-sql-editor-for-developers-and-dbas/cover.webp
 tags: Announcement
 featured: true
-description: Introduce the new SQL Editor in Bytebase Console with six highlights - Admin mode, database-based access control, data anonymization, audit logs, collaborative sheets and easy to use.
+description: Introduce the new SQL Editor in Bytebase Console with six highlights - Admin mode, database-based access control, data masking, audit logs, collaborative sheets and easy to use.
 ---
 
 ## Key features of Advanced SQL Editor
@@ -24,7 +24,7 @@ Bytebase v1.9.1 releases a new SQL Editor with the following highlights:
 
 - [Admin mode](#admin-mode): Bytebase provides Admin mode in SQL Editor to allow DBAs to execute database admin commands.
 - [Database-based access control](#database-based-access-control): All databases in the protected environments can not be queried by developers in SQL Editor. DBAs can configure a database allowlist to grant developers the ability to query some of databases.
-- [Data anonymization](#data-anonymization): The query result of sensitive columns will be masked when developers run a query in SQL Editor. It is applicable to all query types, such as subquery, JOIN, Common Table Expression (CTE).
+- [Data masking](#data-masking): The query result of sensitive columns will be masked when developers run a query in SQL Editor. It is applicable to all query types, such as subquery, JOIN, Common Table Expression (CTE).
 - [Audit logs](#audit-logs): Bytebase Audit Log records all queries in SQL Editor which is accessible to DBAs.
 - [Collaborative sheets](#collaborative-sheets): DBAs and developers can save SQL statements as sheets to share with others in SQL Editor. Moreover, this release supports saving the uploaded SQL scripts as sheets to be used in issues to apply database changes, a single sheet can hold up to 100MB sized SQL statements.
 - Good user experience: This release presents SQL Editor with a fresh look and improves the code auto-completion.
@@ -39,10 +39,10 @@ When users want to connect to databases to run admin commands, they can do it in
 When users want to allow developers to access some databases in the production environment, they can mark the production environment as a protected environment and configure an allowlist. You can get more details from the document [Data Access Control](/docs/security/data-access-control).
 ![access-control](/content/blog/the-sql-editor-for-developers-and-dbas/access-control.webp)
 
-### Data Anonymization
+### Data Masking
 
-When developers query tables containing sensitive columns in SQL Editor, the result of these columns will display as "**\*\***". You can learn the configuration details from the document [Anonymize Data](/docs/security/anonymize-data).
-![anonymize-data](/content/blog/the-sql-editor-for-developers-and-dbas/anonymize-data.webp)
+When developers query tables containing sensitive columns in SQL Editor, the result of these columns will display as "**\*\***". You can learn the configuration details from the document [Data Masking](/docs/security/mask-data).
+![mask-data](/content/blog/the-sql-editor-for-developers-and-dbas/mask-data.webp)
 
 ### Audit Logs
 
@@ -56,6 +56,6 @@ For commonly-used SQL statements, you can save them as sheets and set up a publi
 
 ## Try it Out
 
-With the new SQL Editor in Bytebase Console, you can run database admin commands in Admin mode, anonymize sensitive data when fetching query results, configure a database allowlist to manage database access permission, and save commonly-used SQL scripts to collaborate with team members. Besides that, you can inspect all queries in SQL Editor via audit logs.
+With the new SQL Editor in Bytebase Console, you can run database admin commands in Admin mode, mask sensitive data when fetching query results, configure a database allowlist to manage database access permission, and save commonly-used SQL scripts to collaborate with team members. Besides that, you can inspect all queries in SQL Editor via audit logs.
 
 If you have any comments or questions, don’t hesitate to let us know. You can join our [discord](https://discord.gg/huyw7gRsyA) to learn more about Bytebase.
