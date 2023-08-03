@@ -205,6 +205,7 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 #### [OpenID Connect (OIDC)](/administration/sso/oidc)
 
 ### [Two-Factor Authentication](/administration/2fa)
+
 ### [Sign-in Frequency](/administration/sign-in-frequency)
 
 ### [Anomaly Center](/administration/anomaly-center)
