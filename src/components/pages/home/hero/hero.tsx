@@ -140,7 +140,7 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
                   What’s new?
                 </span>
                 <span className="flex items-center gap-1.5 px-2">
-                  Release {latestVersion.number} - Database GitOps with GitHub Enterprise
+                  Release {latestVersion.number} - Database GitOps with Azure DevOps
                   <SmallArrowIcon width={7} height={6} />
                 </span>
               </span>
