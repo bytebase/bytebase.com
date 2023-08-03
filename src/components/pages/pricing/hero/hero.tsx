@@ -24,7 +24,7 @@ const cards: TCard[] = [
     image: '/images/page/pricing/free.webp',
     planTitle: 'free',
     price: 0,
-    description: 'Unlimited users, environments',
+    description: 'Up to 20 users, 10 instances',
     buttonText: 'Free Deploy',
     buttonTheme: 'primary-outline',
     buttonLink: '/docs/get-started/self-host/#docker',
@@ -80,7 +80,7 @@ const cards: TCard[] = [
 ];
 
 const Hero = () => (
-  <section className="bg-pricing-hero pt-[120px] pb-20 xl:pt-[112px] lg:pb-16 md:pt-24 md:pb-[54px] sm:pb-11">
+  <section className="bg-pricing-hero pb-20 pt-[120px] xl:pt-[112px] lg:pb-16 md:pb-[54px] md:pt-24 sm:pb-11">
     <div className="container max-w-[1396px] 2xl:max-w-full">
       <header className="text-center">
         <h1 className="sr-only">Bytebase pricing page</h1>

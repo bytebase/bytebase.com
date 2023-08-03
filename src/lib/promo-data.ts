@@ -2,9 +2,8 @@ import ROUTE from '@/lib/route';
 
 const PROMO_DATA = {
   TOP_BANNER: {
-    title:
-      'Case Study for SaaS Vendors - Multi-Tenant Database Change Management at Longbridge Whale',
-    pathname: '/blog/longbridge-case-study/',
+    title: '🎉 We just crossed 1 million downloads',
+    pathname: '/blog/one-million-downloads/',
   },
   BLOG_ASIDE: {
     title: 'What is Bytebase?',

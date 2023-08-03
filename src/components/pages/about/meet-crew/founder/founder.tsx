@@ -1,11 +1,15 @@
+import Link from '@/components/shared/link';
 import Image from 'next/image';
 
 import clsx from 'clsx';
+
+import LinkedInIcon from '@/svgs/linkedin.inline.svg';
 
 const founder = {
   danny: {
     name: 'Danny',
     position: 'Co-Founder & CTO',
+    linkedin: 'https://www.linkedin.com/in/danny-xu-579b1a54/',
     image: {
       default: '/images/page/about/danny.webp',
       xl: '/images/page/about/danny-xl.webp',
@@ -18,6 +22,7 @@ const founder = {
   tianzhou: {
     name: 'Tianzhou',
     position: 'Co-Founder & CEO',
+    linkedin: 'https://www.linkedin.com/in/tianzhouchen/',
     image: {
       default: '/images/page/about/tianzhou.webp',
       xl: '/images/page/about/tianzhou-xl.webp',
@@ -30,12 +35,12 @@ const founder = {
 };
 
 const Founder = ({ id, className }: { id: keyof typeof founder; className?: string }) => {
-  const { position, name, image, about } = founder[id];
+  const { position, linkedin, name, image, about } = founder[id];
 
   return (
     <article
       className={clsx(
-        'flex items-start border border-solid pt-8 pb-6 xl:pt-6 xl:pl-6 xl:pb-5 xl:pr-1 md:flex-col md:items-center md:p-6 md:pb-5 sm:items-start sm:pb-6',
+        'flex items-start border border-solid pb-6 pt-8 xl:pb-5 xl:pl-6 xl:pr-1 xl:pt-6 md:flex-col md:items-center md:p-6 md:pb-5 sm:items-start sm:pb-6',
         {
           'border-tones-blue-dark bg-tones-blue-light pl-8 pr-2 shadow-[inset_6px_6px_0_#fff,0_5px_15px_rgba(156,186,201,0.5)]':
             id === 'danny',
@@ -94,7 +99,14 @@ const Founder = ({ id, className }: { id: keyof typeof founder; className?: stri
                 },
               )}
             >
-              {position}
+              <Link className="flex items-center" href={linkedin}>
+                {position}
+                <LinkedInIcon
+                  width={20}
+                  height={20}
+                  className="ml-1 shrink-0 items-center transition-opacity duration-200 hover:opacity-80"
+                />
+              </Link>
             </small>
           </div>
         </div>
