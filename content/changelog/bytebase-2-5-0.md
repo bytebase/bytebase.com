@@ -31,8 +31,8 @@ description: 'Support Azure DevOps for VCS integration; Support setting Sign-in 
 ## 📰 Fresh off the press
 
 - Bytebase [Crossed 1 Million Downloads](/blog/one-million-downloads/) 🎉 , while our goal stays the same as when we started the project!
-- [A case study](https://www.bytebase.com/blog/ev-manufacturer-case-study/) demonstrating how Bytebase helps a single DBA to work with over 1000 developers to adopt Database DevOps in an EV Manufacturer.
-- SQL AI tools can significantly boost your productivity when working with databases. Here are the [top 5 SQL AI tools](https://www.bytebase.com/blog/top-sql-ai-tools/) on the market.
+- [A case study](/blog/ev-manufacturer-case-study/) demonstrating how Bytebase helps a single DBA to work with over 1000 developers to adopt Database DevOps in an EV Manufacturer.
+- SQL AI tools can significantly boost your productivity when working with databases. Here are the [top 5 SQL AI tools](/blog/top-sql-ai-tools/) on the market.
 
 ## 📕 Installation and Upgrade
 
