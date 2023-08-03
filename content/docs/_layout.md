@@ -206,6 +206,8 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ### [Two-Factor Authentication](/administration/2fa)
 
+### [Sign-in Frequency](/administration/sign-in-frequency)
+
 ### [Anomaly Center](/administration/anomaly-center)
 
 ### [Risk Center](/administration/risk-center)
