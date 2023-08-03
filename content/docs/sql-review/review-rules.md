@@ -373,7 +373,7 @@ Using keywords as table names in Oracle, or any other database management system
 
 4. Portability: If you decide to migrate your database from one DBMS to another in the future, using keywords as table names can cause compatibility issues. Different database systems have different sets of reserved keywords, and these keywords may vary in meaning and functionality. Migrating a database containing table names that are keywords in the target DBMS may require modifying the table names or using workarounds, which can be time-consuming and error-prone.
 
-![schema-review-naming-table-no-keyword](/docs/sql-review/schema-review-naming-table-no-keyword.webp)
+![sql-review-naming-table-no-keyword](/content/docs/sql-review/sql-review-naming-table-no-keyword.webp)
 
 #### Support database engine
 
@@ -385,7 +385,7 @@ Using keywords as table names in Oracle, or any other database management system
 
 The same reason as `Disallow keywords as table names` above.
 
-![schema-review-naming-identifier-no-keyword](/docs/sql-review/schema-review-naming-identifier-no-keyword.webp)
+![sql-review-naming-identifier-no-keyword](/content/docs/sql-review/sql-review-naming-identifier-no-keyword.webp)
 
 #### Support database engine
 
@@ -399,7 +399,7 @@ Bytebase provides this rule to unify the identifier case.
 
 For Oracle, if the identifier is not quoted, it is converted to uppercase. In order to unify the identifier case, you can use this rule to disallow the lowercase identifier.
 
-![schema-review-naming-identifier-case](/docs/sql-review/schema-review-naming-identifier-case.webp)
+![sql-review-naming-identifier-case](/content/docs/sql-review/sql-review-naming-identifier-case.webp)
 
 #### Support database engine
 
@@ -413,7 +413,7 @@ For Oracle, if the identifier is not quoted, it is converted to uppercase. In or
 
 `SELECT *` introduces additional performance cost or ambiguous semantics.
 
-For scenarios where all columns are not required, you should SELECT the columns you need to avoid getting uneeded data.
+For scenarios where all columns are not required, you should SELECT the columns you need to avoid getting unneeded data.
 
 For scenarios where all columns are required, you should list all column names to avoid semantic ambiguity. Otherwise, the data consumer cannot know the column information. And `SELECT *` may bring additional modifications and errors when modifying the table schema.
 
