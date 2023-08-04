@@ -206,6 +206,8 @@ And this year PlanetScale has found a spiritual partner Neon, which also focuses
 
 The main difference between PlanetScale and Neon is MySQL-based vs PostgreSQL-based . It seems that the love-hate relationship between MySQL and PostgreSQL will never end. From native MySQL vs PostgreSQL, to distributed TiDB vs CockroachDB, to cloud-native AWS Aurora vs GCP AlloyDB, and now with the focus on developer workflows in PlanetScale vs Neon.
 
+Check out [PlanetScale vs. Neon](/blog/planetscale-vs-neon) for a comprehensive comparison.
+
 ### Tooling
 
 In 2022, the most significant release in the data category at AWS re:Invent was not a database but rather [DataZone](https://aws.amazon.com/datazone/) - a data management service that enables users to catalog, discover, share, and govern data.
