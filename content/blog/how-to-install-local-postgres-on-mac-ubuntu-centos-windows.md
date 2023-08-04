@@ -161,7 +161,7 @@ sudo -u postgres createdb &lt;database_name>
 1. Once you are connected, you can create a new database by right-clicking on the "Databases" node in the left-hand sidebar, and selecting "Create > Database".
 1. In the "Create - Database" dialog, enter a name for the new database, and click "Save".
 
-That's it! You should now have a working Postgres database on your <insert your own> machine, and you can start using it with your preferred client or by using the command line.
+That's it! You should now have a working Postgres database on your own machine, and you can start using it with your preferred client or by using the command line.
 
 
 ## More Postgres Tools
