@@ -8,11 +8,11 @@ featured: true
 description: Bytebase just passed 1 million downloads, thanks to our customers and community users all over the world.
 ---
 
-On August 1st, 2023, Bytebase reached another milestone to have 1 million downloads.
+On August 1st, 2023, Bytebase reached another milestone to have 1 Million downloads.
 
 ![_](/content/blog/one-million-downloads/download.webp)
 
-It'e been more than 2 years since [we announced Bytebase](/blog/announce-bytebase/). As an open source
+It's been more than 2 years since [we announced Bytebase](/blog/announce-bytebase/). As an open source
 project, Bytebase has been growing way faster than the classic [Liquibase](/blog/bytebase-vs-liquibase/) and [Flyway](/blog/bytebase-vs-flyway/).
 
 ![_](/content/blog/one-million-downloads/star-history.webp)
