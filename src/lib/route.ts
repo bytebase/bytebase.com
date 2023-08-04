@@ -68,6 +68,7 @@ const Route = {
   FLYWAY_VS_LIQUIBASE: '/blog/flyway-vs-liquibase',
   PG_VS_MYSQL: '/blog/postgres-vs-mysql',
   PG_VS_MONGO: '/blog/postgres-vs-mongodb',
+  PLANETSCALE_VS_NEON: '/blog/planetscale-vs-neon',
 
   // databases
   DATABASE_MYSQL: '/database/mysql',
