@@ -22,6 +22,6 @@ This document shows you how to configure **Sign-in Frequency** to your workspace
 
 <HintBlock type="info">
 
-You need to restart Bytebase to make the change take effect.
+You need to restart Bytebase and re-login to make the change take effect.
 
 </HintBlock>
