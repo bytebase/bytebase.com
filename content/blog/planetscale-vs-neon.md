@@ -137,6 +137,8 @@ PlanetScale has [SOC 2 type 2 and HIPAA](https://planetscale.com/docs/concepts/s
 
 PlanetScale and Neon choose identical strategy, open souce their database codebase under the same liberal license and only charge the cloud service.
 
+[![Star History](/content/blog/planetscale-vs-neon/star-history.webp)](https://star-history.com/#planetscale/beam&vitessio/vitess&neondatabase/neon&Date)
+
 PlanetScale is based on a [Vitess fork](https://github.com/planetscale/vitess) under Apache-2.0. The team once built [gh-ost](https://github.com/github/gh-ost), the
 best online schema migration tool for MySQL and probably among all open source RDBMS. They also open sourced [beam](https://github.com/planetscale/beam), a message board web app to showcase PlanetScale.
 
