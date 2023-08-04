@@ -90,10 +90,10 @@ is as easy as scale-up.
 
 ## Operability
 
-**PlanetScale provides a complete managed database service. It tries to take care of every aspect of using the
-database.**
+**PlanetScale provides a complete managed database service. It tries to take care of [every aspect of using the
+database](https://planetscale.com/blog/all-the-tech-planetscale-replaces).**
 
-![planetscale-menu](/content/blog/planetscale-vs-neon/planetscale-menu.webp)
+![planetscale-tech](/content/blog/planetscale-vs-neon/planetscale-tech.webp)
 
 - **Deploy requests** and **Branches** for database change workflow.
 - **Insights** for monitoring.
@@ -212,6 +212,7 @@ FWIW, if you still prefer vanilla MySQL/Postgres and want PlanetScale's database
 ## Further Readings
 
 - [Announcing PlanetScale: The database for developers](https://planetscale.com/blog/announcing-planetscale-the-database-for-developers)
+- [All of the tech PlanetScale replaces](https://planetscale.com/blog/all-the-tech-planetscale-replaces)
 - [PlanetScale increases plans to include billions of reads](https://news.ycombinator.com/item?id=30457960)
 - [Neon – Serverless Postgres](https://news.ycombinator.com/item?id=31536827)
 - [Architecture decisions in Neon](https://neon.tech/blog/architecture-decisions-in-neon)
