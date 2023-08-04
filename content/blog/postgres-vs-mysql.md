@@ -228,6 +228,7 @@ lifecycle for both of them, please check out [Bytebase](/).
 ## Further Readings
 
 - [Postgres vs. MongoDB](/blog/postgres-vs-mongodb)
+- [PlanetScale vs. Neon](/blog/planetscale-vs-neon)
 - [Ask HN: It's 2023, how do you choose between MySQL and Postgres?](https://news.ycombinator.com/item?id=35906604)
 - [Why Uber Engineering Switched from Postgres to MySQL](https://www.uber.com/en-SG/blog/postgres-to-mysql-migration/)
 - [The Part of PostgreSQL We Hate the Most](https://ottertune.com/blog/the-part-of-postgresql-we-hate-the-most/)

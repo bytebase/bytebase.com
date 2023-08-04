@@ -203,6 +203,7 @@ lifecycle for both of them, please check out [Bytebase](/).
 ## Further Readings
 
 - [Postgres vs. MySQL](/blog/postgres-vs-mysql)
+- [PlanetScale vs. Neon](/blog/planetscale-vs-neon)
 - [Bye bye Mongo, Hello Postgres](https://www.theguardian.com/info/2018/nov/30/bye-bye-mongo-hello-postgres)
 - [Ask HN: Is MongoDB obsolote when Postgres and SQLite provide JSON types?](https://news.ycombinator.com/item?id=30464075)
 - [Proposal: Add JSON support for Postgres](https://www.postgresql.org/message-id/e7e5fefd1003281348v6feb1730u7d43ccf011be6976%40mail.gmail.com)
