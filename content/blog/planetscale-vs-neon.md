@@ -127,7 +127,7 @@ It's quite a lot to cover and PlanetScale manages to craft every pixel. e.g. [Bo
 
 ![neon-sql-editor](/content/blog/planetscale-vs-neon/neon-sql-editor.webp)
 
-The SQL Editor is neat. Here Neon embeds an external view from [explain.dalibo.com](https://explain.dalibo.com/) to display the query plan. It looks a bit strange visually, but serves the purpose well.
+The SQL Editor is handy. Here Neon embeds an external view from [explain.dalibo.com](https://explain.dalibo.com/) to display the query plan. It looks a bit strange visually, but serves the purpose well.
 
 ## Integration
 
@@ -224,7 +224,7 @@ Both PlanetScale and Neon could become the next MongoDB / Snowflake for modern R
 
 ---
 
-BTW, if you still prefer vanilla MySQL/Postgres and want PlanetScale's database change workflow or Neon's visual SQL Editor, please check out [Bytebase](/). Bytebase is a database tool for all mainstream databases, covering database change, query, security and governance all-in-one. It provides more customizable [change workflow](/docs/concepts/database-change-workflow/) and visual SQL Editor integrated with [access control](/docs/security/data-access-control/) and [data masking](/docs/security/mask-data/).
+BTW, if you still stick with vanilla MySQL/Postgres and want PlanetScale's database change workflow or Neon's visual SQL Editor, please check out [Bytebase](/). Bytebase is a database tool for all mainstream databases, covering database change, query, security and governance all-in-one. It provides more customizable [change workflow](/docs/concepts/database-change-workflow/) and visual SQL Editor integrated with [access control](/docs/security/data-access-control/) and [data masking](/docs/security/mask-data/).
 
 ![bytebase](/content/blog/planetscale-vs-neon/bytebase.webp)
 
