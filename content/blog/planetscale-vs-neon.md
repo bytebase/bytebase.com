@@ -152,7 +152,7 @@ recently introduced a new [Scaler Pro tier](https://planetscale.com/blog/announc
 ![planetscale-pricing](/content/blog/planetscale-vs-neon/planetscale-pricing.webp)
 
 Neon offers a usage-based pricing based on 4 metrics: **active compute time**, **data storage**, **data transfer out** and **data written**.
-This pricing model is more tranditional and predictable. Neon also provides a pricing calculator to estimate the cost.
+This pricing model is more traditional and predictable. Neon also provides a pricing calculator to estimate the cost.
 
 ![neon-pricing](/content/blog/planetscale-vs-neon/neon-pricing.webp)
 
@@ -196,9 +196,9 @@ or Snowflake for OLAP.
 PlanetScale and Neon are similar to each other, they are also similar to MongoDB / Snowflake:
 
 - Like MongoDB, PlanetScale uses shared-nothing architecture, provides
-  a comprehensive database platform, is developer obsessed, and can tell great product stories.
+  a comprehensive database platform, is developer obsessed, and tells great product stories.
 
-- Like Snowflake, Neon brings the novel shared-storage architecture to the staggering OLTP space, uses Postgres dialect, and also values developer experience.
+- Like Snowflake, Neon brings the novel shared-storage approach to the staggering OLTP architecture, uses Postgres dialect, and also values developer experience.
 
 Both PlanetScale and Neon could become the next MongoDB / Snowflake for modern RDBMS database-as-a-service (DBaaS). We've all been waiting too long for this.
 
