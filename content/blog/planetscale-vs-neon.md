@@ -84,8 +84,7 @@ scalability. The underlying Vitess is originally developed inside YouTube to han
 challenge and it's been battle tested in other large internet companies ([1](https://slack.engineering/scaling-datastores-at-slack-with-vitess/), [2](https://www.cncf.io/case-studies/jdcom-vitess/)).
 
 Neon can not scale as much as PlanetScale. After all, it's a single node PostgreSQL instance. But
-this single node can scale up very well. Neon separates the storage and compute, thus each can scale individually. And in the cloud, storage is infinite, compute is abundant, thus the scalability
-is only constrained by the network bandwidth. The separated architecture also infers elasticity, scale-to-zero
+this single node can scale up very well. Neon separates the storage and compute, thus each can scale individually. And in the cloud, storage is infinite, compute is abundant, only the network bandwidth is constrained. The separated architecture also infers elasticity, scale-to-zero
 is as easy as scale-up.
 
 ## Operability
