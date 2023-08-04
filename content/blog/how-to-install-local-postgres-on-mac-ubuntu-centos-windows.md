@@ -13,7 +13,9 @@ A local Postgres database is installed and running on your own computer or serve
 
 Below is a tutorial on how to install it on Mac, Ubuntu, CentOS, and Windows.
 
-## Install on Mac
+## Install on Mac (Homebrew)
+
+If you want a GUI tool, check out [Top 3 Free Tools to Start a Local Database Instance on Mac](/blog/free-tools-to-start-local-database-on-mac).
 
 The easiest way to install Postgres on a Mac is to use Homebrew. If you don't have Homebrew installed, you can install it by running the following command in your terminal:
 
@@ -45,7 +47,7 @@ Run this command to connect to the database you just created.
 psql mydatabase
 ```
 
-## Install on Ubuntu
+## Install on Ubuntu (apt-get)
 
 The following command will install the latest version of Postgres available in the Ubuntu package repository.
 
@@ -91,7 +93,7 @@ psql mydatabase -U myuser
 
 Once you're connected to your database, you can create tables and add data to them using SQL commands.
 
-## Install on CentOS
+## Install on CentOS (yum)
 
 Open a terminal window on your CentOS machine. You can do this by pressing Ctrl+Alt+T on your keyboard.
 
@@ -153,23 +155,23 @@ sudo -u postgres createdb &lt;database_name>
 1. In pgAdmin, click on the "Servers" node in the left-hand sidebar, and then right-click on the "Postgres" server that should appear in the main panel.
 1. From the context menu, select "Connect Server".
 1. In the "Connect to Server" dialog, enter the following information:
-    1. Host: localhost
-    2. Port: 5432
-    3. Username: postgres
-    4. Password: (the password you set during installation)
+   1. Host: localhost
+   2. Port: 5432
+   3. Username: postgres
+   4. Password: (the password you set during installation)
 1. Click "OK" to connect to the Postgres server.
 1. Once you are connected, you can create a new database by right-clicking on the "Databases" node in the left-hand sidebar, and selecting "Create > Database".
 1. In the "Create - Database" dialog, enter a name for the new database, and click "Save".
 
 That's it! You should now have a working Postgres database on your own machine, and you can start using it with your preferred client or by using the command line.
 
-
 ## More Postgres Tools
 
 If you are trying to learn more about Postgres, or simply looking for tools to help you better work with and manage Postgres, be sure to check these out:
 
-1. [Postgres vs. MySQL](/blog/postgres-vs-mysql/)
-1. [Postgres vs. MongoDB](/blog/postgres-vs-mongodb/)
+1. [Top 3 Free Tools to Start a Local Database Instance on Mac](/blog/free-tools-to-start-local-database-on-mac)
 1. [Top 5 SQL AI Tools](/blog/top-sql-ai-tools/)
 1. [Top Postgres Extensions](/blog/top-postgres-extension/)
 1. [Top 5 Postgres GUI Clients](/blog/top-postgres-gui-client/)
+1. [Postgres vs. MySQL](/blog/postgres-vs-mysql/)
+1. [Postgres vs. MongoDB](/blog/postgres-vs-mongodb/)
