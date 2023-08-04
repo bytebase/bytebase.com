@@ -29,6 +29,7 @@ Below we give an extensive comparison between PlanetScale and Neon from the foll
 - [Architecture](#architecture)
 - [Compatibility](#compatibility)
 - [Developer Workflow](#developer-workflow)
+- [Reliability](#reliability)
 - [Scalability](#scalability)
 - [Operability](#operability)
 - [Integration](#integration)
@@ -77,19 +78,32 @@ Neon's story highlights the single branching feature. Their purpose-built paging
 
 ![neon-branch](/content/blog/planetscale-vs-neon/neon-branch.webp)
 
+## Reliability
+
+Shared-nothing architecture is inherently fault-tolerant as data is sharded and replicated. Vitess
+is a proven technology used by logos across the globe. PlanetScale has also proved its reliability
+for not having notable outages for years.
+
+![vitess-user](/content/blog/planetscale-vs-neon/vitess-user.webp)
+
+Shared-storage architecture requires more engineering effort to make the logical SPOF storage component
+fault tolerant. Neon covers some in [its architecture decisions](https://neon.tech/blog/architecture-decisions-in-neon).
+
+As a database trailblazing new architecture, Neon is still young. Neon's advantage is it sits on a
+solid foundation. PostgreSQL itself is rock solid and fully transactional. Neon's Pageserver approach also aligns perfectly with the WAL-based logging in PostgreSQL. Neon is also able to use a [modern system language](https://www.rust-lang.org/) to implement its storage layer.
+
 ## Scalability
 
 PlanetScale, as its name suggests, is planet-scale. The shared-nothing architecture grants near-linear
-scalability. The underlying Vitess is originally developed inside YouTube to handle scalability
+scalability [up to 1 million QPS](https://planetscale.com/blog/one-million-queries-per-second-with-mysql). The underlying Vitess is originally developed inside YouTube to handle scalability
 challenge and it's been battle tested in other large internet companies ([1](https://slack.engineering/scaling-datastores-at-slack-with-vitess/), [2](https://www.cncf.io/case-studies/jdcom-vitess/)).
 
 Neon can not scale as much as PlanetScale. After all, it's a single node PostgreSQL instance. But
-this single node can scale up very well. Neon separates the storage and compute, thus each can scale individually. And in the cloud, storage is infinite, compute is abundant, only the network bandwidth is constrained. The separated architecture also infers elasticity, scale-to-zero
-is as easy as scale-up.
+this single node can scale up quite well. Neon separates the storage and compute, thus each can scale individually. And in the cloud, storage is infinite, compute is abundant, only the network bandwidth is constrained. The separated architecture also infers elasticity, scale-to-zero is as easy as scale-up.
 
 ## Operability
 
-**PlanetScale provides a complete managed database service. It tries to take care of [every aspect of using the
+**PlanetScale provides a complete managed database solution. It tries to take care of [every aspect of using the
 database](https://planetscale.com/blog/all-the-tech-planetscale-replaces).**
 
 ![planetscale-tech](/content/blog/planetscale-vs-neon/planetscale-tech.webp)
@@ -100,6 +114,10 @@ database](https://planetscale.com/blog/all-the-tech-planetscale-replaces).**
 - **Revert** for reverting the change.
 - **Console** for mysql CLI experience in the browser.
 - **Backup** for disaster recovery.
+
+It's quite a lot to cover and PlanetScale manages to craft every pixel. e.g. [Boost](https://planetscale.com/features/boost) shows PlanetScale's strength to transform an [academic paper](https://jon.thesquareplanet.com/papers/phd-thesis.pdf) into a polished product.
+
+![planetscale-boost](/content/blog/planetscale-vs-neon/planetscale-boost.webp)
 
 **Neon is relatively new and provides essentials.**
 
@@ -167,6 +185,7 @@ Both are well-funded companies led by industry veterans. PlanetScale has raised 
 | Architecture       | Shared-nothing, sharded compute and storage unit                         | Shared-storage, separated compute and storage                            |
 | Compatibility      | Limited by the underlying shared-nothing architecture                    | Near-compatiable                                                         |
 | Developer Workflow | End-to-end experience                                                    | Instantaneous and cost-effective branching                               |
+| Reilability        | Proven technology with track record                                      | New architecture on a solid foundation                                   |
 | Scalability        | Scale out to near infinite                                               | Scale up to an extent, scale-to-zero elasticity                          |
 | Operability        | Comprehensive, polished tooling                                          | Essential, pragmatic tooling                                             |
 | Integration        | Typical database integrations                                            | Novel integrations enabled by instant branching and elasticity           |
@@ -204,7 +223,7 @@ Both PlanetScale and Neon could become the next MongoDB / Snowflake for modern R
 
 ---
 
-FWIW, if you still prefer vanilla MySQL/Postgres and want PlanetScale's database change workflow or Neon's visual SQL Editor, please check out [Bytebase](/). Bytebase is a database tool for all mainstream databases, covering database change, query, security and governance all-in-one. It provides more customizable [change workflow](/docs/concepts/database-change-workflow/) and visual SQL Editor integrated with [access control](/docs/security/data-access-control/) and [data masking](/docs/security/mask-data/).
+BTW, if you still prefer vanilla MySQL/Postgres and want PlanetScale's database change workflow or Neon's visual SQL Editor, please check out [Bytebase](/). Bytebase is a database tool for all mainstream databases, covering database change, query, security and governance all-in-one. It provides more customizable [change workflow](/docs/concepts/database-change-workflow/) and visual SQL Editor integrated with [access control](/docs/security/data-access-control/) and [data masking](/docs/security/mask-data/).
 
 ![bytebase](/content/blog/planetscale-vs-neon/bytebase.webp)
 
@@ -212,7 +231,7 @@ FWIW, if you still prefer vanilla MySQL/Postgres and want PlanetScale's database
 
 - [Announcing PlanetScale: The database for developers](https://planetscale.com/blog/announcing-planetscale-the-database-for-developers)
 - [All of the tech PlanetScale replaces](https://planetscale.com/blog/all-the-tech-planetscale-replaces)
-- [PlanetScale increases plans to include billions of reads](https://news.ycombinator.com/item?id=30457960)
+- [One million queries per second with MySQL](https://planetscale.com/blog/one-million-queries-per-second-with-mysql)
 - [Neon – Serverless Postgres](https://news.ycombinator.com/item?id=31536827)
 - [Architecture decisions in Neon](https://neon.tech/blog/architecture-decisions-in-neon)
 - [Postgres vs. MySQL](/blog/postgres-vs-mysql)
