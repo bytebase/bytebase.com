@@ -36,7 +36,7 @@ const Hero = ({ title, description, linkText, linkUrl, linkTarget }: HeroProps) 
         <LinkUnderlined href={Route.LIVE_DEMO}>See Live Demo</LinkUnderlined>
       </div>
       <Image
-        src="/images/page/usecase/db-scheme-lg.png"
+        src="/images/db-scheme-lg.png"
         width={716}
         height={545}
         alt="Bytebase Database scheme"
@@ -44,7 +44,7 @@ const Hero = ({ title, description, linkText, linkUrl, linkTarget }: HeroProps) 
       />
       <Image
         className="mx-auto mt-12 hidden sm:order-3 sm:block"
-        src="/images/page/main/db-scheme.png"
+        src="/images/db-scheme.png"
         alt="Bytebase Database scheme"
         width={366}
         height={498}

@@ -198,7 +198,7 @@ If choosing between [Postgres and MySQL](/blog/postgres-vs-mysql) is hard, then 
 It's also common that Postgres and MongoDB co-exist inside an organization. And if you want to manage the database development
 lifecycle for both of them, please check out [Bytebase](/).
 
-![bytebase](/content/blog/postgres-vs-mongodb/bytebase.webp)
+![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
 
 ## Further Readings
 

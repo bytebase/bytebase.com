@@ -94,4 +94,4 @@ Google Cloud SQL is a great choice for organizations that need a full-managed re
 
 Besides optimizing cloud database cost, teams also want to make better use of the purchased databases. To achieve that, you can check out our open source project Bytebase. Bytebase supports 10+ OLTP, OLAP, NoSQL databases including all three Google Cloud SQL databases, MySQL, PostgreSQL, and SQL Server. It's an all-in-one platform for developers, DBAs, and platform engineers to manage the database development lifecyle efficiently and reliably. Go [signing up Bytebase Cloud](https://hub.bytebase.com/workspace) or [self hosting](/docs/get-started/self-host/) with a single command to try it out.
 
-![bytebase](/content/blog/understanding-google-cloud-sql-pricing/bytebase.webp)
+![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)

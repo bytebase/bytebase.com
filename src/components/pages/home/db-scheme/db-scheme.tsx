@@ -70,7 +70,7 @@ const DBScheme = () => {
         </div>
         <Image
           className="mx-auto hidden sm:block"
-          src="/images/page/main/db-scheme.png"
+          src="/images/db-scheme.png"
           alt=""
           width={366}
           height={498}

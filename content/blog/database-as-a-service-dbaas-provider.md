@@ -70,4 +70,4 @@ _Because the OLAP databases are segmented, so we put different vendors under thi
 It's also common that different database types co-exist inside an organization. And if you want to manage the development
 lifecycle for all of them, please check out [Bytebase](/).
 
-![bytebase](/content/blog/database-as-a-service-dbaas-provider/bytebase.webp)
+![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)

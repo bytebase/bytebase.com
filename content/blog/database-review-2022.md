@@ -298,7 +298,7 @@ Grey Wolf and White Deer are two ancestral figures in Mongolian mythology, symbo
 
 And compared to the saturated database engine market, there is more room for the database tooling market. Public cloud giants need to offer services like DataZone to connect the entire data product lines, while database vendors need to create their own database IDEs to provide a one-stop experience. Products like [Bytebase](/) allow teams to have a unified database development process to perform various database development activities across different clouds and database types.
 
-![_](/content/blog/database-review-2022/bytebase.webp)
+![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
 
 From the handful System R developed 50 years ago to run on IBM mainframes, to the billions of SQLite instances running on various apps and IoT devices today, databases have always been moving forward, despite several economic cycles. We look forward to seeing more breakthrough combined with business innovations in 2023.
 

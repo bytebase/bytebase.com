@@ -87,7 +87,7 @@ And if you want an all-in-one tool to provide not only general SQL Client featur
 capabilities such as change approval workflow, data access control, you can check out our open source
 project [Bytebase](/).
 
-![bytebase](/content/blog/top-open-source-sql-clients/bytebase.webp)
+![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
 
 ---
 
