@@ -14,7 +14,7 @@ over the first place spot from MySQL and become the most admired, desired databa
 
 ![stackoverflow](/content/blog/planetscale-vs-neon/stackoverflow.webp)
 
-It seems that the love-hate relationship between MySQL and PostgreSQL will never end. From native
+It seems that the love-hate relationship between MySQL and PostgreSQL will never end. From vanilla
 MySQL vs. PostgreSQL, to distributed TiDB vs. CockroachDB, to cloud-native AWS Aurora vs. GCP AlloyDB, and now we
 are entering the next chapter, the serverless, developer-oriented PlanetScale vs. Neon.
 
@@ -58,7 +58,7 @@ by all Postgres compute nodes.
 
 1. [Underlying Vitess limitations](https://vitess.io/docs/15.0/reference/compatibility/mysql-compatibility/). Vitess shared-nothing architecture carries inherent compatibility limitations. Features requiring session maintenance or cross-shard operation are challenging to implement.
 
-1. Product trade-off. e.g. To support online DDL, PlanetScale disallows foreign keys entirely, which is more strict than Vitess' foreign key limitation.
+1. Product trade-off. e.g. To support online DDL, PlanetScale disallows foreign keys entirely, which is more strict than Vitess' FK limitation.
 
 1. Cloud operating model. No super privilege or LOAD DATA INFILE to access the host file system.
 
@@ -87,11 +87,12 @@ for not having notable outages for years.
 ![vitess-user](/content/blog/planetscale-vs-neon/vitess-user.webp)
 
 Shared-storage architecture requires more engineering effort to make the logical SPOF storage component
-fault tolerant. Neon covers some in [its architecture decisions](https://neon.tech/blog/architecture-decisions-in-neon).
+fault tolerant. Neon details the work in [its architecture decisions](https://neon.tech/blog/architecture-decisions-in-neon).
 
 As a database trailblazing new architecture, Neon's advantage is it sits on a solid foundation.
 PostgreSQL itself is rock solid and fully transactional. Neon's Pageserver approach also aligns
-perfectly with the WAL-based logging in PostgreSQL. Neon is also able to use a [modern system language](https://www.rust-lang.org/) to implement its storage layer.
+perfectly with the WAL-based logging in PostgreSQL. Neon is also able to use Rust, a more suitable
+system language to implement its storage layer.
 
 ## Scalability
 
@@ -224,7 +225,7 @@ Both PlanetScale and Neon could become the next MongoDB / Snowflake for modern R
 
 ---
 
-BTW, if you still stick with vanilla MySQL/Postgres and want PlanetScale's database change workflow or Neon's visual SQL Editor, please check out [Bytebase](/). Bytebase is a database tool for all mainstream databases, covering database change, query, security and governance all-in-one. It provides more customizable [change workflow](/docs/concepts/database-change-workflow/) and visual SQL Editor integrated with [access control](/docs/security/data-access-control/) and [data masking](/docs/security/mask-data/).
+BTW, if you still stick with vanilla MySQL/Postgres and want PlanetScale's database change workflow or Neon's visual SQL Editor, please check out [Bytebase](/). Bytebase is a database tool for all mainstream databases, covering database change, query, security and governance all-in-one. It provides more customizable [change workflow](/docs/concepts/database-change-workflow/) and visual [SQL Editor](/docs/sql-editor/overview/) integrated with [access control](/docs/security/data-access-control/) and [data masking](/docs/security/mask-data/).
 
 ![bytebase](/content/blog/planetscale-vs-neon/bytebase.webp)
 
