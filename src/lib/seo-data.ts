@@ -205,6 +205,12 @@ const SEO_DATA = {
       'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
     pathname: `${Route.INTEGRATION_BITBUCKET}/`,
   },
+  AZURE_DEVOPS: {
+    title: 'Integration with Azure DevOps',
+    description:
+      'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
+    pathname: `${Route.INTEGRATION_AZURE_DEVOPS}/`,
+  },
   SLACK: {
     title: 'Integration with Slack',
     description:

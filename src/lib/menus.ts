@@ -158,6 +158,7 @@ export const MENU = {
         { name: 'GitLab', linkUrl: Route.INTEGRATION_GITLAB },
         { name: 'GitHub', linkUrl: Route.INTEGRATION_GITHUB },
         { name: 'Bitbucket', linkUrl: Route.INTEGRATION_BITBUCKET },
+        { name: 'Azure DevOps', linkUrl: Route.INTEGRATION_AZURE_DEVOPS },
         { name: 'Slack', linkUrl: Route.INTEGRATION_SLACK },
         { name: 'Discord', linkUrl: Route.INTEGRATION_DISCORD },
         { name: 'Teams', linkUrl: Route.INTEGRATION_TEAMS },

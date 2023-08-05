@@ -1,3 +1,4 @@
+import AzureDevOpsIcon from '@/svgs/azure-devops.inline.svg';
 import BitbucketIcon from '@/svgs/bitbucket.inline.svg';
 import ClickHouseIcon from '@/svgs/clickhouse.inline.svg';
 import GitHubIcon from '@/svgs/github.inline.svg';
@@ -81,6 +82,10 @@ const IntegrationList = [
   {
     name: 'Bitbucket',
     Icon: BitbucketIcon,
+  },
+  {
+    name: 'Azure DevOps',
+    Icon: AzureDevOpsIcon,
   },
   {
     name: 'Terraform',

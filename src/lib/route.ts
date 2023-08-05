@@ -56,6 +56,7 @@ const Route = {
   DOCS_GITHUB: '/docs/vcs-integration/github-com/',
   DOCS_GITHUB_ENTERPRISE: '/docs/vcs-integration/github-enterprise/',
   DOCS_BITBUCKET: '/docs/vcs-integration/bitbucket-org/',
+  DOCS_AZURE_DEVOPS: '/docs/vcs-integration/azure-devops/',
 
   // blog
   BLOG_CASE_STUDY: '/blog/category/case-study',
@@ -89,6 +90,7 @@ const Route = {
   INTEGRATION_GITLAB: '/integration/gitlab',
   INTEGRATION_GITHUB: '/integration/github',
   INTEGRATION_BITBUCKET: '/integration/bitbucket',
+  INTEGRATION_AZURE_DEVOPS: '/integration/azure-devops',
   INTEGRATION_SLACK: '/integration/slack',
   INTEGRATION_DISCORD: '/integration/discord',
   INTEGRATION_TEAMS: '/integration/teams',
