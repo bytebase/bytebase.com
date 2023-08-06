@@ -56,7 +56,7 @@ by all Postgres compute nodes.
 
 **[PlanetScale's MySQL compatibility](https://planetscale.com/docs/reference/mysql-compatibility) is constrained.**
 
-1. [Underlying Vitess limitations](https://vitess.io/docs/15.0/reference/compatibility/mysql-compatibility/). Vitess shared-nothing architecture carries inherent compatibility limitations. Features requiring session maintenance or cross-shard operation are challenging to implement.
+1. [Underlying Vitess limitations](https://vitess.io/docs/15.0/reference/compatibility/mysql-compatibility/). Vitess shared-nothing architecture carries inherent compatibility limitations. Features requiring session maintenance or cross-shard coordination are challenging to implement.
 
 1. Product trade-off. e.g. To support online DDL, PlanetScale disallows foreign keys entirely, which is more strict than Vitess' FK limitation.
 
