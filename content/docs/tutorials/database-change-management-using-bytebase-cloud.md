@@ -4,7 +4,7 @@ author: Ningjing
 published_at: 2023/04/17 16:15
 feature_image: /content/docs/tutorials/database-change-management-using-bytebase-cloud/feature-image.webp
 tags: Tutorial
-integrations: MySQL
+integrations: General
 level: Beginner
 description: Bytebase provide its Cloud version since 1.15.0, this tutorial is a step-by-step guide to set up Database Change Management for Amazon Aurora MySQL using Bytebase Cloud.
 ---
