@@ -93,6 +93,7 @@ project [Bytebase](/).
 
 ## More Specific SQL Client Tools
 
-1. [Top MySQL GUI client](/blog/top-mysql-gui-client).
-1. [Top Postgres GUI client](/blog/top-postgres-gui-client).
-1. [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools).
+- [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)
+- [Top Postgres GUI client](/blog/top-postgres-gui-client)
+- [Top MySQL GUI client](/blog/top-mysql-gui-client)
+- [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools)

@@ -252,6 +252,6 @@ Grants for root@%: GRANT PROXY ON ``@`` TO `root`@`%` WITH GRANT OPTION
 ## Further Readings
 
 - [How to Install MySQL Client on Your Mac, Ubuntu, CentOS, Windows](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows)
-- [Top 5 MySQL GUI Clients](/blog/top-mysql-gui-client)
-- [Top 5 MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools)
-- [Top 8 Free, Open Source SQL Clients](/blog/top-open-source-sql-clients)
+- [Top MySQL GUI Clients](/blog/top-mysql-gui-client)
+- [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools)
+- [Top Free, Open Source SQL Clients](/blog/top-open-source-sql-clients)

@@ -142,3 +142,9 @@ This wraps our 3 part database schema change series. Here at Bytebase, we are tr
 change experience as close as to the code change experience, from both the individual perspective and the
 organization perspective. To give it a try, either [spin up a cloud workspace](https://hub.bytebase.com/workspace)
 for free or [start locally with a single command](/docs/get-started/self-host/#docker/).
+
+## Further Readings
+
+- [Top Postgres Extensions](/blog/top-postgres-extension/)
+- [Top Postgres GUI Clients](/blog/top-postgres-gui-client/)
+- [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)

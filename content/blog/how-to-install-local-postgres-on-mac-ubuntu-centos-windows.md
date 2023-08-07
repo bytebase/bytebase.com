@@ -169,9 +169,9 @@ That's it! You should now have a working Postgres database on your own machine, 
 
 If you are trying to learn more about Postgres, or simply looking for tools to help you better work with and manage Postgres, be sure to check these out:
 
-1. [Top 3 Free Tools to Start a Local Database Instance on Mac](/blog/free-tools-to-start-local-database-on-mac)
-1. [Top 5 SQL AI Tools](/blog/top-sql-ai-tools/)
+1. [Top Free Tools to Start a Local Database Instance on Mac](/blog/free-tools-to-start-local-database-on-mac)
+1. [Top SQL AI Tools](/blog/top-sql-ai-tools/)
 1. [Top Postgres Extensions](/blog/top-postgres-extension/)
-1. [Top 5 Postgres GUI Clients](/blog/top-postgres-gui-client/)
+1. [Top Postgres GUI Clients](/blog/top-postgres-gui-client/)
 1. [Postgres vs. MySQL](/blog/postgres-vs-mysql/)
 1. [Postgres vs. MongoDB](/blog/postgres-vs-mongodb/)

@@ -247,3 +247,10 @@ _Neon recently announced a simlar extension [`pg_embedding`](https://neon.tech/b
 
 Postgres extension is a key differentiator from its main alternative MySQL. If the business requires geospatial
 processing, then Postgres is the only choice thanks to the PostGIS extension. For a complete comparison, please read [Postgres vs. MySQL](/blog/postgres-vs-mysql).
+
+## Further Readings
+
+- [Top Postgres GUI client](/blog/top-postgres-gui-client)
+- [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)
+- [Postgres vs. MySQL](/blog/postgres-vs-mysql)
+- [Postgres vs. MongoDB](/blog/postgres-vs-mongodb)

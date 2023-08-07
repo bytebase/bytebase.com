@@ -81,5 +81,5 @@ If you are used to working with command line tools, Liquibase and Flyway are exc
 
 ## Further Readings
 
-- [Top 5 MySQL GUI Clients](/blog/top-mysql-gui-client)
-- [Top 8 Free, Open Source SQL Clients](/blog/top-open-source-sql-clients)
+- [Top MySQL GUI Clients](/blog/top-mysql-gui-client)
+- [Top Free, Open Source SQL Clients](/blog/top-open-source-sql-clients)

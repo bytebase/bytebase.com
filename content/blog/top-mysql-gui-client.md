@@ -75,5 +75,6 @@ Any of the aforementioned provides a UI for users to operate on databases, a SQL
 
 ## Further Readings
 
-- [Top 5 MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools)
-- [Top 8 Free, Open Source SQL Clients](/blog/top-open-source-sql-clients)
+- [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools)
+- [Top Open Source SQL Clients](/blog/top-open-source-sql-clients)
+- [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)

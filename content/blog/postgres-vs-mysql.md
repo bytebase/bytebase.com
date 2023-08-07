@@ -236,5 +236,10 @@ lifecycle for both of them, please check out [Bytebase](/).
 - [Let's make PostgreSQL multi-threaded](https://www.postgresql.org/message-id/31cc6df9-53fe-3cd9-af5b-ac0d801163f4%40iki.fi)
 - [Transaction ID Wraparound in Postgres](https://blog.sentry.io/transaction-id-wraparound-in-postgres/)
 - [The biggest mistake Postgres ever made](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)
-- [Open Source SQL Clients](/blog/top-open-source-sql-clients/)
-- [Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)
+
+### Database Tools
+
+- [Top MySQL GUI client](/blog/top-mysql-gui-client)
+- [Top Postgres GUI client](/blog/top-postgres-gui-client)
+- [Top Open Source SQL Clients](/blog/top-open-source-sql-clients/)
+- [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)
