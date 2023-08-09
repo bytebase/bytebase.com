@@ -204,6 +204,8 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 #### [OpenID Connect (OIDC)](/administration/sso/oidc)
 
+#### [LDAP](/administration/sso/ldap)
+
 ### [Two-Factor Authentication](/administration/2fa)
 
 ### [Sign-in Frequency](/administration/sign-in-frequency)

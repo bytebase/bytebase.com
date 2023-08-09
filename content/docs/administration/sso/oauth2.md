@@ -14,9 +14,9 @@ In the creating SSO dialog, you need to fill following fields:
 
 ![oauth2-basic-information](/content/docs/administration/sso/oauth2-basic-information.webp)
 
-- **Name** is the display name of your SSO item;
-- **Resource ID** should be a unique string identifying this resource by Bytebase;
-- **Domain** is an SSO domain name;
+* **Name**: the display name shown to your users (e.g. `GitHub` will be shown as `Sign in with GitHub`)
+* **Identity Provider ID**: a human-readable unique string, only lower-case alphabets and hyphens are allowed (e.g. `github`)
+* **Domain**: the domain name to scope associated users (e.g. `github.com`, optional)
 
 ### Identity provider information
 
@@ -43,9 +43,9 @@ The most important user field mapping is the identifier which is used to identif
 
 ![oauth2-user-information-field-mapping](/content/docs/administration/sso/oauth2-user-information-field-mapping.webp)
 
-- **Identifier** is the field name of the unique identifier in 3rd-party user info;
-- **DisplayName** is the field name of display name in 3rd-party user info;
-- **Email** is the field name of primary email in 3rd-party user info.
+- **Email** is the field name of primary email in 3rd-party user info;
+- **DisplayName** is the field name of display name in 3rd-party user info (optional);
+* **Phone**: is the field name of phone number in 3rd-party user info (optional).
 
 ## Built-in OAuth Provider
 

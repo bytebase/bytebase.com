@@ -10,6 +10,7 @@ Bytebase supports the following standard protocols that provide SSO:
 
 - [OAuth 2.0](/docs/administration/sso/oauth2)
 - [OpenID Connect (OIDC)](/docs/administration/sso/oidc)
+- [Lightweight Directory Access Protocol (LDAP)](/docs/administration/sso/ldap)
 
 ## Create SSO provider
 

@@ -18,21 +18,21 @@ OpenID Connect (OIDC) is a simple identity layer on top of the OAuth 2.0 protoco
 
 Basic information:
 
-- **Name**: the display name shown to your users (e.g. "Google" will be shown as "Sign in with Google")
-- **Resource ID**: a human-readable unique string, only lower-case alphabets and hyphens are allowed (e.g. "google")
-- **Domain**: the domain name to scope associated users (e.g. "google.com")
+* **Name**: the display name shown to your users (e.g. `Google` will be shown as `Sign in with Google`)
+* **Identity Provider ID**: a human-readable unique string, only lower-case alphabets and hyphens are allowed (e.g. `google`)
+* **Domain**: the domain name to scope associated users (e.g. `google.com`, optional)
 
 Identity provider information:
 
-- **Issuer**: the issuer of the response (e.g. "https://accounts.google.com")
+- **Issuer**: the issuer of the response (e.g. `https://accounts.google.com`)
 - **Client ID**: the client ID of your application
 - **Client secret**: the client secret of your application
 
 User information field mapping:
 
-- **Identifier**: the claims field to be used as the Bytebase user identifier (e.g. "username")
-- **Display name**: the claims field to be used as the Bytebase user display name (e.g. "name", optional)
-- **Email**: the claims field to be used as the Bytebase user email address (e.g. "email", optional)
+* **Email**: the claims field to be used as the Bytebase user email address (e.g. `email`)
+* **Display name**: the claims field to be used as the Bytebase user display name (e.g. `name`, optional)
+* **Phone**: the claims field to be used as the Bytebase user phone number (e.g. `phone`, optional)
 
 ### Google
 
@@ -40,14 +40,13 @@ User information field mapping:
 1. Configure the **Authorized redirect URIs** to be `{EXTERNAL_URL}/oidc/callback`.
 1. In Bytebase, go to **Settings > SSO** to create a new OIDC provider (all values are examples):
    - **Name**: `Google`
-   - **Resource ID**: `google`
+   - **Identity Provider ID**: `google`
    - **Domain**: `google.com`
    - **Issuer**: `https://accounts.google.com`
    - **Client ID**: the client ID of your application
    - **Client secret**: the client secret of your application
-   - **Identifier**: `email`
-   - **Display name**: `name`
    - **Email**: `email`
+   - **Display name**: `name`
 
 ### GitLab
 
@@ -56,14 +55,13 @@ User information field mapping:
    1. Configure the **Redirect URI** to be `{EXTERNAL_URL}/oidc/callback`.
 1. In Bytebase, go to **Settings > SSO** to create a new OIDC provider (all values are examples):
    - **Name**: `GitLab`
-   - **Resource ID**: `gitlab`
+   - **Identity Provider ID**: `gitlab`
    - **Domain**: `gitlab.acme.com`
    - **Issuer**: `https://gitlab.acme.com`
    - **Client ID**: the application ID of your application
    - **Client secret**: the secret of your application
-   - **Identifier**: `nickname`
-   - **Display name**: `name`
    - **Email**: `email`
+   - **Display name**: `name`
 
 <HintBlock type="info">
 
@@ -78,14 +76,13 @@ In some GitLab self-hosted setups, the **Issuer** is `http://gitlab.acme.com` (H
    1. Configure the **Assignments > Controlled access** to be **Allow everyone in your organization to access**.
 1. In Bytebase, go to **Settings > SSO** to create a new OIDC provider (all values are examples):
    - **Name**: `Okta`
-   - **Resource ID**: `okta`
+   - **Identity Provider ID**: `okta`
    - **Domain**: `acme.okta.com`
    - **Issuer**: `https://acme.okta.com`
    - **Client ID**: the client ID of your application
    - **Client secret**: the client secret of your application
-   - **Identifier**: `preferred_username`
-   - **Display name**: `name`
    - **Email**: `email`
+   - **Display name**: `name`
 
 ### Keycloak
 
@@ -96,14 +93,13 @@ In some GitLab self-hosted setups, the **Issuer** is `http://gitlab.acme.com` (H
       1. In some older versions, configure **Access Type** to "confidential" instead.
 1. In Bytebase, go to **Settings > SSO** to create a new OIDC provider (all values are examples):
    - **Name**: `Keycloak`
-   - **Resource ID**: `keycloak`
+   - **Identity Provider ID**: `keycloak`
    - **Domain**: `keycloak.acme.com`
    - **Issuer**: `https://keycloak.acme.com/auth/realms/master`
    - **Client ID**: `bytebase`
    - **Client secret**: the client secret of your application
-   - **Identifier**: `preferred_username`
-   - **Display name**: `name`
    - **Email**: `email`
+   - **Display name**: `name`
 
 ### Casdoor
 
@@ -112,14 +108,13 @@ In some GitLab self-hosted setups, the **Issuer** is `http://gitlab.acme.com` (H
    1. Configure the **Valid redirect URIs** to be `{EXTERNAL_URL}/oidc/callback`.
 1. In Bytebase, go to **Settings > SSO** to create a new OIDC provider (all values are examples):
    - **Name**: `Casdoor`
-   - **Resource ID**: `casdoor`
+   - **Identity Provider ID**: `casdoor`
    - **Domain**: `<your casdoor host>`
    - **Issuer**: `<your casdoor host>`
    - **Client ID**: the client id of your application
    - **Client secret**: the client secret of your application
-   - **Identifier**: `preferred_username`
-   - **Display name**: `name`
    - **Email**: `email`
+   - **Display name**: `name`
 
 ### Authing
 
@@ -128,11 +123,10 @@ In some GitLab self-hosted setups, the **Issuer** is `http://gitlab.acme.com` (H
    1. In **协议配置**, configure the **id_token 签名算法** to be `RS256`.
 1. In Bytebase, go to **Settings > SSO** to create a new OIDC provider (all values are examples):
    - **Name**: `Authing`
-   - **Resource ID**: `authing`
+   - **Identity Provider ID**: `authing`
    - **Domain**: `acme.authing.cn`
    - **Issuer**: `https://acme.authing.cn/oidc`
    - **Client ID**: the app ID of your application
    - **Client secret**: the app secret of your application
-   - **Identifier**: `username`
-   - **Display name**: `name`
    - **Email**: `email`
+   - **Display name**: `name`
