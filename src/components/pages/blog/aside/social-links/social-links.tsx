@@ -27,6 +27,7 @@ const icons = {
   hackerNews: {
     Icon: HackerNewsIcon,
     className: 'text-secondary-3',
+    // Hacknew news's icon is a bit bigger than others. So we need to make it smaller.
     iconClassName: 'h-5 w-5',
     getShareUrl: (text: string, url: string) => {
       return `https://news.ycombinator.com/submitlink?u=${url}&t=${text}`;
@@ -63,7 +64,7 @@ const SocialLinks = ({ items }: SocialLinksProps) => {
     );
   }, [items]);
 
-  if (!items) return null;
+  if (socialLinks.length === 0) return null;
 
   return (
     <ul className="mt-2 flex gap-x-3">
