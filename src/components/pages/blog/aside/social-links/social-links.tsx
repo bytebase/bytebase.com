@@ -1,9 +1,11 @@
-import Link from '@/components/shared/link';
+'use client';
 
+import clsx from 'clsx';
+import { useEffect, useState } from 'react';
+import Link from '@/components/shared/link';
 import TwitterIcon from '@/svgs/twitter.inline.svg';
 import LinkedinIcon from '@/svgs/linkedin.inline.svg';
 import HackerNewsIcon from '@/svgs/hackernews.inline.svg';
-import clsx from 'clsx';
 
 const icons = {
   twitter: {
@@ -43,19 +45,35 @@ type SocialLinksProps = {
 };
 
 const SocialLinks = ({ items }: SocialLinksProps) => {
+  const [socialLinks, setSocialLinks] = useState<SocialLink[]>([]);
+
+  useEffect(() => {
+    setSocialLinks(
+      items.map((item) => {
+        return {
+          ...item,
+          url:
+            item.url ||
+            icons[item.network].getShareUrl(
+              item.text || window.document.title,
+              item.url || window.location.href,
+            ),
+        };
+      }),
+    );
+  }, [items]);
+
   if (!items) return null;
 
   return (
     <ul className="mt-2 flex gap-x-3">
-      {items.map(({ network, text, url }) => {
-        const { Icon, className, iconClassName, getShareUrl } = icons[network];
-        // If no url is provided, generate one from the text and current url.
-        const shareUrl = url || getShareUrl(text || document.title, url || location.href);
+      {socialLinks.map(({ network, url }) => {
+        const { Icon, className, iconClassName } = icons[network];
         return (
           <li key={network} className="flex items-center justify-center ">
             <Link
               className={clsx(className, 'grayscale hover:grayscale-0')}
-              href={shareUrl}
+              href={url || ''}
               target="_blank"
             >
               <Icon className={clsx(iconClassName)} role="presentation" />
