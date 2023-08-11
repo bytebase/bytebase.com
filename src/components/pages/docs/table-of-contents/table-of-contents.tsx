@@ -8,6 +8,8 @@ import clsx from 'clsx';
 import { TableOfContents as TOCProps } from '@/types/docs';
 
 import BackToTopIcon from '@/svgs/back-to-top.inline.svg';
+import SocialLinks from '../../blog/aside/social-links';
+import { SocialLink } from '../../blog/aside/social-links/social-links';
 
 type TableOfContentsProps = {
   items: TOCProps[];
@@ -38,6 +40,18 @@ const onClick = (evt: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     window.location.hash = `#${id}`;
   }
 };
+
+const SocialItems = [
+  {
+    network: 'twitter',
+  },
+  {
+    network: 'linkedIn',
+  },
+  {
+    network: 'hackerNews',
+  },
+] as SocialLink[];
 
 const CURRENT_ANCHOR_GAP_PX = 16;
 
@@ -119,6 +133,11 @@ const TableOfContents = ({ items, hasBackToTop, className }: TableOfContentsProp
           <span>Back to top</span>
         </button>
       )}
+
+      <div className="mt-4 flex w-full flex-col items-start justify-start pl-5">
+        <h3 className="text-14">Share this article</h3>
+        <SocialLinks items={SocialItems} />
+      </div>
     </nav>
   );
 };
