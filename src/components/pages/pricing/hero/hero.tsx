@@ -22,15 +22,15 @@ type TCard = {
 const cards: TCard[] = [
   {
     image: '/images/page/pricing/free.webp',
-    planTitle: 'free',
-    price: 0,
+    planTitle: 'community',
+    price: 'Free',
     description: 'Up to 20 users, 10 instances',
     buttonText: 'Free Deploy',
     buttonTheme: 'primary-outline',
     buttonLink: '/docs/get-started/self-host/#docker',
     planConditions: [
       'Schema and data change review workflow',
-      'Owner, DBA and Developer roles',
+      'RBAC (Owner, DBA and Developer roles)',
       '100+ SQL lint rules',
       'VCS integration with GitOps workflow',
       'Multi-environment batch change',
@@ -38,27 +38,27 @@ const cards: TCard[] = [
       'Database backup / restore',
     ],
   },
-  {
-    image: '/images/page/pricing/team.webp',
-    planTitle: 'pro',
-    price: 100,
-    priceDescription: 'instance per month',
-    description: 'Up to 20 instances',
-    additionalDescription: 'You can start <b>a&nbsp;free&nbsp;trial for 14 days.</b>',
-    buttonText: 'Try Free now',
-    buttonTheme: 'primary-filled',
-    buttonLink:
-      'https://bytebase-hub-prod.us.auth0.com/u/login?state=hKFo2SByU1VxQzVzb0JpSm01TjF5TjZmU1JoTTVndXNpU3FuY6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIF9JakVqd1RRaVBjczh0NTVEQmxqSHo3ZGxzWV9zelBUo2NpZNkgN0IySDFrb05Sa3hQY0pENzBHeVJEbzVIbVNNMGI5V1E',
-    planConditions: [
-      'Advanced GitOps workflow',
-      'Review and backup policy',
-      'Scheduled change',
-      'Arbitrary schema synchronization',
-      'Large table online schema migration',
-      'Point-in-Time-Recovery',
-      'SQL script sharing',
-    ],
-  },
+  // {
+  //   image: '/images/page/pricing/team.webp',
+  //   planTitle: 'pro',
+  //   price: 100,
+  //   priceDescription: 'instance per month',
+  //   description: 'Up to 20 instances',
+  //   additionalDescription: 'You can start <b>a&nbsp;free&nbsp;trial for 14 days.</b>',
+  //   buttonText: 'Try Free now',
+  //   buttonTheme: 'primary-filled',
+  //   buttonLink:
+  //     'https://bytebase-hub-prod.us.auth0.com/u/login?state=hKFo2SByU1VxQzVzb0JpSm01TjF5TjZmU1JoTTVndXNpU3FuY6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIF9JakVqd1RRaVBjczh0NTVEQmxqSHo3ZGxzWV9zelBUo2NpZNkgN0IySDFrb05Sa3hQY0pENzBHeVJEbzVIbVNNMGI5V1E',
+  //   planConditions: [
+  //     'Advanced GitOps workflow',
+  //     'Review and backup policy',
+  //     'Scheduled change',
+  //     'Arbitrary schema synchronization',
+  //     'Large table online schema migration',
+  //     'Point-in-Time-Recovery',
+  //     'SQL script sharing',
+  //   ],
+  // },
   {
     image: '/images/page/pricing/enterprise.webp',
     planTitle: 'enterprise',
@@ -86,7 +86,7 @@ const Hero = () => (
         <h1 className="sr-only">Bytebase pricing page</h1>
         <Logos />
       </header>
-      <ul className="mt-14 flex gap-x-8 lg:mt-12 lg:gap-x-6 md:gap-x-5 sm:flex-wrap sm:gap-x-0 sm:gap-y-5">
+      <ul className="mt-14 flex gap-x-12 lg:mt-12 lg:gap-x-6 md:gap-x-5 sm:flex-wrap sm:gap-x-0 sm:gap-y-5">
         {cards.map((card) => (
           <li className="grow basis-1/3 sm:basis-full" key={card.planTitle}>
             <Card {...card} />

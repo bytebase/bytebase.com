@@ -95,7 +95,7 @@ const Card = ({
             <li className="flex items-center gap-x-2 lg:items-start" key={index}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img className="h-5 w-5 shrink-0" src="/images/check.svg" alt="" loading="lazy" />
-              <span className="text-15 leading-none text-gray-15 lg:leading-normal md:text-14 md:leading-snug 2xs:max-w-[220px]">
+              <span className="text-center text-15 leading-none text-gray-15 lg:leading-normal md:text-14 md:leading-snug 2xs:max-w-[220px]">
                 {condition}
               </span>
             </li>
