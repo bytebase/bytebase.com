@@ -8,6 +8,7 @@ import ExternalIcon from '@/svgs/external.inline.svg';
 import GithubIcon from '@/svgs/github.inline.svg';
 import TwitterIcon from '@/svgs/twitter.inline.svg';
 import LinkedInIcon from '@/svgs/linkedin.inline.svg';
+import YoutubeIcon from '@/svgs/youtube.inline.svg';
 
 const socialLinks = [
   {
@@ -24,6 +25,11 @@ const socialLinks = [
     name: 'Twitter',
     href: Route.TWITTER,
     icon: TwitterIcon,
+  },
+  {
+    name: 'Youtube',
+    href: Route.YOUTUBE,
+    icon: YoutubeIcon,
   },
   {
     name: 'LinkedIn',
@@ -79,7 +85,13 @@ const Footer = () => (
       </div>
       <div className="col-span-2 col-start-7 flex items-center gap-x-5 lg:col-span-3 lg:justify-self-end md:col-span-3 md:col-start-10 md:row-span-1 md:row-start-1 xs:col-span-full xs:col-start-1 xs:row-start-2 xs:-mt-1 xs:justify-self-start">
         {socialLinks.map(({ name, href, icon: Icon }, idx) => (
-          <Link className="flex items-center justify-center rounded-full" key={idx} href={href}>
+          <Link
+            className="flex items-center justify-center rounded-full"
+            key={idx}
+            href={href}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <span className="sr-only">{name}</span>
             <Icon
               width={24}

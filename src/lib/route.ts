@@ -108,6 +108,7 @@ const Route = {
   LIVE_DEMO: 'https://demo.bytebase.com',
   DISCORD: 'https://discord.com/invite/huyw7gRsyA',
   TWITTER: 'https://twitter.com/Bytebase',
+  YOUTUBE: 'https://www.youtube.com/channel/UCIlxsMmakGxeaAwpu1Z6jJg',
   GITHUB: 'https://github.com/bytebase/bytebase',
   LINKEDIN: 'https://www.linkedin.com/company/bytebase',
   STAR_HISTORY: 'https://star-history.com/#bytebase/bytebase',
