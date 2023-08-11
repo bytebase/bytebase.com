@@ -21,8 +21,11 @@ See [Add an Instance](/docs/get-started/step-by-step/add-an-instance/#add-an-ins
 
 ## Connect to the instance on the same host
 
-- If you run Bytebase inside Docker and try to connect to a database instance on the same host, then
-  you need to set host as `host.docker.internal` (detailed explanation).
+<HintBlock type="info">
+
+If you run Bytebase inside Docker and try to connect to a database instance on the same host, then
+you need to set host as [host.docker.internal](https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host).
+</HintBlock>
 
 ![connect-local-docker](/content/docs/get-started/instance/connect-local-docker.webp)
 
@@ -45,7 +48,7 @@ To protect their databases, some hosting providers block direct remote access. H
 
 1. After filling in the standard database connection information, click **SSH Connection** > **Tunnel + Private Key**.
 1. Fill in the SSH connection information. The **Private Key** is used to authenticate the SSH connection. You can also use a password instead.
-![ssh tunnelling](/content/docs/get-started/instance/bb-instance-ssh-connection.webp)
+   ![ssh tunnelling](/content/docs/get-started/instance/bb-instance-ssh-connection.webp)
 1. Click **Test Connection**. If the connection is successful, click **Create** to create this instance.
 
 ## Configure read-only connection
