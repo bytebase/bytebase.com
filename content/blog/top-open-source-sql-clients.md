@@ -97,3 +97,4 @@ project [Bytebase](/).
 - [Top Postgres GUI client](/blog/top-postgres-gui-client)
 - [Top MySQL GUI client](/blog/top-mysql-gui-client)
 - [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools)
+- [Top DBeaver Alternatives](/blog/top-dbeaver-alternative)

@@ -78,3 +78,4 @@ Any of the aforementioned provides a UI for users to operate on databases, a SQL
 - [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools)
 - [Top Open Source SQL Clients](/blog/top-open-source-sql-clients)
 - [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)
+- [Top DBeaver Alternatives](/blog/top-dbeaver-alternative)
