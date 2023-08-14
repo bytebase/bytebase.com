@@ -105,7 +105,7 @@ There are many tools out there, but at the end of the day, they are all differen
 | Navicat          |             | ✅           | ✅           | Individual                                              | Comprehensive features                                           |
 | DbVisualizer     | ✅          | ✅           | ✅           | Individual                                              | Comprehensive with good visualization                            |
 | TablePlus        |             | ✅           | ✅           | Individual                                              | Native and intuitive interface                                   |
-| DatabGrip        |             |              | ✅           | Individual                                              | Intuitive UX and integraiton with other JetBrains IDEs           |
+| DataGrip         |             |              | ✅           | Individual                                              | Intuitive UX and integraiton with other JetBrains IDEs           |
 | Beekeeper Studio | ✅          | ✅           | ✅           | Individual                                              | Mordern and sleek interface                                      |
 | PopSQL           |             | ✅           | ✅           | Data team                                               | Collaboration for data teams                                     |
 | Bytebase         | ✅          | ✅           | ✅           | Entire engineering org for developer, DBA and data team | Centralized access control, data masking, change review workflow |
