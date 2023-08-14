@@ -13,7 +13,7 @@ Bytebase officially supports the following major versions for each supported dat
 - MongoDB - 4.0 and above
 - Spanner
 - Redis - 6.0 and above
-- Oracle - 21c and above
+- Oracle - 11g and above
 - Microsoft SQL Server - 2019 and above
 - MariaDB - 10.7 and above
 - OceanBase - 3.x and above, MySQL tenant
