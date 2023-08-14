@@ -4,11 +4,11 @@ title: VCS Integration (GitOps)
 
 "**Version controlled schema**" aka "**Database-as-code**" is a practice to store the database schema in a version control system (VCS) just like how application code is stored. The database schema consists of a bunch of database migration scripts. These scripts usually follow a naming convention to identify the order of their relative execution sequence. After executing all the migration scripts, it will produce an exact copy of the database schema to the corresponding live database. In this model, the migration scripts are the source of truth of the database schema. You can check the reference for a detailed writeup on this topic.
 
-**Reference**: [Evolutionary Database Design](https://martinfowler.com/articles/evodb.html).
-
-Bytebase supports this version control model to integrate database schema with the VCS. To set it up, please follow this guide.
+<iframe width="675" height="380" src="https://www.youtube.com/embed/51_bL7Vnqww" title="YouTube video player" className="w-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 The VCS Integration is a 3-step setup. You can check this [demo issue](https://demo.bytebase.com/issue/add-createdat-column-to-userpostcomment-table-for-dev-environment-13008) created by Bytebase through observing the [code commit](https://gitlab.bytebase.com/bytebase-demo/blog/-/commit/171ceaf7659ceb8e495aa3ef356ec686656f9dc0) to see what it looks like after the setup.
+
+---
 
 ### [Step 1 - Add Git Provider](/docs/vcs-integration/add-git-provider)
 
