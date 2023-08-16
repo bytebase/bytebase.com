@@ -37,7 +37,7 @@ User information field mapping:
 </HintBlock>
 
 1. Follow the JumpCloud [Use Cloud LDAP](https://jumpcloud.com/support/use-cloud-ldap) to create an LDAP binding user and add Users to the LDAP directory.
-2. In Bytebase, go to **Settings > SSO** to create a new LDAP provider (all values are examples):
+1. In Bytebase, go to **Settings > SSO** to create a new LDAP provider (all values are examples):
    - **Name**: `JumpCloud`
    - **Identity Provider ID**: `jumpcloud`
    - **Domain**: `jumpcloud.com`
