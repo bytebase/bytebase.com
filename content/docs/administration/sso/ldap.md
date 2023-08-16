@@ -32,20 +32,20 @@ User information field mapping:
 
 <HintBlock type="info">
 
-The attribute `uid` is the username (e.g. `system`) not the email (e.g. `system@example.com`) in JumpCloud.
+- The attribute `uid` is the username (e.g. `system`) not the email (e.g. `system@example.com`) in JumpCloud.
 
 </HintBlock>
 
 1. Follow the JumpCloud [Use Cloud LDAP](https://jumpcloud.com/support/use-cloud-ldap) to create an LDAP binding user and add Users to the LDAP directory.
-1. In Bytebase, go to **Settings > SSO** to create a new LDAP provider (all values are examples):
+2. In Bytebase, go to **Settings > SSO** to create a new LDAP provider (all values are examples):
    - **Name**: `JumpCloud`
    - **Identity Provider ID**: `jumpcloud`
    - **Domain**: `jumpcloud.com`
    - **Host**: `ldap.jumpcloud.com`
    - **Port**: `389`
-   - **Bind DN**: `uid=REDACTED,ou=Users,o=REDACTED,dc=jumpcloud,dc=com`
-   - **Bind Password**: `REDACTED`
-   - **Base DN**: `ou=Users,o=REDACTED,dc=jumpcloud,dc=com`
+   - **Bind DN**: `uid=YOUR_USERNAME,ou=Users,o=YOUR_ORG_DN,dc=jumpcloud,dc=com`
+   - **Bind Password**: `YOUR_PASSWORD`
+   - **Base DN**: `ou=Users,o=YOUR_ORG_NAME,dc=jumpcloud,dc=com`
    - **User Filter**: `(&(objectClass=posixAccount)(uid=%s))`
    - **Security protocol** `StartTLS`
    - **Email**: `mail`
@@ -64,11 +64,11 @@ The attribute `uid` is the username (e.g. `system`) not the email (e.g. `system@
    - **Name**: `Okta`
    - **Identity Provider ID**: `okta`
    - **Domain**: `okta.com`
-   - **Host**: `REDACTED.ldap.okta.com`
+   - **Host**: `YOUR_SUBDOMAIN.ldap.okta.com`
    - **Port**: `389`
-   - **Bind DN**: `uid=REDACTED,ou=users,dc=REDACTED,dc=okta,dc=com`
-   - **Bind Password**: `REDACTED`
-   - **Base DN**: `ou=users,dc=REDACTED,dc=okta,dc=com`
+   - **Bind DN**: `uid=YOUR_USERNAME,ou=users,dc=YOUR_SUBDOMAIN,dc=okta,dc=com`
+   - **Bind Password**: `YOUR_PASSWORD`
+   - **Base DN**: `ou=users,dc=YOUR_SUBDOMAIN,dc=okta,dc=com`
    - **User Filter**: `(&(objectClass=inetOrgPerson)(uid=%s))`
    - **Security protocol** `StartTLS`
    - **Email**: `mail`
