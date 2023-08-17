@@ -24,13 +24,13 @@ When looking for a database CI/CD and schema migration change tool, Flyway and L
 While both Flyway and Liquibase are tools for database CI/CD, there are some key differences between the two. The following table summarizes the differences between Flyway and Liquibase.
 
 |                                                        | Flyway                          | Liquibase                       |
-| ------------------------------------------------------ | ------------------------------- | ------------------------------- | --- |
+| ------------------------------------------------------ | ------------------------------- | ------------------------------- |
 | [Product position](#product-position)                  | Schema Change & Version Control | Schema Change & Version Control |
 | [Developer interface](#developer-interface)            | CLI                             | CLI                             |
 | [Supported databases](#supported-databases)            | 22 Only SQL                     | 50 SQL & NoSQL DB               |
 | [Programming language and installation](#installation) | Java + JVM                      | Java + JVM                      |
 | [Change execution](#change-execution)                  | SQL script + CLI                | Changelog (XML) + CLI           |
-| [Change order](#change-order)                          | Numbering of SQL files          | Changelog (XML)                 |     |
+| [Change order](#change-order)                          | Numbering of SQL files          | Changelog (XML)                 |
 | [Database GitOps](#database-gitops-configuration)      | ✅                              | ✅                              |
 | [SQL auto check](#sql-auto-check)                      | ✅                              | ✅                              |
 | [Change history](#change-history)                      | ✅                              | ✅                              |
