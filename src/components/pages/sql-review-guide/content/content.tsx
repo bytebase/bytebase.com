@@ -10,6 +10,9 @@ import PostgresIcon from '@/svgs/postgres.inline.svg';
 import TidbIcon from '@/svgs/tidb.inline.svg';
 import OceanBaseIcon from '@/svgs/oceanbase.inline.svg';
 import OracleIcon from '@/svgs/oracle.inline.svg';
+import SnowflakeIcon from '@/svgs/snowflake.inline.svg';
+import MssqlIcon from '@/svgs/mssql.inline.svg';
+
 import { JSXElementConstructor } from 'react';
 
 const icons: Record<string, JSXElementConstructor<{ key: string; className: string }>> = {
@@ -18,6 +21,8 @@ const icons: Record<string, JSXElementConstructor<{ key: string; className: stri
   POSTGRES: PostgresIcon,
   OCEANBASE: OceanBaseIcon,
   ORACLE: OracleIcon,
+  SNOWFLAKE: SnowflakeIcon,
+  MSSQL: MssqlIcon,
 };
 
 const EngineList = ({
