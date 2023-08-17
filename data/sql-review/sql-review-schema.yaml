@@ -22,6 +22,8 @@ ruleList:
       - POSTGRES
       - ORACLE
       - OCEANBASE
+      - SNOWFLAKE
+      - MSSQL
     componentList: []
   - type: table.no-foreign-key
     category: TABLE
@@ -31,6 +33,8 @@ ruleList:
       - POSTGRES
       - ORACLE
       - OCEANBASE
+      - SNOWFLAKE
+      - MSSQL
     componentList: []
   - type: table.drop-naming-convention
     category: TABLE
@@ -39,6 +43,8 @@ ruleList:
       - TIDB
       - POSTGRES
       - OCEANBASE
+      - SNOWFLAKE
+      - MSSQL
     componentList:
       - key: format
         payload:
@@ -75,6 +81,8 @@ ruleList:
       - POSTGRES
       - ORACLE
       - OCEANBASE
+      - SNOWFLAKE
+      - MSSQL
     componentList: []
   - type: statement.where.require
     category: STATEMENT
@@ -84,6 +92,8 @@ ruleList:
       - POSTGRES
       - ORACLE
       - OCEANBASE
+      - SNOWFLAKE
+      - MSSQL
     componentList: []
   - type: statement.where.no-leading-wildcard-like
     category: STATEMENT
@@ -193,6 +203,8 @@ ruleList:
       - POSTGRES
       - ORACLE
       - OCEANBASE
+      - SNOWFLAKE
+      - MSSQL
     componentList:
       - key: format
         payload:
@@ -312,16 +324,21 @@ ruleList:
     category: NAMING
     engineList:
       - ORACLE
+      - SNOWFLAKE
+      - MSSQL
     componentList: []
   - type: naming.identifier.no-keyword
     category: NAMING
     engineList:
       - ORACLE
+      - SNOWFLAKE
+      - MSSQL
     componentList: []
   - type: naming.identifier.case
     category: NAMING
     engineList:
       - ORACLE
+      - SNOWFLAKE
     componentList:
       - key: upper
         payload:
@@ -335,6 +352,8 @@ ruleList:
       - POSTGRES
       - ORACLE
       - OCEANBASE
+      - SNOWFLAKE
+      - MSSQL
     componentList:
       - key: list
         payload:
@@ -345,6 +364,25 @@ ruleList:
             - updated_ts
             - creator_id
             - updater_id
+    individualConfigList:
+      - engine: SNOWFLAKE
+        payload:
+          list:
+            default:
+              - ID
+              - CREATED_TS
+              - UPDATED_TS
+              - CREATOR_ID
+              - UPDATER_ID
+      - engine: ORACLE
+        payload:
+          list:
+            default:
+              - ID
+              - CREATED_TS
+              - UPDATED_TS
+              - CREATOR_ID
+              - UPDATER_ID
   - type: column.no-null
     category: COLUMN
     engineList:
@@ -353,6 +391,8 @@ ruleList:
       - POSTGRES
       - ORACLE
       - OCEANBASE
+      - SNOWFLAKE
+      - MSSQL
     componentList: []
   - type: column.disallow-change-type
     category: COLUMN
@@ -443,6 +483,8 @@ ruleList:
     category: COLUMN
     engineList:
       - ORACLE
+      - SNOWFLAKE
+      - MSSQL
     componentList:
       - key: number
         payload:
@@ -489,6 +531,8 @@ ruleList:
       - TIDB
       - POSTGRES
       - OCEANBASE
+      - SNOWFLAKE
+      - MSSQL
     componentList: []
   - type: database.drop-empty-database
     category: DATABASE

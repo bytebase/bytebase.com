@@ -4,7 +4,10 @@
     "tidb": "TiDB",
     "postgres": "PostgreSQL",
     "oracle": "Oracle",
-    "oceanbase": "OceanBase"
+    "oceanbase": "OceanBase",
+    "snowflake": "Snowflake",
+    "mssql": "SQL Server",
+    "dm":"DM"
   },
   "category": {
     "engine": "Engine",
