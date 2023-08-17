@@ -11,8 +11,8 @@ description: 'Support using LDAP for configuring SSO. Support adding multiple re
 - Support using [LDAP](/docs/administration/sso/ldap/) for configuring SSO.
 - Support adding multiple read-only data sources.
 - Schema Template supports column type restriction.
-- Support Data Masking Policy for SQL Server.
 - Support RisingWave.
+- Support Data Masking Policy for SQL Server.
 - Support Sync Schema for TiDB.
 - SQL Review CI supports Azure DevOps.
 
@@ -34,6 +34,7 @@ description: 'Support using LDAP for configuring SSO. Support adding multiple re
 
 - The saga between MySQL and Postgres continues with [PlanetScale and Neon](/blog/planetscale-vs-neon/)!
 - DBeaver is one of the most popular database management tools out there, BUT - just in case you are in the mood for something different... We got [the best DBeaver alternatives](/blog/top-dbeaver-alternative/), with a comparison chart at the end 📈
+- New video tutorial: set up [custom approval flows](https://www.youtube.com/watch?v=K_RWlqdplZQ) for your issues in just 100 seconds.
 
 ## 📕 Installation and Upgrade
 
