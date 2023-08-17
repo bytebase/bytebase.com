@@ -140,7 +140,7 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
                   What’s new?
                 </span>
                 <span className="flex items-center gap-1.5 px-2">
-                  Release {latestVersion.number} - SSO with LDAP in additional to OAuth, OIDC
+                  Release {latestVersion.number} - SSO with LDAP in addition to OAuth, OIDC
                   <SmallArrowIcon width={7} height={6} />
                 </span>
               </span>
