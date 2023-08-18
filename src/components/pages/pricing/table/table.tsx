@@ -100,9 +100,14 @@ const Table = () => {
                     </div>
                     <div
                       className={clsx('border border-t-0 border-tones-purple-dark', {
-                        // 'border-l-0 border-r-0 bg-[#F9FAFF]': currentPlan.title === 'pro',
+                        'border-l-0 border-r-0 bg-[#F9FAFF]': currentPlan.title === 'enterprise',
                       })}
                     >
+                      <FeatureList
+                        title={currentPlan.title}
+                        features={currentPlan.usage}
+                        currentRow={currentRow}
+                      />
                       <FeatureList
                         title={currentPlan.title}
                         features={currentPlan.changeManagement}

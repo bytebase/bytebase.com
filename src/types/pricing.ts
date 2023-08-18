@@ -7,6 +7,7 @@ export type Plan = {
   buttonText: string;
   buttonUrl: string;
   buttonTheme: 'primary-filled' | 'primary-outline';
+  usage: PricingTableItem;
   changeManagement: PricingTableItem;
   sql: PricingTableItem;
   security: PricingTableItem;

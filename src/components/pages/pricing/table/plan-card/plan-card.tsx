@@ -18,9 +18,9 @@ const PlanCard = ({
         'h-[276px] border border-tones-purple-dark bg-white text-center before:mb-6 before:block before:h-2 before:w-full 3xl:h-[272px] md:h-[245px] sm:h-[260px] sm:before:mb-5',
         // title === 'pro' ? 'border-l-0 border-r-0 bg-[#F9FAFF]' : 'bg-white',
         {
-          // 'before:bg-[#5647EB]': title === 'pro',
+          'before:bg-[#172136]': title === 'SQL Editor',
           'before:bg-[#3DB8F5]': title === 'community',
-          'before:bg-[#172136]': title === 'enterprise',
+          'before:bg-[#5647EB]': title === 'enterprise',
         },
       )}
     >

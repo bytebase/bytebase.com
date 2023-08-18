@@ -1,18 +1,24 @@
 import { Plan } from '@/types/pricing';
 
-const COLORS = { /*pro: '#5647EB',*/ community: '#3DB8F5', enterprise: '#172136' };
+const COLORS = {
+  /*pro: '#5647EB',*/ community: '#3DB8F5',
+  enterprise: '#5647EB',
+  'SQL Editor': '#172136',
+};
 
-const PLANS: { free: Plan; /* pro: Plan; */ enterprise: Plan } = {
+const PLANS: { free: Plan; /* pro: Plan; */ enterprise: Plan; sql: Plan } = {
   free: {
     title: 'community',
     description: `Team essentials to centralize database development lifecycle management`,
     buttonText: 'Free Deploy',
-    buttonTheme: 'primary-filled',
+    buttonTheme: 'primary-outline',
     buttonUrl: '/docs/get-started/self-host/#docker',
-    changeManagement: {
+    usage: {
       user: 'Up to 20',
       instance: 'Up to 10',
       environment: 'Unlimited',
+    },
+    changeManagement: {
       'state-based-change': true,
       'migration-based-change': true,
       'sql-check': true,
@@ -76,13 +82,13 @@ const PLANS: { free: Plan; /* pro: Plan; */ enterprise: Plan } = {
   //   buttonUrl:
   //     'https://bytebase-hub-prod.us.auth0.com/u/login?state=hKFo2SByU1VxQzVzb0JpSm01TjF5TjZmU1JoTTVndXNpU3FuY6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIF9JakVqd1RRaVBjczh0NTVEQmxqSHo3ZGxzWV9zelBUo2NpZNkgN0IySDFrb05Sa3hQY0pENzBHeVJEbzVIbVNNMGI5V1E',
   //   additionalDescription: 'Free trial for 14 days.',
-  //   changeManagement: {
-  //     user: 'Unlimited',
+  //   user: 'Unlimited',
   //     instance: {
   //       value: 'Up to 20',
   //       tooltip: 'Maximum 20. Talk to us for pricing if your instances go over the limit.',
   //     },
   //     environment: 'Unlimited',
+  //   changeManagement: {
   //     'state-based-change': true,
   //     'migration-based-change': true,
   //     'sql-check': true,
@@ -147,12 +153,14 @@ const PLANS: { free: Plan; /* pro: Plan; */ enterprise: Plan } = {
     title: 'enterprise',
     description: 'Holistic database development lifecycle management for the entire organization',
     buttonText: 'Contact us',
-    buttonTheme: 'primary-outline',
+    buttonTheme: 'primary-filled',
     buttonUrl: '/contact-us',
-    changeManagement: {
+    usage: {
       user: 'Unlimited',
       instance: 'Unlimited',
       environment: 'Unlimited',
+    },
+    changeManagement: {
       'state-based-change': true,
       'migration-based-change': true,
       'sql-check': true,
@@ -216,15 +224,86 @@ const PLANS: { free: Plan; /* pro: Plan; */ enterprise: Plan } = {
       msa: true,
     },
   },
+  sql: {
+    title: 'SQL Editor',
+    description: 'DBeaver+++ with access control, data masking, and collaboration',
+    buttonText: 'Contact us',
+    buttonTheme: 'primary-outline',
+    buttonUrl: '/contact-us',
+    usage: {
+      user: 'Unlimited',
+      instance: 'Unlimited',
+      environment: 'Unlimited',
+    },
+    changeManagement: {
+      'state-based-change': false,
+      'migration-based-change': false,
+      'sql-check': false,
+      'change-history': false,
+      terraform: false,
+      schedule: false,
+      'rollout-policy': false,
+      'disaster-recovery': false,
+      synchronize: false,
+      'batch-change': false,
+      'custom-approval': false,
+    },
+    sql: {
+      'auto-complete': true,
+      'schema editor': true,
+      'schema-diagram': true,
+      csv: true,
+      admin: true,
+      script: true,
+      connection: true,
+    },
+    collaboration: {
+      inbox: true,
+      ui: false,
+      shared: true,
+      gitops: false,
+      webhook: false,
+    },
+    security: {
+      rbac: true,
+      'slow-query': false,
+      archiving: false,
+      'backup-policy': false,
+      sso: true,
+      twofa: true,
+      ssh: true,
+      'query-and-export-workflow': true,
+      dba: true,
+      environment: true,
+      masking: true,
+      'access-control': true,
+      watermark: true,
+      'audit-log': true,
+      'signup-restriction': true,
+      'signin-frequency': true,
+      anomaly: false,
+    },
+    bespoke: {
+      support: 'Email',
+      logo: true,
+      roadmap: false,
+      msa: false,
+    },
+  },
 };
 
 const LABELS = [
   {
-    title: 'Change Management',
+    title: 'Usage',
     items: {
       user: 'User count',
       instance: 'Instance count',
       environment: 'Environment count',
+    },
+  },
+  {
+    title: 'Change Management',
+    items: {
       'state-based-change': 'State-based change',
       'migration-based-change': 'Migration-based change',
       'sql-check': '100+ Automated SQL check',
