@@ -20,7 +20,7 @@ const ITEMS = [
   },
   {
     title: 'Data Security',
-    url: Route.DOCS_SECURITY,
+    url: Route.DOCS_DATA_ACCESS_CONTROL,
   },
   {
     title: 'GitOps',
