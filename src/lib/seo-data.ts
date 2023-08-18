@@ -8,7 +8,7 @@ const SEO_DATA = {
     pathname: '',
   },
   SQL_EDITOR: {
-    title: 'SQL Editor',
+    title: 'SQL Editor | DBeaver, Navicat, TablePlus, MySQL Workbench, pgAdmin alternative',
     description:
       'Security-first SQL Editor with data access control and masking | DBeaver, Navicat, TablePlus, MySQL Workbench, pgAdmin alternative',
     pathname: `${Route.SQL_EDITOR}/`,
