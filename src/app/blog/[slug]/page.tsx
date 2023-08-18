@@ -63,7 +63,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
           <Content content={content} />
         </PostLayout>
       </article>
-      <RelatedPosts posts={relatedPosts} />
+      <RelatedPosts posts={relatedPosts} module="BLOG" />
     </>
   );
 }

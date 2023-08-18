@@ -17,10 +17,12 @@ const BlogPostCard = ({
   post,
   hasImage = true,
   theme = 'default',
+  module = 'BLOG',
 }: {
   post: BlogPost;
   hasImage?: boolean;
   theme: BlogPostTCardThemes;
+  module: 'BLOG' | 'LANDING';
 }) => {
   const categorySlug = slugifyText(post.tags);
   const { tagColors, titleHover } = getBlogTagTheme(categorySlug);
@@ -48,16 +50,18 @@ const BlogPostCard = ({
         </Link>
       )}
       <div className="flex flex-col gap-y-3 md:gap-y-2">
-        <Link
-          aria-label={`Posts of ${post.tags} category`}
-          className={clsx(
-            tagColors,
-            'inline-flex max-w-fit rounded-full px-3 py-[5px] text-14 font-medium leading-none',
-          )}
-          href={`${ROUTE.BLOG_CATEGORY}/${categorySlug}`}
-        >
-          {post.tags}
-        </Link>
+        {module == 'BLOG' && (
+          <Link
+            aria-label={`Posts of ${post.tags} category`}
+            className={clsx(
+              tagColors,
+              'inline-flex max-w-fit rounded-full px-3 py-[5px] text-14 font-medium leading-none',
+            )}
+            href={`${ROUTE.BLOG_CATEGORY}/${categorySlug}`}
+          >
+            {post.tags}
+          </Link>
+        )}
         <Link href={`${ROUTE.BLOG}/${post.slug}`}>
           <h3
             className={clsx(
@@ -71,28 +75,30 @@ const BlogPostCard = ({
             {post.title}
           </h3>
         </Link>
-        <div className="flex items-center gap-x-3 md:gap-x-2">
-          <Image
-            className={clsx(
-              theme === 'small' && 'hidden md:block',
-              'h-9 w-9 rounded-full border border-gray-90 md:h-8 md:w-8',
-            )}
-            src={`/images/authors/${slugifyText(post.author)}.webp`}
-            alt={post.author}
-            width={36}
-            height={36}
-          />
-          <div className="relative flex gap-x-2 text-14 leading-none text-gray-40">
-            <span>{post.author}</span>
-            <time
-              className="upppercase relative pl-2 uppercase
+        {module == 'BLOG' && (
+          <div className="flex items-center gap-x-3 md:gap-x-2">
+            <Image
+              className={clsx(
+                theme === 'small' && 'hidden md:block',
+                'h-9 w-9 rounded-full border border-gray-90 md:h-8 md:w-8',
+              )}
+              src={`/images/authors/${slugifyText(post.author)}.webp`}
+              alt={post.author}
+              width={36}
+              height={36}
+            />
+            <div className="relative flex gap-x-2 text-14 leading-none text-gray-40">
+              <span>{post.author}</span>
+              <time
+                className="upppercase relative pl-2 uppercase
               before:absolute before:left-0 before:top-1/2 before:block before:h-0.5 before:w-0.5 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:bg-gray-40"
-              dateTime={date.toString()}
-            >
-              {formattedDate}
-            </time>
+                dateTime={date.toString()}
+              >
+                {formattedDate}
+              </time>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </article>
   );
