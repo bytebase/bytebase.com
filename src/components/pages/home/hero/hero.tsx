@@ -159,10 +159,15 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
           </div>
         </header>
         <footer className="mt-14 flex items-center gap-9 2xl:gap-8 xl:mt-11 xl:gap-6 md:mt-7 sm:mt-6 sm:gap-3.5">
-          <Button href={Route.DEMO} theme="primary-filled" size="lg" className="sm:!w-fit sm:!px-6">
-            Request a Demo
+          <Button
+            href={Route.LIVE_DEMO}
+            theme="primary-filled"
+            size="lg"
+            className="sm:!w-fit sm:!px-6"
+          >
+            See Live Demo
           </Button>
-          <LinkUnderlined href={Route.LIVE_DEMO}>See Live Demo</LinkUnderlined>
+          <LinkUnderlined href={Route.DEMO}>Request a demo</LinkUnderlined>
         </footer>
       </section>
       <div className="col-span-full col-start-1 row-start-2 h-20 md:h-[60px] sm:col-auto sm:row-auto sm:mt-8 sm:h-auto">
