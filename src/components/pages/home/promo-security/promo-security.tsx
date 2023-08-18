@@ -62,7 +62,7 @@ const PromoSecurity = () => {
           </p>
           <LinkUnderlined
             className="mt-8 text-white hover:text-secondary-2 xl:mt-6 md:mt-4 sm:mt-3"
-            href={Route.DOCS_SECURITY}
+            href={Route.DOCS_DATA_ACCESS_CONTROL}
           >
             Learn more
           </LinkUnderlined>

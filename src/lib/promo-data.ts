@@ -2,8 +2,8 @@ import ROUTE from '@/lib/route';
 
 const PROMO_DATA = {
   TOP_BANNER: {
-    title: '🎉 We just crossed 1 million downloads',
-    pathname: '/blog/one-million-downloads/',
+    title: '🔒 Security-first SQL Editor with data access control and masking 🎭',
+    pathname: `${ROUTE.SQL_EDITOR}`,
   },
   BLOG_ASIDE: {
     title: 'What is Bytebase?',

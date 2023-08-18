@@ -7,6 +7,11 @@ const SEO_DATA = {
       'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
     pathname: '',
   },
+  SQL_EDITOR: {
+    title: 'SQL Editor',
+    description: 'Security-first SQL Editor with data access control and masking',
+    pathname: `${Route.SQL_EDITOR}/`,
+  },
   ABOUT: {
     title: 'About Us',
     description:

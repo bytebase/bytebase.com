@@ -64,7 +64,7 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
       },
     ],
     color: 'red',
-    href: Route.DOCS_SECURITY,
+    href: Route.DOCS_DATA_ACCESS_CONTROL,
     cover: '/images/page/main/hero/secure-access.webp',
     title: 'Secure access',
     description:

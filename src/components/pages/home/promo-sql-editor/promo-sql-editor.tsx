@@ -25,19 +25,20 @@ const data: AccordionData[] = [
     image: '/images/page/main/sql-editor/interface-run.webp',
   },
   {
-    title: 'Explore the schema',
-    description: 'Navigate database schema to understand data.',
-    image: '/images/page/main/sql-editor/interface-explore.webp',
-  },
-  {
-    title: 'Mask data',
-    description: 'Built-in data masking to protect sensitive information.',
-    image: '/images/page/main/sql-editor/interface-mask.webp',
-  },
-  {
     title: 'Control data access',
     description: 'Centralized access control to ensure data security.',
     image: '/images/page/main/sql-editor/interface-database.webp',
+  },
+  {
+    title: 'Mask data',
+    description:
+      'Built-in dynamic data masking to protect sensitive information without performance impact.',
+    image: '/images/page/main/sql-editor/interface-mask.webp',
+  },
+  {
+    title: 'Explore the schema',
+    description: 'Navigate database schema to understand data.',
+    image: '/images/page/main/sql-editor/interface-explore.webp',
   },
 ];
 
@@ -95,10 +96,10 @@ const PromoSQLEditor = () => {
       <header>
         <Pill theme="secondary-1">Query</Pill>
         <h2 className="mt-3 max-w-3xl font-title text-88 font-semibold leading-none xl:mt-3 xl:max-w-2xl xl:text-68 xl:leading-104 md:mt-3 md:max-w-lg md:text-54 md:leading-none sm:text-48 sm:leading-95">
-          Centralize data access with{' '}
           <mark className="whitespace-nowrap bg-transparent text-center text-primary-1 sm:whitespace-normal xs:pr-24">
-            SQL Editor
-          </mark>
+            Security-first
+          </mark>{' '}
+          SQL Editor for team
         </h2>
       </header>
       <div className="gap-x-grid mt-12 grid grid-cols-12 xl:mt-7 md:mt-10 sm:relative sm:mt-10 sm:grid-cols-none">
