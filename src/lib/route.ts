@@ -101,6 +101,15 @@ const Route = {
   INTEGRATION_LARK: '/integration/lark',
   INTEGRATION_WECOM: '/integration/wecom',
 
+  // alternatives
+  ALTERNATIVE_DATAGRIP: '/datagrip_alternative',
+  ALTERNATIVE_DBEAVER: '/dbeaver_alternative',
+  ALTERNATIVE_MYSQL_WORKBENCH: '/mysql_workbench_alternative',
+  ALTERNATIVE_NAVICAT: '/navicat_alternative',
+  ALTERNATIVE_PGADMIN: '/pgadmin_alternative',
+  ALTERNATIVE_PHPMYADMIN: '/phpmyadmin_alternative',
+  ALTERNATIVE_TABLEPLUS: '/tableplus_alternative',
+
   // usecases
   SOLUTIONS: '/solutions',
   USECASE_DBA: '/usecase/dba',
