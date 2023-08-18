@@ -22,7 +22,7 @@ const BlogPostCard = ({
   post: BlogPost;
   hasImage?: boolean;
   theme: BlogPostTCardThemes;
-  module: 'BLOG' | 'LANDING';
+  module?: 'BLOG' | 'LANDING';
 }) => {
   const categorySlug = slugifyText(post.tags);
   const { tagColors, titleHover } = getBlogTagTheme(categorySlug);
