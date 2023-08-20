@@ -1,0 +1,28 @@
+.scroll-animation {
+  animation: hero-scroll 12s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+@keyframes hero-scroll {
+  0% {
+    transform: translateY(0%);
+  }
+  10% {
+    transform: translateY(-25%);
+  }
+  33% {
+    transform: translateY(-25%);
+  }
+  43% {
+    transform: translateY(-50%);
+  }
+  66% {
+    transform: translateY(-50%);
+  }
+  76% {
+    transform: translateY(-75%);
+  }
+  100% {
+    transform: translateY(-75%);
+  }
+}

@@ -1,22 +1,58 @@
+'use client';
+
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 
 import Pill from '@/components/shared/pill';
+import '@/styles/sql-editor-hero.css';
 
-type HeroProps = {
-  // TODO: allow text rotation if supplied multiple subjects.
-  subjects: string[];
-};
+const Hero = () => {
+  const subjects = ['DBeaver+++', 'Navicat+++', 'TablePlus+++'];
+  const subjectsContainerRef = useRef<null | HTMLDivElement>(null);
+  const [initialed, setInitialed] = useState(false);
+  const scrollableSubjects = [...subjects, subjects[0]];
 
-const Hero = ({ subjects }: HeroProps) => {
+  useEffect(() => {
+    const updateSubjectContainerHeight = () => {
+      if (subjectsContainerRef.current) {
+        subjectsContainerRef.current.style.height = getComputedStyle(
+          subjectsContainerRef.current,
+        ).getPropertyValue('line-height');
+      }
+    };
+    updateSubjectContainerHeight();
+    setInitialed(true);
+
+    window.addEventListener('resize', updateSubjectContainerHeight);
+    return () => {
+      window.removeEventListener('resize', updateSubjectContainerHeight);
+    };
+  }, []);
+
   return (
     <section className="container pt-[136px] 3xl:pt-[128px] xl:pt-[120px] md:pt-[104px] sm:pt-24">
       <div className="gap-x-grid relative grid grid-cols-12 justify-items-center sm:grid-cols-4">
         <Pill theme="secondary-1" className="col-span-full">
           Web-based
         </Pill>
-        <h2 className="col-span-full mt-3.5 max-w-[1000px] text-center font-title text-88 font-semibold leading-none xl:max-w-[780px] xl:text-68 xl:leading-104 md:mt-2 md:max-w-[620px] md:text-54 sm:text-48 sm:leading-95">
-          <mark className="bg-transparent text-primary-1">{subjects[0]}</mark> with access control,
-          data masking, and collaboration
+        <h2 className="col-span-full mt-3 max-w-[1000px] text-center font-title text-88 font-semibold leading-none xl:max-w-[780px] xl:text-68 xl:leading-104 md:mt-2 md:max-w-[620px] md:text-54 sm:text-48 sm:leading-95">
+          <div ref={subjectsContainerRef} className="relative inline-grid overflow-hidden">
+            {initialed ? (
+              <>
+                <div className="absolute z-[1] h-2 w-full bg-white blur-md" />
+                <div className="scroll-animation flex flex-col items-center justify-center">
+                  {scrollableSubjects.map((subject, index) => (
+                    <mark key={`${subject}-${index}`} className="bg-transparent text-primary-1">
+                      {subject}
+                    </mark>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <mark className="bg-transparent text-primary-1">{subjects[0]}</mark>
+            )}
+          </div>{' '}
+          with access control, data masking, and collaboration
         </h2>
         <Image
           src="/images/page/about/why-we-build.webp"
