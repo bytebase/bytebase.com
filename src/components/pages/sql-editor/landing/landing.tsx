@@ -7,12 +7,13 @@ import { BlogPost } from '@/types/blog-post';
 
 type RelatedPostsProps = {
   posts: BlogPost[];
+  subjects: string[];
 };
 
-const Landing = ({ posts }: RelatedPostsProps) => {
+const Landing = ({ posts, subjects }: RelatedPostsProps) => {
   return (
     <>
-      <Hero />
+      <Hero subjects={subjects} />
       <PromoSQLEditor />
       <Features />
       <RelatedPosts posts={posts} module="LANDING" />

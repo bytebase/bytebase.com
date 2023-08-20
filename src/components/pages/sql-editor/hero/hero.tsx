@@ -6,13 +6,18 @@ import { useEffect, useRef, useState } from 'react';
 import Pill from '@/components/shared/pill';
 import '@/styles/sql-editor-hero.css';
 
-// subjects is an array of comparison subjects.
-const subjects = ['DBeaver+++', 'Navicat+++', 'TablePlus+++'];
+type HeroProps = {
+  // subjects is an array of comparison subjects.
+  subjects: string[];
+};
 
-const Hero = () => {
-  const scrollableSubjects = [...subjects, subjects[0]];
+const Hero = ({ subjects }: HeroProps) => {
+  const scrollableSubjects = subjects.length > 1 ? [...subjects, subjects[0]] : [...subjects];
   const subjectsContainerRef = useRef<null | HTMLDivElement>(null);
-  const [initialed, setInitialed] = useState(false);
+  // Now we only support scrollable subjects in sql editor landing page.
+  // AKA, there are only 3 subjects at most: 'DBeaver+++', 'Navicat+++', 'TablePlus+++'.
+  const isSubjectsScrollable = subjects.length === 3;
+  const [initialed, setInitialed] = useState(isSubjectsScrollable ? false : true);
 
   useEffect(() => {
     const updateSubjectContainerHeight = () => {
@@ -39,11 +44,12 @@ const Hero = () => {
         </Pill>
         <h2 className="col-span-full mt-3 max-w-[1000px] text-center font-title text-88 font-semibold leading-none xl:max-w-[780px] xl:text-68 xl:leading-104 md:mt-2 md:max-w-[620px] md:text-54 sm:text-48 sm:leading-95">
           <div ref={subjectsContainerRef} className="relative inline-grid overflow-hidden">
-            {initialed ? (
+            {initialed && isSubjectsScrollable ? (
               <>
                 <div className="absolute z-[1] h-2 w-full bg-white blur-md" />
                 <div className="scroll-animation flex flex-col items-center justify-center">
                   {scrollableSubjects.map((subject, index) => (
+                    // eslint-disable-next-line react/no-array-index-key
                     <mark key={`${subject}-${index}`} className="bg-transparent text-primary-1">
                       {subject}
                     </mark>
