@@ -6,11 +6,13 @@ import { useEffect, useRef, useState } from 'react';
 import Pill from '@/components/shared/pill';
 import '@/styles/sql-editor-hero.css';
 
+// subjects is an array of comparison subjects.
+const subjects = ['DBeaver+++', 'Navicat+++', 'TablePlus+++'];
+
 const Hero = () => {
-  const subjects = ['DBeaver+++', 'Navicat+++', 'TablePlus+++'];
+  const scrollableSubjects = [...subjects, subjects[0]];
   const subjectsContainerRef = useRef<null | HTMLDivElement>(null);
   const [initialed, setInitialed] = useState(false);
-  const scrollableSubjects = [...subjects, subjects[0]];
 
   useEffect(() => {
     const updateSubjectContainerHeight = () => {
