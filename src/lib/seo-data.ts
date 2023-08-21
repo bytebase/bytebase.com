@@ -254,43 +254,43 @@ const SEO_DATA = {
     pathname: `${Route.INTEGRATION_WECOM}/`,
   },
   DATAGRIP: {
-    title: 'SQL Editor & DataGrip Alternative',
+    title: 'DataGrip Alternative',
     description:
       'DataGrip alternative with data access with access control, data masking, and collaboration',
     pathname: `${Route.ALTERNATIVE_DATAGRIP}/`,
   },
   DBEAVER: {
-    title: 'SQL Editor & DBeaver Alternative',
+    title: 'DBeaver Alternative',
     description:
       'DBeaver Alternative with data access with access control, data masking, and collaboration',
     pathname: `${Route.ALTERNATIVE_DBEAVER}/`,
   },
   MYSQL_WORKBENCH: {
-    title: 'SQL Editor & MySQL Workbench Alternative',
+    title: 'MySQL Workbench Alternative',
     description:
       'MySQL Workbench alternative with data access with access control, data masking, and collaboration',
     pathname: `${Route.ALTERNATIVE_MYSQL_WORKBENCH}/`,
   },
   NAVICAT: {
-    title: 'SQL Editor & Navicat Alternative',
+    title: 'Navicat Alternative',
     description:
       'Navicat alternative with data access with access control, data masking, and collaboration',
     pathname: `${Route.ALTERNATIVE_NAVICAT}/`,
   },
   PGADMIN: {
-    title: 'SQL Editor & pgAdmin Alternative',
+    title: 'pgAdmin Alternative',
     description:
       'pgAdmin alternative with data access with access control, data masking, and collaboration',
     pathname: `${Route.ALTERNATIVE_PGADMIN}/`,
   },
   PHPMYADMIN: {
-    title: 'SQL Editor & phpMyAdmin Alternative',
+    title: 'phpMyAdmin Alternative',
     description:
       'phpMyAdmin alternative with data access with access control, data masking, and collaboration',
     pathname: `${Route.ALTERNATIVE_PHPMYADMIN}/`,
   },
   TABLEPLUS: {
-    title: 'SQL Editor & TablePlus Alternative',
+    title: 'TablePlus Alternative',
     description:
       'TablePlus alternative with data access with access control, data masking, and collaboration',
     pathname: `${Route.ALTERNATIVE_TABLEPLUS}/`,
