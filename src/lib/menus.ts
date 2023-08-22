@@ -168,19 +168,6 @@ export const MENU = {
       ],
     },
     {
-      name: 'COMPARISONS',
-      items: [
-        { name: 'Bytebase vs. Liquibase', linkUrl: Route.VS_LIQUIBASE },
-        { name: 'Bytebase vs. Flyway', linkUrl: Route.VS_FLYWAY },
-        { name: 'Bytebase vs. Navicat', linkUrl: Route.VS_NAVICAT },
-        { name: 'Bytebase vs. schemachange', linkUrl: Route.VS_SCHEMACHANGE },
-        { name: 'Postgres vs. MySQL', linkUrl: Route.PG_VS_MYSQL },
-        { name: 'Postgres vs. MongoDB', linkUrl: Route.PG_VS_MONGO },
-        { name: 'PlanetScale vs. Neon', linkUrl: Route.PLANETSCALE_VS_NEON },
-        { name: 'Flyway vs. Liquibase', linkUrl: Route.FLYWAY_VS_LIQUIBASE },
-      ],
-    },
-    {
       name: 'RESOURCES',
       items: [
         { name: 'Schema Migration', linkUrl: Route.SCHEMA_MIGRATION },
@@ -197,6 +184,19 @@ export const MENU = {
           linkUrl: Route.STAR_HISTORY,
           isExternal: true,
         },
+      ],
+    },
+    {
+      name: 'COMPARISONS',
+      items: [
+        { name: 'Bytebase vs. Liquibase', linkUrl: Route.VS_LIQUIBASE },
+        { name: 'Bytebase vs. Flyway', linkUrl: Route.VS_FLYWAY },
+        { name: 'Bytebase vs. Navicat', linkUrl: Route.VS_NAVICAT },
+        { name: 'Bytebase vs. schemachange', linkUrl: Route.VS_SCHEMACHANGE },
+        { name: 'Postgres vs. MySQL', linkUrl: Route.PG_VS_MYSQL },
+        { name: 'Postgres vs. MongoDB', linkUrl: Route.PG_VS_MONGO },
+        { name: 'PlanetScale vs. Neon', linkUrl: Route.PLANETSCALE_VS_NEON },
+        { name: 'Flyway vs. Liquibase', linkUrl: Route.FLYWAY_VS_LIQUIBASE },
       ],
     },
     {
