@@ -2,13 +2,17 @@ import getMetadata from '@/utils/get-metadata';
 
 import { getBlogPostBySlug } from '@/lib/api-blog';
 import SEO_DATA from '@/lib/seo-data';
-import Landing from '@/components/pages/sql-editor/landing';
+import Landing from '@/components/pages/schema-migration/landing';
 import { BlogPost } from '@/types/blog-post';
 import CONTENT_FOLDER from '@/lib/content-folder';
 
-export const metadata = getMetadata(SEO_DATA.SQL_EDITOR);
+export const metadata = getMetadata(SEO_DATA.SCHEMA_MIGRATION);
 
-const POSTS = ['top-dbeaver-alternative', 'top-open-source-sql-clients', 'stop-using-navicat'];
+const POSTS = [
+  'bytebase-vs-liquibase',
+  'bytebase-vs-flyway',
+  'top-database-schema-change-tool-evolution',
+];
 
 const SchemaMigrationPage = () => {
   const relatedPosts: BlogPost[] = [];
@@ -22,8 +26,8 @@ const SchemaMigrationPage = () => {
 
   return (
     <>
-      <h1 className="sr-only">SQL Editor</h1>
-      <Landing posts={relatedPosts} subjects={['DBeaver+++', 'Navicat+++', 'TablePlus+++']} />
+      <h1 className="sr-only">Schema Migration</h1>
+      <Landing posts={relatedPosts} subjects={['Flyway+++', 'Liquibase+++', 'DBeaver+++']} />
     </>
   );
 };

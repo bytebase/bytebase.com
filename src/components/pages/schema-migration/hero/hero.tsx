@@ -40,7 +40,7 @@ const Hero = ({ subjects }: HeroProps) => {
     <section className="container pt-[136px] 3xl:pt-[128px] xl:pt-[120px] md:pt-[104px] sm:pt-24">
       <div className="gap-x-grid relative grid grid-cols-12 justify-items-center sm:grid-cols-4">
         <Pill theme="secondary-1" className="col-span-full">
-          Web-based
+          With Web GUI
         </Pill>
         <h2 className="col-span-full mt-3 max-w-[1000px] text-center font-title text-88 font-semibold leading-none xl:max-w-[780px] xl:text-68 xl:leading-104 md:mt-2 md:max-w-[620px] md:text-54 sm:text-48 sm:leading-95">
           <div ref={subjectsContainerRef} className="relative inline-grid overflow-hidden">
@@ -60,7 +60,7 @@ const Hero = ({ subjects }: HeroProps) => {
               <mark className="bg-transparent text-primary-1">{subjects[0]}</mark>
             )}
           </div>{' '}
-          with access control, data masking, and collaboration
+          with GitOps, batch change, and collaboration
         </h2>
         <Image
           src="/images/page/about/why-we-build.webp"
@@ -117,7 +117,7 @@ const Hero = ({ subjects }: HeroProps) => {
             15
           </b>
           <p className="leading-1.4 font-regular text-20 xl:mt-2 xl:text-16 xl:leading-snug md:text-14 md:leading-tight md:tracking-tight sm:mt-0">
-            SQL Editor supports every major database systems
+            Bytebase schema migration supports every major database systems
           </p>
         </div>
         <div className="absolute bottom-[327px] left-0 col-span-3 col-start-10 w-[284px] 3xl:w-auto xl:bottom-[303px] xl:right-0 xl:left-auto xl:col-span-4 xl:col-start-9 xl:w-[240px] md:bottom-[180px] md:col-span-3 md:col-start-10 md:w-full sm:static sm:col-span-2 sm:col-start-3 sm:mt-6 sm:text-center">
@@ -125,7 +125,8 @@ const Hero = ({ subjects }: HeroProps) => {
             20+
           </b>
           <p className="leading-1.4 font-regular text-20 xl:mt-2 xl:text-16 xl:leading-snug md:text-14 md:leading-tight md:tracking-tight sm:mt-0">
-            SQL Editor provides the most comprehensive data security features among all SQL clients.
+            Bytebase schema migration provides the most comprehensive schema migration features
+            among all existing tools.
           </p>
         </div>
         <div className="absolute bottom-0 left-0 col-span-3 col-start-6 w-[252px] 3xl:w-auto xl:right-0 xl:left-auto xl:col-span-4 xl:col-start-5 xl:w-[240px] md:col-span-3 md:col-start-6 md:w-full sm:static sm:col-span-2 sm:col-start-2 sm:mt-7 sm:text-center">
@@ -133,7 +134,7 @@ const Hero = ({ subjects }: HeroProps) => {
             100%
           </b>
           <p className="leading-1.4 font-regular text-20 xl:mt-2 xl:text-16 xl:leading-snug md:text-14 md:leading-tight md:tracking-tight sm:mt-0">
-            All SQL Editor source code is available on GitHub
+            All source code is available on GitHub
           </p>
         </div>
       </div>

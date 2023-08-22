@@ -1,6 +1,6 @@
-import Hero from '@/components/pages/sql-editor/hero';
-import Features from '@/components/pages/sql-editor/features';
-import PromoSQLEditor from '@/components/pages/home/promo-sql-editor';
+import Hero from '../hero';
+import Features from '../features';
+import PromoAutomationChanges from '@/components/pages/home/promo-automation-changes';
 import Community from '@/components/shared/community';
 import RelatedPosts from '@/components/pages/blog/related-posts';
 import { BlogPost } from '@/types/blog-post';
@@ -14,7 +14,7 @@ const Landing = ({ posts, subjects }: RelatedPostsProps) => {
   return (
     <>
       <Hero subjects={subjects} />
-      <PromoSQLEditor />
+      <PromoAutomationChanges />
       <Features />
       <RelatedPosts posts={posts} module="LANDING" />
       <Community />

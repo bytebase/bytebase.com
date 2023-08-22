@@ -12,20 +12,20 @@ type TCard = {
 const cards: TCard[] = [
   {
     href: Route.DOCS_DATA_ACCESS_CONTROL,
-    icon: '/images/sql-editor/access-control.svg',
+    icon: '/images/access-control.svg',
     title: 'Access control',
     description:
       'Multi-factor granular access control based on role, environment, project, database.',
   },
   {
     href: Route.DOCS_DATA_MASKING,
-    icon: '/images/sql-editor/masking.svg',
+    icon: '/images/masking.svg',
     title: 'Dynamic masking',
     description: 'Dynamic data masking based on data clasification.',
   },
   {
     href: Route.DOCS_AUDIT_LOG,
-    icon: '/images/sql-editor/audit-log.svg',
+    icon: '/images/audit-log.svg',
     title: 'Audit logging',
     description: 'Record every human interaction with the database.',
   },

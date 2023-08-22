@@ -1,5 +1,5 @@
-import Hero from '@/components/pages/sql-editor/hero';
-import Features from '@/components/pages/sql-editor/features';
+import Hero from '../hero';
+import Features from '../features';
 import PromoSQLEditor from '@/components/pages/home/promo-sql-editor';
 import Community from '@/components/shared/community';
 import RelatedPosts from '@/components/pages/blog/related-posts';
