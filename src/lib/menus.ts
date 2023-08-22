@@ -185,6 +185,7 @@ export const MENU = {
       items: [
         { name: 'Documentation', linkUrl: Route.DOCS },
         { name: 'Changelog', linkUrl: Route.CHANGELOG },
+        { name: 'SQL Editor', linkUrl: Route.SQL_EDITOR },
         { name: 'SQL Review Guide', linkUrl: Route.SQL_REVIEW_GUIDE },
         { name: 'Database Glossary', linkUrl: Route.DATABASE_GLOSSARY },
         { name: 'SQL Chat', linkUrl: Route.SQL_CHAT, isExternal: true },
