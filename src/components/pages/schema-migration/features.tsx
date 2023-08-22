@@ -11,35 +11,34 @@ type TCard = {
 
 const cards: TCard[] = [
   {
-    href: Route.DOCS_DATA_ACCESS_CONTROL,
-    icon: '/images/access-control.svg',
-    title: 'Access control',
-    description:
-      'Multi-factor granular access control based on role, environment, project, database.',
+    href: Route.DOCS_ANOMALY_CENTER,
+    icon: '/images/attention.svg',
+    title: 'Anomaly center',
+    description: 'Surface and review all databases anomalies in a single place.',
   },
   {
-    href: Route.DOCS_DATA_MASKING,
-    icon: '/images/masking.svg',
-    title: 'Dynamic masking',
-    description: 'Dynamic data masking based on data clasification.',
+    href: Route.DOCS_DRIFT_DETECTION,
+    icon: '/images/database.svg',
+    title: 'Drift detection',
+    description: 'Proactively detect schema drift caused by unexpected out-of-band change.',
   },
   {
-    href: Route.DOCS_AUDIT_LOG,
-    icon: '/images/audit-log.svg',
-    title: 'Audit logging',
-    description: 'Record every human interaction with the database.',
+    href: Route.DOCS_DISASTER_RECOVERY,
+    icon: '/images/disk.svg',
+    title: 'Disaster recovery',
+    description: 'Auto-backup, point-in-time-recovery (PITR) and statement rollback.',
   },
 ];
 
 const Features = () => {
   return (
-    <section className="container mt-10 3xl:mt-9 xl:mt-8 md:mt-3 sm:mt-2">
+    <section className="container mt-32 md:mt-16 sm:mt-8">
       <header className="flex flex-col items-center text-center sm:items-start sm:text-start">
         <h2 className="font-title text-88 font-semibold leading-95 xl:text-68 xl:leading-104 md:text-54 sm:text-48">
-          Secure human-to-db interaction
+          Collaborative database CI/CD
         </h2>
         <p className="mt-5 max-w-[716px] text-20 leading-normal 3xl:mt-[22px] xl:mt-5 xl:text-18 xl:leading-snug md:mt-3 md:max-w-[468px] md:text-14 sm:mt-2">
-          Centralize data access management and audit logs for all human-to-database operations.
+          Change, review, deploy, rollback. All in one place.
         </p>
       </header>
       <ul className="gap-x-grid mt-14 grid grid-cols-12 3xl:mt-12 xl:mt-11 md:mt-9 sm:mt-6 sm:gap-y-8">

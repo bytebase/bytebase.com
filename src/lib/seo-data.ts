@@ -7,6 +7,12 @@ const SEO_DATA = {
       'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
     pathname: '',
   },
+  SCHEMA_MIGRATION: {
+    title: 'Schema Migration | Liquibase, Flyway alternative',
+    description:
+      'GUI-based database schema migration with access control, batch change and collaboration | Liquibase, Flyway alternative',
+    pathname: `${Route.SCHEMA_MIGRATION}/`,
+  },
   SQL_EDITOR: {
     title: 'SQL Editor | DBeaver, Navicat, TablePlus, MySQL Workbench, pgAdmin alternative',
     description:

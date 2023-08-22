@@ -183,6 +183,8 @@ export const MENU = {
     {
       name: 'RESOURCES',
       items: [
+        { name: 'Schema Migration', linkUrl: Route.SCHEMA_MIGRATION },
+        { name: 'SQL Editor', linkUrl: Route.SQL_EDITOR },
         { name: 'Documentation', linkUrl: Route.DOCS },
         { name: 'Changelog', linkUrl: Route.CHANGELOG },
         { name: 'SQL Editor', linkUrl: Route.SQL_EDITOR },

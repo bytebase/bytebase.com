@@ -4,6 +4,7 @@ const Route = {
   PRICING: '/pricing',
   BRAND: '/about#brand-kit',
   TECHSTACK: '/techstack',
+  SCHEMA_MIGRATION: '/schema-migration',
   SQL_EDITOR: '/sql-editor',
   SQL_REVIEW_GUIDE: '/sql-review-guide',
   BYTEBASE_PLUS: '/bytebase-plus',
