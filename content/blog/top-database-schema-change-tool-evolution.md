@@ -147,4 +147,3 @@ for free or [start locally with a single command](/docs/get-started/self-host/#d
 
 - [Top Postgres Extensions](/blog/top-postgres-extension/)
 - [Top Postgres GUI Clients](/blog/top-postgres-gui-client/)
-- [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)

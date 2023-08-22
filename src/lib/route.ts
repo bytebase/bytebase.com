@@ -110,6 +110,8 @@ const Route = {
   ALTERNATIVE_PGADMIN: '/pgadmin_alternative',
   ALTERNATIVE_PHPMYADMIN: '/phpmyadmin_alternative',
   ALTERNATIVE_TABLEPLUS: '/tableplus_alternative',
+  ALTERNATIVE_LIQUIBASE: '/liquibase_alternative',
+  ALTERNATIVE_FLYWAY: '/flyway_alternative',
 
   // usecases
   SOLUTIONS: '/solutions',

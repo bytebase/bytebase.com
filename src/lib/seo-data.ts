@@ -259,46 +259,49 @@ const SEO_DATA = {
       'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
     pathname: `${Route.INTEGRATION_WECOM}/`,
   },
+  LIQUIBASE: {
+    title: 'Liquibase Alternative',
+    description: 'Liquibase alternative with GitOps, batch change, and collaboration',
+    pathname: `${Route.ALTERNATIVE_LIQUIBASE}/`,
+  },
+  FLYWAY: {
+    title: 'Flyway Alternative',
+    description: 'Flyway alternative with GitOps, batch change, and collaboration',
+    pathname: `${Route.ALTERNATIVE_FLYWAY}/`,
+  },
   DATAGRIP: {
     title: 'DataGrip Alternative',
-    description:
-      'DataGrip alternative with data access with access control, data masking, and collaboration',
+    description: 'DataGrip alternative with access control, data masking, and collaboration',
     pathname: `${Route.ALTERNATIVE_DATAGRIP}/`,
   },
   DBEAVER: {
     title: 'DBeaver Alternative',
-    description:
-      'DBeaver Alternative with data access with access control, data masking, and collaboration',
+    description: 'DBeaver Alternative with access control, data masking, and collaboration',
     pathname: `${Route.ALTERNATIVE_DBEAVER}/`,
   },
   MYSQL_WORKBENCH: {
     title: 'MySQL Workbench Alternative',
-    description:
-      'MySQL Workbench alternative with data access with access control, data masking, and collaboration',
+    description: 'MySQL Workbench alternative with access control, data masking, and collaboration',
     pathname: `${Route.ALTERNATIVE_MYSQL_WORKBENCH}/`,
   },
   NAVICAT: {
     title: 'Navicat Alternative',
-    description:
-      'Navicat alternative with data access with access control, data masking, and collaboration',
+    description: 'Navicat alternative with access control, data masking, and collaboration',
     pathname: `${Route.ALTERNATIVE_NAVICAT}/`,
   },
   PGADMIN: {
     title: 'pgAdmin Alternative',
-    description:
-      'pgAdmin alternative with data access with access control, data masking, and collaboration',
+    description: 'pgAdmin alternative with access control, data masking, and collaboration',
     pathname: `${Route.ALTERNATIVE_PGADMIN}/`,
   },
   PHPMYADMIN: {
     title: 'phpMyAdmin Alternative',
-    description:
-      'phpMyAdmin alternative with data access with access control, data masking, and collaboration',
+    description: 'phpMyAdmin alternative with access control, data masking, and collaboration',
     pathname: `${Route.ALTERNATIVE_PHPMYADMIN}/`,
   },
   TABLEPLUS: {
     title: 'TablePlus Alternative',
-    description:
-      'TablePlus alternative with data access with access control, data masking, and collaboration',
+    description: 'TablePlus alternative with access control, data masking, and collaboration',
     pathname: `${Route.ALTERNATIVE_TABLEPLUS}/`,
   },
 };
