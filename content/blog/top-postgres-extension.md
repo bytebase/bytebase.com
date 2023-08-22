@@ -1,5 +1,5 @@
 ---
-title: Top Postgres Extensions in 2023
+title: Top Postgres Extensions to Enhance Postgres 2023
 author: Tianzhou
 published_at: 2023/07/14 09:00:00
 feature_image: /content/blog/top-postgres-extension/cover.webp

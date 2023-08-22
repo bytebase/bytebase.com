@@ -1,5 +1,5 @@
 ---
-title: Top 5 MySQL GUI Clients 2023
+title: Top 5 MySQL GUI Clients to Command MySQL 2023
 author: Mila
 published_at: 2023/07/10 21:21:21
 feature_image: /content/blog/top-mysql-gui-client/banner.webp

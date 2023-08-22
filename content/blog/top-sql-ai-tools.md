@@ -1,5 +1,5 @@
 ---
-title: Top 5 SQL AI Tools 2023
+title: Top 5 SQL AI Tools to Ease Writing SQL 2023
 author: Mila
 published_at: 2023/07/31 21:21:21
 feature_image: /content/blog/top-sql-ai-tools/banner.webp
