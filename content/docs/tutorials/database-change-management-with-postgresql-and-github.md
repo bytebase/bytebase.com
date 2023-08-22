@@ -166,6 +166,6 @@ COMMENT
 
 ## Summary and Next
 
-Now you have tried out GitOps workflow, which will store your PostgreSQL schema in GitHub and trigger the change upon committing the change to the repository, to bring your PostgreSQL change workflow to the next level of Database DevOps - [Database as Code](blog/database-as-code).
+Now you have tried out GitOps workflow, which will store your PostgreSQL schema in GitHub and trigger the change upon committing the change to the repository, to bring your PostgreSQL change workflow to the next level of Database DevOps - [Database as Code](/blog/database-as-code).
 
 In real world scenario, you might have separate features and main branches corresponding to your dev and production environment, you can check out [GitOps with Feature Branch Workflow](/docs/how-to/workflow/gitops-feature-branch) to learn the setup. Have a try and look forward to your feedback!

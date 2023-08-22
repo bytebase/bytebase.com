@@ -17,7 +17,7 @@ A series of articles about Database-as-code (GitOps)
 
 ---
 
-The idea of codifying database schema changes (aka schema migration) is not new. Many engineering teams have employed Liquibase / Flyway to adopt this practice. At the same time, we are observing an accelerated trend of embracing [Database as Code (DaC)](database-as-code) across the industry. Several innovative products have also emerged to challenge the incumbents.
+The idea of codifying database schema changes (aka schema migration) is not new. Many engineering teams have employed Liquibase / Flyway to adopt this practice. At the same time, we are observing an accelerated trend of embracing [Database as Code (DaC)](/blog/database-as-code) across the industry. Several innovative products have also emerged to challenge the incumbents.
 
 In this blog, we will review the state-of-the-art in the Database as Code landscape and share our own insight into the current and future trends in this space.
 
