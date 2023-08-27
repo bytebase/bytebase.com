@@ -1,5 +1,5 @@
 ---
-title: 'Bytebase vs. Liquibase: a side-by-side database CI/CD tool comparison for 2023'
+title: 'Bytebase vs. Liquibase: a side-by-side comparison for database schema migration'
 author: Changyu
 published_at: 2023/06/08 19:21:21
 feature_image: /content/blog/bytebase-vs-liquibase/bytebase-vs-liquibase-banner.webp

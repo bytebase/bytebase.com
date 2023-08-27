@@ -1,5 +1,5 @@
 ---
-title: 'Bytebase vs. Flyway: a side-by-side database CI/CD tool comparison for 2023'
+title: 'Bytebase vs. Flyway: a side-by-side comparison for database schema migration'
 author: Changyu
 published_at: 2023/06/14 19:21:21
 feature_image: /content/blog/bytebase-vs-flyway/bytebase-vs-flyway-banner.webp

@@ -1,5 +1,5 @@
 ---
-title: 'Flyway vs. Liquibase: a side-by-side database CI/CD tool comparison for 2023'
+title: 'Flyway vs. Liquibase: a side-by-side comparison for database schema migration'
 author: Changyu
 published_at: 2023/06/26 19:21:21
 feature_image: /content/blog/flyway-vs-liquibase/flyway-vs-liquibase-banner.webp
