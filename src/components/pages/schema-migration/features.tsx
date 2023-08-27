@@ -35,7 +35,7 @@ const Features = () => {
     <section className="container mt-32 md:mt-16 sm:mt-8">
       <header className="flex flex-col items-center text-center sm:items-start sm:text-start">
         <h2 className="font-title text-88 font-semibold leading-95 xl:text-68 xl:leading-104 md:text-54 sm:text-48">
-          Collaborative database CI/CD
+          The GitLab for database DevOps
         </h2>
         <p className="mt-5 max-w-[716px] text-20 leading-normal 3xl:mt-[22px] xl:mt-5 xl:text-18 xl:leading-snug md:mt-3 md:max-w-[468px] md:text-14 sm:mt-2">
           Change, review, deploy, rollback. All in one place.
