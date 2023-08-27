@@ -20,6 +20,7 @@ const Route = {
   REFUND: '/refund',
   TERMS: '/terms',
   PRIVACY: '/privacy',
+  SECURITY: '/security',
   SLA: '/sla',
   JOBS: '/about#crew',
   CONTACTS: '/contact-us',

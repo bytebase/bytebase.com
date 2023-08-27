@@ -116,6 +116,13 @@ const Footer = () => (
         >
           Policy
         </Link>
+        <Link
+          className="text-16 font-medium leading-none tracking-tight xs:text-14"
+          theme="gray"
+          href={Route.SECURITY}
+        >
+          Security
+        </Link>
       </div>
       <p className="hidden whitespace-nowrap text-14 font-medium leading-none tracking-tight text-gray-60 xs:col-span-full xs:row-span-1 xs:row-start-4 xs:block">
         © {new Date().getFullYear()} Bytebase. All Rights Reserved.

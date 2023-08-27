@@ -67,6 +67,11 @@ const SEO_DATA = {
       'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
     pathname: `${Route.PRIVACY}/`,
   },
+  SECURITY: {
+    title: 'Bytebase Security Details',
+    description: 'The security details for the Bytebase product',
+    pathname: `${Route.SECURITY}/`,
+  },
   SLA: {
     title: 'Service Level Agreement',
     description:
