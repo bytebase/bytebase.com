@@ -127,8 +127,8 @@ export default function Page() {
       <h3>How do I report a potential vulnerability or security concern?</h3>
       <p>
         Please contact us by e-mail at{' '}
-        <Link href="mailto:support@bytebase.com">support@bytebase.com</Link> and we'll get back to
-        you ASAP.
+        <Link href="mailto:support@bytebase.com">support@bytebase.com</Link> and we&apos;ll get back
+        to you ASAP.
       </p>
     </>
   );
