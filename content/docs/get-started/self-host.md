@@ -411,7 +411,7 @@ If you encounter any error when you install bytebase by using install script, we
 ### Prerequisites
 
 1. Install [pnpm](https://pnpm.io/installation), Bytebase requires Node.js >=17.0.
-2. Install [Go](https://golang.org/dl/), Bytebaes requires Go >= 1.16
+2. Install [Go](https://golang.org/dl/), Bytebase requires Go >= 1.16
 
 ### Environment Setup
 
