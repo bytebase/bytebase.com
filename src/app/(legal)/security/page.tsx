@@ -116,8 +116,8 @@ export default function Page() {
         <li>Database connection info.</li>
         <li>Database schema.</li>
         <li>
-          Slow query log if <Link href="/docs/slow-query/overview/">slow query report</Link> is
-          enabled.
+          Slow query statistics if <Link href="/docs/slow-query/overview/">slow query report</Link>{' '}
+          is enabled.
         </li>
         <li>
           (MySQL Only) Binlog if{' '}
