@@ -4,7 +4,7 @@ title: Batch Mode
 
 Often times, you don't apply a change to a single database. Instead, you need to apply a change to
 several databases. The most common case is you need to propogate a change from `dev -> test -> staging -> prod`,
-and each environment corresponds to a different database. Bytebaes supports this case out of the box.
+and each environment corresponds to a different database. Bytebase supports this case out of the box.
 In addition to that, Bytebase also offers a special batch mode to support:
 
 - [Partitioned databases](#database-group) and tables.
