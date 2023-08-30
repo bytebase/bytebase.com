@@ -42,25 +42,24 @@ Before you start, make sure you have:
 
 1. Make sure your Docker is running, and start the Bytebase Docker container with following command:
 
-   ```bash
-   docker run --init \
-   --name bytebase \
-   --platform linux/amd64 \
-   --restart always \
-   --publish 5678:8080 \
-   --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
-   --health-interval 5m \
-   --health-timeout 60s \
-   --volume ~/.bytebase/data:/var/opt/bytebase \
-   bytebase/bytebase:%%bb_version%% \
-   --data /var/opt/bytebase \
-   --port 8080
-   ```
+```bash
+docker run --init \
+  --name bytebase \
+  --restart always \
+  --publish 5678:8080 \
+  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
+  --health-interval 5m \
+  --health-timeout 60s \
+  --volume ~/.bytebase/data:/var/opt/bytebase \
+  bytebase/bytebase:%%bb_version%% \
+  --data /var/opt/bytebase \
+  --port 8080
+```
 
-2. Bytebase is now running via Docker, and you can access it via `localhost:5678`.
+1. Bytebase is now running via Docker, and you can access it via `localhost:5678`.
    ![docker](/content/docs/tutorials/database-change-management-with-spanner/docker.webp)
 
-3. Visit `localhost:5678` in your browser. Register the first admin account which will be granted [`Workspace Owner`](/docs/concepts/roles-and-permissions).
+1. Visit `localhost:5678` in your browser. Register the first admin account which will be granted [`Workspace Owner`](/docs/concepts/roles-and-permissions).
    ![bb-register](/content/docs/tutorials/database-change-management-with-spanner/bb-register.webp)
 
 ## Step 2 - Add an Spanner Instance to Bytebase

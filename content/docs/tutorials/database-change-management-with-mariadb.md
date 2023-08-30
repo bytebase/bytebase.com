@@ -42,29 +42,28 @@ Before you start, make sure you have
 
 1. Make sure your Docker daemon is running, and start the Bytebase Docker container with following command:
 
-   ```bash
-   docker run --init \
-   --name bytebase \
-   --platform linux/amd64 \
-   --restart always \
-   --publish 5678:8080 \
-   --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
-   --health-interval 5m \
-   --health-timeout 60s \
-   --volume ~/.bytebase/data:/var/opt/bytebase \
-   bytebase/bytebase:%%bb_version%% \
-   --data /var/opt/bytebase \
-   --port 8080
-   ```
+```bash
+docker run --init \
+  --name bytebase \
+  --restart always \
+  --publish 5678:8080 \
+  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
+  --health-interval 5m \
+  --health-timeout 60s \
+  --volume ~/.bytebase/data:/var/opt/bytebase \
+  bytebase/bytebase:%%bb_version%% \
+  --data /var/opt/bytebase \
+  --port 8080
+```
 
-2. Run StackBricks, and create two MariaDB instances:
+1. Run StackBricks, and create two MariaDB instances:
 
    - `mariaDB test`,`3307`
    - `mariaDB prod`,`3308`
 
    ![stackbricks](/content/docs/tutorials/database-change-management-with-mariadb/stackbricks-2-instances.webp)
 
-3. Bytebase and MariaDB are now running via Docker.
+1. Bytebase and MariaDB are now running via Docker.
    ![docker](/content/docs/tutorials/database-change-management-with-mariadb/docker.webp)
 
 ## Step 2 - Add MariaDB in Bytebase

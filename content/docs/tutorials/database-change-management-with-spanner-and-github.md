@@ -61,18 +61,17 @@ and obtain the public URL:
 
 ```bash
 docker run --init \
---name bytebase \
---platform linux/amd64 \
---restart always \
---publish 5678:8080 \
---health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
---health-interval 5m \
---health-timeout 60s \
---volume ~/.bytebase/data:/var/opt/bytebase \
-bytebase/bytebase:%%bb_version%% \
---data /var/opt/bytebase \
---port 8080 \
---external-url https://1681-149-129-123-75.ngrok-free.app
+  --name bytebase \
+  --restart always \
+  --publish 5678:8080 \
+  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
+  --health-interval 5m \
+  --health-timeout 60s \
+  --volume ~/.bytebase/data:/var/opt/bytebase \
+  bytebase/bytebase:%%bb_version%% \
+  --data /var/opt/bytebase \
+  --port 8080 \
+  --external-url https://1681-149-129-123-75.ngrok-free.app
 ```
 
 ## Step 2 - Find your Spanner in Bytebase

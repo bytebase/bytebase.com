@@ -50,18 +50,17 @@ To make local-running Bytebase visible to GitHub, we’ll pass ngrok‘s generat
 
 ```bash
 docker run --init \
---name bytebase \
---platform linux/amd64 \
---restart always \
---publish 5678:8080 \
---health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
---health-interval 5m \
---health-timeout 60s \
---volume ~/.bytebase/data:/var/opt/bytebase \
-bytebase/bytebase:%%bb_version%% \
---data /var/opt/bytebase \
---port 8080 \
---external-url https://df8d-154-9-204-36.ap.ngrok.io
+  --name bytebase \
+  --restart always \
+  --publish 5678:8080 \
+  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
+  --health-interval 5m \
+  --health-timeout 60s \
+  --volume ~/.bytebase/data:/var/opt/bytebase \
+  bytebase/bytebase:%%bb_version%% \
+  --data /var/opt/bytebase \
+  --port 8080 \
+  --external-url https://df8d-154-9-204-36.ap.ngrok.io
 ```
 
 4. Bytebase is running successfully in Docker, and you can visit it via `https://df8d-154-9-204-36.ap.ngrok.io`

@@ -13,19 +13,18 @@ On our doc site, we have a few pages with instructions on installing Bytebase, l
 
 ```shell
 docker run --init \
- --name bytebase \
- --platform linux/amd64 \
- --restart always \
- --add-host host.docker.internal:host-gateway \
- --publish 8080:8080 \
- --health-cmd "curl --fail http://localhost:8080/healthz || exit 1" \
- --health-interval 5m \
- --health-timeout 60s \
- --volume ~/.bytebase/data:/var/opt/bytebase \
- bytebase/bytebase:%%bb_version%% \
- --data /var/opt/bytebase \
- --host http://localhost \
- --port 8080
+  --name bytebase \
+  --restart always \
+  --add-host host.docker.internal:host-gateway \
+  --publish 8080:8080 \
+  --health-cmd "curl --fail http://localhost:8080/healthz || exit 1" \
+  --health-interval 5m \
+  --health-timeout 60s \
+  --volume ~/.bytebase/data:/var/opt/bytebase \
+  bytebase/bytebase:%%bb_version%% \
+  --data /var/opt/bytebase \
+  --host http://localhost \
+  --port 8080
 ```
 
 But at Bytebase, we release a new version biweekly, which means we need to update the latest version here (currently %%bb_version%%) every two weeks.
@@ -71,7 +70,6 @@ Run the following command to start Bytebase on [https://bytebase.example.com](ht
 <pre>
 docker run --init \
   --name bytebase \
-  --platform linux/amd64 \
   --restart always \
   --add-host host.docker.internal:host-gateway \
   --publish 80:80 \
@@ -193,7 +191,6 @@ Run the following command to start Bytebase on [https://bytebase.example.com](ht
 ```bash
 docker run --init \
   --name bytebase \
-  --platform linux/amd64 \
   --restart always \
   --add-host host.docker.internal:host-gateway \
   --publish 80:80 \

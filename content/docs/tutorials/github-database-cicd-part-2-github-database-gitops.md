@@ -43,18 +43,17 @@ In this tutorial, you’ll run Bytebase locally using Docker.
 
 ```bash
 docker run --init \
---name bytebase-github \
---platform linux/amd64 \
---restart always \
---publish 5678:8080 \
---health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
---health-interval 5m \
---health-timeout 60s \
---volume ~/.bytebase/data:/var/opt/bytebase \
-bytebase/bytebase:%%bb_version%% \
---data /var/opt/bytebase \
---port 8080 \
---external-url https://03f1-103-102-7-52.ngrok.io \
+  --name bytebase-github \
+  --restart always \
+  --publish 5678:8080 \
+  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
+  --health-interval 5m \
+  --health-timeout 60s \
+  --volume ~/.bytebase/data:/var/opt/bytebase \
+  bytebase/bytebase:%%bb_version%% \
+  --data /var/opt/bytebase \
+  --port 8080 \
+  --external-url https://03f1-103-102-7-52.ngrok.io \
 ```
 
 4. Bytebase is running successfully in Docker, and you can visit it via [https://03f1-103-102-7-52.ngrok.io](https://03f1-103-102-7-52.ngrok.io/)

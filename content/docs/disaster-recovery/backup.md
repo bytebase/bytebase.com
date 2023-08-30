@@ -92,7 +92,6 @@ If you run Bytebase in a container, please put the credentials file in a mounted
 ```bash
 docker run --init \
   --name bytebase \
-  --platform linux/amd64 \
   --restart always \
   --publish 5678:8080 \
   --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \

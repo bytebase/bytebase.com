@@ -62,18 +62,17 @@ and obtain the public URL:
 
 ```bash
 docker run --init \
---name bytebase \
---platform linux/amd64 \
---restart always \
---publish 5678:8080 \
---health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
---health-interval 5m \
---health-timeout 60s \
---volume ~/.bytebase/data:/var/opt/bytebase \
-bytebase/bytebase:%%bb_version%% \
---data /var/opt/bytebase \
---port 8080 \
---external-url https://9825-210-129-49-45.ngrok-free.app
+  --name bytebase \
+  --restart always \
+  --publish 5678:8080 \
+  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
+  --health-interval 5m \
+  --health-timeout 60s \
+  --volume ~/.bytebase/data:/var/opt/bytebase \
+  bytebase/bytebase:%%bb_version%% \
+  --data /var/opt/bytebase \
+  --port 8080 \
+  --external-url https://9825-210-129-49-45.ngrok-free.app
 ```
 
 5. Bytebase is running successfully in Docker, and you can visit it via `https://9825-210-129-49-45.ngrok-free.app`.
