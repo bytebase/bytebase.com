@@ -218,8 +218,6 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ### [Custom Roles](/administration/custom-roles)
 
-### [External Approval](/administration/external-approval)
-
 ### [Customize Logo](/administration/customize-logo)
 
 ### [SMTP and Email Delivery](/administration/mail-delivery)
