@@ -37,7 +37,6 @@ Run the following command to start Bytebase on container port 8080 and bind to l
 ```bash
 docker run --init \
   --name bytebase \
-  --platform linux/amd64 \
   --restart always \
   --publish 5678:8080 \
   --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
@@ -64,7 +63,6 @@ Check [Configure External PostgreSQL](/docs/get-started/install/external-postgre
 ```bash
 docker run --init \
   --name bytebase \
-  --platform linux/amd64 \
   --restart always \
   --publish 5678:8080 \
   --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
@@ -91,7 +89,6 @@ Run the following command to start Bytebase on port 8080 and visit Bytebase from
 ```bash
 docker run --init \
   --name bytebase \
-  --platform linux/amd64 \
   --restart always \
   --publish 80:8080 \
   --health-cmd "curl --fail http://localhost:80/healthz || exit 1" \
@@ -125,7 +122,6 @@ mkdir ~/volumes
 colima start --mount ~/volumes:w
 docker run --init \
   --name bytebase \
-  --platform linux/amd64 \
   --restart always \
   --publish 80:8080 \
   --volume ~/.bytebase/data:/var/opt/bytebase bytebase/bytebase:%%bb_version%% \

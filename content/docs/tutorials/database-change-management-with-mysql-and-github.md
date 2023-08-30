@@ -52,18 +52,17 @@ To make local-running Bytebase visible to GitHub, we’ll pass the URL generated
 
 ```bash
 docker run --init \
---name bytebase \
---platform linux/amd64 \
---restart always \
---publish 5678:8080 \
---health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
---health-interval 5m \
---health-timeout 60s \
---volume ~/.bytebase/data:/var/opt/bytebase \
-bytebase/bytebase:%%bb_version%% \
---data /var/opt/bytebase \
---port 8080 \
---external-url https://5300-210-129-49-45.jp.ngrok.io
+  --name bytebase \
+  --restart always \
+  --publish 5678:8080 \
+  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
+  --health-interval 5m \
+  --health-timeout 60s \
+  --volume ~/.bytebase/data:/var/opt/bytebase \
+  bytebase/bytebase:%%bb_version%% \
+  --data /var/opt/bytebase \
+  --port 8080 \
+  --external-url https://5300-210-129-49-45.jp.ngrok.io
 ```
 
 ## Step 2 - Find your MySQL in Bytebase

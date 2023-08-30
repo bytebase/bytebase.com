@@ -27,20 +27,19 @@ Make sure you have [Docker](https://www.docker.com/) installed, and if you don�
 
 ```bash
 docker run --init \
---name bytebase \
---platform linux/amd64 \
---restart always \
---publish 5678:8080 \
---health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
---health-interval 5m \
---health-timeout 60s \
---volume ~/.bytebase/data:/var/opt/bytebase \
-bytebase/bytebase:$$bb_version$$ \
---data /var/opt/bytebase \
---port 8080
+  --name bytebase \
+  --restart always \
+  --publish 5678:8080 \
+  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
+  --health-interval 5m \
+  --health-timeout 60s \
+  --volume ~/.bytebase/data:/var/opt/bytebase \
+  bytebase/bytebase:$$bb_version$$ \
+  --data /var/opt/bytebase \
+  --port 8080
 ```
 
-2. Type the following commands one by one in the terminal to start two MySQL instances, and they will be mapped to Test and Prod environments later.
+1. Type the following commands one by one in the terminal to start two MySQL instances, and they will be mapped to Test and Prod environments later.
 
 ```bash
 docker run --name mysqldtest \
@@ -62,7 +61,7 @@ mysql/mysql-server:8.0
 
 ![admin-register](/content/docs/tutorials/how-to-configure-database-access-control-and-data-masking-for-developer/admin-register.webp)
 
-4. Open another browser, and register a developer account DEV - we’ll refer to it as Developer. This account will be granted `Workspace Developer` role.
+1. Open another browser, and register a developer account DEV - we’ll refer to it as Developer. This account will be granted `Workspace Developer` role.
 
 ![register](/content/docs/tutorials/how-to-configure-database-access-control-and-data-masking-for-developer/register.webp)
 
