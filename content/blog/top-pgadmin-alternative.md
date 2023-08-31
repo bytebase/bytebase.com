@@ -76,32 +76,18 @@ One thing to note though, Postico is not (yet) capable of tasks such as backup a
 
 The person behind Postico also built [postgres.app](/blog/free-tools-to-start-local-database-on-mac/), which starts a Postgres server on your Mac.
 
+## Bytebase
+
+If you have multiple different databases at your organization and are looking for a universal tool that can handle them all while covering database change, query, security, and governance all in one, please check out [Bytebase](/). Aside from the visual [SQL Editor](/docs/sql-editor/overview/) integrated with [access control](/docs/security/data-access-control/) and [data masking](/docs/security/mask-data/), it also provides a customizable [change workflow](/docs/concepts/database-change-workflow/) to fit your data/database change requirements.
+
+![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
+
 ## Lastly
 
 The best-fit tool depends greatly on your level of familiarity with PostgreSQL, and what you need to accomplish in the tool/GUI.
 
 And of course, if you have multiple different databases at your organization and are looking for a universal tool that can handle them all while covering database change, query, security, and governance all in one, please check out [Bytebase](/). Aside from the visual [SQL Editor](/docs/sql-editor/overview/) integrated with [access control](/docs/security/data-access-control/) and [data masking](/docs/security/mask-data/), it also provides a customizable [change workflow](/docs/concepts/database-change-workflow/) to fit your data/database change requirements.
 
-## Further Readings
-
-- [Top 8 Free, Open Source SQL Clients to Make Database Management Easier](/blog/top-open-source-sql-clients/)
-- [Top 5 Postgres GUI Clients](/blog/top-postgres-gui-client/#the-starlet-tableplus)
-- [Top Postgres Extensions to Enhance Postgres 2023](/blog/top-postgres-extension/)
-- [How to Set Up Local Postgres on Your Mac, Ubuntu, CentOS, or Windows](/blog/how-to-install-local-postgres-on-mac-ubuntu-centos-windows/)
-- [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)
-
-
-
-
-
-
-
-
-## Bytebase
-
-If you have multiple different databases at your organization and are looking for a universal tool that can handle them all while covering database change, query, security, and governance all in one, please check out [Bytebase](/). Aside from the visual [SQL Editor](/docs/sql-editor/overview/) integrated with [access control](/docs/security/data-access-control/) and [data masking](/docs/security/mask-data/), it also provides a customizable [change workflow](/docs/concepts/database-change-workflow/) to fit your data/database change requirements.
-
-![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
 
 ## Summary
 
@@ -109,17 +95,20 @@ There are many tools out there, but at the end of the day, they are all differen
 
 |                  | Open Source | Free version | Paid version | Audience                                                | Strength                                                         |
 | ---------------- | ----------- | ------------ | ------------ | ------------------------------------------------------- | ---------------------------------------------------------------- |
-| Navicat          |             | ✅           | ✅           | Individual                                              | Comprehensive features                                           |
+| pgAdmin          | ✅          | ✅           | ❌           | Individual and teams                                    | Built for Postgres                                           |
 | DBeaver          | ✅          | ✅           | ✅           | Individual                                              | Comprehensive features                                           |
-| DbVisualizer     | ✅          | ✅           | ✅           | Individual                                              | Comprehensive with good visualization                            |
-| TablePlus        |             | ✅           | ✅           | Individual                                              | Native and intuitive interface                                   |
-| DataGrip         |             |              | ✅           | Individual                                              | Intuitive UX and integraiton with other JetBrains IDEs           |
+| Navicat          | ❌          | ✅           | ✅           | Individual                                              | Comprehensive features                                           |
+| TablePlus        | ❌           | ✅           | ✅           | Individual                                              | Native and intuitive interface                                   |
+| DataGrip         |    ❌         |          ❌    | ✅           | Individual                                              | Intuitive UX and integraiton with other JetBrains IDEs           |
 | Beekeeper Studio | ✅          | ✅           | ✅           | Individual                                              | Mordern and sleek interface                                      |
+| DbVisualizer     | ✅          | ✅           | ✅           | Individual                                              | Comprehensive with good visualization                            |
+| Postico     | ❌           | ❌           | ✅           | Individual                                              | Mac-native, streamlined UI                            |
 | Bytebase         | ✅          | ✅           | ✅           | Entire engineering org for developer, DBA and data team | Centralized access control, data masking, change review workflow |
 
 ## Further Readings
 
-- [Top 8 Free, Open Source SQL Clients](/blog/top-open-source-sql-clients/)
-- [Top 5 MySQL GUI Clients](/blog/top-mysql-gui-client/)
+- [Top 8 Free, Open Source SQL Clients to Make Database Management Easier](/blog/top-open-source-sql-clients/)
 - [Top 5 Postgres GUI Clients](/blog/top-postgres-gui-client/#the-starlet-tableplus)
+- [Top Postgres Extensions to Enhance Postgres 2023](/blog/top-postgres-extension/)
+- [How to Set Up Local Postgres on Your Mac, Ubuntu, CentOS, or Windows](/blog/how-to-install-local-postgres-on-mac-ubuntu-centos-windows/)
 - [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)
