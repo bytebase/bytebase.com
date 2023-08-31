@@ -9,7 +9,7 @@ const COLORS = {
 const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   free: {
     title: 'community',
-    description: `Team essentials to onboard database development lifecycle management`,
+    description: `Team essentials to manage database development lifecycle.`,
     buttonText: 'Free Deploy',
     buttonTheme: 'primary-outline',
     buttonUrl: '/docs/get-started/self-host/#docker',
@@ -69,7 +69,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   },
   pro: {
     title: 'pro',
-    description: 'Centralized policies to standardize and facilitate collaboration across teams',
+    description: 'More policies to standardize and facilitate collaboration across teams.',
     buttonText: 'Try Free now',
     buttonTheme: 'primary-outline',
     buttonUrl:
@@ -137,7 +137,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   },
   enterprise: {
     title: 'enterprise',
-    description: 'Holistic database development lifecycle management for the entire organization',
+    description: 'Extra security, compliance, and permission features. Dedicated support with SLA.',
     buttonText: 'Contact us',
     buttonTheme: 'primary-filled',
     buttonUrl: '/contact-us',
