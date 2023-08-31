@@ -26,7 +26,7 @@ description: 'Git-like Branching for database schema migration. Search all Issue
 
 ## 📰 Fresh off the press
 
-- NEW video tutorial: [Data Access Control](https://www.youtube.com/watch?feature=shared&v=K_RWlqdplZQ). Learn how DBAs can configure DAC policies to regulate how devs interact with data & how devs must request to query data in Bytebase.
+- NEW video tutorial: [Data Access Control](https://youtu.be/yXo559a1Lpc?si=4TzPaKNQWhmiqZV1). Learn how DBAs can configure DAC policies to regulate how devs interact with data & how devs must request to query data in Bytebase.
 - Navicat is a long-established database GUI developed using desktop technology rather than modern web-based technology, so if you are in the mood to try something new: [Top Navicat Alternatives](/blog/top-navicat-alternative/).
 - Save your Snowflake budget and configure [auto-suspend and auto-resume](/blog/what-is-snowflake-auto-suspend-auto-resume/) (only paying for what you actually use).💸
 
