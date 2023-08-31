@@ -1,8 +1,8 @@
 import { Plan } from '@/types/pricing';
 
 const COLORS = {
-  community: '#3DB8F5',
-  pro: '#172136',
+  community: '#172136',
+  pro: '#3DB8F5',
   enterprise: '#5647EB',
 };
 

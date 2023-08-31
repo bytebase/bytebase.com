@@ -17,8 +17,8 @@ const PlanCard = ({
       className={clsx(
         'h-[276px] border border-tones-purple-dark bg-white text-center before:mb-6 before:block before:h-2 before:w-full 3xl:h-[272px] md:h-[245px] sm:h-[260px] sm:before:mb-5',
         {
-          'before:bg-[#3DB8F5]': title === 'community',
-          'border-l-0 before:bg-[#172136]': title === 'pro',
+          'before:bg-[#172136]': title === 'community',
+          'border-l-0 before:bg-[#3DB8F5]': title === 'pro',
           'border-l-0 before:bg-[#5647EB]': title === 'enterprise',
         },
       )}
