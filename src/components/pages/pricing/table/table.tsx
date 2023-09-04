@@ -46,7 +46,7 @@ const Table = () => {
             width={338}
             height={330}
             alt=""
-            className="absolute -top-[123px] -left-10 max-w-none 3xl:left-0 3xl:-top-[124px] 3xl:h-auto 3xl:w-[345px] xl:-top-[83px] xl:w-[280px] md:-top-[10px] md:w-[225px] sm:-top-px xs:-left-[68px] xs:w-[204px]"
+            className="absolute -left-10 -top-[123px] max-w-none 3xl:-top-[124px] 3xl:left-0 3xl:h-auto 3xl:w-[345px] xl:-top-[83px] xl:w-[280px] md:-top-[10px] md:w-[225px] sm:-top-px xs:-left-[68px] xs:w-[204px]"
           />
           <div className="-mr-10 flex grow flex-col pt-[252px] shadow-labels 3xl:-mr-9 3xl:pt-[251px] xl:-mr-6 xl:pt-[250px] md:-mr-5 md:pt-[227px] sm:mr-0 sm:pt-[258px] xs:pt-[236px]">
             {LABELS.map(({ title, items }, idx) => (
@@ -100,14 +100,10 @@ const Table = () => {
                     </div>
                     <div
                       className={clsx('border border-t-0 border-tones-purple-dark', {
-                        'border-l-0 border-r-0 bg-[#F9FAFF]': currentPlan.title === 'enterprise',
+                        'border-l-0': currentPlan.title === 'pro',
+                        'border-l-0 bg-[#F9FAFF]': currentPlan.title === 'enterprise',
                       })}
                     >
-                      <FeatureList
-                        title={currentPlan.title}
-                        features={currentPlan.usage}
-                        currentRow={currentRow}
-                      />
                       <FeatureList
                         title={currentPlan.title}
                         features={currentPlan.changeManagement}

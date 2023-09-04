@@ -52,7 +52,6 @@ In this section, you’ll start Bytebase and follow its onboard guide.
 ```bash
 docker run --init \
   --name bytebase \
-  --platform linux/amd64 \
   --restart always \
   --publish 5678:8080 \
   --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \

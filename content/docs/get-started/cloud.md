@@ -2,7 +2,17 @@
 title: Bytebase Cloud
 ---
 
-This document guides you to use the Bytebase Cloud.
+This document guides you to use the [Bytebase Cloud](https://hub.bytebase.com/).
+
+## Prerequisites
+
+![network-topology](/content/docs/get-started/saas/topology.webp)
+
+Bytebase Cloud is hosted on Google Cloud in the United States. To make your Bytebase Cloud instance
+connect to your databases in your internal network, you need to whitelist the following Bytebase
+Cloud IPs:
+
+- `34.27.188.162`
 
 ## Create a workspace
 
@@ -21,7 +31,3 @@ This document guides you to use the Bytebase Cloud.
 
 2. Fill in the **Email** and **Password**, and click **Sign in**.
 3. A sample PostgreSQL instance is already available.
-
-## Whitelist Bytebase Cloud IP
-
-- If you want to add your own instance, make sure to whitelist the Bytebase Cloud IP `34.27.188.162`.

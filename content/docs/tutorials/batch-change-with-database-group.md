@@ -29,7 +29,6 @@ This tutorial requires [Docker](https://www.docker.com/) to be installed.
 ```bash
 docker run --init \
   --name bytebase \
-  --platform linux/amd64 \
   --restart always \
   --publish 5678:8080 \
   --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \

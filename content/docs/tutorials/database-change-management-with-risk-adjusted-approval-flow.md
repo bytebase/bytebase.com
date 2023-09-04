@@ -32,14 +32,13 @@ This tutorial will walk you through how to create custom approval flows based on
 ```bash
 docker run --init \
   --name bytebase-af \
-  --platform linux/amd64 \
   --restart always \
   --publish 5678:8080 \
   --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
   --health-interval 5m \
   --health-timeout 60s \
   --volume ~/.bytebase/data-af:/var/opt/bytebase \
-  bytebase/bytebase:2.1.0 \
+  bytebase/bytebase:%%bb_version%% \
   --data /var/opt/bytebase \
   --port 8080
 ```

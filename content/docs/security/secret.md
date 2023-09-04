@@ -1,5 +1,5 @@
 ---
-title: Change Secret
+title: Secret Variable
 ---
 
 <HintBlock type="info">

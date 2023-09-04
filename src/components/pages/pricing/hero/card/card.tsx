@@ -33,7 +33,7 @@ const Card = ({
   const planColor = COLORS[planTitle];
   return (
     <article
-      className="relative flex h-full flex-col items-center border border-t-8 border-gray-70 bg-white px-6 pt-3.5 pb-10 shadow-pricing lg:px-5 md:px-4.5 md:pt-2.5 md:pb-9 sm:px-6 sm:pt-4"
+      className="relative flex h-full flex-col items-center border border-t-8 border-gray-70 bg-white px-6 pb-10 pt-3.5 shadow-pricing lg:px-5 md:px-4.5 md:pb-9 md:pt-2.5 sm:px-6 sm:pt-4"
       style={{ borderTopColor: planColor }}
     >
       <div
@@ -53,13 +53,13 @@ const Card = ({
           width={240}
           height={240}
           alt=""
-          className="mt-3 lg:w-[220px] md:w-[180px] sm:absolute sm:top-0 sm:right-4 xs:w-[140px]"
+          className="mt-3 lg:w-[220px] md:w-[180px] sm:absolute sm:right-4 sm:top-0 xs:w-[140px]"
           priority
         />
         <span
           className={clsx(
             'relative mt-4 font-title text-104 font-semibold leading-none tracking-tighter text-gray-15 lg:text-72 lg:tracking-normal md:mt-3 md:text-56',
-            { 'text-primary-1 lg:-ml-11 sm:ml-0': planTitle.toLowerCase() === 'pro' },
+            { 'text-primary-1 lg:-ml-11 sm:ml-0': planTitle.toLowerCase() === 'enterprise' },
           )}
         >
           {typeof price === 'number' ? `$${price}` : price}

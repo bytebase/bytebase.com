@@ -28,14 +28,6 @@ instead of a human user.
 
 </HintBlock>
 
-<HintBlock type="warning">
-
-Please make sure you are configuring the [GitLab external_url](https://docs.gitlab.com/omnibus/settings/configuration.html#configure-the-external-url-for-gitlab) correctly, the **host:port** must exactly matches the one accessed by Bytebase. It's called `external_url` because that's how external systems like Bytebase reaches the GitLab instance.
-
-A common mistake is when a user misconfigures the port when using port forwarding. e.g. GitLab is running on port 7890, while it's exposed to the public on port 7891. In this case the `external_url` should be `https://example.com:7891` instead of `https://example.com:7890`.
-
-</HintBlock>
-
 ### Step 2.1 - Register GitLab user-owned OAuth application
 
 Go to "**Applications**" at https://gitlab.com/-/profile/applications. Fill in the form with the provided info on the Bytebase setup wizard.
