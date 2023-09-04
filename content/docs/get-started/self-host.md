@@ -6,19 +6,19 @@ title: Self-host Bytebase
 
 <HintBlock type="info">
 
-- Check [System Requirement and Support](/docs/faq#system-requirements-and-supported-versions).
+1. Check [System Requirement and Support](/docs/faq#system-requirements-and-supported-versions).
 
-- By default, Bytebase bundles an embedded PostgreSQL instance for storing its own metadata. For production setup, we recommend you to store the metadata in [an external PostgreSQL database](/docs/get-started/install/external-postgres).
+1. By default, Bytebase bundles an embedded PostgreSQL instance for storing its own metadata. For production setup, we recommend you to store the metadata in [an external PostgreSQL database](/docs/get-started/install/external-postgres).
 
-- After starting Bytebase, you should configure [External URL](/docs/get-started/install/external-url).
+1. After starting Bytebase, you should configure [External URL](/docs/get-started/install/external-url).
 
 </HintBlock>
 
 ## Docker
 
-The most convenient way is to run Bytebase in Docker, which takes less than 5 seconds.
+Estimated time: **5 minutes**.
 
-### Prerequisites
+**Prerequisites**
 
 Before starting, make sure you have installed [Docker](https://www.docker.com/get-started/).
 
@@ -101,7 +101,7 @@ docker run --init \
   --port 8080
 ```
 
-### Troubleshoot
+**Troubleshoot**
 
 Run the following if something goes wrong.
 
@@ -131,6 +131,8 @@ docker run --init \
 ```
 
 ## Kubernetes
+
+Estimated time: **15 minutes**.
 
 ### Deploy to Kubernetes
 
@@ -347,9 +349,11 @@ Please follow the [Persistent volumes and dynamic provisioning](https://cloud.go
 
 ## Installation Script
 
+Estimated time: **5 minutes**.
+
 The installation script is stored at [https://github.com/bytebase/install](https://github.com/bytebase/install).
 
-### Prerequisites
+**Prerequisites**
 
 1. Install [curl](https://curl.se/download.html).
 2. Install [tar](https://www.gnu.org/software/tar/).
@@ -398,13 +402,15 @@ You should see something like this in the console:
 
 <IncludeBlock url="/docs/get-started/install/terminal-output"></IncludeBlock>
 
-### Troubleshoot
+**Troubleshoot**
 
 If you encounter any error when you install bytebase by using install script, welcome to open issue on [bytebase/install repository](https://github.com/bytebase/install).
 
 ## Build from Source
 
-### Prerequisites
+Estimated time: **30 minutes**.
+
+**Prerequisites**
 
 1. Install [pnpm](https://pnpm.io/installation), Bytebase requires Node.js >=17.0.
 2. Install [Go](https://golang.org/dl/), Bytebase requires Go >= 1.16
@@ -455,7 +461,7 @@ You should see something like this in the console:
 
 <IncludeBlock url="/docs/get-started/install/terminal-output"></IncludeBlock>
 
-### Troubleshoot
+**Troubleshoot**
 
 #### error: too many open files
 
