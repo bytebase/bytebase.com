@@ -107,8 +107,6 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ### [Online Schema Migration for MySQL](/change-database/online-schema-migration-for-mysql)
 
-### [Change Secret](/change-database/secret)
-
 ### [Project Webhook](/change-database/webhook)
 
 ## [SQL Editor](/sql-editor/overview)
@@ -134,6 +132,8 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 ### [Data Query Approval Flow](/security/data-query)
 
 ### [Data Export Approval Flow](/security/data-export)
+
+### [Secret Variable](/security/secret)
 
 ### [Watermark](/security/watermark)
 
