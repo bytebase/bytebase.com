@@ -39,7 +39,7 @@ To prevent this type of exploitation from happening, starting with GitLab 10.6, 
 
 So if your Bytebase instance resides in the same private network as your GitLab instance, you will need to enable "Allow requests to the local network from web hooks and services" first.
 
-### "Change Data in VCS" , "Alter Schema in VCS" button does not direct to the configured GitLab instance
+### "Change Data in VCS" , "Alter Schema in VCS" button does not direct to the configured self-hosted GitLab instance
 
 Please make sure you are configuring the [GitLab external_url](https://docs.gitlab.com/omnibus/settings/configuration.html#configure-the-external-url-for-gitlab) correctly, the **host:port** must exactly matches the one accessed by Bytebase. It's called `external_url` because that's how external systems like Bytebase reaches the GitLab instance.
 
