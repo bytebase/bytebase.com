@@ -51,12 +51,12 @@ const PromoSecurity = () => {
   return (
     <section className="overflow-x-hidden bg-black text-white" ref={containerRef}>
       <div className="container gap-x-grid grid grid-cols-12 md:grid-cols-none">
-        <div className="col-start-1 col-end-5 py-[216px] 3xl:col-end-7 3xl:py-[200px] xl:col-end-6 xl:py-[180px] md:col-auto md:pt-16 md:pb-0 sm:pt-14">
+        <div className="col-start-1 col-end-5 py-[216px] 3xl:col-end-7 3xl:py-[200px] xl:col-end-6 xl:py-[180px] md:col-auto md:pb-0 md:pt-16 sm:pt-14">
           <Pill theme="secondary-1">Secure</Pill>
           <h2 className="mt-3 font-title text-112 font-semibold leading-none 3xl:mt-3.5 xl:mt-2.5 xl:text-90 xl:leading-95 md:mt-2 md:text-80 sm:text-48">
             <mark className="bg-transparent text-secondary-3">Secure</mark> by&nbsp;design
           </h2>
-          <p className="mr-12 mt-8 text-20 leading-normal 3xl:-mr-9 xl:mt-5 xl:mr-0 xl:text-18 xl:leading-snug md:mt-3 md:max-w-xl md:text-16">
+          <p className="mr-12 mt-8 text-20 leading-normal 3xl:-mr-9 xl:mr-0 xl:mt-5 xl:text-18 xl:leading-snug md:mt-3 md:max-w-xl md:text-16">
             Bytebase employs a security-first approach to protect your data with access control,
             data masking, watermarking, audit log and more.
           </p>
@@ -68,11 +68,11 @@ const PromoSecurity = () => {
           </LinkUnderlined>
         </div>
         <div
-          className="relative col-start-5 col-end-13 self-stretch pt-[95px] before:absolute before:bottom-0 before:top-0 before:right-[166px] before:w-[252px] before:bg-security 3xl:col-start-7 3xl:pt-[80px] 3xl:before:right-[104px] 2xl:before:right-[114px] xl:col-start-6 xl:before:right-[106px] xl:before:w-[216px] md:col-auto md:-mx-7 md:pt-[49px] md:pb-[39px] md:before:right-0 md:before:top-auto md:before:h-[427px] md:before:w-full md:before:bg-security-phone sm:-mx-4 sm:pb-[32px] sm:pt-[31px] sm:before:h-[324px]"
+          className="relative col-start-5 col-end-13 self-stretch pt-[95px] before:absolute before:bottom-0 before:right-[166px] before:top-0 before:w-[252px] before:bg-security 3xl:col-start-7 3xl:pt-[80px] 3xl:before:right-[104px] 2xl:before:right-[114px] xl:col-start-6 xl:before:right-[106px] xl:before:w-[216px] md:col-auto md:-mx-7 md:pb-[39px] md:pt-[49px] md:before:right-0 md:before:top-auto md:before:h-[427px] md:before:w-full md:before:bg-security-phone sm:-mx-4 sm:pb-[32px] sm:pt-[31px] sm:before:h-[324px]"
           ref={animationRef}
         >
           <div
-            className="relative mr-[9px] ml-auto aspect-[1.0597014925] w-[710px] 3xl:-mr-14 2xl:-mr-9 2xl:w-[692px] xl:-mr-2 xl:w-[560px] lg:mx-auto lg:mr-0 lg:w-[530px] md:hidden"
+            className="relative ml-auto mr-[9px] aspect-[1.0597014925] w-[710px] 3xl:-mr-14 2xl:-mr-9 2xl:w-[692px] xl:-mr-2 xl:w-[560px] lg:mx-auto lg:mr-0 lg:w-[530px] md:hidden"
             ref={setRiveRef}
           >
             {isIntersecting ? <RiveComponent /> : null}
