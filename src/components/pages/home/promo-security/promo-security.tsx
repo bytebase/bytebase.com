@@ -54,7 +54,7 @@ const PromoSecurity = () => {
         <div className="col-start-1 col-end-5 py-[216px] 3xl:col-end-7 3xl:py-[200px] xl:col-end-6 xl:py-[180px] md:col-auto md:pt-16 md:pb-0 sm:pt-14">
           <Pill theme="secondary-1">Secure</Pill>
           <h2 className="mt-3 font-title text-112 font-semibold leading-none 3xl:mt-3.5 xl:mt-2.5 xl:text-90 xl:leading-95 md:mt-2 md:text-80 sm:text-48">
-            <mark className="bg-transparent text-secondary-3">Security</mark> by&nbsp;design
+            <mark className="bg-transparent text-secondary-3">Secure</mark> by&nbsp;design
           </h2>
           <p className="mr-12 mt-8 text-20 leading-normal 3xl:-mr-9 xl:mt-5 xl:mr-0 xl:text-18 xl:leading-snug md:mt-3 md:max-w-xl md:text-16">
             Bytebase employs a security-first approach to protect your data with access control,
