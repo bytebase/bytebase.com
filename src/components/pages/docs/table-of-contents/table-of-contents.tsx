@@ -125,7 +125,7 @@ const TableOfContents = ({ items, hasBackToTop, className }: TableOfContentsProp
       </div>
       {hasBackToTop && (
         <button
-          className="mt-8 flex items-center gap-x-2 pl-5 pb-5 text-15 font-medium text-gray-30 transition-colors duration-200 hover:text-gray-60"
+          className="mt-8 flex items-center gap-x-2 pl-5 text-15 font-medium text-gray-30 transition-colors duration-200 hover:text-gray-60"
           type="button"
           onClick={backToTop}
         >
