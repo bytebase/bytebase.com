@@ -68,6 +68,23 @@ export const MENU = {
         },
       ],
     },
+    {
+      title: 'Features',
+      items: [
+        {
+          name: 'Schema Migration',
+          description: 'GitOps, GUI-based, and CI/CD friendly',
+          linkUrl: Route.SCHEMA_MIGRATION,
+          iconName: 'schema',
+        },
+        {
+          name: 'SQL Editor',
+          description: 'Integrated with data access control and masking',
+          linkUrl: Route.SQL_EDITOR,
+          iconName: 'editor',
+        },
+      ],
+    },
     { title: 'Pricing', href: Route.PRICING },
     { title: 'Contact', href: Route.CONTACTS },
   ],
@@ -127,6 +144,23 @@ export const MENU = {
           description: 'Why we build Bytebase',
           linkUrl: Route.ABOUT,
           iconName: 'about',
+        },
+      ],
+    },
+    {
+      title: 'Features',
+      items: [
+        {
+          name: 'Schema Migration',
+          description: 'GitOps, GUI-based, and CI/CD friendly',
+          linkUrl: Route.SCHEMA_MIGRATION,
+          iconName: 'schema',
+        },
+        {
+          name: 'SQL Editor',
+          description: 'Integrated with data access control and masking',
+          linkUrl: Route.SQL_EDITOR,
+          iconName: 'editor',
         },
       ],
     },

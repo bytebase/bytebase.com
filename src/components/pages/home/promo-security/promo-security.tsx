@@ -56,9 +56,9 @@ const PromoSecurity = () => {
           <h2 className="mt-3 font-title text-112 font-semibold leading-none 3xl:mt-3.5 xl:mt-2.5 xl:text-90 xl:leading-95 md:mt-2 md:text-80 sm:text-48">
             <mark className="bg-transparent text-secondary-3">Secure</mark> by&nbsp;design
           </h2>
-          <p className="mr-12 mt-8 text-20 leading-normal 3xl:-mr-9 xl:mr-0 xl:mt-5 xl:text-18 xl:leading-snug md:mt-3 md:max-w-xl md:text-16">
-            Bytebase employs a security-first approach to protect your data with access control,
-            data masking, watermarking, audit log and more.
+          <p className="mr-12 mt-8 text-20 leading-normal 3xl:-mr-9 xl:mt-5 xl:mr-0 xl:text-18 xl:leading-snug md:mt-3 md:max-w-xl md:text-16">
+            Bytebase employs a secure-first approach to protect your data with access control, data
+            masking, watermarking, audit log and more.
           </p>
           <LinkUnderlined
             className="mt-8 text-white hover:text-secondary-2 xl:mt-6 md:mt-4 sm:mt-3"

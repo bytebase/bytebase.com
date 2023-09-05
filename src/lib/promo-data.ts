@@ -2,7 +2,7 @@ import ROUTE from '@/lib/route';
 
 const PROMO_DATA = {
   TOP_BANNER: {
-    title: '🔒 Security-first SQL Editor with data access control and masking 🎭',
+    title: '🔒 Secure-first SQL Editor with data access control and masking 🎭',
     pathname: `${ROUTE.SQL_EDITOR}?source=top-banner`,
   },
   BLOG_ASIDE: {

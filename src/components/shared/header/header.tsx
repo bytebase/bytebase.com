@@ -15,11 +15,13 @@ import BlogIcon from '@/svgs/blog.inline.svg';
 import CaseStudyIcon from '@/svgs/case-study.inline.svg';
 import ChangelogIcon from '@/svgs/changelog.inline.svg';
 import ConceptIcon from '@/svgs/concept.inline.svg';
+import EditorIcon from '@/svgs/editor-menu-docs.inline.svg';
 import IntroIcon from '@/svgs/intro.inline.svg';
 import ArrowIcon from '@/svgs/arrow.inline.svg';
 import UseCaseIcon from '@/svgs/usecase.inline.svg';
 import DbIcon from '@/svgs/db.inline.svg';
 import RocketIcon from '@/svgs/rocket.inline.svg';
+import SchemaIcon from '@/svgs/schema-menu-docs.inline.svg';
 import TutorialsIcon from '@/svgs/tutorials.inline.svg';
 import ChevronIcon from '@/svgs/chevron-menu-docs.inline.svg';
 
@@ -38,6 +40,8 @@ const icons: {
   usecase: UseCaseIcon,
   intro: IntroIcon,
   db: DbIcon,
+  editor: EditorIcon,
+  schema: SchemaIcon,
 };
 
 type MenuItem = {
@@ -163,9 +167,8 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
               );
             })}
           </ul>
-          <div className="ml-auto flex items-center gap-5 md:mr-10 sm:hidden">
+          <div className="ml-auto flex items-center gap-4 md:mr-10 sm:hidden">
             <GithubStarCounter />
-            <span className="h-5 w-px bg-gray-80" />
             <Button
               href={Route.DOCS_SELF_HOST}
               theme="primary-outline"
@@ -176,11 +179,11 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
             </Button>
             <Button
               href="https://hub.bytebase.com/workspace"
-              className="w-[183px]"
+              className="w-[90px]"
               theme="gray-filled"
               size="sm"
             >
-              Sign Up for Cloud
+              Cloud
             </Button>
           </div>
         </nav>

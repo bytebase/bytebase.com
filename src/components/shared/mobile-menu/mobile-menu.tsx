@@ -19,10 +19,12 @@ import BlogIcon from '@/svgs/blog.inline.svg';
 import CaseStudyIcon from '@/svgs/case-study.inline.svg';
 import ChangelogIcon from '@/svgs/changelog.inline.svg';
 import ConceptIcon from '@/svgs/concept.inline.svg';
+import EditorIcon from '@/svgs/editor-menu-docs.inline.svg';
 import IntroIcon from '@/svgs/intro.inline.svg';
 import UseCaseIcon from '@/svgs/usecase.inline.svg';
 import DbIcon from '@/svgs/db.inline.svg';
 import RocketIcon from '@/svgs/rocket.inline.svg';
+import SchemaIcon from '@/svgs/schema-menu-docs.inline.svg';
 import Burger from './burger';
 
 const icons: {
@@ -38,6 +40,8 @@ const icons: {
   usecase: UseCaseIcon,
   intro: IntroIcon,
   db: DbIcon,
+  editor: EditorIcon,
+  schema: SchemaIcon,
 };
 
 const ANIMATION_DURATION = 0.2;
@@ -223,7 +227,7 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
             </ul>
             <div className="sticky bottom-0 z-10 mt-auto hidden flex-col gap-4 sm:flex sm:gap-2">
               <Button href="https://hub.bytebase.com/workspace" theme="gray-filled" size="md">
-                Sign up for Cloud
+                Cloud
               </Button>
               <Button href={Route.DOCS_SELF_HOST} theme="primary-outline" size="md">
                 Self host
