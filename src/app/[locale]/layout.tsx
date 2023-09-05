@@ -7,7 +7,7 @@ import Header from '@/components/shared/header';
 import '@/styles/main.css';
 import PROMO_DATA from '@/lib/promo-data';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const topBanner = PROMO_DATA.TOP_BANNER;
 
   return (

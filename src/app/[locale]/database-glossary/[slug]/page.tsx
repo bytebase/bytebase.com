@@ -31,6 +31,7 @@ export async function generateStaticParams() {
 
   const pages: { slug: string }[] = [];
 
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   posts.forEach(({ list }) => list.forEach(({ slug }) => pages.push({ slug: slug! })));
 
   return pages;

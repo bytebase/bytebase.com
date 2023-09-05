@@ -18,7 +18,6 @@ import {
 } from '@/lib/api-docs';
 import Route from '@/lib/route';
 import TableOfContents from '@/components/pages/docs/table-of-contents';
-import Promo from './promo';
 
 export function generateStaticParams() {
   const posts = getAllPosts();
