@@ -2,7 +2,7 @@
 title: Top MySQL Workbench Alternatives 2023
 author: Mila
 published_at: 2023/9/5 21:21:21
-feature_image: /content/blog/top-pmysql-workbench-alternative/banner.webp
+feature_image: /content/blog/top-mysql-workbench-alternative/banner.webp
 tags: Industry
 featured: true
 description: Postgres is one of the most advanced open-source relational databases, while you can leverage Postgres' capabilities without a GUI, having one can take your experience working with Postgres to the next level.
