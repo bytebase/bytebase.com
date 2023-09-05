@@ -47,7 +47,7 @@ const ContactForm = ({ className, formId }: { className: string; formId: string 
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<ValueType>({ resolver: yupResolver(validationSchema) });
+  } = useForm<ValueType>({ resolver: yupResolver(validationSchema) as any });
 
   const onSubmit = async (values: ValueType) => {
     const { firstname, lastname, email, company, message } = values;
