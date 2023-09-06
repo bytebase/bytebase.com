@@ -8,7 +8,6 @@ You must configure the correct External URL otherwise following features won't w
 
 - [VCS integration](/docs/vcs-integration/overview)
 - [SSO](/docs/administration/sso/overview)
-- [External approval](/docs/administration/external-approval)
 
 </HintBlock>
 

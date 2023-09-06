@@ -28,13 +28,3 @@ A key selling point of Bytebase is that all scenarios that need database access 
 However, dedicated DBAs, or those responsible for database operations in DevOps teams, need to perform higher privileged operations.`Admin Mode` meets this need, and it is only available to DBAs or Owner role holders in a workspace and needs to be switched on manually in the SQL Editor.
 
 Thus, all scenarios in which human beings deal with databases can be performed via Bytebase, except for those where the application deals with the database. Companies no longer need to distribute database access keys or configure separate bastion/jump servers, as Bytebase controls access and operations. Bytebase also identifies dangerous statements, reducing the chance of human mistakes, while the DBA can configure SQL review policy and control database access at the global level.
-
-## External Approval via Feishu (Lark)
-
-Previously, you could configure to [get database change notifications via Webhook](/blog/get-database-change-notification-via-webhook).
-
-Some users mentioned that they would like to approve changes directly in IM. In this release, we first [added support for Feishu](/docs/administration/external-approval), and you can now review and approve Bytebase issues via `Feishu Approval`.
-
-![_](/content/blog/1-8-0-new-features/feishu-approval.webp)
-
-We will continue to add support for other IMs as well. [Leave us an Issue](https://github.com/bytebase/bytebase) if you'd like to see the IM in your organization supported!
