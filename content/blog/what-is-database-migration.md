@@ -1,10 +1,10 @@
 ---
-title: What is Database Migration?
+title: What is Database Schema Migration?
 author: Candy
 published_at: 2023/06/28 10:29:20
 feature_image: /content/blog/what-is-database-migration/cover.webp
 tags: Explanation
-description: Database migration involves modifying the structure of objects within relational databases, evolving their schema from the current state to a new desired state. The two main schema transformation strategies are migration-based migration and state-based migration.
+description: Database schema migration involves modifying the structure of objects within relational databases, evolving their schema from the current state to a new desired state. The two main schema transformation strategies are migration-based migration and state-based migration.
 ---
 
 A series of articles about database schema change / schema migration:
@@ -14,9 +14,9 @@ A series of articles about database schema change / schema migration:
 - [How to Handle Database Migration / Schema Change?](/blog/how-to-handle-database-schema-change)
 - [Top Database Schema Change Tools in 2023](/blog/top-database-schema-change-tool-evolution)
 
-## What is Database Migration
+## What is Database Schema Migration
 
-Database migrations, also known as database schema migrations, schema migrations, or simply migration, are the process of modifying the structure of objects within relational databases. Migrations enable the evolution of databases schema from their current state to a new desired state, which may include adding views or tables, changing the type of fields, or defining constraints.
+Database schema migrations, also known as database migrations, schema migrations, or simply migrations, are the process of modifying the structure of objects within relational databases. Migrations enable the evolution of databases schema from their current state to a new desired state, which may include adding views or tables, changing the type of fields, or defining constraints.
 
 Take an example of adding a table, you can execute the following SQLs in terminal connected to a MySQL server . By executing these commands, you will have successfully completed a database migration.
 
