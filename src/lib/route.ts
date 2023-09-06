@@ -104,15 +104,15 @@ const Route = {
   INTEGRATION_WECOM: '/integration/wecom',
 
   // alternatives
-  ALTERNATIVE_DATAGRIP: '/datagrip_alternative',
-  ALTERNATIVE_DBEAVER: '/dbeaver_alternative',
-  ALTERNATIVE_MYSQL_WORKBENCH: '/mysql_workbench_alternative',
-  ALTERNATIVE_NAVICAT: '/navicat_alternative',
-  ALTERNATIVE_PGADMIN: '/pgadmin_alternative',
-  ALTERNATIVE_PHPMYADMIN: '/phpmyadmin_alternative',
-  ALTERNATIVE_TABLEPLUS: '/tableplus_alternative',
-  ALTERNATIVE_LIQUIBASE: '/liquibase_alternative',
-  ALTERNATIVE_FLYWAY: '/flyway_alternative',
+  ALTERNATIVE_DATAGRIP: '/sql-editor/datagrip-alternative',
+  ALTERNATIVE_DBEAVER: '/sql-editor/dbeaver-alternative',
+  ALTERNATIVE_MYSQL_WORKBENCH: '/sql-editor/mysql-workbench-alternative',
+  ALTERNATIVE_NAVICAT: '/sql-editor/navicat-alternative',
+  ALTERNATIVE_PGADMIN: '/sql-editor/pgadmin-alternative',
+  ALTERNATIVE_PHPMYADMIN: '/sql-editor/phpmyadmin-alternative',
+  ALTERNATIVE_TABLEPLUS: '/sql-editor/tableplus-alternative',
+  ALTERNATIVE_LIQUIBASE: '/schema-migration/liquibase-alternative',
+  ALTERNATIVE_FLYWAY: '/schema-migration/flyway-alternative',
 
   // usecases
   SOLUTIONS: '/solutions',
