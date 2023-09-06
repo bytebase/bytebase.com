@@ -63,8 +63,7 @@ To separate from admin connection, you can configure read-only connections used 
 1. Click **Update** to finish the configuration.
 1. Click **+** to add more, or click trash icon to delete.
 
-![bb-instance-readonly-connection](/content/docs/get-started/instance/bb-instance-readonly-connection.webp)
-
+![bb-instance-read-only-connection](/content/docs/get-started/instance/bb-instance-read-only-connection.webp)
 
 ## PostgreSQL
 
