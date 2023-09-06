@@ -35,7 +35,7 @@ const tutorialIntermediateRedirects = [
   'github-database-cicd-part-1-sql-review-github-actions',
   'github-database-cicd-part-2-github-database-gitops',
   'github-database-cicd-part-3-put-them-together',
-  'how-to-configure-database-access-control-and-data-masking-for-developer',
+  'how-to-manage-data-access-for-developers',
   'how-to-integrate-sql-review-into-gitlab-github-ci',
   'manage-databases-in-bytebase-with-terraform',
 ];

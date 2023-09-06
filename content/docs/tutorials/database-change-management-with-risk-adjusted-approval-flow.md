@@ -162,4 +162,4 @@ What if there is other roles in the team, for example, a `Tester` . Bytebase has
 
 ## Summary
 
-Now you have tried database change with risk-adjusted custom approval flow, and also create your own custom roles as well. Bytebase provides more enterprise-level features regarding data security and data access control. If you're interested in that, read this article as well [How to Configure Database Access Control and Data Masking for Developer](/docs/tutorials/how-to-configure-database-access-control-and-data-masking-for-developer/).
+Now you have tried database change with risk-adjusted custom approval flow, and also create your own custom roles as well. Bytebase provides more enterprise-level features regarding data security and data access control. If you're interested in that, read this article as well [How to Configure Database Access Control and Data Masking for Developer](/docs/tutorials/how-to-manage-data-access-for-developers/).
