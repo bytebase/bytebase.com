@@ -39,7 +39,7 @@ You can complete the webhook configuration in 3 steps:
 
 **Step 1**. On the Project page, click "Webhooks"
 ![_](/content/docs/tutorials/get-database-change-notification-via-webhook/project-webhook.webp)
-**Step 2**. Click "Add a webhook", then choose an endpoint (take Slack as an example), and enter "Name" and "[Webhook url](/docs/change-database/project#supported-webhook-endpoints)"
+**Step 2**. Click "Add a webhook", then choose an endpoint (take Slack as an example), and enter "Name" and "[Webhook url](/docs/change-database/webhook#supported-webhook-endpoints)"
 ![_](/content/docs/tutorials/get-database-change-notification-via-webhook/webhook-config.webp)
 **Step 3**. Select the triggers and click "Create"
 ![_](/content/docs/tutorials/get-database-change-notification-via-webhook/webhook-event-type.webp)
