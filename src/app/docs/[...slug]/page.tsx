@@ -67,15 +67,14 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
           <Content content={content} />
         </PostLayout>
       </article>
-      {tableOfContents && tableOfContents.length > 0 && (
-        <div className="col-span-3 col-end-13 ml-auto w-full max-w-[314px] pt-2.5 pb-28 xl:max-w-none lg:hidden">
-          <TableOfContents
-            items={tableOfContents}
-            className="scrollbar-hidden sticky top-10 max-h-[calc(100vh-40px)] overflow-y-auto"
-            hasBackToTop
-          />
+      <div className="sticky top-10 col-span-3 col-end-13 ml-auto max-h-[calc(100vh-40px)] w-full max-w-[314px] pt-2.5 pb-28 xl:max-w-none lg:hidden">
+        {tableOfContents && tableOfContents.length > 0 && (
+          <TableOfContents items={tableOfContents} className="overflow-y-auto" hasBackToTop />
+        )}
+        <div className="mt-4 flex w-full flex-col items-start justify-start pl-5">
+          <Promo />
         </div>
-      )}
+      </div>
     </>
   );
 }

@@ -8,14 +8,14 @@ const PROMO_DATA = {
   BLOG_ASIDE: {
     title: 'What is Bytebase?',
     description:
-      'Bytebase offers a web-based collaboration workspace to help DBAs and Developers manage the lifecycle of application database schemas.',
+      'A web-based collaboration workspace to help DBAs and Developers manage the database development lifecycle.',
     cta: 'See Features',
     pathname: `${ROUTE.PRICING}?source=blog`,
   },
   DOC_ASIDE: {
-    title: 'Database Migration Best Practice',
+    title: 'Schema Migration Best Practice',
     description: 'Challenges, mistakes, and best practices for database schema migration',
-    cta: 'Read Now',
+    cta: 'Learn How',
     pathname: `/blog/how-to-handle-database-schema-change/?source=docs`,
   },
 };
