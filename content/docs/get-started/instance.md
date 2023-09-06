@@ -55,12 +55,16 @@ To protect their databases, some hosting providers block direct remote access. H
 
 <EnterpriseOnlyBlock />
 
-To separate from admin connection, you can configure a read-only connection used by SQL Editor once an instance is added. This separation can be configured at the database user/role access control level or replication instance level.
+To separate from admin connection, you can configure read-only connections used by SQL Editor once an instance is added. This separation can be configured at the database user/role access control level or replication instance level.
 
 1. Create a new role with read-only access or a read-replica instance.
-1. Click **Create** on **Connection info**.
+1. Click **Create** or **+** on **Connection info**.
 1. Enter read-only connection info. If this is a read-replica instance, you need to enter its host and port information.
 1. Click **Update** to finish the configuration.
+1. Click **+** to add more, or click trash icon to delete.
+
+![bb-instance-readonly-connection](/content/docs/get-started/instance/bb-instance-readonly-connection.webp)
+
 
 ## PostgreSQL
 
