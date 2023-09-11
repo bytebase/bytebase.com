@@ -7,9 +7,11 @@ import Header from '@/components/shared/header';
 
 import PROMO_DATA from '@/lib/promo-data';
 import '@/styles/main.css';
+import { getMessages } from '@/i18n';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const locale = useLocale();
+  const messages = await getMessages(locale);
   const topBanner = PROMO_DATA.TOP_BANNER;
 
   return (
@@ -67,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 `,
           }}
         />
-        <NextIntlClientProvider locale={locale}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           {topBanner && <Banner bannerText={topBanner.title} bannerUrl={topBanner.pathname} />}
           <div className="relative flex min-h-screen flex-col">
             <Header hasBanner />
