@@ -12,7 +12,7 @@ interface Props {
 
 const LocaleSwitcher = (props: Props) => {
   const { className } = props;
-  const t = useTranslations('LocaleSwitcher');
+  const t = useTranslations();
   const [isPending, startTransition] = useTransition();
   const locale = useLocale();
   const router = useRouter();
@@ -33,7 +33,7 @@ const LocaleSwitcher = (props: Props) => {
         className,
       )}
     >
-      <p className="sr-only">{t('label')}</p>
+      <p className="sr-only">{t('common.language')}</p>
       <select
         className="inline-flex appearance-none bg-transparent py-3 pl-2 pr-6"
         defaultValue={locale}
