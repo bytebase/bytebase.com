@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const withNextIntl = require('next-intl/plugin')(
+  // This is the default (also the `src` folder is supported out of the box)
+  './src/i18n.ts',
+);
+
 const skippedSectionsInNewWebsite = [
   '/database-review-guide',
   '/techstack',
@@ -40,7 +46,7 @@ const tutorialIntermediateRedirects = [
   'manage-databases-in-bytebase-with-terraform',
 ];
 
-module.exports = {
+module.exports = withNextIntl({
   poweredByHeader: false,
   trailingSlash: true,
   swcMinify: false,
@@ -126,20 +132,6 @@ module.exports = {
       },
     ];
   },
-  async rewrites() {
-    return {
-      fallback: [
-        {
-          source: '/zh',
-          destination: '/',
-        },
-        {
-          source: '/zh/:path*/',
-          destination: '/:path*/',
-        },
-      ],
-    };
-  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.inline.svg$/,
@@ -187,4 +179,4 @@ module.exports = {
 
     return config;
   },
-};
+});
