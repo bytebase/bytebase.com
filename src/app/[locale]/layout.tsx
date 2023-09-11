@@ -1,17 +1,19 @@
 import Script from 'next/script';
+import { useLocale } from 'next-intl';
 
 import Banner from '@/components/shared/banner';
 import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
 
-import '@/styles/main.css';
 import PROMO_DATA from '@/lib/promo-data';
+import '@/styles/main.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const locale = useLocale();
   const topBanner = PROMO_DATA.TOP_BANNER;
 
   return (
-    <html lang="en" className="h-full">
+    <html lang={locale} className="h-full">
       <head>
         {/* Next.js doesn't support metadata in not-found yet, viewport comes with metadata */}
         <meta
