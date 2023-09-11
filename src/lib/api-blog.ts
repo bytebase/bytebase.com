@@ -13,8 +13,8 @@ type BlogPostsWithTags = {
 };
 
 const CONTENT_FOLDER = {
-  blog: 'content/blog/',
-  tutorial: 'content/docs/tutorials/',
+  blog: 'content/blog',
+  tutorial: 'content/docs/tutorials',
 };
 
 const getAllBlogPosts = (category?: string): BlogPostsWithTags => {
@@ -22,12 +22,12 @@ const getAllBlogPosts = (category?: string): BlogPostsWithTags => {
     category == 'Tutorial'
       ? `${process.cwd()}/${CONTENT_FOLDER.tutorial}`
       : `${process.cwd()}/${CONTENT_FOLDER.blog}`;
-  const files = glob.sync(`${dir}**/*.md`);
+  const files = glob.sync(`${dir}/**/*.md`);
   const tagsSet = new Set();
 
   const posts: BlogPost[] = files
     .map((file) => {
-      const slug = file.replace(`${dir}`, '').replace('.md', '');
+      const slug = file.replace(`${dir}/`, '').replace('.md', '');
       const post = getPostBySlug(dir, slug);
 
       if (!post || post.tags.includes('Hidden')) return null;
