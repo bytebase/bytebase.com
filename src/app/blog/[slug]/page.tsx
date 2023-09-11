@@ -22,7 +22,6 @@ import {
 import { getTableOfContents } from '@/lib/api-docs';
 import Route from '@/lib/route';
 import SEO_DATA from '@/lib/seo-data';
-import CONTENT_FOLDER from '@/lib/content-folder';
 
 export default function Blog({ params }: { params: { slug: string } }) {
   const { slug } = params;
@@ -44,7 +43,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
       </>
     );
   }
-  const post = getBlogPostBySlug(CONTENT_FOLDER.blog, slug);
+  const post = getBlogPostBySlug(slug);
 
   if (!post) return notFound();
 
@@ -86,7 +85,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = params;
 
-  const post = getBlogPostBySlug(CONTENT_FOLDER.blog, slug);
+  const post = getBlogPostBySlug(slug);
 
   if (!post)
     return getMetadata({
