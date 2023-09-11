@@ -1,29 +1,34 @@
 import { getTimeToRead } from '@/utils/get-time-to-read';
 import slugifyText from '@/utils/slugify-text';
 import fs from 'fs';
+import * as glob from 'glob';
 import matter from 'gray-matter';
 import path from 'path';
 
 import { BlogPost } from '@/types/blog-post';
-
-import CONTENT_FOLDER from './content-folder';
-
 const POSTS_PER_PAGE = 21;
-
 type BlogPostsWithTags = {
   posts: BlogPost[];
   tags: string[];
 };
 
+const CONTENT_FOLDER = {
+  blog: 'content/blog/',
+  tutorial: 'content/docs/tutorials/',
+};
+
 const getAllBlogPosts = (category?: string): BlogPostsWithTags => {
-  const dir = category == 'Tutorial' ? CONTENT_FOLDER.tutorial : CONTENT_FOLDER.blog;
-  const files = fs.readdirSync(dir).filter((file) => file.endsWith('.md'));
+  const dir =
+    category == 'Tutorial'
+      ? `${process.cwd()}/${CONTENT_FOLDER.tutorial}`
+      : `${process.cwd()}/${CONTENT_FOLDER.blog}`;
+  const files = glob.sync(`${dir}**/*.md`);
   const tagsSet = new Set();
 
   const posts: BlogPost[] = files
     .map((file) => {
-      const slug = file.replace('.md', '');
-      const post = getBlogPostBySlug(dir, slug);
+      const slug = file.replace(`${dir}`, '').replace('.md', '');
+      const post = getPostBySlug(dir, slug);
 
       if (!post || post.tags.includes('Hidden')) return null;
 
@@ -43,7 +48,11 @@ const getAllBlogPosts = (category?: string): BlogPostsWithTags => {
   return { posts, tags: Array.from(tagsSet) as string[] };
 };
 
-const getBlogPostBySlug = (dir: string, slug: string): BlogPost | null => {
+const getBlogPostBySlug = (slug: string): BlogPost | null => {
+  return getPostBySlug(`${process.cwd()}/${CONTENT_FOLDER.blog}`, slug);
+};
+
+const getPostBySlug = (dir: string, slug: string): BlogPost | null => {
   try {
     const VERSION = fs.readFileSync('VERSION').toString();
     const filePath = path.join(dir, `${slug}.md`);

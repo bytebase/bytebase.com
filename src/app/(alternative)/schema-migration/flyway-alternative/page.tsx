@@ -1,7 +1,6 @@
 import { getBlogPostBySlug } from '@/lib/api-blog';
 import Landing from '@/components/pages/schema-migration/landing';
 import { BlogPost } from '@/types/blog-post';
-import CONTENT_FOLDER from '@/lib/content-folder';
 import getMetadata from '@/utils/get-metadata';
 import SEO_DATA from '@/lib/seo-data';
 
@@ -16,7 +15,7 @@ const Page = () => {
   const relatedPosts: BlogPost[] = [];
 
   for (const post of POSTS) {
-    const relatedPost = getBlogPostBySlug(CONTENT_FOLDER.blog, post);
+    const relatedPost = getBlogPostBySlug(post);
     if (relatedPost) {
       relatedPosts.push(relatedPost);
     }

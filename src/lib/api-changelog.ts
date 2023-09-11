@@ -1,22 +1,21 @@
 import { getTimeToRead } from '@/utils/get-time-to-read';
 import fs from 'fs';
+import * as glob from 'glob';
 import matter from 'gray-matter';
-import path from 'path';
 
 import { ChangelogPost } from '@/types/changelog-post';
 
-import CONTENT_FOLDER from './content-folder';
-
 const POSTS_PER_PAGE = 20;
 
+const CHANGELOG_DIR_PATH = `${process.cwd()}/content/changelog`;
+
 const getAllChangelogPosts = (): ChangelogPost[] => {
-  const files = fs.readdirSync(CONTENT_FOLDER.changelog).filter((file) => file.endsWith('.md'));
+  const files = glob.sync(`${CHANGELOG_DIR_PATH}/*.md`);
 
   const posts: ChangelogPost[] = files
     .map((file) => {
-      const slug = file.replace('.md', '');
-      const filePath = path.join(CONTENT_FOLDER.changelog, file);
-      const markdownWithMeta = fs.readFileSync(filePath, 'utf-8');
+      const slug = file.replace(`${CHANGELOG_DIR_PATH}/`, '').replace('.md', '');
+      const markdownWithMeta = fs.readFileSync(file, 'utf-8');
       const { content, data } = matter(markdownWithMeta);
 
       if (!data || !content) return null;
