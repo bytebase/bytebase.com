@@ -16,7 +16,10 @@ type BlogPostsWithTags = {
 };
 
 const getAllBlogPosts = (category?: string): BlogPostsWithTags => {
-  const dir = category == 'Tutorial' ? CONTENT_FOLDER.tutorial : CONTENT_FOLDER.blog;
+  const dir =
+    category == 'Tutorial'
+      ? `${process.cwd()}/${CONTENT_FOLDER.tutorial}`
+      : `${process.cwd()}/${CONTENT_FOLDER.blog}`;
   const files = fs.readdirSync(dir).filter((file) => file.endsWith('.md'));
   const tagsSet = new Set();
 

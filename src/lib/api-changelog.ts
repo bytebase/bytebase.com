@@ -10,7 +10,9 @@ import CONTENT_FOLDER from './content-folder';
 const POSTS_PER_PAGE = 20;
 
 const getAllChangelogPosts = (): ChangelogPost[] => {
-  const files = fs.readdirSync(CONTENT_FOLDER.changelog).filter((file) => file.endsWith('.md'));
+  const files = fs
+    .readdirSync(`${process.cwd()}/${CONTENT_FOLDER.changelog}`)
+    .filter((file) => file.endsWith('.md'));
 
   const posts: ChangelogPost[] = files
     .map((file) => {
