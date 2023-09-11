@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import { useLocale } from 'next-intl';
+import { NextIntlClientProvider, useLocale } from 'next-intl';
 
 import Banner from '@/components/shared/banner';
 import Footer from '@/components/shared/footer';
@@ -67,12 +67,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 `,
           }}
         />
-        {topBanner && <Banner bannerText={topBanner.title} bannerUrl={topBanner.pathname} />}
-        <div className="relative flex min-h-screen flex-col">
-          <Header hasBanner />
-          <main className="relative z-20 shrink-0 grow basis-auto">{children}</main>
-          <Footer />
-        </div>
+        <NextIntlClientProvider locale={locale}>
+          {topBanner && <Banner bannerText={topBanner.title} bannerUrl={topBanner.pathname} />}
+          <div className="relative flex min-h-screen flex-col">
+            <Header hasBanner />
+            <main className="relative z-20 shrink-0 grow basis-auto">{children}</main>
+            <Footer />
+          </div>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
