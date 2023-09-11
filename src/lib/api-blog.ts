@@ -1,6 +1,7 @@
 import { getTimeToRead } from '@/utils/get-time-to-read';
 import slugifyText from '@/utils/slugify-text';
 import fs from 'fs';
+import * as glob from 'glob';
 import matter from 'gray-matter';
 import path from 'path';
 
@@ -20,12 +21,12 @@ const getAllBlogPosts = (category?: string): BlogPostsWithTags => {
     category == 'Tutorial'
       ? `${process.cwd()}/${CONTENT_FOLDER.tutorial}`
       : `${process.cwd()}/${CONTENT_FOLDER.blog}`;
-  const files = fs.readdirSync(dir).filter((file) => file.endsWith('.md'));
+  const files = glob.sync(`${dir}**/*.md`);
   const tagsSet = new Set();
 
   const posts: BlogPost[] = files
     .map((file) => {
-      const slug = file.replace('.md', '');
+      const slug = file.replace(dir, '').replace('.md', '');
       const post = getBlogPostBySlug(dir, slug);
 
       if (!post || post.tags.includes('Hidden')) return null;
