@@ -23,13 +23,17 @@ const GithubStarCounter = () => {
     }
 
     async function getStarCount() {
-      const updatedStarsCount = await fetch(API_URL)
-        .then((res) => res.json())
-        .then((json) => json.stargazers_count);
+      try {
+        const updatedStarsCount = await fetch(API_URL)
+          .then((res) => res.json())
+          .then((json) => json.stargazers_count);
 
-      window.sessionStorage.setItem('bytebase_github_stargazers_count', updatedStarsCount);
+        window.sessionStorage.setItem('bytebase_github_stargazers_count', updatedStarsCount);
 
-      setStarsCount(updatedStarsCount);
+        setStarsCount(updatedStarsCount);
+      } catch (error) {
+        // do nothing.
+      }
     }
 
     getStarCount();
