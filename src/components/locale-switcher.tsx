@@ -1,9 +1,9 @@
 'use client';
 
 import clsx from 'clsx';
-import { useLocale, useTranslations } from 'next-intl';
-import { usePathname, useRouter } from 'next-intl/client';
-import { ChangeEvent, useTransition } from 'react';
+import { usePathname } from 'next/navigation';
+import { ChangeEvent } from 'react';
+import { useCurrentLocale, useI18n } from '@/locales/client';
 import Icon from './icon';
 
 interface Props {
@@ -12,32 +12,30 @@ interface Props {
 
 const LocaleSwitcher = (props: Props) => {
   const { className } = props;
-  const t = useTranslations();
-  const [isPending, startTransition] = useTransition();
-  const locale = useLocale();
-  const router = useRouter();
+  const t = useI18n();
+  const currentLocale = useCurrentLocale();
   const pathname = usePathname();
 
   function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
-    const nextLocale = event.target.value;
-    startTransition(() => {
-      router.replace(pathname, { locale: nextLocale });
-    });
+    const locale = event.target.value;
+    if (locale === 'zh') {
+      window.location.href = `/zh/${pathname}`;
+    } else {
+      window.location.href = `/en/${pathname}`;
+    }
   }
 
   return (
     <label
       className={clsx(
         'relative flex flex-row items-center justify-start text-16 font-medium tracking-tight xs:text-14',
-        isPending && 'transition-opacity [&:disabled]:opacity-30',
         className,
       )}
     >
       <p className="sr-only">{t('common.language')}</p>
       <select
         className="inline-flex appearance-none bg-transparent py-3 pl-2 pr-6"
-        defaultValue={locale}
-        disabled={isPending}
+        defaultValue={currentLocale}
         onChange={onSelectChange}
       >
         <option value={'en'}>English</option>
