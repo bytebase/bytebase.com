@@ -9,6 +9,7 @@ import GithubIcon from '@/svgs/github.inline.svg';
 import TwitterIcon from '@/svgs/twitter.inline.svg';
 import LinkedInIcon from '@/svgs/linkedin.inline.svg';
 import YoutubeIcon from '@/svgs/youtube.inline.svg';
+import LocaleSwitcher from '@/components/locale-switcher';
 
 const socialLinks = [
   {
@@ -101,7 +102,8 @@ const Footer = () => (
           </Link>
         ))}
       </div>
-      <div className="col-start-10 flex items-center gap-x-8 lg:col-start-11 lg:mt-1 lg:gap-x-6 md:col-span-3 md:col-start-10 md:row-start-2 md:justify-self-end xs:col-start-1 xs:row-start-3 xs:justify-self-start">
+      <div className="col-start-10 flex items-center gap-x-6 lg:col-start-11 lg:mt-1 lg:gap-x-6 md:col-span-3 md:col-start-10 md:row-start-2 md:justify-self-end xs:col-start-1 xs:row-start-3 xs:justify-self-start">
+        <LocaleSwitcher className="-mr-4" />
         <Link
           className="text-16 font-medium leading-none tracking-tight xs:text-14"
           theme="gray"
