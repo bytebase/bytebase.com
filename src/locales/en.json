@@ -1,5 +1,6 @@
 {
-  "commen": {
-    "about": "About"
+  "common": {
+    "about": "About",
+    "language": "Language"
   }
 }
