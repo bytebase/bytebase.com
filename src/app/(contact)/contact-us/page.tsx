@@ -15,7 +15,8 @@ export default function Page() {
           Enterprise Inquiry
         </h1>
         <p className="mt-3 text-18">
-          Tell us a little about yourself and we&apos;ll contact you in 1 business day.
+          The Enterprise plan starts at $10,000 per year, volume discount available. Contact us for
+          product demo and pricing details.
         </p>
       </div>
       <ContactForm

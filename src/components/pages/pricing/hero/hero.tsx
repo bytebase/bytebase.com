@@ -63,7 +63,7 @@ const cards: TCard[] = [
     image: '/images/page/pricing/enterprise.webp',
     planTitle: 'enterprise',
     price: 'Custom',
-    description: 'Customized, billed&nbsp;annually',
+    description: 'Volume discount available',
     buttonText: 'Contact us',
     buttonTheme: 'primary-filled',
     buttonLink: '/contact-us',
