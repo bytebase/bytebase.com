@@ -25,7 +25,8 @@ const GithubStarCounter = () => {
     async function getStarCount() {
       const updatedStarsCount = await fetch(API_URL)
         .then((res) => res.json())
-        .then((json) => json.stargazers_count);
+        .then((json) => json.stargazers_count)
+        .catch(() => null);
 
       window.sessionStorage.setItem('bytebase_github_stargazers_count', updatedStarsCount);
 

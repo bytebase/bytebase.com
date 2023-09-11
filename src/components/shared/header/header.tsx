@@ -25,8 +25,6 @@ import SchemaIcon from '@/svgs/schema-menu-docs.inline.svg';
 import TutorialsIcon from '@/svgs/tutorials.inline.svg';
 import ChevronIcon from '@/svgs/chevron-menu-docs.inline.svg';
 
-import GithubStarCounter from './github-star-counter';
-
 const icons: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
@@ -168,7 +166,6 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
             })}
           </ul>
           <div className="ml-auto flex items-center gap-4 md:mr-10 sm:hidden">
-            <GithubStarCounter />
             <Button
               href={Route.DOCS_SELF_HOST}
               theme="primary-outline"
