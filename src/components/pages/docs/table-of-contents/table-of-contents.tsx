@@ -90,11 +90,11 @@ const TableOfContents = ({ items, hasBackToTop, className }: TableOfContentsProp
 
   return (
     <nav className={clsx(className, 'table-of-contents lg:hidden')}>
-      <div className="relative pl-5 before:absolute before:top-0 before:left-px before:h-full before:w-px before:bg-gray-90">
+      <div className="relative pl-5 pt-3 before:absolute before:top-0 before:left-px before:h-full before:w-px before:bg-gray-90">
         <h3 className="text-14 font-bold uppercase leading-none tracking-tight">
           Table of contents
         </h3>
-        <ul className={clsx(hasBackToTop && 'border-b border-gray-90 pb-6', 'mt-3 flex flex-col')}>
+        <ul className={clsx('mt-3 flex flex-col')}>
           {items.map(({ id, title, level }, idx) => (
             <li
               className={clsx(
