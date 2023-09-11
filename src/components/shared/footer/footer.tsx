@@ -66,8 +66,8 @@ const Footer = () => (
         </div>
       ))}
     </div>
-    <div className="mt-[76px] grid grid-cols-12 gap-x-10 border-t-4 border-tones-purple-light py-6 xl:gap-x-9 lg:mt-[58px] lg:gap-x-6 md:mt-11 md:grid-rows-2 md:gap-x-5 md:gap-y-6 md:py-5 xs:mt-[34px] xs:grid-rows-4  xs:gap-x-0">
-      <div className="col-span-4 flex items-center gap-x-9 xl:col-span-5 lg:col-span-6 md:row-span-2 md:flex-col md:items-start md:justify-center md:gap-x-0 md:gap-y-6 xs:col-span-full xs:row-span-1">
+    <div className="mt-[76px] grid grid-cols-12 gap-x-4 border-t-4 border-tones-purple-light py-6 lg:mt-[58px] lg:gap-x-6 md:mt-11 md:grid-rows-2 md:gap-x-5 md:gap-y-6 md:py-5 xs:mt-[34px] xs:grid-rows-4 xs:gap-x-0">
+      <div className="col-span-4 flex items-center gap-x-4 xl:col-span-5 lg:col-span-6 md:row-span-2 md:flex-col md:items-start md:justify-center md:gap-x-0 md:gap-y-6 xs:col-span-full xs:row-span-1">
         <Link className="shrink-0" href="/">
           <span className="sr-only">Bytebase Logo</span>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -80,11 +80,11 @@ const Footer = () => (
             loading="lazy"
           />
         </Link>
-        <p className="whitespace-nowrap text-16 font-medium leading-none tracking-tight text-gray-60 xs:hidden">
+        <p className="whitespace-nowrap text-14 font-medium leading-none tracking-tight text-gray-60 xs:hidden">
           © {new Date().getFullYear()} Bytebase. All Rights Reserved.
         </p>
       </div>
-      <div className="col-span-2 col-start-7 flex items-center gap-x-5 lg:col-span-3 lg:justify-self-end md:col-span-3 md:col-start-10 md:row-span-1 md:row-start-1 xs:col-span-full xs:col-start-1 xs:row-start-2 xs:-mt-1 xs:justify-self-start">
+      <div className="col-span-2 col-start-7 flex items-center gap-x-4 lg:justify-self-end md:col-span-3 md:col-start-10 md:row-span-1 md:row-start-1 xs:col-span-full xs:col-start-1 xs:row-start-2 xs:-mt-1 xs:justify-self-start">
         {socialLinks.map(({ name, href, icon: Icon }, idx) => (
           <Link
             className="flex items-center justify-center rounded-full"
@@ -102,7 +102,7 @@ const Footer = () => (
           </Link>
         ))}
       </div>
-      <div className="col-start-10 flex items-center gap-x-6 lg:col-start-11 lg:mt-1 lg:gap-x-6 md:col-span-3 md:col-start-10 md:row-start-2 md:justify-self-end xs:col-start-1 xs:row-start-3 xs:justify-self-start">
+      <div className="col-span-1 col-start-12 flex flex-row items-center justify-end gap-x-4 lg:gap-x-6 md:col-span-3 md:col-start-10 md:row-start-2 md:justify-self-end xs:col-start-1 xs:row-start-3 xs:justify-self-start">
         <LocaleSwitcher className="-mr-4" />
         <Link
           className="text-16 font-medium leading-none tracking-tight xs:text-14"
