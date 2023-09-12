@@ -63,7 +63,7 @@ After the setup, our demo page is updated automatically whenever a new commit is
 #### Staging environment for pre-release
 
 Every pre-release will also trigger an update for our staging environment ([staging.bytebase.com](https://staging.bytebase.com)). (We can also update this environment manually via [the action page](https://github.com/bytebase/bytebase/actions/workflows/staging.yml))
-![_](/content/blog/how-bytebase-uses-render/github-create-release.png)
+![_](/content/blog/how-bytebase-uses-render/github-create-release.webp)
 
 #### Preview for each PR
 

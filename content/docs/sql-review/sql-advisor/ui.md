@@ -24,4 +24,4 @@ It currently supports the following checks:
 
 In [SQL Editor](/docs/sql-editor/overview), when you run a query, the advisor will run automatically:
 
-![sql-editor-warning](/content/docs/sql-review/sql-editor-warning.webp)
+![sql-editor-warning](/content/docs/sql-review/sql-review-sql-editor-warning.webp)
