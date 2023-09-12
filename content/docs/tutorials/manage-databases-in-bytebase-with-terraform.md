@@ -13,7 +13,7 @@ This tutorial will guide you to use [Terraform Bytebase Provider](https://regist
 
 Terraform is an **infrastructure as code** tool that lets you build, change, and version infrastructure safely and efficiently. This includes low-level components like compute instances, storage, and networking; and high-level components like DNS entries and SaaS features.
 
-[Bytebase](http://bytebase.com) is an open-source **database DevOps tool**, it's the GitLab for managing databases throughout the application development lifecycle. It offers a web-based workspace for Developers and DBAs to collaborate and manage the database change safely and efficiently.
+[Bytebase](https://bytebase.com) is an open-source **database DevOps tool**, it's the GitLab for managing databases throughout the application development lifecycle. It offers a web-based workspace for Developers and DBAs to collaborate and manage the database change safely and efficiently.
 
 Why Terraform? Although Bytebase provides a GUI for you to manage databases, if you have tens or hundreds of database instances for different environments, instead of repetitive and error-prone manual work, Terraform would definitely save your efforts and prevent mistakes.
 
