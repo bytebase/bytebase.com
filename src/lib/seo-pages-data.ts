@@ -117,35 +117,35 @@ const SEO_PAGES_DATA = {
     description:
       'Bytebase integrates with GitLab to allow team to manage database migration scripts in the GitLab repository. Migration pipeline is triggered on observing new migration script push event.',
     linkText: 'View detailed guide.',
-    linkUrl: `${Route.DOCS_GITLAB}/`,
+    linkUrl: `${Route.DOCS_GITLAB}`,
   },
   GITHUB: {
     title: 'GitHub + Bytebase GitOps',
     description:
       'Bytebase integrates with GitHub to allow team to manage database migration scripts in the GitHub repository. Migration pipeline is triggered on observing new migration script push event.',
     linkText: 'View detailed guide.',
-    linkUrl: `${Route.DOCS_GITHUB}/`,
+    linkUrl: `${Route.DOCS_GITHUB}`,
   },
   GITHUB_ENTERPRISE: {
     title: 'GitHub Enterprise + Bytebase GitOps',
     description:
       'Bytebase integrates with GitHub to allow team to manage database migration scripts in the GitHub repository. Migration pipeline is triggered on observing new migration script push event.',
     linkText: 'View detailed guide.',
-    linkUrl: `${Route.DOCS_GITHUB_ENTERPRISE}/`,
+    linkUrl: `${Route.DOCS_GITHUB_ENTERPRISE}`,
   },
   BITBUCKET: {
     title: 'Bitbucket + Bytebase GitOps',
     description:
       'Bytebase integrates with Bitbucket to allow team to manage database migration scripts in the Bitbucket repository. Migration pipeline is triggered on observing new migration script push event.',
     linkText: 'View detailed guide.',
-    linkUrl: `${Route.DOCS_BITBUCKET}/`,
+    linkUrl: `${Route.DOCS_BITBUCKET}`,
   },
   AZURE_DEVOPS: {
     title: 'Azure DevOps + Bytebase GitOps',
     description:
       'Bytebase integrates with Azure DevOps to allow team to manage database migration scripts in the Azure repository. Migration pipeline is triggered on observing new migration script push event.',
     linkText: 'View detailed guide.',
-    linkUrl: `${Route.DOCS_AZURE_DEVOPS}/`,
+    linkUrl: `${Route.DOCS_AZURE_DEVOPS}`,
   },
   SLACK: {
     title: 'Slack + Bytebase',
