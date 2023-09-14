@@ -140,8 +140,7 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
                   What’s new?
                 </span>
                 <span className="flex items-center gap-1.5 px-2">
-                  Release {latestVersion.number} - Upgrade data masking, providing more granular
-                  masking and access control configuration
+                  Release {latestVersion.number} - Granular data masking and revamped SQL Editor UI.
                   <SmallArrowIcon width={7} height={6} />
                 </span>
               </span>
