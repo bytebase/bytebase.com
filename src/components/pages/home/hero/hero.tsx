@@ -140,7 +140,8 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
                   What’s new?
                 </span>
                 <span className="flex items-center gap-1.5 px-2">
-                  Release {latestVersion.number} - Git-like Branching for database schema migration
+                  Release {latestVersion.number} - Upgrade data masking, providing more granular
+                  masking and access control configuration
                   <SmallArrowIcon width={7} height={6} />
                 </span>
               </span>
