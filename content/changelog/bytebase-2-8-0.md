@@ -28,7 +28,7 @@ description: 'Upgrade data masking, provide more granular masking and access con
 
 ## 📰 Fresh off the press
 
-- NEW video tutorial: [Change Workflow](https://youtu.be/RYMuX3rgPbE?si=GA0sWW1DDtQBOkuu). Learn how developers and DBAs collaborate to review and deploy database changes.
+- NEW video tutorial: [Change Workflow](https://youtu.be/RYMuX3rgPbE?si=GA0sWW1DDtQBOkuu). Learn how developers and DBAs collaborate to review and deploy database changes in Bytebase.
 - Traditional SQL clients like pgAdmin, MySQL Workbench, and DataGrip have been around for a long time. If you're looking for something new, here are a few alternatives in 2023:
     - [Top DataGrip Alternatives 2023](/blog/top-datagrip-alternative/)
     - [Top MySQL Workbench Alternatives 2023](/blog/top-mysql-workbench-alternative/)
