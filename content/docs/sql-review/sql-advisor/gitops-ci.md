@@ -28,6 +28,12 @@ After the setup, in every MR, the SQL review policy will check against changed f
 
 And you can follow the doc [Create Schema Review Policy](/docs/sql-review/review-policy/create-schema-review-policy) to create the SQL review policy.
 
+### GitOps CI in private networks
+If you can not pull from the Docker Hub Container Registry, you can configure your CI/CD jobs to use the images from your private container registry, following
+[Access an image from a private Container Registry](https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#access-an-image-from-a-private-container-registry).
+
+If you don't have a private container registry, you can just use the one from your self-hosted GitLab, see [GitLab Container Registry](https://docs.gitlab.com/ee/user/packages/container_registry/).
+
 ## MyBatis3 Mapper SQL Review CI - Beta
 
 After enabling SQL-Review CI, Bytebase will attempt to review MyBatis 3 mapper files. When the changed file includes a MyBatis 3 mapper files, Bytebase will search for a MyBatis3 config files in the same and parent directories. Once found, Bytebase will match the **environment id** in the config file with the \*environment name\*\* in Bytebase. If there is a matching environment, Bytebase will apply that environment's SQL Review policy.
