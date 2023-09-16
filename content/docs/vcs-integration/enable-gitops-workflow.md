@@ -11,12 +11,6 @@ To enable GitOps workflow, project owner needs to link one of their Git reposito
 Estimate setup time: 15 minutes.
 This guide will walk you through how to enable the GitOps workflow for a project in Bytebase. This is a [reference setup](https://demo.bytebase.com/project/blog-git-3003#version-control) showing what it will look like after the setup.
 
-<HintBlock type="info">
-
-One project has to choose between the **UI workflow** and the **GitOps workflow**. If GitOps workflow is chosen, then all schema changes for the databases belonging to this project can only be triggered from code change from the linked repository.
-
-</HintBlock>
-
 ## Prerequisites
 
 - You should be the **Project Owner** to enable GitOps workflow in the project.
