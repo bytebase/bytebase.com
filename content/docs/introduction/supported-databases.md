@@ -5,8 +5,8 @@ description: The Bytebase supported databases and corresponding feature matrix
 
 Bytebase officially supports the following major versions for each supported database engine:
 
-- MySQL - 5.7 and above
-- PostgreSQL - 12.0 and above
+- MySQL, Aurora MySQL - 5.7 and above
+- PostgreSQL, Aurora PostgreSQL, AlloyDB - 12.0 and above
 - TiDB - 5.0 and above
 - ClickHouse - 21.0 and above
 - Snowflake
