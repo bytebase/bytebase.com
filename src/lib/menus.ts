@@ -73,13 +73,13 @@ export const MENU = {
       items: [
         {
           name: 'Schema Migration',
-          description: 'GitOps, GUI-based, and CI/CD friendly',
+          description: 'GUI-based, database CI/CD, and support GitOps',
           linkUrl: Route.SCHEMA_MIGRATION,
           iconName: 'schema',
         },
         {
           name: 'SQL Editor',
-          description: 'Integrated with data access control and masking',
+          description: 'Centralize data access control and data masking',
           linkUrl: Route.SQL_EDITOR,
           iconName: 'editor',
         },
