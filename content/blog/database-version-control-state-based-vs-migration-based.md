@@ -27,7 +27,7 @@ Infrastructure as Code (IaC) and Database as Code (DaC) both belong to Configura
 
 State-based approach stores the desired end state of the entire schema in the code repository. For MySQL, it means to store the schema dump created by _mysqldump_.
 
-It's worth mentioning in IaC,  popular systems like Kubernetes, HashiCrop Terraform all adopt this approach.
+It's worth mentioning in IaC,  popular systems like Kubernetes, HashiCorp, and Terraform all adopt this approach.
 
 ## Migration-based version control (imperative)
 
