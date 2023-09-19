@@ -125,7 +125,11 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ## Secure Data
 
-### [Data Masking](/security/mask-data)
+### [Data Masking](/security/data-masking/overview)
+#### [Column Data Masking](/security/data-masking/column-masking)
+
+#### [Global Masking Rule](/security/data-masking/global-masking-rule)
+#### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
 
 ### [Data Access Control](/security/data-access-control)
 
