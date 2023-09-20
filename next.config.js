@@ -125,6 +125,11 @@ module.exports = {
         destination: '/docs/get-started/self-host/#build-from-source',
         permanent: true,
       },
+      {
+        source: `/docs/security/mask-data`,
+        destination: '/docs/security/data-masking/overview',
+        permanent: true,
+      },
     ];
   },
   webpack: (config) => {

@@ -14,11 +14,10 @@ title: Column Masking
 
 ![bb-masking-setting](/content/docs/security/data-masking/bb-masking-setting.webp)
 
-  - **Follow [global masking rules](../global-masking-rule)**
-  - **Full**: Mask the data with the full length of the original data
-    ![bb-masking-full](/content/docs/security/data-masking/bb-masking-full.webp)
-  - **Partial**: Mask the data with partial length of the original data
-    ![bb-masking-partial](/content/docs/security/data-masking/bb-masking-partial.webp)
-  - **None**: No masking
-    ![bb-masking-none](/content/docs/security/data-masking/bb-masking-none.webp)
-
+- **Follow [global masking rules](../global-masking-rule)**
+- **Full**: Mask the original data entirely
+  ![bb-masking-full](/content/docs/security/data-masking/bb-masking-full.webp)
+- **Partial**: Mask the original data partialy
+  ![bb-masking-partial](/content/docs/security/data-masking/bb-masking-partial.webp)
+- **None**: No masking
+  ![bb-masking-none](/content/docs/security/data-masking/bb-masking-none.webp)

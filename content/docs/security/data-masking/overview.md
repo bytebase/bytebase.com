@@ -4,10 +4,9 @@ title: Data Masking
 
 <EnterpriseOnlyBlock />
 
-Data Masking is a feature that allows you to mask sensitive data in the query result. It helps you to protect sensitive data from being exposed to unauthorized users.
+Data Masking can dynamically mask sensitive data in the query result based on the context. It helps
+organizations to protect sensitive data from being exposed to unauthorized users.
 
-There're three two ways of masking data in Bytebase:
-1. [Column Masking](../column-masking): Mask data based on the column you set.
-2. [Global Masking Rule](../global-masking-rule): Mask data based on the rules you set.
+Bytebase allows you to configure masking settings on the [column level](../column-masking) and the [global level](../global-masking-rule). The column level settings take precedence over the global level settings.
 
-You may also want to check out [Access Unmasking data](../access-unmasked-data) to learn how to grant access to unmasked data to specific users.
+You can also grant specific users to [access unmasking data](../access-unmasked-data).
