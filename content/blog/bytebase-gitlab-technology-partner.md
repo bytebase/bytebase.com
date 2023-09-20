@@ -21,7 +21,7 @@ With Bytebase, you can integrate your database schema with Version Control Syste
 
 ![landscape](/content/blog/bytebase-gitlab-technology-partner/gitlab-vcs.webp)
 
-Bytebase has [integrated SQL Review capabilities into the GitLab CI process](/docs/tutorials/how-to-integrate-sql-review-into-gitlab-github-ci/). You only need to set up SQL Review Policies and once later you upload SQL scripts to GitLab, automatic SQL Review will be triggered, avoiding having to switch between multiple tools. This shift-left approach also means that issues with SQL scripts are discovered early on in the deployment stage, rather than waiting until the last minute.
+Bytebase has [integrated SQL Review capabilities into the GitLab CI process](/docs/tutorials/how-to-integrate-sql-review-into-gitlab-github-ci/). You only need to set up SQL Review Policies once and later you upload SQL scripts to GitLab, automatic SQL Review will be triggered, avoiding having to switch between multiple tools. This shift-left approach also means that issues with SQL scripts are discovered early on in the deployment stage, rather than waiting until the last minute.
 
 For example, when submitting a change request, if the SQL in your MR violates any SQL Review Policy, a corresponding prompt will appear in the MR.
 
