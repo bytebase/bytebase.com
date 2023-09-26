@@ -3,7 +3,7 @@ title: Hacktoberfest 2023 with Bytebase
 author: Mila
 published_at: 2023/09/26 21:21:21
 feature_image: /content/blog/hacktoberfest-2023/banner.webp
-tags: Industry
+tags: Announcement
 featured: true
 description: Join us at the 10th year of Hacktoberfest celebrating open-source!
 ---
@@ -28,7 +28,7 @@ Check out more details [here](https://hacktoberfest.com/participation/#contribut
 
 In addition, we invite you to participate in the special activities here at the Bytebase community! In addition to having the opportunity to receive a tree planted under your name, you also have a (good) chance to claim the following customized digital badges🎁.
 
-![hacktoberfest-badge]](/content/blog/hacktoberfest-2023/badge.webp)
+![hacktoberfest-badge](/content/blog/hacktoberfest-2023/badge.webp)
 
 ## 🔍 How to get digital badges:
 
