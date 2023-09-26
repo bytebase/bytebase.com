@@ -24,7 +24,8 @@ import IntroIcon from '@/svgs/intro.inline.svg';
 import UseCaseIcon from '@/svgs/usecase.inline.svg';
 import DbIcon from '@/svgs/db.inline.svg';
 import RocketIcon from '@/svgs/rocket.inline.svg';
-import SchemaIcon from '@/svgs/schema-menu-docs.inline.svg';
+import MigrateIcon from '@/svgs/migrate-menu-docs.inline.svg';
+import MaskIcon from '@/svgs/mask-menu-docs.inline.svg';
 import Burger from './burger';
 
 const icons: {
@@ -41,7 +42,8 @@ const icons: {
   intro: IntroIcon,
   db: DbIcon,
   editor: EditorIcon,
-  schema: SchemaIcon,
+  migrate: MigrateIcon,
+  mask: MaskIcon,
 };
 
 const ANIMATION_DURATION = 0.2;

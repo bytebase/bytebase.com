@@ -19,6 +19,11 @@ const SEO_DATA = {
       'Secure-first SQL Editor with data access control and masking | DBeaver, Navicat, TablePlus, MySQL Workbench, pgAdmin alternative',
     pathname: `${Route.SQL_EDITOR}/`,
   },
+  DATA_MASKING: {
+    title: 'Dynamic Data Masking for MySQL, PostgreSQL, Oracle, TiDB and more',
+    description: 'Dynamic Data Masking for MySQL, PostgreSQL, Oracle, TiDB and more',
+    pathname: `${Route.DATA_MASKING}/`,
+  },
   ABOUT: {
     title: 'About Us',
     description:

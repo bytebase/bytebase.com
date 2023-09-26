@@ -73,15 +73,21 @@ export const MENU = {
       items: [
         {
           name: 'Schema Migration',
-          description: 'GUI-based, database CI/CD, and support GitOps',
+          description: 'GUI-based, database CI/CD with GitOps',
           linkUrl: Route.SCHEMA_MIGRATION,
-          iconName: 'schema',
+          iconName: 'migrate',
         },
         {
           name: 'SQL Editor',
-          description: 'Centralize data access control and data masking',
+          description: 'Bastionless human-to-database access',
           linkUrl: Route.SQL_EDITOR,
           iconName: 'editor',
+        },
+        {
+          name: 'Dynamic Data Masking',
+          description: 'Multi-level masking policy with access control',
+          linkUrl: Route.DATA_MASKING,
+          iconName: 'mask',
         },
       ],
     },
@@ -154,7 +160,7 @@ export const MENU = {
           name: 'Schema Migration',
           description: 'GitOps, GUI-based, and CI/CD friendly',
           linkUrl: Route.SCHEMA_MIGRATION,
-          iconName: 'schema',
+          iconName: 'migrate',
         },
         {
           name: 'SQL Editor',
@@ -204,11 +210,11 @@ export const MENU = {
     {
       name: 'RESOURCES',
       items: [
-        { name: 'Schema Migration', linkUrl: Route.SCHEMA_MIGRATION },
-        { name: 'SQL Editor', linkUrl: Route.SQL_EDITOR },
         { name: 'Documentation', linkUrl: Route.DOCS },
         { name: 'Changelog', linkUrl: Route.CHANGELOG },
+        { name: 'Schema Migration', linkUrl: Route.SCHEMA_MIGRATION },
         { name: 'SQL Editor', linkUrl: Route.SQL_EDITOR },
+        { name: 'Dynamic Data Masking', linkUrl: Route.DATA_MASKING },
         { name: 'SQL Review Guide', linkUrl: Route.SQL_REVIEW_GUIDE },
         { name: 'Database Glossary', linkUrl: Route.DATABASE_GLOSSARY },
         { name: 'SQL Chat', linkUrl: Route.SQL_CHAT, isExternal: true },

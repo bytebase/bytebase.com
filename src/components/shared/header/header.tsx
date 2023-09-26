@@ -21,9 +21,10 @@ import ArrowIcon from '@/svgs/arrow.inline.svg';
 import UseCaseIcon from '@/svgs/usecase.inline.svg';
 import DbIcon from '@/svgs/db.inline.svg';
 import RocketIcon from '@/svgs/rocket.inline.svg';
-import SchemaIcon from '@/svgs/schema-menu-docs.inline.svg';
+import MigrateIcon from '@/svgs/migrate-menu-docs.inline.svg';
 import TutorialsIcon from '@/svgs/tutorials.inline.svg';
 import ChevronIcon from '@/svgs/chevron-menu-docs.inline.svg';
+import MaskIcon from '@/svgs/mask-menu-docs.inline.svg';
 
 import GithubStarCounter from './github-star-counter';
 
@@ -41,7 +42,8 @@ const icons: {
   intro: IntroIcon,
   db: DbIcon,
   editor: EditorIcon,
-  schema: SchemaIcon,
+  migrate: MigrateIcon,
+  mask: MaskIcon,
 };
 
 type MenuItem = {
