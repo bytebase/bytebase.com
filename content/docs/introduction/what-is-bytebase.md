@@ -7,7 +7,7 @@ Bytebase is an open-source database DevOps tool, it's the GitLab for managing da
 
 ![lifecycle](/images/change-query-secure-govern.webp)
 
-> Bytebase is GitLab/GitHub for Database, built for team collaboration.
+> Bytebase is GitLab/GitHub for Database DevOps, built for team collaboration.
 
 As GitLab/GitHub provides a GUI and collaboration workspace for teams to manage code, Bytebase does the similar job for managing database.
 This is the **most significant difference from all existing schema migration, SQL client tools**.
@@ -24,11 +24,15 @@ Bytebase analyzes SQL changes to enforce rules in compliance with your organizat
 
 Like code review, Bytebase streamlines the database change process. Within a single workflow, a database change can be reviewed and deployed from the dev environment all the way to the production environment.
 
-### [SQL Web Editor](/docs/sql-editor/overview/)
+### [SQL Editor](/docs/sql-editor/overview/)
 
-A web-based SQL Editor to query and export data. DBAs no longer need to give away sensitive database credentials when Developers need to access the data.
+A web-based SQL Editor to query and export data. DBAs no longer need to give away sensitive database credentials when developers need to access the data.
 
-### [Data Access Control and Governance](/docs/security/data-query/)
+### [Dynamic Data Masking](/docs/security/data-masking/overview/)
+
+Bytebase provides multi-level masking policy with workflow to grant unmasked data access.
+
+### [Data Access Control](/docs/security/data-query/)
 
 Bytebase provides a suite of features to enable organizations to enforce data security policies, avoid data leaks and conform compliance.
 
@@ -53,6 +57,7 @@ is growing way faster.
 
 - [Bytebase vs. Liquibase](/blog/bytebase-vs-liquibase/)
 - [Bytebase vs. Flyway](/blog/bytebase-vs-flyway/)
+- [Bytebase vs. schemachange](/blog/snowflake-schema-change/)
 
 ### SQL GUI Client
 
