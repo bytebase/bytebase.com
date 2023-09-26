@@ -2,7 +2,7 @@
 title: SMTP and Email Delivery
 ---
 
-Bytebase uses an SMTP server of your choosing to send emails for slow query weekly report.
+Bytebase uses an SMTP server of your choosing to send emails for [slow query weekly report](/docs/slow-query/email-report).
 
 ## Configuring Bytebase to send email via Amazon AWS/SES
 

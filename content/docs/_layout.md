@@ -126,9 +126,11 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 ## Secure Data
 
 ### [Data Masking](/security/data-masking/overview)
+
 #### [Column Data Masking](/security/data-masking/column-masking)
 
 #### [Global Masking Rule](/security/data-masking/global-masking-rule)
+
 #### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
 
 ### [Data Access Control](/security/data-access-control)
@@ -169,9 +171,13 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ## [Slow Query](/slow-query/overview)
 
-### [Enable slow query log for MySQL](/slow-query/enable-slow-query-log-for-mysql)
+### [Enable Slow Query Log for MySQL](/slow-query/enable-slow-query-log-for-mysql)
 
 ### [Enable pg_stat_statements for PostgreSQL](/slow-query/enable-pg-stat-statements-for-postgresql)
+
+### [Turn on Slow Query Report in Bytebase](/slow-query/slow-query-report)
+
+### [Weekly Email Report](/slow-query/email-report)
 
 ### [Index Advisor](/slow-query/index-advisor)
 
