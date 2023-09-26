@@ -7,7 +7,6 @@ import { BlogPost } from '@/types/blog-post';
 
 type RelatedPostsProps = {
   posts: BlogPost[];
-  subjects: string[];
 };
 
 const Landing = ({ posts }: RelatedPostsProps) => {

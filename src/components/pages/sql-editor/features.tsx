@@ -18,7 +18,7 @@ const cards: TCard[] = [
       'Multi-factor granular access control based on role, environment, project, database.',
   },
   {
-    href: Route.DOCS_DATA_MASKING,
+    href: Route.DOCS_DATA_MASKING_COLUMN,
     icon: '/images/masking.svg',
     title: 'Dynamic masking',
     description: 'Dynamic data masking based on data clasification.',
