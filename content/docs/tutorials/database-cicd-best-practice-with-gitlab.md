@@ -68,7 +68,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with GitLab 
 
 ### Step 2 - Add GitLab.com as a Git provider in Bytebase
 
-1. Visit Bytebase via `https://b67d-154-212-161-108.ngrok-free.app`. Click **gear icon** (Settings) > **Integration** > **GitLab**, choose `GitLab.com`, and click **Next**. You will see STEP 2. Copy the **Redirect URI**.
+1. Visit Bytebase via `https://b67d-154-212-161-108.ngrok-free.app`. Click **gear icon** (Settings) > **Integration** > **GitOps**, choose `GitLab.com`, and click **Next**. You will see STEP 2. Copy the **Redirect URI**.
     ![bb-gitops-step2](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-gitops-step2.webp)
 
 2. Go to `https://gitlab.com/`, click your avatar and choose **Preferences** on the dropdown menu. Click **Applications** on the left bar. Click **Add new application**. Fill in the following fields:
