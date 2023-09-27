@@ -77,7 +77,7 @@ Bytebase only observes migration file changes under this directory and all its s
 
 Click "Finish" button to complete the setup. Under the hood, this will create a webhook in the linked repository so that Bytebase can observe code changes.
 
-### Schema change type - Required
+#### Schema change type - Required
 
 Default: `Migration-based`
 
