@@ -32,6 +32,7 @@ const tutorialIntermediateRedirects = [
   'database-change-management-with-snowflake-and-github',
   'database-change-management-with-tidb-and-github',
   'database-cicd-best-practice-with-github',
+  'database-cicd-best-practice-with-gitlab',
   'github-database-cicd-part-1-sql-review-github-actions',
   'github-database-cicd-part-2-github-database-gitops',
   'github-database-cicd-part-3-put-them-together',
