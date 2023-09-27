@@ -9,6 +9,8 @@ level: Intermediate
 description: We already have CI/CD for code delivery, why not the database? Imagine applying and deploying database changes the same way you would application code.
 ---
 
+_Wanna GitLab instead?_ 👉 [The Database CI/CD Best Practice with GitLab](/docs/tutorials/database-cicd-best-practice-with-gitlab)
+
 A series of articles about Database CI/CD with GitHub
 
 - The Database CI/CD Best Practice with GitHub (this one)
@@ -99,3 +101,9 @@ Here, we present **a complete Database CI/CD workflow**:
 This workflow fits in nicely with the existing CI/CD process and is natural to the Developers. Acute readers may have already spotted the described steps are an implementation of the landmark article [Evolutionary Database Design](https://martinfowler.com/articles/evodb.html).
 
 Ready to taste this Database CI/CD workflow yourself? Join our [Discord channel](https://discord.gg/huyw7gRsyA) and share your experience.
+
+## Further Readings
+
+- [How to integrate SQL Review into Your GitLab or GitHub CI/CD](/docs/tutorials/how-to-integrate-sql-review-into-gitlab-github-ci/)
+- [The Database CI/CD Best Practice with GitLab](/docs/tutorials/database-cicd-best-practice-with-gitlab)
+- [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)

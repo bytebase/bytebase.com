@@ -9,6 +9,8 @@ level: Intermediate
 description: We already have CI/CD for code delivery, why not the database? Imagine applying and deploying database changes the same way you would application code.
 ---
 
+_Wanna GitHub instead?_ 👉 [The Database CI/CD Best Practice with GitHub](/docs/tutorials/database-cicd-best-practice-with-github)
+
 Database change is a tricky part of the application development process: it usually involves multiple databases from different environments and cross-team collaboration, to add on top of it, databases are touch and go. It got us thinking: **can we treat database the same way we treat application code?**
 
 DORA (DevOps Research & Assessment) [pointed out](https://cloud.google.com/architecture/devops/devops-tech-database-change-management) that integrating database work into the software delivery process positively contributes to continuous delivery. It’s about time to make databases a part of the CI/CD cycle.
@@ -30,7 +32,6 @@ Here, we present **a complete Database CI/CD workflow with GitLab**. It's simila
 7. The latest database schema is automatically written back to the code repository after applying changes. With this, the Dev team always has a copy of the latest schema. Furthermore, they can configure downstream pipelines based on the change of that latest schema;
 8. Confirm the migration and proceed to the corresponding application rollout.
 
-
 ## Set Up Database CI/CD with GitLab in Bytebase (Free Plan)
 
 Here's a step-by-step tutorial on how to set up this Database CI/CD with GitLab in Bytebase.
@@ -45,46 +46,46 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with GitLab 
 
 2. Run Bytebase in [Docker](https://www.docker.com/) with the following command.
 
-    ```bash
-    docker run --init \
-    --name bytebase \
-    --restart always \
-    --publish 5678:8080 \
-    --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
-    --health-interval 5m \
-    --health-timeout 60s \
-    --volume ~/.bytebase/data:/var/opt/bytebase \
-    bytebase/bytebase:%%bb_version%% \
-    --data /var/opt/bytebase \
-    --port 8080
-    ```
+   ```bash
+   docker run --init \
+   --name bytebase \
+   --restart always \
+   --publish 5678:8080 \
+   --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
+   --health-interval 5m \
+   --health-timeout 60s \
+   --volume ~/.bytebase/data:/var/opt/bytebase \
+   bytebase/bytebase:%%bb_version%% \
+   --data /var/opt/bytebase \
+   --port 8080
+   ```
 
 3. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`. Register an admin account and it will be granted the `workspace owner` role automatically.
 
 4. Run `ngrok http 5678` in the terminal and obtain the public URL: `https://b67d-154-212-161-108.ngrok-free.app`.
-    ![ngrok](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/ngrok.webp)
+   ![ngrok](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/ngrok.webp)
 
 5. Log in to Bytebase, and click the **gear icon** (Settings) on the top right. Click **General** under **Workspace**. Paste `https://b67d-154-212-161-108.ngrok-free.app` as **External URL** under **Network** section and click **Update**.
 
 ### Step 2 - Add GitLab.com as a Git provider in Bytebase
 
 1. Visit Bytebase via `https://b67d-154-212-161-108.ngrok-free.app`. Click **gear icon** (Settings) > **Integration** > **GitOps**, choose `GitLab.com`, and click **Next**. You will see STEP 2. Copy the **Redirect URI**.
-    ![bb-gitops-step2](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-gitops-step2.webp)
+   ![bb-gitops-step2](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-gitops-step2.webp)
 
 2. Go to `https://gitlab.com/`, click your avatar and choose **Preferences** on the dropdown menu. Click **Applications** on the left bar. Click **Add new application**. Fill in the following fields:
 
-    - **Name**: `Bytebase`
-    - **Redirect URI**: Copied from Bytebase GitOps config STEP 2
-    - **Confidential**: `Yes`
-    - **Scope**: `api`
+   - **Name**: `Bytebase`
+   - **Redirect URI**: Copied from Bytebase GitOps config STEP 2
+   - **Confidential**: `Yes`
+   - **Scope**: `api`
 
-    Click **Save application**.
+   Click **Save application**.
 
-    ![gitlab-add-new-app](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/gitlab-add-new-app.webp)
+   ![gitlab-add-new-app](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/gitlab-add-new-app.webp)
 
 3. Copy the **Application ID** and **Secret** from the GitLab application page and paste them into the Bytebase GitOps config page. Click **Next**. Click **Authorize** on popup. You will be redirected to the confirmation page. Click **Confirm and add**, and the Git provider is successfully added.
 
-    ![bb-gitlabcom-added](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-gitlabcom-added.webp)
+   ![bb-gitlabcom-added](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-gitlabcom-added.webp)
 
 ### Step 3 - Configure a GitOps Workflow in Bytebase
 
@@ -93,77 +94,84 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with GitLab 
 2. Go to Bytebase, go to the `Sample Project`. Click **GitOps** tab and choose `GitOps workflow`. Click **Configure GitOps**.
 
 3. Choose `GitLab.com` (the git provider you just configured) and the repository you just created. You'll be redirected to STEP 3. Keep everything as default, scroll down to the bottom and check `Enable SQL Review CI via GitLab CI`. Click **Finish**.
-   
-    ![bb-sql-review-ci-setup](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-sql-review-ci-setup.webp)
+
+   ![bb-sql-review-ci-setup](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-sql-review-ci-setup.webp)
 
 4. After SQL Review CI is automatically setup, click **Review the merge request**. You'll be redirected to GitLab. Click **Merge** and you'll see the CI is automatically configured. It will be triggered later once a new merge request is created.
-     
-    ![gitlab-sql-ci-installed](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/gitlab-sql-ci-installed.webp)
-  
+
+   ![gitlab-sql-ci-installed](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/gitlab-sql-ci-installed.webp)
 
 5. Go back to Bytebase, you'll see the GitOps workflow is configured successfully.
 
 ### Step 4 - Create a Merge Request and Trigger SQL Review CI
 
 1. Go to **Environments**, you'll see there's a SQL Review policy attached with `Prod`. Click **Edit**, you'll see three activated SQL Review rules which will be applied via CI.
-  
-    ![bb-sql-policy](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-sql-policy.webp)
 
-2. To test SQL Review CI, we'll create a merge request to change the `Prod` database schema. However, it will voliate the SQL Review policy first. Go to `bytebase-gitlabcom-demo` on GitLab. Click **New branch**, name it `add-nickname-table-employee`. Click **Create branch**. 
+   ![bb-sql-policy](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-sql-policy.webp)
+
+2. To test SQL Review CI, we'll create a merge request to change the `Prod` database schema. However, it will voliate the SQL Review policy first. Go to `bytebase-gitlabcom-demo` on GitLab. Click **New branch**, name it `add-nickname-table-employee`. Click **Create branch**.
 3. On the new branch, create a subdirectory `bytebase`, and create a sub-subdirectory `prod`. Within the `prod` directory, create a file `employee##202309262500##ddl##add_nickname_table_employee.sql`. Copy the following SQL script into the file and commit the change.
-    ```sql
-    ALTER TABLE "public"."employee"
-    ADD COLUMN "nick_name" text;
-    ```
+   ```sql
+   ALTER TABLE "public"."employee"
+   ADD COLUMN "nick_name" text;
+   ```
 4. Create a merge request including the above commits. The SQL Review CI will run automatically and show the fail message. However you can still merge it regardless of the CI result.
 
-    ![gitlab-sql-review-ci-no-null-fail](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/gitlab-sql-review-ci-no-null-fail.webp)
+   ![gitlab-sql-review-ci-no-null-fail](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/gitlab-sql-review-ci-no-null-fail.webp)
 
 5. Update the SQL script and commit in the current branch. The SQL Review CI will run again and show the pass message. Click **Merge**.
-    ```sql
-    ALTER TABLE "public"."employee"
-    ADD COLUMN "nick_name" text NOT NULL DEFAULT '';
-    ```
-    ![gitlab-sql-review-ci-pass](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/gitlab-sql-review-ci-pass.webp)
 
-6. Go back to project `Sample Project` in Bytebase, you'll see the there's an issue created by push event. 
+   ```sql
+   ALTER TABLE "public"."employee"
+   ADD COLUMN "nick_name" text NOT NULL DEFAULT '';
+   ```
 
-    ![bb-proj-push-event](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-proj-push-event.webp)
+   ![gitlab-sql-review-ci-pass](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/gitlab-sql-review-ci-pass.webp)
+
+6. Go back to project `Sample Project` in Bytebase, you'll see the there's an issue created by push event.
+
+   ![bb-proj-push-event](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-proj-push-event.webp)
 
 7. Click `issue/102` and redirect to the issue. Because there is no approval flow or manual rollout configured. The issue rollouts automatically. You may click **View change** to see the diff.
-   
-    ![bb-issue-done](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-issue-done.webp)
+
+   ![bb-issue-done](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-issue-done.webp)
 
 ## Advanced Features (Enterprise Plan)
+
 You may upgrade to Enterprise plan to explore more features.
 
 Click **Start free trial** on the left bottom and upgrade to Enterprise plan,
 Go to **Instances** to **Assign License** for the existing two instances.
 
 ### Manual Rollout
+
 Go to **Environments** > **2.Prod**, Find **Rollout policy** section, and choose **Manual rollout** > **Require rolling out from DBA or workspace owner**.
 
     ![bb-env-prod-manual-rollout](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-env-prod-manual-rollout.webp)
 
-
 ### Custom Approval
+
 1. Go to **Settings** > **Security & Policy** > **Custom Approval**. Set `Project Owner -> DBA` as Approval flow for **DDL** > **High Risk**.
-   
-    ![bb-custom-approval](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-custom-approval.webp)
+
+   ![bb-custom-approval](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-custom-approval.webp)
 
 2. Go to **Settings** > **Security & Policy** > **Risk Center**. Click **Add rule** and click **Load** for the first template. Click **Add**.
 
-    ![bb-risk-center-ddl-high](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-risk-center-ddl-high.webp)
+   ![bb-risk-center-ddl-high](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-risk-center-ddl-high.webp)
 
 ### LATEST Schema Write-back
+
+After schema migration completes, Bytebase will write the latest schema back to the Git repository. So that
+the team always has a canonical source of truth for the database schema in Git.
+
 1. Go back to GitLab, and create a new branch `add-country-table-employee`. Create a file `employee##202309261700##ddl##add_country_table_employee.sql` under `bytebase/prod` directory. Copy the following SQL script into the file and commit the change.
-    ```sql
-    ALTER TABLE "public"."employee"
-    ADD COLUMN "country" text NOT NULL DEFAULT '';
-    ```
+   ```sql
+   ALTER TABLE "public"."employee"
+   ADD COLUMN "country" text NOT NULL DEFAULT '';
+   ```
 2. Go back to Bytebase, and go to the newly created issue. Because of the settings we made above, it matches the approval flow `Project Owner -> DBA`,
 
-    ![bb-issue-waiting-for-review](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-issue-waiting-for-review.webp)
+   ![bb-issue-waiting-for-review](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-issue-waiting-for-review.webp)
 
 3. After following the approval flow to click **Approve**, the banner will show **Waiting for Rollout** instead. The **Assignee** then can click **Rollout**.
 
@@ -171,20 +179,29 @@ Go to **Environments** > **2.Prod**, Find **Rollout policy** section, and choose
 
 ### Schema Drift
 
-1. Click **terminal icon**(SQL Editor) on the top right. You'll be redirect to **SQL Editor**. Click **Admin mode**. Everything you do in this mode is the same as connecting directly to the server, which is not recorded by Bytebase.
+Bytbease has built-in [schema drift detection](/docs/change-database/drift-detection/) to detect unexpected schema changes. Let's use the [SQL Editor Admin Mode](/docs/sql-editor/admin-mode/) to simulate this.
+
+1. Click **terminal icon** (SQL Editor) on the top right. You'll be redirect to **SQL Editor**. Click **Admin mode**. Everything you do in this mode is the same as connecting directly to the server, which is not recorded by Bytebase.
 
 2. Select `(Prod) employee` on the left, and paste and run the following script:
-    ```sql
-        ALTER TABLE "public"."employee"
-        ADD COLUMN "city" text NOT NULL DEFAULT '';
-    ```
+
+   ```sql
+       ALTER TABLE "public"."employee"
+       ADD COLUMN "city" text NOT NULL DEFAULT '';
+   ```
 
 3. Go back to Bytebase Console, and click **Databases** > `employee` under `Prod`. Click **Sync Now**. After seeing the success message, refresh the page. You'll see the schema drift. You may configure auto scan on instance detail page to avoid manual sync.
 
-    ![bb-schema-drift](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-schema-drift.webp)
+   ![bb-schema-drift](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-schema-drift.webp)
 
 4. Go to **Anomaly Center**, and you'll see the Schema drift there too.
 
 ## Summary
 
-Now with Bytebase, you have a complete Database CI/CD workflow with GitLab. You can apply this workflow to your own project and customize it to fit your needs. If you have any questions, please feel free join and discuss in [Discord]([/contact-us](https://discord.gg/3S2eEAb4tK)).
+Now with Bytebase, you have a complete Database CI/CD workflow with GitLab. You can apply this workflow to your own project and customize it to fit your needs. If you have any questions, please feel free join and discuss in [Discord](<[/contact-us](https://discord.gg/3S2eEAb4tK)>).
+
+## Further Readings
+
+- [How to integrate SQL Review into Your GitLab or GitHub CI/CD](/docs/tutorials/how-to-integrate-sql-review-into-gitlab-github-ci/)
+- [The Database CI/CD Best Practice with GitHub](/docs/tutorials/database-cicd-best-practice-with-github)
+- [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
