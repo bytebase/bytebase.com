@@ -1,7 +1,7 @@
 ---
 title: The Database CI/CD Best Practice with GitLab
 author: Ningjing
-published_at: 2023/09/2276 14:15
+published_at: 2023/09/27 14:15
 feature_image: /content/docs/tutorials/database-cicd-best-practice-with-gitlab/database-cicd-gitlab.webp
 tags: Tutorial
 integrations: GitLab
