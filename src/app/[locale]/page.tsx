@@ -13,8 +13,13 @@ import SubscriptionForm from '@/components/shared/subscription';
 
 import { getLatestChangelogPost } from '@/lib/api-changelog';
 import SEO_DATA from '@/lib/seo-data';
+import { getStaticParams } from '@/locales/server';
 
 export const metadata = getMetadata(SEO_DATA.INDEX);
+
+export function generateStaticParams() {
+  return getStaticParams();
+}
 
 export default function Page() {
   const latestChangelogPost = getLatestChangelogPost();

@@ -45,9 +45,6 @@ module.exports = {
   poweredByHeader: false,
   trailingSlash: true,
   swcMinify: false,
-  experimental: {
-    appDir: true,
-  },
   transpilePackages: ['next-international', 'international-types'],
   async redirects() {
     return [
