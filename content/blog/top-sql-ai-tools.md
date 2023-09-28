@@ -73,3 +73,10 @@ AI products are all over the place this year, but [Text2SQL.AI](http://Text2SQL.
 ## What We Think
 
 SQL AI tools are the best: they can improve efficiency, save us time and effort, and make it easier to interact with databases. However, they are not perfect. Although they also use state-of-the-art natural language processing models, the results may sometimes be inaccurate. And if you want to use them in production, make sure to double-check before you hit RUN.
+
+On the other hand, if you are not ready to jump to the AI ship, below are the traditional options for you:
+
+- [Top Open Source SQL Clients](/blog/top-open-source-sql-clients)
+- [Top Postgres GUI client](/blog/top-postgres-gui-client)
+- [Top MySQL GUI client](/blog/top-mysql-gui-client)
+- [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution)
