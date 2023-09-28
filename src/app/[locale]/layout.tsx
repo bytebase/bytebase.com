@@ -1,5 +1,3 @@
-'use client';
-
 import Script from 'next/script';
 
 import Banner from '@/components/shared/banner';
@@ -7,15 +5,19 @@ import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
 
 import PROMO_DATA from '@/lib/promo-data';
-import { I18nProviderClient, useCurrentLocale } from '@/locales/client';
+import I18nProvider from '@/locales/i18nProvider';
+import { getStaticParams } from '@/locales/server';
 import '@/styles/main.css';
 
+export function generateStaticParams() {
+  return getStaticParams();
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const currentLocale = useCurrentLocale();
   const topBanner = PROMO_DATA.TOP_BANNER;
 
   return (
-    <html lang={currentLocale} className="h-full">
+    <html className="h-full">
       <head>
         {/* Next.js doesn't support metadata in not-found yet, viewport comes with metadata */}
         <meta
@@ -69,14 +71,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 `,
           }}
         />
-        <I18nProviderClient locale={currentLocale}>
+        <I18nProvider>
           {topBanner && <Banner bannerText={topBanner.title} bannerUrl={topBanner.pathname} />}
           <div className="relative flex min-h-screen flex-col">
             <Header hasBanner />
             <main className="relative z-20 shrink-0 grow basis-auto">{children}</main>
             <Footer />
           </div>
-        </I18nProviderClient>
+        </I18nProvider>
       </body>
     </html>
   );
