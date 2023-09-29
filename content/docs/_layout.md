@@ -1,6 +1,6 @@
 ---
 # expand_section_list is the list of default expanded sections.
-expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
+expand_section_list: ['Introduction', 'Install', 'Quickstart']
 ---
 
 ## Introduction
@@ -15,7 +15,7 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ### [FAQ](/faq)
 
-## Get Started
+## Install
 
 ### [Self-host](/get-started/self-host)
 
@@ -29,7 +29,7 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 
 ### [Manage with Terraform](/get-started/terraform)
 
-### [Step-by-Step Quick Start](/get-started/quick-start)
+## [Quickstart](/get-started/quick-start)
 
 #### [Step 1 - Register Accounts](/get-started/step-by-step/register-accounts)
 
@@ -42,8 +42,6 @@ expand_section_list: ['Introduction', 'Get Started', 'Core Concepts']
 #### [Step 5 - Create a Project](/get-started/step-by-step/create-a-project)
 
 #### [Step 6 - Change Schema ](/get-started/step-by-step/change-schema)
-
----
 
 ## Core Concepts
 

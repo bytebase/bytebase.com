@@ -4,9 +4,9 @@ title: Register Accounts
 
 After deploying Bytebase successfully, you need to register accounts for your team members.
 
-## Register an admin account
+## Create the first admin account
 
-The first registered account after deployment will be granted a **Workspace Owner** role.
+The first registered account after deployment is the admin account and will be granted a **Workspace Owner** role.
 
 ![bb-welcome-page](/content/docs/get-started/step-by-step/register-accounts/bb-welcome-page.webp)
 

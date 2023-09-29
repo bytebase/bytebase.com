@@ -12,8 +12,8 @@ export const MENU = {
           iconName: 'intro',
         },
         {
-          name: 'Quick Start',
-          description: 'Deploy Bytebase in 5 minutes',
+          name: 'Install and Quickstart',
+          description: 'Deploy first change in 5 minutes',
           linkUrl: Route.DOCS_SELF_HOST,
           iconName: 'rocket',
         },
@@ -105,8 +105,8 @@ export const MENU = {
           iconName: 'intro',
         },
         {
-          name: 'Quick Start',
-          description: 'Deploy Bytebase in 5 minutes',
+          name: 'Install and Quickstart',
+          description: 'Deploy first change in 5 minutes',
           linkUrl: Route.DOCS_SELF_HOST,
           iconName: 'rocket',
         },
