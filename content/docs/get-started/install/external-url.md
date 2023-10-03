@@ -22,7 +22,9 @@ If they both can be accessed via the same endpoint, then you only need to config
 
 ![external-url-flow](/content/docs/get-started/install/external-url-flow.webp)
 
-On the other hand, if internal network access is different than external (e.g. `bytebase.example.dev` vs `bytebase.example.com`), you need to configure both:
+## GitOps Webhook URL
+
+If internal network access is different than external (e.g. `bytebase.example.dev` vs `bytebase.example.com`), you need to configure a separate GitOps Webhook URL:
 
 ![gitops-webhook-url-flow](/content/docs/get-started/install/gitops-webhook-url-flow.webp)
 
