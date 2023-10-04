@@ -24,7 +24,7 @@ State-based migration requires the use of Schema Definition Language(SDL). SDL i
 
 ### Step 1 - Enable the setting
 
-Once enabled [GitOps workflow](/docs/vcs-integration/enable-gitops-workflow), in the project's **Version Control > Schema change type** option, select **State-based**.
+Once enabled [GitOps workflow](/docs/vcs-integration/enable-gitops-workflow), in the project's **Version Control > Schema change type** option, select **Declarative**.
 
 ![select-schema-change-type](/content/docs/change-database/state-based-migration/select-schema-change-type.webp)
 
