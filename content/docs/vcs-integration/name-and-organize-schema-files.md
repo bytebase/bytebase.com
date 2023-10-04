@@ -47,7 +47,7 @@ An optional description string can be included in the file name. If provided, By
 #### Supported Placeholders
 
 - All placeholder can contain one or more UTF-8 characters in UTF-8 **except** character in `\[/?%\*:|"<>\\]` (whitespace allowed).
-- To improve readability, we recommend to use separator between different placeholders and one common separator is `## (two pound signs).`
+- To improve readability, we recommend to use separator between different placeholders and one common separator is `##` (two pound signs).
 
 #### Supported wildcard
 
@@ -79,7 +79,7 @@ Environment identifier should exactly match the destined environment identifier 
 #### Supported Placeholders
 
 - All placeholder can contain one or more characters in \[a-zA-Z0-9+-=/\_#?!\$. ] (whitespace allowed)
-- To improve readability, we recommend to use separator between different placeholders and one common separator is `## (two pound signs).`
+- To improve readability, we recommend to use separator between different placeholders and one common separator is `##` (two pound signs).
 
 ## File Organization
 
