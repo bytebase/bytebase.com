@@ -31,7 +31,7 @@ export async function generateStaticParams() {
 
   const pages: { slug: string }[] = [];
 
-  posts.forEach(({ list }) => list.forEach(({ slug }) => pages.push({ slug: slug! })));
+  posts.forEach(({ list }) => list.forEach(({ slug }) => pages.push({ slug })));
 
   return pages;
 }

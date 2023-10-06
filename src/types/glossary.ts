@@ -4,7 +4,7 @@ export type Glossary = {
   name: string;
   description: string;
   reference?: string;
-  slug?: string;
+  slug: string;
   tagList: GlossaryTag[];
 };
 

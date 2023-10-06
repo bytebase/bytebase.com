@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Link from '@/components/shared/link';
 
 import { GlossaryLetterSet } from '@/types/glossary';
 
@@ -21,7 +22,7 @@ const Posts = ({ posts }: PostsProps) => {
               {list.map(({ slug, name, tagList, description }) => {
                 return (
                   <li key={slug}>
-                    <article id={slug} className="glossary-post pt-5">
+                    <article id={slug} className="glossary-post pt-4">
                       <header className="flex flex-row gap-x-2">
                         {tagList.map((tag, index) => {
                           return (
@@ -38,9 +39,9 @@ const Posts = ({ posts }: PostsProps) => {
                           );
                         })}
                       </header>
-                      <h2 className="mt-2 text-30 font-semibold leading-tight lg:text-24 md:text-20 sm:mt-1.5 sm:text-18 sm:leading-snug">
-                        {name}
-                      </h2>
+                      <div className="mt-2 text-30 font-semibold leading-tight lg:text-24 md:text-20 sm:mt-1.5 sm:text-18 sm:leading-snug">
+                        <Link href={slug}>{name}</Link>
+                      </div>
                       <p className="mt-5 text-18 lg:mt-4 lg:text-16 lg:leading-snug sm:mt-2">
                         {description}
                       </p>
