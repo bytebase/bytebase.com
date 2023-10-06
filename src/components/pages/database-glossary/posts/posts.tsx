@@ -40,7 +40,7 @@ const Posts = ({ posts }: PostsProps) => {
                         })}
                       </header>
                       <div className="mt-2 text-30 font-semibold leading-tight lg:text-24 md:text-20 sm:mt-1.5 sm:text-18 sm:leading-snug">
-                        <Link href={slug}>{name}</Link>
+                        <Link href={slug!}>{name}</Link>
                       </div>
                       <p className="mt-5 text-18 lg:mt-4 lg:text-16 lg:leading-snug sm:mt-2">
                         {description}
