@@ -13,7 +13,7 @@ Before you can use this feature, you need to enable slow query logs in your data
 - [Enable slow query log for MySQL](/docs/slow-query/enable-slow-query-log-for-mysql)
 - [Enable pg_stat_statements for PostgreSQL](/docs/slow-query/enable-pg-stat-statements-for-postgresql)
 
-## [Step 2 - Turn on Slow Queries Report in Bytebase](/docs/slow-query/enable-slow-query-report)
+## [Step 2 - Turn on Slow Queries Report in Bytebase](/docs/slow-query/slow-query-report)
 
 After you enable slow query logs in your database, you can turn on the Slow Queries Report in Bytebase.
 Only the workspace owner and DBA can turn on/off the Slow Queries Report.

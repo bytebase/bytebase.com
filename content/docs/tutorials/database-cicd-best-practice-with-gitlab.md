@@ -198,7 +198,7 @@ Bytbease has built-in [schema drift detection](/docs/change-database/drift-detec
 
 ## Summary
 
-Now with Bytebase, you have a complete Database CI/CD workflow with GitLab. You can apply this workflow to your own project and customize it to fit your needs. If you have any questions, please feel free join and discuss in [Discord](<[/contact-us](https://discord.gg/3S2eEAb4tK)>).
+Now with Bytebase, you have a complete Database CI/CD workflow with GitLab. You can apply this workflow to your own project and customize it to fit your needs. If you have any questions, please feel free join and discuss in [Discord](https://discord.gg/huyw7gRsyA).
 
 ## Further Readings
 
