@@ -2,7 +2,7 @@
 title: Bytebase Cloud
 ---
 
-This document guides you to use the [Bytebase Cloud](https://hub.bytebase.com/).
+This document guides you to use the Bytebase Cloud.
 
 ## Prerequisites
 
@@ -16,12 +16,17 @@ Cloud IPs:
 
 ## Create a workspace
 
-1. Visit `https://www.bytebase.com/`, and click **Sign Up for Cloud** on the top right corner.
+1. Visit [Bytebase Cloud Hub](https://hub.bytebase.com/).
 2. Signup or Log in to Bytebase Hub via your email / Google / GitHub / Microsoft account.
+
+![login-hub](/content/docs/get-started/saas/login-hub.webp)
+
 3. You'll be redirected to the hub workspace page, click **Create workspace**. Note that only one workspace is allowed per account.
    ![hub-workspace](/content/docs/get-started/saas/hub-workspace.webp)
 
 4. Wait several minutes for the workspace to be provisioned, and then check your email for the login link, email, and password.
+
+![login-email](/content/docs/get-started/saas/login-email.webp)
 
 ## Log in to the workspace
 

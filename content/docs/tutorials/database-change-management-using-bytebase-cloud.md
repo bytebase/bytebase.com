@@ -43,7 +43,7 @@ Before you start, make sure you have:
 
 ## Step 1 - Start Bytebase Cloud
 
-1. Visit [`https://www.bytebase.com/`](/), and click **Sign Up for Cloud** on the top right.
+1. Visit [Bytebase Cloud Hub](https://hub.bytebase.com/).
 
 2. Signup or Log in to Bytebase Hub via your email / Google / GitHub / Microsoft account.
 
