@@ -10,6 +10,7 @@ Bytebase officially supports the following major versions for each supported dat
 - TiDB - 5.0 and above
 - ClickHouse - 21.0 and above
 - Snowflake
+- Redshift
 - MongoDB - 4.0 and above
 - Spanner
 - Redis - 6.0 and above
@@ -17,6 +18,7 @@ Bytebase officially supports the following major versions for each supported dat
 - Microsoft SQL Server - 2019 and above
 - MariaDB - 10.7 and above
 - OceanBase - 3.x and above, MySQL tenant
+- RisingWave - 1.x and above
 
 Bytebase usually works fine with older database versions, we just won't support features specific to those older versions. We may add other open source databases in the future.
 
@@ -31,13 +33,15 @@ Bytebase usually works fine with older database versions, we just won't support 
 | TiDB       | ✔️                                                                  | ✔️                                                                          | ✔️                                                           | ✔️                                                 | ✔️                                                  |
 | ClickHouse | ✔️                                                                  | ✔️                                                                          | ✔️                                                           | ✔️                                                 |                                                     |
 | Snowflake  | ✔️                                                                  | ✔️                                                                          | ✔️                                                           | ✔️                                                 | ✔️                                                  |
+| Redshift   | ✔️                                                                  | ✔️                                                                          | ✔️                                                           | ✔️                                                 |                                                     |
 | MongoDB    | ✔️                                                                  | ✔️                                                                          | ✔️                                                           | ✔️                                                 |                                                     |
 | Spanner    | ✔️                                                                  | ✔️                                                                          | ✔️                                                           | ✔️                                                 |                                                     |
 | Redis      | ✔️                                                                  | ✔️                                                                          | ✔️                                                           | ✔️                                                 |                                                     |
 | Oracle     | ✔️                                                                  | ✔️                                                                          | ✔️                                                           | ✔️                                                 | ✔️                                                  |
-| SQL Server | ✔️                                                                  | ✔️                                                                          | ✔️                                                           | ✔️                                                 |                                                     |
+| SQL Server | ✔️                                                                  | ✔️                                                                          | ✔️                                                           | ✔️                                                 | ✔️                                                  |
 | MariaDB    | ✔️                                                                  | ✔️                                                                          | ✔️                                                           | ✔️                                                 | ✔️                                                  |
 | OceanBase  | ✔️                                                                  | ✔️                                                                          | ✔️                                                           | ✔️                                                 | ✔️                                                  |
+| RisingWave | ✔️                                                                  | ✔️                                                                          | ✔️                                                           | ✔️                                                 |                                                     |
 
 ### Advanced Schema Management
 
@@ -50,6 +54,7 @@ _Bytebase is trailblazing the schema management landscape. Each database engine 
 | TiDB       | ✔️                                                                  | ✔️                                                                   | ✔️                                                   |                                                                                 |
 | ClickHouse |                                                                     |                                                                      |                                                      |                                                                                 |
 | Snowflake  |                                                                     |                                                                      |                                                      |                                                                                 |
+| Redshift   |                                                                     |                                                                      |                                                      |                                                                                 |
 | MongoDB    |                                                                     |                                                                      |                                                      |                                                                                 |
 | Spanner    |                                                                     |                                                                      |                                                      |                                                                                 |
 | Redis      |                                                                     |                                                                      |                                                      |                                                                                 |
@@ -57,6 +62,7 @@ _Bytebase is trailblazing the schema management landscape. Each database engine 
 | SQL Server |                                                                     |                                                                      |                                                      |                                                                                 |
 | MariaDB    |                                                                     |                                                                      |                                                      |                                                                                 |
 | OceanBase  |                                                                     |                                                                      |                                                      |                                                                                 |
+| RisingWave |                                                                     |                                                                      |                                                      |                                                                                 |
 
 ### SQL Editor
 
@@ -67,6 +73,7 @@ _Bytebase is trailblazing the schema management landscape. Each database engine 
 | TiDB       | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
 | ClickHouse | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
 | Snowflake  | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
+| Redshift   | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
 | MongoDB    | ✔️                                                      |                                            | ✔️                                        | ✔️                                  |
 | Spanner    | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
 | Redis      | ✔️                                                      |                                            | ✔️                                        | ✔️                                  |
@@ -74,6 +81,7 @@ _Bytebase is trailblazing the schema management landscape. Each database engine 
 | SQL Server | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
 | MariaDB    | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
 | OceanBase  | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
+| RisingWave | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
 
 ### Data Security & Governance
 
@@ -84,13 +92,15 @@ _Bytebase is trailblazing the schema management landscape. Each database engine 
 | TiDB       | ✔️                                           | ✔️                                    | ✔️                                        | ✔️                                                     | ✔️                                       |
 | ClickHouse | ✔️                                           | ✔️                                    | ✔️                                        | ✔️                                                     |                                          |
 | Snowflake  | ✔️                                           | ✔️                                    | ✔️                                        | ✔️                                                     |                                          |
+| Redshift   | ✔️                                           | ✔️                                    | ✔️                                        | ✔️                                                     |                                          |
 | MongoDB    | ✔️                                           | ✔️                                    | ✔️                                        | ✔️                                                     |                                          |
 | Spanner    | ✔️                                           | ✔️                                    | ✔️                                        | ✔️                                                     |                                          |
 | Redis      | ✔️                                           | ✔️                                    | ✔️                                        | ✔️                                                     |                                          |
 | Oracle     | ✔️                                           | ✔️                                    | ✔️                                        | ✔️                                                     | ✔️                                       |
-| SQL Server | ✔️                                           | ✔️                                    | ✔️                                        | ✔️                                                     |                                          |
+| SQL Server | ✔️                                           | ✔️                                    | ✔️                                        | ✔️                                                     | ✔️                                       |
 | MariaDB    | ✔️                                           | ✔️                                    | ✔️                                        | ✔️                                                     | ✔️                                       |
 | OceanBase  | ✔️                                           | ✔️                                    | ✔️                                        | ✔️                                                     | ✔️                                       |
+| RisingWave | ✔️                                           | ✔️                                    | ✔️                                        | ✔️                                                     |                                          |
 
 ### Disaster Recovery
 
@@ -101,6 +111,7 @@ _Bytebase is trailblazing the schema management landscape. Each database engine 
 | TiDB       | ✔️                                                         | ✔️                                                            |                                                                     |                                                                                           |
 | ClickHouse |                                                            |                                                               |                                                                     |                                                                                           |
 | Snowflake  | ✔️                                                         | ✔️                                                            |                                                                     |                                                                                           |
+| Redshift   | ✔️                                                         | ✔️                                                            |                                                                     |                                                                                           |
 | MongoDB    |                                                            |                                                               |                                                                     |                                                                                           |
 | Spanner    |                                                            |                                                               |                                                                     |                                                                                           |
 | Redis      |                                                            |                                                               |                                                                     |                                                                                           |
@@ -108,6 +119,7 @@ _Bytebase is trailblazing the schema management landscape. Each database engine 
 | SQL Server |                                                            |                                                               |                                                                     |                                                                                           |
 | MariaDB    | ✔️                                                         | ✔️                                                            |                                                                     |                                                                                           |
 | OceanBase  |                                                            |                                                               |                                                                     |                                                                                           |
+| RisingWave |                                                            |                                                               |                                                                     |                                                                                           |
 
 ### Anomaly Detection
 
@@ -118,6 +130,7 @@ _Bytebase is trailblazing the schema management landscape. Each database engine 
 | TiDB       | ✔️                 | ✔️                                                       | ✔️                                                                                        | ✔️                                               |                                          |
 | ClickHouse | ✔️                 | ✔️                                                       |                                                                                           |                                                  |                                          |
 | Snowflake  | ✔️                 | ✔️                                                       | ✔️                                                                                        | ✔️                                               |                                          |
+| Redshift   | ✔️                 | ✔️                                                       | ✔️                                                                                        | ✔️                                               |                                          |
 | MongoDB    | ✔️                 |                                                          |                                                                                           |                                                  |                                          |
 | Spanner    | ✔️                 | ✔️                                                       |                                                                                           |                                                  |                                          |
 | Redis      | ✔️                 |                                                          |                                                                                           |                                                  |                                          |
@@ -125,3 +138,4 @@ _Bytebase is trailblazing the schema management landscape. Each database engine 
 | SQL Server | ✔️                 | ✔️                                                       |                                                                                           |                                                  |                                          |
 | MariaDB    | ✔️                 | ✔️                                                       | ✔️                                                                                        | ✔️                                               |                                          |
 | OceanBase  | ✔️                 | ✔️                                                       |                                                                                           |                                                  |                                          |
+| RisingWave | ✔️                 | ✔️                                                       |                                                                                           |                                                  |                                          |
