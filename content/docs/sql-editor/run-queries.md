@@ -33,6 +33,11 @@ You can retrieve anything you want from query results quickly.
 
 ## Export Data
 
-SQL Editor allows exporting query results to `CSV` or `JSON` files.
+If you have been granted export access, you can directly export query results in various formats.
 
 ![Export Data](/content/docs/sql-editor/export-data.webp)
+
+Otherwise, you can request the exported data
+
+![Request Export](/content/docs/sql-editor/export-request1.webp)
+![Request Export](/content/docs/sql-editor/export-request2.webp)

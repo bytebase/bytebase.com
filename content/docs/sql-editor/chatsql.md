@@ -16,11 +16,10 @@ Go to Bytebase console, click **Settings > General**. Scroll down to **AI Augmen
 
 ## Query in SQL Editor
 
-1. Go to home, and click **SQL Editor** on the left bar.
-2. Input in the natural language field and press **Enter**.
-3. You'll see the generated SQL on the left. Click the play icon and the SQL will execute.
+![sql-editor-chatsql](/content/docs/sql-editor/chatsql.webp)
 
-![sql-editor-chatsql](/content/docs/sql-editor/sql-editor-chatsql.webp)
+After configuring the OpenAI key, an OpenAI icon will appear on the SQL Editor. Clicking the icon will toggle between
+the SQL and natural language mode.
 
 ## Data privacy
 

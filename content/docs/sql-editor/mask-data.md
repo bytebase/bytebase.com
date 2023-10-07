@@ -6,4 +6,4 @@ title: Data Masking
 
 Workspace Owners and DBAs can [configure data sensitivity](/docs/security/mask-data) to mask data.
 
-![query result](/content/docs/security/mask-data/mask-data-masked.webp)
+![query result](/content/docs/sql-editor/mask-data.webp)
