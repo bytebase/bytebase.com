@@ -2,9 +2,9 @@
 title: Set up Environments
 ---
 
-**Environment** models after various environments in the development pipeline such as test, staging, prod. Most of the time, there is a 1:1 mapping between **Environment** and the real environment.
+`Environment` models after various environments in the development pipeline such as test, staging, prod. Most of the time, there is a 1:1 mapping between `Environment` and the real environment.
 
-This document describes how to add, edit and reorder environments.
+![environment](/content/docs/get-started/step-by-step/set-up-environments/environment.webp)
 
 ## Prerequisites
 

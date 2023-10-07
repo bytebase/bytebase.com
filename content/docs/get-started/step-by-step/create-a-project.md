@@ -2,6 +2,10 @@
 title: Create a Project
 ---
 
+`Project` is a logic unit to model a team effort. It's similar to the project concept in other dev tools such as Jira, GitLab. `Project` is the container to group logically related `Databases`, `Issues` and `Users` together. In Bytebase, A `Database` or an `Issue` always belongs to a single `Project`.
+
+![project](/content/docs/get-started/step-by-step/create-a-project/project-overview.webp)
+
 This document guides you to create a project, transfer a database into the project and assign users. Make sure you have configured environments, instances, and members properly at the workspace level.
 
 ## Step 1 - Create a project

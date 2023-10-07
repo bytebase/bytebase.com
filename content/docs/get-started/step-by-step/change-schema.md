@@ -2,11 +2,9 @@
 title: Make a Database Schema Change
 ---
 
-**Issue** represents a specific collaboration activity between developer and DBA such as creating a database, altering a schema. It's similar to the issue concept in other issue management tools.
+`Issue` represents a specific collaboration activity between developer and DBA such as creating a database, altering a schema. It's similar to the issue concept in other issue management tools.
 
-In Bytebase, **Issue** is optimized for database domain. An **Issue** always belongs to a **Project**. A single Issue is only dealing with a particular **Database Instance** (e.g. creating a database on a database instance). Except for creating database issue, most other issues are also associated with an existing **Database** (e.g. altering a table on a database).
-
-Internally, the issue progression is represented by a **Pipeline**. A **Pipeline** contains multiple **Stages**, each usually corresponds to an **Environment**. A **Stage** contains multiple **Tasks** dealing with a specific database operation such as altering table. A single **Task** can run multiple times (e.g. failed first and then retry). Each run is represented by a **Task Run**.
+![issue-detail](/content/docs/get-started/step-by-step/change-schema/issue-detail.webp)
 
 This document guides you to run a SQL UI Workflow in a project. Make sure you have already created a project with databases and members in it.
 
@@ -36,4 +34,4 @@ Only the **Assignee** or the **Project Owner** can approve an issue that require
 
 ## Summary
 
-Now you have completed the basic UI workflow in Bytebase. There is another more advanced workflow - GitOps workflow. If you want to try **Database-as-Code** - [Run a GitOps Workflow](/docs/vcs-integration/overview).
+Now you have completed the basic UI workflow to change database. There is another more advanced workflow - GitOps workflow. If you want to try **Database-as-Code** - [Run a GitOps Workflow](/docs/vcs-integration/overview).

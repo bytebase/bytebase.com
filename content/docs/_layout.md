@@ -33,15 +33,15 @@ expand_section_list: ['Introduction', 'Install', 'Quickstart']
 
 #### [Step 1 - Register Accounts](/get-started/step-by-step/register-accounts)
 
-#### [Step 2 - Manage Members](/get-started/step-by-step/manage-members)
+#### [Step 2 - Set up Environments](/get-started/step-by-step/set-up-environments)
 
-#### [Step 3 - Set up Environments](/get-started/step-by-step/set-up-environments)
+#### [Step 3 - Add an Instance](/get-started/step-by-step/add-an-instance)
 
-#### [Step 4 - Add an Instance](/get-started/step-by-step/add-an-instance)
+#### [Step 4 - Create a Project](/get-started/step-by-step/create-a-project)
 
-#### [Step 5 - Create a Project](/get-started/step-by-step/create-a-project)
+#### [Step 5 - Change Schema ](/get-started/step-by-step/change-schema)
 
-#### [Step 6 - Change Schema ](/get-started/step-by-step/change-schema)
+#### [Step 6 - Manage Members](/get-started/step-by-step/manage-members)
 
 ## Core Concepts
 

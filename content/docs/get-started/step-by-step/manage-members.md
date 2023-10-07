@@ -2,9 +2,12 @@
 title: Manage Workspace Members
 ---
 
-**User** models after a principal performing the operation. Most of the time, user corresponds to a human being. Bytebase also has a special robot user named "Bytebase" (ID=1) which conducts system operations.
+Bytebase is built for team collaboration for managing the database development lifecycle. A user in
+the Bytebase workspace is defined as a member. `member` models after a principal performing the
+operation. Most of the time, user corresponds to a human being. Bytebase also has a special robot
+user named "Bytebase" (ID=1) which conducts system operations.
 
-A user in the Bytebase workspace is defined as a member.
+![member](/content/docs/get-started/step-by-step/manage-members/member.webp)
 
 This document describes how to add new member, update the role and deactivate a member at workspace level.
 

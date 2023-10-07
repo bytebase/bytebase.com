@@ -10,7 +10,7 @@ The entire Bytebase instance runs a single workspace. Most of the time, the `Wor
 
 ## User
 
-`User` models after a subject performing the operation. Most of the time, user corresponds to a human being. Bytebase also has a special robot user named "Bytebase" (ID=1) which conducts automatic operations.
+A user in the Bytebase workspace is defined as a member. `member` models after a subject performing the operation. Most of the time, user corresponds to a human being. Bytebase also has a special robot user named "Bytebase" (ID=1) which conducts automatic operations.
 
 Internally, Bytebase uses term `Principal` instead of `User` because former is more accurate to describe both human user and robot user.
 
