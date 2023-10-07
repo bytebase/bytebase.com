@@ -39,9 +39,11 @@ expand_section_list: ['Introduction', 'Install', 'Quickstart']
 
 #### [Step 4 - Create a Project](/get-started/step-by-step/create-a-project)
 
-#### [Step 5 - Change Schema ](/get-started/step-by-step/change-schema)
+#### [Step 5 - Change Schema](/get-started/step-by-step/change-schema)
 
-#### [Step 6 - Manage Members](/get-started/step-by-step/manage-members)
+#### [Step 6 - Query Data](/get-started/step-by-step/query-data)
+
+#### [Step 7 - Manage Members](/get-started/step-by-step/manage-members)
 
 ## Core Concepts
 
