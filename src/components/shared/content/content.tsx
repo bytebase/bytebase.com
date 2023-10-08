@@ -79,10 +79,10 @@ const components = {
   },
   blockquote: (props: any) => {
     return (
-      <blockquote {...props}>
-        <QuoteIcon className="mb-6 h-10 lg:mb-5 lg:h-9 sm:mb-2 sm:h-7" />
+      <div className="flex italic" {...props}>
+        <QuoteIcon className="mb-2 h-3" />
         {props.children}
-      </blockquote>
+      </div>
     );
   },
   HintBlock,
