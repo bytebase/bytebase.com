@@ -54,7 +54,7 @@ docker run -d \
 
 ## Restore sample database
 
-After the MySQL server has started, you can restore an example database from our quickstart:
+After the MySQL server has started, you can restore an example database from our quick start:
 
 ```bash
 curl -O https://raw.githubusercontent.com/bytebase/bytebase/main/quickstart/test_schema/mysql/1_todo.sql

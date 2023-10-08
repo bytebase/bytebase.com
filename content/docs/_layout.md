@@ -1,6 +1,6 @@
 ---
 # expand_section_list is the list of default expanded sections.
-expand_section_list: ['Introduction', 'Install', 'Quickstart']
+expand_section_list: ['Introduction', 'Install', 'Quick Start']
 ---
 
 ## Introduction
@@ -29,7 +29,7 @@ expand_section_list: ['Introduction', 'Install', 'Quickstart']
 
 ### [Manage with Terraform](/get-started/terraform)
 
-## [Quickstart](/get-started/quick-start)
+## [Quick Start](/get-started/quick-start)
 
 #### [Step 1 - Register Accounts](/get-started/step-by-step/register-accounts)
 

@@ -12,7 +12,7 @@ export const MENU = {
           iconName: 'intro',
         },
         {
-          name: 'Install and Quickstart',
+          name: 'Install and Quick Start',
           description: 'Deploy first change in 5 minutes',
           linkUrl: Route.DOCS_SELF_HOST,
           iconName: 'rocket',
@@ -105,7 +105,7 @@ export const MENU = {
           iconName: 'intro',
         },
         {
-          name: 'Install and Quickstart',
+          name: 'Install and Quick Start',
           description: 'Deploy first change in 5 minutes',
           linkUrl: Route.DOCS_SELF_HOST,
           iconName: 'rocket',

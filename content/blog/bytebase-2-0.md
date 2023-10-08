@@ -38,7 +38,7 @@ Accessing databases often favors internal network. Bytebase provides easy on-pre
 a single binary, self-contained Docker image, and Helm chart. Though cloud services convenience
 rivals on-premise, we release Bytebase Cloud as an additional option. Bytebase Cloud equals the
 self-hosted version without user infrastructure management. To quickly experience Bytebase, sign up
-for our [free cloud plan](https://hub.bytebase.com/workspace) and follow the quickstart guide.
+for our [free cloud plan](https://hub.bytebase.com/workspace) and follow the quick start guide.
 
 ![quickstart](/content/blog/bytebase-2-0/quick-start.webp)
 

@@ -16,7 +16,7 @@ published_at: 2022/01/06 10:31:49
 
 ## 🎄 Enhancement
 
-### kbar quickstart
+### kbar quick start
 
 User can now use cmd+k to invoke the command bar to quickly navigate among different Bytebase sections.
 ![_](/content/changelog/0.11.0/quickstart.webp)

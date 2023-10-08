@@ -48,7 +48,7 @@ We improve the layout for showing the current database schema change progress ac
 ### Misc
 
 - Switch to use PostgreSQL for storing Bytebase metadata. This enables us to handle more complex scenarios down the road.
-- Add quickstart for preparing an environment including Bytebase, GitLab (macOS Apple Silicon) and ClickHouse Cluster.
+- Add quick start for preparing an environment including Bytebase, GitLab (macOS Apple Silicon) and ClickHouse Cluster.
 
 ## 🐞 Bug fix
 
