@@ -8,9 +8,9 @@ import clsx from 'clsx';
 
 const benefits = [
   {
-    title: 'Auto style and anti-patterns checks',
+    title: 'Auto style and SQL anti-pattern checks',
     description:
-      '100+ lint rules to detect SQL anti-patterns and enforce consistent SQL style in the organization.',
+      '100+ SQL lint rules to detect anti-patterns and enforce consistent SQL style in the organization.',
     image: { src: '/images/page/main/benefits/auto-style.png', width: 590, height: 320 },
   },
   {
