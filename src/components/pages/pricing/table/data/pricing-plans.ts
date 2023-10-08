@@ -143,6 +143,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     buttonText: 'Contact us',
     buttonTheme: 'primary-filled',
     buttonUrl: '/contact-us',
+    additionalDescription: 'Free trial for 14 days.',
     changeManagement: {
       'state-based-change': true,
       'migration-based-change': true,
