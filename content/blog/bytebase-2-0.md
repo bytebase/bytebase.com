@@ -111,7 +111,7 @@ Bytebase was created to address a specific, long-standing problem: proper databa
 management. Bytebase 2.0 has evolved into a Database DevOps platform, being capable of managing the
 entire database development lifecycle: change, query, secure, govern all databases in a single place.
 
-![lifecycle](/images/change-query-secure-govern.webp)
+![lifecycle](/images/db-scheme-lg.png)
 
 Our goal has remained unchanged since incubating Bytebase two years ago, to bring the GitLab/GitHub
 experience to database development.
