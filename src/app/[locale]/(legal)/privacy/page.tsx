@@ -19,7 +19,7 @@ export default function Page() {
         This Privacy Policy describes how your personal information is collected, used, and shared
         when you visit or make a purchase from bytebase.com (the &ldquo;Site&rdquo;).
       </p>
-      <h2>Personal information we collect</h2>
+      <h2 id="personal-information">Personal information we collect</h2>
       <p>
         When you visit the Site, we automatically collect certain information about your device,
         including information about your web browser, IP address, time zone, and some of the cookies
@@ -74,7 +74,7 @@ export default function Page() {
         example, by generating analytics about how our customers browse and interact with the Site,
         and to assess the success of our marketing and advertising campaigns).
       </p>
-      <h2>Sharing your personal information</h2>
+      <h2 id="share-personal-information">Sharing your personal information</h2>
       <p>
         We share your Personal Information with third parties to help us use your Personal
         Information, as described above. For example, we use Google Analytics to help us understand
@@ -91,12 +91,12 @@ export default function Page() {
         regulations, to respond to a subpoena, search warrant or other lawful request for
         information we receive, or to otherwise protect our rights.
       </p>
-      <h2>Do not track</h2>
+      <h2 id="do-no-track">Do not track</h2>
       <p>
         Please note that we do not alter our Site&rsquo;s data collection and use practices when we
         see a Do Not Track signal from your browser.
       </p>
-      <h2>Your rights</h2>
+      <h2 id="your-rights">Your rights</h2>
       <p>
         If you are a European resident, you have the right to access personal information we hold
         about you and to ask that your personal information be corrected, updated, or deleted. If
@@ -107,24 +107,24 @@ export default function Page() {
         above. Additionally, please note that your information will be transferred outside of
         Europe, including to the United States and China.
       </p>
-      <h2>Data retention</h2>
+      <h2 id="data-retention">Data retention</h2>
       <p>
         When you place an order through the Site, we will maintain your Order Information for our
         records unless and until you ask us to delete this information.
       </p>
-      <h2>Audit Logs</h2>
+      <h2 id="audit-logs">Audit Logs</h2>
       <p>
         Bytebase collects audit logs for user operations inside Bytebase. Bytebase conforms with the
         PCI DSS standards to retain the audit history at least for 1 year. The audit logs can be
         readily accessed for analysis from the{' '}
         <Link href="/docs/security/audit-log/">Audit Log</Link> section inside the Bytebase product.
       </p>
-      <h2>Changes</h2>
+      <h2 id="changes">Changes</h2>
       <p>
         We may update this privacy policy from time to time in order to reflect, for example,
         changes to our practices or for other operational, legal or regulatory reasons.
       </p>
-      <h2>Contact us</h2>
+      <h2 id="contact-us">Contact us</h2>
       <p>
         For more information about our privacy practices, if you have questions, or if you would
         like to make a complaint, please contact us by e-mail at{' '}
