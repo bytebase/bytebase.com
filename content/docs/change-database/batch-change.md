@@ -46,7 +46,7 @@ Let's take the hospital example to follow the steps below.
 - You have a running Bytebase with `Test` and `Prod` environments.
 - You have at least two instances of the same database type, one for `Test` environment and others for `Prod` environment.
 
-### Create a Project in Tenant Mode
+### Create a project in tenant mode
 
 Tenant projects empowers you to:
 
@@ -56,7 +56,7 @@ Tenant projects empowers you to:
 
 <img src="/content/docs/change-database/batch-change/cmt-create-project.webp" width="50%" style={{ margin: '1% 0' }} alt="cmt-create-project" />
 
-### Create Databases with Tenant Labels
+### Create databases with tenant labels
 
 Within the project, click **New DB** to create four databases as following and then click **Rollout** and **Resolve** one by one:
 
@@ -71,7 +71,7 @@ In real life case, another way is to click **Transfer in DB** to transfer in you
 
 <img src="/content/docs/change-database/batch-change/cmt-db-edit-tenant.webp" width="65%" style={{ margin: '1% 0' }} alt="cmt-db-edit-tenant" />
 
-### Adjust Deployment Configuration
+### Adjust deployment configuration
 
 Within the project, click **Databases** tab and you'll see the default deployment pipeline preview.
 
@@ -89,7 +89,7 @@ Scroll up and you will see the new pipeline preview.
 
 ![cmt-db-after-config-tenant](/content/docs/change-database/batch-change/cmt-db-after-config-tenant.webp)
 
-### Alter Schema for Tenant Databases
+### Alter schema for tenant databases
 
 1. Within the project, click **Alter Schema**. You'll see the popup.
 
@@ -115,7 +115,7 @@ PRIMARY KEY (`id`)
 
 ![cmt-after-alter-schema](/content/docs/change-database/batch-change/cmt-after-alter-schema.webp)
 
-### Add a New Database
+### Add a new database
 
 Within a tenant project, if you add a new database, it will automatically inherit the identical schemas from others.
 
@@ -137,7 +137,7 @@ If you are responsible for managing horizontally partitioned databases that are 
 
 Follow the steps below to navigate through the process.
 
-### Create a Database Group
+### Create a database group
 
 1. Within a **tenant** project, click **New database group** in the **Database Groups** tab.
 
@@ -151,7 +151,7 @@ Follow the steps below to navigate through the process.
 
 ![bc-db-group-done](/content/docs/change-database/batch-change/bc-db-group-done.webp)
 
-### Create a Table Group
+### Create a table group
 
 1. Within a **tenant** project, click **New table group** in the **Database Groups** tab.
 
@@ -167,7 +167,7 @@ Navigate to the details page of the `hotel_global` database group, you'll see th
 
 ![bc-tb-group-done](/content/docs/change-database/batch-change/bc-tb-group-done.webp)
 
-### Batch Alter Schema All Tables in a Table Group
+### Batch alter schema all tables in a table group
 
 1. Within a **tenant** project, click **Alter Schema**.
 2. Click **Munaul selection** and select **Database Group** to locate he `hotel_global` database group.
