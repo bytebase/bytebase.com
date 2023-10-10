@@ -12,5 +12,6 @@ For now, Bytebase supports:
 1. [GitHub.com](/docs/vcs-integration/github-com)
 1. [GitHub Enterprise](/docs/vcs-integration/github-enterprise)
 1. [Bitbucket.org](/docs/vcs-integration/bitbucket-org)
+1. [Azure DevOps](/docs/vcs-integration/azure-devops)
 
 And we have plans to support more Git providers, including: GitHub Enterprise and GitLab.com.
