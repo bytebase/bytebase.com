@@ -2,6 +2,8 @@
 title: ChatSQL
 ---
 
+<EnterpriseOnlyBlock />
+
 Input your natural language and Bytebase will convert it into SQL.
 
 ## Prerequisites

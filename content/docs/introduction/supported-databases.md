@@ -66,22 +66,22 @@ _Bytebase is trailblazing the schema management landscape. Each database engine 
 
 ### SQL Editor
 
-| Feature    | [Sheet Management](/docs/sql-editor/manage-sql-scripts) | [Query Mode](/docs/sql-editor/run-queries) | [Admin Mode](/docs/sql-editor/admin-mode) | [ChatSQL](/docs/sql-editor/chatsql) |
-| ---------- | ------------------------------------------------------- | ------------------------------------------ | ----------------------------------------- | ----------------------------------- |
-| MySQL      | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
-| PostgreSQL | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
-| TiDB       | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
-| ClickHouse | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
-| Snowflake  | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
-| Redshift   | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
-| MongoDB    | ✔️                                                      |                                            | ✔️                                        | ✔️                                  |
-| Spanner    | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
-| Redis      | ✔️                                                      |                                            | ✔️                                        | ✔️                                  |
-| Oracle     | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
-| SQL Server | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
-| MariaDB    | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
-| OceanBase  | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
-| RisingWave | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                  |
+| Feature    | [Sheet Management](/docs/sql-editor/manage-sql-scripts) | [Query Mode](/docs/sql-editor/run-queries) | [Admin Mode](/docs/sql-editor/admin-mode) | [Batch Query](/docs/sql-editor/batch-query) | [ChatSQL](/docs/sql-editor/chatsql) |
+| ---------- | ------------------------------------------------------- | ------------------------------------------ | ----------------------------------------- | ------------------------------------------- | ----------------------------------- |
+| MySQL      | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
+| PostgreSQL | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
+| TiDB       | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
+| ClickHouse | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
+| Snowflake  | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
+| Redshift   | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
+| MongoDB    | ✔️                                                      |                                            | ✔️                                        | ✔️                                          | ✔️                                  |
+| Spanner    | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
+| Redis      | ✔️                                                      |                                            | ✔️                                        | ✔️                                          | ✔️                                  |
+| Oracle     | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
+| SQL Server | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
+| MariaDB    | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
+| OceanBase  | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
+| RisingWave | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
 
 ### Data Security & Governance
 

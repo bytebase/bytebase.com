@@ -33,7 +33,9 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       csv: true,
       admin: true,
       script: true,
+      batch: false,
       connection: false,
+      chat: false,
     },
     collaboration: {
       inbox: true,
@@ -99,7 +101,9 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       csv: true,
       admin: true,
       script: true,
+      batch: false,
       connection: false,
+      chat: false,
     },
     collaboration: {
       inbox: true,
@@ -170,7 +174,9 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       csv: true,
       admin: true,
       script: true,
+      batch: true,
       connection: true,
+      chat: true,
     },
     collaboration: {
       inbox: true,
@@ -236,7 +242,9 @@ const LABELS = [
       csv: 'CSV / JSON export',
       admin: 'Admin Mode',
       script: 'Saved SQL script',
+      batch: 'Batch query multiple databases',
       connection: 'Separate connection for read-only operations',
+      chat: 'Query using natural language',
     },
   },
   {

@@ -113,6 +113,8 @@ expand_section_list: ['Introduction', 'Install', 'Quick Start']
 
 ### [Run and EXPLAIN Query](/sql-editor/run-queries)
 
+### [Batch Query](/sql-editor/batch-query)
+
 ### [Admin Mode](/sql-editor/admin-mode)
 
 ### [Data Masking](/sql-editor/mask-data)
