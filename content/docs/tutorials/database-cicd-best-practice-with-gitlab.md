@@ -179,7 +179,7 @@ the team always has a canonical source of truth for the database schema in Git.
 
 ### Schema Drift
 
-Bytbease has built-in [schema drift detection](/docs/change-database/drift-detection/) to detect unexpected schema changes. Let's use the [SQL Editor Admin Mode](/docs/sql-editor/admin-mode/) to simulate this.
+Bytebase has built-in [schema drift detection](/docs/change-database/drift-detection/) to detect unexpected schema changes. Let's use the [SQL Editor Admin Mode](/docs/sql-editor/admin-mode/) to simulate this.
 
 1. Click **terminal icon** (SQL Editor) on the top right. You'll be redirect to **SQL Editor**. Click **Admin mode**. Everything you do in this mode is the same as connecting directly to the server, which is not recorded by Bytebase.
 
