@@ -114,8 +114,9 @@ export default function Page() {
       </p>
       <h2>Audit Logs</h2>
       <p>
-        Bytebase conforms with the PCI DSS standards to retain the audit history at least for 1
-        year. The audit logs can be readily accessed for analysis from the{' '}
+        Bytebase collects audit logs for user operations inside Bytebase. Bytebase conforms with the
+        PCI DSS standards to retain the audit history at least for 1 year. The audit logs can be
+        readily accessed for analysis from the{' '}
         <Link href="/docs/security/audit-log/">Audit Log</Link> section inside the Bytebase product.
       </p>
       <h2>Changes</h2>
