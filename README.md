@@ -10,6 +10,7 @@ We are hiring. Please check out our [about page](https://www.bytebase.com/about)
   - [ESLint](#eslint)
   - [Prettier](#prettier)
   - [VS Code](#vs-code)
+- [Vercel](#vercel)
 
 ## Getting Started
 
@@ -124,3 +125,7 @@ Following extensions required to simplify the process of keeping the same code s
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
 After installation, VS Code will be use settings from the `.vscode/settings.json` file and will be fixing and formatting your code automatically on paste and save actions.
+
+## Vercel
+
+Bytebase.com is hosted on Vercel. Upon successful deployment, Vercel will post a webhook event to /api/index-to-algolia to rebuild the index.
