@@ -124,20 +124,6 @@ Within a tenant project, if you add a new database, it will automatically inheri
 
 ![cmt-db-h4-table](/content/docs/change-database/batch-change/cmt-db-h4-table.webp)
 
-### Enforce Database Name with Template
-
-If you want to enforce tenant databases to follow a nanme pattern, you can use the tenant database template. For example, suppose the template is `{{DB_NAME}}__{{TENANT}}`. If the base database name is `hospital_prod`, and there are 3 tenants `h1`, `h2`, `h3`, the database name for the respective tenants can be enforced as `hospital_prod__h1`, `hospital_prod__h2`, `hospital_prod__h3`.
-
-1. Within the project, click **Databases** tab and you'll see the **Tenant Database Name Template** section. Click **Edit**, input `{{DB_NAME}}__{{TENANT}}` and click **Update**.
-   ![cmt-db-naming-template-update](/content/docs/change-database/batch-change/cmt-db-naming-template-update.webp)
-
-2. Click **New DB**, if the database name doesn't match the template `{{DB_NAME}}__{{TENANT}}`, there will be an error. e.g.
-
-- ❌ `hospital_prod_h5` - separator should have two underscores instead of one.
-- ❌ `hospital_prod__5` - tenant name should be `h5` instead of `5`.
-- ✅ `hospital_prod__h5`
-  ![cmt-db-name-error](/content/docs/change-database/batch-change/cmt-db-name-error.webp)
-
 ### GitOps
 
 You can further adopt GitOps to batch change tenant databases. Head over to the doc [Batch Change Tenant Databases
