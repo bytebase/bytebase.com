@@ -13,7 +13,7 @@ export default function Page() {
         Privacy Policy
       </h1>
       <p className="text-gray-50 sm:my-3">
-        Last modified: <time>Aug 1, 2021</time>
+        Last modified: <time>Oct 10, 2023</time>
       </p>
       <p className="sm:mt-3">
         This Privacy Policy describes how your personal information is collected, used, and shared
@@ -111,6 +111,12 @@ export default function Page() {
       <p>
         When you place an order through the Site, we will maintain your Order Information for our
         records unless and until you ask us to delete this information.
+      </p>
+      <h2>Audit Logs</h2>
+      <p>
+        Bytebase conforms with the PCI DSS standards to retain the audit history at least for 1
+        year. The audit logs can be readily accessed for analysis from the{' '}
+        <Link href="/docs/security/audit-log/">Audit Log</Link> section inside the Bytebase product.
       </p>
       <h2>Changes</h2>
       <p>
