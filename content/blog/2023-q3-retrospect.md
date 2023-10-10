@@ -70,3 +70,7 @@ Bytebase keeps up with the bi-weekly release cadence and released 7 versions.
 
 - More granular [Instance-level license](/docs/administration/license/). Users can import all instances into Bytebase to manage, meanwhile, they can just purchase fewer instance licenses and assign them to a subset of instances requiring advanced features.
 - Set up workspace-wide custom announcement banner.
+
+---
+
+We are still busy building several exciting features to be landed before the holiday season. See you in 3 months!
