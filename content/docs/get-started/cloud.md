@@ -8,7 +8,7 @@ This document guides you to use the Bytebase Cloud.
 
 ![network-topology](/content/docs/get-started/saas/topology.webp)
 
-Bytebase Cloud is hosted on Google Cloud in the United States. To make your Bytebase Cloud instance
+Bytebase Cloud is hosted on Google Cloud in the us-central region. To make your Bytebase Cloud instance
 connect to your databases in your internal network, you need to whitelist the following Bytebase
 Cloud IPs:
 
