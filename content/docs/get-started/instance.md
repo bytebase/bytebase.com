@@ -69,7 +69,7 @@ To separate from admin connection, you can configure read-only connections used 
 
 <EnterpriseOnlyBlock />
 
-By defauilt, Bytebase stored the database credentials in an obfuscated format. You can also instruct
+By defauilt, Bytebase stores the database credentials in an obfuscated format. You can also instruct
 Bytebase to fetch the database credential from an external secret manager.
 
 ![external-secret-manager-flow](/content/docs/get-started/instance/external-secret-manager-flow.webp)
@@ -92,8 +92,8 @@ curl "http://example.com/secrets/mydbkey"
 
 **Expected response**
 
-Bytebase expects the following JSON response from the external secret manager. The payload.data is the
-base64-encoded contents of the secret version.
+Bytebase expects the following JSON response from the external secret manager. The `payload.data` is the
+base64-encoded contents of the database password.
 
 ```json
 {
