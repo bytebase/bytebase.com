@@ -65,6 +65,44 @@ To separate from admin connection, you can configure read-only connections used 
 
 ![bb-instance-read-only-connection](/content/docs/get-started/instance/bb-instance-read-only-connection.webp)
 
+## Use secret manager
+
+<EnterpriseOnlyBlock />
+
+By defauilt, Bytebase stored the database credentials in an obfuscated format. You can also instruct
+Bytebase to fetch the database credential from an external secret manager.
+
+![external-secret-manager-flow](/content/docs/get-started/instance/external-secret-manager-config.webp)
+
+1. User tries to access database from Bytebase.
+1. Bytebase calls the external secret manager to fetch the corresponding password.
+1. Bytebase fetches the password and connect the database.
+
+![external-secret-manager-config](/content/docs/get-started/instance/external-secret-manager-config.webp)
+
+You supply the external secret manager endpoint by enclosing it with the mustache `{{` `}}`, e.g `{{http://example.com/secrets/mydbkey}}`
+
+**Sample request**
+
+Usually `mydbkey` is unique for each database and used for exchanging the password for that database.
+
+```bash
+curl "http://example.com/secrets/mydbkey"
+```
+
+**Expected response**
+
+Bytebase expects the following JSON response from the external secret manager. The payload.data is the
+base64-encoded contents of the secret version.
+
+```json
+{
+  "payload": {
+    "data": "xxx"
+  }
+}
+```
+
 ## PostgreSQL
 
 If the connecting instance is managed by the cloud provider, then SUPERUSER is not available and you should create the role via that provider's admin console. The created role will have provider specific restricted semi-SUPERUSER privileges:

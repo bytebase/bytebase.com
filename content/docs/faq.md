@@ -21,6 +21,12 @@ See [Supported Databases](/docs/introduction/supported-databases).
 
 See [Git Provider](/docs/vcs-integration/add-git-provider).
 
+## How Bytebase stores the database credentials
+
+In order to perform database operations on users' behalf, Bytebase needs users to provide the database credentials.
+By default, Bytebase stored the supplied credentials in the obfuscated format. For the Enterprise plan, you can
+instruct Bytebase to [use the external secret manager](/docs/get-started/instance/#use-secret-manager).
+
 ## How to enable https
 
 You can use [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy) or [Nginx](https://www.nginx.com/).
