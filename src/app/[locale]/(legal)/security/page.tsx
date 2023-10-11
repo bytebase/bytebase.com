@@ -56,7 +56,7 @@ export default function Page() {
       />
       <ul>
         <li>
-          All infrastructure is hosted on Google Cloud Platform in the United States and managed
+          All infrastructure is hosted on Google Cloud Platform us-central region and managed
           through Terraform.
         </li>
         <li>
