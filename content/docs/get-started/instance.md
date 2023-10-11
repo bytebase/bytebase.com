@@ -72,13 +72,13 @@ To separate from admin connection, you can configure read-only connections used 
 By defauilt, Bytebase stored the database credentials in an obfuscated format. You can also instruct
 Bytebase to fetch the database credential from an external secret manager.
 
-![external-secret-manager-flow](/content/docs/get-started/instance/external-secret-manager-config.webp)
+![external-secret-manager-flow](/content/docs/get-started/instance/external-secret-manager-flow.webp)
 
 1. User tries to access database from Bytebase.
 1. Bytebase calls the external secret manager to fetch the corresponding password.
 1. Bytebase fetches the password and connect the database.
 
-![external-secret-manager-config](/content/docs/get-started/instance/external-secret-manager-flow.webp)
+![external-secret-manager-config](/content/docs/get-started/instance/external-secret-manager-config.webp)
 
 You supply the external secret manager endpoint by enclosing it with the mustache `{{` `}}`, e.g `{{http://example.com/secrets/mydbkey}}`
 
