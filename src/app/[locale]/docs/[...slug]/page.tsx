@@ -67,7 +67,7 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
           <Content content={content} />
         </PostLayout>
       </article>
-      <div className="sticky top-10 col-span-3 col-end-13 ml-auto max-h-[calc(100vh-40px)] w-full max-w-[314px] pt-2.5 pb-28 xl:max-w-none lg:hidden">
+      <div className="sticky top-[144px] col-span-3 col-end-13 ml-auto max-h-[calc(100vh-40px)] w-full max-w-[314px] pt-2.5 pb-28 xl:max-w-none lg:hidden">
         {tableOfContents && tableOfContents.length > 0 && (
           <TableOfContents items={tableOfContents} className="overflow-y-auto" hasBackToTop />
         )}

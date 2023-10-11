@@ -56,7 +56,7 @@ const Tabs = ({ items, currentSlug = '' }: TabsProps) => {
   tabsWithSlug.unshift({ label: 'All Posts' });
 
   return (
-    <div className="container mt-24 md:mt-[88px] sm:mt-[84px]">
+    <div className="container mt-8">
       <nav className="scrollbar-hidden overflow-auto lg:-mx-11 lg:mt-12 lg:px-11 md:-mx-7 md:mt-6 md:px-7 xs:-mx-4 xs:mt-5 xs:px-4">
         <ul className="flex w-max gap-x-4 text-black lg:gap-x-3 md:gap-x-2">
           {tabsWithSlug.map(({ label, slug = '' }, index) => (

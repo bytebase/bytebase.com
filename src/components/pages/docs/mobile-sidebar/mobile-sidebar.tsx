@@ -78,6 +78,7 @@ const MobileSidebar = ({
   useEffect(() => {
     controls.start(isOpen ? 'to' : 'from');
   }, [controls, isOpen]);
+
   return (
     <LazyMotion features={domAnimation}>
       <nav className={clsx('relative', className)} ref={wrapperRef}>

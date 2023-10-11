@@ -36,7 +36,7 @@ const PostsList = ({ posts, page, pageCount }: PostsListProps) => {
                   <header
                     className={clsx(
                       index !== 0 ? 'mt-12 lg:mt-10 md:mt-8' : 'mt-1',
-                      'sticky top-[60px] col-span-3 flex h-min flex-col gap-y-2.5 pl-5 before:absolute before:top-0 before:left-0 before:h-full before:w-0.5 before:-translate-x-1/2 before:rounded-full before:bg-primary-1 lg:top-[52px] md:top-10 md:gap-y-2 md:pl-4 sm:relative sm:top-auto sm:col-span-full sm:mt-0 sm:pl-0 sm:before:hidden',
+                      'sticky top-[144px] col-span-3 flex h-min flex-col gap-y-2.5 pl-5 before:absolute before:top-0 before:left-0 before:h-full before:w-0.5 before:-translate-x-1/2 before:rounded-full before:bg-primary-1 lg:top-[52px] md:top-10 md:gap-y-2 md:pl-4 sm:relative sm:top-auto sm:col-span-full sm:mt-0 sm:pl-0 sm:before:hidden',
                     )}
                   >
                     <time

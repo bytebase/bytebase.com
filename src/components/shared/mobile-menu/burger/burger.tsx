@@ -17,7 +17,7 @@ const Burger = ({
   <LazyMotion features={domAnimation}>
     <m.button
       className={clsx(
-        'absolute top-0 right-0 z-50 px-[22px] py-[26px] sm:py-[22px] sm:pr-4',
+        'fixed top-0 right-0 z-50 mt-[48px] px-[22px] py-[14px] sm:py-[10px] sm:pr-4',
         className,
       )}
       type="button"

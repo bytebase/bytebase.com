@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect } from 'react';
 
 import { DocSearch } from '@docsearch/react';
 

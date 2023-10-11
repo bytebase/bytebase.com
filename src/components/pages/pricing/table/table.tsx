@@ -95,7 +95,7 @@ const Table = () => {
 
                 return (
                   <div className="shrink grow sm:w-1/3" key={`${currentPlan.title}_${idx}`}>
-                    <div className="sticky top-0 z-30 md:static">
+                    <div className="sticky top-[128px] z-30 md:static">
                       <PlanCard {...currentPlan} />
                     </div>
                     <div

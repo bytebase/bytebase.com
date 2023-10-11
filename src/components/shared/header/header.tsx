@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Button from '@/components/shared/button';
 import Link from '@/components/shared/link';
@@ -26,7 +26,10 @@ import TutorialsIcon from '@/svgs/tutorials.inline.svg';
 import ChevronIcon from '@/svgs/chevron-menu-docs.inline.svg';
 import MaskIcon from '@/svgs/mask-menu-docs.inline.svg';
 
+import PROMO_DATA from '@/lib/promo-data';
 import GithubStarCounter from './github-star-counter';
+import Banner from '../banner';
+import clsx from 'clsx';
 
 const icons: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -69,7 +72,15 @@ type Header = {
 };
 
 const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
+  const topBanner = PROMO_DATA.TOP_BANNER;
   const [canShowSubmenu, setCanShowSubmenu] = useState(true);
+  const [showShadow, setShowShadow] = useState(false);
+
+  useEffect(() => {
+    document.addEventListener('scroll', () => {
+      setShowShadow(window.scrollY > 0);
+    });
+  }, []);
 
   const handleSubmenuClick = () => {
     setCanShowSubmenu(false);
@@ -78,9 +89,19 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
 
   return (
     <>
-      <header className="safe-paddings absolute left-0 right-0 top-0 z-30 h-[72px] w-full md:py-[22px] sm:z-50">
-        <nav className="container flex items-center py-4.5 md:py-0" aria-label="Global">
-          <Link href="/">
+      <header
+        className={clsx(
+          'safe-paddings fixed left-0 right-0 top-0 z-30 h-auto w-full bg-white sm:z-50',
+          showShadow && 'shadow',
+        )}
+      >
+        {topBanner && <Banner bannerText={topBanner.title} bannerUrl={topBanner.pathname} />}
+
+        <nav
+          className="container flex items-center py-[18px] md:justify-between md:py-[10px]"
+          aria-label="Global"
+        >
+          <Link className="shrink-0" href="/">
             <Image
               className="h-8 w-auto xl:h-7"
               src="/images/logo.svg"
