@@ -13,7 +13,7 @@ export default function Page() {
       <h1 className="font-title text-90 font-semibold leading-none lg:text-68 md:text-56 sm:text-40">
         Bytebase Security Details
       </h1>
-      <h2>General practices</h2>
+      <h2 id="general">General practices</h2>
       <ul>
         <li>Access to all internal systems is protected by multi-factor authentication.</li>
         <li>
@@ -29,7 +29,7 @@ export default function Page() {
         <li>3rd party conducts penetration tests annually.</li>
         <li>We don&apos;t copy production data to external devices such as personal laptops.</li>
       </ul>
-      <h2>Bytebase overall architecture</h2>
+      <h2 id="architecture">Bytebase overall architecture</h2>
       <ul>
         <li>Backend is written in Go.</li>
         <li>Frontend is written in TypeScript and Vue3.</li>
@@ -47,7 +47,7 @@ export default function Page() {
           store the metadata in an external PostgreSQL instance instead of the embedded one.
         </li>
       </ul>
-      <h2>Bytebase Cloud</h2>
+      <h2 id="cloud">Bytebase Cloud</h2>
       <Image
         src="/images/arch-cloud.webp"
         width={1417}
@@ -77,7 +77,7 @@ export default function Page() {
           upon request in our Enterprise plan.
         </li>
       </ul>
-      <h2>Bytebase self-hosted</h2>
+      <h2 id="self-host">Bytebase self-hosted</h2>
       <Image
         src="/images/arch-self-hosted.webp"
         width={1030}
@@ -109,7 +109,7 @@ export default function Page() {
           further enforced in the Enterprise plan.
         </li>
       </ul>
-      <h2>FAQ</h2>
+      <h2 id="faq">FAQ</h2>
       <h3>Which data does Bytebase store?</h3>
       Bytebase stores the following data:
       <ul>
