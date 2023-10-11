@@ -22,7 +22,7 @@ const Filter = ({ title, className, fieldsList, activeFilters, toggleFilter }: F
 
   return (
     <form className={className}>
-      <div className="sticky top-10 ml-[25px] 2xl:ml-0">
+      <div className="sticky top-[144px] ml-[25px] 2xl:ml-0">
         <fieldset className="-mt-3 border-l border-gray-90 pl-5">
           <legend className="pt-3 text-14 font-bold uppercase leading-none -tracking-tight text-gray-15">
             {title}

@@ -112,12 +112,17 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
   return (
     <>
       {isDocs && (
-        <AlgoliaSearch className={clsx(isOpen ? 'z-40' : 'z-50', 'relative hidden md:block')} />
+        <AlgoliaSearch
+          className={clsx(
+            'fixed top-0 right-0 mt-[36px] hidden sm:block',
+            isOpen ? 'z-40' : 'z-50',
+          )}
+        />
       )}
       <Burger className="hidden md:block" isToggled={isOpen} onClick={toggleMenu} />
       <LazyMotion features={domAnimation}>
         <m.nav
-          className="safe-paddings absolute inset-x-0 bottom-0 top-0 z-40 hidden bg-black bg-opacity-80"
+          className="safe-paddings fixed inset-x-0 bottom-0 top-0 z-40 hidden bg-black bg-opacity-80"
           initial="from"
           animate={controls}
           variants={menuVariants}
@@ -125,8 +130,7 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
         >
           <div
             className={clsx(
-              'ml-auto flex w-1/2 flex-col justify-between bg-white px-7 pb-8 pt-[84px] md:px-5 sm:w-full sm:px-4 xs:pb-5',
-              hasBanner ? 'h-[calc(100vh-56px)] md:h-[calc(100vh-46px)]' : 'h-full',
+              'ml-auto flex h-screen w-1/2 flex-col justify-between bg-white px-7 pb-8 pt-[112px] md:px-5 sm:w-full sm:px-4 xs:pb-5',
             )}
             onClick={(evt) => evt.stopPropagation()}
           >

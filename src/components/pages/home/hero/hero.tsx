@@ -124,7 +124,7 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
   return (
     <div
       className={clsx(
-        'container gap-x-grid group mt-32 grid grid-cols-12 2xl:mt-[120px] lg:mt-[120px] md:mt-[104px] sm:mt-24 sm:grid-cols-none',
+        'container gap-x-grid group mt-16 grid grid-cols-12 md:mt-8 sm:mt-4 sm:grid-cols-none',
         {
           done: isDone,
         },
