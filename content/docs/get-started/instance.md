@@ -78,7 +78,7 @@ Bytebase to fetch the database credential from an external secret manager.
 1. Bytebase calls the external secret manager to fetch the corresponding password.
 1. Bytebase fetches the password and connect the database.
 
-![external-secret-manager-config](/content/docs/get-started/instance/external-secret-manager-config.webp)
+![external-secret-manager-config](/content/docs/get-started/instance/external-secret-manager-flow.webp)
 
 You supply the external secret manager endpoint by enclosing it with the mustache `{{` `}}`, e.g `{{http://example.com/secrets/mydbkey}}`
 
