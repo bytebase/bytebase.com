@@ -9,9 +9,9 @@ level: Beginner
 description: This tutorial will teach you how to set up and try out data masking in Bytebase.
 ---
 
-Data Masking can dynamically mask sensitive data in the query result based on the context. It helps organizations to protect sensitive data from being exposed to unauthorized users.
+**Data Masking** can dynamically mask sensitive data in the query result based on the context. It helps organizations to **protect sensitive data** from being exposed to unauthorized users.
 
-This tutorial will teach you how to set up and try out data masking in Bytebase.
+This tutorial will teach you how to set up and try out data masking in Bytebase within 30 mins.
 
 ### Prerequisites
 
