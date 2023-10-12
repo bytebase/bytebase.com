@@ -49,19 +49,7 @@ In this section, you’ll start Bytebase and follow its onboard guide.
 
 1. Make sure your docker daemon is running, and then start the Bytebase docker container by typing the following command in the terminal.
 
-```bash
-docker run --init \
-  --name bytebase \
-  --restart always \
-  --publish 5678:8080 \
-  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
-  --health-interval 5m \
-  --health-timeout 60s \
-  --volume ~/.bytebase/data:/var/opt/bytebase \
-  bytebase/bytebase:$$bb_version$$ \
-  --data /var/opt/bytebase \
-  --port 8080
-```
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-command"></IncludeBlock>
 
 2. Type the following commands one by one in the terminal to start two MySQL instances, and they will be mapped to `Test` and `Prod` environments later.
 

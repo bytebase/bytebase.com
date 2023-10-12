@@ -32,21 +32,9 @@ If you **run Bytebase inside Docker on Linux** and want to connect the database 
 
 By default, container listens on [port 80](https://github.com/bytebase/bytebase/blob/main/scripts/Dockerfile#L98). You can overwrite the port by supplying `--port`.
 
-Run the following command to start Bytebase on container port 8080 and bind to localhost:5678.
+Run the following command to start Bytebase on container port `8080` and bind to localhost `5678`.
 
-```bash
-docker run --init \
-  --name bytebase \
-  --restart always \
-  --publish 5678:8080 \
-  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
-  --health-interval 5m \
-  --health-timeout 60s \
-  --volume ~/.bytebase/data:/var/opt/bytebase \
-  bytebase/bytebase:%%bb_version%% \
-  --data /var/opt/bytebase \
-  --port 8080
-```
+<IncludeBlock url="/docs/get-started/install/terminal-docker-run-command"></IncludeBlock>
 
 Bytebase will store its data under `~/.bytebase/data` , you can reset all data by running command:
 
@@ -111,7 +99,7 @@ docker logs bytebase
 
 Normally you should see this:
 
-<IncludeBlock url="/docs/get-started/install/startup-terminal-output-success"></IncludeBlock>
+<IncludeBlock url="/docs/get-started/install/terminal-startup-output-success"></IncludeBlock>
 
 ##### Unable to start using [Colima](https://github.com/abiosoft/colima)
 
@@ -400,7 +388,7 @@ bytebase --port 8080
 
 You should see something like this in the console:
 
-<IncludeBlock url="/docs/get-started/install/startup-terminal-output-success"></IncludeBlock>
+<IncludeBlock url="/docs/get-started/install/terminal-startup-output-success"></IncludeBlock>
 
 **Troubleshoot**
 
@@ -459,7 +447,7 @@ foo/bytebase --port 8080
 
 You should see something like this in the console:
 
-<IncludeBlock url="/docs/get-started/install/startup-terminal-output-success"></IncludeBlock>
+<IncludeBlock url="/docs/get-started/install/terminal-startup-output-success"></IncludeBlock>
 
 **Troubleshoot**
 

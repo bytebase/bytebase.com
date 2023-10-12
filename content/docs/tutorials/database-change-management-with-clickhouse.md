@@ -43,19 +43,7 @@ Before you start this tutorial, make sure:
 
 1. Make sure your docker daemon is running, and start the Bytebase docker container.
 
-```bash
-docker run --init \
-  --name bytebase \
-  --restart always \
-  --publish 5678:8080 \
-  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
-  --health-interval 5m \
-  --health-timeout 60s \
-  --volume ~/.bytebase/data:/var/opt/bytebase \
-  bytebase/bytebase:%%bb_version%% \
-  --data /var/opt/bytebase \
-  --port 8080
-```
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-command"></IncludeBlock>
 
 2. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`.
    ![docker](/content/docs/tutorials/database-change-management-with-clickhouse/docker.webp)

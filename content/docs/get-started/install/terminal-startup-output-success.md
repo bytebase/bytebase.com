@@ -1,5 +1,5 @@
 ---
-title: Startup Terminal Output
+title: Terminal Startup Output Success
 ---
 
 ```bash

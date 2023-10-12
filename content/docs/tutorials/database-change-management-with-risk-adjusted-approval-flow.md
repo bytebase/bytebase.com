@@ -29,19 +29,7 @@ This tutorial will walk you through how to create custom approval flows based on
 
 1. While the docker is running, run this following command to start a Bytebase instance. Here we name it `bytebase-af` and use `~/.bytebase/data-af` folder to store the meta data.
 
-```bash
-docker run --init \
-  --name bytebase-af \
-  --restart always \
-  --publish 5678:8080 \
-  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
-  --health-interval 5m \
-  --health-timeout 60s \
-  --volume ~/.bytebase/data-af:/var/opt/bytebase \
-  bytebase/bytebase:%%bb_version%% \
-  --data /var/opt/bytebase \
-  --port 8080
-```
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-command"></IncludeBlock>
 
 2. Start two MySQL instances by running these two commands:
 

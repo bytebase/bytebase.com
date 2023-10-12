@@ -41,24 +41,12 @@ Before you start, make sure you have [Docker](https://www.docker.com/) installed
 
 1. Make sure your Docker daemon is running, and start the Bytebase Docker container with following command:
 
-```bash
-docker run --init \
-  --name bytebase \
-  --restart always \
-  --publish 5678:8080 \
-  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
-  --health-interval 5m \
-  --health-timeout 60s \
-  --volume ~/.bytebase/data:/var/opt/bytebase \
-  bytebase/bytebase:%%bb_version%% \
-  --data /var/opt/bytebase \
-  --port 8080
-```
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-command"></IncludeBlock>
 
 2. Bytebase is now running via Docker, and you can access it via `localhost:5678`.
    ![docker](/content/docs/tutorials/database-change-management-with-postgresql/docker.webp)
 
-1. Visit `localhost:5678` in your browser. Register the first admin account which will be granted [`Workspace Owner`](/docs/concepts/roles-and-permissions).
+3. Visit `localhost:5678` in your browser. Register the first admin account which will be granted [`Workspace Owner`](/docs/concepts/roles-and-permissions).
    ![register](/content/docs/tutorials/database-change-management-with-postgresql/register.webp)
 
 ## Step 2 - Add PostgreSQL in Bytebase

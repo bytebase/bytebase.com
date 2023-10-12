@@ -21,19 +21,7 @@ Before starting, make sure you have installed [Docker](https://www.docker.com/).
 
 1. Make sure your Docker is running, and start the Bytebase Docker container with following command:
 
-   ```bash
-   docker run --init \
-   --name bytebase \
-   --restart always \
-   --publish 5678:8080 \
-   --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
-   --health-interval 5m \
-   --health-timeout 60s \
-   --volume ~/.bytebase/data:/var/opt/bytebase \
-   bytebase/bytebase:%%bb_version%% \
-   --data /var/opt/bytebase \
-   --port 8080
-   ```
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-command"></IncludeBlock>
 
 2. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`. Register an admin account and it will be granted the `workspace owner` role automatically.
 
@@ -47,8 +35,8 @@ Before starting, make sure you have installed [Docker](https://www.docker.com/).
 
 5. Click **Instances**, and click **Assign License**. Select both instances, and click **Confirm**. Without doing this, the enterprise features won't be enabled on instances.
 
-
 ### Global Masking Rule
+
 You may want to batch apply masking settings, for example, you want to mask all the `birth_date` columns in all the tables in the `employee` database. You can use **Global Masking Rule** to achieve this.
 
 1. Click the **Setting icon** on the top right. Click **Security & Policy** > **Data Masking**. Click **Global Masking Rule** and then **Add rule**.
@@ -57,27 +45,27 @@ You may want to batch apply masking settings, for example, you want to mask all 
 
    ![bb-data-masking-global-birth-date](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-data-masking-global-birth-date.webp)
 
-
 3. Go back to the SQL Editor page, Choose `(Prod) employee` > `public` > `employee` and run `SELECT * FROM employee;` again. You'll see the `birth_date` is masked. Choose `(Test) employee`, the result is the same.
 
    ![bb-sql-editor-query-employee-prod-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-prod-masked.webp)
    ![bb-sql-editor-query-employee-test-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-test-masked.webp)
 
 ### Column Masking Rule
+
 If you want to mask a specific column in a specific table, you can use **Column Masking Rule**.
 
 1. Click **Databases** and choose `employee` on `Prod`, and select `salary` table.
-    
 2. Click the edit(pen) icon on the `amount` row, and click **Full**.
 
    ![bb-database-table-amount](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-database-table-amount.webp)
 
 3. Go back to the SQL Editor page, Choose `(Prod) employee` > `public` > `salary` and run `SELECT * FROM salary;` again. You'll see the `amount` is masked. Choose `(Test) employee`, it's not.
-   
+
    ![bb-sql-editor-query-salary-prod-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-salary-prod-masked.webp)
    ![bb-sql-editor-query-salary-test](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-salary-test.webp)
 
 ### Grant access to a user
+
 What if you want to reveal the masked data to a specific user? You can grant access.
 
 1. Click **Settings icon** on the top right, and click **Members**. Add a `DBA` user and click **+ Add**. Click its link in the **Active members** section, click **Edit** to set a password, click **Save**.
@@ -90,8 +78,7 @@ What if you want to reveal the masked data to a specific user? You can grant acc
 
 4. Login as the `DBA` user, go to SQL Editor, choose `(Prod)Employee` > `public` > `salary` and run `SELECT * FROM salary;` again. You'll see the `amount` is not masked.
 
-   ![bb-sql-editor-query-salary-prod-not-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-salary-prod-not-masked.webp) 
-
+   ![bb-sql-editor-query-salary-prod-not-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-salary-prod-not-masked.webp)
 
 ## Summary
 
