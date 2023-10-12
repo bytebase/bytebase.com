@@ -85,7 +85,7 @@
       code {
         text-shadow: unset !important;
 
-        @apply highlighted-code !bg-gray-50 !font-mono !text-white sm:break-words;
+        @apply highlighted-code !font-mono !text-white sm:break-words;
       }
     }
 
