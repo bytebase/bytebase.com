@@ -4,7 +4,7 @@ title: VCS with ngrok
 
 [ngrok](https://ngrok.com/) is a reverse proxy tunnel, and in our case, we need it for a public network address in order to receive webhooks from VCS. ngrok we used here is for demonstration purposes. For production use, we recommend using [Caddy](https://caddyserver.com/).
 
-    ![ngrok-reverse-proxy](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/ngrok-reverse-proxy.webp)
+    ![ngrok-reverse-proxy](/content/docs/get-started/vcs-with-ngrok/ngrok-reverse-proxy.webp)
 
 1. Login to [ngrok Dashboard](https://dashboard.ngrok.com/get-started/setup) and follow its **Getting Started** steps to install and configure.
 
@@ -15,7 +15,7 @@ title: VCS with ngrok
    ```
 
    and obtain the public URL `https://b725-103-197-71-76.ap.ngrok.io`:
-   ![terminal-ngrok](/content/docs/tutorials/database-change-management-with-amazon-aurora-and-github/terminal-ngrok.webp)
+   ![terminal-ngrok](/content/docs/get-started/vcs-with-ngrok/terminal-ngrok.webp)
 
 1. Run Bytebase in [Docker](https://www.docker.com/) with the following command:
 
