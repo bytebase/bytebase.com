@@ -23,6 +23,8 @@ title: VCS with ngrok
 
 1. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`. Register an admin account and it will be granted the `workspace owner` role automatically.
 
-1. Click the gear icon (Settings) on the top right. Click General under Workspace. Paste `https://b725-103-197-71-76.ap.ngrok.io` as External URL under Network section and click Update.
+1. Click the **gear icon (Settings)** on the top right. Click **General** under Workspace. Paste `https://b725-103-197-71-76.ap.ngrok.io` as External URL under Network section and click Update.
+
+   ![external-url](/content/docs/get-started/vcs-with-ngrok/set-external-url.webp)
 
 1. Bytebase is running successfully in Docker, and you can visit it via `https://b725-103-197-71-76.ap.ngrok.io`.
