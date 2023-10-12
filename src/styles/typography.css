@@ -78,10 +78,6 @@
     pre {
       @apply rounded-sm !bg-gray-15 text-14;
 
-      * {
-        @apply !text-white;
-      }
-
       code {
         text-shadow: unset !important;
 
