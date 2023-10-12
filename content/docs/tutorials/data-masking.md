@@ -11,7 +11,10 @@ description: This tutorial will teach you how to set up and try out data masking
 
 <EnterpriseOnlyBlock />
 
-**Data Masking** can dynamically mask sensitive data in the query result based on the context. It helps organizations to **protect sensitive data** from being exposed to unauthorized users.
+Bytebase **Dyanmic Data Masking** can mask sensitive data in the query result based on the context on the fly.
+It helps organizations to **protect sensitive data** from being exposed to unauthorized users.
+
+![bb-masking-overview](/content/docs/security/data-masking/bb-masking-overview.webp)
 
 This tutorial will teach you how to set up and try out data masking in Bytebase within 30 mins.
 

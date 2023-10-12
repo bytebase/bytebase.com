@@ -4,6 +4,12 @@ title: Global Masking Rule
 
 <EnterpriseOnlyBlock />
 
+<HintBlock type="info">
+
+The [column masking](../column-masking) takes precedence over the global masking rule.
+
+</HintBlock>
+
 You may want to batch apply masking settings. e.g.
 
 - Mask all data in production
@@ -11,12 +17,6 @@ You may want to batch apply masking settings. e.g.
 
 Global masking rule allows you to do this. It's similar to the iptables where you configure an ordered
 rule list. The first matching rule will be applied. If no rule matches, the default masking level is `None`.
-
-<HintBlock type="info">
-
-The [column masking](../column-masking) takes precedence over the global masking rule.
-
-</HintBlock>
 
 `Workspace Owner` and `DBA` can set global masking rules to mask the data.
 

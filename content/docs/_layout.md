@@ -127,11 +127,11 @@ expand_section_list: ['Introduction', 'Install', 'Quick Start']
 
 ## Secure Data
 
-### [Data Masking](/security/data-masking/overview)
-
-#### [Column Data Masking](/security/data-masking/column-masking)
+### [Dynamic Data Masking](/security/data-masking/overview)
 
 #### [Global Masking Rule](/security/data-masking/global-masking-rule)
+
+#### [Column Data Masking](/security/data-masking/column-masking)
 
 #### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
 
