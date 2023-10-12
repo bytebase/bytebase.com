@@ -69,26 +69,26 @@ PostgreSQL
 <tbody>
 <tr>
 <td>
-<pre>
+```sql
 CREATE TABLE principal (
     id SERIAL PRIMARY KEY,
     "grant" TEXT NOT NULL
 );
-</pre>
+```
 </td>
 <td>
-<pre>
+```sql
 CREATE TABLE principal (
     id SERIAL PRIMARY KEY,
     "grant" TEXT NOT NULL
 );
-</pre>
+```
 </td>
 </tr>
 
 <tr>
 <td>
-<pre>
+```sql
 CREATE TRIGGER IF NOT EXISTS `trigger_update_principal_modification_time`
 AFTER
 UPDATE
@@ -99,10 +99,10 @@ SET
     updated_ts = (strftime('%s', 'now'))
 WHERE
     rowid = old.rowid;
-</pre>
+```
 </td>
 <td>
-<pre>
+```sql
 CREATE OR REPLACE FUNCTION trigger_update_updated_ts()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -115,36 +115,36 @@ BEFORE
 UPDATE
     ON principal FOR EACH ROW
 EXECUTE FUNCTION trigger_update_updated_ts();
-</pre>
+```
 </td>
 </tr>
 
 <tr>
 <td>
-<pre>
+```sql
 INSERT INTO
     sqlite_sequence (name, seq)
 VALUES
     ('principal', 100);
-</pre>
+```
 </td>
 <td>
-<pre>
+```sql
 ALTER SEQUENCE principal_id_seq RESTART WITH 101;
-</pre>
+```
 </td>
 </tr>
 
 <tr>
 <td>
-<pre>
+```sql
 strftime('%s', 'now')
-</pre>
+```
 </td>
 <td>
-<pre>
+```sql
 extract(epoch from now())
-</pre>
+```
 </td>
 </tr>
 </tbody>
@@ -167,16 +167,16 @@ PostgreSQL
 <tbody>
 <tr>
 <td>
-<pre>
+```sql
 SELECT name FROM principal
 WHERE age > ? AND city = ?;
-</pre>
+```
 </td>
 <td>
-<pre>
+```sql
 SELECT name FROM principal
 WHERE age > $1 AND city =$2;
-</pre>
+```
 </td>
 </tr>
 </tbody>
