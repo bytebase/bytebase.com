@@ -32,9 +32,9 @@ If you **run Bytebase inside Docker on Linux** and want to connect the database 
 
 By default, container listens on [port 80](https://github.com/bytebase/bytebase/blob/main/scripts/Dockerfile#L98). You can overwrite the port by supplying `--port`.
 
-Run the following command to start Bytebase on container port `8080` and bind to localhost `5678`.
+Run the following command to start Bytebase on container port `8080` and map it to localhost port `5678`.
 
-<IncludeBlock url="/docs/get-started/install/terminal-docker-run-command"></IncludeBlock>
+<IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
 Bytebase will store its data under `~/.bytebase/data` , you can reset all data by running command:
 
@@ -48,31 +48,11 @@ Check [Server Startup Options](/docs/reference/command-line) for other startup o
 
 Check [Configure External PostgreSQL](/docs/get-started/install/external-postgres) for details.
 
-```bash
-docker run --init \
-  --name bytebase \
-  --restart always \
-  --publish 5678:8080 \
-  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
-  --health-interval 5m \
-  --health-timeout 60s \
-  --volume ~/.bytebase/data:/var/opt/bytebase \
-  bytebase/bytebase:%%bb_version%% \
-  --data /var/opt/bytebase \
-  --port 8080 \
-  # Use `host.docker.internal` as the host if you connect the pg instance on the same host.
-  --pg postgresql://user:secret@host:port/dbname
-```
+<IncludeBlock url="/docs/get-started/install/terminal-docker-run-external-url"></IncludeBlock>
 
-### Allow external access via URL
+### Allow external access via External URL
 
-<HintBlock type="info">
-
-For your setup, you need to replace https://bytebase.example.com with the actual URL your users would visit Bytebase from. See [Configure External URL](/docs/get-started/install/external-url).
-
-</HintBlock>
-
-Run the following command to start Bytebase on port 8080 and visit Bytebase from https://bytebase.example.com
+Run the following command to start Bytebase on port `8080` and map it to localhost port `80`.
 
 ```bash
 docker run --init \
@@ -85,9 +65,11 @@ docker run --init \
   --volume ~/.bytebase/data:/var/opt/bytebase \
   bytebase/bytebase:%%bb_version%% \
   --data /var/opt/bytebase \
-  --external-url https://bytebase.example.com \
   --port 8080
 ```
+
+Follow [Configure External URL](/docs/get-started/install/external-url#configure-via-ui) and then visit Bytebase from
+the configured external URL.
 
 **Troubleshoot**
 

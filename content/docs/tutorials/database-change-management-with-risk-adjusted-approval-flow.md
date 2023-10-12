@@ -29,7 +29,7 @@ This tutorial will walk you through how to create custom approval flows based on
 
 1. While the docker is running, run this following command to start a Bytebase instance. Here we name it `bytebase-af` and use `~/.bytebase/data-af` folder to store the meta data.
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-command"></IncludeBlock>
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
 2. Start two MySQL instances by running these two commands:
 

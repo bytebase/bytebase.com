@@ -26,7 +26,7 @@ This tutorial requires [Docker](https://www.docker.com/) to be installed.
 
 1. Make sure your Docker daemon is running. Copy and paste the commands to start one Bytebase and two MySQL instances via Docker.
 
-<IncludeBlock url="/docs/get-started/install/terminal-docker-run-command"></IncludeBlock>
+<IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
 ```bash
 docker run --name mysqldtest \

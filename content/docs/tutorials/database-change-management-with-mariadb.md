@@ -42,7 +42,7 @@ Before you start, make sure you have
 
 1. Make sure your Docker daemon is running, and start the Bytebase Docker container with following command:
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-command"></IncludeBlock>
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
 1. Run StackBricks, and create two MariaDB instances:
 

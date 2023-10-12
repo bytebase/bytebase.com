@@ -43,7 +43,7 @@ Before you start this tutorial, make sure:
 
 1. Make sure your docker daemon is running, and start the Bytebase docker container.
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-command"></IncludeBlock>
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
 2. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`.
    ![docker](/content/docs/tutorials/database-change-management-with-clickhouse/docker.webp)

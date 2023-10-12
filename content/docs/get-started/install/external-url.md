@@ -34,6 +34,14 @@ If the exposed port is not 80 or 443, please include the port number in External
 
 </HintBlock>
 
+## Configure via UI
+
+1. Click **Settings** on the top bar.
+1. Click **General** under **Workspace**, fill in the desired External URL and click **Update**.
+1. GitOps Webhook URL can only be configured via UI. If not set, it will default to the same value as External URL.
+
+![external-url](/content/docs/get-started/install/external-url.webp)
+
 ## Pass --external-url when starting Bytebase
 
 [--external-url](/docs/reference/command-line#--external-url-string) can be passed when starting Bytebase.
@@ -44,11 +52,3 @@ This will persist the External URL setting. Thus if Bytebase starts without spec
 next time, the previously passed External URL value will still be there.
 
 </HintBlock>
-
-## Configure via UI
-
-1. Click **Settings** on the top bar.
-1. Click **General** under **Workspace**, fill in the desired External URL and click **Update**.
-1. GitOps Webhook URL can only be configured via UI. If not set, it will default to the same value as External URL.
-
-![external-url](/content/docs/get-started/install/external-url.webp)

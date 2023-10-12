@@ -48,19 +48,7 @@ Here is how we install Bytebase and try out schema synchronization. Even if you 
 
 1. Copy and paste the commands to start one Bytebase and two MySQL instances via Docker.
 
-```bash
-docker run --init \
-  --name bytebase \
-  --restart always \
-  --publish 5678:8080 \
-  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
-  --health-interval 5m \
-  --health-timeout 60s \
-  --volume ~/.bytebase/data:/var/opt/bytebase \
-  bytebase/bytebase:$$bb_version$$ \
-  --data /var/opt/bytebase \
-  --port 8080
-```
+<IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
 ```bash
 docker run --name mysqldtest \
