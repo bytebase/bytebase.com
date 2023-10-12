@@ -9,14 +9,14 @@ description: 'Group changes into a changelist and apply them in one issue or exp
 ## 🚀 New Features
 
 - Group changes into a changelist and apply them in one issue or export.
-- Batch query on multiple databases with selected labels in SQL Editor.
+- [Batch query](/docs/sql-editor/batch-query) on multiple databases with selected labels in SQL Editor.
 - Support integrating [external secret manager](/docs/get-started/instance/#use-secret-manager) to store database credentials.
 - Support Branching for PostgreSQL and TiDB.
 
 ## 🎄 Enhancements
 
 - Support database labeling with multiple key-value pairs.
-- SQL Editor supports reporting the exact line and column where the syntax error occurs. 
+- SQL Editor supports reporting the exact line and column where the syntax error occurs.
 - Edit Schema / Change Data button on the homepage supports selecting multiple databases from the same project.
 
 ## 🎠 Community
