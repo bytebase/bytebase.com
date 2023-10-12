@@ -9,6 +9,8 @@ level: Beginner
 description: This tutorial will teach you how to set up and try out data masking in Bytebase.
 ---
 
+<EnterpriseOnlyBlock />
+
 **Data Masking** can dynamically mask sensitive data in the query result based on the context. It helps organizations to **protect sensitive data** from being exposed to unauthorized users.
 
 This tutorial will teach you how to set up and try out data masking in Bytebase within 30 mins.
@@ -25,7 +27,8 @@ Before starting, make sure you have installed [Docker](https://www.docker.com/).
 
 2. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`. Register an admin account and it will be granted the `workspace owner` role automatically.
 
-3. Login to Bytebase,click **SQL Editor**, you'll be redirect to SQL Editor page. Choose `(Prod) employee` > `public` > `employee`, and then run `SELECT * FROM employee;`, you'll see the following result. Choose `(Test) employee`, the result is the same.
+3. Login to Bytebase,click **SQL Editor**, you'll be redirected to SQL Editor page. Choose `(Prod) employee` > `public` > `employee`, and then run `SELECT * FROM employee;`, you'll see the following result. Run the same
+   query against `(Test) employee`, the result is the same.
 
    ![bb-sql-editor-query-employee-prod](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-prod.webp)
 
@@ -33,7 +36,7 @@ Before starting, make sure you have installed [Docker](https://www.docker.com/).
 
 4. Go back to the Bytebase console, click **Start free trial** on the left bottom and upgrade to **Enterprise plan**.
 
-5. Click **Instances**, and click **Assign License**. Select both instances, and click **Confirm**. Without doing this, the enterprise features won't be enabled on instances.
+5. Click **Instances**, and click **Assign License**. Select both instances, and click **Confirm**. Without doing this, the enterprise plan required for data masking won't be enabled on instances.
 
 ### Global Masking Rule
 
@@ -64,9 +67,9 @@ If you want to mask a specific column in a specific table, you can use **Column 
    ![bb-sql-editor-query-salary-prod-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-salary-prod-masked.webp)
    ![bb-sql-editor-query-salary-test](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-salary-test.webp)
 
-### Grant access to a user
+### Grant unmasked access to a user
 
-What if you want to reveal the masked data to a specific user? You can grant access.
+What if you want to reveal the masked data to a specific user? You can grant unmasked access.
 
 1. Click **Settings icon** on the top right, and click **Members**. Add a `DBA` user and click **+ Add**. Click its link in the **Active members** section, click **Edit** to set a password, click **Save**.
 
