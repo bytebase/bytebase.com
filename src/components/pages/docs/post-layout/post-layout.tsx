@@ -1,3 +1,5 @@
+import format from 'date-fns/format';
+
 import Image from 'next/image';
 
 import clsx from 'clsx';
@@ -18,12 +20,14 @@ const PostLayout = ({
   title,
   featureImage = null,
   children,
+  published_at = null,
   currentSlug,
   breadcrumbs,
   navigationLinks: { previousLink, nextLink },
 }: {
   title: string;
   featureImage: string | null;
+  published_at: string | null;
   currentSlug: string;
   children: React.ReactNode;
   breadcrumbs: Breadcrumb[];
@@ -35,6 +39,14 @@ const PostLayout = ({
       <h1 className="mt-2.5 text-44 font-bold leading-extra-tight tracking-tighter text-gray-15 2xl:mt-1.5 lg:text-36 md:text-32 sm:mt-0 sm:text-30">
         {title}
       </h1>
+      {published_at && (
+        <time
+          className="mt-2.5 text-14 uppercase leading-none text-gray-40"
+          dateTime={published_at}
+        >
+          {format(new Date(published_at), 'MMM dd, yyyy')}
+        </time>
+      )}
       {featureImage && (
         <Image
           className="my-11 w-full rounded lg:mt-10 lg:mb-8 sm:mt-5 sm:mb-6"
