@@ -11,7 +11,7 @@ description: This tutorial will teach you how to set up and try out data masking
 
 <EnterpriseOnlyBlock />
 
-Bytebase **Dyanmic Data Masking** can mask sensitive data in the query result based on the context on the fly.
+Bytebase **Dynamic Data Masking** can mask sensitive data in the query result based on the context on the fly.
 It helps organizations to **protect sensitive data** from being exposed to unauthorized users.
 
 ![bb-masking-overview](/content/docs/security/data-masking/bb-masking-overview.webp)
@@ -30,16 +30,17 @@ Before starting, make sure you have installed [Docker](https://www.docker.com/).
 
 2. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`. Register an admin account and it will be granted the `workspace owner` role automatically.
 
-3. Login to Bytebase,click **SQL Editor**, you'll be redirected to SQL Editor page. Choose `(Prod) employee` > `public` > `employee`, and then run `SELECT * FROM employee;`, you'll see the following result. Run the same
-   query against `(Test) employee`, the result is the same.
+3. Go back to the Bytebase console, click **Start free trial** on the left bottom and upgrade to **Enterprise plan**.
+
+4. Click **Instances**, and click **Assign License**. Select both instances, and click **Confirm**. Without doing this, the enterprise plan required for data masking won't be enabled on instances.
+
+### No Masking
+
+Login to Bytebase,click **SQL Editor**, you'll be redirected to SQL Editor page. Choose `(Prod) employee` > `public` > `employee`, and then run `SELECT * FROM employee;`, you'll see the following result. Run the same query against `(Test) employee`, the result is the same.
 
    ![bb-sql-editor-query-employee-prod](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-prod.webp)
 
    ![bb-sql-editor-query-employee-test](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-test.webp)
-
-4. Go back to the Bytebase console, click **Start free trial** on the left bottom and upgrade to **Enterprise plan**.
-
-5. Click **Instances**, and click **Assign License**. Select both instances, and click **Confirm**. Without doing this, the enterprise plan required for data masking won't be enabled on instances.
 
 ### Global Masking Rule
 
