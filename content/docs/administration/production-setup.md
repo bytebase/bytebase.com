@@ -2,6 +2,8 @@
 title: Production Setup
 ---
 
+This page describes how to setup Bytebase in production environment.
+
 ## Setup https
 
 You can use [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy) or [Nginx](https://www.nginx.com/).

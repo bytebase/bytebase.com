@@ -2,8 +2,6 @@
 title: Manage License
 ---
 
-## How license works
-
 Bytebase offers following [pricing plans](/pricing):
 
 - Free
