@@ -1,5 +1,5 @@
 ---
-title: Customize the workspace with your own logo
+title: Customize the Workspace with Your Own Logo
 ---
 
 <EnterpriseOnlyBlock />
@@ -8,14 +8,13 @@ This document shows you how to add a logo to your workspace.
 
 ## Prerequisites
 
-- **Team** or **Enterprise** plan
 - **Workspace Owner** or **Workspace DBA** role
 
 ## Procedure
 
 1. Click **Settings** on the top bar.
-2. Click **General** under **Workspace**, the **Branding** page is displayed.
+2. Click **General** under **Workspace**, and scoll down till the **Branding** section is displayed.
 3. Upload or drag your logo file to the **Logo** area according to the requirement on the screen.
-4. Click **Update**, your logo will be uploaded and displayed on the left of your avatar.
+4. Click **Update**, your logo will be uploaded and displayed on the top left.
 
-![customize-the-logo](/content/docs/administration/customize-logo/customize-logo.webp)
+![customize-the-logo](/content/docs/administration/customize-logo/bb-customize-logo.webp)

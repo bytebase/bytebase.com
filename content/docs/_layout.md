@@ -233,6 +233,8 @@ expand_section_list: ['Introduction', 'Install', 'Quick Start']
 
 ### [Customize Logo](/administration/customize-logo)
 
+### [Announcement](/administration/announcement)
+
 ### [SMTP and Email Delivery](/administration/mail-delivery)
 
 ### [Archive](/administration/archive)
