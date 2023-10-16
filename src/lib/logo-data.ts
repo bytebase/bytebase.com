@@ -5,7 +5,7 @@ export const LOGO_LIST = [
     width: 210,
     height: 64,
     small: {
-      width: 131,
+      width: 110,
       height: 40,
     },
     mobileOrderClassName: 'xs:order-1',
@@ -16,7 +16,7 @@ export const LOGO_LIST = [
     width: 188,
     height: 64,
     small: {
-      width: 118,
+      width: 110,
       height: 40,
     },
     mobileOrderClassName: 'xs:order-9',
@@ -27,7 +27,7 @@ export const LOGO_LIST = [
     width: 151,
     height: 64,
     small: {
-      width: 94,
+      width: 110,
       height: 40,
     },
     mobileOrderClassName: 'xs:order-4',
@@ -38,7 +38,7 @@ export const LOGO_LIST = [
     width: 141,
     height: 64,
     small: {
-      width: 91,
+      width: 110,
       height: 40,
     },
     mobileOrderClassName: 'xs:order-3',
@@ -49,7 +49,7 @@ export const LOGO_LIST = [
     width: 232,
     height: 64,
     small: {
-      width: 145,
+      width: 110,
       height: 40,
     },
     mobileOrderClassName: 'xs:order-6',
@@ -60,7 +60,7 @@ export const LOGO_LIST = [
     width: 194,
     height: 64,
     small: {
-      width: 122,
+      width: 110,
       height: 40,
     },
     mobileOrderClassName: 'xs:order-7',
@@ -71,7 +71,7 @@ export const LOGO_LIST = [
     width: 119,
     height: 64,
     small: {
-      width: 75,
+      width: 110,
       height: 40,
     },
     mobileOrderClassName: 'xs:order-8',
@@ -82,7 +82,7 @@ export const LOGO_LIST = [
     width: 180,
     height: 64,
     small: {
-      width: 112,
+      width: 110,
       height: 40,
     },
     mobileOrderClassName: 'xs:order-2',
@@ -93,18 +93,18 @@ export const LOGO_LIST = [
     width: 116,
     height: 64,
     small: {
-      width: 72,
+      width: 110,
       height: 40,
     },
     mobileOrderClassName: 'xs:order-12',
   },
   {
-    alt: 'Evermos',
-    src: '/images/logos/evermos.svg',
-    width: 239,
+    alt: 'BYD',
+    src: '/images/logos/byd.svg',
+    width: 116,
     height: 64,
     small: {
-      width: 149,
+      width: 110,
       height: 40,
     },
     mobileOrderClassName: 'xs:order-5',
@@ -115,7 +115,7 @@ export const LOGO_LIST = [
     width: 144,
     height: 64,
     small: {
-      width: 90,
+      width: 110,
       height: 40,
     },
     mobileOrderClassName: 'xs:order-10',
@@ -126,7 +126,7 @@ export const LOGO_LIST = [
     width: 179,
     height: 64,
     small: {
-      width: 115,
+      width: 110,
       height: 40,
     },
     mobileOrderClassName: 'xs:order-11',
