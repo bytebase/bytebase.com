@@ -97,6 +97,8 @@ expand_section_list: ['Introduction', 'Install', 'Quick Start']
 
 ### [Schema Editor](/change-database/schema-editor)
 
+### [Schema Template](/change-database/schema-template)
+
 ### [Schema Diagram](/change-database/schema-diagram)
 
 ### [Migration History](/change-database/migration-history)
