@@ -97,8 +97,6 @@ expand_section_list: ['Introduction', 'Install', 'Quick Start']
 
 ### [Schema Editor](/change-database/schema-editor)
 
-### [Schema Template](/change-database/schema-template)
-
 ### [Schema Diagram](/change-database/schema-diagram)
 
 ### [Migration History](/change-database/migration-history)
@@ -226,6 +224,8 @@ expand_section_list: ['Introduction', 'Install', 'Quick Start']
 ### [Sign-in Frequency](/administration/sign-in-frequency)
 
 ### [Anomaly Center](/administration/anomaly-center)
+
+### [Schema Template](/administration/schema-template)
 
 ### [Risk Center](/administration/risk-center)
 

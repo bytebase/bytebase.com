@@ -2,7 +2,9 @@
 title: Schema Editor
 ---
 
-Schema Editor provides a spreadsheet-like editor to view and edit database structure. Users first use the Schema Editor to prepare the schema changes, then those changes will be converted into SQL statements and go through the [change workflow](/docs/change-database/change-workflow).
+**Schema Editor** provides a spreadsheet-like editor to view and edit database structure. Users first use the **Schema Editor** to prepare the schema changes, then those changes will be converted into SQL statements and go through the [change workflow](/docs/change-database/change-workflow).
+
+**Schema Editor** also supports the use of templates for fields and tables. Templates can be pre-defined at the workspace level and can be used to save time and ensure consistency when creating new schema entities. See [Schema Template](/docs/administration/schema-template) for more details.
 
 ## How to use
 

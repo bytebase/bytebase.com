@@ -1,7 +1,7 @@
 ---
 title: Schema Template
 ---
-**Schema Template** allows **Workspace Owner** or **DBA** to pre-define templates of columns and tables in the workspace-level, and they may be used to change schema via [**Schema Editor**](../schema-editor). There're three types: 
+**Schema Template** allows **Workspace Owner** or **DBA** to pre-define templates of fields and tables at the workspace level, and they may be used to change schema via [**Schema Editor**](/doc/administration/schema-editor). There're three types: 
 - Field Template
 - Table Template
 - Column Type Restriction
@@ -17,12 +17,12 @@ title: Schema Template
    * **Column type**: `DATE`
    * **Default**: Keep it empty and keep **Nullable** unchecked.
 
-![bb-schema-template-field-add](/content/docs/change-database/schema-template/bb-schema-template-field-add.webp)
+![bb-schema-template-field-add](/content/docs/administration/schema-template/bb-schema-template-field-add.webp)
 
 4. Go to a project and click **Edit Schema**. Choose a PostgreSQL database and click **Next**.
 5. Chooose a table on **Schema Editor**, and click **Add from template**.
 
-![bb-schema-editor-add-from-template-field](/content/docs/change-database/schema-template/bb-schema-editor-add-from-template-field.webp)
+![bb-schema-editor-add-from-template-field](/content/docs/administration/schema-template/bb-schema-editor-add-from-template-field.webp)
 
 6. Select the `created_at` template you just created, and it will be appended in the table.
 
@@ -49,12 +49,12 @@ title: Schema Template
    * Add from template:
      * **Template**: `created_at`
 
-![bb-schema-template-table-add](/content/docs/change-database/schema-template/bb-schema-template-table-add.webp)
+![bb-schema-template-table-add](/content/docs/administration/schema-template/bb-schema-template-table-add.webp)
 
 4. Go to a project and click **Edit Schema**. Choose a PostgreSQL database and click **Next**.
 5. Chooose a database on **Schema Editor**, and click **Add from template**.
 
-![bb-schema-editor-add-from-template-table](/content/docs/change-database/schema-template/bb-schema-editor-add-from-template-table.webp)
+![bb-schema-editor-add-from-template-table](/content/docs/administration/schema-template/bb-schema-editor-add-from-template-table.webp)
 
 6. Select the `user` template you just created, and the new table will be appended in the table list on the left.
 
@@ -65,4 +65,4 @@ VARCHAR(255)` and click **Update**.
 3. Go to a project and click **Edit Schema**. Choose a PostgreSQL database and click **Next**.
 4. Chooose a table on **Schema Editor**, choose an existing row, click **Type** dropdown and you'll see `VARCHAR(255)` is not available.
 
-![bb-schema-editor-type-dropdown](/content/docs/change-database/schema-template/bb-schema-editor-type-dropdown.webp)
+![bb-schema-editor-type-dropdown](/content/docs/administration/schema-template/bb-schema-editor-type-dropdown.webp)
