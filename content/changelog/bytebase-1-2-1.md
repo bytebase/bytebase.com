@@ -2,8 +2,10 @@
 title: Bytebase 1.2.1
 author: Ningjing
 published_at: 2022/7/7 17:20
-description: "- In-place Point-in-time Recovery for the database (preview version). - Added GET /v1/sql/advise OpenAPI."
+description: '- In-place Point-in-time Recovery for the database (preview version). - Added GET /v1/sql/advise OpenAPI.'
 ---
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
 
 ## 🚀 New Features
 
@@ -38,7 +40,3 @@ It allows users to perform SQL reviews via API after configuring the schema revi
   - [pref: concurrent request improve fetch table data speed #1660](https://github.com/bytebase/bytebase/pull/1660)
   - [feat(editor): add spin when editor is loading.#1659](https://github.com/bytebase/bytebase/pull/1659)
   - [pref: lazyload monaco editor speed up navigator to sql editor route #1655](https://github.com/bytebase/bytebase/pull/1655)
-
-## 📕 Installation and Upgrade
-
-Follow [https://github.com/bytebase/bytebase#installation](https://github.com/bytebase/bytebase#installation). If you upgrade from a previous version, just restart after obtaining the new release binary.

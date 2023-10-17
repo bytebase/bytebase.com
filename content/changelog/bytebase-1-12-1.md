@@ -6,6 +6,8 @@ feature_image: /content/changelog/1-12-1-banner.webp
 description: '- Support OAuth 2.0 for Single Sign-On (SSO). - Support change and query for Spanner. - Support watermark. - Mask sensitive fields for PostgreSQL '
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 - Support OAuth 2.0 for Single Sign-On (SSO) [www.bytebase.com/docs/administration/sso/oauth2](/docs/administration/sso/oauth2).
@@ -43,7 +45,3 @@ description: '- Support OAuth 2.0 for Single Sign-On (SSO). - Support change and
 - Ready to bring your MySQL schema change to the next level? The Database Change Management tutorial series continues!
   - Step 1 - [DevOps: Database Change Management with MySQL](/docs/tutorials/database-change-management-with-mysql)
   - Step 2 - [DevOps: Database Change Management with MySQL and GitHub](/docs/tutorials/database-change-management-with-mysql-and-github)
-
-## 📕 Installation and Upgrade
-
-Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the latest release binary.

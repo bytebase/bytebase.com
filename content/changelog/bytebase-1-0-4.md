@@ -4,6 +4,8 @@ published_at: 2022/04/28 11:29:05
 description: Support --pg option to boot Bytebase. bb CLI Support --dsn option in CLI. Add installation script of bb CLI. Add dashboard page to manage all SQL sheets. Admin page to view all projects. Added /healthz health check endpoint for supporting serverless platform.
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## Support storing Bytebase metadata in the external PostgreSQL
 
 Use the --pg option to specify the database endpoint upon launching Bytebase.
@@ -17,7 +19,7 @@ Support data source name (DSN) formats to connect databases in CLI, e.g. `--dsn 
 
 ### Add installation script of bb CLI
 
-User can install `bb` CLI with only one command. 
+User can install `bb` CLI with only one command.
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/bytebase/bytebase/HEAD/scripts/install_bb.sh)"
@@ -51,7 +53,3 @@ The `Default Project` is the special project holding the databases synced from t
 - Thanks to [@cluas](https://github.com/Cluas) for the PR [docs: update schema-update-guide link #1104](https://github.com/bytebase/bytebase/pull/1104), PR [style: error no capitalized && switch && De Morgan's laws #1125](https://github.com/bytebase/bytebase/pull/1125), PR [fix: should use request context #1131](https://github.com/bytebase/bytebase/pull/1131), Pr [fix: handle gitlab error case #1132](https://github.com/bytebase/bytebase/pull/1132), PR [fix: wrong type cause role_provider missing #1136](https://github.com/bytebase/bytebase/pull/1136)、
 - Thanks to [@sagungargs15](https://github.com/sagungargs15) for the Issue [Docker on AWS Fargate | database "bytebase" does not exist | database "bb" does not exist #1135](https://github.com/bytebase/bytebase/issues/1135)
 - Thanks to [@Austin Ziegler](https://github.com/halostatue) for Issue [No linux/arm64 docker image #1119](https://github.com/bytebase/bytebase/issues/1119)
-
-## 📕 Installation and Upgrade
-
-Follow [https://github.com/bytebase/bytebase#installation](https://github.com/bytebase/bytebase#installation). If you upgrade from a previous version, just restart after obtaining the new release binary.

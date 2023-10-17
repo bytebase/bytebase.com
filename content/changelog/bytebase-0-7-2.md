@@ -4,6 +4,8 @@ published_at: 2021/10/25 02:36:59
 description: Support ClickHouse, the open-source, high performance columnar OLAP database management system for real-time analytics using SQL.
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 ### Support ClickHouse 🖱🏠
@@ -15,8 +17,3 @@ description: Support ClickHouse, the open-source, high performance columnar OLAP
 - Refresh the database list immediately after updating the instance connection info.
 - Add shortcut button to create new database from the instance detail page.
 - Hide empty password checkbox in instance creation form. User can already leave the password field empty, so there is no need to have an extra checkbox.
-
-### 📕 Upgrade instruction
-
-- For fresh installation, follow [https://github.com/bytebase/bytebase#installation](https://github.com/bytebase/bytebase#installation).
-- If you upgrade from 0.7.x, no migration needed. If you upgrade before 0.7.x, there is some breaking schema change, please contact [support@bytebase.com](mailto:support@bytebase.com) and we will help you manually upgrade to the new version.

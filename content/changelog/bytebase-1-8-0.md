@@ -5,6 +5,8 @@ published_at: 2022/11/17 17:00:00
 description: '- Support syncing schema for MySQL. - Support approving issues via Lark (Feishu). - Support SQL Review CI in the GitOps workflow. '
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 - Support syncing schema for MySQL.
@@ -42,7 +44,3 @@ description: '- Support syncing schema for MySQL. - Support approving issues via
 - [Introducing DB Cost](/blog/introducing-dbcost), the simple cloud database pricing sheet for AWS RDS and Google Cloud SQL instance.
 - [What is a Database Schema?](/blog/what-is-database-schema)
 - An oldie but goodie: [Database Review 2021 and 2022 Predictions](/blog/database-review-2021)
-
-## 📕 Installation and Upgrade
-
-Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the newest release binary.

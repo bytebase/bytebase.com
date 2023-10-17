@@ -5,6 +5,8 @@ published_at: 2022/12/1 17:00:00
 description: '- Support managing with environment and instance via Terraform provider. - Support synchronizing schema for PostgreSQL. - Support masking column-level sensitive data. - New UI for Admin mode of SQL Editor.'
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 - Support managing environment and instance via Terraform provider: [https://bytebase.com/docs/get-started/terraform](/docs/get-started/terraform)
@@ -34,7 +36,3 @@ description: '- Support managing with environment and instance via Terraform pro
 - [MotherDuck, from SQLite to the Docker for Data](/blog/motherduck-from-sqlite-to-the-docker-for-data)
 - [How to Synchronize Database Schemas](/docs/tutorials/how-to-synchronize-database-schemas)
 - [How Schema Sync Works in Bytebase](/blog/how-schema-sync-work)
-
-## 📕 Installation and Upgrade
-
-Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the newest release binary.

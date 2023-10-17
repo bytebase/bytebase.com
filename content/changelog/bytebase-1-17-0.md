@@ -6,6 +6,8 @@ feature_image: /content/changelog/1-17-0-banner.webp
 description: 'OB support'
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 - [Display](/docs/slow-query/overview) slow queries for MySQL and PostgreSQL.
@@ -24,7 +26,3 @@ description: 'OB support'
 ## 📰 Fresh off the press
 
 - 💦 A [round-up](/blog/free-tools-to-start-local-database-on-mac) of the free tools our team uses to deploy local databases for our daily dev and testing needs.
-
-## 📕 Installation and Upgrade
-
-Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the latest release binary.

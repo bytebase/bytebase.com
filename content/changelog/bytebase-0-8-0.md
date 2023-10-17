@@ -4,6 +4,8 @@ published_at: 2021/11/10 17:12:53
 description: Snowflake support
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 ### Support Snowflake ❄️
@@ -19,8 +21,3 @@ description: Snowflake support
 ## 🎄 Enhancement
 
 - Improve migration history table layout and surface migration SQL from the list.
-
-### 📕 Upgrade instruction
-
-- For fresh installation, follow [https://github.com/bytebase/bytebase#installation](https://github.com/bytebase/bytebase#installation).
-- This version has some breaking schema change, please contact [support@bytebase.com](mailto:support@bytebase.com) and we will help you manually upgrade to the new version.

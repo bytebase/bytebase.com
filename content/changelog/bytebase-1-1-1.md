@@ -5,6 +5,8 @@ published_at: 2022/06/09 17:20
 description: Allow schema review policy configuration for the environment. Add archive checkers for environment/project/instance. UI improvements for tenant-mode deployment. Improved PostgreSQL schema dump. The owner of newly created PostgreSQL schemas is the database owner by default. Display applicable conditions for Environment policies.
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 - **Enable schema review policy configuration in environment**
 - Users can configure a schema review policy for a particular environment. The schema review policy can be configured through both schema review policy dashboard and environment dashboard
   ![schema-review-policy](/content/changelog/1.1.1/schema-review-policy.gif)
@@ -30,7 +32,3 @@ description: Allow schema review policy configuration for the environment. Add a
 ## 🎠 Community
 
 - Thanks to [@unknwon](https://github.com/unknwon) for [PR: feat: implement FetchCommitByID for GitHub VCS provider](https://github.com/bytebase/bytebase/pull/1417)
-
-## 📕 Installation and Upgrade
-
-Follow [https://github.com/bytebase/bytebase#installation](https://github.com/bytebase/bytebase#installation). If you upgrade from a previous version, just restart after obtaining the new release binary.

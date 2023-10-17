@@ -5,10 +5,12 @@ published_at: 2022/06/23 17:20
 description: Bytebase now supports Schema Review for SQL Editor.
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Feature
 
 Schema Review for SQL Editor
- ![sql-editor-schema-review](/content/changelog/1.2.0/sql-editor-schema-review.webp)
+![sql-editor-schema-review](/content/changelog/1.2.0/sql-editor-schema-review.webp)
 
 - After setting up the schema review policy, if the SQL statement violates the error rule, Bytebase prevents SQL execution and shows error messages
   - Users can change the rule level from "Error" to "Warning"
@@ -18,7 +20,7 @@ Schema Review for SQL Editor
 ## 🎄 Enhancements
 
 - Improved SQL Editor styles
-    ![sql-editor-improvement](/content/changelog/1.2.0/sql-editor-improvement.webp)
+  ![sql-editor-improvement](/content/changelog/1.2.0/sql-editor-improvement.webp)
 - Improved SQL Editor experience with auto-completion and code formatting on the issue page
 - Support to set SSL connection arguments for ClickHouse instances
 - Support to Approve/Run all tasks in a stage for tenant mode deployment issues
@@ -31,7 +33,3 @@ Schema Review for SQL Editor
   - fix: pg ExecuteContext do not return err [#1540](https://github.com/bytebase/bytebase/pull/1540)
   - fix: remove early check since we support create database idempotent [#1543](https://github.com/bytebase/bytebase/pull/1543)
 - Thanks to [@chiyutianyi](https://github.com/chiyutianyi) for: feat: prometheus integration and pprof registration simplification [#1550](https://github.com/bytebase/bytebase/pull/1550)
-
-## 📕 Installation and Upgrade
-
-Follow [https://github.com/bytebase/bytebase#installation](https://github.com/bytebase/bytebase#installation). If you upgrade from a previous version, just restart after obtaining the new release binary.

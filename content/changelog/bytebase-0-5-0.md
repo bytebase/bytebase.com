@@ -3,6 +3,8 @@ title: Bytebase 0.5.0
 published_at: 2021/09/09 06:58:22
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 ### Project level activities

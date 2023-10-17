@@ -6,6 +6,8 @@ feature_image: /content/changelog/2-1-0-banner.webp
 description: 'Data Query and Data Export approval flow; SQL Review for Oracle; SSH tunneling for PostgreSQL and Redis.'
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 - Support [**Data Query**](/docs/security/data-query) and [**Data Export**](/docs/security/data-export/) approval flow.
@@ -22,7 +24,3 @@ description: 'Data Query and Data Export approval flow; SQL Review for Oracle; S
 
 - How do you handle your database migrations? Learn more about [schema migration best practices](/blog/how-to-handle-database-schema-change/).
 - Tutorial: 🔧 Set up [Database Change Management for Spanner](/docs/tutorials/database-change-management-with-spanner/) in Bytebase.
-
-## 📕 Installation and Upgrade
-
-Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the latest release binary.

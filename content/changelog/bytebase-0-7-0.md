@@ -4,6 +4,8 @@ published_at: 2021/10/07 09:57:00
 description: PostgreSQL support, schema drift detection, anomaly center, backward incompatible schema migration check, backup schedule enforcement and more
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 This release takes a bit longer because we are packaging couple exciting features in it. Let's check them out.
 
 ## 🚀 New Features
@@ -53,8 +55,3 @@ Owner and DBA can now enforce backup schedule policy for the specific environmen
 ![_](/content/changelog/0.7.0/frontpage.webp)
 
 - We have open sourced our [take-home interview assignment](https://github.com/bytebase/interview).  And yes, we are looking for talented frontend engineer and full-stack engineer to join our remote team. Checkout [job details](https://bytebase.com/jobs).
-
-### 📕 Upgrade instruction
-
-- For fresh installation, follow [https://github.com/bytebase/bytebase#installation](https://github.com/bytebase/bytebase#installation).
-- If you upgrade from previous version, then it requires manual schema change, please contact [support@bytebase.com](mailto:support@bytebase.com) and we will assist you to perform the manual upgrade.

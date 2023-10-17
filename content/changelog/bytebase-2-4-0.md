@@ -6,6 +6,8 @@ feature_image: /content/changelog/2-4-0-banner.webp
 description: 'Support data access control for query and export at workspace level, and support custom approval'
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 - Support [data access control for query and export at workspace level](/docs/security/data-access-control/) with custom approval integration.
@@ -34,7 +36,3 @@ description: 'Support data access control for query and export at workspace leve
 - What is database migration and what's the future trend for it? Check out [our latest guide](/blog/what-is-database-migration/).
 - To identify differences in the object structure within MySQL, and synchronize specific objects across multiple databases, you need [Schema Compare Tools](/blog/top-mysql-schema-compare-tools/).
 - Google Cloud SQL is a great choice for organizations that need a full-managed relational database service. In order to get the best value for your money, it is essential to understand the [pricing structure](/blog/understanding-google-cloud-sql-pricing/).
-
-## 📕 Installation and Upgrade
-
-Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the latest release binary.

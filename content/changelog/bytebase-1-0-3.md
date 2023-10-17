@@ -4,6 +4,8 @@ published_at: 2022/04/14 10:46:34
 description: Release MySQL Database Review Guide. Toggle Debug mode at runtime for easier troubleshooting. SQL editor support more types of EXPLAIN queries on the basis of EXPLAIN SELECT, such as EXPLAIN INSERT.
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## Release MySQL SQL Review Guide
 
 [SQL Review Guide](https://bytebase.com/sql-review-guide) lists all the rules in schema change review, from the naming convention of Table, Column, and Index to the designated WHERE clause. We provide rule templates for the MySQL Dev and Prod environments. DBAs can configure the rules manually based on our templates, and generate images for internal reference.  Meanwhile, we are actively working on the following area:
@@ -36,7 +38,3 @@ When the Debug mode is enabled, you can see the internal error messages on the w
 - Thanks to @milkwine for the PR [fix: backup failed when dash('-') in database name #874](https://github.com/bytebase/bytebase/pull/874)
 - Thanks to @Cluas for the PR [fix: tenant mode VSC with DatebaseNameTemplate task execute error #1071](https://github.com/bytebase/bytebase/pull/1071)
 - Thanks to @0xflotus for the PR [PR chore: fix small typo error #805](https://github.com/bytebase/bytebase/pull/805)
-
-## 📕 Installation and Upgrade
-
-Follow [https://github.com/bytebase/bytebase#installation](https://github.com/bytebase/bytebase#installation). If you upgrade from a previous version, just restart after obtaining the new release binary.

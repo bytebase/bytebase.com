@@ -6,6 +6,8 @@ feature_image: /content/changelog/2-3-0-banner.webp
 description: 'SQL Review for Snowflake. Mask data for Oracle. Export Center for data exports.'
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 - [SQL Review](/docs/sql-review/review-rules/) for Snowflake.
@@ -34,7 +36,3 @@ description: 'SQL Review for Snowflake. Mask data for Oracle. Export Center for 
 - Which is better for you, Bytebase or Flyway? Check out [our latest guide](/blog/bytebase-vs-flyway/).
 - [Evolution](/blog/top-database-schema-change-tool-evolution/) of database schema change tools.
 - 🐘 We recently migrated to Neon for [SQL Chat](http://sqlchat.ai)'s setup. See [our journey](/blog/migrating-postgres-from-render-to-neon/).
-
-## 📕 Installation and Upgrade
-
-Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the latest release binary.

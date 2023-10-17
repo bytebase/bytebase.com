@@ -6,6 +6,8 @@ feature_image: /content/changelog/1-14-0-banner.webp
 description: '- ChatSQL: convert natural language to SQL, credit to OpenAI. - Support 2FA - State-based Migration for MySQL in GitOps workflow. - Support for Redis.'
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 - ChatSQL: Use natural language and have it converted to SQL by Bytebase. Powered by OpenAI ⚡️.
@@ -25,7 +27,3 @@ description: '- ChatSQL: convert natural language to SQL, credit to OpenAI. - Su
 ## 📰 Fresh off the press
 
 - [SSO login](/blog/introducing-single-sign-on-in-bytebase) is now available in Bytebase, which means you only need to authenticate once and then seamlessly access all authorized resources without re-entering your credentials.
-
-## 📕 Installation and Upgrade
-
-Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the latest release binary.

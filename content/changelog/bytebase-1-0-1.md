@@ -4,6 +4,8 @@ published_at: 2022/03/17 09:04:12
 description: Support instance read-only connection. Enable Data Change (DML) for tenant mode projects. Allow users to edit SQL statements. Allows retry for failed migration with invalid SQL statement.
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 Features
 
 - Support instance read-only connection. Once configured, Bytebase will use this user to query databases in SQL Editor and will use it in all read-only scenarios in the future.
@@ -37,7 +39,3 @@ description: Support instance read-only connection. Enable Data Change (DML) for
 
 - Thanks to [@0xflotus](https://github.com/0xflotus) for PR [chore: fix small typo error](https://github.com/bytebase/bytebase/pull/805).
 - Thanks to [@milkwine](https://github.com/milkwine) for PR [fix: backup failed when dash('-') in database name](https://github.com/bytebase/bytebase/pull/874).
-
-## 📕Upgrade instruction
-
-For a fresh installation, follow [https://github.com/bytebase/bytebase#installation](https://github.com/bytebase/bytebase#installation).

@@ -6,6 +6,8 @@ feature_image: /content/changelog/2-9-0-banner.webp
 description: 'Run SQL Review checks without requiring a rollout. Predefine table templates.'
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 - Run SQL Review checks without requiring a rollout.
@@ -25,7 +27,3 @@ description: 'Run SQL Review checks without requiring a rollout. Predefine table
 - Proudly [announcing our partnership](/blog/bytebase-gitlab-technology-partner/) with GitLab to Automate Database Development.
 - [Join us hacking](/blog/hacktoberfest-2023/) at Hacktoberfest 2023 and win digital badges!
 - ICYMI, we started a monthly newsletter for our side-hustle, Star History, which talks about hottest GitHub repos, insights from industry insiders on growing open-source projects, and more! [Subscribe here](https://star-history.beehiiv.com/subscribe).
-
-## 📕 Installation and Upgrade
-
-Follow [Installation](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary.

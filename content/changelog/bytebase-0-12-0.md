@@ -4,6 +4,8 @@ published_at: 2022/01/20 11:09:36
 description: Multi-tenancy Database Management. SQL Editor Improvement. Signup and login via GitLab EE/CE. DML workflow
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 ### Multi-tenancy Database Management
@@ -58,9 +60,3 @@ Besides the schema change (DDL) workflow, we now also support the DML workflow. 
 - We are on the list of “The fastest-growing open-source startups in Q4 2021” by Runa Capital  [https://runacap.com/ross-index/q4-2021/](https://runacap.com/ross-index/q4-2021/)
 
 ![_](/content/changelog/0.12.0/runa-capital.webp)
-
-## 📕 Upgrade instruction
-
-For fresh installation, follow [https://github.com/bytebase/bytebase#installation](https://github.com/bytebase/bytebase#installation).
-
-If you upgrade from the previous version, there is some breaking schema change. Please contact support@bytebase.com and we will help you manually upgrade to the new version.

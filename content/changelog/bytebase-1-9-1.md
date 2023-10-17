@@ -5,6 +5,8 @@ published_at: 2022/12/15 17:00:00
 description: '- Support data access control. - Schema Editor for MySQL. - Check Mark as done to skip a task. - Mark issue as Needs Attention.'
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 - Support [data access control](/docs/security/data-access-control).
@@ -31,7 +33,3 @@ description: '- Support data access control. - Schema Editor for MySQL. - Check 
 - Database Schema Change Series
   - [What is Database Change Management (DCM)?](/blog/what-is-database-change-management)
   - [How to Handle Database Schema Change?](/blog/how-to-handle-database-schema-change)
-
-## 📕 Installation and Upgrade
-
-Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the newest release binary.

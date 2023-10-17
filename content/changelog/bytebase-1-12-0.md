@@ -6,6 +6,8 @@ feature_image: /content/changelog/1-12-0-banner.webp
 description: '- Configure policy via Terraform Bytebase Provider. - 21 new SQL Review Rules for PostgreSQL. - Updated pricing plan.'
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 - [Configure policy](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/policy) via the Terraform Bytebase Provider.
@@ -49,7 +51,3 @@ Visit [our pricing page](/pricing) to learn more.
 - We introduced the MongoDB support in the last release. This is a milestone for us as it's also the first NoSQL database supported by Bytebase, [learn more](/blog/introducing-mongodb-support-in-bytebase)!
 - When Navicat is [no longer](/blog/stop-using-navicat) your best bet.
 - A step-by-step guide to [managing databases](/docs/tutorials/manage-databases-in-bytebase-with-terraform) in Bytebase with Terraform.
-
-## 📕 Installation and Upgrade
-
-Follow [Installation](/docs/get-started/self-host). If you are upgrading from a previous version, restart after obtaining the latest release binary.

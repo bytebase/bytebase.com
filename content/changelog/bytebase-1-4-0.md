@@ -5,6 +5,8 @@ published_at: 2022/9/15 17:20
 description: '- AWS S3 is now supported as a backup storage backend. - Added a new onboarding guide. - Introduced `--external-url` and removed `--host` in the startup option.'
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 - AWS S3 is now supported as a backup storage backend.
@@ -34,8 +36,3 @@ description: '- AWS S3 is now supported as a backup storage backend. - Added a n
   - [Part 1: Enable SQL Review with GitHub Actions](/docs/tutorials/github-database-cicd-part-1-sql-review-github-actions)
   - [Part 2: GitHub.com Database GitOps](/docs/tutorials/github-database-cicd-part-2-github-database-gitops)
   - [Part 3: Put Them Together](/docs/tutorials/github-database-cicd-part-3-put-them-together)
-
-## 📕 Installation and Upgrade
-
-- For a fresh installation, follow [https://github.com/bytebase/bytebase#installation](https://github.com/bytebase/bytebase#installation).
-- For upgrading, we removed the `--host` flag, you need to remove it from the startup flag, and replace it with `--external-url` in this version. And if your port is not `80` or `443`, the `--external-url` needs to include the port number as well. Please check [Configure External URL](/docs/get-started/install/external-url) for details.

@@ -4,6 +4,8 @@ published_at: 2022/03/31 10:26:51
 description: Our official documentation switches from gitbook to bytebase.com/docs. Support branding customization. Highlight the editing SQL query block. Add SQL query format button.
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ​💡 Our official documentation switches from gitbook to [bytebase.com/docs](https://bytebase.com/docs). All the documents are now in our GitHub repository. This will help improve our coordination efficiency in documentation greatly. Now developers can follow https://bytebase.com/docs/document-write-guide to commit your changes.
 
 ## 🚀 Features
@@ -39,7 +41,3 @@ description: Our official documentation switches from gitbook to bytebase.com/do
 - Thanks to [@unknwon](https://github.com/unknwon) for the PR [feat: add migration for GITHUB_COM to be a valid Git and role provider #941](https://github.com/bytebase/bytebase/pull/941)
 
 - Thanks to [@Sepush](https://github.com/Sepush) for the PR [refactor: use script setup&fix type #856](https://github.com/bytebase/bytebase/pull/856)
-
-## 📕 Upgrade instruction
-
-For a fresh installation, follow [https://github.com/bytebase/bytebase#installation](https://github.com/bytebase/bytebase#installation).

@@ -3,10 +3,7 @@ title: Bytebase 0.2.2
 published_at: 2021/07/26 07:49:00
 ---
 
-Update instruction
-
-- For fresh installation, follow [https://github.com/bytebase/bytebase#installation](https://github.com/bytebase/bytebase#installation).
-- If you upgrade from 0.1.0, then it requires manual schema change, please contact [support@bytebase.com](mailto:support@bytebase.com) and we will assist you to perform the manual upgrade.
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
 
 ## 🐞 Important Bug Fixes
 

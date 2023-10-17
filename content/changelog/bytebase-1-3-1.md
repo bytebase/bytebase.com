@@ -2,13 +2,15 @@
 title: Bytebase 1.3.1
 author: Mila
 published_at: 2022/8/18 17:20
-description: "- SQL review now available on GitHub Actions. - MySQL database restore sped up by 20x. - Project owners can now be set as Issue approvers."
+description: '- SQL review now available on GitHub Actions. - MySQL database restore sped up by 20x. - Project owners can now be set as Issue approvers.'
 ---
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
 
 ## 🚀 New Features
 
-* [SQL Review](https://github.com/marketplace/actions/sql-review) is now available on the GitHub Action Marketplace! 🐱
-![sql-revie-gha](/content/changelog/1.3.1/sql-revie-gha.webp)
+- [SQL Review](https://github.com/marketplace/actions/sql-review) is now available on the GitHub Action Marketplace! 🐱
+  ![sql-revie-gha](/content/changelog/1.3.1/sql-revie-gha.webp)
 
 ## 🎄 Enhancements
 
@@ -26,11 +28,7 @@ description: "- SQL review now available on GitHub Actions. - MySQL database res
 
 - Disallow baseline migrations from VCS. They should only be triggered from the Bytebase console to re-sync the database schema to address schema drift.
 - Fixed writeback schema to VCS when establishing the baseline.
- 
+
 ## 🎠 Community
 
 - Created an [example](https://github.com/Bytebase/sql-review-action-example) for how to configure SQL Review GitHub Action.
-
-## 📕 Installation and Upgrade
-
-Follow [https://github.com/bytebase/bytebase#installation](https://github.com/bytebase/bytebase#installation). If you are upgrading from a previous version, just restart after obtaining the new release binary.

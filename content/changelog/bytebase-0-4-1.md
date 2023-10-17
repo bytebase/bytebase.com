@@ -3,10 +3,7 @@ title: Bytebase 0.4.1
 published_at: 2021/08/31 07:52:00
 ---
 
-Update instruction
-
-- For fresh installation, follow [https://github.com/bytebase/bytebase#installation](https://github.com/bytebase/bytebase#installation).
-- If you upgrade from 0.4.0, you dont't need to do anything. If you upgrade from veresion before 0.4.0, then it requires manual schema change, please contact [support@bytebase.com](mailto:support@bytebase.com) and we will assist you to perform the manual upgrade.
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
 
 ## 🚀 New Features
 

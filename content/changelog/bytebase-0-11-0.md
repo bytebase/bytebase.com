@@ -3,6 +3,8 @@ title: Bytebase 0.11.0
 published_at: 2022/01/06 10:31:49
 ---
 
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+
 ## 🚀 New Features
 
 ### (Preview) SQL Editor
@@ -41,8 +43,3 @@ Now every PR will create a unique preview environment. This makes it easy to col
 ![_](/content/changelog/0.11.0/lgtm.gif)
 
 - Thanks to @Juneezee 's PR [refactor: move from io/ioutil to io and os packages](https://github.com/bytebase/bytebase/pull/264)
-
-## 📕 Upgrade instruction
-
-- For fresh installation, follow [https://github.com/bytebase/bytebase#installation](https://github.com/bytebase/bytebase#installation).
-- If you upgrade from previous version, there is some breaking schema change. Please contact [support@bytebase.com](mailto:support@bytebase.com) and we will help you manually upgrade to the new version.
