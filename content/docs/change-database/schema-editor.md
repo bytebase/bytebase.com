@@ -2,17 +2,9 @@
 title: Schema Editor
 ---
 
-<HintBlock type="warning">
+**Schema Editor** provides a spreadsheet-like editor to view and edit database structure. Users first use the **Schema Editor** to prepare the schema changes, then those changes will be converted into SQL statements and go through the [change workflow](/docs/change-database/change-workflow).
 
-This feature is in beta and only available for MySQL and PostgreSQL.
-
-Schema Editor for MySQL currently supports editing `Table` and `Column` objects.
-
-Schema Editor for PostgreSQL currently supports editing `Schema`, `Table` and `Column` objects.
-
-</HintBlock>
-
-Bytebase's Schema Editor provides a spreadsheet-like editor to view and edit database structure. Users first use the Schema Editor to prepare the schema changes, then those changes will be converted into SQL statements and go through the [change workflow](/docs/change-database/change-workflow).
+**Schema Editor** also supports the use of templates for fields and tables. Templates can be pre-defined at the workspace level and can be used to save time and ensure consistency when creating new schema entities. See [Schema Template](/docs/administration/schema-template) for more details.
 
 ## How to use
 

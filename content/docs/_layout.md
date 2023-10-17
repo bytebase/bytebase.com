@@ -225,6 +225,8 @@ expand_section_list: ['Introduction', 'Install', 'Quick Start']
 
 ### [Anomaly Center](/administration/anomaly-center)
 
+### [Schema Template](/administration/schema-template)
+
 ### [Risk Center](/administration/risk-center)
 
 ### [Custom Approval](/administration/custom-approval)
