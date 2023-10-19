@@ -1,9 +1,7 @@
 ---
 # expand_section_list is the list of default expanded sections.
-expand_section_list: ['Introduction', 'Install', 'Quick Start']
+expand_section_list: ['Self-host', 'Quick Start']
 ---
-
-## Introduction
 
 ### [What is Bytebase](/introduction/what-is-bytebase)
 
@@ -15,19 +13,19 @@ expand_section_list: ['Introduction', 'Install', 'Quick Start']
 
 ### [FAQ](/faq)
 
-## Install
+---
 
-### [Self-host](/get-started/self-host)
+## [Bytebase Cloud](/get-started/cloud)
 
-### [Bytebase Cloud](/get-started/cloud)
-
-### [Configure Instance Connection](/get-started/instance)
+## [Self-host](/get-started/self-host)
 
 ### [Configure External PostgreSQL](/get-started/install/external-postgres)
 
 ### [Configure External URL](/get-started/install/external-url)
 
-### [Manage with Terraform](/get-started/terraform)
+## [Connect to Your Database](/get-started/instance)
+
+---
 
 ## [Quick Start](/get-started/quick-start)
 
@@ -241,6 +239,16 @@ expand_section_list: ['Introduction', 'Install', 'Quick Start']
 
 ### [Archive](/administration/archive)
 
+## Integrations
+
+### [Terraform](/docs/get-started/terraform)
+
+### [Supabase](/how-to/integrations/supabase)
+
+### [Render](/how-to/integrations/render)
+
+### [Neon](/how-to/integrations/neon)
+
 ## Reference
 
 ### [Server Startup Options](/reference/command-line)
@@ -278,14 +286,6 @@ expand_section_list: ['Introduction', 'Install', 'Quick Start']
 ### Workflow
 
 #### [GitOps with Feature Branch](/how-to/workflow/gitops-feature-branch)
-
-### Integrations
-
-#### [Supabase](/how-to/integrations/supabase)
-
-#### [Render](/how-to/integrations/render)
-
-#### [Neon](/how-to/integrations/neon)
 
 ### ClickHouse
 

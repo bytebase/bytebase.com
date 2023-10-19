@@ -1,13 +1,9 @@
 ---
-title: Configure Instance Connection
+title: Connect to Your Database
 ---
 
-**Database Instance** or simply **Instance** models after a single database instance which is usually accessed via a host:port address. A typical database instance could be your on-premises MySQL instance, an AWS RDS instance etc. Each **Database Instance** belongs to an **Environment**.
-
-Bytebase supports a variety of [database types](/docs/introduction/supported-databases). Bytebase
-needs the proper connection info to connect to the database instance. All database types share
-some common settings such as `host:port`, on the other hand, there are also database type specific
-settings.
+To allow Bytebase to manage your different [database systems](/docs/introduction/supported-databases),
+you need to supply Bytebase with the connection info.
 
 <HintBlock type="info">
 
