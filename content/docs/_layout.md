@@ -9,8 +9,6 @@ expand_section_list: ['Self-host', 'Quick Start']
 
 ### [Supported Databases](/introduction/supported-databases)
 
-### [Tutorials](/tutorials)
-
 ### [FAQ](/faq)
 
 ---

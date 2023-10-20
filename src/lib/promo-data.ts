@@ -13,10 +13,10 @@ const PROMO_DATA = {
     pathname: `${ROUTE.PRICING}?source=blog`,
   },
   DOC_ASIDE: {
-    title: 'Schema Migration Best Practice',
-    description: 'Challenges, mistakes, and best practices for database schema migration',
-    cta: 'Learn How',
-    pathname: `/blog/how-to-handle-database-schema-change/?source=docs`,
+    title: 'Tutorials',
+    description: "Maximize the benefits and leverage the full potential of Bytebase's features.",
+    cta: 'Start Learning',
+    pathname: `/tutorial/?source=docs`,
   },
 };
 
