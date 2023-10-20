@@ -15,7 +15,7 @@ expand_section_list: ['Self-host', 'Quick Start']
 
 ---
 
-## [Bytebase Cloud](/get-started/cloud)
+## [Cloud](/get-started/cloud)
 
 ## [Self-host](/get-started/self-host)
 
