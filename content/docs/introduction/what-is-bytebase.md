@@ -24,6 +24,15 @@ Bytebase analyzes SQL changes to enforce rules in compliance with your organizat
 
 Like code review, Bytebase streamlines the database change process. Within a single workflow, a database change can be reviewed and deployed from the dev environment all the way to the production environment.
 
+### [GitOps (Database-as-Code)](/docs/vcs-integration/overview/)
+
+Bytebase keeps the complete schema change history. It also integrates with VCS systems. Teams can manage the SQL migration scripts in the VCS and trigger schema deployment on code commit.
+
+### [Batch Change and Query](/docs/change-database/batch-change/)
+
+Bytebase allows you to change a collection of databases in a single workflow. It also allows you to issue
+a single query against multiple databases.
+
 ### [SQL Editor](/docs/sql-editor/overview/)
 
 A web-based SQL Editor to query and export data. DBAs no longer need to give away sensitive database credentials when developers need to access the data.
@@ -35,10 +44,6 @@ Bytebase provides multi-level masking policy with workflow to grant unmasked dat
 ### [Data Access Control](/docs/security/data-query/)
 
 Bytebase provides a suite of features to enable organizations to enforce data security policies, avoid data leaks and conform compliance.
-
-### [Version Control with VCS Integration (GitOps)](/docs/vcs-integration/overview/)
-
-Bytebase keeps the complete schema change history. It also integrates with VCS systems. Teams can manage the SQL migration scripts in the VCS and trigger schema deployment on code commit.
 
 ### [Data Rollback and Disaster Recovery](/docs/change-database/rollback-data-changes/)
 
