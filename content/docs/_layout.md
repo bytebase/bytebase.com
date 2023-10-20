@@ -55,7 +55,9 @@ expand_section_list: ['Self-host', 'Quick Start']
 
 ---
 
-## [SQL Review](/sql-review/overview)
+## SQL Review
+
+### [Overview](/sql-review/overview)
 
 ### [SQL Advisor](/sql-review/sql-advisor/overview)
 
@@ -107,7 +109,9 @@ expand_section_list: ['Self-host', 'Quick Start']
 
 ### [Project Webhook](/change-database/webhook)
 
-## [SQL Editor](/sql-editor/overview)
+## SQL Editor
+
+### [Overview](/sql-editor/overview)
 
 ### [Run and EXPLAIN Query](/sql-editor/run-queries)
 
@@ -125,7 +129,9 @@ expand_section_list: ['Self-host', 'Quick Start']
 
 ## Secure Data
 
-### [Dynamic Data Masking](/security/data-masking/overview)
+### Dynamic Data Masking
+
+#### [Overview](/security/data-masking/overview)
 
 #### [Global Masking Rule](/security/data-masking/global-masking-rule)
 
@@ -145,7 +151,9 @@ expand_section_list: ['Self-host', 'Quick Start']
 
 ### [Audit Log](/security/audit-log)
 
-## [VCS Integration (GitOps)](/vcs-integration/overview)
+## VCS Integration (GitOps)
+
+### [Overview](/vcs-integration/overview)
 
 ### [Add Git Provider](/vcs-integration/add-git-provider)
 
@@ -169,7 +177,9 @@ expand_section_list: ['Self-host', 'Quick Start']
 
 ### [Troubleshoot](/vcs-integration/troubleshoot)
 
-## [Slow Query](/slow-query/overview)
+## Slow Query
+
+### [Overview](/slow-query/overview)
 
 ### [Enable Slow Query Log for MySQL](/slow-query/enable-slow-query-log-for-mysql)
 
