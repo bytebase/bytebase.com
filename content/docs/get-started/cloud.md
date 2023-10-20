@@ -9,13 +9,7 @@ Alternatively, because many organizations disallow exposing their databases to t
 
 ## Whitelist the Bytebase Cloud IP
 
-![network-topology](/content/docs/get-started/saas/topology.webp)
-
-To make your Bytebase Cloud instance
-connect to your databases in your internal network, you need to whitelist the following Bytebase
-Cloud IPs:
-
-- `34.27.188.162`
+<IncludeBlock url="/docs/get-started/install/whitelist-bytebase-ip"></IncludeBlock>
 
 ## Provision a Bytebase instance
 

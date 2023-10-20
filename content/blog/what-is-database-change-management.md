@@ -100,7 +100,6 @@ years. Among them, Bytebase stands out in several ways:
 
 Learn more 👀 👇
 
-- [Live Demo](https://demo.bytebase.com/)
-- [Quick Start](/docs/get-started/quick-start)
+- [Quickstart](/docs/get-started/quick-start)
 - [Case Study](/blog/how-a-clickhouse-data-team-uses-bytebase-for-managing-schema-change)
 - [Data Model](/docs/concepts/data-model)

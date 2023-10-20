@@ -1,5 +1,5 @@
 ---
-title: Connect to Your Database
+title: Connect Your Database
 ---
 
 To allow Bytebase to manage your different [database systems](/docs/introduction/supported-databases),
@@ -10,10 +10,6 @@ you need to supply Bytebase with the connection info.
 Only **Workspace Owner** or **Workspace DBA** role can configure instance.
 
 </HintBlock>
-
-## Step-by-Step
-
-See [Add an Instance](/docs/get-started/step-by-step/add-an-instance/#add-an-instance).
 
 ## Connect to the instance on the same host
 
@@ -29,6 +25,10 @@ you need to set host as [host.docker.internal](https://docs.docker.com/desktop/n
   you need to set host as `127.0.0.1`
 
 ![connect-local-no-docker](/content/docs/get-started/instance/connect-local-no-docker.webp)
+
+## Connect to the instance from Bytebase Cloud
+
+<IncludeBlock url="/docs/get-started/install/whitelist-bytebase-ip"></IncludeBlock>
 
 ## Configure SSL
 

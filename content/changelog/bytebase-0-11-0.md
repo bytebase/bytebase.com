@@ -18,7 +18,7 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 
 ## 🎄 Enhancement
 
-### kbar quick start
+### kbar quickstart
 
 User can now use cmd+k to invoke the command bar to quickly navigate among different Bytebase sections.
 ![_](/content/changelog/0.11.0/quickstart.webp)

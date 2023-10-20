@@ -6,15 +6,9 @@ title: Self-host Bytebase
 
 Bytebase is a single Go binary and the deployment easy.
 
-<HintBlock type="info">
+## Prerequisites
 
-1. Check [System Requirement and Support](/docs/faq#system-requirements-and-supported-versions).
-
-1. By default, Bytebase bundles an embedded PostgreSQL instance for storing its own metadata. For production setup, we recommend you to store the metadata in [an external PostgreSQL database](/docs/get-started/install/external-postgres).
-
-1. After starting Bytebase, you should configure [External URL](/docs/get-started/install/external-url).
-
-</HintBlock>
+- Check [System Requirements](/docs/faq##system-requirements).
 
 ## Docker
 
@@ -73,7 +67,7 @@ docker run --init \
 Follow [Configure External URL](/docs/get-started/install/external-url#configure-via-ui) and then visit Bytebase from
 the configured external URL.
 
-**Troubleshoot**
+#### Troubleshoot
 
 Run the following if something goes wrong.
 
@@ -374,7 +368,7 @@ You should see something like this in the console:
 
 <IncludeBlock url="/docs/get-started/install/terminal-startup-output-success"></IncludeBlock>
 
-**Troubleshoot**
+#### Troubleshoot
 
 If you encounter any error when you install bytebase by using install script, welcome to open issue on [bytebase/install repository](https://github.com/bytebase/install).
 

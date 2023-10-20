@@ -1,6 +1,6 @@
 ---
 # expand_section_list is the list of default expanded sections.
-expand_section_list: ['Self-host', 'Quick Start']
+expand_section_list: ['Self-host', 'Get Started']
 ---
 
 ### [What is Bytebase](/introduction/what-is-bytebase)
@@ -13,19 +13,17 @@ expand_section_list: ['Self-host', 'Quick Start']
 
 ---
 
-## [Cloud](/get-started/cloud)
+## Get Started
 
-## [Self-host](/get-started/self-host)
+### [Cloud](/get-started/cloud)
 
-### [Configure External PostgreSQL](/get-started/install/external-postgres)
+### [Self-host](/get-started/self-host)
 
-### [Configure External URL](/get-started/install/external-url)
+#### [Configure External PostgreSQL](/get-started/install/external-postgres)
 
-## [Connect to Your Database](/get-started/instance)
+#### [Configure External URL](/get-started/install/external-url)
 
----
-
-## [Quick Start](/get-started/quick-start)
+### Quickstart
 
 #### [Step 1 - Register Accounts](/get-started/step-by-step/register-accounts)
 
@@ -41,7 +39,11 @@ expand_section_list: ['Self-host', 'Quick Start']
 
 #### [Step 7 - Manage Members](/get-started/step-by-step/manage-members)
 
-## Core Concepts
+### [Connect Your Database](/get-started/instance)
+
+---
+
+## Concepts
 
 ### [Data Model](/concepts/data-model)
 
@@ -50,8 +52,6 @@ expand_section_list: ['Self-host', 'Quick Start']
 ### [Change Workflow](/concepts/database-change-workflow)
 
 ### [Batch Mode](/concepts/batch-mode)
-
----
 
 ## SQL Review
 
