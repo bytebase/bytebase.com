@@ -275,10 +275,6 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ## How-To
 
-### SQL Review Guide
-
-#### [PostgreSQL](/how-to/sql-review/postgres-sql-review-guide)
-
 ### Workflow
 
 #### [GitOps with Feature Branch](/how-to/workflow/gitops-feature-branch)
@@ -310,3 +306,5 @@ expand_section_list: ['Self-host', 'Get Started']
 #### [Error Code for Bytebase Core](/reference/error-code/core)
 
 #### [Error Code for SQL Advisor](/reference/error-code/advisor)
+
+### [PostgreSQL SQL Review Guide](/how-to/sql-review/postgres-sql-review-guide)
