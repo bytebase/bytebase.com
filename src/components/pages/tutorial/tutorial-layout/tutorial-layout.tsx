@@ -51,6 +51,13 @@ const TutorialLayout = ({ posts, filters, children }: TutorialLayoutProps) => {
       {children}
       <section ref={wrapperRef} className="container lg:pt-12 md:pt-8 sm:pt-6">
         <div className="gap-x-grid grid grid-cols-12">
+          <Filter
+            title="Category"
+            className="col-span-3 pt-16 lg:pt-0 md:hidden"
+            fieldsList={filters}
+            activeFilters={activeFilters}
+            toggleFilter={toggleFilter}
+          />
           <DropdownFilter
             title="Category"
             className="col-span-6 hidden md:block xs:col-span-full"
@@ -60,13 +67,6 @@ const TutorialLayout = ({ posts, filters, children }: TutorialLayoutProps) => {
             toggleFilter={toggleFilter}
           />
           <Posts posts={filteredItems} />
-          <Filter
-            title="Category"
-            className="col-span-3 pt-16 lg:pt-0 md:hidden"
-            fieldsList={filters}
-            activeFilters={activeFilters}
-            toggleFilter={toggleFilter}
-          />
         </div>
       </section>
     </>
