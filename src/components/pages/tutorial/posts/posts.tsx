@@ -50,7 +50,7 @@ const Posts = ({ posts }: PostsProps) => {
                 href={`/docs/tutorials/${post.slug}`}
               >
                 <h4 className="text-18 font-semibold leading-tight xl:text-16 xl:leading-snug">
-                  {post.title}
+                  {post.pinned && '📌'} {post.title}
                 </h4>
                 <div className="mt-auto flex items-center gap-x-4">
                   {post.integrations && (

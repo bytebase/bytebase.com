@@ -6,6 +6,7 @@ feature_image: /content/docs/tutorials/step-by-step-guide-to-data-masking/data-m
 tags: Tutorial
 integrations: General
 level: Beginner
+pinned: true
 description: This tutorial will teach you how to set up and try out data masking in Bytebase.
 ---
 
@@ -38,9 +39,9 @@ Before starting, make sure you have installed [Docker](https://www.docker.com/).
 
 Login to Bytebase,click **SQL Editor**, you'll be redirected to SQL Editor page. Choose `(Prod) employee` > `public` > `employee`, and then run `SELECT * FROM employee;`, you'll see the following result. Run the same query against `(Test) employee`, the result is the same.
 
-   ![bb-sql-editor-query-employee-prod](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-prod.webp)
+![bb-sql-editor-query-employee-prod](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-prod.webp)
 
-   ![bb-sql-editor-query-employee-test](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-test.webp)
+![bb-sql-editor-query-employee-test](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-test.webp)
 
 ### Global Masking Rule
 

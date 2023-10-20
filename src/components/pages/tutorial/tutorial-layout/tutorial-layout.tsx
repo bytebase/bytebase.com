@@ -21,12 +21,16 @@ const TutorialLayout = ({ posts, filters, children }: TutorialLayoutProps) => {
   const filteredItems = useMemo(() => {
     let filteredPosts = posts;
     if (activeFilters.length > 0) {
-      filteredPosts = posts.filter((post) =>
-        post.integrations?.split(', ').some((integration) => activeFilters.includes(integration)),
+      filteredPosts = posts.filter(
+        (post) =>
+          post.pinned ||
+          post.integrations?.split(', ').some((integration) => activeFilters.includes(integration)),
       );
     }
 
     return filteredPosts.sort((a, b) => {
+      if (a.pinned && !b.pinned) return -1;
+      if (!a.pinned && b.pinned) return 1;
       const aHasGeneral = a.integrations?.includes('General');
       const bHasGeneral = b.integrations?.includes('General');
       if (aHasGeneral && !bHasGeneral) return -1;

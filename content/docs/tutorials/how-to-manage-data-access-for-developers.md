@@ -6,6 +6,7 @@ feature_image: /content/docs/tutorials/how-to-manage-data-access-for-developers/
 tags: Tutorial
 integrations: General
 level: Intermediate
+pinned: true
 description: When you have a team of developers, it is critical to restrict their access to data to only what they need to do their job. This ensures to protect sensitive data and prevent unauthorized access.
 ---
 

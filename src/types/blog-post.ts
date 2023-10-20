@@ -10,5 +10,6 @@ export type BlogPost = {
   slug: string;
   timeToRead: string;
   featured: boolean;
+  pinned: boolean;
   integrations?: string;
 };

@@ -2,9 +2,10 @@
 title: Your First Schema Change in 5 Minutes
 author: Adela
 tags: Tutorial
-published_at: 2023/10/21 11:15
+published_at: 2022/9/21 11:15
 integrations: General, MySQL
 level: Beginner
+pinned: true
 description: How to perform your first schema change in 5 minutes via Bytebase.
 ---
 
