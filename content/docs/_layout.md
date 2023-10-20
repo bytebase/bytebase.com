@@ -249,18 +249,6 @@ expand_section_list: ['Self-host', 'Quick Start']
 
 ### [Neon](/how-to/integrations/neon)
 
-## Reference
-
-### [Server Startup Options](/reference/command-line)
-
-### [Schema Definition Language](/reference/schema-definition-language)
-
-### [Error Code](/reference/error-code/overview)
-
-#### [Error Code for Bytebase Core](/reference/error-code/core)
-
-#### [Error Code for SQL Advisor](/reference/error-code/advisor)
-
 ## API
 
 ### [Getting Started](/api/overview)
@@ -303,4 +291,14 @@ expand_section_list: ['Self-host', 'Quick Start']
 
 #### [How to Create a Service Account for Bytebase](/how-to/spanner/how-to-create-a-service-account-for-bytebase)
 
-## [Document Write Guide](/document-write-guide)
+## Reference
+
+### [Server Startup Options](/reference/command-line)
+
+### [Schema Definition Language](/reference/schema-definition-language)
+
+### [Error Code](/reference/error-code/overview)
+
+#### [Error Code for Bytebase Core](/reference/error-code/core)
+
+#### [Error Code for SQL Advisor](/reference/error-code/advisor)
