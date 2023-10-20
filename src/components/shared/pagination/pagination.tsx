@@ -31,8 +31,8 @@ const Pagination = ({
     <div className={clsx(marginClassName, 'border-t border-gray-90 pt-8')}>
       <ReactPaginate
         breakLabel="..."
-        pageRangeDisplayed={1}
-        marginPagesDisplayed={1}
+        pageRangeDisplayed={5}
+        marginPagesDisplayed={5}
         pageCount={pageCount}
         forcePage={currentPageIndex - 1}
         containerClassName="flex justify-center items-center gap-x-5 sm:gap-x-2.5"
