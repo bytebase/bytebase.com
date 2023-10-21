@@ -33,7 +33,8 @@ Login as an organization admin user to the GitHub.com. The account must be an or
 
 Go to "**Developer settings > OAuth Apps**" from the sidebar, then click "**New application**" button.
 
-![vcs-github-step](/content/docs/vcs-integration/add-git-provider/vcs-github-step1.webp)
+![vcs-github-step](/content/docs/vcs-integration/add-git-provider/vcs-github-step1-1.webp)
+![vcs-github-step](/content/docs/vcs-integration/add-git-provider/vcs-github-step1-2.webp)
 
 Fill in the form with the provided info on the Bytebase setup wizard.
 
