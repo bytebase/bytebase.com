@@ -1,5 +1,5 @@
 ---
-title: 20-Person Start-Up, 30+ SaaS Services, and $1,183 Monthly Bill
+title: 20-Person Start-Up, 30+ SaaS Services, and $1,173 Monthly Bill
 author: Tianzhou
 published_at: 2022/7/26 17:00:00
 feature_image: /content/blog/30saas-services-behind-startup/30saas-services-behind-startup.webp
@@ -251,7 +251,7 @@ Pulley is used to manage the company's equity. It helps us track the company's c
 | Searchramen      | $20      |
 | Google Analytics | $0       |
 | Plausible        | $8       |
-| **Total**        | **$208** |
+| **Total**        | **$198** |
 
 ### General Administration
 
@@ -266,11 +266,11 @@ Pulley is used to manage the company's equity. It helps us track the company's c
 | Pulley           | $120     |
 | **Total**        | **$550** |
 
-The total monthly spending is **$1,183**!
+The total monthly spending is **$1,173**!
 
 ## Summary
 
-We use over 30 SaaS services, many of which are the best tools in the industry, the wisdom of the top team, and ended up costing us $1,183/month, not a bad deal!
+We use over 30 SaaS services, many of which are the best tools in the industry, the wisdom of the top team, and ended up costing us $1,173/month, not a bad deal!
 
 Here are some data to show how these tools have improved our efficiency:
 
