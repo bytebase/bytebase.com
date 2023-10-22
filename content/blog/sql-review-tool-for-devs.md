@@ -60,4 +60,4 @@ The combination of database engine type, version, business application, etc., ge
 
 ## Where is SQL Review Headed?
 
-After all, SQL is code, too, which means all the reasons we review other codes also apply to SQL. At this stage, strict SQL reviewing is still essential to manage a database fleet reliably. Bytebase is also happy to take a brick and build a developer-first [SQL review tool](/docs/sql-review/review-policy/overview) to fill this gap in the DevOps ecosystem.
+After all, SQL is code, too, which means all the reasons we review other codes also apply to SQL. At this stage, strict SQL reviewing is still essential to manage a database fleet reliably. Bytebase is also happy to take a brick and build a developer-first [SQL review tool](/docs/sql-review/review-policy) to fill this gap in the DevOps ecosystem.

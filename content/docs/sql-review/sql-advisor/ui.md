@@ -15,7 +15,7 @@ On a specific issue page, the advisor will run automatically after creation:
 
 It currently supports the following checks:
 
-- [SQL Review Rules](/docs/sql-review/review-policy/overview)
+- [SQL Review Rules](/docs/sql-review/review-policy)
 - Database connection failure
 - Syntax error
 - Migration schema missing (the internal bytebase schema recording the migration history)

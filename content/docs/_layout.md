@@ -57,6 +57,10 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Overview](/sql-review/overview)
 
+### [Review Policy](/sql-review/review-policy)
+
+### [Review Rules](/sql-review/review-rules)
+
 ### [SQL Advisor](/sql-review/sql-advisor/overview)
 
 #### [UI](/sql-review/sql-advisor/ui)
@@ -68,20 +72,6 @@ expand_section_list: ['Self-host', 'Get Started']
 #### [GitHub App](/sql-review/sql-advisor/github-app)
 
 #### [GitOps CI](/sql-review/sql-advisor/gitops-ci)
-
-### [Review Policy](/sql-review/review-policy/overview)
-
-#### [Create Schema Review Policy](/sql-review/review-policy/create-schema-review-policy)
-
-#### [Schema Review Check in the Issue](/sql-review/review-policy/schema-review-check-in-the-issue)
-
-#### [View Schema Review Policy](/sql-review/review-policy/view-schema-review-policy)
-
-#### [Edit Schema Review Policy](/sql-review/review-policy/edit-schema-review-policy)
-
-#### [Disable and Delete Schema Review Policy](/sql-review/review-policy/disable-delete-policy)
-
-### [Review Rules](/sql-review/review-rules)
 
 ## Change Database
 

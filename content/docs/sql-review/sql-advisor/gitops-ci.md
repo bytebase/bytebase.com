@@ -26,9 +26,10 @@ After the setup, in every MR, the SQL review policy will check against changed f
 
 ![vcs-sql-review-gitlab](/content/docs/vcs-integration/enable-gitops-workflow/vcs-sql-review-gitlab.webp)
 
-And you can follow the doc [Create Schema Review Policy](/docs/sql-review/review-policy/create-schema-review-policy) to create the SQL review policy.
+And you can follow the doc [Create Schema Review Policy](/docs/sql-review/review-policy/#create-schema-review-policy) to create the SQL review policy.
 
 ### GitOps CI in private networks
+
 If you can not pull from the Docker Hub Container Registry, you can configure your CI/CD jobs to use the images from your private container registry, following
 [Access an image from a private Container Registry](https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#access-an-image-from-a-private-container-registry).
 

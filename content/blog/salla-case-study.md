@@ -55,7 +55,7 @@ Using Bytebase, Salla also constructed a standard release workflow:
 
 1. Define the [risk levels](/docs/administration/risk-center/) for database tasks (e.g. DDL in the production environment is considered high risk; DML in the production environment affecting < 1000 rows is considered moderate risk; DML in the testing environment is considered low risk).
 2. All change requests are submitted as issues, with different approval processes automatically generated based on issues’ risk levels.
-3. Project owners then review the issues with the assistance of pre-configured [SQL review policies](/docs/sql-review/review-policy/overview/).
+3. Project owners then review the issues with the assistance of pre-configured [SQL review policies](/docs/sql-review/review-policy).
 4. If approved, the workplace owner will publish them to the database.
 
 With the entire change process integrated into a single platform, their release is streamlined. Previously, they needed to submit review requests through PM tools, download SQL scripts for manual review by DBAs, and copy and paste them into the database client for release. This revamped process also greatly reduces the (inevitable) risk of human error by having a centralized platform to store SQL scripts. And every change is recorded in audit trail.

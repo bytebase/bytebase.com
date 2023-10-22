@@ -84,7 +84,7 @@ To avoid complex SQL blocking your release, the shift-left approach should be in
 - Field rules: such as restricting the type, length, default value of fields, etc.
 - Query restrictions: such as query must have filter conditions, etc.
 
-Bytebase has ~100 standard built-in SQL Lint and supports configuring review rules that incorporate your business needs. You can choose one of the following [rule level](/docs/sql-review/review-policy/create-schema-review-policy#change-rule-level)s: `Error`, `Warning` or `Disabled`. When the rule is `Disabled`, it will not take effect. To better implement the rules, it is highly recommended that the DBA and the dev teams agree on the SQL review rules, and rule levels and decide which rules should be enabled at which stage. In prod, an application often includes multiple environments: from dev, testing, staging to prod. To balance efficiency and security, different review policies should be used at different stages. Still, it is recommended that SQL scripts should be included in VCS management from the testing environment. An example of a strategy:
+Bytebase has ~100 standard built-in SQL Lint and supports configuring review rules that incorporate your business needs. You can choose one of the following [rule level](/docs/sql-review/review-policy#change-rule-level)s: `Error`, `Warning` or `Disabled`. When the rule is `Disabled`, it will not take effect. To better implement the rules, it is highly recommended that the DBA and the dev teams agree on the SQL review rules, and rule levels and decide which rules should be enabled at which stage. In prod, an application often includes multiple environments: from dev, testing, staging to prod. To balance efficiency and security, different review policies should be used at different stages. Still, it is recommended that SQL scripts should be included in VCS management from the testing environment. An example of a strategy:
 
 ![](/content/blog/database-cicd-best-practice/strategy.webp)
 
@@ -125,7 +125,7 @@ This process can be divided into three main tasks:
 
    ![](/content/blog/database-cicd-best-practice/create-project.webp)
 
-2. **[Create Schema review policy](/docs/sql-review/review-policy/create-schema-review-policy).** Set up review policy for each environment, taking into account the specific policy and rule levels agreed upon with the development teams.
+2. **[Create Schema review policy](/docs/sql-review/review-policy/#create-schema-review-policy).** Set up review policy for each environment, taking into account the specific policy and rule levels agreed upon with the development teams.
 
    ![](/content/blog/database-cicd-best-practice/schema-review.webp)
 

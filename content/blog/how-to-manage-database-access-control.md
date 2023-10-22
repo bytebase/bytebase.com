@@ -101,11 +101,11 @@ Bytebase offers:
 
 ![_](/content/blog/how-to-manage-database-access-control/sql-editor.webp)
 
-- [SQL Review rules](/docs/sql-review/review-policy/overview). For example, the following rule prevents users from executing DELETE statements without WHERE. You can also configure different rules for different environments, such as `dev`, `test`, `prod`, etc.
+- [SQL Review rules](/docs/sql-review/review-policy). For example, the following rule prevents users from executing DELETE statements without WHERE. You can also configure different rules for different environments, such as `dev`, `test`, `prod`, etc.
 
 ![_](/content/blog/how-to-manage-database-access-control/sql-review-rule.webp)
 
-- [SQL review policies](/docs/sql-review/review-policy/create-schema-review-policy). For example, for the `dev` environment, you can skip review from the DBA; for the `prod` environment, review from either the DBA or project owner is mandatory.
+- [SQL review policies](/docs/sql-review/review-policy/#create-schema-review-policy). For example, for the `dev` environment, you can skip review from the DBA; for the `prod` environment, review from either the DBA or project owner is mandatory.
 
 ![_](/content/blog/how-to-manage-database-access-control/sql-review-policy.webp)
 

@@ -7,7 +7,7 @@ description: The SQL Review and Style Guide for PostgreSQL
 
 <HintBlock type="info">
 
-The guide is based on [pigsty](https://pigsty.cc/zh/blog/2018/06/20/postgresql%E5%BC%80%E5%8F%91%E8%A7%84%E7%BA%A6/) by [@Vonng](http://vonng.com/en/). You can configure many of the listed [SQL Review rules in Bytebase](https://bytebase.com/docs/sql-review/review-policy/overview).
+The guide is based on [pigsty](https://pigsty.cc/zh/blog/2018/06/20/postgresql%E5%BC%80%E5%8F%91%E8%A7%84%E7%BA%A6/) by [@Vonng](http://vonng.com/en/). You can configure many of the listed [SQL Review rules in Bytebase](https://bytebase.com/docs/sql-review/review-policy).
 
 </HintBlock>
 

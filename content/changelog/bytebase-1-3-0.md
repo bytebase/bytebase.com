@@ -9,7 +9,7 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 
 ## 🚀 New Features
 
-- Support SQL review for PostgreSQL with 13 rules: [SQL Review](https://www.bytebase.com/docs/sql-review/review-policy/overview)
+- Support SQL review for PostgreSQL with 13 rules: [SQL Review](https://www.bytebase.com/docs/sql-review/review-policy)
   ![sql-review-for-pg](/content/changelog/1.3.0/sql-review-for-pg.webp)
 
 - Support using GitHub.com both as the VCS integration to manage database schemas and as the authentication provider to allow users to use their GitHub.com accounts to log in to Bytebase.

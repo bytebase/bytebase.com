@@ -4,7 +4,7 @@ title: Review Rules
 
 Bytebase provides customizable SQL lint rules to check common issues in database change and query process.
 
-Different sets of rules can form different [SQL Review Policies](/docs/sql-review/review-policy/overview) for the respective environment.
+Different sets of rules can form different [SQL Review Policies](/docs/sql-review/review-policy) for the respective environment.
 
 ## Supported rules
 

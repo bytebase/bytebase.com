@@ -12,7 +12,7 @@ The SQL Advise API provides SQL checks based on your schema review policy.
 
 <HintBlock type="info">
 
-Before you start, you should configure the schema review policy on a specific environment. Please check [Schema Review](/docs/sql-review/review-policy/overview) for more information.
+Before you start, you should configure the schema review policy on a specific environment. Please check [Schema Review](/docs/sql-review/review-policy) for more information.
 
 </HintBlock>
 

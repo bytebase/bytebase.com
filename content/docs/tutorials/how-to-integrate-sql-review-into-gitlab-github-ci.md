@@ -47,7 +47,7 @@ The following image shows the detailed results of a SQL review via GitHub Action
 
 ![_](/content/docs/tutorials/how-to-integrate-sql-review-into-gitlab-github-ci/gha-sql-review-details.webp)
 
-Follow [this doc](/docs/sql-review/review-policy/create-schema-review-policy) to create and configure your own SQL review policy.
+Follow [this doc](/docs/sql-review/review-policy/#create-schema-review-policy) to create and configure your own SQL review policy.
 
 ## Summary
 

@@ -72,7 +72,7 @@ FWIW, there are tools like [GitHub SQL Review Action](https://github.com/marketp
 
 ## Our Take on SQL Review
 
-Bytebase has built-in [SQL Review](/docs/sql-review/review-policy/overview) capabilities that are customizable to check for issues in the schema change process. To better accommodate developers' workflow, we also [integrated SQL Review with GitHub](/blog/integrate-sql-review-into-github), allowing you to manage SQL scripts in your GitHub repos and perform SQL Review there. This eliminates the need to switch between multiple tools and, more importantly, allows SQL Review to be conducted at the PR stage rather than waiting until the deployment stage.
+Bytebase has built-in [SQL Review](/docs/sql-review/review-policy) capabilities that are customizable to check for issues in the schema change process. To better accommodate developers' workflow, we also [integrated SQL Review with GitHub](/blog/integrate-sql-review-into-github), allowing you to manage SQL scripts in your GitHub repos and perform SQL Review there. This eliminates the need to switch between multiple tools and, more importantly, allows SQL Review to be conducted at the PR stage rather than waiting until the deployment stage.
 
 That being said when it comes to database schema changes, the advice is simple: don't ask. If a DBA says so, just do it!
 

@@ -1,6 +1,21 @@
 ---
-title: Create Schema Review Policy
+title: Review Policy
 ---
+
+Bytebase defines SQL Review Policy for each [environment](/docs/concepts/data-model#environment).
+The SQL Review Policy is essentially a set of SQL lint rules defined in [SQL Review Rule](/docs/sql-review/review-rules). Once configured, Bytebase will check SQL against the configured those rules.
+
+## Prerequisites
+
+- **Workspace Owner** or **Workspace DBA** role to configure the Review Policy.
+
+## Create Schema Review Policy
+
+<HintBlock type="info">
+
+Note that only **ONE** policy can be attached per `Environment`.
+
+</HintBlock>
 
 There are two ways to create the `Schema Review Policy`.
 
@@ -11,22 +26,6 @@ One is from `Schema Review Policy` dashboard in `Settings`.
 The other is from `Environment` dashboard.
 
 ![schema-review-create-from-environment-dashboard](/content/docs/sql-review/schema-review-create-from-environment-dashboard.gif)
-
-Creating the `Schema Review Policy` is a 3-step process.
-
-## Step 1
-
-Specify the basic information, including display name for schema review policy, selected environment and schema review policy template.
-
-<HintBlock type="info">
-
-Note that only **ONE** policy can be attached per `Environment`.
-
-</HintBlock>
-
-## Step 2
-
-Specify each `Schema Review Rule`, including error level and rule-specific fields.
 
 ### Change rule level
 
@@ -62,6 +61,10 @@ The rule [Enforce the Required Columns in Each Table](/docs/sql-review/review-ru
 
 Details of the rules can be found [here](/docs/sql-review/review-rules).
 
-## Step 3
+## Disable and Delete Schema Review Policy
 
-Preview and confirm the `Schema Review Rule`.
+You can `disable` the `Schema Review Policy` to prevent it from taking effect.
+
+After disabling it, you can delete it.
+
+![schema-review-disable-and-delete](/content/docs/sql-review/schema-review-disable-and-delete.gif)

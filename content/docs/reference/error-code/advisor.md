@@ -16,7 +16,7 @@ Something unexpected happened, you can open a [GitHub issue](https://github.com/
 
 <h3 id="2">2 - Schema review policy not found</h3>
 
-Cannot find the schema review policy in a specific environment. Please [follow the doc](/docs/sql-review/review-policy/create-schema-review-policy) to create the policy.
+Cannot find the schema review policy in a specific environment. Please [follow the doc](/docs/sql-review/review-policy/#create-schema-review-policy) to create the policy.
 
 ## Compatibility
 

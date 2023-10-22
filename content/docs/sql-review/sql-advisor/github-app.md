@@ -42,7 +42,7 @@ Repository configuration:
 
 ### Step 2 - Configure rules
 
-You can customize the rule level and payload in step 2. You can [follow this doc](/docs/sql-review/review-policy/create-schema-review-policy#step-2) for details about the rule configuration.
+You can customize the rule level and payload in step 2. You can [follow this doc](/docs/sql-review/review-policy/#create-schema-review-policy#step-2) for details about the rule configuration.
 
 ![app-policy-step2](/content/docs/app-policy-step2.webp)
 

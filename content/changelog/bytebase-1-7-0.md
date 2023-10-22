@@ -9,7 +9,7 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 
 ## 🚀 Features
 
-- Added 31 [review rules](/docs/sql-review/review-policy/overview) for MySQL.
+- Added 31 [review rules](/docs/sql-review/review-policy) for MySQL.
 - Support DDL validation in SQL review.
 - Support canceling gh-ost sync tasks.
 
