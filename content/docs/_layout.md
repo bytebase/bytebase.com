@@ -39,17 +39,13 @@ expand_section_list: ['Self-host', 'Get Started']
 
 #### [Step 7 - Manage Members](/get-started/step-by-step/manage-members)
 
+### [Core Concepts](/concepts/data-model)
+
 ### [Connect Your Database](/get-started/instance)
-
----
-
-## Concepts
-
-### [Data Model](/concepts/data-model)
 
 ### [Roles and Permissions](/concepts/roles-and-permissions)
 
-### [Batch Mode](/concepts/batch-mode)
+---
 
 ## SQL Review
 

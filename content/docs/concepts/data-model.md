@@ -1,5 +1,5 @@
 ---
-title: Data Model
+title: Core Concepts
 ---
 
 ![Bytebase data model](/content/docs/data-model-v2.webp)
