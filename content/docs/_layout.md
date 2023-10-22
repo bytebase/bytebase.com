@@ -89,49 +89,7 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Project Webhook](/change-database/webhook)
 
-## SQL Editor
-
-### [Overview](/sql-editor/overview)
-
-### [Run and EXPLAIN Query](/sql-editor/run-queries)
-
-### [Batch Query](/sql-editor/batch-query)
-
-### [Admin Mode](/sql-editor/admin-mode)
-
-### [Data Masking](/sql-editor/mask-data)
-
-### [Manage SQL Scripts with Sheet](/sql-editor/manage-sql-scripts)
-
-### [Explore Schema](/sql-editor/explore-schema)
-
-### [ChatSQL](/sql-editor/chatsql)
-
-## Secure Data
-
-### Dynamic Data Masking
-
-#### [Overview](/security/data-masking/overview)
-
-#### [Global Masking Rule](/security/data-masking/global-masking-rule)
-
-#### [Column Data Masking](/security/data-masking/column-masking)
-
-#### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
-
-### [Data Access Control](/security/data-access-control)
-
-### [Data Query Approval Flow](/security/data-query)
-
-### [Data Export Approval Flow](/security/data-export)
-
-### [Secret Variable](/security/secret)
-
-### [Watermark](/security/watermark)
-
-### [Audit Log](/security/audit-log)
-
-## VCS Integration (GitOps)
+## GitOps
 
 ### [Overview](/vcs-integration/overview)
 
@@ -156,6 +114,48 @@ expand_section_list: ['Self-host', 'Get Started']
 ### [Batch Change Tenant Databases](/vcs-integration/tenant-gitops)
 
 ### [Troubleshoot](/vcs-integration/troubleshoot)
+
+## SQL Editor
+
+### [Overview](/sql-editor/overview)
+
+### [Run and EXPLAIN Query](/sql-editor/run-queries)
+
+### [Batch Query](/sql-editor/batch-query)
+
+### [Admin Mode](/sql-editor/admin-mode)
+
+### [Data Masking](/sql-editor/mask-data)
+
+### [Manage SQL Scripts with Sheet](/sql-editor/manage-sql-scripts)
+
+### [Explore Schema](/sql-editor/explore-schema)
+
+### [ChatSQL](/sql-editor/chatsql)
+
+## Dynamic Data Masking
+
+### [Overview](/security/data-masking/overview)
+
+### [Global Masking Rule](/security/data-masking/global-masking-rule)
+
+### [Column Data Masking](/security/data-masking/column-masking)
+
+### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
+
+## Secure Data
+
+### [Data Access Control](/security/data-access-control)
+
+### [Data Query Approval Flow](/security/data-query)
+
+### [Data Export Approval Flow](/security/data-export)
+
+### [Secret Variable](/security/secret)
+
+### [Watermark](/security/watermark)
+
+### [Audit Log](/security/audit-log)
 
 ## Slow Query
 
