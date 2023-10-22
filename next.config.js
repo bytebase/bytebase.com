@@ -128,6 +128,11 @@ module.exports = {
         destination: '/docs/security/data-masking/overview',
         permanent: true,
       },
+      {
+        source: `/docs/concepts/database-change-workflow`,
+        destination: '/docs/change-database/change-workflow',
+        permanent: true,
+      },
     ];
   },
   webpack: (config) => {

@@ -49,8 +49,6 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Roles and Permissions](/concepts/roles-and-permissions)
 
-### [Change Workflow](/concepts/database-change-workflow)
-
 ### [Batch Mode](/concepts/batch-mode)
 
 ## SQL Review
