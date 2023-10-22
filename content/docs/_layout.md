@@ -67,28 +67,6 @@ expand_section_list: ['Self-host', 'Get Started']
 
 #### [GitOps CI](/sql-review/sql-advisor/gitops-ci)
 
-## Change Database
-
-### [Change Workflow](/change-database/change-workflow)
-
-### [Batch Change](/change-database/batch-change)
-
-### [State-based Migration](/change-database/state-based-migration)
-
-### [Drift Detection](/change-database/drift-detection)
-
-### [Schema Editor](/change-database/schema-editor)
-
-### [Schema Diagram](/change-database/schema-diagram)
-
-### [Synchronize Schema](/change-database/synchronize-schema)
-
-### [Rollback Data Changes](/change-database/rollback-data-changes)
-
-### [Online Schema Migration for MySQL](/change-database/online-schema-migration-for-mysql)
-
-### [Project Webhook](/change-database/webhook)
-
 ## GitOps
 
 ### [Overview](/vcs-integration/overview)
@@ -115,6 +93,40 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Troubleshoot](/vcs-integration/troubleshoot)
 
+## Dynamic Data Masking
+
+### [Overview](/security/data-masking/overview)
+
+### [Global Masking Rule](/security/data-masking/global-masking-rule)
+
+### [Column Data Masking](/security/data-masking/column-masking)
+
+### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
+
+## [Batch Change](/change-database/batch-change)
+
+---
+
+## Change Database
+
+### [Change Workflow](/change-database/change-workflow)
+
+### [State-based Migration](/change-database/state-based-migration)
+
+### [Drift Detection](/change-database/drift-detection)
+
+### [Schema Editor](/change-database/schema-editor)
+
+### [Schema Diagram](/change-database/schema-diagram)
+
+### [Synchronize Schema](/change-database/synchronize-schema)
+
+### [Rollback Data Changes](/change-database/rollback-data-changes)
+
+### [Online Schema Migration for MySQL](/change-database/online-schema-migration-for-mysql)
+
+### [Project Webhook](/change-database/webhook)
+
 ## SQL Editor
 
 ### [Overview](/sql-editor/overview)
@@ -132,16 +144,6 @@ expand_section_list: ['Self-host', 'Get Started']
 ### [Explore Schema](/sql-editor/explore-schema)
 
 ### [ChatSQL](/sql-editor/chatsql)
-
-## Dynamic Data Masking
-
-### [Overview](/security/data-masking/overview)
-
-### [Global Masking Rule](/security/data-masking/global-masking-rule)
-
-### [Column Data Masking](/security/data-masking/column-masking)
-
-### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
 
 ## Secure Data
 
