@@ -10,31 +10,7 @@ There are 2 typical workflows employed by the team to deal with database schema 
 
 Classic SQL Review workflow where the developer submits a SQL review ticket directly from Bytebase and waits for the assigned DBA or peer developer to review. Bytebase applies the SQL change after review approved.
 
-![Issue detail interface](/content/docs/issue-view-annotated.png)
-
-1. Status banner highlighting the issue status.
-
-2. Issue abstract. If the issue is created by a code commit from a linked repository, that code commit information will be displayed.
-
-3. Action buttons to change the issue status.
-
-4. Flow bar showing the stage progression.
-
-5. Task execution status for the selected stage. By default, the current active stage is selected. User can click the flow bar (Item 4) or use the stage dropdown on the right side bar (Item 10) to switch the stage.
-
-6. SQL statement for the selected stage. The statement could also change by selecting different stages.
-
-7. Issue description.
-
-8. Issue activity and comment area.
-
-9. Issue status and assignee.
-
-10. Stage info. User can use the stage dropdown to check info from other stages.
-
-11. Issue misc info.
-
-12. Subscription list.
+![Issue detail interface](/content/docs/issue-detail.webp)
 
 ### Issue Need Attention
 
