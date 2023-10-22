@@ -105,6 +105,10 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ## [Batch Change](/change-database/batch-change)
 
+## [Branching](/branching)
+
+## [Changelist](/changelist)
+
 ---
 
 ## Change Database
