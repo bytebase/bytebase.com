@@ -6,4 +6,8 @@ SQL Review is the classic and widely used process for developers and DBAs to coo
 
 DBA first chooses [SQL Review rules](/docs/sql-review/review-rules) to build a unified [Review policy](/docs/sql-review/review-policy) and then chooses environments to apply it.
 
-Later, when developers submit SQLs to query or change the database, [SQL Advisor](/docs/sql-review/sql-advisor/overview) will check these rules automatically before the DBAs review them manually.
+![change-column-list](/content/docs/sql-review/schema-review-change-column-list.gif)
+
+Later, when developers submit SQLs to query or change the database, [SQL Advisor](/docs/sql-review/sql-advisor/overview) will check these rules automatically before the DBAs review.
+
+![column-required](/content/docs/sql-review/schema-review-column-required.webp)
