@@ -81,8 +81,6 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Schema Diagram](/change-database/schema-diagram)
 
-### [Migration History](/change-database/migration-history)
-
 ### [Synchronize Schema](/change-database/synchronize-schema)
 
 ### [Rollback Data Changes](/change-database/rollback-data-changes)

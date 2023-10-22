@@ -71,3 +71,11 @@ Baseline migration instructs Bytebase to use the latest live schema as the sourc
 ### Branch Migration
 
 A branch migration history is recorded when a database is restored from a backup. See [Restore from Backup](/docs/disaster-recovery/restore-from-backup#step-4-view-the-restored-database) for details.
+
+## Migration History
+
+Bytebase records the detailed migration history and the before/after schema snapshot for each migration it applies. It also leverages these records to [detect schema drifts](/docs/change-database/drift-detection).
+
+![schema-migration-bytebase](/content/docs/schema-migration-bytebase.png)
+
+![schema-migration-gitlab](/content/docs/schema-migration-gitlab.png)
