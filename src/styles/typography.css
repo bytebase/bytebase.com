@@ -113,7 +113,8 @@
 
     h2,
     h3 {
-      @apply -mt-[144px] pt-[180px] lg:pt-[168px] md:pt-[160px];
+      /* NOTE: it's the height of sticky header */
+      @apply !-mt-[144px] !pt-[180px] lg:!pt-[168px] md:!pt-[160px];
     }
 
     li {
