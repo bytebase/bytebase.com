@@ -133,6 +133,11 @@ module.exports = {
         destination: '/docs/change-database/change-workflow',
         permanent: true,
       },
+      {
+        source: `/blog/30saas-services-behind-startup`,
+        destination: '/blog/saas-services-behind-startup-2022',
+        permanent: true,
+      },
     ];
   },
   webpack: (config) => {

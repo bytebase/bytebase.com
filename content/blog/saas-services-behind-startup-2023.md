@@ -2,24 +2,24 @@
 title: 40+ SaaS Services Behind 15-Person Startup - 2nd Year in Review
 author: Tianzhou
 published_at: 2023/10/24 11:00:00
-feature_image: /content/blog/40saas-services-behind-startup/banner.webp
+feature_image: /content/blog/saas-services-behind-startup-2023/banner.webp
 tags: Industry
 featured: true
 description: A breakdown of the 40+ SaaS services that we use daily at Bytebase, a 15-person 2nd year tech startup, and the monthly cost breakdown of the services.
 ---
 
-Last year, we shared our [detailed SaaS usage bills](/blog/30saas-services-behind-startup/) and triggered some discussions on HN.
+Last year, we shared our [detailed SaaS usage bills](/blog/saas-services-behind-startup-2022) and triggered some discussions on HN.
 
-![hn](/content/blog/40saas-services-behind-startup/hn.webp)
+![hn](/content/blog/saas-services-behind-startup-2023/hn.webp)
 
 This year, our business has grown multi-fold, and we further leverage the various SaaS services to maintain operational efficiency:
 
-- We own 3 open-source projects totaling 15k+ stars:
+- We now own 3 open-source projects totaling 15k+ stars:
   - [Bytebase](https://github.com/bytebase/bytebase) (7.2k), the Database DevOps and CI/CD platform. Offered in both self-host and Cloud.
   - [Star History](https://github.com/star-history/star-history) (5k), The missing GitHub star history graph.
   - [SQL Chat](https://github.com/sqlchat/sqlchat) (3.1k), Chat-based SQL Client using natural language to interact with databases.
 
-![star-history](/content/blog/40saas-services-behind-startup/star-history.webp)
+![star-history](/content/blog/saas-services-behind-startup-2023/star-history.webp)
 
 - We keep a lean team of under 15 members based in 4 different cities.
 - We outsourced financial and legal services.
@@ -31,7 +31,7 @@ As last year, below we list the SaaS services we use under 3 categories: **Resea
 
 - (🌱 New) [Airplane](https://www.airplane.dev/) - internal tool
 
-![airplane](/content/blog/40saas-services-behind-startup/airplane.webp)
+![airplane](/content/blog/saas-services-behind-startup-2023/airplane.webp)
 
 We migrated from Retool to Airplane to generate our enterprise license key. Internal tools are built by our developers, so Airplane's developer-oriented approach fits us.
 
@@ -42,7 +42,7 @@ We migrated from Retool to Airplane to generate our enterprise license key. Inte
 - [Cloudflare](https://cloudflare.com/) - domain name
 - (⬆️ Upgraded) [Excalidraw Plus](https://excalidraw.com/) - prototype/sketch diagrams
 
-![excalidraw](/content/blog/40saas-services-behind-startup/excalidraw.webp)
+![excalidraw](/content/blog/saas-services-behind-startup-2023/excalidraw.webp)
 
 All wireframing and product illustrations are done in Excalidraw. We subscribed to its team plan Excalidraw Plus as soon as it became available.
 
@@ -157,11 +157,11 @@ Bytebase Cloud uses Paddle because it takes care of Tax as a Merchant of Record.
 
 The spending increases by 250%, mostly from cloud usage consumption, Render, GCP, and AWS. This is a good thing to have. We are also using Vantage to monitor any cost cost anomalies. This month, we noticed an unexpected Snowflake usage from our Vantage report
 
-![snowflake-bill](/content/blog/40saas-services-behind-startup/snowflake-bill.webp)
+![snowflake-bill](/content/blog/saas-services-behind-startup-2023/snowflake-bill.webp)
 
 It turns out it's a billing bug on the Snowflake side.
 
-![snowflake-issue](/content/blog/40saas-services-behind-startup/snowflake-issue.webp)
+![snowflake-issue](/content/blog/saas-services-behind-startup-2023/snowflake-issue.webp)
 
 ### Sales & Marketing
 
@@ -214,11 +214,17 @@ The total monthly spending is $2,157, a 90% increase from last year's $1,173!
 | General Administration | $550       | $378       | \-33%    |
 | **Total**              | **$1,173** | **$2,227** | **+90%** |
 
-## Parting Words
+## Recap
 
 For startups like us, there is no Buy vs Build debate. Leveraging other SaaS services is a no-brainer. We also feel pain when there is no viable SaaS offering for a particular task. e.g. We still desperately need a service that allows us to write the post once and schedule it across all major social networks.
 
 As with the rest of the industry, we are experiencing the AI storm. This year we have already onboarded a bunch of AI-native/augmented SaaS services. We even built one, [SQL Chat](https://www.sqlchat.ai/), offering a natural language interface to the database. I am already used to casting spells to construct the Zapier workflow or co-author pictures with Midjourney.
+
+Compared with last year, we are using more SaaS services as we grow our businesses. It's still manageable.
+
+![2022](/content/blog/saas-services-behind-startup-2022/banner.webp)
+
+![2023](/content/blog/saas-services-behind-startup-2023/banner.webp)
 
 ---
 
