@@ -1,16 +1,16 @@
 ---
 title: The Database CI/CD Best Practice with Azure DevOps
 author: Ningjing
-published_at: 2023/10/19 14:15
-feature_image: /content/docs/tutorials/database-cicd-best-practice-with-azure-devops/database-cicd-with-azure-devops.png
+published_at: 2023/10/24 14:15
+feature_image: /content/docs/tutorials/database-cicd-best-practice-with-azure-devops/database-cicd-with-azure-devops.webp
 tags: Tutorial
 integrations: "Azure-DevOps"
 level: Intermediate
 description: We already have CI/CD for code delivery, why not the database? Imagine applying and deploying database changes the same way you would application code.
 ---
 
-_Wanna Azure DevOps or GitHub instead?_ 👉
-- [The Database CI/CD Best Practice with Azure DevOps](/docs/tutorials/database-cicd-best-practice-with-gitlab)
+_Wanna GitLab or GitHub instead?_ 👉
+- [The Database CI/CD Best Practice with GitLab](/docs/tutorials/database-cicd-best-practice-with-gitlab)
 - [The Database CI/CD Best Practice with GitHub](/docs/tutorials/database-cicd-best-practice-with-github)
 
 Database change is a tricky part of the application development process: it usually involves multiple databases from different environments and cross-team collaboration, to add on top of it, databases are touch and go. It got us thinking: **can we treat database the same way we treat application code?**
@@ -23,7 +23,7 @@ But how does it work, really?
 
 Here, we present **a complete Database CI/CD workflow with Azure DevOps**. It's similar with GitHub, Bitbucket or Azure DevOps.
 
-![database-devops-workflow-azure-devops](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/database-devops-workflow-azure-devops.png)
+![database-devops-workflow-azure-devops](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/database-devops-workflow-azure-devops.webp)
 
 1. The developer creates a Pull Request containing the SQL migration script;
 2. SQL Review CI is automatically triggered to review SQL and offers suggestions to assist the code review;
@@ -45,10 +45,10 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Azure D
 ### Step 2 - Add Azure DevOps as a Git provider in Bytebase
 
 1. Visit Bytebase via your ngrok URL. Click **gear icon** (Settings) > **Integration** > **GitOps**, choose `Azure DevOps Service`, and click **Next**.
-   ![bb-git-provider](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-git-provider.png)
+   ![bb-git-provider](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-git-provider.webp)
 
 2. You will see STEP 2. Copy the **Redirect URI**. Click `Direct Link` to your Azure DevOps account.
-   ![bb-gitops-step2](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-gitops-step2.png)
+   ![bb-gitops-step2](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-gitops-step2.webp)
 
 3. On the Azure DevOps application registration page, fill the form as follows:
 
@@ -59,27 +59,27 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Azure D
 
    Click **Register application**.
 
-   ![az-register-application](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-register-application.png)
+   ![az-register-application](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-register-application.webp)
 
 4. Click **show**. Copy the **App ID** and **Client Secret** and paste them into the Bytebase GitOps config page. Click **Next**. Click **Authorize** on popup. You will be redirected to the confirmation page. Click **Confirm and add**, and the Git provider is successfully added.
 
-   ![az-confirm](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-confirm.png)
+   ![az-confirm](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-confirm.webp)
 
-   ![bb-gitops-added](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-gitops-added.png)
+   ![bb-gitops-added](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-gitops-added.webp)
 
 ### Step 3 - Configure a GitOps Workflow in Bytebase
 
-1. Go to Azure Devops and create a new project `bytebase-gitops`. Click **Create project**.
+1. Go to Azure DevOps and create a new project `bytebase-gitops`. Click **Create project**.
 
 2. Go to Bytebase, go to the `Sample Project`. Click **GitOps** tab and choose `GitOps workflow`. Click **Configure GitOps**.
 
 3. Choose `Azure DevOps` (the git provider you just configured) and the repository you just created. You'll be redirected to STEP 3. Keep everything as default, scroll down to the bottom and check `Enable SQL Review CI via Azure DevOps Pipeline`. Click **Finish**.
 
-   ![bb-sql-review-ci-setup](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-sql-review-ci-setup.png)
+   ![bb-sql-review-ci-setup](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-sql-review-ci-setup.webp)
 
 4. After SQL Review CI is automatically setup, click **Review the pull request**. You'll be redirected to Azure DevOps. Click **Complete** and you'll see the CI is automatically configured. It will be triggered later once a new pull request is created.
 
-   ![az-sql-ci-installed](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-sql-ci-installed.png)
+   ![az-sql-ci-installed](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-sql-ci-installed.webp)
 
 5. Go back to Bytebase, you'll see the GitOps workflow is configured successfully.
 
@@ -87,7 +87,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Azure D
 
 1. Go to **Environments**, you'll see there's a SQL Review policy attached with `Prod`. Click **Edit**, you'll see three activated SQL Review rules which will be applied via CI. Let's adjust this rule to `Error` and try to break.
 
-   ![bb-sql-review-rule-not-null-error](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-sql-review-rule-not-null-error.png)
+   ![bb-sql-review-rule-not-null-error](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-sql-review-rule-not-null-error.webp)
 
 2. To test SQL Review CI, we'll create a pull request to change the `Prod` database schema. However, it will voliate the SQL Review policy first. Go to `bytebase-gitlabcom-demo` on Azure DevOps. Click **New branch**, name it `add-nickname-table-employee`. Click **Create branch**.
 3. On the new branch, create a subdirectory `bytebase`, and create a sub-subdirectory `prod`. Within the `prod` directory, create a file `employee##202310201700##ddl##add_nickname_table_employee.sql`. Copy the following SQL script into the file and commit the change.
@@ -97,9 +97,9 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Azure D
    ```
 4. Create a pull request including the above commits. The SQL Review CI will run automatically and show the fail message. Click **Tests** to dig deeper.
 
-   ![az-ci-fail](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-ci-fail.png)
+   ![az-ci-fail](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-ci-fail.webp)
 
-   ![az-ci-fail-test-detail](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-ci-fail-test-detail.png) 
+   ![az-ci-fail-test-detail](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-ci-fail-test-detail.webp) 
 
 5. Update the SQL script and commit in the current branch. The SQL Review CI will run again and show the pass message. Click **Complete** and **Complete Merge**.
 
@@ -108,15 +108,15 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Azure D
    ADD COLUMN "nick_name" text NOT NULL DEFAULT '';
    ```
 
-   ![az-ci-pass](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-ci-pass.png)
+   ![az-ci-pass](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-ci-pass.webp)
 
 6. Go back to project `Sample Project` in Bytebase, you'll see the there's an issue created by push event.
 
-   ![bb-proj-push-event](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-proj-push-event.png)
+   ![bb-proj-push-event](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-proj-push-event.webp)
 
-7. Click and redirect to the issue. Because there is no approval flow or manual rollout configured. The issue rollouts automatically. You may click **View change** to see the diff.
+7. Click to go to the issue. Because there is no approval flow or manual rollout configured. The issue rollouts automatically. You may click **View change** to see the diff.
 
-   ![bb-issue-done](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-issue-done.png)
+   ![bb-issue-done](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-issue-done.webp)
 
 ## Advanced Features (Enterprise Plan)
 
@@ -129,7 +129,7 @@ Go to **Instances** to **Assign License** for the existing two instances.
 
 Go to **Environments** > **2.Prod**, Find **Rollout policy** section, and choose **Manual rollout by fixed roles** with all items checked.
 
-    ![bb-env-prod-rollout-policy](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-env-prod-rollout-policy.png)
+    ![bb-env-prod-manual-rollout](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-env-prod-manual-rollout.webp)
 
 ### Custom Approval
 
@@ -153,7 +153,7 @@ the team always has a canonical source of truth for the database schema in Git.
    ```
 2. Go back to Bytebase, and go to the newly created issue. Because of the settings we made above, it matches the approval flow `Project Owner -> DBA`,
 
-   ![bb-issue-waiting-for-review](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-issue-waiting-for-review.png)
+   ![bb-issue-waiting-for-review](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-issue-waiting-for-review.webp)
 
 3. After following the approval flow to click **Approve**, the banner will show **Waiting for Rollout** instead. The **Assignee** then can click **Rollout**.
 
@@ -174,7 +174,7 @@ Bytebase has built-in [schema drift detection](/docs/change-database/drift-detec
 
 3. Go back to Bytebase Console, and click **Databases** > `employee` under `Test`. Click **Sync Now**. After seeing the success message, refresh the page. You'll see the schema drift. You may configure auto scan on instance detail page to avoid manual sync.
 
-   ![bb-db-schema-drift](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-db-schema-drift.png)
+   ![bb-db-schema-drift](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-db-schema-drift.webp)
 
 4. Go to **Anomaly Center**, and you'll see the schema drift there too.
 
