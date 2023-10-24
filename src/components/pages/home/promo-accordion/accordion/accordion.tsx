@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import ChevronIcon from '@/svgs/bold-chevron.inline.svg';
-import { AccordionData } from '../promo-data-masking';
+import { AccordionData } from '../promo-accordion';
 
 const Accordion = ({
   onChange,
