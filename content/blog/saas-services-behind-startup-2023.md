@@ -220,7 +220,7 @@ For startups like us, there is no Buy vs Build debate. Leveraging other SaaS ser
 
 As with the rest of the industry, we are experiencing the AI storm. This year we have already onboarded a bunch of AI-native/augmented SaaS services. We even built one, [SQL Chat](https://www.sqlchat.ai/), offering a natural language interface to the database. I am already used to casting spells to construct the Zapier workflow or co-author pictures with Midjourney.
 
-Compared with last year, we are using more SaaS services as we grow our businesses. It's still manageable.
+Compared with last year, we are using more SaaS services as we grow our business. It's still manageable.
 
 ![2022](/content/blog/saas-services-behind-startup-2022/banner.webp)
 
