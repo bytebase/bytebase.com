@@ -24,6 +24,11 @@ const SEO_DATA = {
     description: 'Dynamic Data Masking for MySQL, PostgreSQL, Oracle, TiDB and more',
     pathname: `${Route.DATA_MASKING}/`,
   },
+  BATCH_CHANGE: {
+    title: 'Batch Change Databases',
+    description: 'Batch change databases consistently',
+    pathname: `${Route.BATCH_CHANGE}/`,
+  },
   ABOUT: {
     title: 'About Us',
     description:

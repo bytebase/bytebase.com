@@ -7,6 +7,7 @@ const Route = {
   SCHEMA_MIGRATION: '/schema-migration',
   SQL_EDITOR: '/sql-editor',
   DATA_MASKING: '/data-masking',
+  BATCH_CHANGE: '/batch-change',
   SQL_REVIEW_GUIDE: '/sql-review-guide',
   BYTEBASE_PLUS: '/bytebase-plus',
   DEMO: '/request-demo',

@@ -25,6 +25,7 @@ import MigrateIcon from '@/svgs/migrate-menu-docs.inline.svg';
 import TutorialsIcon from '@/svgs/tutorials.inline.svg';
 import ChevronIcon from '@/svgs/chevron-menu-docs.inline.svg';
 import MaskIcon from '@/svgs/mask-menu-docs.inline.svg';
+import BatchIcon from '@/svgs/batch-menu-docs.inline.svg';
 
 import PROMO_DATA from '@/lib/promo-data';
 import GithubStarCounter from './github-star-counter';
@@ -47,6 +48,7 @@ const icons: {
   editor: EditorIcon,
   migrate: MigrateIcon,
   mask: MaskIcon,
+  batch: BatchIcon,
 };
 
 type MenuItem = {
