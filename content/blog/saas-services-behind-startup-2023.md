@@ -200,12 +200,12 @@ The spending increased by 80%, mostly from increased usage (more email subscribe
 | Pulley           | $120     | $0       |
 | Slack            | $50      | $50      |
 | 🌱 Setapp        |          | $100     |
-| 🌱 Zappier       |          | $18      |
+| 🌱 Zapier       |          | $18      |
 | **Total**        | $550     | **$378** |
 
 Spending is decreased as we find ourselves not needing the paid features. We stopped our Grammarly subscription because we now use ChatGPT or other tools to refine the wording.
 
-The total monthly spending is $2,157, a 90% increase from last year's $1,183!
+The total monthly spending is $2,227, a 90% increase from last year's $1,183!
 
 |                        | **2022**   | **2023**   | **Diff** |
 | ---------------------- | ---------- | ---------- | -------- |
