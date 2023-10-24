@@ -3,6 +3,7 @@ import { BlogPost } from '@/types/blog-post';
 import Link from 'next/link';
 
 import AuroraIcon from '@/svgs/aurora.inline.svg';
+import AzureDevOpsIcon from '@/svgs/azure-devops.inline.svg';
 import BytebaseIcon from '@/svgs/bytebase.inline.svg';
 import ClickHouseIcon from '@/svgs/clickhouse.inline.svg';
 import GithubIcon from '@/svgs/github.inline.svg';
@@ -23,6 +24,7 @@ const allIntegrations: { [key: string]: React.FunctionComponent<React.SVGProps<S
   clickhouse: ClickHouseIcon,
   github: GithubIcon,
   gitlab: GitLabIcon,
+  'azure-devops': AzureDevOpsIcon,
   postgresql: PostgresIcon,
   snowflake: SnowflakeIcon,
   spanner: SpannerIcon,
