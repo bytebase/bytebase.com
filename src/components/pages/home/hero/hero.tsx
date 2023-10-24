@@ -140,7 +140,7 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
                   What’s new?
                 </span>
                 <span className="flex items-center gap-1.5 px-2">
-                  40+ SaaS Services Behind Startup - And the Bill
+                  40+ SaaS Services (And the Bill💸) Behind Startup
                   <SmallArrowIcon width={7} height={6} />
                 </span>
               </span>
