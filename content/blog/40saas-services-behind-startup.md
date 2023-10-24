@@ -4,6 +4,7 @@ author: Tianzhou
 published_at: 2023/10/24 11:00:00
 feature_image: /content/blog/40saas-services-behind-startup/banner.webp
 tags: Industry
+featured: true
 description: A breakdown of the 40+ SaaS services that we use daily at Bytebase, a 15-person 2nd year tech startup, and the monthly cost breakdown of the services.
 ---
 
@@ -218,5 +219,7 @@ The total monthly spending is $2,157, a 90% increase from last year's $1,173!
 For startups like us, there is no Buy vs Build debate. Leveraging other SaaS services is a no-brainer. We also feel pain when there is no viable SaaS offering for a particular task. e.g. We still desperately need a service that allows us to write the post once and schedule it across all major social networks.
 
 As with the rest of the industry, we are experiencing the AI storm. This year we have already onboarded a bunch of AI-native/augmented SaaS services. We even built one, [SQL Chat](https://www.sqlchat.ai/), offering a natural language interface to the database. I am already used to casting spells to construct the Zapier workflow or co-author pictures with Midjourney.
+
+---
 
 Feel free to share this article, and if you are using some neat tools not mentioned here, we'd love to hear about them. See you next year!
