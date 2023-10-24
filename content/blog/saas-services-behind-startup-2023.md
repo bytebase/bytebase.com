@@ -165,27 +165,27 @@ It turns out it's a billing bug on the Snowflake side.
 
 ### Sales & Marketing
 
-| **Service**                  | **2022** | **2023** |
-| ---------------------------- | -------- | -------- |
-| Ahrefs                       | $80      | $80      |
-| 🌱 [Cal.com](http://Cal.com) | /        | $0       |
-| Google Analytics             | $0       | $0       |
-| 🌇 Hotjar                    | $0       | Sunset   |
-| Intercom                     | $70      | $100     |
-| ⬆️ Mailchimp                 | $20      | $100     |
-| 🌱 Beehiiv                   | /        | $0       |
-| 🌱 Midjourney                | /        | $20      |
-| Orbit                        | $0       | $0       |
-| 🌱 Pitch                     | /        | $10      |
-| ⬆️ Plausible                 | $8       | $18      |
-| Paddle                       | $0       | $0       |
-| Searchramen                  | $20      | $20      |
-| 🌱 Stripe                    | /        | $0       |
-| 🌱 Speechify                 | /        | $0       |
-| 🌱 Zoom                      | /        | $20      |
-| **Total**                    | $198     | **$368** |
+| **Service**      | **2022** | **2023** |
+| ---------------- | -------- | -------- |
+| Ahrefs           | $80      | $80      |
+| 🌱 Cal.com       | /        | $0       |
+| Google Analytics | $0       | $0       |
+| 🌇 Hotjar        | $0       | Sunset   |
+| Intercom         | $70      | $100     |
+| ⬆️ Mailchimp     | $30      | $100     |
+| 🌱 Beehiiv       | /        | $0       |
+| 🌱 Midjourney    | /        | $20      |
+| Orbit            | $0       | $0       |
+| 🌱 Pitch         | /        | $10      |
+| ⬆️ Plausible     | $8       | $18      |
+| Paddle           | $0       | $0       |
+| Searchramen      | $20      | $20      |
+| 🌱 Stripe        | /        | $0       |
+| 🌱 Speechify     | /        | $0       |
+| 🌱 Zoom          | /        | $20      |
+| **Total**        | $208     | **$368** |
 
-The spending increased by 86%, mostly from increased usage (more email subscribers, having more visitors) and new sales and marketing tools.
+The spending increased by 80%, mostly from increased usage (more email subscribers, having more visitors) and new sales and marketing tools.
 
 ### General Administration
 
@@ -205,14 +205,14 @@ The spending increased by 86%, mostly from increased usage (more email subscribe
 
 Spending is decreased as we find ourselves not needing the paid features. We stopped our Grammarly subscription because we now use ChatGPT or other tools to refine the wording.
 
-The total monthly spending is $2,157, a 90% increase from last year's $1,173!
+The total monthly spending is $2,157, a 90% increase from last year's $1,183!
 
 |                        | **2022**   | **2023**   | **Diff** |
 | ---------------------- | ---------- | ---------- | -------- |
 | Research & Development | $425       | $1,481     | \+250%   |
-| Sales & Marketing      | $198       | $368       | \+86%    |
-| General Administration | $550       | $378       | \-33%    |
-| **Total**              | **$1,173** | **$2,227** | **+90%** |
+| Sales & Marketing      | $208       | $368       | \+80%    |
+| General Administration | $550       | $378       | \-30%    |
+| **Total**              | **$1,183** | **$2,227** | **+90%** |
 
 ## Recap
 
