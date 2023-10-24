@@ -140,7 +140,7 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
                   What’s new?
                 </span>
                 <span className="flex items-center gap-1.5 px-2">
-                  Case study - Salla, the Shopify for Arab
+                  40+ SaaS Services (And the Bill💸) Behind Startup
                   <SmallArrowIcon width={7} height={6} />
                 </span>
               </span>
