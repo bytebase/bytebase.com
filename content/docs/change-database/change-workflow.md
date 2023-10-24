@@ -12,16 +12,6 @@ Classic SQL Review workflow where the developer submits a SQL review ticket dire
 
 ![Issue detail interface](/content/docs/issue-detail.webp)
 
-### Issue Need Attention
-
-On the issue page, the issue creator can click the bell button to mark the issue as requiring attention from the assignee.
-
-![the position of the bell button on the issue page](/content/docs/change-database/change-workflow/position.webp)
-
-- The marked issue will be highlighted in the assignee's view.
-
-![the highlighted attention-needed issues](/content/docs/change-database/change-workflow/highlighted.webp)
-
 ## GitOps Workflow
 
 Aka `Database-as-Code`. Database migration scripts are stored in a git repository. To make schema changes, a developer would create a migration script and submit for review in the corresponding VCS such as GitLab. After the script is approved and merged into the configured branch, Bytebase will automatically kicks off the task to apply the new schema change.
