@@ -4,12 +4,13 @@ author: Ningjing
 published_at: 2023/10/24 14:15
 feature_image: /content/docs/tutorials/database-cicd-best-practice-with-azure-devops/database-cicd-with-azure-devops.webp
 tags: Tutorial
-integrations: "Azure-DevOps"
+integrations: 'Azure DevOps'
 level: Intermediate
 description: We already have CI/CD for code delivery, why not the database? Imagine applying and deploying database changes the same way you would application code.
 ---
 
-_Wanna GitLab or GitHub instead?_ 👉
+_Wanna other VCS providers instead?_ 👉
+
 - [The Database CI/CD Best Practice with GitLab](/docs/tutorials/database-cicd-best-practice-with-gitlab)
 - [The Database CI/CD Best Practice with GitHub](/docs/tutorials/database-cicd-best-practice-with-github)
 
@@ -42,7 +43,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Azure D
 
 <IncludeBlock url="/docs/get-started/install/vcs-with-ngrok"></IncludeBlock>
 
-### Step 2 - Add Azure DevOps as a Git provider in Bytebase
+## Step 2 - Add Azure DevOps as a Git provider in Bytebase
 
 1. Visit Bytebase via your ngrok URL. Click **gear icon** (Settings) > **Integration** > **GitOps**, choose `Azure DevOps Service`, and click **Next**.
    ![bb-git-provider](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-git-provider.webp)
@@ -67,7 +68,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Azure D
 
    ![bb-gitops-added](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-gitops-added.webp)
 
-### Step 3 - Configure a GitOps Workflow in Bytebase
+## Step 3 - Configure a GitOps Workflow in Bytebase
 
 1. Go to Azure DevOps and create a new project `bytebase-gitops`. Click **Create project**.
 
@@ -83,7 +84,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Azure D
 
 5. Go back to Bytebase, you'll see the GitOps workflow is configured successfully.
 
-### Step 4 - Create a Pull Request and Trigger SQL Review CI
+## Step 4 - Create a Pull Request and Trigger SQL Review CI
 
 1. Go to **Environments**, you'll see there's a SQL Review policy attached with `Prod`. Click **Edit**, you'll see three activated SQL Review rules which will be applied via CI. Let's adjust this rule to `Error` and try to break.
 
@@ -99,7 +100,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Azure D
 
    ![az-ci-fail](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-ci-fail.webp)
 
-   ![az-ci-fail-test-detail](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-ci-fail-test-detail.webp) 
+   ![az-ci-fail-test-detail](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-ci-fail-test-detail.webp)
 
 5. Update the SQL script and commit in the current branch. The SQL Review CI will run again and show the pass message. Click **Complete** and **Complete Merge**.
 

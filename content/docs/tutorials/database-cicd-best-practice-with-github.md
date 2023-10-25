@@ -9,7 +9,10 @@ level: Intermediate
 description: We already have CI/CD for code delivery, why not the database? Imagine applying and deploying database changes the same way you would application code.
 ---
 
-_Wanna GitLab instead?_ 👉 [The Database CI/CD Best Practice with GitLab](/docs/tutorials/database-cicd-best-practice-with-gitlab)
+_Wanna other VCS providers instead?_ 👉
+
+- [The Database CI/CD Best Practice with GitLab](/docs/tutorials/database-cicd-best-practice-with-gitlab)
+- [The Database CI/CD Best Practice with Azure DevOps](/docs/tutorials/database-cicd-best-practice-with-azure-devops)
 
 A series of articles about Database CI/CD with GitHub
 
@@ -106,4 +109,5 @@ Ready to taste this Database CI/CD workflow yourself? Join our [Discord channel]
 
 - [How to integrate SQL Review into Your GitLab or GitHub CI/CD](/docs/tutorials/how-to-integrate-sql-review-into-gitlab-github-ci/)
 - [The Database CI/CD Best Practice with GitLab](/docs/tutorials/database-cicd-best-practice-with-gitlab)
+- [The Database CI/CD Best Practice with Azure DevOps](/docs/tutorials/database-cicd-best-practice-with-azure-devops)
 - [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)

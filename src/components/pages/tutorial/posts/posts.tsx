@@ -24,7 +24,7 @@ const allIntegrations: { [key: string]: React.FunctionComponent<React.SVGProps<S
   clickhouse: ClickHouseIcon,
   github: GithubIcon,
   gitlab: GitLabIcon,
-  'azure-devops': AzureDevOpsIcon,
+  'azure devops': AzureDevOpsIcon,
   postgresql: PostgresIcon,
   snowflake: SnowflakeIcon,
   spanner: SpannerIcon,
