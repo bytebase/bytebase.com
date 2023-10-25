@@ -12,4 +12,5 @@ export type BlogPost = {
   featured: boolean;
   pinned: boolean;
   integrations?: string;
+  reading_time?: string;
 };

@@ -5,6 +5,7 @@ published_at: 2022/04/21 10:35:39
 feature_image: /content/docs/tutorials/how-to-use-bytebase-with-better-uptime/bytebase-use-better-uptime.webp
 tags: Tutorial
 integrations: General
+reading_time: '15 mins'
 description: We use Better Uptime as a way to monitor our websites. With a feature called heartbeats, it is also an easy-to-use tool to monitor Bytebase automatic backup.
 ---
 

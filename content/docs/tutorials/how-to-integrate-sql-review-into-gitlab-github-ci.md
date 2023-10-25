@@ -6,6 +6,7 @@ feature_image: /content/docs/tutorials/how-to-integrate-sql-review-into-gitlab-g
 tags: Tutorial
 integrations: GitHub, GitLab
 level: Intermediate
+reading_time: '20 mins'
 description: This is a tutorial on how to integrate SQL Review into your GitLab & GitHub CI/CD, so that SQL review is automatically triggered before SQL scripts are merged into your repos.
 ---
 

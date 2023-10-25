@@ -6,6 +6,7 @@ feature_image: /content/docs/tutorials/database-change-management-with-tidb/db-c
 tags: Tutorial
 integrations: TiDB
 level: Beginner
+reading_time: '20 mins'
 description: TiDB is an open-source NewSQL database that supports Hybrid Transactional and Analytical Processing workloads. This tutorial will guide you step-by-step to set up database change management for TiDB in Bytebase.
 ---
 

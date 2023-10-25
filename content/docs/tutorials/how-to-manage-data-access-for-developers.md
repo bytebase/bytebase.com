@@ -7,6 +7,7 @@ tags: Tutorial
 integrations: General
 level: Intermediate
 pinned: true
+reading_time: '15 mins'
 description: When you have a team of developers, it is critical to restrict their access to data to only what they need to do their job. This ensures to protect sensitive data and prevent unauthorized access.
 ---
 

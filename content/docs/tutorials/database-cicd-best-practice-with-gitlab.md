@@ -6,6 +6,7 @@ feature_image: /content/docs/tutorials/database-cicd-best-practice-with-gitlab/c
 tags: Tutorial
 integrations: GitLab
 level: Intermediate
+reading_time: '30 mins'
 description: We already have CI/CD for code delivery, why not the database? Imagine applying and deploying database changes the same way you would application code.
 ---
 

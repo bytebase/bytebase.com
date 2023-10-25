@@ -6,6 +6,7 @@ feature_image: /content/docs/tutorials/database-change-management-with-mysql/fea
 tags: Tutorial
 integrations: MySQL
 level: Beginner
+reading_time: '20 mins'
 description: MySQL is the most popular open-source relational database management system. This tutorial will guide you step-by-step to set up database change management for MySQL in Bytebase.
 ---
 

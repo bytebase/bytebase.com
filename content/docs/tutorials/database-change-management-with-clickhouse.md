@@ -6,6 +6,7 @@ feature_image: /content/docs/tutorials/database-change-management-with-clickhous
 tags: Tutorial
 integrations: ClickHouse
 level: Beginner
+reading_time: '20 mins'
 description: ClickHouse is an open-source column-oriented DBMS for online analytical processing. This tutorial will guide you step-by-step to set up database change management for ClickHouse in Bytebase.
 ---
 

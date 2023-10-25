@@ -6,6 +6,7 @@ feature_image: /content/docs/tutorials/database-change-management-with-mariadb/b
 tags: Tutorial
 integrations: MariaDB
 level: Beginner
+reading_time: '20 mins'
 description: MariaDB is the world's most advanced open-source relational database management system. This tutorial will guide you step-by-step to set up database change management for MariaDB in Bytebase.
 ---
 

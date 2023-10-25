@@ -6,6 +6,7 @@ feature_image: /content/docs/tutorials/manage-databases-in-bytebase-with-terrafo
 tags: Tutorial
 integrations: Terraform
 level: Intermediate
+reading_time: '30 mins'
 description: This tutorial will guide you to use Terraform Bytebase Provider to manage your databases via Terraform.
 ---
 

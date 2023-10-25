@@ -5,6 +5,7 @@ tags: Tutorial
 published_at: 2022/10/07 11:15
 integrations: MySQL
 level: Beginner
+reading_time: '5 mins'
 description: How to run a MySQL instance locally with Docker and how to add it as an **Instance** for testing purpose.
 ---
 

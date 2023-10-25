@@ -6,6 +6,7 @@ feature_image: /content/docs/tutorials/database-change-management-with-risk-adju
 tags: Tutorial
 integrations: General
 level: Intermediate
+reading_time: '15 mins'
 description: 'Bytebase provides a basic rollout mechanism by default. For more complicated enterprise-level cases, users may need different approval flows to handle database changes according to risk levels.'
 ---
 

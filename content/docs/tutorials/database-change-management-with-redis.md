@@ -6,6 +6,7 @@ feature_image: /content/docs/tutorials/database-change-management-with-redis/fea
 tags: Tutorial
 integrations: Redis
 level: Beginner
+reading_time: '20 mins'
 description: Redis is an open-source in-memory data structure store used as a database, cache, message broker, and streaming engine.This tutorial will guide you step-by-step to set up database change management for Redis in Bytebase.
 ---
 

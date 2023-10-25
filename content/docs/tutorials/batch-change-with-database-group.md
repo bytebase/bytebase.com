@@ -6,6 +6,7 @@ feature_image: /content/docs/tutorials/batch-change-with-database-group/batch-ch
 tags: Tutorial
 integrations: General
 level: Intermediate
+reading_time: '15 mins'
 description: This article describes using Database Group and Table Group to batch change databases.
 ---
 
