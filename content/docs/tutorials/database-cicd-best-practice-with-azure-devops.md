@@ -157,7 +157,7 @@ the team always has a canonical source of truth for the database schema in Git.
 
 3. After following the approval flow to click **Approve**, the banner will show **Waiting for Rollout** instead. The **Assignee** then can click **Rollout**.
 
-4. Go back to Azure DevOps, you'll notice there's a new file `.employee##LATEST.sql` under `bytebase/prod/` with the latest schema written back by Bytebase.
+4. Go back to Azure DevOps, you'll notice there's a new file `.employee##LATEST.sql` under `bytebase/prod/` with the latest schema written back by Bytebase. Ensure the branch policies permit the file to be committed to main.
 
    ![az-prod-latest](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-prod-latest.webp)
 
