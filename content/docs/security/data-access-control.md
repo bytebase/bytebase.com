@@ -4,6 +4,8 @@ title: Data Access Control
 
 <EnterpriseOnlyBlock />
 
+<TutorialBlock url="/docs/tutorials/how-to-manage-data-access-for-developers" title="How to Manage Data Access for Developers" />
+
 Data Access Control restricts how the `Workspace Developer` access and export the data. `Workspace Owner` or `DBA` are exempt from these restrictions.
 
 At the project level, a `Workspace Developer` can be a `Project Owner` or `Project Developer`. The

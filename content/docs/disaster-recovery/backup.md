@@ -139,6 +139,8 @@ In addition to automatic backup, user can also take a manual backup whenever nee
 
 ## Post-backup webhook
 
+<TutorialBlock url="/docs/tutorials/how-to-use-bytebase-with-better-uptime" title="How to use Bytebase with Better Uptime" />
+
 User can set post-backup webhook URLs for databases. After a successful backup, an HTTP POST request will be sent to it.
 
 ![Better Uptime Heartbeat](/content/docs/disaster-recovery/backup/database-webhook.webp)

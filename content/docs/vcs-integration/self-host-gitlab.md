@@ -2,6 +2,8 @@
 title: Self-host GitLab EE/CE
 ---
 
+<TutorialBlock url="/docs/tutorials/database-cicd-best-practice-with-gitlab" title="The Database CI/CD Best Practice with GitLab" />
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/51_bL7Vnqww" className="w-full" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 ## Prerequisites

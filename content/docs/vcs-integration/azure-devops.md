@@ -2,6 +2,8 @@
 title: Azure DevOps
 ---
 
+<TutorialBlock url="/docs/tutorials/database-cicd-best-practice-with-azure-devops" title="The Database CI/CD Best Practice with Azure DevOps" />
+
 ## Prerequisites
 
 - You should be the **Workspace Owner** to be able to see the **GitOps** sidebar item and add Git Provider.
@@ -11,7 +13,7 @@ title: Azure DevOps
 
 1. Go to **Settings** from the top nav bar, select **GitOps** under **Integration**, and then click **Add a Git provider**.
 2. Choose `Azure DevOps`. Both the **Instance URL** and **Display name** are pre-populated for you.
-![add-git-provider-step1](/content/docs/vcs-integration/add-git-provider/vcs-azure-step1.webp)
+   ![add-git-provider-step1](/content/docs/vcs-integration/add-git-provider/vcs-azure-step1.webp)
 
 ## Step 2 - OAuth application info
 

@@ -4,6 +4,8 @@ title: Dynamic Data Masking
 
 <EnterpriseOnlyBlock />
 
+<TutorialBlock url="/docs/tutorials/data-masking" title="Step-by-Step Guide to Data Masking" />
+
 Dynamic Data Masking can mask sensitive data in the [SQL Editor](/docs/sql-editor/overview) query result based on the context. It helps
 organizations to protect sensitive data from being exposed to unauthorized users.
 

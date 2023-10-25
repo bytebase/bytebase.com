@@ -2,6 +2,8 @@
 title: Batch Change
 ---
 
+<TutorialBlock url="/docs/tutorials/batch-change-with-database-group" title="Batch Change with Database Group" />
+
 Bytebase allows you to change a collection of databases in a single workflow. These databases usually have a homogenous structure while belong to different development environments, geographic locations, SaaS tenants or data centers. Bytebase supports three most typical batch change scenarios:
 
 - [Change databases from multiple environments](#change-databases-from-multiple-environments)

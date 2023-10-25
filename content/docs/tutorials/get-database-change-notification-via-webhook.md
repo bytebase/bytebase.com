@@ -31,8 +31,6 @@ With pre-defined webhook, users can receive database change notifications via Sl
 
 With custom webhook, Bytebase can post database change notifications to your own message systems such as in-house Ops Platform. For the HTTP message format of custom webhook, see [Project Webhook](/docs/change-database/webhook#custom).
 
-Special thanks to [@Cluas](https://github.com/Cluas) for the PR [feat: add custom project webhook](https://github.com/bytebase/bytebase/pull/1184)!
-
 ## How to configure webhook
 
 You can complete the webhook configuration in 3 steps:

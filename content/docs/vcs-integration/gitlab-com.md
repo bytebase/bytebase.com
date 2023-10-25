@@ -2,6 +2,8 @@
 title: GitLab.com
 ---
 
+<TutorialBlock url="/docs/tutorials/database-cicd-best-practice-with-gitlab" title="The Database CI/CD Best Practice with GitLab" />
+
 ## Prerequisites
 
 - You should be the **Workspace Owner** to be able to see the **GitOps** sidebar item and add Git Provider.

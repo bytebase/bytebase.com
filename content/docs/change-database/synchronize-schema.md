@@ -9,6 +9,8 @@ Syncing from arbitrary schema versions is available in the Pro Plan and Enterpri
 
 </HintBlock>
 
+<TutorialBlock url="/docs/tutorials/how-to-synchronize-database-schemas" title="How to Synchronize Database Schemas" />
+
 <HintBlock type="warning">
 
 This feature is in beta and only available for MySQL and PostgreSQL.
