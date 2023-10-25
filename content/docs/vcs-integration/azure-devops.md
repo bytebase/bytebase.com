@@ -30,7 +30,7 @@ Register info:
 - **Application name**: can be other names than `bb`, as long as the organization admin can identify this application is for `Bytebase` later
 - **Homepage URL**: can be other URLs than `https://bytebase.com`
 - **Authorization callback URL**: begins with the `host:port` where the Bytebase console is running, and followed by `/oauth/callback`. This is the URI Azure DevOps uses to callback Bytebase during the OAuth flow
-- **Authorizied scopes**: Find the checkboxes for `Code (full)`, `Identity (read)`, `Project and team (read)`
+- **Authorizied scopes**: Find the checkboxes for `Code (full)`, `Identity (read)`, `Project and team (read)`, `Build (read and execute)`
 
 Click the "**Register application**" button after filling the info on Azure and you will see a created application, then click on **show** to generate a new client secret:
 
