@@ -6,7 +6,7 @@ feature_image: /content/docs/tutorials/database-cicd-best-practice-with-azure-de
 tags: Tutorial
 integrations: 'Azure DevOps'
 level: Intermediate
-reading_time: '30 mins'
+estimated_time: '30 mins'
 description: We already have CI/CD for code delivery, why not the database? Imagine applying and deploying database changes the same way you would application code.
 ---
 

@@ -6,7 +6,7 @@ feature_image: /content/docs/tutorials/step-by-step-guide-to-data-masking/data-m
 tags: Tutorial
 integrations: General
 level: Beginner
-reading_time: '15 mins'
+estimated_time: '15 mins'
 pinned: true
 description: This tutorial will teach you how to set up and try out data masking in Bytebase.
 ---

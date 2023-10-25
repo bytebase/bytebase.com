@@ -6,7 +6,7 @@ feature_image: /content/docs/tutorials/database-change-management-with-snowflake
 tags: Tutorial
 integrations: Snowflake
 level: Beginner
-reading_time: '20 mins'
+estimated_time: '20 mins'
 description: This tutorial will guide you step-by-step to set up database change management for Snowflake in Bytebase.
 ---
 

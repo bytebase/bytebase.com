@@ -5,7 +5,7 @@ tags: Tutorial
 published_at: 2022/9/21 11:15
 integrations: General, MySQL
 level: Beginner
-reading_time: '5 mins'
+estimated_time: '5 mins'
 pinned: true
 description: How to perform your first schema change in 5 minutes via Bytebase.
 ---

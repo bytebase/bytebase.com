@@ -6,7 +6,7 @@ feature_image: /content/docs/tutorials/database-change-management-with-spanner-a
 tags: Tutorial
 integrations: MySQL, GitHub
 level: Intermediate
-reading_time: '30 mins'
+estimated_time: '30 mins'
 description: This tutorial will bring your Spanner schema change to the next level by introducing the GitOps workflow, where you commit schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 ---
 

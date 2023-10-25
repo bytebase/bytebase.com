@@ -6,7 +6,7 @@ feature_image: /content/docs/tutorials/database-change-management-with-postgresq
 tags: Tutorial
 integrations: PostgreSQL
 level: Beginner
-reading_time: '20 mins'
+estimated_time: '20 mins'
 description: PostgreSQL is the world's most advanced open-source relational database management system. This tutorial will guide you step-by-step to set up database change management for PostgreSQL in Bytebase.
 ---
 

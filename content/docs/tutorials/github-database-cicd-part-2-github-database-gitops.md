@@ -6,7 +6,7 @@ feature_image: /content/docs/tutorials/github-database-cicd-part-2-github-databa
 tags: Tutorial
 integrations: GitHub
 level: Intermediate
-reading_time: '15 mins'
+estimated_time: '15 mins'
 description: This second part will guide you through configuring GitHub.com database GitOps with Bytebase. After following these steps, you can trigger database changes by merging sql files into your GitHub repository.
 ---
 

@@ -6,7 +6,7 @@ feature_image: /content/docs/tutorials/how-to-synchronize-database-schemas/sync-
 tags: Tutorial
 integrations: General
 level: Beginner
-reading_time: '10 mins'
+estimated_time: '10 mins'
 description: This article briefly describes the general scenarios of database schema synchronization and how to use this feature smoothly in Bytebase with pure UI operations.
 ---
 

@@ -21,7 +21,7 @@ const PostLayout = ({
   featureImage = null,
   children,
   published_at = null,
-  reading_time = null,
+  estimated_time = null,
   currentSlug,
   breadcrumbs,
   navigationLinks: { previousLink, nextLink },
@@ -29,7 +29,7 @@ const PostLayout = ({
   title: string;
   featureImage: string | null;
   published_at: string | null;
-  reading_time: string | null;
+  estimated_time: string | null;
   currentSlug: string;
   children: React.ReactNode;
   breadcrumbs: Breadcrumb[];
@@ -51,9 +51,9 @@ const PostLayout = ({
           </time>
         )}
 
-        {reading_time && (
+        {estimated_time && (
           <div className="mt-2.5 text-14 leading-none text-gray-40">
-            Reading time: {reading_time}
+            Estimated: {estimated_time}
           </div>
         )}
       </div>
