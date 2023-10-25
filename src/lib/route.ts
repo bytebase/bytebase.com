@@ -8,6 +8,7 @@ const Route = {
   SQL_EDITOR: '/sql-editor',
   DATA_MASKING: '/data-masking',
   BATCH_CHANGE: '/batch-change',
+  BRANCHING: '/branching',
   SQL_REVIEW_GUIDE: '/sql-review-guide',
   BYTEBASE_PLUS: '/bytebase-plus',
   DEMO: '/request-demo',

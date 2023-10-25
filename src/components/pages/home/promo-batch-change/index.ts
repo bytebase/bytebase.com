@@ -1,3 +1,3 @@
-import PromoDataMasking from './promo-batch-change';
+import PromoBatchChange from './promo-batch-change';
 
-export default PromoDataMasking;
+export default PromoBatchChange;

@@ -29,6 +29,11 @@ const SEO_DATA = {
     description: 'Batch change databases consistently',
     pathname: `${Route.BATCH_CHANGE}/`,
   },
+  BRANCHING: {
+    title: 'Change Database the Git Way',
+    description: 'Manage database changes like Git branch',
+    pathname: `${Route.BRANCHING}/`,
+  },
   ABOUT: {
     title: 'About Us',
     description:

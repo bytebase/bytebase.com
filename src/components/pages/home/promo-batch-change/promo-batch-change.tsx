@@ -15,7 +15,7 @@ const head: AccordionHead = {
 const data: AccordionData[] = [
   {
     title: 'Propagate environments',
-    description: 'Propagate changes throughout dev, testing, staging, prod environments',
+    description: 'Propagate changes throughout dev, testing, staging, prod environments.',
     image: '/images/page/main/batch-change/multi-environment.webp',
   },
   {
@@ -25,7 +25,7 @@ const data: AccordionData[] = [
   },
   {
     title: 'Deployment config',
-    description: 'Pre-configure staged rollouts',
+    description: 'Pre-configure staged rollouts.',
     image: '/images/page/main/batch-change/deployment-config.webp',
   },
 ];

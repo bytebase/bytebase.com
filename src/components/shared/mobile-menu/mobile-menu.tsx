@@ -28,6 +28,7 @@ import MigrateIcon from '@/svgs/migrate-menu-docs.inline.svg';
 import MaskIcon from '@/svgs/mask-menu-docs.inline.svg';
 import Burger from './burger';
 import BatchIcon from '@/svgs/batch-menu-docs.inline.svg';
+import BranchIcon from '@/svgs/branch-menu-docs.inline.svg';
 
 const icons: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -46,6 +47,7 @@ const icons: {
   migrate: MigrateIcon,
   mask: MaskIcon,
   batch: BatchIcon,
+  branch: BranchIcon,
 };
 
 const ANIMATION_DURATION = 0.2;
