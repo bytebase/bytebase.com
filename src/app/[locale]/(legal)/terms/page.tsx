@@ -198,12 +198,12 @@ export default function Page() {
         We may collect data derived from your use of the Software (
         <strong>&ldquo;Usage Data&rdquo;</strong>). A specific list of Usage Data that we receive
         from self-hosted instances is always available in our{' '}
-        <Link href={Route.DOCS}>Documentation</Link> and in the site-admin area on your Instance.
-        You acknowledge and agree that Usage Data is owned solely and exclusively by us, and that we
-        may use it for any legal purpose, including for purposes of operating, analyzing, improving,
-        or marketing our products. If we share or publicly disclose any information constituting or
-        derived from Usage Data (e.g., in marketing materials), we will aggregate or mask that
-        information to avoid identification.
+        <Link href={Route.DOCS_DATA_COLLECTION}>Documentation</Link> and in the site-admin area on
+        your Instance. You acknowledge and agree that Usage Data is owned solely and exclusively by
+        us, and that we may use it for any legal purpose, including for purposes of operating,
+        analyzing, improving, or marketing our products. If we share or publicly disclose any
+        information constituting or derived from Usage Data (e.g., in marketing materials), we will
+        aggregate or mask that information to avoid identification.
       </p>
       <h2>5. Data protection</h2>
       <p>
