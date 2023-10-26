@@ -2,7 +2,7 @@ import Route from '@/lib/route';
 
 const SEO_DATA = {
   INDEX: {
-    title: 'Database CI/CD | Database DevOps | Bytebase',
+    title: 'Database CI/CD | Database DevOps | Schema Migration | Bytebase',
     description:
       'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
     pathname: '',
