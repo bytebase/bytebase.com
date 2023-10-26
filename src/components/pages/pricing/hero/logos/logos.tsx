@@ -5,7 +5,7 @@ const Logos = () => {
   return (
     <section className="container flex flex-col items-center">
       <h2 className="max-w-3xl text-center font-title text-56 font-semibold leading-none xl:max-w-2xl xl:text-56 md:max-w-lg md:text-48 sm:text-40">
-        Trusted by engineers worldwide
+        Over 2,000,000 downloads worldwide
       </h2>
       <ul className="mt-12 grid max-w-[1000px] grid-cols-4 gap-x-24 gap-y-12 2xl:mt-14 xl:mt-12 xl:max-w-[740px] xl:gap-y-8 xl:gap-x-16 md:mt-10 md:max-w-[660px] md:gap-y-7 md:gap-x-10 sm:mt-8 xs:flex xs:max-w-[460px] xs:flex-wrap xs:justify-center xs:gap-x-6 xs:gap-y-6">
         {LOGO_LIST.map((logo) => (

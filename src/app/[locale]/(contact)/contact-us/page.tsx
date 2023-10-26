@@ -16,7 +16,7 @@ export default function Page() {
         </h1>
         <p className="mt-3 text-18">
           The Enterprise plan starts at $10,000 per year, volume discount available. Contact us for
-          product demo and pricing details.
+          scheduling demo and pricing details.
         </p>
       </div>
       <ContactForm

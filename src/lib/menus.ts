@@ -12,16 +12,16 @@ export const MENU = {
           iconName: 'intro',
         },
         {
-          name: 'Use Cases',
-          description: 'Empower your Dev & DBA teams',
-          linkUrl: Route.DOCS_USE_CASE,
-          iconName: 'usecase',
-        },
-        {
           name: 'Supported Databases',
           description: 'Supported databases & features',
           linkUrl: Route.DOCS_DB,
           iconName: 'db',
+        },
+        {
+          name: 'Case Study',
+          description: 'How customers use Bytebase',
+          linkUrl: Route.BLOG_CASE_STUDY,
+          iconName: 'casestudy',
         },
         {
           name: 'Install',
@@ -38,35 +38,6 @@ export const MENU = {
         cta: 'Start Learning',
         iconName: 'tutorial',
       },
-    },
-    {
-      title: 'Resources',
-      items: [
-        {
-          name: 'Blog',
-          description: 'Learn product and industry insight',
-          linkUrl: Route.BLOG,
-          iconName: 'blog',
-        },
-        {
-          name: 'Case Study',
-          description: 'How customers use Bytebase',
-          linkUrl: Route.BLOG_CASE_STUDY,
-          iconName: 'casestudy',
-        },
-        {
-          name: 'Changelog',
-          description: 'Ship ~30 improvements bi-weekly',
-          linkUrl: Route.CHANGELOG,
-          iconName: 'changelog',
-        },
-        {
-          name: 'About Us',
-          description: 'Why we build Bytebase',
-          linkUrl: Route.ABOUT,
-          iconName: 'about',
-        },
-      ],
     },
     {
       title: 'Features',
@@ -103,8 +74,9 @@ export const MENU = {
         },
       ],
     },
+    { title: 'Blog', href: Route.BLOG },
     { title: 'Pricing', href: Route.PRICING },
-    { title: 'Contact', href: Route.CONTACTS },
+    { title: 'Contact👈', href: Route.CONTACTS },
   ],
   mobile: [
     {
@@ -117,33 +89,10 @@ export const MENU = {
           iconName: 'intro',
         },
         {
-          name: 'Use Cases',
-          description: 'Empower your Dev & DBA teams',
-          linkUrl: Route.DOCS_USE_CASE,
-          iconName: 'usecase',
-        },
-        {
           name: 'Supported Databases',
           description: 'Supported databases & features',
           linkUrl: Route.DOCS_DB,
           iconName: 'db',
-        },
-        {
-          name: 'Install',
-          description: 'Deploy in 5 minutes',
-          linkUrl: Route.DOCS_SELF_HOST,
-          iconName: 'rocket',
-        },
-      ],
-    },
-    {
-      title: 'Resources',
-      items: [
-        {
-          name: 'Blog',
-          description: 'Learn product and industry insight',
-          linkUrl: Route.BLOG,
-          iconName: 'blog',
         },
         {
           name: 'Case Study',
@@ -152,16 +101,10 @@ export const MENU = {
           iconName: 'casestudy',
         },
         {
-          name: 'Changelog',
-          description: 'Ship ~30 improvements bi-weekly',
-          linkUrl: Route.CHANGELOG,
-          iconName: 'changelog',
-        },
-        {
-          name: 'About Us',
-          description: 'Why we build Bytebase',
-          linkUrl: Route.ABOUT,
-          iconName: 'about',
+          name: 'Install',
+          description: 'Deploy in 5 minutes',
+          linkUrl: Route.DOCS_SELF_HOST,
+          iconName: 'rocket',
         },
       ],
     },
@@ -200,8 +143,9 @@ export const MENU = {
         },
       ],
     },
+    { title: 'Blog', href: Route.BLOG },
     { title: 'Pricing', href: Route.PRICING },
-    { title: 'Contact', href: Route.CONTACTS },
+    { title: 'Contact👈', href: Route.CONTACTS },
   ],
   footer: [
     {
