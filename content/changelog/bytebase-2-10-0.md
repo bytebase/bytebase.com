@@ -3,7 +3,7 @@ title: Bytebase 2.10.0
 author: Mila
 published_at: 2023/10/26 17:21:21
 feature_image: /content/changelog/2-10-0-banner.webp
-description: 'Run SQL Review checks without requiring a rollout. Predefine table templates.'
+description: 'More flexible options to appoint releaser to rollout changes. Set database & column labels'
 ---
 
 _To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
