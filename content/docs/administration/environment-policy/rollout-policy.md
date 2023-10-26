@@ -7,7 +7,3 @@ title: Rollout Policy
 ![environment-configure](/content/docs/administration/environment-policy/env-rollout-policy.webp)
 
 This setting will affect projects using either [UI workflow or GitOps workflow](/docs/concepts/database-change-workflow). Bytebase periodically inspects the next pending task. If the task whose environment requires manual rollout, then Bytebase will wait to execute the task until someone manually rolls out the task. Otherwise, Bytebase will execute the task automatically.
-
-## Creating database
-
-For all environments, `Owner` or `DBA` doesn't require additional manual rollout to create new database, while `Developer` requires the manual rollout from `Owner` or `DBA` to create new database.
