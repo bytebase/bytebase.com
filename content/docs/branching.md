@@ -8,7 +8,7 @@ Branching is supported in MySQL, PostgreSQL and TiDB.
 
 </HintBlock>
 
-![Branching](/content/docs/branching/create-branch.webp)
+![Branching](/content/docs/branching/bb-create-branch.webp)
 
 Branching allows teams to use the familar Git branching model to coordinate their database schema changes.
 
@@ -25,7 +25,7 @@ Branching allows teams to use the familar Git branching model to coordinate thei
   ![bb-branching-sync-schema](/content/docs/branching/bb-branching-sync-schema.webp)
   ![bb-branching-new-issue](/content/docs/branching/bb-branching-new-issue.webp)
 
-- The branch difference can also be used as the change source to compose the [Changelist](/docs/changelist).
-
 - Branch protection rules retrict how branch can be created, changed and merged.
   ![bb-branching-protection-rule](/content/docs/branching/bb-branching-protection-rule.webp)
+
+- The branch difference can also be used as the change source to compose the [Changelist](/docs/changelist).
