@@ -5,8 +5,6 @@ published_at: 2022/10/13 17:00:00
 description: '- Support read-only data source for read-replica instance. - SQL Editor query performance improvement. - Support drag-n-drop to sort the tab in SQL Editor and auto-restore the session. - Support displaying the currently connected environment in SQL Editor - Added a hint for the maximum return rows of the query result in SQL Editor.'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 Features
 
 - Support read-only data source for read-replica instance.
@@ -29,3 +27,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 - Thanks to [@praneetloke](https://github.com/praneetloke) for [#2898 chore: improve error message when DB connection fails](https://github.com/bytebase/bytebase/pull/2898)
 - Thanks to [@Kikkon](https://github.com/Kikkon) for [#2874 feat(sql-review): limit PostgreSQL comment length](https://github.com/bytebase/bytebase/pull/2874)
 - Thanks to [@hamidzr](https://github.com/hamidzr) for [#2857 docs: fix minor typos](https://github.com/bytebase/bytebase/pull/2857)
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

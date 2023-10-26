@@ -6,8 +6,6 @@ feature_image: /content/changelog/1-11-0-banner.webp
 description: '- Added support for MongoDB. - View ER Diagrams with the new Schema Diagram. - Edit PostgreSQL schema via the UI-based Schema Editor.'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - Added [support for MongoDB](/docs/introduction/supported-databases). 🍃
@@ -29,3 +27,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 - Ready to bring your TiDB schema change to the next level? The Database Change Management tutorial series continues!
   - Step 1 - [DevOps: Database Change Management with TiDB](/docs/tutorials/database-change-management-with-tidb)
   - Step 2 - [DevOps: Database Change Management with TiDB and GitHub](/docs/tutorials/database-change-management-with-tidb-and-github)
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

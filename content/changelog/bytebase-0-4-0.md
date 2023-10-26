@@ -3,8 +3,6 @@ title: Bytebase 0.4.0
 published_at: 2021/08/19 07:51:00
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🐞 Important Bug Fixes
 
 ### MySQL 5.7 compatibility
@@ -40,3 +38,5 @@ User can now configure webhook to allow Bytebase to post messages to the configu
 
 - Thanks @zhj-hx for providing feedback and helping us troubleshooting the MySQL 5.7 compatibility issue
 - Thanks @iczc for the PR.
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

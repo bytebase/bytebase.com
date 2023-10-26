@@ -6,8 +6,6 @@ feature_image: /content/changelog/1-16-0-banner.webp
 description: 'Customize Approval Workflow based on risk levels. Support databases: Oracle, MSSQL & MariaDB. Require two-factor authentication (2FA) for all users.'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - Customize your [Approval Flow](/docs/administration/custom-approval#approval-flows) based on risk levels.
@@ -23,3 +21,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 ## 📰 Fresh off the press
 
 - Ask Devs: Do DBAs impose [strict requirements](/blog/is-sql-review-necessary) for database schema conventions at your organization?
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

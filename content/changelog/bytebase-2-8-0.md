@@ -6,8 +6,6 @@ feature_image: /content/changelog/2-8-0-banner.webp
 description: 'Upgrade data masking, provide more granular masking and access control configuration. Revamped SQL Editor UI.'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - Upgrade data masking, providing more granular masking and access control configuration.
@@ -35,3 +33,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
   - [Top DataGrip Alternatives 2023](/blog/top-datagrip-alternative/)
   - [Top MySQL Workbench Alternatives 2023](/blog/top-mysql-workbench-alternative/)
   - [Top pgAdmin Alternatives 2023](/blog/top-pgadmin-alternative/)
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

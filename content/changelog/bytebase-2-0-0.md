@@ -6,8 +6,6 @@ feature_image: /content/changelog/2-0-0-banner.webp
 description: 'Support AI-based index optimization advisor for slow query'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - Support [AI-based index optimization advisor](/docs/slow-query/index-advisor/) for slow query.
@@ -34,3 +32,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 
 - Introducing [Bytebase 2.0](/blog/bytebase-2-0/), our new Database DevOps platform that manages the entire database development lifecycle: change, query, secure, and govern all databases in a single place.
 - As the first quarter of 2023 comes to a close, it's time to reflect on [all that we've accomplished at Bytebase in the past three months](/blog/2023-q1-retrospect/).
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

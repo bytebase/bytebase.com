@@ -4,8 +4,6 @@ published_at: 2021/12/09 13:05:33
 description: Add cmd+k command bar experience. Add database webhook
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 ### cmd+k command bar experience
@@ -34,3 +32,5 @@ We added one-click button on our GitHub front page to launch [Bytebase](https://
 
 - Add commit guide docs
 - Special shout out to [@suzaku](https://github.com/suzaku) for contributing PRs (a lot!)
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

@@ -5,8 +5,6 @@ published_at: 2022/09/29 16:00:00
 description: '- Added "LGTM" inspection for issues, allowing multiple members to review the same issue. - Improved the latency of syncing or adding PostgreSQL databases. - Added the "disallow commit" SQL review rule for MySQL. It will disallow users to use "commit" in SQL statements if enabled.'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - Added "LGTM" inspection for issues, allowing multiple members to review the same issue.
@@ -23,3 +21,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 
 - Fixed an issue where schema drift anomalies can not be removed after creating a new baseline.
 - Fixed canceled tasks' status after restarting a Bytebase server.
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

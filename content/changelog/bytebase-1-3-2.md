@@ -5,8 +5,6 @@ published_at: 2022/9/1 17:20
 description: '- Integrate PostgreSQL Explain Visualizer. - Support in-place backup restore for PostgreSQL. - Support PITR to a new database for MySQL. - Users can mark an environment as protected, and a shield badge will show up next to its name.'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - Integrate PostgreSQL Explain Visualizer 👀.
@@ -46,3 +44,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
   ![sql-review-tour](/content/changelog/1.3.2/sql-review-tour.webp)
 - Refresh marketing site [https://bytebase.com](https://bytebase.com).
 - Thanks to [@KaiNiao](https://github.com/KaiNiao) for opening the issue (Schema Review) Add MySQL "Not Null field must provide default value" Rule [#2327](https://github.com/bytebase/bytebase/issues/2327)
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

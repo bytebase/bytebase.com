@@ -6,8 +6,6 @@ feature_image: /content/changelog/2-2-0-banner.webp
 description: 'Support batch change by database groups in tenant projects; Support table-level data query requests; SQL Editor supports multiple running SQL SELECT statements in one query; Support SQL review for OceanBase.'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - Support batch change by [database groups](/docs/change-database/batch-change/#change-databases-from-database-groups) in tenant projects.
@@ -29,3 +27,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 - As we approach the halfway point of 2023, how are [our predictions](/blog/database-review-2022/) for the database market holding up? 🤓
 - Are you looking for Database CI/CD tools? Bytebase and Liquibase are two options. [This article](/blog/bytebase-vs-liquibase/) helps you understand their differences. 👀
 - Longbridge Whale, a financial service SaaS provider, solved the problem of schema changes in tenant mode with Bytebase. You can learn more about [their success story in case study](/blog/longbridge-case-study/). 🥳
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

@@ -5,8 +5,6 @@ published_at: 2022/05/12 10:58:34
 description: Launch the Chinese version of our official website. Add custom project webhook. Add "Format on save" checkbox on the issue detail page. Add "Sync schema afterward" checkbox on the instance create and detail page.
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 - **Launch the Chinese version of our official website.**
 
 ![_](/content/changelog/1.0.5/frontpage-chinese.webp)
@@ -43,3 +41,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 - Thanks to [@unknwon](https://github.com/unknwon) for the PR [feat: implement add GitHub as Git provider](https://github.com/bytebase/bytebase/pull/998).
 - Thanks to [@Cluas](https://github.com/Cluas) for the PR [feat: add custom project webhook](https://github.com/bytebase/bytebase/pull/1184).
 - Thanks to [@tnir](https://github.com/tnir) for the PRs [chore: update GitLab logos updated in 2022](https://github.com/bytebase/bytebase/pull/1215) , [docs: fix typos in types/pipeline/README.md](https://github.com/bytebase/bytebase/pull/1231), [fix(ui): tweak warning message in readonly mode](https://github.com/bytebase/bytebase/pull/1229).
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

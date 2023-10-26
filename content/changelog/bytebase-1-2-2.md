@@ -5,8 +5,6 @@ published_at: 2022/7/21 17:20
 description: '- Added support for gh-ost. - Updated the way help tips are displayed, using a side drawer instead of the pop-up tips.'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - 👻 Added support for [gh-ost](https://github.com/github/gh-ost), online schema migration for large MySQL tables (Beta).
@@ -62,3 +60,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 ## 🎠 Community
 
 - Thanks to [@tisonkun](https://github.com/tisonkun) for feat(schema system): support PG fk name convention rules [#1890](https://github.com/bytebase/bytebase/pull/1890)
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

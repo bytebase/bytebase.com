@@ -4,8 +4,6 @@ published_at: 2021/12/22 16:36:07
 description: Chinese language support, scheduled time to execute a task and enhancement / bug fixes.
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 ### 你好, 中文 Chinese Language Support
@@ -55,3 +53,5 @@ Access token expiration was added to [GitLab 14.3](https://about.gitlab.com/rele
 
 - Add [i18n guide docs](https://github.com/bytebase/bytebase/blob/main/docs/i18n-guide.md) to help community member start contributing.
 - Our gratitude goes to [@linucksrox](https://github.com/linucksrox) especially for [his detailed bug report](https://github.com/bytebase/bytebase/issues/108)  and [@suzaku](https://github.com/suzaku) again for the continuous contribution.
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

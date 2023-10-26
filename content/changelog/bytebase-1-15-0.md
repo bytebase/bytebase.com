@@ -6,8 +6,6 @@ feature_image: /content/changelog/1-15-0-banner.webp
 description: '- SaaS version - GitOps supports Bitbucket Cloud - SQL Chat'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - Bytebase now offers a Cloud version [https://hub.bytebase.com/](https://hub.bytebase.com/).
@@ -27,3 +25,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 
 - Boost your productivity with ChatGPT's enhanced database tools! Read a (non-exhaustive) summary [https://www.bytebase.com/blog/chatgpt-enhanced-database-tools](/blog/chatgpt-enhanced-database-tools).
 - Say goodbye to tedious SQL queries with SQL Chat, making database management a breeze with natural language processing [https://www.bytebase.com/blog/sql-chat](/blog/sql-chat).
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

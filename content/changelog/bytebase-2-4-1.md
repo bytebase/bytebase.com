@@ -6,8 +6,6 @@ feature_image: /content/changelog/2-4-1-banner.webp
 description: 'Support GitHub Enterprise for VCS integration; export data as XLSX files; manage Oracle instance based on schema'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - Support [GitHub Enterprise](/docs/vcs-integration/github-enterprise/) for VCS integration.
@@ -34,3 +32,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
   - Common [mysql commands with examples](/blog/top-mysql-commands-with-examples/).
   - How to [install MySQL Client](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows/) on Your Mac, Ubuntu, CentOS, or Windows
   - Snowflake Schema Change [Best Practice](/blog/snowflake-schema-change/).
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

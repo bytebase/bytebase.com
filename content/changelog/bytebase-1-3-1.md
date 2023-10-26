@@ -5,8 +5,6 @@ published_at: 2022/8/18 17:20
 description: '- SQL review now available on GitHub Actions. - MySQL database restore sped up by 20x. - Project owners can now be set as Issue approvers.'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - [SQL Review](https://github.com/marketplace/actions/sql-review) is now available on the GitHub Action Marketplace! 🐱
@@ -32,3 +30,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 ## 🎠 Community
 
 - Created an [example](https://github.com/Bytebase/sql-review-action-example) for how to configure SQL Review GitHub Action.
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

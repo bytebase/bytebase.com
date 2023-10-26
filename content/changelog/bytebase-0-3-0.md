@@ -3,8 +3,6 @@ title: Bytebase 0.3.0
 published_at: 2021/08/02 07:50:00
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - **Environment approval policy ([detailed guide](https://docs.bytebase.com/use-bytebase/approval-policy))** - For a particular environment, the workspace Owner or DBA can configure whether the database schema change requires approval.
@@ -16,3 +14,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 - We received our first customer review. Thanks @barretlee for the detailed review!
 - Our GitHub repository has reached 100 stars at the begining of the week. The user name is @binarysort :)
 - We appeared on GitHub Trending during the week and accumulated 500 stars over the week.
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

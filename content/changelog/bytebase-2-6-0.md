@@ -6,8 +6,6 @@ feature_image: /content/changelog/2-6-0-banner.webp
 description: 'Support using LDAP for configuring SSO. Support adding multiple read-only data sources.'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - Support using [LDAP](/docs/administration/sso/ldap/) for configuring SSO.
@@ -38,3 +36,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 - The saga between MySQL and Postgres continues with [PlanetScale and Neon](/blog/planetscale-vs-neon/)!
 - DBeaver is one of the most popular database management tools out there, BUT - just in case you are in the mood for something different... We got [the best DBeaver alternatives](/blog/top-dbeaver-alternative/), with a comparison chart at the end 📈
 - New video tutorial: set up [custom approval flows](https://www.youtube.com/watch?v=K_RWlqdplZQ) for your issues in just 100 seconds.
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

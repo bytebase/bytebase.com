@@ -5,8 +5,6 @@ published_at: 2022/9/15 17:20
 description: '- AWS S3 is now supported as a backup storage backend. - Added a new onboarding guide. - Introduced `--external-url` and removed `--host` in the startup option.'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - AWS S3 is now supported as a backup storage backend.
@@ -36,3 +34,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
   - [Part 1: Enable SQL Review with GitHub Actions](/docs/tutorials/github-database-cicd-part-1-sql-review-github-actions)
   - [Part 2: GitHub.com Database GitOps](/docs/tutorials/github-database-cicd-part-2-github-database-gitops)
   - [Part 3: Put Them Together](/docs/tutorials/github-database-cicd-part-3-put-them-together)
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

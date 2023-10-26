@@ -6,8 +6,6 @@ feature_image: /content/changelog/2-10-0-banner.webp
 description: 'Run SQL Review checks without requiring a rollout. Predefine table templates.'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## New Features
 
 - More flexible options to appoint releaser to rollout changes: you can specify any dedicated role set, or the last approver of a custom approval process.
@@ -38,3 +36,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 - How the Saudi-based E-commerce platform Salla [consolidates database change & access management with Bytebase](/blog/salla-case-study/) 🛍️.
 - An audit (with detailed usage bills💸) of [the SaaS services we use daily](/blog/saas-services-behind-startup-2023) at Bytebase.
 - A [Handy Tutorial](/docs/tutorials/database-cicd-best-practice-with-azure-devops/) to Database CI/CD Best Practice with Azure DevOps.
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

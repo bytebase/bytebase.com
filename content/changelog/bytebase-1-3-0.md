@@ -5,8 +5,6 @@ published_at: 2022/8/4 17:20
 description: '- Support SQL review for PostgreSQL. - GitHub.com VCS integration and authentication provider. - Restore a database to the time point before the last migration with one click.'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - Support SQL review for PostgreSQL with 13 rules: [SQL Review](https://www.bytebase.com/docs/sql-review/review-policy)
@@ -40,3 +38,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 - Added interactive source code tour via [Sourcegraph](https://sourcegraph.com/github.com/bytebase/bytebase/-/blob/docs/design/source-code-tour.snb.md).
 
 - Thanks to [@unknwon](https://github.com/unknwon) for implementing [issue #928 ☂️ GitHub Git provider](https://github.com/bytebase/bytebase/issues/928).
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

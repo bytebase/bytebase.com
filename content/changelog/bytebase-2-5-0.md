@@ -6,8 +6,6 @@ feature_image: /content/changelog/2-5-0-banner.webp
 description: 'Support Azure DevOps for VCS integration; Support setting Sign-in Frequency'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - Support [Azure DevOps](/docs/vcs-integration/azure-devops/) for VCS integration.
@@ -35,3 +33,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 - Bytebase [Crossed 1 Million Downloads](/blog/one-million-downloads/) 🎉 , while our goal stays the same as when we started the project!
 - [A case study](/blog/ev-manufacturer-case-study/) demonstrating how Bytebase helps a single DBA to work with over 1000 developers to adopt Database DevOps in an EV Manufacturer.
 - SQL AI tools can significantly boost your productivity when working with databases. Here are the [top 5 SQL AI tools](/blog/top-sql-ai-tools/) on the market.
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

@@ -3,8 +3,6 @@ title: Bytebase 0.2.2
 published_at: 2021/07/26 07:49:00
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🐞 Important Bug Fixes
 
 - **MySQL connection leak** - In the previous version, when Bytebase does not properly release the connection after finishing connecting the MySQL instance, which will cause MySQL connection pool exhaustation.
@@ -22,3 +20,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 ## 🎠 Community
 
 - We launched our English blog, checkout our [launch post](https://bytebase.com/blog/announce-bytebase).
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

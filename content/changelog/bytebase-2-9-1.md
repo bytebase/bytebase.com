@@ -6,8 +6,6 @@ feature_image: /content/changelog/2-9-1-banner.webp
 description: 'Group changes into a changelist and apply them in one issue or export.'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - Group changes into a changelist and apply them in one issue or export.
@@ -32,3 +30,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 - Bytebase Q3 2023 was a busy quarter, with new releases, popular posts, and product updates. We're excited to share a sneak peek at what we accomplished in [our retrospective](/blog/2023-q3-retrospect).
 
 - Data Masking can helps organizations to protect sensitive data from being exposed to unauthorized users. Learn how with this tutorial: [Step-by-Step Guide to Data Masking](/docs/tutorials/data-masking/).
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

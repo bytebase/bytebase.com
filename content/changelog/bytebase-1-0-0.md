@@ -4,8 +4,6 @@ published_at: 2022/03/08 09:58:16
 description: Version 1.0.0 and announcing our Team plan
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 Announce our Team Plan
 
 With over a year of hard work and 3500+ commits, we finally reach the milestone to announce our 1.0.0 version and our **Team Plan**. The **Team Plan** includes:
@@ -70,3 +68,5 @@ Thus, we decide to retire this feature. Meanwhile we already have ideas for a mu
 
 - Thanks to [@Innei](https://github.com/Innei) for PR [fix(bbmodal): subtitle bg keep out modal container content & add max-height padding](https://github.com/bytebase/bytebase/pull/679).
 - Thanks to [@tisonkun](https://github.com/tisonkun) for PR [refactor: update tidb dependency and remove workaround replacement](https://github.com/bytebase/bytebase/pull/611)
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

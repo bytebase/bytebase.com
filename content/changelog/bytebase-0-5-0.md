@@ -3,8 +3,6 @@ title: Bytebase 0.5.0
 published_at: 2021/09/09 06:58:22
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 ### Project level activities
@@ -40,3 +38,5 @@ In the previous version, Bytebase couldn't sync the migration history properly b
 
 - Thanks [@chenliang](https://github.com/chenliang) for providing a detailed bug report for MySQL compatibility issue and even suggesting the fix.
 - Thanks [@yaohui-wyh](https://github.com/yaohui-wyh) for the contribution.
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

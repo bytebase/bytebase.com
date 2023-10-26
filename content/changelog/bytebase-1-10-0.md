@@ -5,8 +5,6 @@ published_at: 2022/12/29 17:00:00
 description: '- Workspace owner and DBA can now view audit logs. - Support CRUD database role (only for PostgreSQL) via Terraform Provider. - Support viewing and editing primary keys and foreign keys in the Schema editor for MySQL. - Support MySQL/TiDB SSL connection.'
 ---
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
-
 ## 🚀 New Features
 
 - Workspace owner and DBA can now view audit logs.
@@ -41,3 +39,5 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 - Database change has long been the most critical step in a release. If you do it well, you are one step closer to [improving CI/CD efficiency](/blog/database-cicd-best-practice).
 - With Bytebase, a team can have a formalized review and rollout process to [make Snowflake schema change and data change](/docs/tutorials/database-change-management-with-snowflake).
 - This tutorial will bring your [Snowflake schema change to the next level by introducing the GitOps workflow](/docs/tutorials/database-change-management-with-snowflake-and-github), where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
