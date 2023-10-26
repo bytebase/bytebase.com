@@ -37,3 +37,4 @@ _To install, follow [installation doc](/docs/get-started/install/overview). If y
 - DORA released its annual State of DevOps 2023 report a few days ago. There were some interesting conclusions made. Check out [our hot take](/blog/dora-state-of-devops-2023/) 🔥.
 - How the Saudi-based E-commerce platform Salla [consolidates database change & access management with Bytebase](/blog/salla-case-study/) 🛍️.
 - An audit (with detailed usage bills💸) of [the SaaS services we use daily](/blog/saas-services-behind-startup-2023) at Bytebase.
+- A [Handy Tutorial](/docs/tutorials/database-cicd-best-practice-with-azure-devops/) to Database CI/CD Best Practice with Azure DevOps.
