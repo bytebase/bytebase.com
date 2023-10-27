@@ -23,7 +23,7 @@ But how does it work, really?
 
 ## A Complete Database CI/CD Workflow
 
-Here, we present **a complete Database CI/CD workflow with Azure DevOps**. It's similar with GitHub, Bitbucket or Azure DevOps.
+Here, we present **a complete Database CI/CD workflow with Azure DevOps**. It's similar with GitHub, Bitbucket or GitLab.
 
 ![database-devops-workflow-azure-devops](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/database-devops-workflow-azure-devops.webp)
 
