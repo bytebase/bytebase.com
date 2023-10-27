@@ -3,7 +3,7 @@ title: Data Masking for MySQL Databases
 author: Mila
 published_at: 2023/10/27 21:21:21
 feature_image: /content/blog/dynamic-data-masking/banner.webp
-tags: Enginnering
+tags: Engineering
 featured: true
 description: Data masking is a handy tool to have to keep your organization's sensitive information safe. Here, we take a look at top options for MySQL data masking.
 ---
