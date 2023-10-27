@@ -45,17 +45,17 @@ However, Percona Data Masking only works with Percona Server for MySQL. If you u
 ![_](/content/blog/mysql-data-masking/bytebase-masking.webp)
 
 [Bytebase Dynamic Data Masking](/docs/security/data-masking/overview/) doesn't depend on the underlying MySQL views and users.
-It manages the masking policies and grants internally. Masking policy is applied when user queries from the SQL Editor.
+It manages the masking policies and grants inside Bytebase. Masking policy is applied when user queries from the SQL Editor.
 
 ![_](/content/blog/mysql-data-masking/bytebase-sql-editor.webp)
 
-Bytebase dynamic masking consists of the following three components:
+Bytebase Dynamic Data Masking consists of the following components:
 
 1. Global Masking Rule: `Workspace Owner` and `DBA` can apply masking levels in batch, e.g. all columns named as "email" are masked at "Partial" masking level. You can also easily change masking policy without having to reapply the masking policy to thousands of columns, and the hassle of maintaining views is saved.
 
 ![_](/content/blog/mysql-data-masking/bytebase-global-masking.webp)
 
-2. Column Masking Rule: `Workspace Owner` and `DBA` can set table columns as different masking levels.
+2. Column Masking Rule: `Workspace Owner` and `DBA` can set table columns as different masking levels. Column masking rule takes precedence over the global masking rule.
 
 ![_](/content/blog/mysql-data-masking/bytebase-column-level-masking.webp)
 
@@ -65,6 +65,22 @@ Bytebase dynamic masking consists of the following three components:
 
 _`Workspace Owner` and `DBA` here are [roles](/docs/concepts/roles-and-permissions/) in Bytebase._
 
-## To Wrap Up
+## Comparison Table
 
-Data masking is a handy tool to have to keep your organization's sensitive information safe. Try it out by following [this tutorial](/docs/tutorials/data-masking/). If you encounter any issues, or need a helping hand, feel free to join our [Discord](https://discord.com/invite/huyw7gRsyA) channel!
+|               | MySQL Enterprise Data Masking Plugin | Percona Data Masking Plugin | Bytebase Dynamic Data Masking                               |
+| ------------- | ------------------------------------ | --------------------------- | ----------------------------------------------------------- |
+| Compatibility | MySQL Enterprise Edition Only        | Percona Server for MySQL    | All MySQL distributions ⭐️                                 |
+| Enforced at   | Database self ⭐️                    | Database self ⭐️           | SQL Editor                                                  |
+| Features      | Basic                                | Basic                       | Advanced with granular masking policy and access grants ⭐️ |
+| Price         | Paid                                 | Free ⭐️                    | Paid                                                        |
+
+The advantage of MySQL Enterprise Data Masking / Percona Data Masking Plugin is they are implemented in the database itself. Thus data masking rules
+are enforced regarless of how queries are sent to the database. For Bytebase Dynamic Data Masking, queries must go through SQL Editor to be enforced.
+
+The advantage of Bytebase Dynamic Data Masking is its compatibility with all MySQL distributions, feature-rich masking policy and access grants.
+As long as team can be enforced to query databases via Bytebase [SQL Editor](/sql-editor) (which is desired from the management perspective), then Bytebase Dynamic Data Masking
+is a perfect choice.
+
+---
+
+You can try Bytebase Dynamic Data Masking following [this tutorial](/docs/tutorials/data-masking/). If you encounter any issues, or need a helping hand, feel free to join our [Discord](https://discord.com/invite/huyw7gRsyA) channel!
