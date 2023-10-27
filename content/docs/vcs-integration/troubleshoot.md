@@ -2,34 +2,37 @@
 title: 🐞 Troubleshoot
 ---
 
-### Committed migration file does not trigger issue creation
+_If you need further assistance setting up GitOps, feel free to [reach us](/docs/faq/#how-to-reach-us)._
+
+## Committed migration file does not trigger issue creation
 
 When a migration file is committed to the VCS, VCS will send a webhook event to Bytebase. There are two error categories:
 
-1. Bytebase has received webhook events
-2. Bytebase has not received any webhook event
+- Bytebase has received webhook events
 
-#### Bytebase has received webhook events
+- Bytebase has not received any webhook event
 
-In this case, if you visit your project overview page, you should find an activity event suggesting Bytebase has received the webhook event. However, the committed file doesn't match the configured path and the event is ignored. The first row in the below screenshot shows such warning.
+### Bytebase has received webhook events
+
+In this case, if you visit your project activity page, you should find an activity event suggesting Bytebase has received the webhook event. However, the committed file doesn't match the configured path and the event is ignored.
 
 ![activity-warning](/content/docs/vcs-integration/troubleshoot/activity-warning.webp)
 
 You should check the committed file conforms exactly to the [naming convention](/docs/vcs-integration/name-and-organize-schema-files) and the directory structure conforms to the [layout](/docs/vcs-integration/name-and-organize-schema-files#file-organization). Some common mistakes:
 
-1. Forget the extension
-1. Case mismatch
-1. Directory mismatch
+1. Forget the extension in the file name.
+1. Case mismatch in the db name and environment id.
+1. Directory mismatch.
 
-#### Bytebase has not received any webhook event
+### Bytebase has not received any webhook event
 
-In this case, you should visit the VCS project page and check the webhook event history. Some common mistakes:
+In this case, you should visit the your VCS provider's webook page and check the webhook event history. Some common mistakes:
 
-1. Make sure to configure a proper [External URL](/docs/get-started/install/external-url).
+1. Make sure Bytebase has configured a proper [External URL](/docs/get-started/install/external-url).
 
 1. Make sure that configured URL is network accessible from VCS.
 
-### Failed to create webhook xxx, status code: 422 for GitLab
+## Failed to create webhook xxx, status code: 422 for GitLab
 
 From [GitLab](https://docs.gitlab.com/ee/security/webhooks.html)
 
@@ -47,7 +50,7 @@ Please make sure you are configuring the [GitLab external_url](https://docs.gitl
 
 A common mistake is user misconfigures the port when using port forwarding. e.g. GitLab is running on port 7890, while it's exposed to the public on port 7891. In such case the `external_url` should be `https://example.com:7891` instead of `https://example.com:7890`
 
-### OAuth CORS error with old GitLab version
+## OAuth CORS error with old GitLab version
 
 When using old GitLab version (e.g. 9.4.0) to setup VCS integration, you may encounter OAuth error like [this one](https://github.com/bytebase/bytebase/issues/467):
 
@@ -58,13 +61,13 @@ This is a common problem in the old GitLab verison:
 - https://gitlab.com/gitlab-org/gitlab-foss/-/issues/19470
 - https://gitlab.com/gitlab-org/gitlab/-/issues/300077
 
-#### Verify the problem
+### Verify the problem
 
 Open your browser devtool with `F12`, check the `Network` section. If the latest token request with **`CORS error`** status, we can be certain that it's the `/oauth/token` api CORS error inside GitLab.
 
 ![cors-error](/content/docs/vcs-integration/troubleshoot/cors-error.webp)
 
-#### Potential solution
+### Potential solution
 
 We cannot change GitLab source code to add the `Access-Control-Allow-Origin: *` to `/oauth/token` response header, but can use Nginx as a reverse proxy for GitLab (the other proxy service works the similar way).
 
