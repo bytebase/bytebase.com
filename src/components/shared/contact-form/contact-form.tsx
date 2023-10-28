@@ -11,7 +11,7 @@ import Link from '@/components/shared/link/link';
 import { BUTTON_SUCCESS_TIMEOUT_MS } from '@/lib/forms';
 import { STATES } from '@/lib/states';
 import Route from '@/lib/route';
-import SuccessState from './success-state';
+import { useRouter } from 'next/navigation';
 
 const feishuWebhookList = [
   'https://open.feishu.cn/open-apis/bot/v2/hook/30f98436-7921-4cf2-8535-522f0b5ba128',
@@ -39,8 +39,8 @@ const validationSchema = yup.object().shape({
 
 const ContactForm = ({ className, formId }: { className: string; formId: string }) => {
   const [buttonState, setButtonState] = useState(STATES.DEFAULT);
-  const [isFormSuccess, setIsFormSuccess] = useState(false);
   const [formError, setFormError] = useState('');
+  const router = useRouter();
 
   const {
     register,
@@ -77,8 +77,8 @@ const ContactForm = ({ className, formId }: { className: string; formId: string 
       if (responses.every((response) => response.ok)) {
         setButtonState(STATES.SUCCESS);
         setTimeout(() => {
+          router.push(Route.CONFIRM_MESSAGE);
           setButtonState(STATES.DEFAULT);
-          setIsFormSuccess(true);
           reset();
         }, BUTTON_SUCCESS_TIMEOUT_MS);
       } else {
@@ -97,76 +97,73 @@ const ContactForm = ({ className, formId }: { className: string; formId: string 
 
   return (
     <div className={className}>
-      {isFormSuccess && <SuccessState />}
-      {!isFormSuccess && (
-        <form
-          className="grid grid-cols-2 gap-5 md:grid-cols-1 sm:gap-4"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <Field
-            type="text"
-            placeholder="First name*"
-            error={errors?.firstname?.message}
-            {...register('firstname')}
-          />
-          <Field
-            type="text"
-            placeholder="Last name*"
-            error={errors?.lastname?.message}
-            {...register('lastname')}
-          />
-          <Field
-            className="col-span-full"
-            type="email"
-            placeholder="Work email*"
-            error={errors?.email?.message}
-            {...register('email')}
-          />
-          <Field
-            className="col-span-full"
-            type="text"
-            placeholder="Company name*"
-            error={errors?.company?.message}
-            {...register('company')}
-          />
-          <Field
-            className="col-span-full"
-            inputClassName="p-4 pt-3 md:pt-2"
-            tag="textarea"
-            placeholder="Additional information"
-            error={errors?.message?.message}
-            {...register('message')}
-          />
-          <div className="relative col-span-full flex items-center gap-x-5 sm:flex-col sm:items-start sm:gap-y-2">
-            <div className="flex w-full max-w-[260px] flex-col items-center lg:max-w-[320px] sm:max-w-full">
-              <Button
-                className="w-full shrink-0 p-4"
-                theme="primary-filled"
-                size="md"
-                type="submit"
-                state={buttonState}
-              >
-                Submit
-              </Button>
-              {formError && (
-                <span className="mt-1.5 text-12 leading-none text-secondary-6 sm:text-center 2xs:max-w-[144px]">
-                  {formError}
-                </span>
-              )}
-            </div>
-            <p className="w-full max-w-[300px] text-14 text-gray-50 lg:max-w-full">
-              By submiting, you agree with Bytebase&apos;s{' '}
-              <Link className="font-semibold" theme="underline" size="xs" href={Route.PRIVACY}>
-                Terms of Service
-              </Link>{' '}
-              and{' '}
-              <Link className="font-semibold" theme="underline" size="xs" href={Route.TERMS}>
-                Privacy Policy
-              </Link>
-            </p>
+      <form
+        className="grid grid-cols-2 gap-5 md:grid-cols-1 sm:gap-4"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <Field
+          type="text"
+          placeholder="First name*"
+          error={errors?.firstname?.message}
+          {...register('firstname')}
+        />
+        <Field
+          type="text"
+          placeholder="Last name*"
+          error={errors?.lastname?.message}
+          {...register('lastname')}
+        />
+        <Field
+          className="col-span-full"
+          type="email"
+          placeholder="Work email*"
+          error={errors?.email?.message}
+          {...register('email')}
+        />
+        <Field
+          className="col-span-full"
+          type="text"
+          placeholder="Company name*"
+          error={errors?.company?.message}
+          {...register('company')}
+        />
+        <Field
+          className="col-span-full"
+          inputClassName="p-4 pt-3 md:pt-2"
+          tag="textarea"
+          placeholder="Additional information"
+          error={errors?.message?.message}
+          {...register('message')}
+        />
+        <div className="relative col-span-full flex items-center gap-x-5 sm:flex-col sm:items-start sm:gap-y-2">
+          <div className="flex w-full max-w-[260px] flex-col items-center lg:max-w-[320px] sm:max-w-full">
+            <Button
+              className="w-full shrink-0 p-4"
+              theme="primary-filled"
+              size="md"
+              type="submit"
+              state={buttonState}
+            >
+              Submit
+            </Button>
+            {formError && (
+              <span className="mt-1.5 text-12 leading-none text-secondary-6 sm:text-center 2xs:max-w-[144px]">
+                {formError}
+              </span>
+            )}
           </div>
-        </form>
-      )}
+          <p className="w-full max-w-[300px] text-14 text-gray-50 lg:max-w-full">
+            By submiting, you agree with Bytebase&apos;s{' '}
+            <Link className="font-semibold" theme="underline" size="xs" href={Route.PRIVACY}>
+              Terms of Service
+            </Link>{' '}
+            and{' '}
+            <Link className="font-semibold" theme="underline" size="xs" href={Route.TERMS}>
+              Privacy Policy
+            </Link>
+          </p>
+        </div>
+      </form>
     </div>
   );
 };

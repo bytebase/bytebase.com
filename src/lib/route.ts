@@ -13,6 +13,7 @@ const Route = {
   BYTEBASE_PLUS: '/bytebase-plus',
   DEMO: '/request-demo',
   CONFIRM_DEMO: '/confirm-demo',
+  CONFIRM_MESSAGE: '/confirm-message',
 
   // seo pages
   DBA: '/usecase/dba',
