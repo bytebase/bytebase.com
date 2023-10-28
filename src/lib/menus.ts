@@ -62,13 +62,13 @@ export const MENU = {
         },
         {
           name: 'Batch Change',
-          description: 'Batch change databases consistently',
+          description: 'Multi-environments, multi-regions, multi-tenants',
           linkUrl: Route.BATCH_CHANGE,
           iconName: 'batch',
         },
         {
           name: 'Branching',
-          description: 'Managing database change like code',
+          description: 'Change database the Git way',
           linkUrl: Route.BRANCHING,
           iconName: 'branch',
         },
@@ -76,7 +76,7 @@ export const MENU = {
     },
     { title: 'Blog', href: Route.BLOG },
     { title: 'Pricing', href: Route.PRICING },
-    { title: 'Contact👈', href: Route.CONTACTS },
+    { title: 'Enterprise👈', href: Route.CONTACTS },
   ],
   mobile: [
     {
@@ -131,13 +131,13 @@ export const MENU = {
         },
         {
           name: 'Batch Change',
-          description: 'Batch change databases consistently',
+          description: 'Multi-environments, multi-regions, multi-tenants',
           linkUrl: Route.BATCH_CHANGE,
           iconName: 'batch',
         },
         {
           name: 'Branching',
-          description: 'Managing database change like code',
+          description: 'Change database the Git way',
           linkUrl: Route.BRANCHING,
           iconName: 'branch',
         },
@@ -145,7 +145,7 @@ export const MENU = {
     },
     { title: 'Blog', href: Route.BLOG },
     { title: 'Pricing', href: Route.PRICING },
-    { title: 'Contact👈', href: Route.CONTACTS },
+    { title: 'Enterprise👈', href: Route.CONTACTS },
   ],
   footer: [
     {

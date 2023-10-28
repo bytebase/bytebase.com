@@ -26,7 +26,7 @@ const SEO_DATA = {
   },
   BATCH_CHANGE: {
     title: 'Batch Change Databases',
-    description: 'Batch change databases consistently',
+    description: 'Multi-environments, multi-regions, multi-tenants',
     pathname: `${Route.BATCH_CHANGE}/`,
   },
   BRANCHING: {
