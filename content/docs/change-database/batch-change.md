@@ -4,7 +4,7 @@ title: Batch Change
 
 <TutorialBlock url="/docs/tutorials/batch-change-with-database-group" title="Batch Change with Database Group" />
 
-Bytebase allows you to change a collection of databases in a single workflow. These databases usually have a homogenous structure while belong to different development environments, geographic locations, SaaS tenants or data centers. Bytebase supports three most typical batch change scenarios:
+Bytebase allows you to change a collection of databases in a single workflow. These databases usually have a homogenous structure while belong to different development environments, geographic locations, SaaS tenants, data centers or data partitions. Bytebase supports three most typical batch change scenarios:
 
 - [Change databases from multiple environments](#change-databases-from-multiple-environments)
 - [Change databases from multiple tenants](#change-databases-from-multiple-tenants)
@@ -27,7 +27,7 @@ Then Bytebase will then create an issue to track the multi-database changes. You
 
 <EnterpriseOnlyBlock />
 
-Bytebase allows you to change **a collection of databases with identical schemas**, these databases are often referred as [tenant databases](/docs/concepts/batch-mode/#tenant-database).
+Bytebase allows you to change **a collection of databases with identical schemas**, these databases are often referred as tenant databases.
 
 ### Scenarios
 
@@ -39,9 +39,7 @@ Typical scenarios of tenant databases are:
 It is often desired to apply schema changes to databases across all tenants since these databases are homogeneous, but in a staged rollout fashion (aka. canary deployment) to minimize the risk of breaking all deployments.
 
 You should consider using tenant databases when there are multiple database instances alongside multiple deployments for the same application.
-For example, a software company offers medical record storage services for its customers, hospitals. Each hospital is considered as a tenant, and each tenant has to store their patient data in its own database for regulation or privacy purposes. This feature allows updating database schema for all tenants in a simple and consistent way. Other use cases include multi-location databases for supporting highly-available services where each location is a tenant.
-
-Let's take the hospital example to follow the steps below.
+For example, a software company offers HR systems for its customers. Each customer is considered as a tenant, and each tenant has to store their employee data in its own database for regulation or privacy purposes. This feature allows updating database schema for all tenants in a simple and consistent way. Other use cases include multi-location databases for supporting highly-available services where each location is a tenant.
 
 ### Prerequisites
 
