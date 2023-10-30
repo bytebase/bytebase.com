@@ -18,19 +18,30 @@ In this case, if you visit your project activity page, you should find an activi
 
 ![activity-warning](/content/docs/vcs-integration/troubleshoot/activity-warning.webp)
 
-You should check the committed file conforms exactly to the [naming convention](/docs/vcs-integration/name-and-organize-schema-files) and the directory structure conforms to the [layout](/docs/vcs-integration/name-and-organize-schema-files#file-organization). Some common mistakes:
+You should check the committed file conforms exactly to the [naming convention](/docs/vcs-integration/name-and-organize-schema-files) and the directory structure conforms to the [layout](/docs/vcs-integration/name-and-organize-schema-files#file-organization). Bytebase file name match is **case-sensitive**. Below screenshot shows some common mistakes:
 
-1. Forget the extension in the file name.
-1. Case mismatch in the db name and environment id.
-1. Directory mismatch.
+![commit](/content/docs/vcs-integration/troubleshoot/commits.webp)
+
+![activity](/content/docs/vcs-integration/troubleshoot/activities.webp)
+
+1. ❌ File name mismatches.
+1. ❌ File name case mismatches.
+1. ❌ Environment id mismatches. Note we should match `Environment ID` instead of `Enviornment Name`.
+   ![environment-id](/content/docs/vcs-integration/troubleshoot/environment-id.webp)
+1. ✅ Match.
 
 ### Bytebase has not received any webhook event
 
-In this case, you should visit the your VCS provider's webook page and check the webhook event history. Some common mistakes:
+In this case, you should visit the your VCS provider's webbook page and check the webhook event history.
 
 1. Make sure Bytebase has configured a proper [External URL](/docs/get-started/install/external-url).
 
 1. Make sure that configured URL is network accessible from VCS.
+
+You can [turn on debug mode](/docs/faq/#toggle-debug-mode-at-runtime). Then on the GitOps settings page, visit
+the linked VCS webhook page to check the details.
+
+![webhook](/content/docs/vcs-integration/troubleshoot/webhook.webp)
 
 ## Failed to create webhook xxx, status code: 422 for GitLab
 
