@@ -165,7 +165,7 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
             size="lg"
             className="sm:!w-fit sm:!px-6"
           >
-            See Live Demo
+            Try Live Demo
           </Button>
           <LinkUnderlined href={Route.DEMO}>Request a demo</LinkUnderlined>
         </footer>

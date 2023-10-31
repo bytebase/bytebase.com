@@ -2,7 +2,7 @@ import ROUTE from '@/lib/route';
 
 const PROMO_DATA = {
   TOP_BANNER: {
-    title: '🚘  Try live demo - no login required',
+    title: '🚘  Try live guided demo - no login required',
     pathname: `${ROUTE.LIVE_DEMO}?source=top-banner`,
   },
   BLOG_ASIDE: {
