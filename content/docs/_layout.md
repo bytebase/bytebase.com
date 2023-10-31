@@ -237,7 +237,7 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ## Integrations
 
-### [Terraform](/docs/get-started/terraform)
+### [Terraform](/get-started/terraform)
 
 ### [Supabase](/how-to/integrations/supabase)
 
