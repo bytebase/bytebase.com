@@ -33,4 +33,5 @@ Once External Approval is configured, it can be added as an approval node.
 
 ## Custom roles
 
-Sometimes, the predefined project roles might not fit your needs. In that case, you can use [custom roles](/docs/administration/custom-roles).
+Sometimes, the predefined project roles might not fit your needs. e.g. You require tester to approve.
+In that case, you can use [custom roles](/docs/administration/custom-roles).
