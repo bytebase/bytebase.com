@@ -18,7 +18,7 @@ Choose the preset "Skip manual approval" approval flow for a risk if you don't w
 To create or update approval flows, click the **Approval Flows** tab.
 An approval flow must have at least one approval node.
 
-## External Approval
+## External approval
 
 You can configure an approval node pointing to an external approval system. Bytebase will sync the
 approval status from the external system, and will approve the node once the external flow is approved there.
