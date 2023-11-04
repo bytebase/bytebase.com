@@ -21,35 +21,35 @@ Let's say the base directory is `bytebase` :
 - An example file path for [schema migration type](/docs/concepts/database-change-workflow/#schema-migration): `bytebase/env1/db1##202101131000##ddl##create_tablefoo_for_bar.sql`
 - An example file path for [data migration type](/docs/concepts/database-change-workflow/#data-migration): `bytebase/env1/db1##202101131000##dml##change_for_bar_data.sql`
 
-#### Version (Required)
+### Version (Required)
 
 Version can be an arbitrary string as long as it's unique among all SQL files. Bytebase uses the alphabetical order of the version part to determine the order of the SQL file to apply. A common practice is to use timestamp like `YYYYMMDDHHMMSS` or `v1, v2` as the version name.
 
-#### Database Name (Required)
+### Database Name (Required)
 
 Database name should exactly match the destined database name. The match is **case-sensitive.** However, this may still cause ambiguity if the project contains multiple databases with the same name (this is not uncommon in practice, e.g. you give the same database name across all environments). In such case, include **Environment Identifier** in the template.
 
-#### Migration Type (Required)
+### Migration Type (Required)
 
 Bytebase currently supports following migration types:
 
 - [Schema migration](/docs/concepts/database-change-workflow/#schema-migration) - in this case, the file needs to use `ddl` as the keyword.
 - [Data change](/docs/concepts/database-change-workflow/#data-migration) - in this case, the file needs to use `dml` as the keyword.
 
-#### Environment Identifier (Optional)
+### Environment Identifier (Optional)
 
 Environment identifier should match the destined environment identifier of the database. Unlike database name matching rule, the environment identifier match is lower-case and **case-sensitive**. This is useful to disambiguate the database if multiple databases have the same name across the environments.
 
-#### Description (Optional)
+### Description (Optional)
 
 An optional description string can be included in the file name. If provided, Bytebase will use it to name the generated task for the migration.
 
-#### Supported Placeholders
+### Supported Placeholders
 
 - All placeholder can contain one or more UTF-8 characters in UTF-8 **except** character in `\[/?%\*:|"<>\\]` (whitespace allowed).
 - To improve readability, we recommend to use separator between different placeholders and one common separator is `##` (two pound signs).
 
-#### Supported wildcard
+### Supported wildcard
 
 - Use '_' to match one directory. For example:
   `{{ENV_ID}}/_/{{DB_NAME}}##{{VERSION}}##{{TYPE}}##{{DESCRIPTION}}.sql`matches`env1/foo/db1##202101131000##ddl##create_tablefoo_for_bar.sql`.
@@ -68,15 +68,15 @@ Let's say the base directory is `bytebase`
 
 - An example schema path is `bytebase/env1/.db1##LATEST.sql`
 
-#### Database Name (Required)
+### Database Name (Required)
 
 Database name should exactly match the destined database name. However, this may still cause ambiguity if the project contains multiple databases with the same name (this is not uncommon in practice, e.g. you give the same database name across all environments). In such case, include **Environment Identifier** in the template.
 
-#### Environment Identifier (Optional)
+### Environment Identifier (Optional)
 
 Environment identifier should exactly match the destined environment identifier of the database. This is useful to disambiguate the database if multiple databases have the same name across the environments.
 
-#### Supported Placeholders
+### Supported Placeholders
 
 - All placeholder can contain one or more characters in \[a-zA-Z0-9+-=/\_#?!\$. ] (whitespace allowed)
 - To improve readability, we recommend to use separator between different placeholders and one common separator is `##` (two pound signs).

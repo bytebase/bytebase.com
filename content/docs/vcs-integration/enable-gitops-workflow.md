@@ -60,7 +60,7 @@ Select the repository you want to link to the Bytebase project.
 
 The final step allows you to configure the following settings:
 
-#### Branch - Required
+### Branch - Required
 
 This is the branch where Bytebase observes the migration SQL file changes.
 
@@ -70,7 +70,7 @@ For GitLab, you can specify wildcards, such as "**feature/\***" to match branche
 
 </HintBlock>
 
-#### Base directory - Optional
+### Base directory - Optional
 
 Default: `root directory`
 
@@ -78,7 +78,7 @@ Bytebase only observes migration file changes under this directory and all its s
 
 Click "Finish" button to complete the setup. Under the hood, this will create a webhook in the linked repository so that Bytebase can observe code changes.
 
-#### Schema change type - Required
+### Schema change type - Required
 
 Default: `Migration-based`
 
@@ -92,7 +92,7 @@ State-based schema change type provides a declarative way to describe the desire
 
 <DocLinkBlock url="/docs/change-database/state-based-migration" title="State-based Migration"></DocLinkBlock>
 
-#### File path template - Required
+### File path template - Required
 
 Default: `{{ENV_ID}}/{{DB_NAME}}##{{VERSION}}##{{TYPE}}##{{DESCRIPTION}}.sql`
 
@@ -111,7 +111,7 @@ Optional placeholders
 
 Check [name and organize schema files](/docs/vcs-integration/name-and-organize-schema-files) for the recommended file path template.
 
-#### Schema path template - Optional
+### Schema path template - Optional
 
 Default: `{{ENV_ID}}/.{{DB_NAME}}##LATEST.sql`
 
@@ -133,7 +133,7 @@ Optional placeholders
 
 - `{{ENV_ID}}` - Specify the lower-case environment identifier. This is useful to disambiguate the specified database if databases share the same name across different environments.
 
-#### Enable SQL Review CI - Optional
+### Enable SQL Review CI - Optional
 
 You can follow [GitOps SQL Review CI](/docs/sql-review/sql-advisor/gitops-ci) to set up.
 
