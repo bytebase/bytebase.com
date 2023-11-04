@@ -6,7 +6,19 @@ title: GitOps with VCS Integration
 
 <iframe width="675" height="380" src="https://www.youtube.com/embed/51_bL7Vnqww" title="YouTube video player" className="w-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
-The VCS Integration is a 3-step setup. You can check this [demo issue](https://demo.bytebase.com/issue/blogprod-alter-schema-create-table-blog-109) created by Bytebase through observing the [code commit](https://gitlab.bytebase.com/bytebase-demo/blog/-/commit/171ceaf7659ceb8e495aa3ef356ec686656f9dc0) to see what it looks like after the setup.
+The VCS Integration is a 3-step setup. You can check this [demo issue](https://demo.bytebase.com/issue/hrprodvcs-alter-schema-add-city-102) created by Bytebase through observing the [code commit](https://github.com/s-bytebase/hr-sample/commit/5208900f520468574a9aaca17b4cb99987dbc4f6) to see what it looks like after the setup.
+
+Developer commits the change in VCS
+
+![result-git-commit](/content/docs/vcs-integration/add-git-provider/result-git-commit.webp)
+
+The commit triggers a corresponding issue
+
+![result-issue-detail](/content/docs/vcs-integration/add-git-provider/result-issue-detail.webp)
+
+If [SQL Review CI](/docs/sql-review/sql-advisor/gitops-ci/) is configured, The PR page will show the inline check
+
+![result-sql-review](/content/docs/vcs-integration/add-git-provider/result-sql-review.webp)
 
 ---
 

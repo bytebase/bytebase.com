@@ -71,7 +71,7 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Overview](/vcs-integration/overview)
 
-### [Add Git Provider](/vcs-integration/add-git-provider)
+### Add Git Provider
 
 #### [Self-host GitLab EE/CE](/vcs-integration/self-host-gitlab)
 

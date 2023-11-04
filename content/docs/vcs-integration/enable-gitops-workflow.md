@@ -10,7 +10,7 @@ To enable GitOps workflow, project owner needs to link one of their Git reposito
 
 Estimate setup time: 15 minutes.
 
-This guide will walk you through how to enable the GitOps workflow for a project in Bytebase. This is a [reference setup](https://demo.bytebase.com/project/blog-git-3003#version-control) showing what it will look like after the setup.
+This guide will walk you through how to enable the GitOps workflow for a project in Bytebase. This is a [reference setup](https://demo.bytebase.com/issue/hrprodvcs-alter-schema-add-city-102) showing what it will look like after the setup.
 
 ## Prerequisites
 
