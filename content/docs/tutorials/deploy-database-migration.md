@@ -1,5 +1,5 @@
 ---
-title: Deploy Database Migration with Bytebase
+title: Deploy Database Migration with Bytebase's 3-tier pricing plans
 author: Ningjing
 published_at: 2023/11/3 14:15
 feature_image: /content/docs/tutorials/deploy-database-migration/db-migration-banner.webp
