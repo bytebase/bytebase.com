@@ -1,5 +1,5 @@
 ---
-title: Deploy Database Migration with Bytebase's 3-tier pricing plans
+title: Deploy Database Migration with Bytebase
 author: Ningjing
 published_at: 2023/11/3 14:15
 feature_image: /content/docs/tutorials/deploy-database-migration/db-migration-banner.webp
@@ -15,6 +15,11 @@ Bytebase offers a powerful GUI for database migration deployments. This tutorial
 ![graph-4-steps](/content/docs/tutorials/deploy-database-migration/graph-4-steps.webp)
 
 Bytebase offers **Community**, **Pro** and **Enterprise** Plans ([view detail](/pricing)). After following this tutorial, you can choose the plan that best meets your needs.
+
+### Features included
+- SQL Review
+- Rollout Policy
+- Custom Approval
 
 ### Preparation
 
