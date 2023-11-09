@@ -58,6 +58,7 @@ Different sets of rules can form different [SQL Review Policies](/docs/sql-revie
   - [Auto-increment initial value](/docs/sql-review/review-rules#column.auto-increment-initial-value)
   - [Limit the count of current time columns](/docs/sql-review/review-rules#column.current-time-count-limit)
   - [Require column default value](/docs/sql-review/review-rules#column.require-default)
+  - [Prohibit dropping columns in indexes](/docs/sql-review/review-rules#column.disallow-drop-in-index)
 - Index
   - [Disallow duplicate column in index keys](/docs/sql-review/review-rules#index.no-duplicate-column)
   - [Limit the count of index keys](/docs/sql-review/review-rules#index.key-number-limit)
@@ -650,6 +651,7 @@ Dry run DML statements by `EXPLAIN` statements. Specifically, Bytebase checks:
 #### Support database engine
 
 - MySQL
+- TiDB
 - PostgreSQL
 - OceanBase
 
@@ -1211,6 +1213,27 @@ Specifically, Bytebase checks:
 - TiDB
 - PostgreSQL
 - Oracle
+- OceanBase
+
+<div id="column.disallow-drop-in-index"></div>
+### Prohibit dropping columns in indexes
+
+Dropping columns in indexes may cause performance issues. Users should be cautious about this.
+
+![sql-review-column-disallow-drop-in-index](/content/docs/sql-review/sql-review-column-disallow-drop-in-index.webp)
+
+#### How the rule works
+
+Bytebase checks if dropping columns in indexes.
+
+Specifically, Bytebase checks:
+
+- `ALTER TABLE DROP COLUMN` statements
+
+#### Support database engine
+
+- MySQL
+- TiDB
 - OceanBase
 
 ## Index
