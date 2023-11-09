@@ -12,6 +12,8 @@ import OceanBaseIcon from '@/svgs/oceanbase.inline.svg';
 import OracleIcon from '@/svgs/oracle.inline.svg';
 import SnowflakeIcon from '@/svgs/snowflake.inline.svg';
 import MssqlIcon from '@/svgs/mssql.inline.svg';
+import MariadbIcon from '@/svgs/mariadb.inline.svg';
+import OceanBaseOracleIcon from '@/svgs/oceanbase-oracle.inline.svg';
 
 import { JSXElementConstructor } from 'react';
 
@@ -23,6 +25,8 @@ const icons: Record<string, JSXElementConstructor<{ key: string; className: stri
   ORACLE: OracleIcon,
   SNOWFLAKE: SnowflakeIcon,
   MSSQL: MssqlIcon,
+  MARIADB: MariadbIcon,
+  OCEANBASE_ORACLE: OceanBaseOracleIcon,
 };
 
 const EngineList = ({
