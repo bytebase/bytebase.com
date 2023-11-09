@@ -19,12 +19,15 @@ description: 'Support setting parameters for MySQL online schema change.'
 - Rearranged project page layout.
 
 ## 🪦 Deprecations
+
 - The **Bookmarks** functionality will no longer be available in our forthcoming software update. We recommend utilizing your browser's bookmarking capabilities as an alternative. 
 
 ## 🐞 Bug Fixes
+
 - Fixed: renaming files on Azure DevOps/Bitbucket doesn't trigger issue creation in Bytebase. 
 
 ## 🎠 Community
+
 - Thanks to [@bds-congnguyen](https://github.com/bds-congnguyen) for fix: update bytebase-sql-review.yml for CICD [#8984](https://github.com/bytebase/bytebase/pull/8984)
 
 ## 📰 Fresh off the press
