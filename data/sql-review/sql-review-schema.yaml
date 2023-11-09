@@ -13,6 +13,7 @@ ruleList:
     category: ENGINE
     engineList:
       - MYSQL
+      - MARIADB
     componentList: []
   - type: table.require-pk
     category: TABLE
@@ -21,9 +22,11 @@ ruleList:
       - TIDB
       - POSTGRES
       - ORACLE
+      - OCEANBASE_ORACLE
       - OCEANBASE
       - SNOWFLAKE
       - MSSQL
+      - MARIADB
     componentList: []
   - type: table.no-foreign-key
     category: TABLE
@@ -32,9 +35,11 @@ ruleList:
       - TIDB
       - POSTGRES
       - ORACLE
+      - OCEANBASE_ORACLE
       - OCEANBASE
       - SNOWFLAKE
       - MSSQL
+      - MARIADB
     componentList: []
   - type: table.drop-naming-convention
     category: TABLE
@@ -45,6 +50,7 @@ ruleList:
       - OCEANBASE
       - SNOWFLAKE
       - MSSQL
+      - MARIADB
     componentList:
       - key: format
         payload:
@@ -56,6 +62,7 @@ ruleList:
       - MYSQL
       - TIDB
       - OCEANBASE
+      - MARIADB
     componentList:
       - key: required
         payload:
@@ -72,6 +79,7 @@ ruleList:
       - TIDB
       - POSTGRES
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: statement.select.no-select-all
     category: STATEMENT
@@ -80,9 +88,11 @@ ruleList:
       - TIDB
       - POSTGRES
       - ORACLE
+      - OCEANBASE_ORACLE
       - OCEANBASE
       - SNOWFLAKE
       - MSSQL
+      - MARIADB
     componentList: []
   - type: statement.where.require
     category: STATEMENT
@@ -91,9 +101,11 @@ ruleList:
       - TIDB
       - POSTGRES
       - ORACLE
+      - OCEANBASE_ORACLE
       - OCEANBASE
       - SNOWFLAKE
       - MSSQL
+      - MARIADB
     componentList: []
   - type: statement.where.no-leading-wildcard-like
     category: STATEMENT
@@ -102,7 +114,9 @@ ruleList:
       - TIDB
       - POSTGRES
       - ORACLE
+      - OCEANBASE_ORACLE
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: statement.disallow-commit
     category: STATEMENT
@@ -111,6 +125,7 @@ ruleList:
       - TIDB
       - POSTGRES
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: statement.disallow-limit
     category: STATEMENT
@@ -118,6 +133,7 @@ ruleList:
       - MYSQL
       - TIDB
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: statement.disallow-order-by
     category: STATEMENT
@@ -125,6 +141,7 @@ ruleList:
       - MYSQL
       - TIDB
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: statement.merge-alter-table
     category: STATEMENT
@@ -133,6 +150,7 @@ ruleList:
       - TIDB
       - POSTGRES
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: statement.insert.row-limit
     category: STATEMENT
@@ -140,6 +158,7 @@ ruleList:
       - MYSQL
       - POSTGRES
       - OCEANBASE
+      - MARIADB
     componentList:
       - key: number
         payload:
@@ -152,7 +171,9 @@ ruleList:
       - TIDB
       - POSTGRES
       - ORACLE
+      - OCEANBASE_ORACLE
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: statement.insert.disallow-order-by-rand
     category: STATEMENT
@@ -161,6 +182,7 @@ ruleList:
       - TIDB
       - POSTGRES
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: statement.affected-row-limit
     category: STATEMENT
@@ -168,6 +190,7 @@ ruleList:
       - MYSQL
       - POSTGRES
       - OCEANBASE
+      - MARIADB
     componentList:
       - key: number
         payload:
@@ -179,6 +202,8 @@ ruleList:
       - MYSQL
       - POSTGRES
       - OCEANBASE
+      - MARIADB
+      - TIDB
     componentList: []
   - type: statement.disallow-add-column-with-default
     category: STATEMENT
@@ -202,9 +227,11 @@ ruleList:
       - TIDB
       - POSTGRES
       - ORACLE
+      - OCEANBASE_ORACLE
       - OCEANBASE
       - SNOWFLAKE
       - MSSQL
+      - MARIADB
     componentList:
       - key: format
         payload:
@@ -221,6 +248,7 @@ ruleList:
       - TIDB
       - POSTGRES
       - OCEANBASE
+      - MARIADB
     componentList:
       - key: format
         payload:
@@ -237,6 +265,7 @@ ruleList:
       - TIDB
       - POSTGRES
       - OCEANBASE
+      - MARIADB
     componentList:
       - key: format
         payload:
@@ -256,6 +285,7 @@ ruleList:
       - TIDB
       - POSTGRES
       - OCEANBASE
+      - MARIADB
     componentList:
       - key: format
         payload:
@@ -275,6 +305,7 @@ ruleList:
       - TIDB
       - POSTGRES
       - OCEANBASE
+      - MARIADB
     componentList:
       - key: format
         payload:
@@ -311,6 +342,7 @@ ruleList:
       - MYSQL
       - TIDB
       - OCEANBASE
+      - MARIADB
     componentList:
       - key: format
         payload:
@@ -324,6 +356,7 @@ ruleList:
     category: NAMING
     engineList:
       - ORACLE
+      - OCEANBASE_ORACLE
       - SNOWFLAKE
       - MSSQL
     componentList: []
@@ -331,6 +364,7 @@ ruleList:
     category: NAMING
     engineList:
       - ORACLE
+      - OCEANBASE_ORACLE
       - SNOWFLAKE
       - MSSQL
     componentList: []
@@ -338,6 +372,7 @@ ruleList:
     category: NAMING
     engineList:
       - ORACLE
+      - OCEANBASE_ORACLE
       - SNOWFLAKE
     componentList:
       - key: upper
@@ -351,9 +386,11 @@ ruleList:
       - TIDB
       - POSTGRES
       - ORACLE
+      - OCEANBASE_ORACLE
       - OCEANBASE
       - SNOWFLAKE
       - MSSQL
+      - MARIADB
     componentList:
       - key: list
         payload:
@@ -390,9 +427,11 @@ ruleList:
       - TIDB
       - POSTGRES
       - ORACLE
+      - OCEANBASE_ORACLE
       - OCEANBASE
       - SNOWFLAKE
       - MSSQL
+      - MARIADB
     componentList: []
   - type: column.disallow-change-type
     category: COLUMN
@@ -401,6 +440,7 @@ ruleList:
       - TIDB
       - POSTGRES
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: column.set-default-for-not-null
     category: COLUMN
@@ -408,7 +448,9 @@ ruleList:
       - MYSQL
       - TIDB
       - ORACLE
+      - OCEANBASE_ORACLE
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: column.disallow-change
     category: COLUMN
@@ -416,6 +458,7 @@ ruleList:
       - MYSQL
       - TIDB
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: column.disallow-changing-order
     category: COLUMN
@@ -423,6 +466,7 @@ ruleList:
       - MYSQL
       - TIDB
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: column.comment
     category: COLUMN
@@ -430,6 +474,7 @@ ruleList:
       - MYSQL
       - TIDB
       - OCEANBASE
+      - MARIADB
     componentList:
       - key: required
         payload:
@@ -445,6 +490,7 @@ ruleList:
       - MYSQL
       - TIDB
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: column.type-disallow-list
     category: COLUMN
@@ -453,7 +499,9 @@ ruleList:
       - TIDB
       - POSTGRES
       - ORACLE
+      - OCEANBASE_ORACLE
       - OCEANBASE
+      - MARIADB
     componentList:
       - key: list
         payload:
@@ -465,6 +513,7 @@ ruleList:
       - MYSQL
       - TIDB
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: column.maximum-character-length
     category: COLUMN
@@ -473,7 +522,9 @@ ruleList:
       - TIDB
       - POSTGRES
       - ORACLE
+      - OCEANBASE_ORACLE
       - OCEANBASE
+      - MARIADB
     componentList:
       - key: number
         payload:
@@ -483,6 +534,7 @@ ruleList:
     category: COLUMN
     engineList:
       - ORACLE
+      - OCEANBASE_ORACLE
       - SNOWFLAKE
       - MSSQL
     componentList:
@@ -496,6 +548,7 @@ ruleList:
       - MYSQL
       - TIDB
       - OCEANBASE
+      - MARIADB
     componentList:
       - key: number
         payload:
@@ -507,6 +560,7 @@ ruleList:
       - MYSQL
       - TIDB
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: column.current-time-count-limit
     category: COLUMN
@@ -514,6 +568,7 @@ ruleList:
       - MYSQL
       - TIDB
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: column.require-default
     category: COLUMN
@@ -522,7 +577,9 @@ ruleList:
       - TIDB
       - POSTGRES
       - ORACLE
+      - OCEANBASE_ORACLE
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: schema.backward-compatibility
     category: SCHEMA
@@ -533,6 +590,7 @@ ruleList:
       - OCEANBASE
       - SNOWFLAKE
       - MSSQL
+      - MARIADB
     componentList: []
   - type: database.drop-empty-database
     category: DATABASE
@@ -540,6 +598,7 @@ ruleList:
       - MYSQL
       - TIDB
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: index.no-duplicate-column
     category: INDEX
@@ -548,6 +607,7 @@ ruleList:
       - TIDB
       - POSTGRES
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: index.key-number-limit
     category: INDEX
@@ -556,7 +616,9 @@ ruleList:
       - TIDB
       - POSTGRES
       - ORACLE
+      - OCEANBASE_ORACLE
       - OCEANBASE
+      - MARIADB
     componentList:
       - key: number
         payload:
@@ -568,6 +630,7 @@ ruleList:
       - MYSQL
       - TIDB
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: index.type-no-blob
     category: INDEX
@@ -575,6 +638,7 @@ ruleList:
       - MYSQL
       - TIDB
       - OCEANBASE
+      - MARIADB
     componentList: []
   - type: index.total-number-limit
     category: INDEX
@@ -583,6 +647,7 @@ ruleList:
       - TIDB
       - POSTGRES
       - OCEANBASE
+      - MARIADB
     componentList:
       - key: number
         payload:
@@ -612,6 +677,7 @@ ruleList:
       - TIDB
       - POSTGRES
       - OCEANBASE
+      - MARIADB
     componentList:
       - key: list
         payload:
@@ -624,6 +690,7 @@ ruleList:
       - TIDB
       - POSTGRES
       - OCEANBASE
+      - MARIADB
     componentList:
       - key: list
         payload:
