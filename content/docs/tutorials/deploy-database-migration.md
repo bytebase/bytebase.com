@@ -94,7 +94,7 @@ ALTER TABLE "public"."employee"
 ![bb-proj-set-rollout-time](/content/docs/tutorials/deploy-database-migration/bb-proj-set-rollout-time.webp)
 
 ### Level 3: Manual rollout with custom approval (Enterprise Plan)
-After the automatic but check before the rollout, we want some people to review the SQL manually. If it's a risky SQL, there should be more people involved.
+After the automatic check but before the rollout, we want some people to review the SQL manually. If it's a risky SQL, there should be more people involved.
 
 Go to **Instances** and click **Assign License** for both instances. Without doing this, the enterprise plan required for custom approval won't be enabled on instances.
 
