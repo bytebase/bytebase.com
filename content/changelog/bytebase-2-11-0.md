@@ -3,38 +3,34 @@ title: Bytebase 2.11.0
 author: Ningjing
 published_at: 2023/11/9 17:21:21
 feature_image: /content/changelog/2-11-0-banner.webp
-description: 'More flexible options to appoint releaser to rollout changes. Set database & column labels'
+description: 'Support setting parameters for MySQL online schema change. '
 ---
 
 ## 🚀 New Features
 
-- More flexible options to appoint releaser to rollout changes: you can specify any dedicated role set, or the last approver of a custom approval process.
-- Configure branch protection rules for projects.
-- Set database labels.
-- Set column labels.
-- Set table classification.
+- Support setting parameters for MySQL online schema change.
+- Add **database viewer** role to **Project**. (Check [Roles and Permissions](/docs/concepts/roles-and-permissions/))
+- Support OceanBase in Oracle Mode.
 
 ## 🎄 Enhancements
 
-- Support PostgreSQL 16.
-- Create sub-branches from a branch.
-- Select alternative target branches when merging.
-- SQL Editor:
-  - You can now abort queries.
-  - Customize your database tree view.
-- Issues: use local variables for SQL Server.
-- Set Postgres, MySQL, Oracle, SQL Server, Snowflake query LIMIT with Parser.
-- Display column type length in Table detail page (if applicable).
+- Support choosing `All users` and assign roles in a project.
+- Display table and column details on a hover panel in SQL Editor.
+- Rearranged project page layout.
+
+## 🪦 Deprecations
+- The **Bookmarks** functionality will no longer be available in our forthcoming software update. We recommend utilizing your browser's bookmarking capabilities as an alternative. 
 
 ## 🐞 Bug Fixes
+- Fixed: renaming files on Azure DevOps/Bitbucket doesn't trigger issue creation in Bytebase. 
 
-- Fixed: default column issue for Branching and Edit Schema.
+## 🎠 Community
+- Thanks to [@bds-congnguyen](https://github.com/bds-congnguyen) for fix: update bytebase-sql-review.yml for CICD [#8984](https://github.com/bytebase/bytebase/pull/8984)
 
 ## 📰 Fresh off the press
 
-- DORA released its annual State of DevOps 2023 report a few days ago. There were some interesting conclusions made. Check out [our hot take](/blog/dora-state-of-devops-2023/) 🔥.
-- How the Saudi-based E-commerce platform Salla [consolidates database change & access management with Bytebase](/blog/salla-case-study/) 🛍️.
-- An audit (with detailed usage bills💸) of [the SaaS services we use daily](/blog/saas-services-behind-startup-2023) at Bytebase.
-- A [Handy Tutorial](/docs/tutorials/database-cicd-best-practice-with-azure-devops/) to Database CI/CD Best Practice with Azure DevOps.
+- Data masking is a crucial technique for safeguarding sensitive information. [This article](/blog/mysql-data-masking/) compares three methods to do it for MySQL 🐬.
+- [This tutorial](/docs/tutorials/deploy-schema-migration/) shows you how to use Bytebase to deploy schema migrations with features like SQL Review, custom approval, time scheduling, and more 👓.
+- Treat databases the same way we treat applications. It's time for [Bitbucket](/docs/tutorials/database-cicd-best-practice-with-bitbucket/) 🪣!
 
 _To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
