@@ -1,5 +1,5 @@
 ---
-title: Deploy Schema Migration with Bytebase
+title: Deploy Schema Migration with Rollout Policy
 author: Ningjing
 published_at: 2023/11/3 14:15
 feature_image: /content/docs/tutorials/deploy-schema-migration/schema-migration-banner.webp
@@ -7,6 +7,7 @@ tags: Tutorial
 integrations: General
 level: Beginner
 estimated_time: '30 mins'
+pinned: true
 description: Bytebase offers a powerful GUI for schema migration deployments. This tutorial will show you how to use Bytebase to deploy schema migrations with features like SQL Review, custom approval, time scheduling, and more.
 ---
 
@@ -14,12 +15,14 @@ Bytebase offers a powerful GUI for schema migration deployments. This tutorial w
 
 ![graph-4-steps](/content/docs/tutorials/deploy-schema-migration/graph-4-steps.webp)
 
-Bytebase offers **Community**, **Pro** and **Enterprise** Plans ([view detail](/pricing)). After following this tutorial, you can choose the plan that best meets your needs.
+Bytebase offers **Community**, **Pro** and **Enterprise** [Plans](/pricing). Advanced plans
+unlock new capabilities of deploying schema migrations and this tutorial will walk you through them progressively.
 
-### Features included
-- SQL Review
-- Rollout Policy
-- Custom Approval
+### Features covered
+
+- Level 1 - [Automatic SQL Review](/docs/sql-review/overview/) (available in all plans)
+- Level 2 - [Rollout Policy](/docs/administration/environment-policy/rollout-policy/) (available in Pro and Enterprise)
+- Level 3 - [Custom Approval](/docs/administration/custom-approval/) (available in Enterprise)
 
 ### Preparation
 
@@ -30,9 +33,10 @@ Bytebase offers **Community**, **Pro** and **Enterprise** Plans ([view detail](/
 2. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`. Register an admin account and it will be granted the `workspace owner` role automatically.
 
 ### Level 1: Automatic rollout with SQL review (Community Plan)
-1. Go to **Environments** > **Test** and **Environments** > **Prod**, you'll see 
-   1. The **Rollout policy** is automatic. Unless there's some warning or error, the rollout will be automatically triggered after the issue is created.
-   2. **SQL Review** is enabled on `Prod` with a sample policy.
+
+1. Go to **Environments** > **Test** and **Environments** > **Prod**, you'll see
+   1. The `Rollout policy` is `automatic`. **Unless there's some warning or error, the rollout will be automatically executed after the issue is created**.
+   2. `SQL Review` is enabled on `Prod` with a sample policy.
 
 ![bb-env-rollout-automatic-test-prod](/content/docs/tutorials/deploy-schema-migration/bb-env-rollout-automatic-test-prod.webp)
 
@@ -46,6 +50,7 @@ Bytebase offers **Community**, **Pro** and **Enterprise** Plans ([view detail](/
 ALTER TABLE "public"."employee"
     ADD COLUMN "country" text;
 ```
+
 4. SQL Review checks will dry run before the issue is created. Here let's create the issue regardless of the dry run result.
 5. After the issue is created, SQL Review will run automatically along with some other checks. You'll see there's a warning for the task on `Prod`.
 
@@ -69,9 +74,11 @@ ADD COLUMN "country" text NOT NULL DEFAULT '';
 ![bb-proj-change-list](/content/docs/tutorials/deploy-schema-migration/bb-proj-change-list.webp)
 
 ### Level 2: Manual rollout with dedicated roles and scheduled time (Pro Plan)
+
 With Pro Plan, you'll get two additional features:
- - manual rollout policy
- - time scheduling
+
+- Manual rollout policy. You can specify multiple pre-defined roles to manually roll out the change.
+- Time scheduling. You can specify a particular time to roll out the change.
 
 To simplify the process, we'll use 14-day enterprise trial here. Click the **Start free trial** to upgrade.
 
@@ -85,8 +92,9 @@ To simplify the process, we'll use 14-day enterprise trial here. Click the **Sta
 ALTER TABLE "public"."employee"
     ADD COLUMN "city" text NOT NULL DEFAULT '';
 ```
+
 3. Click **Create**, and after **Task checks** runs, you'll see the SQL running on `Test` automatically but waiting to run on `Prod`.
-   
+
 ![bb-issue-prod-waiting](/content/docs/tutorials/deploy-schema-migration/bb-issue-prod-waiting.webp)
 
 4. Click **Rollout** to trigger directly or set a **Rollout time**.
@@ -94,7 +102,9 @@ ALTER TABLE "public"."employee"
 ![bb-proj-set-rollout-time](/content/docs/tutorials/deploy-schema-migration/bb-proj-set-rollout-time.webp)
 
 ### Level 3: Manual rollout with custom approval (Enterprise Plan)
-After the automatic check but before the rollout, we want some people to review the SQL manually. If it's a risky SQL, there should be more people involved.
+
+If you want the approval flow to be more dynamic based on the context like the type of SQL statements, the affected rows and etc,
+then you can configure [custom approval flow](/docs/administration/custom-approval/).
 
 Go to **Instances** and click **Assign License** for both instances. Without doing this, the enterprise plan required for custom approval won't be enabled on instances.
 
@@ -124,10 +134,12 @@ ALTER TABLE "public"."employee"
 ![bb-issue-custom-approval-waiting](/content/docs/tutorials/deploy-schema-migration/bb-issue-custom-approval-waiting.webp)
 
 ### Summary
+
 You have now learned how to use Bytebase to deploy schema migration in a basic way. Bytebase also provides other advanced features for your interests:
-- [GitOps](docs/vcs-integration/overview/) - Create issues by git repo merge; 
-- [Batch changes](/docs/change-database/batch-change/) - Change tens to hundreds of databases in a single workflow;
+
+- [GitOps](/docs/vcs-integration/overview/) - Observe Git code push events and trigger schema migration;
+- [Batch changes](/docs/change-database/batch-change/) - Change multiple databases in a single workflow;
 - [Branching](/docs/branching/) - Collaborate on schema changes using Git-like branching;
-- [Changelist](/docs/changelist/) - Organize and apply changes sequentially, or export them for offline application.
+- [Changelist](/docs/changelist/) - Organize and apply changes sequentially, or export them for offline execution.
 
 Join our [Discord channel](https://discord.com/invite/huyw7gRsyA) to discuss.
