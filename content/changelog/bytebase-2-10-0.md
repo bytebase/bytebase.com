@@ -6,7 +6,7 @@ feature_image: /content/changelog/2-10-0-banner.webp
 description: 'More flexible options to appoint releaser to rollout changes. Set database & column labels'
 ---
 
-## New Features
+## 🚀 New Features
 
 - More flexible options to appoint releaser to rollout changes: you can specify any dedicated role set, or the last approver of a custom approval process.
 - Configure branch protection rules for projects.
