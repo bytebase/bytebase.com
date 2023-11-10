@@ -2,7 +2,7 @@ import { en, getRuleLocalizationKey } from '@/utils/sql-review';
 import clsx from 'clsx';
 import format from 'date-fns/format';
 
-import { GuidelineTemplate } from '@/types/sql-review';
+import { RuleCategory } from '@/types/sql-review';
 
 import MySQLIcon from '@/svgs/aurora.inline.svg';
 import ExternalIcon from '@/svgs/external-sm.inline.svg';
@@ -70,7 +70,7 @@ const Content = ({
   categoryList,
 }: {
   className: string;
-  categoryList: GuidelineTemplate[];
+  categoryList: RuleCategory[];
 }) => (
   <article className={className}>
     <h2 className="text-44 font-bold leading-extra-tight text-gray-15 lg:text-36 md:text-30">

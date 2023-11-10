@@ -5,7 +5,7 @@ import { useWindowHeight } from '@react-hook/window-size';
 import clsx from 'clsx';
 import { LazyMotion, domAnimation, m, useAnimation } from 'framer-motion';
 
-import { GuidelineTemplate } from '@/types/sql-review';
+import { RuleCategory } from '@/types/sql-review';
 
 const ANIMATION_DURATION = 0.2;
 
@@ -36,7 +36,7 @@ const MobileSidebar = ({
   categoryList,
 }: {
   className: string;
-  categoryList: GuidelineTemplate[];
+  categoryList: RuleCategory[];
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [bannerSize, setBannerSize] = useState(0);
