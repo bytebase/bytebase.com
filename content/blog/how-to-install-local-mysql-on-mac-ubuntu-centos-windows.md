@@ -4,6 +4,7 @@ author: Mila
 published_at: 2023/11/10 21:21:21
 feature_image: /content/blog/how-to-install-local-mysql-on-mac-ubuntu-centos-windows/banner.webp
 tags: How-To
+featured: true
 description: 'Learn how to set up a local MySQL database on your macOS, Ubuntu, CentOS, or Windows system.'
 ---
 
