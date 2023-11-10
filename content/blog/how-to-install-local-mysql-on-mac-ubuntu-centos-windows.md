@@ -16,11 +16,49 @@ Below is a tutorial on how to install a local MySQL database server on your Mac,
 
 <HintBlock type="info">
 
-Once you finish this tutorial, you can [install the classic MySQL CLI](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows/) to better interact with your local MySQL database.
+To interact with your local MySQL database, you can [install the classic MySQL CLI](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows/).
 
 </HintBlock>
 
 ## macOS
+
+### GUI
+
+Check out [DBngin](https://dbngin.com/) or [StackBricks](https://stackbricks.app/).
+
+### Homebrew
+
+If you don't have Homebrew installed, you can install it by running the following command in your terminal:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Once you have Homebrew installed, you can install MySQL by running the command
+
+```bash
+brew install mysql
+```
+
+After the installation is complete, you can start the MySQL server by running the following command:
+
+```bash
+brew services start mysql
+```
+
+By default, Homebrew installs the MySQL server without a root password. To secure your installation, you should run the MySQL secure installation script. Run the following command and follow the prompts to set a root password and remove insecure defaults:
+
+```bash
+mysql_secure_installation
+```
+
+You can now access MySQL by running the following command:
+
+```bash
+mysql -u root -p
+```
+
+### DMG Package
 
 1. Download MySQL Community Server: Go to [the official MySQL website](https://dev.mysql.com/downloads/mysql/) and download the corresponding DMG Archive for your macOS system.
 
@@ -132,23 +170,15 @@ To install MySQL locally on Windows:
 
 1. Download MySQL Community Server: Go to [the official MySQL website](https://dev.mysql.com/downloads/mysql/) and download the MySQL Community Server for Windows. Choose the appropriate version based on your system architecture (32-bit or 64-bit).
 
-2. Run the MySQL Installer: Once the download is complete, locate the downloaded installer file and double-click on it to run the MySQL Installer.
+1. Run the MySQL Installer: Once the download is complete, locate the downloaded installer file and double-click on it to run the MySQL Installer.
 
-3. Select Setup Type: In the MySQL Installer, select the "Developer Default" setup type. This will install the MySQL Server, MySQL Workbench (a GUI tool for managing MySQL), and other necessary components. Click the "Next" button.
+1. Select Setup Type: In the MySQL Installer, select the "Developer Default" setup type. This will install the MySQL Server, MySQL Workbench (a GUI tool for managing MySQL), and other necessary components. Click the "Next" button.
 
-4. Accept License Agreement: Read the license agreement, and if you agree to the terms, select the "I accept the license terms" checkbox. Click the "Next" button.
+1. Choose Installation Type: In the "Choose a Setup Type" screen, select the "Server Only" option. This will install only the MySQL Server component. Click the "Next" button.
 
-5. Check Requirements: The installer will check if your system meets the necessary requirements for installation. If any requirements are missing, the installer will provide guidance on how to resolve them. Once all requirements are met, click the "Next" button.
+1. Configure MySQL Server: On the "Check Requirements" screen, you can choose the installation folder for MySQL Server and configure other server settings. You can also set a root password for the MySQL Server. Click the "Next" button.
 
-6. Choose Installation Type: In the "Choose a Setup Type" screen, select the "Server Only" option. This will install only the MySQL Server component. Click the "Next" button.
-
-7. Configure MySQL Server: On the "Check Requirements" screen, you can choose the installation folder for MySQL Server and configure other server settings. You can also set a root password for the MySQL Server. Click the "Next" button.
-
-8. Start the Installation: The installer will summarize the installation configuration. Click the "Execute" button to start the installation process. It may take some time to complete.
-
-9. Complete the Installation: Once the installation is finished, you will see a screen showing the status of the installation. Click the "Finish" button.
-
-10. Verify MySQL Installation: To verify if the MySQL server is running correctly, open the Windows Start menu, search for "MySQL Command Line Client," and click on it. It will open a command-line interface for MySQL. Enter the root password you set during the installation to log in. If the login is successful, you have successfully installed MySQL locally on your Windows computer.
+1. Verify MySQL Installation: To verify if the MySQL server is running correctly, open the Windows Start menu, search for "MySQL Command Line Client," and click on it. It will open a command-line interface for MySQL. Enter the root password you set during the installation to log in. If the login is successful, you have successfully installed MySQL locally on your Windows computer.
 
 ## Last but Not Least
 
@@ -156,6 +186,7 @@ Congratulations! You have successfully installed MySQL locally on your system. Y
 
 And of course, you will need a few tools to better master and interact with MySQL, for example:
 
+1. [MySQL Client `mysql`](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows)
 1. [MySQL Shell `mysqlsh`](/blog/how-to-install-mysql-shell-on-macos) introduced in MySQL 8.0 to provide more advanced features over `mysql`.
 1. [Top MySQL GUI client](/blog/top-mysql-gui-client)
 1. [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools)

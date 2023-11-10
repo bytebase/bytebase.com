@@ -13,9 +13,15 @@ A local Postgres database is installed and running on your own computer or serve
 
 Below is a tutorial on how to install it on Mac, Ubuntu, CentOS, and Windows.
 
-## Install on Mac (Homebrew)
+## Install on Mac
 
-If you want a GUI tool, check out [Top 3 Free Tools to Start a Local Database Instance on Mac](/blog/free-tools-to-start-local-database-on-mac).
+### GUI
+
+Check out [Top 3 Free Tools to Start a Local Database Instance on Mac](/blog/free-tools-to-start-local-database-on-mac).
+
+### Homebrew
+
+If you want a GUI tool,
 
 The easiest way to install Postgres on a Mac is to use Homebrew. If you don't have Homebrew installed, you can install it by running the following command in your terminal:
 
