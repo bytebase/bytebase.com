@@ -53,7 +53,7 @@ To prevent this type of exploitation from happening, starting with GitLab 10.6, 
 
 </HintBlock>
 
-So if your Bytebase instance resides in the same private network as your GitLab instance, you will need to enable "Allow requests to the local network from web hooks and services" first.
+So if your Bytebase instance resides in the same private network as your GitLab instance, you will need to enable **Allow requests to the local network from webhooks and integrations** first.
 
 ### "Change Data in VCS" , "Alter Schema in VCS" button does not direct to the configured self-hosted GitLab instance
 

@@ -89,6 +89,11 @@ When everything is setup properly, you will be informed that the setup is correc
 
 Now you have successfully added a Git provider, developers can now link their Bytebase projects with one of their owned repositories from this Git provider.
 
+
+## Step 4 - Allow requests to the local network from webhooks
+
+If your Bytebase instance resides in the same private network as your GitLab instance, you will need to enable **Allow requests to the local network from webhooks and integrations**. Otherwise, you will get the error: `Failed to create webhook xxx, status code: 422 for GitLab`. View details [here](https://docs.gitlab.com/ee/security/webhooks.html#allow-requests-to-the-local-network-from-webhooks-and-integrations).
+
 ## References
 
 1. [GitLab instance-wide applications](https://docs.gitlab.com/ee/integration/oauth_provider.html#instance-wide-applications). For GitLab, this is the OAuth application type Bytebase needs to register.
