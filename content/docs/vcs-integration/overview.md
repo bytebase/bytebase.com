@@ -6,25 +6,34 @@ title: GitOps with VCS Integration
 
 <iframe width="675" height="380" src="https://www.youtube.com/embed/51_bL7Vnqww" title="YouTube video player" className="w-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
-The VCS Integration is a 3-step setup. You can check this [demo issue](https://demo.bytebase.com/issue/hrprodvcs-alter-schema-add-city-102) created by Bytebase through observing the [code commit](https://github.com/s-bytebase/hr-sample/commit/5208900f520468574a9aaca17b4cb99987dbc4f6) to see what it looks like after the setup.
+You can check this [demo issue](https://demo.bytebase.com/issue/hrprodvcs-alter-schema-add-city-102) to see what it looks like after the setup. This issue is created by Bytebase after observing the [code commit](https://github.com/s-bytebase/hr-sample/commit/5208900f520468574a9aaca17b4cb99987dbc4f6).
 
-Developer commits the change in VCS
+1. Developer commits the change in VCS
 
-![result-git-commit](/content/docs/vcs-integration/add-git-provider/result-git-commit.webp)
+   ![result-git-commit](/content/docs/vcs-integration/overview/git-commit.webp)
 
-The commit triggers a corresponding issue
+1. The commit triggers a corresponding issue
 
-![result-issue-detail](/content/docs/vcs-integration/add-git-provider/result-issue-detail.webp)
+   ![result-issue-detail](/content/docs/vcs-integration/overview/issue-detail.webp)
 
-If [SQL Review CI](/docs/sql-review/sql-advisor/gitops-ci/) is configured, The PR page will show the inline check
+1. If [SQL Review CI](/docs/sql-review/sql-advisor/gitops-ci/) is configured, The PR page will show the inline check
 
-![result-sql-review](/content/docs/vcs-integration/add-git-provider/result-sql-review.webp)
+   ![result-sql-review](/content/docs/vcs-integration/overview/sql-review.webp)
 
 ---
 
-## [Step 1 - Add Git Provider](/docs/vcs-integration/add-git-provider)
+The VCS Integration is a 3-step setup.
+
+## Step 1 - Add Git Provider
 
 This can only be performed by the "**Workspace Owner" with the help of the selected Git provider instance admin.** It only needs to be configured once for each Git provider.
+
+- [Self-host GitLab](/docs/vcs-integration/self-host-gitlab/)
+- [GitLab.com](/docs/vcs-integration/gitlab-com/)
+- [GitHub.com](/docs/vcs-integration/github-com/)
+- [GitHub Enterprise](/docs/vcs-integration/github-enterprise/)
+- [Bitbucket.org](/docs/vcs-integration/bitbucket-org/)
+- [Azure DevOps](/docs/vcs-integration/azure-devops/)
 
 ## [Step 2 - Enable GitOps Workflow in Project](/docs/vcs-integration/enable-gitops-workflow)
 
