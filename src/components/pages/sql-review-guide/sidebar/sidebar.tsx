@@ -1,13 +1,13 @@
 import { en, getRuleLocalizationKey } from '@/utils/sql-review';
 
-import { GuidelineTemplate } from '@/types/sql-review';
+import { RuleCategory } from '@/types/sql-review';
 
 const Sidebar = ({
   className,
   categoryList,
 }: {
   className: string;
-  categoryList: GuidelineTemplate[];
+  categoryList: RuleCategory[];
 }) => {
   const onClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();

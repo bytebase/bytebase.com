@@ -25,7 +25,9 @@ export const convertToCategoryList = (
         ruleList: [],
       };
     }
-    dictionary[rule.category].ruleList.push(rule);
+    if (dictionary[rule.category].ruleList.findIndex((r) => rule.type === r.type) < 0) {
+      dictionary[rule.category].ruleList.push(rule);
+    }
     return dictionary;
   }, {} as { [key: string]: RuleCategory });
 

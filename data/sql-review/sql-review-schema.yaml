@@ -468,6 +468,14 @@ ruleList:
       - OCEANBASE
       - MARIADB
     componentList: []
+  - type: column.disallow-drop-in-index
+    category: COLUMN
+    engineList:
+      - MYSQL
+      - TIDB
+      - OCEANBASE
+      - MARIADB
+    componentList: []
   - type: column.comment
     category: COLUMN
     engineList:

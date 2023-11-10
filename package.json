@@ -2,7 +2,7 @@
   "name": "bytebase.com",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next dev",
+    "dev": "node ./src/scripts/fetch-sql-review.mjs && next dev",
     "build": "NODE_ENV=production node ./src/scripts/fetch-sql-review.mjs && next build",
     "postbuild": "next-sitemap",
     "start": "next start",
