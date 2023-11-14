@@ -8,9 +8,10 @@ featured: true
 description: The idea of codifying database schema changes (aka schema migration) is not new. While we are observing an accelerated trend of embracing Database as Code (DaC) across the industry. In this blog, we will review the state-of-the-art in the Database as Code landscape and share our own insight into the current and future trends in this space.
 ---
 
-A series of articles about Database-as-code (GitOps)
+This is a series of articles about Database-as-code (GitOps)
 
 - [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
+- [Database Version Control](/blog/database-version-control)
 - [Database Version Control, State-based or Migration-based?](/blog/database-version-control-state-based-vs-migration-based)
 - [What is Database Schema Drift?](/blog/what-is-database-schema-drift)
 - The Database as Code Landscape (this one)

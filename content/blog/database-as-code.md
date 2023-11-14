@@ -7,9 +7,10 @@ tags: Explanation
 description: Database-as-Code has many benefits in today's DevOps world. However, there exists several missing bricks preventing its wider adoption. We touch many points around Database-as-Code and also explain why Bytebase could help the transition.
 ---
 
-A series of articles about Database-as-code (GitOps)
+This is a series of articles about Database-as-code (GitOps)
 
 - Database as Code - the Good, the Bad and the Ugly (this one)
+- [Database Version Control](/blog/database-version-control)
 - [Database Version Control, State-based or Migration-based?](/blog/database-version-control-state-based-vs-migration-based)
 - [What is Database Schema Drift?](/blog/what-is-database-schema-drift)
 - [The Database as Code Landscape](/blog/database-as-code-landscape)
