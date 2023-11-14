@@ -1,4 +1,3 @@
-import format from 'date-fns/format';
 import { BlogPost } from '@/types/blog-post';
 import Link from 'next/link';
 
@@ -50,7 +49,7 @@ const Posts = ({ posts }: PostsProps) => {
           <li key={post.slug} className="tutorial-card !my-0">
             <article className="h-full w-full">
               <Link
-                className="flex h-full flex-col space-y-4 border border-gray-90 p-4 hover:border-gray-60"
+                className="flex h-full justify-between border border-gray-90 p-4 hover:border-gray-60"
                 href={`/docs/tutorials/${post.slug}`}
               >
                 <h4 className="text-18 font-semibold leading-tight xl:text-16 xl:leading-snug">
@@ -65,12 +64,9 @@ const Posts = ({ posts }: PostsProps) => {
                       })}
                     </div>
                   )}
-                  <time
-                    className="text-14 uppercase leading-none text-gray-40"
-                    dateTime={post.published_at}
-                  >
-                    {format(new Date(post.published_at), 'MMM dd, yyyy')}
-                  </time>
+                  {post.estimated_time && (
+                    <div className="text-14 leading-none text-gray-40 ">{post.estimated_time}</div>
+                  )}
                 </div>
               </Link>
             </article>
