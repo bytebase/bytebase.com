@@ -78,6 +78,8 @@ Utilizing Postgres GUI Clients can greatly enhance your database management capa
 
 It is crucial to carefully select the appropriate option that aligns with your organization's needs. While the aforementioned options provide a user-friendly interface for database operations, there may be instances where your organization requires an additional layer of control over database queries, changes, and administrative actions. In such cases, you can explore [Bytebase](/), our [open-source](https://github.com/bytebase/bytebase) Database DevOps and CI/CD tools designed specifically for teams. Bytebase aims to centralize control and safeguard your organization's most valuable asset - database data.
 
+![bytebase-sql-editor](/content/blog/top-postgres-gui-client/bytebase-sql-editor.webp)
+
 ## Futher Readings
 
 - [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)

@@ -73,6 +73,8 @@ MySQL GUI Clients can be used to help you manage databases with more confidence.
 
 Any of the aforementioned provides a UI for users to operate on databases, a SQL Editor, and the ability to export data. On the other hand, if your organization needs are [beyond those](/blog/stop-using-navicat) and demands an extra layer of control over database queries, changes, and admin actions, you can try our [Bytebase](/), an [open-source](https://github.com/bytebase/bytebase) Database DevOps and CI/CD tool for teams, designed to centralize the control and secure your organization’s most valuable asset, the database data.
 
+![bytebase-sql-editor](/content/blog/top-mysql-gui-client/bytebase-sql-editor.webp)
+
 ## Further Readings
 
 - [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools)
