@@ -15,7 +15,7 @@ type TutorialLayoutProps = {
 };
 
 const TutorialLayout = ({ posts, filters, children }: TutorialLayoutProps) => {
-  const [activeFilters, setActiveFilters] = useState<string[]>(['General']);
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const wrapperRef = useRef<HTMLElement>(null);
 
   const filteredItems = useMemo(() => {
