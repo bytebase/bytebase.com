@@ -71,8 +71,3 @@ Moreover, you can configure a Bytebase project to link to a VCS repository to ob
 ## Summary
 
 After all, database version control is version control. Developers expect to manage the database change in a similar way as managing their code changes. And just like GitLab/GitHub, Bytebase is built for teams to manage database changes in a Git-like way. Check out the [live demo](https://demo.bytebase.com/?source=blog) now.
-
-## Further Readings
-
-- [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
-- [Database Version Control, State-based or Migration-based?](/blog/database-version-control-state-based-vs-migration-based)
