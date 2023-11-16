@@ -1,8 +1,7 @@
 ---
 title: Custom Approval
+feature_name: CUSTOM_APPROVAL
 ---
-
-<EnterpriseOnlyBlock />
 
 In **Settings > Custom Approval**, you can choose which approval flow to use for a [risk level](/docs/administration/risk-center) and define approval flows.
 

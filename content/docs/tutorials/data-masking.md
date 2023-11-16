@@ -8,10 +8,9 @@ integrations: General
 level: Beginner
 estimated_time: '15 mins'
 pinned: true
+feature_name: DATA_MASKING
 description: This tutorial will teach you how to set up and try out data masking in Bytebase.
 ---
-
-<EnterpriseOnlyBlock />
 
 Bytebase **Dynamic Data Masking** can mask sensitive data in the query result based on the context on the fly.
 It helps organizations to **protect sensitive data** from being exposed to unauthorized users.

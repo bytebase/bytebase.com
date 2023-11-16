@@ -1,8 +1,7 @@
 ---
 title: Data Access Control
+feature_name: 'Data Access Control'
 ---
-
-<EnterpriseOnlyBlock />
 
 <TutorialBlock url="/docs/tutorials/how-to-manage-data-access-for-developers" title="How to Manage Data Access for Developers" />
 

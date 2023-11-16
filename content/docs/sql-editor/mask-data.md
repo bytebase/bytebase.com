@@ -1,8 +1,7 @@
 ---
 title: Data Masking
+feature_name: DATA_MASKING
 ---
-
-<EnterpriseOnlyBlock />
 
 Workspace Owners and DBAs can [configure data masking policy](/docs/security/mask-data) to prevent
 unauthorized access to the sensitive datab.

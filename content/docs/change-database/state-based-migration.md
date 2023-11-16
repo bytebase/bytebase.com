@@ -1,5 +1,6 @@
 ---
 title: State-based Migration
+feature_name: 'STATE_BASED_CHANGE'
 ---
 
 <HintBlock type="warning">

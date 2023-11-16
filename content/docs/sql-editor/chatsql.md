@@ -1,8 +1,7 @@
 ---
 title: ChatSQL
+feature_name: CHATSQL
 ---
-
-<EnterpriseOnlyBlock />
 
 Input your natural language and Bytebase will convert it into SQL.
 

@@ -1,12 +1,7 @@
 ---
 title: Secret Variable
+feature_name: 'Secret Variable'
 ---
-
-<HintBlock type="info">
-
-This feature is only available in the Pro Plan and Enterprise Plan.
-
-</HintBlock>
 
 To hide sensitive information in your change script, you can configure secret variables at the database level.
 

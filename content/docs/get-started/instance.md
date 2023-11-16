@@ -36,20 +36,20 @@ SSL connection configuration only supports PostgreSQL, MySQL, TiDB and ClickHous
 
 ## Configure SSH tunnel
 
-<EnterpriseOnlyBlock />
+<PricingPlanBlock _feature_name='SSH_TUNNEL' />
 
 To protect their databases, some hosting providers block direct remote access. However, they often enable SSH, which allows users to connect to their servers remotely using an SSH client. If you want to connect to a database on one of these servers from Bytebase, you will need to create an SSH tunnel. This will allow you to connect to the database without compromising security.
 
 ![ssh explain](/content/docs/get-started/instance/ssh-explain.webp)
 
 1. After filling in the standard database connection information, click **SSH Connection** > **Tunnel + Private Key**.
-1. Fill in the SSH connection information. The **Private Key** is used to authenticate the SSH connection. You can also use a password instead.
+2. Fill in the SSH connection information. The **Private Key** is used to authenticate the SSH connection. You can also use a password instead.
    ![ssh tunnelling](/content/docs/get-started/instance/bb-instance-ssh-connection.webp)
-1. Click **Test Connection**. If the connection is successful, click **Create** to create this instance.
+3. Click **Test Connection**. If the connection is successful, click **Create** to create this instance.
 
 ## Configure read-only connection
 
-<EnterpriseOnlyBlock />
+<PricingPlanBlock _feature_name='READONLY_CONNECTION' />/>
 
 To separate from admin connection, you can configure read-only connections used by SQL Editor once an instance is added. This separation can be configured at the database user/role access control level or replication instance level.
 
@@ -63,7 +63,7 @@ To separate from admin connection, you can configure read-only connections used 
 
 ## Use secret manager
 
-<EnterpriseOnlyBlock />
+<PricingPlanBlock _feature_name='EXTERNAL_SECRETE_MANAGER' />
 
 By defauilt, Bytebase stores the database credentials in an obfuscated format. You can also instruct
 Bytebase to fetch the database credential from an external secret manager.
