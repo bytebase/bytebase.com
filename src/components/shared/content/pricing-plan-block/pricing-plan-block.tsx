@@ -1,11 +1,30 @@
 import clsx from 'clsx';
-
 import DollarIcon from '@/svgs/dollar.inline.svg';
 import { PRICING_PLANS } from '@/lib/pricing-plan';
 
+/*** 2 ways to use this component:
+
+example 1: 
+
+---
+title: Data Access Control
+feature_name: DATA_ACCESS_CONTROL
+---
+
+example 2: 
+
+<PricingPlanBlock feature_name='BATCH_CHANGE' />
+
+***/
+
 const PricingPlanBlock = ({ feature_name }: { feature_name: string }) => {
-  if (!feature_name || PRICING_PLANS.get(feature_name) == 'COMMUNITY') return null;
-  else {
+  if (
+    !feature_name ||
+    !PRICING_PLANS.get(feature_name) ||
+    PRICING_PLANS.get(feature_name) == 'COMMUNITY'
+  ) {
+    return null;
+  } else {
     let text = 'Enterprise Plan';
     if (PRICING_PLANS.get(feature_name) == 'PRO') {
       text = 'Pro and Enterprise Plan';
