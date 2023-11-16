@@ -19,7 +19,7 @@ Then Bytebase will then create an issue to track the multi-database changes. You
 
 ## Change databases from multiple tenants
 
-<PricingPlanBlock _feature_name='BATCH_CHANGE' />
+<PricingPlanBlock feature_name='BATCH_CHANGE' />
 
 Bytebase allows you to create a project in `batch` mode and change **a collection of databases with identical schemas**, these databases are often referred as `tenant databases`. Typical scenarios of tenant databases are:
 
@@ -95,7 +95,7 @@ You can further adopt GitOps to batch change tenant databases. Head over to [Bat
 ](/docs/vcs-integration/tenant-gitops) for more details.
 
 ## Deployment config
-<PricingPlanBlock _feature_name='BATCH_CHANGE' />
+<PricingPlanBlock feature_name='BATCH_CHANGE' />
 
 It is often desired to apply schema changes to databases across all tenants since these databases are homogeneous, but in a staged rollout fashion (aka. canary deployment) to minimize the risk of breaking all deployments.
 

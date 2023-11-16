@@ -36,7 +36,7 @@ SSL connection configuration only supports PostgreSQL, MySQL, TiDB and ClickHous
 
 ## Configure SSH tunnel
 
-<PricingPlanBlock _feature_name='SSH_TUNNEL' />
+<PricingPlanBlock feature_name='SSH_TUNNEL' />
 
 To protect their databases, some hosting providers block direct remote access. However, they often enable SSH, which allows users to connect to their servers remotely using an SSH client. If you want to connect to a database on one of these servers from Bytebase, you will need to create an SSH tunnel. This will allow you to connect to the database without compromising security.
 
@@ -49,7 +49,7 @@ To protect their databases, some hosting providers block direct remote access. H
 
 ## Configure read-only connection
 
-<PricingPlanBlock _feature_name='READONLY_CONNECTION' />/>
+<PricingPlanBlock feature_name='READONLY_CONNECTION' />/>
 
 To separate from admin connection, you can configure read-only connections used by SQL Editor once an instance is added. This separation can be configured at the database user/role access control level or replication instance level.
 
@@ -63,7 +63,7 @@ To separate from admin connection, you can configure read-only connections used 
 
 ## Use secret manager
 
-<PricingPlanBlock _feature_name='EXTERNAL_SECRETE_MANAGER' />
+<PricingPlanBlock feature_name='EXTERNAL_SECRETE_MANAGER' />
 
 By defauilt, Bytebase stores the database credentials in an obfuscated format. You can also instruct
 Bytebase to fetch the database credential from an external secret manager.

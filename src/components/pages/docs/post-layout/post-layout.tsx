@@ -23,7 +23,7 @@ const PostLayout = ({
   children,
   published_at = null,
   estimated_time = null,
-  feature_name = null,
+  feature_name,
   currentSlug,
   breadcrumbs,
   navigationLinks: { previousLink, nextLink },
@@ -32,7 +32,7 @@ const PostLayout = ({
   featureImage: string | null;
   published_at: string | null;
   estimated_time: string | null;
-  feature_name: string | null;
+  feature_name: string;
   currentSlug: string;
   children: React.ReactNode;
   breadcrumbs: Breadcrumb[];
@@ -44,7 +44,7 @@ const PostLayout = ({
       <h1 className="mt-2.5 text-44 font-bold leading-extra-tight tracking-tighter text-gray-15 2xl:mt-1.5 lg:text-36 md:text-32 sm:mt-0 sm:text-30">
         {title}
       </h1>
-      <PricingPlanBlock _feature_name={feature_name} />
+      <PricingPlanBlock feature_name={feature_name} />
       <div className="flex justify-between">
         {published_at && (
           <time

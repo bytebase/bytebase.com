@@ -3,11 +3,11 @@ import clsx from 'clsx';
 import InfoIcon from '@/svgs/info.inline.svg';
 import { PRICING_PLANS } from '@/lib/pricing-plan';
 
-const PricingPlanBlock = ({ _feature_name }: { _feature_name: string }) => {
-  if (!_feature_name || PRICING_PLANS.get(_feature_name) == 'COMMUNITY') return;
+const PricingPlanBlock = ({ feature_name }: { feature_name: string }) => {
+  if (!feature_name || PRICING_PLANS.get(feature_name) == 'COMMUNITY') return null;
   else {
     let text = 'Enterprise Plan';
-    if (PRICING_PLANS.get(_feature_name) == 'PRO') {
+    if (PRICING_PLANS.get(feature_name) == 'PRO') {
       text = 'Pro and Enterprise Plan';
     }
     return (
