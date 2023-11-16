@@ -1,8 +1,7 @@
 ---
 title: Audit Log
+feature_name: AUDIT_LOG
 ---
-
-<EnterpriseOnlyBlock />
 
 Workspace OWNER or DBA can view the audit log of the workspace. Currently, the audit log records following operations performed by users in workspace:
 

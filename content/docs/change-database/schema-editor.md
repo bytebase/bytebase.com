@@ -1,5 +1,6 @@
 ---
 title: Schema Editor
+feature_name: SCHEMA_EDITOR
 ---
 
 **Schema Editor** provides a spreadsheet-like editor to view and edit database structure. Users first use the **Schema Editor** to prepare the schema changes, then those changes will be converted into SQL statements and go through the [change workflow](/docs/change-database/change-workflow).

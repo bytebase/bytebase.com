@@ -1,8 +1,7 @@
 ---
 title: Dynamic Data Masking
+feature_name: DATA_MASKING
 ---
-
-<EnterpriseOnlyBlock />
 
 <TutorialBlock url="/docs/tutorials/data-masking" title="Step-by-Step Guide to Data Masking" />
 

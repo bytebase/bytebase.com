@@ -1,8 +1,7 @@
 ---
 title: Access Unmasked data
+feature_name: DATA_MASKING
 ---
-
-<EnterpriseOnlyBlock />
 
 For the masked columns, `Workspace Owner` and `DBA` can grant specific users to access the unmasked data.
 

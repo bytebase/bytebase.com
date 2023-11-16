@@ -1,8 +1,7 @@
 ---
 title: Global Masking Rule
+feature_name: DATA_MASKING
 ---
-
-<EnterpriseOnlyBlock />
 
 <HintBlock type="info">
 

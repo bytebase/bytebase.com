@@ -14,6 +14,7 @@ import QuoteIcon from '@/svgs/quote.inline.svg';
 import DocLinkBlock from './doc-link-block';
 import EnterpriseOnlyBlock from './enterprise-only-block';
 import HintBlock from './hint-block';
+import PricingPlanBlock from './pricing-plan-block';
 import IncludeBlock from './include-block';
 import TutorialBlock from './tutorial-block';
 
@@ -89,6 +90,7 @@ const components = {
   HintBlock,
   DocLinkBlock,
   EnterpriseOnlyBlock,
+  PricingPlanBlock,
   IncludeBlock,
   TutorialBlock,
   TutorialCardsWrapper: ({ children }: any) => (

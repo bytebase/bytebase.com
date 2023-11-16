@@ -1,5 +1,6 @@
 ---
 title: Schema Diagram
+feature_name: SCHEMA_DIAGRAM
 ---
 
 <HintBlock type="warning">

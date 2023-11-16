@@ -1,8 +1,7 @@
 ---
 title: Column Masking
+feature_name: DATA_MASKING
 ---
-
-<EnterpriseOnlyBlock />
 
 <HintBlock type="info">
 

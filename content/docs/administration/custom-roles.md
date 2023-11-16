@@ -1,8 +1,7 @@
 ---
 title: Custom Roles
+feature_name: CUSTOM_ROLES
 ---
-
-<EnterpriseOnlyBlock />
 
 In **Settings > Custom Roles**, you can define new custom roles and apply them to project members.
 

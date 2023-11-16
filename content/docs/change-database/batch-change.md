@@ -19,7 +19,7 @@ Then Bytebase will then create an issue to track the multi-database changes. You
 
 ## Change databases from multiple tenants
 
-<EnterpriseOnlyBlock />
+<PricingPlanBlock feature_name='BATCH_CHANGE' />
 
 Bytebase allows you to create a project in `batch` mode and change **a collection of databases with identical schemas**, these databases are often referred as `tenant databases`. Typical scenarios of tenant databases are:
 
@@ -95,8 +95,7 @@ You can further adopt GitOps to batch change tenant databases. Head over to [Bat
 ](/docs/vcs-integration/tenant-gitops) for more details.
 
 ## Deployment config
-
-<EnterpriseOnlyBlock />
+<PricingPlanBlock feature_name='BATCH_CHANGE' />
 
 It is often desired to apply schema changes to databases across all tenants since these databases are homogeneous, but in a staged rollout fashion (aka. canary deployment) to minimize the risk of breaking all deployments.
 
@@ -104,8 +103,8 @@ For batch mode project, you can configure deployment config under **Project Sett
 a 3-stage deployment config to roll out changes to Asia, Europe, North America progressively in the production environment:
 
 1. The 1st stage contains 2 databases in `prod` environment with the `location=asia` label.
-1. The 2nd stage contains 2 databases in `prod` environment with the `location=eu` label.
-1. The 3rd stage contains 2 databases in `prod` environment with the `location=na` label.
+2. The 2nd stage contains 2 databases in `prod` environment with the `location=eu` label.
+3. The 3rd stage contains 2 databases in `prod` environment with the `location=na` label.
 
 ![deployment-config-setting](/content/docs/change-database/batch-change/deployment-config-setting.webp)
 

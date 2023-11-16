@@ -1,8 +1,7 @@
 ---
 title: Customize the Workspace with Your Own Logo
+feature_name: CUSTOM_LOGO
 ---
-
-<EnterpriseOnlyBlock />
 
 This document shows you how to add a logo to your workspace.
 

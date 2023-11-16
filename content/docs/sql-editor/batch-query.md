@@ -1,9 +1,7 @@
 ---
 title: Batch Query Multiple Databases
+feature_name: BATCH_QUERY
 ---
-
-<EnterpriseOnlyBlock />
-
 You can batch query many databases having the same schema:
 
 ![batch-query-setting](/content/docs/sql-editor/batch-query-setting.webp)

@@ -1,5 +1,6 @@
 ---
 title: Backup Schedule Policy
+feature_name: BACKUP_POLICY
 ---
 
 <HintBlock type="info">

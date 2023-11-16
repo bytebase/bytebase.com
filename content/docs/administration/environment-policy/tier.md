@@ -1,8 +1,7 @@
 ---
 title: Environment Tier
+feature_name: ENVIRONMENT_TIER
 ---
-
-<EnterpriseOnlyBlock />
 
 For production environments, extra care should be taken. Bytebase allows marking such an environment as a production environment. Workspace OWNER or DBA can configure this under the Environment Tier section from the environment detail page.
 

@@ -1,8 +1,7 @@
 ---
 title: Set an Announcement
+feature_name: ANNOUNCEMENT
 ---
-
-<EnterpriseOnlyBlock />
 
 This document shows you how to set an announcement to your workspace.
 

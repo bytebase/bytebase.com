@@ -12,5 +12,6 @@ export type BlogPost = {
   featured: boolean;
   pinned: boolean;
   integrations?: string;
-  estimated_time?: string;
+  estimated_time?: string; // only for tutorial
+  feature_name?: string; // only for feature doc
 };

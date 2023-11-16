@@ -1,8 +1,7 @@
 ---
 title: Risk Center
+feature_name: CUSTOM_APPROVAL
 ---
-
-<EnterpriseOnlyBlock />
 
 <TutorialBlock url="/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow" title="Database Change Management with Risk-Adjusted Approval Flow" />
 
