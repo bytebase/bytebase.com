@@ -2,16 +2,16 @@ import clsx from 'clsx';
 import DollarIcon from '@/svgs/dollar.inline.svg';
 import { PRICING_PLANS } from '@/lib/pricing-plan';
 
-/*** 2 ways to use this component:
+/*** two ways to use this component:
 
-example 1: 
+Example 1: 
 
 ---
 title: Data Access Control
 feature_name: DATA_ACCESS_CONTROL
 ---
 
-example 2: 
+Example 2: 
 
 <PricingPlanBlock feature_name='BATCH_CHANGE' />
 
