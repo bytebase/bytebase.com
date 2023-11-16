@@ -17,6 +17,8 @@ example 2:
 
 ***/
 
+// TODO: handle features having basic and advanced versions
+
 const PricingPlanBlock = ({ feature_name }: { feature_name: string }) => {
   if (
     !feature_name ||
