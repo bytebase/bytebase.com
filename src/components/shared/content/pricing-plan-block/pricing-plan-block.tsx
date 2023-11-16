@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import InfoIcon from '@/svgs/info.inline.svg';
+import DollarIcon from '@/svgs/dollar.inline.svg';
 import { PRICING_PLANS } from '@/lib/pricing-plan';
 
 const PricingPlanBlock = ({ feature_name }: { feature_name: string }) => {
@@ -29,7 +29,7 @@ const PricingPlanBlock = ({ feature_name }: { feature_name: string }) => {
               'bg-primary-1',
             )}
           >
-            <InfoIcon className="h-4 w-4 text-white" />
+            <DollarIcon className="h-4 w-4 text-white" />
           </span>
 
           <div className="flex flex-col">
