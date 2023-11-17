@@ -4,10 +4,10 @@ author: Ningjing
 published_at: 2023/11/16 18:00:00
 feature_image: /content/blog/top-psql-commands-with-examples/cover.webp
 tags: How-To
-description: The official mysql CLI is still the most widely used MySQL client. Let's learn the most common mysql commands by example.
+description: The official psql CLI is still the most widely used PostgreSQL client. Let's learn the most common psql commands by example.
 ---
 
-PostgreSQL, often simply called Postgres, is a free and open-source relational database management system (RDBMS) known for its reliability, feature robustness, and performance. It has been actively developed for over 35 years and is considered one of the most advanced open-source RDBMSs available. 
+PostgreSQL, often simply called Postgres, is a free and open-source relational database management system (RDBMS) known for its reliability, feature robustness, and performance. It has been actively developed for over 35 years and is considered one of the most advanced open-source RDBMSs available.
 
 `psql` is the official CLI client to command the PostgreSQL database. It supports interactive and noninteractive use.
 
