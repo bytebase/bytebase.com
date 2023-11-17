@@ -3,19 +3,13 @@ title: Online Schema Migration for MySQL
 description: This guide shows you how to use gh-ost to migrate your MySQL databases in Bytebase.
 ---
 
-<HintBlock type="warning">
-
-This feature is in beta.
-
-</HintBlock>
-
 [gh-ost](https://github.com/github/gh-ost) is a triggerless online schema migration tool for MySQL. Bytebase leverages gh-ost to migrate MySQL table schemas with little downtime.
 
 All existing online schema change tools operate similarly:
 
 1. Create a ghost table in the likeness of your original table.
-1. Migrate that table while empty, slowly and incrementally copy data from your original table to the ghost table, meanwhile propagating ongoing changes (any INSERT, DELETE, UPDATE applied to your table) to the ghost table.
-1. Finally, they replace your original table with the ghost table at the right time.
+2. Migrate that table while empty, slowly and incrementally copy data from your original table to the ghost table, meanwhile propagating ongoing changes (any `INSERT`, `DELETE`, `UPDATE` applied to your table) to the ghost table.
+3. Finally, they replace your original table with the ghost table at the right time.
 
 ## Requirements and limitations
 
@@ -29,33 +23,27 @@ For an exhaustive list, please refer to this [doc](https://github.com/github/gh-
 
 ## How to use
 
-### Step 1 - Create an alter schema issue
+### Step 1 - Create an edit schema issue
 
-Click "Alter Schema" on the database page.
+1. Click **Edit Schema**, choose the database, input SQL and click **Preview issue**.
+2. Before clicking **Create**, turn on **Online migration**. You may click **Configure** to customize the parameters.
 
-![The database detail page with "alter schema" button highlighted](/content/docs/gh-ost-step-1-1.webp)
+![bb-issue-online-migration-on](/content/docs/change-database/online-schema-migration-for-mysql/bb-issue-online-migration-on.webp)
 
-Choose "Online migration" and click "Next".
+![bb-issue-ghost-config](/content/docs/change-database/online-schema-migration-for-mysql/bb-issue-ghost-config.webp)
 
-![The migration mode option popup with online migration selected](/content/docs/gh-ost-step-1-2.webp)
+The online migration mode has two tasks:
+- **Sync data**: sync your data to the ghost table.
+- **Switch tables**: replace your original table with the ghost table.
 
-The online migration mode has two tasks: The first task syncs your data to the ghost table. The second task replaces your original table with the ghost table.
+3. Click **Sync data** and you'll find your SQL in the editor. After verifying that, click **Create**.
 
-Select "Sync data" and enter your SQL statements in the editor. After that, click "Create".
 
-![The create issue page](/content/docs/gh-ost-step-1-3.webp)
+### Step 2 - Rollout the sync data task
 
-### Step 2 - Approve the sync task
+After creating the issue, the **Sync data** task is `waiting for approval` (if custom approval flow is configured) or `waiting for rollout`. Follow the order to roll out the task.
 
-After creating the issue, you should see something like this.
-
-![The issue detail page where gh-ost sync task is waiting approval.](/content/docs/gh-ost-step-2-1.webp)
-
-Make sure that the gh-ost sync task check is passing. Then click "Approve" to run the sync task.
-
-![The task check result of gh-ost sync task, and gh-ost dry run passed](/content/docs/gh-ost-step-2-2.webp)
-
-The sync task reads rows on the original table and writes them to the ghost table, meanwhile propagating changes in the original table to the ghost table so that the ghost table can catch up with the original table.
+The **Sync data** task reads rows on the original table and writes them to the ghost table, meanwhile propagating changes in the original table to the ghost table so that the ghost table can catch up with the original table.
 
 Behind the scenes, gh-ost will create two tables:
 
@@ -64,22 +52,21 @@ Behind the scenes, gh-ost will create two tables:
 
 If anything goes wrong, manually drop these two tables: `~yourtablename_{timestamp}_gho` and `~yourtablename_{timestamp}_ghc`, then retry.
 
-### Step 3 - Approve the cutover task
+### Step 3 - Rollout the switch tables task
 
-Depending on your table size, the sync task could take some time to process. When the difference between the ghost table and the original table is small enough, the sync task automatically completes.
+Depending on your table size, the **Sync data** task could take some time to process. When the difference between the ghost table and the original table is small enough, the task automatically completes.
 
-The cutover task atomically renames `yourtablename`, `~yourtablename_{timestamp}_gho` to `~yourtablename_{timestamp}_del`, `yourtablename` respectively to switch the original table and the ghost table.
+The **Switch tables** task automatically renames `yourtablename`, `~yourtablename_{timestamp}_gho` to `~yourtablename_{timestamp}_del`, `yourtablename` respectively to switch the original table and the ghost table.
 
-Click "Approve" to perform the cutover task.
-
-![The issue detail page where the cutover task is waiting approval.](/content/docs/gh-ost-step-3-1.webp)
+After the **Sync data** task completes, the **Switch tables** task is `waiting for approval` (if custom approval flow is configured) or `waiting for rollout`. Follow the order to roll out the task.
 
 ### Step 4 - Delete `~yourtablename_{timestamp}_del` after migration
 
-After migration, the original table is renamed to `~yourtablename_{timestamp}_del`. Make sure there is no data loss, then manually drop the original table if you wish. You can check the table by clicking "Show Bytebase reserved tables" on the database page.
+After migration, the original table is renamed to `~yourtablename_{timestamp}_del`. Make sure there is no data loss, then manually drop the original table if you wish. You can check the table by clicking **Show Bytebase reserved tables** on the database page.
 
-![A table list where "Show Bytebase reserved tables" button is highlighted](/content/docs/gh-ost-step-4-1.webp)
-![A table list which also shows reserved tables](/content/docs/gh-ost-step-4-2.webp)
+![bb-db-show-reserved-tables](/content/docs/change-database/online-schema-migration-for-mysql/bb-db-show-reserved-tables.webp)
+
+![bb-db-reserved-tables](/content/docs/change-database/online-schema-migration-for-mysql/bb-db-reserved-tables.webp)
 
 ## Interact with gh-ost
 
@@ -89,16 +76,17 @@ The UNIX socket file name is `/tmp/gh-ost.{taskID}.{databaseID}.{databaseName}.{
 
 To find the UNIX socket file, you must acquire the database and task id.
 
-![The issue detail page with task and task id highlighted](/content/docs/gh-ost-step-5-1.webp)
-![The database detail page with database id highlighted](/content/docs/gh-ost-step-5-2.webp)
+![bb-issue-online-done-task-id](/content/docs/change-database/online-schema-migration-for-mysql/bb-issue-online-done-task-id.webp)
 
-In this example, my socket file name is `/tmp/gh-ost.109.103.db.sbtest2.sock`
+![bb-db-db-id](/content/docs/change-database/online-schema-migration-for-mysql/bb-db-db-id.webp)
+
+In this example, my socket file name is `/tmp/gh-ost.112.107.employeenofk.employee.sock`
 
 ### Show gh-ost status
 
 <HintBlock type="info">
 
-Replace taskID, databaseID, databaseName and tableName accordingly.
+Replace `taskID`, `databaseID`, `databaseName` and `tableName` accordingly.
 
 </HintBlock>
 
@@ -122,7 +110,7 @@ echo "status" | nc -U /tmp/gh-ost.taskID.databaseID.databaseName.tableName.sock
 
 <HintBlock type="info">
 
-Replace taskID, databaseID, databaseName and tableName accordingly.
+Replace `taskID`, `databaseID`, `databaseName` and `tableName` accordingly.
 
 </HintBlock>
 
