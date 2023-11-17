@@ -30,6 +30,8 @@ For an exhaustive list, please refer to this [doc](https://github.com/github/gh-
 
 ![bb-issue-online-migration-on](/content/docs/change-database/online-schema-migration-for-mysql/bb-issue-online-migration-on.webp)
 
+![bb-issue-ghost-config](/content/docs/change-database/online-schema-migration-for-mysql/bb-issue-ghost-config.webp)
+
 The online migration mode has two tasks:
 - **Sync data**: sync your data to the ghost table.
 - **Switch tables**: replace your original table with the ghost table.
@@ -64,7 +66,7 @@ After migration, the original table is renamed to `~yourtablename_{timestamp}_de
 
 ![bb-db-show-reserved-tables](/content/docs/change-database/online-schema-migration-for-mysql/bb-db-show-reserved-tables.webp)
 
-![bb-db-reserved-del-table](/content/docs/change-database/online-schema-migration-for-mysql/bb-db-reserved-del-table.webp)
+![bb-db-reserved-tables](/content/docs/change-database/online-schema-migration-for-mysql/bb-db-reserved-tables.webp)
 
 ## Interact with gh-ost
 
