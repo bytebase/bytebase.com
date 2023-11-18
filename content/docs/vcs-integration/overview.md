@@ -26,7 +26,7 @@ The VCS Integration is a 3-step setup.
 
 ## Step 1 - Add Git Provider
 
-This can only be performed by the "**Workspace Owner" with the help of the selected Git provider instance admin.** It only needs to be configured once for each Git provider.
+This can only be performed by the "**Workspace Admin" with the help of the selected Git provider instance admin.** It only needs to be configured once for each Git provider.
 
 - [Self-host GitLab](/docs/vcs-integration/self-host-gitlab/)
 - [GitLab.com](/docs/vcs-integration/gitlab-com/)

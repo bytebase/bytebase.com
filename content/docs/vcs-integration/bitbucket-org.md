@@ -6,7 +6,7 @@ title: Bitbucket.org
 
 ## Prerequisites
 
-- You should be the **Workspace Owner** to be able to see the **GitOps** sidebar item and add Git Provider.
+- You should be the **Workspace Admin** to be able to see the **GitOps** sidebar item and add Git Provider.
 - You should have a repository created on Bitbucket.org.
 
 ## Step 1 - Setting up

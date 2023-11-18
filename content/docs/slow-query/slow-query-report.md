@@ -2,7 +2,7 @@
 title: Turn on Slow Queries Report in Bytebase
 ---
 
-After you enable slow query logs in your database, you can turn on the Slow Queries Report in Bytebase. Only the workspace owner and DBA can turn on/off the Slow Queries Report.
+After you enable slow query logs in your database, you can turn on the Slow Queries Report in Bytebase. Only the workspace admin and DBA can turn on/off the Slow Queries Report.
 
 1. Go to the **Settings** page in Bytebase.
 

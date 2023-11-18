@@ -30,7 +30,7 @@ unlock new capabilities of deploying schema migrations and this tutorial will wa
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
-2. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`. Register an admin account and it will be granted the `workspace owner` role automatically.
+2. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`. Register an admin account and it will be granted the `workspace admin` role automatically.
 
 ### Level 1: Automatic rollout with SQL review (Community Plan)
 

@@ -6,13 +6,13 @@ After deploying Bytebase successfully, you need to register accounts for your te
 
 ## Create the first admin account
 
-The first registered account after deployment is the admin account and will be granted a **Workspace Owner** role.
+The first registered account after deployment is the admin account and will be granted a **Workspace Admin** role.
 
 ![bb-welcome-page](/content/docs/get-started/step-by-step/register-accounts/bb-welcome-page.webp)
 
 ## Register a regular account
 
-After the admin account is created, you can register a regular account and will be granted **Workspace Developer** role.
+After the admin account is created, you can register a regular account.
 
 ![bb-register-normal-user](/content/docs/get-started/step-by-step/register-accounts/bb-register-normal-user.webp)
 
@@ -25,7 +25,7 @@ For **Enterprise Plan** you may also log into Bytebase using [SSO](/docs/adminis
 
 ## Update password
 
-As a **Workspace Owner**, you can change passwords for the other accounts.
+As a **Workspace Admin**, you can change passwords for the other accounts.
 
 1. Click **Settings** on the top bar.
 2. Click **Members** on the left side bar, and you can see the members page.

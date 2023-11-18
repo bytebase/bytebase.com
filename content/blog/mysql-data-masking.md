@@ -51,19 +51,19 @@ It manages the masking policies and grants inside Bytebase. Masking policy is ap
 
 Bytebase Dynamic Data Masking consists of the following components:
 
-1. Global Masking Rule: `Workspace Owner` and `DBA` can apply masking levels in batch, e.g. all columns named as "email" are masked at "Partial" masking level. You can also easily change masking policy without having to reapply the masking policy to thousands of columns, and the hassle of maintaining views is saved.
+1. Global Masking Rule: `Workspace Admin` and `DBA` can apply masking levels in batch, e.g. all columns named as "email" are masked at "Partial" masking level. You can also easily change masking policy without having to reapply the masking policy to thousands of columns, and the hassle of maintaining views is saved.
 
 ![_](/content/blog/mysql-data-masking/bytebase-global-masking.webp)
 
-2. Column Masking Rule: `Workspace Owner` and `DBA` can set table columns as different masking levels. Column masking rule takes precedence over the global masking rule.
+2. Column Masking Rule: `Workspace Admin` and `DBA` can set table columns as different masking levels. Column masking rule takes precedence over the global masking rule.
 
 ![_](/content/blog/mysql-data-masking/bytebase-column-level-masking.webp)
 
-3. Access Unmasked data: for the masked content, `Workspace Owner` and `DBA` can grant specific users permission to access unmasked data.
+3. Access Unmasked data: for the masked content, `Workspace Admin` and `DBA` can grant specific users permission to access unmasked data.
 
 ![_](/content/blog/mysql-data-masking/bytebase-masking-grant-access.webp)
 
-_`Workspace Owner` and `DBA` here are [roles](/docs/concepts/roles-and-permissions/) in Bytebase._
+_`Workspace Admin` and `DBA` here are [roles](/docs/concepts/roles-and-permissions/) in Bytebase._
 
 ## Comparison Table
 

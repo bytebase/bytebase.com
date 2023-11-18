@@ -70,7 +70,7 @@ docker run --name mysqldprod \
   mysql/mysql-server:8.0
 ```
 
-3. Register admin account `DBA`. This account will be granted `Workspace Owner` role. [https://www.bytebase.com/docs/concepts/roles-and-permissions](https://www.bytebase.com/docs/concepts/roles-and-permissions)
+3. Register admin account `DBA`. This account will be granted `Workspace Admin` role. [https://www.bytebase.com/docs/concepts/roles-and-permissions](https://www.bytebase.com/docs/concepts/roles-and-permissions)
    ![register-admin](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/register-admin.webp)
 
 ## Add an Instance in Bytebase from GUI

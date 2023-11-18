@@ -11,4 +11,4 @@ Development workflow setup usually contains multiple environments such as `Dev`,
 
 ## Prerequisites
 
-**Workspace Owner** or **Workspace DBA** role
+**Workspace Admin** or **Workspace DBA** role

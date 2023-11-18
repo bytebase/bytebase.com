@@ -16,7 +16,7 @@ Before you can use this feature, you need to enable slow query logs in your data
 ## [Step 2 - Turn on Slow Queries Report in Bytebase](/docs/slow-query/slow-query-report)
 
 After you enable slow query logs in your database, you can turn on the Slow Queries Report in Bytebase.
-Only the workspace owner and DBA can turn on/off the Slow Queries Report.
+Only the workspace admin and DBA can turn on/off the Slow Queries Report.
 
 ## [Step 3 - Send Weekly Email Report](/docs/slow-query/email-report)
 

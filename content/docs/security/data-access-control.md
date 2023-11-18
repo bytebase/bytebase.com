@@ -5,10 +5,9 @@ feature_name: DATA_ACCESS_CONTROL
 
 <TutorialBlock url="/docs/tutorials/how-to-manage-data-access-for-developers" title="How to Manage Data Access for Developers" />
 
-Data Access Control restricts how the `Workspace Developer` access and export the data. `Workspace Owner` or `DBA` are exempt from these restrictions.
+Data Access Control restricts how the `Developer` access and export the data. `Workspace Admin` or `DBA` are exempt from these restrictions.
 
-At the project level, a `Workspace Developer` can be a `Project Owner` or `Project Developer`. The
-`Project Owner` is also exempt from these restrictions. And for `Project Developer`, `Workspace Owner` or `DBA` can configure the following data access control:
+At the project level, the `Project Owner` is also exempt from these restrictions. `Workspace Admin` or `DBA` can configure the following data access control:
 
 - **Query**: query data via [SQL Editor](/docs/sql-editor/overview)
 - **Export**: export data by SQL or Database
@@ -16,7 +15,7 @@ At the project level, a `Workspace Developer` can be a `Project Owner` or `Proje
 
 ## Configure Data Access Control
 
-This section is for `Workspace Owner` or `DBA` to configure data access control for `Project Developer`.
+This section is for `Workspace Admin` or `DBA` to configure data access control for `Project Developer`.
 
 1. Click **Settings** > **Security & Policy** > **Data Access Control**.
    ![bb-settings-data-access-control](/content/docs/security/data-access-control/bb-settings-data-access-control.webp)

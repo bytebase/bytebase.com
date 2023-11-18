@@ -29,7 +29,7 @@ Before starting, make sure you have installed [Docker](https://www.docker.com/).
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
-2. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`. Register an admin account and it will be granted the `workspace owner` role automatically.
+2. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`. Register an admin account and it will be granted the `workspace admin` role automatically.
 
 3. Go back to the Bytebase console, click **Start free trial** on the left bottom and upgrade to **Enterprise plan**.
 

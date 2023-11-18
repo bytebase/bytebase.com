@@ -1,7 +1,7 @@
 ---
 title: Schema Template
 ---
-**Schema Template** allows **Workspace Owner** or **DBA** to pre-define templates of fields and tables at the workspace level, and they may be used to change schema via [**Schema Editor**](/doc/administration/schema-editor). There're three types: 
+**Schema Template** allows **Workspace Admin** or **DBA** to pre-define templates of fields and tables at the workspace level, and they may be used to change schema via [**Schema Editor**](/doc/administration/schema-editor). There're three types: 
 - Field Template
 - Table Template
 - Column Type Restriction

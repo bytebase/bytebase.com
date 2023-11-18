@@ -47,7 +47,7 @@ Before you start, make sure you have [Docker](https://www.docker.com/) installed
 2. Bytebase is now running via Docker, and you can access it via `localhost:5678`.
    ![docker](/content/docs/tutorials/database-change-management-with-postgresql/docker.webp)
 
-3. Visit `localhost:5678` in your browser. Register the first admin account which will be granted [`Workspace Owner`](/docs/concepts/roles-and-permissions).
+3. Visit `localhost:5678` in your browser. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
    ![register](/content/docs/tutorials/database-change-management-with-postgresql/register.webp)
 
 ## Step 2 - Add PostgreSQL in Bytebase

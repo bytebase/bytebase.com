@@ -10,7 +10,7 @@ description: '- Support syncing schema for MySQL. - Support approving issues via
 - Support syncing schema for MySQL.
 - Support approving issues via Lark (Feishu).
 - Support [SQL Review CI in the GitOps workflow](/docs/sql-review/sql-advisor/gitops-ci).
-- DBAs and workspace owners can run SQL statements in Admin mode from the SQL Editor.
+- DBAs and workspace admins can run SQL statements in Admin mode from the SQL Editor.
 - Support altering multiple databases on tenant mode.
 
 ## 🎄 Enhancements

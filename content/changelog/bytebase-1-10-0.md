@@ -2,12 +2,12 @@
 title: Bytebase 1.10.0
 author: Ningjing
 published_at: 2022/12/29 17:00:00
-description: '- Workspace owner and DBA can now view audit logs. - Support CRUD database role (only for PostgreSQL) via Terraform Provider. - Support viewing and editing primary keys and foreign keys in the Schema editor for MySQL. - Support MySQL/TiDB SSL connection.'
+description: '- Workspace admin and DBA can now view audit logs. - Support CRUD database role (only for PostgreSQL) via Terraform Provider. - Support viewing and editing primary keys and foreign keys in the Schema editor for MySQL. - Support MySQL/TiDB SSL connection.'
 ---
 
 ## 🚀 New Features
 
-- Workspace owner and DBA can now view audit logs.
+- Workspace admin and DBA can now view audit logs.
 - Support CRUD database role (only for PostgreSQL) via Terraform Provider. Read the [docs](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/database_role).
 - Support viewing and editing primary keys and foreign keys in the Schema Editor for MySQL.
 - Support MySQL/TiDB SSL connection.

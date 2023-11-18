@@ -46,14 +46,14 @@ Before you start this tutorial, make sure:
 2. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`.
    ![docker](/content/docs/tutorials/database-change-management-with-mongodb/docker.webp)
 
-3. Visit localhost:5678 in your browser. Register the first admin account which will be granted [`Workspace Owner`](/docs/concepts/roles-and-permissions).
+3. Visit localhost:5678 in your browser. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
    ![register](/content/docs/tutorials/database-change-management-with-mongodb/register.webp)
 
 ## Step 2 - Add MongoDB in Bytebase
 
 In Bytebase, ​​an Instance could be your on-premises MySQL instance, an AWS RDS instance etc, in this tutorial, a MongoDB Atlas account or a MongoDB Server instance.
 
-1. Visit `localhost:5678` and log in as `Workspace Owner`.
+1. Visit `localhost:5678` and log in as `Workspace Admin`.
    ![login](/content/docs/tutorials/database-change-management-with-mongodb/login.webp)
 
 2. Click **Add Instance**.

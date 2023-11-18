@@ -8,7 +8,7 @@ title: Self-host GitLab EE/CE
 
 ## Prerequisites
 
-- You should be the **Workspace Owner** to be able to see the **GitOps** sidebar item and add Git Provider.
+- You should be the **Workspace Admin** to be able to see the **GitOps** sidebar item and add Git Provider.
 - You should have a project created in GitLab.
 - If your Bytebase instance resides in the same private network as your GitLab instance, you will need to enable **Allow requests to the local network from webhooks and integrations**. Otherwise, you will get the error: `Failed to create webhook xxx, status code: 422 for GitLab`. View details [here](https://docs.gitlab.com/ee/security/webhooks.html#allow-requests-to-the-local-network-from-webhooks-and-integrations).
 
