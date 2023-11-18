@@ -21,7 +21,7 @@ The following rules apply to secret names:
 
 <HintBlock type="info">
 
-To create database secrets, you must be the Workspace Owner or Workspace DBA.
+To create database secrets, you must be the Workspace Admin or Workspace DBA.
 
 </HintBlock>
 

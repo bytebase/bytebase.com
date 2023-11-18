@@ -119,7 +119,7 @@ Caveat: If you used to run Bytebase without these flags, you might already have 
 
 <HintBlock type="info">
 
-Automatic weekly backup can be enabled/disabled by the Owner of the project owning the database, as well as the Workspace Owner and DBA.
+Automatic weekly backup can be enabled/disabled by the Owner of the project owning the database, as well as the Workspace Admin and DBA.
 
 </HintBlock>
 
@@ -131,7 +131,7 @@ You can use [webhook](#post-backup-webhook) to monitor backup status.
 
 <HintBlock type="info">
 
-User who is the member of the project owning the database, as well as the Workspace Owner and DBA can take manual backup.
+User who is the member of the project owning the database, as well as the Workspace Admin and DBA can take manual backup.
 
 </HintBlock>
 

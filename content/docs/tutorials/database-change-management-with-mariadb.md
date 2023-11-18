@@ -59,7 +59,7 @@ Before you start, make sure you have
 
 In Bytebase, ​​an Instance could be your on-premises MySQL instance, an AWS RDS MySQL instance and etc. In this tutorial, it's MariaDB instances.
 
-1. Visit `localhost:5678` in your browser. Register the first admin account which will be granted [`Workspace Owner`](/docs/concepts/roles-and-permissions).
+1. Visit `localhost:5678` in your browser. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
    ![bb-register-admin.webp](/content/docs/tutorials/database-change-management-with-mariadb/bb-register-admin.webp)
 
 2. Click **Instances** on the top bar and click **Add instance**, choose `MariaDB`. Fill the form with the following information and click **Create**.

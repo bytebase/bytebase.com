@@ -8,7 +8,7 @@ title: Set up Environments
 
 ## Prerequisites
 
-- **Workspace Owner** or **Workspace DBA** role
+- **Workspace Admin** or **Workspace DBA** role
 
 ## Add an environment
 

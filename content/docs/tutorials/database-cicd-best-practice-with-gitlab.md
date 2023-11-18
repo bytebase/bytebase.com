@@ -123,7 +123,7 @@ Go to **Instances** to **Assign License** for the existing two instances.
 
 ### Manual Rollout
 
-Go to **Environments** > **2.Prod**, Find **Rollout policy** section, and choose **Manual rollout** > **Require rolling out from DBA or workspace owner**.
+Go to **Environments** > **2.Prod**, Find **Rollout policy** section, and choose **Manual rollout** > **Require rolling out from DBA or workspace admin**.
 
     ![bb-env-prod-manual-rollout](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-env-prod-manual-rollout.webp)
 

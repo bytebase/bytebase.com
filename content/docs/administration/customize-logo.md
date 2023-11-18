@@ -7,7 +7,7 @@ This document shows you how to add a logo to your workspace.
 
 ## Prerequisites
 
-- **Workspace Owner** or **Workspace DBA** role
+- **Workspace Admin** or **Workspace DBA** role
 
 ## Procedure
 

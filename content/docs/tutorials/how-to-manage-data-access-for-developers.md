@@ -42,11 +42,11 @@ You’ll need two Bytebase accounts –  one **Owner** and one **Developer**.
 
 ### Step 2 - Register accounts Owner and Developer
 
-1. Visit `localhost:5678` in the browser. Register an admin account, we’ll refer to it as **Owner**. This account will be granted `Workspace Owner` role. To keep it simple, we use this **Owner** instead of registerating another **DBA** in this tutorial. Check [Roles and Permissions](/docs/concepts/roles-and-permissions).
+1. Visit `localhost:5678` in the browser. Register an admin account, we’ll refer to it as **Owner**. This account will be granted `Workspace Admin` role. To keep it simple, we use this **Owner** instead of registerating another **DBA** in this tutorial. Check [Roles and Permissions](/docs/concepts/roles-and-permissions).
 
 ![admin-register](/content/docs/tutorials/how-to-manage-data-access-for-developers/bb-admin-register.webp)
 
-2. Log out and register another normal account - we’ll refer to it as **Developer**. This account will be granted `Workspace Developer` role.
+1. Log out and register another account.
 
 ![register](/content/docs/tutorials/how-to-manage-data-access-for-developers/bb-normal-register.webp)
 
@@ -80,14 +80,14 @@ Log in as **Developer**, and you can see `Sample Project`. Click **SQL Editor** 
 
 In practice, developers can access any database on `Test` environment, but they need to obtain permission to access `Prod` environment. In this step, we'll show you how to implement this.
 
-1. Log in as **Owner**, and go to **Settings** > **Custom Approval**. Scroll down to **Request Query**, and choose `Workspace Owner` as **Approval flow**.
+1. Log in as **Owner**, and go to **Settings** > **Custom Approval**. Scroll down to **Request Query**, and choose `Workspace Admin` as **Approval flow**.
 2. Go to **Settings** > **Risk Center**. Click **Add Rule**. Choose `Request Query` as **Type**. Choose `High` as **Risk**. Click **Load** for the first template on the right. Click **Add**.
    ![bb-owner-risk-center-request-query](/content/docs/tutorials/how-to-manage-data-access-for-developers/bb-owner-risk-center-request-query.webp)
 
 3. Log in as **Developer**, and go to `Sample Project`, click **Request Query**. Choose **Manual select** and then `employee` table under `Prod` environment. Click **OK**.
    ![bb-proj-request-query-salary](/content/docs/tutorials/how-to-manage-data-access-for-developers/bb-proj-request-query-salary.webp)
 
-4. A request issue is created with the approval flow `Workspace Owner` we just defined.
+4. A request issue is created with the approval flow `Workspace Admin` we just defined.
    ![bb-issue-request](/content/docs/tutorials/how-to-manage-data-access-for-developers/bb-issue-request.webp)
 
 5. Log in as **Owner**, go to this issue and click **Approve**.

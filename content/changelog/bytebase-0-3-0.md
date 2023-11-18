@@ -5,7 +5,7 @@ published_at: 2021/08/02 07:50:00
 
 ## 🚀 New Features
 
-- **Environment approval policy ([detailed guide](https://docs.bytebase.com/use-bytebase/approval-policy))** - For a particular environment, the workspace Owner or DBA can configure whether the database schema change requires approval.
+- **Environment approval policy ([detailed guide](https://docs.bytebase.com/use-bytebase/approval-policy))** - For a particular environment, the workspace admin or DBA can configure whether the database schema change requires approval.
 - **Inbox** - Added Inbox to the left sidebar. Issue's status change will post to its creator, assignee and subscribers inbox. If there occurs failed task, there will be additional alert symbol.
 - **Database instance user sync** - Bytebase will now periodically sync instance's users and their corresponding grants and display those info on the instance detail page. This helps Bytebase user to quickly recognize who has acccess to an certain instance.
 

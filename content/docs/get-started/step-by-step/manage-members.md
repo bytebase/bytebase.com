@@ -13,7 +13,7 @@ This document describes how to add new member, update the role and deactivate a 
 
 ## Prerequisites
 
-- **Workspace Owner** role
+- **Workspace Admin** role
 
 ## Add a team member
 

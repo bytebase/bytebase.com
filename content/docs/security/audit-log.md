@@ -3,7 +3,7 @@ title: Audit Log
 feature_name: AUDIT_LOG
 ---
 
-Workspace OWNER or DBA can view the audit log of the workspace. Currently, the audit log records following operations performed by users in workspace:
+Workspace admin or DBA can view the audit log of the workspace. Currently, the audit log records following operations performed by users in workspace:
 
 - Create Member
 - Update Member Role

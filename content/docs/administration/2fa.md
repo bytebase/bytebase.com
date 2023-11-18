@@ -46,6 +46,6 @@ After saving your two-factor recovery codes, click **I have saved my recovery co
 
 ## Enable Require 2FA for all users
 
-The workspace owner can require all users to enable two-factor authentication (2FA) in the Security setting page. This will ensure that all users have an extra layer of security for their accounts.
+The workspace admin can require all users to enable two-factor authentication (2FA) in the Security setting page. This will ensure that all users have an extra layer of security for their accounts.
 
 ![enable-require-2fa](/content/docs/administration/2fa/enable-require-2fa.webp)

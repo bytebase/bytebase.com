@@ -13,7 +13,7 @@ Bytebase supports the following standard protocols that provide SSO:
 
 ## Create SSO provider
 
-As a **Workspace Owner**, you can create a SSO provider with the following steps:
+As a **Workspace Admin**, you can create a SSO provider with the following steps:
 
 1. Go to the **Settings** page.
 

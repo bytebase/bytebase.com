@@ -4,7 +4,7 @@ title: Restore from Backup
 
 <HintBlock type="info">
 
-User who is the member of the project owning the database, as well as the Workspace Owner and DBA can restore backup.
+User who is the member of the project owning the database, as well as the Workspace Admin and DBA can restore backup.
 
 </HintBlock>
 
@@ -22,7 +22,7 @@ For now, Bytebase only allows to restore to a new database under the same projec
 
 ## Step 3 - Execute restore workflow
 
-Bytebase will create a 2-stage issue for the restore workflow. The 1st stage is to create the new database, followed by restoring the backup to that database. For `Workspace Owner or DBA`, the workflow will start automatically. For `Workspace Developer`, the workflow requires `Workspace Owner or DBA` approval first.
+Bytebase will create a 2-stage issue for the restore workflow. The 1st stage is to create the new database, followed by restoring the backup to that database. For `Workspace Admin or DBA`, the workflow will start automatically. For `Developer`, the workflow requires `Workspace Admin or DBA` approval first.
 
 ![restore-from-backup-step](/content/docs/disaster-recovery/restore/restore-from-backup-step3.webp)
 

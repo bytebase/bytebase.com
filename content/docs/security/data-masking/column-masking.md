@@ -9,7 +9,7 @@ The [column masking](../column-masking) takes precedence over the global masking
 
 </HintBlock>
 
-`Workspace Owner` and `DBA` can set table columns as different **Masking Level** to mask the data.
+`Workspace Admin` and `DBA` can set table columns as different **Masking Level** to mask the data.
 
 1. Go to the table detail page, and click the **pen icon** in the row.
 

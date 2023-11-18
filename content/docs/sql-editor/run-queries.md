@@ -8,7 +8,7 @@ SQL Editor default mode is read-only, which only supports running SELECT queries
 to run DDL or DML change queries, SQL Editor will prompt you to create a new issue to start the
 [SQL change workflow](/docs/change-database/change-workflow).
 
-Workspace Owners and DBAs are allowed to execute any SQL statements in
+Workspace Admins and DBAs are allowed to execute any SQL statements in
 [Admin Mode](/docs/sql-editor/admin-mode).
 
 The read-only mode is not available for MongoDB, but you also can execute the statements in [Admin Mode](/docs/sql-editor/admin-mode).

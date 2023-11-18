@@ -7,7 +7,7 @@ you need to supply Bytebase with the connection info.
 
 <HintBlock type="info">
 
-Only **Workspace Owner** or **Workspace DBA** role can configure instance.
+Only **Workspace Admin** or **Workspace DBA** role can configure instance.
 
 </HintBlock>
 

@@ -3,7 +3,7 @@ title: Environment Tier
 feature_name: ENVIRONMENT_TIER
 ---
 
-For production environments, extra care should be taken. Bytebase allows marking such an environment as a production environment. Workspace OWNER or DBA can configure this under the Environment Tier section from the environment detail page.
+For production environments, extra care should be taken. Bytebase allows marking such an environment as a production environment. Workspace admin or DBA can configure this under the Environment Tier section from the environment detail page.
 
 When an environment is marked as a production environment, a shield indicator will appear before the environment label. It lets users know that it is a production environment.
 
@@ -17,4 +17,4 @@ A caution notice will also appear at the top of the SQL Editor when you connect 
 
 ![tier-editor](/content/docs/administration/tier/env-tier-editor.webp)
 
-By default, instances and databases in a production environment will be inaccessible to workspace developers. Workspace owners and DBAs can configure some databases as accessible to developers via [Data Access Control](/docs/security/data-access-control).
+By default, instances and databases in a production environment will be inaccessible to developers. Workspace admins and DBAs can configure some databases as accessible to developers via [Data Access Control](/docs/security/data-access-control).

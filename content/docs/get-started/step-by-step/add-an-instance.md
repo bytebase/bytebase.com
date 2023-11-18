@@ -6,7 +6,7 @@ title: Add an Instance
 
 ## Prerequisites
 
-- **Workspace Owner** or **Workspace DBA** role
+- **Workspace Admin** or **Workspace DBA** role
 - A database instance. If you don't have an existing instance on hand, you can [add a local MySQL instance](/docs/tutorials/local-mysql-instance).
 
 ## Step 1 - Add instance

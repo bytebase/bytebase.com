@@ -3,7 +3,7 @@ title: Access Unmasked data
 feature_name: DATA_MASKING
 ---
 
-For the masked columns, `Workspace Owner` and `DBA` can grant specific users to access the unmasked data.
+For the masked columns, `Workspace Admin` and `DBA` can grant specific users to access the unmasked data.
 
 1. Go to a table detail page, and click the **pen icon** on the masking level column.
    ![bb-table-detail-click-masking-pen](/content/docs/security/data-masking/bb-table-detail-click-masking-pen.webp)

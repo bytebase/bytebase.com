@@ -7,7 +7,7 @@ This document shows you how to set an announcement to your workspace.
 
 ## Prerequisites
 
-- **Workspace Owner** or **Workspace DBA** role
+- **Workspace Admin** or **Workspace DBA** role
 
 ## Procedure
 

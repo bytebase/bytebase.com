@@ -17,7 +17,7 @@ You may want to batch apply masking settings. e.g.
 Global masking rule allows you to do this. It's similar to the iptables where you configure an ordered
 rule list. The first matching rule will be applied. If no rule matches, the default masking level is `None`.
 
-`Workspace Owner` and `DBA` can set global masking rules to mask the data.
+`Workspace Admin` and `DBA` can set global masking rules to mask the data.
 
 1. Go to **Settings**>**Security & Policy**>**Data Masking**.
 2. Click **Global Masking Rule** tab.

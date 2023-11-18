@@ -7,7 +7,7 @@ The SQL Review Policy is essentially a set of SQL lint rules defined in [SQL Rev
 
 ## Prerequisites
 
-- **Workspace Owner** or **Workspace DBA** role to configure the Review Policy.
+- **Workspace Admin** or **Workspace DBA** role to configure the Review Policy.
 
 ## Create Schema Review Policy
 
