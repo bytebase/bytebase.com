@@ -18,16 +18,16 @@ The only viable schemachange alternative is [Bytebase](/), a GUI-based database 
 
 I have followed both tutorials and, in this article, I will provide you with a brief overview of their differences, helping you get a sense of each tool before you decide to try them out. A high-level comparison:
 
-|                         | schemachange             | Bytebase   |
-| ----------------------- | ------------------------ | ---------- |
-| Interface               | CLI                      | GUI        |
-| GitOps workflow         | Manual                   | Integrated |
-| Change history          | Stored in separate place | Integrated |
-| Custom review rules     | ❌                       | ✅         |
-| RBAC and access control | ❌                       | ✅         |
-| Drift detection         | ❌                       | ✅         |
-| Custom approval flow    | ❌                       | ✅         |
-| Audit log               | ❌                       | ✅         |
+|                      | schemachange             | Bytebase   |
+| -------------------- | ------------------------ | ---------- |
+| Interface            | CLI                      | GUI        |
+| GitOps workflow      | Manual                   | Integrated |
+| Change history       | Stored in separate place | Integrated |
+| Custom review rules  | ❌                       | ✅         |
+| RBAC                 | ❌                       | ✅         |
+| Drift detection      | ❌                       | ✅         |
+| Custom approval flow | ❌                       | ✅         |
+| Audit log            | ❌                       | ✅         |
 
 ## Schemachange
 

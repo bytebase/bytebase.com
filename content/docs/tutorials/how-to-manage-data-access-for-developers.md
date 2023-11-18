@@ -42,7 +42,7 @@ You’ll need two Bytebase accounts –  one **Owner** and one **Developer**.
 
 ### Step 2 - Register accounts Owner and Developer
 
-1. Visit `localhost:5678` in the browser. Register an admin account, we’ll refer to it as **Owner**. This account will be granted `Workspace Owner` role. To keep it simple, we use this **Owner** instead of registerating another **DBA** in this tutorial. Check [Roles and Permissions (RBAC)](/docs/concepts/roles-and-permissions).
+1. Visit `localhost:5678` in the browser. Register an admin account, we’ll refer to it as **Owner**. This account will be granted `Workspace Owner` role. To keep it simple, we use this **Owner** instead of registerating another **DBA** in this tutorial. Check [RBAC](/docs/concepts/roles-and-permissions).
 
 ![admin-register](/content/docs/tutorials/how-to-manage-data-access-for-developers/bb-admin-register.webp)
 

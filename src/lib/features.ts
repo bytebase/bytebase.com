@@ -36,7 +36,7 @@ export const FEATURES = {
   GITOPS_WORKFLOW: 'GitOps workflow',
 
   //Data Security & Governance
-  RBAC: 'RBAC (Owner, DBA, Developer role)',
+  RBAC: 'RBAC',
   SLOW_QUERY: 'Slow Query',
   ARCHIVING: 'Archiving',
   BACKUP_POLICY: 'Backup Policy',
