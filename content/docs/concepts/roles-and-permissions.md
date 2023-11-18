@@ -1,5 +1,5 @@
 ---
-title: Roles and Permissions (RBAC)
+title: Roles and Permissions
 ---
 
 ## Overview

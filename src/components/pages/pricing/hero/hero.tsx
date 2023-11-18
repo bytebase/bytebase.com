@@ -31,7 +31,7 @@ const cards: TCard[] = [
     planConditions: [
       'Schema and data change review workflow',
       'SQL Editor',
-      'RBAC (Owner, DBA and Developer roles)',
+      'RBAC',
       '100+ SQL lint rules',
       'VCS integration with GitOps workflow',
       'Multi-environment batch change',

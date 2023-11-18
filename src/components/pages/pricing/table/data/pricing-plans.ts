@@ -271,7 +271,7 @@ const LABELS = [
   {
     title: 'Data Security & Governance',
     items: {
-      rbac: 'RBAC (Owner, DBA, Developer role)',
+      rbac: 'RBAC',
       'slow-query': 'Slow Query',
       archiving: 'Archiving',
       'backup-policy': 'Backup policy',
