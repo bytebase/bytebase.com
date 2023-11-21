@@ -32,10 +32,6 @@ PostgreSQL Anonymizer also supports Static Masking, which directly transforms th
 
 Note that this method will destroy the original data. So think twice before you use static masking.
 
-Data Masking is a widely employed approach to safeguarding sensitive data, like credit card details, Social Security Numbers (SSNs), and addresses. And sometimes, masking data is much more than just keeping your and your customers' data secure – in some cases it is required by law, the most famous example is GDPR.
-
-Various methods of data masking, such as substitution, shuffling, and redaction, exist and serve different purposes. Masking sensitive data enables organizations to reduce the likelihood of data breaches and unauthorized access, while still maintaining the ability to work with realistic data for tasks like development, testing, and analytics.
-
 ## Bytebase Dynamic Data Masking
 
 ![_](/content/blog/mysql-data-masking/bytebase-masking.webp)
