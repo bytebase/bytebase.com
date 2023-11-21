@@ -2,8 +2,8 @@ import Script from 'next/script';
 
 import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
-// import { FrontChat } from '@/components/front-chat';
-import { Intercom } from '@/components/intercom';
+import { FrontChat } from '@/components/front-chat';
+//import { Intercom } from '@/components/intercom';
 
 import I18nProvider from '@/locales/i18nProvider';
 import { getStaticParams } from '@/locales/server';
@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script data-domain="bytebase.com" src="https://plausible.io/js/script.js" defer />
       </head>
       <body className="flex h-full flex-col">
-        <Intercom />
+        <FrontChat />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=G-4BZ4JH7449`}
           strategy="afterInteractive"
