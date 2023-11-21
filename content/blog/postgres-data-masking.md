@@ -69,11 +69,9 @@ _`Workspace Admin` and `DBA` here are [roles](/docs/concepts/roles-and-permissio
 | Features      | Basic                                | Advanced with granular masking policy and access grants ⭐️ |
 | Price         | Free ⭐️                                 | Paid                                                        |
 
-PostgreSQL Anonymizer's advantage is that it is directly implemented in the database itself. Thus data masking rules
-are enforced regarless of how queries are sent to the database. For Bytebase Dynamic Data Masking, queries must go through SQL Editor to be enforced.
+PostgreSQL Anonymizer's advantage is that it can directly be implemented in the database itself. Thus data masking rules are enforced regarless of how queries are sent to the database. For Bytebase Dynamic Data Masking, queries must go through SQL Editor to be enforced.
 
-The advantage of Bytebase Dynamic Data Masking is its compatibility with all PostgreSQL distributions, feature-rich masking policy and access grants.
-As long as team can be enforced to query databases via Bytebase [SQL Editor](/sql-editor) (which is desired from the management perspective), then Bytebase Dynamic Data Masking is a perfect choice.
+The advantage of Bytebase Dynamic Data Masking is its compatibility with all PostgreSQL distributions, feature-rich masking policy and access grants. As long as team can be enforced to query databases via Bytebase [SQL Editor](/sql-editor) (which is desired from the management perspective), then Bytebase Dynamic Data Masking is a perfect choice.
 
 ---
 
