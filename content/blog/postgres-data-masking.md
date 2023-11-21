@@ -40,8 +40,7 @@ Various methods of data masking, such as substitution, shuffling, and redaction,
 
 ![_](/content/blog/mysql-data-masking/bytebase-masking.webp)
 
-[Bytebase Dynamic Data Masking](/docs/security/data-masking/overview/) doesn't depend on the underlying MySQL views and users.
-It manages the masking policies and grants inside Bytebase. Masking policy is applied when user queries from the SQL Editor.
+[Bytebase Dynamic Data Masking](/docs/security/data-masking/overview/) doesn't depend on PostgreSQL views and users. It manages the masking policies and grants inside Bytebase. Masking policy is applied when user queries from the SQL Editor.
 
 ![_](/content/blog/mysql-data-masking/bytebase-sql-editor.webp)
 
