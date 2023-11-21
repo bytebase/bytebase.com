@@ -7,7 +7,8 @@ title: Add an Instance
 ## Prerequisites
 
 - **Workspace Admin** or **Workspace DBA** role
-- A database instance. If you don't have an existing instance on hand, you can [add a local MySQL instance](/docs/tutorials/local-mysql-instance).
+- Bytebase provides two embedded sample PostgreSQL instances. You may add your own or [add a local MySQL instance](/docs/tutorials/local-mysql-instance).
+![bb-instances](/content/docs/get-started/step-by-step/add-an-instance/bb-instances.webp)
 
 ## Step 1 - Add instance
 
@@ -37,4 +38,10 @@ Click **Instances** on the top bar and click **Add Instance**.
    1. Choose **CA Certificate + Client Key + Client Certificate** to use a full SSL connection.
 1. (Optional) Assign an [instance licence](/docs/administration/license).
 
-After adding an instance, click **Databases** on the navigation bar. You can find the table is still empty. It’s because you haven’t created any project yet. In Bytebase, only databases belong to a user project will show up on the Databases page.
+After adding an instance, click **Sync Now**. Switch to **Databases** tab under the instance, you may see all databases on this instance.
+
+![bb-instance-syc](/content/docs/get-started/step-by-step/add-an-instance/bb-instance-sync.webp)
+
+Click **Databases** on the top bar. You may see databases belonging to the sample instances. However, if you added your instances, you may not see them. It’s because they're not belonging to any project yet. For now, you can click **View unassigned databases** to view all.
+
+![bb-databases-view-unassigned](/content/docs/get-started/step-by-step/add-an-instance/bb-databases-view-unassigned.webp)

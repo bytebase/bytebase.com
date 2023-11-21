@@ -20,7 +20,7 @@ Before starting, make sure you have installed [Docker](https://www.docker.com/ge
 
 <HintBlock type="info">
 
-If you **run Bytebase inside Docker on Linux** and want to connect the database intance on the same host, then you need to supply the additional `--add-host host.docker.internal:host-gateway --network host` flags.
+If you **run Bytebase inside Docker on Linux** and want to connect the database instance on the same host, then you need to supply the additional `--add-host host.docker.internal:host-gateway --network host` flags.
 
 </HintBlock>
 

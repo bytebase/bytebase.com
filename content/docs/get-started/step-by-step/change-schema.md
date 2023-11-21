@@ -8,29 +8,38 @@ title: Make a Database Schema Change
 
 This document guides you to run a SQL UI Workflow in a project. Make sure you have already created a project with databases and members in it.
 
-Bytebase supports both **Alter Schema** (DDL) and **Change Data** (DML). This document takes **Alter Schema** as an example.
+Bytebase supports both **Edit Schema** (DDL) and **Change Data** (DML). This document takes **Edit Schema** as an example.
 
 ## Step 1 - Create an issue
 
-1. Go to the project page you created, click **Alter Schema**, and you will see an **Alter Schema** dialog box.
-2. Choose **Alter multiple databases**, it will display databases for each environment and the **Issue** will compose them into a **Pipeline** later. Here if you choose **Alter single database**, then it's all about that specific database.
+1. Go to the project page you created, click **Edit Schema**, and you will see an **Edit Schema** dialog box.
+2. Choose one or several databases. If you choose one, the **Issue** will compose them into a **Pipeline** later; if you choose several, then it's all about that specific database.
 
-![alter-schema](/content/docs/get-started/step-by-step/change-schema/alter-schema.webp)
+    ![bb-project-edit-schema](/content/docs/get-started/step-by-step/change-schema/bb-project-edit-schema.webp)
 
-3. Click **Next**, choose **Normal migration**, and click **Next**, you will be redirected to the new issue page.
-4. Fill in the SQL query in the **SQL** box, put someone as **Assignee**, and click **Create**. Checks will run automatically. If any of the checks fail, you will need to fix the error and click **Retry**. If all checks pass, you can move on.
+3. Click **Next**, you'll be prompted with **Schema Editor** if it supports the database type. With or without its help, after filling the SQL, you will be redirected to the new issue page.
 
-![issue-form](/content/docs/get-started/step-by-step/change-schema/issue-form.webp)
+    ![bb-schema-editor](/content/docs/get-started/step-by-step/change-schema/bb-schema-editor.webp)
 
-## Step 2 - Approve an issue
+4. If it's a pipeline, you may need to click **Apply to other tasks**. Put someone as **Assignee** to take responsibility, and click **Create**. Checks will run automatically. If any of the checks fail, you will need to fix the error and click **Retry**. If all checks pass, you can move on.
 
-Only the **Assignee** or the **Project Owner** can approve an issue that requires manual approval.
+    ![bb-issue-warning](/content/docs/get-started/step-by-step/change-schema/bb-issue-warning.webp)
 
-- Go to the issue page you’re assigned, and click **Approve** if you think it’s right.
-- The SQL will run, if it’s successful, it will display **Done** up there.
-- After SQL runs successfully for each environment in the pipeline is created, click **Resolve issue**, and the **Issue** is **Done**.
+## Step 2 - Rollout an issue
 
-![done](/content/docs/get-started/step-by-step/change-schema/done.webp)
+Since there's an SQL review warning, you may fix it by editing the SQL and click **Rollout** or click **Rollout** and then check **Rollout anyway**.
+
+    ![bb-rollout-anyway](/content/docs/get-started/step-by-step/change-schema/bb-rollout-anyway.webp)
+
+After rolling out, the issue is `Done`.
+
+    ![bb-issue-done](/content/docs/get-started/step-by-step/change-schema/bb-issue-done.webp)   
+
+Here's a graph showing the full four steps of issues.
+
+    ![graph-4-steps](/content/docs/get-started/step-by-step/change-schema/graph-4-steps.webp)
+
+Since for now, you haven't configured [Custom Approval](/docs/administration/custom-approval/), the approval process will be skipped. You haven't configured [Rollout Policy](/docs/administration/environment-policy/rollout-policy/), unless there is something wrong with the auto checks, the issue will be rolled out automatically.
 
 ## Summary
 
