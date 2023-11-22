@@ -26,7 +26,7 @@ Real-world scenarios:
 
 ## Workspace roles
 
-By default, the first registered user is granted the `Owner` role, all following registered users are granted `Developer` role. `Owner` can update any user's role later.
+By default, the first registered user is granted the `Admin` role, all following registered users are granted `Member` role. `Admin` can update any user's role later.
 
 | Workspace Permission                | Member | DBA | Admin |
 | ----------------------------------- | ------ | --- | ----- |
@@ -82,7 +82,7 @@ Any user can create project. By default, the project creator is granted the `Pro
 
 Bytebase does not define database specific roles. Whether a user can perform certain action to the database is based on the user's Workspace role and the role of the project owning the database.
 
-| Database Permission | Project Querier | Project Developer | Project Developer         | Project Owner | Workspace DBA | Workspace Admin |
+| Database Permission | Project Querier | Project Exporter  | Project Developer         | Project Owner | Workspace DBA | Workspace Admin |
 | ------------------- | --------------- | ----------------- | ------------------------- | ------------- | ------------- | --------------- |
 | Query               | ✔️               |                   |                           | ✔️             | ✔️             | ✔️               |
 | Export              |                 | ✔️                 |                           | ✔️             | ✔️             | ✔️               |
