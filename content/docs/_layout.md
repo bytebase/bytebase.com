@@ -25,19 +25,19 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### Quickstart
 
-#### [Step 1 - Register Accounts](/get-started/step-by-step/register-accounts)
+#### [Step 1 - Deploy with Docker](/get-started/step-by-step/deploy-with-docker)
 
-#### [Step 2 - Set up Environments](/get-started/step-by-step/set-up-environments)
+#### [Step 2 - Register Accounts](/get-started/step-by-step/register-accounts)
 
-#### [Step 3 - Add an Instance](/get-started/step-by-step/add-an-instance)
+#### [Step 3 - Set up Environments](/get-started/step-by-step/set-up-environments)
 
-#### [Step 4 - Create a Project](/get-started/step-by-step/create-a-project)
+#### [Step 4 - Add an Instance](/get-started/step-by-step/add-an-instance)
 
-#### [Step 5 - Change Schema](/get-started/step-by-step/change-schema)
+#### [Step 5 - Create a Project](/get-started/step-by-step/create-a-project)
 
-#### [Step 6 - Query Data](/get-started/step-by-step/query-data)
+#### [Step 6 - Change Schema](/get-started/step-by-step/change-schema)
 
-#### [Step 7 - Manage Members](/get-started/step-by-step/manage-members)
+#### [Step 7 - Query Data](/get-started/step-by-step/query-data)
 
 ### [Core Concepts](/concepts/data-model)
 
