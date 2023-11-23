@@ -140,7 +140,7 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
                   What’s new?
                 </span>
                 <span className="flex items-center gap-1.5 px-2">
-                  🚀 2.11.0: Customize MySQL online schema change with parameter settings.
+                  🚀 2.11.1: Customizable Masking Algorithms & Semantic Types for Data Masking.
                   <SmallArrowIcon width={7} height={6} />
                 </span>
               </span>
