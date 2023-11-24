@@ -1,6 +1,6 @@
 ---
 title: Secret Variable
-feature_name: 'Secret Variable'
+feature_name: 'SECRET_VARIABLE'
 ---
 
 To hide sensitive information in your change script, you can configure secret variables at the database level.
