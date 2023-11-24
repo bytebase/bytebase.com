@@ -1,6 +1,6 @@
 ---
 title: Drift Detection
-feature_name: 'ANOMALY_DETECTION'
+feature_name: 'DRIFT_DETECTION'
 ---
 
 Bytebase is supposed to take over applying the database schema changes on behalf of the user. It records the detailed migration history and the before/after schema snapshot for each migration it applies.
