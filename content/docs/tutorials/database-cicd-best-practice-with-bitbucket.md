@@ -85,7 +85,9 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
    ```
 2. Create a pull request including the above commits and merge it. Go back to Bytebase, you'll see there is a new issue created by the pull request.
 
-   ![bb-proj-activity-push-event](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-proj-activity-push-event.webp)
+   ![bb-push-event-notification](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-push-event-notification.webp)
+
+   ![bb-project-activity-push-event](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-project-activity-push-event.webp)
 
 3. Click the issue to see the details. SQL review automatic checks failed. Click the warning, you'll see the details.
 

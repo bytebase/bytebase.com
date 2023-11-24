@@ -113,9 +113,11 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Azure D
 
    ![az-ci-pass](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-ci-pass.webp)
 
-6. Go back to project `Sample Project` in Bytebase, you'll see the there's an issue created by push event.
+6. Go back to project `Sample Project` in Bytebase, you'll see there's an issue created by a push event.
 
-   ![bb-proj-push-event](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-proj-push-event.webp)
+   ![bb-push-event-notification](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-push-event-notification.webp)
+
+   ![bb-project-activity-push-event](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-project-activity-push-event.webp)
 
 7. Click to go to the issue. Because there is no approval flow or manual rollout configured. The issue rollouts automatically. You may click **View change** to see the diff.
 
