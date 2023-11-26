@@ -5,7 +5,7 @@ published_at: 2023/11/21 21:21:21
 feature_image: /content/blog/postgres-data-masking/banner.webp
 tags: Explanation
 featured: true
-description: Comparing PostgreSQL data masking solutions - PostgreSQL Anonymizer and Bytebase Dynamic Data Masking. 
+description: Comparing PostgreSQL data masking solutions - PostgreSQL Anonymizer and Bytebase Dynamic Data Masking.
 ---
 
 Data Masking is a widely employed approach to safeguarding sensitive data, like credit card details, Social Security Numbers (SSNs), and addresses. And sometimes, masking data is much more than just keeping your and your customers' data secure – in some cases it is required by law, the most famous example is GDPR.
@@ -17,6 +17,8 @@ Various methods of data masking, such as substitution, shuffling, and redaction,
 ![_](/content/blog/postgres-data-masking/postgresql-anonymizer.webp)
 
 [PostgreSQL Anonymizer](https://www.postgresql.org/about/news/postgresql-anonymizer-10-privacy-by-design-for-postgres-2452/) is a community extension that can add data masking capabilities with different masking options and methods to PostgreSQL.
+
+It stores masking configuration in [PostgreSQL Security Label](https://www.postgresql.org/docs/current/sql-security-label.html).
 
 ### Dynamic Masking
 
@@ -30,7 +32,7 @@ There are certain limitations to this method, for examle, as mentioned [in their
 
 PostgreSQL Anonymizer also supports Static Masking, which directly transforms the original dataset directly. You can replace original data with fake ones, add noise, or shuffle data to hide sensitive data.
 
-Note that this method will destroy the original data. So think twice before you use static masking.
+Note that this method will destroy the original data and is a slow process. So think twice before you use static masking. The principle of static masking is to update all lines of all tables containing at least one masked column. This basically means that PostgreSQL will rewrite all the data on disk.
 
 ## Bytebase Dynamic Data Masking
 
@@ -58,14 +60,14 @@ _`Workspace Admin` and `DBA` here are [roles](/docs/concepts/roles-and-permissio
 
 ## Comparison Table
 
-|               | PostgreSQL Anonymizer | Bytebase Dynamic Data Masking                               |
-| ------------- | --------------------- |----------------------------------------------------------- |
-| Compatibility | PostgreSQL, Google Cloud SQL, Postgres.ai (as of 2023.10)       | All PostgreSQL distributions ⭐️                                 |
-| Enforced at   | Database self ⭐️                    | SQL Editor                                                  |
-| Features      | Basic                                | Advanced with granular masking policy and access grants ⭐️ |
-| Price         | Free ⭐️                                 | Paid                                                        |
+|               | PostgreSQL Anonymizer                      | Bytebase Dynamic Data Masking                               |
+| ------------- | ------------------------------------------ | ----------------------------------------------------------- |
+| Compatibility | Requires `postgresql_anonymizer` extension | All PostgreSQL distributions ⭐️                            |
+| Enforced at   | Database self ⭐️                          | Bytebase SQL Editor                                         |
+| Features      | Basic                                      | Advanced with granular masking policy and access grants ⭐️ |
+| Price         | Free ⭐️                                   | Paid                                                        |
 
-PostgreSQL Anonymizer's advantage is that it can directly be implemented in the database itself. Thus data masking rules are enforced regarless of how queries are sent to the database. For Bytebase Dynamic Data Masking, queries must go through SQL Editor to be enforced.
+PostgreSQL Anonymizer's advantage is that it can directly be implemented in the database itself. Thus data masking rules are enforced regardless of how queries are sent to the database. For Bytebase Dynamic Data Masking, queries must go through SQL Editor to be enforced.
 
 The advantage of Bytebase Dynamic Data Masking is its compatibility with all PostgreSQL distributions, feature-rich masking policy and access grants. As long as team can be enforced to query databases via Bytebase [SQL Editor](/sql-editor) (which is desired from the management perspective), then Bytebase Dynamic Data Masking is a perfect choice.
 
