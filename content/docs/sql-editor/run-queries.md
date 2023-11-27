@@ -25,13 +25,13 @@ If you have multiple SQL queries separated by semicolons, SQL Editor will only r
 
 SQL Editor provides an `Explain` button to run EXPLAIN on the selected query. You can click it or use the shortcut key `(⌘ + E)` instead of prepending EXPLAIN manually.
 
-## Search Result
+## Search result
 
 You can retrieve anything you want from query results quickly.
 
 ![Search Result](/content/docs/sql-editor/search-result.webp)
 
-## Export Data
+## Export data
 
 If you have been granted export access, you can directly export query results in various formats.
 
