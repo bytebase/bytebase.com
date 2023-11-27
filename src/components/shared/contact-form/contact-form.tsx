@@ -154,11 +154,11 @@ const ContactForm = ({ className, formId }: { className: string; formId: string 
           </div>
           <p className="w-full max-w-[300px] text-14 text-gray-50 lg:max-w-full">
             By submiting, you agree with Bytebase&apos;s{' '}
-            <Link className="font-semibold" theme="underline" size="xs" href={Route.PRIVACY}>
+            <Link className="font-semibold" theme="underline" size="xs" href={Route.TERMS}>
               Terms of Service
             </Link>{' '}
             and{' '}
-            <Link className="font-semibold" theme="underline" size="xs" href={Route.TERMS}>
+            <Link className="font-semibold" theme="underline" size="xs" href={Route.PRIVACY}>
               Privacy Policy
             </Link>
           </p>
