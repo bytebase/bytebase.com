@@ -12,6 +12,10 @@ You can use [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy) or 
 
 See [Configure External URL](/docs/get-started/install/external-url).
 
+## Store metadata in External PostgreSQL
+
+See [Configure External PostgreSQL](/docs/get-started/install/external-postgres).
+
 ## Kubernetes
 
 ### Use Persistent Volume
