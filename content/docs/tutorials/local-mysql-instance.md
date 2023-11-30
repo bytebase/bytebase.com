@@ -11,10 +11,6 @@ description: How to run a MySQL instance locally with Docker and how to add it a
 
 This document describes how to run a MySQL instance locally with Docker and how to add it as an **Instance** for testing purpose.
 
-## Prerequisites
-
-Before starting, make sure you have installed [Docker](https://www.docker.com/get-started/).
-
 ## Step 1 - Start a local MySQL server in Docker
 
 1. Start Docker.

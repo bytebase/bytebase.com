@@ -19,10 +19,6 @@ It helps organizations to **protect sensitive data** from being exposed to unaut
 
 This tutorial will teach you how to set up and try out data masking in Bytebase within 30 mins.
 
-### Prerequisites
-
-Before starting, make sure you have installed [Docker](https://www.docker.com/).
-
 ### Preparation
 
 1. Make sure your Docker is running, and start the Bytebase Docker container with following command:
