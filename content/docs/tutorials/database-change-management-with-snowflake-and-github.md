@@ -112,9 +112,9 @@ FIRST_NAME VARCHAR
 ![vscode-create-table](/content/docs/tutorials/database-change-management-with-snowflake-and-github/vscode-create-table.webp)
 
 2. Commit and push this file.
-3. Go to Bytebase, and go into project `TestSnowflake`. You’ll find there is a new Push Event and a new issue 102 completed.
-   ![prj-push-event02](/content/docs/tutorials/database-change-management-with-snowflake-and-github/prj-push-event02.webp)
-4. Click issue/102 and go the issue page, you’ll see:
+3. Go to Bytebase, and go into project `TestSnowflake`. You’ll find there is a new Push Event and a new `issue 102` completed.
+   ![bb-push-notification-only](/content/docs/tutorials/database-change-management-with-snowflake-and-github/bb-push-notification-only.webp)
+4. Click `issue/102` and go to the issue page, you’ll see:
 
 - The issue is created via github.com.
 - The issue is completed without manual approval because it applies the schema change to a database from the Test environment. And our Test environment is configured with no manual approval required.
