@@ -11,7 +11,7 @@ const Route = {
   BRANCHING: '/branching',
   SQL_REVIEW_GUIDE: '/sql-review-guide',
   BYTEBASE_PLUS: '/bytebase-plus',
-  DEMO: '/request-demo',
+  REQUEST_DEMO: '/request-demo',
   CONFIRM_DEMO: '/confirm-demo',
   CONFIRM_MESSAGE: '/confirm-message',
 

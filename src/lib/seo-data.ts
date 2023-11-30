@@ -133,7 +133,7 @@ const SEO_DATA = {
     title: 'Bytebase Request a demo',
     description:
       'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
-    pathname: `${Route.DEMO}/`,
+    pathname: `${Route.REQUEST_DEMO}/`,
   },
   CONFIRM_DEMO: {
     title: 'Demo Booking Confirmed',
