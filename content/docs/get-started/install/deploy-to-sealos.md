@@ -74,7 +74,7 @@ spec:
               port: 8080
             initialDelaySeconds: 300
             periodSeconds: 300
-            timeoutSeconds: 60
+            timeoutSeconds: 300
       volumes:
         - name: data
           emptyDir: {}

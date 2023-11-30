@@ -57,7 +57,7 @@ docker run --init \
   --publish 80:8080 \
   --health-cmd "curl --fail http://localhost:80/healthz || exit 1" \
   --health-interval 5m \
-  --health-timeout 60s \
+  --health-timeout 5m \
   --volume ~/.bytebase/data:/var/opt/bytebase \
   bytebase/bytebase:%%bb_version%% \
   --data /var/opt/bytebase \
@@ -146,7 +146,7 @@ spec:
               port: 8080
             initialDelaySeconds: 300
             periodSeconds: 300
-            timeoutSeconds: 60
+            timeoutSeconds: 300
       volumes:
         - name: data
           emptyDir: {}
