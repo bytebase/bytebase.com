@@ -111,6 +111,8 @@ metadata:
   name: bytebase
   namespace: default
 spec:
+  # To prevent data races, only request one replica.
+  replicas: 1
   selector:
     matchLabels:
       app: bytebase
