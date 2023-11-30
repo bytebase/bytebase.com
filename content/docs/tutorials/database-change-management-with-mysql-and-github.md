@@ -45,7 +45,7 @@ Before you start this tutorial, make sure you have the following ready:
 1. Visit Bytebase Console through the browser via your ngrok URL. Log in using your account created from the previous tutorial.
    ![login](/content/docs/tutorials/database-change-management-with-mysql-and-github/login.webp)
 
-2. If you followed the previes tutorial, you should see that the project and database created are still in your workspace.
+2. If you followed the previous tutorial, you should see that the project and database created are still in your workspace.
    ![home](/content/docs/tutorials/database-change-management-with-mysql-and-github/home.webp)
 
 ## Step 3 - Connect Bytebase with GitHub.com
@@ -106,9 +106,9 @@ CREATE TABLE subject
 
 2. Commit and push this file.
 
-3. Go to your project in Bytebase. You’ll find there is a new issue called `[uni] Alter schema` created automatically.
+3. Go to your project in Bytebase. You’ll find there is a push event and an auto-created issue `[uni] Alter schema`.
 
-![automatic-issue](/content/docs/tutorials/database-change-management-with-mysql-and-github/automatic-issue.webp)
+![bb-push-notification-only](/content/docs/tutorials/database-change-management-with-mysql-and-github/bb-push-notification-only.webp)
 
 4. Go to the issue page, you’ll see:
 

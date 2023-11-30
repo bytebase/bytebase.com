@@ -111,7 +111,7 @@ ORDER BY id;
 
 2. Commit and push this file.
 3. Go to Bytebase, and go into project `TestClickHouse`. You’ll find there is a new `Push Event` and a new `issue 106` created.
-   ![bb-project-push](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/bb-project-push.webp)
+   ![bb-push-notification-only](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/bb-push-notification-only.webp)
 
 4. Click `issue/106` and go the issue page. Click **Resolve issue**, and the issue will be `Done`. You’ll see
    - The issue is created via GitHub.com

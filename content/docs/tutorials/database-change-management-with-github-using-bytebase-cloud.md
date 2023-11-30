@@ -96,7 +96,7 @@ CREATE TABLE t2
 2. Commit and push this file.
 
 3. Go to Bytebase, and go into project `TestAurora`. You’ll find there is a new `Push Event` and a new `issue 107` created.
-   ![bb-project-push-event](/content/docs/tutorials/database-change-management-with-github-using-bytebase-cloud/bb-project-push-event.webp)
+   ![bb-push-notification-only](/content/docs/tutorials/database-change-management-with-github-using-bytebase-cloud/bb-push-notification-only.webp)
 
 4. Click `issue/107` and go to the issue page. Click **Resolve issue**, and the issue will be `Done`. You’ll see:
    - The issue is created via GitHub.com
