@@ -9,7 +9,7 @@ docker run --init \
   --publish 5678:8080 \
   --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
   --health-interval 5m \
-  --health-timeout 60s \
+  --health-timeout 5m \
   --volume ~/.bytebase/data:/var/opt/bytebase \
   bytebase/bytebase:%%bb_version%% \
   --data /var/opt/bytebase \
