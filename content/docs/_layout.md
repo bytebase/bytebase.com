@@ -101,6 +101,8 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Column Data Masking](/security/data-masking/column-masking)
 
+### [Semantic Types](/security/data-masking/semantic-types)
+
 ### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
 
 ## [Batch Change](/change-database/batch-change)

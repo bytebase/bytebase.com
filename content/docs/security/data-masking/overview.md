@@ -15,4 +15,5 @@ Bytebase dynamic masking consists of following components:
 - [Global masking rule](../global-masking-rule)
 - [Column level masking](../column-masking) which takes precedency over global masking rule
 - [Access grants](../access-unmasked-data)
-- Custom masking algorithm (coming soon)
+- [Masking algorithm](../masking-algorithm)
+- [Semantic types](../semantic-types)
