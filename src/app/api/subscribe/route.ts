@@ -16,6 +16,7 @@ export async function POST(request: NextRequest) {
   const subscriber = {
     email_address: email,
     status_if_new: 'subscribed',
+    tags: ['newsletter'],
   };
 
   const hash = md5(email.toLowerCase());
