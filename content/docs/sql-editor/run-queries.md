@@ -33,6 +33,12 @@ You can retrieve anything you want from query results quickly.
 
 ## Export data
 
+<HintBlock type="info">
+
+The exported data still respects the [masking policy](/docs/sql-editor/mask-data/) to mask exported columns if enforced.
+
+</HintBlock>
+
 If you have been granted export access, you can directly export query results in various formats.
 
 ![Export Data](/content/docs/sql-editor/export-data.webp)
