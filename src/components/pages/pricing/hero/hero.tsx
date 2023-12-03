@@ -80,7 +80,7 @@ const cards: TCard[] = [
 ];
 
 const Hero = () => (
-  <section className="bg-pricing-hero pb-20 pt-[120px] xl:pt-[112px] lg:pb-16 md:pb-[54px] md:pt-24 sm:pb-11">
+  <section className="bg-pricing-hero pb-20 pt-[64px] lg:pb-16 md:pb-[54px] md:pt-24 sm:pb-11">
     <div className="container max-w-[1396px] 2xl:max-w-full">
       <header className="text-center">
         <h1 className="sr-only">Bytebase pricing page</h1>
