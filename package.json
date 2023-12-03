@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "node ./src/scripts/fetch-sql-review.mjs && next dev",
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "postbuild": "next-sitemap",
     "start": "next start",
     "type-check": "tsc",
