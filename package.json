@@ -25,7 +25,6 @@
     "@react-hook/window-size": "^3.1.1",
     "@rive-app/react-canvas": "^3.0.43",
     "@tailwindcss/line-clamp": "^0.4.4",
-    "@types/algoliasearch": "^4.0.0",
     "@types/js-yaml": "^4.0.5",
     "algoliasearch": "^4.17.0",
     "clsx": "^1.2.1",
