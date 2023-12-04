@@ -103,7 +103,7 @@ set country China
    ![gh-add-sql](/content/docs/tutorials/database-change-management-with-redis-and-github/gh-add-sql.webp)
 
 3. Go to Bytebase, and go into project `TestRedis`. You’ll find there is a new `Push Event` and a new `issue 106` created.
-   ![bb-project-push](/content/docs/tutorials/database-change-management-with-redis-and-github/bb-project-push.webp)
+   ![bb-push-notification-only](/content/docs/tutorials/database-change-management-with-redis-and-github/bb-push-notification-only.webp)
 
 4. Click `issue/106` and go the issue page. Click **Resolve issue**, and the issue will be `Done`. You’ll see
    - The issue is created via GitHub.com

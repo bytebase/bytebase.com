@@ -1,6 +1,19 @@
 {
   "common": {
     "about": "About",
-    "language": "Language"
+    "language": "Language",
+    "enterprise-inquiry": "Enterprise"
+  },
+  "docs": {
+    "self": "Docs"
+  },
+  "features": {
+    "self": "Features"
+  },
+  "blog": {
+    "self": "Blog"
+  },
+  "pricing": {
+    "self": "Pricing"
   }
 }

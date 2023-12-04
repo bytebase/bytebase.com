@@ -15,24 +15,18 @@ The task here is to add `nickname` column to `employee` table for both dev and p
 
 <iframe width="675" height="380" src="https://www.youtube.com/embed/lav1JaaTLMc" title="YouTube video player" className="w-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
-## Prerequisites
-
-Before starting, make sure you have installed [Docker](https://www.docker.com/get-started/).
-
-## Procedure
-
-### Step 1 - Deploy with sample datasets
+## Step 1 - Deploy with sample datasets
 
 1. Start Docker.
 2. Open Terminal to run the command:
 
-#### MacOS & Linux
+### MacOS & Linux
 
 ```bash
 curl -fsS https://raw.githubusercontent.com/bytebase/bytebase/main/quickstart/getting-started.docker-compose.yml | BB_VERSION=%%bb_version%% docker-compose -f - up
 ```
 
-#### Windows
+### Windows
 
 ```powershell
 BB_VERSION=%%bb_version%%
@@ -88,15 +82,15 @@ Each MySQL instance has a copy of the sample dataset in it. It’s the dataset_s
 
 4. Create an admin account, and you are in the workspace.
 
-### Step 2 - Prepare the workspace
+## Step 2 - Prepare the workspace
 
-#### 2.1 Set up environments
+### 2.1 Set up environments
 
 - Click **Environments** on the top bar and you will see **Test** and **Prod** environments. You can keep the default settings or adjust them based on your needs.
 
 Prod environment requires manual rolling out while Test environment skips that.
 
-#### 2.2 Add instances
+### 2.2 Add instances
 
 1. Click **Instances** on the top bar.
 2. Click **Add Instance** on the instances page, and you will see **Create Instance** dialog box.
@@ -124,9 +118,9 @@ Prod environment requires manual rolling out while Test environment skips that.
 
 Now, you have configured two instances for **Test** and **Prod** environment containing copies of the same sample dataset.
 
-### Step 3 - Add a column `nickname` to the `employee` table
+## Step 3 - Add a column `nickname` to the `employee` table
 
-#### 3.1 Create a project
+### 3.1 Create a project
 
 In Bytebase, **Project** is the unit to contain and manage databases. Therefore, before dealing with the sample databases, you need to transfer them into a project first.
 
@@ -140,7 +134,7 @@ In Bytebase, **Project** is the unit to contain and manage databases. Therefore,
 
 Now you are ready to manage these two `employee` databases in your project. Your next task is to add a column named `nickname` to the `employee` table.
 
-#### 3.2 Create an SQL issue to alter schema
+### 3.2 Create an SQL issue to alter schema
 
 1. Go to `Employee` project page.
 2. Click **Alter Schema**, you will find an **Alter Schema** dialog box.
@@ -160,13 +154,13 @@ Now you are ready to manage these two `employee` databases in your project. Your
 7. Click **Create**, and you will see the **SQL Advisor** kicks off automatically — checks the SQL statements against various rules.
 8. As the Test environment doesn't require manual rolling out, the SQL will be applied to the database on Test environment automatically after passing those advisor checks. Then you are waiting for rollout for the Prod environment.
 
-#### 3.3 Review the SQL issue
+### 3.3 Review the SQL issue
 
 1. Click **Approve** if everything is OK and the SQL will be applied to the database on Prod environment.
 2. Click **Resolve issue**, and the issue is **Done**.
 
 ![issue-done](/content/docs/get-started/quick-start/issue-done.webp)
 
-### Step 4 - Verify the change is applied
+## Step 4 - Verify the change is applied
 
 - Choose the two `employee` databases and view the `employee` tables, you will see `nickname` column is added.

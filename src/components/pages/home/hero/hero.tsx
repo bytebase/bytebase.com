@@ -148,8 +148,9 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
           )}
           <div className="relative mt-4 xl:mt-3.5 sm:mt-3">
             <h1 className="font-title text-112 font-semibold leading-none 3xl:max-w-4xl xl:max-w-2xl xl:text-90 xl:leading-95 md:max-w-2xl md:text-80 sm:text-48">
-              Developers, <mark className="bg-transparent text-primary-1">Schema Migrations</mark>{' '}
-              shouldn&apos;t be that hard
+              Design, Review, Deploy{' '}
+              <mark className="bg-transparent text-primary-1">Schema Migrations</mark> for Dev and
+              DBA
             </h1>
             {/* <p className="absolute top-[244px] left-[338px] max-w-lg text-20 leading-140 xl:top-[177px] xl:left-[271px] xl:max-w-md xl:text-18 xl:leading-snug md:left-[230px] md:top-[158px] md:max-w-sm md:text-16 sm:static sm:mt-3 sm:max-w-full">
               Bytebase offers a web-based collaboration workspace to help DBAs and Developers manage
@@ -159,14 +160,14 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
         </header>
         <footer className="mt-14 flex items-center gap-9 2xl:gap-8 xl:mt-11 xl:gap-6 md:mt-7 sm:mt-6 sm:gap-3.5">
           <Button
-            href={Route.LIVE_DEMO}
+            href={Route.REQUEST_DEMO}
             theme="primary-filled"
             size="lg"
             className="sm:!w-fit sm:!px-6"
           >
-            Try Live Demo
+            Request a demo
           </Button>
-          <LinkUnderlined href={Route.DEMO}>Request a demo</LinkUnderlined>
+          {/* <LinkUnderlined href={Route.REQUEST_DEMO}>Request a demo</LinkUnderlined> */}
         </footer>
       </section>
       <div className="col-span-full col-start-1 row-start-2 h-20 md:h-[60px] sm:col-auto sm:row-auto sm:mt-8 sm:h-auto">

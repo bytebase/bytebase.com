@@ -4,6 +4,10 @@ feature_name: DATA_MASKING
 ---
 
 Workspace Admins and DBAs can [configure data masking policy](/docs/security/mask-data) to prevent
-unauthorized access to the sensitive datab.
+unauthorized access to the sensitive data.
 
 ![query result](/content/docs/sql-editor/mask-data.webp)
+
+When user exports the data, Bytebase still respects the masking policy to mask exported columns if enforced.
+
+![export data mask](/content/docs/sql-editor/export-data-mask.webp)

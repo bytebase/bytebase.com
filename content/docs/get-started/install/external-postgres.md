@@ -4,7 +4,7 @@ title: Configure External PostgreSQL
 
 By default, Bytebase bundles an embedded PostgreSQL instance for storing its own metadata. The metadata is stored under the [--data](/docs/reference/command-line#--data-directory) directory.
 
-Alternatively, you can supply [--pg](/docs/reference/command-line#--pg-string) or pass PG_URL environment variable to store these metadata in an external PostgreSQL database.
+**For production setup, you should supply [--pg](/docs/reference/command-line#--pg-string) or pass PG_URL environment variable to store these metadata in an external PostgreSQL database.**
 
 ## Prerequisites
 
@@ -25,7 +25,6 @@ Alternatively, you can supply [--pg](/docs/reference/command-line#--pg-string) o
 1. For Cloud RDS, ensure that the user either owns the schema (public) and database, or has the necessary privileges to access them.
    - ALTER DATABASE dbname OWNER TO bytebase;
    - ALTER SCHEMA public OWNER TO bytebase;
-
 
 ## --pg connection string
 

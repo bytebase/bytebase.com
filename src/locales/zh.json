@@ -1,6 +1,19 @@
 {
   "common": {
     "about": "关于",
-    "language": "语言"
+    "language": "语言",
+    "enterprise-inquiry": "企业版咨询"
+  },
+  "docs": {
+    "self": "文档"
+  },
+  "features": {
+    "self": "功能"
+  },
+  "blog": {
+    "self": "博客"
+  },
+  "pricing": {
+    "self": "定价"
   }
 }

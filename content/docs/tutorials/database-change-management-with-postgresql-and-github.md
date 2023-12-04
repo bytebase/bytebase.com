@@ -114,9 +114,9 @@ COMMENT
 
 1. Commit and push this file.
 2. Go to Bytebase, and go into project `Sample Project`. You’ll find there is a new `Push Event` and a new `issue 105` created.
-   ![bb-project-push-issue](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-push-issue.webp)
+   ![bb-push-notification-only](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-push-notification-only.webp)
 
-3. Click issue/105 and go the issue page, you’ll see
+3. Click `issue/105` and go the issue page, you’ll see
 
    - The issue is created via GitHub.com
    - The issue is waiting for your approval because it’s on `Prod` environment where manual approval is required by default.

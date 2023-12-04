@@ -14,10 +14,6 @@ Bytebase is a single Go binary and the deployment easy.
 
 Estimated time: **5 minutes**.
 
-**Prerequisites**
-
-Before starting, make sure you have installed [Docker](https://www.docker.com/get-started/).
-
 <HintBlock type="info">
 
 If you **run Bytebase inside Docker on Linux** and want to connect the database instance on the same host, then you need to supply the additional `--add-host host.docker.internal:host-gateway --network host` flags.
@@ -55,9 +51,9 @@ docker run --init \
   --name bytebase \
   --restart always \
   --publish 80:8080 \
-  --health-cmd "curl --fail http://localhost:80/healthz || exit 1" \
+  --health-cmd "curl --fail http://localhost:8080/healthz || exit 1" \
   --health-interval 5m \
-  --health-timeout 60s \
+  --health-timeout 10s \
   --volume ~/.bytebase/data:/var/opt/bytebase \
   bytebase/bytebase:%%bb_version%% \
   --data /var/opt/bytebase \
@@ -67,21 +63,14 @@ docker run --init \
 Follow [Configure External URL](/docs/get-started/install/external-url#configure-via-ui) and then visit Bytebase from
 the configured external URL.
 
-#### Troubleshoot
+### Manifest not found
 
-Run the following if something goes wrong.
+The docker image only supports linux/amd64 and linux/arm64 arch. If it doesn't match your OS arch, you may supply
+`--platform linux/amd64` as a best effort.
 
-```bash
-docker logs bytebase
-```
+### Unable to start using Colima
 
-Normally you should see this:
-
-<IncludeBlock url="/docs/get-started/install/terminal-startup-output-success"></IncludeBlock>
-
-##### Unable to start using [Colima](https://github.com/abiosoft/colima)
-
-Due to the vm mechanism of colima, try to use the `--mount` option when starting colima as shown below:
+Due to the vm mechanism of [Colima](https://github.com/abiosoft/colima), try to use the `--mount` option when starting colima as shown below:
 
 ```bash
 mkdir ~/volumes
@@ -111,6 +100,8 @@ metadata:
   name: bytebase
   namespace: default
 spec:
+  # To prevent data races, only request one replica.
+  replicas: 1
   selector:
     matchLabels:
       app: bytebase
@@ -146,7 +137,7 @@ spec:
               port: 8080
             initialDelaySeconds: 300
             periodSeconds: 300
-            timeoutSeconds: 60
+            timeoutSeconds: 10
       volumes:
         - name: data
           emptyDir: {}

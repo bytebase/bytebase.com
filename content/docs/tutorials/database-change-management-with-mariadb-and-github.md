@@ -119,7 +119,7 @@ Before you start this tutorial, make sure:
 
 2. Commit and push this file.
 3. Go to Bytebase, and go into project `Demo Git`. You’ll find there is a new `Push Event` and a new issue created.
-   ![bb-push-event](/content/docs/tutorials/database-change-management-with-mariadb-and-github/bb-push-event.webp)
+   ![bb-push-notification-only](/content/docs/tutorials/database-change-management-with-mariadb-and-github/bb-push-notification-only.webp)
 
 4. Click the issue link, and you’ll see:
 

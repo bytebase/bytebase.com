@@ -2,8 +2,8 @@ import ROUTE from '@/lib/route';
 
 const PROMO_DATA = {
   TOP_BANNER: {
-    title: '🚘  Try guided live demo - no login required',
-    pathname: `${ROUTE.LIVE_DEMO}?source=top-banner`,
+    title: '🕹️  Book a product demo with our product expert',
+    pathname: `${ROUTE.REQUEST_DEMO}?source=top-banner`,
   },
   BLOG_ASIDE: {
     title: 'What is Bytebase?',

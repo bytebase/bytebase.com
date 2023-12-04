@@ -99,7 +99,7 @@ Before you start this tutorial, make sure you have the following ready:
 2. Commit and push this file.
 
 3. Go to Bytebase, and go into project `Demo GitOps`. You’ll find there is a new `Push Event` and a new `issue 107` created.
-   ![bb-project-push-event](/content/docs/tutorials/database-change-management-with-spanner-and-github/bb-project-push-event.webp)
+   ![bb-push-notification-only](/content/docs/tutorials/database-change-management-with-spanner-and-github/bb-push-notification-only.webp)
 
 4. Click `issue/107` and go to the issue page. The issue is `Done`. You’ll see:
 
