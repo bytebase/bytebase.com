@@ -19,11 +19,11 @@ It helps organizations to **protect sensitive data** from being exposed to unaut
 
 This tutorial will teach you how to set up and try out data masking in Bytebase within 30 mins.
 
-### Prerequisites
+## Prerequisites
 
 Before starting, make sure you have installed [Docker](https://www.docker.com/).
 
-### Preparation
+## Preparation
 
 1. Make sure your Docker is running, and start the Bytebase Docker container with following command:
 
@@ -58,6 +58,23 @@ You may want to batch apply masking settings, for example, you want to mask all 
    ![bb-sql-editor-query-employee-prod-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-prod-masked.webp)
    ![bb-sql-editor-query-employee-test-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-test-masked.webp)
 
+
+### Export data with masked columns
+Exported data is masked in the same way as query results.
+
+1. Stay on the SQL Editor after querying, and click **Export**.
+
+   ![bb-sql-editor-export](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-export.webp)
+
+2. Fill in the export rows number, choose the format and click **Confirm**. The file will start downloading.
+
+   ![bb-sql-editor-export-data](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-export-data.webp)
+
+3. Open the downloaded file, you'll see the `birth_date` is masked.
+
+   ![bb-sql-editor-exported-data](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-exported-data.webp)
+
+
 ### Column Masking Rule
 
 If you want to mask a specific column in a specific table, you can use **Column Masking Rule**.
@@ -87,6 +104,7 @@ What if you want to reveal the masked data to a specific user? You can grant unm
 4. Login as the `DBA` user, go to SQL Editor, choose `(Prod)Employee` > `public` > `salary` and run `SELECT * FROM salary;` again. You'll see the `amount` is not masked.
 
    ![bb-sql-editor-query-salary-prod-not-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-salary-prod-not-masked.webp)
+
 
 ## Summary
 
