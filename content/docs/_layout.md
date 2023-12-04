@@ -103,6 +103,8 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
 
+### [Export Masked Data](/security/data-masking/export-masked-data)
+
 ## [Batch Change](/change-database/batch-change)
 
 ## [Branching](/branching)

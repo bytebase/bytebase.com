@@ -1,5 +1,5 @@
 ---
-title: Access Unmasked data
+title: Access Unmasked Data
 feature_name: DATA_MASKING
 ---
 
