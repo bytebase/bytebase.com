@@ -94,9 +94,6 @@ docker run --init \
   --name bytebase \
   --restart always \
   --publish 5678:8080 \
-  --health-cmd "curl --fail http://localhost:5678/healthz || exit 1" \
-  --health-interval 5m \
-  --health-timeout 5m \
   --volume ~/.bytebase/data:/var/opt/bytebase \
   --volume ~/.aws:/var/opt/bytebase/.aws \
   bytebase/bytebase:%%bb_version%% \

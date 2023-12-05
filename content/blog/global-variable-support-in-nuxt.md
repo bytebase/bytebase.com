@@ -17,9 +17,6 @@ docker run --init \
   --restart always \
   --add-host host.docker.internal:host-gateway \
   --publish 8080:8080 \
-  --health-cmd "curl --fail http://localhost:8080/healthz || exit 1" \
-  --health-interval 5m \
-  --health-timeout 5m \
   --volume ~/.bytebase/data:/var/opt/bytebase \
   bytebase/bytebase:%%bb_version%% \
   --data /var/opt/bytebase \
