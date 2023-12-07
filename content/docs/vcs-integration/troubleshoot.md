@@ -1,5 +1,5 @@
 ---
-title: 🐞 Troubleshoot
+title: Troubleshoot
 ---
 
 _If you need further assistance setting up GitOps, feel free to [reach us](/docs/faq/#how-to-reach-us)._
@@ -45,21 +45,9 @@ the linked VCS webhook page to check the details.
 
 ## Failed to create webhook xxx, status code: 422 for GitLab
 
-From [GitLab](https://docs.gitlab.com/ee/security/webhooks.html)
+If you configure [External URL](/docs/get-started/install/external-url) with the private IP such as `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`, you will need to enable [Allow requests to the local network from webhooks and integrations](https://docs.gitlab.com/ee/security/webhooks.html#allow-outbound-requests-to-certain-ip-addresses-and-domains) first.
 
-<HintBlock type="warning">
-
-To prevent this type of exploitation from happening, starting with GitLab 10.6, all Webhook requests to the current GitLab instance server address and/or in a private network are forbidden by default. That means that all requests made to 127.0.0.1, ::1 and 0.0.0.0, as well as IPv4 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 and IPv6 site-local (ffc0::/10) addresses aren’t allowed.
-
-</HintBlock>
-
-So if your Bytebase instance resides in the same private network as your GitLab instance, you will need to enable **Allow requests to the local network from webhooks and integrations** first.
-
-### "Change Data in VCS" , "Alter Schema in VCS" button does not direct to the configured self-hosted GitLab instance
-
-Please make sure you are configuring the [GitLab external_url](https://docs.gitlab.com/omnibus/settings/configuration.html#configure-the-external-url-for-gitlab) correctly, the **host:port** must exactly matches the one accessed by Bytebase. It's called `external_url` because that's how external systems like Bytebase reaches the GitLab instance.
-
-A common mistake is user misconfigures the port when using port forwarding. e.g. GitLab is running on port 7890, while it's exposed to the public on port 7891. In such case the `external_url` should be `https://example.com:7891` instead of `https://example.com:7890`
+![activity-warning](/content/docs/vcs-integration/troubleshoot/gitlab-allow-internal-request.webp)
 
 ## OAuth CORS error with old GitLab version
 

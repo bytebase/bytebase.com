@@ -91,7 +91,7 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Batch Change Tenant Databases](/vcs-integration/tenant-gitops)
 
-### [Troubleshoot](/vcs-integration/troubleshoot)
+### [Troubleshoot 🐞](/vcs-integration/troubleshoot)
 
 ## Dynamic Data Masking
 
