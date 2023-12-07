@@ -129,7 +129,13 @@ const SEO_DATA = {
       'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
     pathname: `${Route.REFUND}/`,
   },
-  DEMO: {
+  VIEW_LIVE_DEMO: {
+    title: 'View Live Demo',
+    description:
+      'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
+    pathname: `${Route.VIEW_LIVE_DEMO}/`,
+  },
+  REQUEST_DEMO: {
     title: 'Bytebase Request a demo',
     description:
       'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',

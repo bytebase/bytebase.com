@@ -76,7 +76,7 @@ export const MENU = {
     },
     { title: 'Blog', href: Route.BLOG },
     { title: 'Pricing', href: Route.PRICING },
-    { title: 'Enterprise👈', href: Route.CONTACTS },
+    { title: 'Enterprise 👈', href: Route.CONTACTS },
   ],
   mobile: [
     {
@@ -145,7 +145,7 @@ export const MENU = {
     },
     { title: 'Blog', href: Route.BLOG },
     { title: 'Pricing', href: Route.PRICING },
-    { title: 'Enterprise👈', href: Route.CONTACTS },
+    { title: 'Enterprise 👈', href: Route.CONTACTS },
   ],
   footer: [
     {

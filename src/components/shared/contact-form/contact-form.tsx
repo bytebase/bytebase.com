@@ -8,7 +8,7 @@ import * as yup from 'yup';
 import Button from '@/components/shared/button';
 import Field from '@/components/shared/field';
 import Link from '@/components/shared/link/link';
-import { BUTTON_SUCCESS_TIMEOUT_MS } from '@/lib/forms';
+import { BUTTON_SUCCESS_TIMEOUT_MS, VIEW_LIVE_DEMO } from '@/lib/forms';
 import { STATES } from '@/lib/states';
 import Route from '@/lib/route';
 import { useRouter } from 'next/navigation';
@@ -75,12 +75,16 @@ const ContactForm = ({ className, formId }: { className: string; formId: string 
       );
 
       if (responses.every((response) => response.ok)) {
-        setButtonState(STATES.SUCCESS);
-        setTimeout(() => {
-          router.push(Route.CONFIRM_MESSAGE);
-          setButtonState(STATES.DEFAULT);
-          reset();
-        }, BUTTON_SUCCESS_TIMEOUT_MS);
+        if (formId == VIEW_LIVE_DEMO) {
+          window.location.href = Route.LIVE_DEMO;
+        } else {
+          setButtonState(STATES.SUCCESS);
+          setTimeout(() => {
+            router.push(Route.CONFIRM_MESSAGE);
+            setButtonState(STATES.DEFAULT);
+            reset();
+          }, BUTTON_SUCCESS_TIMEOUT_MS);
+        }
       } else {
         setButtonState(STATES.ERROR);
         setTimeout(() => {
@@ -144,7 +148,7 @@ const ContactForm = ({ className, formId }: { className: string; formId: string 
               type="submit"
               state={buttonState}
             >
-              Submit
+              {formId == VIEW_LIVE_DEMO ? 'View Live Demo' : 'Submit'}
             </Button>
             {formError && (
               <span className="mt-1.5 text-12 leading-none text-secondary-6 sm:text-center 2xs:max-w-[144px]">
