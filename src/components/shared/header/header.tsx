@@ -121,7 +121,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                 <li key={title} className="group relative inline-block">
                   {href ? (
                     <Link
-                      className="px-3 py-2.5 text-16 font-bold tracking-wider"
+                      className="px-3 py-2.5 text-16 font-semibold tracking-wider"
                       prefetch={href === Route.BLOG ? false : undefined}
                       href={href}
                       size="xs"
@@ -130,7 +130,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                       {title}
                     </Link>
                   ) : (
-                    <button className="inline-flex items-center gap-1 rounded-[44px] px-3 py-2.5 font-sans text-16 font-bold leading-none tracking-wider transition-colors duration-200 group-hover:bg-gray-94">
+                    <button className="inline-flex items-center gap-1 rounded-[44px] px-3 py-2.5 font-sans text-16 font-semibold leading-none tracking-wider transition-colors duration-200 group-hover:bg-gray-94">
                       {title}
                       <ChevronIcon className="h-3 w-3 transition-transform duration-200 group-hover:-rotate-180" />
                     </button>
