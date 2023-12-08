@@ -2,7 +2,7 @@ import ROUTE from '@/lib/route';
 
 const PROMO_DATA = {
   TOP_BANNER: {
-    title: '📆  Book a product demo with our product expert',
+    title: '📆  Book a 30-min demo with the product creator',
     pathname: `${ROUTE.REQUEST_DEMO}?source=top-banner`,
   },
   BLOG_ASIDE: {
@@ -13,10 +13,10 @@ const PROMO_DATA = {
     pathname: `${ROUTE.PRICING}?source=blog`,
   },
   DOC_ASIDE: {
-    title: 'Tutorials',
-    description: "Maximize the benefits and leverage the full potential of Bytebase's features.",
-    cta: 'Start Learning',
-    pathname: `/tutorial/?source=docs`,
+    title: '🕹️ Live Demo',
+    description: 'We have prepared a guided live demo for you to play with.',
+    cta: 'View Now',
+    pathname: `${ROUTE.VIEW_LIVE_DEMO}?source=docs`,
   },
 };
 
