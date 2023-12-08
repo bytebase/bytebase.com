@@ -26,7 +26,7 @@ You can jump to **the Major Upgrade** section if you just want to learn the upgr
 
 [Bytebase](https://bytebase.com) is an open source database schema change and version control tool for teams. We have native [VCS integration](/docs/vcs-integration/overview) with GitLab CE/EE from day 1.
 ![_](/content/blog/upgrade-gitlab-enterprise-edition-major-version-13-14/frontpage.webp)
-User can visit our live [demo site](https://demo.bytebase.com) from the landing page. And we did curate the demo data to let our potential customers better understand our VCS integration feature.
+User can visit our live [demo site](/view-live-demo) from the landing page. And we did curate the demo data to let our potential customers better understand our VCS integration feature.
 ![_](/content/blog/upgrade-gitlab-enterprise-edition-major-version-13-14/issue-detail-vcs.webp)
 If visitor clicks the commit hash, she will be navigated to that GitLab commit triggering the Bytebase pipeline.
 ![_](/content/blog/upgrade-gitlab-enterprise-edition-major-version-13-14/vcs.webp)

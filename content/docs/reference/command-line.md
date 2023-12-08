@@ -86,12 +86,11 @@ If specified, Bytebase will not start sample Postgres instance.
 
 default: **""**
 
-The demo name. If specified, Bytebase will load the demo data instead of the real data. The data is the same used by [https://demo.bytebase.com](https://demo.bytebase.com). This is a quick way to test the product yourself or demonstrate it to your peers. When Bytebase is started with --demo, it stores the data in a separate location, which means the demo data and real data never interferes with each other.
+The demo name. If specified, Bytebase will load the demo data instead of the real data. The data is the same used by [the demo](/view-live-demo). This is a quick way to test the product yourself or demonstrate it to your peers. When Bytebase is started with --demo, it stores the data in a separate location, which means the demo data and real data never interferes with each other.
 
 The current available demo names are:
 
 - default
-- schema-migration-history
 
 ## --external-url &lt;&lt;string&gt;&gt;
 
@@ -125,7 +124,7 @@ default: **false**
 
 If specified, Bytebase will run in **read-only** mode. This mode is mostly useful when you want to schedule a maintenance window or enforce a deployment freeze.
 
-You can also enable --demo and --readonly together to have a long running demo instance without worrying about the data being changed accidentally (this is how [https://demo.bytebase.com](https://demo.bytebase.com) is configured).
+You can also enable --demo and --readonly together to have a long running demo instance without worrying about the data being changed accidentally (this is how [https://demo.bytebase.com](/view-live-demo) is configured).
 
 <HintBlock type="info">
 

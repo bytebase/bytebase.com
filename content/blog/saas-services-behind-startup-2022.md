@@ -103,7 +103,7 @@ To activate Bytebase Team or Enterprise Edition, users need to register on our [
 
 ### [Render](https://render.com)
 
-The Bytebase [demo site](https://demo.bytebase.com), Bytebase [Hub](https://hub.bytebase.com), and all our databases are hosted on Render, the new Heroku. It provides web service and PostgreSQL hosting.
+The Bytebase [demo site](/view-live-demo), Bytebase [Hub](https://hub.bytebase.com), and all our databases are hosted on Render, the new Heroku. It provides web service and PostgreSQL hosting.
 
 ### [Vercel](https://vercel.com)
 

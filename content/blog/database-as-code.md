@@ -85,7 +85,7 @@ Our team at Bytebase have worked on database for 10+ years and have managed some
 
 There are other features we don't have space to cover here and we are actively working on adding more features. Our current goal is to democratize the application database schema management for teams, just like how GitLab/GitHub democratizes source code management. And we start from tackling MySQL and later PostgreSQL, the 2 most popular open source database systems nowadays.
 
-> _BTW, if you like this article, you might also be interested in our product [Bytebase](https://bytebase.com), an open source, web-based schema change and version control tool. Try our [live demo](https://demo.bytebase.com) or checkout our [installation guide](https://github.com/bytebase/bytebase#installation) (it only requires 1 command line, 5 seconds setup if you already have docker)._
+> _BTW, if you like this article, you might also be interested in our product [Bytebase](https://bytebase.com), an open source, web-based schema change and version control tool. Try our [live demo](/view-live-demo) or checkout our [installation guide](https://github.com/bytebase/bytebase#installation) (it only requires 1 command line, 5 seconds setup if you already have docker)._
 
 ## Reference
 

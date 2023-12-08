@@ -18,7 +18,7 @@ We recently moved most of our hosted service to [render.com](https://render.com)
 
 1. **The demo page is stale**
 
-   Our demo page ([demo.bytebase.com](https://demo.bytebase.com)) was deployed on AWS EC2 . There is an extra step to manually update it during each release.
+   Our [live demo page](/view-live-demo)) was deployed on AWS EC2 . There is an extra step to manually update it during each release.
 
 2. **No staging environment for each release**
 
@@ -34,7 +34,7 @@ From their website, render ([https://render.com](https://render.com)) is a unifi
 
 ## How do we use render?
 
-### Continuous deployment for [demo.bytebase.com](https://demo.bytebase.com/)
+### Continuous deployment for [our live demo](/view-live-demo/)
 
 Bytebase employs monolithic architecture using Vue + Golang + SQLite. Our team adopts a trunk-based development workflow and we require our main branch to be deployable at every commit. We decided to use our demo site to validate this promise.
 

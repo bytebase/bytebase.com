@@ -85,7 +85,7 @@ Environment identifier should exactly match the destined environment identifier 
 
 ### Approach 1 - Directory per environment (recommended)
 
-This is a [reference directory structure](https://gitlab.bytebase.com/bytebase-demo/blog/-/tree/master/bytebase) using this approach, and the corresponding [commit](https://gitlab.bytebase.com/bytebase-demo/blog/-/commit/d7f3b88b93c4d7f57b710980cdf92f72dcc4cd1e) and [generated issue](https://demo.bytebase.com/issue/create-user-post-comment-table-for-dev-environment-13004) observing the commit.
+This is a [reference directory structure](https://github.com/s-bytebase/hr-sample/tree/main/bytebase/prod) using this approach, and the corresponding [commit](https://github.com/s-bytebase/hr-sample/commit/5208900f520468574a9aaca17b4cb99987dbc4f6) and [generated issue](https://demo.bytebase.com/issue/hrprodvcs-alter-schema-add-city-102) observing the commit.
 
 In Bytebase, database always belongs to an instance, and an instance always belongs to an environment. Thus a database also belongs to an environment. One way to organize files is to create a directory for each environment by using the environment identifier as the directory name and put migration files under the corresponding environment directory. For example:
 
@@ -103,8 +103,6 @@ In Bytebase, database always belongs to an instance, and an instance always belo
 1. More files to manage, it will be `database * number of environments`.
 
 ### Approach 2 - Single directory
-
-This is a [reference directory structure](https://gitlab.bytebase.com/bytebase-demo/shop/-/tree/master/bytebase) using this approach, and the corresponding [commit](https://gitlab.bytebase.com/bytebase-demo/shop/-/commit/da90a2510eccd051ad14e4b89ca904d733169a39#e72b3cb4f305192575394fd19d2e52e9378cb9ea) and [generated issue](https://demo.bytebase.com/issue/create-user-post-comment-table-for-dev-environment-13004) observing the commit.
 
 All migration files for all environments are under the same directory. Like the screenshot below:
 
