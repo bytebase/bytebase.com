@@ -8,7 +8,16 @@ featured: true
 description: What is Database Change Management (DCM), the challenges and solution.
 ---
 
-## Overview
+This is a series of articles about database version control and database-as-code (GitOps)
+
+1. What is Database Change Management? (this one)
+1. [What is Database Schema Drift?](/blog/what-is-database-schema-drift)
+1. [What is Database Version Control?](/blog/database-version-control)
+1. [Database Version Control, State-based or Migration-based?](/blog/database-version-control-state-based-vs-migration-based)
+1. [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
+1. [The Database as Code Landscape](/blog/database-as-code-landscape)
+
+---
 
 Database Change Management (DCM) is a critical part of maintaining and managing a database. It involves
 tracking and controlling changes to the database, including both the structure of the database (such
@@ -97,9 +106,3 @@ years. Among them, Bytebase stands out in several ways:
    and is gaining momentum among other incumbents.
 
 ![bytebase-vs-liquibase-vs-flyway](/content/blog/what-is-database-change-management/star-history.webp)
-
-Learn more 👀 👇
-
-- [Quickstart](/docs/get-started/quick-start)
-- [Case Study](/blog/how-a-clickhouse-data-team-uses-bytebase-for-managing-schema-change)
-- [Data Model](/docs/concepts/data-model)

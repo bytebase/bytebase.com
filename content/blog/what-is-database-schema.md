@@ -7,12 +7,12 @@ tags: Explanation
 description: The database schema describes the logical structure of the database data and is the most critical information of a relational database system.
 ---
 
-A series of articles about database schema change / schema migration:
+This is a series of articles about database schema change / database schema migration:
 
-- What is a Database Schema? (this one)
-- [What is a Database Schema Migration?](/blog/what-is-database-migration)
-- [How to Handle Database Migration / Schema Change?](/blog/how-to-handle-database-schema-change)
-- [Top Database Schema Migration Tools in 2023](/blog/top-database-schema-change-tool-evolution)
+1. What is a Database Schema? (this one)
+1. [What is a Database Schema Migration?](/blog/what-is-database-migration)
+1. [How to Handle Database Migration / Schema Change?](/blog/how-to-handle-database-schema-change)
+1. [Top Database Schema Migration Tools in 2023](/blog/top-database-schema-change-tool-evolution)
 
 ---
 

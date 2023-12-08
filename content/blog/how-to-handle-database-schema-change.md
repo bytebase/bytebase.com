@@ -9,10 +9,10 @@ description: The common mistakes when making schema migrations and the best prac
 
 A series of articles about database migration / schema change:
 
-- [What is a Database Schema?](/blog/what-is-database-schema)
-- [What is a Database Schema Migration?](/blog/what-is-database-migration)
-- How to Handle Database Migration / Schema Change? (this one)
-- [Top Database Schema Change Tools in 2023](/blog/top-database-schema-change-tool-evolution)
+1. [What is a Database Schema?](/blog/what-is-database-schema)
+1. [What is a Database Schema Migration?](/blog/what-is-database-migration)
+1. How to Handle Database Migration / Schema Change? (this one)
+1. [Top Database Schema Change Tools in 2023](/blog/top-database-schema-change-tool-evolution)
 
 ---
 

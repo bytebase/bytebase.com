@@ -7,13 +7,14 @@ tags: Explanation
 description: We dive the rationale behind the industry divergence between state-based and migration-based approach. In the end, we also show how Bytebase can help to get the best of both worlds.
 ---
 
-This is a series of articles about Database-as-code (GitOps)
+This is a series of articles about database version control and database-as-code (GitOps)
 
-- [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
-- [Database Version Control](/blog/database-version-control)
-- Database Version Control, State-based or Migration-based? (this one)
-- [What is Database Schema Drift?](/blog/what-is-database-schema-drift)
-- [The Database as Code Landscape](/blog/database-as-code-landscape)
+1. [What is Database Change Management?](/blog/what-is-database-change-management)
+1. [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
+1. [What is Database Version Control?](/blog/database-version-control)
+1. Database Version Control, State-based or Migration-based? (this one)
+1. [What is Database Schema Drift?](/blog/what-is-database-schema-drift)
+1. [The Database as Code Landscape](/blog/database-as-code-landscape)
 
 ---
 
