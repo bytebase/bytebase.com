@@ -4,6 +4,7 @@ const DEFAULT_LANGUAGE = 'en';
 module.exports = {
   siteUrl: process.env.NEXT_PUBLIC_DEFAULT_SITE_URL || 'https://www.bytebase.com',
   generateRobotsTxt: true,
+  sitemapSize: 500,
   // Do not index duplicated zh content for now
   exclude: ['/zh', '/zh/*'],
   // Custom the i18n path. Remove the prefix `en` for matched path.
