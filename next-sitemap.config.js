@@ -21,10 +21,17 @@ module.exports = {
     var priority = config.priority;
     const components = path.split('/');
     // Top level pathes having top priority
-    if (components.length <= 1) {
+    if (components.length <= 2) {
       priority = 1.0;
-    } else if (path.startsWith('/blog/')) {
+    } else if (
+      path.startsWith('/database/') ||
+      path.startsWith('/integration/') ||
+      path.startsWith('/sql-editor/') ||
+      path.startsWith('schema-migration')
+    ) {
       priority = 0.9;
+    } else if (path.startsWith('/blog/')) {
+      priority = 0.8;
     } else if (path.startsWith('/docs/') || path.startsWith('/tutorial/')) {
       priority = 0.7;
     } else {
