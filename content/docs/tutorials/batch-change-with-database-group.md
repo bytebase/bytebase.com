@@ -10,7 +10,7 @@ estimated_time: '15 mins'
 description: This article describes using Database Group and Table Group to batch change databases.
 ---
 
-Bytebase [2.2.0](/changelog/bytebase-2-2-0/) introduced [**database group**](/docs/concepts/batch-mode/#database-group), a new feature that provides a new way to facilitate batch change, in addition to batch changing **multiple environments** and **multiple tenants**.
+Bytebase [2.2.0](/changelog/bytebase-2-2-0/) introduced [**database group**](/docs/concepts/data-model/#database-group-and-table-group), a new feature that provides a new way to facilitate batch change, in addition to batch changing **multiple environments** and **multiple tenants**.
 
 ![database-partition](/content/docs/tutorials/batch-change-with-database-group/database-partition.webp)
 

@@ -41,7 +41,7 @@ I cannot manage so many of them any more. DevOps tools are certainly here to hel
 
 ![_](/content/blog/how-do-we-build-a-highly-available-service-in-the-cloud/can-not-manage-them-all.webp)
 
-What about databases? Well, hum. A silence falls on the hall, till Bytebase comes to the show. Bytebase is an open source software offering a collaborative solution to help DBAs and Developers manage the lifecycle of application database schemas. Beyond that, it offers a [Batch Database Management](/docs/concepts/batch-mode/) solution allowing DBAs and Developers to manage a collection of databases with identical schemas. We believe this solution can help to complete multiple gaps in the DevOps space including database sharding for building HA service.
+What about databases? Well, hum. A silence falls on the hall, till Bytebase comes to the show. Bytebase is an open source software offering a collaborative solution to help DBAs and Developers manage the lifecycle of application database schemas. Beyond that, it offers a [Batch Database Management](/docs/change-database/batch-change) solution allowing DBAs and Developers to manage a collection of databases with identical schemas. We believe this solution can help to complete multiple gaps in the DevOps space including database sharding for building HA service.
 
 ![_](/content/blog/how-do-we-build-a-highly-available-service-in-the-cloud/tenant-mode.webp)_Screenshot for a Bytebase project in tenant mode. Four databases in the US, Asia, Europe, and Mars. And one database in the staging environment for testing before the change is applied to production._
 

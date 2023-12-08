@@ -21,7 +21,7 @@ In a Git feature branch workflow, all feature development takes place in a dedic
 
 ### Step 1 - Configure the workspace
 
-1. Go to **Settings** > **Workspace** > **Version Control** to [add a VCS provider](/docs/vcs-integration/add-git-provider).
+1. Go to **Settings** > **Workspace** > **Version Control** to [add a VCS provider](/docs/vcs-integration/self-host-gitlab).
 2. Click **Environments** and create two environments `Dev` and `Prod`. You can configure **approval policy** as require or skip manual approval.
 3. Click **Instances** > **Add Instance** to add instances where `db_prod` and `db_dev` are located.
 

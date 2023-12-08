@@ -35,9 +35,9 @@ Organizations want to limit database access and enforce approval flow to conform
 
 ## Multi-Tenant Service
 
-A SaaS service may provision separate databases for each of its tenants. It's painful and error-prone to make sure a database change is consistently applied to each individual tenant's database. Bytebase has [Tenant database](/docs/concepts/batch-mode/#tenant-database) and can [change databases from multiple tenants](/docs/change-database/batch-change/#change-databases-from-multiple-tenants).
+A SaaS service may provision separate databases for each of its tenants. It's painful and error-prone to make sure a database change is consistently applied to each individual tenant's database. Bytebase can [change databases from multiple tenants](/docs/change-database/batch-change/#change-databases-from-multiple-tenants).
 
 ## Partitioned Database and Tables
 
 As data grows, databases and tables maybe partitioned into smaller chucks. Meanwhile, you still want to
-apply the same database change to all partitions since they share the same schema. It's painful and error-prone to make sure a database change is consistently applied to each partition. Bytebase has [Database Group](/docs/concepts/batch-mode/#database-group) and can [change databases from database groups](/docs/change-database/batch-change/#change-databases-from-database-groups).
+apply the same database change to all partitions since they share the same schema. It's painful and error-prone to make sure a database change is consistently applied to each partition. Bytebase can [batch change many databases in a consistent manner](/docs/change-database/batch-change).

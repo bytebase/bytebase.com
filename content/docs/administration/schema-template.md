@@ -1,7 +1,9 @@
 ---
 title: Schema Template
 ---
-**Schema Template** allows **Workspace Admin** or **DBA** to pre-define templates of fields and tables at the workspace level, and they may be used to change schema via [**Schema Editor**](/doc/administration/schema-editor). There're three types: 
+
+**Schema Template** allows **Workspace Admin** or **DBA** to pre-define templates of fields and tables at the workspace level, and they may be used to change schema via [**Schema Editor**](/docs/change-database/schema-editor). There're three types:
+
 - Field Template
 - Table Template
 - Column Type Restriction
@@ -11,11 +13,11 @@ title: Schema Template
 1. Click **Settings icon** on the top right, and click **Schema Template** under **Security & Policy**.
 2. Under **Field Template**, click **Add Field Template** and you'll see the **Field Template** form.
 3. Fill the form as below and click **Create**:
-   * **Category**: `test`
-   * **Engine**: `PostgreSQL`
-   * **Column name**: `created_at`
-   * **Column type**: `DATE`
-   * **Default**: Keep it empty and keep **Nullable** unchecked.
+   - **Category**: `test`
+   - **Engine**: `PostgreSQL`
+   - **Column name**: `created_at`
+   - **Column type**: `DATE`
+   - **Default**: Keep it empty and keep **Nullable** unchecked.
 
 ![bb-schema-template-field-add](/content/docs/administration/schema-template/bb-schema-template-field-add.webp)
 
@@ -31,23 +33,23 @@ title: Schema Template
 1. Click **Settings icon** on the top right, and click **Schema Template** under **Security & Policy**.
 2. Under **Table Template**, click **Add Table Template** and you'll see the **Table Template** form.
 3. Fill the form as below and click **Create**:
-   * **Category**: `test`
-   * **Engine**: `PostgreSQL`
-   * **Table name**: `user`
-   * Add column:
-     * **Column name**: `id`
-     * **Column type**: `INTEGER`
-     * **Default**: EMPTY
-     * **Not Null**: Checked
-     * **Primary**: Checked
-   * Add column:
-     * **Column name**: `name`
-     * **Column type**: `VARCHAR(45)`
-     * **Default**: EMPTY
-     * **Not Null**: Checked
-     * **Primary**: Unchecked
-   * Add from template:
-     * **Template**: `created_at`
+   - **Category**: `test`
+   - **Engine**: `PostgreSQL`
+   - **Table name**: `user`
+   - Add column:
+     - **Column name**: `id`
+     - **Column type**: `INTEGER`
+     - **Default**: EMPTY
+     - **Not Null**: Checked
+     - **Primary**: Checked
+   - Add column:
+     - **Column name**: `name`
+     - **Column type**: `VARCHAR(45)`
+     - **Default**: EMPTY
+     - **Not Null**: Checked
+     - **Primary**: Unchecked
+   - Add from template:
+     - **Template**: `created_at`
 
 ![bb-schema-template-table-add](/content/docs/administration/schema-template/bb-schema-template-table-add.webp)
 
@@ -59,6 +61,7 @@ title: Schema Template
 6. Select the `user` template you just created, and the new table will be appended in the table list on the left.
 
 ## Column Type Restriction
+
 1. Click **Settings icon** on the top right, and click **Schema Template** under **Security & Policy**.
 2. Under **Column Type Restriction**, choose **Allow limited types** and you'll see allowed type list. Remove `
 VARCHAR(255)` and click **Update**.

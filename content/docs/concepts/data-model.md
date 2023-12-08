@@ -55,3 +55,9 @@ Internally, the issue progression is represented by a `Pipeline`. A `Pipeline` c
 `Sheet` is the entity where users store, run and share the SQL scripts. A paritcular sheet belongs
 to a project and may or may not attach a database context. Users interacts with the Sheet from
 [SQL Editor](/docs/sql-editor/manage-sql-scripts).
+
+## Database Group and Table Group
+
+A list of databases / tables usually having the same schema structure. Examples like per-tenant databases,
+partitioned databases/tables. This is used by the [batch change](/docs/change-database/batch-change) to
+change many databases in a consistent manner.

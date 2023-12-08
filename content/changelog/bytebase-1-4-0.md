@@ -30,9 +30,6 @@ description: '- AWS S3 is now supported as a backup storage backend. - Added a n
 
 ## 🎠 Community
 
-- Added tutorial series for **How to set up Database CI/CD with GitHub**:
-  - [Part 1: Enable SQL Review with GitHub Actions](/docs/tutorials/github-database-cicd-part-1-sql-review-github-actions)
-  - [Part 2: GitHub.com Database GitOps](/docs/tutorials/github-database-cicd-part-2-github-database-gitops)
-  - [Part 3: Put Them Together](/docs/tutorials/github-database-cicd-part-3-put-them-together)
+- Added tutorial series for [How to set up Database CI/CD with GitHub](/docs/tutorials/database-cicd-best-practice-with-github/).
 
 _To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

@@ -19,7 +19,7 @@ See [Supported Databases](/docs/introduction/supported-databases).
 
 ## Supported version control systems (VCS) and providers
 
-See [Git Provider](/docs/vcs-integration/add-git-provider).
+See [Git Provider](/docs/vcs-integration/self-host-gitlab).
 
 ## How Bytebase stores the database credentials
 
