@@ -33,13 +33,13 @@ export default function Page() {
   return (
     <>
       <Hero latestVersion={latestVersion} />
+      <Logos />
       <DBScheme />
       <PromoAutomationChanges />
       <Benefits />
       <PromoSQLEditor />
       <PromoSecurity />
       <Features />
-      <Logos />
       <Community />
       <SubscriptionForm />
     </>
