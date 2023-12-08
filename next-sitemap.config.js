@@ -27,7 +27,7 @@ module.exports = {
       path.startsWith('/database/') ||
       path.startsWith('/integration/') ||
       path.startsWith('/sql-editor/') ||
-      path.startsWith('schema-migration')
+      path.startsWith('/schema-migration/')
     ) {
       priority = 0.9;
     } else if (path.startsWith('/blog/')) {
