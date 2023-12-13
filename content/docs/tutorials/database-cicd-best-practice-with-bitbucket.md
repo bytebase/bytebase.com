@@ -65,7 +65,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
 
 ### Step 3 - Configure a GitOps Workflow in Bytebase
 
-1. Go to `bitbucket.org` and create a new project `bb-gitops-ngrok`. 
+1. Go to `bitbucket.org` and create a new project `bb-gitops-ngrok`.
 
 2. Go to Bytebase, go to the `Sample Project`. Click **GitOps** tab and choose `GitOps workflow`. Click **Configure GitOps**. Choose `Bitbucket.org` (the git provider you just configured) and the repository you just created.
 
@@ -75,14 +75,17 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
 
    ![bb-proj-gitops-branch](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-proj-gitops-branch.webp)
 
-
 ### Step 4 - Create a Pull Request to trigger issue creation
 
 1. Go to `bb-gitops-ngrok` on Bitbucket. Create a new branch `add-nickname-table-employee`. On the new branch, create a subdirectory `bytebase`, and create a sub-subdirectory `prod`. Within the `prod` directory, create a file `employee##202311012500##ddl##add_nickname_table_employee.sql`. Copy the following SQL script into the file and commit the change.
+
    ```sql
    ALTER TABLE "public"."employee"
    ADD COLUMN "nick_name" text;
    ```
+
+   ![bb-bitbucket-file](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-bitbucket-file.webp)
+
 2. Create a pull request including the above commits and merge it. Go back to Bytebase, you'll see there is a new issue created by the pull request.
 
    ![bb-push-event-notification](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-push-event-notification.webp)
@@ -98,7 +101,6 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
 4. Go to **Environments**, you'll see there's a SQL Review policy attached with `Prod`. Click **Edit**, you'll see three activated SQL Review rules.
 
    ![bb-sql-policy](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-sql-policy.webp)
-
 
 5. Update the SQL script and commit in a new branch and click **Merge**.
 
