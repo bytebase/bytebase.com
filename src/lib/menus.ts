@@ -216,11 +216,9 @@ export const MENU = {
     {
       name: 'COMPANY',
       items: [
-        { name: 'Blog', linkUrl: Route.BLOG },
         { name: 'About', linkUrl: Route.ABOUT },
         { name: 'Brand', linkUrl: Route.BRAND },
         { name: 'Careers', linkUrl: Route.JOBS },
-        { name: 'Pricing', linkUrl: Route.PRICING },
         { name: 'Contact', linkUrl: Route.CONTACTS },
       ],
     },
