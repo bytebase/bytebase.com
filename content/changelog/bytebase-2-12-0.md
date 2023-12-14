@@ -13,7 +13,7 @@ description: 'Improve auto-completion and overall layout navigation.'
 
 ## 🔔 Breaking Changes
 
-- Sunset existing Enterprise trial license. New trial license is available upon request. 
+- Sunset existing Enterprise trial license. New trial license is available upon request.
 
 ## 🎄 Enhancements
 
