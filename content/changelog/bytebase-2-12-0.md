@@ -31,7 +31,7 @@ description: 'Improve auto-completion and overall layout navigation.'
 
 ## 🎠 Community
 
-- Thanks to @jinrenjie for the PR fix(smtp): fix host name error in smtp authentication #9674
+- Thanks to [@jinrenjie]([github.com](https://github.com/jinrenjie)) for the PR fix(smtp): fix host name error in smtp authentication [#9674](https://github.com/bytebase/bytebase/pull/9674)
 
 ## 📰 Fresh Off the Press
 
