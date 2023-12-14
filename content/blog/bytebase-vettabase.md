@@ -1,5 +1,5 @@
 ---
-title: Bytebase has partnered with Vettabase!
+title: Bytebase Has Partnered with Vettabase!
 author: Tianzhou
 published_at: 2023/12/14 11:00:00
 feature_image: /content/blog/bytebase-vettabase/banner.webp
