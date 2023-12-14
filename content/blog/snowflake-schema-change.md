@@ -1,5 +1,5 @@
 ---
-title: Snowflake Schema Change Best Practice
+title: Snowflake Schema Change and CI/CD Best Practice
 author: Ningjing
 published_at: 2023/07/11 18:00:00
 feature_image: /content/blog/snowflake-schema-change/snowflake-schema-change.webp
@@ -7,7 +7,7 @@ tags: Explanation
 description: While Snowflake revolutionizes data management and analytics, effectively managing schema changes and tracking change history becomes increasingly crucial.
 ---
 
-While [Snowflake](https://www.snowflake.com/) revolutionizes data management and analytics, effectively managing schema changes and tracking change history becomes increasingly crucial.
+While [Snowflake](https://www.snowflake.com/) revolutionizes data management and analytics, effectively managing schema changes, CI/CD and tracking change history becomes increasingly crucial.
 
 For schema change management, the default recommendation is [schemachange](https://github.com/Snowflake-Labs/schemachange), a handy open-source Python library from Snowflake itself. It assists users in implementing database changes and keeps a record of metadata changes in a dedicated history table. This script is frequently recommended for DevOps pipelines for Snowflake.
 
