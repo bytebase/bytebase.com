@@ -2,7 +2,7 @@
 title: Bytebase Has Partnered with Vettabase!
 author: Tianzhou
 published_at: 2023/12/14 11:00:00
-feature_image: /content/blog/bytebase-vettabase/banner.webp
+feature_image: /content/blog/bytebase-vettabase/partnership-banner.webp
 tags: Announcement
 featured: true
 description: Bytebase is pleased to announce a partnership with Vettabase, an open source database services company with a focus on database automation.
