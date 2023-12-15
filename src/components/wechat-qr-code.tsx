@@ -28,6 +28,7 @@ const WechatQRCode = () => {
       >
         <Icon.X className="h-auto w-5 opacity-60 hover:opacity-100" />
       </div>
+      <p className="flex justify-center">微信扫码咨询</p>
       <Image
         className="h-auto max-w-full"
         src="/images/bb-helper-wechat-qrcode.webp"
