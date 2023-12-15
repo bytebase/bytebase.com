@@ -1,13 +1,14 @@
+import dynamic from 'next/dynamic';
 import Script from 'next/script';
 
 import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
+const WechatQRCode = dynamic(() => import('@/components/wechat-qr-code'), { ssr: false });
 // import { FrontChat } from '@/components/front-chat';
 //import { Intercom } from '@/components/intercom';
 
 import I18nProvider from '@/locales/i18nProvider';
 import { getStaticParams } from '@/locales/server';
-import WechatQRCode from '@/components/wechat-qr-code';
 import '@/styles/main.css';
 
 export function generateStaticParams() {
