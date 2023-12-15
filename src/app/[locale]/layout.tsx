@@ -7,6 +7,7 @@ import Header from '@/components/shared/header';
 
 import I18nProvider from '@/locales/i18nProvider';
 import { getStaticParams } from '@/locales/server';
+import WechatQRCode from '@/components/wechat-qr-code';
 import '@/styles/main.css';
 
 export function generateStaticParams() {
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </main>
             <Footer />
           </div>
+          <WechatQRCode />
         </I18nProvider>
       </body>
     </html>
