@@ -133,6 +133,8 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Project Webhook](/change-database/webhook)
 
+### [Troubleshoot 🐞](/change-database/troubleshoot)
+
 ## SQL Editor
 
 ### [Overview](/sql-editor/overview)
