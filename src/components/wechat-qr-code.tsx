@@ -12,6 +12,7 @@ const WechatQRCode = () => {
 
   useEffect(() => {
     const language = window.navigator.language;
+    // If the user's language is `zh` or current locale is `zh`, show the wechat QR code.
     setShouldShow(language === 'zh-CN' || language === 'zh' || currentLocale === 'zh');
   }, []);
 
