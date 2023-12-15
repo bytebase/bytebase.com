@@ -1,5 +1,5 @@
 ---
-title: 'DevOps: Database Change Management with Redis and GitHub'
+title: 'Database CI/CD and Schema Migration with Redis and GitHub'
 author: Ningjing
 published_at: 2023/04/14 11:45
 feature_image: /content/docs/tutorials/database-change-management-with-redis-and-github/feature-image.webp
@@ -10,14 +10,14 @@ estimated_time: '30 mins'
 description: This tutorial will bring your Redis data change to the next level by introducing the GitOps workflow, where you commit data change script to the GitHub repository, which will in turn trigger the data change pipeline in Bytebase.
 ---
 
-A series of articles about DevOps: Database Change Management with Redis
+A series of articles about Database CI/CD and Schema Migration with Redis
 
-- [DevOps: Database Change Management with Redis](/docs/tutorials/database-change-management-with-redis)
-- DevOps: Database Change Management with Redis and GitHub (this one)
+- [Database CI/CD and Schema Migration with Redis](/docs/tutorials/database-change-management-with-redis)
+- Database CI/CD and Schema Migration with Redis and GitHub (this one)
 
 ---
 
-In the last article [DevOps: Database Change Management with Redis](/docs/tutorials/database-change-management-with-redis), you have tried UI workflow in Bytebase.
+In the last article [Database CI/CD and Schema Migration with Redis](/docs/tutorials/database-change-management-with-redis), you have tried UI workflow in Bytebase.
 
 This tutorial will bring you to the next level by introducing the GitOps workflow, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
@@ -31,7 +31,7 @@ You can use Bytebase free version to finish the tutorial.
 
 Before you start this tutorial, make sure:
 
-- You have followed our previous UI-based change tutorial [DevOps: Database Change Management with Redis](/docs/tutorials/database-change-management-with-redis).
+- You have followed our previous UI-based change tutorial [Database CI/CD and Schema Migration with Redis](/docs/tutorials/database-change-management-with-redis).
 - You have [a local running Redis](https://redis.io/docs/getting-started/installation/).
 - You have a [GitHub](https://github.com/) account.
 - You have a public GitHub repository, e.g  `redis-test-bb-local`.

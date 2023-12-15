@@ -41,7 +41,7 @@ description: '- Support OAuth 2.0 for Single Sign-On (SSO). - Support change and
   - Partnership with PingCAP, the company building TiDB, which provides scaling database infrastructure solutions via an open-source platform. [Streamline Database Change Management for TiDB Cloud with Bytebase](/blog/streamline-database-change-management-for-tidb-cloud-with-bytebase)
 - We officially announced [Terraform Bytebase Provider](/blog/introducing-terraform-bytebase-provider), which will allow you to codify the database configuration and consolidate your workflow.
 - Ready to bring your MySQL schema change to the next level? The Database Change Management tutorial series continues!
-  - Step 1 - [DevOps: Database Change Management with MySQL](/docs/tutorials/database-change-management-with-mysql)
-  - Step 2 - [DevOps: Database Change Management with MySQL and GitHub](/docs/tutorials/database-change-management-with-mysql-and-github)
+  - Step 1 - [Database CI/CD and Schema Migration with MySQL](/docs/tutorials/database-change-management-with-mysql)
+  - Step 2 - [Database CI/CD and Schema Migration with MySQL and GitHub](/docs/tutorials/database-change-management-with-mysql-and-github)
 
 _To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

@@ -1,5 +1,5 @@
 ---
-title: 'DevOps: Database Change Management with ClickHouse'
+title: 'Database CI/CD and Schema Migration with ClickHouse'
 author: Ningjing
 published_at: 2023/03/01 11:15
 feature_image: /content/docs/tutorials/database-change-management-with-clickhouse/feature-image.webp
@@ -10,10 +10,10 @@ estimated_time: '20 mins'
 description: ClickHouse is an open-source column-oriented DBMS for online analytical processing. This tutorial will guide you step-by-step to set up database change management for ClickHouse in Bytebase.
 ---
 
-A series of articles about DevOps: Database Change Management with ClickHouse.
+A series of articles about Database CI/CD and Schema Migration with ClickHouse.
 
-- DevOps: Database Change Management with ClickHouse (this one)
-- [DevOps: Database Change Management with ClickHouse and GitHub](/docs/tutorials/database-change-management-with-clickhouse-and-github)
+- Database CI/CD and Schema Migration with ClickHouse (this one)
+- [Database CI/CD and Schema Migration with ClickHouse and GitHub](/docs/tutorials/database-change-management-with-clickhouse-and-github)
 
 ---
 

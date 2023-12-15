@@ -1,5 +1,5 @@
 ---
-title: 'DevOps: Database Change Management with Snowflake'
+title: 'Database CI/CD and Schema Migration with Snowflake'
 author: Ningjing
 published_at: 2022/12/22 21:15
 feature_image: /content/docs/tutorials/database-change-management-with-snowflake/db-change-snowflake.webp
@@ -10,10 +10,10 @@ estimated_time: '20 mins'
 description: This tutorial will guide you step-by-step to set up database change management for Snowflake in Bytebase.
 ---
 
-A series of articles about DevOps: Database Change Management with Snowflake
+A series of articles about Database CI/CD and Schema Migration with Snowflake
 
-- DevOps: Database Change Management with Snowflake (this one)
-- [DevOps: Database Change Management with Snowflake and GitHub](/docs/tutorials/database-change-management-with-snowflake-and-github)
+- Database CI/CD and Schema Migration with Snowflake (this one)
+- [Database CI/CD and Schema Migration with Snowflake and GitHub](/docs/tutorials/database-change-management-with-snowflake-and-github)
 
 ---
 

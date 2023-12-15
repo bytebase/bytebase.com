@@ -129,4 +129,4 @@ Bytebase provides watermark feature to help you identify the data source. You ca
 
 ## Summary
 
-With Bytebase, you have now tried out the basic management of data access for developers. If you want to know more about database change as well, you can check [DevOps: Database Change Management with PostgreSQL](/docs/tutorials/database-change-management-with-postgresql/).
+With Bytebase, you have now tried out the basic management of data access for developers. If you want to know more about database change as well, you can check [Database CI/CD and Schema Migration with PostgreSQL](/docs/tutorials/database-change-management-with-postgresql/).

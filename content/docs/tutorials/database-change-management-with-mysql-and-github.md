@@ -1,5 +1,5 @@
 ---
-title: 'DevOps: Database Change Management with MySQL and GitHub'
+title: 'Database CI/CD and Schema Migration with MySQL and GitHub'
 author: Mila
 published_at: 2023/02/08 11:15
 feature_image: /content/docs/tutorials/database-change-management-with-mysql-and-github/feature-image.webp
@@ -10,16 +10,16 @@ estimated_time: '30 mins'
 description: This tutorial will bring your MySQL schema change to the next level by introducing the GitOps workflow, where you commit schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 ---
 
-A series of articles about DevOps: Database Change Management with MySQL
+A series of articles about Database CI/CD and Schema Migration with MySQL
 
-- [DevOps: Database Change Management with MySQL](/docs/tutorials/database-change-management-with-mysql)
-- DevOps: Database Change Management with MySQL and GitHub (this one)
+- [Database CI/CD and Schema Migration with MySQL](/docs/tutorials/database-change-management-with-mysql)
+- Database CI/CD and Schema Migration with MySQL and GitHub (this one)
 
 ---
 
 ## Overview
 
-In the last article [DevOps: Database Change Management with MySQL](/docs/tutorials/database-change-management-with-mysql), you have tried **UI workflow** in Bytebase.
+In the last article [Database CI/CD and Schema Migration with MySQL](/docs/tutorials/database-change-management-with-mysql), you have tried **UI workflow** in Bytebase.
 
 This tutorial will bring your MySQL schema change to the next level by introducing the **GitOps workflow**, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
@@ -29,7 +29,7 @@ You can use Bytebase free version to finish the tutorial.
 
 Before you start this tutorial, make sure you have the following ready:
 
-- Finished our previous UI-based change tutorial [DevOps: Database Change Management with MySQL](/docs/tutorials/database-change-management-with-mysql).
+- Finished our previous UI-based change tutorial [Database CI/CD and Schema Migration with MySQL](/docs/tutorials/database-change-management-with-mysql).
 - A local MySQL cluster.
 - A GitHub account.
 - A public GitHub repository.

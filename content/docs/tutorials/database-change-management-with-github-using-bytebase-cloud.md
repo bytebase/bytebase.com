@@ -1,5 +1,5 @@
 ---
-title: 'DevOps: Database Change Management with GitHub using Bytebase Cloud'
+title: 'Database CI/CD and Schema Migration with GitHub using Bytebase Cloud'
 author: Ningjing
 published_at: 2023/04/17 16:15
 feature_image: /content/docs/tutorials/database-change-management-with-github-using-bytebase-cloud/feature-image.webp
@@ -13,7 +13,7 @@ description: Bytebase provide its SaaS version since 1.15.0, this tutorial will 
 A series of articles about Database Change Management using Bytebase Cloud. We take Amazon Aurora MySQL as an example and is also applicable to Amazon Aurora Serverless.
 
 - [Database Change Management using Bytebase Cloud](/docs/tutorials/database-change-management-using-bytebase-cloud)
-- DevOps: Database Change Management with GitHub using Bytebase Cloud (this one)
+- Database CI/CD and Schema Migration with GitHub using Bytebase Cloud (this one)
 
 ---
 

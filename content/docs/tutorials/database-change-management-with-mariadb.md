@@ -1,5 +1,5 @@
 ---
-title: 'DevOps: Database Change Management with MariaDB'
+title: 'Database CI/CD and Schema Migration with MariaDB'
 author: Ningjing
 published_at: 2023/06/16 17:15
 feature_image: /content/docs/tutorials/database-change-management-with-mariadb/bytebase-mariadb-banner.webp
@@ -10,10 +10,10 @@ estimated_time: '20 mins'
 description: MariaDB is the world's most advanced open-source relational database management system. This tutorial will guide you step-by-step to set up database change management for MariaDB in Bytebase.
 ---
 
-A series of articles about DevOps: Database Change Management with MariaDB.
+A series of articles about Database CI/CD and Schema Migration with MariaDB.
 
-- DevOps: Database Change Management with MariaDB (this one)
-- [DevOps: Database Change Management with MariaDB and GitHub](/docs/tutorials/database-change-management-with-mariadb-and-github/)
+- Database CI/CD and Schema Migration with MariaDB (this one)
+- [Database CI/CD and Schema Migration with MariaDB and GitHub](/docs/tutorials/database-change-management-with-mariadb-and-github/)
 
 ---
 

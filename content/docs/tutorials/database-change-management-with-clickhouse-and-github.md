@@ -1,5 +1,5 @@
 ---
-title: 'DevOps: Database Change Management with ClickHouse and GitHub'
+title: 'Database CI/CD and Schema Migration with ClickHouse and GitHub'
 author: Ningjing
 published_at: 2023/03/02 11:45
 feature_image: /content/docs/tutorials/database-change-management-with-clickhouse-and-github/feature-image.webp
@@ -10,14 +10,14 @@ estimated_time: '30 mins'
 description: This tutorial will bring your ClickHouse schema change to the next level by introducing the GitOps workflow, where you commit schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 ---
 
-A series of articles about DevOps: Database Change Management with ClickHouse
+A series of articles about Database CI/CD and Schema Migration with ClickHouse
 
-- [DevOps: Database Change Management with ClickHouse](/docs/tutorials/database-change-management-with-clickhouse)
-- DevOps: Database Change Management with ClickHouse and GitHub (this one)
+- [Database CI/CD and Schema Migration with ClickHouse](/docs/tutorials/database-change-management-with-clickhouse)
+- Database CI/CD and Schema Migration with ClickHouse and GitHub (this one)
 
 ---
 
-In the last article [DevOps: Database Change Management with ClickHouse](/docs/tutorials/database-change-management-with-clickhouse), you have tried UI workflow in Bytebase.
+In the last article [Database CI/CD and Schema Migration with ClickHouse](/docs/tutorials/database-change-management-with-clickhouse), you have tried UI workflow in Bytebase.
 
 This tutorial will bring you to the next level by introducing the GitOps workflow, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
@@ -32,7 +32,7 @@ You can use Bytebase free version to finish the tutorial.
 
 Before you start this tutorial, make sure:
 
-- You have followed our previous UI-based change tutorial [DevOps: Database Change Management with ClickHouse](/docs/tutorials/database-change-management-with-clickhouse).
+- You have followed our previous UI-based change tutorial [Database CI/CD and Schema Migration with ClickHouse](/docs/tutorials/database-change-management-with-clickhouse).
 - You have a [ClickHouse Cloud](https://clickhouse.cloud/) account or a ClickHouse self-managed instance running.
 - You have a [GitHub](https://github.com/) account.
 - You have a public GitHub repository, e.g  `clickhouse-test-bb-local`.

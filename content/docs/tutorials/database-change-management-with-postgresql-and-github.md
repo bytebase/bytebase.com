@@ -1,5 +1,5 @@
 ---
-title: 'DevOps: Database Change Management with PostgreSQL and GitHub'
+title: 'Database CI/CD and Schema Migration with PostgreSQL and GitHub'
 author: Ningjing
 published_at: 2023/02/16 11:45
 feature_image: /content/docs/tutorials/database-change-management-with-postgresql-and-github/feature-image.webp
@@ -10,16 +10,16 @@ estimated_time: '30 mins'
 description: This tutorial will bring your PostgreSQL schema change to the next level by introducing the GitOps workflow, where you commit schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 ---
 
-A series of articles about DevOps: Database Change Management with PostgreSQL
+A series of articles about Database CI/CD and Schema Migration with PostgreSQL
 
-- [DevOps: Database Change Management with PostgreSQL](/docs/tutorials/database-change-management-with-postgresql)
-- DevOps: Database Change Management with PostgreSQL and GitHub (this one)
+- [Database CI/CD and Schema Migration with PostgreSQL](/docs/tutorials/database-change-management-with-postgresql)
+- Database CI/CD and Schema Migration with PostgreSQL and GitHub (this one)
 
 ---
 
 ## Overview
 
-In the last article [DevOps: Database Change Management with PostgreSQL](/docs/tutorials/database-change-management-with-postgresql), you have tried UI workflow in Bytebase.
+In the last article [Database CI/CD and Schema Migration with PostgreSQL](/docs/tutorials/database-change-management-with-postgresql), you have tried UI workflow in Bytebase.
 
 This tutorial will bring you to the next level by introducing the GitOps workflow, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
@@ -29,7 +29,7 @@ You can use Bytebase free version to finish the tutorial.
 
 Before you start this tutorial, make sure:
 
-- You have followed our previous UI-based change tutorial [DevOps: Database Change Management with PostgreSQL](/docs/tutorials/database-change-management-with-postgresql).
+- You have followed our previous UI-based change tutorial [Database CI/CD and Schema Migration with PostgreSQL](/docs/tutorials/database-change-management-with-postgresql).
 - You have a GitHub account.
 - You have a public GitHub repository, e.g  `pg-test-bb-local`.
 - You have [Docker](https://www.docker.com/) installed locally.

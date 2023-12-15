@@ -25,7 +25,7 @@ description: '- Added support for MongoDB. - View ER Diagrams with the new Schem
 - Compared to traditional SQL tools, such as the CLI or classic SQL Editor, a modern SQL Editor for DevOps teams should make secure changes and have a user-friendly UI: [see how](/blog/the-sql-editor-for-developers-and-dbas) Bytebase's new SQL Editor assists collaboration.
 - Follow [this handy tutorial](/docs/tutorials/how-to-manage-data-access-for-developers) to try first-hand how data access control and data masking works in Bytebase.
 - Ready to bring your TiDB schema change to the next level? The Database Change Management tutorial series continues!
-  - Step 1 - [DevOps: Database Change Management with TiDB](/docs/tutorials/database-change-management-with-tidb)
-  - Step 2 - [DevOps: Database Change Management with TiDB and GitHub](/docs/tutorials/database-change-management-with-tidb-and-github)
+  - Step 1 - [Database CI/CD and Schema Migration with TiDB](/docs/tutorials/database-change-management-with-tidb)
+  - Step 2 - [Database CI/CD and Schema Migration with TiDB and GitHub](/docs/tutorials/database-change-management-with-tidb-and-github)
 
 _To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._

@@ -1,5 +1,5 @@
 ---
-title: 'DevOps: Database Change Management with Amazon Aurora'
+title: 'Database CI/CD and Schema Migration with Amazon Aurora'
 author: Ningjing
 published_at: 2023/03/09 11:15
 feature_image: /content/docs/tutorials/database-change-management-with-amazon-aurora/feature-image.webp
@@ -10,10 +10,10 @@ estimated_time: '20 mins'
 description: Amazon Aurora MySQL is a fully managed relational database engine that's compatible with MySQL.  This tutorial will guide you step-by-step to set up database change management for Amazon Aurora MySQL in Bytebase.
 ---
 
-A series of articles about DevOps: Database Change Management with Amazon Aurora.
+A series of articles about Database CI/CD and Schema Migration with Amazon Aurora.
 
-- DevOps: Database Change Management with Amazon Aurora (this one)
-- [DevOps: Database Change Management with Amazon Aurora and GitHub](/docs/tutorials/database-change-management-with-amazon-aurora-and-github)
+- Database CI/CD and Schema Migration with Amazon Aurora (this one)
+- [Database CI/CD and Schema Migration with Amazon Aurora and GitHub](/docs/tutorials/database-change-management-with-amazon-aurora-and-github)
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 'DevOps: Database Change Management with PostgreSQL'
+title: 'Database CI/CD and Schema Migration with PostgreSQL'
 author: Ningjing
 published_at: 2023/02/14 12:15
 feature_image: /content/docs/tutorials/database-change-management-with-postgresql/feature-image.webp
@@ -10,10 +10,10 @@ estimated_time: '20 mins'
 description: PostgreSQL is the world's most advanced open-source relational database management system. This tutorial will guide you step-by-step to set up database change management for PostgreSQL in Bytebase.
 ---
 
-A series of articles about DevOps: Database Change Management with PostgreSQL.
+A series of articles about Database CI/CD and Schema Migration with PostgreSQL.
 
-- DevOps: Database Change Management with PostgreSQL (this one)
-- [DevOps: Database Change Management with PostgreSQL and GitHub](/docs/tutorials/database-change-management-with-postgresql-and-github/)
+- Database CI/CD and Schema Migration with PostgreSQL (this one)
+- [Database CI/CD and Schema Migration with PostgreSQL and GitHub](/docs/tutorials/database-change-management-with-postgresql-and-github/)
 
 ---
 

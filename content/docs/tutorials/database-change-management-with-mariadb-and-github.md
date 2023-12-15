@@ -1,5 +1,5 @@
 ---
-title: 'DevOps: Database Change Management with MariaDB and GitHub'
+title: 'Database CI/CD and Schema Migration with MariaDB and GitHub'
 author: Ningjing
 published_at: 2023/06/16 20:45
 feature_image: /content/docs/tutorials/database-change-management-with-mariadb-and-github/bytebase-mariadb-github-banner.webp
@@ -10,14 +10,14 @@ estimated_time: '30 mins'
 description: This tutorial will bring your MariaDB schema change to the next level by introducing the GitOps workflow, where you commit schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 ---
 
-A series of articles about DevOps: Database Change Management with MariaDB
+A series of articles about Database CI/CD and Schema Migration with MariaDB
 
-- [DevOps: Database Change Management with MariaDB](/docs/tutorials/database-change-management-with-mariadb)
-- DevOps: Database Change Management with MariaDB and GitHub (this one)
+- [Database CI/CD and Schema Migration with MariaDB](/docs/tutorials/database-change-management-with-mariadb)
+- Database CI/CD and Schema Migration with MariaDB and GitHub (this one)
 
 ---
 
-In the last article [DevOps: Database Change Management with MariaDB](/docs/tutorials/database-change-management-with-mariadb), you have tried UI workflow in Bytebase.
+In the last article [Database CI/CD and Schema Migration with MariaDB](/docs/tutorials/database-change-management-with-mariadb), you have tried UI workflow in Bytebase.
 
 This tutorial will bring you to the next level by introducing the GitOps workflow, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
@@ -32,7 +32,7 @@ You can use Bytebase free version to finish the tutorial.
 
 Before you start this tutorial, make sure:
 
-- You have followed our previous UI-based change tutorial [DevOps: Database Change Management with MariaDB](/docs/tutorials/database-change-management-with-mariadb).
+- You have followed our previous UI-based change tutorial [Database CI/CD and Schema Migration with MariaDB](/docs/tutorials/database-change-management-with-mariadb).
 - You have a GitHub account.
 - You have a public GitHub repository, e.g  `test-bb-mariadb-gitops`.
 - You have [Docker](https://www.docker.com/) installed locally.
