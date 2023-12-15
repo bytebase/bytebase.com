@@ -1,5 +1,5 @@
-import Script from 'next/script';
 import dynamic from 'next/dynamic';
+import Script from 'next/script';
 
 import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
