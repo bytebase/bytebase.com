@@ -1,6 +1,13 @@
 ---
 title: GitOps with Feature Branch Workflow
-description: Best practice for configuring feature branch workflow
+author: Ningjing
+published_at: 2023/06/20 18:00
+feature_image: /content/docs/tutorials/gitops-feature-branch/final-setup.webp
+tags: Tutorial
+integrations: 'Azure DevOps, GitHub, GitLab, Bitbucket'
+level: Intermediate
+estimated_time: '15 mins'
+description: Best practice for configuring feature branch workflow for VCS
 ---
 
 ## Overview
@@ -13,7 +20,7 @@ In a Git feature branch workflow, all feature development takes place in a dedic
 
 1. One `main` branch corresponds to the `prod` envrionment, and it has a `db_prod` database.
 2. One `dev` branch for the feature work corresponds to the `dev` environment, and it has a `db_dev` database.
-   ![feature-branch-original-setup](/content/docs/how-to/workflow/gitops-feature-branch/original-setup.webp)
+   ![feature-branch-original-setup](/content/docs/tutorials/gitops-feature-branch/original-setup.webp)
 
 - You [installed](/docs/get-started/self-host) Bytebase and have **Workspace Admin** role.
 
@@ -30,7 +37,7 @@ In a Git feature branch workflow, all feature development takes place in a dedic
 1. Click **Projects** > **New Project** and enter `Dev Project` in **Project Name**.
 2. In `Dev Project`, click **Transfer in DB** and choose `db_dev` database.
 3. Click **Version Control** on the project tab bar, and choose **GitOps workflow** and [enable GitOps workflow](/docs/vcs-integration/enable-gitops-workflow).
-   ![feature-branch-setup](/content/docs/how-to/workflow/gitops-feature-branch/branch-setting.webp)
+   ![feature-branch-setup](/content/docs/tutorials/gitops-feature-branch/branch-setting.webp)
 
 ### Step 3 - Create `Prod Project`
 
@@ -44,7 +51,7 @@ In a Git feature branch workflow, all feature development takes place in a dedic
 
 The final setup looks like this:
 
-![feature-branch-setup](/content/docs/how-to/workflow/gitops-feature-branch/final-setup.webp)
+![feature-branch-setup](/content/docs/tutorials/gitops-feature-branch/final-setup.webp)
 
 With this setup,
 

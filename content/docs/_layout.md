@@ -263,11 +263,17 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Reference](/cli/reference)
 
-## How-To
+## Reference
 
-### Workflow
+### [Server Startup Options](/reference/command-line)
 
-#### [GitOps with Feature Branch](/how-to/workflow/gitops-feature-branch)
+### [Error Code for Bytebase Core](/reference/error-code/core)
+
+### [Error Code for SQL Advisor](/reference/error-code/advisor)
+
+### [Schema Definition Language](/reference/schema-definition-language)
+
+### [PostgreSQL SQL Review Guide](/how-to/sql-review/postgres-sql-review-guide)
 
 ### ClickHouse
 
@@ -284,17 +290,3 @@ expand_section_list: ['Self-host', 'Get Started']
 #### [How to Find Project ID and Instance ID](/how-to/spanner/how-to-find-project-id-and-instance-id)
 
 #### [How to Create a Service Account for Bytebase](/how-to/spanner/how-to-create-a-service-account-for-bytebase)
-
-## Reference
-
-### [Server Startup Options](/reference/command-line)
-
-### [Schema Definition Language](/reference/schema-definition-language)
-
-### [Error Code](/reference/error-code/overview)
-
-#### [Error Code for Bytebase Core](/reference/error-code/core)
-
-#### [Error Code for SQL Advisor](/reference/error-code/advisor)
-
-### [PostgreSQL SQL Review Guide](/how-to/sql-review/postgres-sql-review-guide)
