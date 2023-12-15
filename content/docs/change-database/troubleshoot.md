@@ -4,6 +4,8 @@ title: Troubleshoot
 
 ## PostgreSQL
 
+_Also applicable to Redshift and RisingWave_
+
 <HintBlock type="info">
 
 Following permission errors are likely to happen if either conditions meet:
