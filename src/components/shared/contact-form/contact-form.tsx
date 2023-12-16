@@ -8,7 +8,7 @@ import * as yup from 'yup';
 import Button from '@/components/shared/button';
 import Field from '@/components/shared/field';
 import Link from '@/components/shared/link/link';
-import { BUTTON_SUCCESS_TIMEOUT_MS, VIEW_LIVE_DEMO } from '@/lib/forms';
+import { BUTTON_SUCCESS_TIMEOUT_MS, ENTERPRISE_INQUIRY, VIEW_LIVE_DEMO } from '@/lib/forms';
 import { STATES } from '@/lib/states';
 import Route from '@/lib/route';
 import { useRouter } from 'next/navigation';
@@ -57,6 +57,14 @@ const ContactForm = ({ className, formId }: { className: string; formId: string 
     setFormError('');
 
     try {
+      if (formId == VIEW_LIVE_DEMO || formId == ENTERPRISE_INQUIRY) {
+        const tag = formId == VIEW_LIVE_DEMO ? 'demo' : 'enterprise-inquiry';
+        await fetch('/api/subscribe', {
+          method: 'POST',
+          body: JSON.stringify({ email, tag }),
+        });
+      }
+
       const responses = await Promise.all(
         feishuWebhookList.map((url) =>
           fetch(url, {

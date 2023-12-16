@@ -78,7 +78,7 @@ const Form = ({ fireInput }: { fireInput?: () => void }) => {
       try {
         await fetch('/api/subscribe', {
           method: 'POST',
-          body: JSON.stringify({ email }),
+          body: JSON.stringify({ email, tag: 'newsletter' }),
         });
 
         setTimeout(() => {

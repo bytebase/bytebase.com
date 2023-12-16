@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import md5 from 'md5';
 
 export async function POST(request: NextRequest) {
-  const { email } = await request.json();
+  const { email, tag } = await request.json();
 
   if (!email) {
     return NextResponse.json({ error: 'Email is required' }, { status: 400 });
@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
   const subscriber = {
     email_address: email,
     status_if_new: 'subscribed',
-    tags: ['newsletter'],
+    tags: [tag],
   };
 
   const hash = md5(email.toLowerCase());
