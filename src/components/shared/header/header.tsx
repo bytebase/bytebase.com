@@ -204,14 +204,17 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
             >
               Self Host
             </Button>
-            <Button
+            <Button href={Route.VIEW_LIVE_DEMO} className="w-[120px]" theme="gray-filled" size="sm">
+              Live Demo
+            </Button>
+            {/* <Button
               href="https://hub.bytebase.com/workspace"
               className="w-[90px]"
               theme="gray-filled"
               size="sm"
             >
               Cloud
-            </Button>
+            </Button> */}
           </div>
         </nav>
       </header>

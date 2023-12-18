@@ -236,8 +236,11 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
               </li>
             </ul>
             <div className="sticky bottom-0 z-10 mt-auto hidden flex-col gap-4 sm:flex sm:gap-2">
-              <Button href="https://hub.bytebase.com/workspace" theme="gray-filled" size="md">
+              {/* <Button href="https://hub.bytebase.com/workspace" theme="gray-filled" size="md">
                 Cloud
+              </Button> */}
+              <Button href={Route.VIEW_LIVE_DEMO} theme="gray-filled" size="md">
+                Live Demo
               </Button>
               <Button href={Route.DOCS_SELF_HOST} theme="primary-outline" size="md">
                 Self host
