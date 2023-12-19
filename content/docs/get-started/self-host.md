@@ -42,29 +42,38 @@ Check [Configure External PostgreSQL](/docs/get-started/install/external-postgre
 Bytebase does not support enabeling HTTPS in server configuration. We suggest use NGINX or Caddy as a reverse proxy in front of Bytebase to enable HTTPS. Here is an example NGINX configuration:
 
 ```nginx
-server {
-    listen       80;
-    listen  [::]:80;
-    listen       443 ssl;
-    listen  [::]:443 ssl;
-    server_name  your_domain_name;
 
-    ssl_certificate /path/to/certificate/file;
-    ssl_certificate_key /path/to/private/key/file;
-
-
-   location /v1:adminExecute {
-        proxy_pass http://your_domain_name:8080;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection $connection_upgrade;
-   }
-
-    location / {
-        proxy_pass http://your_domain_name:8080;
+http {
+    map $http_upgrade $connection_upgrade {
+      default upgrade;
+      '' close;
     }
+
+    server {
+        listen       80;
+        listen  [::]:80;
+        listen       443 ssl;
+        listen  [::]:443 ssl;
+        server_name  www.example.com;
+
+        ssl_certificate /path/to/certificate/file;
+        ssl_certificate_key /path/to/private/key/file;
+
+        location /v1:adminExecute {
+            proxy_pass http://www.example.com;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection $connection_upgrade;
+        }
+
+        location / {
+            proxy_pass http://www.example.com;
+        }
+   }
 }
 ```
+
+**Note**: Because Bytebase need Websocket for some features. You also need to config NGINX to support websocket like above.
 
 #### Allow external access via External URL
 
