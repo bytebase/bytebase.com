@@ -14,61 +14,50 @@ Bytebase is a single Go binary and the deployment easy.
 
 Estimated time: **5 minutes**.
 
-<HintBlock type="info">
-
-If you **run Bytebase inside Docker on Linux** and want to connect the database instance on the same host, then you need to supply the additional `--add-host host.docker.internal:host-gateway --network host` flags.
-
-</HintBlock>
-
-#### Run locally (e.g. localhost:5678)
-
-By default, container listens on [port 80](https://github.com/bytebase/bytebase/blob/main/scripts/Dockerfile#L98). You can overwrite the port by supplying `--port`.
-
-Run the following command to start Bytebase on container port `8080` and map it to localhost port `5678`.
+### Installation
 
 <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
-Bytebase will store its data under `~/.bytebase/data` , you can reset all data by running command:
+Once the server is ready(the logo is displayed), you can access Bytebase at http://localhost:8080.
 
-```bash
-rm -rf ~/.bytebase/data
-```
+### Configuration
 
-Check [Server Startup Options](/docs/reference/command-line) for other startup options.
+#### Bytebase metadata persistent
 
-### Use external PostgreSQL to store metadata
+By default, Bytebase will store metadata in `/var/opt/bytebase`. If you want to persist metadata across container restarts, mount the directory to your host machine, like `--volume ~/.bytebase/data:/var/opt/bytebase`.
 
+<IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
+
+#### Server Startup Options
+
+If you need more control over the server configuration, you can start it with custom options.Check [Server Startup Options](/docs/reference/command-line) for other startup options.
+
+#### Use external PostgreSQL to store metadata
+
+By default, Bytebase will use an embedded PostgreSQL database to store metadata. For production usage, it is recommended to use an external PostgreSQL database instead.
 Check [Configure External PostgreSQL](/docs/get-started/install/external-postgres) for details.
 
-<IncludeBlock url="/docs/get-started/install/terminal-docker-run-external-url"></IncludeBlock>
+#### Allow external access via External URL
 
-### Allow external access via External URL
+Check [Configure External URL](/docs/get-started/install/external-url#configure-via-ui) for details.
 
-Run the following command to start Bytebase on port `8080` and map it to localhost port `80`.
+### Troubleshooting
 
-```bash
-docker run --init \
-  --name bytebase \
-  --restart always \
-  --publish 80:8080 \
-  --health-cmd "curl --fail http://localhost:8080/healthz || exit 1" \
-  --health-interval 5m \
-  --health-timeout 10s \
-  --volume ~/.bytebase/data:/var/opt/bytebase \
-  bytebase/bytebase:%%bb_version%% \
-  --data /var/opt/bytebase \
-  --port 8080
-```
+#### bind: address already in use
 
-Follow [Configure External URL](/docs/get-started/install/external-url#configure-via-ui) and then visit Bytebase from
-the configured external URL.
+If you see "bind: address already in use" error, it means the port 8080 is already in use on your host. You need to either stop the existing process using the port or configure Bytebase to use a different port via `--publish PORT:8080` flag.
 
-### Manifest not found
+#### Connect Database Instance on the same host
+
+- If you **run Bytebase inside Docker on Linux**, then you need to supply the additional `--network host` flags in `docker run` command. This allows Bytebase to connect to database instance running on the same host with `localhost`.
+- If you **run Bytebase inside Docker Desktop on Mac** , then you need to use `host.docker.internal` to connect to database instance running on the same host.
+
+#### Manifest not found
 
 The docker image only supports linux/amd64 and linux/arm64 arch. If it doesn't match your OS arch, you may supply
 `--platform linux/amd64` as a best effort.
 
-### Unable to start using Colima
+#### Unable to start using Colima
 
 Due to the vm mechanism of [Colima](https://github.com/abiosoft/colima), try to use the `--mount` option when starting colima as shown below:
 
