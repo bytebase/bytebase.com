@@ -5,7 +5,7 @@ import Cal from '@calcom/embed-react';
 const CalForm = () => {
   return (
     <Cal
-      calLink="adela-bytebase/30min"
+      calLink="bytebase/product-walkthrough"
       config={{ theme: 'light', branding: { brandColor: '#5647EB' } }}
     />
   );
