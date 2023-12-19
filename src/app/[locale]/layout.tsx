@@ -6,6 +6,7 @@ import Header from '@/components/shared/header';
 const WechatQRCode = dynamic(() => import('@/components/wechat-qr-code'), { ssr: false });
 // import { FrontChat } from '@/components/front-chat';
 //import { Intercom } from '@/components/intercom';
+import { Cal } from '@/components/cal';
 
 import I18nProvider from '@/locales/i18nProvider';
 import { getStaticParams } from '@/locales/server';
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script data-domain="bytebase.com" src="https://plausible.io/js/script.js" defer />
       </head>
       <body className="flex h-full flex-col">
+        <Cal />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=G-4BZ4JH7449`}
           strategy="afterInteractive"
