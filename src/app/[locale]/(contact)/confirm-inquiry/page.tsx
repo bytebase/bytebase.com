@@ -10,7 +10,7 @@ export default function Page() {
   return (
     <div className="container">
       <h1 className="font-title text-80 font-semibold leading-none 2xl:text-64 lg:text-56 sm:text-40">
-        Your message has been sent.
+        We have received your inquiry.
       </h1>
       <p className="mt-3 text-18">We will contact you in 2 business days!</p>
       <Logos />

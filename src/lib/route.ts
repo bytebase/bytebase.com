@@ -10,7 +10,6 @@ const Route = {
   BATCH_CHANGE: '/batch-change',
   BRANCHING: '/branching',
   SQL_REVIEW_GUIDE: '/sql-review-guide',
-  BYTEBASE_PLUS: '/bytebase-plus',
   VIEW_LIVE_DEMO: '/view-live-demo',
   REQUEST_DEMO: '/request-demo',
   CONFIRM_DEMO: '/confirm-demo',
