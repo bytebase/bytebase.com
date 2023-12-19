@@ -54,8 +54,11 @@ If you see "bind: address already in use" error, it means the port 8080 is alrea
 
 #### Manifest not found
 
-The docker image only supports linux/amd64 and linux/arm64 arch. If it doesn't match your OS arch, you may supply
-`--platform linux/amd64` as a best effort.
+There may be a few reasons the manifest file is not found:
+
+- The docker image only supports linux/amd64 and linux/arm64 arch. If it doesn't match your OS arch, you may supply
+  `--platform linux/amd64` as a best effort.
+- Your Docker version is too old and doesn't support manifest list. Please [install the latest Docker version](https://docs.docker.com/engine/install/).
 
 #### Unable to start using Colima
 
