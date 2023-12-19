@@ -89,7 +89,7 @@ const ContactForm = ({ className, formId }: { className: string; formId: string 
         } else {
           setButtonState(STATES.SUCCESS);
           setTimeout(() => {
-            router.push(Route.CONFIRM_MESSAGE);
+            router.push(Route.CONFIRM_INQUIRY);
             setButtonState(STATES.DEFAULT);
             reset();
           }, BUTTON_SUCCESS_TIMEOUT_MS);

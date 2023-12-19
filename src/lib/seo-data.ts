@@ -147,11 +147,11 @@ const SEO_DATA = {
       'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
     pathname: `${Route.CONFIRM_DEMO}/`,
   },
-  CONFIRM_MESSAGE: {
+  CONFIRM_INQUIRY: {
     title: 'Your message has been sent',
     description:
       'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
-    pathname: `${Route.CONFIRM_MESSAGE}/`,
+    pathname: `${Route.CONFIRM_INQUIRY}/`,
   },
   MYSQL: {
     title: 'Manage MySQL schema with Bytebase',

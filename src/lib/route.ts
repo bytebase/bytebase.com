@@ -14,7 +14,7 @@ const Route = {
   VIEW_LIVE_DEMO: '/view-live-demo',
   REQUEST_DEMO: '/request-demo',
   CONFIRM_DEMO: '/confirm-demo',
-  CONFIRM_MESSAGE: '/confirm-message',
+  CONFIRM_INQUIRY: '/confirm-inquiry',
 
   // seo pages
   DBA: '/usecase/dba',
