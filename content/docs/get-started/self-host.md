@@ -69,7 +69,7 @@ http {
         location / {
             proxy_pass http://www.example.com;
         }
-   }
+    }
 }
 ```
 
