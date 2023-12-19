@@ -37,6 +37,35 @@ If you need more control over the server configuration, you can start it with cu
 By default, Bytebase will use an embedded PostgreSQL database to store metadata. For production usage, it is recommended to use an external PostgreSQL database instead.
 Check [Configure External PostgreSQL](/docs/get-started/install/external-postgres) for details.
 
+#### Enable HTTPS
+
+Bytebase does not support enabeling HTTPS in server configuration. We suggest use NGINX or Caddy as a reverse proxy in front of Bytebase to enable HTTPS. Here is an example NGINX configuration:
+
+```nginx
+server {
+    listen       80;
+    listen  [::]:80;
+    listen       443 ssl;
+    listen  [::]:443 ssl;
+    server_name  your_domain_name;
+
+    ssl_certificate /path/to/certificate/file;
+    ssl_certificate_key /path/to/private/key/file;
+
+
+   location /v1:adminExecute {
+        proxy_pass http://your_domain_name:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+   }
+
+    location / {
+        proxy_pass http://your_domain_name:8080;
+    }
+}
+```
+
 #### Allow external access via External URL
 
 Check [Configure External URL](/docs/get-started/install/external-url#configure-via-ui) for details.
