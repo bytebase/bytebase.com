@@ -85,15 +85,21 @@ const ContactForm = ({ className, formId }: { className: string; formId: string 
 
       if (responses.every((response) => response.ok)) {
         if (formId == VIEW_LIVE_DEMO) {
-          window.location.href = Route.LIVE_DEMO;
-        } else {
-          setButtonState(STATES.SUCCESS);
-          setTimeout(() => {
-            router.push(Route.CONFIRM_INQUIRY);
-            setButtonState(STATES.DEFAULT);
-            reset();
-          }, BUTTON_SUCCESS_TIMEOUT_MS);
+          window.open(Route.LIVE_DEMO, '_blank');
         }
+
+        let confirm = Route.CONFIRM_MESSAGE;
+        if (formId == VIEW_LIVE_DEMO) {
+          confirm = Route.CONFIRM_VIEW_LIVE_DEMO;
+        } else if (formId == ENTERPRISE_INQUIRY) {
+          confirm = Route.CONFIRM_INQUIRY;
+        }
+        setButtonState(STATES.SUCCESS);
+        setTimeout(() => {
+          router.push(confirm);
+          setButtonState(STATES.DEFAULT);
+          reset();
+        }, BUTTON_SUCCESS_TIMEOUT_MS);
       } else {
         setButtonState(STATES.ERROR);
         setTimeout(() => {

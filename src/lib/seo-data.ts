@@ -136,7 +136,7 @@ const SEO_DATA = {
     pathname: `${Route.VIEW_LIVE_DEMO}/`,
   },
   REQUEST_DEMO: {
-    title: 'Bytebase Request a demo',
+    title: 'Request a Demo',
     description:
       'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
     pathname: `${Route.REQUEST_DEMO}/`,
@@ -147,11 +147,23 @@ const SEO_DATA = {
       'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
     pathname: `${Route.CONFIRM_DEMO}/`,
   },
+  CONFIRM_VIEW_LIVE_DEMO: {
+    title: 'Live Demo is Activated',
+    description:
+      'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
+    pathname: `${Route.CONFIRM_VIEW_LIVE_DEMO}/`,
+  },
   CONFIRM_INQUIRY: {
-    title: 'Your message has been sent',
+    title: 'We Have Received Your Inquiry',
     description:
       'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
     pathname: `${Route.CONFIRM_INQUIRY}/`,
+  },
+  CONFIRM_MESSAGE: {
+    title: 'Your Message Has Been Sent',
+    description:
+      'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
+    pathname: `${Route.CONFIRM_MESSAGE}/`,
   },
   MYSQL: {
     title: 'Manage MySQL schema with Bytebase',

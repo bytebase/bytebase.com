@@ -11,9 +11,13 @@ const Route = {
   BRANCHING: '/branching',
   SQL_REVIEW_GUIDE: '/sql-review-guide',
   VIEW_LIVE_DEMO: '/view-live-demo',
+  CONFIRM_VIEW_LIVE_DEMO: '/confirm-view-live-demo',
   REQUEST_DEMO: '/request-demo',
   CONFIRM_DEMO: '/confirm-demo',
+  // Pair with Enterprise inquiry
   CONFIRM_INQUIRY: '/confirm-inquiry',
+  // General confirm
+  CONFIRM_MESSAGE: '/confirm-message',
 
   // seo pages
   DBA: '/usecase/dba',
