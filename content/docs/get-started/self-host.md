@@ -211,46 +211,6 @@ spec:
 
 3. Open a browser and visit [http://localhost](http://localhost), you should see Bytebase.
 
-#### Configuration
-
-##### Deploy with Ingress
-
-```yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
-    # https://kubernetes.github.io/ingress-nginx/user-guide/miscellaneous/#websockets
-    nginx.ingress.kubernetes.io/proxy-read-timeout: '3600'
-    nginx.ingress.kubernetes.io/proxy-send-timeout: '3600'
-  name: demo-ingress
-  namespace: default
-spec:
-  ingressClassName: nginx
-  rules:
-    - host: example.com
-      http:
-        paths:
-          - backend:
-              service:
-                name: bytebase-entrypoint
-                port:
-                  number: 80
-            path: /
-            pathType: ImplementationSpecific
-  tls:
-    - hosts:
-        - example.com
-      secretName: tls-secret
-```
-
-**Note** If you use ingress, make sure to use https to access website.
-
-##### External Postgres
-
-For k8s, we recommend using an external Postgres database rather than use embeded Postgres instance in bytebase. Check [Configure External PostgreSQL](/docs/get-started/install/external-postgres) for details.
-
 #### Upgrade
 
 When a new Bytebase release is published, you can change the image version in the yaml file
@@ -311,6 +271,42 @@ helm -n <YOUR_NAMESPACE> \
 --set "bytebase.version"={NEW_VERSION} \
 upgrade bytebase-release bytebase-repo/bytebase
 ```
+
+### Deploy with Ingress
+
+We use [Ingress-Nginx Controller](https://kubernetes.github.io/ingress-nginx/deploy/) as ingress controller. You need to config `Ingress-Nginx Controller` according to your environment.
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+    # https://kubernetes.github.io/ingress-nginx/user-guide/miscellaneous/#websockets
+    nginx.ingress.kubernetes.io/proxy-read-timeout: '3600'
+    nginx.ingress.kubernetes.io/proxy-send-timeout: '3600'
+  name: demo-ingress
+  namespace: default
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: example.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: bytebase-entrypoint
+                port:
+                  number: 80
+            path: /
+            pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - example.com
+      secretName: tls-secret
+```
+
+**Note** If you use ingress, make sure to use https to access bytebase;
 
 ### External PostgreSQL
 
