@@ -141,4 +141,4 @@ If you have **Enterprise Plan**. Go to GitHub repository, you will see besides y
 
 Now you have tried out GitOps workflow, which will store your MariaDB schema in GitHub and trigger the change upon committing the change to the repository, to bring your MariaDB change workflow to the next level of Database DevOps - [Database as Code](/blog/database-as-code).
 
-In real world scenario, you might have separate features and main branches corresponding to your dev and production environment, you can check out [GitOps with Feature Branch Workflow](/docs/how-to/workflow/gitops-feature-branch) to learn the setup. Have a try and look forward to your feedback!
+In real world scenario, you might have separate features and main branches corresponding to your dev and production environment, you can check out [GitOps with Feature Branch Workflow](/docs/tutorials/gitops-feature-branch) to learn the setup. Have a try and look forward to your feedback!

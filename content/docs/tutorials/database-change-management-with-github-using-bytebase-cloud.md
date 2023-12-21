@@ -118,4 +118,4 @@ Now that you have tried the **GitOps workflow**, which stores your Amazon Aurora
 
 You can check out [GitOps docs](/docs/vcs-integration/overview) to learn more configuration details.
 
-In the real world, you might have separated feature and main branches corresponding to your development and production environment, you can check out [GitOps with Feature Branch Workflow](/docs/how-to/workflow/gitops-feature-branch) to learn the setup. Have a try and look forward to your feedback!
+In the real world, you might have separated feature and main branches corresponding to your development and production environment, you can check out [GitOps with Feature Branch Workflow](/docs/tutorials/gitops-feature-branch) to learn the setup. Have a try and look forward to your feedback!

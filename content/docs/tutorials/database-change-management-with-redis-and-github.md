@@ -117,4 +117,4 @@ set country China
 
 Now you have tried out GitOps workflow, which will store your Redis data in GitHub and trigger the change upon committing the change to the repository, to bring your Redis change workflow to the next level of Database DevOps - [Database as Code](/blog/database-as-code).
 
-In real world scenario, you might have separate features and main branches corresponding to your dev and production environment, you can check out [GitOps with Feature Branch Workflow](/docs/how-to/workflow/gitops-feature-branch) to learn the setup. Have a try and look forward to your feedback!
+In real world scenario, you might have separate features and main branches corresponding to your dev and production environment, you can check out [GitOps with Feature Branch Workflow](/docs/tutorials/gitops-feature-branch) to learn the setup. Have a try and look forward to your feedback!

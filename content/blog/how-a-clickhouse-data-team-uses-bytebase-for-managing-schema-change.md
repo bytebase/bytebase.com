@@ -65,7 +65,7 @@ However, we immediately hit a roadblock. Our prod ClickHouse cluster has enabled
 
 Instead of using one project to handle two environments, we decided to use "one project per environment". Now, people can create scripts and deploy them as before. All these changes will be tracked by "Dev Project". Only when the selected dev changes merged into the main branch does "Prod Project" gets rolling.
 
-The practice in detail is now in Bytebase’s recommended workflow: [https://www.bytebase.com/docs/how-to/workflow/gitops-feature-branch](/docs/how-to/workflow/gitops-feature-branch)
+The practice in detail is now in Bytebase’s recommended workflow: [https://www.bytebase.com/docs/tutorials/gitops-feature-branch](/docs/tutorials/gitops-feature-branch)
 
 ![bytebase-for-feature-development](/content/blog/how-a-data-team-uses-bytebase-to-manage-schema-change-for-clickhouse/bytebase-for-feature-development.webp)
 

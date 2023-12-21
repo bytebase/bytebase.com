@@ -143,4 +143,4 @@ Now you have tried out **GitOps workflow**, which will store your Snowflake sche
 
 You can check out our [GitOps docs](/docs/vcs-integration/overview) to learn more configuration details.
 
-In real world scenario, you might have separate features and main branches corresponding to your dev and production environment, you can check out [GitOps with Feature Branch Workflow](/docs/how-to/workflow/gitops-feature-branch) to learn the setup. Have a try and look forward to your feedback!
+In real world scenario, you might have separate features and main branches corresponding to your dev and production environment, you can check out [GitOps with Feature Branch Workflow](/docs/tutorials/gitops-feature-branch) to learn the setup. Have a try and look forward to your feedback!

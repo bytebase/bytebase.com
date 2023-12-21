@@ -26,7 +26,7 @@ Go to the project you wish to enable GitOps workflow for. Choose **GitOps** and 
 
 <HintBlock type="info">
 
-You can only link Git repository from one of the existing Git providers in Bytebase. If your desired Git provider is not there, you need to contact **Workspace Admin** to follow [Add Git Provider](/docs/vcs-integration/add-git-provider/self-host-gitlab) to add it.
+You can only link Git repository from one of the existing Git providers in Bytebase. If your desired Git provider is not there, you need to contact **Workspace Admin** to follow [Add Git Provider](/docs/vcs-integration/self-host-gitlab) to add it.
 
 </HintBlock>
 
@@ -34,7 +34,7 @@ Click the Git provider hosting your repository, and Bytebase will start the OAut
 
 <HintBlock type="info">
 
-If you encounter errors during this process, it's likely the Git provider is not setup properly and you need to contact **Workspace Admin** to double check the setup following [Add Git Provider](/docs/vcs-integration/add-git-provider/self-host-gitlab).
+If you encounter errors during this process, it's likely the Git provider is not setup properly and you need to contact **Workspace Admin** to double check the setup following [Add Git Provider](/docs/vcs-integration/self-host-gitlab).
 
 </HintBlock>
 
