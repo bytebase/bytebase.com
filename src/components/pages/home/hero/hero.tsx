@@ -140,7 +140,7 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
                   What’s new?
                 </span>
                 <span className="flex items-center gap-1.5 px-2">
-                  🚀 2.12.0: Improve auto-completion and overall layout navigation.
+                  🚀 2.12.0: Improve auto-completion and navigation
                   <SmallArrowIcon width={7} height={6} />
                 </span>
               </span>
