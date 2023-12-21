@@ -33,7 +33,7 @@ const founder = {
       sm: '/images/page/about/tianzhou-sm.webp',
     },
     about:
-      'Tianzhou was the TL of Google Cloud SQL, the maintainer of Google&apos;s internal PostgreSQL and MySQL branch.',
+      'Tianzhou was the TL of Google Cloud SQL, and the maintainer of Google&apos;s internal PostgreSQL / MySQL fork.',
   },
 };
 

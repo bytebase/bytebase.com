@@ -80,7 +80,7 @@ const BrandKit = () => (
         theme="primary-outline"
         size="md"
       >
-        Download brand kit
+        Download Brand Kit
       </Button>
     </div>
   </section>
