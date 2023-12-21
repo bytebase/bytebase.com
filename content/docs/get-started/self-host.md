@@ -14,61 +14,94 @@ Bytebase is a single Go binary and the deployment easy.
 
 Estimated time: **5 minutes**.
 
-<HintBlock type="info">
+### Installation
 
-If you **run Bytebase inside Docker on Linux** and want to connect the database instance on the same host, then you need to supply the additional `--add-host host.docker.internal:host-gateway --network host` flags.
+<IncludeBlock url="/docs/get-started/install/terminal-docker-run-simple"></IncludeBlock>
 
-</HintBlock>
+Once the server is ready(the logo is displayed), you can access Bytebase at http://localhost:8080.
 
-#### Run locally (e.g. localhost:5678)
+### Configuration
 
-By default, container listens on [port 80](https://github.com/bytebase/bytebase/blob/main/scripts/Dockerfile#L98). You can overwrite the port by supplying `--port`.
+#### Bytebase metadata persistence
 
-Run the following command to start Bytebase on container port `8080` and map it to localhost port `5678`.
+By default, Bytebase will store metadata in `/var/opt/bytebase`. If you want to persist metadata across container restarts, mount the directory to your host machine, like `--volume ~/.bytebase/data:/var/opt/bytebase`.
 
-<IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
+<IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
 
-Bytebase will store its data under `~/.bytebase/data` , you can reset all data by running command:
+#### Server Startup Options
 
-```bash
-rm -rf ~/.bytebase/data
-```
+If you need more control over the server configuration, you can start it with custom options.Check [Server Startup Options](/docs/reference/command-line) for other startup options.
 
-Check [Server Startup Options](/docs/reference/command-line) for other startup options.
+#### Use external PostgreSQL to store metadata
 
-### Use external PostgreSQL to store metadata
-
+By default, Bytebase will use an embedded PostgreSQL database to store metadata. For production usage, it is recommended to use an external PostgreSQL database instead.
 Check [Configure External PostgreSQL](/docs/get-started/install/external-postgres) for details.
 
-<IncludeBlock url="/docs/get-started/install/terminal-docker-run-external-url"></IncludeBlock>
+#### Enable HTTPS
 
-### Allow external access via External URL
+Bytebase does not support enabeling HTTPS in server configuration. We suggest use NGINX or Caddy as a reverse proxy in front of Bytebase to enable HTTPS. Here is an example NGINX configuration:
 
-Run the following command to start Bytebase on port `8080` and map it to localhost port `80`.
+```nginx
 
-```bash
-docker run --init \
-  --name bytebase \
-  --restart always \
-  --publish 80:8080 \
-  --health-cmd "curl --fail http://localhost:8080/healthz || exit 1" \
-  --health-interval 5m \
-  --health-timeout 10s \
-  --volume ~/.bytebase/data:/var/opt/bytebase \
-  bytebase/bytebase:%%bb_version%% \
-  --data /var/opt/bytebase \
-  --port 8080
+http {
+    map $http_upgrade $connection_upgrade {
+      default upgrade;
+      '' close;
+    }
+
+    server {
+        listen       80;
+        listen  [::]:80;
+        listen       443 ssl;
+        listen  [::]:443 ssl;
+        server_name  www.example.com;
+
+        ssl_certificate /path/to/certificate/file;
+        ssl_certificate_key /path/to/private/key/file;
+
+       location ~ ^/(v1:adminExecute|lsp) {
+            proxy_pass http://www.example.com;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection $connection_upgrade;
+        }
+
+        location / {
+            proxy_pass http://www.example.com;
+        }
+
+        proxy_read_timeout 3600;
+        proxy_send_timeout 3600;
+    }
+}
 ```
 
-Follow [Configure External URL](/docs/get-started/install/external-url#configure-via-ui) and then visit Bytebase from
-the configured external URL.
+**Note**: Because Bytebase need WebSocket for some features, you also need to configure NGINX to support WebSocket like above.
 
-### Manifest not found
+#### Allow external access via External URL
 
-The docker image only supports linux/amd64 and linux/arm64 arch. If it doesn't match your OS arch, you may supply
-`--platform linux/amd64` as a best effort.
+Check [Configure External URL](/docs/get-started/install/external-url#configure-via-ui) for details.
 
-### Unable to start using Colima
+### Troubleshooting
+
+#### bind: address already in use
+
+If you see "bind: address already in use" error, it means the port 8080 is already in use on your host. You need to either stop the existing process using the port or configure Bytebase to use a different port via `--publish PORT:8080` flag.
+
+#### Connect Database Instance on the same host
+
+- If you **run Bytebase inside Docker on Linux**, then you need to supply the additional `--network host` flags in `docker run` command. This allows Bytebase to connect to database instance running on the same host with `localhost`.
+- If you **run Bytebase inside Docker Desktop on Mac** , then you need to use `host.docker.internal` to connect to database instance running on the same host.
+
+#### Manifest not found
+
+There may be a few reasons the manifest file is not found:
+
+- The docker image only supports linux/amd64 and linux/arm64 arch. If it doesn't match your OS arch, you may supply
+  `--platform linux/amd64` as a best effort.
+- Your Docker version is too old and doesn't support manifest list. Please [install the latest Docker version](https://docs.docker.com/engine/install/).
+
+#### Unable to start using Colima
 
 Due to the vm mechanism of [Colima](https://github.com/abiosoft/colima), try to use the `--mount` option when starting colima as shown below:
 
