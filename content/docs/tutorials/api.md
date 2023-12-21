@@ -1,11 +1,11 @@
 ---
-title: Deploy schema migration with Bytebase API
+title: Deploy Schema Migration with Bytebase API
 author: Ningjing
 published_at: 2023/12/21 18:00
-feature_image: /content/docs/tutorials/api/banner.webp
+feature_image: /content/docs/tutorials/api/api-banner.webp
 tags: Tutorial
 integrations: General
-level: Intermediate
+level: Advanced
 estimated_time: '20 mins'
 description: "In this tutorial, you will execute a sample application that utilizes the Bytebase API to create a change. By following the instructions, you'll gain hands-on experience in running the application and initiating a change using the Bytebase API."
 ---
@@ -61,7 +61,7 @@ CREATE TABLE test_from_console (
 ### Step 3 - Create a schema change via Bytebase API
 
 1. Go to [Bytebase API Sample
-repo](https://github.com/adela-bytebase/bb-api-sample) and clone it.
+repo](https://github.com/bytebase/bb-api-sample) and clone it.
 
 2. Copy `env-template.local` to `.env.local`.Update the variables.
    - `NEXT_PUBLIC_BB_URL`: `http://localhost:5678`
@@ -94,7 +94,7 @@ repo](https://github.com/adela-bytebase/bb-api-sample) and clone it.
 8. Go back to the sample application, and click **Refresh status**. You'll see it's from [OPEN] to [DONE].
 ![sample-done](/content/docs/tutorials/api/sample-done.webp)
 
-1. For additional information about the sample application, refer to the README in its corresponding [GitHub repository](https://github.com/adela-bytebase/bb-api-sample/).
+1. For additional information about the sample application, refer to the README in its corresponding [GitHub repository](https://github.com/bytebase/bb-api-sample/).
 
 ## Summary
 
