@@ -80,7 +80,7 @@ http {
 }
 ```
 
-**Note**: Because Bytebase need Websocket for some features. You also need to config NGINX to support websocket like above.
+**Note**: Because Bytebase need WebSocket for some features, you also need to configure NGINX to support WebSocket like above.
 
 #### Allow external access via External URL
 
