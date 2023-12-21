@@ -18,24 +18,30 @@ Estimated time: **5 minutes**.
 
 <IncludeBlock url="/docs/get-started/install/terminal-docker-run-simple"></IncludeBlock>
 
-Once the server is ready(the logo is displayed), you can access Bytebase at http://localhost:8080.
+Once the server is ready (the logo is displayed), you can access Bytebase at http://localhost:8080.
+
+<IncludeBlock url="/docs/get-started/install/terminal-startup-output-success"></IncludeBlock>
 
 ### Configuration
 
-#### Bytebase metadata persistence
+#### Persist Bytebase metadata
 
-By default, Bytebase will store metadata in `/var/opt/bytebase`. If you want to persist metadata across container restarts, mount the directory to your host machine, like `--volume ~/.bytebase/data:/var/opt/bytebase`.
+By default, Bytebase will store the metadata in `/var/opt/bytebase`. If you want to persist metadata across container restarts, mount the directory to your host machine, like `--volume ~/.bytebase/data:/var/opt/bytebase`.
 
 <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
-
-#### Server Startup Options
-
-If you need more control over the server configuration, you can start it with custom options.Check [Server Startup Options](/docs/reference/command-line) for other startup options.
 
 #### Use external PostgreSQL to store metadata
 
 By default, Bytebase will use an embedded PostgreSQL database to store metadata. For production usage, it is recommended to use an external PostgreSQL database instead.
 Check [Configure External PostgreSQL](/docs/get-started/install/external-postgres) for details.
+
+#### Customize startup options
+
+If you need more control over the server configuration, check other [Server Startup Options](/docs/reference/command-line).
+
+#### Allow external access via External URL
+
+Check [Configure External URL](/docs/get-started/install/external-url#configure-via-ui) for details.
 
 #### Enable HTTPS
 
@@ -76,19 +82,15 @@ http {
 }
 ```
 
-**Note**: Because Bytebase need WebSocket for some features, you also need to configure NGINX to support WebSocket like above.
-
-#### Allow external access via External URL
-
-Check [Configure External URL](/docs/get-started/install/external-url#configure-via-ui) for details.
+**Note**: Bytebase needs WebSocket for SQL Editor, so you need to configure NGINX to support WebSocket like above.
 
 ### Troubleshooting
 
 #### bind: address already in use
 
-If you see "bind: address already in use" error, it means the port 8080 is already in use on your host. You need to either stop the existing process using the port or configure Bytebase to use a different port via `--publish PORT:8080` flag.
+If you see `bind: address already in use` error, it means the port 8080 is already in use on your host. You need to either stop the existing process using the port or configure Bytebase to use a different port via `--publish <<YOUR_PORT>>:8080`.
 
-#### Connect Database Instance on the same host
+#### Connect database instance on the same host
 
 - If you **run Bytebase inside Docker on Linux**, then you need to supply the additional `--network host` flags in `docker run` command. This allows Bytebase to connect to database instance running on the same host with `localhost`.
 - If you **run Bytebase inside Docker Desktop on Mac** , then you need to use `host.docker.internal` to connect to database instance running on the same host.
@@ -97,7 +99,7 @@ If you see "bind: address already in use" error, it means the port 8080 is alrea
 
 There may be a few reasons the manifest file is not found:
 
-- The docker image only supports linux/amd64 and linux/arm64 arch. If it doesn't match your OS arch, you may supply
+- The docker image only supports `linux/amd64` and `linux/arm64` arch. If it doesn't match your OS arch, you may supply
   `--platform linux/amd64` as a best effort.
 - Your Docker version is too old and doesn't support manifest list. Please [install the latest Docker version](https://docs.docker.com/engine/install/).
 
