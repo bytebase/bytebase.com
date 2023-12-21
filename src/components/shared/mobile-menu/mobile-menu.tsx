@@ -237,10 +237,10 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
             </ul>
             <div className="sticky bottom-0 z-10 mt-auto hidden flex-col gap-4 sm:flex sm:gap-2">
               <Button href={Route.HUB} theme="gray-filled" size="md">
-                Cloud
+                Free Cloud
               </Button>
               <Button href={Route.DOCS_SELF_HOST} theme="primary-outline" size="md">
-                Self host
+                Self Host
               </Button>
             </div>
           </div>

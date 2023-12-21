@@ -204,8 +204,8 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
             >
               Self Host
             </Button>
-            <Button href={Route.HUB} className="w-[90px]" theme="gray-filled" size="sm">
-              Cloud
+            <Button href={Route.HUB} className="w-[124px]" theme="gray-filled" size="sm">
+              Free Cloud
             </Button>
           </div>
         </nav>
