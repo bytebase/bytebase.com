@@ -133,6 +133,7 @@ const Route = {
 
   // external
   LIVE_DEMO: 'https://demo.bytebase.com',
+  HUB: 'https://hub.bytebase.com/workspace',
   DISCORD: 'https://discord.com/invite/huyw7gRsyA',
   TWITTER: 'https://twitter.com/Bytebase',
   YOUTUBE: 'https://www.youtube.com/channel/UCIlxsMmakGxeaAwpu1Z6jJg',
