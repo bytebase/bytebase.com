@@ -213,7 +213,7 @@ spec:
 
 #### Configuration
 
-#### Deploy with Ingress
+##### Deploy with Ingress
 
 ```yaml
 apiVersion: networking.k8s.io/v1
