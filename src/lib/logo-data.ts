@@ -55,8 +55,8 @@ export const LOGO_LIST = [
     mobileOrderClassName: 'xs:order-6',
   },
   {
-    alt: 'Miotech',
-    src: '/images/logos/miotech.svg',
+    alt: 'PayerMax',
+    src: '/images/logos/payermax.svg',
     width: 194,
     height: 64,
     small: {
