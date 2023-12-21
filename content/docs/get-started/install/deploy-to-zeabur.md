@@ -2,18 +2,13 @@
 title: Deploy to Zeabur
 ---
 
-[Zeabur](https://zeabur.com) is a cloud application hosting provider. Bytebase provides an one click installation to deploy Bytebase to Zeabur.
+[Zeabur](https://zeabur.com) is a cloud application hosting provider. It provides a one-click Bytebase
+deployment.
 
 ## Prerequisites
 
-You need a [Zeabur](https://render.com) account (free signup).
+A [Zeabur](https://zeabur.com) account with a Developer Plan subscription.
 
 ## Deploy
 
 [![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/0II58Z)
-
-<HintBlock type="info">
-
-You need to upgrade to Developer Plan(US$ 5 / per month) to keep using Bytebase on Zeabur.
-
-</HintBlock>
