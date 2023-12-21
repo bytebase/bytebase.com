@@ -2,7 +2,7 @@
 title: SQL Advise API
 ---
 
-<HintBlock type="warning">
+<HintBlock type="info">
 
 This OpenAPI is in **Alpha** stage, we may change it in the future.
 

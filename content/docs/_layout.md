@@ -251,7 +251,7 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ## API
 
-### [Getting Started](/api/overview)
+### [Admin API](/api/admin)
 
 ### [SQL Advise](/api/sql-advise)
 
