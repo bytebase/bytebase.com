@@ -16,7 +16,7 @@ Estimated time: **5 minutes**.
 
 ### Installation
 
-<IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
+<IncludeBlock url="/docs/get-started/install/terminal-docker-run-simple"></IncludeBlock>
 
 Once the server is ready(the logo is displayed), you can access Bytebase at http://localhost:8080.
 
