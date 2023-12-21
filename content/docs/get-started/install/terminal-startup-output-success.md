@@ -11,10 +11,4 @@ title: Terminal Startup Output Success
 ╚═════╝    ╚═╝      ╚═╝   ╚══════╝╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝
 
 Version %%bb_version%% has started on port 8080
-
-************* External Visiting URL (--external-url) *************
-
-https://bytebase.example.com
-
-******************************************************************
 ```
