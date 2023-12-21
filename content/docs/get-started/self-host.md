@@ -471,6 +471,8 @@ ulimit -n 10240
 
 ### [Deploy to Rainbond](/docs/get-started/install/deploy-to-rainbond/)
 
+### [Deploy to Zeabur](/docs/get-started/install/deploy-to-zeabur/)
+
 ## Upgrade from 1.x
 
 If you are upgrading from 1.x, please first upgrade to 2.1.0 and then upgrade to the latest version.
