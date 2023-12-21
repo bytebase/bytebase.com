@@ -40,7 +40,7 @@ As a **Workspace Admin**, you can change passwords for the other accounts.
 
 `Environment` models after various environments in the development pipeline such as test, staging, prod. Most of the time, there is a 1:1 mapping between `Environment` and the real environment.
 
-![environment](/content/docs/get-started/step-by-step/set-up-environments/environment.webp)
+![environment](/content/docs/get-started/step-by-step/set-up-environments/bb-environment.webp)
 
 ### Prerequisites
 

@@ -29,7 +29,9 @@ You can visit [https://hub.bytebase.com/pricing](https://hub.bytebase.com/pricin
 
 - Redesign the database connection navigation and connection status.
 
-![_](/content/changelog/1.0.0/sql-editor-navigation.webp)![_](/changelog/1.0.0/sql-editor-conneciton-status.webp)
+![_](/content/changelog/1.0.0/sql-editor-navigation.webp)
+
+![_](/content/changelogf1.0.0/sql-editor-conneciton-status.webp)
 
 - Run non-SELECT SQL navigate to the different workflow.
 
@@ -37,8 +39,10 @@ You can visit [https://hub.bytebase.com/pricing](https://hub.bytebase.com/pricin
 
 ### Sync project members from GitLab
 
-If a project is linked with GitLab repository, one can sync that repository's membership to the project's membership.
-![_](/content/changelog/1.0.0/project-membership-vcs-sync.webp)![_](/changelog/1.0.0/gitlab-role.webp)Membership from the linked GitLab repository
+If a project is linked with GitLab repository, one can sync that repository's membership to the project's membership from the linked GitLab repository
+![_](/content/changelog/1.0.0/project-membership-vcs-sync.webp)
+
+![_](/content/changelog/1.0.0/gitlab-role.webp)
 
 ### Improved tenant project pipeline UI
 

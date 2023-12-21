@@ -14,7 +14,8 @@ Bytebase now officially supports simplified Chinese. User can toggle the languag
 ### Earliest allowed time for executing a task
 
 Now, user can specify the earliest allowed time for a task to be executed by Bytebase. If specified, task will not be executed until that specified time.
-![_](/content/changelog/0.10.0/alter-schema-with-time.webp)![_](/changelog/0.10.0/alter-schema-with-time-check.webp)
+![_](/content/changelog/0.10.0/alter-schema-with-time.webp)
+![_](/content/changelog/0.10.0/alter-schema-with-time-check.webp)
 
 ## 🎄 Enhancement
 
