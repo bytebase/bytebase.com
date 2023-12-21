@@ -145,7 +145,7 @@ spec:
     spec:
       containers:
         - name: bytebase
-          image: bytebase/bytebase:latest
+          image: bytebase/bytebase:%%bb_version%%
           imagePullPolicy: Always
           env:
             - name: PG_URL
