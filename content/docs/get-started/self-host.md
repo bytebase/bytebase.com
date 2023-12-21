@@ -69,6 +69,9 @@ http {
         location / {
             proxy_pass http://www.example.com;
         }
+
+        proxy_read_timeout 3600;
+        proxy_send_timeout 3600;
     }
 }
 ```
