@@ -22,7 +22,7 @@ Once the server is ready(the logo is displayed), you can access Bytebase at http
 
 ### Configuration
 
-#### Bytebase metadata persistent
+#### Bytebase metadata persistence
 
 By default, Bytebase will store metadata in `/var/opt/bytebase`. If you want to persist metadata across container restarts, mount the directory to your host machine, like `--volume ~/.bytebase/data:/var/opt/bytebase`.
 
