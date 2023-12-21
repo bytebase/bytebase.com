@@ -2,7 +2,7 @@ import ROUTE from '@/lib/route';
 
 const PROMO_DATA = {
   TOP_BANNER: {
-    title: '📆  Book a 30-min demo with the product creator',
+    title: '📆  Book a 30-min demo with the founder',
     pathname: `${ROUTE.REQUEST_DEMO}?source=top-banner`,
   },
   BLOG_ASIDE: {
