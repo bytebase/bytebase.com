@@ -94,7 +94,7 @@ repo](https://github.com/bytebase/bb-api-sample) and clone it.
 8. Go back to the sample application, and click **Refresh status**. You'll see it's from [OPEN] to [DONE].
 ![sample-done](/content/docs/tutorials/api/sample-done.webp)
 
-1. For additional information about the sample application, refer to the README in its corresponding [GitHub repository](https://github.com/adela-bytebase/bb-api-sample/).
+1. For additional information about the sample application, refer to the README in its corresponding [GitHub repository](https://github.com/bytebase/bb-api-sample/).
 
 ## Summary
 
