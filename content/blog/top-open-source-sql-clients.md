@@ -10,7 +10,7 @@ description: SQL clients makes it safer and easier to manage databases. In this 
 
 In the past, the only way to access or modify a database was through the command line, which was not only not intuitive, but also prone to errors that could lead to major problems. So people began to develop tools with a graphical user interface (GUI), and that became what we now know as SQL clients, which are basically front-end applications for database services. In this post, we are taking a look at some open source SQL clients options for you to try.
 
-![starhistory](/content/blog/top-open-source-sql-clients/starhistory.webp)
+[![starhistory](/content/blog/top-open-source-sql-clients/starhistory.webp)](https://star-history.com/#dbgate/dbgate&sqlchat/sqlchat&dbeaver/dbeaver&beekeeper-studio/beekeeper-studio&sqlectron/sqlectron&heidisql/heidisql&phpmyadmin/phpmyadmin&pgadmin-org/pgadmin4&bytebase/bytebase&Date)
 
 ## SQL Chat
 
@@ -74,6 +74,19 @@ The codebase for HeidiSQL [originally came from](https://www.heidisql.com/forum.
 
 After taking a look at [the history of pgAdmin](https://www.enterprisedb.com/blog/story-pgadmin), apparently the author came up with pgAdmin from scratch because the only option for managing PostgreSQL at that time (late 90s) was not working very well on Windows, which has since gone through many iterations.
 
+## Bytebase
+
+Aforementioned tools are all client-side SQL editors for individual use. What if you want a SQL clients for team use? The client-side SQL editors would not be sufficient because for team use, it would require:
+
+- **Centralized access control**. Ideally you don't want to give away production database credientials to developers.
+- **Data masking**. You may want to prevent users seeing sensitive data.
+- **Request and review workflow**. You want users go through a ticketing process to request the access rights.
+- **Audit logging**. You want to capture all operations performed on the database.
+
+All above requirements call for a server-side solution. And that's what [Bytebase SQL Editor](/sql-editor) provides.
+
+![bytebase-sql-editor](/content/blog/top-open-source-sql-clients/sql-editor.webp)
+
 ## To summarize
 
 We briefly looked at the history of a handful of SQL Clients to understand some of the more famous open source solutions, rather than comparing the product or their functions (I mean, after 20 years of refinement those vetran SQL clients can't be too bad, right?) . It seems that most of the authors began building because they were unable to find a product that fit their needs perfectly, but the story afterwards is very different: some tools were then commercialized, some continued on with a strong community, and some gradually faded out due to a change of focus.
@@ -81,20 +94,17 @@ We briefly looked at the history of a handful of SQL Clients to understand some 
 And we wonder, with the popularity of ChatGPT, will there be more open source SQL clients like SQL Chat based on Chat interaction?
 
 Beyond using the general SQL Client to interact with the databases, developers and DBAs also adopt
-a dedicated tool to compare and synchronize database schemas, go check out [those tools](/blog/top-mysql-schema-compare-tools/).
+more specialized tools for particular tasks:
 
-And if you want an all-in-one tool to provide not only general SQL Client features, but also management
-capabilities such as change approval workflow, data access control, you can check out our open source
-project [Bytebase](/).
-
-![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
+- To perform schema migrations, go check out [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/).
+- To compare and synchronize database schemas, go check out [Top MySQL Schema Compare Tool](/blog/top-mysql-schema-compare-tools/).
 
 ---
 
 ## More Specific SQL Client Tools
 
 - [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)
+- [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools)
 - [Top Postgres GUI client](/blog/top-postgres-gui-client)
 - [Top MySQL GUI client](/blog/top-mysql-gui-client)
-- [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools)
 - [Top DBeaver Alternatives](/blog/top-dbeaver-alternative)
