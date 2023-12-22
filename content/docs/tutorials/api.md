@@ -108,6 +108,7 @@ Below is an example app demonstrating the following APIs:
    ![sample-open](/content/docs/tutorials/api/sample-open.webp)
 
 1. Click the link `View issue xxx in Bytebase[OPEN]` to see the issue in Bytebase Console. You'll notice the issue rolls out automatically and becomes `Done`.
+   ![bb-issue-from-api](/content/docs/tutorials/api/bb-issue-from-api.webp)
 
 1. Go back to the sample application, and click **Refresh status**. You'll see the status has changed from [OPEN] to [DONE].
    ![sample-done](/content/docs/tutorials/api/sample-done.webp)
