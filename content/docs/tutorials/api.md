@@ -35,7 +35,7 @@ The API example repository is at https://github.com/bytebase/api-example
 
 ## Start Bytebase and prepare the accounts
 
-1. Make sure your Docker daemon is running. Copy and paste the commands to start one Bytebase and two MySQL instances via Docker.
+1. Make sure your Docker daemon is running. Copy and paste the commands to start Bytebase.
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
