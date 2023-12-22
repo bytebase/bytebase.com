@@ -1,21 +1,10 @@
-FROM node:20-slim AS base
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
-COPY . /app
-WORKDIR /app
+FROM nginx:1.21-alpine
 
-FROM base AS prod-deps
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
+# 复制构建的前端文件到 nginx 容器中
+COPY .next/ /usr/share/nginx/html
 
-FROM base AS build
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-RUN pnpm run build
-
-FROM base
-COPY --from=prod-deps /app/node_modules /app/node_modules
-COPY --from=build /app/.next /usr/share/nginx/html
-
+# 暴露端口
 EXPOSE 80
 
+# 启动 nginx
 CMD ["nginx", "-g", "daemon off;"]

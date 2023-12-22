@@ -16,6 +16,22 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2.4.0
+        with:
+          version: 8.12.1
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.10.0'
+          cache: pnpm
+          cache-dependency-path: 'pnpm-lock.yaml'
+      - name: Froze lockfile
+        run: pnpm install --frozen-lockfile
+        working-directory: .
+      - name: Run pnpm build
+        run: |
+          pnpm build
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
