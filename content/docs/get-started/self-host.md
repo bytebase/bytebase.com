@@ -339,6 +339,38 @@ To keep data persistence in production, you need to use the [Persistent Volumes]
 
 In AWS EKS, you can use the [Amazon EBS CSI driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) for persistent volumes. Follow the [managing EBS CSI](https://docs.aws.amazon.com/eks/latest/userguide/managing-ebs-csi.html) to add it as an Amazon EKS add-on.
 
+Here is a simple example to use an EBS volume:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: bytebase-ebs-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: resize-sc
+  resources:
+    requests:
+      storage: 4Gi
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: bytebase-resize-sc
+provisioner: ebs.csi.aws.com
+allowVolumeExpansion: true
+```
+
+**Note** Also need to update the statefulset spec of bytebase to replace the emptyDir volume with persistentVolumeClaim:
+
+```yaml
+volumes:
+  - name: bytebase-volume
+    persistentVolumeClaim:
+      claimName: bytebase-ebs-claim
+```
+
 #### For Google Kubernetes Engine(GKE)
 
 Please follow the [Persistent volumes and dynamic provisioning](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes).
