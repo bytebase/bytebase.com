@@ -108,7 +108,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
           <Link className="shrink-0" href="/">
             <Image
               className="h-8 w-auto xl:h-7"
-              src="/images/logo.svg"
+              src="/images/logo-full.svg"
               alt="Bytebase logo"
               width={150}
               height={32}
