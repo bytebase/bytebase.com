@@ -1,10 +1,10 @@
-FROM nginx:1.21-alpine
+FROM mhart/alpine-node:slim-14 AS runner
+WORKDIR /home/app
+ENV NEXT_TELEMETRY_DISABLED 1
+COPY .next/standalone ./standalone
+COPY public /home/app/standalone/public
+COPY .next/static /home/app/standalone/.next/static
 
-# 复制构建的前端文件到 nginx 容器中
-COPY .next/ /usr/share/nginx/html
-
-# 暴露端口
 EXPOSE 80
-
-# 启动 nginx
-CMD ["nginx", "-g", "daemon off;"]
+ENV PORT 80
+CMD [“node”, “./standalone/server.js”]

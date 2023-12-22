@@ -39,6 +39,7 @@ const tutorialIntermediateRedirects = [
 ];
 
 module.exports = {
+  output: 'standalone',
   poweredByHeader: false,
   trailingSlash: true,
   swcMinify: false,
