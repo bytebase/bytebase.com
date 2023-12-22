@@ -349,7 +349,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: resize-sc
+  storageClassName: bytebase-resize-sc
   resources:
     requests:
       storage: 4Gi
