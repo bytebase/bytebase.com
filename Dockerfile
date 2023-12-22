@@ -7,4 +7,4 @@ COPY .next/static /home/app/standalone/.next/static
 
 EXPOSE 80
 ENV PORT 80
-CMD [“node”, “./standalone/server.js”]
+CMD ["node", "./standalone/server.js"]
