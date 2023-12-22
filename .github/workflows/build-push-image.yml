@@ -33,7 +33,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: depot/setup-action@v1
       - name: Docker build and push
         id: docker_build
         uses: docker/build-push-action
