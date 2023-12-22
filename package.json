@@ -11,8 +11,7 @@
     "lint:fix": "next lint --fix",
     "lint:md": "markdownlint --ignore-path .gitignore .",
     "lint:md:fix": "markdownlint --fix --ignore-path .gitignore .",
-    "format": "prettier --write \"**/*.{css,js,jsx,ts,tsx,json}\"",
-    "prepare": "husky install"
+    "format": "prettier --write \"**/*.{css,js,jsx,ts,tsx,json}\""
   },
   "dependencies": {
     "@calcom/embed-react": "^1.0.12",
@@ -71,7 +70,6 @@
     "eslint-config-next": "^13.5.3",
     "eslint-config-prettier": "^8.8.0",
     "file-loader": "^6.2.0",
-    "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "markdownlint-cli": "^0.33.0",
     "postcss": "^8.4.21",
