@@ -130,7 +130,7 @@ Here is a sample Kubernetes YAML file `bb.yaml` describing the minimal component
 
 ```yaml
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: bytebase
   namespace: default
@@ -164,7 +164,7 @@ spec:
           ports:
             - containerPort: 8080
           volumeMounts:
-            - name: data
+            - name: bytebase-volume
               mountPath: /var/opt/bytebase
           livenessProbe:
             httpGet:
@@ -174,7 +174,7 @@ spec:
             periodSeconds: 300
             timeoutSeconds: 10
       volumes:
-        - name: data
+        - name: bytebase-volume
           emptyDir: {}
 ---
 apiVersion: v1
@@ -184,12 +184,12 @@ metadata:
   namespace: default
 spec:
   # Optional
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: bytebase
   ports:
     - protocol: TCP
-      port: 8080
+      port: 80
       targetPort: 8080
 ```
 
@@ -199,24 +199,10 @@ spec:
    kubectl apply -f bb.yaml
    ```
 
-   then you should see output that looks like the following:
-
-   ```plain
-   deployment.apps/bytebase created
-   service/bytebase-entrypoint created
-   ```
-
 2. Make sure everything worked by listing your deployments:
 
    ```bash
-   kubectl get deployments
-   ```
-
-   if all is well, your deployment should be listed as follows:
-
-   ```plain
-   NAME       READY   UP-TO-DATE   AVAILABLE   AGE
-   bytebase   1/1     1            1           10s
+   kubectl get statefulsets
    ```
 
    Do the same check for your services:
@@ -225,15 +211,7 @@ spec:
    kubectl get services
    ```
 
-   if all is well too, you should see output that looks like the following:
-
-   ```plain
-   NAME                  TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
-   bytebase-entrypoint   LoadBalancer   10.100.36.246   localhost     8080:30254/TCP   72s
-   kubernetes            ClusterIP      10.96.0.1       <none>        443/TCP          9d
-   ```
-
-3. Open a browser and visit [localhost:8080](http://localhost:8080), you should see Bytebase.
+3. Open a browser and visit [http://localhost](http://localhost), you should see Bytebase.
 
 #### Upgrade
 
@@ -244,16 +222,6 @@ containers:
   - name: bytebase
     image: bytebase/bytebase:%%bb_version%%
 ```
-
-Sometimes we need to update the image to the latest digest without changing the image name and version. Or you may want to trigger a restart of all the Bytebase pods without changing the yaml.
-
-In this case, you can run this command:
-
-```bash
-kubectl rollout restart deployment/bytebase
-```
-
-Kubernetes will rolling restart the pods of the deployment. Because we set `imagePullPolicy: Always`, the new pods will always use the latest image digest.
 
 ### Use Helm Chart
 
@@ -305,6 +273,42 @@ helm -n <YOUR_NAMESPACE> \
 --set "bytebase.version"={NEW_VERSION} \
 upgrade bytebase-release bytebase-repo/bytebase
 ```
+
+### Deploy with Ingress
+
+We use [Ingress-Nginx Controller](https://kubernetes.github.io/ingress-nginx/deploy/) as ingress controller. You need to config `Ingress-Nginx Controller` according to your environment.
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+    # https://kubernetes.github.io/ingress-nginx/user-guide/miscellaneous/#websockets
+    nginx.ingress.kubernetes.io/proxy-read-timeout: '3600'
+    nginx.ingress.kubernetes.io/proxy-send-timeout: '3600'
+  name: bytebase-ingress
+  namespace: default
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: example.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: bytebase-entrypoint
+                port:
+                  number: 80
+            path: /
+            pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - example.com
+      secretName: tls-secret
+```
+
+**Note** If you use ingress, make sure to use https to access bytebase;
 
 ### External PostgreSQL
 
