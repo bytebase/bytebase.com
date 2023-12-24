@@ -24,12 +24,6 @@ Once you see the Bytebase logo, you can access the console at http://localhost:8
 
 ### Configuration
 
-#### Persist Bytebase metadata
-
-By default, Bytebase will store the metadata in `/var/opt/bytebase`. If you want to persist metadata across container restarts, mount the directory to your host machine, like `--volume ~/.bytebase/data:/var/opt/bytebase`.
-
-<IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
-
 #### Use external PostgreSQL to store metadata
 
 By default, Bytebase will use an embedded PostgreSQL database to store metadata. For production usage, it is recommended to use an external PostgreSQL database instead.
