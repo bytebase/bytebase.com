@@ -233,7 +233,7 @@ For production setup, you should configure a proper [External URL](/docs/get-sta
 helm -n <YOUR_NAMESPACE> \
 --set "bytebase.option.port"={PORT} \
 --set "bytebase.option.external-url"={EXTERNAL_URL} \
---set "bytebase.option.pg"={PGDSN} \
+--set "bytebase.option.externalPg.url"={PGDSN} \
 --set "bytebase.version"={VERSION} \
 install <RELEASE_NAME> bytebase-repo/bytebase
 ```
@@ -244,7 +244,7 @@ For example:
 helm -n bytebase \
 --set "bytebase.option.port"=443 \
 --set "bytebase.option.external-url"="https://bytebase.example.com" \
---set "bytebase.option.pg"="postgresql://user:secret@foo.ap-east-1.rds.amazonaws.com/postgres" \
+--set "bytebase.option.externalPg.url"="postgresql://user:secret@foo.ap-east-1.rds.amazonaws.com/postgres" \
 --set "bytebase.version"=1.7.0 \
 install bytebase-release bytebase-repo/bytebase
 ```
@@ -263,7 +263,7 @@ Use `helm upgrade` command to upgrade the bytebase version or configuration.
 helm -n <YOUR_NAMESPACE> \
 --set "bytebase.option.port"={NEW_PORT} \
 --set "bytebase.option.external-url"={NEW_EXTERNAL_URL} \
---set "bytebase.option.pg"={NEW_PGDSN} \
+--set "bytebase.option.externalPg.url"={NEW_PGDSN} \
 --set "bytebase.version"={NEW_VERSION} \
 upgrade bytebase-release bytebase-repo/bytebase
 ```
