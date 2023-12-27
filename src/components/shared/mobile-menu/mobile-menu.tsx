@@ -20,11 +20,13 @@ import CaseStudyIcon from '@/svgs/case-study.inline.svg';
 import ChangelogIcon from '@/svgs/changelog.inline.svg';
 import ConceptIcon from '@/svgs/concept.inline.svg';
 import EditorIcon from '@/svgs/editor-menu-docs.inline.svg';
+import EnterpriseIcon from '@/svgs/enterprise-menu-docs.inline.svg';
 import IntroIcon from '@/svgs/intro.inline.svg';
 import UseCaseIcon from '@/svgs/usecase.inline.svg';
 import DbIcon from '@/svgs/db.inline.svg';
 import RocketIcon from '@/svgs/rocket.inline.svg';
 import MigrateIcon from '@/svgs/migrate-menu-docs.inline.svg';
+import TutorialsIcon from '@/svgs/tutorials.inline.svg';
 import MaskIcon from '@/svgs/mask-menu-docs.inline.svg';
 import Burger from './burger';
 import BatchIcon from '@/svgs/batch-menu-docs.inline.svg';
@@ -44,10 +46,12 @@ const icons: {
   intro: IntroIcon,
   db: DbIcon,
   editor: EditorIcon,
+  enterprise: EnterpriseIcon,
   migrate: MigrateIcon,
   mask: MaskIcon,
   batch: BatchIcon,
   branch: BranchIcon,
+  tutorial: TutorialsIcon,
 };
 
 const ANIMATION_DURATION = 0.2;

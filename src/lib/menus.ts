@@ -2,43 +2,7 @@ import Route from './route';
 
 export const MENU = {
   header: [
-    {
-      title: 'Docs',
-      items: [
-        {
-          name: 'What is Bytebase',
-          description: 'The GitLab for Database DevOps',
-          linkUrl: Route.DOCS,
-          iconName: 'intro',
-        },
-        {
-          name: 'Supported Databases',
-          description: 'Supported databases & features',
-          linkUrl: Route.DOCS_DB,
-          iconName: 'db',
-        },
-        {
-          name: 'Case Study',
-          description: 'How customers use Bytebase',
-          linkUrl: Route.BLOG_CASE_STUDY,
-          iconName: 'casestudy',
-        },
-        {
-          name: 'Install',
-          description: 'Deploy in 5 minutes',
-          linkUrl: Route.DOCS_SELF_HOST,
-          iconName: 'rocket',
-        },
-      ],
-      highlight: {
-        name: 'Tutorial',
-        description:
-          "Guides to help you maximize the benefits and leverage the full potential of Bytebase's features.",
-        linkUrl: Route.TUTORIAL,
-        cta: 'Start Learning',
-        iconName: 'tutorial',
-      },
-    },
+    { title: 'What is Bytebase❓', href: Route.DOCS },
     {
       title: 'Features',
       items: [
@@ -74,40 +38,46 @@ export const MENU = {
         },
       ],
     },
-    { title: 'Blog', href: Route.BLOG },
-    { title: 'Pricing', href: Route.PRICING },
-    { title: 'Enterprise 👈', href: Route.CONTACTS },
-  ],
-  mobile: [
     {
-      title: 'Docs',
+      title: 'Resources',
       items: [
         {
-          name: 'What is Bytebase',
-          description: 'The GitLab for Database DevOps',
-          linkUrl: Route.DOCS,
-          iconName: 'intro',
-        },
-        {
           name: 'Supported Databases',
-          description: 'Supported databases & features',
+          description: '',
           linkUrl: Route.DOCS_DB,
           iconName: 'db',
         },
         {
           name: 'Case Study',
-          description: 'How customers use Bytebase',
+          description: '',
           linkUrl: Route.BLOG_CASE_STUDY,
           iconName: 'casestudy',
         },
         {
-          name: 'Install',
-          description: 'Deploy in 5 minutes',
-          linkUrl: Route.DOCS_SELF_HOST,
-          iconName: 'rocket',
+          name: 'Blog',
+          description: '',
+          linkUrl: Route.BLOG,
+          iconName: 'blog',
+        },
+        {
+          name: 'Enterprise Inquiry',
+          description: '',
+          linkUrl: Route.CONTACTS,
+          iconName: 'enterprise',
         },
       ],
+      highlight: {
+        name: 'Tutorial',
+        description: 'Step-by-step guide through common features.',
+        linkUrl: Route.TUTORIAL,
+        cta: 'Start Learning',
+        iconName: 'tutorial',
+      },
     },
+    { title: 'Pricing', href: Route.PRICING },
+  ],
+  mobile: [
+    { title: 'What is Bytebase', href: Route.DOCS },
     {
       title: 'Features',
       items: [
@@ -143,9 +113,42 @@ export const MENU = {
         },
       ],
     },
-    { title: 'Blog', href: Route.BLOG },
+    {
+      title: 'Resources',
+      items: [
+        {
+          name: 'Tutorial',
+          description: '',
+          linkUrl: Route.TUTORIAL,
+          iconName: 'tutorial',
+        },
+        {
+          name: 'Blog',
+          description: '',
+          linkUrl: Route.BLOG,
+          iconName: 'blog',
+        },
+        {
+          name: 'Supported Databases',
+          description: '',
+          linkUrl: Route.DOCS_DB,
+          iconName: 'db',
+        },
+        {
+          name: 'Case Study',
+          description: '',
+          linkUrl: Route.BLOG_CASE_STUDY,
+          iconName: 'casestudy',
+        },
+        {
+          name: 'Enterprise Inquiry',
+          description: '',
+          linkUrl: Route.CONTACTS,
+          iconName: 'enterprise',
+        },
+      ],
+    },
     { title: 'Pricing', href: Route.PRICING },
-    { title: 'Enterprise 👈', href: Route.CONTACTS },
   ],
   footer: [
     {

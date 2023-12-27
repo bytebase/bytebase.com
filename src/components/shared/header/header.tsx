@@ -16,6 +16,7 @@ import CaseStudyIcon from '@/svgs/case-study.inline.svg';
 import ChangelogIcon from '@/svgs/changelog.inline.svg';
 import ConceptIcon from '@/svgs/concept.inline.svg';
 import EditorIcon from '@/svgs/editor-menu-docs.inline.svg';
+import EnterpriseIcon from '@/svgs/enterprise-menu-docs.inline.svg';
 import IntroIcon from '@/svgs/intro.inline.svg';
 import ArrowIcon from '@/svgs/arrow.inline.svg';
 import UseCaseIcon from '@/svgs/usecase.inline.svg';
@@ -47,10 +48,12 @@ const icons: {
   intro: IntroIcon,
   db: DbIcon,
   editor: EditorIcon,
+  enterprise: EnterpriseIcon,
   migrate: MigrateIcon,
   mask: MaskIcon,
   batch: BatchIcon,
   branch: BranchIcon,
+  tutorial: TutorialsIcon,
 };
 
 type MenuItem = {
@@ -167,7 +170,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                         </ul>
                         {highlight && (
                           <Link
-                            className="group/box flex h-full min-h-[324px] w-[244px] grow flex-col justify-between rounded-md bg-tutorials p-5 text-gray-15"
+                            className="group/box flex h-full min-h-[240px] w-[244px] grow flex-col justify-between rounded-md bg-tutorials p-5 text-gray-15"
                             href={highlight.linkUrl}
                             prefetch={false}
                             onClick={handleSubmenuClick}
