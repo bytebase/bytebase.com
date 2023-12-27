@@ -121,7 +121,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
           <ul className="mt-0.5 ml-9 flex items-center gap-1 md:hidden">
             {MENU.header.map(({ title, href = '', items, highlight }: Header) => {
               return (
-                <li key={title} className="group relative inline-block">
+                <li key={title} className="group relative inline-block hover:cursor-pointer">
                   {href ? (
                     <Link
                       className="px-3 py-2.5 text-16 font-semibold tracking-wider"
