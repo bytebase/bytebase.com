@@ -74,14 +74,16 @@ _Bytebase is trailblazing the schema management landscape. Each database engine 
 | ClickHouse | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
 | Snowflake  | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
 | Redshift   | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
-| MongoDB    | ✔️                                                      |                                            | ✔️                                        | ✔️                                          | ✔️                                  |
+| MongoDB    | ✔️                                                      | ✔️ \*                                      | ✔️                                        | ✔️                                          | ✔️                                  |
 | Spanner    | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
-| Redis      | ✔️                                                      |                                            | ✔️                                        | ✔️                                          | ✔️                                  |
+| Redis      | ✔️                                                      | ✔️ \*                                      | ✔️                                        | ✔️                                          | ✔️                                  |
 | Oracle     | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
 | SQL Server | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
 | MariaDB    | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
 | OceanBase  | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
 | RisingWave | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
+
+_\*For now Bytebase can't distinguish read-only statements from read-write statements for Mongo and Redis._
 
 ### Data Security & Governance
 
