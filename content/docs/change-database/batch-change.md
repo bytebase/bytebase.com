@@ -91,10 +91,11 @@ Notice we are referring the table group id `all-department` instead of the table
 
 ### GitOps
 
-You can further adopt GitOps to batch change tenant databases. Head over to [Batch Change Tenant Databases
-](/docs/vcs-integration/tenant-gitops) for more details.
+You can further adopt GitOps to batch change databases. Head over to [Use YAML manifest
+](/docs/vcs-integration/manifest) for more details.
 
 ## Deployment config
+
 <PricingPlanBlock feature_name='BATCH_CHANGE' />
 
 It is often desired to apply schema changes to databases across all tenants since these databases are homogeneous, but in a staged rollout fashion (aka. canary deployment) to minimize the risk of breaking all deployments.
