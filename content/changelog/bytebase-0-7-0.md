@@ -15,7 +15,9 @@ Our team really love PostgreSQL and we are the ones delivering the initial launc
 ### Schema drift detection
 
 Bytebase will periodically compare the recorded schema with the actual schema and expose the drift if occurs. We also provide a side-by-side view to show the diff.
-![_](/content/changelog/0.7.0/schema-drift.webp)![_](/changelog/0.7.0/schema-drift-detail.webp)
+![_](/content/changelog/0.7.0/schema-drift.webp)
+
+![_](/content/changelog/0.7.0/schema-drift-detail.webp)
 
 ### Introduce Anomaly Center
 

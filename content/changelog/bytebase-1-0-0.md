@@ -31,7 +31,7 @@ You can visit [https://hub.bytebase.com/pricing](https://hub.bytebase.com/pricin
 
 ![_](/content/changelog/1.0.0/sql-editor-navigation.webp)
 
-![_](/content/changelogf1.0.0/sql-editor-conneciton-status.webp)
+![_](/content/changelog/1.0.0/sql-editor-conneciton-status.webp)
 
 - Run non-SELECT SQL navigate to the different workflow.
 
