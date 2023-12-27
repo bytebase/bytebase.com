@@ -2,20 +2,20 @@
 title: Deploy to sealos
 ---
 
-If you run [Bytebase on Kubernetes](/docs/get-started/self-host/#kubernetes), you need to prepare a Kubernetes cluster, PostgreSQL instance, even storage driver, and ingress for external access.
+If you run [Bytebase on Kubernetes](/docs/get-started/self-host/#kubernetes), you need to prepare a Kubernetes cluster, PostgreSQL instance, storage driver, and ingress for external access.
 
-sealos cloud, on the other hand, provides these dependencies out-of-the-box and [Bytebase](https://github.com/bytebase/bytebase) can be started quickly.
+Alternatively, you can use [sealos Cloud](https://cloud.sealos.io/), which provides these dependencies out-of-the-box.
 
 ## Prerequisites
 
-A [sealos cloud](https://cloud.sealos.io) account (free signup).
+A sealos Cloud account (free signup).
 
 ## Deploy
 
-1. Click the following prebuilt template:
+1. Click the following button:
 
    [![](https://raw.githubusercontent.com/labring-actions/templates/main/Deploy-on-Sealos.svg)](https://cloud.sealos.io/?openapp=system-template%3FtemplateName%3Dbytebase)
 
-2. click "Deploy Application" on the template page to start deployment.
-3. Once deployment concludes, click "Details" to navigate to the application's details.
-4. Wait for the application's status to switch to running. Subsequently, click on the external link to open the bytebase's Web interface directly through the external domain.
+1. Click "Deploy Application" on the template page to start deployment.
+1. Once deployment concludes, click "Details" to navigate to the application's details.
+1. Wait for the application's status to running. Then click on the external link to open the Bytebase's web interface directly through the external domain.
