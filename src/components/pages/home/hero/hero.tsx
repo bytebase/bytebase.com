@@ -140,7 +140,7 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
                   What’s new?
                 </span>
                 <span className="flex items-center gap-1.5 px-2">
-                  🚀 2.13.0: Improve auto-completion for PostgreSQL, RisingWave and RedShift
+                  🚀 2.13.0: Improve auto-completion for PostgreSQL, Redshift and RisingWave
                   <SmallArrowIcon width={7} height={6} />
                 </span>
               </span>
