@@ -34,7 +34,7 @@ Flags:
       --external-url string        the external URL where user visits Bytebase, must start with http:// or https:// (default "https://www.bytebase.com/docs/get-started/install/external-url")
   -h, --help                       help for bytebase
       --pg string                  optional external PostgreSQL instance connection url(must provide dbname); for example postgresql://user:secret@masterhost:5432/dbname?sslrootcert=cert
-      --port int                   port where Bytebase server runs. Default to 80 (default 80)
+      --port int                   port where Bytebase server runs. Default to 8080 (default 8080)
       --readonly                   whether to run in read-only mode
 ```
 
@@ -114,7 +114,7 @@ Alternatively, you can also pass PG_URL environment variable.
 
 ## --port &lt;&lt;number&gt;&gt;
 
-default: **80**
+default: **8080**
 
 The port where Bytebase is running. Bytebase listens on all network interfaces for the specified port. For production setup, see [Configure External URL](/docs/get-started/install/external-url).
 
