@@ -9,6 +9,7 @@ description: 'Support advanced SQL auto-completion for PostgreSQL, RisingWave an
 ## 🚀 New Features
 
 - Support advanced SQL auto-completion for PostgreSQL, RisingWave and RedShift.
+- Support StarRocks.
 
 ## 🎄 Enhancements
 
