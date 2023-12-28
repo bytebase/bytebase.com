@@ -38,11 +38,11 @@ Before you start, make sure you have the following downloaded and installed:
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
-2. Bytebase is now running via Docker, and you can access it via `localhost:5678`.
+2. Bytebase is now running via Docker, and you can access it via `localhost:8080`.
 
 ![docker](/content/docs/tutorials/database-change-management-with-mysql/docker.webp)
 
-3. Visit `localhost:5678` in your browser. Register an account.
+3. Visit `localhost:8080` in your browser. Register an account.
    ![register](/content/docs/tutorials/database-change-management-with-mysql/register.webp)
 
 ## Step 2 - Add a MySQL Instance to Bytebase

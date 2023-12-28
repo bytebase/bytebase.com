@@ -6,7 +6,7 @@ title: Terminal Docker Run with External URL
 docker run --init \
   --name bytebase \
   --restart always \
-  --publish 5678:8080 \
+  --publish 8080:8080 \
   --health-cmd "curl --fail http://localhost:8080/healthz || exit 1" \
   --health-interval 5m \
   --health-timeout 10s \

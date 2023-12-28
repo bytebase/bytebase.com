@@ -47,7 +47,7 @@ docker run --name mysqldprod \
 
 ## Step 2 - Prepare the Console
 
-1. Register and sign in **Bytebase Console** via `localhost:5678`. Click **Add Instance** to add two instances in two environments respectively.
+1. Register and sign in **Bytebase Console** via `localhost:8080`. Click **Add Instance** to add two instances in two environments respectively.
 
    - **Host or Socket**: `host.docker.internal` | **Port**: `3307`/`3308`
    - **Environment**: `Test`/`Prod`

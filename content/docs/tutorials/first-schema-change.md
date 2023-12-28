@@ -56,7 +56,7 @@ Now you have three containers running in Docker:
 
 Each MySQL instance has a copy of the sample dataset in it. It’s the dataset_small from [open-source database `employee`](https://github.com/bytebase/employee-sample-database-mysql).
 
-3. Open Bytebase in [localhost:5678](http://localhost:5678/), and you can see the following page in the browser.
+3. Open Bytebase in [localhost:8080](http://localhost:8080/), and you can see the following page in the browser.
 
 ![welcome-page](/content/docs/tutorials/first-schema-change/welcome-page.webp)
 

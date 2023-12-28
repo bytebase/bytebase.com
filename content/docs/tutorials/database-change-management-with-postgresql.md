@@ -44,17 +44,17 @@ Before you start, make sure you have [Docker](https://www.docker.com/) installed
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
-2. Bytebase is now running via Docker, and you can access it via `localhost:5678`.
+2. Bytebase is now running via Docker, and you can access it via `localhost:8080`.
    ![docker](/content/docs/tutorials/database-change-management-with-postgresql/docker.webp)
 
-3. Visit `localhost:5678` in your browser. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
+3. Visit `localhost:8080` in your browser. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
    ![register](/content/docs/tutorials/database-change-management-with-postgresql/register.webp)
 
 ## Step 2 - Add PostgreSQL in Bytebase
 
 In Bytebase, ​​an Instance could be your on-premises PostgreSQL instance, an AWS RDS instance etc, in this tutorial.
 
-1. Visit `localhost:5678` and log in.
+1. Visit `localhost:8080` and log in.
    ![login](/content/docs/tutorials/database-change-management-with-postgresql/login.webp)
 
 2. Click **Instances** on the top bar you’ll see there is a sample PostgreSQL instance that is embedded. If you want to use your own instance, click **Add instance**. To keep it simple, we’ll use the built-in sample instance for this tutorial.

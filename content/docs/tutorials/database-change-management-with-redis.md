@@ -42,17 +42,17 @@ Before you start this tutorial, make sure:
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
-2. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`.
+2. Bytebase is running successfully in Docker, and you can visit it via `localhost:8080`.
    ![docker](/content/docs/tutorials/database-change-management-with-redis/docker.webp)
 
-3. Visit localhost:5678 in your browser. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
+3. Visit localhost:8080 in your browser. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
    ![register](/content/docs/tutorials/database-change-management-with-redis/register.webp)
 
 ## Step 2 - Add Redis in Bytebase
 
 In Bytebase, ​​an Instance could be your on-premises MySQL instance, an AWS RDS instance etc, in this tutorial, a Redis Cloud account or a self-managed instance.
 
-1. Visit `localhost:5678` and log in as `Workspace Admin`.
+1. Visit `localhost:8080` and log in as `Workspace Admin`.
    ![login](/content/docs/tutorials/database-change-management-with-redis/login.webp)
 
 2. Click **Add Instance**.

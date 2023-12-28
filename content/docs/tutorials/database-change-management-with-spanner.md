@@ -45,17 +45,17 @@ Before you start, make sure you have:
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
-1. Bytebase is now running via Docker, and you can access it via `localhost:5678`.
+1. Bytebase is now running via Docker, and you can access it via `localhost:8080`.
    ![docker](/content/docs/tutorials/database-change-management-with-spanner/docker.webp)
 
-1. Visit `localhost:5678` in your browser. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
+1. Visit `localhost:8080` in your browser. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
    ![bb-register](/content/docs/tutorials/database-change-management-with-spanner/bb-register.webp)
 
 ## Step 2 - Add an Spanner Instance to Bytebase
 
 In Bytebase, ​​an Instance could be your on-premises MySQL instance, an AWS RDS instance etc, in this tutorial, ​an **Instance** is your `Spanner instance`.
 
-1. Visit `localhost:5678` and log in as `Workspace Admin`.
+1. Visit `localhost:8080` and log in as `Workspace Admin`.
    ![bb-login](/content/docs/tutorials/database-change-management-with-spanner/bb-login.webp)
 
 2. On the home page, click **Add Instance**.

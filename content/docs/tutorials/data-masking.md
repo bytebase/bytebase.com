@@ -29,7 +29,7 @@ Before starting, make sure you have installed [Docker](https://www.docker.com/).
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
-2. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`. Register an admin account and it will be granted the `workspace admin` role automatically.
+2. Bytebase is running successfully in Docker, and you can visit it via `localhost:8080`. Register an admin account and it will be granted the `workspace admin` role automatically.
 
 3. Go back to the Bytebase console, click **Start free trial** on the left bottom and upgrade to **Enterprise plan**.
 
@@ -58,8 +58,8 @@ You may want to batch apply masking settings, for example, you want to mask all 
    ![bb-sql-editor-query-employee-prod-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-prod-masked.webp)
    ![bb-sql-editor-query-employee-test-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-test-masked.webp)
 
-
 ### Export data with masked columns
+
 Exported data is masked in the same way as query results.
 
 1. Stay on the SQL Editor after querying, and click **Export**.
@@ -73,7 +73,6 @@ Exported data is masked in the same way as query results.
 3. Open the downloaded file, you'll see the `birth_date` is masked.
 
    ![bb-sql-editor-exported-data](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-exported-data.webp)
-
 
 ### Column Masking Rule
 
@@ -104,7 +103,6 @@ What if you want to reveal the masked data to a specific user? You can grant unm
 4. Login as the `DBA` user, go to SQL Editor, choose `(Prod)Employee` > `public` > `salary` and run `SELECT * FROM salary;` again. You'll see the `amount` is not masked.
 
    ![bb-sql-editor-query-salary-prod-not-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-salary-prod-not-masked.webp)
-
 
 ## Summary
 

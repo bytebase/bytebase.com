@@ -39,7 +39,7 @@ The API example repository is at https://github.com/bytebase/api-example
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
-1. Bytebase is now running via Docker, and you can access it via `localhost:5678`. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
+1. Bytebase is now running via Docker, and you can access it via `localhost:8080`. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
 
 1. Log in as the admin user, click on the gear icon on the top right corner and click on **Workspace** > **Members**.
 
@@ -83,7 +83,7 @@ Below is an example app demonstrating the following APIs:
 
 1. Copy `env-template.local` to `.env.local`.Update the variables.
 
-   - `NEXT_PUBLIC_BB_URL`: `http://localhost:5678`
+   - `NEXT_PUBLIC_BB_URL`: `http://localhost:8080`
    - `NEXT_PUBLIC_BB_SERVICE_ACCOUNT`: `api-example`
    - `NEXT_PUBLIC_BB_SERVICE_KEY`: service key copied in Step 2
 

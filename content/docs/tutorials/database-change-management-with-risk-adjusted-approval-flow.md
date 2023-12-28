@@ -53,7 +53,7 @@ docker run --name mysqld-prod\
   mysql/mysql-server:8.0
 ```
 
-3. Open `localhost:5678` in a browser, register as an admin and you will be granted as **Workspace Admin** role. Click the avatar on the right top, and click **Settings**. You'll see you have the role `Owner` . Click **Start free trial** on the left bottom to upgrade to Enterprise Plan.
+3. Open `localhost:8080` in a browser, register as an admin and you will be granted as **Workspace Admin** role. Click the avatar on the right top, and click **Settings**. You'll see you have the role `Owner` . Click **Start free trial** on the left bottom to upgrade to Enterprise Plan.
 4. Click **Workspace** > **Members** on the left bar. Add one `dba@x.com` as **DBA**, and one `dev@x.com` as **Developer**. You need click them and give the default password `12345`.
 
 ![bb-settings-members](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-settings-members.webp)

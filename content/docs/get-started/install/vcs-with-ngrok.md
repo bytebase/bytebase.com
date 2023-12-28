@@ -11,7 +11,7 @@ title: VCS with ngrok
 1. Run ngrok:
 
    ```bash
-   ngrok http 5678
+   ngrok http 8080
    ```
 
    and obtain the public URL `https://b725-103-197-71-76.ap.ngrok.io`:
@@ -21,7 +21,7 @@ title: VCS with ngrok
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
-1. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`. Register an admin account and it will be granted the `workspace admin` role automatically.
+1. Bytebase is running successfully in Docker, and you can visit it via `localhost:8080`. Register an admin account and it will be granted the `workspace admin` role automatically.
 
 1. Click the **gear icon (Settings)** on the top right. Click **General** under Workspace. Paste `https://b725-103-197-71-76.ap.ngrok.io` as External URL under Network section and click Update.
 

@@ -38,17 +38,17 @@ Before you start this tutorial, make sure:
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
-2. Bytebase is running successfully in Docker, and you can visit it via `localhost:5678`.
+2. Bytebase is running successfully in Docker, and you can visit it via `localhost:8080`.
    ![docker](/content/docs/tutorials/database-change-management-with-tidb/docker.webp)
 
-3. Visit `localhost:5678` in your browser. Register the first admin account which will be granted `Workspace Admin`.
+3. Visit `localhost:8080` in your browser. Register the first admin account which will be granted `Workspace Admin`.
    ![register](/content/docs/tutorials/database-change-management-with-tidb/register.webp)
 
 ## Step 2 - Add a TiDB cluster in Bytebase
 
 In Bytebase, ​​an **Instance** could be your on-premises MySQL instance, an AWS RDS instance etc, in this tutorial, a TiDB account.
 
-1. Visit `localhost:5678` and login as `Workspace Admin`.
+1. Visit `localhost:8080` and login as `Workspace Admin`.
    ![login](/content/docs/tutorials/database-change-management-with-tidb/login.webp)
 
 2. Click **Add Instance**.
