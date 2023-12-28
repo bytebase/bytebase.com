@@ -49,7 +49,7 @@ To protect their databases, some hosting providers block direct remote access. H
 
 ## Configure read-only connection
 
-<PricingPlanBlock feature_name='READONLY_CONNECTION' />/>
+<PricingPlanBlock feature_name='READONLY_CONNECTION' />
 
 To separate from admin connection, you can configure read-only connections used by SQL Editor once an instance is added. This separation can be configured at the database user/role access control level or replication instance level.
 

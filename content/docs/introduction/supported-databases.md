@@ -83,7 +83,8 @@ _Bytebase is trailblazing the schema management landscape. Each database engine 
 | OceanBase  | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
 | RisingWave | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                          | ✔️                                  |
 
-_\*For now Bytebase can't distinguish read-only statements from read-write statements for Mongo and Redis._
+_\* Normally, Bytebase will block non-readonly statements in Query Mode. This is not supported in MongoDB and Redis. You can
+work around this by configuring a [readonly connection](/docs/get-started/instance/#configure-read-only-connection)._
 
 ### Data Security & Governance
 
