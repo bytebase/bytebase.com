@@ -73,7 +73,7 @@ const Footer = () => (
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="h-8 w-[150px] xl:h-7 xl:w-[132px]"
-            src="/images/logo-full.svg"
+            src="/images/logo.svg"
             alt="Bytebase logo"
             width={150}
             height={32}

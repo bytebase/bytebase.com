@@ -1,4 +1,4 @@
-# <a href="https://www.bytebase.com"><img alt="Bytebase" src="https://raw.githubusercontent.com/bytebase/bytebase.com/main/public/images/logo-full.svg" height="56px" /></a>
+# <a href="https://www.bytebase.com"><img alt="Bytebase" src="https://raw.githubusercontent.com/bytebase/bytebase.com/main/public/images/logo.svg" height="56px" /></a>
 
 We are hiring. Please check out our [about page](https://www.bytebase.com/about) and submit inquiry from there.
 

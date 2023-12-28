@@ -158,7 +158,7 @@ const Content = ({
       Made by{' '}
       <img
         className="mx-2"
-        src="/images/logo-full.svg"
+        src="/images/logo.svg"
         width={96}
         height={20}
         loading="lazy"
