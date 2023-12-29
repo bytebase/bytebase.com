@@ -22,6 +22,7 @@ By default, Bytebase bundles an embedded PostgreSQL instance for storing its own
    - TEMPORARY
    - EXECUTE
    - USAGE
+1. The database should use UTF-8 for encoding. UTF-8 encoding is mandatory across the entire system.
 1. For Cloud RDS, ensure that the user either owns the schema (public) and database, or has the necessary privileges to access them.
    - ALTER DATABASE dbname OWNER TO bytebase;
    - ALTER SCHEMA public OWNER TO bytebase;
