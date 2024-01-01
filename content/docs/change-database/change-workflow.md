@@ -10,13 +10,21 @@ There are 2 typical workflows employed by the team to deal with database schema 
 
 Classic SQL Review workflow where the developer submits a SQL review ticket directly from Bytebase and waits for the assigned DBA or peer developer to review. Bytebase applies the SQL change after review approved.
 
-![Issue detail interface](/content/docs/issue-detail.webp)
+![Issue detail interface](/content/docs/change-database/change-workflow/issue-detail.webp)
 
 ## GitOps Workflow
 
 Aka `Database-as-Code`. Database migration scripts are stored in a git repository. To make schema changes, a developer would create a migration script and submit for review in the corresponding VCS such as GitLab. After the script is approved and merged into the configured branch, Bytebase will automatically kicks off the task to apply the new schema change.
 
-![workflow-vcs](/content/docs/workflow-vcs.png)
+![workflow-vcs](/content/docs/change-database/change-workflow/workflow-vcs.webp)
+
+## Rollout Time
+
+<PricingPlanBlock feature_name='SCHEDULE_CHANGE' />
+
+If you want to roll out changes during non-business hours, you can set a rollout time.
+
+![rollout-time](/content/docs/change-database/change-workflow/rollout-time.webp)
 
 ## Migration Types
 
@@ -42,6 +50,6 @@ A branch migration history is recorded when a database is restored from a backup
 
 Bytebase records the detailed migration history and the before/after schema snapshot for each migration it applies. It also leverages these records to [detect schema drifts](/docs/change-database/drift-detection).
 
-![schema-migration-bytebase](/content/docs/schema-migration-bytebase.png)
+![schema-migration-bytebase](/content/docs/change-database/change-workflow/schema-migration-bytebase.webp)
 
-![schema-migration-gitlab](/content/docs/schema-migration-gitlab.png)
+![schema-migration-gitlab](/content/docs/change-database/change-workflow/schema-migration-gitlab.webp)
