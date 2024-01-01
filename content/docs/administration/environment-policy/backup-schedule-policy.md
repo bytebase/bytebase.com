@@ -9,7 +9,7 @@ The backup enforcement is **NOT retroactive**, which means the updated policy **
 
 </HintBlock>
 
-`Owner` or `DBA` can configure the backup schedule policy for a particular environment from the "Environment" detail page:
+`Workspace Admin` or `DBA` can configure the backup schedule policy for a particular environment from the "Environment" detail page:
 
 ![env-backup-configure](/content/docs/disaster-recovery/backup/env-backup-configure.webp)
 

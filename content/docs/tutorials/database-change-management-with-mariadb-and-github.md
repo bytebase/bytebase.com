@@ -126,7 +126,7 @@ Before you start this tutorial, make sure:
    - The issue is created via `GitHub.com`.
    - The issue is waiting for your rollout because it’s on `Prod` environment where manual rollout is required by default.
    - The SQL is exactly the one we have committed to the GitHub repository.
-   - The Creator is `Owner`, because the GitHub user you use to commit the change has the same email address found in the Bytebase member list.
+   - The Creator is `Workspace Admin`, because the GitHub user you use to commit the change has the same email address found in the Bytebase member list.
      ![bb-issue-gitops-to-rollout](/content/docs/tutorials/database-change-management-with-mariadb-and-github/bb-issue-gitops-to-rollout.webp)
 
 5. Click **Rollout**, and the SQL will execute. The issue will be `Done`.

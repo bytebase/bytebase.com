@@ -2,7 +2,7 @@
 title: Rollout Policy
 ---
 
-`Owner` or `DBA` can configure the **Rollout policy** for a particular environment from the **Environment** detail page:
+`Workspace Admin` or `DBA` can configure the **Rollout policy** for a particular environment from the **Environment** detail page:
 
 ![environment-configure](/content/docs/administration/environment-policy/bb-env-rollout-policy.webp)
 
