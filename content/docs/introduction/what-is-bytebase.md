@@ -54,12 +54,12 @@ Bytebase provides a suite of features to enable organizations to enforce data se
 
 - Point-in-time recovery (PITR)
 
-## Compare with Liquibase / Flyway
+## Compare with Liquibase / Flyway / schemachange
 
-If Liquibase, Flyway are Git, then Bytebase is GitLab/GitHub. And as an open source project. Bytebase
-is growing way faster.
+If Liquibase, Flyway are Git, then Bytebase is GitLab/GitHub. And as an open source project, Bytebase
+is growing way faster and ranked No.1 among alternatives.
 
-![bytebase-vs-liquibase-flyway](/content/docs/what-is-bytebase/bytebase-vs-liquibase-flyway.webp)
+![bytebase-vs-liquibase-flyway](/content/docs/what-is-bytebase/bytebase-vs-liquibase-flyway-schemachange.webp)
 
 - [Bytebase vs. Liquibase](/blog/bytebase-vs-liquibase/)
 - [Bytebase vs. Flyway](/blog/bytebase-vs-flyway/)
