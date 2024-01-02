@@ -41,14 +41,13 @@ const cards: TCard[] = [
   {
     image: '/images/page/pricing/team.webp',
     planTitle: 'pro',
-    price: 100,
-    priceDescription: 'instance per month',
-    description: 'Unlimited users, up to 20 instances',
-    additionalDescription: 'You can start <b>a&nbsp;free&nbsp;trial for 14 days.</b>',
-    buttonText: 'Try Free now',
-    buttonTheme: 'primary-outline',
-    buttonLink:
-      'https://bytebase-hub-prod.us.auth0.com/u/login?state=hKFo2SByU1VxQzVzb0JpSm01TjF5TjZmU1JoTTVndXNpU3FuY6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIF9JakVqd1RRaVBjczh0NTVEQmxqSHo3ZGxzWV9zelBUo2NpZNkgN0IySDFrb05Sa3hQY0pENzBHeVJEbzVIbVNNMGI5V1E',
+    price: 250,
+    priceDescription: 'per month',
+    description: 'Unlimited users, up to 10 instances',
+    additionalDescription: 'Annual subscription, cancel anytime.',
+    buttonText: 'Buy Now',
+    buttonTheme: 'primary-filled',
+    buttonLink: 'https://buy.stripe.com/dR6eWZ6SO55JfWo4gg',
     planConditions: [
       'Advanced GitOps workflow',
       'Rollout and backup policy',
@@ -65,7 +64,7 @@ const cards: TCard[] = [
     price: 'Custom',
     description: 'Volume discount available',
     buttonText: 'Contact us',
-    buttonTheme: 'primary-filled',
+    buttonTheme: 'primary-outline',
     buttonLink: '/contact-us',
     planConditions: [
       'Dedicated line and SLA support',

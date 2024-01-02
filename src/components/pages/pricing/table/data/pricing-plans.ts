@@ -76,11 +76,10 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   pro: {
     title: 'pro',
     description: 'More policies to standardize and facilitate collaboration across teams.',
-    buttonText: 'Try Free now',
-    buttonTheme: 'primary-outline',
-    buttonUrl:
-      'https://bytebase-hub-prod.us.auth0.com/u/login?state=hKFo2SByU1VxQzVzb0JpSm01TjF5TjZmU1JoTTVndXNpU3FuY6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIF9JakVqd1RRaVBjczh0NTVEQmxqSHo3ZGxzWV9zelBUo2NpZNkgN0IySDFrb05Sa3hQY0pENzBHeVJEbzVIbVNNMGI5V1E',
-    additionalDescription: 'Free trial for 14 days.',
+    buttonText: 'Buy Now',
+    buttonTheme: 'primary-filled',
+    buttonUrl: 'https://buy.stripe.com/dR6eWZ6SO55JfWo4gg',
+    additionalDescription: 'Cancel anytime.',
     changeManagement: {
       'state-based-change': true,
       'migration-based-change': true,
@@ -151,7 +150,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     title: 'enterprise',
     description: 'Extra security, compliance, and permission features. Dedicated support with SLA.',
     buttonText: 'Contact us',
-    buttonTheme: 'primary-filled',
+    buttonTheme: 'primary-outline',
     buttonUrl: '/contact-us',
     additionalDescription: 'Free trial for 14 days.',
     changeManagement: {
