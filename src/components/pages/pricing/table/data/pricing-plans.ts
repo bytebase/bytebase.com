@@ -78,8 +78,8 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     description: 'More policies to standardize and facilitate collaboration across teams.',
     buttonText: 'Buy Now',
     buttonTheme: 'primary-filled',
-    buttonUrl: 'https://buy.stripe.com/dR6eWZ6SO55JfWo4gg',
-    additionalDescription: 'Cancel anytime.',
+    buttonUrl: 'https://buy.stripe.com/eVaeWZdhc55JbG8fZ0',
+    additionalDescription: 'Monthly subscription, cancel anytime',
     changeManagement: {
       'state-based-change': true,
       'migration-based-change': true,
@@ -149,10 +149,10 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   enterprise: {
     title: 'enterprise',
     description: 'Extra security, compliance, and permission features. Dedicated support with SLA.',
-    buttonText: 'Contact us',
+    buttonText: 'Contact Us',
     buttonTheme: 'primary-outline',
     buttonUrl: '/contact-us',
-    additionalDescription: 'Free trial for 14 days.',
+    additionalDescription: 'Free trial for 14 days',
     changeManagement: {
       'state-based-change': true,
       'migration-based-change': true,
