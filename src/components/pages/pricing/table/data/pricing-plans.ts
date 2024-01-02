@@ -78,7 +78,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     description: 'More policies to standardize and facilitate collaboration across teams.',
     buttonText: 'Buy Now',
     buttonTheme: 'primary-filled',
-    buttonUrl: 'https://buy.stripe.com/eVaeWZdhc55JbG8fZ0',
+    buttonUrl: 'https://buy.stripe.com/5kAbKNcd89lZcKc3cf',
     additionalDescription: 'Monthly subscription, cancel anytime',
     changeManagement: {
       'state-based-change': true,
