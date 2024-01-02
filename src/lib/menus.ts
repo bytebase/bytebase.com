@@ -2,7 +2,7 @@ import Route from './route';
 
 export const MENU = {
   header: [
-    { title: 'Tools We Replace', href: Route.DOCS },
+    { title: 'Docs', href: Route.DOCS },
     {
       title: 'Features',
       items: [
@@ -60,10 +60,10 @@ export const MENU = {
           iconName: 'blog',
         },
         {
-          name: 'Enterprise Inquiry',
+          name: 'Company',
           description: '',
-          linkUrl: Route.CONTACTS,
-          iconName: 'enterprise',
+          linkUrl: Route.ABOUT,
+          iconName: 'about',
         },
       ],
       highlight: {
@@ -75,9 +75,13 @@ export const MENU = {
       },
     },
     { title: 'Pricing', href: Route.PRICING },
+    {
+      title: 'Enterprise',
+      href: Route.CONTACTS,
+    },
   ],
   mobile: [
-    { title: 'Tools We Replace', href: Route.DOCS },
+    { title: 'Docs', href: Route.DOCS },
     {
       title: 'Features',
       items: [
@@ -141,14 +145,18 @@ export const MENU = {
           iconName: 'casestudy',
         },
         {
-          name: 'Enterprise Inquiry',
+          name: 'Company',
           description: '',
-          linkUrl: Route.CONTACTS,
-          iconName: 'enterprise',
+          linkUrl: Route.ABOUT,
+          iconName: 'about',
         },
       ],
     },
     { title: 'Pricing', href: Route.PRICING },
+    {
+      title: 'Enterprise',
+      href: Route.CONTACTS,
+    },
   ],
   footer: [
     {
