@@ -17,7 +17,7 @@ Bytebase officially supports the following major versions for each supported dat
 - Oracle - 11g and above
 - Microsoft SQL Server - 2019 and above
 - MariaDB - 10.7 and above
-- OceanBase - 3.x and above, MySQL tenant
+- OceanBase - 3.x and above, both MySQL and Oracle modes
 - RisingWave - 1.x and above
 
 Bytebase usually works fine with older database versions, we just won't support features specific to those older versions. We may add other open source databases in the future.
