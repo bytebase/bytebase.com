@@ -2,9 +2,13 @@
 title: Bytebase Cloud
 ---
 
-Bytebase Cloud is hosted on Google Cloud us-central region. With Bytebase Cloud, you can provision your Bytebase instance instantly.
+<HintBlock type="info">
 
-Alternatively, because many organizations disallow exposing their databases to the external network, you can [self-host Bytebase](/docs/get-started/self-host) (don't be scared, it's a single binary and deployment is easy).
+Cloud instance provides limited memory. If you run large queries, please [self host Bytebase](/docs/get-started/self-host) (don't be scared, it's a single binary and deployment is easy).
+
+</HintBlock>
+
+Bytebase Cloud is hosted on Google Cloud us-central region. With Bytebase Cloud, you can provision your Bytebase instance instantly.
 
 ## Whitelist the Bytebase Cloud IP
 
