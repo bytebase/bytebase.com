@@ -49,7 +49,7 @@ A typical database change workflow:
 Bytebase provides a single place to coordinate the database changes. The issue interface provides
 a holistic view of the database change status. Upon approval, changes are rolled out from Bytebase
 directly instead of switching to a different tools. All the activities are recorded and can be further
-configured to post to IM via [webhook](/docs/change-database/webhook).
+configured to post to IM via [webhook](/docs/change-database/change-workflow/change-database/webhook).
 
 ![Issue detail interface](/content/docs/issue-detail.webp)
 
