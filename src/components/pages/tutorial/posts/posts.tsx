@@ -13,6 +13,7 @@ import MongoDBIcon from '@/svgs/mongodb.inline.svg';
 import PostgresIcon from '@/svgs/postgres.inline.svg';
 import RedisIcon from '@/svgs/redis.inline.svg';
 import SnowflakeIcon from '@/svgs/snowflake.inline.svg';
+import SQLServerIcon from '@/svgs/sqlserver.inline.svg';
 import SpannerIcon from '@/svgs/spanner.inline.svg';
 import TerraformIcon from '@/svgs/terraform.inline.svg';
 import TidbIcon from '@/svgs/tidb.inline.svg';
@@ -28,6 +29,7 @@ const allIntegrations: { [key: string]: React.FunctionComponent<React.SVGProps<S
   gitlab: GitLabIcon,
   postgresql: PostgresIcon,
   snowflake: SnowflakeIcon,
+  'sql server': SQLServerIcon,
   spanner: SpannerIcon,
   terraform: TerraformIcon,
   tidb: TidbIcon,
