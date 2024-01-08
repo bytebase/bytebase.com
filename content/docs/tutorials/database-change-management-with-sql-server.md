@@ -1,7 +1,7 @@
 ---
 title: 'Database CI/CD and Schema Migration with SQL Server'
 author: Ningjing
-published_at: 2023/12/29 18:15
+published_at: 2024/1/8 18:15
 feature_image: /content/docs/tutorials/database-change-management-with-sql-server/sqlserver-feature.webp
 tags: Tutorial
 integrations: 'SQL Server'
@@ -21,9 +21,7 @@ A series of articles about Database CI/CD and Schema Migration with SQL Server.
 
 This tutorial is a step-by-step guide to set up Database Change Management for SQL Server in Bytebase. With Bytebase, a team can have a formalized review and rollout process to make SQL Server database schema change and data change.
 
-Bytebase provides a GUI for teams to **perform database changes** and **retain full migration history**. Bytebase Free Plan is suffice for this tutorial.
-
-At the end, there is a bonus section about **Schema Drift Detection** for those advanced users.
+Bytebase provides a GUI for teams to **perform database changes** and **retain full migration history**. Bytebase Free Plan is sufficient for this tutorial.
 
 ## Prerequisites
 
@@ -38,9 +36,9 @@ Before you start, make sure you have the following downloaded and installed:
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
-2. Bytebase is now running via Docker, and you can access it via `localhost:5678`.
+1. Bytebase is now running via Docker, and you can access it via `localhost:5678`.
 
-3. Visit `localhost:5678` in your browser. Register an account.
+1. Visit `localhost:5678` in your browser. Register an account.
    ![bb-register](/content/docs/tutorials/database-change-management-with-sql-server/bb-register.webp)
 
 ## Step 2 - Add a SQL Server Instance to Bytebase
@@ -49,9 +47,9 @@ In this tutorial, ​an **Instance** is your SQL Server instance.
 
 1. Login to the Bytebase Console.
 
-2. Click **Instances** on the left sidebar and click **Add Instance**.
+1. Click **Instances** on the left sidebar and click **Add Instance**.
 
-3. Add an `SQL Server` instance. Pay attention to **Environment**, let's choose `Prod` for this tutorial. Because there's a SQL Review policy enabled on `Prod` environment. You may go to **Environment** > **Prod** > **SQL Review Policy** to check the details.
+1. Add an `SQL Server` instance. Pay attention to **Environment**, let's choose `Prod` for this tutorial. Because there's a SQL Review policy enabled on `Prod` environment. You may go to **Environment** > **Prod** > **SQL Review Policy** to check the details.
   ![add-instance](/content/docs/tutorials/database-change-management-with-sql-server/bb-add-instance-mssql.webp)
 
 ## Step 3 - Go to the existing Project
@@ -66,7 +64,7 @@ In Bytebase, a **Database** is created by `CREATE DATABASE xxx`. A database alwa
 
 1. Stay in the project `Sample Project`. Click on **New DB** to create a new database.
 
-2. Fill in the form, and pay attention to these fields:
+1. Fill in the form, and pay attention to these fields:
    ![create-db](/content/docs/tutorials/database-change-management-with-sql-server/bb-create-new-db.webp)
 
    - **Name**: can be anything, here we used `db_demo`
@@ -75,7 +73,7 @@ In Bytebase, a **Database** is created by `CREATE DATABASE xxx`. A database alwa
 
    Click **Create**.
 
-3. Bytebase will create an issue to create the database automatically and without further configuration, the rollout is approved by default. The issue is Done after the rollout succeeds.
+1. Bytebase will create an issue to create the database automatically and without further configuration, the rollout is approved by default. The issue is Done after the rollout succeeds.
    ![bb-db-created-done](/content/docs/tutorials/database-change-management-with-sql-server/bb-db-created-done.webp)
 
 ## Step 5 - Create a table in SQL Server via Bytebase
@@ -100,11 +98,9 @@ In Step 4, you actually created an issue using UI workflow and then executed it.
    CREATE TABLE t1 (id INT NOT NULL DEFAULT 1);
    ```
 
-2. After passing the automatic checks, the issue executes and the status becomes `Done`.
+1. After passing the automatic checks, the issue executes and the status becomes `Done`.
 
    ![bb-issue-create-table-done](/content/docs/tutorials/database-change-management-with-sql-server/bb-issue-create-table-done.webp)
-
-3. From the issue page, click **View change**, and you can see differences.
 
 ## Summary and What's Next
 
