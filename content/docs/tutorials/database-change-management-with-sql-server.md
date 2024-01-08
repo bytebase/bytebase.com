@@ -105,34 +105,9 @@ In Step 4, you actually created an issue using UI workflow and then executed it.
    ![bb-issue-create-table-done](/content/docs/tutorials/database-change-management-with-sql-server/bb-issue-create-table-done.webp)
 
 3. From the issue page, click **View change**, and you can see differences.
-xxx
-
-## Bonus Section - Schema Drift Detection
-
-You may click **Start free trial** and request an Enterprise license and assign it to your SQL Server. With that, you can enable **Schema Drift Detection** for your SQL Server database.
-
-By adopting Bytebase, we expect teams to use Bytebase exclusively for all schema changes. Meanwhile, if someone has made SQL Server schema change out side of Bytebase, obviously Bytebase won’t know it. And because Bytebase has recorded its own copy of schema, when Bytebase compares that with the live schema having that out-of-band schema change, it will notice a discrepancy and surface a schema drift anomaly. If that change is intended, then you should establish new baseline to reconcile the schema state again.
-
-In this section, you’ll be guided through this process.
-
-1. Go to your Terminal, connect to SQL Server, or use **Admin mode** in Bytebase SQL Editor. Add a column `name` to table `t1`.
-
-   ```sql
-   ALTER TABLE t1 ADD name VARCHAR(255) default '';
-   ```
-
-2. Go back to Bytebase and go to the database `db_demo`, click **Sync Now**. and you can find the Schema Drift on database `t1`:
-
-3. Click on **View diff**, you will see the exact drift.
-
-4. Go to **Databases** > select the database in drift > **Change History** > **Establish new baseline**, this step establishes a new baseline to reconcile the schema state from the live database schema.
-
-5. Bytebase will create an issue to establish the new baseline, click **Create**, and it will be marked done.
-
-6. Go back to your database page, where you will find the drift is gone and no anomalies detected.
 
 ## Summary and What's Next
 
-Now you have connected SQL Server with Bytebase, and used the UI workflow to accomplish schema change. Bytebase will record the full migration history for you. Furthermore, the **Enterprise Plan** is equipped with Schema Drift Detection to detect out-of-band schema changes performed outside of Bytebase.
+Now you have connected SQL Server with Bytebase, and used the UI workflow to accomplish schema change. Bytebase will record the full migration history for you.
 
 In the next post, you’ll try out GitOps workflow: store your SQL Server schema in GitHub and Bytebase will pick up the changes to the repo, bringing your SQL Server change workflow to the next level, aka **Database DevOps** - [Database as Code](/blog/database-as-code).
