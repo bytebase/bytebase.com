@@ -64,8 +64,8 @@ In this tutorial, ​an **Instance** is your on-premises MySQL instance.
 
 In Bytebase, **Project** groups logically-related **Databases, Issues** and **Users** together, which is similar to the project concept in other DevTools such as Jira and GitLab. So before you deal with the database, a Project must be created.
 
-1. After the instance is created, go to the **Projects** tab, click on **New Project** to create a new project.
-   ![create-project](/content/docs/tutorials/database-change-management-with-mysql/create-project.webp)
+After the instance is created, go to the **Projects** tab, click on **New Project** to create a new project.
+![create-project](/content/docs/tutorials/database-change-management-with-mysql/create-project.webp)
 
 ## Step 4 - Create a MySQL database via Bytebase
 

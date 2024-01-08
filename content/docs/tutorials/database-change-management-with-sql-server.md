@@ -50,13 +50,13 @@ In this tutorial, ​an **Instance** is your SQL Server instance.
 1. Click **Instances** on the left sidebar and click **Add Instance**.
 
 1. Add an `SQL Server` instance. Pay attention to **Environment**, let's choose `Prod` for this tutorial. Because there's a SQL Review policy enabled on `Prod` environment. You may go to **Environment** > **Prod** > **SQL Review Policy** to check the details.
-  ![add-instance](/content/docs/tutorials/database-change-management-with-sql-server/bb-add-instance-mssql.webp)
+   ![add-instance](/content/docs/tutorials/database-change-management-with-sql-server/bb-add-instance-mssql.webp)
 
 ## Step 3 - Go to the existing Project
 
-In Bytebase, **Project** groups logically related **Databases, Issues** and **Users** together, which is similar to the project concept in other DevTools such as Jira and GitLab. So before you deal with the database, a Project must be created.
+In Bytebase, **Project** groups logically related **Databases, Issues** and **Users** together, which is similar to the project concept in other DevTools such as Jira and GitLab. So before you deal with the database, a Project must be presented.
 
-1. After the instance is created, go to the **Projects** tab, and you'll see a default project called `Sample Project`. Click it, there are two sample PostgreSQL databases. We'll create a new SQL Server database in this project.
+Go to the **Projects** tab, and you'll see a default project called `Sample Project`. Click it, there are two sample PostgreSQL databases. We'll create a new SQL Server database in this project.
 
 ## Step 4 - Create a SQL Server database via Bytebase
 
