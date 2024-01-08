@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Button from '@/components/shared/button';
 
 import { Plan } from '@/types/pricing';
+import { EVENTS } from '@/lib/events';
 
 const PlanCard = ({
   title,
@@ -12,6 +13,10 @@ const PlanCard = ({
   buttonUrl,
   buttonTheme,
 }: Plan) => {
+  const eventProp = {
+    value: title,
+    position: 'card',
+  };
   return (
     <div
       className={clsx(
@@ -36,6 +41,8 @@ const PlanCard = ({
           theme={buttonTheme}
           size="md"
           href={buttonUrl}
+          event={EVENTS.PLAN_CLICK}
+          eventProp={eventProp}
         >
           {buttonText}
         </Button>

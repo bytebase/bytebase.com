@@ -34,7 +34,7 @@ const Card = ({
   const planColor = COLORS[planTitle];
   const eventProp = {
     value: planTitle,
-    position: 'card',
+    position: 'hero',
   };
   return (
     <article
