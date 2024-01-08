@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 import { COLORS } from '@/components/pages/pricing/table/data/pricing-plans';
 import Button from '@/components/shared/button';
+import { EVENTS } from '@/lib/events';
 
 type CardProps = {
   planTitle: keyof typeof COLORS;
@@ -31,6 +32,10 @@ const Card = ({
   planConditions,
 }: CardProps) => {
   const planColor = COLORS[planTitle];
+  const eventProp = {
+    value: planTitle,
+    position: 'card',
+  };
   return (
     <article
       className="relative flex h-full flex-col items-center border border-t-8 border-gray-70 bg-white px-6 pb-10 pt-3.5 shadow-pricing lg:px-5 md:px-4.5 md:pb-9 md:pt-2.5 sm:px-6 sm:pt-4"
@@ -79,6 +84,8 @@ const Card = ({
           size="lg"
           theme={buttonTheme}
           href={buttonLink}
+          event={EVENTS.PLAN_CLICK}
+          eventProp={eventProp}
         >
           {buttonText}
         </Button>

@@ -9,6 +9,7 @@ const WechatQRCode = dynamic(() => import('@/components/wechat-qr-code'), { ssr:
 import { Cal } from '@/components/cal';
 
 import I18nProvider from '@/locales/i18nProvider';
+import PlausibleProvider from 'next-plausible';
 import { getStaticParams } from '@/locales/server';
 import '@/styles/main.css';
 
@@ -25,7 +26,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
         />
-        <script data-domain="bytebase.com" src="https://plausible.io/js/script.js" defer />
       </head>
       <body className="flex h-full flex-col">
         <Cal />
@@ -56,16 +56,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 `,
           }}
         />
-        <I18nProvider>
-          <div className="relative flex min-h-screen flex-col">
-            <Header hasBanner />
-            <main className="relative z-20 shrink-0 grow basis-auto pt-[128px] md:pt-[112px]">
-              {children}
-            </main>
-            <Footer />
-          </div>
-          <WechatQRCode />
-        </I18nProvider>
+        <PlausibleProvider domain="bytebase.com">
+          <I18nProvider>
+            <div className="relative flex min-h-screen flex-col">
+              <Header hasBanner />
+              <main className="relative z-20 shrink-0 grow basis-auto pt-[128px] md:pt-[112px]">
+                {children}
+              </main>
+              <Footer />
+            </div>
+            <WechatQRCode />
+          </I18nProvider>
+        </PlausibleProvider>
       </body>
     </html>
   );

@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable @next/next/no-img-element */
 import clsx from 'clsx';
 
@@ -5,6 +7,7 @@ import Link from '@/components/shared/link';
 
 import ArrowIcon from '@/svgs/arrow.inline.svg';
 import { STATES } from '@/lib/states';
+import { usePlausible } from 'next-plausible';
 
 const styles = {
   base: 'inline-flex items-center justify-center leading-none text-center whitespace-nowrap rounded transition-colors duration-200 outline-none',
@@ -32,6 +35,8 @@ type ButtonProps = {
   withArrow?: boolean;
   target?: string;
   rel?: string;
+  event?: string;
+  eventProp?: any;
   type?: 'button' | 'submit' | 'reset';
   state?: (typeof STATES)[keyof typeof STATES];
 };
@@ -44,8 +49,11 @@ const Button = ({
   children,
   state,
   withArrow = false,
+  event,
+  eventProp,
   ...props
 }: ButtonProps) => {
+  const plausible = usePlausible();
   const className = clsx(
     styles.base,
     size && styles.size[size],
@@ -85,8 +93,18 @@ const Button = ({
       );
   }
 
+  const sendEvent = () => {
+    if (event) {
+      if (eventProp) {
+        plausible(event, { props: eventProp });
+      } else {
+        plausible(event);
+      }
+    }
+  };
+
   return (
-    <Tag className={className} href={href} {...props}>
+    <Tag className={className} href={href} {...props} onClick={sendEvent}>
       {content}
     </Tag>
   );
