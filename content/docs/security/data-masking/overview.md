@@ -10,9 +10,10 @@ organizations to protect sensitive data from being exposed to unauthorized users
 
 ![bb-masking-overview](/content/docs/security/data-masking/bb-masking-overview.webp)
 
-Bytebase dynamic masking consists of following components:
+Bytebase dynamic masking consists of the following components:
 
 - [Global masking rule](../global-masking-rule)
 - [Column level masking](../column-masking) which takes precedency over global masking rule
 - [Access grants](../access-unmasked-data)
-- Custom masking algorithm (coming soon)
+- [Masking algorithm](../masking-algorithm)
+- [Semantic types](../semantic-types)
