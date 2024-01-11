@@ -1,0 +1,33 @@
+---
+title: Bytebase 2.13.1
+author: Ningjing
+published_at: 2024/1/11 15:21:21
+feature_image: /content/changelog/2-13-1-banner.webp
+description: 'Support backing up data before DML is performed for MySQL.'
+---
+
+## 🚀 New Features
+
+- Support backing up data before DML is performed for MySQL.
+- Support instance maximum connections, allowing control over the number of concurrent tasks per instance.
+- Support compression and encryption for exported data.
+- Support Apache Doris.
+
+## 🔔 Breaking Changes
+
+- Changes in Bytebase API: Renamed predefined roles. Update your code if you are utilizing these roles:
+  - Workspace level: OWNER->workspaceAdmin, DBA->workspaceDBA, DEVELOPER->workspaceMember
+  - Project level: OWNER->projectOwner, DEVELOPER->projectDeveloper, QUERIER->projectQuerier, EXPORTER->projectExporter, VIEWER->projectViewer, RELEASER->projectReleaser
+
+## 🎄 Enhancements
+
+- Support editing indexes in Schema Editor. 
+- In SQL Editor, group sheets by project and database.
+- Support choosing custom project roles in environment rollout policy.
+
+## 📰 Fresh Off the Press
+
+- Dive into how Bytebase is revolutionizing the way developers, DBAs, and platform engineers work by [replacing a multitude of traditional database tools](/blog/all-database-tools-bytebase-replaces/). Say goodbye to juggling multiple tools and hello to streamlined efficiency. Read now to transform your database management strategy! 🍭
+- Streamline your Microsoft SQL Server schema migration with Bytebase's intuitive [UI workflow](/docs/tutorials/database-change-management-with-sql-server/) or seamlessly integrate with GitHub for [a GitOps workflow](/docs/tutorials/database-change-management-with-sql-server-and-github/), making database management effortless and efficient! 🚚
+
+_To install_, follow _the _installation__ doc__._ If you are upgrading from a previous version, restart after obtaining the latest release binary._
