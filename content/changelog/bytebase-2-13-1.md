@@ -11,7 +11,6 @@ description: 'Support backing up data before DML is performed for MySQL.'
 - Support backing up data before DML is performed for MySQL.
 - Support instance maximum connections, allowing control over the number of concurrent tasks per instance.
 - Support compression and encryption for exported data.
-- Support Apache Doris.
 
 ## 🔔 Breaking Changes
 
