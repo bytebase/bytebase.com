@@ -19,6 +19,9 @@ const Route = {
   // General confirm
   CONFIRM_MESSAGE: '/confirm-message',
 
+  // pricing
+  PRO_PAYMENT:
+    'https://bytebase-hub-prod.us.auth0.com/u/login?state=hKFo2SByU1VxQzVzb0JpSm01TjF5TjZmU1JoTTVndXNpU3FuY6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIF9JakVqd1RRaVBjczh0NTVEQmxqSHo3ZGxzWV9zelBUo2NpZNkgN0IySDFrb05Sa3hQY0pENzBHeVJEbzVIbVNNMGI5V1E',
   // seo pages
   DBA: '/usecase/dba',
   DEVELOPER: '/usecase/developer',

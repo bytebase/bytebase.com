@@ -41,13 +41,13 @@ const cards: TCard[] = [
   {
     image: '/images/page/pricing/team.webp',
     planTitle: 'pro',
-    price: 300,
-    priceDescription: 'per month',
-    description: 'Unlimited users, 10 db instances',
-    additionalDescription: 'Monthly subscription, cancel anytime',
+    price: 100,
+    priceDescription: 'instance per month',
+    description: 'Unlimited users, up to 20 db instances',
+    additionalDescription: 'Cancel anytime',
     buttonText: 'Buy Now',
-    buttonTheme: 'primary-filled',
-    buttonLink: 'https://buy.stripe.com/5kAbKNcd89lZcKc3cf',
+    buttonTheme: 'primary-outline',
+    buttonLink: Route.PRO_PAYMENT,
     planConditions: [
       'Advanced GitOps workflow',
       'Rollout and backup policy',
@@ -65,7 +65,7 @@ const cards: TCard[] = [
     description: 'Volume discount',
     additionalDescription: 'Free trial for 14 days',
     buttonText: 'Contact Us',
-    buttonTheme: 'primary-outline',
+    buttonTheme: 'primary-filled',
     buttonLink: '/contact-us',
     planConditions: [
       'Dedicated line and SLA support',

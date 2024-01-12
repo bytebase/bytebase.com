@@ -1,4 +1,5 @@
 import { Plan } from '@/types/pricing';
+import Route from '@/lib/route';
 
 const COLORS = {
   community: '#172136',
@@ -77,9 +78,9 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     title: 'pro',
     description: 'More policies to standardize and facilitate collaboration across teams.',
     buttonText: 'Buy Now',
-    buttonTheme: 'primary-filled',
-    buttonUrl: 'https://buy.stripe.com/5kAbKNcd89lZcKc3cf',
-    additionalDescription: 'Monthly subscription, cancel anytime',
+    buttonTheme: 'primary-outline',
+    buttonUrl: Route.PRO_PAYMENT,
+    additionalDescription: 'Cancel anytime',
     changeManagement: {
       'state-based-change': true,
       'migration-based-change': true,
@@ -150,7 +151,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     title: 'enterprise',
     description: 'Extra security, compliance, and permission features. Dedicated support with SLA.',
     buttonText: 'Contact Us',
-    buttonTheme: 'primary-outline',
+    buttonTheme: 'primary-filled',
     buttonUrl: '/contact-us',
     additionalDescription: 'Free trial for 14 days',
     changeManagement: {
