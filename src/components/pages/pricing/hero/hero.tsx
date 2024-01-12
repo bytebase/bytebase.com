@@ -33,9 +33,7 @@ const cards: TCard[] = [
       'SQL Editor',
       'RBAC',
       '100+ SQL lint rules',
-      'VCS integration with GitOps workflow',
-      'Multi-environment batch change',
-      'Database backup / restore',
+      'Branching',
     ],
   },
   {
