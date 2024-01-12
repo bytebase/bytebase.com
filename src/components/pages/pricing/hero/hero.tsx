@@ -42,7 +42,7 @@ const cards: TCard[] = [
     price: 100,
     priceDescription: 'instance per month',
     description: 'Unlimited users, up to 20 db instances',
-    additionalDescription: 'Cancel anytime',
+    additionalDescription: 'Monthly subscription, cancel anytime',
     buttonText: 'Buy Now',
     buttonTheme: 'primary-outline',
     buttonLink: Route.PRO_PAYMENT,

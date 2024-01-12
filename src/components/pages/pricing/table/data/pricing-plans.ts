@@ -80,7 +80,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     buttonText: 'Buy Now',
     buttonTheme: 'primary-outline',
     buttonUrl: Route.PRO_PAYMENT,
-    additionalDescription: 'Cancel anytime',
+    additionalDescription: 'Monthly subscription, cancel anytime',
     changeManagement: {
       'state-based-change': true,
       'migration-based-change': true,
