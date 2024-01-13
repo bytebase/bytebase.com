@@ -170,7 +170,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                         </ul>
                         {highlight && (
                           <Link
-                            className="group/box flex h-full min-h-[240px] w-[244px] grow flex-col justify-between rounded-md bg-tutorials p-5 text-gray-15"
+                            className="group/box flex h-full min-h-[272px] w-[244px] grow flex-col justify-between rounded-md bg-tutorials p-5 text-gray-15"
                             href={highlight.linkUrl}
                             prefetch={false}
                             onClick={handleSubmenuClick}

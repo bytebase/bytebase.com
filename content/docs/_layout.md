@@ -3,7 +3,7 @@
 expand_section_list: ['Self-host', 'Get Started']
 ---
 
-### [What is Bytebase](/introduction/what-is-bytebase)
+### [Why Bytebase](/introduction/what-is-bytebase)
 
 ### [Use Cases](/introduction/use-cases)
 

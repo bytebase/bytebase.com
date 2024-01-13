@@ -2,7 +2,7 @@ import Route from './route';
 
 export const MENU = {
   header: [
-    { title: 'Docs', href: Route.DOCS },
+    { title: 'Why Bytebase?', href: Route.DOCS },
     {
       title: 'Features',
       items: [
@@ -41,6 +41,12 @@ export const MENU = {
     {
       title: 'Resources',
       items: [
+        {
+          name: 'Docs',
+          description: '',
+          linkUrl: Route.DOCS,
+          iconName: 'intro',
+        },
         {
           name: 'Supported Databases',
           description: '',
@@ -81,7 +87,7 @@ export const MENU = {
     },
   ],
   mobile: [
-    { title: 'Docs', href: Route.DOCS },
+    { title: 'Why Bytebase?', href: Route.DOCS },
     {
       title: 'Features',
       items: [
@@ -125,6 +131,12 @@ export const MENU = {
           description: '',
           linkUrl: Route.TUTORIAL,
           iconName: 'tutorial',
+        },
+        {
+          name: 'Docs',
+          description: '',
+          linkUrl: Route.DOCS,
+          iconName: 'intro',
         },
         {
           name: 'Blog',
