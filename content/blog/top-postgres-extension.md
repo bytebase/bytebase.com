@@ -34,7 +34,7 @@ The statistics gathered by the module are made available via a view named `pg_st
 
 Note that the pg_stat_statements extension only tracks queries that have been executed since it was enabled. If you want to track all queries, you should enable the extension at server start-up by adding the following line to your postgresql.conf file:
 
-```bash
+```text
 shared_preload_libraries = 'pg_stat_statements'
 ```
 

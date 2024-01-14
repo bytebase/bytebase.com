@@ -20,7 +20,7 @@ Before you start, you should configure the schema review policy on a specific en
 
 **`GET`** `http://localhost:8080/v1/sql/advise`
 
-```bash
+```text
 curl http://localhost:8080/v1/sql/advise \
   -G --data-urlencode '{SQL statement}' \
   -d 'environment={environment name}' \
@@ -72,7 +72,7 @@ You can also create the instance and database in the UX, then call the API with 
 
 Request
 
-```bash
+```text
 curl http://localhost:8080/v1/sql/advise \
   -G --data-urlencode 'statement=SELECT * FROM `table`' \
   -d environment=Dev \
@@ -100,7 +100,7 @@ Response
 
 Request
 
-```bash
+```text
 curl http://localhost:8080/v1/sql/advise \
   -G --data-urlencode 'statement=SELECT id FROM `table` WHERE id = 1' \
   -d environment=Dev \

@@ -11,7 +11,7 @@ description: We recently introduced a global version variable in our Nuxt docs t
 
 On our doc site, we have a few pages with instructions on installing Bytebase, like this one: [Deploy Bytebase in Docker within 5 seconds](/docs/get-started/self-host/#docker). On these pages, we teach users how to install the latest version of Bytebase by showing command snippets.
 
-```shell
+```text
 docker run --init \
   --name bytebase \
   --restart always \
@@ -52,7 +52,7 @@ So following Nuxt Content's [instruction](https://content.nuxtjs.org/v1/getting-
 
 and place it under `/components/global`:
 
-```bash
+```text
 components/
   global/
     Version.vue
@@ -89,7 +89,7 @@ Usually, our Developer Marketing team updates the version number on every new re
 
 To achieve this, we create a file named `VERSION` and put it under the root directory. This file only contains one line of the exact latest version number:
 
-```bash
+```text
 %%bb_version%%
 ```
 
@@ -188,7 +188,7 @@ In markdown files, insert the placeholder `$$bb_version$$` into where we are put
 ````markdown
 Run the following command to start Bytebase on [https://bytebase.example.com](https://bytebase.example.com/)
 
-```bash
+```text
 docker run --init \
   --name bytebase \
   --restart always \

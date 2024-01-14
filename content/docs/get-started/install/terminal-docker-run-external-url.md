@@ -2,7 +2,7 @@
 title: Terminal Docker Run with External URL
 ---
 
-```bash
+```text
 docker run --init \
   --name bytebase \
   --restart always \

@@ -2,7 +2,7 @@
 title: Terminal Docker Run With Volume
 ---
 
-```bash
+```text
 docker run --init \
   --name bytebase \
   --publish 8080:8080 \

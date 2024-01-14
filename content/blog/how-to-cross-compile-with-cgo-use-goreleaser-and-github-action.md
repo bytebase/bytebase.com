@@ -17,7 +17,7 @@ In the [1.2.1 release](/changelog/bytebase-1-2-1), we found that the [GoReleaser
 
 ![exclude-all-go-files-error](/content/blog/how-we-explored-the-best-practices-of-goreleaser-x-cgo/exclude-all-go-files-error.webp)
 
-```bash
+```text
 build constraints exclude all Go files in /go/pkg/mod/github.com/pganalyze/pg_query_go/v2@2.1.2/parser
 ```
 
@@ -77,7 +77,7 @@ For the Linux platform
 - Compiling from x64 to x64 requires a gcc/g++ toolchain, which we usually use.
 - Compiling from x64 to arm64 requires a well-maintained toolchain, "aarch64-linux-gnu-gcc". You can get it directly from the Ubuntu package manager:
 
-```shell
+```text
 sudo apt-get -y install gcc-aarch64-linux-gnu
 ```
 

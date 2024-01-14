@@ -42,7 +42,7 @@ Use following components to display more styled content in documentations:
 
 A code block with copy button.
 
-```bash
+```text
 echo hello world
 ```
 

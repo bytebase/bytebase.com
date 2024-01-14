@@ -82,7 +82,7 @@ You supply the external secret manager endpoint by enclosing it with the mustach
 
 Usually `mydbkey` is unique for each database and used for exchanging the password for that database.
 
-```bash
+```text
 curl "http://example.com/secrets/mydbkey"
 ```
 

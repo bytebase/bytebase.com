@@ -89,7 +89,7 @@ You should start Bytebase with the following three additional command line flags
 
 If you run Bytebase in a container, please put the credentials file in a mounted volume where the container can access it. Here’s an example of running Bytebase in a docker container with a mounted AWS S3 credential file:
 
-```bash
+```text
 docker run --init \
   --name bytebase \
   --restart always \

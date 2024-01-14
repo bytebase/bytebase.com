@@ -16,7 +16,7 @@ This document describes how to run a MySQL instance locally with Docker and how 
 1. Start Docker.
 2. Run the command in the terminal
 
-```bash
+```text
 docker run --name mysqld \
   --publish 3306:3306 \
   -e MYSQL_ROOT_HOST=172.17.0.1 \

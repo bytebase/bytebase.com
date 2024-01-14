@@ -28,7 +28,7 @@ This blog post gives an overview of how to install Bytebase CLI `bb` and how to 
 
 Install `bb` into the folder /usr/local/bin on macOS or Linux by entering the command below:
 
-```bash
+```text
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/bytebase/install/HEAD/install.sh)"
 ```
 
@@ -36,7 +36,7 @@ Install `bb` into the folder /usr/local/bin on macOS or Linux by entering the co
 
 Enter the following command to verify the installation:
 
-```bash
+```text
 bb --help
 ```
 
@@ -52,7 +52,7 @@ Let's take database schema change as an example.
 
 First of all, enter the following command to display the database schema:
 
-```bash
+```text
 bb dump --dsn mysql://root:passwd@localhost:3306/bytebase_test_todo --schema-only
 ```
 
@@ -62,7 +62,7 @@ You should see there is a table named "author":
 
 Then, add a column named "phone_no" into the table "author" with the following `migrate` command:
 
-```bash
+```text
 bb migrate \
   --dsn mysql://root:passwd@localhost:3306/bytebase_test_todo \
   --command "ALTER TABLE author ADD COLUMN phone_no VARCHAR(15);"
@@ -70,7 +70,7 @@ bb migrate \
 
 Finally, verify database schema with the following `dump` command:
 
-```bash
+```text
 bb dump --dsn mysql://root:passwd@localhost:3306/bytebase_test_todo --schema-only
 ```
 

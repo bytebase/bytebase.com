@@ -33,11 +33,11 @@ For an exhaustive list, please refer to this [doc](https://github.com/github/gh-
 ![bb-issue-ghost-config](/content/docs/change-database/online-schema-migration-for-mysql/bb-issue-ghost-config.webp)
 
 The online migration mode has two tasks:
+
 - **Sync data**: sync your data to the ghost table.
 - **Switch tables**: replace your original table with the ghost table.
 
 3. Click **Sync data** and you'll find your SQL in the editor. After verifying that, click **Create**.
-
 
 ### Step 2 - Rollout the sync data task
 
@@ -92,17 +92,17 @@ Replace `taskID`, `databaseID`, `databaseName` and `tableName` accordingly.
 
 If Bytebase is running on docker, show gh-ost status with the command below:
 
-```bash
+```text
 docker exec -it bytebase /bin/sh
 ```
 
-```bash
+```text
 echo "status" | nc local:/tmp/gh-ost.taskID.databaseID.databaseName.tableName.sock
 ```
 
 Otherwise, execute the command below:
 
-```bash
+```text
 echo "status" | nc -U /tmp/gh-ost.taskID.databaseID.databaseName.tableName.sock
 ```
 
@@ -119,17 +119,17 @@ To kill gh-ost, you issue "panic" to the UNIX socket file on which gh-ost listen
 
 If Bytebase is running on docker, execute the command below to kill gh-ost:
 
-```bash
+```text
 docker exec -it bytebase /bin/sh
 ```
 
-```bash
+```text
 echo "panic" | nc local:/tmp/gh-ost.taskID.databaseID.databaseName.tableName.sock
 ```
 
 Otherwise, run the command below:
 
-```bash
+```text
 echo "panic" | nc -U /tmp/gh-ost.taskID.databaseID.databaseName.tableName.sock
 ```
 

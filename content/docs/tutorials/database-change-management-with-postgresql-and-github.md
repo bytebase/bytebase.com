@@ -98,7 +98,7 @@ Before you start this tutorial, make sure:
 
    Paste the sql script in it.
 
-```bash
+```text
 CREATE TABLE
    "public"."t2" (
    "id" integer NOT NULL,

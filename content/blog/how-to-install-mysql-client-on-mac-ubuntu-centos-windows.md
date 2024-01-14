@@ -22,7 +22,7 @@ The official [MySQL Client `mysql`](https://dev.mysql.com/doc/refman/8.0/en/mysq
 Before you start, you should confirm that you don't have MySQL client installed. If you have installed MySQL server before, likely
 you will have MySQL client installed as well. If you see something like below, then MySQL client is already installed and you can stop reading now.
 
-```bash
+```text
 $ mysql --version
 mysql  Ver 8.0.31 for macos13.0 on arm64 (Homebrew)
 ```
@@ -31,7 +31,7 @@ mysql  Ver 8.0.31 for macos13.0 on arm64 (Homebrew)
 
 After you install the MySQL client following the below instruction, you can test the connection to your MySQL server using
 
-```bash
+```text
 mysql -h hostname -u username -p
 ```
 
@@ -41,37 +41,37 @@ mysql -h hostname -u username -p
 
 To install MySQL Shell using [Homebrew](https://brew.sh/), you need to install Homebrew on your Mac first. If you aren’t sure if you have installed Homebrew already, open your terminal and run the following command to check.
 
-```bash
+```text
 brew -v
 ```
 
 If not installed, run the following command to install Homebrew first:
 
-```bash
+```text
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 Once Homebrew is installed, run the following command to update the list of available packages:
 
-```bash
+```text
 brew update
 ```
 
 To install the MySQL client, run the following command:
 
-```bash
+```text
 brew install mysql-client
 ```
 
 After the installation is complete, you can verify that the MySQL client is installed by running the following command:
 
-```bash
+```text
 mysql --version
 ```
 
 Note: If you have previously installed the MySQL server using Homebrew, you may need to run the following command to link the MySQL client:
 
-```bash
+```text
 brew link --overwrite mysql-client
 ```
 
@@ -82,7 +82,7 @@ brew link --overwrite mysql-client
 1. Double-click the package to start the installation process, and follow the on-screen instructions to complete the installation.
 1. Once the installation is complete, you can verify that the MySQL client is installed by opening a Terminal window and running the following command:
 
-   ```bash
+   ```text
    mysql --version
    ```
 
@@ -95,20 +95,20 @@ Note: If you have previously installed the MySQL server using a package manager 
 1. Open a terminal window on your Ubuntu machine. You can do this by pressing Ctrl+Alt+T on your keyboard.
 1. Update the package list and upgrade any installed packages by running the following commands:
 
-   ```bash
+   ```text
    sudo apt-get update
    sudo apt-get upgrade
    ```
 
 1. Install the MySQL client by running the following command:
 
-   ```bash
+   ```text
    sudo apt-get install mysql-client
    ```
 
 1. After the installation is complete, you can verify that the MySQL client is installed by running the following command:
 
-   ```bash
+   ```text
    mysql --version
    ```
 
@@ -117,19 +117,19 @@ Note: If you have previously installed the MySQL server using a package manager 
 1. Open a terminal window on your CentOS machine. You can do this by pressing Ctrl+Alt+T on your keyboard.
 1. Update the package list and upgrade any installed packages by running the following commands:
 
-   ```bash
+   ```text
    sudo yum update
    ```
 
 1. Install the MySQL client by running the following command:
 
-   ```bash
+   ```text
    sudo yum install mysql
    ```
 
 1. After the installation is complete, you can verify that the MySQL client is installed by running the following command:
 
-   ```bash
+   ```text
    mysql --version
    ```
 
@@ -142,7 +142,7 @@ Note: If you have previously installed the MySQL server using a package manager 
 1. Complete the rest of the installation process.
 1. After the installation is complete, you can verify that the MySQL client is installed by opening a Command Prompt or PowerShell window and running the following command:
 
-```bash
+```text
 mysql --version
 ```
 

@@ -25,31 +25,31 @@ If you want a GUI tool,
 
 The easiest way to install Postgres on a Mac is to use Homebrew. If you don't have Homebrew installed, you can install it by running the following command in your terminal:
 
-```bash
+```text
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 Once you have Homebrew installed, you can install Postgres by running the command
 
-```bash
+```text
 brew install postgresql
 ```
 
 After Postgres is installed, you can start the database server by running this command, which will start the server and make it available to your local machine.
 
-```bash
+```text
 brew services start postgresql
 ```
 
 With the Postgres server running, you can create a new database by running the following command, make sure to replace "mydatabase" with the name you want to give your database.
 
-```bash
+```text
 createdb mydatabase
 ```
 
 Run this command to connect to the database you just created.
 
-```bash
+```text
 psql mydatabase
 ```
 
@@ -57,43 +57,43 @@ psql mydatabase
 
 The following command will install the latest version of Postgres available in the Ubuntu package repository.
 
-```bash
+```text
 sudo apt-get install postgresql
 ```
 
 After Postgres is installed, you can start the database server by running the following command, which will start the server and make it available to your local machine.
 
-```bash
+```text
 sudo service postgresql start
 ```
 
 By default, Postgres creates a user account with the same name as your system user, but with no password. To create a user account, you can run the command and follow the prompts to create a new user account.
 
-```bash
+```text
 sudo -u postgres createuser --interactive
 ```
 
 You can also set a password for the user account to connect to the Postgres console, run
 
-```bash
+```text
 sudo -u postgres psql
 ```
 
 and then run (replacing "username" and "password" with the username and password you want to use)
 
-```bash
+```text
 ALTER USER username WITH PASSWORD 'password';
 ```
 
 With the Postgres server running and a user account created, you can create a new database with the following (replacing "mydatabase" with the name you want to give your database, and "myuser" with the username you created in the last step)
 
-```bash
+```text
 createdb mydatabase -O myuser
 ```
 
 Now connect to your new database using the psql command (again, replacing "mydatabase" with the name of your database, and "myuser" with the username you created).
 
-```bash
+```text
 psql mydatabase -U myuser
 ```
 
@@ -105,50 +105,50 @@ Open a terminal window on your CentOS machine. You can do this by pressing Ctrl+
 
 Update the package list and upgrade any installed packages by running the following commands:
 
-```bash
+```text
 sudo yum update
 ```
 
 Install Postgres:
 
-```bash
+```text
 sudo yum install postgresql-server postgresql-contrib
 ```
 
 Initialize the database:
 
-```bash
+```text
 sudo postgresql-setup initdb
 ```
 
 Start the Postgres Service:
 
-```bash
+```text
 sudo systemctl start postgresql
 ```
 
 And enable Postgres to start on Boot:
 
-```bash
+```text
 sudo systemctl enable postgresql
 ```
 
 Create a new user:
 
-```bash
+```text
 sudo -u postgres createuser --interactive
 ```
 
 Optionally, you can set a password for the new user:
 
-```bash
+```text
 sudo -u postgres psql
 postgres=# \password &lt;user_name>
 ```
 
 Create a new database:
 
-```bash
+```text
 sudo -u postgres createdb &lt;database_name>
 ```
 

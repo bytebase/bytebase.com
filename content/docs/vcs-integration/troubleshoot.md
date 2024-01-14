@@ -101,7 +101,7 @@ server {
 
 Run the following command to reload your updated config file.
 
-```bash
+```text
 sudo nginx -s reload
 ```
 

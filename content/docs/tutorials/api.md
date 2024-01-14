@@ -89,7 +89,7 @@ Below is an example app demonstrating the following APIs:
 
 1. Run the following commands to start the sample application.
 
-   ```bash
+   ```text
    pnpm i && pnpm dev
    ```
 

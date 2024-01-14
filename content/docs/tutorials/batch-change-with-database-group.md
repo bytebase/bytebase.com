@@ -29,7 +29,7 @@ This tutorial requires [Docker](https://www.docker.com/) to be installed.
 
 <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
-```bash
+```text
 docker run --name mysqldtest \
   --publish 3307:3306 \
   -e MYSQL_ROOT_HOST=172.17.0.1 \
@@ -37,7 +37,7 @@ docker run --name mysqldtest \
   mysql/mysql-server:8.0
 ```
 
-```bash
+```text
 docker run --name mysqldprod \
   --publish 3308:3306 \
   -e MYSQL_ROOT_HOST=172.17.0.1 \

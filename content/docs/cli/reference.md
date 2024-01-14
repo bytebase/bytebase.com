@@ -16,7 +16,7 @@ All commands that operate databases require this option, including:
 
 The supported format is
 
-```bash
+```text
 driver://username[:password]@host[:port]/[dbName][?param=value&...&param=value]
 ```
 
@@ -55,14 +55,14 @@ Internally, every `migrate` command will be recorded in history. It is recommend
 
 #### Usage
 
-```bash
+```text
 bb migrate --dsn mysql://root@localhost:3306/bytebase_test_todo \
   --command "ALTER TABLE author ADD COLUMN phone_no VARCHAR(15);"
 ```
 
 Apply SQL command to the given database.
 
-```bash
+```text
 bb migrate --dsn mysql://root@localhost:3306/bytebase_test_todo \
   --file migrate_v1_0_1.sql
 ```
@@ -85,13 +85,13 @@ This command is used to back up a database. When given no output file and only d
 
 #### Usage
 
-```bash
+```text
 bb dump --dsn mysql://root@localhost:3306/ --file backup.sql
 ```
 
 Dump the schema and data from all databases in localhost:3306 mysql, to `backup.sql`.
 
-```bash
+```text
 bb dump --dsn mysql://root@localhost:3306/bytebase_test_todo --schema-only
 ```
 
@@ -111,7 +111,7 @@ Internally, `restore` command will NOT be recorded. It is recommended that `rest
 
 #### Usage
 
-```bash
+```text
 bb restore --dsn mysql://root@localhost:3306/ \
   --file backup.sql
 ```

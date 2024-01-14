@@ -10,6 +10,6 @@ Run the following command to start Bytebase on container port `8080` and map it 
 
 If you ran Bytebase before, you can reset all data by running this command:
 
-```bash
+```text
 rm -rf ~/.bytebase/data
 ```

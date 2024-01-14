@@ -28,19 +28,19 @@ Follow [Terraform installation Guide](https://developer.hashicorp.com/terraform/
 
 1. Install the HashiCorp tap, a repository of all our Homebrew packages.
 
-```bash
+```text
 brew tap hashicorp/tap
 ```
 
 2. Install Terraform with hashicorp/tap/terraform.
 
-```bash
+```text
 brew install hashicorp/tap/terraform
 ```
 
 3. Verify the installation by typing.
 
-```bash
+```text
 terraform -help
 ```
 
@@ -54,7 +54,7 @@ In this section, you’ll start Bytebase and follow its onboard guide.
 
 2. Type the following commands one by one in the terminal to start two MySQL instances, and they will be mapped to `Test` and `Prod` environments later.
 
-```bash
+```text
 docker run --name mysqldtest \
   --publish 3307:3306 \
   -e MYSQL_ROOT_HOST=172.17.0.1 \
@@ -62,7 +62,7 @@ docker run --name mysqldtest \
   mysql/mysql-server:8.0
 ```
 
-```bash
+```text
 docker run --name mysqldprod \
   --publish 3308:3306 \
   -e MYSQL_ROOT_HOST=172.17.0.1 \

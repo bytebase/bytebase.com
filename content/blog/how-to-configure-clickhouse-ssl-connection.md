@@ -50,7 +50,7 @@ We will generate the following certificate chain:
 
 To generate Root CA certificate and other peer's certificate request, you need to set up a configure file as below:
 
-```bash
+```text
 cat >req.conf <<EOF
 [ req ]
 distinguished_name = req_distinguished_name
@@ -81,13 +81,13 @@ Note, it uses IP address directly here in order to keep this example simple. You
 
 Generate Root CA Key. To simplify the test, you can skip specifying the passphrase.
 
-```bash
+```text
 openssl genrsa -out ca.key 2048
 ```
 
 Now, use this key and OpenSSL config above to generate the CA certificate:
 
-```bash
+```text
 openssl req -x509 -new -key ca.key -sha256 -days 36500 -out ca.pem -extensions 'v3_ca' -config req.conf
 ```
 
@@ -95,13 +95,13 @@ openssl req -x509 -new -key ca.key -sha256 -days 36500 -out ca.pem -extensions '
 
 Generate Server Key without the passphrase, too:
 
-```bash
+```text
 openssl genrsa -out server.key 2048
 ```
 
 Use the server key and OpenSSL config above to generate the server certificate like what you have done for CA. But the difference is that at this time you need to request the CA's Key for signing.
 
-```bash
+```text
 openssl req -new -sha256 -key server.key -out server.csr -subj "/C=CN/ST=GD/O=Bytebase/CN=YOUR_SERVER_IP"
 openssl x509 -req -days 36500 -sha256 -extensions v3_req -CA ca.pem -CAkey ca.key -CAcreateserial -in server.csr -out server.pem
 ```
@@ -112,7 +112,7 @@ openssl x509 -req -days 36500 -sha256 -extensions v3_req -CA ca.pem -CAkey ca.ke
 
 From the SSL authentication perspective, Client and Server are equal partners, so you use the same steps as the server to generate client-related SSL files.
 
-```bash
+```text
 openssl genrsa -out client.key 2048
 openssl req -new -sha256 -key client.key -out client.csr -subj "/C=CN/ST=GD/O=Bytebase/CN=dev.testssl.com"
 openssl x509 -req -days 36500 -sha256 -extensions v3_req -CA ca.pem -CAkey ca.key -CAcreateserial -in client.csr -out client.pem
@@ -148,7 +148,7 @@ From ClickHouse config, you can see:
 
 you need to generate dhparams by using the command below:
 
-```bash
+```text
 openssl dhparam -out /etc/clickhouse-server/dhparam.pem 4096
 ```
 
@@ -228,7 +228,7 @@ Uncommenting the `listen_host` tag:
 
 Then, restart the ClickHouse server. For example, on Ubuntu:
 
-```bash
+```text
 sudo service clickhouse-server restart
 ```
 
@@ -242,7 +242,7 @@ You don't need to do anything in this step if you only test it on the machine th
 
 On another machine, set-up the ClickHouse client config that you will use later:
 
-```bash
+```text
 cat >clickhouse-client-ssl.xml <<EOF
 <config>
        <user>default</user>
@@ -264,7 +264,7 @@ EOF
 
 Run the following command, and you are expected to get some output like below:
 
-```bash
+```text
 clickhouse-client –-config=clickhouse-client-ssl.xml
 ```
 
@@ -274,7 +274,7 @@ clickhouse-client –-config=clickhouse-client-ssl.xml
 
 Use MySQL client to connect the ClickHouse server via SSL. Run the following command, and you are expected to get some output like below:
 
-```bash
+```text
 mysql -u default -p -h YOUR_SERVER_IP -P 9004 --ssl-ca=/etc/ssl/ca.pem --ssl-cert=/etc/ssl/client.pem --ssl-key=/etc/ssl/client.key --execute="STATUS"
 ```
 

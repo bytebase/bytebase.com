@@ -25,7 +25,7 @@ If [--pg](/docs/reference/command-line#--pg-string) is specified, the metadata w
 
 ### Back up the metadata
 
-```bash
+```text
 pg_dump -h <<host>> -p <<port>> -U <<user>> -d metadb > metadb.sql
 ```
 
@@ -35,13 +35,13 @@ pg_dump -h <<host>> -p <<port>> -U <<user>> -d metadb > metadb.sql
 
 Create a new db `metadb_new`:
 
-```bash
+```text
 psql -h <<host>> -p <<port>> -U <<user>> metadb -c "CREATE DATABASE metadb_new"
 ```
 
 Restore metdata to the new db:
 
-```bash
+```text
 psql -h <<host>> -p <<port>> -U <<user>> metadb_new < metadb.sql
 ```
 
@@ -57,13 +57,13 @@ Also, you can not rename the connecting database so you need to connect to the P
 
 Rename existing `metadb` to `metadb_old`:
 
-```bash
+```text
 psql -h <<host>> -p <<port>> -U <<user>> postgres -c "ALTER DATABASE metadb RENAME TO metadb_old"
 ```
 
 Rename `metadb_new` to the `metadb`, which will serve as the new metadata db:
 
-```bash
+```text
 psql -h <<host>> -p <<port>> -U <<user>> postgres -c "ALTER DATABASE metadb_new RENAME TO metadb"
 ```
 
@@ -71,7 +71,7 @@ psql -h <<host>> -p <<port>> -U <<user>> postgres -c "ALTER DATABASE metadb_new 
 
 Restart Bytebase and verify the metadata is restored properly. Afterwards, you can drop the old database:
 
-```bash
+```text
 psql -h <<host>> -p <<port>> -U <<user>> postgres -c "DROP DATABASE metadb_old"
 ```
 
@@ -92,13 +92,13 @@ which corresponds to the `namespace` column, change each occurrence from `metadb
 
 Create a new db `metadb2`:
 
-```bash
+```text
 psql -h <<host>> -p <<port>> -U <<user>> metadb -c "CREATE DATABASE metadb2"
 ```
 
 Restore metdata to the new db:
 
-```bash
+```text
 psql -h <<host>> -p <<port>> -U <<user>> metadb2 < metadb.sql
 ```
 
@@ -106,7 +106,7 @@ psql -h <<host>> -p <<port>> -U <<user>> metadb2 < metadb.sql
 
 Restart Bytebase and verify the metadata is restored properly. Afterwards, you can drop the old database:
 
-```bash
+```text
 psql -h <<host>> -p <<port>> -U <<user>> postgres -c "DROP DATABASE metadb"
 ```
 

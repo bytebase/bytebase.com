@@ -100,7 +100,7 @@ There may be a few reasons the manifest file is not found:
 
 Due to the vm mechanism of [Colima](https://github.com/abiosoft/colima), try to use the `--mount` option when starting colima as shown below:
 
-```bash
+```text
 mkdir ~/volumes
 colima start --mount ~/volumes:w
 docker run --init \
@@ -188,19 +188,19 @@ spec:
 
 1. Start Bytebase with the following command:
 
-   ```bash
+   ```text
    kubectl apply -f bb.yaml
    ```
 
 2. Make sure everything worked by listing your deployments:
 
-   ```bash
+   ```text
    kubectl get statefulsets
    ```
 
    Do the same check for your services:
 
-   ```bash
+   ```text
    kubectl get services
    ```
 
@@ -228,7 +228,7 @@ For production setup, you should configure a proper [External URL](/docs/get-sta
 
 #### Installing the Chart
 
-```bash
+```text
 helm -n <YOUR_NAMESPACE> \
 --set "bytebase.option.port"={PORT} \
 --set "bytebase.option.external-url"={EXTERNAL_URL} \
@@ -239,7 +239,7 @@ install <RELEASE_NAME> bytebase-repo/bytebase
 
 For example:
 
-```bash
+```text
 helm -n bytebase \
 --set "bytebase.option.port"=443 \
 --set "bytebase.option.external-url"="https://bytebase.example.com" \
@@ -250,7 +250,7 @@ install bytebase-release bytebase-repo/bytebase
 
 #### Uninstalling the Chart
 
-```bash
+```text
 helm delete --namespace <YOUR_NAMESPACE> <RELEASE_NAME>
 ```
 
@@ -258,7 +258,7 @@ helm delete --namespace <YOUR_NAMESPACE> <RELEASE_NAME>
 
 Use `helm upgrade` command to upgrade the bytebase version or configuration.
 
-```bash
+```text
 helm -n <YOUR_NAMESPACE> \
 --set "bytebase.option.port"={NEW_PORT} \
 --set "bytebase.option.external-url"={NEW_EXTERNAL_URL} \
@@ -383,7 +383,7 @@ The installation script is stored at [https://github.com/bytebase/install](https
 
 Using install script to install the latest release version:
 
-```bash
+```text
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/bytebase/install/main/install.sh)"
 ```
 
@@ -415,7 +415,7 @@ Check the usage with
 
 After install completes, run:
 
-```bash
+```text
 bytebase --port 8080
 ```
 
@@ -440,11 +440,11 @@ Estimated time: **30 minutes**.
 
 It's recommended to run Bytebase application as non-root user for security reason. If you don't have other non-root users on the system, you can follow the following steps to setup one, e.g. user `bytebase`.
 
-```bash
+```text
 groupadd bytebase && useradd -g bb bytebase
 ```
 
-```bash
+```text
 sudo su bytebase
 ```
 
@@ -458,13 +458,13 @@ If you want to build from a specific release `x.y.z`, then switch to that tag.
 
 </HintBlock>
 
-```bash
+```text
 git checkout tags/x.y.z
 ```
 
 Build the source
 
-```bash
+```text
 scripts/build_bytebase.sh [<<out_directory>>]
 ```
 
@@ -472,7 +472,7 @@ If `out_directory`is not specified, the default directory is `./bytebase-build`
 
 Suppose you run `scripts/build_bytebase.sh foo` After build completes, run:
 
-```bash
+```text
 foo/bytebase --port 8080
 ```
 
@@ -488,7 +488,7 @@ You should see something like this in the console:
 
 Change the open file limit:
 
-```bash
+```text
 ulimit -n 10240
 ```
 

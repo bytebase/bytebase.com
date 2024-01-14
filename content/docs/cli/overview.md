@@ -11,13 +11,13 @@ This page contains a getting-started covering frequently used commands.
 
 To install `bb`, just paste the following command in a macOS Terminal or Linux shell prompt:
 
-```bash
+```text
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/bytebase/install/HEAD/install.sh)"
 ```
 
 This installs `bb` in `/usr/local/bin`. Run the following command to check if `bb` is installed:
 
-```bash
+```text
 bb --help
 ```
 
@@ -45,7 +45,7 @@ Use "bb [command] --help" for more information about a command.
 
 To use `bb`, you need a database. You can start an empty MySQL docker container (make sure the Docker Engine is running):
 
-```bash
+```text
 docker run -d \
   -e MYSQL_ROOT_PASSWORD=passwd \
   -p 3306:3306 \
@@ -56,11 +56,11 @@ docker run -d \
 
 After the MySQL server has started, you can restore an example database from our quickstart:
 
-```bash
+```text
 curl -O https://raw.githubusercontent.com/bytebase/bytebase/main/quickstart/test_schema/mysql/1_todo.sql
 ```
 
-```bash
+```text
 bb restore --dsn mysql://root:passwd@localhost:3306 --file 1_todo.sql
 ```
 
@@ -68,7 +68,7 @@ bb restore --dsn mysql://root:passwd@localhost:3306 --file 1_todo.sql
 
 To view the current schema, you can dump schema to stdout:
 
-```bash
+```text
 bb dump --dsn mysql://root:passwd@localhost:3306/ --schema-only
 ```
 
@@ -88,7 +88,7 @@ CREATE TABLE `author` (
 
 Say you want to add a `phone_no` column to the table `author`. This is a so-called **database migration** and you can use `bb migrate` to do so:
 
-```bash
+```text
 bb migrate \
   --dsn mysql://user:passwd@localhost:3306/bytebase_test_todo \
   --command "ALTER TABLE author ADD COLUMN phone_no VARCHAR(15);"
@@ -96,7 +96,7 @@ bb migrate \
 
 After migration, you can dump again to check if the migration has executed successfully:
 
-```bash
+```text
 bb dump --dsn mysql://root:passwd@localhost:3306/bytebase_test_todo --schema-only
 ```
 

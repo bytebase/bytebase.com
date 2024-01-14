@@ -4,7 +4,7 @@ title: Server Startup Options
 
 The "help" command prints all applicable options
 
-```bash
+```text
 ./bytebase help
 ```
 

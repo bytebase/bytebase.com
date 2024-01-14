@@ -10,7 +10,7 @@ title: VCS with ngrok
 
 1. Run ngrok:
 
-   ```bash
+   ```text
    ngrok http 8080
    ```
 

@@ -19,7 +19,7 @@ This article refers to the advanced MySQL Shell introduced in MySQL 8.0, if you 
 
 To install MySQL Shell using [Homebrew](https://brew.sh/), you need to install Homebrew on your Mac first. If you aren’t sure if you have installed Homebrew already, open your terminal and run the following command to check.
 
-```bash
+```text
 brew -v
 ```
 
@@ -29,7 +29,7 @@ If you have, the terminal will display something like this:
 
 Otherwise, run the following command to install Homebrew first:
 
-```bash
+```text
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
@@ -43,7 +43,7 @@ On successful installation, your terminal will return a few new lines, with one 
 
 To [install MySQL Shell using Homebrew](https://formulae.brew.sh/cask/mysql-shell), run the following command in the terminal:
 
-```bash
+```text
 brew install --cask mysql-shell
 ```
 
@@ -55,7 +55,7 @@ The installation will start shortly. You will know it's done when your Terminal 
 
 Start MySQL Shell to verify the installation.
 
-```bash
+```text
 mysqlsh
 ```
 
@@ -92,7 +92,7 @@ When the installer finishes, it means you have successfully installed MySQL Shel
 
 Start MySQL Shell to verify the installation.
 
-```bash
+```text
 mysqlsh
 ```
 
@@ -113,7 +113,7 @@ Type '\help' or '\?' for help; '\quit' to exit.
 
 You can start MySQL Shell using this command:
 
-```bash
+```text
 mysqlsh
 ```
 

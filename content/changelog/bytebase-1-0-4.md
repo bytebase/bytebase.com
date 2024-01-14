@@ -19,7 +19,7 @@ Support data source name (DSN) formats to connect databases in CLI, e.g. `--dsn 
 
 User can install `bb` CLI with only one command.
 
-```bash
+```text
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/bytebase/bytebase/HEAD/scripts/install_bb.sh)"
 ```
 

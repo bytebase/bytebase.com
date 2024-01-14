@@ -22,7 +22,7 @@ The task here is to add `nickname` column to `employee` table for both dev and p
 
 ### MacOS & Linux
 
-```bash
+```text
 curl -fsS https://raw.githubusercontent.com/bytebase/bytebase/main/quickstart/getting-started.docker-compose.yml | BB_VERSION=%%bb_version%% docker-compose -f - up
 ```
 

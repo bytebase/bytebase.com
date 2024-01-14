@@ -37,7 +37,7 @@ This tutorial will walk you through how to create custom approval flows based on
 - `mysqld-test` , `3307`
 - `mysqld-prod` , `3308`
 
-```bash
+```text
 docker run --name mysqld-test \
   --publish 3307:3306 \
   -e MYSQL_ROOT_HOST=172.17.0.1 \
@@ -45,7 +45,7 @@ docker run --name mysqld-test \
   mysql/mysql-server:8.0
 ```
 
-```bash
+```text
 docker run --name mysqld-prod\
   --publish 3308:3306 \
   -e MYSQL_ROOT_HOST=172.17.0.1 \

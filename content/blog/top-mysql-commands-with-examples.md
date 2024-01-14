@@ -18,25 +18,25 @@ Below list the 10 most commonly used `mysql` commands with examples.
 
 Connects to the local MySQL server via socket /tmp/mysql.sock as the specified user and prompts for a password.
 
-```bash
+```text
 mysql -u username -p
 ```
 
 Connects to the MySQL server on the specified host at port 3306 and prompts for a password.
 
-```bash
+```text
 mysql -u username -p -h hostname
 ```
 
 Connects to the MySQL server on the specified host and port and prompts for a password.
 
-```bash
+```text
 mysql -u username -p -h hostname -P portnumber
 ```
 
 Connects to the specified database on the specified host and port as the specified user and prompts for a password.
 
-```bash
+```text
 mysql -u username -p -h hostname -P portnumber -D databasename
 # can also omit -D
 mysql -u username -p -h hostname -P portnumber databasename
@@ -46,19 +46,19 @@ mysql -u username -p -h hostname -P portnumber databasename
 
 Use `-e` to execute a single statement.
 
-```bash
+```text
 mysql -u username -p -h hostname -P portnumber databasename -e "SELECT 1"
 ```
 
 Alternatively, you can pipe the statements from a file.
 
-```bash
+```text
 mysql -u username -p -h hostname -P portnumber databasename < filename.sql
 ```
 
 ## 3. List all databases - SHOW DATABASES
 
-```bash
+```text
 mysql> SHOW DATABASES;
 +--------------------+
 | Database           |
@@ -70,7 +70,7 @@ mysql> SHOW DATABASES;
 +--------------------+
 ```
 
-```bash
+```text
 # Support LIKE
 mysql> SHOW DATABASES LIKE '%schema';
 +--------------------+
@@ -83,7 +83,7 @@ mysql> SHOW DATABASES LIKE '%schema';
 
 ## 4. Switch to another database - USE xxx
 
-```bash
+```text
 mysql> USE mysql;
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
@@ -93,7 +93,7 @@ Database changed
 
 ## 5. List all tables under a database - SHOW TABLES
 
-```bash
+```text
 # Support LIKE
 mysql> SHOW TABLES LIKE 'time%';
 +---------------------------+
@@ -109,7 +109,7 @@ mysql> SHOW TABLES LIKE 'time%';
 
 ## 6. Describe table schema - DESCRIBE xxx
 
-```bash
+```text
 mysql> DESCRIBE time_zone;
 +------------------+---------------+------+-----+---------+----------------+
 | Field            | Type          | Null | Key | Default | Extra          |
@@ -119,7 +119,7 @@ mysql> DESCRIBE time_zone;
 +------------------+---------------+------+-----+---------+----------------+
 ```
 
-```bash
+```text
 # DESC also works
 mysql> DESC time_zone;
 +------------------+---------------+------+-----+---------+----------------+
@@ -136,7 +136,7 @@ mysql> DESC time_zone;
     [FOR user_or_role
         [USING role [, role] ...]]`
 
-```bash
+```text
 # Show grants for the current user
 mysql> SHOW GRANTS;
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -145,12 +145,12 @@ mysql> SHOW GRANTS;
 | GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, SHUTDOWN, PROCESS, FILE, REFERENCES, INDEX, ALTER, SHOW DATABASES, SUPER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, CREATE TABLESPACE, CREATE ROLE, DROP ROLE ON *.* TO `root`@`%` WITH GRANT OPTION                                                                                                                                                                                                                                                                                                                                                                 |
 ```
 
-```bash
+```text
 # Show grants for a particular user
 mysql> SHOW GRANTS FOR root@localhost;
 ```
 
-```bash
+```text
 # List all users and grants
 mysql> SELECT User, Host, Grant_priv, Super_priv FROM mysql.user;
 +------------------+-----------+------------+------------+
@@ -171,7 +171,7 @@ mysql> SELECT User, Host, Grant_priv, Super_priv FROM mysql.user;
 
 _Without the FULL keyword, SHOW PROCESSLIST displays only the first 100 characters of each statement in the Info field._
 
-```bash
+```text
 mysql> SHOW PROCESSLIST;
 +-------+-----------------+------------------+------+---------+--------+------------------------+-------------------+
 | Id    | User            | Host             | db   | Command | Time   | State                  | Info              |
@@ -184,7 +184,7 @@ mysql> SHOW PROCESSLIST;
 
 If you want to apply filtering, then query the underlying `INFORMATION_SCHEMA.PROCESSLIST` table.
 
-```bash
+```text
 mysql> SELECT * FROM INFORMATION_SCHEMA.PROCESSLIST WHERE USER = 'root';
 +-------+------+------------------+------+---------+------+------------+------------------------------------------------------------------+
 | ID    | USER | HOST             | DB   | COMMAND | TIME | STATE      | INFO                                                             |
@@ -200,36 +200,36 @@ mysql> SELECT * FROM INFORMATION_SCHEMA.PROCESSLIST WHERE USER = 'root';
 
 `KILL CONNECTION` is the same as KILL with no modifier: It terminates the connection associated with the given processlist_id, after terminating any statement the connection is executing. This can be useful if you want to terminate a long-running or problematic connection that is causing issues for other users or processes.
 
-```bash
+```text
 mysql> KILL 123;
 ```
 
 `KILL QUERY` terminates the statement the connection is currently executing, but leaves the connection itself intact. This can be useful if you have a specific query that is causing issues or is taking too long to execute, and you want to terminate only that query without affecting other queries or processes running on the same connection.
 
-```bash
+```text
 mysql> KILL QUERY 123;
 ```
 
 ## 10. Quit - \q, quit, exit, Ctrl+D/Ctrl+Z
 
-```bash
+```text
 mysql> \q
 Bye
 ```
 
-```bash
+```text
 mysql> exit
 Bye
 ```
 
-```bash
+```text
 mysql> quit
 Bye
 ```
 
 Alternatively, you can use the shortcut key `Ctrl+D` (or `Ctrl+Z` on Windows).
 
-```bash
+```text
 mysql> ^DBye
 ```
 
@@ -239,7 +239,7 @@ mysql> ^DBye
 
 Some query results are much more readable when displayed vertically using `\G`.
 
-```bash
+```text
 mysql> SHOW GRANTS\G;
 *************************** 1. row ***************************
 Grants for root@%: GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, SHUTDOWN, PROCESS, FILE, REFERENCES, INDEX, ALTER, SHOW DATABASES, SUPER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, CREATE TABLESPACE, CREATE ROLE, DROP ROLE ON *.* TO `root`@`%` WITH GRANT OPTION
