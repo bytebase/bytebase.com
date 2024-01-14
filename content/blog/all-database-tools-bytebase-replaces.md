@@ -55,6 +55,6 @@ configured to post to IM via [webhook](/docs/change-database/webhook).
 ## Summary
 
 Bytebase takes care of all human-to-database operations. It's an all-in-one solution for teams to
-adopt a unified process to change, query, secure, govern the databases.
+adopt a unified process to change, query, secure, govern the databases. Bytebase consolidates disparate DB tools and 10x efficiency, security and PII compliance for the engineering org. To learn more, please check out [case studies](/blog/category/case-study/).
 
 ![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
