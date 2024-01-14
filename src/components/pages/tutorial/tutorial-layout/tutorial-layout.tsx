@@ -31,10 +31,6 @@ const TutorialLayout = ({ posts, filters, children }: TutorialLayoutProps) => {
     return filteredPosts.sort((a, b) => {
       if (a.pinned && !b.pinned) return -1;
       if (!a.pinned && b.pinned) return 1;
-      const aHasGeneral = a.integrations?.includes('General');
-      const bHasGeneral = b.integrations?.includes('General');
-      if (aHasGeneral && !bHasGeneral) return -1;
-      if (!aHasGeneral && bHasGeneral) return 1;
       return 0;
     });
   }, [activeFilters, posts]);

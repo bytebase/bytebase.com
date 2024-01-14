@@ -1,5 +1,6 @@
 import { BlogPost } from '@/types/blog-post';
 import Link from 'next/link';
+import format from 'date-fns/format';
 
 import AuroraIcon from '@/svgs/aurora.inline.svg';
 import AzureDevOpsIcon from '@/svgs/azure-devops.inline.svg';
@@ -54,20 +55,28 @@ const Posts = ({ posts }: PostsProps) => {
                 className="flex h-full justify-between border border-gray-90 p-4 hover:border-gray-60"
                 href={`/docs/tutorials/${post.slug}`}
               >
-                <h4 className="text-18 font-semibold leading-tight xl:text-16 xl:leading-snug">
+                <h4 className="flex flex-row text-18 font-semibold leading-tight xl:text-16 xl:leading-snug">
                   {post.pinned && '📌'} {post.title}
-                </h4>
-                <div className="mt-auto flex items-center gap-x-4">
                   {post.integrations && (
-                    <div className="relative flex items-center gap-x-2 after:absolute after:-right-[9px] after:top-2 after:h-0.5 after:w-0.5 after:rounded-full after:bg-gray-60">
+                    <div className="ml-2 flex items-center gap-x-2">
                       {post.integrations.split(', ').map((integration) => {
                         const Logo = allIntegrations[integration.toLowerCase()];
                         return <Logo className="h-5 w-5" key={integration.toLowerCase()} />;
                       })}
                     </div>
                   )}
+                </h4>
+                <div className="mt-auto flex items-center gap-x-4">
+                  {post.published_at && (
+                    <time
+                      className="relative flex items-center gap-x-2 text-14 text-gray-40 after:absolute after:-right-[9px] after:top-2.5 after:h-0.5 after:w-0.5 after:rounded-full after:bg-gray-60"
+                      dateTime={post.published_at}
+                    >
+                      {format(new Date(post.published_at), 'MMM dd, yyyy')}
+                    </time>
+                  )}
                   {post.estimated_time && (
-                    <div className="text-14 leading-none text-gray-40 ">{post.estimated_time}</div>
+                    <div className="text-14 text-gray-40">{post.estimated_time} </div>
                   )}
                 </div>
               </Link>
