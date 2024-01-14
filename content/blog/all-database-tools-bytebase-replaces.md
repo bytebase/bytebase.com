@@ -4,6 +4,7 @@ author: Tianzhou
 published_at: 2024/01/01 09:00:00
 feature_image: /content/blog/all-database-tools-bytebase-replaces/tools.webp
 tags: Explanation
+featured: true
 description: Bytebase is an all-in-one solution for database development lifecycle management. It replaces fragmented database tools and unifies the workflow in a single place.
 ---
 
