@@ -1,10 +1,10 @@
 ---
-title: POC Handbook
+title: POC Checklist
 ---
 
-This doc guides through the POC (Proof of Concept) for the potential Bytebase customers to qualify
-the Enterprise plan. The process usually takes 1 ~ 2 weeks. Please [contact us](/contact-us)
-to request an enterprise license.
+The POC (Proof of Concept) checklist helps the potential buyers to evaluate the Bytebase Enterprise
+plan. The POC process usually takes 1 ~ 2 weeks. Please [contact us](/contact-us) to request an
+enterprise license.
 
 ## Install
 

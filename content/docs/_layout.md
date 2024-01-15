@@ -9,7 +9,7 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Supported Databases](/introduction/supported-databases)
 
-### [POC Handbook](/poc)
+### [POC Checklist](/poc)
 
 ### [FAQ](/faq)
 
