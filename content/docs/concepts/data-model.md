@@ -22,13 +22,13 @@ See [Roles and Permissions](/docs/concepts/roles-and-permissions).
 
 `Environment` models after various environments in the development pipeline such as test, staging, prod. Most of the time, there is a 1:1 mapping between `Environment` and the real environment.
 
-Most of the time, `Owners` and `DBAs` work with the `Environment`.
+Most of the time, `Admins` and `DBAs` work with the `Environment`.
 
 ## Database Instance
 
 `Database Instance` or simply `Instance` models after a single database instance which is usually accessed via a host:port address. A typical database instance could be your on-premises MySQL instance, an AWS RDS instance etc. Each `Database Instance` belongs to an `Environment`
 
-Most of the time, `Owners` and `DBAs` work with the `Database Instance`.
+Most of the time, `Admins` and `DBAs` work with the `Database Instance`.
 
 ## Database
 
@@ -44,7 +44,7 @@ Most of the time, `Developers` work with the `Project`.
 
 ## Issue
 
-`Issue` represents a specific collaboration activity between `Developer` and `DBA` such as creating a database, altering a schema. It's similar to the issue concept in other issue management tools.
+`Issue` represents a specific collaboration activity between `Member` and `DBA` such as creating a database, altering a schema. It's similar to the issue concept in other issue management tools.
 
 In Bytebase, `Issue` is optimized for **database domain**. An `Issue` always belongs to a `Project`. A single `Issue` is only dealing with a particular `Database Instance` (e.g. creating a database on a database instance). Except for creating database issue, most other issues are also associated with an existing `Database` (e.g. altering a table on a database).
 
