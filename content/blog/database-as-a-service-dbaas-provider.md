@@ -37,6 +37,7 @@ The list is grouped by database types.
 - [Supabase](https://supabase.com/database)
 - [render](https://render.com/docs/databases)
 - [crunchydata](https://www.crunchydata.com/products/crunchy-bridge)
+- [Fly.io](https://fly.io/)
 
 ## MongoDB
 
