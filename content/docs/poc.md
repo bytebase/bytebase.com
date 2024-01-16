@@ -2,7 +2,7 @@
 title: POC Checklist
 ---
 
-The POC (Proof of Concept) checklist helps the potential buyers to evaluate the Bytebase Enterprise
+The POC (Proof of Concept) checklist guides the potential buyers to evaluate the Bytebase Enterprise
 plan. The POC process usually takes 1 ~ 2 weeks. Please [contact us](/contact-us) to request an
 enterprise license.
 
@@ -47,6 +47,7 @@ configure SSO. Bytebase supports all common providers such as Okta, Google, LDAP
 
 ## Test Database Change Workflow
 
+- [Database Change Workflow](/docs/change-database/change-workflow/)
 - [Custom Approval](/docs/administration/custom-approval/)
 - [Webhook Notification](/docs/change-database/webhook/)
 - [GitOps](/docs/vcs-integration/overview/)

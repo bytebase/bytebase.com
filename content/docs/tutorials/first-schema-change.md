@@ -42,6 +42,7 @@ In this tutorial, you'll use the sample databases Bytebase provides by default t
    ![bb-my-issues](/content/docs/tutorials/first-schema-change/bb-my-issues.webp)
 
 1. The issue is `waiting to rollout`. There's a pipeline consisting of two stages:
+
    1. **Test Stage**: apply to database `hr_test` on `Test Sample instance`
    2. **Prod Stage**: apply to database `hr_prod` on `Prod Sample instance`
 
@@ -84,13 +85,14 @@ There are two ways to roll out on **Prod Stage** regarding the SQL review result
    ```
 
    Click **Save**, the checks will be run again. This time the SQL review will pass and it will roll out automatically. The issue will become `Done` as well.
-   
+
    ![bb-issue-done](/content/docs/tutorials/first-schema-change/bb-issue-done.webp)
-   
+
    You may ask why it's rolling out automatically, it's because for **Community Plan**, the rollout policy is automatic if the SQL review passes. You may go to **Environments** to check.
 
    ![bb-env-automatic](/content/docs/tutorials/first-schema-change/bb-env-automatic.webp)
 
 ## Next Step
 
-Now you have successfully performed your first schema change in Bytebase. It's the core part of Bytebase. You can continue to dig deeper by following [Deploy Schema Migration with Rollout Policy](/docs/tutorials/deploy-schema-migration/).
+Now you have successfully performed your first schema change, the core workflow in Bytebase. If you
+want to try manual review during rollout, please continue to [Deploy Schema Migration with Rollout Policy](/docs/tutorials/deploy-schema-migration/).
