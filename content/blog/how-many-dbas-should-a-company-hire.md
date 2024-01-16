@@ -1,8 +1,8 @@
 ---
-title: How many DBAs does a company needs
+title: How many DBAs should a company hire
 author: Tianzhou
 published_at: 2024/01/15 09:00:00
-feature_image: /content/blog/how-many-dbas-a-company-needs/freedom-control.webp
+feature_image: /content/blog/how-many-dbas-should-a-company-hire/freedom-control.webp
 tags: Industry
 featured: true
 description: Discuss the DBAs HCs for companies of different sizes
@@ -30,7 +30,7 @@ Usually at this stage, the company still has difficulty attracting a good DBA, a
 
 At this stage, it is also necessary for the engineering lead to be supportive. Because the introduction of DBA and process will limit the developers' freedom. Because DBA and Developers have different incentives, and DBA is new to the team. We need the engineering lead to mediate between the two sides to avoid conflict. In the end, at this stage, the business is still the absolute priority, so if the developers do not buy in, they can find excuses to bypass the policies that DBA establishes.
 
-![_](/content/blog/how-many-dbas-a-company-needs/freedom-control.webp)
+![_](/content/blog/how-many-dbas-should-a-company-hire/freedom-control.webp)
 
 Meanwhile, the engineering lead should also focus on mentoring the DBA, so that she can grow with the company into the next stage.
 
