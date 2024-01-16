@@ -2,7 +2,6 @@
 title: Deploy Schema Migration with Rollout Policy
 author: Ningjing
 published_at: 2023/11/3 14:15
-feature_image: /content/docs/tutorials/deploy-schema-migration/schema-migration-banner.webp
 tags: Tutorial
 integrations: General
 level: Beginner

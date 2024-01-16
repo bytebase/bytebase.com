@@ -1,146 +1,96 @@
 ---
 title: Your First Schema Change in 5 Minutes
-author: Adela
+author: Ningjing
 tags: Tutorial
-published_at: 2022/9/21 11:15
-integrations: General, MySQL
+published_at: 2024/1/16 11:15
+integrations: General
 level: Beginner
 estimated_time: '5 mins'
 pinned: true
 description: How to perform your first schema change in 5 minutes via Bytebase.
 ---
 
-In this tutorial, you'll use `Bytebase Test Suite` to get familiar with the product in the quickest way. This suite includes one Bytebase %%bb_version%% instance and two MySQL 8.0.29 instances.
-The task here is to add `nickname` column to `employee` table for both dev and prod environments.
+In this tutorial, you'll use the sample databases Bytebase provides by default to get familiar with the product in the quickest way.
 
-<iframe width="675" height="380" src="https://www.youtube.com/embed/lav1JaaTLMc" title="YouTube video player" className="w-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+## Step 1 - Run via Docker
 
-## Step 1 - Deploy with sample datasets
+1. Install and start [Docker](https://www.docker.com/).
+1. Open Terminal to run the command:
 
-1. Start Docker.
-2. Open Terminal to run the command:
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
 
-### MacOS & Linux
+   When the Terminal shows the following message, the execution is successful.
 
-```text
-curl -fsS https://raw.githubusercontent.com/bytebase/bytebase/main/quickstart/getting-started.docker-compose.yml | BB_VERSION=%%bb_version%% docker-compose -f - up
-```
+   <IncludeBlock url="/docs/get-started/install/terminal-startup-output-success"></IncludeBlock>
 
-### Windows
+   Now you have Bytebase running in Docker.
 
-```powershell
-BB_VERSION=%%bb_version%%
-```
+   ![dk-bb-running](/content/docs/tutorials/first-schema-change/dk-bb-running.webp)
 
-```powershell
-curl -fsS https://raw.githubusercontent.com/bytebase/bytebase/main/quickstart/getting-started.docker-compose.yml | docker-compose -f - up
-```
+1. Open Bytebase in [localhost:8080](http://localhost:8080/), fill in the fields and click **Create admin account**. You'll be redirected to the workspace.
 
-<HintBlock type="info">
+   ![bb-register](/content/docs/tutorials/first-schema-change/bb-register.webp)
 
-If the above command doesn't work, replace https://raw.githubusercontent.com/bytebase/... with the proxy version: https://ghproxy.com/https://raw.githubusercontent.com/bytebase/...
+1. Follow the **Quikstart** guide on the bottom to click around or dismiss it by now. You can click your avatar on top right and click **Quickstart** on the dropdown menu to reopen it later.
 
-</HintBlock>
+   ![bb-first-workspace](/content/docs/tutorials/first-schema-change/bb-first-workspace.webp)
 
-When the Terminal shows the following message, the execution is successful.
+## Step 2 - One Issue with Two Stages
 
-<IncludeBlock url="/docs/get-started/install/terminal-startup-output-success"></IncludeBlock>
+1. Click **My Issues** on the left sidebar, and click the issue `SAM-101` which is created by default.
 
-Now you have three containers running in Docker:
+   ![bb-my-issues](/content/docs/tutorials/first-schema-change/bb-my-issues.webp)
 
-- A Bytebase instance
-- A MySQL instance for the Test environment
-- A MySQL instance for the Prod environment
+1. The issue is `waiting to rollout`. There's a pipeline consisting of two stages:
+   1. **Test Stage**: apply to database `hr_test` on `Test Sample instance`
+   2. **Prod Stage**: apply to database `hr_prod` on `Prod Sample instance`
 
-![3-containers-in-docker](/content/docs/tutorials/first-schema-change/3-containers-in-docker.webp)
+   `Test` stage is `active` by default.
 
-Each MySQL instance has a copy of the sample dataset in it. It’s the dataset_small from [open-source database `employee`](https://github.com/bytebase/employee-sample-database-mysql).
+   ![bb-issue-test](/content/docs/tutorials/first-schema-change/bb-issue-test.webp)
 
-3. Open Bytebase in [localhost:8080](http://localhost:8080/), and you can see the following page in the browser.
+1. Click **Prod Stage** to switch to it, and you will see the two stages share the same SQL but to different databases. You may also notice there's a warning sign for SQL review on the **Prod** stage. That's because when the issue is created, Bytebase will run task checks automatically. SQL review is one of them.
 
-![welcome-page](/content/docs/tutorials/first-schema-change/welcome-page.webp)
+   ![bb-issue-prod](/content/docs/tutorials/first-schema-change/bb-issue-prod.webp)
 
-4. Create an admin account, and you are in the workspace.
+1. Click the warning sign to see the details. If you wonder why only **Prod Stage** has the warning sign, it's because by default SQL Review is only configured for `Prod` environment. You can click the **Settings** (gear) on the top right, and click **Security & Policy** > **SQL Review** to have a look.
 
-## Step 2 - Prepare the workspace
+   ![bb-sql-review-not-null](/content/docs/tutorials/first-schema-change/bb-sql-review-not-null.webp)
 
-### 2.1 Set up environments
+## Step 3 - Roll out on Test Stage
 
-- Click **Environments** on the top bar and you will see **Test** and **Prod** environments. You can keep the default settings or adjust them based on your needs.
+1. Switch back to **Test Stage** and click **Rollout**. Click **Rollout** on the confirmation dialog.
 
-Prod environment requires manual rolling out while Test environment skips that.
+   ![bb-test-rollout](/content/docs/tutorials/first-schema-change/bb-test-rollout.webp)
 
-### 2.2 Add instances
+1. When the SQL is applied, there will be a checkmark on the **Test Stage**. Click **View change** and you'll see the diff.
 
-1. Click **Instances** on the top bar.
-2. Click **Add Instance** on the instances page, and you will see **Create Instance** dialog box.
-   ![add-instance](/content/docs/tutorials/first-schema-change/add-instance.webp)
-3. Fill the fields as follows:
+   ![bb-issue-test-done](/content/docs/tutorials/first-schema-change/bb-issue-test-done.webp)
 
-   - Choose **MySQL**
-   - **Instance Name**: Sample Instance Test
-   - **Environment**: Test
-   - **Host or Socket**: host.docker.internal
-   - **Port**: 3307
-   - **Username**: root
-   - **Password**: [empty]
+   ![issue-snapshot-diff](/content/docs/tutorials/first-schema-change/issue-snapshot-diff.webp)
 
-4. Click **Create**, and the instance is created.
-5. Roll down to the bottom, you can find a section showing **Databases** and **Users** from this instance.
-6. Repeat the operation with another instance and:
-   - Choose **MySQL**
-   - **Instance Name**: Sample Instance Prod
-   - **Environment**: Prod
-   - **Host or Socket**: host.docker.internal
-   - **Port**: 3306
-   - **Username**: root
-   - **Password**: [empty]
+## Step 4 - Roll out on Prod Stage
 
-Now, you have configured two instances for **Test** and **Prod** environment containing copies of the same sample dataset.
+There are two ways to roll out on **Prod Stage** regarding the SQL review result.
 
-## Step 3 - Add a column `nickname` to the `employee` table
+1. If you are confident with the SQL, you can click **Rollout** directly. Check the **Rollout anyway**, and click **Rollout** on the confirmation dialog.
 
-### 3.1 Create a project
+   ![bb-issue-prod-anyway](/content/docs/tutorials/first-schema-change/bb-issue-prod-anyway.webp)
 
-In Bytebase, **Project** is the unit to contain and manage databases. Therefore, before dealing with the sample databases, you need to transfer them into a project first.
+1. Another way is to edit the SQL. Click **Edit** on top of the SQL, and add the `NOT NULL`. It will look like this:
 
-1. Click **Projects** > **New Project** , you will find **Create Project** dialog box.
-2. Fill in **Project Name** with `Employee`, **Key** with the randomly generated one, and select **Mode** as Standard.
-3. The `Employee` project is created successfully and you are on its detail page.
+   ```sql
+   ALTER TABLE employee ADD COLUMN IF NOT EXISTS email TEXT NOT NULL DEFAULT '';
+   ```
 
-![create-a-project](/content/docs/tutorials/first-schema-change/create-a-project.webp)
+   Click **Save**, the checks will be run again. This time the SQL review will pass and it will roll out automatically. The issue will become `Done` as well.
+   
+   ![bb-issue-done](/content/docs/tutorials/first-schema-change/bb-issue-done.webp)
+   
+   You may ask why it's rolling out automatically, it's because for **Community Plan**, the rollout policy is automatic if the SQL review passes. You may go to **Environments** to check.
 
-4. Choose **Transfer DB** to transfer in the two `Employee` databases from Test and Prod environment. They’re in the default project since they have not been transferred into any specific project yet.
+   ![bb-env-automatic](/content/docs/tutorials/first-schema-change/bb-env-automatic.webp)
 
-Now you are ready to manage these two `employee` databases in your project. Your next task is to add a column named `nickname` to the `employee` table.
+## Next Step
 
-### 3.2 Create an SQL issue to alter schema
-
-1. Go to `Employee` project page.
-2. Click **Alter Schema**, you will find an **Alter Schema** dialog box.
-3. Choose **Alter multiple databases**, select **Test > employee, Prod > employee**, and click **Next**.
-4. An issue is created, and you will be navigated to the new issue page. On top of **SQL** box, You can find that the issue has a pipeline with two stages - Test and Prod. Test stage is active by default.
-
-![create-an-issue](/content/docs/tutorials/first-schema-change/create-an-issue.webp)
-
-5. Fill the fields as follows:
-
-   - **Title**: "Alter Schema: Add a column nickname".
-   - **SQL**:"ALTER TABLE employee ADD nickname VARCHAR(255) ;".
-   - **Description**(option): "Add a column nickname".
-   - **Assignee**: [yourself]
-
-6. Click **Apply to other stages**, the SQL will be applied to **Prod** as well.
-7. Click **Create**, and you will see the **SQL Advisor** kicks off automatically — checks the SQL statements against various rules.
-8. As the Test environment doesn't require manual rolling out, the SQL will be applied to the database on Test environment automatically after passing those advisor checks. Then you are waiting for rollout for the Prod environment.
-
-### 3.3 Review the SQL issue
-
-1. Click **Approve** if everything is OK and the SQL will be applied to the database on Prod environment.
-2. Click **Resolve issue**, and the issue is **Done**.
-
-![issue-done](/content/docs/tutorials/first-schema-change/issue-done.webp)
-
-## Step 4 - Verify the change is applied
-
-- Choose the two `employee` databases and view the `employee` tables, you will see `nickname` column is added.
+Now you have successfully performed your first schema change in Bytebase. It's the core part of Bytebase. You can continue to dig deeper by following [Deploy Schema Migration with Rollout Policy](/docs/tutorials/deploy-schema-migration/).
