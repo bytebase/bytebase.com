@@ -82,9 +82,7 @@ It is crucial to carefully select the appropriate option that aligns with your o
 
 ## Futher Readings
 
-- [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)
-- [Top Open Source SQL Clients](/blog/top-open-source-sql-clients/)
-- [Top DBeaver Alternatives](/blog/top-dbeaver-alternative)
+- [Top Open Source Postgres Migration Tools](/blog/top-open-source-postgres-migration-tools/)
 - [Top Postgres Extension](/blog/top-postgres-extension)
 - [Postgres vs. MySQL](/blog/postgres-vs-mysql)
 - [Postgres vs. MongoDB](/blog/postgres-vs-mongodb)

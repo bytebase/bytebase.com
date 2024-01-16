@@ -33,34 +33,34 @@ In this blog, we will review the state-of-the-art in the Database as Code landsc
 
 Started in 2006, Liquibase is arguably the most well-known product in this segment. When someone asks for database schema change advice on a forum, oftentimes, you will see a reply mentioning Liquibase.
 
-![_](/content/blog/database-as-code-landscape/liquibase-overview.webp)
+![_](/images/products/liquibase/liquibase-overview.webp)
 
 Liquibase is both an open source project as well as a company providing its commercial offering. The company used to be called Datical, and was renamed Liquibase to consolidate the branding (wise move).
 Liquibase main product is a Java-based CLI. Via the CLI, developer teams can integrate the database schema migration into their CI/CD workflow. For the Java application, Liquibase can also be used as a library. Applications usually embed Liquibase library to apply any applicable schema migration on startup.
 
 In Liquibase, a schema migration unit is encapsulated in a `Change Set`. Probably due to its age and root in Java, the most commonly used form is XML (YAML and JSON support have been added later):
 
-![_](/content/blog/database-as-code-landscape/liquibase-xml.webp)
+![_](/images/products/liquibase/liquibase-xml.webp)
 
 Plain SQL is also supported with proper annotation:
 
-![_](/content/blog/database-as-code-landscape/liquibase-sql.webp)
+![_](/images/products/liquibase/liquibase-sql.webp)
 
 Liquibase is [migration-based](/blog/database-version-control-state-based-vs-migration-based). It records the incremental change instead of the desired end state of the target database schema.
 
 Recently, Liquibase introduced HUB, it's an information portal for paid customers to view, organize and monitor database change activity in real-time.
 
-![_](/content/blog/database-as-code-landscape/liquibase-hub.webp)
+![_](/images/products/liquibase/liquibase-hub.webp)
 
 ### Flyway
 
-![_](/content/blog/database-as-code-landscape/flyway-overview.webp)
+![_](/images/products/flyway/flyway-overview.webp)
 
 Flyway resembles Liquibase in many ways. It's an open source project with a long history and a large customer base. Its core product includes the CLI and a Java library. Flyway also recently announced a web portal named Hub.
 
 The commercial entity behind Flyway is Redgate through an acquisition. The branding may cause some confusion, while it also sets a boundary between the open source and commercial offering. Flyway carries a more casual branding tone:
 
-![_](/content/blog/database-as-code-landscape/flyway-migration.webp)
+![_](/images/products/flyway/flyway-migration.webp)
 
 Flyway website is not as shining as those new DevTools companies using sophisticated gradients. You can even spot some basic UI spacing issues. Yet Flyway shows a classic example that content matters more than cosmetic beauty and its documentation stands out because of the clarity.
 
@@ -74,7 +74,7 @@ Sqitch is also an open source project been on the market for a while. Sqitch is 
 
 Choosing Perl is not the only interesting aspect. Sqitch has its own design philosophy about how to manage database schema changes. Both Liquibase and Flyway use the file naming convention to control the schema migration behavior (convention over configuration):
 
-![_](/content/blog/database-as-code-landscape/flyway-migration-version.webp)
+![_](/images/products/flyway/flyway-migration-version.webp)
 
 While Sqitch takes an explicit approach. In the below example, you need to name the schema migration as `appschema`:
 

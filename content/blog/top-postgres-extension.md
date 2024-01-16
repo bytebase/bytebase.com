@@ -251,6 +251,6 @@ processing, then Postgres is the only choice thanks to the PostGIS extension. Fo
 ## Further Readings
 
 - [Top Postgres GUI client](/blog/top-postgres-gui-client)
-- [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)
+- [Top Open Source Postgres Migration Tools](/blog/top-open-source-postgres-migration-tools)
 - [Postgres vs. MySQL](/blog/postgres-vs-mysql)
 - [Postgres vs. MongoDB](/blog/postgres-vs-mongodb)
