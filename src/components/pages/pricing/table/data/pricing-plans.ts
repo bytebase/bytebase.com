@@ -11,7 +11,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   free: {
     title: 'community',
     description: `Team essentials to manage database development lifecycle.`,
-    buttonText: 'Free Deploy',
+    buttonText: 'Deploy in 5 Minutes',
     buttonTheme: 'primary-outline',
     buttonUrl: '/docs/get-started/self-host/#docker',
     changeManagement: {
@@ -250,7 +250,7 @@ const LABELS = [
       'auto-complete': 'Auto complete',
       'schema editor': 'Schema editor',
       'schema-diagram': 'Schema diagram',
-      csv: 'CSV / JSON export',
+      csv: 'SQL / CSV / JSON / XML export',
       admin: 'Admin Mode',
       script: 'Saved SQL script',
       batch: 'Batch query multiple databases',
