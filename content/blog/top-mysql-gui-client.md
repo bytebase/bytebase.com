@@ -1,7 +1,7 @@
 ---
-title: Top 5 MySQL GUI Clients to Command MySQL 2023
+title: Top 5 MySQL GUI Clients to Command MySQL 2024
 author: Mila
-published_at: 2023/07/10 21:21:21
+published_at: 2024/01/19 21:21:21
 feature_image: /content/blog/top-mysql-gui-client/banner.webp
 tags: Industry
 featured: true
@@ -35,6 +35,8 @@ MySQL Workbench's main features can be grouped threefold:
 A range of features are available (managing databases, tables, users, permissions, etc) and can be performed via the user-friendly interface, you can also execute SQL queries directly. However, being web-based has pros and cons: phpMyAdmin is available on all the platforms with a web browser, yet it can be prone to security attacks such as SQL injection, so make sure to take proper precautionary measures.
 
 ![phpmyadmin](/content/blog/top-mysql-gui-client/phpmyadmin.webp)
+
+BTW, [Adminer](https://www.adminer.org/), formerly called phpMinAdmin, as the name suggests, is a mini phpMyAdmin version.
 
 ## The Power Couple: Navicat & DBeaver
 
