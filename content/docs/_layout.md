@@ -125,6 +125,8 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [State-based Migration](/change-database/state-based-migration)
 
+### [Stored Procedure](/change-database/stored-procedure)
+
 ### [Drift Detection](/change-database/drift-detection)
 
 ### [Schema Editor](/change-database/schema-editor)
