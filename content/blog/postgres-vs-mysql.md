@@ -1,7 +1,7 @@
 ---
-title: "Postgres vs. MySQL: a Complete Comparison in 2023"
+title: "Postgres vs. MySQL: a Complete Comparison in 2024"
 author: Tianzhou
-published_at: 2023/07/11 12:00
+published_at: 2024/01/11 12:00
 feature_image: /content/blog/postgres-vs-mysql/cover.webp
 tags: Industry
 featured: true
@@ -9,7 +9,18 @@ description: 'An extensive comparison between Postgres and MySQL on performance,
 extensibility, usability, architecture, ecosystem and more.'
 ---
 
-The [2023 Stack Overflow survey](https://survey.stackoverflow.co/2023/) shows that Postgres has taken
+<HintBlock type="info">
+
+This post is updated regularly. For the impatience, jump to the [last section](#postgres-or-mysql) to
+see the comparison table.
+
+</HintBlock>
+
+PostgreSQL just took over Snowflake and [won DBMS of the Year 2023 again](https://db-engines.com/en/blog_post/106#:~:text=PostgreSQL%20is%20the%20database%20management,DBMS%20of%20the%20Year%202023.).
+
+![dbengine](/content/blog/postgres-vs-mysql/dbengine.webp)
+
+The result also echos the [2023 Stack Overflow survey](https://survey.stackoverflow.co/2023/) shows that Postgres has taken
 over the first place spot from MySQL and become the most admired, desired database.
 
 ![stackoverflow](/content/blog/postgres-vs-mysql/stackoverflow.webp)
@@ -194,6 +205,14 @@ reliable. Database hosting platforms also provide integrated backup/restore, mon
 ## Ecosystem
 
 All common SQL tools support both Postgres and MySQL well. Because of Postgres' extensible architecture and the fact that it's still owned by the community, the Postgres ecosystem is more thriving in recent years. For every application platform offering a hosted database service, they all choose Postgres. From the [Heroku](https://www.heroku.com/) in the early days to the new [Supabase](https://supabase.com/), [render](https://render.com/), [Fly.io](https://fly.io/).
+
+Also there are a series of Postgres derived databases targeting different workloads:
+
+- [Timescale](https://www.timescale.com/) for time series.
+- [FerretDB](https://www.ferretdb.com/) for MongoDB compatibility.
+- [RisingWave](https://risingwave.com/) for streaming.
+- [Neon](https://neon.tech/) for serverless.
+- [PostgresML](https://postgresml.org/) for AI.
 
 ## Postgres or MySQL
 
