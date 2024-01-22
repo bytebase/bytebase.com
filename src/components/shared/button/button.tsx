@@ -20,7 +20,7 @@ const styles = {
     'primary-filled':
       'text-white bg-primary-1 hover:bg-primary-2 disabled:tones-purple-dark tracking-wide rounded-full transition-colors duration-200',
     'primary-outline':
-      'text-black border-[3px] border-primary-1 hover:border-gray-15 disabled:text-gray-60 disabled:border-tones-purple-dark rounded-full tracking-wide',
+      'text-black border-[3px] hover:border-primary-1 border-gray-15 disabled:text-gray-60 disabled:border-tones-purple-dark rounded-full tracking-wide',
     'gray-filled':
       'bg-gray-15 text-white hover:bg-gray-40 disabled:bg-gray-80 tracking-wide rounded-full',
   },
