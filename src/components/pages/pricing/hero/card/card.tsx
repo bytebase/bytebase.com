@@ -70,13 +70,13 @@ const Card = ({
           {typeof price === 'number' ? `$${price}` : price}
           {priceDescription && (
             <span
-              className="absolute -right-[76px] top-4 max-w-[64px] font-sans text-15 font-normal leading-none tracking-normal text-gray-15 lg:-right-[72px] md:top-2 md:text-14"
+              className="md:text-19 absolute -right-[32px] top-4 max-w-[64px] font-sans text-20 font-normal leading-none tracking-normal text-gray-15 lg:-right-[28px] md:top-2"
               dangerouslySetInnerHTML={{ __html: priceDescription }}
             />
           )}
         </span>
         <p
-          className="mt-2 text-center text-16 leading-normal text-gray-30 xl:mt-3.5 xl:min-h-[48px] xl:leading-snug md:mt-1.5 md:text-14 sm:mt-4 sm:max-w-full sm:text-left sm:leading-normal 2xs:max-w-[180px]"
+          className="mt-2 text-center text-18 leading-normal text-gray-30 xl:mt-3.5 xl:min-h-[48px] xl:leading-snug md:mt-1.5 md:text-16 sm:mt-4 sm:max-w-full sm:text-left sm:leading-normal 2xs:max-w-[180px]"
           dangerouslySetInnerHTML={{ __html: description }}
         />
         <Button
