@@ -20,7 +20,7 @@ const Route = {
   CONFIRM_MESSAGE: '/confirm-message',
 
   // pricing
-  PRO_PAYMENT: 'https://buy.stripe.com/8wM6qtb940Pt8tWfZ2',
+  PRO_PAYMENT: 'https://buy.stripe.com/28o3eh2Cybu7fWo5kq',
   // seo pages
   DBA: '/usecase/dba',
   DEVELOPER: '/usecase/developer',
