@@ -4,6 +4,8 @@ title: Production Setup
 
 This page describes how to setup Bytebase in production environment.
 
+[System Requirements](/docs/faq/##system-requirements)
+
 ## Enable HTTPS and WebSocket
 
 You can use [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy) or [Nginx](https://www.nginx.com/). Check out the [configuration example](/docs/get-started/self-host/#configuration).

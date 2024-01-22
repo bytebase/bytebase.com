@@ -12,7 +12,8 @@ enterprise license.
 - [Kubernetes](/docs/get-started/self-host/#kubernetes)
 - [One-liner](/docs/get-started/self-host/#installation-script)
 
-Check out [Production Setup](/docs/administration/production-setup).
+Check out [System Requirements](/docs/faq/##system-requirements)
+and [Production Setup](/docs/administration/production-setup).
 
 ## Understand Permission Model
 
