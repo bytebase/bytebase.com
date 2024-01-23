@@ -1,7 +1,7 @@
 ---
 title: Steamline Database Schema Changes with Changelist
 author: Ningjing
-published_at: 2024/01/19 18:00
+published_at: 2024/01/23 18:00
 tags: Tutorial
 integrations: General
 level: Intermediate
