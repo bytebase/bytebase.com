@@ -16,7 +16,7 @@ database schema migration tools for Postgres.
 
 ## Bytebase
 
-[Bytebases](https://github.com/bytebase/bytebase) is an all-in-one database DevOps and CI/CD solution. It's like GitHub/GitLab that provides
+[Bytebase](https://github.com/bytebase/bytebase) is an all-in-one database DevOps and CI/CD solution. It's like GitHub/GitLab that provides
 a GUI workspace for developers and DBAs to collaborate on database changes. It's written in Go and TypeScript.
 
 ![issue-detail](/content/blog/top-open-source-postgres-migration-tools/issue-detail.webp)
