@@ -14,6 +14,13 @@ Bytebase is a single Go binary and the deployment easy.
 
 Estimated time: **5 minutes**.
 
+<HintBlock type="info">
+
+Docker version must be at least [20.10.24](https://docs.docker.com/engine/release-notes/20.10/#201024)
+or pass `--security-opt seccomp=unconfined` to `docker run`, otherwise, you will get `pthread_create failed` error.
+
+</HintBlock>
+
 ### Installation
 
 <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>

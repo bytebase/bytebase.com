@@ -13,6 +13,8 @@ title: FAQ
 
 Bytebase is lightweight and has no external dependency. For normal workload, 1 CPU core and 2 GB RAM are sufficient.
 
+If you use Docker, please upgrade to at least [20.10.24](https://docs.docker.com/engine/release-notes/20.10/#201024).
+
 ## Supported database and versions
 
 See [Supported Databases](/docs/introduction/supported-databases).
