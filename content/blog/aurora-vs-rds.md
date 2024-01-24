@@ -31,10 +31,10 @@ Below we provide our engineering perspective to compare the following dimensions
 
 - [Supported Databases](#supported-databases)
 - [Architecture](#architecture)
+- [Compatibility](#compatibility)
 - [Performance](#performance)
 - [Elasticity](#elasticity)
 - [High Availability](#high-availability)
-- [Compatibility](#compatibility)
 - [Pricing](#pricing)
 - [Recommended Setup](#recommended-setup)
 
