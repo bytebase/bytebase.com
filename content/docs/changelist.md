@@ -2,8 +2,8 @@
 title: Changelist
 ---
 
-Changelist allows you to sequentially organize changes. Then you can apply them to the databases or
-export them as zip files to apply the changes offline.
+Changelist allows you to stage a set of ordered changes. Then at a later time, you can repeatedly apply them
+to the databases or export them as zip files to apply the changes offline.
 
 You access Changelist from the Change Center:
 
