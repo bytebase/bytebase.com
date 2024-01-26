@@ -103,7 +103,6 @@ const components = {
 const Content = ({ className, content }: { className?: string; content: string }) => {
   return (
     <div className={clsx(className, 'content prose prose-lg max-w-none')}>
-      {/* @ts-expect-error Server Component */}
       <MDXRemote
         source={content}
         components={components}
