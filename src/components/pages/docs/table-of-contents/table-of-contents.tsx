@@ -34,8 +34,8 @@ const onClick = (evt: React.MouseEvent<HTMLAnchorElement>, id: string) => {
   });
 
   // Changing hash without default jumps to anchor
-  if (history.pushState) {
-    history.pushState(false, '', `#${id}`);
+  if (window.history.pushState) {
+    window.history.pushState(false, '', `#${id}`);
   } else {
     // Old browser support
     window.location.hash = `#${id}`;
@@ -62,6 +62,7 @@ const TableOfContents = ({
   showSocialShare,
   className,
 }: TableOfContentsProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const titles = useRef<HTMLElement[]>([]);
   const [currentAnchor, setCurrentAnchor] = useState<string | null>(null);
 
@@ -80,8 +81,19 @@ const TableOfContents = ({
       currentTitleIdx === -1 ? titles.current.length - 1 : Math.max(currentTitleIdx - 1, 0);
 
     const currentTitle = titles.current[idx];
-
     setCurrentAnchor(currentTitle.id);
+
+    // Scroll to current anchor if it is not visible.
+    const ahref = containerRef.current?.querySelector('a[href="#' + currentTitle.id + '"]');
+    if (ahref && containerRef.current) {
+      const offsetTop = (ahref.parentElement as HTMLElement).offsetTop;
+      const containerHeight = containerRef.current.clientHeight;
+      const scrollTop = containerRef.current.scrollTop;
+
+      if (offsetTop < scrollTop || offsetTop > scrollTop + containerHeight) {
+        containerRef.current.scrollTop = offsetTop;
+      }
+    }
   }, []);
 
   const onScroll = useThrottleCallback(updateCurrentAnchor, 5);
@@ -95,12 +107,12 @@ const TableOfContents = ({
   }, []);
 
   return (
-    <nav className={clsx(className, 'table-of-contents lg:hidden')}>
-      <div className="relative pl-5 pt-3 before:absolute before:top-0 before:left-px before:h-full before:w-px before:bg-gray-90">
-        <h3 className="text-14 font-bold uppercase leading-none tracking-tight">
-          Table of contents
-        </h3>
-        <ul className={clsx('mt-3 flex flex-col')}>
+    <nav ref={containerRef} className={clsx(className, 'table-of-contents lg:hidden')}>
+      <h3 className="sticky top-0 z-10 w-full bg-white bg-opacity-80 py-3 pl-4 text-14 font-bold uppercase leading-none tracking-tight backdrop-blur-lg">
+        Table of contents
+      </h3>
+      <div className="relative pl-5 before:absolute before:left-px before:top-0 before:h-full before:w-px before:bg-gray-90">
+        <ul className={clsx('flex flex-col')}>
           {items.map(({ id, title, level }, idx) => (
             <li
               className={clsx(
