@@ -11,6 +11,7 @@ import GithubIcon from '@/svgs/github.inline.svg';
 import GitLabIcon from '@/svgs/gitlab.inline.svg';
 import MariaDBIcon from '@/svgs/mariadb.inline.svg';
 import MongoDBIcon from '@/svgs/mongodb.inline.svg';
+import OracleIcon from '@/svgs/oracle.inline.svg';
 import PostgresIcon from '@/svgs/postgres.inline.svg';
 import RedisIcon from '@/svgs/redis.inline.svg';
 import SnowflakeIcon from '@/svgs/snowflake.inline.svg';
@@ -28,6 +29,7 @@ const allIntegrations: { [key: string]: React.FunctionComponent<React.SVGProps<S
   clickhouse: ClickHouseIcon,
   github: GithubIcon,
   gitlab: GitLabIcon,
+  oracle: OracleIcon,
   postgresql: PostgresIcon,
   snowflake: SnowflakeIcon,
   'sql server': SQLServerIcon,
