@@ -1,11 +1,8 @@
-import dynamic from 'next/dynamic';
 import Script from 'next/script';
 
 import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
-const WechatQRCode = dynamic(() => import('@/components/wechat-qr-code'), { ssr: false });
-// import { FrontChat } from '@/components/front-chat';
-//import { Intercom } from '@/components/intercom';
+import WechatQRCode from '@/components/wechat-qr-code';
 import { Cal } from '@/components/cal';
 
 import I18nProvider from '@/locales/i18nProvider';
@@ -17,7 +14,12 @@ export function generateStaticParams() {
   return getStaticParams();
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+interface Props {
+  params: { locale: string };
+  children: React.ReactNode;
+}
+
+export default function RootLayout({ params: { locale }, children }: Props) {
   return (
     <html className="h-full">
       <head>
@@ -57,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         <PlausibleProvider domain="bytebase.com">
-          <I18nProvider>
+          <I18nProvider locale={locale}>
             <div className="relative flex min-h-screen flex-col">
               <Header hasBanner />
               <main className="relative z-20 shrink-0 grow basis-auto pt-[128px] md:pt-[112px]">
