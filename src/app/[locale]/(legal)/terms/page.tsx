@@ -265,7 +265,7 @@ export default function Page() {
         contest the requirement. The restrictions set forth in this Section will survive the
         termination or expiration of this Agreement.
       </p>
-      <h2>7. Term; Termination</h2>
+      <h2>7. Termination</h2>
       <h3>7.1 Subscription Period.</h3>
       <p>
         Unless otherwise stated in an Order Form, this Agreement starts on the earlier of the date
