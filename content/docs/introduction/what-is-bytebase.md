@@ -5,7 +5,7 @@ description: Bytebase is a database schema change and version control management
 
 > Bytebase is GitLab/GitHub for Database DevOps, built for developers, DBAs and platform teams.
 
-![replaced-tools](/content/docs/what-is-bytebase/replaced-tools.webp)
+![replaced-tools](/images/replaced-tools.webp)
 
 Bytebase is an open-source database DevOps tool, it's the GitLab/GitHub for managing databases throughout the application development lifecycle. It offers a web-based collaboration workspace for DBAs, Developers and platform engineers.
 

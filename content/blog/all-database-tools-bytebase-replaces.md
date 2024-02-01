@@ -10,7 +10,7 @@ description: Bytebase is an all-in-one solution for database development lifecyc
 
 Bytebase is an all-in-one solution for database development lifecycle management for developers, DBAs and platform engineers. It replaces fragmented database tools and unifies the workflow in a single place.
 
-![tools](/content/blog/all-database-tools-bytebase-replaces/tools.webp)
+![replaced-tools](/images/replaced-tools.webp)
 
 ## SQL Client
 
