@@ -43,7 +43,7 @@ const PRICING_PLANS = new Map([
   ['WEBHOOK_INTEGRATION', 'COMMUNITY'],
   ['GITOPS_WORKFLOW', 'COMMUNITY'],
 
-  //Data Security & Governance
+  //Data Security & Compliance
   ['RBAC', 'COMMUNITY'],
   ['SLOW_QUERY', 'COMMUNITY'],
   ['ARCHIVING', 'COMMUNITY'],

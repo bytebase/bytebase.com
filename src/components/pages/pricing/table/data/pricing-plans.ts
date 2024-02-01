@@ -10,7 +10,7 @@ const COLORS = {
 const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   free: {
     title: 'community',
-    description: `Hobbyist`,
+    description: `Establish Process`,
     buttonText: 'Deploy in 5 Minutes',
     buttonTheme: 'primary-outline',
     buttonUrl: '/docs/get-started/self-host/#docker',
@@ -76,7 +76,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   },
   pro: {
     title: 'pro',
-    description: 'Small Business',
+    description: 'Advanced Collaboration',
     buttonText: 'Buy Now',
     buttonTheme: 'primary-outline',
     buttonUrl: Route.PRO_PAYMENT,
@@ -149,7 +149,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   },
   enterprise: {
     title: 'enterprise',
-    description: 'Med–Large Companies',
+    description: 'Security and Compliance',
     buttonText: 'Contact Us',
     buttonTheme: 'primary-filled',
     buttonUrl: '/contact-us',
@@ -269,7 +269,7 @@ const LABELS = [
     },
   },
   {
-    title: 'Data Security & Governance',
+    title: 'Data Security & Compliance',
     items: {
       rbac: 'RBAC',
       'slow-query': 'Slow Query',

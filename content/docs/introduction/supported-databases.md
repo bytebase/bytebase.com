@@ -86,7 +86,7 @@ _Bytebase is trailblazing the schema management landscape. Each database engine 
 _\* Normally, Bytebase will block non-readonly statements in Query Mode. This is not supported in MongoDB and Redis. You can
 work around this by configuring a [readonly connection](/docs/get-started/instance/#configure-read-only-connection)._
 
-### Data Security & Governance
+### Data Security & Compliance
 
 | Feature    | [RBAC](/docs/concepts/roles-and-permissions) | [Audit Log](/docs/security/audit-log) | [External Secret Manager](/docs/get-started/instance/#use-secret-manager) | [Query and Export Control](/docs/security/data-query/) | [Data Masking](/docs/security/mask-data) |
 | ---------- | -------------------------------------------- | ------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------- |

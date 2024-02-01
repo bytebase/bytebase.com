@@ -35,7 +35,7 @@ export const FEATURES = {
   WEBHOOK_INTEGRATION: 'Webhook integration',
   GITOPS_WORKFLOW: 'GitOps workflow',
 
-  //Data Security & Governance
+  //Data Security & Compliance
   RBAC: 'RBAC',
   SLOW_QUERY: 'Slow Query',
   ARCHIVING: 'Archiving',
