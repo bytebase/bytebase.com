@@ -18,7 +18,7 @@ description: 'Support Japanese and Vietnamese.'
 
 ## 🎠 Community
 
-- Thanks to [@AbdhilahiRWabwire](https://github.com/AbdhilahiRWabwire)for the PR chore: dependabot.yml [#10677](https://github.com/bytebase/bytebase/pull/10677)
+- Thanks to [@AbdhilahiRWabwire](https://github.com/AbdhilahiRWabwire) for the PR chore: dependabot.yml [#10677](https://github.com/bytebase/bytebase/pull/10677)
   
 ## 📰 Fresh Off the Press
 
