@@ -1,0 +1,31 @@
+---
+title: Bytebase 2.13.2
+author: Ningjing
+published_at: 2024/2/4 17:01:21
+feature_image: /content/changelog/2-13-2-banner.webp
+description: 'Support Japanese and Vietnamese.'
+---
+
+## 🚀 New Features
+
+- Support Japanese.
+- Support Vietnamese.
+
+## 🎄 Enhancements
+
+- Support configuring masking algorithms for sensitive data columns.
+- Support viewing query results in a vertical format.
+
+## 🎠 Community
+
+- Thanks to [@AbdhilahiRWabwire](https://github.com/AbdhilahiRWabwire)for the PR chore: dependabot.yml [#10677](https://github.com/bytebase/bytebase/pull/10677)
+  
+## 📰 Fresh Off the Press
+
+- As a leading cloud solution provider, AWS presents a tough choice between its two primary database offerings, RDS and Aurora.🤯 [Our comprehensive blog post](/blog/aurora-vs-rds/) delves into the details of Amazon RDS and Aurora, comparing them across key aspects to provide an in-depth, engineer-focused analysis.🤩
+
+- Follow [this tutorial](/docs/tutorials/database-change-management-with-oracle/) and begin formalizing your Oracle database change processes with Bytebase. Get started by exploring its web-based interface along with entry-level features like SQL Lint and Change History Tracking 👋.
+
+- Nowadays, data holds value comparable to that of oil, safeguarding this vital resource is imperative for all organizations. [This article](/blog/top-database-security-tools/) explores leading database security tools designed to shield your data from varied risks 🛡️👹.
+
+_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
