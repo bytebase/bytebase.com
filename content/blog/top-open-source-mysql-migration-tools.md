@@ -10,11 +10,7 @@ description: What are the top open source MySQL schema migration tools.
 
 MySQL is the most popular open-source relational database management system (RDBMS) for storing and managing structured data. MySQL table migration is always a PITA. As such, several database schema migration tools for MySQL have emerged, and they provide different capabilities and experience.
 
-In this post, we are reviewing several open-source database schema migration tools for MySQL.
-
-## Tools Reviewed
-
-We will compare five solutions:
+In this post, we are reviewing several open-source database schema migration tools for MySQL:
 
 - [gh-ost](https://github.com/github/gh-ost)
 - [Skeema](https://www.skeema.io/)
@@ -26,7 +22,8 @@ We will compare five solutions:
 
 ## gh-ost
 
-gh-ost is a triggerless online schema migration tool for MySQL, designed to perform database schema changes with minimal downtime and impact on the database's availability and performance.. It was developed by GitHub and introduced in 2016 as an open-source project.
+[gh-ost](https://github.com/github/gh-ost) is a triggerless online schema migration tool for MySQL. It's the
+successor of trigger-based online schema migration tool [pt-online-schema-change¶](https://docs.percona.com/percona-toolkit/pt-online-schema-change.html). Its triggerless enables database schema changes with minimal downtime and impact on the database's availability and performance. It was developed by GitHub and introduced in 2016 as an open-source project.
 
 ![gh-ost](/content/blog/top-open-source-mysql-migration-tools/gh-ost.webp)
 
@@ -36,15 +33,18 @@ Traditional online schema migration methods often involve long maintenance windo
 
 All existing online schema change tools operate similarly: they create a *ghost* table in the likeness of your original table, migrate that table while empty, slowly and incrementally copy data from your original table to the *ghost* table, meanwhile propagating ongoing changes (any `INSERT`, `DELETE`, `UPDATE` applied to your table) to the *ghost* table. Finally, at the right time, they replace your original table with the *ghost* table. `gh-ost` uses the same pattern. However it differs from all existing tools by not using triggers. Instead, it leverages MySQL binlog to capture table changes, and asynchronously applies them onto the *ghost* table.
 
+
 ## Skeema
 
-Skeema is a schema management system for MySQL and MariaDB. It enables management of table definitions and schema changes in a declarative fashion using pure SQL.
+[Skeema](https://www.skeema.io/) is a schema management system for MySQL and MariaDB. It enables management of table definitions and schema changes in a declarative fashion using pure SQL.
 
 ![skeema](/content/blog/top-open-source-mysql-migration-tools/skeema.webp)
 
 Skeema supports a pull-request-based workflow for schema change submission, review, and execution. This permits your team to manage schema changes the same way as you manage code changes.
 
 Skeema has a companion SaaS tool, Skeema Cloud Linter, that provides automatic linting of schema change commits and pull requests.
+
+GitHub uses both Skeema and gh-ost to [automate its MySQL schema migration process](https://github.blog/2020-02-14-automating-mysql-schema-migrations-with-github-actions-and-more/).
 
 ## Liquibase
 
@@ -75,9 +75,13 @@ Liquibase and Flyway are closely matched in their offerings. The key distinction
 
 ![issue-detail](/content/blog/top-open-source-postgres-migration-tools/issue-detail.webp)
 
-It also provides configurable SQL lint rules to detect SQL anti-patterns such as `NOT NULL` enforcement.
+It also provides configurable SQL lint rules to detect SQL anti-patterns.
 
 ![sql-review](/content/blog/top-open-source-postgres-migration-tools/sql-review.webp)
+
+For MySQL, it also provides a GUI wrapper around gh-ost for online schema migration.
+
+![bb-issue-ghost-config](/content/docs/change-database/online-schema-migration-for-mysql/bb-issue-ghost-config.webp)
 
 Apart from taking care of database change management, Bytebase also provides a SQL Editor with data
 access control, dynamic data masking and audit logs to control the query path.
@@ -100,3 +104,4 @@ access control, dynamic data masking and audit logs to control the query path.
 - [Data Masking for MySQL Databases](/blog/mysql-data-masking/)
 - [Top MySQL GUI Clients](/blog/top-mysql-gui-client/)
 - [How to Install Local MySQL on Your Mac, Ubuntu, CentOS, Windows](/blog/how-to-install-local-mysql-on-mac-ubuntu-centos-windows/)
+- [Postgres Migration Tools](/blog/top-open-source-postgres-migration-tools)

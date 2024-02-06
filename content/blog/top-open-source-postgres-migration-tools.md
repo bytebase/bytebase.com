@@ -105,3 +105,4 @@ git-like workflow when developing against the local database.
 - [Top Postgres GUI Clients](/blog/top-postgres-gui-client/)
 - [Postgres vs. MySQL](/blog/postgres-vs-mysql)
 - [Postgres vs. MongoDB](/blog/postgres-vs-mongodb)
+- [MySQL Migration Tools](/blog/top-open-source-mysql-migration-tools)
