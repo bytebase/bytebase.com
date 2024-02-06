@@ -36,3 +36,15 @@ Bytebase Cloud is hosted on Google Cloud us-central region. With Bytebase Cloud,
 
 2. Fill in the **Email** and **Password**, and click **Sign in**.
 3. A sample PostgreSQL instance is already available.
+
+## Add additional member
+
+Because Bytebase Cloud disables self-signup, so the `Workspace Admin` needs to add new members manually.
+
+![add-member](/content/docs/get-started/saas/add-member.webp)
+
+Then set a temporary password and tell the user offline to let her sign-in.
+
+![set-password](/content/docs/get-started/saas/set-password.webp)
+
+
