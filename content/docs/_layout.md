@@ -285,6 +285,11 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [PostgreSQL SQL Review Guide](/how-to/sql-review/postgres-sql-review-guide)
 
+### Postgres
+
+#### [Permission denied for table](/how-to/postgres/permission-denied-for-table-postgres)
+#### [Must be owner of table](/how-to/postgres/must-be-owner-of-table-postgres)
+
 ### ClickHouse
 
 #### [How to Create a Database](/how-to/clickhouse/how-to-create-a-database-clickhouse)

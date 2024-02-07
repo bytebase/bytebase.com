@@ -64,3 +64,8 @@ If people other than the DBA want to access the database, it is too risky to dir
 1. The reason for setting up a separate migration user is twofold: on the one hand, it facilitates monitoring, and on the other hand, it allows us to set separate default connection parameters for the migration user. The most common parameter that is often set is [lock_timeout](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT). The reason for setting this parameter is that when performing DDL operations, locks need to be acquired. Due to PostgreSQL's queue mechanism, even if another transaction that comes later does not require a DDL lock, it will still be blocked while DDL transaction is waiting. Therefore, it is often necessary to set a `lock_timeout` for the migration user in order to avoid blocking other transactions behind for an extended period of time.
 
 1. When creating objects in Postgres, such as tables, the owner of the created table is the statement executor. Therefore, when using a separate migration user to make schema changes, the owner of the table will also be the migration user. If you want the owner to reflect specific business, such as "payment", you can create a separate role for payment and switch to that role using `SET LOCAL ROLE` during migration execution.
+
+## Troubleshoot
+
+* [Permission denied for table](/docs/how-to/postgres/permission-denied-for-table-postgres/)
+* [Must be owner of table](/docs/how-to/postgres/must-be-owner-of-table-postgres/)
