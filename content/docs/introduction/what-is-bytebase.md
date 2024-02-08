@@ -71,4 +71,5 @@ SQL GUI Client such as MySQL Workbench, pgAdmin, DBeaver, Navicat provide a GUI 
 database. Bytebase not only provides a GUI client, it can also enforce centralized data access control
 for data security and governance.
 
+- [Bytebase vs. DBeaver](/blog/bytebase-vs-dbeaver/)
 - [Bytebase vs. Navicat](/blog/stop-using-navicat/)

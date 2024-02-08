@@ -228,6 +228,7 @@ export const MENU = {
       items: [
         { name: 'Bytebase vs. Liquibase', linkUrl: Route.VS_LIQUIBASE },
         { name: 'Bytebase vs. Flyway', linkUrl: Route.VS_FLYWAY },
+        { name: 'Bytebase vs. DBeaver', linkUrl: Route.VS_DBEAVER },
         { name: 'Bytebase vs. Navicat', linkUrl: Route.VS_NAVICAT },
         { name: 'Bytebase vs. schemachange', linkUrl: Route.VS_SCHEMACHANGE },
         { name: 'Postgres vs. MySQL', linkUrl: Route.PG_VS_MYSQL },
