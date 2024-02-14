@@ -9,6 +9,10 @@ title: FAQ
 - 🎫 Open [GitHub Issue](https://github.com/bytebase/bytebase/issues)
 - 🤠 Find us on [@Bytebase](https://twitter.com/bytebase)
 
+## Supported languages
+
+English, 简体中文, Español, 日本語, Tiếng Việt
+
 ## System requirements
 
 Bytebase is lightweight and has no external dependency. For normal workload, 1 CPU core and 2 GB RAM are sufficient.

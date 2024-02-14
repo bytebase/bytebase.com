@@ -126,6 +126,12 @@ Estimated time: **15 minutes**.
 
 ### Deploy to Kubernetes
 
+<HintBlock type="info">
+
+Make sure to set the replicas to **1**, otherwise, it may cause data race issues.
+
+</HintBlock>
+
 Here is a sample Kubernetes YAML file `bb.yaml` describing the minimal components and configuration required to run Bytebase in Kubernetes.
 
 ```yaml
