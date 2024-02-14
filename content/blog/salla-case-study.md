@@ -47,7 +47,7 @@ Salla has built **a comprehensive Database Access Control system and Review proc
 
 Salla now has fine-grained control over each table or SQL script and can mask sensitive fields as needed. Above all, these databases can be managed uniformly in Bytebase, without the need to set up different account systems for each one. Permissions to query or export data can be requested or revoked as needed, or they can be granted by administrators, greatly simplifying database access management.
 
-## Applying DML & DDL on production databases
+### Applying DML & DDL on production databases
 
 ![_](/content/blog/salla-case-study/workflow.webp)
 
