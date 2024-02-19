@@ -232,10 +232,6 @@ export const MENU = {
         { name: 'Bytebase vs. Navicat', linkUrl: Route.VS_NAVICAT },
         { name: 'Bytebase vs. Metabase', linkUrl: Route.VS_METABASE },
         { name: 'Bytebase vs. schemachange', linkUrl: Route.VS_SCHEMACHANGE },
-        { name: 'Postgres vs. MySQL', linkUrl: Route.PG_VS_MYSQL },
-        { name: 'Postgres vs. MongoDB', linkUrl: Route.PG_VS_MONGO },
-        { name: 'PlanetScale vs. Neon', linkUrl: Route.PLANETSCALE_VS_NEON },
-        { name: 'Flyway vs. Liquibase', linkUrl: Route.FLYWAY_VS_LIQUIBASE },
       ],
     },
     {

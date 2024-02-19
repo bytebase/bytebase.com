@@ -73,3 +73,12 @@ for data security and governance.
 
 - [Bytebase vs. DBeaver](/blog/bytebase-vs-dbeaver/)
 - [Bytebase vs. Navicat](/blog/stop-using-navicat/)
+
+## Compare with Metabase
+
+Metabase is a data visualization and business intelligence (BI) tool. It's built for data teams and business analysts
+to make sense of the data.
+
+Bytebase is a database development platform. It's built for the developer teams to perform database operations during the application development lifecycle.
+
+[Bytebase vs. Metabase](/blog/bytebase-vs-metabase/)
