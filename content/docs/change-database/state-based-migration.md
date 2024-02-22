@@ -5,7 +5,7 @@ feature_name: 'STATE_BASED_CHANGE'
 
 <HintBlock type="warning">
 
-This feature is in beta and only available for projects that have enabled [GitOps workflow](/docs/vcs-integration/enable-gitops-workflow).
+This feature is in beta. It only supports MySQL. We plan to support PostgreSQL next.
 
 </HintBlock>
 
