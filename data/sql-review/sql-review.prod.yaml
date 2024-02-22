@@ -19,6 +19,8 @@ ruleList:
     payload:
       required: true
       maxLength: 64
+  - type: table.no-duplicate-index
+    level: WARNING
   - type: statement.select.no-select-all
     level: ERROR
   - type: statement.where.require
@@ -57,6 +59,8 @@ ruleList:
     level: WARNING
   - type: statement.select-full-table-scan
     level: ERROR
+  - type: statement.create-specify-schema
+    level: WARNING
   - type: naming.table
     level: WARNING
     payload:
