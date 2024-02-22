@@ -96,9 +96,10 @@ data masking and audit logging. On the other hand, DBeaver is client-side built 
   ![bb-force-issue](/content/blog/bytebase-vs-dbeaver/bb-force-issue.webp)
   ![bb-force-issue-preview](/content/blog/bytebase-vs-dbeaver/bb-force-issue-preview.webp)
 
-  The suggested way is to choose databases in Bytebase console and with the help of **Schema Editor**, you can create a new issue with ease.
-  ![bb-select-db](/content/blog/bytebase-vs-dbeaver/bb-select-db.webp)
-  ![bb-schema-editor](/content/blog/bytebase-vs-dbeaver/bb-schema-editor.webp)
+On the other hand, the more common way to change the schema is to use **Schema Editor**.
+
+![bb-select-db](/content/blog/bytebase-vs-dbeaver/bb-select-db.webp)
+![bb-schema-editor](/content/blog/bytebase-vs-dbeaver/bb-schema-editor.webp)
 
 ### Access Control
 
