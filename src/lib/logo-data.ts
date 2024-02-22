@@ -1,8 +1,8 @@
 export const LOGO_LIST = [
   {
-    alt: 'Red Hat',
-    src: '/images/logos/redhat.svg',
-    width: 210,
+    alt: 'Linear',
+    src: '/images/logos/linear.svg',
+    width: 200,
     height: 64,
     small: {
       width: 110,
@@ -44,9 +44,9 @@ export const LOGO_LIST = [
     mobileOrderClassName: 'xs:order-3',
   },
   {
-    alt: 'Kingsoft',
-    src: '/images/logos/kingsoft.svg',
-    width: 232,
+    alt: 'Red Hat',
+    src: '/images/logos/redhat.svg',
+    width: 210,
     height: 64,
     small: {
       width: 110,
