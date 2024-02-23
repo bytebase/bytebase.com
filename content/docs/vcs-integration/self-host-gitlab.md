@@ -76,9 +76,10 @@ After you click "**Next**", Bytebase will kick off an OAuth flow to verify the s
 
 If you get an error in the OAuth popup window. Please double-check the following info:
 
-1. The Redirect URI of the registered GitLab application matches exactly to the Redirect URI shown on the Bytebase wizard.
-2. The Application ID and Secret of the registered GitLab application matches exactly to
-   the filled Application ID and Secret on the Bytebase wizard.
+1.  The Redirect URI of the registered GitLab application matches exactly to the Redirect URI shown on the Bytebase wizard.
+1.  The Application ID and Secret of the registered GitLab application matches exactly to
+    the filled Application ID and Secret on the Bytebase wizard.
+1.  GitLab is network accessible from Bytebase instance. e.g. If you run Bytebase and GitLab on the same host, and Bytebase runs inside docker, Bytebase needs to use the `host IP` instead of `127.0.0.1` to reach GitLab.
 
 </HintBlock>
 
@@ -89,7 +90,6 @@ When everything is setup properly, you will be informed that the setup is correc
 ![vcs-gitlab-step](/content/docs/vcs-integration/add-git-provider/vcs-gitlab-step5.webp)
 
 Now you have successfully added a Git provider, developers can now link their Bytebase projects with one of their owned repositories from this Git provider.
-
 
 ## Step 4 - Allow requests to the local network from webhooks
 
