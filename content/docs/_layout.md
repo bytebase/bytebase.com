@@ -203,6 +203,8 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ## Administration
 
+### [Upgrade](/administration/upgrade)
+
 ### [Manage License](/administration/license)
 
 ### [Production Setup](/administration/production-setup)
@@ -288,6 +290,7 @@ expand_section_list: ['Self-host', 'Get Started']
 ### Postgres
 
 #### [Permission denied for table](/how-to/postgres/permission-denied-for-table-postgres)
+
 #### [Must be owner of table](/how-to/postgres/must-be-owner-of-table-postgres)
 
 ### ClickHouse
