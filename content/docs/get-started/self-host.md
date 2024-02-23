@@ -442,7 +442,12 @@ If you encounter any error when you install bytebase by using install script, we
 
 ## Build from Source
 
-Estimated time: **30 minutes**.
+<HintBlock type="info">
+
+Due to the uncontrolled nature of building from source, we only provide technical assistance to the Enterprise
+customers.
+
+</HintBlock>
 
 **Prerequisites**
 
