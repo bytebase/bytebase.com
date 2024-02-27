@@ -74,6 +74,12 @@ for data security and governance.
 - [Bytebase vs. DBeaver](/blog/bytebase-vs-dbeaver/)
 - [Bytebase vs. Navicat](/blog/stop-using-navicat/)
 
+## Compare with CloudBeaver
+
+Both are web-based SQL clients. Bytebase offers review workflow, more collaboration and security features.
+
+[Bytebase vs. CloudBeaver](/blog/bytebase-vs-cloudbeaver/)
+
 ## Compare with Metabase
 
 Metabase is a data visualization and business intelligence (BI) tool. It's built for data teams and business analysts

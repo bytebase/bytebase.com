@@ -85,6 +85,7 @@ const Route = {
   VS_DBEAVER: '/blog/bytebase-vs-dbeaver',
   VS_NAVICAT: '/blog/stop-using-navicat',
   VS_METABASE: '/blog/bytebase-vs-metabase',
+  VS_CLOUDBEAVER: '/blog/bytebase-vs-cloudbeaver',
   VS_SCHEMACHANGE: '/blog/snowflake-schema-change',
   FLYWAY_VS_LIQUIBASE: '/blog/flyway-vs-liquibase',
   PG_VS_MYSQL: '/blog/postgres-vs-mysql',

@@ -226,12 +226,13 @@ export const MENU = {
     {
       name: 'COMPARISONS',
       items: [
-        { name: 'Bytebase vs. Liquibase', linkUrl: Route.VS_LIQUIBASE },
-        { name: 'Bytebase vs. Flyway', linkUrl: Route.VS_FLYWAY },
-        { name: 'Bytebase vs. DBeaver', linkUrl: Route.VS_DBEAVER },
-        { name: 'Bytebase vs. Navicat', linkUrl: Route.VS_NAVICAT },
-        { name: 'Bytebase vs. Metabase', linkUrl: Route.VS_METABASE },
-        { name: 'Bytebase vs. schemachange', linkUrl: Route.VS_SCHEMACHANGE },
+        { name: 'vs. Liquibase', linkUrl: Route.VS_LIQUIBASE },
+        { name: 'vs. Flyway', linkUrl: Route.VS_FLYWAY },
+        { name: 'vs. DBeaver', linkUrl: Route.VS_DBEAVER },
+        { name: 'vs. Navicat', linkUrl: Route.VS_NAVICAT },
+        { name: 'vs. Metabase', linkUrl: Route.VS_METABASE },
+        { name: 'vs. CloudBeaver', linkUrl: Route.VS_CLOUDBEAVER },
+        { name: 'vs. schemachange', linkUrl: Route.VS_SCHEMACHANGE },
       ],
     },
     {
