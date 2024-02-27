@@ -121,6 +121,27 @@ GRANT cloudsqlsuperuser TO bytebase
 
 Besides, you may need to grant Bytebase privileges with `GRANT role_name TO bytebase;` for all existing roles. Otherwise, Bytebase may not access existing databases or tables.
 
+## Oracle
+
+For managing Oracle database, Bytebase provides two manage modes: **Manage based on database** and **Manage based on schema**.
+You can choose the manage mode when adding an instance or in the instance detail page.
+
+### Manage based on database
+
+In this mode, Bytebase will manage the database as a whole.
+
+- For normal Oracle instance, we treat the Oracle database as a Bytebase database.
+- For CDB instance, we treat the CDB and all PDBs as Bytebase databases.
+- For PDB instance, we treat the PDB as a Bytebase database.
+
+### Manage based on schema
+
+In this mode, Bytebase will manage the schema as a whole.
+
+- For any Oracle database, we treat the Oracle schema as a Bytebase database.
+
+## Snowflake
+
 ## Google Cloud Spanner
 
 For connecting to Google Cloud Spanner, you need to provide the following info:
@@ -153,22 +174,3 @@ For example, the project ID and instance ID are `spanner-test-3717002` and `span
 1. You'll get a message that the service account's private key JSON file was downloaded to your computer. Make a note of the file name and where your browser saves it. You'll need it later.
 
 Upload the JSON file to the `Credentials` input.
-
-## Oracle
-
-For managing Oracle database, Bytebase provides two manage modes: **Manage based on database** and **Manage based on schema**.
-You can choose the manage mode when adding an instance or in the instance detail page.
-
-### Manage based on database
-
-In this mode, Bytebase will manage the database as a whole.
-
-- For normal Oracle instance, we treat the Oracle database as a Bytebase database.
-- For CDB instance, we treat the CDB and all PDBs as Bytebase databases.
-- For PDB instance, we treat the PDB as a Bytebase database.
-
-### Manage based on schema
-
-In this mode, Bytebase will manage the schema as a whole.
-
-- For any Oracle database, we treat the Oracle schema as a Bytebase database.

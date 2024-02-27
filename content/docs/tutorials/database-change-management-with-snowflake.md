@@ -54,17 +54,26 @@ In Bytebase, ​​an **Instance** could be your on-premises MySQL instance, an 
 
 3. Add a Snowflake instance. You need to pay attention to some fields:
    ![bb-create-instance](/content/docs/tutorials/database-change-management-with-snowflake/bb-create-instance.webp)
+
    **Environment**: choose `Test`, if you choose `Prod`, you will need approval for all future change requests. In this tutorial, let's try to keep it simple. (However, it’s all configurable later.)
 
-**Account name**: Go to your Snowflake account, you can find it in the URL, or from the locator field (but lower case).
-![sf-locator](/content/docs/tutorials/database-change-management-with-snowflake/sf-locator.webp)
+   ![sf-account-name](/content/docs/tutorials/database-change-management-with-snowflake/sf-account-name.webp)
 
-**Username and password**: The ones you use to log into your Snowflake account.
-![sf-login](/content/docs/tutorials/database-change-management-with-snowflake/sf-login.webp)
+   **Account name**: Go to your Snowflake account, you can find it in the URL, or from the **locator field (but lower case)**.
+   ! [sf-locator](/content/docs/tutorials/database-change-management-with-snowflake/sf-locator.webp)
 
-Regarding the **Connection info**, make sure your account has `DEFAULT_ROLE=ACCOUNTADMIN` and `DEFAULT_WAREHOUSE` set in Snowflake, as shown below.
-![sf-role-list](/content/docs/tutorials/database-change-management-with-snowflake/sf-role-list.webp)
-![sf-edit-user](/content/docs/tutorials/database-change-management-with-snowflake/sf-edit-user.webp)
+   **Username and password**: The ones you use to log into your Snowflake account.
+   ![sf-login](/content/docs/tutorials/database-change-management-with-snowflake/sf-login.webp)
+
+   ![sf-connection-info](/content/docs/tutorials/database-change-management-with-snowflake/sf-connection-info.webp)
+
+   **Connection info**
+
+   Option 1: `ACCOUNTADMIN`. Make sure your account has `DEFAULT_ROLE=ACCOUNTADMIN` and `DEFAULT_WAREHOUSE` set in Snowflake, as shown below.
+   ![sf-role-list](/content/docs/tutorials/database-change-management-with-snowflake/sf-role-list.webp)
+   ![sf-edit-user](/content/docs/tutorials/database-change-management-with-snowflake/sf-edit-user.webp)
+
+   Option 2: Granular role. Assigned the proper permission according to the instructions.
 
 ## Step 3 - Create a Project with Snowflake instance
 
