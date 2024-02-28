@@ -5,7 +5,6 @@ title: Back up Data
 Bytebase manages its own data under the [--data](/docs/reference/command-line#--data-directory) directory. The data includes:
 
 - Metadata when [--pg](/docs/reference/command-line#--pg-string) is not specified.
-- Database backups when [cloud backup flags](/docs/reference/command-line#--backup-bucket-bucket) is not specified.
 
 <HintBlock type="info">
 
@@ -109,13 +108,3 @@ Restart Bytebase and verify the metadata is restored properly. Afterwards, you c
 ```text
 psql -h <<host>> -p <<port>> -U <<user>> postgres -c "DROP DATABASE metadb"
 ```
-
-## Database Backup
-
-Bytebase allows users to take database [backups](/docs/disaster-recovery/backup).
-
-- Local backup: `backup` directory will be put under the `--data` directory.
-
-- [Cloud backup](/docs/disaster-recovery/backup/#cloud-storage): If Bytebase starts with
-  [cloud backup flags](/docs/reference/command-line#--backup-bucket-bucket), then the backup will be
-  stored in the corresponding cloud storage.

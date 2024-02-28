@@ -39,14 +39,6 @@ const ITEMS = [
     url: Route.DOCS_ONLINE_SHEMA_CHANGE,
   },
   {
-    title: 'PITR',
-    url: Route.DOCS_PITR,
-  },
-  {
-    title: 'Backup & Restore',
-    url: Route.DOCS_DISASTER_RECOVERY,
-  },
-  {
     title: 'RBAC',
     url: Route.DOCS_RBAC,
   },

@@ -49,9 +49,7 @@ export const GLOSSARY_LIST: GlossaryLetterSet[] = [
       },
       {
         name: 'Backup',
-        description: `A copy of data taken and may be used to restore after a data loss event. Bytebase supports both the manual (on-demand)
-        and the automatic per-database backup.`,
-        reference: 'https://www.bytebase.com/docs/disaster-recovery/backup/',
+        description: `A copy of data taken and may be used to restore after a data loss event.`,
         tagList: ['General', 'Bytebase'],
       },
       {
@@ -632,10 +630,9 @@ export const GLOSSARY_LIST: GlossaryLetterSet[] = [
       },
       {
         name: 'Restore',
-        description: `A process to reset the database to a state based on a backup. Bytebase supports to restore
-        a backup to a new database.`,
-        reference: 'https://www.bytebase.com/docs/disaster-recovery/restore-from-backup',
-        tagList: ['General', 'Bytebase'],
+        description: `A process to reset the database to a state based on a backup.`,
+        reference: '',
+        tagList: ['General'],
       },
       {
         name: 'Rollback',

@@ -44,10 +44,6 @@ Data migration is the migration type for DML statements.
 
 Baseline migration instructs Bytebase to use the latest live schema as the source of truth. This is normally used when [schema drift](/docs/change-database/drift-detection) occurs and Bytebase needs to re-establish the baseline based on the latest live schema.
 
-### Branch Migration
-
-A branch migration history is recorded when a database is restored from a backup. See [Restore from Backup](/docs/disaster-recovery/restore-from-backup#step-4-view-the-restored-database) for details.
-
 ## Migration History
 
 Bytebase records the detailed migration history and the before/after schema snapshot for each migration it applies. It also leverages these records to [detect schema drifts](/docs/change-database/drift-detection).

@@ -23,9 +23,6 @@ Available Commands:
   version     Print the version of Bytebase
 
 Flags:
-      --backup-bucket string       bucket where Bytebase stores backup data, e.g., s3://example-bucket. When provided, Bytebase will store data to the S3 bucket.
-      --backup-credential string   credentials file to use for the backup bucket. It should be the same format as the AWS/GCP credential files.
-      --backup-region string       region of the backup bucket, e.g., us-west-2 for AWS S3.
       --data string                directory where Bytebase stores data. If relative path is supplied, then the path is relative to the directory where Bytebase is under (default ".")
       --debug                      whether to enable debug level logging
       --demo string                name of the demo to use. If specified, Bytebase will run in demo mode
@@ -37,26 +34,6 @@ Flags:
       --port int                   port where Bytebase server runs. Default to 8080 (default 8080)
       --readonly                   whether to run in read-only mode
 ```
-
-## --backup-bucket &lt;&lt;bucket&gt;&gt;
-
-default: **""**
-
-If specified, Bytebase will store all of the backup data in the cloud bucket. For MySQL instances, this also means all binlog files are stored in the cloud bucket.
-
-For detailed instructions to setup the cloud bucket, please follow [this doc](/docs/disaster-recovery/backup/#cloud-storage).
-
-## --backup-credential &lt;&lt;string&gt;&gt;
-
-default: **""**
-
-Must be specified if `--backup-bucket` is provided. Bytebase will use this file as the credentials to access the cloud bucket.
-
-## --backup-region &lt;&lt;string&gt;&gt;
-
-default: **""**
-
-Must be specified if `--backup-bucket` is provided and the cloud vendor is AWS S3.
 
 ## --data &lt;&lt;directory&gt;&gt;
 

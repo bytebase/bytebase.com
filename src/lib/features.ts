@@ -9,7 +9,6 @@ export const FEATURES = {
   TERRAFORM: 'Terraform integration',
   SCHEDULE_CHANGE: 'Scheduled change at specific time',
   ROLLOUT_POLICY: 'Rollout Policy',
-  DISASTER_RECOVERY: 'Disaster recovery',
   SYNCHRONIZE_SCHEMA: 'Synchronize schema between databases',
   BATCH_CHANGE: 'Batch change',
   CUSTOM_APPROVAL: 'Custom approval workflow',

@@ -6,7 +6,6 @@ Development workflow setup usually contains multiple environments such as `Dev`,
 
 - [Environment Tier](/docs/administration/environment-policy/tier)
 - [Rollout Policy](/docs/administration/environment-policy/tier)
-- [Database backup schedule Policy](/docs/administration/environment-policy/backup-schedule-policy)
 - [SQL Review Policy](/docs/sql-review/review-policy)
 
 ## Prerequisites

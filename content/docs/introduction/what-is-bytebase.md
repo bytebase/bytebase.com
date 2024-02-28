@@ -46,7 +46,7 @@ Bytebase provides multi-level masking policy with workflow to grant unmasked dat
 
 Bytebase provides a suite of features to enable organizations to enforce data security policies, avoid data leaks and conform compliance.
 
-[Data Rollback and Disaster Recovery](/docs/change-database/rollback-data-changes/)
+[Data Rollback](/docs/change-database/rollback-data-changes/)
 
 - Statement-level rollback
 

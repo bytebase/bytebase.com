@@ -189,16 +189,6 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Index Advisor](/slow-query/index-advisor)
 
-## Disaster Recovery
-
-### [Backup](/disaster-recovery/backup)
-
-### [Restore from Backup](/disaster-recovery/restore-from-backup)
-
-### [Point-in-time Recovery for MySQL](/disaster-recovery/point-in-time-recovery-for-mysql)
-
-### [Backup Retention Policy](/disaster-recovery/backup-retention-policy)
-
 ---
 
 ## Administration
@@ -216,8 +206,6 @@ expand_section_list: ['Self-host', 'Get Started']
 #### [Environment Tier](/administration/environment-policy/tier)
 
 #### [Rollout Policy](/administration/environment-policy/rollout-policy)
-
-#### [Backup Schedule Policy](/administration/environment-policy/backup-schedule-policy)
 
 ### [Single Sign-On](/administration/sso/overview)
 

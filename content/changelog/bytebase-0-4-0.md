@@ -11,7 +11,7 @@ In the previous version, Bytebase couldn't sync the migration history properly b
 
 ## 🚀 New Features
 
-### Backup and restore ([detailed guide](https://docs.bytebase.com/docs/disaster-recovery/backup/))
+~### Backup and restore~ (Sunset in 2.13.2)
 
 User can now configure weekly automatic backup for the database. Meanwhile, user can also take manual backup anytime. Later on, User can restore the backup to a new database.
 
