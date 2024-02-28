@@ -142,6 +142,14 @@ In this mode, Bytebase will manage the schema as a whole.
 
 ## Snowflake
 
+![sf-account-locator](/content/docs/tutorials/database-change-management-with-snowflake/sf-account-locator.webp)
+
+To find the **Account Locator**, go to your Snowflake account, you can find it in the URL, or from the **locator field (but lower case)**.
+
+![sf-locator](/content/docs/tutorials/database-change-management-with-snowflake/sf-locator.webp)
+
+If the account is located in the AWS US West (Oregon) region, then it would be something like `xy12345`, otherwise, the format will be `<<account_locator>>.<<cloud_region_id>>.<<cloud>>` such as `xy12345.us-east-2.aws`. See [official doc](https://docs.snowflake.com/en/user-guide/admin-account-identifier#using-an-account-locator-as-an-identifier).
+
 ## Google Cloud Spanner
 
 For connecting to Google Cloud Spanner, you need to provide the following info:
