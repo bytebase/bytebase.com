@@ -44,7 +44,10 @@ Bytebase needs your MySQL binlog to generate rollback SQL statements. Your binlo
 The following commands returns the binary log expiration period in seconds.
 
 ```sql
+# >= MySQL 8.0
 SHOW VARIABLES LIKE 'binlog_expire_logs_seconds';
+# < MySQL 8.0
+SHOW VARIABLES LIKE 'expire_logs_days';
 ```
 
 <HintBlock type="info">
