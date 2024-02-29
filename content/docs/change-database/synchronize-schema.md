@@ -4,7 +4,7 @@ title: Synchronize Schema
 
 <HintBlock type="info">
 
-For the Free Plan, you can only sync from the latest schema version.
+This feature is in beta. For the Free Plan, you can only sync from the latest schema version.
 Syncing from arbitrary schema versions is available in the Pro Plan and Enterprise Plan.
 
 </HintBlock>
@@ -13,11 +13,11 @@ Syncing from arbitrary schema versions is available in the Pro Plan and Enterpri
 
 <HintBlock type="warning">
 
-This feature is in beta and only available for MySQL and PostgreSQL.
+This feature is in beta. It only supports MySQL and PostgreSQL.
 
-Synchronize Schema for MySQL currently supports synchronizing `Table`, `Index`, `Constraint`, `View`, `Event`, `Trigger`, and `Function` objects.
+MySQL currently supports `Table`, `Index`, `Constraint`, `View`, `Event`, `Trigger`, and `Function`.
 
-Synchronize Schema for PostgreSQL currently supports synchronizing `Schema`, `Table`, `Index`, `Constraint`, `Sequence`, `Extension`, `Function`, `Trigger`, and `Enum Type` objects.
+PostgreSQL currently supports `Schema`, `Table`, `Index`, `Constraint`, `Sequence`, `Extension`, `Function`, `Trigger`, and `Enum Type`.
 
 </HintBlock>
 
