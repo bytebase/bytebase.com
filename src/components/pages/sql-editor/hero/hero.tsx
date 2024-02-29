@@ -22,13 +22,12 @@ const Hero = ({ subjects }: HeroProps) => {
   useEffect(() => {
     const updateSubjectContainerHeight = () => {
       if (subjectsContainerRef.current) {
-        subjectsContainerRef.current.style.height =
-          subjectsContainerRef.current.getBoundingClientRect().height + 'px';
+        subjectsContainerRef.current.style.height = getComputedStyle(
+          subjectsContainerRef.current,
+        ).getPropertyValue('line-height');
         const parentContainer = subjectsContainerRef.current.parentElement as HTMLDivElement;
-        if (parentContainer) {
-          parentContainer.style.height =
-            getComputedStyle(parentContainer).getPropertyValue('line-height');
-        }
+        parentContainer.style.height =
+          getComputedStyle(parentContainer).getPropertyValue('line-height');
       }
     };
     updateSubjectContainerHeight();
