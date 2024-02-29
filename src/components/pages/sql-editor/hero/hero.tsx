@@ -47,7 +47,7 @@ const Hero = ({ subjects }: HeroProps) => {
         </Pill>
         <h2 className="col-span-full mt-3 max-w-[1000px] text-center font-title text-88 font-semibold leading-none xl:max-w-[780px] xl:text-68 xl:leading-104 md:mt-2 md:max-w-[620px] md:text-54 sm:text-48 sm:leading-95">
           <div className="relative inline-flex">
-            <div ref={subjectsContainerRef} className="relative overflow-hidden leading-normal">
+            <div ref={subjectsContainerRef} className="relative overflow-hidden leading-tight">
               {initialed && isSubjectsScrollable ? (
                 <>
                   <div className="absolute z-[1] h-4 w-full bg-white blur-md" />
