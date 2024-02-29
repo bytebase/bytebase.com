@@ -30,8 +30,8 @@ export const FEATURES = {
   //Collaboration
   INBOX_NOTIFICATION: 'Inbox notification',
   UI_SQL_REVIEW: 'UI based SQL review',
-  SHARED_SQL: 'Shared SQL script',
   WEBHOOK_INTEGRATION: 'Webhook integration',
+  SHARED_SQL: 'Shared SQL script',
   GITOPS_WORKFLOW: 'GitOps workflow',
 
   //Data Security & Compliance

@@ -569,6 +569,9 @@ ruleList:
   - type: column.maximum-varchar-length
     category: COLUMN
     engineList:
+      - MYSQL
+      - OCEANBASE
+      - MARIADB
       - ORACLE
       - OCEANBASE_ORACLE
       - SNOWFLAKE
@@ -752,6 +755,11 @@ ruleList:
       - MYSQL
     componentList: []
   - type: system.view.disallow-create
+    category: SYSTEM
+    engineList:
+      - MYSQL
+    componentList: []
+  - type: system.function.disallow-create
     category: SYSTEM
     engineList:
       - MYSQL

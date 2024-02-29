@@ -70,7 +70,7 @@ const Card = ({
           {typeof price === 'number' ? `$${price}` : price}
           {priceDescription && (
             <span
-              className="md:text-19 absolute -right-[32px] top-4 max-w-[64px] font-sans text-20 font-normal leading-none tracking-normal text-gray-15 lg:-right-[28px] md:top-2"
+              className="absolute -right-[76px] top-4 max-w-[64px] font-sans text-15 font-normal leading-none tracking-normal text-gray-15 lg:-right-[72px] md:top-2 md:text-14"
               dangerouslySetInnerHTML={{ __html: priceDescription }}
             />
           )}

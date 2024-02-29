@@ -44,15 +44,14 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     collaboration: {
       inbox: true,
       ui: true,
+      webhook: true,
       shared: false,
-      webhook: { value: 'Basic', tooltip: 'IM + Custom Webhook' },
       gitops: { value: 'Basic', tooltip: 'GitOps CI/CD, SQL Review CI' },
     },
     security: {
       rbac: true,
       'slow-query': true,
       archiving: true,
-      'backup-policy': false,
       'secret-variable': false,
       'secret-manager': false,
       sso: false,
@@ -112,8 +111,8 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     collaboration: {
       inbox: true,
       ui: true,
+      webhook: true,
       shared: true,
-      webhook: { value: 'Basic', tooltip: 'IM + Custom Webhook' },
       gitops: {
         value: 'Advanced',
         tooltip: 'Basic + Latest Schema Write-back, SQL Scripts Sync, SQL Review CI',
@@ -123,7 +122,6 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       rbac: true,
       'slow-query': true,
       archiving: true,
-      'backup-policy': true,
       'secret-variable': true,
       'secret-manager': false,
       sso: false,
@@ -186,8 +184,8 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     collaboration: {
       inbox: true,
       ui: true,
+      webhook: true,
       shared: true,
-      webhook: { value: 'Advanced', tooltip: 'Basic + IM Approval' },
       gitops: {
         value: 'Advanced',
         tooltip: 'Basic + Latest Schema Write-back, SQL Scripts Sync, SQL Review CI',
@@ -197,7 +195,6 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       rbac: true,
       'slow-query': true,
       archiving: true,
-      'backup-policy': true,
       'secret-variable': true,
       'secret-manager': true,
       sso: true,
@@ -261,8 +258,8 @@ const LABELS = [
     items: {
       inbox: 'Inbox notification',
       ui: 'UI based SQL review',
-      shared: 'Shared SQL script',
       webhook: 'Webhook integration',
+      shared: 'Shared SQL script',
       gitops: 'GitOps workflow',
     },
   },
@@ -272,7 +269,6 @@ const LABELS = [
       rbac: 'RBAC',
       'slow-query': 'Slow Query',
       archiving: 'Archiving',
-      'backup-policy': 'Backup policy',
       'secret-variable': 'Secret variable',
       'secret-manager': 'External secret manager',
       sso: 'Single sign-on (SSO)',
