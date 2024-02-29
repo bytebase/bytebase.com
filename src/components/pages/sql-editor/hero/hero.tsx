@@ -22,9 +22,13 @@ const Hero = ({ subjects }: HeroProps) => {
   useEffect(() => {
     const updateSubjectContainerHeight = () => {
       if (subjectsContainerRef.current) {
-        subjectsContainerRef.current.style.height = getComputedStyle(
-          subjectsContainerRef.current,
-        ).getPropertyValue('line-height');
+        subjectsContainerRef.current.style.height =
+          subjectsContainerRef.current.getBoundingClientRect().height + 'px';
+        const parentContainer = subjectsContainerRef.current.parentElement as HTMLDivElement;
+        if (parentContainer) {
+          parentContainer.style.height =
+            getComputedStyle(parentContainer).getPropertyValue('line-height');
+        }
       }
     };
     updateSubjectContainerHeight();
@@ -43,22 +47,24 @@ const Hero = ({ subjects }: HeroProps) => {
           Web-based
         </Pill>
         <h2 className="col-span-full mt-3 max-w-[1000px] text-center font-title text-88 font-semibold leading-none xl:max-w-[780px] xl:text-68 xl:leading-104 md:mt-2 md:max-w-[620px] md:text-54 sm:text-48 sm:leading-95">
-          <div ref={subjectsContainerRef} className="relative inline-grid overflow-hidden">
-            {initialed && isSubjectsScrollable ? (
-              <>
-                <div className="absolute z-[1] h-2 w-full bg-white blur-md" />
-                <div className="scroll-animation flex flex-col items-center justify-center">
-                  {scrollableSubjects.map((subject, index) => (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <mark key={`${subject}-${index}`} className="bg-transparent text-primary-1">
-                      {subject}
-                    </mark>
-                  ))}
-                </div>
-              </>
-            ) : (
-              <mark className="bg-transparent text-primary-1">{subjects[0]}</mark>
-            )}
+          <div className="relative inline-flex">
+            <div ref={subjectsContainerRef} className="relative overflow-hidden leading-normal">
+              {initialed && isSubjectsScrollable ? (
+                <>
+                  <div className="absolute z-[1] h-4 w-full bg-white blur-md" />
+                  <div className="scroll-animation flex flex-col items-end justify-center">
+                    {scrollableSubjects.map((subject, index) => (
+                      // eslint-disable-next-line react/no-array-index-key
+                      <mark key={`${subject}-${index}`} className="bg-transparent text-primary-1">
+                        {subject}
+                      </mark>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <mark className="bg-transparent text-primary-1">{subjects[0]}</mark>
+              )}
+            </div>
           </div>{' '}
           with access control, data masking, and collaboration
         </h2>
