@@ -103,7 +103,7 @@ const Footer = () => (
         ))}
       </div>
       <div className="col-span-1 col-start-12 flex flex-row items-center justify-end gap-x-4 lg:gap-x-6 md:col-span-3 md:col-start-10 md:row-start-2 md:justify-self-end xs:col-start-1 xs:row-start-3 xs:justify-self-start">
-        <LocaleSwitcher className="-mr-4" />
+        {/* <LocaleSwitcher className="-mr-4" /> */}
         <Link
           className="text-16 font-medium leading-none tracking-tight xs:text-14"
           theme="gray"
