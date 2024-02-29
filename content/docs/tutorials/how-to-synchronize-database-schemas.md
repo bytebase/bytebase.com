@@ -1,118 +1,103 @@
 ---
 title: How to Synchronize Database Schemas
 author: Ningjing
-published_at: 2022/11/24 18:00
+published_at: 2024/02/29 18:00
 feature_image: /content/docs/tutorials/how-to-synchronize-database-schemas/sync-schema.webp
 tags: Tutorial
 integrations: General
 level: Beginner
 estimated_time: '10 mins'
-description: This article briefly describes the general scenarios of database schema synchronization and how to use this feature smoothly in Bytebase with pure UI operations.
+description: 'This tutorial will walk you through the typical use cases for database schema synchronization** in Bytebase with **pure UI operations'
 ---
 
-This article briefly describes the general scenarios of **database schema synchronization** and how to use this feature smoothly in Bytebase with **pure UI operations**.
+This tutorial will walk you through the typical use cases for **database schema synchronization** in Bytebase with **pure UI operations**.
 
-## General Scenarios
+The **Sync Schema** feature in Bytebase supports copying a specific schema version from one database to multiple others. Without it, developers have to write SQL statements cautiously and apply them manually. Additionally, this feature may also be used for rollback purpose.
 
-Bytebase's database **schema synchronization** feature (introduced in [1.8.0](/changelog/bytebase-1-8-0)） supports copying a specific schema version from one database to another. Without this feature, developers have to write SQL statements cautiously and apply them manually; Now with this feature, they can simply tell Bytebase which database schema needs to be replicated to the target database, and the whole process can be done from UI operations. This feature can solve the following scenarios:
+## Preparation
 
-### Scenario 1
+Make sure you installed [Docker](https://www.docker.com/).
 
-During the product release process, for different environments, such as dev / staging / prod, you need to do schema synchronization. For example, the R&D release process from dev to staging, then to prod in the forward direction, or from prod to dev for testing purposes in the reverse direction.
+1. Copy and paste the commands to start one Bytebase via Docker.
 
-### Scenario 2
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
-For the production environment, databases with identical schemas, such as SaaS, multi-region game deployment, etc.
+1. Register and sign in **Bytebase Console**.
 
-1. Manual modification by humans due to special ad-hoc reasons - causes database schema drift, which needs to reconciliation
-2. The vendor maintains multiple product versions, so it also needs to reconcile the schema.
+## Case 1 - Sync Schema to a New Database
 
-### Easy Steps
+When you set up a new environment or find the current database is nearing capacity, it becomes necessary to establish a new database and synchronize the schema from the original database.
 
-In the Bytebase Console:
+1. Go into `Sample Project`, there are two databases `hr_test` on `Test` environment and `hr_prod` on `Prod` environment. Let's create another one on `Prod`.
 
-1. Select the project first;
-2. Select a specific database schema as the synchronization source;
-3. Select the database you want to sync to;
+2. Click **New DB**, fill in the form as follows and click **Create**:
+   - **Name**: `hr_prod_2`
+   - **Environment**: `Prod`
+   - **Instance**: `Prod Sample Instance`
+   - **Database owner name**: `bbsample`
+   ![bb-new-db-prod-2](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-new-db-prod-2.webp)
 
-Bytebase will then calculate the schema differences between these two and automatically generate the suggested DDL statements. (e.g., ALTER TABLE ......)
+3. An issue will be created and executed automatically, and the database `hr_prod_2` will be ready when the issue is `Done`.
+   ![bb-new-db-prod-2-issue](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-new-db-prod-2-issue.webp)
 
-![sync-schema](/content/docs/tutorials/how-to-synchronize-database-schemas/sync-schema-ui.webp)
+4. Within the project, click **Sync Schema**, choose `hr_prod` as the source schema, and click **Next**.
+   ![bb-sync-schema-source](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-sync-schema-source.webp)
 
-## Tutorial: Experience the feature in 5 mins
+5. You may select as many target databases as you like to sync to. Here we select all (including the source) and click **Select**.
+   ![bb-sync-schema-all-selected](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-sync-schema-all-selected.webp)
 
-Here is how we install Bytebase and try out schema synchronization. Even if you have never tried Bytebase before, you can complete the process within 5 mins.
+6. Bytebase will calculate the schema differences between the source and target databases, and generate the suggested DDL statements. Click **Preview Issue**.
+   ![bb-sync-schema-before-preview](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-sync-schema-before-preview.webp)
 
-### Preparation Phase
+7. An issue with the generated DDL is created automatically. Click **Rollout** ignoring the SQL review warning. After the issue execution is `Done`, the schema synchronization is completed.
+   ![bb-issue-rollout-anyway](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-issue-rollout-anyway.webp)
 
-0. Make sure you installed [Docker](https://www.docker.com/).
+## Case 2 - Sync Schema from One to Many
 
-1. Copy and paste the commands to start one Bytebase and two MySQL instances via Docker.
+During the product release process, for different environments, such as dev, staging and prod, you'll need to do schema synchronization. Furthermore, for the prod environment, databases with identical schemas, such as SaaS, and multi-region game deployment, you may also need to sync the schema to multiple databases at the same time.
 
-<IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
+1. Within the project, select `hr_test` and click **Edit Schema**. With the help of Schema Editor, add a new column `email` as follows and click **Preview issue**:
+   - **Name**: `email`
+   - **Type**: `text`
+   - **Default**: `Empty string`
+   - **Not Null**: `checked`
 
-```text
-docker run --name mysqldtest \
-  --publish 3307:3306 \
-  -e MYSQL_ROOT_HOST=172.17.0.1 \
-  -e MYSQL_ROOT_PASSWORD=testpwd1 \
-  mysql/mysql-server:8.0
-```
+   ![bb-schema-editor-email](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-schema-editor-email.webp)
 
-```text
-docker run --name mysqldprod \
-  --publish 3308:3306 \
-  -e MYSQL_ROOT_HOST=172.17.0.1 \
-  -e MYSQL_ROOT_PASSWORD=testpwd1 \
-  mysql/mysql-server:8.0
-```
+2. An issue is created and executed automatically. After it's `Done`, the new column `email` is added.
+   ![bb-issue-add-email-done](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-issue-add-email-done.webp)
 
-2. Register and sign in **Bytebase Console**. Add two instances in two environments (**Test**/**Prod**), respectively. Username: `root`, Password:`testpwd1`
-   ![2 instances](/content/docs/tutorials/how-to-synchronize-database-schemas/2instances.webp)
+3. Within the project, click **Sync Schema**, choose `hr_test` as the source schema and click **Next**.
+   ![bb-sync-schema-email-source](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-sync-schema-email-source.webp)
 
-3. Create project **sync-schema**, and within the project, click **Create DB** to create databases as follows:
-   ![2 databases](/content/docs/tutorials/how-to-synchronize-database-schemas/2databases.webp)
+4. Select `hr_prod` and `hr_prod_2` as the target databases. Schema differences are calculated and the suggested DDL statements are generated. Click **Preview issue**.
+   ![bb-sync-schema-add-email](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-sync-schema-add-email.webp)
 
-4. Go back to project **sync-schema** page, and click **Alter Schema**. Choose **dbtest** in **Test**, and click **Next**. Copy and paste the SQL below and click **Create**.
+5. An issue with the generated DDL is created automatically. Because two databases need to be synced, there're two task blocks. After they execute one by one, the issue is `Done`, and `email` is added.
+   ![bb-issue-add-email-prod](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-issue-add-email-prod.webp)
 
-```sql
-CREATE TABLE t1 (
-   person_id INT,
-   last_name VARCHAR(255),
-   first_name VARCHAR(255),
-   address VARCHAR(255),
-   city VARCHAR(255)
-);
-```
+## Case 3 - Rollback to Previous Schema Versions
 
-5. Go back to project **sync-schema** page, and click **Alter Schema**. Choose **dbprod** in **Prod**, and click **Next**. Copy and paste the SQL below and click **Create**.
+In Bytebase **Community Plan**, you can choose the latest history version; In **Pro Plan** or **Enterprise Plan**, you can choose an arbitrary schema version from the full migration history. Which means you can roll back to any previous schema version.
 
-```sql
-CREATE TABLE t2 (
-   person_id INT,
-   full_name VARCHAR(255)
-);
-```
+1. After upgrading to **Enterprise Plan**, go into `Sample Project`, click **Sync Schema** and select `hr_test` as the source schema. When you choose the schema version, you will see the following prompt. That's because we haven't assigned the enterprise license to database instances.
+   ![bb-sync-test-lock](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-sync-test-lock.webp)
 
-### Feature Experience Phase
+1. Click on the lock sign, select both two instances, and click **Confirm**.
+   ![bb-manage-license](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-manage-license.webp)
 
-1. Go back to the project **sync-schema** page, click **Schema-Sync**, and fill in steps 1-3 to synchronize the schema of the **dbtest** database to **dbprod**:
-   ![sync-schema UI](/content/docs/tutorials/how-to-synchronize-database-schemas/sync-schema-ui.webp)
+1. After the license is assigned, you can choose the schema version freely, we'll choose the previous version and click **Next**.
+   ![bb-sync-schema-prev](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-sync-schema-prev.webp)
 
-2. Click **Preview Issue**, you will go to the new issue page with preview:
-   ![issue SQL](/content/docs/tutorials/how-to-synchronize-database-schemas/issue-sql.webp)
+1. Choose the same database `hr_test` as the target, and click **Select**.
+   ![bb-sync-rollback-target](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-sync-rollback-target.webp)
 
-3. Click **Create**, and the **Issue** is truly created. **Approve** and **Fix** the issue, the schema synchronization will be completed.
-   ![dbprod t1](/content/docs/tutorials/how-to-synchronize-database-schemas/dbprod-t1.webp)
+1. Bytebase will calculate the schema differences between the source and target databases, and generate the suggested DDL statements. Here means if you want to roll back to the previous version, you'll need to delete this line. Click **Preview Issue**.
+   ![bb-sync-rollback-preview](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-sync-rollback-preview.webp)
 
-## Enterprise Plan
+2. Click **Create**, an issue with the generated DDL is created and rollout automatically. After the issue execution is `Done`, the schema rolls back to the previous version.
+   ![bb-sync-rollback-done](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-sync-rollback-done.webp)
 
-In Bytebase **Free**, you can choose the latest history version; In **Pro Plan** or **Enterprise Plan**, you can choose an arbitrary schema version from the full migration history.
-
-From Bytebase [1.8.0](/changelog/bytebase-1-8-0), you can start a 14-day **Pro Plan** or **Enterprise Plan**
-trial without credit card.
-![dbprod t1](/content/docs/tutorials/how-to-synchronize-database-schemas/dbprod-t1.webp)
+## Summary
 
 Is the experience smooth? Or do you encounter any problems? Feel free to join our [Discord Group](https://discord.gg/huyw7gRsyA) to talk about it!
-
-In the following article, we’ll explain how Bytebase implements schema synchronization for MySQL from a technical perspective. Stay tuned!
