@@ -4,7 +4,7 @@ title: Synchronize Schema
 
 <HintBlock type="info">
 
-This feature is in beta. For the Free Plan, you can only sync from the latest schema version.
+For the Free Plan, you can only sync from the latest schema version.
 Syncing from arbitrary schema versions is available in the Pro Plan and Enterprise Plan.
 
 </HintBlock>
