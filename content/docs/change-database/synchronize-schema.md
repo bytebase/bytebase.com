@@ -13,11 +13,15 @@ Syncing from arbitrary schema versions is available in the Pro Plan and Enterpri
 
 <HintBlock type="warning">
 
-This feature is in beta. It only supports MySQL and PostgreSQL.
+This feature is in beta. It only supports MySQL, PostgreSQL, TiDB, and Oracle.
 
-MySQL currently supports `Table`, `Index`, `Constraint`, `View`, `Event`, `Trigger`, and `Function`.
+MySQL currently supports `Table`, `Index`, `Constraint`, `View`, `Event`, `Trigger`, `Function`, and `Procedure`.
 
 PostgreSQL currently supports `Schema`, `Table`, `Index`, `Constraint`, `Sequence`, `Extension`, `Function`, `Trigger`, and `Enum Type`.
+
+TiDB currently supports `Table`, `Index`, `Constraint`, and `View`.
+
+Oracle currently supports `Table`, `Index`, and `Constraint`.
 
 </HintBlock>
 
