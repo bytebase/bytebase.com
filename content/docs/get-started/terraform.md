@@ -17,7 +17,7 @@ Bytebase provides the [Terraform Provider](https://registry.terraform.io/provide
 
 ---
 
-1. Create [service account](/docs/api/service-account). After creation, you can copy the service key as `service_key` and the email as `service_account` to initialize the Bytebase provider in next step.
+1. Create [service account](/docs/api/authentication/#service-account). After creation, you can copy the service key as `service_key` and the email as `service_account` to initialize the Bytebase provider in next step.
 
    ![service-account](/content/docs/get-started/work-with-terraform/service-account.webp)
 

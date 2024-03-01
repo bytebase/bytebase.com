@@ -249,9 +249,9 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ## API
 
-### [Service Account](/api/service-account)
+### [Overview](/api/overview)
 
-### [Admin API](/api/admin)
+### [Authentication](/api/authentication)
 
 ### [SQL Advise](/api/sql-advise)
 
