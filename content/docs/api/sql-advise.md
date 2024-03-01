@@ -2,12 +2,6 @@
 title: SQL Advise API
 ---
 
-<HintBlock type="info">
-
-This OpenAPI is in **Alpha** stage, we may change it in the future.
-
-</HintBlock>
-
 The SQL Advise API provides SQL checks based on your schema review policy.
 
 <HintBlock type="info">
