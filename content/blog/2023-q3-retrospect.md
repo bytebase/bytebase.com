@@ -2,7 +2,7 @@
 title: Bytebase Q3 2023 in Retrospect
 author: Tianzhou
 published_at: 2023/10/10 18:21:21
-feature_image: /content/blog/2023-q3-retrospect-banner.webp
+feature_image: /content/blog/2023-q3-retrospect/2023-q3-retrospect-banner.webp
 tags: Announcement
 featured: true
 description: As Q3 2023 comes to an end, let's take a look back at what we've accomplished at Bytebase in the past three months.
