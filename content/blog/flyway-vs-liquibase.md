@@ -12,7 +12,7 @@ When looking for a database CI/CD and schema migration change tool, Flyway and L
 ## What Flyway and Liquibase have in common
 
 - Java-based, providing Java SDK and CLI.
-- Provide open-sourced community version and closed-sourced commercial version.
+- Provide open-source community version and closed-source commercial version.
 - Native SQL supported, however Liquibase requires XML changelog to define the changes.
 - Database CI/CD with version control system #GitOps (see [Database GitOps configuration](#database-gitops-configuration)).
 - Auto SQL check (see [Auto SQL check](#sql-auto-check)).
