@@ -255,13 +255,13 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Neon](/how-to/integrations/neon)
 
-<!-- ## CLI
+## CLI
 
 ### [Getting Started](/cli/overview)
 
 ### [Integrate with GitLab CI](/cli/integrate-with-gitlab)
 
-### [Reference](/cli/reference) -->
+### [Reference](/cli/reference)
 
 ## Reference
 

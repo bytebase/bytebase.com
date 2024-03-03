@@ -21,12 +21,23 @@ const getPostSlugs = (): string[] => {
 const getPostBySlug = (slug: string): { data: Record<string, any>; content: string } | null => {
   try {
     const VERSION = fs.readFileSync(`${process.cwd()}/VERSION`).toString();
+    const API_ENDPOINT = 'https://bytebase.example.com';
     const source = fs.readFileSync(`${DOCS_DIR_PATH}/${slug}.md`);
     const { data, content } = matter(source);
 
-    const contentWithVersion: string = content.replace(/%%bb_version%%/g, VERSION);
+    const contentWithReplacements = content.replace(
+      /%%bb_version%%|%%bb_api_endpoint%%/g,
+      (match) => {
+        if (match === '%%bb_version%%') {
+          return VERSION;
+        } else if (match === '%%bb_api_endpoint%%') {
+          return API_ENDPOINT;
+        }
+        return match; // Just in case there's a match that doesn't fit any case
+      },
+    );
 
-    return { data, content: contentWithVersion };
+    return { data, content: contentWithReplacements };
   } catch (e) {
     return null;
   }

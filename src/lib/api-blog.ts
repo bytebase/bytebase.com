@@ -55,17 +55,28 @@ const getBlogPostBySlug = (slug: string): BlogPost | null => {
 const getPostBySlug = (dir: string, slug: string): BlogPost | null => {
   try {
     const VERSION = fs.readFileSync('VERSION').toString();
+    const API_ENDPOINT = 'https://bytebase.example.com';
     const filePath = path.join(dir, `${slug}.md`);
     const markdownWithMeta = fs.readFileSync(filePath, 'utf-8');
     const { content, data } = matter(markdownWithMeta);
 
     if (!data || !content) return null;
 
-    const contentWithVersion: string = content.replace(/%%bb_version%%/g, VERSION);
+    const contentWithReplacements = content.replace(
+      /%%bb_version%%|%%bb_api_endpoint%%/g,
+      (match) => {
+        if (match === '%%bb_version%%') {
+          return VERSION;
+        } else if (match === '%%bb_api_endpoint%%') {
+          return API_ENDPOINT;
+        }
+        return match; // Just in case there's a match that doesn't fit any case
+      },
+    );
 
     return {
       ...data,
-      content: contentWithVersion,
+      content: contentWithReplacements,
       slug,
       timeToRead: getTimeToRead(content),
     } as BlogPost;

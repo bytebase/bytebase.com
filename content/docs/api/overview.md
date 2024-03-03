@@ -8,10 +8,12 @@ This API is in **Alpha** stage and subject to change. Please [contact us](http:/
 
 </HintBlock>
 
-Bytebase API is gRPC based. See [spec](https://github.com/bytebase/bytebase/tree/main/proto/gen/grpc-doc/v1).
+You can manipulate every aspect of Bytebase via API. In fact, the Bytebase UI console is built on the
+same API.
 
-Bytebase also provides [RESTful HTTP API](https://api.bytebase.com). Internally, it uses [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway) to transcode
-HTTP API to gRPC.
+Bytebase API is gRPC-based ([spec](https://github.com/bytebase/bytebase/tree/main/proto/gen/grpc-doc/v1)).
+
+Bytebase also provides [RESTful HTTP API](https://api.bytebase.com). Internally, it uses [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway) to transcode HTTP API to gRPC.
 
 ## Tutorial
 
