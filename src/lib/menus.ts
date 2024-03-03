@@ -13,7 +13,7 @@ export const MENU = {
           iconName: 'migrate',
         },
         {
-          name: 'SQL Editor',
+          name: 'Online SQL Editor',
           description: 'Bastionless human-to-database access',
           linkUrl: Route.SQL_EDITOR,
           iconName: 'editor',
