@@ -1,7 +1,7 @@
 ---
 title: 'Flyway vs. Liquibase: a side-by-side comparison for database schema migration'
 author: Changyu
-published_at: 2023/06/26 19:21:21
+published_at: 2024/03/04 19:21:21
 feature_image: /content/blog/flyway-vs-liquibase/flyway-vs-liquibase-banner.webp
 tags: Explanation
 description: 'When looking for a database CI/CD and schema migration change tool, Flyway and Liquibase are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.'
@@ -11,6 +11,8 @@ When looking for a database CI/CD and schema migration change tool, Flyway and L
 
 ## What Flyway and Liquibase have in common
 
+- Java-based, providing Java SDK and CLI.
+- Provide open-sourced community version and closed-sourced commercial version.
 - Native SQL supported, however Liquibase requires XML changelog to define the changes.
 - Database CI/CD with version control system #GitOps (see [Database GitOps configuration](#database-gitops-configuration)).
 - Auto SQL check (see [Auto SQL check](#sql-auto-check)).
@@ -148,12 +150,13 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 
 ## Summary
 
-Flyway and Liquibase are the two well-established tools for database CI/CD. They are similar in many ways, both are Java based, adopt [migration-based](/blog/database-version-control-state-based-vs-migration-based/#migration-based-version-control-imperative) approach. The most signicant difference is Liquibase has
-an additional [Changelog concept](https://docs.liquibase.com/concepts/changelogs/home.html) to allow user to specify explicit migration ordering, precondtions, labels and context,
+Flyway and Liquibase are the two well-established tools for database CI/CD. They are similar in many ways, both are Java based, provide and only provide Java SDK and CLI, without GUI and API, adopt [migration-based](/blog/database-version-control-state-based-vs-migration-based/#migration-based-version-control-imperative) schema migration, and
+use the same open-source monetization strategy.
+
+The most significant difference is Liquibase has an additional [Changelog concept](https://docs.liquibase.com/concepts/changelogs/home.html) to allow user to specify explicit migration ordering, preconditions, labels and context,
 while Flyway relies on the [file naming](https://flywaydb.org/documentation/concepts/migrations#naming-1) to determine the order.
 
-Both tools provides a git like pattern for database migrations. On the other hand, if you are looking for a GitHub/GitLab experience with a nice GUI and team collaboration
-features, please check out our own Bytebase and continue reading the side-by-side comparison with each of them:
+Both tools provide a git-like experience for database migrations. On the other hand, if you are looking for a GitHub/GitLab experience with a nice GUI and team collaboration features, please check out our own Bytebase and continue reading the side-by-side comparison with each of them:
 
 - [Bytebase vs. Liquibase](/blog/bytebase-vs-liquibase/)
 - [Bytebase vs. Flyway](/blog/bytebase-vs-flyway/)
