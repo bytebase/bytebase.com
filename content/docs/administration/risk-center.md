@@ -3,8 +3,6 @@ title: Risk Center
 feature_name: CUSTOM_APPROVAL
 ---
 
-<TutorialBlock url="/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow" title="Database Change Management with Risk-Adjusted Approval Flow" />
-
 In **Settings > Risk Center**, you can define different risk levels for each operation types (DML, DDL and Create Database) with custom rules.
 
 Once an issue matches the risk conditions, it will be assigned to the corresponding risk level you've defined.
