@@ -76,7 +76,7 @@ for data security and governance.
 
 ## Compare with CloudBeaver
 
-Both are web-based SQL clients. Bytebase offers review workflow, more collaboration and security features.
+Both have web-based SQL clients. Additionally, Bytebase offers review workflow, more collaboration and security features.
 
 [Bytebase vs. CloudBeaver](/blog/bytebase-vs-cloudbeaver/)
 
