@@ -2,6 +2,13 @@
 title: Authentication
 ---
 
+|          |                                                     |
+| -------- | --------------------------------------------------- |
+| Endpoint | POST /v1/auth/login                                 |
+| Service  | https://api.bytebase.com/#bytebase.v1.AuthService   |
+| Request  | https://api.bytebase.com/#bytebase.v1.LoginRequest  |
+| Response | https://api.bytebase.com/#bytebase.v1.LoginResponse |
+
 ## Service Account
 
 You should create service account to interact with the Bytebase API.
@@ -32,7 +39,7 @@ bytebase_token=$(curl -v ${bytebase_url}/v1/auth/login \
     --compressed 2>&1 | grep token | grep -o 'access-token=[^;]*;' | grep -o '[^;]*' | sed 's/access-token=//g; s/;//g')
 ```
 
-## Call API
+## Test API
 
 ```text
 # List projects

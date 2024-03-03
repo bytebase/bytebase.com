@@ -2,6 +2,13 @@
 title: SQL Review API
 ---
 
+|          |                                                     |
+| -------- | --------------------------------------------------- |
+| Endpoint | POST /v1/sql/check                                  |
+| Service  | https://api.bytebase.com/#bytebase.v1.SQLService    |
+| Request  | https://api.bytebase.com/#bytebase.v1.CheckRequest  |
+| Response | https://api.bytebase.com/#bytebase.v1.CheckResponse |
+
 The SQL Review API provides SQL checks based on your schema review policy.
 
 <HintBlock type="info">
@@ -9,13 +16,6 @@ The SQL Review API provides SQL checks based on your schema review policy.
 Before you start, you should configure the [SQL Review Policy](/docs/sql-review/review-policy).
 
 </HintBlock>
-
-|              |                                                     |
-| ------------ | --------------------------------------------------- |
-| Endpoint     | POST /v1/sql/check                                  |
-| Service spec | https://api.bytebase.com/#bytebase.v1.SQLService    |
-| Request      | https://api.bytebase.com/#bytebase.v1.CheckRequest  |
-| Response     | https://api.bytebase.com/#bytebase.v1.CheckResponse |
 
 ```text
 curl -X POST %%bb_api_endpoint%%/v1/sql/check \
