@@ -47,7 +47,7 @@ description: '- Added support for gh-ost. - Updated the way help tips are displa
 
 ![sql-statement-guide](/content/changelog/1.2.2/sql-statement-guide.webp)
 
-- [SQL Advise API] Enabled database connection.
+- [SQL Review API] Enabled database connection.
 
 ![database-connection-for-sql-advise-api](/content/changelog/1.2.2/database-connection-for-sql-advise-api.webp)
 

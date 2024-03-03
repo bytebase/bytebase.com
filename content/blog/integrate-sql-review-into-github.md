@@ -56,7 +56,7 @@ into the `.github` directory to integrate SQL Review rules into the CI process.
    rule to a YAML file with one click, and point the override-file-path parameter in the Action
    workflow file to that file to make the custom rule take effect.
 
-   The detailed configuration process can be found in the [GitHub Action document](/docs/sql-review/sql-advisor/github-action).
+   The detailed configuration process can be found in the [GitHub Action document](/docs/sql-review/github-action).
 
 ### Result
 
@@ -98,12 +98,12 @@ into the CI.
 
 ### Setup
 
-1. Install the [Bytebase GitHub App](https://www.bytebase.com/docs/sql-review/sql-advisor/github-app)
+1. Install the [Bytebase GitHub App](https://www.bytebase.com/docs/sql-review/github-app)
    and activate SQL Review by connecting with a specific repository.
 1. Customize SQL Review Rules
 
    You can visually configure your own SQL Review rules at [hub.bytebase.com](https://hub.bytebase.com),
-   and all changes will take effect immediately. See the [GitHub App documentation](https://www.bytebase.com/docs/sql-review/sql-advisor/github-app) for more details on the configuration process.
+   and all changes will take effect immediately. See the [GitHub App documentation](https://www.bytebase.com/docs/sql-review/github-app) for more details on the configuration process.
 
 ### Result
 
@@ -167,7 +167,7 @@ The Bytebase Console-based integration mode provides more powerful functionality
    If you are not satisfied with the default SQL Review rules, you can configure it visually from the
    Bytebase Console and all changes will take effect immediately.
 
-   See the [GitOps CI documentation](https://www.bytebase.com/docs/sql-review/sql-advisor/gitops-ci)
+   See the [GitOps CI documentation](https://www.bytebase.com/docs/sql-review/gitops-ci)
    for details on how to do this.
 
 ### Result

@@ -1,5 +1,5 @@
 ---
-title: SQL Advisor UI
+title: UI Integration
 ---
 
 SQL advisor runs automatic SQL checks when:

@@ -57,17 +57,15 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Review Rules](/sql-review/review-rules)
 
-### [SQL Advisor](/sql-review/sql-advisor/overview)
+### [UI Integration](/sql-review/ui)
 
-#### [UI](/sql-review/sql-advisor/ui)
+### [API](/sql-review/api)
 
-#### [API](/sql-review/sql-advisor/api)
+### [GitHub Actions](/sql-review/github-action)
 
-#### [GitHub Action](/sql-review/sql-advisor/github-action)
+### [GitHub App](/sql-review/github-app)
 
-#### [GitHub App](/sql-review/sql-advisor/github-app)
-
-#### [GitOps CI](/sql-review/sql-advisor/gitops-ci)
+### [GitOps CI](/sql-review/gitops-ci)
 
 ## GitOps
 
@@ -237,6 +235,16 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Archive](/administration/archive)
 
+## API
+
+### [Overview](/api/overview)
+
+### [Authentication](/api/authentication)
+
+### [SQL Review](/api/sql-review)
+
+### [External Approval](/api/external-approval)
+
 ## Integrations
 
 ### [Terraform](/get-started/terraform)
@@ -247,23 +255,13 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Neon](/how-to/integrations/neon)
 
-## API
-
-### [Overview](/api/overview)
-
-### [Authentication](/api/authentication)
-
-### [SQL Advise](/api/sql-advise)
-
-### [External Approval](/api/external-approval)
-
-## CLI
+<!-- ## CLI
 
 ### [Getting Started](/cli/overview)
 
 ### [Integrate with GitLab CI](/cli/integrate-with-gitlab)
 
-### [Reference](/cli/reference)
+### [Reference](/cli/reference) -->
 
 ## Reference
 

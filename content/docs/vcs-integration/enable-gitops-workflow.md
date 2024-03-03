@@ -135,7 +135,7 @@ Optional placeholders
 
 ### Enable SQL Review CI - Optional
 
-You can follow [GitOps SQL Review CI](/docs/sql-review/sql-advisor/gitops-ci) to set up.
+You can follow [GitOps SQL Review CI](/docs/sql-review/gitops-ci) to set up.
 
 ---
 

@@ -16,7 +16,7 @@ You can check this [demo issue](https://demo.bytebase.com/issue/hrprodvcs-alter-
 
    ![result-issue-detail](/content/docs/vcs-integration/overview/issue-detail.webp)
 
-1. If [SQL Review CI](/docs/sql-review/sql-advisor/gitops-ci/) is configured, The PR page will show the inline check
+1. If [SQL Review CI](/docs/sql-review/gitops-ci/) is configured, The PR page will show the inline check
 
    ![result-sql-review](/content/docs/vcs-integration/overview/sql-review.webp)
 

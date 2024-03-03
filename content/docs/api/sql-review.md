@@ -1,12 +1,12 @@
 ---
-title: SQL Advise API
+title: SQL Review API
 ---
 
-The SQL Advise API provides SQL checks based on your schema review policy.
+The SQL Review API provides SQL checks based on your schema review policy.
 
 <HintBlock type="info">
 
-Before you start, you should configure the schema review policy on a specific environment. Please check [Schema Review](/docs/sql-review/review-policy) for more information.
+Before you start, you should configure the [SQL Review Policy](/docs/sql-review/review-policy).
 
 </HintBlock>
 
@@ -32,7 +32,7 @@ curl http://localhost:8080/v1/sql/advise \
 | `databaseName` | **Optional** | The database name in the instance.                                                                                                    | DB Name                  |
 | `databaseType` | **Optional** | The database type. Required if `port`, `host`, and `databaseName` are not specified. Available values: `MySQL`, `PostgreSQL`, `TiDB`. | MySQL                    |
 
-Once you have created the schema review policy in the Bytebase UX, you can call the SQL Advise API with `environment`, `statement`, and `databaseType` parameters. This will conduct the SQL check against statements without database catalog information.
+Once you have created the schema review policy in the Bytebase UX, you can call the SQL Review API with `environment`, `statement`, and `databaseType` parameters. This will conduct the SQL check against statements without database catalog information.
 
 You can also create the instance and database in the UX, then call the API with `environment`, `statement`, `host`, `port`, and `databaseName` parameters. This will allow the API to retrieve the database catalog information and assist the SQL check.
 

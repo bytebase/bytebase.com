@@ -8,6 +8,6 @@ DBA first chooses [SQL Review rules](/docs/sql-review/review-rules) to build a u
 
 ![change-column-list](/content/docs/sql-review/schema-review-change-column-list.gif)
 
-Later, when developers submit SQLs to query or change the database, [SQL Advisor](/docs/sql-review/sql-advisor/overview) will check these rules automatically before the DBAs review.
+Later, when developers submit SQLs to query or change the database, Bytebase will check these rules automatically before the DBAs review.
 
 ![column-required](/content/docs/sql-review/schema-review-column-required.webp)

@@ -55,7 +55,7 @@ for developers and DBAs to collaborate.
 ### Developer interface
 
 - **Flyway**: A command-line tool. With JVM, it also provides Java API, Maven plugin and Gradle plugin. A simple graphical user interface (GUI) called Flyway Desktop is available for SQL Server, PostgreSQL and MySQL.
-- **Bytebase**: A web-based GUI tool. It also provides a [command-line interface (CLI)](/docs/cli/overview/), [application programming interface (API)](/docs/api/overview/), [Terraform Provider](/docs/get-started/terraform/), and [GitHub App](/docs/sql-review/sql-advisor/github-app).
+- **Bytebase**: A web-based GUI tool. It also provides a [command-line interface (CLI)](/docs/cli/overview/), [application programming interface (API)](/docs/api/overview/), [Terraform Provider](/docs/get-started/terraform/), and [GitHub App](/docs/sql-review/github-app).
 
 ### Supported databases
 
