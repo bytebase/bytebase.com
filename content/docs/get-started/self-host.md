@@ -169,9 +169,6 @@ spec:
             ]
           ports:
             - containerPort: 8080
-          volumeMounts:
-            - name: bytebase-volume
-              mountPath: /var/opt/bytebase
           livenessProbe:
             httpGet:
               path: /healthz
@@ -179,9 +176,6 @@ spec:
             initialDelaySeconds: 300
             periodSeconds: 300
             timeoutSeconds: 10
-      volumes:
-        - name: bytebase-volume
-          emptyDir: {}
 ---
 apiVersion: v1
 kind: Service
@@ -339,7 +333,8 @@ Using `--set bytebase.option.existingPgURLSecret` and `--set bytebase.option.exi
 
 ### Persistent Volume
 
-To keep data persistence in production, you need to use the [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#types-of-persistent-volumes) in the cluster. Each cloud provider has its own solution.
+We don't recommend this. However, if you do not configure [External PostgreSQL](#external-postgresql),
+then to persist data, you need to use the [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#types-of-persistent-volumes) in the cluster. Each cloud provider has its own solution.
 
 #### For Amazon Elastic Kubernetes Service(EKS)
 

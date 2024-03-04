@@ -23,7 +23,7 @@ Available Commands:
   version     Print the version of Bytebase
 
 Flags:
-      --data string                directory where Bytebase stores data. If relative path is supplied, then the path is relative to the directory where Bytebase is under (default ".")
+      --data string                directory where Bytebase stores metadata if --pg is not specified. If relative path is supplied, then the path is relative to the directory where Bytebase is under (default ".")
       --debug                      whether to enable debug level logging
       --demo string                name of the demo to use. If specified, Bytebase will run in demo mode
       --disable-metric             disable the metric collector
@@ -39,7 +39,7 @@ Flags:
 
 default: **.**
 
-The directory where Bytebase stores its own data. The directory must exist beforehand, otherwise Bytebase will fail to start. If &lt;&lt;directory&gt;&gt; is a relative path, then it's relative to the directory where the bytebase binary runs.
+The directory where Bytebase stores its own data if [--pg](#pg-string) is not specified. The directory must exist beforehand, otherwise Bytebase will fail to start. If &lt;&lt;directory&gt;&gt; is a relative path, then it's relative to the directory where the bytebase binary runs.
 
 ## --debug
 
@@ -81,7 +81,9 @@ See [Configure External URL](/docs/get-started/install/external-url).
 
 default: **""**
 
-Optional external PostgreSQL instance connection url. If specified, Bytebase will store its own metadata there. Check [setup guide](/docs/get-started/install/external-postgres) for details.
+Optional external PostgreSQL instance connection url. If specified, Bytebase will store its own metadata there.
+
+See [Configure External PostgreSQL](/docs/get-started/install/external-postgres).
 
 <HintBlock type="info">
 
