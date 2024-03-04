@@ -55,7 +55,7 @@ const getBlogPostBySlug = (slug: string): BlogPost | null => {
 const getPostBySlug = (dir: string, slug: string): BlogPost | null => {
   try {
     const VERSION = fs.readFileSync('VERSION').toString();
-    const API_ENDPOINT = 'https://bytebase.example.com';
+    const API_ENDPOINT = 'http://bytebase.example.com';
     const filePath = path.join(dir, `${slug}.md`);
     const markdownWithMeta = fs.readFileSync(filePath, 'utf-8');
     const { content, data } = matter(markdownWithMeta);

@@ -30,7 +30,7 @@ If internal network access is different than external (e.g. `bytebase.example.de
 
 <HintBlock type="info">
 
-If the exposed port is not 80 or 443, please include the port number in External URL / GitOps Webhook URL as well. e.g. Use https://bytebase.example.com:8080 instead of https://bytebase.example.com.
+If the exposed port is not 80 or 443, please include the port number in External URL / GitOps Webhook URL as well. e.g. Use http://bytebase.example.com:8080 instead of http://bytebase.example.com.
 
 </HintBlock>
 

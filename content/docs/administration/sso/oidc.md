@@ -10,7 +10,7 @@ OpenID Connect (OIDC) is a simple identity layer on top of the OAuth 2.0 protoco
 
 1. Please make sure the [`--external-url`](/docs/get-started/install/external-url) is configured correctly for the Bytebase instance.
 
-   If your start Bytebase with `--external-url https://bytebase.example.com`, then your application redirect URL should be `https://bytebase.example.com/oidc/callback`.
+   If your start Bytebase with `--external-url http://bytebase.example.com`, then your application redirect URL should be `http://bytebase.example.com/oidc/callback`.
 
 2. If you're unsure about the **Issuer** of your IdP, you can always use the [OpenID Connect Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html) endpoint to find the correct value, e.g. `https://acme.okta.com/.well-known/openid-configuration`.
 
@@ -18,9 +18,9 @@ OpenID Connect (OIDC) is a simple identity layer on top of the OAuth 2.0 protoco
 
 Basic information:
 
-* **Name**: the display name shown to your users (e.g. `Google` will be shown as `Sign in with Google`)
-* **Identity Provider ID**: a human-readable unique string, only lower-case alphabets and hyphens are allowed (e.g. `google`)
-* **Domain**: the domain name to scope associated users (e.g. `google.com`, optional)
+- **Name**: the display name shown to your users (e.g. `Google` will be shown as `Sign in with Google`)
+- **Identity Provider ID**: a human-readable unique string, only lower-case alphabets and hyphens are allowed (e.g. `google`)
+- **Domain**: the domain name to scope associated users (e.g. `google.com`, optional)
 
 Identity provider information:
 
@@ -30,9 +30,9 @@ Identity provider information:
 
 User information field mapping:
 
-* **Email**: the claims field to be used as the Bytebase user email address (e.g. `email`)
-* **Display name**: the claims field to be used as the Bytebase user display name (e.g. `name`, optional)
-* **Phone**: the claims field to be used as the Bytebase user phone number (e.g. `phone`, optional)
+- **Email**: the claims field to be used as the Bytebase user email address (e.g. `email`)
+- **Display name**: the claims field to be used as the Bytebase user display name (e.g. `name`, optional)
+- **Phone**: the claims field to be used as the Bytebase user phone number (e.g. `phone`, optional)
 
 ### Google
 

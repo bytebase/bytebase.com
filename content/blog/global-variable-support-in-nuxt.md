@@ -65,7 +65,7 @@ In this way, we have registered it as a global component. Then we can use it in 
 ```markdown
 ...
 
-Run the following command to start Bytebase on [https://bytebase.example.com](https://bytebase.example.com/)
+Run the following command to start Bytebase on [http://bytebase.example.com](http://bytebase.example.com/)
 
 <pre>
 docker run --init \
@@ -76,7 +76,7 @@ docker run --init \
   --volume ~/.bytebase/data:/var/opt/bytebase \
   bytebase/bytebase:<version></version> \
   --data /var/opt/bytebase \
-  --host https://bytebase.example.com \
+  --host http://bytebase.example.com \
   --port 80
 </pre>
 
@@ -186,7 +186,7 @@ export default {
 In markdown files, insert the placeholder `$$bb_version$$` into where we are putting the version number.
 
 ````markdown
-Run the following command to start Bytebase on [https://bytebase.example.com](https://bytebase.example.com/)
+Run the following command to start Bytebase on [http://bytebase.example.com](http://bytebase.example.com/)
 
 ```text
 docker run --init \
@@ -197,7 +197,7 @@ docker run --init \
   --volume ~/.bytebase/data:/var/opt/bytebase \
   bytebase/bytebase:$$bb_version$$ \
   --data /var/opt/bytebase \
-  --host https://bytebase.example.com \
+  --host http://bytebase.example.com \
   --port 80
 ```
 ````

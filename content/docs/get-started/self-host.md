@@ -116,7 +116,7 @@ docker run --init \
   --publish 80:8080 \
   --volume ~/.bytebase/data:/var/opt/bytebase bytebase/bytebase:%%bb_version%% \
   --data /var/opt/bytebase \
-  --external-url https://bytebase.example.com \
+  --external-url http://bytebase.example.com \
   --port 8080
 ```
 
@@ -163,7 +163,7 @@ spec:
               '--data',
               '/var/opt/bytebase',
               '--external-url',
-              'https://bytebase.example.com',
+              'http://bytebase.example.com',
               '--port',
               '8080',
             ]
@@ -249,7 +249,7 @@ For example:
 ```text
 helm -n bytebase \
 --set "bytebase.option.port"=443 \
---set "bytebase.option.external-url"="https://bytebase.example.com" \
+--set "bytebase.option.external-url"="http://bytebase.example.com" \
 --set "bytebase.option.externalPg.url"="postgresql://user:secret@foo.ap-east-1.rds.amazonaws.com/postgres" \
 --set "bytebase.version"=1.7.0 \
 install bytebase-release bytebase-repo/bytebase
