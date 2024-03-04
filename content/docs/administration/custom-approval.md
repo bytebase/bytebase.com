@@ -5,19 +5,23 @@ feature_name: CUSTOM_APPROVAL
 
 <TutorialBlock url="/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow" title="Database Change Management with Risk-Adjusted Approval Flow" />
 
+<iframe width="675" height="380" src="https://www.youtube.com/embed/K_RWlqdplZQ" title="YouTube video player" className="w-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+
 In **Settings > Custom Approval**, you can choose which approval flow to use for a [risk level](/docs/administration/risk-center) and define approval flows.
 
-<iframe width="675" height="380" src="https://www.youtube.com/embed/K_RWlqdplZQ" title="YouTube video player" className="w-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+An approval flow can contain one or multiple approval nodes. Each approval node specifies a role. Any member
+of the role can approve that node. An issue will enter the rollout stage once all nodes have been approved.
+Note, depending on how the [rollout policy](/docs/administration/environment-policy/rollout-policy/) is configured,
+it may still require another step to roll out the change manually.
+
+![Approval Flow](/content/docs/administration/custom-approval/edit-approval-flow.webp)
+
+To create or update approval flows, click the **Approval Flows** tab.
 
 ## Rules
 
 To choose the approval flow for a risk level, click the **Rules** tab.
 Choose the preset "Skip manual approval" approval flow for a risk if you don't want an approval flow at all.
-
-## Approval flows
-
-To create or update approval flows, click the **Approval Flows** tab.
-An approval flow must have at least one approval node.
 
 ## External approval
 

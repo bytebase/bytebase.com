@@ -221,9 +221,9 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Schema Template](/administration/schema-template)
 
-### [Risk Center](/administration/risk-center)
-
 ### [Custom Approval](/administration/custom-approval)
+
+### [Risk Center](/administration/risk-center)
 
 ### [Custom Roles](/administration/custom-roles)
 
