@@ -9,11 +9,11 @@ estimated_time: '30 mins'
 description: "In this article, you will delve into a practical example from Bytebase, demonstrating how to automate database schema changes in sync with code using GitHub Actions and Bytebase API."
 ---
 
-Bytebase is a database DevOps and CI/CD Tool for Developer, DBA and Platform Engineering teams. With its user-friendly GUI, managing database schema changes has never been simpler.
+Bytebase is a database DevOps and CI/CD tool for Developer, DBA and Platform Engineering teams. Its user-friendly GUI streamlines collaborative database management, making it more accessible than ever.
 
-However, for teams aiming to integrate Bytebase into their existing CI/CD workflows with GitHub, Bytebase API becomes the key.
+Nonetheless, for teams looking to incorporate Bytebase into their current CI/CD pipelines with GitHub, the Bytebase API is essential.
 
-In this article, you will delve into a practical example from Bytebase, demonstrating how to automate database schema changes in sync with code using GitHub Actions and Bytebase API.
+This article provides a hands-on example from Bytebase, demonstrating how to automate database schema changes in sync with code using GitHub Actions and Bytebase API.
 
 The repository is at [https://github.com/bytebase/ci-example](https://github.com/bytebase/ci-example).
 
