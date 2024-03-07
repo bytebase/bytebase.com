@@ -9,13 +9,13 @@ description: 'Support custom roles with specific permissions.'
 ## 🚀 New Features
 
 - Support custom roles with specific permissions.
-- Support SQL Review CI for BitBucket.  
+- Support SQL Review CI for BitBucket.
 - Support queries across different databases for data masking.
-- Support sharing links for database tables within SQL Editor and database overview page.
 
 ## 🎄 Enhancements
 
 - Support MongoDB TLS/SSL connection.
+- Support sharing links for database tables within SQL Editor and database overview page.
 - Improved Redis query result display.
 - Display failed status in the issue list.
 - Added a SQL review rule that suggests enabling gh-ost for big table online schema changes.
@@ -28,12 +28,13 @@ description: 'Support custom roles with specific permissions.'
 
 - Fixed compatibility issues with AWS DocumentDB.
 - Fixed issues with PostgreSQL using TLS/SSL.
-  
+
 ## 📰 Fresh Off the Press
 
 - Say goodbye to clunky data management! Snowflake ❄️ spearheads the Modern Data Stack revolution, and working alongside are essential tools like Segment, Fivetran, and dbt. Discover this powerful ecosystem we call the [Modern Snowflake Stack](/blog/modern-snowflake-stack/).
 
 - What distinguishes Bytebase from X:
+
   - [Bytebase vs. DBeaver: database management tools](/blog/bytebase-vs-dbeaver/)
   - [Bytebase vs. CouldBeaver: web-based database management tools](/blog/bytebase-vs-cloudbeaver/)
   - [Bytebase vs. Metabase: collaborative database tools](/blog/bytebase-vs-metabase/)
