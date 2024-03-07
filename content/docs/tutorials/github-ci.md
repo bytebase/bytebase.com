@@ -1,7 +1,7 @@
 ---
 title: Automating Database Schema Changes in Sync with Code Using GitHub Actions
 author: Ningjing
-published_at: 2023/03/07 18:00
+published_at: 2023/03/07 17:00
 tags: Tutorial
 integrations: General
 level: Advanced
