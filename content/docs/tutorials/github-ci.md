@@ -23,24 +23,18 @@ To utilize Bytebase API, it's essential to have an accessible Bytebase running. 
 
 1. **An service account**: As an admin, we add a service account `api-example` with the `Workspace DBA` role, which will be used to authenticate the API calls.
 
-   ![bb-workspace-members-ci](/content/docs/tutorials/github-ci/bb-workspace-members-ci.png)
+   ![bb-workspace-members-ci](/content/docs/tutorials/github-ci/bb-workspace-members-ci.webp)
 
 2. **A database in a project**: We have a project called `Example`, and a database: `example`.
 
-   ![bb-project-database](/content/docs/tutorials/github-ci/bb-project-database.png)
-
-3. **SQL Review on environment**: The database is on the `Prod` environment, and we can configure SQL Review policy there, which means any change happens to this database will be checked according to the policy.
-
-   ![bb-environment-sql-review](/content/docs/tutorials/github-ci/bb-environment-sql-review.png)
-
-   ![bb-sql-review-policy](/content/docs/tutorials/github-ci/bb-sql-review-policy.png)
+   ![bb-project-database](/content/docs/tutorials/github-ci/bb-project-database.webp)
 
 ## GitHub Actions
 Go and check the example on GitHub [https://github.com/bytebase/ci-example](https://github.com/bytebase/ci-example).
 
 The repository contains several GitHub Action workflows and three simple projects of migrations simulating different tech stacks.
 
-   ![gh-ci-example](/content/docs/tutorials/github-ci/gh-ci-example.png)
+   ![gh-ci-example](/content/docs/tutorials/github-ci/gh-ci-example.webp)
 
 We will explore these two workflows:
 
@@ -49,7 +43,13 @@ We will explore these two workflows:
 
 ### SQL Review Check on GitHub
 
-The `sql-review.yml` workflow is triggered on pull requests. It checks the SQL files named like `**.up.sql` within the pull request and reports if there is any violation against SQL review policy.
+Before we delve into the workflow, let's set up the SQL Review policy in Bytebase. The example database is on the `Prod` environment, where we will configure SQL Review policy.
+
+   ![bb-environment-sql-review](/content/docs/tutorials/github-ci/bb-environment-sql-review.webp)
+
+   ![bb-sql-review-policy](/content/docs/tutorials/github-ci/bb-sql-review-policy.webp)
+
+Returning to GitHub Action, the `sql-review.yml` workflow is triggered on pull requests. It scans the SQL files named following the pattern `**.up.sql` within the pull request and identifies any violations of the SQL review policy..
 
 We pass variables from the running Bytebase.
 
@@ -102,14 +102,14 @@ In the README, three PRs with different stacks are provided to demonstrate the S
    - golang-migrate: [#3](https://github.com/bytebase/ci-example/pull/3)
    - Snowflake: [#4](https://github.com/bytebase/ci-example/pull/4)
 
-   ![gh-typeorm](/content/docs/tutorials/github-ci/gh-typeorm.png)
-   ![gh-gomigrate](/content/docs/tutorials/github-ci/gh-gomigrate.png)
-   ![gh-snowflake](/content/docs/tutorials/github-ci/gh-snowflake.png)
+   ![gh-typeorm](/content/docs/tutorials/github-ci/gh-typeorm.webp)
+   ![gh-gomigrate](/content/docs/tutorials/github-ci/gh-gomigrate.webp)
+   ![gh-snowflake](/content/docs/tutorials/github-ci/gh-snowflake.webp)
 
 ### Create a Migration Issue in Bytebase
 The `create-migration.yml` workflow is also triggered on pull requests. It checks the SQL files named like `**.up.sql` within the pull request and creates an issue in Bytebase.
 
-Copying the authorization process used in SQL Review, then we initiate the issue creation by calling the Bytebase API `/sheet` to create a `sheet`.
+After completing the authorization process, we begin creating an issue by invoking the Bytebase API endpoint `/sheet` to generate a `sheet`.
 
    ```yaml
    - name: Create sheet per SQL script
@@ -143,24 +143,24 @@ Once the sheet is created, we proceed to create a `plan`, and then an `issue`, i
 
 There's a [demo PR #5](https://github.com/bytebase/ci-example/pull/5) showing issue creation. We also adjusted the SQL Review workflow a bit, so it's no longer triggered here.
 
-   ![gh-pr5](/content/docs/tutorials/github-ci/gh-pr5.png)
+   ![gh-pr5](/content/docs/tutorials/github-ci/gh-pr5.webp)
 
-Go to Bytebase and view the created issue, which consists of two tasks due to the presence of two `**.up.sql` files in the PR. The SQL Review is running here instead.
+Go to Bytebase and view the created issue, which consists of two tasks due to the presence of two `**.up.sql` files in the PR. This is where the SQL Review takes place.
 
-   ![bb-issue](/content/docs/tutorials/github-ci/bb-issue.png)
-   ![bb-sql-review-detail](/content/docs/tutorials/github-ci/bb-sql-review-detail.png)
+   ![bb-issue](/content/docs/tutorials/github-ci/bb-issue.webp)
+   ![bb-sql-review-detail](/content/docs/tutorials/github-ci/bb-sql-review-detail.webp)
 
 You may notice there is an approval flow attached, that's because we set up a default custom approval flow for DDL.
 
-   ![bb-custom-approval](/content/docs/tutorials/github-ci/bb-custom-approval.png)
+   ![bb-custom-approval](/content/docs/tutorials/github-ci/bb-custom-approval.webp)
 
 This flow defines one approver - a custom role `ci-approver`. You may assign this role to a user for manual approvals or a service account for automated approvals via an external service.
 
-   ![bb-approval-flow](/content/docs/tutorials/github-ci/bb-approval-flow.png)
+   ![bb-approval-flow](/content/docs/tutorials/github-ci/bb-approval-flow.webp)
 
-   ![bb-approval-flow-edit](/content/docs/tutorials/github-ci/bb-approval-flow-edit.png)
+   ![bb-approval-flow-edit](/content/docs/tutorials/github-ci/bb-approval-flow-edit.webp)
 
-   ![bb-edit-role](/content/docs/tutorials/github-ci/bb-edit-role.png)
+   ![bb-edit-role](/content/docs/tutorials/github-ci/bb-edit-role.webp)
 
 ## Summary
 
