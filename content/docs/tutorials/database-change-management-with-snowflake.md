@@ -57,9 +57,11 @@ In Bytebase, ​​an **Instance** could be your on-premises MySQL instance, an 
 
    **Environment**: choose `Test`, if you choose `Prod`, you will need approval for all future change requests. In this tutorial, let's try to keep it simple. (However, it’s all configurable later.)
 
-   ![sf-account-locator](/content/docs/tutorials/database-change-management-with-snowflake/sf-account-locator.webp)
+   ![sf-account-locator](/content/docs/tutorials/database-change-management-with-snowflake/bb-account-locator.webp)
 
    **Account Locator**: Go to your Snowflake account, you can find it in the URL, or from the **locator field (but lower case)**.
+
+   ![sf-locator](/content/docs/tutorials/database-change-management-with-snowflake/sf-account-locator.webp)
 
    If the account is located in the AWS US West (Oregon) region, then it would be something like `xy12345`, otherwise, the format will be `<<account_locator>>.<<cloud_region_id>>.<<cloud>>` such as `xy12345.us-east-2.aws`. See [official doc](https://docs.snowflake.com/en/user-guide/admin-account-identifier#using-an-account-locator-as-an-identifier).
 
