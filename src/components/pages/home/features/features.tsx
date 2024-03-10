@@ -23,10 +23,10 @@ const cards: TCard[] = [
     description: 'Proactively detect schema drift caused by unexpected out-of-band change.',
   },
   {
-    href: Route.DOCS_BATCH_CHANGE,
-    icon: '/images/batch-change-compliance.svg',
-    title: 'Compliance',
-    description: 'Manage geographically isolated databases.',
+    href: Route.DOCS_ROLLBACK_DATA,
+    icon: '/images/disk.svg',
+    title: 'Rollback',
+    description: 'Record the snapshot and provide streamlined data rollback.',
   },
 ];
 

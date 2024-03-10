@@ -36,7 +36,7 @@ const ITEMS = [
   },
   {
     title: 'Online Schema Change',
-    url: Route.DOCS_ONLINE_SHEMA_CHANGE,
+    url: Route.DOCS_ONLINE_SCHEMA_CHANGE,
   },
   {
     title: 'RBAC',
