@@ -22,7 +22,7 @@ In this post, we are reviewing several open-source GitOps tools:
 
 ## Terraform
 
-Terraform is an open-source infrastructure as code tool that lets you build, change, and version infrastructure safely and efficiently. This includes low-level components like compute instances, storage, and networking; and high-level components like DNS entries and SaaS features.
+[Terraform](https://www.terraform.io/) is an open-source infrastructure as code tool that lets you build, change, and version infrastructure safely and efficiently. This includes low-level components like compute instances, storage, and networking; and high-level components like DNS entries and SaaS features.
 
 Terraform uses HashiCorp Configuration Language (HCL) and also supports JSON for writing configurations.
 ![terraform](/content/blog/top-open-source-gitops-tools/terraform.webp)
@@ -33,7 +33,7 @@ To enable GitOps, create a Git repo with Terraform configs, define infrastructur
 
 ## Pulumi
 
-Pulumi is an open-source infrastructure as code tool that allows you to create, deploy, and manage cloud infrastructure using your favorite language. Unlike Terraform, Pulumi uses real programming languages like Python, JavaScript, and Go to define infrastructure.
+[Pulumi](https://www.pulumi.com/) is an open-source infrastructure as code tool that allows you to create, deploy, and manage cloud infrastructure using your favorite language. Unlike Terraform, Pulumi uses real programming languages like Python, JavaScript, and Go to define infrastructure.
 
 ![pulumi](/content/blog/top-open-source-gitops-tools/pulumi.webp)
 
@@ -43,7 +43,7 @@ Similar to Terraform, Pulumi can be used to enable GitOps by creating a Git repo
 
 ## ArgoCD
 
-Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.
+[ArgoCD](https://github.com/argoproj/argo-cd) is a declarative, GitOps continuous delivery tool for Kubernetes.
 
 ![argocd](/content/blog/top-open-source-gitops-tools/argocd.webp)
 
@@ -55,7 +55,7 @@ Argo CD automates the deployment of the desired application states in the specif
 
 ## Bruno
 
-Bruno is a Fast and Git-Friendly open-source API client, aimed at revolutionizing the status quo represented by Postman, Insomnia and similar tools out there.
+[Bruno](https://github.com/usebruno/bruno) is a Fast and Git-Friendly open-source API client, aimed at revolutionizing the status quo represented by Postman, Insomnia and similar tools out there.
 
 ![bruno](/content/blog/top-open-source-gitops-tools/bruno.webp)
 
