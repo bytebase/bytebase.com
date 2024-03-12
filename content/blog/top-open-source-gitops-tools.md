@@ -8,21 +8,21 @@ featured: true
 description: 'In this post, we are reviewing several open-source GitOps tools.'
 ---
 
-GitOps is a modern approach to managing infrastructure that emphasizes automation, collaboration, and continuous delivery. It’s based on the idea of using Git as the single source of truth for configuration and code. With GitOps, all changes to infrastructure are made through pull requests, which are reviewed and approved by other team members before being merged into the main branch.
+GitOps is a modern approach to manage infrastructure that emphasizes automation, collaboration, and continuous delivery. It’s based on the idea of using Git as the single source of truth for configuration and code. With GitOps, all changes to infrastructure are made through pull requests, which are reviewed and approved by other team members before being merged into the main branch.
 
 In this post, we are reviewing several open-source GitOps tools:
 
-- [Terraform](https://www.terraform.io/)
-- [Pulumi](https://www.pulumi.com/)
-- [ArgoCD](https://github.com/argoproj/argo-cd)
-- [Bruno](https://github.com/usebruno/bruno)
-- [Bytebase](https://www.bytebase.com/)
+- [Terraform](#terraform)
+- [Pulumi](#pulumi)
+- [ArgoCD](#argocd)
+- [Bruno](#bruno)
+- [Bytebase](#bytebase)
 
-![star-history](/content/blog/top-open-source-gitops-tools/star-history-2024312.webp)
+[![star-history](/content/blog/top-open-source-gitops-tools/star-history-2024312.webp)](https://star-history.com/#bytebase/bytebase&pulumi/pulumi&hashicorp/terraform&argoproj/argo-cd&usebruno/bruno&Timeline)
 
 ## Terraform
 
-[Terraform](https://www.terraform.io/) is an open-source infrastructure as code tool that lets you build, change, and version infrastructure safely and efficiently. This includes low-level components like compute instances, storage, and networking; and high-level components like DNS entries and SaaS features.
+[Terraform](https://github.com/hashicorp/terraform) is an open-source infrastructure as code tool (IaC) that lets you build, change, and version infrastructure safely and efficiently. This includes low-level components like compute instances, storage, and networking; and high-level components like DNS entries and SaaS features.
 
 Terraform uses HashiCorp Configuration Language (HCL) and also supports JSON for writing configurations.
 ![terraform](/content/blog/top-open-source-gitops-tools/terraform.webp)
@@ -33,7 +33,7 @@ To enable GitOps, create a Git repo with Terraform configs, define infrastructur
 
 ## Pulumi
 
-[Pulumi](https://www.pulumi.com/) is an open-source infrastructure as code tool that allows you to create, deploy, and manage cloud infrastructure using your favorite language. Unlike Terraform, Pulumi uses real programming languages like Python, JavaScript, and Go to define infrastructure.
+[Pulumi](https://github.com/pulumi/pulumi) is an open-source infrastructure as code tool that allows you to create, deploy, and manage cloud infrastructure using your favorite language. Unlike Terraform, Pulumi uses real programming languages like Python, JavaScript, and Go to define infrastructure.
 
 ![pulumi](/content/blog/top-open-source-gitops-tools/pulumi.webp)
 
@@ -71,7 +71,7 @@ Regarding GitOps, you can use git or any version control of your choice to colla
 
 ![bb](/content/blog/top-open-source-gitops-tools/bb.webp)
 
-Besides its intuitive UI workflow, Bytebase also supports a GitOps workflow for managing database changes. This feature allows for initiating database issues through pull requests. Furthermore, Bytebase provides SQL review, custom approval workflows, and rollout policies,  enabling database changes to be managed in an advanced GitOps manner.
+Besides its intuitive UI workflow, Bytebase also supports a GitOps workflow for managing database changes. This feature allows for initiating database issues through pull requests. Furthermore, Bytebase provides SQL review, custom approval workflows, and rollout policies, enabling database changes to be managed in an advanced GitOps manner.
 
 ![bb-rollout](/content/blog/top-open-source-gitops-tools/bb-rollout.webp)
 
