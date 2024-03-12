@@ -93,7 +93,7 @@ const Content = ({
 
                 return (
                   <li
-                    className="border-t border-gray-90 pt-5 pb-8 last:pb-0 lg:pb-6 md:pb-5 xs:py-4"
+                    className="border-t border-gray-90 pb-8 pt-5 last:pb-0 lg:pb-6 md:pb-5 xs:py-4"
                     key={type}
                   >
                     <div className="flex justify-between">
@@ -133,7 +133,7 @@ const Content = ({
                               key={index}
                             >
                               <span className="text-gray-40">
-                                {en.rule[key].component[config.key].title}
+                                {en.rule[key].component && en.rule[key].component[config.key].title}
                               </span>
                               : <span>{config.payload.value || defaultPayload}</span>
                             </div>
