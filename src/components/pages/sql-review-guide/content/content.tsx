@@ -133,7 +133,7 @@ const Content = ({
                               key={index}
                             >
                               <span className="text-gray-40">
-                                {en.rule[key].component[config.key].title}
+                                {en.rule[key].component && en.rule[key].component[config.key].title}
                               </span>
                               : <span>{config.payload.value || defaultPayload}</span>
                             </div>
