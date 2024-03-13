@@ -119,9 +119,9 @@ const Content = ({
                     <p className="mt-3 text-14 tracking-tight text-gray-40">
                       {en.rule[key].description}
                     </p>
-                    {componentList?.length > 0 && (
+                    {(componentList?.length ?? 0) > 0 && (
                       <div className="mt-5 space-y-2">
-                        {componentList.map((config, index) => {
+                        {(componentList ?? []).map((config, index) => {
                           const defaultPayload =
                             config.payload.type === 'STRING_ARRAY'
                               ? config.payload.default.join(', ')

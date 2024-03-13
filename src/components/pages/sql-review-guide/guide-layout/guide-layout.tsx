@@ -46,7 +46,7 @@ const GuideLayout = ({
       });
     });
 
-    return convertToCategoryList(schema, ruleList);
+    return convertToCategoryList(ruleList);
   }, [activeFilters, schema]);
 
   return (

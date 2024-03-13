@@ -42,18 +42,19 @@ export const getGuidelineTemplateList = (): GuidelineTemplate[] => {
       }
 
       // Using template rule payload to override the component list.
-      const componentList = ruleTemplate.componentList.map((component) => {
-        if (rule.payload && rule.payload[component.key]) {
-          return {
-            ...component,
-            payload: {
-              ...component.payload,
-              default: rule.payload[component.key],
-            },
-          };
-        }
-        return component;
-      });
+      const componentList =
+        ruleTemplate.componentList?.map((component) => {
+          if (rule.payload && rule.payload[component.key]) {
+            return {
+              ...component,
+              payload: {
+                ...component.payload,
+                default: rule.payload[component.key],
+              },
+            };
+          }
+          return component;
+        }) ?? [];
       ruleList.push({
         ...ruleTemplate,
         level: rule.level,
