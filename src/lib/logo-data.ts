@@ -77,8 +77,8 @@ export const LOGO_LIST = [
     mobileOrderClassName: 'xs:order-8',
   },
   {
-    alt: 'DingTalk',
-    src: '/images/logos/dingtalk.svg',
+    alt: 'ByteDance',
+    src: '/images/logos/bytedance.svg',
     width: 180,
     height: 64,
     small: {
