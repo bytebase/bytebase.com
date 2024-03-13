@@ -93,7 +93,7 @@ const Content = ({
 
                 return (
                   <li
-                    className="border-t border-gray-90 pt-5 pb-8 last:pb-0 lg:pb-6 md:pb-5 xs:py-4"
+                    className="border-t border-gray-90 pb-8 pt-5 last:pb-0 lg:pb-6 md:pb-5 xs:py-4"
                     key={type}
                   >
                     <div className="flex justify-between">
@@ -119,9 +119,9 @@ const Content = ({
                     <p className="mt-3 text-14 tracking-tight text-gray-40">
                       {en.rule[key].description}
                     </p>
-                    {componentList?.length > 0 && (
+                    {(componentList?.length ?? 0) > 0 && (
                       <div className="mt-5 space-y-2">
-                        {componentList.map((config, index) => {
+                        {(componentList ?? []).map((config, index) => {
                           const defaultPayload =
                             config.payload.type === 'STRING_ARRAY'
                               ? config.payload.default.join(', ')

@@ -1,17 +1,5 @@
 import { RuleLevel } from '@/utils/sql-review';
 
-// The category type for rule template
-export type CategoryType =
-  | 'ENGINE'
-  | 'NAMING'
-  | 'STATEMENT'
-  | 'TABLE'
-  | 'COLUMN'
-  | 'SCHEMA'
-  | 'DATABASE'
-  | 'INDEX'
-  | 'SYSTEM';
-
 type Payload<N, T> = {
   type: N;
   default: T;
@@ -41,15 +29,15 @@ export type GuidelineTemplate = {
 };
 
 export type RuleCategory = {
-  id: CategoryType;
+  id: string;
   ruleList: RuleTemplate[];
 };
 
 export type RuleTemplate = {
   type: string;
-  category: CategoryType;
+  category: string;
   engineList: string[];
-  componentList: RuleConfigComponent[];
+  componentList?: RuleConfigComponent[];
   level: keyof typeof RuleLevel;
 };
 
