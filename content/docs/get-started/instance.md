@@ -2,14 +2,14 @@
 title: Connect Your Database
 ---
 
-To allow Bytebase to manage your different [database systems](/docs/introduction/supported-databases),
-you need to supply Bytebase with the connection info.
-
 <HintBlock type="info">
 
-Only **Workspace Admin** or **Workspace DBA** role can configure instance.
+Only **Workspace Admin** or **Workspace DBA** role can configure database instance.
 
 </HintBlock>
+
+To allow Bytebase to execute operations on behalf the end user, you need to supply Bytebase with the
+connection info for your database instance.
 
 ## Connect to the instance on the same host
 
