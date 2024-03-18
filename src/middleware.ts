@@ -12,7 +12,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    '/((?!api|healthz|_next/static|_next/image|favicon|images|sitemap.xml|robots.txt|manifest.json).*)',
-  ],
+  matcher: ['/', '/(en|zh)/:path*'],
 };
