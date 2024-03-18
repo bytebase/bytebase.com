@@ -13,6 +13,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!api|healthz|_next/static|_next/image|favicon|sitemap.xml|robots.txt|manifest.json).*)',
+    '/((?!api|healthz|_next/static|_next/image|favicon|images|sitemap.xml|robots.txt|manifest.json).*)',
   ],
 };
