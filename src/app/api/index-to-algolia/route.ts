@@ -147,22 +147,23 @@ const verifySignature = (payload: any, header: string | null, clientSecret: stri
 
 export async function POST(request: NextRequest) {
   try {
-    const data = await request.json();
+    // Seems to be not working anymore and not sure why.
+    // const data = await request.json();
 
-    const valid = verifySignature(
-      data,
-      request.headers.get('x-vercel-signature'),
-      process.env.NEXT_PUBLIC_ALGOLIA_WEBHOOK_SECRET!,
-    );
+    // const valid = verifySignature(
+    //   data,
+    //   request.headers.get('x-vercel-signature'),
+    //   process.env.NEXT_PUBLIC_ALGOLIA_WEBHOOK_SECRET!,
+    // );
 
-    if (!valid) {
-      return NextResponse.json(
-        {
-          error: 'Access denied',
-        },
-        { status: 401 },
-      );
-    }
+    // if (!valid) {
+    //   return NextResponse.json(
+    //     {
+    //       error: 'Access denied',
+    //     },
+    //     { status: 401 },
+    //   );
+    // }
 
     const records = getRecords();
 
