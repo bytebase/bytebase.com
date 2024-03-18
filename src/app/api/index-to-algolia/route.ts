@@ -146,8 +146,6 @@ const verifySignature = (payload: any, header: string | null, clientSecret: stri
 };
 
 export async function POST(request: NextRequest) {
-  console.log('Trigger re-indexing algolia');
-
   try {
     // const data = await request.json();
 
