@@ -9,23 +9,53 @@ estimated_time: '30 mins'
 description: 'In this article, you will delve into a practical example from Bytebase, demonstrating how to automate database schema change workflow using GitHub Actions and Bytebase API.'
 ---
 
-Bytebase is a database DevOps and CI/CD tool for Developer, DBA and Platform Engineering teams. Its user-friendly GUI streamlines collaborative database management, making it more accessible than ever.
+> Tutorial repository [https://github.com/bytebase/ci-example](https://github.com/bytebase/ci-example)
 
-To integrate Bytebase seamlessly into existing CI/CD pipelines with GitHub, without imposing additional workload on developers, utilizing the [Bytebase API](docs/api/overview/) is crucial.
+Developers like to keep their schema migration scripts in Git along with the application code. Thus
+the migration scripts will be reviewed and version-controlled in the same way as the application code.
+However, developers still have to manually paste the migration script into their SQL client or ask the DBAs
+to run it against the target database. This is inefficient and error-prone:
 
-This article offers a hands-on example, demonstrating how to automate database schema changes alongside application code using GitHub Actions and Bytebase API. The repository is at [https://github.com/bytebase/ci-example](https://github.com/bytebase/ci-example).
+- What if you paste the wrong script / miss the script?
+- What if you run the script against the wrong database?
 
-We will following `Sample Workflow - Create Migration Issue on PR Approval` in our example. After understanding the workflow, you may adjust it to suit your own needs.
+This tutorial teaches how to get rid of this manual process and fully automate database schema change
+using GitHub Actions and Bytebase API.
 
 ![workflow-illustration](/content/docs/tutorials/github-ci/workflow-illustration.webp)
 
-## Run Bytebase
+Above shows a typical workflow:
+
+1. Developer creates a PR containing the migration script. After PR is created, it triggers a GitHub
+   Action to lint the SQL by calling Bytebase [SQL Review API](/docs/api/sql-review/).
+
+1. TL approves the PR.
+
+1. Upon PR approval, it triggers a GitHub Action to create a Bytebase rollout issue.
+   The issue contains the migration script changes.
+
+1. Depending on the configured [approval](/docs/administration/custom-approval/) and [rollout policy](/docs/administration/environment-policy/rollout-policy/), it may require manual approval and rollout from DBA. Another GitHub Action is configured to block the PR merge until Bytebase rolls out the schema migration. Sometimes, a PR contains both code and schema changes. This setup guarantees **the schema migration is applied before the code deployment**.
+
+1. Bytebase deploys the schema change and marks the issue as Done.
+
+1. PR re-runs the migration status check and now it turns green.
+
+1. Now PR can be merged.
+
+## Prepare Bytebase
 
 Suppose Bytebase is running at `https://bytebase.example.com/`. To begin, we'll first set up the necessary data to support our API interactions.
 
 1. **Service account**: As an admin, we add a [service account](/docs/api/authentication/#service-account) `ci@service.bytebase.com` with the `Workspace DBA` role, which will be used to authenticate the API calls.
 
    ![bb-workspace-members-ci](/content/docs/tutorials/github-ci/bb-workspace-members-ci.webp)
+
+   <HintBlock type="info">
+
+   To limit the service account permissions, you can choose to grant `Workspace Member` instead of `Workspace DBA`.
+   And then in the particular project, grant the account the permission to create an issue.
+
+   </HintBlock>
 
 2. **A database in a project**: We have a project called `Example`, and a database: `example`.
 
@@ -39,12 +69,12 @@ The repository contains several GitHub Action workflows, you may go to `.github/
 
 ![gh-workflows](/content/docs/tutorials/github-ci/gh-workflows.webp)
 
-We will following `Sample Workflow - Create Migration Issue on PR Approval` in our example which will involve the following workflows:
+We will use following workflows:
 
-- `bytebase-sql-review.yml`: on PR change. Thus any SQL review violation will block the PR.
-- `bytebase-upsert-migration.yml` on PR approval. Creates the migration after approval, and even migration script changes afterwards, the migration issue will also be updated accordingly.
-- `bytebase-check-migration-status.yml`: on PR change. Thus PR will be blocked until migration completes.
-
+- `bytebase-sql-review.yml`: Triggered on PR change. Thus any SQL review violation will block the PR.
+- `bytebase-upsert-migration.yml` Triggered on PR approval. Creates the Bytebase migration issue after approval.
+  And whenever the migration scripts change afterwards, the migration issue will also be updated accordingly.
+- `bytebase-check-migration-status.yml`: Triggered on PR change. Thus PR will be blocked until migration completes.
 
 ## Sample Workflow, Three Demo PRs
 
@@ -58,7 +88,7 @@ Before we delve into the workflow, let's set up the SQL Review policy in Bytebas
 
 ![bb-sql-review-policy-not-null](/content/docs/tutorials/github-ci/bb-sql-review-policy-not-null.webp)
 
-Returning to GitHub Actions and digging into the code, the `bytebase-sql-review.yml` workflow is triggered on PR change. It scans the SQL files named following the pattern `**.up.sql` within the pull request and identifies any violations of the SQL review policy.
+Returning to GitHub Actions and digging into the code, the `bytebase-sql-review.yml` workflow is triggered on PR change. It scans the SQL files named following the pattern `**.up.sql` in the PR and reports any SQL review policy violations.
 
 Configure the environment.
 
@@ -72,7 +102,8 @@ Configure the environment.
    ...
 ```
 
-After authentication, we call the Bytebase API `/sql/check` to check the SQL files and by parsing the response, we can emit annotations for each advice and mark the check as failed if any `ERROR` or `WARNING` is found.
+After authentication, we call the Bytebase API `/sql/check` to lint the migration files. We parse the response
+and emit GitHub inline annotations for each advice and mark the check as failed if any `ERROR` or `WARNING` is found.
 
 ```yaml
      name: SQL Review
@@ -106,7 +137,6 @@ You may also go to **Files changed** to view the annotations.
 
 ![gh-sql-review-warning-file-annotation](/content/docs/tutorials/github-ci/gh-sql-review-warning-file-annotation.webp)
 
-
 ### PR 2: Passing SQL review and waiting for Approval on GitHub
 
 For demo purposes, we then fix the SQL files and create a [second PR](https://github.com/bytebase/github-action-example/pull/16). In real-life scenarios, you may choose to update the SQL files within the same PR.
@@ -116,7 +146,6 @@ After completing these checks, the PR is blocked due to failures, but this time 
 In real-life scenarios, the PR also encompasses application code. Because the SQL migration has passed the basic SQL review checks, it is now time for a tech leader to **approve** this PR.
 
 ![gh-pr2-blocked](/content/docs/tutorials/github-ci/gh-pr2-blocked.webp)
-
 
 ### PR 3: Migration completed and PR is mergable on GitHub
 
@@ -139,11 +168,11 @@ Following PR 2 we create [PR 3](https://github.com/bytebase/github-action-exampl
     ...
 ```
 
-Go to Bytebase and view the created issue, which consists of two tasks due to the presence of two `**.up.sql` files in the PR.
+Go to Bytebase and view the created issue, which consists of two tasks corresponding to the presence of two `**.up.sql` files in the PR.
 
 ![bb-issue-user-post](/content/docs/tutorials/github-ci/bb-issue-user-post.webp)
 
-You may notice there is an approval flow attached, that's because we set up a default custom approval flow for DDL.
+You may notice there is an approval flow attached, that's because we set up a default [custom approval flow for DDL](/docs/administration/custom-approval/).
 
 ![bb-custom-approval](/content/docs/tutorials/github-ci/bb-custom-approval.webp)
 
@@ -165,4 +194,14 @@ It checks the migration status in Bytebase and return `pass` if it's `Done`, ind
 
 ## Summary
 
-In this article, we've explored how to automate database schema changes using GitHub Actions and Bytebase API. Additionally, we've shown how to configure SQL Review and establish a custom approval workflow within Bytebase. Our example followed the `Sample Workflow - Create Migration Issue on PR Approval`. Keep in mind that workflows can vary based on the organization's needs. After completing this one, you may want to explore other workflows, such as `Sample Workflow - Create Migration Issue on PR Creation`, on your own.
+Keep in mind that workflows can be tuned according to your organization's needs:
+
+1. You can attach the workflow to different branches depending your branching strategy (e.g. trunk-based or not).
+
+1. You can use different migration file format and different migration file structure.
+
+1. You can determine when to create the migration issue, upon PR approval or creation.
+
+Whatever workflow you choose, with the help of GitHub Actions and Bytebase API, you can now keep
+your migration scripts in the repository, let the migration scripts go through the same code review
+process and automate the schema migration deployment.
