@@ -46,8 +46,7 @@ next-env.d.ts
 
 # sitemaps
 public/robots.txt
-public/sitemap-0.xml
-public/sitemap.xml
+public/sitemap*.xml
 
 # sql review files
 # we will fetch the last files from https://raw.githubusercontent.com/bytebase/bytebase via fetch-sql-review.mjs script
