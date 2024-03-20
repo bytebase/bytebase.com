@@ -178,11 +178,11 @@ Go to Bytebase and view the created issue, which consists of two tasks correspon
 
 ![bb-issue-user-post](/content/docs/tutorials/github-ci/bb-issue-user-post.webp)
 
-## Phase 4: Migration completed and PR is mergable on GitHub
-
 You may notice there is an approval flow attached to the created issue, that's because we set up a default [custom approval flow for DDL](/docs/administration/custom-approval/).
 
 ![bb-custom-approval](/content/docs/tutorials/github-ci/bb-custom-approval.webp)
+
+### Phase 4: Migration completed and PR is mergable on GitHub
 
 After the DBA approves and rolls out the migrations, the issue status will become `Done`.
 
