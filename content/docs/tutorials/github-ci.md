@@ -22,25 +22,25 @@ to run it against the target database. This is inefficient and error-prone:
 This tutorial teaches how to get rid of this manual process and fully automate database schema change
 using GitHub Actions and Bytebase API.
 
-![workflow-illustration](/content/docs/tutorials/github-ci/workflow-illustration.webp)
+![workflow](/content/docs/tutorials/github-ci/workflow.webp)
 
 Above shows a typical workflow:
 
 1. Developer creates a PR containing the migration script. After PR is created, it triggers a GitHub
    Action to lint the SQL by calling Bytebase [SQL Review API](/docs/api/sql-review/).
 
-1. TL approves the PR.
+2. TL approves the PR.
 
-1. Upon PR approval, it triggers a GitHub Action to create a Bytebase rollout issue.
+3. Upon PR approval, it triggers a GitHub Action to create a Bytebase rollout issue.
    The issue contains the migration script changes.
 
-1. Depending on the configured [approval](/docs/administration/custom-approval/) and [rollout policy](/docs/administration/environment-policy/rollout-policy/), it may require manual approval and rollout from DBA. Another GitHub Action is configured to block the PR merge until Bytebase rolls out the schema migration. Sometimes, a PR contains both code and schema changes. This setup guarantees **the schema migration is applied before the code deployment**.
+4. Depending on the configured [approval](/docs/administration/custom-approval/) and [rollout policy](/docs/administration/environment-policy/rollout-policy/), it may require manual approval and rollout from DBA. Another GitHub Action is configured to block the PR merge until Bytebase rolls out the schema migration. Sometimes, a PR contains both code and schema changes. This setup guarantees **the schema migration is applied before the code deployment**.
 
-1. Bytebase deploys the schema change and marks the issue as Done.
+5. Bytebase deploys the schema change and marks the issue as Done.
 
-1. PR re-runs the migration status check and now it turns green.
+6. PR re-runs the migration status check and now it turns green.
 
-1. Now PR can be merged.
+7. Now PR can be merged.
 
 ## Prepare Bytebase
 
