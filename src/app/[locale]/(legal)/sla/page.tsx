@@ -11,11 +11,12 @@ export default function Page() {
         Service Level Agreement
       </h1>
       <p>
-        Bytebase offers 24x5 support bound by the SLA times listed below for our Enterprise plan
-        customers. The SLA times listed are the time frames in which you can expect the first
-        response. Bytebase Support will make a best effort to resolve any issues to your
-        satisfaction as quickly as possible. However, the SLA times are not to be considered as an
-        expected time-to-resolution.
+        The SLA times listed are the time frames in which you can expect the first response.
+        Bytebase Support will make a best effort to resolve any issues to your satisfaction as
+        quickly as possible. However, the SLA times are not to be considered as an expected
+        time-to-resolution. The SLAs apply to generally available products and exclude beta
+        features. Premium support / enhanced SLAs are available as an add-on for our Enterprise
+        plans.
       </p>
       <table>
         <tr>
@@ -47,19 +48,19 @@ export default function Page() {
           <td>8x5 (Monday - Friday)</td>
         </tr>
       </table>
-      <p>
-        <strong>Note:</strong> The SLAs apply to generally available products and exclude beta
-        features.
-      </p>
-      <p>
-        <strong>Note:</strong> Premium support / enhanced SLAs are available as an add-on for our
-        Enterprise plans.
-      </p>
-      <p>
-        <strong>Note:</strong> The business hours which, due to 24x5, are defined as: Monday 9am PST
-        - Friday 5pm PST. The business hours which, due to 8x5, are defined as: 9am PST - 5pm PST
-        weekday.
-      </p>
+      <ul>
+        <li>
+          <strong>Business Hours:</strong> Defined as 8:00 AM to 5:00 PM Pacific Time (PT), Monday
+          through Friday, excluding public holidays observed in the United States.
+        </li>
+        <li>
+          <strong>24x5 Support:</strong> Refers to support services available 24 hours a day, Monday
+          through Friday Pacific Time (PT), excluding public holidays observed in the United States.
+        </li>
+        <li>
+          <strong>8x5 Support:</strong> Refers to support services available during Business Hours.
+        </li>
+      </ul>
     </>
   );
 }
