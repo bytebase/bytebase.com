@@ -17,7 +17,7 @@ This article offers a hands-on example, demonstrating how to automate database s
 
 We will following `Sample Workflow - Create Migration Issue on PR Approval` in our example. After understanding the workflow, you may adjust it to suit your own needs.
 
-![workflow-illustration](/content/docs/tutorials/github-ci/workflow-illustration.webp)
+![workflow-illustration](/content/docs/tutorials/github-ci/workflow.webp)
 
 ## Run Bytebase
 
