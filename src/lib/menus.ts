@@ -2,7 +2,7 @@ import Route from './route';
 
 export const MENU = {
   header: [
-    { title: 'Why Bytebase?', href: Route.DOCS },
+    { title: 'Why Bytebase🤔', href: Route.DOCS },
     {
       title: 'Features',
       items: [
@@ -87,7 +87,7 @@ export const MENU = {
     },
   ],
   mobile: [
-    { title: 'Why Bytebase?', href: Route.DOCS },
+    { title: 'Why Bytebase🤔', href: Route.DOCS },
     {
       title: 'Features',
       items: [
