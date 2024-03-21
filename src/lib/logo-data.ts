@@ -55,8 +55,8 @@ export const LOGO_LIST = [
     mobileOrderClassName: 'xs:order-6',
   },
   {
-    alt: 'PayerMax',
-    src: '/images/logos/payermax.svg',
+    alt: 'PropertyGuru',
+    src: '/images/logos/property-guru.svg',
     width: 194,
     height: 64,
     small: {
