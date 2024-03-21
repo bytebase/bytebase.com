@@ -9,7 +9,7 @@ const Banner = ({ bannerText, bannerUrl }: { bannerText: string; bannerUrl: stri
   const blue = 140;
   return (
     <div
-      className="top-banner relative z-20 font-medium text-black transition-colors duration-200 hover:opacity-90"
+      className="top-banner relative z-20 text-black transition-colors duration-200 hover:opacity-90"
       style={{ backgroundColor: `rgb(${red}, ${green}, ${blue})` }}
     >
       <Link
