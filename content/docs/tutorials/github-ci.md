@@ -9,7 +9,7 @@ estimated_time: '30 mins'
 description: 'In this article, you will delve into a practical example from Bytebase, demonstrating how to automate database schema change workflow using GitHub Actions and Bytebase API.'
 ---
 
-> Tutorial repository [https://github.com/bytebase/ci-example](https://github.com/bytebase/ci-example)
+> Tutorial repository [https://github.com/bytebase/github-action-example](https://github.com/bytebase/github-action-example)
 
 Developers like to keep their schema migration scripts in Git along with the application code. Thus
 the migration scripts will be reviewed and version-controlled in the same way as the application code.
