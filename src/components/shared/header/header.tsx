@@ -118,13 +118,13 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
               loading="eager"
             />
           </Link>
-          <ul className="mt-0.5 ml-9 flex items-center gap-1 md:hidden">
+          <ul className="ml-9 mt-0.5 flex items-center gap-1 md:hidden">
             {MENU.header.map(({ title, href = '', items, highlight }: Header) => {
               return (
                 <li key={title} className="group relative inline-block hover:cursor-pointer">
                   {href ? (
                     <Link
-                      className="px-3 py-2.5 text-16 font-semibold tracking-wider"
+                      className="px-3 py-2.5 text-16 font-medium tracking-wider"
                       prefetch={href === Route.BLOG ? false : undefined}
                       href={href}
                       size="xs"
@@ -133,7 +133,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                       {title}
                     </Link>
                   ) : (
-                    <button className="inline-flex items-center gap-1 rounded-[44px] px-3 py-2.5 font-sans text-16 font-semibold leading-none tracking-wider transition-colors duration-200 group-hover:bg-gray-94">
+                    <button className="inline-flex items-center gap-1 rounded-[44px] px-3 py-2.5 font-sans text-16 font-medium leading-none tracking-wider transition-colors duration-200 group-hover:bg-gray-94">
                       {title}
                       <ChevronIcon className="h-3 w-3 transition-transform duration-200 group-hover:-rotate-180" />
                     </button>
