@@ -2,7 +2,7 @@ import { Arcade } from '@/components/arcade';
 
 const Demo = () => {
   return (
-    <section className="pt-36 2xl:pt-32 xl:pt-28 md:pt-24 sm:pt-16">
+    <section className="pt-24 2xl:pt-20 xl:pt-16 md:pt-12 sm:pt-4">
       <div className="container flex w-full flex-col items-center">
         <Arcade />
       </div>

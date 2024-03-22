@@ -13,7 +13,7 @@ const Banner = ({ bannerText, bannerUrl }: { bannerText: string; bannerUrl: stri
       style={{ backgroundColor: `rgb(${red}, ${green}, ${blue})` }}
     >
       <Link
-        className="group/link relative -z-10 mx-auto flex h-14 w-full items-center justify-center px-4.5 md:h-[48px]"
+        className="group/link relative -z-10 mx-auto flex h-12 w-full items-center justify-center px-4.5 md:h-[48px]"
         href={bannerUrl}
       >
         <p className="line-clamp-1 text-center text-18 leading-tight transition-colors duration-200 md:text-14 2xs:text-left">
