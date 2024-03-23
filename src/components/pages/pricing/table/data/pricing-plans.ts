@@ -65,7 +65,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'audit-log': false,
       'signup-restriction': false,
       'signin-frequency': false,
-      anomaly: { value: 'Basic', tooltip: 'Connection failure, missing backup' },
+      anomaly: { value: 'Basic', tooltip: 'Connection failure' },
     },
     bespoke: {
       support: 'Community',
@@ -135,7 +135,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'audit-log': false,
       'signup-restriction': false,
       'signin-frequency': false,
-      anomaly: { value: 'Basic', tooltip: 'Connection failure, missing backup' },
+      anomaly: { value: 'Basic', tooltip: 'Connection failure' },
     },
     bespoke: {
       support: 'Email',
