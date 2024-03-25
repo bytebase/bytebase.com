@@ -22,11 +22,9 @@ AlloyDB does not provide less-predictable, more-granular request-based pricing (
 
 Networking is always consumption based, which is inherently less predictable (not specific to AlloyDB).
 
-## AlloyDB vs Cloud SQL
+Now let's check the pricing details between AlloyDB and Cloud SQL.
 
-Because pricing-wise, AlloyDB and Cloud SQL are comparable, let's check the details.
-
-### vCPU and Memory
+## vCPU and Memory
 
 | USD per month (us-east1) | AlloyDB  | Cloud SQL Enterprise Plus | Cloud SQL Enterprise | GCE N2    |
 | ------------------------ | -------- | ------------------------- | -------------------- | --------- |
@@ -39,7 +37,7 @@ Because pricing-wise, AlloyDB and Cloud SQL are comparable, let's check the deta
 - Cloud SQL Enterprise has 30% markup for vCPU and 65% markup for memory over the underlying GCE N2 instance type.
 - HA mode costs 2x for both products.
 
-### Storage
+## Storage
 
 AlloyDB log-based architecture contains transaction log as part of the backup.
 
@@ -49,7 +47,7 @@ AlloyDB log-based architecture contains transaction log as part of the backup.
 | Per GB backup            | $0.113004                     | $0.08                            | Same as Plus         |
 | Per GB transaction log   | $0.113004 (first 7 days free) | N/A                              | N/A                  |
 
-### Networking
+## Networking
 
 Networking price diverges. I personally don't see a reason why GCP couldn't unify this between AlloyDB and Cloud SQL.
 
