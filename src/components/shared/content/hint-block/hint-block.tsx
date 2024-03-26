@@ -30,33 +30,26 @@ const HintBlock = ({ type, children }: { type: 'info' | 'warning'; children: Rea
     <figure className={clsx('hint-block border', typeClassNames[type].wrapper)}>
       <div
         className={clsx(
-          'flex gap-x-4 px-5 pb-8 pt-6 shadow-[inset_6px_6px_0_#fff,0_5px_15px_rgba(172,178,210,0.5)] md:gap-x-3 md:px-4 md:pb-7 md:pt-5 sm:gap-x-2 sm:px-3 sm:pb-5 sm:pt-4',
+          'flex gap-x-4 px-5 pb-6 pt-6 shadow-[inset_6px_6px_0_#fff,0_5px_15px_rgba(172,178,210,0.5)] md:gap-x-3 md:px-4 md:pb-5 md:pt-5 sm:gap-x-2 sm:px-3 sm:pb-4 sm:pt-4',
           typeClassNames[type].inner,
         )}
       >
         <span
           className={clsx(
-            'flex h-8 w-8 shrink-0 items-center justify-center rounded-full md:h-7 md:w-7 sm:h-6 sm:w-6',
+            'flex h-6 w-6 shrink-0 items-center justify-center rounded-full md:h-5 md:w-5 sm:h-4 sm:w-4',
             typeClassNames[type].icon,
           )}
         >
-          <Icon className="h-4 w-4 text-white" />
+          <Icon className="h-4 w-4 text-white md:h-3 md:w-3" />
         </span>
 
-        <div className="flex flex-col">
-          <div className="not-prose">
-            <h4 className="text-24 font-bold leading-extra-tight tracking-tight text-gray-15 first-letter:capitalize lg:text-20 md:text-18 sm:pt-1 sm:text-16">
-              {type}
-            </h4>
-          </div>
-          <div
-            className={clsx(
-              'prose mt-4 space-y-2.5 !text-15 !leading-snug prose-p:my-2.5 prose-p:first:mt-0 prose-p:last:mb-0 prose-a:break-all sm:mt-0 sm:!text-14 sm:leading-snug',
-              typeClassNames[type].text,
-            )}
-          >
-            {children}
-          </div>
+        <div
+          className={clsx(
+            '-mt-2 space-y-2.5 !text-15 !leading-snug prose-p:my-2.5 prose-p:first:mt-0 prose-p:last:mb-0 prose-a:break-all md:-mt-2 sm:-mt-3 sm:!text-14 sm:leading-snug',
+            typeClassNames[type].text,
+          )}
+        >
+          {children}
         </div>
       </div>
     </figure>
