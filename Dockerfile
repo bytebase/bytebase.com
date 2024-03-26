@@ -18,23 +18,6 @@ RUN \
 
 # Rebuild the source code only when needed
 FROM base AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
-COPY . .
-
-# Next.js collects completely anonymous telemetry data about general usage.
-# Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry during the build.
-# ENV NEXT_TELEMETRY_DISABLED 1
-
-RUN yarn build
-
-# If using npm comment out above and use below instead
-# RUN npm run build
-
-# Production image, copy all the files and run next
-FROM base AS runner
-
 # Define arguments
 ARG SITE_URL
 
@@ -48,6 +31,15 @@ ARG MAILCHIMP_API_KEY
 ARG MAILCHIMP_AUDIENCE_ID
 ARG MAILCHIMP_API_SERVER
 
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+# Next.js collects completely anonymous telemetry data about general usage.
+# Learn more here: https://nextjs.org/telemetry
+# Uncomment the following line in case you want to disable telemetry during the build.
+# ENV NEXT_TELEMETRY_DISABLED 1
+
 ENV NEXT_PUBLIC_DEFAULT_SITE_URL=${SITE_URL}
 
 ENV NEXT_PUBLIC_ALGOLIA_WEBHOOK_SECRET=${ALGOLIA_WEBHOOK_SECRET}
@@ -59,6 +51,14 @@ ENV NEXT_PUBLIC_ALGOLIA_APP_ID=${ALGOLIA_APP_ID}
 ENV MAILCHIMP_API_KEY=${MAILCHIMP_API_KEY}
 ENV MAILCHIMP_AUDIENCE_ID=${MAILCHIMP_AUDIENCE_ID}
 ENV MAILCHIMP_API_SERVER=${MAILCHIMP_API_SERVER}
+
+RUN yarn build
+
+# If using npm comment out above and use below instead
+# RUN npm run build
+
+# Production image, copy all the files and run next
+FROM base AS runner
 
 WORKDIR /app
 
