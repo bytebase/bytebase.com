@@ -8,8 +8,9 @@ featured: true
 description: Explain the pricing details of Google Cloud AlloyDB and compare it with Google Cloud SQL
 ---
 
-[AlloyDB](https://cloud.google.com/alloydb) is Google Cloud's fully managed PostgreSQL—compatible database service. It's positioned as
-the upgrade version of [Google Cloud SQL for PostgreSQL](https://cloud.google.com/sql/postgresql).
+> > My co-founder Danny and I build the first version of [Google Cloud SQL for PostgreSQL](https://cloud.google.com/sql/postgresql). If you have ever wondered what the heck `cloudsqlsuperuser` is, that was Danny's legacy:) While I make PostgreSQL ~~build~~great again in Blaze (Google's internal build system), which is the hardest job I ever did at Google after the interview. Occasionally, we get asked about AlloyDB for PostgreSQL and whether it's worthwhile to migrate from Cloud SQL. Below I collect some pricing notes.
+
+[AlloyDB](https://cloud.google.com/alloydb) is Google Cloud's fully managed PostgreSQL—compatible database service. It's positioned as the upgrade version of Google Cloud SQL for PostgreSQL.
 
 For customers using Google Cloud SQL or coming from other similar products such as AWS Aurora, the
 very first task is to understand the AlloyDB pricing.
