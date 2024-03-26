@@ -67,8 +67,8 @@ Networking is always consumption based, which is inherently less predictable for
 
 <HintBlock type="info">
 
-Customers should pay more attention to AlloyDB because they are more likely to use cross-region
-replication. Cloud SQL supports cross-region replication as well, however, it's not as performant as
+Customers should pay more attention to AlloyDB because they are more likely to use [cross-region
+replication](https://cloud.google.com/alloydb/docs/cross-region-replication/about-cross-region-replication). Cloud SQL supports cross-region replication as well, however, it's not as performant as
 AlloyDB, which discourages usage at all.
 
 </HintBlock>
