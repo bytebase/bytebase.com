@@ -1,5 +1,5 @@
 ---
-title: Understanding Google AlloyDB Pricing
+title: Understanding Google Cloud AlloyDB Pricing
 author: Tianzhou
 published_at: 2024/03/26 10:00:00
 feature_image: /content/blog/understanding-google-alloydb-pricing/banner.webp
@@ -14,13 +14,27 @@ the upgrade version of [Google Cloud SQL for PostgreSQL](https://cloud.google.co
 For customers using Google Cloud SQL or coming from other similar products such as AWS Aurora, the
 very first task is to understand the AlloyDB pricing.
 
-## tl;dr
+## Summary
+
+Different tiers in us-east1 according to [Google Cloud pricing calculator](https://cloud.google.com/products/calculator/):
+
+| Tier       | Spec                                                                | Monthly cost |
+| ---------- | ------------------------------------------------------------------- | ------------ |
+| Low-end    | Cloud SQL Enterprise, 1c3.75G, 100 GB storage, HA                   | $130         |
+| Middle-end | Cloud SQL Enterprise, 2c16G, 100 GB storage, HA                     | $315         |
+| Middle-end | Cloud SQL Enterprise Plus, 2c16g, 100 GB storage, HA, Data Cache    | $521         |
+| Middle-end | AlloyDB, 2c16g, 100 GB storage, HA                                  | $546         |
+| High-end   | Cloud SQL Enterprise Plus, 96c768g, 1000 GB storage, HA, Data Cache | $19,966      |
+| High-end   | AlloyDB, 96c768g, 1000 GB storage, HA                               | $24,977      |
 
 AlloyDB pricing is as predictable as Cloud SQL. It's charged by computing (vCPU/memory), storage and networking
-respectively. It adds a markup over Cloud SQL for the enhanced performance. Unlike AWS Aurora,
-AlloyDB does not provide less-predictable, more-granular request-based pricing (e.g. $xx per million requests).
+respectively. It adds a markup over Cloud SQL for the enhanced performance.
 
-Networking is always consumption based, which is inherently less predictable (not specific to AlloyDB).
+AlloyDB doesn't have budgeting option. On the other hand, when the business demands a more powerful
+database, AlloyDB pricing is competitive. The markup over Cloud SQL is insignificant compared to
+the added benefits.
+
+Unlike AWS Aurora, AlloyDB does not provide less-predictable, more-granular request-based pricing (e.g. $xx per million requests).
 
 Now let's check the pricing details between AlloyDB and Cloud SQL.
 
@@ -48,6 +62,16 @@ AlloyDB log-based architecture contains transaction log as part of the backup.
 | Per GB transaction log   | $0.113004 (first 7 days free) | N/A                              | N/A                  |
 
 ## Networking
+
+Networking is always consumption based, which is inherently less predictable for both AlloyDB and Cloud SQL.
+
+<HintBlock type="info">
+
+Customers should pay more attention to AlloyDB because they are more likely to use cross-region
+replication. Cloud SQL supports cross-region replication as well, however, it's not as performant as
+AlloyDB, which discourages usage at all.
+
+</HintBlock>
 
 Networking price diverges. I personally don't see a reason why GCP couldn't unify this between AlloyDB and Cloud SQL.
 
@@ -95,23 +119,6 @@ Cloud SQL:
 
 - $0.05/GB for [Cloud Interconnect](https://cloud.google.com/interconnect). AlloyDB hasn't supported this.
 - $0.19/GB otherwise.
-
-## Summary
-
-Let's check pricing for different tiers in us-east1 according to the [pricing calculator](https://cloud.google.com/products/calculator/):
-
-| Tier       | Spec                                                                | Monthly cost |
-| ---------- | ------------------------------------------------------------------- | ------------ |
-| Low-end    | Cloud SQL Enterprise, 1c3.75G, 100 GB storage, HA                   | $130         |
-| Middle-end | Cloud SQL Enterprise, 2c16G, 100 GB storage, HA                     | $315         |
-| Middle-end | Cloud SQL Enterprise Plus, 2c16g, 100 GB storage, HA, Data Cache    | $521         |
-| Middle-end | AlloyDB, 2c16g, 100 GB storage, HA                                  | $546         |
-| High-end   | Cloud SQL Enterprise Plus, 96c768g, 1000 GB storage, HA, Data Cache | $19,966      |
-| High-end   | AlloyDB, 96c768g, 1000 GB storage, HA                               | $24,977      |
-
-AlloyDB doesn't have budgeting option. On the other hand, when the business demands a more powerful
-database, AlloyDB pricing is competitive. The markup over Cloud SQL is insignificant compared to
-the added benefits.
 
 ## References
 
