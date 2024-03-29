@@ -53,11 +53,13 @@ Snowflake added this one in the [2023 summit](https://medium.com/snowflake/strea
 
 This allows developers to keep the stored procedures, user-defined functions, and operational scripts in the same place as the application code. Thus they will adopt the same version control best practices.
 
-Similar to how Foreign Data Wrapper (FDW) is implemented, the core PostgreSQL provides the underlying infrastructure, and the specific VCS integration can be implemented as an extension.
+Similar to how Foreign Data Wrapper (FDW) is implemented, the core PostgreSQL could provide the underlying infrastructure, and the specific VCS integration can be implemented as an extension.
 
 ## Summary
 
-As to the database development workflow, Git is always the source of inspiration, the hard part is to make the stateful database behave like the stateless git-way. Companies have already been pushing the frontiers:
+As to the database development workflow, Git is always the source of inspiration. Git is invented to
+manage the stateless code, the hard part is to adapt Git to manage the stateful database. Companies
+have already been pushing the frontiers:
 
 - [Neon](https://neon.tech/) rebuilds the Postgres engine to enable serverless and instant branching.
 - [Xata](https://xata.io/) offers serverless, branching, as well as zero-downtime schema migration.
