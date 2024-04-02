@@ -89,11 +89,6 @@ Notice we are referring the table group id `all-department` instead of the table
 
 ![db-group-preview](/content/docs/change-database/batch-change/db-group-preview.webp)
 
-### GitOps
-
-You can further adopt GitOps to batch change databases. Head over to [Use YAML manifest
-](/docs/vcs-integration/manifest) for more details.
-
 ## Deployment config
 
 <PricingPlanBlock feature_name='BATCH_CHANGE' />
