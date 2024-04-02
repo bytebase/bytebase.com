@@ -89,8 +89,6 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Name and Organize Schema Files](/vcs-integration/name-and-organize-schema-files)
 
-### [Use YAML Manifest](/vcs-integration/manifest)
-
 ### [Troubleshoot 🐞](/vcs-integration/troubleshoot)
 
 ## Dynamic Data Masking
