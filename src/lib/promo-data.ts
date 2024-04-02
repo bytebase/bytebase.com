@@ -2,7 +2,7 @@ import ROUTE from '@/lib/route';
 
 const PROMO_DATA = {
   TOP_BANNER: {
-    title: 'Consolidate disparate DB tools. 10x efficiency, data security and PII compliance.',
+    title: 'All the Database Tools Bytebase Replaces',
     pathname: `/blog/all-database-tools-bytebase-replaces/?source=top-banner`,
   },
   BLOG_ASIDE: {
