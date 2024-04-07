@@ -1,5 +1,5 @@
 ---
-title: Name and Organize Schema Files
+title: Create Migration Files
 ---
 
 If you have enabled the GitOps workflow for a project, Bytebase will observe file changes in the observed repository. But even after Bytebase notices a particular file change, it still needs to figure out the exact database where the change should apply to. Plus, there are different migration types and Bytebase needs to figure out which. To achieve those tasks, Bytebase requires the files to follow a certain naming convention.
