@@ -96,7 +96,7 @@ At the same time, we also understand the benefit of state-based approach. That's
 1. For every schema migration, Bytebase will record the schema snapshot.
 2. If team manage database schema under version control system, they can configure Bytebase to write the schema snapshot back to the repository at a specified path.
 
-With that, it makes Bytebase become a hybrid schema migration system. Team using Bytebase retain all the existing benefits of migration-based approach, meanwhile they now can have a single latest schema file. This file is the single of truth of their database schema, which brings the core merit from state-based approach. Please do checkout out [user guide](/docs/vcs-integration/enable-gitops-workflow#step-3---configure-deploy) on how to configure this.
+With that, it makes Bytebase become a hybrid schema migration system. Team using Bytebase retain all the existing benefits of migration-based approach, meanwhile they now can have a single latest schema file. This file is the single of truth of their database schema, which brings the core merit from state-based approach. Please do checkout out [user guide](/docs/vcs-integration/add-gitops-connector#step-3---configure-deploy) on how to configure this.
 
 As a side note, I do hope database engine could innovate in the direction as Kubernetes to pave the way for state-based approach. Actually, Google's own database system Spanner does provide these support and you know what, every team at Google use the state-based approach to manage their database schemas.
 

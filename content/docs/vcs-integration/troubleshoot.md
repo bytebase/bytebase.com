@@ -18,7 +18,7 @@ In this case, if you visit your project activity page, you should find an activi
 
 ![activity-warning](/content/docs/vcs-integration/troubleshoot/activity-warning.webp)
 
-You should check the committed file conforms exactly to the [naming convention](/docs/vcs-integration/name-and-organize-schema-files) and the directory structure conforms to the [layout](/docs/vcs-integration/name-and-organize-schema-files#file-organization). Bytebase file name match is **case-sensitive**. Below screenshot shows some common mistakes:
+You should check the committed file conforms exactly to the [naming convention](/docs/vcs-integration/create-migration-files) and the directory structure conforms to the [layout](/docs/vcs-integration/create-migration-files#file-organization). Bytebase file name match is **case-sensitive**. Below screenshot shows some common mistakes:
 
 ![commit](/content/docs/vcs-integration/troubleshoot/commits.webp)
 

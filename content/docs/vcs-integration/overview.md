@@ -8,17 +8,13 @@ title: GitOps with VCS Integration
 
 You can check this [demo issue](https://demo.bytebase.com/issue/hrprodvcs-alter-schema-add-city-102) to see what it looks like after the setup. This issue is created by Bytebase after observing the [code commit](https://github.com/s-bytebase/hr-sample/commit/5208900f520468574a9aaca17b4cb99987dbc4f6).
 
-1. Developer commits the change in VCS
+1. Developer merges a pull request in VCS.
 
    ![result-git-commit](/content/docs/vcs-integration/overview/git-commit.webp)
 
-1. The commit triggers a corresponding issue
+1. The merged pull request triggers a corresponding issue.
 
    ![result-issue-detail](/content/docs/vcs-integration/overview/issue-detail.webp)
-
-1. If [SQL Review CI](/docs/sql-review/gitops-ci/) is configured, The PR page will show the inline check
-
-   ![result-sql-review](/content/docs/vcs-integration/overview/sql-review.webp)
 
 ---
 
@@ -35,12 +31,12 @@ This can only be performed by the "**Workspace Admin" with the help of the selec
 - [Bitbucket.org](/docs/vcs-integration/bitbucket-org/)
 - [Azure DevOps](/docs/vcs-integration/azure-devops/)
 
-## [Step 2 - Enable GitOps Workflow in Project](/docs/vcs-integration/enable-gitops-workflow)
+## [Step 2 - Add GitOps Connector in Project](/docs/vcs-integration/add-gitops-connector)
 
-Configure project to use "GitOps workflow" and link the project with a repository from the Git provider configured in Step 1. This can only be performed by the "**Project Owner"**.
+Add GitOps connectors using the Git provider configured in step 1. This can only be performed by the "**Project Owner"**.
 
-## [Step 3 - Name and Organize Schema Files](/docs/vcs-integration/name-and-organize-schema-files)
+## [Step 3 - Name and Organize Schema Files](/docs/vcs-integration/create-migration-files)
 
-Organize the repository schema files according to the configured base directory and file path template in step 2. Afterwards, the file changes can be observed and identified by Bytebase to apply the schema changes to the corresponding database.
+Create migration files according to the setup in step 2. Afterwards, the file changes can be observed and identified by Bytebase to apply the changes to the corresponding databases.
 
 ## [Troubleshoot](/docs/vcs-integration/troubleshoot)
