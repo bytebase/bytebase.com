@@ -125,7 +125,7 @@ CREATE TABLE t2
 5. Click **View change**, you can view the schema diff.
    ![bb-dbdemo-diff](/content/docs/tutorials/database-change-management-with-amazon-aurora-and-github/bb-dbdemo-diff.webp)
 
-6. Go to GitHub repository, and you will see besides your committed sql, there is a `.db_demo##LATEST.sql` file. Because you have configured [Schema path template](/docs/vcs-integration/name-and-organize-schema-files#schema-path-template) before, Bytebase will write back the latest schema to that specified path after completing the schema change. Thus you have access to an update-to-date full schema at any time.
+6. Go to GitHub repository, and you will see besides your committed sql, there is a `.db_demo##LATEST.sql` file. Because you have configured [Schema path template](/docs/vcs-integration/create-migration-files#schema-path-template) before, Bytebase will write back the latest schema to that specified path after completing the schema change. Thus you have access to an update-to-date full schema at any time.
    ![github-LATEST](/content/docs/tutorials/database-change-management-with-amazon-aurora-and-github/github-LATEST.webp)
 
 ## Summary and What's Next

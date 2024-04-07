@@ -38,7 +38,7 @@ Most of the time, `Developers` and `DBAs` work with the `Database`.
 
 ## Project
 
-`Project` is a logic unit to model a team effort. It's similar to the project concept in other dev tools such as Jira, GitLab. `Project` is the container to group logically related `Databases`, `Issues` and `Users` together. In Bytebase, A `Database` or an `Issue` always belongs to a single `Project`. `Project` is also the peering entity with the VCS repository to setup [GitOps workflow](/docs/vcs-integration/enable-gitops-workflow).
+`Project` is a logic unit to model a team effort. It's similar to the project concept in other dev tools such as Jira, GitLab. `Project` is the container to group logically related `Databases`, `Issues` and `Users` together. In Bytebase, A `Database` or an `Issue` always belongs to a single `Project`. `Project` is also the peering entity with the VCS repository to setup [GitOps workflow](/docs/vcs-integration/add-gitops-connector).
 
 Most of the time, `Developers` work with the `Project`.
 

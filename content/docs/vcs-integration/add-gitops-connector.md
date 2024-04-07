@@ -20,7 +20,7 @@ This guide will walk you through how to enable the GitOps workflow for a project
 
 Go to the project you wish to enable GitOps workflow for. Choose **GitOps** and click **Configure GitOps**.
 
-![project-vcs-step](/content/docs/vcs-integration/enable-gitops-workflow/project-vcs-step1.webp)
+![project-vcs-step](/content/docs/vcs-integration/add-gitops-connector/project-vcs-step1.webp)
 
 ## Step 1 - Choose Git provider
 
@@ -38,7 +38,7 @@ If you encounter errors during this process, it's likely the Git provider is not
 
 </HintBlock>
 
-![project-vcs-step](/content/docs/vcs-integration/enable-gitops-workflow/project-vcs-step2.webp)
+![project-vcs-step](/content/docs/vcs-integration/add-gitops-connector/project-vcs-step2.webp)
 
 ## Step 2 - Select repository
 
@@ -50,13 +50,13 @@ For GitLab, Bytebase only lists repositories where you have at least the **Maint
 
 </HintBlock>
 
-![project-vcs-step](/content/docs/vcs-integration/enable-gitops-workflow/project-vcs-step3.webp)
+![project-vcs-step](/content/docs/vcs-integration/add-gitops-connector/project-vcs-step3.webp)
 
 Select the repository you want to link to the Bytebase project.
 
 ## Step 3 - Configure deploy
 
-![project-vcs-step](/content/docs/vcs-integration/enable-gitops-workflow/project-vcs-step4.webp)
+![project-vcs-step](/content/docs/vcs-integration/add-gitops-connector/project-vcs-step4.webp)
 
 The final step allows you to configure the following settings:
 
@@ -109,7 +109,7 @@ Optional placeholders
 - `{{ENV_ID}}` - Specify the lower-case environment identifier. This is useful to disambiguate the specified database if databases share the same name across different environments.
 - `{{DESCRIPTION}}` - Specify a description for the migration.
 
-Check [name and organize schema files](/docs/vcs-integration/name-and-organize-schema-files) for the recommended file path template.
+Check [name and organize schema files](/docs/vcs-integration/create-migration-files) for the recommended file path template.
 
 ### Schema path template - Optional
 
@@ -139,6 +139,6 @@ You can follow [GitOps SQL Review CI](/docs/sql-review/gitops-ci) to set up.
 
 ---
 
-You have now enabled the GitOps workflow for your project. Bytebase will start observe SQL file changes from the linked repository. The last task is to [name and organize the schema files](/docs/vcs-integration/name-and-organize-schema-files) in the linked repository directory so that Bytebase can figure out for a given SQL file change, which database it should apply to.
+You have now enabled the GitOps workflow for your project. Bytebase will start observe SQL file changes from the linked repository. The last task is to [name and organize the schema files](/docs/vcs-integration/create-migration-files) in the linked repository directory so that Bytebase can figure out for a given SQL file change, which database it should apply to.
 
-![project-vcs-step](/content/docs/vcs-integration/enable-gitops-workflow/project-vcs-step5.webp)
+![project-vcs-step](/content/docs/vcs-integration/add-gitops-connector/project-vcs-step5.webp)
