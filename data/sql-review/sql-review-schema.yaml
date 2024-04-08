@@ -88,6 +88,24 @@ ruleList:
     category: TABLE
     engineList:
       - MYSQL
+  - type: table.disallow-ddl
+    category: TABLE
+    engineList:
+      - MSSQL
+    componentList:
+      - key: list
+        payload:
+          type: STRING_ARRAY
+          default: []
+  - type: table.disallow-dml
+    category: TABLE
+    engineList:
+      - MSSQL
+    componentList:
+      - key: list
+        payload:
+          type: STRING_ARRAY
+          default: []
   - type: statement.select.no-select-all
     category: STATEMENT
     engineList:
@@ -591,6 +609,7 @@ ruleList:
       - OCEANBASE_ORACLE
       - OCEANBASE
       - MARIADB
+      - MSSQL
     componentList:
       - key: list
         payload:
