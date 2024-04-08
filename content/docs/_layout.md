@@ -85,9 +85,9 @@ expand_section_list: ['Self-host', 'Get Started']
 
 #### [Azure DevOps](/vcs-integration/azure-devops)
 
-### [Enable GitOps Workflow in Project](/vcs-integration/add-gitops-connector)
+### [Add GitOps Connector in Project](/vcs-integration/add-gitops-connector)
 
-### [Name and Organize Schema Files](/vcs-integration/create-migration-files)
+### [Create Migration Files](/vcs-integration/create-migration-files)
 
 ### [Troubleshoot 🐞](/vcs-integration/troubleshoot)
 

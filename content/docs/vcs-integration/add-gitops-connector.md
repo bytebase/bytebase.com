@@ -1,5 +1,5 @@
 ---
-title: Enable GitOps Workflow in Project
+title: Add GitOps Connector in Project
 ---
 
 <HintBlock type="warning">

@@ -2,9 +2,17 @@
 title: GitOps with VCS Integration
 ---
 
-"**Version controlled schema**" aka "**Database-as-code**" is a practice to store the database schema in a version control system (VCS) just like how application code is stored. The database schema consists of a bunch of database migration scripts. In this model, the migration scripts are the source of truth of the database schema.
+<HintBlock type="info">
 
-<iframe width="675" height="380" src="https://www.youtube.com/embed/51_bL7Vnqww" title="YouTube video player" className="w-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+The built-in Bytebase GitOps workflow is **opinionated** for the typical setup:
+
+- It imposes a [naming convention on the migration file](/docs/vcs-integration/create-migration-files/).
+- It only creates Bytebase rollout issue when the migration file is merged into the target branch.
+
+If you can't use the built-in setup, you can still fully customize the workflow by calling
+Bytebase API from your CI pipeline. See [Tutorial](/docs/tutorials/github-ci/).
+
+</HintBlock>
 
 You can check this [demo issue](https://demo.bytebase.com/issue/hrprodvcs-alter-schema-add-city-102) to see what it looks like after the setup. This issue is created by Bytebase after observing the [code commit](https://github.com/s-bytebase/hr-sample/commit/5208900f520468574a9aaca17b4cb99987dbc4f6).
 
@@ -33,10 +41,10 @@ This can only be performed by the "**Workspace Admin" with the help of the selec
 
 ## [Step 2 - Add GitOps Connector in Project](/docs/vcs-integration/add-gitops-connector)
 
-Add GitOps connectors using the Git provider configured in step 1. This can only be performed by the "**Project Owner"**.
+Add GitOps connectors using the Git provider configured in step 1. This can only be performed by the **Project Owner**.
 
-## [Step 3 - Name and Organize Schema Files](/docs/vcs-integration/create-migration-files)
+## [Step 3 - Create the Migration Files](/docs/vcs-integration/create-migration-files)
 
-Create migration files according to the setup in step 2. Afterwards, the file changes can be observed and identified by Bytebase to apply the changes to the corresponding databases.
+Create migration files according to the naming convention.
 
 ## [Troubleshoot](/docs/vcs-integration/troubleshoot)
