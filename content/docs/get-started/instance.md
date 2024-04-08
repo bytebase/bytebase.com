@@ -61,22 +61,55 @@ To separate from admin connection, you can configure read-only connections used 
 
 ![bb-instance-read-only-connection](/content/docs/get-started/instance/bb-instance-read-only-connection.webp)
 
-## Use secret manager
+## Use external secret manager
 
 <PricingPlanBlock feature_name='EXTERNAL_SECRETE_MANAGER' />
 
-By defauilt, Bytebase stores the database credentials in an obfuscated format. You can also instruct
-Bytebase to fetch the database credential from an external secret manager.
+By default, Bytebase stores the database credentials in an obfuscated format in its own meta store.
+You can also instruct Bytebase to retrieve the database credential from an external secret manager.
 
 ![external-secret-manager-flow](/content/docs/get-started/instance/external-secret-manager-flow.webp)
 
 1. User tries to access database from Bytebase.
-1. Bytebase calls the external secret manager to fetch the corresponding password.
-1. Bytebase fetches the password and connect the database.
+1. Bytebase calls the external secret manager to exchange the configured key for the database password.
+1. Bytebase retrieves the password and connect the database.
+
+### HashiCorp Vault
+
+<HintBlock type="info">
+
+Bytebase only supports KV v2 engine.
+
+</HintBlock>
+
+Create the secret in Vault like below:
+
+- Secret engine name: `secret`
+- Secret path: `bytebase`
+- Secret key: `DB_PASSWORD`
+- Secret: `<<YOUR_PASSOWRD>>`
+
+Configure instance to retrieve database password from vault:
+
+- Specify the Vault URL.
+
+- Specify the Vault auth method.
+
+  - For [Token](https://developer.hashicorp.com/vault/docs/auth/token), specify the token.
+
+  ![vault-token-auth](/content/docs/get-started/instance/vault-token-auth.webp)
+
+  - For [AppRole](https://developer.hashicorp.com/vault/docs/auth/approle), specify the auth role id and secret id.
+
+  ![vault-approle-auth](/content/docs/get-started/instance/vault-approle-auth.webp)
+
+- Specify the secret engine name`secret`, secret path `bytebase` and secret key `DB_PASSWORD`.
+
+### Custom endpoint
 
 ![external-secret-manager-config](/content/docs/get-started/instance/external-secret-manager-config.webp)
 
-You supply the external secret manager endpoint by enclosing it with the mustache `{{` `}}`, e.g `{{http://example.com/secrets/mydbkey}}`
+If you have a custom external secret manager, you can supply its API endpoint by enclosing it with the mustache `{{` `}}`, e.g `{{http://example.com/secrets/mydbkey}}`
 
 **Sample request**
 
