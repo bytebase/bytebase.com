@@ -11,16 +11,7 @@ Organizations normally have more than one database system for managing OLTP and 
 
 ## Database Change Automation
 
-Similar to how GitLab/GitHub streamlines the code delivery, Bytebase streamlines the database change deployment from the non-prod environment all the way to the prod environment. Bytebase also integrates with VCS to enable GitOps workflow. You can manage database change scripts in VCS and Bytebase will start a new deployment process whenever observing the new change scripts.
-
-You can also integrate Bytebase's SQL lint into your existing CI/CD workflow.
-
-- [The Database CI/CD Best Practice with GitHub](/docs/tutorials/database-cicd-best-practice-with-github)
-- [The Database CI/CD Best Practice with GitLab](/docs/tutorials/database-cicd-best-practice-with-gitlab)
-
-## Schema Enforcement
-
-Data quality and system robustness are largely determined by the database schema. And being able to enforce standards consistently is the key to a high-quality schema. Bytebase can enforce [100+ SQL Review rules](/docs/sql-review/overview) including naming convention, anti-SQL pattern detections and etc. You can also configure each individual rule for prod and non-prod environments respectively.
+Similar to how GitLab/GitHub streamlines the code delivery, Bytebase streamlines the database change deployment from the non-prod environment all the way to the prod environment. Bytebase also supports GitOps with [built-in VCS integration](/docs/vcs-integration/overview) and custom CI integration via [API](/docs/api/overview/).
 
 ## Data Access Control and Masking
 
@@ -33,6 +24,10 @@ Organizations want to limit database access and enforce approval flow to conform
 - [Watermark](/docs/security/watermark)
 - [Audit Log](/docs/security/audit-log)
 
+## Schema Enforcement
+
+Data quality and system robustness are largely determined by the database schema. And being able to enforce standards consistently is the key to a high-quality schema. Bytebase can enforce [100+ SQL Review rules](/docs/sql-review/overview) including naming convention, anti-SQL pattern detections and etc. You can also configure each individual rule for prod and non-prod environments respectively.
+
 ## Multi-Tenant Service
 
 A SaaS service may provision separate databases for each of its tenants. It's painful and error-prone to make sure a database change is consistently applied to each individual tenant's database. Bytebase can [change databases from multiple tenants](/docs/change-database/batch-change/#change-databases-from-multiple-tenants).
@@ -41,3 +36,8 @@ A SaaS service may provision separate databases for each of its tenants. It's pa
 
 As data grows, databases and tables maybe partitioned into smaller chucks. Meanwhile, you still want to
 apply the same database change to all partitions since they share the same schema. It's painful and error-prone to make sure a database change is consistently applied to each partition. Bytebase can [batch change many databases in a consistent manner](/docs/change-database/batch-change).
+
+## Internal Development Platform (IDP)
+
+The Bytebase UI console is built on the [public API](/docs/api/overview/). If you have your own IDP
+and want to integrate database capabilities, you can treat Bytebase as a headless backend and call the API.
