@@ -89,6 +89,8 @@ Create the secret in Vault like below:
 - Secret key: `DB_PASSWORD`
 - Secret: `<<YOUR_PASSOWRD>>`
 
+  ![vault-auth](/content/docs/get-started/instance/vault-create-secret.webp)
+
 Configure instance to retrieve database password from vault:
 
 - Specify the Vault URL.
@@ -96,14 +98,11 @@ Configure instance to retrieve database password from vault:
 - Specify the Vault auth method.
 
   - For [Token](https://developer.hashicorp.com/vault/docs/auth/token), specify the token.
-
-  ![vault-token-auth](/content/docs/get-started/instance/vault-token-auth.webp)
-
   - For [AppRole](https://developer.hashicorp.com/vault/docs/auth/approle), specify the auth role id and secret id.
 
-  ![vault-approle-auth](/content/docs/get-started/instance/vault-approle-auth.webp)
-
 - Specify the secret engine name`secret`, secret path `bytebase` and secret key `DB_PASSWORD`.
+
+  ![vault-auth](/content/docs/get-started/instance/vault-auth.webp)
 
 ### Custom endpoint
 
