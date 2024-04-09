@@ -2,17 +2,19 @@
 title: GitOps with VCS Integration
 ---
 
-<HintBlock type="info">
-
-The built-in Bytebase GitOps workflow is **opinionated** for the typical setup:
+The built-in Bytebase GitOps workflow is **opinionated** for the typical use case:
 
 - It imposes a [naming convention on the migration file](/docs/vcs-integration/create-migration-files/).
-- It only creates Bytebase rollout issue when the migration file is merged into the target branch.
+- It only creates Bytebase rollout issue when the migration file is **merged** into the target branch.
 
-If you can't use the built-in setup, you can still fully customize the workflow by calling
-Bytebase API from your CI pipeline. See [Tutorial](/docs/tutorials/github-ci/).
+Under the hood, Bytebase creates a webhook in the linked repository. When migration
+files matching the [path and name](/docs/vcs-integration/create-migration-files/) are **merged into** the target branch, it will send a notification to Bytebase via that webhook.
+Bytebase will then create a rollout issue with the migration file content.
 
-</HintBlock>
+![gitops-workflow](/content/docs/vcs-integration/overview/gitops-workflow.webp)
+
+If the built-in workflow is suitable, you can opt to Bytebase API to fully customize the workflow and
+integrate with your CI pipeline. See [Automating Database Schema Change workflow Using GitHub Actions](/docs/tutorials/github-ci/).
 
 You can check this [demo issue](https://demo.bytebase.com/issue/hrprodvcs-alter-schema-add-city-102) to see what it looks like after the setup. This issue is created by Bytebase after observing the [code commit](https://github.com/s-bytebase/hr-sample/commit/5208900f520468574a9aaca17b4cb99987dbc4f6).
 
@@ -30,7 +32,7 @@ The VCS Integration is a 3-step setup.
 
 ## Step 1 - Add Git Provider
 
-This can only be performed by the "**Workspace Admin" with the help of the selected Git provider instance admin.** It only needs to be configured once for each Git provider.
+This can only be performed by the **Workspace Admin with the help of the selected Git provider instance admin.** It only needs to be configured once for each Git provider.
 
 - [Self-host GitLab](/docs/vcs-integration/self-host-gitlab/)
 - [GitLab.com](/docs/vcs-integration/gitlab-com/)

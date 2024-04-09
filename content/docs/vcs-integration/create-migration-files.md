@@ -2,7 +2,16 @@
 title: Create Migration Files
 ---
 
-Bytebase will observe file changes in the configured VCS connector. Bytebase requires the files to follow a certain naming convention.
+Bytebase will observe file changes in the configured VCS connector. The files must meet the following requirements.
+
+## Path
+
+Files must be under the immediate directory of the specified [base directory](http://localhost:3000/docs/vcs-integration/add-gitops-connector/). As the example below, if the base directory is `bytebase`, then
+only `bytebase/100_create_t1.sql` will be observed by Bytebase.
+
+![activity](/content/docs/vcs-integration/troubleshoot/migraiton-file-path.webp)
+
+## File name
 
 - The default file name is `202401010000_create_hello_table.sql`. The migration version, `202401010000`, dictates the sequence of changes. The version must be all numeric characters. `create_hello_table` succinctly describes the purpose of the change.
 - For DML change, append `dml` after the version, like so: `202401010000_dml_create_hello_table.sql`.

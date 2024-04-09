@@ -59,5 +59,8 @@ to a project and may or may not attach a database context. Users interacts with 
 ## Database Group and Table Group
 
 A list of databases / tables usually having the same schema structure. Examples like per-tenant databases,
-partitioned databases/tables. This is used by the [batch change](/docs/change-database/batch-change) to
-change many databases in a consistent manner.
+partitioned databases/tables. They are used in:
+
+- []
+- [Batch change](/docs/change-database/batch-change) to
+  change many databases in a consistent manner.
