@@ -57,7 +57,7 @@ const Item = ({
   if (title == '---') {
     return (
       <li>
-        <hr className={clsx('mb-2 ml-4 mt-2 w-3/5 opacity-10', '', '')} />
+        <hr className={clsx('mb-2 mt-2 w-3/5 opacity-10', '', '')} />
       </li>
     );
   }
