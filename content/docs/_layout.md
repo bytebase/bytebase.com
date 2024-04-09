@@ -59,31 +59,19 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [UI Integration](/sql-review/ui)
 
+### [CI Integration](/sql-review/gitops-ci)
+
 ### [API](/sql-review/api)
 
 ### [GitHub Actions](/sql-review/github-action)
 
 ### [GitHub App](/sql-review/github-app)
 
-### [GitOps CI](/sql-review/gitops-ci)
-
 ## GitOps
 
 ### [Overview](/vcs-integration/overview)
 
-### Add Git Provider
-
-#### [Self-host GitLab EE/CE](/vcs-integration/self-host-gitlab)
-
-#### [GitLab.com](/vcs-integration/gitlab-com)
-
-#### [GitHub.com](/vcs-integration/github-com)
-
-#### [GitHub Enterprise](/vcs-integration/github-enterprise)
-
-#### [Bitbucket.org](/vcs-integration/bitbucket-org)
-
-#### [Azure DevOps](/vcs-integration/azure-devops)
+### [Add Git Provider](/vcs-integration/add-git-provider)
 
 ### [Add GitOps Connector in Project](/vcs-integration/add-gitops-connector)
 

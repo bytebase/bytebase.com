@@ -4,9 +4,6 @@ title: Add GitOps Connector in Project
 
 You can add multiple GitOps connectors in the project, each targeting a different [database group](/docs/concepts/data-model/#database-group-and-table-group).
 
-This is a [sample issue](https://demo.bytebase.com/issue/hrprodvcs-alter-schema-add-city-102)
-created upon receiving the merge event from the repository.
-
 ## Prerequisites
 
 - There exists at least one configured [Git Provider](/docs/vcs-integration/overview/).

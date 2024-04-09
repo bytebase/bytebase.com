@@ -69,11 +69,6 @@ const Route = {
   DOCS_ONLINE_SCHEMA_CHANGE: '/docs/change-database/online-schema-migration-for-mysql',
   DOCS_RBAC: '/docs/concepts/roles-and-permissions',
   DOCS_SSO: '/docs/administration/sso/overview',
-  DOCS_GITLAB: '/docs/vcs-integration/self-host-gitlab/',
-  DOCS_GITHUB: '/docs/vcs-integration/github-com/',
-  DOCS_GITHUB_ENTERPRISE: '/docs/vcs-integration/github-enterprise/',
-  DOCS_BITBUCKET: '/docs/vcs-integration/bitbucket-org/',
-  DOCS_AZURE_DEVOPS: '/docs/vcs-integration/azure-devops/',
 
   // blog
   BLOG_CASE_STUDY: '/blog/category/case-study',

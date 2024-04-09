@@ -1,42 +1,19 @@
 ---
-title: GitOps SQL Review CI
+title: CI Integration
 ---
 
-## Set up SQL Review CI
+You can call [Bytebase SQL Review API](/docs/sql-review/api/) from CI. Below are some samples.
 
-This feature requires the **GitOps Workflow**. You can follow [GitOps Workflow](/docs/vcs-integration/overview) to set up.
+## GitHub
 
-![vcs-sql-review](/content/docs/vcs-integration/add-gitops-connector/vcs-sql-review.webp)
+GitHub action supports [inline comments](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions).
 
-Below use GitLab as an example. GitHub works in a similar way.
+![github](/content/docs/sql-review/gitops-ci/github.webp)
 
-When the box `Enable SQL Review CI via GitLab CI` is checked, Bytebase will create a merge request (MR) for your repository to set up the SQL review CI, and redirect you to the MR page. To finish the setup, you should review and merge this MR.
+## GitLab
 
-![vcs-sql-review-prepare](/content/docs/vcs-integration/add-gitops-connector/vcs-sql-review-prepare.webp)
+![gitlab](/content/docs/sql-review/gitops-ci/gitlab.webp)
 
-![vcs-sql-review-pr](/content/docs/vcs-integration/add-gitops-connector/vcs-sql-review-pr.webp)
+## MyBatis3 Mapper
 
-After the setup, in every MR, the SQL review policy will check against changed files matching the file path template.
-
-## SQL Review CI via GitHub Action
-
-![vcs-sql-review-github](/content/docs/vcs-integration/add-gitops-connector/vcs-sql-review-github.webp)
-
-## SQL Review CI via GitLab CI
-
-![vcs-sql-review-gitlab](/content/docs/vcs-integration/add-gitops-connector/vcs-sql-review-gitlab.webp)
-
-And you can follow the doc [Create Schema Review Policy](/docs/sql-review/review-policy/#create-schema-review-policy) to create the SQL review policy.
-
-### GitOps CI in private networks
-
-If you can not pull from the Docker Hub Container Registry, you can configure your CI/CD jobs to use the images from your private container registry, following
-[Access an image from a private Container Registry](https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#access-an-image-from-a-private-container-registry).
-
-If you don't have a private container registry, you can just use the one from your self-hosted GitLab, see [GitLab Container Registry](https://docs.gitlab.com/ee/user/packages/container_registry/).
-
-## MyBatis3 Mapper SQL Review CI - Beta
-
-After enabling SQL-Review CI, Bytebase will attempt to review MyBatis 3 mapper files. When the changed file includes a MyBatis 3 mapper files, Bytebase will search for a MyBatis3 config files in the same and parent directories. Once found, Bytebase will match the **environment id** in the config file with the \*environment name\*\* in Bytebase. If there is a matching environment, Bytebase will apply that environment's SQL Review policy.
-
-![mybatis3-sql-review-github](/content/docs/vcs-integration/add-gitops-connector/mybatis-github-ci-example.webp)
+![mybatis3](/content/docs/sql-review/gitops-ci/github-mybatis.webp)
