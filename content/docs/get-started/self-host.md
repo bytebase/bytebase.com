@@ -9,6 +9,7 @@ Bytebase is a single Go binary and the deployment easy.
 ## Prerequisites
 
 - Check [System Requirements](/docs/faq##system-requirements).
+- Check [External PostgreSQL Prerequisites](/docs/get-started/install/external-postgres/) if you configure it.
 
 ## Docker
 
