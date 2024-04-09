@@ -1,6 +1,6 @@
 ---
 # expand_section_list is the list of default expanded sections.
-expand_section_list: ['Self-host', 'Get Started']
+expand_section_list: ['Self-host']
 ---
 
 ## [Why Bytebase](/introduction/what-is-bytebase)
@@ -41,9 +41,9 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [Step 7 - Query Data](/get-started/step-by-step/query-data)
 
-## [Core Concepts](/concepts/data-model)
-
 ## [Connect Your Database](/get-started/instance)
+
+## [Core Concepts](/concepts/data-model)
 
 ## [Roles and Permissions](/concepts/roles-and-permissions)
 
