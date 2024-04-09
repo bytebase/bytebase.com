@@ -3,15 +3,15 @@
 expand_section_list: ['Self-host', 'Get Started']
 ---
 
-### [Why Bytebase](/introduction/what-is-bytebase)
+## [Why Bytebase](/introduction/what-is-bytebase)
 
-### [Use Cases](/introduction/use-cases)
+## [Use Cases](/introduction/use-cases)
 
-### [Supported Databases](/introduction/supported-databases)
+## [Supported Databases](/introduction/supported-databases)
 
-### [POC Checklist](/poc)
+## [POC Checklist](/poc)
 
-### [FAQ](/faq)
+## [FAQ](/faq)
 
 ---
 
