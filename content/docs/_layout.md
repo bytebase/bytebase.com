@@ -15,37 +15,37 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ---
 
-## Get Started
+## [Cloud](/get-started/cloud)
 
-### [Cloud](/get-started/cloud)
+## Self-host
 
-### [Self-host](/get-started/self-host)
+### [Install](/get-started/self-host)
 
-#### [Configure External PostgreSQL](/get-started/install/external-postgres)
+### [Configure External PostgreSQL](/get-started/install/external-postgres)
 
-#### [Configure External URL](/get-started/install/external-url)
+### [Configure External URL](/get-started/install/external-url)
 
-### Quickstart
+## Quickstart
 
-#### [Step 1 - Deploy with Docker](/get-started/step-by-step/deploy-with-docker)
+### [Step 1 - Deploy with Docker](/get-started/step-by-step/deploy-with-docker)
 
-#### [Step 2 - Register Accounts](/get-started/step-by-step/register-accounts)
+### [Step 2 - Register Accounts](/get-started/step-by-step/register-accounts)
 
-#### [Step 3 - Set up Environments](/get-started/step-by-step/set-up-environments)
+### [Step 3 - Set up Environments](/get-started/step-by-step/set-up-environments)
 
-#### [Step 4 - Add an Instance](/get-started/step-by-step/add-an-instance)
+### [Step 4 - Add an Instance](/get-started/step-by-step/add-an-instance)
 
-#### [Step 5 - Create a Project](/get-started/step-by-step/create-a-project)
+### [Step 5 - Create a Project](/get-started/step-by-step/create-a-project)
 
-#### [Step 6 - Change Schema](/get-started/step-by-step/change-schema)
+### [Step 6 - Change Schema](/get-started/step-by-step/change-schema)
 
-#### [Step 7 - Query Data](/get-started/step-by-step/query-data)
+### [Step 7 - Query Data](/get-started/step-by-step/query-data)
 
-### [Core Concepts](/concepts/data-model)
+## [Core Concepts](/concepts/data-model)
 
-### [Connect Your Database](/get-started/instance)
+## [Connect Your Database](/get-started/instance)
 
-### [Roles and Permissions](/concepts/roles-and-permissions)
+## [Roles and Permissions](/concepts/roles-and-permissions)
 
 ---
 
