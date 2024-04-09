@@ -63,10 +63,6 @@ expand_section_list: ['Self-host', 'Get Started']
 
 ### [API](/sql-review/api)
 
-### [GitHub Actions](/sql-review/github-action)
-
-### [GitHub App](/sql-review/github-app)
-
 ## GitOps
 
 ### [Overview](/vcs-integration/overview)
