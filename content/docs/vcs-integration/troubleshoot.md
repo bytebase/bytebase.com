@@ -6,17 +6,16 @@ _If you need further assistance setting up GitOps, feel free to [reach us](/docs
 
 ## General
 
-1. Bytebase only observes **merge** event. If the file is pushed to the branch directly, it won't trigger.
+1. Bytebase only observes **merge** event. If the file is pushed to the branch directly, it will be ignored.
 1. Migration file must follow the [path and naming convention](/docs/vcs-integration/create-migration-files/).
-1. Make sure Bytebase has configured a proper [External URL](/docs/get-started/install/external-url).
-1. Make sure that configured URL is network accessible from VCS.
+1. Bytebase has configured a proper [External URL](/docs/get-started/install/external-url) and the URL is network accessible from VCS.
 
 Bytebase observes the VCS merge event via webhook. The created webhook link is on the top of the Git
 connector setting page.
 
 ![webhook-link](/content/docs/vcs-integration/troubleshoot/webhook-link.webp)
 
-Check the webhook running history to see the reason.
+Check the webhook running history to debug the reason.
 
 ![webhook-running-detail](/content/docs/vcs-integration/troubleshoot/webhook-running-detail.webp)
 

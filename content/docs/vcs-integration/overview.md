@@ -13,8 +13,8 @@ Bytebase will then create a rollout issue with the migration file content.
 
 ![gitops-workflow](/content/docs/vcs-integration/overview/gitops-workflow.webp)
 
-If the built-in workflow is suitable, you can opt to Bytebase API to fully customize the workflow and
-integrate with your CI pipeline. See [Automating Database Schema Change workflow Using GitHub Actions](/docs/tutorials/github-ci/).
+If the built-in workflow is not suitable, you can opt to [Bytebase API](/docs/api/overview/) to fully customize the workflow to
+integrate with your CI pipeline. See [Automating Database Schema Change workflow Using GitHub Actions](/docs/tutorials/github-ci/) as an example.
 
 You can check this [demo issue](https://demo.bytebase.com/issue/hrprodvcs-alter-schema-add-city-102) to see what it looks like after the setup. This issue is created by Bytebase after observing the [code commit](https://github.com/s-bytebase/hr-sample/commit/5208900f520468574a9aaca17b4cb99987dbc4f6).
 
