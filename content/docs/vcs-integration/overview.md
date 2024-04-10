@@ -16,8 +16,6 @@ You can check this [demo issue](https://demo.bytebase.com/issue/hrprodvcs-alter-
 
 </HintBlock>
 
----
-
 If the built-in workflow is not suitable, you can opt to [Bytebase API](/docs/api/overview/) to fully customize the workflow to
 integrate with your CI pipeline.
 
