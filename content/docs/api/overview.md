@@ -6,7 +6,7 @@ title: Overview
 
 <HintBlock type="info">
 
-If you are an Enterprise customer, please [contact us](http://localhost:3000/docs/faq/#how-to-reach-us) before using API in production.
+If you are an Enterprise customer, please [contact us](http://localhost:3001/docs/faq/#how-to-reach-us) before using API in production.
 
 </HintBlock>
 

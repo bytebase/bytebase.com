@@ -122,7 +122,7 @@ Include another markdown and render inline.
 1. Set up your [development environment](https://github.com/bytebase/bytebase.com#-development).
 1. Write the full content in any editor that supports Markdown. e.g. [VSCode](https://code.visualstudio.com/), [Typora](https://typora.io/), or [Notion](https://notion.so/).
 1. Run `pnpm dev` start the review server.
-1. Go to [localhost:3000/docs](http://localhost:3000/docs) and check your creation.
+1. Go to [localhost:3001/docs](http://localhost:3001/docs) and check your creation.
 1. If everything looks fine, submit a PR with the changes to [our repo in GitHub](https://github.com/bytebase/bytebase.com).
 
 ## How to add a new page

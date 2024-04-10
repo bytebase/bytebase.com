@@ -6,7 +6,7 @@ Bytebase will observe file changes in the configured VCS connector. The files mu
 
 ## Path
 
-Files must be under the immediate directory of the specified [base directory](http://localhost:3000/docs/vcs-integration/add-gitops-connector/). As the example below, if the base directory is `bytebase`, then
+Files must be under the immediate directory of the specified [base directory](http://localhost:3001/docs/vcs-integration/add-gitops-connector/). As the example below, if the base directory is `bytebase`, then
 only `bytebase/100_create_t1.sql` will be observed by Bytebase.
 
 ![activity](/content/docs/vcs-integration/troubleshoot/migraiton-file-path.webp)
