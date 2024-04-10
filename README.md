@@ -131,5 +131,5 @@ After installation, VS Code will be use settings from the `.vscode/settings.json
 www.bytebase.com is hosted on Vercel. Upon successful deployment, Vercel will post a webhook event to /api/index-to-algolia to rebuild the index.
 
 ```bash
-curl -X POST https://www.bytebase.cc/api/index-to-algolia/
+curl -X POST https://www.bytebase.com/api/index-to-algolia/
 ```
