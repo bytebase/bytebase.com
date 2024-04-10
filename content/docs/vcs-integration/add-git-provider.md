@@ -43,13 +43,25 @@ permissions/scopes.
 
 ## GitLab.com and GitLab (self-host)
 
-![gitlab](/content/docs/vcs-integration/add-git-provider/gitlab-access-token.webp)
+You can either create:
+
+1. A **personal** access token, and make sure it has access to the project:
+  ![gitlab](/content/docs/vcs-integration/add-git-provider/gitlab-access-token-personal.webp)
+
+1. A **project** access token, you'll need at least `Maintainer` role:
+  ![gitlab](/content/docs/vcs-integration/add-git-provider/gitlab-access-token.webp)
+
 
 ## Bitbucket.org
 
-![bitbucket](/content/docs/vcs-integration/add-git-provider/bitbucket-app-password.webp)
+![bitbucket](/content/docs/vcs-integration/add-git-provider/bitbucket-app-password-personal.webp)
 
 ## Azure DevOps
 
-![Azure DevOps](/content/docs/vcs-integration/add-git-provider/azure-devops-access-token.webp)
+<p align="center">
+<img src="/content/docs/vcs-integration/add-git-provider/azure-devops-access-token.webp" alt="Azure DevOps" width="300" height="auto"  />
+</p>
+
+Pay attention to the **Organization** field, it has to be `All accessible organizations`, not a specific organization.
+
 ![Azure DevOps](/content/docs/vcs-integration/add-git-provider/azure-devops-access-token2.webp)
