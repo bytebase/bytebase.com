@@ -12,9 +12,11 @@ The built-in Bytebase GitOps workflow is **opinionated** for the typical use cas
 
 <HintBlock type="info">
 
-You can check this [demo issue](https://demo.bytebase.com/projects/gitops-project/issues/hrprodvcs-alter-schema-add-city-102) to see what it looks like after the setup. This issue is created by Bytebase after [PR is merged](https://github.com/s-bytebase/hr-sample/commit/5208900f520468574a9aaca17b4cb99987dbc4f6).
+You can check this [demo issue](https://demo.bytebase.com/projects/gitops-project/issues/106) to see what it looks like after the setup. This issue is created by Bytebase after the [PR is merged](https://github.com/s-bytebase/hr-sample/pull/17).
 
 </HintBlock>
+
+---
 
 If the built-in workflow is not suitable, you can opt to [Bytebase API](/docs/api/overview/) to fully customize the workflow to
 integrate with your CI pipeline.
