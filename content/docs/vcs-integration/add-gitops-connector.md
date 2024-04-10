@@ -54,6 +54,4 @@ Select the repository you want to link to the Bytebase project.
 
    `/` if not specified. Bytebase only observes migration file changes under this **immediate** directory (subdirectories ignored). We recommend to create a dedicated directory called `bytebase` under the repository root to store all your Bytebase related migration files.
 
-Click **Finish** button to complete the setup. Under the hood, this will create a webhook in the linked repository so that Bytebase can observe merge events. To [troubleshoot](/docs/vcs-integration/troubleshoot/), you can follow the webhook link displayed at the top of Git connector.
-
-![webhook](/content/docs/vcs-integration/troubleshoot/webhook-link.webp)
+Click **Finish** button to complete the setup. Check [troubleshoot](/docs/vcs-integration/troubleshoot/) to debug.

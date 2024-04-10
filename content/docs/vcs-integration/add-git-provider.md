@@ -4,12 +4,12 @@ title: Add Git Provider
 
 Bytebase supports following Git Providers:
 
-- [GitHub.com](/docs/vcs-integration/github-com/)
-- [GitHub Enterprise](/docs/vcs-integration/github-enterprise/)
-- [GitLab.com](/docs/vcs-integration/gitlab-com/)
-- [Self-host GitLab](/docs/vcs-integration/self-host-gitlab/)
-- [Bitbucket.org](/docs/vcs-integration/bitbucket-org/)
-- [Azure DevOps](/docs/vcs-integration/azure-devops/)
+- GitHub.com
+- GitHub Enterprise
+- GitLab.com
+- Self-host GitLab
+- Bitbucket.org
+- Azure DevOps
 
 ## Prerequisites
 

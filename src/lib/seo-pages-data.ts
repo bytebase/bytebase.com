@@ -112,6 +112,34 @@ const SEO_PAGES_DATA = {
     linkUrl: 'https://www.oceanbase.com/en/',
     linkTarget: '_blank',
   },
+  GITLAB: {
+    title: 'GitLab + Bytebase GitOps',
+    description:
+      'Bytebase integrates with GitLab to allow team to manage database migration scripts in the GitLab repository. Migration pipeline is triggered on observing new migration script push event.',
+    linkText: 'View detailed guide.',
+    linkUrl: `${Route.DOCS_VCS_INTEGRATION}`,
+  },
+  GITHUB: {
+    title: 'GitHub + Bytebase GitOps',
+    description:
+      'Bytebase integrates with GitHub to allow team to manage database migration scripts in the GitHub repository. Migration pipeline is triggered on observing new migration script push event.',
+    linkText: 'View detailed guide.',
+    linkUrl: `${Route.DOCS_VCS_INTEGRATION}`,
+  },
+  BITBUCKET: {
+    title: 'Bitbucket + Bytebase GitOps',
+    description:
+      'Bytebase integrates with Bitbucket to allow team to manage database migration scripts in the Bitbucket repository. Migration pipeline is triggered on observing new migration script push event.',
+    linkText: 'View detailed guide.',
+    linkUrl: `${Route.DOCS_VCS_INTEGRATION}`,
+  },
+  AZURE_DEVOPS: {
+    title: 'Azure DevOps + Bytebase GitOps',
+    description:
+      'Bytebase integrates with Azure DevOps to allow team to manage database migration scripts in the Azure repository. Migration pipeline is triggered on observing new migration script push event.',
+    linkText: 'View detailed guide.',
+    linkUrl: `${Route.DOCS_VCS_INTEGRATION}`,
+  },
   SLACK: {
     title: 'Slack + Bytebase',
     description:
