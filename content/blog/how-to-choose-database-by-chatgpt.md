@@ -242,9 +242,3 @@ such subtle mistake will cost the whole battle.
 
 As ChatGPT progresses, I expect it could give database suggestions as good as any database veterans.
 And we may all retire at that point regardless of whether willingly or not.
-
----
-
-Attached: my full conversation with ChatGPT.
-
-![_](/content/blog/how-you-choose-database-by-chatgpt/full-script.webp)
