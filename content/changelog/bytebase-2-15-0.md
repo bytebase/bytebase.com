@@ -17,6 +17,7 @@ _The [new GitOps workflow](/docs/vcs-integration/overview/) is not compatible wi
 ## 🚀 New Features
 
 - Support [Vault](/docs/get-started/instance/#hashicorp-vault) as an external data source for database secrets.
+- Support Apache Hive.
 - Add one-time data export issue type.
 
 ## 🎄 Enhancements
