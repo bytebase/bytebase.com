@@ -137,7 +137,7 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
             <Link href="/changelog/bytebase-2-15-0/" className="group/link">
               <span className="inline-flex items-center gap-1 rounded-full bg-tones-purple-light p-1 text-12 font-semibold leading-none text-primary-1 transition-colors duration-200 group-hover/link:text-primary-2">
                 <span className="rounded-full bg-primary-1 px-2 py-1 text-white transition-colors duration-200 group-hover/link:bg-primary-2">
-                  What’s new?
+                  Apr 11th, 2024
                 </span>
                 <span className="flex items-center gap-1.5 px-2">
                   🚀 2.15.0: Brand new GitOps
