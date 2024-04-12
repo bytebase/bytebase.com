@@ -1,13 +1,13 @@
 ---
 title: 'Database CI/CD and Schema Migration with PostgreSQL and GitHub'
 author: Ningjing
-published_at: 2023/02/16 11:45
+published_at: 2024/04/12 17:45
 feature_image: /content/docs/tutorials/database-change-management-with-postgresql-and-github/feature-image.webp
 tags: Tutorial
 integrations: PostgreSQL, GitHub
 level: Intermediate
 estimated_time: '30 mins'
-description: This tutorial will bring your PostgreSQL schema change to the next level by introducing the GitOps workflow, where you commit schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
+description: This tutorial will bring your PostgreSQL schema change to the next level by introducing the GitOps connector, where you commit schema change script to the GitHub repository via pull request, which will in turn trigger the schema deployment pipeline in Bytebase.
 ---
 
 A series of articles about Database CI/CD and Schema Migration with PostgreSQL
@@ -17,21 +17,18 @@ A series of articles about Database CI/CD and Schema Migration with PostgreSQL
 
 ---
 
-## Overview
-
 In the last article [Database CI/CD and Schema Migration with PostgreSQL](/docs/tutorials/database-change-management-with-postgresql), you have tried UI workflow in Bytebase.
 
-This tutorial will bring you to the next level by introducing the GitOps workflow, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
+This tutorial will bring you to the next level by introducing the GitOps workflow, where you commit the schema change script to the GitHub repository via Pull Request, which will in turn trigger the schema deployment pipeline in Bytebase.
 
-You can use Bytebase free version to finish the tutorial.
+You can use Bytebase **Community Plan** to finish the tutorial.
 
 ## Prerequisites
 
 Before you start this tutorial, make sure:
 
 - You have followed our previous UI-based change tutorial [Database CI/CD and Schema Migration with PostgreSQL](/docs/tutorials/database-change-management-with-postgresql).
-- You have a GitHub account.
-- You have a public GitHub repository, e.g  `pg-test-bb-local`.
+- You have a GitHub account and a public GitHub repository, e.g  `test-bb-gitops`.
 - You have [Docker](https://www.docker.com/) installed locally.
 - You have a [ngrok](http://ngrok.com) account.
 
@@ -39,102 +36,70 @@ Before you start this tutorial, make sure:
 
 <IncludeBlock url="/docs/get-started/install/vcs-with-ngrok"></IncludeBlock>
 
-## Step 2 - Find your PostgreSQL instance in Bytebase
+## Step 2 - Find your PostgreSQL databases in Bytebase
 
-1. Visit Bytebase Console through the browser via your ngrok URL. Log in using your account created from the previous tutorial.
-   ![bb-login](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-login.webp)
+1. Visit Bytebase Console through the browser via your ngrok URL. Log in using your admin account.
 
-2. If you have followed the last article, you should have a Project `Sample Project` and a database `demo`.
-   ![bb-home](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-home.webp)
+1. Click **Select Project** on the top bar, and choose the existing `Sample Project`. You will see there're two databases `hr_prod` and `hr_test` in it.
+   ![bb-sample-project-db](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-sample-project-db.webp)
 
 ## Step 3 - Connect Bytebase with GitHub.com
 
-1. Click **Settings** on the top bar, and then click **Workspace** > **Version Control**. Choose **GitHub.com** and click **Next**.
-   ![bb-settings-vc-step1](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-settings-vc-step1.webp)
+1. Go to Bytebase homepage, and click **Integration > GitOps** on the left sidebar. Choose `GitHub.com` as **Git provider**. What we need is a github **personal access token**.
+   ![bb-gitops-no-access-token](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-gitops-no-access-token.webp)
 
-2. Follow the instructions within **STEP 2**, and in this tutorial, we will use a personal account instead of an organization account. The configuration is similar.
-   ![bb-settings-vc-step2](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-settings-vc-step2.webp)
+1. Go to your GitHub account. Click your avatar and then click **Settings** on the menu. Click **Developer settings** on the left sidebar, and then click **Personal access tokens > Fine-grained token**.
+   ![gh-fine-grained-tokens](/content/docs/tutorials/database-change-management-with-postgresql-and-github/gh-fine-grained-tokens.webp)
 
-3. Go to your GitHub account. Click **Settings** on the dropdown menu.
-   ![gh-settings-dropdown](/content/docs/tutorials/database-change-management-with-postgresql-and-github/gh-settings-dropdown.webp)
+1. Click **Generate new token**, fill in the fields and check the scopes according to the description on Bytebase. Click **Generate token**.
 
-4. Click **Developer Settings** at the bottom of the left side bar. Click **OAuth Apps**, and click **New OAuth App**.
-   ![gh-oauth-apps](/content/docs/tutorials/database-change-management-with-postgresql-and-github/gh-oauth-apps.webp)
-
-5. Fill **Application name** and then copy the **Homepage** and **Authorization callback URL** in Bytebase and fill them. Click **Register application**.
-   ![gh-register-oauth](/content/docs/tutorials/database-change-management-with-postgresql-and-github/gh-register-oauth.webp)
-
-6. After the OAuth application is created successfully. Click **Generate a new client secret**. Copy **Client ID** and this newly generated client secret and paste them back in Bytebase.
-   ![gh-copy-client-id](/content/docs/tutorials/database-change-management-with-postgresql-and-github/gh-copy-client-id.webp)
-   ![bb-vc-client-id](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-vc-client-id.webp)
-
-7. Click **Next**. You will be redirected to the confirmation page. Click **Confirm and add**, and the Git provider is successfully added.
-   ![gh-auth](/content/docs/tutorials/database-change-management-with-postgresql-and-github/gh-auth.webp)
-   ![bb-settings-vc-step3](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-settings-vc-step3.webp)
+1. Copy the token and paste it back into Bytebase **Integration > GitOps**. Click **Confirm and add**.
+   ![bb-gitops-access-token](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-gitops-access-token.webp)
 
 ## Step 4 - Enable GitOps workflow with PostgreSQL
 
-1. Go to project `Sample Project`, click **Version Control**, and choose **GitOps Workflow**. Click **Configure GitOps**.
-   ![bb-project-vc-gitops](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-vc-gitops.webp)
+1. Go to the project `Sample Project`, click **Integration > GitOps**. Click **Add Enable GitOps connector**.
+   ![bb-project-gitops-add](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-gitops-add.webp)
 
-2. Choose GitHub.com - the provider you just added. It will display all the repositories you can manipulate. Choose `pg-test-bb-local`.
-   ![bb-project-vc-github](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-vc-github.webp)
-   ![bb-project-vc-github-local](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-vc-github-local.webp)
+2. Choose `GitHub.com` - the provider you just added. It will display all the repositories you can manipulate. Choose `test-bb-gitops`.
+   ![bb-project-select-repo](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-select-repo.webp)
 
 3. Keep the default setting, and click **Finish**.
-   ![bb-project-vc-gitops-enabled](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-vc-gitops-enabled.webp)
+   ![bb-project-gitops-configure](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-gitops-configure.webp)
 
-## Step 5 - Change schema for PostgreSQL by pushing SQL schema change files to GitHub
+## Step 5 - Change schema for PostgreSQL by pushing SQL schema change files to GitHub via Pull Request
 
-1. In your GitHub repository `pg-test-bb-local`, create a folder `bytebase`, then create a subfolder `Prod`, and create an sql file following the pattern `{{ENV_ID}}/{{DB_NAME}}##{{VERSION}}##{{TYPE}}##{{DESCRIPTION}}.sql`. It is the default configuration for file path template setting under project version control.
-
-   `prod/demo##202316410000##ddl##create_t2.sql`
-
-   - `prod` corresponds to `{{ENV_ID}}`
-   - `demo` corresponds to `{{DB_NAME}}`
-   - `202316410000` corresponds to `{{VERSION}}`
-   - `ddl` corresponds to `{{TYPE}}`
-   - `create_t2` corresponds to `{{DESCRIPTION}}`
+1. In your GitHub repository `test-bb-gitops`, create a folder `bytebase`, then create an sql file `202404121600_create_table_t1.sql`.
 
    Paste the sql script in it.
 
-```text
-CREATE TABLE
-   "public"."t2" (
-   "id" integer NOT NULL,
-   "name" character varying(255) NOT NULL,
-   PRIMARY KEY ("id")
-);
+   ```text
+   CREATE TABLE
+      "public"."t1" (
+      "id" integer NOT NULL
+   );
+   ```
 
-COMMENT
-   ON COLUMN "public"."t2"."id" IS 'ID';
-```
+1. Create a new branch for this commit and start a pull request. Click **Merge pull request** to merge the new branch into the main branch.
+   ![gh-new-branch](/content/docs/tutorials/database-change-management-with-postgresql-and-github/gh-new-branch.webp)
 
-![vsc-sql](/content/docs/tutorials/database-change-management-with-postgresql-and-github/vsc-sql.webp)
-
-1. Commit and push this file.
-2. Go to Bytebase, and go into project `Sample Project`. You’ll find there is a new `Push Event` and a new `issue 105` created.
+1. Go to Bytebase, and go into project `Sample Project`. You’ll find there is a new `Push Event` and a new issue created.
    ![bb-push-notification-only](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-push-notification-only.webp)
 
-3. Click `issue/105` and go the issue page, you’ll see
+1. Click and go to the issue page, you’ll see
 
-   - The issue is created via GitHub.com
-   - The issue is waiting for your approval because it’s on `Prod` environment where manual approval is required by default.
+   - The issue is created via GitHub.com, there's a link to the GitHub commit.
    - The SQL is exactly the one we have committed to the GitHub repository.
-   - The Creator is `A`, because the GitHub user you use to commit the change has the same email address found in the Bytebase member list.
-     ![bb-issue-demo](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-issue-demo.webp)
+   - The SQL has passed the automatic task checks and rollout automatically.
+   - Since the project contains two databases, with **Community Plan** it will automatically apply to all databases within the project by default. With **Enterprise Plan**, you'll have the option to specify the target database group.
+     ![bb-project-issue-done](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-issue-done.webp)
 
-4. Click **Approve**, and the SQL will execute. Click **Resolve issue**, and the issue will be `Done`.
-   ![bb-issue-done](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-issue-done.webp)
+1. Click **View change**, you can view the schema diff.
+   ![bb-project-issue-view-change](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-issue-view-change.webp)
 
-5. Click **View change**, you could view the schema diff.
-   ![bb-show-diff](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-show-diff.webp)
-
-6. Go to GitHub repository, you will see besides your committed sql, there is a `.demo##LATEST.sql` file. Because you have configured `Schema path template` before, Bytebase will write back the latest schema to that specified path after completing the schema change. Thus you have access to an update-to-date full schema at any time.
-   ![gh-LATEST](/content/docs/tutorials/database-change-management-with-postgresql-and-github/gh-LATEST.webp)
 
 ## Summary and Next
 
-Now you have tried out GitOps workflow, which will store your PostgreSQL schema in GitHub and trigger the change upon committing the change to the repository, to bring your PostgreSQL change workflow to the next level of Database DevOps - [Database as Code](/blog/database-as-code).
+Now you have tried out GitOps workflow, which will store your PostgreSQL schema in GitHub and trigger the change upon committing the change to the repository via Pull Request, to bring your PostgreSQL change workflow to the next level of Database DevOps - [Database as Code](/blog/database-as-code).
 
-In real world scenario, you might have separate features and main branches corresponding to your dev and production environment, you can check out [GitOps with Feature Branch Workflow](/docs/tutorials/gitops-feature-branch) to learn the setup. Have a try and look forward to your feedback!
+If the built-in workflow is not suitable, you can opt to [Bytebase API](/docs/api/overview) to fully customize the workflow to integrate with your CI pipeline. [Automating Database Schema Change workflow Using GitHub Actions](/docs/tutorials/github-ci/) is an example.
