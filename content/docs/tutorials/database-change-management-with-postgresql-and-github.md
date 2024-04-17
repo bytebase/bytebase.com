@@ -45,61 +45,16 @@ Before you start this tutorial, make sure:
 
 ## Step 3 - Connect Bytebase with GitHub.com
 
-1. Go to Bytebase homepage, and click **Integration > GitOps** on the left sidebar. Choose `GitHub.com` as **Git provider**. What we need is a github **personal access token**.
-   ![bb-gitops-no-access-token](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-gitops-no-access-token.webp)
-
-1. Go to your GitHub account. Click your avatar and then click **Settings** on the menu. Click **Developer settings** on the left sidebar, and then click **Personal access tokens > Fine-grained token**.
-   ![gh-fine-grained-tokens](/content/docs/tutorials/database-change-management-with-postgresql-and-github/gh-fine-grained-tokens.webp)
-
-1. Click **Generate new token**, fill in the fields and check the scopes according to the description on Bytebase. Click **Generate token**.
-
-1. Copy the token and paste it back into Bytebase **Integration > GitOps**. Click **Confirm and add**.
-   ![bb-gitops-access-token](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-gitops-access-token.webp)
+<IncludeBlock url="/docs/tutorials/share/vcs-with-github"></IncludeBlock>
 
 ## Step 4 - Enable GitOps workflow with PostgreSQL
 
-1. Go to the project `Sample Project`, click **Integration > GitOps**. Click **Add Enable GitOps connector**.
-   ![bb-project-gitops-add](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-gitops-add.webp)
-
-2. Choose `GitHub.com` - the provider you just added. It will display all the repositories you can manipulate. Choose `test-bb-gitops`.
-   ![bb-project-select-repo](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-select-repo.webp)
-
-3. Keep the default setting, and click **Finish**.
-   ![bb-project-gitops-configure](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-gitops-configure.webp)
+<IncludeBlock url="/docs/tutorials/share/vcs-in-project-github"></IncludeBlock>
 
 ## Step 5 - Change schema for PostgreSQL by pushing SQL schema change files to GitHub via Pull Request
 
-1. In your GitHub repository `test-bb-gitops`, create a folder `bytebase`, then create an sql file `202404121600_create_table_t1.sql`.
-
-   Paste the sql script in it.
-
-   ```text
-   CREATE TABLE
-      "public"."t1" (
-      "id" integer NOT NULL
-   );
-   ```
-
-1. Create a new branch for this commit and start a pull request. Click **Merge pull request** to merge the new branch into the main branch.
-   ![gh-new-branch](/content/docs/tutorials/database-change-management-with-postgresql-and-github/gh-new-branch.webp)
-
-1. Go to Bytebase, and go into project `Sample Project`. You’ll find there is a new `Push Event` and a new issue created.
-   ![bb-push-notification-only](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-push-notification-only.webp)
-
-1. Click and go to the issue page, you’ll see
-
-   - The issue is created via GitHub.com, there's a link to the GitHub commit.
-   - The SQL is exactly the one we have committed to the GitHub repository.
-   - The SQL has passed the automatic task checks and rollout automatically.
-   - Since the project contains two databases, with **Community Plan** it will automatically apply to all databases within the project by default. With **Enterprise Plan**, you'll have the option to specify the target database group.
-     ![bb-project-issue-done](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-issue-done.webp)
-
-1. Click **View change**, you can view the schema diff.
-   ![bb-project-issue-view-change](/content/docs/tutorials/database-change-management-with-postgresql-and-github/bb-project-issue-view-change.webp)
-
+<IncludeBlock url="/docs/tutorials/share/vcs-change-github"></IncludeBlock>
 
 ## Summary and Next
 
-Now you have tried out GitOps workflow, which will store your PostgreSQL schema in GitHub and trigger the change upon committing the change to the repository via Pull Request, to bring your PostgreSQL change workflow to the next level of Database DevOps - [Database as Code](/blog/database-as-code).
-
-If the built-in workflow is not suitable, you can opt to [Bytebase API](/docs/api/overview) to fully customize the workflow to integrate with your CI pipeline. [Automating Database Schema Change workflow Using GitHub Actions](/docs/tutorials/github-ci/) is an example.
+<IncludeBlock url="/docs/tutorials/share/vcs-summary-github"></IncludeBlock>
