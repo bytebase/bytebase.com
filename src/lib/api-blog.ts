@@ -22,7 +22,9 @@ const getAllBlogPosts = (category?: string): BlogPostsWithTags => {
     category == 'Tutorial'
       ? `${process.cwd()}/${CONTENT_FOLDER.tutorial}`
       : `${process.cwd()}/${CONTENT_FOLDER.blog}`;
-  const files = glob.sync(`${dir}/**/*.md`);
+  const files = glob.sync(`${dir}/**/*.md`, {
+    ignore: '**/share/*.md',
+  });
   const tagsSet = new Set();
 
   const posts: BlogPost[] = files
