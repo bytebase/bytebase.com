@@ -35,7 +35,7 @@ const onClick = (evt: React.MouseEvent<HTMLAnchorElement>, id: string) => {
 
   // Changing hash without default jumps to anchor
   if (window.history.pushState) {
-    window.history.pushState(false, '', `#${id}`);
+    window.history.pushState(null, '', `#${id}`);
   } else {
     // Old browser support
     window.location.hash = `#${id}`;

@@ -22,7 +22,7 @@ const Sidebar = ({
     }
     // Changing hash without default jumps to anchor
     if (history.pushState) {
-      history.pushState(false, '', `#${id}`);
+      history.pushState(null, '', `#${id}`);
     } else {
       // Old browser support
       window.location.hash = `#${id}`;
