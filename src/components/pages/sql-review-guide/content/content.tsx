@@ -107,7 +107,10 @@ const Content = ({
                           {en.level[lowerCaseLevel]}
                         </span>
                         <h4
-                          className="mt-2 text-18 font-medium leading-tight text-gray-15"
+                          className={clsx(
+                            'text-18 font-medium leading-tight text-gray-15',
+                            '!-mt-[144px] !pt-[180px] lg:!pt-[168px] md:!pt-[160px]',
+                          )}
                           id={anchor}
                         >
                           {en.rule[key].title}

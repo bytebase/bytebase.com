@@ -81,7 +81,7 @@ const MobileSidebar = ({
     }
     // Changing hash without default jumps to anchor
     if (history.pushState) {
-      history.pushState(false, '', `#${id}`);
+      history.pushState(null, '', `#${id}`);
     } else {
       // Old browser support
       window.location.hash = `#${id}`;
@@ -92,7 +92,7 @@ const MobileSidebar = ({
     <LazyMotion features={domAnimation}>
       <nav className={clsx('mobile-sidebar pt-[75px]', className)} ref={wrapperRef}>
         <button
-          className="flex w-full cursor-pointer appearance-none items-center justify-between text-ellipsis border-t border-b border-gray-94 bg-gray-97 px-11 py-4 leading-none tracking-tight text-gray-15 outline-none transition-colors duration-200 hover:bg-gray-90 active:bg-gray-90 md:px-7 sm:px-4"
+          className="flex w-full cursor-pointer appearance-none items-center justify-between text-ellipsis border-b border-t border-gray-94 bg-gray-97 px-11 py-4 leading-none tracking-tight text-gray-15 outline-none transition-colors duration-200 hover:bg-gray-90 active:bg-gray-90 md:px-7 sm:px-4"
           type="button"
           onClick={toggleMenu}
         >
@@ -100,13 +100,13 @@ const MobileSidebar = ({
           <span className="relative">
             <span
               className={clsx(
-                'absolute top-1/2 -left-3 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
+                'absolute -left-3 top-1/2 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
                 isOpen ? 'rotate-45' : 'rotate-[135deg]',
               )}
             />
             <span
               className={clsx(
-                'absolute top-1/2 -left-[7px] h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
+                'absolute -left-[7px] top-1/2 h-2 w-[1.5px] -translate-y-1/2 bg-current transition-transform duration-200',
                 isOpen ? '-rotate-45' : '-rotate-[135deg]',
               )}
             />
