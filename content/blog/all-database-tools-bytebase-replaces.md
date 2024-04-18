@@ -33,7 +33,7 @@ for DBAs and developers to collaborate on database changes.
 - [Git-like branching](/docs/branching/) for database change.
   ![branching](/images/page/main/branching/create-branch.webp)
 - [Point-and-click integration](/docs/vcs-integration/overview/) with mainstream VCSs to enable GitOps workflow.
-  ![result-issue-detail](/content/docs/vcs-integration/overview/issue-detail.webp)
+  ![gitops-workflow](/content/docs/vcs-integration/overview/gitops-workflow.webp)
 - [Online schema migration for MySQL](/docs/change-database/online-schema-migration-for-mysql/) with gh-ost integration.
   ![bb-issue-ghost-config](/content/docs/change-database/online-schema-migration-for-mysql/bb-issue-ghost-config.webp)
 
