@@ -89,7 +89,7 @@ Create the secret in Vault like below:
 - Secret key: `DB_PASSWORD`
 - Secret: `<<YOUR_PASSOWRD>>`
 
-  ![vault-auth](/content/docs/get-started/instance/vault-create-secret.webp)
+  ![create-secret](/content/docs/get-started/instance/vault/create-secret.webp)
 
 Configure instance to retrieve database password from vault:
 
@@ -102,7 +102,75 @@ Configure instance to retrieve database password from vault:
 
 - Specify the secret engine name`secret`, secret path `bytebase` and secret key `DB_PASSWORD`.
 
-  ![vault-auth](/content/docs/get-started/instance/vault-auth.webp)
+  ![vault-auth](/content/docs/get-started/instance/vault/auth.webp)
+
+### AWS Secrets Manager
+
+#### Create an IAM user to access the Secrets Manager
+
+<HintBlock type="info">
+
+It's recommended to create a dedicated IAM user for Bytebase to retrieve the secrets. You only need to do this once
+.
+</HintBlock>
+
+Visit [IAM](https://aws.amazon.com/iam/) to create a new IAM user. Name it `bytebase-external-secret`.
+
+![](/content/docs/get-started/instance/aws-secrets-manager/iam-user-detail.webp)
+
+Attach `SecretsManagerReadWrite` permission.
+
+![](/content/docs/get-started/instance/aws-secrets-manager/iam-set-permission.webp)
+
+After creating the IAM user, create an Access Key to be used by Bytebase later.
+
+![](/content/docs/get-started/instance/aws-secrets-manager/iam-create-access-key.webp)
+
+Select `Third-party service` as the use case.
+
+![](/content/docs/get-started/instance/aws-secrets-manager/iam-access-key-use-case.webp)
+
+Optionally set the description tag and in the `Retrieve access keys` screen, record `Access key` and
+`Secret access key`. They will be passed as environment variables when starting Bytebase.
+
+![](/content/docs/get-started/instance/aws-secrets-manager/iam-access-key-info.webp)
+
+#### Create secret
+
+Visit [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) to store a new secret. Select
+`Other type of secret`, and add a key/value pair. The key is `DB_PASSWORD` and the value is your
+database user password.
+
+![](/content/docs/get-started/instance/aws-secrets-manager/secret-type.webp)
+
+Next to the `Configure secret`, use `bytebase` as the Secret name
+
+![](/content/docs/get-started/instance/aws-secrets-manager/configure-secret.webp)
+
+Skip rotation, review and create the secret.
+
+#### Use secret in Bytebase
+
+Restart Bytebase with the following environment variables
+
+- `AWS_REGION`=`us-east-1`
+- `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are the ones you previously created on the IAM user:
+
+```text
+AWS_REGION=us-east-1 AWS_ACCESS_KEY_ID=xxx AWS_SECRET_ACCESS_KEY=yyy ./bytebase <<other options>>
+```
+
+```text
+docker run --init \
+  -e AWS_REGION=us-east-1 AWS_ACCESS_KEY_ID=xxx AWS_SECRET_ACCESS_KEY=yyy\
+  --name bytebase \
+  <<other options>>
+```
+
+Go to instance setting, specify `bytebase` as the Secret name and `DB_PASSWORD` as the Secret key.
+These two correspond to the value you created in the AWS Secrets Manager.
+
+![](/content/docs/get-started/instance/aws-secrets-manager/auth.webp)
 
 ### Custom endpoint
 
