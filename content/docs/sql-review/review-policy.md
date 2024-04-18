@@ -17,6 +17,8 @@ Note that only **ONE** policy can be attached per `Environment`.
 
 </HintBlock>
 
+![sql-review-policy](/content/docs/sql-review/sql-review-policy.webp)
+
 You can access `SQL Review Policy` from following places:
 
 - `SQL Review` under `Security & Policy` sidebar.
