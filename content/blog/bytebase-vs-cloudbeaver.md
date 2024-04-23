@@ -20,7 +20,9 @@ When a team interacts with a database, collaborative functionalities like access
 
 ## What are the differences between Bytebase and CloudBeaver?
 
-The most significant difference between them is ... d
+Bytebase is a database development tool for the developer team, while CloudBeaver is a lightweight web application for all-around data management. 
+
+Bytebase focuses on team collaboration, offering tailored features like access control, data masking, SQL review, and custom approval flows. CloudBeaver, on the other hand, is a cloud solution for data management, supporting a wide range of databases.
 
 |                                             | CloudBeaver                    | Bytebase                                              |
 | ------------------------------------------- | -------------------------- | ----------------------------------------------------- |
