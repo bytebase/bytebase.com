@@ -343,7 +343,7 @@ ruleList:
       - key: format
         payload:
           type: STRING
-          default: '^[a-z]+(_[a-z]+)*$'
+          default: "^[a-z]+(_[a-z]+)*$"
       - key: maxLength
         payload:
           type: NUMBER
@@ -360,7 +360,7 @@ ruleList:
       - key: format
         payload:
           type: STRING
-          default: '^[a-z]+(_[a-z]+)*$'
+          default: "^[a-z]+(_[a-z]+)*$"
       - key: maxLength
         payload:
           type: NUMBER
@@ -377,7 +377,7 @@ ruleList:
       - key: format
         payload:
           type: TEMPLATE
-          default: '^uk_{{table}}_{{column_list}}$'
+          default: "^uk_{{table}}_{{column_list}}$"
           templateList:
             - table
             - column_list
@@ -397,7 +397,7 @@ ruleList:
       - key: format
         payload:
           type: TEMPLATE
-          default: '^idx_{{table}}_{{column_list}}$'
+          default: "^idx_{{table}}_{{column_list}}$"
           templateList:
             - table
             - column_list
@@ -417,7 +417,7 @@ ruleList:
       - key: format
         payload:
           type: TEMPLATE
-          default: '^fk_{{referencing_table}}_{{referencing_column}}_{{referenced_table}}_{{referenced_column}}$'
+          default: "^fk_{{referencing_table}}_{{referencing_column}}_{{referenced_table}}_{{referenced_column}}$"
           templateList:
             - referencing_table
             - referencing_column
@@ -435,7 +435,7 @@ ruleList:
       - key: format
         payload:
           type: TEMPLATE
-          default: '^pk_{{table}}_{{column_list}}$'
+          default: "^pk_{{table}}_{{column_list}}$"
           templateList:
             - table
             - column_list
@@ -454,7 +454,7 @@ ruleList:
       - key: format
         payload:
           type: STRING
-          default: '^id$'
+          default: "^id$"
       - key: maxLength
         payload:
           type: NUMBER
