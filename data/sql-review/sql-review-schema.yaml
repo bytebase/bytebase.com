@@ -288,6 +288,10 @@ ruleList:
     category: STATEMENT
     engineList:
       - MYSQL
+      - OCEANBASE
+      - MARIADB
+      - TIDB
+      - POSTGRES
     componentList:
       - key: number
         payload:
