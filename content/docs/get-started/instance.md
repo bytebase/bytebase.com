@@ -162,7 +162,7 @@ AWS_REGION=us-east-1 AWS_ACCESS_KEY_ID=xxx AWS_SECRET_ACCESS_KEY=yyy ./bytebase 
 
 ```text
 docker run --init \
-  -e AWS_REGION=us-east-1 AWS_ACCESS_KEY_ID=xxx AWS_SECRET_ACCESS_KEY=yyy\
+  -e AWS_REGION=us-east-1 AWS_ACCESS_KEY_ID=xxx AWS_SECRET_ACCESS_KEY=yyy \
   --name bytebase \
   <<other options>>
 ```
@@ -171,6 +171,68 @@ Go to instance setting, specify `bytebase` as the Secret name and `DB_PASSWORD` 
 These two correspond to the value you created in the AWS Secrets Manager.
 
 ![](/content/docs/get-started/instance/aws-secrets-manager/auth.webp)
+
+### GCP Secret Manager
+
+#### Create a service account to access the Secret Manager
+
+<HintBlock type="info">
+
+It's recommended to create a dedicated service account for Bytebase to retrieve the secrets. You only need to do this once
+.
+</HintBlock>
+
+Visit [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) to create a new service account.
+
+![](/content/docs/get-started/instance/gcp-secret-manager/create-service-account-name.webp)
+
+Grant `Secret Manager Secret Accessor` permission to the service account.
+
+![](/content/docs/get-started/instance/gcp-secret-manager/create-service-account-permission.webp)
+
+After the service account is created, visit its `KEYS` page and add a new key.
+
+![](/content/docs/get-started/instance/gcp-secret-manager/create-key-file.webp)
+
+Choose `JSON` as the key type and create. Keep the downloaded private key file. This will be passed
+as environment variables when starting Bytebase.
+
+![](/content/docs/get-started/instance/gcp-secret-manager/create-key-file2.webp)
+
+#### Create secret
+
+Visit [GCP Secret Manager](https://console.cloud.google.com/security/secret-manager/create) to create a new secret.
+
+![](/content/docs/get-started/instance/gcp-secret-manager/create-secret.webp)
+
+After creation, note the fully qualified secret name.
+
+![](/content/docs/get-started/instance/gcp-secret-manager/secret-full-name.webp)
+
+#### Use secret in Bytebase
+
+Restart Bytebase by specifying `GOOGLE_APPLICATION_CREDENTIALS`=`private key file` as an environment variable. The
+private key file is the JSON file downloaded before for the service account.
+
+<HintBlock type="info">
+
+If you run Bytebase in docker, you need to put the JSON file under the mounted directory. Otherwise, Bytebase
+won't be able to access the key file.
+
+</HintBlock>
+
+```text
+docker run --init \
+  -e GOOGLE_APPLICATION_CREDENTIALS=/var/opt/bytebase/key.json \
+  --name bytebase \
+  --volume ~/.bytebase/data:/var/opt/bytebase \
+  <<other options>>
+```
+
+Go to instance setting, specify the fully qualified name such as `projects/228712144016/secrets/DB_PASSWORD`
+as the Secret full name.
+
+![](/content/docs/get-started/instance/gcp-secret-manager/auth.webp)
 
 ### Custom endpoint
 
