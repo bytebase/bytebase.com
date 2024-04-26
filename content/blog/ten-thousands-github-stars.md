@@ -34,6 +34,6 @@ Today, Bytebase is the only database tool included by both the [CNCF Landscape](
 Our goal stays the same as we started the project, to invent a new category to change, query, secure, govern all different databases inside a single platform, and to bring the GitLab/GitHub experience to developer, DBA and the platform engineering
 teams.
 
-![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.webp)
+![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
 
-Way to go!
+Way to go 😎!
