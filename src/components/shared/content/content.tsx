@@ -60,6 +60,17 @@ const components = {
       </h3>
     );
   },
+  h4: ({ children, ...rest }: any) => {
+    const id = getId(children);
+    return (
+      <h4 id={id} className="group" {...rest}>
+        <span>{children}</span>
+        <a className="ml-1 hidden group-hover:inline-block" href={`#${id}`}>
+          <span>#</span>
+        </a>
+      </h4>
+    );
+  },
   table: (props: any) => (
     <figure className="table-wrapper">
       <table {...props} />
