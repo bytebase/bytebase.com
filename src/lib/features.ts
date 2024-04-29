@@ -40,7 +40,7 @@ export const FEATURES = {
   ARCHIVING: 'Archiving',
   BACKUP_POLICY: 'Backup Policy',
   SECRET_VARIABLE: 'Secret Variable',
-  EXTERNAL_SECRETE_MANAGER: 'External Secret Manager',
+  EXTERNAL_SECRET_MANAGER: 'External Secret Manager',
   SSO: 'Single Sign-On (SSO)',
   '2FA': 'Two-Factor Authentication (2FA)',
   SSH_TUNNEL: 'SSH Tunnel',
