@@ -41,16 +41,22 @@ const components = {
   h2: ({ children, ...rest }: any) => {
     const id = getId(children);
     return (
-      <h2 id={id} {...rest}>
-        {children}
+      <h2 id={id} className="group" {...rest}>
+        <span>{children}</span>
+        <a className="ml-1 hidden group-hover:inline-block" href={`#${id}`}>
+          <span>#</span>
+        </a>
       </h2>
     );
   },
   h3: ({ children, ...rest }: any) => {
     const id = getId(children);
     return (
-      <h3 id={id} {...rest}>
-        {children}
+      <h3 id={id} className="group" {...rest}>
+        <span>{children}</span>
+        <a className="ml-1 hidden group-hover:inline-block" href={`#${id}`}>
+          <span>#</span>
+        </a>
       </h3>
     );
   },
