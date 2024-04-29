@@ -61,6 +61,124 @@ To separate from admin connection, you can configure read-only connections used 
 
 ![bb-instance-read-only-connection](/content/docs/get-started/instance/bb-instance-read-only-connection.webp)
 
+## Use external IAM
+<PricingPlanBlock feature_name='EXTERNAL_SECRETE_MANAGER' />
+
+### Google CloudSQL IAM
+
+1. Visit [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) to create a new service account `bytebase`.
+
+1. Grant `Cloud SQL Admin` permission to the service account.
+  ![](/content/docs/get-started/instance/gcp-iam/grant-cloud-sql-admin.webp)
+
+1. After the service account is created, you may view the email for the service account `bytebase@<<you-project-name>>.iam.gserviceaccount.com`. Go to **KEYS**.
+  ![](/content/docs/get-started/instance/gcp-iam/service-account-keys.webp)
+  
+1. Click **ADD KEY** and then **Create new key**.
+  ![](/content/docs/get-started/instance/gcp-secret-manager/create-key-file.webp)
+
+1. Choose `JSON` as the key type and click **CREATE**. Keep the downloaded private key file. This will be passed
+as environment variables when starting Bytebase.
+  ![](/content/docs/get-started/instance/gcp-iam/create-pk.webp)
+
+1. Go to Cloud SQL database instance detail page, and make sure `cloudsql_iam_authentication` is enabled.
+  ![](/content/docs/get-started/instance/gcp-iam/cloudsql-iam-auth-on.webp)
+
+1. Go to **Users** tab, and click **ADD USER ACCOUNT**.
+  ![](/content/docs/get-started/instance/gcp-iam/sql-users.webp)
+
+1. Select `Cloud IAM` and copy/paste the service account email `bytebase@<<your-project-name>>.iam.gserviceaccount.com`.
+  ![](/content/docs/get-started/instance/gcp-iam/user-account-type.webp)
+
+1. Then you can get the Cloud SQL IAM user: `bytebase`.
+  ![](/content/docs/get-started/instance/gcp-iam/user-added-bytebase.webp)
+
+1. Start Bytebase with Google IAM credentials:
+
+    ```bash
+      docker run --init \
+      -e GOOGLE_APPLICATION_CREDENTIALS=<<your-json-file>> \
+      --name bytebase \
+      --publish 8080:8080 --pull always \
+      --volume ~/.bytebase/data:/var/opt/bytebase \
+      bytebase/bytebase:%%bb_version%%
+    ```
+
+1. Go to SQL overview page, you'll find the **Connection name**. Use it along with your user `bytebase` to connect to the database.  
+  ![](/content/docs/get-started/instance/gcp-iam/connection-name.webp)
+   
+### AWS RDS IAM
+
+1. While creating an RDS instance, you can choose to enable IAM authentication.
+  ![](/content/docs/get-started/instance/aws-rds-iam/db-password-iam.webp)
+
+1. Go to **IAM > Policies** and click **Create policy**.
+  ![](/content/docs/get-started/instance/aws-rds-iam/create-policy.webp)
+
+1. Select `RDS IAM Authentication` for service.
+  ![](/content/docs/get-started/instance/aws-rds-iam/rds-iam-auth.webp)
+
+1. Select `connect` permission and specific as **Resources**. Check `Any in this account`.
+  ![](/content/docs/get-started/instance/aws-rds-iam/connect-permission.webp)
+
+    <HintBlock type="info">
+      `Any in this account` will mark the resource as
+      `arn:aws:rds-db:*:<<your-db-id>>:dbuser:*/*`
+      - 1st *: any regions
+      - 2nd *: any databases
+      - 3rd *: any database users
+      
+      This will allow the RDS connect on behalf of all database users in all databases in your account.
+      If you want to limit the connection to specific databases, please follow [this doc](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html).
+    </HintBlock>
+
+1. Name it `rds-connect` and create this policy.
+1. Go to **IAM > Users** can click **Create user**. Name it `rds-connect`.
+  ![](/content/docs/get-started/instance/aws-rds-iam/create-user.webp)
+
+1. Choose Attach policy directly and select the `rds-connect` policy. Click **Next** and then click **Create user**.
+  ![](/content/docs/get-started/instance/aws-rds-iam/attach-policy.webp)
+
+1. On the user detail page, click **Create access key**.
+  ![](/content/docs/get-started/instance/aws-rds-iam/access-key.webp)
+
+1. Choose `Application running outside AWS` and click **Next**.
+  ![](/content/docs/get-started/instance/aws-rds-iam/app-outside-aws.webp)
+
+1. Then you get the **access key** and the **secret access key**.
+  ![](/content/docs/get-started/instance/aws-rds-iam/retrieve-access-keys.webp)
+
+1. Start Bytebase with AWS IAM credentials:
+
+    ```bash
+      docker run --init \
+      -e AWS_ACCESS_KEY_ID=<<your-access-key>> \
+      -e AWS_SECRET_ACCESS_KEY=<<your-secret-access-key>> \
+      -e AWS_REGION=<<your-aws-region>> \
+      --name bytebase \
+      --publish 8080:8080 --pull always \
+      bytebase/bytebase:%%bb_version%%
+    ```
+
+1. Go to RDS instance detail page, you'll find the **endpoint** and **port**.
+  ![](/content/docs/get-started/instance/aws-rds-iam/mysql-connection.webp)
+
+1. Connect to your instance with `admin` account, create the `bytebase` user and grant permission.
+
+    ```sql
+        CREATE USER bytebase@'%' IDENTIFIED WITH AWSAuthenticationPlugin AS 'RDS';
+
+        ALTER USER 'bytebase'@'%' REQUIRE SSL;
+
+        GRANT ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE VIEW, 
+        DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, PROCESS, REFERENCES, 
+        SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE, USAGE, 
+        RELOAD, LOCK TABLES, REPLICATION CLIENT, REPLICATION SLAVE 
+        /*!80000 , SET_USER_ID */ON *.* to bytebase@'%';
+    ```
+
+1. Use the instance endpoint, port and the username `bytebase` to add the instance.
+
 ## Use external secret manager
 
 <PricingPlanBlock feature_name='EXTERNAL_SECRETE_MANAGER' />
