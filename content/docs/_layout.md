@@ -21,6 +21,8 @@ expand_section_list: ['Self-host']
 
 ### [Install](/get-started/self-host)
 
+### [Upgrade](/get-started/upgrade)
+
 ### [Configure External PostgreSQL](/get-started/install/external-postgres)
 
 ### [Configure External URL](/get-started/install/external-url)
@@ -172,8 +174,6 @@ expand_section_list: ['Self-host']
 ---
 
 ## Administration
-
-### [Upgrade](/administration/upgrade)
 
 ### [Manage License](/administration/license)
 

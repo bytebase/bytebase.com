@@ -515,13 +515,3 @@ ulimit -n 10240
 ### [Deploy to Rainbond](/docs/get-started/install/deploy-to-rainbond/)
 
 ### [Deploy to Zeabur](/docs/get-started/install/deploy-to-zeabur/)
-
-## Upgrade from
-
-### Upgrade MINOR and PATCH version
-
-Just replace the version string and restart. Bytebase will self-upgrade automatically.
-
-### Upgrade from 1.x
-
-Please first upgrade to 2.1.0 and then upgrade to the latest version.
