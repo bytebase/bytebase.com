@@ -1,6 +1,6 @@
 ---
 title: Bytebase Surpasses 10,000 Stars on GitHub
-author: Tianzhou
+author: Ningjing
 published_at: 2024/04/24 18:00:00
 feature_image: /content/blog/ten-thousands-github-stars/cover.webp
 tags: Announcement
@@ -15,7 +15,7 @@ On April 24th, 2024, Bytebase reached another milestone by achieving 10,000 GitH
 ![_](/content/blog/ten-thousands-github-stars/gh-10000-stars.webp)
 
 It's been almost 3 years since [we announced Bytebase](/blog/announce-bytebase/). As an open source
-project, Bytebase has been growing way faster than the classic [Liquibase](/blog/bytebase-vs-liquibase/) and [Flyway](/blog/bytebase-vs-flyway/). Now it's the only database tool surpassing 10,000 stars on GitHub.
+project, Bytebase has been growing way faster than the classic [Liquibase](/blog/bytebase-vs-liquibase/) and [Flyway](/blog/bytebase-vs-flyway/). Now it's the only database DevOps and CI/CD tool surpassing 10,000 stars on GitHub.
 
 ![_](/content/blog/ten-thousands-github-stars/star-history-compare.webp)
 
@@ -23,7 +23,7 @@ In recent years, our user base has grown to encompass nearly every region global
 
 ![_](/content/blog/ten-thousands-github-stars/map.webp)
 
-Furthermore, the enterprise plan achieved a 100% global renewal rate in 2023. We continue to attract new enterprise clients in 2024, including notable companies like Linear from the US, PropertyGuru from Singapore, and Xendit from Indonesia.
+Furthermore, the enterprise plan achieved a 100% global renewal rate in 2023. We continue to attract new enterprise clients in 2024, including notable companies like [Linear](https://linear.app) from the US, [PropertyGuru](https://www.propertyguru.com.sg) from Singapore, and [Xendit](https://www.xendit.co) from Indonesia.
 
 ![_](/content/blog/ten-thousands-github-stars/logos.webp)
 
