@@ -1,7 +1,7 @@
 ---
 title: 'Database CI/CD and Schema Migration with MySQL and GitHub'
 author: Mila
-published_at: 2023/02/08 11:15
+published_at: 2024/04/30 11:15
 feature_image: /content/docs/tutorials/database-change-management-with-mysql-and-github/feature-image.webp
 tags: Tutorial
 integrations: MySQL, GitHub
@@ -23,16 +23,15 @@ In the last article [Database CI/CD and Schema Migration with MySQL](/docs/tutor
 
 This tutorial will bring your MySQL schema change to the next level by introducing the **GitOps workflow**, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
-You can use Bytebase free version to finish the tutorial.
+You can use Bytebase's **Community Plan** to finish the tutorial.
 
 ## Prerequisites
 
 Before you start this tutorial, make sure you have the following ready:
 
 - Finished our previous UI-based change tutorial [Database CI/CD and Schema Migration with MySQL](/docs/tutorials/database-change-management-with-mysql).
-- A local MySQL cluster.
-- A GitHub account.
-- A public GitHub repository.
+- A local MySQL server.
+- A GitHub account and a public GitHub repository, e.g. `test-bb-gitops`.
 - [Docker](https://www.docker.com/) installed locally.
 - An [ngrok](http://ngrok.com/) account.
 
@@ -42,108 +41,23 @@ Before you start this tutorial, make sure you have the following ready:
 
 ## Step 2 - Find your MySQL in Bytebase
 
-1. Visit Bytebase Console through the browser via your ngrok URL. Log in using your account created from the previous tutorial.
-   ![login](/content/docs/tutorials/database-change-management-with-mysql-and-github/login.webp)
+1. Visit Bytebase Console through the browser via your ngrok URL. Log in using your admin account.
 
-2. If you followed the previous tutorial, you should see that the project and database created are still in your workspace.
-   ![home](/content/docs/tutorials/database-change-management-with-mysql-and-github/home.webp)
+1. Create two new databases on your MySQL instance for different environments, refer to [previous tutorial](/docs/tutorials/database-change-management-with-mysql) if you need help.
+   ![home](/content/docs/tutorials/database-change-management-with-mysql-and-github/project-dbs-mysql.webp)
 
 ## Step 3 - Connect Bytebase with GitHub.com
 
-1. Go to **Settings** and choose **Version Control** from the left sidebar.
-   ![vc-settings-1](/content/docs/tutorials/database-change-management-with-mysql-and-github/vc-settings-1.webp)
-
-2. Choose **GitHub.com** and Click **Next**.
-
-3. In this tutorial, we will need your GitHub personal account instead of an organization account **STEP 2 - OAuth application info**. The configuration is similar.
-
-4. Go to your GitHub account's **Settings** page.
-
-5. Click **Developer Settings** at the bottom of the left sidebar. Click **OAuth Apps**, and add a **New OAuth App**.
-   ![github-oauth-apps](/content/docs/tutorials/database-change-management-with-mysql-and-github/github-oauth-apps.webp)
-
-6. Fill Application name and then copy the Homepage and Authorization callback URL in Bytebase and fill them in. Click **Register application.**
-   ![vc-settings-2](/content/docs/tutorials/database-change-management-with-mysql-and-github/vc-settings-2.webp)
-   ![github-new-oauth](/content/docs/tutorials/database-change-management-with-mysql-and-github/github-new-oauth.webp)
-
-7. After the OAuth application is created, click **Generate a new client secret**. Copy the **Client ID** and the newly generated **Client Secret**, paste them back into Bytebase's **Application ID** and **Secret**.
-   ![github-client-id-secrets](/content/docs/tutorials/database-change-management-with-mysql-and-github/github-client-id-secrets.webp)
-   ![bb-app-id-secrets](/content/docs/tutorials/database-change-management-with-mysql-and-github/bb-app-id-secrets.webp)
-
-8. Click **Next**. You will be redirected to the confirmation page. Click **Confirm and add**, and the Git provider is successfully added.
-   ![settings-vc-git-provider-added](/content/docs/tutorials/database-change-management-with-mysql-and-github/settings-vc-git-provider-added.webp)
+<IncludeBlock url="/docs/tutorials/share/vcs-with-github"></IncludeBlock>
 
 ## Step 4 - Enable GitOps workflow with MySQL
 
-1. Go to your project, click **Version Control**, and choose GitOps Workflow. Click **Configure GitOps**.
-   ![enable-gitops](/content/docs/tutorials/database-change-management-with-mysql-and-github/enable-gitops.webp)
-
-2. Choose GitHub.com - the provider you just added. It will display all the repositories you can manipulate. Choose the one you'd like to make changes to. For the sake of this tutorial, let's keep the rest of the settings default, and click **Finish**.
-   ![gitops-enabled](/content/docs/tutorials/database-change-management-with-mysql-and-github/gitops-enabled.webp)
+<IncludeBlock url="/docs/tutorials/share/vcs-in-project-github"></IncludeBlock>
 
 ## Step 5 - Change schema for MySQL by pushing SQL schema change files to GitHub
 
-1. In your GitHub repository `MySQL-test-bb-local`, create a folder `bytebase`, and create a SQL file using the naming convention `{{ENV_ID}}/{{DB_NAME}}##{{VERSION}}##{{TYPE}}##{{DESCRIPTION}}.sql`. It is the default configuration for the file path template setting in the last step.
-   The full file path is `bytebase/test/uni##202302071000##ddl##create_table.sql`:
-
-- `test` corresponds to `{{ENV_ID}}`
-- `uni` corresponds to `{{DB_NAME}}`
-- `202302071000` corresponds to `{{VERSION}}`
-- `ddl` corresponds to `{{TYPE}}`
-- `create_table` corresponds to `{{DESCRIPTION}}`
-
-Let's create a table `subject`.
-
-```sql
-CREATE TABLE subject
-(
-   id BIGINT NOT NULL,
-   course VARCHAR(255)
-);
-```
-
-![create-table](/content/docs/tutorials/database-change-management-with-mysql-and-github/create-table.webp)
-
-2. Commit and push this file.
-
-3. Go to your project in Bytebase. You’ll find there is a push event and an auto-created issue `[uni] Alter schema`.
-
-![bb-push-notification-only](/content/docs/tutorials/database-change-management-with-mysql-and-github/bb-push-notification-only.webp)
-
-4. Go to the issue page, you’ll see:
-
-- The issue is created via GitHub.
-- The issue is completed without manual approval because it applies the schema change to a database from the Test environment, which doesn't require manual approval.
-- The SQL is exactly the one we have committed to the GitHub repository.
-- The Assignee is Bytebase, because it’s automatic. If the github user you use to commit the change has the same email address found in the bytebase member list, we will use that member as the assignee.
-
-![issue-alter-schema](/content/docs/tutorials/database-change-management-with-mysql-and-github/issue-alter-schema.webp)
-
-5. Click **View change**, you can see the differences.
-   ![diff](/content/docs/tutorials/database-change-management-with-mysql-and-github/diff.webp)
-
-6. Go to your GitHub repository, you will see besides your committed SQL, there is a `.uni##LATEST.sql` file. Because you have configured `Schema path template` before, Bytebase will write back the latest schema to that specified path after completing the schema change. Thus you have access to an update-to-date full schema at any time.
-   ![latest-schema](/content/docs/tutorials/database-change-management-with-mysql-and-github/latest-schema.webp)
-
-7. Let’s create another SQL file `uni##202302072000##ddl##add_lecturer.sql` to see how that latest schema file will be updated after applying a new schema change. Paste the SQL script in it.
-
-```sql
-ALTER TABLE subject ADD lecturer VARCHAR(255);
-```
-
-8. After pushing and committing the new SQL file, go back to Bytebase and you should find another newly generated issue.
-   ![issue-add-column](/content/docs/tutorials/database-change-management-with-mysql-and-github/issue-add-column.webp)
-
-9. Click **View change** and see the difference.
-   ![diff-columns](/content/docs/tutorials/database-change-management-with-mysql-and-github/diff-columns.webp)
-
-10. Go back to your GitHub repository and you will find the LATEST SQL has been updated to reflect the latest schema.
-    ![latest-schema-lecturer](/content/docs/tutorials/database-change-management-with-mysql-and-github/latest-schema-lecturer.webp)
+<IncludeBlock url="/docs/tutorials/share/vcs-change-github" db="mysql"></IncludeBlock>
 
 ## Summary and What's Next
 
-Now that you have tried the **GitOps workflow**, which stores your MySQL schema in GitHub and trigger the change upon committing change to the repository, to bring your MySQL change workflow to the next level of Database DevOps - [Database as Code](/blog/database-as-code).
-
-You can check out [GitOps docs](/docs/vcs-integration/overview) to learn more configuration details.
-
-In the real world, you might have separated feature and main branches corresponding to your development and production environment, you can check out [GitOps with Feature Branch Workflow](/docs/tutorials/gitops-feature-branch) to learn the setup. Have a try and look forward to your feedback!
+<IncludeBlock url="/docs/tutorials/share/vcs-summary-github"></IncludeBlock>

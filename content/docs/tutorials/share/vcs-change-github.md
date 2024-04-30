@@ -25,5 +25,3 @@
 
 1. Click **View change**, you can view the schema diff.
    ![bb-schema-diff](/content/docs/tutorials/database-change-management-share/bb-schema-diff###db###.webp)
-
-###db###
