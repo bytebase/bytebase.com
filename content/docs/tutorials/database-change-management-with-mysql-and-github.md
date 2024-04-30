@@ -56,7 +56,7 @@ Before you start this tutorial, make sure you have the following ready:
 
 ## Step 5 - Change schema for MySQL by pushing SQL schema change files to GitHub
 
-<IncludeBlock url="/docs/tutorials/share/vcs-change-github" db="mysql"></IncludeBlock>
+<IncludeBlock url="/docs/tutorials/share/vcs-change-github"></IncludeBlock>
 
 ## Summary and What's Next
 

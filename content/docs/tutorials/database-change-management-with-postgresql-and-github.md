@@ -53,7 +53,7 @@ Before you start this tutorial, make sure:
 
 ## Step 5 - Change schema for PostgreSQL by pushing SQL schema change files to GitHub via Pull Request
 
-<IncludeBlock url="/docs/tutorials/share/vcs-change-github"></IncludeBlock>
+<IncludeBlock url="/docs/tutorials/share/vcs-change-github" db="postgres"></IncludeBlock>
 
 ## Summary and Next
 

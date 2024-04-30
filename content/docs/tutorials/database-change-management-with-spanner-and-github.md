@@ -1,10 +1,10 @@
 ---
 title: Database Change Management with Spanner and GitHub
 author: Ningjing
-published_at: 2023/05/25 16:15
+published_at: 2024/04/30 16:15
 feature_image: /content/docs/tutorials/database-change-management-with-spanner-and-github/feature-image.webp
 tags: Tutorial
-integrations: MySQL, GitHub
+integrations: Spanner
 level: Intermediate
 estimated_time: '30 mins'
 description: This tutorial will bring your Spanner schema change to the next level by introducing the GitOps workflow, where you commit schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
@@ -21,7 +21,7 @@ In the last article [Database Change Management with Spanner](/docs/tutorials/da
 
 This tutorial will bring your Spanner schema change to the next level by introducing the **GitOps workflow**, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
-You can use Bytebase free version to finish the tutorial.
+You can use Bytebase's **Community Plan** to finish the tutorial.
 
 ## Features included
 
@@ -46,75 +46,21 @@ Before you start this tutorial, make sure you have the following ready:
 
 1. Visit Bytebase Console through the browser via your ngrok URL. Log in using your account created from the previous tutorial.
 
-2. If you followed the previous tutorial, you should see that the project and database created are still in your workspace.
+1. Create one or two new databases on your Spanner instances for different environments, refer to [previous tutorial](/docs/tutorials/database-change-management-with-spanner) if you need help.
+   ![home](/content/docs/tutorials/database-change-management-with-spanner-and-github/project-dbs-spanner.webp)
 
 ## Step 3 - Connect Bytebase with GitHub.com
 
-1. Click **Settings** on the top bar, and then click **Workspace** > **GitOps**. Choose **GitHub.com** and click **Next**.
+<IncludeBlock url="/docs/tutorials/share/vcs-with-github"></IncludeBlock>
 
-2. Follow the instructions within **STEP 2**, and in this tutorial, we will use a personal account instead of an organization account. The configuration is similar.
+## Step 4 - Enable GitOps workflow with Spanner
 
-3. Go to your GitHub account. Click your avatar on the top right, and then click **Settings** on the dropdown menu.
-
-4. Click **Developer Settings** at the bottom of the left sidebar. Click **OAuth Apps**, and add a **New OAuth App**.
-5. Fill **Application name** and then copy the **Homepage** and **Authorization callback URL** in Bytebase and fill them. Click **Register application**.
-
-6. After the OAuth application is created, click **Generate a new client secret**.
-
-7. Go back to Bytebase. Copy the **Client ID** and the newly generated **Client Secret**, paste them back into Bytebase's **Application ID** and **Secret**.
-
-![bb-settings-gitops-step2](/content/docs/tutorials/database-change-management-with-spanner-and-github/bb-settings-gitops-step2.webp)
-
-8. Click **Next**. You will be redirected to the confirmation page. Click **Confirm and add**, and the Git provider is successfully added.
-
-## Step 4 - Enable GitOps Workflow with Spanner
-
-1. Click **Projects** on the top bar and click **New Project**. Name it `Demo GitOps` and click **Create**.
-2. Go to the project `Demo GitOps` and click **Transfer in DB**. Choose `test_db` from project `Demo UI`.
-
-3. Click **GitOps**, and choose **GitOps Workflow**. Click **Configure GitOps**.
-
-4. Choose `GitHub.com` - the provider you just added. It will display all the repositories you can manipulate. Choose `bb-test-gitops-spanner`.
-
-5. Keep the default setting, and click **Finish**.
+<IncludeBlock url="/docs/tutorials/share/vcs-in-project-github"></IncludeBlock>
 
 ## Step 5 - Change schema for Spanner by pushing SQL schema change files to GitHub
 
-1. In your GitHub repository `bb-test-gitops-spanner`, create a folder `bytebase`, then create a subfolder `test`, and create a SQL file using the naming convention `{{ENV_ID}}/{{DB_NAME}}##{{VERSION}}##{{TYPE}}##{{DESCRIPTION}}.sql`. It is the default configuration for the file path template setting under project `Demo GitOps` > **GitOps**.
-
-   `test/test_db##202305090000##dml##add_bella.sql`
-
-   - `test` corresponds to `{{ENV_ID}}`
-   - `test_db` corresponds to `{{DB_NAME}}`
-   - `202305090000` corresponds to `{{VERSION}}`
-   - `dml` corresponds to `{{TYPE}}`
-   - `add_bella` corresponds to `{{DESCRIPTION}}`
-
-   Paste the sql script in it.
-
-   ```sql
-   CREATE t1 (Id, Name) VALUES (2,'Bella');
-   ```
-
-2. Commit and push this file.
-
-3. Go to Bytebase, and go into project `Demo GitOps`. You’ll find there is a new `Push Event` and a new `issue 107` created.
-   ![bb-push-notification-only](/content/docs/tutorials/database-change-management-with-spanner-and-github/bb-push-notification-only.webp)
-
-4. Click `issue/107` and go to the issue page. The issue is `Done`. You’ll see:
-
-   - The issue is created via GitHub.com
-   - The issue is executed without approval because it’s on `Test` environment where manual approval is skipped by default. The Assignee is `Bytebase`, because the execution is automatic, and requires no manual approval.
-   - The SQL is exactly the one we have committed to the GitHub repository.
-   - The Creator is `A`, because the GitHub user you use to commit the change has the same email address found in the Bytebase member list.
-     ![bb-issue-done](/content/docs/tutorials/database-change-management-with-spanner-and-github/bb-issue-done.webp)
-
-5. Click **View change**, you can view the schema diff.
+<IncludeBlock url="/docs/tutorials/share/vcs-change-github" db="spanner"></IncludeBlock>
 
 ## Summary and What's Next
 
-Now that you have tried the **GitOps workflow**, which stores your Spanner schema in GitHub and triggers the change upon committing change to the repository, to bring your Spanner change workflow to the next level of Database DevOps - [Database as Code](/blog/database-as-code).
-
-You can check out [GitOps docs](/docs/vcs-integration/overview) to learn more configuration details.
-
-In the real world, you might have separated feature and main branches corresponding to your development and production environment, you can check out [GitOps with Feature Branch Workflow](/docs/tutorials/gitops-feature-branch) to learn the setup. Have a try and look forward to your feedback!
+<IncludeBlock url="/docs/tutorials/share/vcs-summary-github"></IncludeBlock>
