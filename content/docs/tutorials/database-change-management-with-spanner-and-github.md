@@ -47,7 +47,7 @@ Before you start this tutorial, make sure you have the following ready:
 1. Visit Bytebase Console through the browser via your ngrok URL. Log in using your account created from the previous tutorial.
 
 1. Create one or two new databases on your Spanner instances for different environments, refer to [previous tutorial](/docs/tutorials/database-change-management-with-spanner) if you need help.
-   ![home](/content/docs/tutorials/database-change-management-with-spanner-and-github/project-dbs-spanner.webp)
+   ![home](/content/docs/tutorials/database-change-management-with-spanner-and-github/bb-project-dbs-spanner.webp)
 
 ## Step 3 - Connect Bytebase with GitHub.com
 

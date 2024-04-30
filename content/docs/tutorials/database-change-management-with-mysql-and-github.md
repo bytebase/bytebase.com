@@ -43,8 +43,8 @@ Before you start this tutorial, make sure you have the following ready:
 
 1. Visit Bytebase Console through the browser via your ngrok URL. Log in using your admin account.
 
-1. Create two new databases on your MySQL instance for different environments, refer to [previous tutorial](/docs/tutorials/database-change-management-with-mysql) if you need help.
-   ![home](/content/docs/tutorials/database-change-management-with-mysql-and-github/project-dbs-mysql.webp)
+1. Create one or two new databases on your Spanner instances for different environments, refer to [previous tutorial](/docs/tutorials/database-change-management-with-mysql) if you need help.
+   ![home](/content/docs/tutorials/database-change-management-with-mysql-and-github/bb-project-dbs-mysql.webp)
 
 ## Step 3 - Connect Bytebase with GitHub.com
 
