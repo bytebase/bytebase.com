@@ -29,6 +29,8 @@ I have followed both tutorials and, in this article, I will provide you with a b
 | Custom approval flow | ❌                       | ✅         |
 | Audit log            | ❌                       | ✅         |
 
+![star-history](/content/blog/snowflake-schema-change/star-history.webp)
+
 ## Schemachange
 
 The tutorial I followed can be found [here](https://quickstarts.snowflake.com/guide/devops_dcm_schemachange_github/index.html#0). For the sake of presentation, I have summarized the key steps below. If you wish to give it a try, please follow the tutorial.
