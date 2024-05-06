@@ -19,11 +19,9 @@
    1. The issue is created via GitHub.com, there's a link to the GitHub commit.
    1. The SQL is exactly the one we have committed to the GitHub repository.
    1. The SQL has passed the automatic task checks and rollout automatically.
-   1. Since there're two databases in the project, Bytebase a creates a 2-staged pipeline to roll out the change sequentially.
+   1. Since there're two databases in the project, Bytebase creates a 2-staged pipeline to roll out the change sequentially.
 
       ![bb-issue-done](/content/docs/tutorials/database-change-management-share/bb-issue-done###db###.webp)
 
 1. Click **View change**, you can view the schema diff.
    ![bb-schema-diff](/content/docs/tutorials/database-change-management-share/bb-schema-diff###db###.webp)
-
-###db###
