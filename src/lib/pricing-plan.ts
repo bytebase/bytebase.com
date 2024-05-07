@@ -24,6 +24,7 @@ const PRICING_PLANS = new Map([
 
   //Not in the pricing page
   ['DRIFT_DETECTION', 'ENTERPRISE'],
+  ['ROLLBACK_DATA_CHANGES', 'ENTERPRISE'],
 
   //SQL Editor
   ['AUTO_COMPLETE', 'COMMUNITY'],
