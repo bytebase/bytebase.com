@@ -4,7 +4,7 @@ author: Ningjing
 published_at: 2024/04/30 16:15
 feature_image: /content/docs/tutorials/database-change-management-with-spanner-and-github/feature-image.webp
 tags: Tutorial
-integrations: Spanner
+integrations: Spanner, GitHub
 level: Intermediate
 estimated_time: '30 mins'
 description: This tutorial will bring your Spanner schema change to the next level by introducing the GitOps workflow, where you commit schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.

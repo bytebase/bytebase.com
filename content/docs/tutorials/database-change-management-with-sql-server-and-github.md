@@ -1,7 +1,7 @@
 ---
 title: 'Database CI/CD and Schema Migration with SQL Server and GitHub'
 author: Ningjing
-published_at: 2024/1/8 19:45
+published_at: 2024/5/9 14:45
 feature_image: /content/docs/tutorials/database-change-management-with-sql-server-and-github/sqlserver-github-feature.webp
 tags: Tutorial
 integrations: 'SQL Server, GitHub'
@@ -29,7 +29,7 @@ Before you start this tutorial, make sure:
 
 - You have followed our previous UI-based change tutorial [Database CI/CD and Schema Migration with SQL Server](/docs/tutorials/database-change-management-with-sql-server).
 - You have a GitHub account.
-- You have a public GitHub repository, e.g  `bb-ngrok-sql-server`.
+- You have a public GitHub repository, e.g.  `test-bb-gitops`.
 - You have [Docker](https://www.docker.com/) installed locally.
 - You have a [ngrok](http://ngrok.com) account.
 
@@ -40,102 +40,22 @@ Before you start this tutorial, make sure:
 ## Step 2 - Find your SQL Server instance in Bytebase
 
 1. Visit Bytebase Console through the browser via your ngrok URL. Log in using your account created from the previous tutorial.
-   ![bb-login](/content/docs/tutorials/database-change-management-with-sql-server-and-github/bb-login.webp)
 
-1. If you have followed the last article, you should have a Project `Sample Project` and a database `db_demo`.
+1. Create one or two new databases on your SQL Server instances for different environments, refer to [previous tutorial](/docs/tutorials/database-change-management-with-sql-server) if you need help.
+   ![home](/content/docs/tutorials/database-change-management-with-sql-server-and-github/bb-project-dbs-sql-server.webp)
 
 ## Step 3 - Connect Bytebase with GitHub.com
 
-1. Click **Settings** on the top bar, and then click **Workspace** > **GitOps**. Choose **GitHub.com** and click **Next**.
-
-1. Follow the instructions within **STEP 2**, and in this tutorial, we will use a personal account instead of an organization account. The configuration is similar.
-
-1. Go to your GitHub account. Click your avatar on the top right, and then click **Settings** on the dropdown menu.
-
-   ![gh-settings-dropdown](/content/docs/tutorials/database-change-management-with-sql-server-and-github/gh-settings-dropdown.webp)
-
-1. Click **Developer Settings** at the bottom of the left sidebar. Click **OAuth Apps**, and add a **New OAuth App**.
-
-   ![gh-oauth-apps](/content/docs/tutorials/database-change-management-with-sql-server-and-github/gh-oauth-apps.webp)
-
-1. Fill **Application name** and then copy the **Homepage** and **Authorization callback URL** in Bytebase and fill them. Click **Register application**.
-
-1. After the OAuth application is created, click **Generate a new client secret**.
-
-1. Go back to Bytebase. Copy the **Client ID** and the newly generated **Client Secret**, and paste them back into Bytebase's **Application ID** and **Secret**.
-
-   ![bb-settings-gitops-step2](/content/docs/tutorials/database-change-management-with-sql-server-and-github/bb-settings-gitops-step2.webp)
-
-1. Click **Next**. You will be redirected to the confirmation page. Click **Confirm and add**, and the Git provider is successfully added.
+<IncludeBlock url="/docs/tutorials/share/vcs-with-github"></IncludeBlock>
 
 ## Step 4 - Enable GitOps workflow with SQL Server
 
-1. Go back to Bytebase, click **Projects** on the top bar and click **New Project**. Name it `Demo GitOps` and click **Create**.
-
-1. Go to the project and click **New DB**. Create a new database `db_gitops_demo` with environment `Prod` and instance `SQL Server`. Click **Create**.
-
-1. Within the project, click **Integration** > **GitOps** on the left sidebar, and choose **GitOps Workflow**. Click **Configure GitOps**.
-
-1. Choose `GitHub.com` - the provider you just added. It will display all the repositories you can manipulate. Choose `bb-ngrok-sql-server`.
-
-1. Scroll down and check **Enable SQL Review CI via GitHub Action**. Keep the other settings default and click **Finish**.
-
-1. You'll be redirect to an GitHub issue. Click **Merge pull request** and confirm. The SQL Review CI is enabled.
-
-   ![gh-issue-ci](/content/docs/tutorials/database-change-management-with-sql-server-and-github/gh-issue-ci.webp)
+<IncludeBlock url="/docs/tutorials/share/vcs-in-project-github"></IncludeBlock>
 
 ## Step 5 - Change schema for SQL Server by pushing SQL schema change files to GitHub
 
-1. In your GitHub repository `bb-ngrok-sql-server`, create a folder `bytebase`, then create a subfolder `prod`, and create an sql file following the pattern `{{ENV_ID}}/{{DB_NAME}}##{{VERSION}}##{{TYPE}}##{{DESCRIPTION}}.sql`. It is the default configuration for file path template setting under project version control.
+<IncludeBlock url="/docs/tutorials/share/vcs-change-github" db="sql-server"></IncludeBlock>
 
-   `prod/db_gitops_demo##202401020000##ddl##create_t2.sql`
+## Summary and What's Next
 
-   - `prod` corresponds to `{{ENV_ID}}`
-   - `db_gitops_demo` corresponds to `{{DB_NAME}}`
-   - `202401020000` corresponds to `{{VERSION}}`
-   - `ddl` corresponds to `{{TYPE}}`
-   - `create_t2` corresponds to `{{DESCRIPTION}}`
-
-   Paste the sql script in it.
-
-   ```SQL
-   CREATE TABLE t2 (id INT);
-   ```
-
-1. Commit and create a new branch for this commit. Then create a pull request. On the pull request page, you'll see the SQL Review CI is running. Wait for it to finish. The checks don't pass.
-
-   ![gh-ci-not-pass](/content/docs/tutorials/database-change-management-with-sql-server-and-github/gh-ci-not-pass.webp)
-
-1. Click **details**, and you'll see the SQL Review violation -- `Warning: Column [id] is nullable, which is not allowed.`.
-
-   ![gh-ci-not-pass-detail](/content/docs/tutorials/database-change-management-with-sql-server-and-github/gh-ci-not-pass-detail.webp)
-
-1. Edit the SQL file, add `NOT NULL` constraint and commit the change. You'll find the SQL Review CI is running again. This time it passes. Click **Merge pull request** and confirm.
-
-   ```SQL
-   CREATE TABLE t1 (id INT NOT NULL DEFAULT 1);
-   ```
-
-1. Go to Bytebase, and go into project `Demo GitOps`. You’ll find there is a new `Push Event` and a new issue created.
-   ![bb-push-event](/content/docs/tutorials/database-change-management-with-sql-server-and-github/bb-push-event.webp)
-
-1. Click **View** and then go to the issue page, you’ll see
-
-   - The issue is created via GitHub.com
-   - The SQL is exactly the one we have committed to the GitHub repository.
-   - The Assignee is `System Bot`, because the GitHub user you use to commit the change doesn't match any email address in the Bytebase member list.
-     ![bb-issue-gitops-demo](/content/docs/tutorials/database-change-management-with-sql-server-and-github/bb-issue-gitops-demo.webp)
-
-1. The SQL will execute and the issue will be `Done`.
-
-1. Click **View change**, and you'll view the schema diff.
-
-1. Go to the GitHub repository, and you'll see there isn't any new file created.
-
-## Step 6 - Upgrade to Enterprise Plan and Change Again
-
-You may click **Start free trial** on the left bottom corner and request an Enterprise license. With that, besides your committed sql, there'll be a `.db_gitops_demo##LATEST.sql` file. Because you have configured `Schema path template` before, Bytebase will write back the latest schema to that specified path after completing the schema change. Thus you have access to an update-to-date full schema at any time.
-
-## Summary and Next
-
-Now you have tried out GitOps workflow, which will store your SQL Server schema in GitHub and trigger the change upon committing the change to the repository, to bring your SQL Server change workflow to the next level of Database DevOps - [Database as Code](/blog/database-as-code).
+<IncludeBlock url="/docs/tutorials/share/vcs-summary-github"></IncludeBlock>
