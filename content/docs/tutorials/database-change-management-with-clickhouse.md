@@ -46,10 +46,10 @@ Before you start this tutorial, make sure:
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
 
-2. Bytebase is running successfully in Docker, and you can visit it via `localhost:8080`.
+1. Bytebase is running successfully in Docker, and you can visit it via `localhost:8080`.
    ![docker](/content/docs/tutorials/database-change-management-with-clickhouse/docker.webp)
 
-3. Visit localhost:8080 in your browser. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
+1. Visit localhost:8080 in your browser. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
    ![register](/content/docs/tutorials/database-change-management-with-clickhouse/register.webp)
 
 ## Step 2 - Add ClickHouse in Bytebase
@@ -59,32 +59,32 @@ In Bytebase, ​​an Instance could be your on-premises MySQL instance, an AWS 
 1. Visit `localhost:8080` and log in as `Workspace Admin`.
    ![login](/content/docs/tutorials/database-change-management-with-clickhouse/login.webp)
 
-2. Click **Add Instance**.
+1. Click **Add Instance**.
    ![bb-add-instance](/content/docs/tutorials/database-change-management-with-clickhouse/bb-add-instance.webp)
 
-3. Add a **ClickHouse instance** and click **Create**.
+1. Add a **ClickHouse instance** and click **Create**.
 
-Pay attention to some fields:
+   Pay attention to some fields:
 
-**Environment**: choose `Test`, if you choose `Prod`,  issues will wait for approval by default. In this tutorial, we try to keep it simple. However, it’s all configurable.
+   **Environment**: choose `Test`, if you choose `Prod`,  issues will wait for approval by default. In this tutorial, we try to keep it simple. However, it’s all configurable.
 
-If you use Cloud version. Go to your ClickHouse Cloud account, and click **View connection string**.
+   If you use Cloud version. Go to your ClickHouse Cloud account, and click **View connection string**.
 
-**Host or Socket** and **Port** are in the grey box as parameters.
+   **Host or Socket** and **Port** are in the grey box as parameters.
 
-**Username** and **Password** are generated and stored in `clickhouse_credentials.txt` while you registered the ClickHouse Cloud account.
-![ch-cloud-view-connection-string](/content/docs/tutorials/database-change-management-with-clickhouse/ch-cloud-view-connection-string.webp)
-![ch-cloud-view-host](/content/docs/tutorials/database-change-management-with-clickhouse/ch-cloud-view-host.webp)
-![ch-cloud-view-password](/content/docs/tutorials/database-change-management-with-clickhouse/ch-cloud-view-password.webp)
+   **Username** and **Password** are generated and stored in `clickhouse_credentials.txt` while you registered the ClickHouse Cloud account.
+   ![ch-cloud-view-connection-string](/content/docs/tutorials/database-change-management-with-clickhouse/ch-cloud-view-connection-string.webp)
+   ![ch-cloud-view-host](/content/docs/tutorials/database-change-management-with-clickhouse/ch-cloud-view-host.webp)
+   ![ch-cloud-view-password](/content/docs/tutorials/database-change-management-with-clickhouse/ch-cloud-view-password.webp)
 
-Be sure to allow access to this service from `Anywhere`.
-![ch-cloud-anywhere](/content/docs/tutorials/database-change-management-with-clickhouse/ch-cloud-anywhere.webp)
+   Be sure to allow access to this service from `Anywhere`.
+   ![ch-cloud-anywhere](/content/docs/tutorials/database-change-management-with-clickhouse/ch-cloud-anywhere.webp)
 
-Choose `CA Certificate` for SSL Connection, if you use macOS, open the file `/etc/ssl/cert.pem`, copy the content as a whole then paste it into the **CA Certificate** field box. Click **Test Connection** to verify it’s working.
+   Choose `CA Certificate` for SSL Connection, if you use macOS, open the file `/etc/ssl/cert.pem`, copy the content as a whole then paste it into the **CA Certificate** field box. Click **Test Connection** to verify it’s working.
 
-![bb-instance-ch-cloud](/content/docs/tutorials/database-change-management-with-clickhouse/bb-instance-ch-cloud.webp)
+   ![bb-instance-ch-cloud](/content/docs/tutorials/database-change-management-with-clickhouse/bb-instance-ch-cloud.webp)
 
-4. If you use self-managed version of ClickHouse, fill in instance form as the following image and click **Create**.
+1. If you use self-managed version of ClickHouse, fill in instance form as the following image and click **Create**.
    ![bb-instance-ch-self-managed](/content/docs/tutorials/database-change-management-with-clickhouse/bb-instance-ch-self-managed.webp)
 
 ## Step 3 - Create a project with ClickHouse instance
@@ -93,7 +93,7 @@ In Bytebase, **Project** is the container to group logically related **Databases
 
 1. After the instance is created, click **Projects** on the top bar.
 
-2. Click **New Project** to create a new project `TestClickHouse`, key is `TCH`, mode is `standard`. Click **Create**.
+1. Click **New Project** to create a new project `TestClickHouse`, key is `TCH`, mode is `standard`. Click **Create**.
    ![bb-projects-new](/content/docs/tutorials/database-change-management-with-clickhouse/bb-projects-new.webp)
 
 ## Step 4 - Create a database in ClickHouse via Bytebase
@@ -103,13 +103,13 @@ In Bytebase, a **Database** is the one created by 'CREATE DATABASE xxx'. A datab
 1. After the project is created. Click **New DB** on the project top bar.
    ![bb-project-new-db](/content/docs/tutorials/database-change-management-with-clickhouse/bb-project-new-db.webp)
 
-2. Fill the form with **Name** - `db_demo`, **Environment** - `Test`, and **Instance** - `ClickHouse instance`. Click **Create**.
+1. Fill the form with **Name** - `db_demo`, **Environment** - `Test`, and **Instance** - `ClickHouse instance`. Click **Create**.
    ![bb-create-db](/content/docs/tutorials/database-change-management-with-clickhouse/bb-create-db.webp)
 
-3. It will create an issue “CREATE DATABASE ….” automatically. Because it’s for `Test` environment, the issue will run without waiting for your approval by default. Click **Resolve**, and the issue is `Done`. The database is created.
+1. It will create an issue “CREATE DATABASE ….” automatically. Because it’s for `Test` environment, the issue will run without waiting for your approval by default. Click **Resolve**, and the issue is `Done`. The database is created.
    ![bb-issue-dbdemo-done](/content/docs/tutorials/database-change-management-with-clickhouse/bb-issue-dbdemo-done.webp)
 
-4. Go back to the home page by clicking **Home** on the left sidebar. On the home page, you can see the project, the database, and the issue you just resolved.
+1. Go back to the home page by clicking **Home** on the left sidebar. On the home page, you can see the project, the database, and the issue you just resolved.
    ![bb-home-dbdemo-done](/content/docs/tutorials/database-change-management-with-clickhouse/bb-home-dbdemo-done.webp)
 
 ## Step 5 - Create a table in ClickHouse via Bytebase
@@ -119,24 +119,24 @@ In Step 4, you created an issue to create a database via UI workflow and then ex
 1. Go to project `TestClickHouse`, and click **Alter Schema**.
    ![bb-project-alter-schema](/content/docs/tutorials/database-change-management-with-clickhouse/bb-project-alter-schema.webp)
 
-2. Choose `db_demo` and click **Next**. It could generate a pipeline if you have different databases for different environments.
+1. Choose `db_demo` and click **Next**. It could generate a pipeline if you have different databases for different environments.
    ![bb-alter-schema-select-db](/content/docs/tutorials/database-change-management-with-clickhouse/bb-alter-schema-select-db.webp)
 
-3. Input SQL as follows, and click **Create**.
+1. Input SQL as follows, and click **Create**.
 
-```other
-CREATE TABLE
- t1 (id UInt64, name String) ENGINE = MergeTree
-ORDER BY id;
-```
+   ```other
+   CREATE TABLE
+   t1 (id UInt64, name String) ENGINE = MergeTree
+   ORDER BY id;
+   ```
 
-4. Bytebase will do some basic checks and then execute the SQL. Since it’s for `Test` environment, the issue is automatically approved by default. Click **Resolve issue**, and the issue status will become `Done`.
+1. Bytebase will do some basic checks and then execute the SQL. Since it’s for `Test` environment, the issue is automatically approved by default. Click **Resolve issue**, and the issue status will become `Done`.
    ![bb-issue-create-table-done](/content/docs/tutorials/database-change-management-with-clickhouse/bb-issue-create-table-done.webp)
 
-5. On the issue page, click **View change**. You will see diff for the change.
+1. On the issue page, click **View change**. You will see diff for the change.
    ![bb-dbdemo-change-diff](/content/docs/tutorials/database-change-management-with-clickhouse/bb-dbdemo-change-diff.webp)
 
-6. You can also go to **Change History** under the project to view the full history. Or go into a specific database to view its history.
+1. You can also go to **Change History** under the project to view the full history. Or go into a specific database to view its history.
    ![bb-project-change-history](/content/docs/tutorials/database-change-management-with-clickhouse/bb-project-change-history.webp)
    ![bb-db-change-history](/content/docs/tutorials/database-change-management-with-clickhouse/bb-db-change-history.webp)
 
@@ -152,30 +152,30 @@ In this section, you’ll be guided through this process.
 
 1. Go to ClickHouse Cloud, click **Open SQL console**, and add a column `age` there. Make sure the new column is added.
 
-```other
-ALTER TABLE t1 ADD COLUMN age UInt8;
-```
+   ```other
+   ALTER TABLE t1 ADD COLUMN age UInt8;
+   ```
 
-![ch-cloud-dbdemo-add-age](/content/docs/tutorials/database-change-management-with-clickhouse/ch-cloud-dbdemo-add-age.webp)
+   ![ch-cloud-dbdemo-add-age](/content/docs/tutorials/database-change-management-with-clickhouse/ch-cloud-dbdemo-add-age.webp)
 
-2. Wait for about 10 mins for Bytebase to detect the drift. Go back to Bytebase, and you can find the **Schema Drift** on:
+1. Wait for about 10 mins for Bytebase to detect the drift. Go back to Bytebase, and you can find the **Schema Drift** on:
 
-database db_demo
-![bb-drift-dbdemo](/content/docs/tutorials/database-change-management-with-clickhouse/bb-drift-dbdemo.webp)
+   database db_demo
+   ![bb-drift-dbdemo](/content/docs/tutorials/database-change-management-with-clickhouse/bb-drift-dbdemo.webp)
 
-Anomaly Center
-![bb-drift-ac](/content/docs/tutorials/database-change-management-with-clickhouse/bb-drift-ac.webp)
+   Anomaly Center
+   ![bb-drift-ac](/content/docs/tutorials/database-change-management-with-clickhouse/bb-drift-ac.webp)
 
-3. Click **View diff**, you will see the exact drift.
+1. Click **View diff**, you will see the exact drift.
    ![bb-view-drift-diff](/content/docs/tutorials/database-change-management-with-clickhouse/bb-view-drift-diff.webp)
 
-4. Go to `db_demo` > **Change History** and click **Establish new baseline** to reconcile the schema.
+1. Go to `db_demo` > **Change History** and click **Establish new baseline** to reconcile the schema.
    ![bb-dbdemo-create-new-baseline](/content/docs/tutorials/database-change-management-with-clickhouse/bb-dbdemo-create-new-baseline.webp)
 
-5. It will create a baseline issue. Click **Resolve** to mark it done.
+1. It will create a baseline issue. Click **Resolve** to mark it done.
    ![bb-issue-dbdemo-baseline-done](/content/docs/tutorials/database-change-management-with-clickhouse/bb-issue-dbdemo-baseline-done.webp)
 
-6. Go back to `db_demo` or Anomaly Center, and you will find the drift is gone.
+1. Go back to `db_demo` or Anomaly Center, and you will find the drift is gone.
    ![bb-dbdemo-no-drift](/content/docs/tutorials/database-change-management-with-clickhouse/bb-dbdemo-no-drift.webp)
    ![bb-ac-no-drift](/content/docs/tutorials/database-change-management-with-clickhouse/bb-ac-no-drift.webp)
 
