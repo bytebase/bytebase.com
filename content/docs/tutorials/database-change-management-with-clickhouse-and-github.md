@@ -1,7 +1,7 @@
 ---
 title: 'Database CI/CD and Schema Migration with ClickHouse and GitHub'
 author: Ningjing
-published_at: 2023/03/02 11:45
+published_at: 2024/05/11 17:45
 feature_image: /content/docs/tutorials/database-change-management-with-clickhouse-and-github/feature-image.webp
 tags: Tutorial
 integrations: ClickHouse, GitHub
@@ -21,7 +21,7 @@ In the last article [Database CI/CD and Schema Migration with ClickHouse](/docs/
 
 This tutorial will bring you to the next level by introducing the GitOps workflow, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
-You can use Bytebase free version to finish the tutorial.
+You can use Bytebase's **Community Plan** to finish the tutorial.
 
 ## Features included
 
@@ -35,7 +35,7 @@ Before you start this tutorial, make sure:
 - You have followed our previous UI-based change tutorial [Database CI/CD and Schema Migration with ClickHouse](/docs/tutorials/database-change-management-with-clickhouse).
 - You have a [ClickHouse Cloud](https://clickhouse.cloud/) account or a ClickHouse self-managed instance running.
 - You have a [GitHub](https://github.com/) account.
-- You have a public GitHub repository, e.g  `clickhouse-test-bb-local`.
+- You have a public GitHub repository, e.g. `test-bb-gitops`.
 - You have [Docker](https://www.docker.com/) installed locally.
 - You have a [ngrok](http://ngrok.com) account.
 
@@ -46,89 +46,45 @@ Before you start this tutorial, make sure:
 ## Step 2 - Find your ClickHouse instance in Bytebase
 
 1. Visit Bytebase Console through the browser via your ngrok URL. Log in using your account created from the previous tutorial.
-   ![bb-login](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/bb-login.webp)
 
-2. If you have followed the last article, you should have a project `TestClickHouse` and a database `db_demo`.
-   ![bb-home](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/bb-home.webp)
+1. Create one or two new databases on your Spanner instances for different environments, refer to [previous tutorial](/docs/tutorials/database-change-management-with-clickhouse) if you need help.
+   ![home](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/bb-project-dbs-clickhouse.webp)
 
 ## Step 3 - Connect Bytebase with GitHub.com
 
-1. Click **Settings** on the top bar, and then click **Workspace** > **GitOps**. Choose **GitHub.com** and click **Next**.
-   ![bb-gitops-github-step1](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/bb-gitops-github-step1.webp)
-
-2. Follow the instructions within **STEP 2**, and in this tutorial, we will use a personal account instead of an organization account. The configuration is similar.
-
-3. Go to your GitHub account. Click **Settings** on the dropdown menu.
-   ![gh-settings-dropdown](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/gh-settings-dropdown.webp)
-
-4. Click **Developer Settings** at the bottom of the left side bar. Click **OAuth Apps**, and click **New OAuth App**.
-   ![gh-oauth-apps](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/gh-oauth-apps.webp)
-
-5. Fill **Application name** and then copy the **Homepage** and **Authorization callback URL** in Bytebase and fill them. Click **Register application**.
-   ![gh-register-oauth](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/gh-register-oauth.webp)
-
-6. After the OAuth application is created successfully. Click **Generate a new client secret**. Copy **Client ID** and this newly generated client secret and paste them back in Bytebase.
-   ![gh-copy-client-id](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/gh-copy-client-id.webp)
-   ![bb-gitops-github-step2](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/bb-gitops-github-step2.webp)
-   ![gh-auth](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/gh-auth.webp)
-
-7. Click **Next**. You will be redirected to the confirmation page. Click **Confirm and add**, and the Git provider is successfully added.
-   ![bb-gitops-github-step3](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/bb-gitops-github-step3.webp)
+<IncludeBlock url="/docs/tutorials/share/vcs-with-github"></IncludeBlock>
 
 ## Step 4 - Enable GitOps workflow with ClickHouse
 
-1. Go to project `TestClickHouse`, click **GitOps**, and choose **GitOps Workflow**. Click **Configure GitOps**.
-   ![bb-project-gitops-gitops-workflow](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/bb-project-gitops-gitops-workflow.webp)
-
-2. Choose `GitHub.com` - the provider you just added. It will display all the repositories you can manipulate. Choose `clickhouse-test-bb-local`.
-   ![bb-project-gitops-github](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/bb-project-gitops-github.webp)
-   ![bb-project-gitops-github-repo](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/bb-project-gitops-github-repo.webp)
-
-3. Keep the default setting, and click **Finish**.
+<IncludeBlock url="/docs/tutorials/share/vcs-in-project-github"></IncludeBlock>
 
 ## Step 5 - Change schema for ClickHouse by pushing SQL schema change files to GitHub
 
-1. In your GitHub repository `clickhouse-test-bb-local`, create a folder `bytebase`, then create a subfolder `Test`, and create an sql file following the pattern `{{ENV_ID}}/{{DB_NAME}}##{{VERSION}}##{{TYPE}}##{{DESCRIPTION}}.sql`. It is the default configuration for file path template setting under project GitOps.
-
-   `test/db_demo##202303020000##ddl##create_t2.sql`
-
-   - `test` corresponds to `{{ENV_ID}}`
-   - `db_demo` corresponds to `{{DB_NAME}}`
-   - `202303020000` corresponds to `{{VERSION}}`
-   - `ddl` corresponds to `{{TYPE}}`
-   - `create_t2` corresponds to `{{DESCRIPTION}}`
+1. In your GitHub repository `test-bb-gitops`, create a folder `bytebase`, then create an sql file `202405111730_create_t1.sql`.
 
    Paste the sql script in it.
 
-```sql
-CREATE TABLE
- t2 (id UInt64, name String) ENGINE = MergeTree
-ORDER BY id;
+   ```text
+   CREATE TABLE
+      t1 (id UInt64) ENGINE = MergeTree
+      ORDER BY id;
+   ```
 
-```
+1. Create a new branch for this commit and start a pull request. Click **Merge pull request** to merge the new branch into the main branch.
+   ![gh-branch-clickhouse](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/gh-branch-clickhouse.webp)
 
-![vsc-test-sql](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/vsc-test-sql.webp)
+1. Go to Bytebase, and go into project `Sample Project`. You’ll find there is a new `Push Event` and a new issue created.
+   ![bb-push-notification-only](/content/docs/tutorials/database-change-management-share/bb-push-notification-only.webp)
 
-2. Commit and push this file.
-3. Go to Bytebase, and go into project `TestClickHouse`. You’ll find there is a new `Push Event` and a new `issue 106` created.
-   ![bb-push-notification-only](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/bb-push-notification-only.webp)
+1. Click and go to the issue page, you’ll see
 
-4. Click `issue/106` and go the issue page. Click **Resolve issue**, and the issue will be `Done`. You’ll see
-   - The issue is created via GitHub.com
-   - The issue is executed without approval because it’s on `Test` environment where manual approval is skipped by default. The Assignee is `Bytebase`, because the execution is automatic, and requires no manual approval.
-   - The SQL is exactly the one we have committed to the GitHub repository.
-   - The Creator is `A`, because the GitHub user you use to commit the change has the same email address found in the Bytebase member list.
+   1. The issue is created via GitHub.com, there's a link to the GitHub commit.
+   1. The SQL is exactly the one we have committed to the GitHub repository.
+   1. The SQL has passed the automatic task checks and rollout automatically.
+   1. Since there're two databases in the project, Bytebase creates a 2-staged pipeline to roll out the change sequentially.
 
-![bb-issue-create-t2-done](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/bb-issue-create-t2-done.webp)
-
-5. Click **View change**, and you could view the schema diff.
-   ![bb-db-change-diff](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/bb-db-change-diff.webp)
-
-6. Go to GitHub repository, and you will see besides your committed sql, there is a `.db_demo##LATEST.sql` file. Because you have configured `[Schema path template](/docs/vcs-integration/create-migration-files#schema-path-template)` before, Bytebase will write back the latest schema to that specified path after completing the schema change. Thus you have access to an update-to-date full schema at any time.
-   ![gh-LATEST](/content/docs/tutorials/database-change-management-with-clickhouse-and-github/gh-LATEST.webp)
+      ![bb-issue-done](/content/docs/tutorials/database-change-management-share/bb-issue-done-clickhouse.webp)
 
 ## Summary and Next
 
-Now you have tried out GitOps workflow, which will store your ClickHouse schema in GitHub and trigger the change upon committing the change to the repository, to bring your ClickHouse change workflow to the next level of Database DevOps - [Database as Code](/blog/database-as-code).
-
-In real world scenario, you might have separate features and main branches corresponding to your dev and production environment, you can check out [GitOps with Feature Branch Workflow](/docs/tutorials/gitops-feature-branch) to learn the setup. Have a try and look forward to your feedback!
+<IncludeBlock url="/docs/tutorials/share/vcs-summary-github"></IncludeBlock>

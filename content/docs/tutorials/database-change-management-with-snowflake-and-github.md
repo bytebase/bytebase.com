@@ -1,7 +1,7 @@
 ---
 title: 'Database CI/CD and Schema Migration with Snowflake and GitHub'
 author: Ningjing
-published_at: 2022/12/26 21:15
+published_at: 2024/5/11 16:15
 feature_image: /content/docs/tutorials/database-change-management-with-snowflake-and-github/db-change-snowflake-github.webp
 tags: Tutorial
 integrations: Snowflake, GitHub
@@ -23,7 +23,7 @@ In the last article [Database CI/CD and Schema Migration with Snowflake](/docs/t
 
 This tutorial will bring your Snowflake schema change to the next level by introducing the **GitOps workflow**, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
-You can use Bytebase free version to finish the tutorial.
+You can use Bytebase's **Community Plan** to finish the tutorial.
 
 ## Prerequisites
 
@@ -43,104 +43,47 @@ Before you start this tutorial, make sure:
 ## Step 2 - Find your Snowflake account in Bytebase
 
 1. Visit Bytebase Console through the browser via your ngrok URL. Log in using your account created from the previous tutorial.
-   ![bytebase-login](/content/docs/tutorials/database-change-management-with-snowflake-and-github/bytebase-login.webp)
 
-2. If you have followed the last article, you should have a Project `TestSnowflake` and a database `DB_DEMO_BB`.
-   ![home-article1](/content/docs/tutorials/database-change-management-with-snowflake-and-github/home-article1.webp)
+1. Create one or two new databases on your Snowflake instances for different environments, refer to [previous tutorial](/docs/tutorials/database-change-management-with-snowflake) if you need help.
+   ![home](/content/docs/tutorials/database-change-management-with-snowflake-and-github/bb-project-dbs-snowflake.webp)
 
 ## Step 3 - Connect Bytebase with GitHub.com
 
-1. Click **Settings** on the top bar, and then click **Workspace** > **Version Control**.
-   ![sts-vs-step1-github](/content/docs/tutorials/database-change-management-with-snowflake-and-github/sts-vs-step1-github.webp)
-
-2. Choose GitHub.com and Click **Next**.
-
-3. Follow the instructions within **STEP 2**, and in this tutorial, we will use a personal account instead of an organization account. The configuration is similar.
-   ![sts-vs-step2](/content/docs/tutorials/database-change-management-with-snowflake-and-github/sts-vs-step2.webp)
-
-4. Go to your GitHub account. Click **Settings** on the dropdown menu.
-   ![github-settings](/content/docs/tutorials/database-change-management-with-snowflake-and-github/github-settings.webp)
-
-5. Click **Developer Settings** at the bottom of the left-side bar. Click **OAuth Apps**, and click **New OAuth App**.
-   ![github-oauth-3png](/content/docs/tutorials/database-change-management-with-snowflake-and-github/github-oauth-3png.webp)
-
-6. Fill Application name and then copy the Homepage and Authorization callback URL in Bytebase and fill them in. Click **Register application.**
-   ![sts-vs-step2-unfilled](/content/docs/tutorials/database-change-management-with-snowflake-and-github/sts-vs-step2-unfilled.webp)
-   ![github-new-oauth](/content/docs/tutorials/database-change-management-with-snowflake-and-github/github-new-oauth.webp)
-
-7. After the OAuth application is created successfully. Click **Generate a new client secret**. Copy **Client ID** and this newly generated **Client Secret**, then paste them back into Bytebase.
-   ![github-ds-client-id](/content/docs/tutorials/database-change-management-with-snowflake-and-github/github-ds-client-id.webp)
-   ![sts-vs-step2-filled](/content/docs/tutorials/database-change-management-with-snowflake-and-github/sts-vs-step2-filled.webp)
-
-8. Click **Next**. You will be redirected to the confirmation page. Click **Confirm and add**, and the Git provider is successfully added.
-   ![sts-vs-github-auth](/content/docs/tutorials/database-change-management-with-snowflake-and-github/sts-vs-github-auth.webp)
-   ![sts-vs-step3](/content/docs/tutorials/database-change-management-with-snowflake-and-github/sts-vs-step3.webp)
+<IncludeBlock url="/docs/tutorials/share/vcs-with-github"></IncludeBlock>
 
 ## Step 4 - Enable GitOps workflow with Snowflake
 
-1. Go to project `TestSnowflake`, click **Version Control**, and choose GitOps Workflow. Click **Configure version control**.
-   ![prj-vs-gitops](/content/docs/tutorials/database-change-management-with-snowflake-and-github/prj-vs-gitops.webp)
-2. Choose GitHub.com - the provider you just added. It will display all the repositories you can manipulate. Choose `snowflake-test-bb-local`.
-   ![prj-vs-step1](/content/docs/tutorials/database-change-management-with-snowflake-and-github/prj-vs-step1.webp)
-   ![prj-vs-step1-github-prj](/content/docs/tutorials/database-change-management-with-snowflake-and-github/prj-vs-step1-github-prj.webp)
-3. Keep the default setting, and click **Finish**.
-   ![prj-vs-step3](/content/docs/tutorials/database-change-management-with-snowflake-and-github/prj-vs-step3.webp)
-   ![prj-vs-enabled](/content/docs/tutorials/database-change-management-with-snowflake-and-github/prj-vs-enabled.webp)
+<IncludeBlock url="/docs/tutorials/share/vcs-in-project-github"></IncludeBlock>
 
 ## Step 5 - Change schema for Snowflake by pushing SQL schema change files to GitHub
 
-1. In your GitHub repository `snowflake-test-bb-local`, create a folder `bytebase`, then create a subfolder `test`, and create an SQL file following the pattern `{{ENV_ID}}/{{DB_NAME}}##{{VERSION}}##{{TYPE}}##{{DESCRIPTION}}.sql`. It is the default configuration for file path template setting when you configure the project version control previously.
+1. In your GitHub repository `test-bb-gitops`, create a folder `bytebase`, then create an sql file `202405111600_create_t1.sql`.
 
-- `test/DB_DEMO_BB##202212152000##ddl##create_hello_world.sql`
-- `test` corresponds to `{{ENV_ID}}`
-- `DB_DEMO_BB` corresponds to `{{DB_NAME}}`
-- `202212152000` corresponds to `{{VERSION}}`
-- `ddl` corresponds to `{{TYPE}}`
-- `create_hello_world corresponds` to `{{DESCRIPTION}}`
+   Paste the sql script in it.
 
-Paste the sql script in it.
+   ```text
+   CREATE SCHEMA DEMO;
+   CREATE TABLE T1
+   (
+      "id" INTEGER NOT NULL
+   );
+   ```
 
-```SQL
-CREATE SCHEMA DEMO;
-CREATE TABLE HELLO_WORLD
-(
-FIRST_NAME VARCHAR
-,LAST_NAME VARCHAR
-);
-```
+1. Create a new branch for this commit and start a pull request. Click **Merge pull request** to merge the new branch into the main branch.
+   ![gh-branch-t1](/content/docs/tutorials/database-change-management-with-snowflake-and-github/gh-branch-t1.webp)
 
-![vscode-create-table](/content/docs/tutorials/database-change-management-with-snowflake-and-github/vscode-create-table.webp)
+1. Go to Bytebase, and go into project `Sample Project`. You’ll find there is a new `Push Event` and a new issue created.
+   ![bb-push-notification-only](/content/docs/tutorials/database-change-management-share/bb-push-notification-only.webp)
 
-2. Commit and push this file.
-3. Go to Bytebase, and go into project `TestSnowflake`. You’ll find there is a new Push Event and a new `issue 102` completed.
-   ![bb-push-notification-only](/content/docs/tutorials/database-change-management-with-snowflake-and-github/bb-push-notification-only.webp)
-4. Click `issue/102` and go to the issue page, you’ll see:
+1. Click and go to the issue page, you’ll see
 
-- The issue is created via github.com.
-- The issue is completed without manual approval because it applies the schema change to a database from the Test environment. And our Test environment is configured with no manual approval required.
-- The SQL is exactly the one we have committed to the GitHub repository.
-- The Assignee is Bytebase, because it’s automatic. If the github user you use to commit the change has the same email address found in the bytebase member list, we will use that member as the assignee.
-  ![is-create-table-done](/content/docs/tutorials/database-change-management-with-snowflake-and-github/is-create-table-done.webp)
+   1. The issue is created via GitHub.com, there's a link to the GitHub commit.
+   1. The SQL is exactly the one we have committed to the GitHub repository.
+   1. The SQL has passed the automatic task checks and rollout automatically.
+   1. Since there're two databases in the project, Bytebase creates a 2-staged pipeline to roll out the change sequentially.
 
-5. Go to GitHub repository, you will see besides your committed SQL, there is a .DB_DEMO_BB##LATEST.sql file. Because you have configured `Schema path template` before, Bytebase will write back the latest schema to that specified path after completing the schema change. Thus you have access to an update-to-date full schema at any time.
-   ![github-LATEST-list](/content/docs/tutorials/database-change-management-with-snowflake-and-github/github-LATEST-list.webp)
-   ![github-LATEST-create-table](/content/docs/tutorials/database-change-management-with-snowflake-and-github/github-LATEST-create-table.webp)
-6. Let’s create another SQL file `DB_DEMO_BB##202212152040##ddl##add_age.sql` to see how that latest schema file will be updated after applying a new schema change. Paste the SQL script in it.
-
-```SQL
-USE SCHEMA DEMO;
-ALTER TABLE HELLO_WORLD ADD COLUMN AGE NUMBER;
-```
-
-![vscode-add-age](/content/docs/tutorials/database-change-management-with-snowflake-and-github/vscode-add-age.webp) 7. After pushing the new SQL file, go back to the Bytebase and you should find the generated issue.
-![is-add-age-done](/content/docs/tutorials/database-change-management-with-snowflake-and-github/is-add-age-done.webp) 8. Click **view migration** and compare the diff.
-![db-view-migration](/content/docs/tutorials/database-change-management-with-snowflake-and-github/db-view-migration.webp) 9. Go to GitHub repository and you will find the LATEST SQL has been updated to reflect the latest schema.
-![github-LATEST-add-age](/content/docs/tutorials/database-change-management-with-snowflake-and-github/github-LATEST-add-age.webp)
+      ![bb-issue-done](/content/docs/tutorials/database-change-management-share/bb-issue-done-snowflake.webp)
 
 ## Summary and Next
 
-Now you have tried out **GitOps workflow**, which will store your Snowflake schema in GitHub and trigger the change upon committing the change to the repository, to bring your Snowflake change workflow to the next level of Database DevOps - [**Database as Code**](/blog/database-as-code).
-
-You can check out our [GitOps docs](/docs/vcs-integration/overview) to learn more configuration details.
-
-In real world scenario, you might have separate features and main branches corresponding to your dev and production environment, you can check out [GitOps with Feature Branch Workflow](/docs/tutorials/gitops-feature-branch) to learn the setup. Have a try and look forward to your feedback!
+<IncludeBlock url="/docs/tutorials/share/vcs-summary-github"></IncludeBlock>

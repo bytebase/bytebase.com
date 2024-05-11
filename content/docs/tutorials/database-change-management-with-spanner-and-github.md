@@ -34,7 +34,7 @@ Before you start this tutorial, make sure you have the following ready:
 - Followed our previous UI-based change tutorial [Database Change Management with Spanner](/docs/tutorials/database-change-management-with-spanner).
 - A Cloud Spanner instance.
 - A GitHub account.
-- A public GitHub repository, e.g.  `test-bb-gitops`.
+- A public GitHub repository, e.g. `test-bb-gitops`.
 - [Docker](https://www.docker.com/) installed locally.
 - An [ngrok](http://ngrok.com/) account.
 
