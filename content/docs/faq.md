@@ -55,7 +55,9 @@ You can pass [--debug](/docs/reference/command-line#--debug) when starting Byteb
 
 If you are an OWNER or DBA, you can also toggle debug mode at runtime. The toggle is under the top-right profile dropdown
 
-![_](/content/docs/troubleshoot-debug-mode.webp)
+<p align="center">
+<img src="/content/docs/FAQ/troubleshoot-debug-mode.webp" width="50%" />
+</p>
 
 ## Does Bytebase support post action after applying a change to the database
 
