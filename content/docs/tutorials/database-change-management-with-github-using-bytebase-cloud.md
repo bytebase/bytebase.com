@@ -1,7 +1,7 @@
 ---
 title: 'Database CI/CD and Schema Migration with GitHub using Bytebase Cloud'
 author: Ningjing
-published_at: 2023/04/17 16:15
+published_at: 2024/05/11 16:15
 feature_image: /content/docs/tutorials/database-change-management-with-github-using-bytebase-cloud/feature-image.webp
 tags: Tutorial
 integrations: General, GitHub
@@ -21,7 +21,7 @@ In the last article [Database Change Management using Bytebase Cloud](/docs/tuto
 
 This tutorial will bring your schema change to the next level by introducing the **GitOps workflow**, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
-You can use Bytebase free version to finish the tutorial.
+You can use Bytebase's **Community Plan** to finish the tutorial.
 
 ## Features included
 

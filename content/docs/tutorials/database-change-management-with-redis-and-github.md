@@ -21,7 +21,7 @@ In the last article [Database CI/CD and Schema Migration with Redis](/docs/tutor
 
 This tutorial will bring you to the next level by introducing the GitOps workflow, where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
-You can use Bytebase free version to finish the tutorial.
+You can use Bytebase's **Community Plan** to finish the tutorial.
 
 ## Features included
 
