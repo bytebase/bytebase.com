@@ -35,6 +35,7 @@ Different sets of rules can form different [SQL Review Policies](/docs/sql-revie
   - [Add CHECK constraints with NOT VALID option](/docs/sql-review/review-rules#statement.add-check-not-valid)
   - [Disallow add NOT NULL constraints to an existing column](/docs/sql-review/review-rules#statement.disallow-add-not-null)
 - Table
+  - [Limit DDL operations on tables with large data volumes](/docs/sql-review/review-rules#table.limit-size)
   - [Require primary key](/docs/sql-review/review-rules#table.require-pk)
   - [Disallow foreign key](/docs/sql-review/review-rules#table.no-foreign-key)
   - [Drop naming convention](/docs/sql-review/review-rules#table.drop-naming-convention)
@@ -701,6 +702,19 @@ Bytebase checks all `ALTER TABLE ADD CONSTRAINT` statements.
 - PostgreSQL
 
 ## Table
+
+<div id="table.limit-size"></div>
+### Limit DDL operations on tables with large data volumes
+
+DDL operations on large tables can cause long locks because they need exclusive access to update the table’s structure and metadata, which takes more time for bigger tables.
+
+#### How the rule works
+
+Bytebase considers this rule to be violated if the SQL tries to apply DDL operations on a table with sizes exceeding the set value. 
+
+#### Support database engine
+
+- MySQL
 
 <div id="table.require-pk"></div>
 ### Require primary key
