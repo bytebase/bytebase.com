@@ -25,7 +25,9 @@ Within a project, the `Workspace Admin`, `Workspace DBA` or `Project Owner` can 
 
    For how to request approval, please refer to [Request Query](/docs/security/data-query/) and [Request Export](/docs/security/data-export/).
 
-1. Go to **Environments**, If **Disable copy data from SQL editor** is checked, then no one can copy data from databases belonging to that environment via SQL Editor.
+At the workspace level, the `Workspace Admin` or `Workspace DBA` can configure the following data access control:
+
+- Go to **Environments**, If **Disable copy data from SQL editor** is checked, then no one can copy data from databases belonging to that environment via SQL Editor.
 
    ![bb-env-ac](/content/docs/security/data-access-control/bb-env-ac.webp)
 
