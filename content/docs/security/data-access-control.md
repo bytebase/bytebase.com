@@ -13,7 +13,7 @@ At the project level, the `Project Owner` is also exempt from these restrictions
 - **Export**: export data by SQL or Database
 - **Copy from SQL Editor**: copy data from the query result table in SQL Editor
 
-## How to configure
+## How to Configure
 
 Within a project, the `Workspace Admin`, `Workspace DBA` or `Project Owner` can configure the following data access control:
 
