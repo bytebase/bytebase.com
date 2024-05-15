@@ -11,6 +11,7 @@ Different sets of rules can form different [SQL Review Policies](/docs/sql-revie
 - Engine
   - [Require InnoDB](/docs/sql-review/review-rules#engine.mysql.use-innodb)
 - Naming
+  - [Fully qualified object name](/docs/sql-review/review-rules#naming.fully-qualified)
   - [Table naming convention](/docs/sql-review/review-rules#naming.table)
   - [Column naming convention](/docs/sql-review/review-rules#naming.column)
   - [Auto-increment column naming convention](/docs/sql-review/review-rules#naming.column.auto-increment)
@@ -99,6 +100,27 @@ So if the following situation occurs, Bytebase considers this rule to be violate
 - MySQL
 
 ## Naming
+
+<div id="naming.fully-qualified"></div>
+### Fully qualified object name
+
+Using fully qualified object names in SQL ensures clarity and precision. It helps the database system to quickly locate and distinguish between objects, even if they have the same name but exist in different schemas or databases. This practice can improve performance by reducing ambiguity and aiding in the efficient execution of queries.
+
+#### How the rule works
+
+Bytebase checks whether the object name appearing in the SQL statement is fully qualified. The exception is that bytebase does not check pseudo table names in common table expressions (CTE), such as `foo` in `WITH foo AS (SELECT * FROM public.pokes) SELECT * FROM foo`.
+
+##### Some typical format
+
+| Object Name                                 | Fully qualified          |
+| --------------------------------------------| ------------------------ |
+| table_name                                  | no                       |
+| schema_name.table_name                      | yes                      |
+| database_name.schema_name.table_name        | yes                      |
+
+#### Support database engine
+
+- PostgreSQL
 
 <div id="naming.table"></div>
 ### Table naming convention
