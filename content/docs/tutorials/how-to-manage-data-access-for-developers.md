@@ -70,10 +70,9 @@ Log in as **Developer**, and you can see `Sample Project`. Click **SQL Editor** 
 
 ### Step 1 - Developer can skip approvals to query data
 
-1. Log in as **Owner**, and go to **Settings** > **Data Access Control**. Check `Skip approval` for **Query Data** in `Test` environment.
-   ![bb-owner-dac-skip](/content/docs/tutorials/how-to-manage-data-access-for-developers/bb-owner-dac-skip.webp)
+1. Log in as **Owner**, and go into the `Sample Project`. Click **Members** and then click **Grant Access**. Choose `AllUsers`, assign the role `Project Querier`, manually choose the whole Test Database and click **Confirm**.
 
-2. Log in as **Developer** and go into SQL Editor again. Now you can see database under `Test` environment. Select `(Prod)employee`, input `SELECT * FROM salary;` and run and you can see the result. Change `salary` to any other tables and run, you can see data as well.
+2. Log in as **Developer** and go into SQL Editor again. Now you can see database under `Test` environment. Select `(Test)employee`, input `SELECT * FROM salary;` and run and you can see the result. Change `salary` to any other tables and run, you can see data as well.
    ![bb-dev-sql-editor-test-select-salary](/content/docs/tutorials/how-to-manage-data-access-for-developers/bb-dev-sql-editor-test-select-salary.webp)
 
 ### Step 2 - Developer can request to query data
