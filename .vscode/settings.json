@@ -19,5 +19,5 @@
   },
   "editor.rulers": [100],
   "i18n-ally.localesPaths": ["src/locales", "data/locales"],
-  "cSpell.words": ["Bytebase", "Liquibase", "postgres", "webp"]
+  "cSpell.words": ["bytebase", "Bytebase", "Liquibase", "postgres", "webp"]
 }
