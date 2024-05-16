@@ -11,7 +11,7 @@ title: FAQ
 
 ## Supported languages
 
-English, 简体中文, Español, 日本語, Tiếng Việt
+English, 简体中文, Español, 日本語
 
 ## System requirements
 
