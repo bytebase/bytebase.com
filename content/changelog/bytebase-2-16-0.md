@@ -22,7 +22,4 @@ description: 'Support DML change pre-backup for Oracle and SQL Server'
 - Support previewing SQL file uploads with custom encoding.
 - Improve auto-completion in the SQL Editor.
 
-## 📜 Changelog
-https://github.com/bytebase/bytebase/compare/2.15.0...2.16.0
-
 _To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
