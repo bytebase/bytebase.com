@@ -95,7 +95,7 @@ After all, Snowflake is a database system. And for database, one of pain points 
 
 It also provides native GitOps integration with all mainstream VCSs to manage the change scripts in the repository.
 
-![_](/content/docs/tutorials/database-change-management-with-snowflake-and-github/vscode-create-table.webp)
+![_](/content/blog/modern-snowflake-stack/vscode-create-table.webp)
 
 FWIW, Snowflake also [added Git integration](https://www.snowflake.com/blog/snowflake-expands-developer-programmability-snowpark-container-services/) recently.
 
