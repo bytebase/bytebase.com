@@ -38,4 +38,4 @@ description: Support instance read-only connection. Enable Data Change (DML) for
 - Thanks to [@0xflotus](https://github.com/0xflotus) for PR [chore: fix small typo error](https://github.com/bytebase/bytebase/pull/805).
 - Thanks to [@milkwine](https://github.com/milkwine) for PR [fix: backup failed when dash('-') in database name](https://github.com/bytebase/bytebase/pull/874).
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

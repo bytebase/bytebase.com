@@ -5,6 +5,7 @@ published_at: 2024/5/16 17:00:00
 feature_image: /content/changelog/2-17-0-banner.webp
 description: 'Support configuring labels for issues'
 ---
+
 ## 🚀 New Features
 
 - Support configuring labels for issues.
@@ -25,5 +26,4 @@ description: 'Support configuring labels for issues'
 - Support displaying `uniqueidentifier` typed data of SQL Server in SQL Editor.
 - Improve the SQL Editor experience by customizing the database tree structure.
 
-_Fresh install [https://www.bytebase.com/docs/get-started/self-host/](/docs/get-started/self-host/)._
-_Upgrade [https://www.bytebase.com/docs/get-started/upgrade/](/docs/get-started/upgrade/)._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

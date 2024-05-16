@@ -5,6 +5,7 @@ published_at: 2024/4/25 17:00:00
 feature_image: /content/changelog/2-16-0-banner.webp
 description: 'Support DML change pre-backup for Oracle and SQL Server'
 ---
+
 ## 🚀 New Features
 
 - Support DML change pre-backup for Oracle and SQL Server.
@@ -22,4 +23,4 @@ description: 'Support DML change pre-backup for Oracle and SQL Server'
 - Support previewing SQL file uploads with custom encoding.
 - Improve auto-completion in the SQL Editor.
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

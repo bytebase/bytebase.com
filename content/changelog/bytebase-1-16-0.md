@@ -22,4 +22,4 @@ description: 'Customize Approval Workflow based on risk levels. Support database
 
 - Ask Devs: Do DBAs impose [strict requirements](/blog/is-sql-review-necessary) for database schema conventions at your organization?
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

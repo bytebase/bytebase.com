@@ -32,4 +32,4 @@ Schema Review for SQL Editor
   - fix: remove early check since we support create database idempotent [#1543](https://github.com/bytebase/bytebase/pull/1543)
 - Thanks to [@chiyutianyi](https://github.com/chiyutianyi) for: feat: prometheus integration and pprof registration simplification [#1550](https://github.com/bytebase/bytebase/pull/1550)
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

@@ -50,4 +50,4 @@ Visit [our pricing page](/pricing) to learn more.
 - When Navicat is [no longer](/blog/stop-using-navicat) your best bet.
 - A step-by-step guide to [managing databases](/docs/tutorials/manage-databases-in-bytebase-with-terraform) in Bytebase with Terraform.
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

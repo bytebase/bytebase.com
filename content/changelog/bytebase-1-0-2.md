@@ -40,4 +40,4 @@ description: Our official documentation switches from gitbook to bytebase.com/do
 
 - Thanks to [@Sepush](https://github.com/Sepush) for the PR [refactor: use script setup&fix type #856](https://github.com/bytebase/bytebase/pull/856)
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

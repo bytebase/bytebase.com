@@ -40,4 +40,4 @@ description: '- Workspace admin and DBA can now view audit logs. - Support CRUD 
 - With Bytebase, a team can have a formalized review and rollout process to [make Snowflake schema change and data change](/docs/tutorials/database-change-management-with-snowflake).
 - This tutorial will bring your [Snowflake schema change to the next level by introducing the GitOps workflow](/docs/tutorials/database-change-management-with-snowflake-and-github), where you commit the schema change script to the GitHub repository, which will in turn trigger the schema deployment pipeline in Bytebase.
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

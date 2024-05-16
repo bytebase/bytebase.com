@@ -26,4 +26,4 @@ description: 'Run SQL Review checks without requiring a rollout. Predefine table
 - [Join us hacking](/blog/hacktoberfest-2023/) at Hacktoberfest 2023 and win digital badges!
 - ICYMI, we started a monthly newsletter for our side-hustle, Star History, which talks about hottest GitHub repos, insights from industry insiders on growing open-source projects, and more! [Subscribe here](https://star-history.beehiiv.com/subscribe).
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

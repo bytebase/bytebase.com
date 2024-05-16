@@ -19,7 +19,7 @@ description: 'Support Japanese and Vietnamese.'
 ## 🎠 Community
 
 - Thanks to [@AbdhilahiRWabwire](https://github.com/AbdhilahiRWabwire) for the PR chore: dependabot.yml [#10677](https://github.com/bytebase/bytebase/pull/10677)
-  
+
 ## 📰 Fresh Off the Press
 
 - As a leading cloud solution provider, AWS presents a tough choice between its two primary database offerings, RDS and Aurora.🤯 [Our comprehensive blog post](/blog/aurora-vs-rds/) delves into the details of Amazon RDS and Aurora, comparing them across key aspects to provide an in-depth, engineer-focused analysis.🤩
@@ -28,4 +28,4 @@ description: 'Support Japanese and Vietnamese.'
 
 - Nowadays, data holds value comparable to that of oil, safeguarding this vital resource is imperative for all organizations. [This article](/blog/top-database-security-tools/) explores leading database security tools designed to shield your data from varied risks 🛡️👹.
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

@@ -22,4 +22,4 @@ description: '- Added "LGTM" inspection for issues, allowing multiple members to
 - Fixed an issue where schema drift anomalies can not be removed after creating a new baseline.
 - Fixed canceled tasks' status after restarting a Bytebase server.
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

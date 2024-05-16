@@ -49,4 +49,4 @@ bb CLI is the command-line tool of Bytebase, helping developers integrate MySQL 
 
 - Thanks to [@tnir](https://github.com/tnir) for the [PR: fix(i18n): migrate i18n YAML to JSON correctly](https://github.com/bytebase/bytebase/pull/1233)
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

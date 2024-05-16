@@ -43,4 +43,4 @@ description: 'Support custom roles with specific permissions.'
 
 - Schema migration poses challenges in database management. Various open-source schema migration tools for MySQL, each with different features and experiences, have emerged. [This article](/blog/top-open-source-mysql-migration-tools/) provides a quick overview of these tools.
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

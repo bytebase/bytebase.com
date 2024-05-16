@@ -38,4 +38,4 @@ description: 'Improve auto-completion and overall layout navigation.'
 - We have recently updated our [The Database CI/CD Best Practice with GitHub](/docs/tutorials/database-cicd-best-practice-with-github) to align with the current workflow, making easier than before! 🎉
 - Bytebase [partnered with Vettabase](/blog/bytebase-vettabase/), a top-notch open source #database services company with expertise in #automation. 🤝
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

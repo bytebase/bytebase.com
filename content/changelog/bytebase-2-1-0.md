@@ -23,4 +23,4 @@ description: 'Data Query and Data Export approval flow; SQL Review for Oracle; S
 - How do you handle your database migrations? Learn more about [schema migration best practices](/blog/how-to-handle-database-schema-change/).
 - Tutorial: 🔧 Set up [Database Change Management for Spanner](/docs/tutorials/database-change-management-with-spanner/) in Bytebase.
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

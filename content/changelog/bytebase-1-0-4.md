@@ -52,4 +52,4 @@ The `Default Project` is the special project holding the databases synced from t
 - Thanks to [@sagungargs15](https://github.com/sagungargs15) for the Issue [Docker on AWS Fargate | database "bytebase" does not exist | database "bb" does not exist #1135](https://github.com/bytebase/bytebase/issues/1135)
 - Thanks to [@Austin Ziegler](https://github.com/halostatue) for Issue [No linux/arm64 docker image #1119](https://github.com/bytebase/bytebase/issues/1119)
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

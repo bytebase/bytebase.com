@@ -39,4 +39,4 @@ description: SQL editor supports sheet sharing. Searchable member selector. Data
 
 - Thanks to @Juneezee [https://github.com/bytebase/bytebase/pull/264](https://github.com/bytebase/bytebase/pull/264) @wuhan005 [https://github.com/bytebase/bytebase/pull/340](https://github.com/bytebase/bytebase/pull/340) @cosmtrek [https://github.com/bytebase/bytebase/pull/410](https://github.com/bytebase/bytebase/pull/410) @stormcat24 [https://github.com/bytebase/bytebase/pull/453](https://github.com/bytebase/bytebase/pull/453) for all your contribution!
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

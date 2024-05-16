@@ -59,4 +59,4 @@ Besides the schema change (DDL) workflow, we now also support the DML workflow. 
 
 ![_](/content/changelog/0.12.0/runa-capital.webp)
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

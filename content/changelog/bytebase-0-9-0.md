@@ -34,4 +34,4 @@ We added one-click button on our GitHub front page to launch [Bytebase](https://
 - Add commit guide docs
 - Special shout out to [@suzaku](https://github.com/suzaku) for contributing PRs (a lot!)
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

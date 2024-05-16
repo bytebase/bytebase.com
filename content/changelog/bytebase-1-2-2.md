@@ -61,4 +61,4 @@ description: '- Added support for gh-ost. - Updated the way help tips are displa
 
 - Thanks to [@tisonkun](https://github.com/tisonkun) for feat(schema system): support PG fk name convention rules [#1890](https://github.com/bytebase/bytebase/pull/1890)
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

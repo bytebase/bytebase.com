@@ -5,14 +5,15 @@ published_at: 2024/4/11 17:00:00
 feature_image: /content/changelog/2-15-0-banner.webp
 description: 'Brand new GitOps'
 ---
+
 ## 🔔 Brand New GitOps
 
 _The [new GitOps workflow](/docs/vcs-integration/overview/) is not compatible with the old version, if you need assistance migrating to the new version, please consult us._
 
-  - Use access tokens for authentication.
-  - Support multiple VCS connectors in a project.
-  - Support specifying a database group as the target in the VCS connector, automatically applying to all databases in a project by default.
-  - Deprecate database name templates and latest schema write-back.
+- Use access tokens for authentication.
+- Support multiple VCS connectors in a project.
+- Support specifying a database group as the target in the VCS connector, automatically applying to all databases in a project by default.
+- Deprecate database name templates and latest schema write-back.
 
 ## 🚀 New Features
 
@@ -33,4 +34,4 @@ _The [new GitOps workflow](/docs/vcs-integration/overview/) is not compatible wi
 
 - Is it worthwhile to migrate to AlloyDB, ☁️ Google Cloud's fully managed PostgreSQL-compatible database service? 🧐. You may find the answer after reading [Understanding Google Cloud AlloyDB Pricing](/blog/understanding-google-alloydb-pricing/).
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

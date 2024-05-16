@@ -20,11 +20,11 @@ description: 'Support setting parameters for MySQL online schema change.'
 
 ## 🪦 Deprecations
 
-- The **Bookmarks** functionality will no longer be available in our forthcoming software update. We recommend utilizing your browser's bookmarking capabilities as an alternative. 
+- The **Bookmarks** functionality will no longer be available in our forthcoming software update. We recommend utilizing your browser's bookmarking capabilities as an alternative.
 
 ## 🐞 Bug Fixes
 
-- Fixed: renaming files on Azure DevOps/Bitbucket doesn't trigger issue creation in Bytebase. 
+- Fixed: renaming files on Azure DevOps/Bitbucket doesn't trigger issue creation in Bytebase.
 
 ## 🎠 Community
 
@@ -36,4 +36,4 @@ description: 'Support setting parameters for MySQL online schema change.'
 - [This tutorial](/docs/tutorials/deploy-schema-migration/) shows you how to use Bytebase to deploy schema migrations with features like SQL Review, custom approval, time scheduling, and more 👓.
 - Treat databases the same way we treat applications. It's time for [Bitbucket](/docs/tutorials/database-cicd-best-practice-with-bitbucket/) 🪣!
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

@@ -39,4 +39,4 @@ description: '- Support SQL review for PostgreSQL. - GitHub.com VCS integration 
 
 - Thanks to [@unknwon](https://github.com/unknwon) for implementing [issue #928 ☂️ GitHub Git provider](https://github.com/bytebase/bytebase/issues/928).
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

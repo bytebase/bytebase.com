@@ -45,4 +45,4 @@ description: '- Integrate PostgreSQL Explain Visualizer. - Support in-place back
 - Refresh marketing site [https://bytebase.com](https://bytebase.com).
 - Thanks to [@KaiNiao](https://github.com/KaiNiao) for opening the issue (Schema Review) Add MySQL "Not Null field must provide default value" Rule [#2327](https://github.com/bytebase/bytebase/issues/2327)
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

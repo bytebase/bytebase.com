@@ -27,4 +27,4 @@ TiDB is an open-source, cloud-native, distributed SQL database for elastic scale
 - A special thanks to [TiDB's open source compatible MySQL parser](https://github.com/pingcap/parser). It saves us a lot of effort to implement our syntax checker.
 - We have migrated changelog to our newsletter system as well. So in the future, new changelog will also be delivered to your email automatically.
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

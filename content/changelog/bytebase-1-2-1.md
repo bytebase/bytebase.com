@@ -39,4 +39,4 @@ It allows users to perform SQL reviews via API after configuring the schema revi
   - [feat(editor): add spin when editor is loading.#1659](https://github.com/bytebase/bytebase/pull/1659)
   - [pref: lazyload monaco editor speed up navigator to sql editor route #1655](https://github.com/bytebase/bytebase/pull/1655)
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>
