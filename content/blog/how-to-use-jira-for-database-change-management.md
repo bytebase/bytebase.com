@@ -7,10 +7,7 @@ tags: How-to
 description: "When team wants to enforce a process for database change management. A quick approach is to reuse their existing ITSM system such as Jira. Let's review how a typical Jira workflow looks like and its inherent limitations."
 ---
 
-As the engineering team grows and more database change operations executed on the daily basis, we need to find
-a centralized way to coordinate and enforce the database change process. A quick approach is to rely on the
-existing in-house ITSM (IT service management) or a simple ticketing system. Among them, Jira is probably the
-most popular option.
+As the engineering team grows and more database change operations are executed on a daily basis, we need to find a centralized way to coordinate and enforce the database change process. A quick approach is to rely on the existing in-house ITSM (IT service management) or a simple ticketing system. Among them, Jira is probably the most popular option.
 
 ## A Typical Jira Setup
 
@@ -30,46 +27,45 @@ The similar workflow can also be applied to other database tasks such as request
 
 </HintBlock>
 
-1. Developer creates a Jira issue to request the database change. She fills the issue with the `SQL`, `Database` info. The issue status is `Created`.
+1. The developer creates a Jira issue to request the database change. She fills the issue with the `SQL`, `Database` info. The issue status is `Created`.
 
-1. DBA gets assigned to the issue according to the configured workflow. DBA reviews the SQL and leaves the comment under the issue. The issue status is `Reviewing`.
+1. The DBA gets assigned to the issue according to the configured workflow. DBA reviews the SQL and leaves a comment under the issue. The issue status is `Reviewing`.
 
-1. After several back and forth, DBA approves the issue and changes the issue status to `Pending Rollout`.
+1. After several back-and-forth communications, the DBA approves the issue and changes the issue status to `Pending Rollout`.
 
-1. DBA pastes the SQL from the Jira ticket into her favorite SQL client and execute.
+1. The DBA pastes the SQL from the Jira ticket into her favorite SQL client and execute.
 
-1. DBA updates the issue status to `Completed`.
+1. The DBA updates the issue status to `Completed`.
 
-## Spaces for Improvements
+## Space for Improvement
 
-With Jira, team can now have a centralized place to review and coordinate the database changes. While there leaves plenty spaces
-for improvements.
+With Jira, teams can now have a centralized place to review and coordinate the database changes. However, there is still plenty of space for improvement.
 
 ### Disconnected Review and Rollout process
 
-- DBA needs to manually paste the SQL to a different place to execute it. DBA could paste the wrong SQL or execute against the wrong
-  database (**the infamous pointing to the production database incorrectly**).
+- The DBA needs to manually paste the SQL to a different place to execute it. The DBA could paste the wrong SQL or execute against the wrong
+  database (**the infamous mistake of pointing to the production database incorrectly**).
 
-- Change history are obscure. It's hard to track why, when, how a database change happens.
+- Change histories are obscure. It's hard to track why, when, and how a database change happens.
 
-### Lack of Customization for Database Domain
+### Lack of Customization for the Database Domain
 
-The database change could get quite complex:
+Database changes can get quite complex:
 
-- Propagate the changes across different environments.
+- Propagating the changes across different environments.
 
-- Batch change multiple databases sharing the same schema (typical for multi-tenants / multi-regions).
+- Batch changing multiple databases having the same schema (typical for multi-tenant/multi-region setups).
 
-- Enforce automatic SQL lint check.
+- Enforcing automatic SQL lint checks.
 
-- Streamline rollbacks.
+- Streamlining rollbacks.
 
 It's challenging to force a general issue ticketing system to handle the specialized database tasks.
 
 ---
 
 Many customers come to [Bytebase](/) from Jira because of the aforementioned challenges. Similar to Jira,
-Bytebase has the `Project`, `Issue`. Besides, Bytebase also defines some database domain specific concepts as first-class citizens, such as `Database Instance`, `Database`, `Environment`, `Changelist`. Bytebase provides an integrated
-experience to plan, review, and deploy the database changes.
+Bytebase has the concepts of `Project`, `Issue`. Additionally, Bytebase defines some database domain-specific concepts as first-class citizens, such as `Database Instance`, `Database`, `Environment`, `Changelist`. Bytebase provides an integrated
+experience to plan, review, and deploy database changes.
 
 ![Issue detail interface](/content/blog/how-to-use-jira-for-database-change-management/issue-detail.webp)
