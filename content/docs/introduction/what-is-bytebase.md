@@ -83,3 +83,10 @@ to make sense of the data.
 Bytebase is a database development platform. It's built for the developer teams to perform database operations during the application development lifecycle.
 
 [Bytebase vs. Metabase](/blog/bytebase-vs-metabase/)
+
+## Compare with Jira
+
+Jira is a general-purpose issue ticketing system. Bytebase is a database domain-specific change management system.
+Bytebase provides an integrated experience to plan, review, and deploy database changes.
+
+[Bytebase vs. Jira](/blog/how-to-use-jira-for-database-change-management/)

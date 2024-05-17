@@ -233,6 +233,7 @@ export const MENU = {
         { name: 'vs. Metabase', linkUrl: Route.VS_METABASE },
         { name: 'vs. CloudBeaver', linkUrl: Route.VS_CLOUDBEAVER },
         { name: 'vs. schemachange', linkUrl: Route.VS_SCHEMACHANGE },
+        { name: 'vs. Jira', linkUrl: Route.VS_JIRA },
       ],
     },
     {
