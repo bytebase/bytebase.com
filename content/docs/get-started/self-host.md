@@ -389,32 +389,27 @@ customers.
 **Prerequisites**
 
 1. Install [pnpm](https://pnpm.io/installation), Bytebase requires Node.js >=17.0.
-2. Install [Go](https://golang.org/dl/), Bytebase requires Go >= 1.16
+1. Install [Go](https://golang.org/dl/), Bytebase requires Go >= 1.16
+1. It's recommended to run Bytebase application as non-root user for security reason. If you don't have other non-root users on the system, you can follow the following steps to create one, e.g. user `bytebase`.
 
-### Environment Setup
+   ```text
+   groupadd bytebase && useradd -g bb bytebase
+   ```
 
-It's recommended to run Bytebase application as non-root user for security reason. If you don't have other non-root users on the system, you can follow the following steps to setup one, e.g. user `bytebase`.
-
-```text
-groupadd bytebase && useradd -g bb bytebase
-```
-
-```text
-sudo su bytebase
-```
-
-### Build
+   ```text
+   sudo su bytebase
+   ```
 
 Download [source code](https://github.com/bytebase/bytebase) from GitHub, then go to the source root directory
 
 <HintBlock type="info">
 
-If you want to build from a specific release `x.y.z`, then switch to that tag.
+If you want to build from a specific release such as `%%bb_version%%`, then switch to that release tag.
 
 </HintBlock>
 
 ```text
-git checkout tags/x.y.z
+git checkout tags/%%bb_version%%
 ```
 
 Build the source
@@ -449,10 +444,10 @@ ulimit -n 10240
 
 ## Deploy to PaaS
 
-### [Deploy to render](/docs/get-started/install/deploy-to-render/)
+- [Deploy to render](/docs/get-started/install/deploy-to-render/)
 
-### [Deploy to sealos](/docs/get-started/install/deploy-to-sealos/)
+- [Deploy to sealos](/docs/get-started/install/deploy-to-sealos/)
 
-### [Deploy to Rainbond](/docs/get-started/install/deploy-to-rainbond/)
+- [Deploy to Rainbond](/docs/get-started/install/deploy-to-rainbond/)
 
-### [Deploy to Zeabur](/docs/get-started/install/deploy-to-zeabur/)
+- [Deploy to Zeabur](/docs/get-started/install/deploy-to-zeabur/)
