@@ -4,7 +4,11 @@ description: Bytebase is a database schema change and version control management
 ---
 
 Bytebase is a **middleware** sitting between you and your database. It's the GitLab/GitHub for
-Database DevOps, built for developers, DBAs and platform engineers. As GitLab/GitHub provides a GUI and collaboration workspace for teams to manage code, Bytebase does the similar job for managing databases.
+Database DevOps, built for developers, DBAs and platform engineers. Bytebase can be used in 2 ways:
+
+- **GUI** - Bytebase provides a collaboration workspace for teams to manage database development tasks.
+- **API (headless)** - Bytebase can go headless. Teams can integrate [Bytebase API](/docs/api/overview/) into
+  their development workflow.
 
 ![fish](/content/docs/what-is-bytebase/fish.webp)
 
@@ -48,6 +52,11 @@ Bytebase provides a suite of features to enable organizations to enforce data se
 - Database-level manual and periodical backup and restore
 
 - Point-in-time recovery (PITR)
+
+[API](/docs/api/overview/)
+
+Bytebase GUI is built on the Bytebase API. In theory, 3rd-party can build a new Bytebase
+GUI based on the same API.
 
 ## Compare with Liquibase / Flyway / schemachange
 
