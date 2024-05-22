@@ -3,7 +3,7 @@ title: The 6 Levels of Database Automation
 author: Tianzhou
 published_at: 2024/05/22 16:00:00
 feature_image: /content/blog/database-automation-levels/roaring-dba.webp
-tags: Explanation
+tags: Industry
 featured: true
 description: Draw inspiration from the 6 levels of autonomous driving, we outline the 6 levels of database automation, from L0 no automation to L5 fully automated.
 ---
