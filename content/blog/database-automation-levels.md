@@ -31,7 +31,7 @@ At this level, all database tasks are handled manually, leading to high risk of 
 At this level, database operations are managed through a ticketing system, introducing some level of process and oversight.
 Many organizations stay at this level.
 
-- **Ticketing System**: Use of a ticketing system (e.g., [JIRA](/blog/how-to-use-jira-for-database-change-management), ServiceNow) to request, track, approve database changes and access permissions.
+- **Ticketing System**: Use of a ticketing system (e.g., [Jira](/blog/how-to-use-jira-for-database-change-management), ServiceNow) to request, track, approve database changes and access permissions.
 
 - **Approval Workflow**: Changes and permission grants require approvals before implementation, ensuring some level of review and oversight.
 
@@ -71,7 +71,11 @@ Level 4 involves integrating all database tasks across the entire database devel
 - **Centralized Permission Control**: One-off data access and export grants follow the same database change approval flow. Permanent permissions are synced from external auth systems such as Okta, Active Directory or LDAP.
 - **Security and Compliance**: All human-to-db tasks are handled inside a single platform, which provides a holistic way to harden security and enforce compliance.
 
-**Bytebase is the only tool that can help customers to achieve this level**.
+<HintBlock type="info">
+
+Bytebase can help customers to achieve this level.
+
+</HintBlock>
 
 ![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
 
