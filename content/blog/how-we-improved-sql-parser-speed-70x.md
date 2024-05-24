@@ -46,7 +46,7 @@ One common criticism of ANTLR is its performance. However, this performance disa
 
 To explain the problem, let's review some compiler basics first.
 
-As mentioned earlier, ANTLR imposes very few restrictions on grammar. Yacc supports `LALR(1)` grammars, whereas ANTLR supports `LL(\*)` grammars. This distinction might not be very meaningful because not everyone clearly remembers what these terms mean 😄. Instead of delving into the concepts, let's understand the difference in interpretative capabilities between these two types of grammars through an intuitive example.
+As mentioned earlier, ANTLR imposes very few restrictions on grammar. Yacc supports `LALR(1)` grammars, whereas ANTLR supports `LL(*)` grammars. This distinction might not be very meaningful because not everyone clearly remembers what these terms mean 😄. Instead of delving into the concepts, let's understand the difference in interpretative capabilities between these two types of grammars through an intuitive example.
 
 Let's assume we have the following grammar:
 
