@@ -1,9 +1,9 @@
 ---
-title: 'How to use Jira for database change management'
+title: "Using Jira for Database Changes Won't Cut It"
 author: Tianzhou
 published_at: 2024/05/17 19:21:21
-feature_image: /content/blog/how-to-use-jira-for-database-change-management/banner.webp
-tags: How-to
+feature_image: /content/blog/use-jira-for-database-change/banner.webp
+tags: Industry
 description: "When team wants to enforce a process for database change management. A quick approach is to reuse their existing ITSM system such as Jira. Let's review how a typical Jira workflow looks like and its inherent limitations."
 ---
 
@@ -62,10 +62,10 @@ Database changes can get quite complex:
 
 It's challenging to force a general issue ticketing system to handle the specialized database tasks.
 
----
+## Why Bytebase
 
 Many customers come to [Bytebase](/) from Jira because of the aforementioned challenges. Similar to Jira,
 Bytebase has the concepts of `Project`, `Issue`. Additionally, Bytebase defines some database domain-specific concepts as first-class citizens, such as `Database Instance`, `Database`, `Environment`, `Changelist`. Bytebase provides an integrated
 experience to plan, review, and deploy database changes.
 
-![Issue detail interface](/content/blog/how-to-use-jira-for-database-change-management/issue-detail.webp)
+![Issue detail interface](/content/blog/use-jira-for-database-change/issue-detail.webp)

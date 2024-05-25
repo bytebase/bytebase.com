@@ -81,7 +81,7 @@ const Route = {
   VS_METABASE: '/blog/bytebase-vs-metabase',
   VS_CLOUDBEAVER: '/blog/bytebase-vs-cloudbeaver',
   VS_SCHEMACHANGE: '/blog/snowflake-schema-change',
-  VS_JIRA: '/blog/how-to-use-jira-for-database-change-management',
+  VS_JIRA: '/blog/use-jira-for-database-change',
   FLYWAY_VS_LIQUIBASE: '/blog/flyway-vs-liquibase',
   PG_VS_MYSQL: '/blog/postgres-vs-mysql',
   PG_VS_MONGO: '/blog/postgres-vs-mongodb',

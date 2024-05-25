@@ -98,4 +98,4 @@ Bytebase is a database development platform. It's built for the developer teams 
 Jira is a general-purpose issue ticketing system. Bytebase is a database domain-specific change management system.
 Bytebase provides an integrated experience to plan, review, and deploy database changes.
 
-[Bytebase vs. Jira](/blog/how-to-use-jira-for-database-change-management/)
+[Bytebase vs. Jira](/blog/use-jira-for-database-change/)

@@ -31,7 +31,7 @@ At this level, all database tasks are handled manually, leading to high risk of 
 At this level, database operations are managed through a ticketing system, introducing some level of process and oversight.
 Many organizations stay at this level.
 
-- **Ticketing System**: Use of a ticketing system (e.g., [Jira](/blog/how-to-use-jira-for-database-change-management), ServiceNow) to request, track, approve database changes and access permissions.
+- **Ticketing System**: Use of a ticketing system (e.g., [Jira](/blog/use-jira-for-database-change), ServiceNow) to request, track, approve database changes and access permissions.
 
 - **Approval Workflow**: Changes and permission grants require approvals before implementation, ensuring some level of review and oversight.
 
