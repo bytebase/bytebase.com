@@ -125,8 +125,12 @@ const Route = {
   ALTERNATIVE_LIQUIBASE: '/schema-migration/liquibase-alternative',
   ALTERNATIVE_FLYWAY: '/schema-migration/flyway-alternative',
 
+  // solutions
+  INDUSTRY_FINANCIAL_SERVICES: '/solutions/financial-services',
+  INDUSTRY_MANUFACTURING: '/solutions/manufacturing',
+  INDUSTRY_TECHNOLOGY: '/solutions/technology',
+
   // usecases
-  SOLUTIONS: '/solutions',
   USECASE_DBA: '/usecase/dba',
   USECASE_TECHLEAD: '/usecase/techlead',
   USECASE_DEVELOPER: '/usecase/developer',
