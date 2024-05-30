@@ -447,7 +447,7 @@
       "title": "Prohibit using NULL equality comparison in WHERE clause",
       "description": "The result of NULL equality comparison is always NULL, which may cause unexpected results. Suggestion error level: Warning"
     },
-    "statement-where-disallow-using-function": {
+    "statement-where-disallow-functions-and-calculations": {
       "title": "Do not apply functions or perform calculations on indexed fields in the WHERE clause",
       "description": "If you apply a function or perform a calculation on the indexed field, the database cannot use the index and has to scan the entire table instead."
     },
@@ -579,6 +579,10 @@
           "title": "Allow list"
         }
       }
+    },
+    "index-not-redundant": {
+      "title": "Disallow redundant indexes",
+      "description": "Redundant index may result in performance loss and occupy additional space. For example, the index on columns (c1, c2) will be treated as redundant indexes if there is already a index on column (c1). Suggestion error level: Warning"
     },
     "system-charset-allowlist": {
       "title": "Allowable list of Charset",
