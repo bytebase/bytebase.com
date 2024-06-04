@@ -53,10 +53,13 @@ const Route = {
   DOCS_CLI: '/docs/cli/overview',
   DOCS_HOW_TO: '/docs/how-to/sql-review/postgres-sql-review-guide',
   SQL_GITHUB_APP: '/docs/sql-review/github-app',
+  DOCS_SQL_REVIEW: '/docs/sql-review/overview',
   DOCS_CHANGE_DATABASE: '/docs/change-database/change-workflow',
   DOCS_ROLLBACK_DATA: '/docs/change-database/rollback-data-changes',
+  DOCS_SCHEMA_SYNC: '/docs/change-database/synchronize-schema',
   DOCS_SQL_EDITOR: '/docs/sql-editor/overview',
   DOCS_DATA_ACCESS_CONTROL: '/docs/security/data-access-control',
+  DOCS_DATA_MASKING: '/docs/security/data-masking/overview',
   DOCS_DATA_MASKING_COLUMN: '/docs/security/data-masking/column-masking',
   DOCS_DATA_MASKING_GLOBAL: '/docs/security/data-masking/global-masking-rule',
   DOCS_DATA_MASKING_ACCESS: '/docs/security/data-masking/access-unmasked-data',
@@ -129,6 +132,8 @@ const Route = {
   INDUSTRY_FINANCIAL_SERVICES: '/solutions/financial-services',
   INDUSTRY_MANUFACTURING: '/solutions/manufacturing',
   INDUSTRY_TECHNOLOGY: '/solutions/technology',
+  INDUSTRY_GAMING: '/solutions/gaming',
+  INDUSTRY_WEB3: '/solutions/web3',
 
   // usecases
   USECASE_DBA: '/usecase/dba',

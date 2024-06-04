@@ -8,10 +8,10 @@ import clsx from 'clsx';
 const ITEMS = [
   {
     title: 'SQL Review',
-    url: Route.DOCS_CHANGE_DATABASE,
+    url: Route.DOCS_SQL_REVIEW,
   },
   {
-    title: 'Change Automation',
+    title: 'Change Propagation & Rollback',
     url: Route.DOCS_CHANGE_DATABASE,
   },
   {
@@ -19,7 +19,11 @@ const ITEMS = [
     url: Route.DOCS_SQL_EDITOR,
   },
   {
-    title: 'Data Security',
+    title: 'Dynamic Data Masking',
+    url: Route.DOCS_DATA_MASKING,
+  },
+  {
+    title: 'Data Access Control',
     url: Route.DOCS_DATA_ACCESS_CONTROL,
   },
   {
@@ -27,12 +31,16 @@ const ITEMS = [
     url: Route.DOCS_VCS_INTEGRATION,
   },
   {
-    title: 'Index Advisor',
-    url: Route.DOCS_INDEX_ADVISOR,
-  },
-  {
     title: 'Batch Change',
     url: Route.DOCS_BATCH_CHANGE,
+  },
+  {
+    title: 'Schema Synchronization',
+    url: Route.DOCS_SCHEMA_SYNC,
+  },
+  {
+    title: 'Index Advisor',
+    url: Route.DOCS_INDEX_ADVISOR,
   },
   {
     title: 'Online Schema Change',

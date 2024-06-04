@@ -98,6 +98,16 @@ export const MENU = {
           description: '',
           linkUrl: Route.INDUSTRY_MANUFACTURING,
         },
+        {
+          name: 'Gaming',
+          description: '',
+          linkUrl: Route.INDUSTRY_GAMING,
+        },
+        {
+          name: 'Web3',
+          description: '',
+          linkUrl: Route.INDUSTRY_WEB3,
+        },
       ],
     },
     { title: 'Pricing', href: Route.PRICING },
@@ -197,6 +207,16 @@ export const MENU = {
           name: 'Manufacturing',
           description: '',
           linkUrl: Route.INDUSTRY_MANUFACTURING,
+        },
+        {
+          name: 'Gaming',
+          description: '',
+          linkUrl: Route.INDUSTRY_GAMING,
+        },
+        {
+          name: 'Web3',
+          description: '',
+          linkUrl: Route.INDUSTRY_WEB3,
         },
       ],
     },
