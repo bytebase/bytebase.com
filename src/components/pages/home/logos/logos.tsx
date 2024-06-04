@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import LOGO_LIST from '@/lib/logo-data';
+import { FULL_LOGO_LIST } from '@/lib/logo-data';
 
 const Logos = () => {
   return (
@@ -10,7 +10,7 @@ const Logos = () => {
           8-in-1 Open-Source Database DevOps Solution
         </h2>
         <ul className="mt-16 grid max-w-[1133px] grid-cols-[repeat(4,auto)] flex-wrap justify-center gap-x-24 gap-y-12 2xl:mt-14 xl:mt-12 xl:max-w-[740px] xl:gap-x-16 xl:gap-y-8 md:mt-10 md:max-w-[580px] md:gap-x-10 md:gap-y-7 sm:mt-8 xs:flex xs:max-w-[460px] xs:flex-wrap xs:justify-center xs:gap-x-5 xs:gap-y-6">
-          {LOGO_LIST.map((logo) => (
+          {FULL_LOGO_LIST.map((logo) => (
             <li key={logo.alt} className={clsx('flex items-center', logo.mobileOrderClassName)}>
               <img
                 className="mx-auto h-16 xl:h-12 xl:w-auto md:h-10 xs:h-8"

@@ -80,11 +80,37 @@ export const MENU = {
         iconName: 'tutorial',
       },
     },
-    { title: 'Pricing', href: Route.PRICING },
     {
-      title: 'Enterprise',
-      href: Route.CONTACTS,
+      title: 'Industries',
+      items: [
+        {
+          name: 'Financial Services',
+          description: '',
+          linkUrl: Route.INDUSTRY_FINANCIAL_SERVICES,
+        },
+        {
+          name: 'Technology',
+          description: '',
+          linkUrl: Route.INDUSTRY_TECHNOLOGY,
+        },
+        {
+          name: 'Manufacturing',
+          description: '',
+          linkUrl: Route.INDUSTRY_MANUFACTURING,
+        },
+        {
+          name: 'Gaming',
+          description: '',
+          linkUrl: Route.INDUSTRY_GAMING,
+        },
+        {
+          name: 'Web3',
+          description: '',
+          linkUrl: Route.INDUSTRY_WEB3,
+        },
+      ],
     },
+    { title: 'Pricing', href: Route.PRICING },
   ],
   mobile: [
     { title: '🫱 Why Bytebase', href: Route.DOCS },
@@ -164,11 +190,37 @@ export const MENU = {
         },
       ],
     },
-    { title: 'Pricing', href: Route.PRICING },
     {
-      title: 'Enterprise',
-      href: Route.CONTACTS,
+      title: 'Industries',
+      items: [
+        {
+          name: 'Financial Services',
+          description: '',
+          linkUrl: Route.INDUSTRY_FINANCIAL_SERVICES,
+        },
+        {
+          name: 'Technology',
+          description: '',
+          linkUrl: Route.INDUSTRY_TECHNOLOGY,
+        },
+        {
+          name: 'Manufacturing',
+          description: '',
+          linkUrl: Route.INDUSTRY_MANUFACTURING,
+        },
+        {
+          name: 'Gaming',
+          description: '',
+          linkUrl: Route.INDUSTRY_GAMING,
+        },
+        {
+          name: 'Web3',
+          description: '',
+          linkUrl: Route.INDUSTRY_WEB3,
+        },
+      ],
     },
+    { title: 'Pricing', href: Route.PRICING },
   ],
   footer: [
     {
