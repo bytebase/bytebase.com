@@ -291,7 +291,7 @@ export const FULL_LOGO_LIST: Logo[] = [
   META,
 ];
 
-export const FINANCIAL_LOGO_LIST: Logo[] = [XENDIT, LONG_BRIDGE, PAYER_MAX];
+export const FINANCIAL_LOGO_LIST: Logo[] = [LONG_BRIDGE, XENDIT, PAYER_MAX];
 
 export const TECHNOLOGY_LOGO_LIST: Logo[] = [LINEAR, PROTON, SALLA, KAKAO];
 
