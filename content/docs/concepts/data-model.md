@@ -14,6 +14,12 @@ A user in the Bytebase workspace is defined as a member. `member` models after a
 
 Internally, Bytebase uses term `Principal` instead of `User` because former is more accurate to describe both human user and robot user.
 
+## User Group
+
+`User group` is a collection of `Users` that are organized together to simplify the management of roles and permissions.
+
+`Admins` can create user groups and assign `Users` to them at the `Workspace` level. `Admins`,`DBAs` and `Project Owners` can then assign these `User groups` to `Roles` at the `Project` level.
+
 ## Role
 
 See [Roles and Permissions](/docs/concepts/roles-and-permissions).
