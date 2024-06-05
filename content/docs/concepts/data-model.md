@@ -62,11 +62,9 @@ Internally, the issue progression is represented by a `Pipeline`. A `Pipeline` c
 to a project and may or may not attach a database context. Users interacts with the Sheet from
 [SQL Editor](/docs/sql-editor/manage-sql-scripts).
 
-## Database Group and Table Group
+## Database Group
 
-A list of databases / tables usually having the same schema structure. Examples like per-tenant databases,
-partitioned databases/tables. They are used in:
+A list of databases usually has the same schema structure. Examples like per-tenant databases, and partitioned databases. They are used in:
 
-- []
 - [Batch change](/docs/change-database/batch-change) to
   change many databases in a consistent manner.
