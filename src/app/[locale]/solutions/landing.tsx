@@ -3,6 +3,7 @@ import { Solution } from '@/lib/solutions-data';
 import Pill from '@/components/shared/pill';
 import RelatedPosts from '@/components/pages/blog/related-posts';
 import Features from '@/components/shared/features';
+import QuoteIcon from '@/svgs/quote.inline.svg';
 
 type LandingProps = {
   solution: Solution;
@@ -25,9 +26,16 @@ const Landing = ({ solution }: LandingProps) => {
             </li>
           ))}
         </ul>
-        <div className="mt-10 2xl:mt-5 xl:mt-4 sm:mt-3">
+        <div className="">
           <LogoList {...solution.logoList} list={solution.logoList.list} />
         </div>
+        {solution.quote && (
+          <div className="mt-10 flex flex-col items-center border-2 bg-tones-purple-light p-8 text-24 shadow-[inset_6px_6px_0_#fff,0_5px_15px_rgba(172,178,210,0.5)] group-hover:shadow-[inset_6px_6px_0_#fff,0_8px_20px_rgba(172,178,210,0.7)] 2xl:mt-5 xl:mt-4 sm:mt-3 sm:p-4 sm:text-18">
+            <QuoteIcon className="mb-2 h-6 sm:h-3" />
+            <p className="ml-2">{solution.quote}</p>
+            <p className="mt-4 italic">{solution.author}</p>
+          </div>
+        )}
         <Features className="mt-20 2xl:mt-10 xl:mt-8 sm:mt-6" />
         <RelatedPosts posts={solution.posts} module="LANDING" />
       </div>

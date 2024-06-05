@@ -14,6 +14,8 @@ export interface Solution {
   values: string[];
   logoList: LogoListProps;
   posts: BlogPost[];
+  quote: string;
+  author: string;
 }
 
 interface SolutionsData {
@@ -39,6 +41,9 @@ const SOLUTIONS_DATA: SolutionsData = {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('integrate-sql-review-into-github')!,
     ],
+    quote:
+      'Bytebase enables us to automate the database change process. In particular, its batch mode ensures consistent changes across all databases for each of our tenants.',
+    author: 'Frank Yao - Head of Infrastructure at Longbridge',
   },
   TECHNOLOGY: {
     title: 'Technology',
@@ -58,6 +63,8 @@ const SOLUTIONS_DATA: SolutionsData = {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('integrate-sql-review-into-github')!,
     ],
+    quote: '',
+    author: '',
   },
   MANUFACTURING: {
     title: 'Manufacturing',
@@ -77,6 +84,8 @@ const SOLUTIONS_DATA: SolutionsData = {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('how-to-handle-database-schema-change')!,
     ],
+    quote: '',
+    author: '',
   },
   GAMING: {
     title: 'GAMING',
@@ -92,6 +101,8 @@ const SOLUTIONS_DATA: SolutionsData = {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('database-automation-levels')!,
     ],
+    quote: '',
+    author: '',
   },
   WEB3: {
     title: 'Web3',
@@ -107,6 +118,8 @@ const SOLUTIONS_DATA: SolutionsData = {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('database-automation-levels')!,
     ],
+    quote: '',
+    author: '',
   },
 };
 
