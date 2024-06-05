@@ -18,7 +18,7 @@ Internally, Bytebase uses term `Principal` instead of `User` because former is m
 
 `User group` is a collection of `Users` that are organized together to simplify the management of roles and permissions.
 
-`Admins` can create user groups and assign `Users` to them at the `Workspace` level. `Admins`,`DBAs` and `Project Owners` can then assign these `User groups` to `Roles` at the `Project` level.
+`Admins` can create user groups and assign `Users` to them at the `Workspace` level. `Admins`,`DBAs` and `Project Owners` can then assign these `User Groups` to `Roles` at the `Project` level.
 
 ## Role
 
