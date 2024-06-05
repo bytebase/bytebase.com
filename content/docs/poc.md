@@ -10,7 +10,6 @@ enterprise license.
 
 - [Docker](/docs/get-started/self-host/#docker)
 - [Kubernetes](/docs/get-started/self-host/#kubernetes)
-- [One-liner](/docs/get-started/self-host/#installation-script)
 
 Check out [System Requirements](/docs/faq/##system-requirements)
 and [Production Setup](/docs/administration/production-setup).
