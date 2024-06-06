@@ -40,7 +40,7 @@ const Landing = ({ solution }: LandingProps) => {
         {solution.caseStudyList.length > 0 && (
           <div className="mt-20 2xl:mt-10 xl:mt-8 sm:mt-6">
             <h2 className="text-44 font-bold leading-extra-tight xl:text-36 md:text-30">
-              Case Studies
+              Customer Stories
             </h2>
             <div className="mt-11 xl:mt-10 md:mt-9">
               {solution.caseStudyList.map((post, index) => (
