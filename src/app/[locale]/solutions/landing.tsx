@@ -1,7 +1,7 @@
 import LogoList from '@/components/shared/logo-list';
 import { Solution } from '@/lib/solutions-data';
 import Pill from '@/components/shared/pill';
-import RelatedPosts from '@/components/pages/blog/related-posts';
+import Link from '@/components/shared/link';
 import Features from '@/components/shared/features';
 import QuoteIcon from '@/svgs/quote.inline.svg';
 
@@ -36,8 +36,22 @@ const Landing = ({ solution }: LandingProps) => {
             <p className="mt-4 italic">{solution.author}</p>
           </div>
         )}
+
+        {solution.caseStudyList.length > 0 && (
+          <div className="mt-20 2xl:mt-10 xl:mt-8 sm:mt-6">
+            <h2 className="text-44 font-bold leading-extra-tight xl:text-36 md:text-30">
+              Case Studies
+            </h2>
+            <div className="mt-11 xl:mt-10 md:mt-9">
+              {solution.caseStudyList.map((post, index) => (
+                <li key={post.slug} className="mt-4 text-24 hover:underline xl:text-20 md:text-16">
+                  <Link href={`/blog/${post.slug}`}> {post.title} </Link>
+                </li>
+              ))}
+            </div>
+          </div>
+        )}
         <Features className="mt-20 2xl:mt-10 xl:mt-8 sm:mt-6" />
-        <RelatedPosts posts={solution.posts} module="LANDING" />
       </div>
     </section>
   );

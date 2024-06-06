@@ -14,7 +14,6 @@ export interface Solution {
   values: string[];
   logoList: LogoListProps;
   caseStudyList: BlogPost[];
-  posts: BlogPost[];
   quote: string;
   author: string;
 }
@@ -37,14 +36,10 @@ const SOLUTIONS_DATA: SolutionsData = {
     caseStudyList: [
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('longbridge-case-study')!,
-    ],
-    posts: [
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('longbridge-case-study')!,
+      getBlogPostBySlug('salla-case-study')!,
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('how-to-handle-database-schema-change')!,
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('integrate-sql-review-into-github')!,
+      getBlogPostBySlug('cvte-case-study')!,
     ],
     quote:
       'Bytebase enables us to automate the database change process. In particular, its batch mode ensures consistent changes across all databases for each of our tenants.',
@@ -63,14 +58,10 @@ const SOLUTIONS_DATA: SolutionsData = {
     caseStudyList: [
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('salla-case-study')!,
-    ],
-    posts: [
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('salla-case-study')!,
+      getBlogPostBySlug('longbridge-case-study')!,
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('how-to-handle-database-schema-change')!,
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('integrate-sql-review-into-github')!,
+      getBlogPostBySlug('cvte-case-study')!,
     ],
     quote: '',
     author: '',
@@ -87,15 +78,13 @@ const SOLUTIONS_DATA: SolutionsData = {
     },
     caseStudyList: [
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('ev-manufacturer-case-study')!,
-    ],
-    posts: [
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('ev-manufacturer-case-study')!,
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('cvte-case-study')!,
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('how-to-handle-database-schema-change')!,
+      getBlogPostBySlug('ev-manufacturer-case-study')!,
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      getBlogPostBySlug('salla-case-study')!,
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      getBlogPostBySlug('longbridge-case-study')!,
     ],
     quote: '',
     author: '',
@@ -106,14 +95,11 @@ const SOLUTIONS_DATA: SolutionsData = {
     logoList: {
       list: GAMING_LOGO_LIST,
     },
-    caseStudyList: [],
-    posts: [
+    caseStudyList: [
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('how-to-handle-database-schema-change')!,
+      getBlogPostBySlug('longbridge-case-study')!,
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('integrate-sql-review-into-github')!,
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('database-automation-levels')!,
+      getBlogPostBySlug('salla-case-study')!,
     ],
     quote: '',
     author: '',
@@ -124,14 +110,11 @@ const SOLUTIONS_DATA: SolutionsData = {
     logoList: {
       list: WEB3_LOGO_LIST,
     },
-    caseStudyList: [],
-    posts: [
+    caseStudyList: [
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('how-to-handle-database-schema-change')!,
+      getBlogPostBySlug('longbridge-case-study')!,
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('integrate-sql-review-into-github')!,
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('database-automation-levels')!,
+      getBlogPostBySlug('salla-case-study')!,
     ],
     quote: '',
     author: '',
