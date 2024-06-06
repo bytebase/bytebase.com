@@ -13,6 +13,7 @@ export interface Solution {
   title: string;
   values: string[];
   logoList: LogoListProps;
+  caseStudyList: BlogPost[];
   posts: BlogPost[];
   quote: string;
   author: string;
@@ -33,6 +34,10 @@ const SOLUTIONS_DATA: SolutionsData = {
     logoList: {
       list: FINANCIAL_LOGO_LIST,
     },
+    caseStudyList: [
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      getBlogPostBySlug('longbridge-case-study')!,
+    ],
     posts: [
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('longbridge-case-study')!,
@@ -55,6 +60,10 @@ const SOLUTIONS_DATA: SolutionsData = {
     logoList: {
       list: TECHNOLOGY_LOGO_LIST,
     },
+    caseStudyList: [
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      getBlogPostBySlug('salla-case-study')!,
+    ],
     posts: [
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('salla-case-study')!,
@@ -76,6 +85,10 @@ const SOLUTIONS_DATA: SolutionsData = {
     logoList: {
       list: MANUFACTURING_LOGO_LIST,
     },
+    caseStudyList: [
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      getBlogPostBySlug('ev-manufacturer-case-study')!,
+    ],
     posts: [
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('ev-manufacturer-case-study')!,
@@ -93,6 +106,7 @@ const SOLUTIONS_DATA: SolutionsData = {
     logoList: {
       list: GAMING_LOGO_LIST,
     },
+    caseStudyList: [],
     posts: [
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('how-to-handle-database-schema-change')!,
@@ -110,6 +124,7 @@ const SOLUTIONS_DATA: SolutionsData = {
     logoList: {
       list: WEB3_LOGO_LIST,
     },
+    caseStudyList: [],
     posts: [
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('how-to-handle-database-schema-change')!,
