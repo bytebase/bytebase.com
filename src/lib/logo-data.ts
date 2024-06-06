@@ -99,7 +99,7 @@ const LINEAR: Logo = {
 const LONG_BRIDGE: Logo = {
   alt: 'Longbridge',
   src: '/images/logos/longbridge.svg',
-  width: 200,
+  width: 160,
   height: 64,
   small: {
     width: 110,
@@ -111,7 +111,7 @@ const LONG_BRIDGE: Logo = {
 const LUXOR: Logo = {
   alt: 'Luxor',
   src: '/images/logos/luxor.svg',
-  width: 200,
+  width: 160,
   height: 64,
   small: {
     width: 110,
@@ -123,7 +123,7 @@ const LUXOR: Logo = {
 const MATRIX_PORT: Logo = {
   alt: 'Meta',
   src: '/images/logos/matrix-port.svg',
-  width: 179,
+  width: 240,
   height: 64,
   small: {
     width: 110,
@@ -299,4 +299,4 @@ export const MANUFACTURING_LOGO_LIST: Logo[] = [BYD, LI_AUTO, CVTE, ZEEKR];
 
 export const GAMING_LOGO_LIST: Logo[] = [MIHOYO, TENCENT, CTW];
 
-export const WEB3_LOGO_LIST: Logo[] = [MATRIX_PORT, LUXOR, WALLEX];
+export const WEB3_LOGO_LIST: Logo[] = [MATRIX_PORT, WALLEX, LUXOR];
