@@ -63,8 +63,9 @@ const SOLUTIONS_DATA: SolutionsData = {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('cvte-case-study')!,
     ],
-    quote: '',
-    author: '',
+    quote:
+      'Bytebase enables us to automate the database change process. In particular, its batch mode ensures consistent changes across all databases for each of our tenants.',
+    author: 'Frank Yao - Head of Infrastructure at Longbridge',
   },
   MANUFACTURING: {
     title: 'Manufacturing',
@@ -86,8 +87,9 @@ const SOLUTIONS_DATA: SolutionsData = {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('longbridge-case-study')!,
     ],
-    quote: '',
-    author: '',
+    quote:
+      'Bytebase enables us to automate the database change process. In particular, its batch mode ensures consistent changes across all databases for each of our tenants.',
+    author: 'Frank Yao - Head of Infrastructure at Longbridge',
   },
   GAMING: {
     title: 'GAMING',
@@ -101,8 +103,9 @@ const SOLUTIONS_DATA: SolutionsData = {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('salla-case-study')!,
     ],
-    quote: '',
-    author: '',
+    quote:
+      'Bytebase enables us to automate the database change process. In particular, its batch mode ensures consistent changes across all databases for each of our tenants.',
+    author: 'Frank Yao - Head of Infrastructure at Longbridge',
   },
   WEB3: {
     title: 'Web3',
@@ -116,8 +119,9 @@ const SOLUTIONS_DATA: SolutionsData = {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('salla-case-study')!,
     ],
-    quote: '',
-    author: '',
+    quote:
+      'Bytebase enables us to automate the database change process. In particular, its batch mode ensures consistent changes across all databases for each of our tenants.',
+    author: 'Frank Yao - Head of Infrastructure at Longbridge',
   },
 };
 
