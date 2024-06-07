@@ -48,9 +48,10 @@ Example:
 This bash script demonostrates how to add an external PostgreSQL database as metadata storage when running bytebase container. The external PostgreSQL database and the bytebase are on the same host.
 
 ```bash
+   # Change the <PG_URL> to yours!!!
    docker run \
       --init \
-      -e PG_URL=postgresql://bbdev@host.docker.internal:5432/bbdev \
+      -e PG_URL=<PG_URL> \
       --rm \
       --name bytebase \
       --publish 8080:8080 --pull always \
