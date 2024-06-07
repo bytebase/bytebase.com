@@ -64,8 +64,8 @@ const SOLUTIONS_DATA: SolutionsData = {
       getBlogPostBySlug('cvte-case-study')!,
     ],
     quote:
-      'Bytebase enables us to automate the database change process. In particular, its batch mode ensures consistent changes across all databases for each of our tenants.',
-    author: 'Frank Yao - Head of Infrastructure at Longbridge',
+      'We use Bytebase to manage our multi-region database migrations. Bytebase has been great and their team has been very responsive in addressing any requests we’ve had.',
+    author: 'Tuomas Artman - Co-founder at Linear',
   },
   MANUFACTURING: {
     title: 'Manufacturing',
@@ -104,8 +104,8 @@ const SOLUTIONS_DATA: SolutionsData = {
       getBlogPostBySlug('salla-case-study')!,
     ],
     quote:
-      'Bytebase enables us to automate the database change process. In particular, its batch mode ensures consistent changes across all databases for each of our tenants.',
-    author: 'Frank Yao - Head of Infrastructure at Longbridge',
+      'We use Bytebase to manage our multi-region database migrations. Bytebase has been great and their team has been very responsive in addressing any requests we’ve had.',
+    author: 'Tuomas Artman - Co-founder at Linear',
   },
   WEB3: {
     title: 'Web3',
