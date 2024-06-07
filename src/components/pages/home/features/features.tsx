@@ -11,22 +11,22 @@ type TCard = {
 
 const cards: TCard[] = [
   {
-    href: Route.DOCS_ANOMALY_CENTER,
-    icon: '/images/attention.svg',
-    title: 'Anomaly center',
-    description: 'Surface and review all databases anomalies in a single place.',
+    href: Route.DOCS_ROLLBACK_DATA,
+    icon: '/images/disk.svg',
+    title: 'Data Rollback',
+    description: 'Record the snapshot and provide streamlined data rollback.',
+  },
+  {
+    href: Route.DOCS_SCHEMA_SYNC,
+    icon: '/images/database.svg',
+    title: 'Schema Sync',
+    description: 'Calculate and apply schema diff to make mutiple databases consistent.',
   },
   {
     href: Route.DOCS_DRIFT_DETECTION,
-    icon: '/images/database.svg',
+    icon: '/images/attention.svg',
     title: 'Drift detection',
     description: 'Proactively detect schema drift caused by unexpected out-of-band change.',
-  },
-  {
-    href: Route.DOCS_ROLLBACK_DATA,
-    icon: '/images/disk.svg',
-    title: 'Rollback',
-    description: 'Record the snapshot and provide streamlined data rollback.',
   },
 ];
 

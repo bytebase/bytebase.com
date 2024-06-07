@@ -8,7 +8,7 @@ import {
 
 const head: AccordionHead = {
   pill: 'Query',
-  highlight: 'Secure-first',
+  highlight: 'Permission-based',
   text: 'SQL Editor for team',
 };
 
