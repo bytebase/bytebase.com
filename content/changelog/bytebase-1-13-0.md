@@ -26,4 +26,4 @@ description: '- Generate SQL statements to rollback DML for MySQL. - Support Sin
   - [\#4875](https://github.com/bytebase/bytebase/pull/4875) docs: update the reference of the plugin generator doc
   - [\#4878](https://github.com/bytebase/bytebase/pull/4878) fix: wrong dir path when generating MySQL Advisor
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

@@ -21,4 +21,4 @@ published_at: 2021/07/26 07:49:00
 
 - We launched our English blog, checkout our [launch post](https://bytebase.com/blog/announce-bytebase).
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

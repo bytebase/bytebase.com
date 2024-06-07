@@ -14,6 +14,12 @@ A user in the Bytebase workspace is defined as a member. `member` models after a
 
 Internally, Bytebase uses term `Principal` instead of `User` because former is more accurate to describe both human user and robot user.
 
+## User Group
+
+`User group` is a collection of `Users` that are organized together to simplify the management of roles and permissions.
+
+`Admins` can create user groups and assign `Users` to them at the `Workspace` level. `Admins`,`DBAs` and `Project Owners` can then assign these `User Groups` to `Roles` at the `Project` level.
+
 ## Role
 
 See [Roles and Permissions](/docs/concepts/roles-and-permissions).
@@ -56,11 +62,9 @@ Internally, the issue progression is represented by a `Pipeline`. A `Pipeline` c
 to a project and may or may not attach a database context. Users interacts with the Sheet from
 [SQL Editor](/docs/sql-editor/manage-sql-scripts).
 
-## Database Group and Table Group
+## Database Group
 
-A list of databases / tables usually having the same schema structure. Examples like per-tenant databases,
-partitioned databases/tables. They are used in:
+A list of databases usually has the same schema structure. Examples like per-tenant databases, and partitioned databases. They are used in:
 
-- []
 - [Batch change](/docs/change-database/batch-change) to
   change many databases in a consistent manner.

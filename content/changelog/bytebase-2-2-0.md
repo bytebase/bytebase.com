@@ -28,4 +28,4 @@ description: 'Support batch change by database groups in tenant projects; Suppor
 - Are you looking for Database CI/CD tools? Bytebase and Liquibase are two options. [This article](/blog/bytebase-vs-liquibase/) helps you understand their differences. 👀
 - Longbridge Whale, a financial service SaaS provider, solved the problem of schema changes in tenant mode with Bytebase. You can learn more about [their success story in case study](/blog/longbridge-case-study/). 🥳
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

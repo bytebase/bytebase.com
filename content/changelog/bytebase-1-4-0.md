@@ -32,4 +32,4 @@ description: '- AWS S3 is now supported as a backup storage backend. - Added a n
 
 - Added tutorial series for [How to set up Database CI/CD with GitHub](/docs/tutorials/database-cicd-best-practice-with-github/).
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

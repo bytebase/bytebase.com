@@ -53,10 +53,13 @@ const Route = {
   DOCS_CLI: '/docs/cli/overview',
   DOCS_HOW_TO: '/docs/how-to/sql-review/postgres-sql-review-guide',
   SQL_GITHUB_APP: '/docs/sql-review/github-app',
+  DOCS_SQL_REVIEW: '/docs/sql-review/overview',
   DOCS_CHANGE_DATABASE: '/docs/change-database/change-workflow',
   DOCS_ROLLBACK_DATA: '/docs/change-database/rollback-data-changes',
+  DOCS_SCHEMA_SYNC: '/docs/change-database/synchronize-schema',
   DOCS_SQL_EDITOR: '/docs/sql-editor/overview',
   DOCS_DATA_ACCESS_CONTROL: '/docs/security/data-access-control',
+  DOCS_DATA_MASKING: '/docs/security/data-masking/overview',
   DOCS_DATA_MASKING_COLUMN: '/docs/security/data-masking/column-masking',
   DOCS_DATA_MASKING_GLOBAL: '/docs/security/data-masking/global-masking-rule',
   DOCS_DATA_MASKING_ACCESS: '/docs/security/data-masking/access-unmasked-data',
@@ -81,6 +84,7 @@ const Route = {
   VS_METABASE: '/blog/bytebase-vs-metabase',
   VS_CLOUDBEAVER: '/blog/bytebase-vs-cloudbeaver',
   VS_SCHEMACHANGE: '/blog/snowflake-schema-change',
+  VS_JIRA: '/blog/use-jira-for-database-change',
   FLYWAY_VS_LIQUIBASE: '/blog/flyway-vs-liquibase',
   PG_VS_MYSQL: '/blog/postgres-vs-mysql',
   PG_VS_MONGO: '/blog/postgres-vs-mongodb',
@@ -124,8 +128,14 @@ const Route = {
   ALTERNATIVE_LIQUIBASE: '/schema-migration/liquibase-alternative',
   ALTERNATIVE_FLYWAY: '/schema-migration/flyway-alternative',
 
+  // solutions
+  INDUSTRY_FINANCIAL_SERVICES: '/solutions/financial-services',
+  INDUSTRY_MANUFACTURING: '/solutions/manufacturing',
+  INDUSTRY_TECHNOLOGY: '/solutions/technology',
+  INDUSTRY_GAMING: '/solutions/gaming',
+  INDUSTRY_WEB3: '/solutions/web3',
+
   // usecases
-  SOLUTIONS: '/solutions',
   USECASE_DBA: '/usecase/dba',
   USECASE_TECHLEAD: '/usecase/techlead',
   USECASE_DEVELOPER: '/usecase/developer',

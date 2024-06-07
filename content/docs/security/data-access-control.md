@@ -13,19 +13,22 @@ At the project level, the `Project Owner` is also exempt from these restrictions
 - **Export**: export data by SQL or Database
 - **Copy from SQL Editor**: copy data from the query result table in SQL Editor
 
-## Configure Data Access Control
+## How to Configure
 
-This section is for `Workspace Admin` or `DBA` to configure data access control for `Project Developer`.
+Within a project, the `Workspace Admin`, `Workspace DBA` or `Project Owner` can configure the following data access control:
 
-1. Click **Settings** > **Security & Policy** > **Data Access Control**.
-   ![bb-settings-data-access-control](/content/docs/security/data-access-control/bb-settings-data-access-control.webp)
+1. Click **Members** and then click **Grant Access**.
 
-1. If `Skip approval` for **Query Data** is checked, then by default `Project Developer` can query data from databases belonging to that Environment via SQL Editor; If unchecked, then `Project Developer` needs to **Request Query** for approval.
-1. If `Skip approval` for **Export Data** is checked, then by default `Project Developer` can export data from databases belonging to that Environment via SQL Editor; If unchecked, then `Project Developer` needs to **Request Export** for approval.
-   ![bb-sql-editor-export](/content/docs/security/data-access-control/bb-sql-editor-export.webp)
+1. There's a special user called `AllUsers` which represents all users in the workspace. If you assign `Project Querier` role to `AllUsers` with Manually selecting the whole Test database, then all users in the workspace can query data from the Test database without approval. `Project Exporter` is similar.
 
-For how to request approval, please refer to [Request Query](/docs/security/data-query/) and [Request Export](/docs/security/data-export/).
+   ![bb-allusers-test](/content/docs/security/data-access-control/bb-allusers-test.webp)
 
-1. If `Disallowed` for **Copy Data From SQL Editor** is checked, then no one can copy data from databases belonging to that Environment via SQL Editor; If unchecked, then all can copy data.
+   For how to request approval, please refer to [Request Query](/docs/security/data-query/) and [Request Export](/docs/security/data-export/).
 
-![bb-sql-editor-copy-allow](/content/docs/security/data-access-control/bb-sql-editor-copy-allow.webp)
+At the workspace level, the `Workspace Admin` or `Workspace DBA` can configure the following data access control:
+
+- Go to **Environments**, If **Disable copy data from SQL editor** is checked, then no one can copy data from databases belonging to that environment via SQL Editor.
+
+   ![bb-env-ac](/content/docs/security/data-access-control/bb-env-ac.webp)
+
+   ![bb-sql-editor-copy-allow](/content/docs/security/data-access-control/bb-sql-editor-copy-allow.webp)

@@ -43,4 +43,4 @@ description: '- Support syncing schema for MySQL. - Support approving issues via
 - [What is a Database Schema?](/blog/what-is-database-schema)
 - An oldie but goodie: [Database Review 2021 and 2022 Predictions](/blog/database-review-2021)
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

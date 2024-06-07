@@ -26,4 +26,4 @@ description: '- ChatSQL: convert natural language to SQL, credit to OpenAI. - Su
 
 - [SSO login](/blog/introducing-single-sign-on-in-bytebase) is now available in Bytebase, which means you only need to authenticate once and then seamlessly access all authorized resources without re-entering your credentials.
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

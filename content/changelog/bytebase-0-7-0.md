@@ -56,4 +56,4 @@ Owner and DBA can now enforce backup schedule policy for the specific environmen
 
 - We have open sourced our [take-home interview assignment](https://github.com/bytebase/interview).  And yes, we are looking for talented frontend engineer and full-stack engineer to join our remote team. Checkout [job details](https://bytebase.com/jobs).
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

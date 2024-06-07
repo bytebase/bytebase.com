@@ -35,4 +35,4 @@ description: '- Support managing with environment and instance via Terraform pro
 - [How to Synchronize Database Schemas](/docs/tutorials/how-to-synchronize-database-schemas)
 - [How Schema Sync Works in Bytebase](/blog/how-schema-sync-work)
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

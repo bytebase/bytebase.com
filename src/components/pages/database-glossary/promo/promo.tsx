@@ -2,7 +2,7 @@ import Link from '@/components/shared/link';
 
 import Route from '@/lib/route';
 
-import Logos from '@/components/shared/integrations';
+import Integrations from '@/components/shared/integrations';
 
 const Promo = () => {
   return (
@@ -20,7 +20,7 @@ const Promo = () => {
         collaboration workspace to help DBAs and Developers manage the lifecycle of application
         database schemas.
       </p>
-      <Logos />
+      <Integrations />
     </section>
   );
 };

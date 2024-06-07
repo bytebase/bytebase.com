@@ -33,4 +33,4 @@ description: 'Customizable Masking Algorithms and Semantic Types for Data Maskin
 - `psql` is the official CLI to command Postgres. Here, we gathered [10 most-used `psql` commands](/blog/top-psql-commands-with-examples/), plus examples to get you started🐘.
 - A [handy guide](/blog/how-to-install-local-mysql-on-mac-ubuntu-centos-windows/) to get started with a local MySQL running on your system🐬.
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

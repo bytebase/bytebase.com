@@ -37,4 +37,4 @@ description: 'More flexible options to appoint releaser to rollout changes. Set 
 - An audit (with detailed usage bills💸) of [the SaaS services we use daily](/blog/saas-services-behind-startup-2023) at Bytebase.
 - A [Handy Tutorial](/docs/tutorials/database-cicd-best-practice-with-azure-devops/) to Database CI/CD Best Practice with Azure DevOps.
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

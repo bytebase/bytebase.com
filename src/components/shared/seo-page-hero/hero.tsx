@@ -8,7 +8,7 @@ type HeroProps = {
 
 import Button from '@/components/shared/button';
 import { LinkUnderlined } from '@/components/shared/link-underlined';
-import Logos from '@/components/shared/integrations';
+import Integrations from '@/components/shared/integrations';
 import Link from '@/components/shared/link';
 
 import Route from '@/lib/route';
@@ -28,7 +28,7 @@ const Hero = ({ title, description, linkText, linkUrl, linkTarget }: HeroProps) 
           </Link>
         )}
       </p>
-      <Logos className="sm:order-2" />
+      <Integrations className="sm:order-2" />
       <div className="mt-11 flex items-center gap-9 2xl:gap-8 xl:mt-10 md:mt-9 md:gap-5 sm:order-1 sm:mt-8">
         <Button
           href={Route.REQUEST_DEMO}

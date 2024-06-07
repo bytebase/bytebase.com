@@ -2,7 +2,7 @@ import Route from './route';
 
 export const MENU = {
   header: [
-    { title: 'Why Bytebase🤔', href: Route.DOCS },
+    { title: '🫱 Why Bytebase', href: Route.DOCS },
     {
       title: 'Features',
       items: [
@@ -80,14 +80,45 @@ export const MENU = {
         iconName: 'tutorial',
       },
     },
-    { title: 'Pricing', href: Route.PRICING },
     {
-      title: 'Enterprise',
-      href: Route.CONTACTS,
+      title: 'Industries',
+      items: [
+        {
+          name: 'Financial Services',
+          description: '',
+          linkUrl: Route.INDUSTRY_FINANCIAL_SERVICES,
+          iconName: '',
+        },
+        {
+          name: 'Technology',
+          description: '',
+          linkUrl: Route.INDUSTRY_TECHNOLOGY,
+          iconName: '',
+        },
+        {
+          name: 'Manufacturing',
+          description: '',
+          linkUrl: Route.INDUSTRY_MANUFACTURING,
+          iconName: '',
+        },
+        {
+          name: 'Gaming',
+          description: '',
+          linkUrl: Route.INDUSTRY_GAMING,
+          iconName: '',
+        },
+        {
+          name: 'Web3',
+          description: '',
+          linkUrl: Route.INDUSTRY_WEB3,
+          iconName: '',
+        },
+      ],
     },
+    { title: 'Pricing', href: Route.PRICING },
   ],
   mobile: [
-    { title: 'Why Bytebase🤔', href: Route.DOCS },
+    { title: '🫱 Why Bytebase', href: Route.DOCS },
     {
       title: 'Features',
       items: [
@@ -164,11 +195,42 @@ export const MENU = {
         },
       ],
     },
-    { title: 'Pricing', href: Route.PRICING },
     {
-      title: 'Enterprise',
-      href: Route.CONTACTS,
+      title: 'Industries',
+      items: [
+        {
+          name: 'Financial Services',
+          description: '',
+          linkUrl: Route.INDUSTRY_FINANCIAL_SERVICES,
+          iconName: '',
+        },
+        {
+          name: 'Technology',
+          description: '',
+          linkUrl: Route.INDUSTRY_TECHNOLOGY,
+          iconName: '',
+        },
+        {
+          name: 'Manufacturing',
+          description: '',
+          linkUrl: Route.INDUSTRY_MANUFACTURING,
+          iconName: '',
+        },
+        {
+          name: 'Gaming',
+          description: '',
+          linkUrl: Route.INDUSTRY_GAMING,
+          iconName: '',
+        },
+        {
+          name: 'Web3',
+          description: '',
+          linkUrl: Route.INDUSTRY_WEB3,
+          iconName: '',
+        },
+      ],
     },
+    { title: 'Pricing', href: Route.PRICING },
   ],
   footer: [
     {
@@ -233,6 +295,7 @@ export const MENU = {
         { name: 'vs. Metabase', linkUrl: Route.VS_METABASE },
         { name: 'vs. CloudBeaver', linkUrl: Route.VS_CLOUDBEAVER },
         { name: 'vs. schemachange', linkUrl: Route.VS_SCHEMACHANGE },
+        { name: 'vs. Jira', linkUrl: Route.VS_JIRA },
       ],
     },
     {

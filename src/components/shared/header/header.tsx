@@ -143,7 +143,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                       <div className="relative flex items-center gap-x-[30px] rounded-lg border border-gray-80 bg-white p-4 pl-8 shadow-menu before:absolute before:-top-[8.5px] before:left-11 before:h-4 before:w-4 before:rotate-45 before:rounded-tl before:border-l before:border-t before:border-gray-80 before:bg-white">
                         <ul className="flex flex-col">
                           {items?.map(({ name, linkUrl, description, iconName }) => {
-                            const Icon = icons[iconName];
+                            const Icon = iconName ? icons[iconName] : null;
                             return (
                               <li key={name} className="pt-6 first:pt-2">
                                 <Link
@@ -156,7 +156,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                                 >
                                   <div className="flex flex-col gap-y-2.5">
                                     <div className="flex items-center gap-x-2 group-hover/link:text-primary-1">
-                                      <Icon className="h-5 w-5 shrink-0" />
+                                      {Icon && <Icon className="h-5 w-5 shrink-0" />}
                                       <span className="font-medium tracking-tight">{name}</span>
                                     </div>
                                     <span className="text-16 leading-normal text-gray-40">

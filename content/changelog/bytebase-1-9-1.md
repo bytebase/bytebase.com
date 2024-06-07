@@ -32,4 +32,4 @@ description: '- Support data access control. - Schema Editor for MySQL. - Check 
   - [What is Database Change Management (DCM)?](/blog/what-is-database-change-management)
   - [How to Handle Database Schema Change?](/blog/how-to-handle-database-schema-change)
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

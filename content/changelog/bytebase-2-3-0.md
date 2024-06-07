@@ -35,4 +35,4 @@ description: 'SQL Review for Snowflake. Mask data for Oracle. Export Center for 
 - [Evolution](/blog/top-database-schema-change-tool-evolution/) of database schema change tools.
 - 🐘 We recently migrated to Neon for [SQL Chat](http://sqlchat.ai)'s setup. See [our journey](/blog/migrating-postgres-from-render-to-neon/).
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

@@ -20,9 +20,12 @@ interface Props {
 }
 
 export default function RootLayout({ params: { locale }, children }: Props) {
+  const hostname = process.env.NEXT_PUBLIC_DEFAULT_SITE_URL;
+
   return (
     <html className="h-full">
       <head>
+        {!hostname?.includes('bytebase.com') && <meta name="robots" content="noindex, nofollow" />}
         {/* Next.js doesn't support metadata in not-found yet, viewport comes with metadata */}
         <meta
           name="viewport"

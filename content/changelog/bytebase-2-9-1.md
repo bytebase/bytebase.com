@@ -31,4 +31,4 @@ description: 'Group changes into a changelist and apply them in one issue or exp
 
 - Data Masking can helps organizations to protect sensitive data from being exposed to unauthorized users. Learn how with this tutorial: [Step-by-Step Guide to Data Masking](/docs/tutorials/data-masking/).
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

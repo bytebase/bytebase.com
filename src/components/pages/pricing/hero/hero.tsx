@@ -28,7 +28,7 @@ const cards: TCard[] = [
     buttonText: 'Deploy in 5 Minutes',
     buttonTheme: 'primary-outline',
     buttonLink: '/docs/get-started/self-host/#docker',
-    planConditions: ['Up to 10 users', 'Up to 5 database instances', 'Community support'],
+    planConditions: ['Up to 20 users', 'Up to 10 database instances', 'Community support'],
   },
   {
     image: '/images/page/pricing/team.webp',
@@ -41,8 +41,8 @@ const cards: TCard[] = [
     buttonTheme: 'primary-outline',
     buttonLink: Route.PRO_PAYMENT,
     planConditions: [
-      'Up to 20 users',
-      'Up to 10 database instances',
+      'Unlimited users',
+      'Up to 20 database instances',
       'Rollout policy',
       'Email support',
     ],

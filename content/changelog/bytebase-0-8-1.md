@@ -15,4 +15,4 @@ published_at: 2021/11/15 08:40:56
 - New wizard on home page.
 - Properly populate instance default host in create instance form.
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

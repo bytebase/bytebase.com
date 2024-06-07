@@ -31,4 +31,4 @@ description: Allow schema review policy configuration for the environment. Add a
 
 - Thanks to [@unknwon](https://github.com/unknwon) for [PR: feat: implement FetchCommitByID for GitHub VCS provider](https://github.com/bytebase/bytebase/pull/1417)
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

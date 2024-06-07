@@ -42,4 +42,4 @@ Now every PR will create a unique preview environment. This makes it easy to col
 
 - Thanks to @Juneezee 's PR [refactor: move from io/ioutil to io and os packages](https://github.com/bytebase/bytebase/pull/264)
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

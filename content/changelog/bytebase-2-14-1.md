@@ -40,4 +40,4 @@ description: 'Support Branching for Oracle.'
 
 - ⚙️ GitOps is a modern approach to manage infrastructure that emphasizes automation, collaboration, and continuous delivery. In this post, we are reviewing several [open-source GitOps tools](/blog/top-open-source-gitops-tools/).
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

@@ -39,4 +39,4 @@ In the previous version, Bytebase couldn't sync the migration history properly b
 - Thanks [@chenliang](https://github.com/chenliang) for providing a detailed bug report for MySQL compatibility issue and even suggesting the fix.
 - Thanks [@yaohui-wyh](https://github.com/yaohui-wyh) for the contribution.
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

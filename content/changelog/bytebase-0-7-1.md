@@ -19,4 +19,4 @@ This is a security fix release. Please consider upgrading it.
 
 - Thanks [@jiweiyuan](https://github.com/jiweiyuan) to fix our first [good first issue](https://github.com/bytebase/bytebase/issues/11)
 
-_To install, follow [installation doc](/docs/get-started/install/overview). If you are upgrading from a previous version, restart after obtaining the latest release binary._
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

@@ -377,65 +377,6 @@ volumes:
 
 Please follow the [Persistent volumes and dynamic provisioning](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes).
 
-## Installation Script
-
-Estimated time: **5 minutes**.
-
-The installation script is stored at [https://github.com/bytebase/install](https://github.com/bytebase/install).
-
-**Prerequisites**
-
-1. Install [curl](https://curl.se/download.html).
-2. Install [tar](https://www.gnu.org/software/tar/).
-
-### Install
-
-Using install script to install the latest release version:
-
-```text
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/bytebase/install/main/install.sh)"
-```
-
-If no error occurs, you should see something like this in the console:
-
-```plain
-OS: Darwin
-ARCH: arm64
-Password:
-Get bytebase latest version: %%bb_version%%
-Downloading tarball into /var/folders/j4/9x356cb9263f2jryv0xs9pnr0000gn/T/tmp.g1C2PJ8U
-Start downloading https://github.com/bytebase/bytebase/releases/download/%%bb_version%%/bytebase_%%bb_version%%_Darwin_arm64.tar.gz...
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
-100 81.3M  100 81.3M    0     0  3972k      0  0:00:20  0:00:20 --:--:-- 5430k
-Completed downloading https://github.com/bytebase/bytebase/releases/download/%%bb_version%%/bytebase_%%bb_version%%_Darwin_arm64.tar.gz
-Start extracting tarball into /opt/bytebase...
-Start installing bytebase and bb %%bb_version%%
-Installed bytebase %%bb_version%% to /usr/local/bin
-Installed bb %%bb_version%% to /usr/local/bin
-
-Check the usage with
-  bytebase --help
-  bb --help
-```
-
-### Run
-
-After install completes, run:
-
-```text
-bytebase --port 8080
-```
-
-You should see something like this in the console:
-
-<IncludeBlock url="/docs/get-started/install/terminal-startup-output-success"></IncludeBlock>
-
-#### Troubleshoot
-
-If you encounter any error when you install bytebase by using install script, welcome to open issue on [bytebase/install repository](https://github.com/bytebase/install).
-
 ## Build from Source
 
 <HintBlock type="info">
@@ -448,32 +389,27 @@ customers.
 **Prerequisites**
 
 1. Install [pnpm](https://pnpm.io/installation), Bytebase requires Node.js >=17.0.
-2. Install [Go](https://golang.org/dl/), Bytebase requires Go >= 1.16
+1. Install [Go](https://golang.org/dl/), Bytebase requires Go >= 1.16
+1. It's recommended to run Bytebase application as non-root user for security reason. If you don't have other non-root users on the system, you can follow the following steps to create one, e.g. user `bytebase`.
 
-### Environment Setup
+   ```text
+   groupadd bytebase && useradd -g bb bytebase
+   ```
 
-It's recommended to run Bytebase application as non-root user for security reason. If you don't have other non-root users on the system, you can follow the following steps to setup one, e.g. user `bytebase`.
-
-```text
-groupadd bytebase && useradd -g bb bytebase
-```
-
-```text
-sudo su bytebase
-```
-
-### Build
+   ```text
+   sudo su bytebase
+   ```
 
 Download [source code](https://github.com/bytebase/bytebase) from GitHub, then go to the source root directory
 
 <HintBlock type="info">
 
-If you want to build from a specific release `x.y.z`, then switch to that tag.
+If you want to build from a specific release such as `%%bb_version%%`, then switch to that release tag.
 
 </HintBlock>
 
 ```text
-git checkout tags/x.y.z
+git checkout tags/%%bb_version%%
 ```
 
 Build the source
@@ -508,10 +444,10 @@ ulimit -n 10240
 
 ## Deploy to PaaS
 
-### [Deploy to render](/docs/get-started/install/deploy-to-render/)
+- [Deploy to render](/docs/get-started/install/deploy-to-render/)
 
-### [Deploy to sealos](/docs/get-started/install/deploy-to-sealos/)
+- [Deploy to sealos](/docs/get-started/install/deploy-to-sealos/)
 
-### [Deploy to Rainbond](/docs/get-started/install/deploy-to-rainbond/)
+- [Deploy to Rainbond](/docs/get-started/install/deploy-to-rainbond/)
 
-### [Deploy to Zeabur](/docs/get-started/install/deploy-to-zeabur/)
+- [Deploy to Zeabur](/docs/get-started/install/deploy-to-zeabur/)
