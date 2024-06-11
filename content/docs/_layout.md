@@ -95,9 +95,9 @@ expand_section_list: ['Self-host']
 
 ## [Batch Change](/change-database/batch-change)
 
-## [Branching](/branching)
-
 ## [Changelist](/changelist)
+
+## [Branching](/branching)
 
 ---
 
