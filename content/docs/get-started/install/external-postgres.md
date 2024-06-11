@@ -29,38 +29,24 @@ By default, Bytebase bundles an embedded PostgreSQL instance for storing its own
 
 ## Connection string format for PG_URL
 
-Supported format:
+**Supported format:**
 
-- _postgresql://\<\<user>>:\<\<secret>>@\<\<host>>:\<\<port>>/\<\<dbname>\>_
+_postgresql://\<\<user>>:\<\<secret>>@\<\<host>>:\<\<port>>/\<\<dbname>\>_
 
-Example:
+**Example:**
 
-- _postgresql://bytebase:z\*3kd2@example.com:5432/meta_
+_postgresql://bytebase:z\*3kd2@example.com:5432/meta_
 
-### Notes
-
-- `user` must be specified.   
-- `dbname` must be specified and must be created in advance. The connecting `user` must have all the database privileges mentioned above.
-- `host`. If you **run Bytebase inside Docker** and want to connect the pg intance on the same host, then you need to use `host.docker.internal`.
-
-## Docker Sample
-
-This bash script demonostrates how to add an external PostgreSQL database as metadata storage when running bytebase container. 
-
-```bash
-   docker run \
-      --init \
-      -e PG_URL=<PG_URL> \
-      --rm \
-      --name bytebase \
-      --publish 8080:8080 --pull always \
-      --volume ~/.bytebase/data:/var/opt/bytebase \
-      bytebase/bytebase:2.18.0
-```
 <HintBlock type="info">
 
-Change the <PG_URL> to yours!!!
+- `user` must be specified.
+- `dbname` must be specified and must be created in advance. The connecting `user` must have all the database privileges mentioned above.
+- `host`. If you **run Bytebase inside Docker** and want to connect the pg instance on the same host, then you need to use `host.docker.internal`.
 
 </HintBlock>
 
+## Docker Sample
 
+This bash script demonstrates how to add an external PostgreSQL database as the metadata store when running the bytebase container.
+
+<IncludeBlock url="/docs/get-started/install/terminal-docker-run-external-url"></IncludeBlock>
