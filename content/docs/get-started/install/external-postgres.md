@@ -4,7 +4,7 @@ title: Configure External PostgreSQL
 
 By default, Bytebase bundles an embedded PostgreSQL instance for storing its own metadata. The metadata is stored under the [--data](/docs/reference/command-line#--data-directory) directory.
 
-**For production setup, you should supply [--pg](/docs/reference/command-line#--pg-string) or pass PG_URL environment variable to store these metadata in an external PostgreSQL database.**
+**For production setup, you should pass PG_URL environment variable to store these metadata in an external PostgreSQL database.**
 
 ## Prerequisites
 
@@ -27,27 +27,40 @@ By default, Bytebase bundles an embedded PostgreSQL instance for storing its own
    - ALTER DATABASE dbname OWNER TO bytebase;
    - ALTER SCHEMA public OWNER TO bytebase;
 
-## --pg connection string
-
-<HintBlock type="info">
-
-Alternatively, you can also pass PG_URL environment variable.
-
-</HintBlock>
+## Connection string format for PG_URL
 
 Supported format:
 
 - _postgresql://\<\<user>>:\<\<secret>>@\<\<host>>:\<\<port>>/\<\<dbname>\>_
 
-- _postgresql://\<\<user>>:\<\<secret>>@\<\<host>>:\<\<port>>/\<\<dbname>>?sslrootcert=\<\<root.pem>\>_
-
 Example:
 
 - _postgresql://bytebase:z\*3kd2@example.com:5432/meta_
-- _postgresql://bytebase:z\*3kd2@example.com:5432/meta?sslrootcert=root.pem_
 
 ### Notes
 
-- `user` must be specified.
+- `user` must be specified.   
 - `dbname` must be specified and must be created in advance. The connecting `user` must have all the database privileges mentioned above.
 - `host`. If you **run Bytebase inside Docker** and want to connect the pg intance on the same host, then you need to use `host.docker.internal`.
+
+## Docker Sample
+
+This bash script demonostrates how to add an external PostgreSQL database as metadata storage when running bytebase container. 
+
+```bash
+   docker run \
+      --init \
+      -e PG_URL=<PG_URL> \
+      --rm \
+      --name bytebase \
+      --publish 8080:8080 --pull always \
+      --volume ~/.bytebase/data:/var/opt/bytebase \
+      bytebase/bytebase:2.18.0
+```
+<HintBlock type="info">
+
+Change the <PG_URL> to yours!!!
+
+</HintBlock>
+
+
