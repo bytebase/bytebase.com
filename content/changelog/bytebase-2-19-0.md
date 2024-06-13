@@ -20,7 +20,7 @@ description: 'Support DynamoDB'
   
 ## 🎄 Enhancements
 
-- Manage instance and environment in SQL Editor.
+- Support managing instances and environments in SQL Editor.
 - Support specifying the maximum role expiration time for querier and exporter.
 - Enhance SQL Review Rule for SQL Server: Catch sp_rename in Backward Compatibility check.
 - Support querying sequence for PostgreSQL in SQL Editor.
