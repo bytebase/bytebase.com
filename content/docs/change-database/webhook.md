@@ -15,11 +15,63 @@ User can configure project-level webhooks to let Bytebase post messages to the c
 - `Issue info change` - Post message when issue's basic info such as assignee, title, description has been changed.
 - `Issue comment creation` - Post message when new comment added to the issue.
 
+The following events support sending direct message to related users, you must enable the `Enable direct messages` option to enable this feature.
+
+- `Issue approval needed` - Post message when issue needs approval.
+- `Issue approved` - Post message when issue has been approved.
+- `Issue rollout needed` - Post message when issue needs rollout.
+
 ## Supported webhook endpoints
 
 ### Slack
 
 [Official guide](https://api.slack.com/messaging/webhooks)
+
+#### Configure sending direct messages to related users
+
+1. Go to [https://api.slack.com/apps](https://api.slack.com/apps).
+1. Click **Create New App**.
+1. Choose **From an app manifest**.
+1. Pick your workspace to develop the app and click **Next**.
+1. Replace the existing JSON with this manifest content and click **Next**.
+    ```JSON
+    {
+      "display_information": {
+          "name": "Bytebase Bot"
+      },
+      "features": {
+          "bot_user": {
+              "display_name": "Bytebase Bot",
+              "always_online": false
+          }
+      },
+      "oauth_config": {
+          "scopes": {
+              "bot": [
+                  "users:read",
+                  "users:read.email",
+                  "channels:manage",
+                  "groups:write",
+                  "im:write",
+                  "chat:write",
+                  "mpim:write"
+              ]
+          }
+      },
+      "settings": {
+          "org_deploy_enabled": false,
+          "socket_mode_enabled": false,
+          "token_rotation_enabled": false
+      }
+    }
+    ```
+
+1. Click **Create**.
+1. Click **Install to Workspace** and click **Allow**.
+1. Go to **Features > OAuth & Permissions** and copy the **Bot User OAuth Token**.
+1. Go back to Bytebase and paste the **Bot User OAuth Token** to the **Token** field under **Integration > IM**.
+1. Go to **Integration > Webhooks** in a project, add a webhook, check all the events you want to send direct messages, and click **Create**.
+
 
 ### Discord
 
