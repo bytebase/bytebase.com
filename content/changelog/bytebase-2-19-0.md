@@ -10,8 +10,8 @@ description: 'Support DynamoDB'
 
 - Support DynamoDB.
 - Support standalone SQL review issue.
-- Support Slack direct messages for issue activities.
-- Support prior backup for PostgreSQL.
+- Support [Slack direct messages for issue activities](/docs/change-database/webhook/#supported-events).
+- Support [prior backup for PostgreSQL](/docs/change-database/rollback-data-changes/).
 - Add SQL Review Rule for SQL Server: Disallow redundant indexes.
 
 ## 🔔 Breaking Changes
