@@ -7,18 +7,23 @@ Bytebase officially supports the following major versions for each supported dat
 
 - MySQL, Aurora MySQL - 5.7 and above
 - PostgreSQL, Aurora PostgreSQL, AlloyDB - 12.0 and above
-- TiDB - 5.0 and above
-- ClickHouse - 21.0 and above
-- Snowflake
-- Redshift
-- MongoDB - 4.0 and above
-- Spanner
-- Redis - 6.0 and above
 - Oracle - 11g and above
 - Microsoft SQL Server - 2019 and above
-- MariaDB - 10.7 and above
+- Snowflake
+- ClickHouse - 21.0 and above
+- MongoDB - 4.0 and above
+- Redis - 6.0 and above
+- TiDB - 5.0 and above
 - OceanBase - 3.x and above, both MySQL and Oracle modes
+- Spanner
+- Redshift
+- MariaDB - 10.7 and above
+- StarRocks
 - RisingWave - 1.x and above
+- Hive
+- Elasticsearch
+- BigQuery
+- DynamoDB
 
 Bytebase usually works fine with older database versions, we just won't support features specific to those older versions. We may add other open source databases in the future.
 
