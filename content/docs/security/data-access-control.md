@@ -30,5 +30,3 @@ At the workspace level, the `Workspace Admin` or `Workspace DBA` can configure t
 - Go to **Environments**, If **Disable copy data from SQL editor** is checked, then no one can copy data from databases belonging to that environment via SQL Editor.
 
    ![bb-env-ac](/content/docs/security/data-access-control/bb-env-ac.webp)
-
-   ![bb-sql-editor-copy-allow](/content/docs/security/data-access-control/bb-sql-editor-copy-allow.webp)
