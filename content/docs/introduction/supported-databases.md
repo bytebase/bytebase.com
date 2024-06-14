@@ -50,27 +50,6 @@ Bytebase usually works fine with older database versions, we just won't support 
 
 _\* Data Rollback supports `UPDATE` and `DELETE` statements._
 
-### Advanced Schema Management
-
-_Bytebase is trailblazing the schema management landscape. Each database engine requires non-trivial investment. If you are looking for a feature not supported in your database, please [contact us](/docs/faq/#how-to-reach-us)._
-
-| Feature    | [Branching](/docs/branching) | [Schema Synchronization](/docs/change-database/synchronize-schema) | [Schema Editor](/docs/change-database/schema-editor) | [Online Schema Change](/docs/change-database/online-schema-migration-for-mysql) |
-| ---------- | ---------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------- | ------------------------------------------------------------------------------- |
-| MySQL      | ✔️                           | ✔️                                                                 | ✔️                                                   | ✔️                                                                              |
-| PostgreSQL | ✔️                           | ✔️                                                                 | ✔️                                                   |                                                                                 |
-| TiDB       | ✔️                           | ✔️                                                                 | ✔️                                                   |                                                                                 |
-| ClickHouse |                              |                                                                    |                                                      |
-| Snowflake  |                              |                                                                    |                                                      |
-| Redshift   |                              |                                                                    |                                                      |
-| MongoDB    |                              |                                                                    |                                                      |
-| Spanner    |                              |                                                                    |                                                      |
-| Redis      |                              |                                                                    |                                                      |
-| Oracle     |                              | ✔️                                                                 |                                                      |
-| SQL Server |                              |                                                                    |                                                      |
-| MariaDB    |                              |                                                                    |                                                      |
-| OceanBase  |                              |                                                                    |                                                      |
-| RisingWave |                              |                                                                    |                                                      |
-
 ### SQL Editor
 
 | Feature    | [Sheet Management](/docs/sql-editor/manage-sql-scripts) | [Query Mode](/docs/sql-editor/run-queries) | [Admin Mode](/docs/sql-editor/admin-mode) | [Batch Query](/docs/sql-editor/batch-query) | [ChatSQL](/docs/sql-editor/chatsql) |
@@ -130,3 +109,24 @@ work around this by configuring a [readonly connection](/docs/get-started/instan
 | MariaDB    | ✔️                 | ✔️                                                       |                                          |
 | OceanBase  | ✔️                 | ✔️                                                       |                                          |
 | RisingWave | ✔️                 | ✔️                                                       |                                          |
+
+### Advanced Schema Management
+
+_Bytebase is trailblazing the schema management landscape. Each database engine requires non-trivial investment. If you are looking for a feature not supported in your database, please [contact us](/docs/faq/#how-to-reach-us)._
+
+| Feature    | [Branching](/docs/branching) | [Schema Synchronization](/docs/change-database/synchronize-schema) | [Schema Editor](/docs/change-database/schema-editor) | [Online Schema Change](/docs/change-database/online-schema-migration-for-mysql) |
+| ---------- | ---------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------- | ------------------------------------------------------------------------------- |
+| MySQL      | ✔️                           | ✔️                                                                 | ✔️                                                   | ✔️                                                                              |
+| PostgreSQL | ✔️                           | ✔️                                                                 | ✔️                                                   |                                                                                 |
+| TiDB       | ✔️                           | ✔️                                                                 | ✔️                                                   |                                                                                 |
+| ClickHouse |                              |                                                                    |                                                      |
+| Snowflake  |                              |                                                                    |                                                      |
+| Redshift   |                              |                                                                    |                                                      |
+| MongoDB    |                              |                                                                    |                                                      |
+| Spanner    |                              |                                                                    |                                                      |
+| Redis      |                              |                                                                    |                                                      |
+| Oracle     |                              | ✔️                                                                 |                                                      |
+| SQL Server |                              |                                                                    |                                                      |
+| MariaDB    |                              |                                                                    |                                                      |
+| OceanBase  |                              |                                                                    |                                                      |
+| RisingWave |                              |                                                                    |                                                      |
