@@ -2,6 +2,12 @@
 title: Upgrade
 ---
 
+<HintBlock type="warning">
+
+Make sure to back up the metadata before upgrading. You need the old version metadata to downgrade if needed.
+
+</HintBlock>
+
 ## Upgrade Process
 
 Take Docker as an example:
@@ -13,19 +19,15 @@ Take Docker as an example:
    docker rm bytebase
    ```
 
-1. Back up the Bytebase metadata
+1. 🚨 Back up the Bytebase metadata
 
-   <HintBlock type="warning">
-
-   Below example backs up the metadata stored in the embedded database.
-   If you store metadata in the [external PostgreSQL](/docs/get-started/install/external-postgres/), you should
-   back up that database.
-
-   </HintBlock>
-
-   ```text
+   ```bash
    cp -rp ~/.bytebase/data ~/.bytebase/data.bak
    ```
+
+   Above example backs up the metadata stored in the embedded database.
+   If you store metadata in the [external PostgreSQL](/docs/get-started/install/external-postgres/), you should
+   back up that database.
 
 1. Change version string to %%bb_version%%
 1. Start Bytebase
