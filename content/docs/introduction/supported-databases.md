@@ -54,22 +54,22 @@ _\* Data Rollback supports `UPDATE` and `DELETE` statements._
 
 _Bytebase is trailblazing the schema management landscape. Each database engine requires non-trivial investment. If you are looking for a feature not supported in your database, please [contact us](/docs/faq/#how-to-reach-us)._
 
-| Feature    | [Branching](/docs/branching) | [Schema Synchronization](/docs/change-database/synchronize-schema) | [State-based Migration](/docs/change-database/state-based-migration) | [Schema Editor](/docs/change-database/schema-editor) | [Online Schema Change](/docs/change-database/online-schema-migration-for-mysql) |
-| ---------- | ---------------------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------- |
-| MySQL      | ✔️                           | ✔️                                                                 | ✔️                                                                   | ✔️                                                   | ✔️                                                                              |
-| PostgreSQL | ✔️                           | ✔️                                                                 |                                                                      | ✔️                                                   |                                                                                 |
-| TiDB       | ✔️                           | ✔️                                                                 |                                                                      | ✔️                                                   |                                                                                 |
-| ClickHouse |                              |                                                                    |                                                                      |                                                      |
-| Snowflake  |                              |                                                                    |                                                                      |                                                      |
-| Redshift   |                              |                                                                    |                                                                      |                                                      |
-| MongoDB    |                              |                                                                    |                                                                      |                                                      |
-| Spanner    |                              |                                                                    |                                                                      |                                                      |
-| Redis      |                              |                                                                    |                                                                      |                                                      |
-| Oracle     |                              |✔️                                                                 |                                                                      |                                                      |
-| SQL Server |                              |                                                                    |                                                                      |                                                      |
-| MariaDB    |                              |                                                                    |                                                                      |                                                      |
-| OceanBase  |                              |                                                                    |                                                                      |                                                      |
-| RisingWave |                              |                                                                    |                                                                      |                                                      |
+| Feature    | [Branching](/docs/branching) | [Schema Synchronization](/docs/change-database/synchronize-schema) | [Schema Editor](/docs/change-database/schema-editor) | [Online Schema Change](/docs/change-database/online-schema-migration-for-mysql) |
+| ---------- | ---------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------- | ------------------------------------------------------------------------------- |
+| MySQL      | ✔️                           | ✔️                                                                 | ✔️                                                   | ✔️                                                                              |
+| PostgreSQL | ✔️                           | ✔️                                                                 | ✔️                                                   |                                                                                 |
+| TiDB       | ✔️                           | ✔️                                                                 | ✔️                                                   |                                                                                 |
+| ClickHouse |                              |                                                                    |                                                      |
+| Snowflake  |                              |                                                                    |                                                      |
+| Redshift   |                              |                                                                    |                                                      |
+| MongoDB    |                              |                                                                    |                                                      |
+| Spanner    |                              |                                                                    |                                                      |
+| Redis      |                              |                                                                    |                                                      |
+| Oracle     |                              | ✔️                                                                 |                                                      |
+| SQL Server |                              |                                                                    |                                                      |
+| MariaDB    |                              |                                                                    |                                                      |
+| OceanBase  |                              |                                                                    |                                                      |
+| RisingWave |                              |                                                                    |                                                      |
 
 ### SQL Editor
 

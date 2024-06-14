@@ -10,7 +10,6 @@ description: '- ChatSQL: convert natural language to SQL, credit to OpenAI. - Su
 
 - ChatSQL: Use natural language and have it converted to SQL by Bytebase. Powered by OpenAI ⚡️.
 - Support [Two-Factor Authentication](/docs/administration/2fa) (2FA) for login.
-- Support [State-based Migration](/docs/change-database/state-based-migration) for MySQL in GitOps workflow (Beta).
 - Added support for [Redis](/docs/introduction/supported-databases) ❤️.
 
 ## 🎄 Enhancements

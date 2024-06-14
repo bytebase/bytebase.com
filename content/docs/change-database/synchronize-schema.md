@@ -1,5 +1,5 @@
 ---
-title: Synchronize Schema
+title: Schema Synchronization
 ---
 
 <HintBlock type="info">
@@ -11,21 +11,19 @@ Syncing from arbitrary schema versions is available in the Pro Plan and Enterpri
 
 <TutorialBlock url="/docs/tutorials/how-to-synchronize-database-schemas" title="How to Synchronize Database Schemas" />
 
-<HintBlock type="warning">
+Bytebase supports synchronizing a specified schema version of one database to others. It displays the schema differences between the two selected databases and generates the suggested DDL statements (e.g. ALTER TABLE). You can:
 
-This feature is in beta. It only supports MySQL, PostgreSQL, TiDB, and Oracle.
+- Propagate the schema changes from the test database to your prod database.
+- Revert the database schema to an old version.
 
-MySQL currently supports `Table`, `Index`, `Constraint`, `View`, `Event`, `Trigger`, `Function`, and `Procedure`.
+## Supported Objects
 
-PostgreSQL currently supports `Schema`, `Table`, `Index`, `Constraint`, `Sequence`, `Extension`, `Function`, `Trigger`, and `Enum Type`.
-
-TiDB currently supports `Table`, `Index`, `Constraint`, and `View`.
-
-Oracle currently supports `Table`, `Index`, and `Constraint`.
-
-</HintBlock>
-
-Bytebase supports synchronizing a specified schema version of one database to others. To provide a better user experience, Bytebase displays the schema differences between the two selected databases and generates the suggested DDL statements (e.g. ALTER TABLE).
+| Database   | Objects                                                                                               |
+| ---------- | ----------------------------------------------------------------------------------------------------- |
+| MySQL      | `Table`, `Index`, `Constraint`, `View`, `Event`, `Trigger`, `Function`, `Procedure`                   |
+| PostgreSQL | `Schema`, `Table`, `Index`, `Constraint`, `Sequence`, `Extension`, `Function`, `Trigger`, `Enum Type` |
+| TiDB       | `Table`, `Index`, `Constraint`, `View`                                                                |
+| Oracle     | `Table`, `Index`, `Constraint`                                                                        |
 
 ## How to use
 
