@@ -21,8 +21,6 @@ For **Enterprise Plan**, you can also request **Project Querier** role on **Data
    ![bb-project-apply-exporter](/content/docs/security/data-query-and-export/bb-project-apply-exporter.webp)
 
    ![bb-project-request-export-issue](/content/docs/security/data-query-and-export/bb-project-request-export-issue.webp)
-
-
 ## One-time Export Request
 
 Sometimes, you only need to export data once. In this case, you can request a one-time export in the **Export Center**.
