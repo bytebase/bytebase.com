@@ -2,36 +2,55 @@
 title: Data Export Approval Flow
 ---
 
-**Project Owner** can always export data directly from the result panel in SQL Editor. However, for **Project Exporter**, the behavior is different depending on the plan.
-   ![bb-request-export-owner](/content/docs/security/data-query-and-export/bb-request-export-owner.webp)
-## Enterprise Plan
+There are two ways to export data:
 
-You need to have **Project Querier** role first, and then click **Request Export** either from the result panel in SQL Editor or from project page.
-   ![bb-request-export-querier-sql-editor](/content/docs/security/data-query-and-export/bb-request-export-querier-sql-editor.webp)
+- Obtain the **Project Exporter** role to export frequently.
+- Request a one-time export in the **Export Center**.
 
-   ![bb-homepage-request-export](/content/docs/security/data-query-and-export/bb-homepage-request-export.webp)
+## Project Exporter Role
 
-### Request Export
+**Project Owner** can always export data directly from the result panel in SQL Editor. You, as a developer, in order to view the result and export in SQL Editor, must have both [**Project Querier**](/docs/security/data-query) (to query and view the result) and **Project Exporter** roles.
+   ![bb-sql-editor-export](/content/docs/security/data-query-and-export/bb-sql-editor-export.webp)
 
-1. After clicking **Request Export**, fill out the relevant form. There're two methods: `SQL` and `Databases`.
-   ![bb-request-export-sql-db](/content/docs/security/data-query-and-export/bb-request-export-sql-db.webp)
+**Project Owner** can assign the **Project Exporter** role to users on **Manage > Members** in the project.
 
-2. Click **Create** to submit the request and wait for approval.
-   ![bb-request-export-waiting](/content/docs/security/data-query-and-export/bb-request-export-waiting.webp)
+   ![bb-project-members-grant](/content/docs/security/data-query-and-export/bb-project-members-grant.webp)
 
-### Download in Export Center
-Once the request is approved, you can go to the **Export Center** to download the exported file.
+For **Enterprise Plan**, you can also request **Project Querier** role on **Database > Databases** in the project.
+
+   ![bb-project-apply-exporter](/content/docs/security/data-query-and-export/bb-project-apply-exporter.webp)
+
+   ![bb-project-request-export-issue](/content/docs/security/data-query-and-export/bb-project-request-export-issue.webp)
+
+
+## One-time Export Request
+
+Sometimes, you only need to export data once. In this case, you can request a one-time export in the **Export Center**.
+
+1. There are two entries: one is **Export Center** within a project and the other is in the global **Export Center**.
+
+   ![bb-project-export-center](/content/docs/security/data-query-and-export/bb-project-export-center.webp)
 
    ![bb-export-center](/content/docs/security/data-query-and-export/bb-export-center.webp)
 
-   The export action only supports one-time export. If you need to export again, you need to submit a new request.
+1. After clicking **Request Export**, select the database and click **Next**.
 
-## Free or Pro Plan
-- **Project Querier** can't download data nor request export. The only way to export data is to ask **Project Owner** to assign **Project Exporter** role to you.
+   ![bb-export-data-select-db](/content/docs/security/data-query-and-export/bb-export-data-select-db.webp)
 
-   ![bb-export-sql-editor-no-perm](/content/docs/security/data-query-and-export/bb-export-sql-editor-no-perm.webp)
+1. An issue preview will be displayed. Fill in the SQL to query the data, and click **Run checks** to auto-run SQL review. Select the **Format**, enable **Encrypt** if needed and click **Create**.
 
-- **Project Exporter** can export data directly from the result panel in SQL Editor. You need to have **Project Querier** role first to access data and the result panel.
-### Add Exporter Role Manually
+   ![bb-1-export-preview](/content/docs/security/data-query-and-export/bb-1-export-preview.webp)
 
-As a **Project Owner**, you can go to the project, and click **Members** tab. Find the user, click `+`  and choose **Project Exporter**. 
+1. The issue will be created. By configuring [custom approval](/docs/administration/custom-approval/), it will match the corresponding approvers.
+
+   ![bb-1-export-created](/content/docs/security/data-query-and-export/bb-1-export-created.webp)
+
+1. After the corresponding approvers approve the issue, you can click **Export** to download the exported file.
+
+   ![bb-1-export-export](/content/docs/security/data-query-and-export/bb-1-export-export.webp)
+
+1. The exported issues will be displayed in the **Export Center**.
+
+   ![bb-1-export-project-list-export](/content/docs/security/data-query-and-export/bb-1-export-project-list-export.webp)
+
+   ![bb-1-export-list-export](/content/docs/security/data-query-and-export/bb-1-export-list-export.webp)
