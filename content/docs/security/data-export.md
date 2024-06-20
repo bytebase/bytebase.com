@@ -16,7 +16,7 @@ There are two ways to export data:
 
    ![bb-project-members-grant](/content/docs/security/data-query-and-export/bb-project-members-grant.webp)
 
-For **Enterprise Plan**, you can also request **Project Querier** role on **Database > Databases** in the project.
+For **Enterprise Plan**, you can also request **Project Exporter** role on **Database > Databases** in the project.
 
    ![bb-project-apply-exporter](/content/docs/security/data-query-and-export/bb-project-apply-exporter.webp)
 
