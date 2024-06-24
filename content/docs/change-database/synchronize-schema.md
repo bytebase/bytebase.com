@@ -18,12 +18,12 @@ Bytebase supports synchronizing a specified schema version of one database to ot
 
 ## Supported Objects
 
-| Database   | Objects                                                                                               |
-| ---------- | ----------------------------------------------------------------------------------------------------- |
-| MySQL      | `Table`, `Index`, `Constraint`, `View`, `Event`, `Trigger`, `Function`, `Procedure`                   |
-| PostgreSQL | `Schema`, `Table`, `Index`, `Constraint`, `Sequence`, `Extension`, `Function`, `Trigger`, `Enum Type` |
-| TiDB       | `Table`, `Index`, `Constraint`, `View`                                                                |
-| Oracle     | `Table`, `Index`, `Constraint`                                                                        |
+| Database   | Objects                                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------------------- |
+| MySQL      | `Table`, `Index`, `Constraint`, `View`, `Event`, `Trigger`, `Function`, `Procedure`                           |
+| PostgreSQL | `Schema`, `Table`, `Index`, `Constraint`, `View`, `Sequence`, `Extension`, `Function`, `Trigger`, `Enum Type` |
+| TiDB       | `Table`, `Index`, `Constraint`, `View`                                                                        |
+| Oracle     | `Table`, `Index`, `Constraint`                                                                                |
 
 ## How to use
 
