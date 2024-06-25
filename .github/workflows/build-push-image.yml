@@ -16,18 +16,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Login to DockerHub
+      - name: Login to Aliyun Container Registry
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: registry.cn-shanghai.aliyuncs.com
+          username: ${{ secrets.ALIYUN_USERNAME }}
+          password: ${{ secrets.ALIYUN_PASSWORD }}
       - name: Docker build and push
         id: docker_build
         uses: docker/build-push-action@v5
         with:
           file: Dockerfile
           push: true
-          tags: bytebase/website
+          tags: registry.cn-shanghai.aliyuncs.com/bytebase/website
           build-args: |
             SITE_URL=${{ secrets.SITE_URL }}
             ALGOLIA_WEBHOOK_SECRET=${{ secrets.ALGOLIA_WEBHOOK_SECRET }}
