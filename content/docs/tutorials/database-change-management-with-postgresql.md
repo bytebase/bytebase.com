@@ -42,7 +42,7 @@ Before you start, make sure you have [Docker](https://www.docker.com/) installed
 
 1. Make sure your Docker daemon is running, and start the Bytebase Docker container with following command:
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
 
 2. Bytebase is now running via Docker, and you can access it via `localhost:8080`.
    ![docker](/content/docs/tutorials/database-change-management-with-postgresql/docker.webp)

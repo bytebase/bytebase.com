@@ -38,7 +38,7 @@ You’ll need two Bytebase accounts –  one **Owner** and one **Developer**.
 
 1. Make sure your docker daemon is running, and then start the Bytebase docker container by typing the following command in the terminal.
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
 
 ### Step 2 - Register accounts Owner and Developer
 

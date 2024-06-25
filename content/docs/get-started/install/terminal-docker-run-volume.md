@@ -1,8 +1,8 @@
 ---
-title: Terminal Docker Run With Volume
+title: Terminal Docker Run with Volume
 ---
 
-```text
+```bash
 docker run --rm --init \
   --name bytebase \
   --publish 8080:8080 --pull always \

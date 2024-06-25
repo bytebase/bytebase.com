@@ -27,7 +27,7 @@ unlock new capabilities of deploying schema migrations and this tutorial will wa
 
 1. Make sure your Docker is running, and start the Bytebase Docker container with the following command:
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
 
 2. Bytebase is running successfully in Docker, and you can visit it via `localhost:8080`. Register an admin account and it will be granted the `workspace admin` role automatically.
 

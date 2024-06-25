@@ -37,7 +37,7 @@ The API example repository is at https://github.com/bytebase/api-example
 
 1. Make sure your Docker daemon is running. Copy and paste the commands to start Bytebase.
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
 
 1. Bytebase is now running via Docker, and you can access it via `localhost:8080`. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
 

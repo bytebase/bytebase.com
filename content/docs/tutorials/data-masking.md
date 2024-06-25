@@ -27,7 +27,7 @@ Before starting, make sure you have installed [Docker](https://www.docker.com/).
 
 1. Make sure your Docker is running, and start the Bytebase Docker container with following command:
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
 
 2. Bytebase is running successfully in Docker, and you can visit it via `localhost:8080`. Register an admin account and it will be granted the `workspace admin` role automatically.
 

@@ -43,7 +43,7 @@ Before you start, make sure you have:
 
 1. Make sure your Docker is running, and start the Bytebase Docker container with following command:
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
 
 1. Bytebase is now running via Docker, and you can access it via `localhost:8080`.
    ![docker](/content/docs/tutorials/database-change-management-with-spanner/docker.webp)

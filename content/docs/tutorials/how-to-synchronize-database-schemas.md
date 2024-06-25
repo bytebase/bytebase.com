@@ -20,7 +20,7 @@ Make sure you installed [Docker](https://www.docker.com/).
 
 1. Copy and paste the commands to start one Bytebase via Docker.
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run"></IncludeBlock>
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
 
 1. Register and sign in **Bytebase Console**.
 
@@ -31,11 +31,12 @@ When you set up a new environment or find the current database is nearing capaci
 1. Go into `Sample Project`, there are two databases `hr_test` on `Test` environment and `hr_prod` on `Prod` environment. Let's create another one on `Prod`.
 
 2. Click **New DB**, fill in the form as follows and click **Create**:
+
    - **Name**: `hr_prod_2`
    - **Environment**: `Prod`
    - **Instance**: `Prod Sample Instance`
    - **Database owner name**: `bbsample`
-   ![bb-new-db-prod-2](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-new-db-prod-2.webp)
+     ![bb-new-db-prod-2](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-new-db-prod-2.webp)
 
 3. An issue will be created and executed automatically, and the database `hr_prod_2` will be ready when the issue is `Done`.
    ![bb-new-db-prod-2-issue](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-new-db-prod-2-issue.webp)
@@ -57,6 +58,7 @@ When you set up a new environment or find the current database is nearing capaci
 During the product release process, for different environments, such as dev, staging and prod, you'll need to do schema synchronization. Furthermore, for the prod environment, databases with identical schemas, such as SaaS, and multi-region game deployment, you may also need to sync the schema to multiple databases at the same time.
 
 1. Within the project, select `hr_test` and click **Edit Schema**. With the help of Schema Editor, add a new column `email` as follows and click **Preview issue**:
+
    - **Name**: `email`
    - **Type**: `text`
    - **Default**: `Empty string`
@@ -95,7 +97,7 @@ In Bytebase **Community Plan**, you can choose the latest history version; In **
 1. Bytebase will calculate the schema differences between the source and target databases, and generate the suggested DDL statements. Here means if you want to roll back to the previous version, you'll need to delete this line. Click **Preview Issue**.
    ![bb-sync-rollback-preview](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-sync-rollback-preview.webp)
 
-2. Click **Create**, an issue with the generated DDL is created and rollout automatically. After the issue execution is `Done`, the schema rolls back to the previous version.
+1. Click **Create**, an issue with the generated DDL is created and rollout automatically. After the issue execution is `Done`, the schema rolls back to the previous version.
    ![bb-sync-rollback-done](/content/docs/tutorials/how-to-synchronize-database-schemas/bb-sync-rollback-done.webp)
 
 ## Summary
