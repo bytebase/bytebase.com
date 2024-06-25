@@ -32,7 +32,16 @@ Most of the time, `Admins` and `DBAs` work with the `Environment`.
 
 ## Database Instance
 
-`Database Instance` or simply `Instance` models after a single database instance which is usually accessed via a host:port address. A typical database instance could be your on-premises MySQL instance, an AWS RDS instance etc. Each `Database Instance` belongs to an `Environment`
+<HintBlock type="info">
+
+Bytebase is charged based on the **number of database instances**. If you have 1 instance containing hundreds of
+databases, it will be counted as 1. The below graph has 2 database instances, 1 for MySQL and 1 for PostgreSQL. Each instance contains 3 databases.
+
+</HintBlock>
+
+![Database Instance](/content/docs/core-concepts/db-instance-and-db.webp)
+
+`Database Instance` or simply `Instance` models after a single database instance which is usually accessed via a host:port address. A typical database instance could be your on-premises MySQL instance, an AWS RDS instance etc. Each `Database Instance` belongs to an `Environment`. A `Database Instance` can contain multiple `Databases`.
 
 Most of the time, `Admins` and `DBAs` work with the `Database Instance`.
 

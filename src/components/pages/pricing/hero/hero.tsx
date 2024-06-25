@@ -84,11 +84,16 @@ const Hero = () => (
         aria-label="You can upgrade, downgrade, or cancel your subscription anytime. No hidden charges"
         className="mt-9 text-center text-15 leading-snug text-gray-40 lg:mt-8 lg:text-14 lg:leading-tight md:mt-7 sm:mt-6"
       >
-        You can upgrade, downgrade, or{' '}
-        <Link className="lg:text-14 sm:inline" size="sm" href={Route.REFUND} theme="primary-1">
-          cancel your subscription
+        What is a{' '}
+        <Link
+          className="lg:text-14 sm:inline"
+          size="sm"
+          href={Route.DOCS_CONCEPT_DB_INSTANCE}
+          theme="primary-1"
+        >
+          Database Instance
         </Link>{' '}
-        anytime. No hidden charges.
+        ❓
       </p>
     </div>
   </section>
