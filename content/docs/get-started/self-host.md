@@ -20,7 +20,7 @@ Estimated time: **5 minutes**.
 - Docker version must be at least [20.10.24](https://docs.docker.com/engine/release-notes/20.10/#201024)
   or pass `--security-opt seccomp=unconfined` to `docker run`, otherwise, you will get `pthread_create failed` error.
 
-- If accessing from China, pull image `registry.cn-shanghai.aliyuncs.com/bytebase/bytebase:latest`.
+- If accessing from China, pull image `registry.cn-shanghai.aliyuncs.com/bytebase/bytebase:%%bb_version%%`.
 
 </HintBlock>
 
