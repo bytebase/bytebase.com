@@ -1,4 +1,7 @@
+'use client';
+
 import clsx from 'clsx';
+import { useEffect, useRef, useState } from 'react';
 
 import Button from '@/components/shared/button';
 
@@ -13,23 +16,57 @@ const PlanCard = ({
   buttonUrl,
   buttonTheme,
 }: Plan) => {
+  const [fullMode, setFullMode] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null);
   const eventProp = {
     value: title,
     position: 'card',
   };
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const containerParent = container?.parentElement;
+    if (!container || !containerParent) {
+      return;
+    }
+
+    window.addEventListener('scroll', () => {
+      const position = window.getComputedStyle(containerParent).position;
+      if (position !== 'sticky') {
+        setFullMode(true);
+        return;
+      }
+
+      const stickyTop = parseInt(window.getComputedStyle(containerParent).top, 10);
+      const rect = container.getBoundingClientRect();
+      if (rect.top <= stickyTop) {
+        setFullMode(false);
+      } else {
+        setFullMode(true);
+      }
+    });
+  }, []);
+
   return (
     <div
+      ref={containerRef}
       className={clsx(
-        'h-[276px] border border-tones-purple-dark bg-white text-center before:mb-6 before:block before:h-2 before:w-full 3xl:h-[272px] md:h-[245px] sm:h-[260px] sm:before:mb-5',
+        'border border-tones-purple-dark bg-white text-center before:mb-6 before:block before:h-2 before:w-full sm:before:mb-5',
         {
           'before:bg-[#172136]': title === 'community',
           'border-l-0 before:bg-[#3DB8F5]': title === 'pro',
-          'border-l-0 before:bg-[#5647EB]': title === 'enterprise',
+          'border-x-0 before:bg-[#5647EB]': title === 'enterprise',
         },
+        fullMode ? 'h-full border-b-0' : 'h-auto',
       )}
     >
       <div className="flex flex-col px-4 sm:px-2">
-        <h3 className="font-title text-56 capitalize leading-none xl:text-44 md:text-34">
+        <h3
+          className={clsx(
+            'font-title capitalize leading-none',
+            fullMode ? 'text-56 xl:text-44 md:text-34' : 'text-34',
+          )}
+        >
           {title}
         </h3>
         <p
@@ -39,24 +76,23 @@ const PlanCard = ({
         <Button
           className="mx-auto mt-5 w-[232px] 3xl:w-full xl:mt-4 md:mt-2 sm:mt-3"
           theme={buttonTheme}
-          size="md"
+          size={fullMode ? 'md' : 'sm'}
           href={buttonUrl}
           event={EVENTS.PLAN_CLICK}
           eventProp={eventProp}
         >
-          {buttonText}
+          <span className="text-wrap sm:text-14">{buttonText}</span>
         </Button>
-        {additionalDescription && (
-          <p className="mt-4 text-14 leading-tight tracking-tight text-gray-15 sm:mt-2.5">
+        {fullMode && additionalDescription && (
+          <p className="mt-4 text-14 leading-6 tracking-tight text-gray-15 sm:mt-2">
             {additionalDescription}
           </p>
         )}
         <div
           className={clsx(
             'w-full',
-            additionalDescription
-              ? 'mt-5 xl:mt-4 sm:mt-2.5'
-              : 'mt-[54px] xl:mt-[50px] sm:mt-[38px]',
+            additionalDescription ? 'mt-[14px]' : 'mt-[46px] sm:mt-[38px]',
+            fullMode ? '' : '!mt-5',
           )}
         />
       </div>

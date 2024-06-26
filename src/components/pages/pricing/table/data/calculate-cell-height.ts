@@ -1,5 +1,5 @@
 const extraLongLabels = ['connection'];
-const longerLabels = ['rbac', 'synchronize'];
+const longerLabels = ['synchronize'];
 const longLabels = ['schedule'];
 const mediumLabels = [
   'schema',
