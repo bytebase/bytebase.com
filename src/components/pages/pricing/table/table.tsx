@@ -48,7 +48,13 @@ const Table = () => {
             alt=""
             className="absolute -left-10 -top-[123px] max-w-none 3xl:-top-[124px] 3xl:left-0 3xl:h-auto 3xl:w-[345px] xl:-top-[83px] xl:w-[280px] md:-top-[10px] md:w-[225px] sm:-top-px xs:-left-[68px] xs:w-[204px]"
           />
-          <div className="-mr-10 flex grow flex-col pt-[252px] shadow-labels 3xl:-mr-9 3xl:pt-[251px] xl:-mr-6 xl:pt-[250px] md:-mr-5 md:pt-[227px] sm:mr-0 sm:pt-[258px] xs:pt-[236px]">
+          <div
+            className={clsx(
+              'flex grow flex-col shadow-labels',
+              '-mr-10 3xl:-mr-9 xl:-mr-6 md:-mr-5 sm:mr-0',
+              'pt-[233px] xl:pt-[237px] md:pt-[210px] sm:pt-[227px] xs:pt-[209px]',
+            )}
+          >
             {LABELS.map(({ title, items }, idx) => (
               <div
                 className="relative mt-11 border-b border-black border-opacity-10 first:mt-0 last:border-b-0"
@@ -57,7 +63,7 @@ const Table = () => {
                 <p
                   className={clsx(
                     title.length > 20 && 'flex items-center md:min-h-[50px] sm:min-h-[45px]',
-                    'text-24 font-bold leading-none xl:text-20 xl:leading-tight sm:text-18 xs:max-w-[180px]',
+                    'text-24 font-bold leading-none xl:text-20 sm:text-18 xs:max-w-[180px]',
                   )}
                 >
                   {title}
@@ -94,12 +100,20 @@ const Table = () => {
                 const currentPlan = PLANS[plan as keyof typeof PLANS];
 
                 return (
-                  <div className="shrink grow sm:w-1/3" key={`${currentPlan.title}_${idx}`}>
-                    <div className="sticky top-[128px] z-30 md:static">
+                  <div className="w-1/3 shrink grow" key={`${currentPlan.title}_${idx}`}>
+                    <div
+                      className={clsx(
+                        'sticky top-[122px] z-30 md:static',
+                        'h-[276px] 3xl:h-[272px] md:h-[245px] sm:h-[260px]',
+                        {
+                          'border-r border-tones-purple-dark': currentPlan.title === 'enterprise',
+                        },
+                      )}
+                    >
                       <PlanCard {...currentPlan} />
                     </div>
                     <div
-                      className={clsx('border border-t-0 border-tones-purple-dark', {
+                      className={clsx('border border-tones-purple-dark', {
                         'border-l-0': currentPlan.title === 'pro',
                         'border-l-0 bg-[#F9FAFF]': currentPlan.title === 'enterprise',
                       })}
