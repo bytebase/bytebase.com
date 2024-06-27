@@ -109,7 +109,7 @@ Feishu (Lark) allows to specify a list of keywords in the [security setting](htt
      - `contact:user.id:readonly`
      - `im:message:send_as_bot`
 1. Click **Create Version**.
-1. Pay attention to [app scope](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability).
+1. Configure [availability](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability).
 
 ### WeCom
 
