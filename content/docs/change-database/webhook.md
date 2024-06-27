@@ -4,7 +4,7 @@ title: Project Webhook
 
 User can configure project-level webhooks to let Bytebase post messages to the configured webhook endpoint upon various events.
 
-![project-webhook-configure](/content/docs/change-database/webhook/project-webhook-configure.webp)
+![bb-project-webhooks](/content/docs/change-database/webhook/bb-project-webhooks.webp)
 
 ## Supported events
 
@@ -15,7 +15,7 @@ User can configure project-level webhooks to let Bytebase post messages to the c
 - `Issue info change` - Post message when issue's basic info such as assignee, title, description has been changed.
 - `Issue comment creation` - Post message when new comment added to the issue.
 
-The following events support sending direct message to related users, you must enable the `Enable direct messages` option to enable this feature.
+The following events support sending direct messages/notifications to related users, you must enable the `Enable direct messages` option to enable this feature.
 
 - `Issue approval needed` - Post message when issue needs approval.
 - `Issue approved` - Post message when issue has been approved.
@@ -100,6 +100,16 @@ DingTalk allows to specify a list of keywords in the [security setting](https://
 Feishu (Lark) allows to specify a list of keywords in the [security setting](https://www.feishu.cn/hc/zh-CN/articles/360024984973#lineguid-RahdJr) to protect webhook endpoint. You can add "Bytebase" to that keyword list.
 
 </HintBlock>
+
+#### Configure sending direct notifications to related users
+
+1. Got to [https://open.feishu.cn/app](https://open.feishu.cn/app).
+1. Click **Create Custom App**, fill the form and click **Create**.
+1. Click **Permisions & Scopes** on the left sidebar, find and add the following permissions:
+     - `contact:user.id:readonly`
+     - `im:message:send_as_bot`
+1. Click **Create Version**.
+1. Pay attention to [app scope](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability).
 
 ### WeCom
 
