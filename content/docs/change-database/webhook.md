@@ -103,7 +103,7 @@ Feishu (Lark) allows to specify a list of keywords in the [security setting](htt
 
 #### Configure sending direct notifications to related users
 
-1. Got to [https://open.feishu.cn/app](https://open.feishu.cn/app).
+1. Go to [https://open.feishu.cn/app](https://open.feishu.cn/app).
 1. Click **Create Custom App**, fill the form and click **Create**.
 1. Click **Permisions & Scopes** on the left sidebar, find and add the following permissions:
      - `contact:user.id:readonly`
