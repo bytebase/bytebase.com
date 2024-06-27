@@ -10,18 +10,12 @@ Bytebase will call that endpoint during the lifecycle of custom approval flow.
 
 That endpoint needs to implement the following methods:
 
+<HintBlock type="info">
+
+For API details, check the [source code](https://github.com/bytebase/bytebase/blob/release/%%bb_version%%/backend/plugin/app/relay/relay_client.go).
+
+</HintBlock>
+
 - [POST /approval](#post-approval) to create the external approval flow
 - [PATCH /approval/:id](#patch-approvalid) to update the external approval flow
 - [GET /approval/:id](#get-approvalid) to sync the external approval flow
-
-## POST /approval
-
-TBD
-
-## PATCH /approval/:id
-
-TBD
-
-## GET /approval/:id
-
-TBD
