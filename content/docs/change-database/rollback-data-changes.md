@@ -15,7 +15,7 @@ Bytebase does **Prior Backup** before a data change (`UPDATE`,`DELETE`) is made.
 
 1. Before creating the issue, turn on the **Prior Backup** switch.
 
-   ![update](/content/docs/change-database/rollback-data-changes/bb-update.webp)
+   ![bb-on-prior-backup](/content/docs/change-database/rollback-data-changes/bb-on-prior-backup.webp)
 
 1. Create the issue and click **Rollout**. Scroll down, you'll find the comment with the backup information.
 
