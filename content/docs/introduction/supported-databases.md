@@ -24,6 +24,7 @@ Bytebase officially supports the following major versions for each supported dat
 - Elasticsearch
 - BigQuery
 - DynamoDB
+- Databricks
 
 Bytebase usually works fine with older database versions, we just won't support features specific to those older versions. We may add other open source databases in the future.
 

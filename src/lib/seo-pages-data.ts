@@ -112,6 +112,13 @@ const SEO_PAGES_DATA = {
     linkUrl: 'https://www.oceanbase.com/en/',
     linkTarget: '_blank',
   },
+  DATABRICKS: {
+    title: 'Databricks + Bytebase',
+    description: 'Databricks database change management built for DevOps and team collaboration.',
+    linkText: 'More about Databricks',
+    linkUrl: 'https://www.databricks.com/',
+    linkTarget: '_blank',
+  },
   GITLAB: {
     title: 'GitLab + Bytebase GitOps',
     description:

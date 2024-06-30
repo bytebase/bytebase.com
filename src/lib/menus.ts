@@ -249,6 +249,7 @@ export const MENU = {
         { name: 'OceanBase', linkUrl: Route.DATABASE_OCEANBASE },
         { name: 'Google Spanner', linkUrl: Route.DATABASE_SPANNER },
         { name: 'MariaDB', linkUrl: Route.DATABASE_MARIADB },
+        { name: 'Databricks', linkUrl: Route.DATABASE_DATABRICKS },
       ],
     },
     {

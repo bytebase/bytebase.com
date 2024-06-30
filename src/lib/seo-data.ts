@@ -243,6 +243,12 @@ const SEO_DATA = {
       'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
     pathname: `${Route.DATABASE_SPANNER}/`,
   },
+  DATABRICKS: {
+    title: 'Manage Databricks change management with Bytebase',
+    description:
+      'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
+    pathname: `${Route.DATABASE_DATABRICKS}/`,
+  },
   GITLAB: {
     title: 'Integration with GitLab',
     description:

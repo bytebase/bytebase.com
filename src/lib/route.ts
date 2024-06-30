@@ -105,6 +105,7 @@ const Route = {
   DATABASE_MARIADB: '/database/mariadb',
   DATABASE_SPANNER: '/database/spanner',
   DATABASE_OCEANBASE: '/database/oceanbase',
+  DATABASE_DATABRICKS: '/database/databricks',
 
   // integrations
   INTEGRATION_GITLAB: '/integration/gitlab',
