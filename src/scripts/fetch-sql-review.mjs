@@ -12,14 +12,14 @@ const writeFileAsync = promisify(writeFile);
 
 const FILES_FOLDER = './data/sql-review';
 const LOCALIZATION_FOLDER = './data/locales';
-const CONSOLE_VERSION_FOR_SQL_REVIEW = 'main';
+const CONSOLE_VERSION_FOR_SQL_REVIEW = 'main/frontend/src';
 const URL = 'https://raw.githubusercontent.com/bytebase/bytebase';
 
 const input = [
-  `${URL}/${CONSOLE_VERSION_FOR_SQL_REVIEW}/frontend/src/types/${SCHEMA_FILE}`,
-  `${URL}/${CONSOLE_VERSION_FOR_SQL_REVIEW}/backend/plugin/advisor/config/${PROD_TEMPLATE}`,
-  `${URL}/${CONSOLE_VERSION_FOR_SQL_REVIEW}/backend/plugin/advisor/config/${DEV_TEMPLATE}`,
-  `${URL}/${CONSOLE_VERSION_FOR_SQL_REVIEW}/frontend/src/locales/sql-review/en-US.json`,
+  `${URL}/${CONSOLE_VERSION_FOR_SQL_REVIEW}/types/${SCHEMA_FILE}`,
+  `${URL}/${CONSOLE_VERSION_FOR_SQL_REVIEW}/types/${PROD_TEMPLATE}`,
+  `${URL}/${CONSOLE_VERSION_FOR_SQL_REVIEW}/types/${DEV_TEMPLATE}`,
+  `${URL}/${CONSOLE_VERSION_FOR_SQL_REVIEW}/locales/sql-review/en-US.json`,
 ];
 
 const output = [
