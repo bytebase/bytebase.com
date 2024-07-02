@@ -3,7 +3,7 @@ import fs from 'fs';
 import jsYaml from 'js-yaml';
 import path from 'path';
 
-import { GuidelineTemplate, RuleTemplate } from '@/types/sql-review';
+import { GuidelineTemplate, RawRuleTemplate, RuleTemplate } from '@/types/sql-review';
 
 export const sqlReviewSchema: any = jsYaml.load(
   fs.readFileSync(path.resolve(`data/sql-review/sql-review-schema.yaml`), 'utf8'),
@@ -19,8 +19,14 @@ const sqlReviewDevTemplate = jsYaml.load(
 
 // Build the frontend template list based on schema and template.
 export const getGuidelineTemplateList = (): GuidelineTemplate[] => {
-  const ruleSchemaMap = (sqlReviewSchema.ruleList as RuleTemplate[]).reduce((map, ruleSchema) => {
-    map.set(ruleSchema.type, ruleSchema);
+  const ruleSchemaMap = (sqlReviewSchema as RawRuleTemplate[]).reduce((map, ruleSchema) => {
+    if (!map.has(ruleSchema.type)) {
+      map.set(ruleSchema.type, {
+        ...ruleSchema,
+        engineList: [],
+      });
+    }
+    map.get(ruleSchema.type)?.engineList.push(ruleSchema.engine);
     return map;
   }, new Map<string, RuleTemplate>());
   const templateList = [sqlReviewProdTemplate, sqlReviewDevTemplate] as {
