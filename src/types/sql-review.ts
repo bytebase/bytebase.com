@@ -33,13 +33,20 @@ export type RuleCategory = {
   ruleList: RuleTemplate[];
 };
 
-export type RuleTemplate = {
+interface BaseReviewRule {
   type: string;
   category: string;
-  engineList: string[];
   componentList?: RuleConfigComponent[];
   level: keyof typeof RuleLevel;
-};
+}
+
+export interface RawRuleTemplate extends BaseReviewRule {
+  engine: string;
+}
+
+export interface RuleTemplate extends BaseReviewRule {
+  engineList: string[];
+}
 
 export type ActiveFilters = {
   template: GuidelineTemplate;
