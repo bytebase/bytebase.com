@@ -150,7 +150,7 @@ Neon hasn't accumulated many standard database integrations yet. But Neon's uniq
 
 ## Compliance
 
-PlanetScale has [SOC 2 Type 2 and HIPAA](https://planetscale.com/docs/concepts/security). Neon has completed [SOC 2 Type 1](https://neon.tech/docs/security/security-overview) so far.
+PlanetScale has [SOC2 Type 2 and HIPAA](https://planetscale.com/docs/concepts/security). Neon has completed [SOC2 Type 2](https://neon.tech/docs/security/security-overview).
 
 ## Open Source
 
