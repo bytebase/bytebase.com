@@ -24,11 +24,11 @@ const cards: TCard[] = [
     image: '/images/page/pricing/free.webp',
     planTitle: 'community',
     price: 'Free',
-    description: 'Establish Process',
+    description: 'Process Standarization',
     buttonText: 'Deploy in 5 Minutes',
     buttonTheme: 'primary-outline',
     buttonLink: '/docs/get-started/self-host/#docker',
-    planConditions: ['Up to 20 users', 'Up to 10 database instances', 'Community support'],
+    planConditions: ['Community support', 'Up to 20 users', 'Up to 10 database instances'],
   },
   {
     image: '/images/page/pricing/team.webp',
@@ -41,10 +41,10 @@ const cards: TCard[] = [
     buttonTheme: 'primary-outline',
     buttonLink: Route.PRO_PAYMENT,
     planConditions: [
+      'Email support',
       'Unlimited users',
       'Up to 20 database instances',
       'Rollout policy',
-      'Email support',
     ],
   },
   {
@@ -57,11 +57,11 @@ const cards: TCard[] = [
     buttonTheme: 'primary-filled',
     buttonLink: '/contact-us',
     planConditions: [
+      'SLA support',
       'Unlimited users',
       'Unlimited database instances',
       'SSO and 2FA',
       'Audit log',
-      'SLA support',
     ],
   },
 ];

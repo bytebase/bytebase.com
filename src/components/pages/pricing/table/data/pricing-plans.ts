@@ -10,7 +10,7 @@ const COLORS = {
 const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   free: {
     title: 'community',
-    description: `Establish Process`,
+    description: `Process Standarization`,
     buttonText: 'Deploy in 5 Minutes',
     buttonTheme: 'primary-outline',
     buttonUrl: '/docs/get-started/self-host/#docker',
