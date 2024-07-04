@@ -80,7 +80,7 @@ Also there are quite a few SaaS boilerplates based on Supabase.
 
 ## Compliance
 
-Both Neon and Supabase achieves SOC2 Type 2:
+Both Neon and Supabase achieves SOC2 Type 2. Supabase is additionally HIPAA compliant, a requirement for storing health data such as medical records:
 
 - [Neon security](https://neon.tech/docs/security/security-overview)
 - [Supabase security](https://supabase.com/security)
