@@ -105,7 +105,7 @@ CU (1vCPU, 4 GB RAM), and can scale from 0.25 to 8 CU.
 If you want a Postgres database without whistles and bells, Neon is almost the perfect database a developer would desire. It has serverless, branching, auto-scaling.
 
 If you want 100% Postgres compatibility or are looking to build a full-stack application, Supabase has everything
-you need. It has database, auth, API.
+you need. It has database, auth, APIs, and more.
 
 <HintBlock type="info">
 
