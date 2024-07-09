@@ -50,7 +50,7 @@ database with various middlewares.
 
 ## Compatibility
 
-Both Neon and Supabase are mostly compatible with the vanilla Postgres. They bear the limitations as
+Neon is mostly compatible with vanilla Postgres whereas Supabase is a dedicated vanilla Postgres instance. They both bear the limitations of
 a hosted database service (e.g. no superuser).
 
 - [Neon compatibility](https://neon.tech/docs/reference/compatibility)
@@ -80,7 +80,7 @@ Also there are quite a few SaaS boilerplates based on Supabase.
 
 ## Compliance
 
-Both Neon and Supabase achieves SOC2 Type 2:
+Both Neon and Supabase achieves SOC2 Type 2. Supabase is additionally HIPAA compliant, a requirement for storing health data such as medical records:
 
 - [Neon security](https://neon.tech/docs/security/security-overview)
 - [Supabase security](https://supabase.com/security)
@@ -104,8 +104,8 @@ CU (1vCPU, 4 GB RAM), and can scale from 0.25 to 8 CU.
 
 If you want a Postgres database without whistles and bells, Neon is almost the perfect database a developer would desire. It has serverless, branching, auto-scaling.
 
-If you don't care too much about the Postgres genre and want to build a full-stack application, Supabase has everything
-you need. It has database, auth, API. In the future, it could also be possible that Supabase offers Neon as a database option.
+If you're looking for a dedicated Postgres instance or are looking to build a full-stack application, Supabase has everything
+you need. It has database, auth, APIs, and more.
 
 <HintBlock type="info">
 
