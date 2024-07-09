@@ -34,22 +34,26 @@ A simple classification definition
     {
       "id": "1-1",
       "title": "Basic",
-      "description": ""
+      "description": "",
+      "levelId": "1"
     },
     {
       "id": "1-2",
       "title": "Assert",
-      "description": ""
+      "description": "",
+      "levelId": "1"
     },
     {
       "id": "1-3",
       "title": "Contact",
-      "description": ""
+      "description": "",
+      "levelId": "2"
     },
     {
       "id": "1-4",
       "title": "Health",
-      "description": ""
+      "description": "",
+      "levelId": "2"
     },
     {
       "id": "2",
@@ -59,12 +63,14 @@ A simple classification definition
     {
       "id": "2-1",
       "title": "Social",
-      "description": ""
+      "description": "",
+      "levelId": "1"
     },
     {
       "id": "2-2",
       "title": "Business",
-      "description": ""
+      "description": "",
+      "levelId": "1"
     }
   ]
 }
