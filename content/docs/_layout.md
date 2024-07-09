@@ -83,7 +83,7 @@ expand_section_list: ['Self-host']
 
 ### [Global Masking Rule](/security/data-masking/global-masking-rule)
 
-### [Column Data Masking](/security/data-masking/column-masking)
+### [Column Masking](/security/data-masking/column-masking)
 
 ### [Data Classification](/security/data-masking/data-classification)
 
