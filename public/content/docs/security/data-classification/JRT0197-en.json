@@ -1,0 +1,2396 @@
+{
+  "title": "Financial industry data classification and classification",
+  "levels": [
+    {
+      "id": "1",
+      "title": "Level 1",
+      "description": ""
+    },
+    {
+      "id": "2",
+      "title": "level 2",
+      "description": ""
+    },
+    {
+      "id": "3",
+      "title": "Level 3",
+      "description": ""
+    },
+    {
+      "id": "4",
+      "title": "level 4",
+      "description": ""
+    }
+  ],
+  "classifications": [
+    {
+      "id": "1",
+      "title": "Customer - Individual",
+      "description": ""
+    },
+    {
+      "id": "2",
+      "title": "Customer - unit",
+      "description": ""
+    },
+    {
+      "id": "3",
+      "title": "Business - Account Information",
+      "description": ""
+    },
+    {
+      "id": "4",
+      "title": "Business - Fiat Digital Currency Wallet Information",
+      "description": ""
+    },
+    {
+      "id": "5",
+      "title": "Business - Contractual Agreement",
+      "description": ""
+    },
+    {
+      "id": "6",
+      "title": "Business - Financial Regulation and Services",
+      "description": ""
+    },
+    {
+      "id": "7",
+      "title": "Business - Transaction Information",
+      "description": ""
+    },
+    {
+      "id": "8",
+      "title": "Operations Management - Service Information",
+      "description": ""
+    },
+    {
+      "id": "9",
+      "title": "Operations Management - Operations Management Information",
+      "description": ""
+    },
+    {
+      "id": "10",
+      "title": "Operations Management - Operational Risk Management Information",
+      "description": ""
+    },
+    {
+      "id": "11",
+      "title": "Operations Management - Operation Technology Management Information",
+      "description": ""
+    },
+    {
+      "id": "12",
+      "title": "Operations Management - Integrated Operations Management Information",
+      "description": ""
+    },
+    {
+      "id": "13",
+      "title": "Supervision - Data reporting",
+      "description": ""
+    },
+    {
+      "id": "14",
+      "title": "Regulation - Data Collection",
+      "description": ""
+    },
+    {
+      "id": "1-1",
+      "title": "personal natural information",
+      "description": ""
+    },
+    {
+      "id": "1-1-1",
+      "title": "Basic personal profile information",
+      "description": "Refers to basic personal information data, such as personal name, gender, nationality, personal identity data related to the Foreign Account Taxpayer Act (FATCA), ethnicity, marital status, certificate type, certificate number, certificate effective date, certificate expiration date, home address ",
+      "levelId": "3"
+    },
+    {
+      "id": "1-1-2",
+      "title": "personal property information",
+      "description": "Refers to personal property data, such as personal income status, status of real estate owned, status of vehicles owned, tax amount, provident fund payment amount, personal social security and medical insurance payment amount, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "1-1-3",
+      "title": "Personal contact information",
+      "description": "Refers to various personal communication contact data, such as mobile phone, landline phone, email address, WeChat ID, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "1-1-4",
+      "title": "Personal health and physiological information",
+      "description": "Refers to relevant record data generated during the treatment of a person's illness, such as symptoms, hospitalization records, medical orders, test reports, surgery and anesthesia records, nursing records, medication records, drug and food allergy information, fertility information, past medical history, diagnosis and treatment status, ",
+      "levelId": "4"
+    },
+    {
+      "id": "1-1-5",
+      "title": "Personal location information",
+      "description": "It refers to the geographical location data that can specifically locate an individual, such as the usual location and current location in the country, city, region, street, longitude and latitude, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "1-1-6",
+      "title": "Personal education information",
+      "description": "Refers to the record data of an individual’s education, such as the date of admission, date of graduation, name of the school attended, department of the school attended, academic qualifications, degree and subject information, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "1-1-7",
+      "title": "Personal and professional information",
+      "description": "Refers to personal employment history data, such as work unit, work start date, work end date, position, work location, income (including income value), etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "1-1-8",
+      "title": "Personal qualification certificate information",
+      "description": "Refers to the record data of an individual's qualification certificate, such as the number of the qualification certificate, issuing authority, effective date, expiration date, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "1-1-9",
+      "title": "Personal political party information",
+      "description": "Refers to data related to personal political outlook, such as party affiliation, time of joining the party, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "1-2",
+      "title": "Personally Identifiable Information",
+      "description": ""
+    },
+    {
+      "id": "1-2-1",
+      "title": "traditional authentication information",
+      "description": "Refers to the data relied on by various conventional personal identification technical means, such as bank card track (or chip equivalent information), card verification code (CVN and CVN2), card validity period, bank card password, payment password, account (including but not ",
+      "levelId": "4"
+    },
+    {
+      "id": "1-2-2",
+      "title": "Weakly private biometric information",
+      "description": "Refers to weakly private personal biometric sample data and characteristic value data used for identity authentication, such as face, voiceprint, gait, earprint, eyeprint, handwriting, etc.",
+      "levelId": "4"
+    },
+    {
+      "id": "1-2-3",
+      "title": "Strong privacy biometric information",
+      "description": "Refers to strong privacy personal biometric sample data and feature value data used for identity authentication, such as fingerprints, iris, etc.",
+      "levelId": "4"
+    },
+    {
+      "id": "1-2-4",
+      "title": "Identification auxiliary information",
+      "description": "Refers to data that assists in identity authentication, such as dynamic passwords, SMS verification codes, answers to password prompt questions, dynamic voiceprint passwords, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "1-3",
+      "title": "personal information",
+      "description": ""
+    },
+    {
+      "id": "1-3-1",
+      "title": "personal credit information",
+      "description": "Refers to personal credit history record data, such as personal loan information, personal repayment information, personal arrears information and other data generated by individuals in the credit process.",
+      "levelId": "3"
+    },
+    {
+      "id": "1-3-2",
+      "title": "Personal judicial information",
+      "description": "Refers to judicial information record data related to individuals, such as information on dishonest persons subject to execution, information on persons subject to execution, court opening information, case filing announcement information, criminal records, records of violations of laws and regulations, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "1-4",
+      "title": "personal relationship information",
+      "description": ""
+    },
+    {
+      "id": "1-4-1",
+      "title": "personal relationship information",
+      "description": "Refers to record data used to describe the relationship between an individual and his or her related parties, such as children, parents, siblings, spouse, social relationships, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "1-4-2",
+      "title": "intercompany relationship information",
+      "description": "Refers to record data used to describe the relationship between an individual and related parties of the unit, such as legal representative, financial person in charge, business managers, general employees, senior executives, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "1-5",
+      "title": "personal behavior information",
+      "description": ""
+    },
+    {
+      "id": "1-5-1",
+      "title": "behavioral information",
+      "description": "Refers to behavioral data when a business relationship occurs, such as describing customers' consultation, purchase or use of products of financial institutions through online banking, mobile banking, APP, counters, account managers, remote banking, emails, text messages, social networks, auxiliary channels, etc. ",
+      "levelId": "2"
+    },
+    {
+      "id": "1-6",
+      "title": "Personal tag information",
+      "description": ""
+    },
+    {
+      "id": "1-6-1",
+      "title": "Basic label information",
+      "description": "Refers to label data used to describe an individual based on basic personal attribute information, such as personal labels constructed based on education, occupation, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "1-6-2",
+      "title": "Relationship tag information",
+      "description": "Refers to tag data constructed based on personal association attribute information to describe personal relationships, such as personal tags constructed based on family relationships, professional relationships, business relationships, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "1-6-3",
+      "title": "Signing label information",
+      "description": "It refers to the label data constructed based on the product information of financial institutions held by individuals to describe the individual's contract status, such as personal deposit labels, personal loan labels, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "1-6-4",
+      "title": "Transaction tag information",
+      "description": "Refers to tag data constructed based on personal transaction information to describe personal transaction situations, such as payment and settlement business tags, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "1-6-5",
+      "title": "Behavior tag information",
+      "description": "Refers to label data constructed based on personal behavior information to describe personal behavior, such as internal behavior labels, external behavior labels, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "1-6-6",
+      "title": "Marketing services label information",
+      "description": "Refers to label data constructed based on personal marketing service attribute information (extracted and processed from personal marketing service attributes and constructed separately to describe individual marketing services), such as marketing management labels (activity rights, whitelists, etc.), service ",
+      "levelId": "2"
+    },
+    {
+      "id": "1-6-7",
+      "title": "Risk label information",
+      "description": "Refers to label data constructed based on personal risk information (extracted and processed from personal risk information and constructed separately to describe personal risks), such as high-risk customer labels, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "1-6-8",
+      "title": "Value tag information",
+      "description": "It refers to label data formed based on the analysis of personal value (extracted and processed from information including financial product preferences, personal property status, etc., and constructed separately to describe personal value), such as comprehensive evaluation labels, product holding level labels, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "2-1",
+      "title": "Basic information of the unit",
+      "description": ""
+    },
+    {
+      "id": "2-1-1",
+      "title": "Basic overview of the unit",
+      "description": "Refers to the basic profile data of the unit, such as the name of the legal representative, company name, unified social credit code, business license, business scope, industry classification, economic type, staff size, registered capital, company address, etc.",
+      "levelId": "1"
+    },
+    {
+      "id": "2-1-2",
+      "title": "Shareholder information",
+      "description": "Refers to the information data of the main investors, such as the name of the controlling shareholder, registered capital, paid-in capital, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "2-1-3",
+      "title": "Management information",
+      "description": "Refers to the information data of the main members of the company's management and actual controllers, such as their names, certificate types, certificate numbers, contact information, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "2-1-4",
+      "title": "Unit contact information",
+      "description": "Refers to the unit’s contact information data, such as contact number, contact person, mailing address, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "2-1-5",
+      "title": "Unit financial information",
+      "description": "Refers to unit financial information data, such as operating income, total profits, asset status, liability status, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "2-2",
+      "title": "Unit identification information",
+      "description": ""
+    },
+    {
+      "id": "2-2-1",
+      "title": "traditional authentication information",
+      "description": "Refers to data used to verify that an organization has access or usage rights. ",
+      "levelId": "4"
+    },
+    {
+      "id": "2-3",
+      "title": "Unit information",
+      "description": ""
+    },
+    {
+      "id": "2-3-1",
+      "title": "Corporate credit information",
+      "description": "Refers to enterprise credit history record information, such as enterprise borrowing information, enterprise repayment information, enterprise arrears information and other data generated by enterprises in the credit process.",
+      "levelId": "3"
+    },
+    {
+      "id": "2-3-2",
+      "title": "Corporate judicial information",
+      "description": "Refers to corporate judicial-related data, such as information on dishonest persons subject to execution, information on persons subject to execution, court opening announcement information, case filing announcement information, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "2-3-3",
+      "title": "Corporate tax information",
+      "description": "Refers to corporate tax data, such as tax payment status, corporate taxpayer credit rating information, corporate value-added tax payment reduction of more than 20% year-on-year, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "2-3-4",
+      "title": "Enterprise business information",
+      "description": "It refers to the queryable data entered by the enterprise in the market supervision department, such as enterprise license information, registration date, enterprise type, shareholder and investor information, key management personnel information, enterprise external investment, etc.",
+      "levelId": "1"
+    },
+    {
+      "id": "2-4",
+      "title": "Unit relationship information",
+      "description": ""
+    },
+    {
+      "id": "2-4-1",
+      "title": "Inter-unit relationship information",
+      "description": "Refers to data describing the relationship between a unit and its related parties, such as group relationships, family businesses, mutual shareholdings, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "2-4-2",
+      "title": "public-private relationship information",
+      "description": "Refers to data describing the relationship between the unit and individual related parties, such as legal representatives, financial directors, business managers, general employees, senior executives, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "2-5",
+      "title": "Unit behavior information",
+      "description": ""
+    },
+    {
+      "id": "2-5-1",
+      "title": "behavioral information",
+      "description": "Refers to behavioral data when business relationships occur, such as when consulting, purchasing or using products or services of financial institutions through online banking, mobile banking, APP, counters, account managers, remote banking, email, text messages, social networks, auxiliary channels, etc. ",
+      "levelId": "2"
+    },
+    {
+      "id": "2-6",
+      "title": "Unit tag information",
+      "description": ""
+    },
+    {
+      "id": "2-6-1",
+      "title": "Basic label information",
+      "description": "Refers to label data constructed based on the unit's own attributes, such as financial customer labels, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "2-6-2",
+      "title": "Relationship tag information",
+      "description": "Refers to tag data constructed based on unit relationships, such as supply chain core customer tags, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "2-6-3",
+      "title": "Signing label information",
+      "description": "Refers to tag data constructed based on the unit's products and investment preferences, such as online banking contract tags, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "2-6-4",
+      "title": "Transaction tag information",
+      "description": "Refers to tag data constructed based on unit transaction information, such as settlement customer tags, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "2-6-5",
+      "title": "Behavior tag information",
+      "description": "Refers to tag data constructed based on the behavior and habits of the unit, such as customer preference tags for online banking, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "2-6-6",
+      "title": "Marketing label information",
+      "description": "Refers to the classification label data constructed for units based on marketing strategies and services, such as strategic customer labels, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "2-6-7",
+      "title": "Risk label information",
+      "description": "Refers to label data constructed based on unit risk information, such as high-risk customer labels, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "2-6-8",
+      "title": "Value tag information",
+      "description": "Refers to evaluation label data constructed based on unit value, such as customer ratings, contribution, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "3-1",
+      "title": "account information",
+      "description": ""
+    },
+    {
+      "id": "3-1-1",
+      "title": "Basic Information",
+      "description": "Refers to the basic information data of the account, such as account number, account type, margin account mark, account status, account opening institution number, account opening date, account closing date, payment mark (as a substitute value for original transaction elements such as payment account number, used to complete specific ",
+      "levelId": "2"
+    },
+    {
+      "id": "3-1-2",
+      "title": "Amount information",
+      "description": "Refers to the amount information data on the account, such as amount, balance, currency, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "3-1-3",
+      "title": "media information",
+      "description": "Refers to the media-related information data attached to the account, such as media number, card type, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "3-1-4",
+      "title": "Freeze information",
+      "description": "Refers to the relevant information data recorded when the account is frozen, such as freezing type, freezing date, frozen amount, status and other related attribute information.",
+      "levelId": "3"
+    },
+    {
+      "id": "3-1-5",
+      "title": "Unique account information",
+      "description": "Refers to account information opened by government agencies or commercial banks at the People's Bank of China. ",
+      "levelId": "2"
+    },
+    {
+      "id": "4-1",
+      "title": "Fiat digital currency wallet information",
+      "description": ""
+    },
+    {
+      "id": "4-1-1",
+      "title": "Basic Information",
+      "description": "Refers to the basic information data of the legal digital currency wallet, such as wallet ID, wallet type, wallet level, wallet name, wallet operating agency number, wallet opening date, wallet status, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-1",
+      "title": "General contract information",
+      "description": ""
+    },
+    {
+      "id": "5-1-1",
+      "title": "Basic Information",
+      "description": "Refers to the basic attribute data common to various specific businesses as stipulated in the Contract Law and the Commercial Banking Law, such as contract number, contract name, contract type, contract status, effective date, expiration date, termination date, term, amount, currency ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-1-2",
+      "title": "Contract quality inspection information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-10",
+      "title": "Insurance business information",
+      "description": ""
+    },
+    {
+      "id": "5-10-1",
+      "title": "Basic policy information",
+      "description": "Refers to the basic information of the policy in the insurance business, such as application number, policy number, insurer, policyholder, insured, beneficiary, signing date, effective date, insurance premium and payment method, special agreement, health notice, ",
+      "levelId": "3"
+    },
+    {
+      "id": "5-10-10",
+      "title": "Policy loan information",
+      "description": "Refers to data related to the customer's borrowing from the insurer with cash value guarantee, such as loan time, amount, interest rate, repayment plan, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-10-11",
+      "title": "Claims case information",
+      "description": "Refers to the data related to the claim settlement of the case, such as the person who reported the case, the person who suffered the accident, the date of the report, the time of the accident, the location of the accident, the description of the accident, the outcome of the accident, the amount of the claim, the claim materials, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-10-12",
+      "title": "Claims investigation information",
+      "description": "Refers to data related to claims investigation, such as document verification, on-site investigation, online investigation, third-party cooperation investigation, other investigation reports, investigation conclusions (such as property losses, casualties, causes of accidents, accident liability, accident third parties, etc.) ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-10-13",
+      "title": "Compensation result information",
+      "description": "Refers to documents related to compensation results, such as claim settlement conclusion, claim settlement time limit, compensation amount, recovery costs, recovery compensation, reasons for rejection of compensation, blacklist, litigation information, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-10-2",
+      "title": "Policy liability information",
+      "description": "Refers to the data on the scope of insurance protection provided by the insurer to the insured as agreed in the insurance contract. ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-10-3",
+      "title": "Property insurance subject information",
+      "description": "It refers to the tangible physical insurance subject matter with economic value, which is the bearer of insurance interests for which the policy holder requests the insurer to bear the risk and provide economic protection. ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-10-4",
+      "title": "Liability insurance subject information",
+      "description": "Refers to the subject data of liability insurance that belongs to the insured's legal financial liability to a third party, such as employer liability, product liability, public liability, etc. The specific information includes the insured company's information, operating methods, operating environment, ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-10-5",
+      "title": "Credit guarantee insurance subject information",
+      "description": "Refers to data in which the obligated party's failure to fulfill its obligations will cause the right party to suffer economic losses, such as project performance information, supply guarantee information, product quality guarantee information, loan guarantee information, employee loyalty guarantee information, export credit information, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-10-6",
+      "title": "Special risk subject information",
+      "description": "Refers to data mainly related to aviation, aerospace, nuclear power plants and petroleum development, such as address information, equipment information, driver information, etc. of related projects or projects.",
+      "levelId": "4"
+    },
+    {
+      "id": "5-10-7",
+      "title": "Underwriting information",
+      "description": "Refers to data related to the insurance underwriting process and results, such as risk survey information, underwriting conclusions, underwriting opinions, fee increases, discounts, reductions, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-10-8",
+      "title": "Preserve correction information",
+      "description": "Refers to data related to preservation (changes) carried out by Keshi to maintain the validity of the insurance contract, such as preservation modification items, reasons for changes, content of changes, impact of changes, effective time, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-10-9",
+      "title": "Sales channel fee information",
+      "description": "Refers to the fee data that needs to be paid to intermediaries and agents during the insurance sales process, such as agent commissions, agency fees, broker/agency brokerage fees, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "5-11",
+      "title": "Reinsurance business information",
+      "description": ""
+    },
+    {
+      "id": "5-11-1",
+      "title": "Reinsurance contract information",
+      "description": "Refers to the relevant data of the reinsurance contract, such as information on the ceding and ceding institutions, contract period, reinsurance reinsurance method (contract, temporary placement, etc.), reinsurance method (proportional, non-proportional, etc. information), reinsurance business type (life insurance, ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-11-2",
+      "title": "Reinsurance business details",
+      "description": "Refers to the detailed data on reinsurance business submitted by the ceding institution to the ceding institution on time, such as policy number, name of the insured, insurance subject information, insurance period, insurance conditions, insurance amount, insurance rate, insurance premium, etc., as well as reinsurance ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-11-3",
+      "title": "Reinsurance claim information",
+      "description": "Refers to the relevant data of reinsurance claims, such as reinsurance contract name and business year, insured subject risk information, insurance amount and ceding ratio, estimated compensation and estimated compensation amount information under the contract, information on the date and place of compensation occurrence, actual compensation distribution ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-11-4",
+      "title": "Reinsurance billing information",
+      "description": "Refers to the billing data of reinsurance business, such as cedent information, payer information, settlement item information, contract/provisional information, benefit amount information, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "5-12",
+      "title": "Trust business information",
+      "description": ""
+    },
+    {
+      "id": "5-12-1",
+      "title": "Trust product information",
+      "description": "Refers to the element information related to the trust products established by the trust company, such as basic information of trust products (trust product code, trust product brand, product establishment date, expected maturity date), trust product account and balance information (account category, account balance), ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-12-2",
+      "title": "Trust fundraising information",
+      "description": "Refers to information on relevant elements of trust company project fund raising, such as trust contract information (trust contract number, trustor number, amount of entrusted funds), trust beneficiary certificate information (beneficiary number, actual trust amount held, actual trust share held) ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-12-3",
+      "title": "Trust utilization information",
+      "description": "Refers to the element information related to the use of the trust company's trust property (including funds and property rights), such as property use information (use contract number, counterparty number, contract signing amount), trust guarantee contract information (guarantee contract number, total guarantee amount), trust ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-12-4",
+      "title": "inherent business information",
+      "description": "Refers to the relevant element information of the trust company's inherent business management, such as inherent fund utilization contract information (utilization fund number, investment industry and details, contract signing amount, early termination indicator), inherent guarantee contract information (guarantee contract number, guarantee contract type, ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-13",
+      "title": "Financial asset management company business information",
+      "description": ""
+    },
+    {
+      "id": "5-13-1",
+      "title": "Debt transfer contract information",
+      "description": "Refers to the information on acquisition, disposal and other agreements signed by financial asset management companies during the operation and management of non-performing assets and the contract information on the transfer of subject matter. ",
+      "levelId": "3"
+    },
+    {
+      "id": "5-13-2",
+      "title": "Asset information",
+      "description": "Refers to information on non-performing assets operated by financial asset management companies. ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-2",
+      "title": "Deposit business information",
+      "description": ""
+    },
+    {
+      "id": "5-2-1",
+      "title": "Basic Information",
+      "description": "Refers to the basic attribute data of deposit business, such as deposit business type, term type, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-2-2",
+      "title": "Interest calculation information",
+      "description": "Refers to the interest accrual related information data of the account, such as interest start date, expiration date, interest settlement method, interest accrual basis, interest accrual period, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3",
+      "title": "Loan business information",
+      "description": ""
+    },
+    {
+      "id": "5-3-1",
+      "title": "Basic Information",
+      "description": "Refers to the basic attribute information data of the loan business, such as loan type, loan purpose, loan investment direction, loan amount, loan balance, margin, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3-10",
+      "title": "Interest discount information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3-11",
+      "title": "settlement information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3-12",
+      "title": "Write-off information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3-13",
+      "title": "Vehicle Information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "3"
+    },
+    {
+      "id": "5-3-14",
+      "title": "Robbery protection information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "3"
+    },
+    {
+      "id": "5-3-15",
+      "title": "Approval information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3-16",
+      "title": "Used car information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3-17",
+      "title": "United loan information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3-18",
+      "title": "Debt information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3-19",
+      "title": "Archive information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3-2",
+      "title": "Credit information",
+      "description": "Refers to the relevant data information related to credit in loan business, such as credit type, credit purpose, credit currency, credit period, start date, end date, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3-3",
+      "title": "Warranty information",
+      "description": "Refers to data and information related to guarantees involved in loan business, such as guarantor, guarantee method, guarantee type, guarantee amount, guarantee ratio, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3-4",
+      "title": "Post repayment information",
+      "description": "Refers to data information related to loan repayment, such as loan date, loan amount, repayment method, repayment amount, repayment date, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3-5",
+      "title": "Overdue information",
+      "description": "Refers to data information related to overdue loan business, such as overdue date, overdue amount, overdue days, penalty interest rate, penalty interest amount, interest arrears amount, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3-6",
+      "title": "Exhibition information",
+      "description": "Refers to the relevant data and information of loan business involving extension, such as extension period, extension interest rate, extension amount, number of extensions, reasons for extension, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3-7",
+      "title": "Advance information",
+      "description": "Refers to relevant data and information related to advances in loan business, such as advance type, advance amount, advance date, advance interest rate, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3-8",
+      "title": "Default information",
+      "description": "Refers to relevant data and information on loan business involving default, such as type of default, date of default, payment ratio of liquidated damages, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-3-9",
+      "title": "Collection information",
+      "description": "Refers to data information related to loan collection related to loan business, such as collection methods, collection cycles, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-4",
+      "title": "Intermediary business information",
+      "description": ""
+    },
+    {
+      "id": "5-4-1",
+      "title": "Basic Information",
+      "description": "Refers to the basic attribute data information of intermediary business, such as intermediary business type, handling fee, rate, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-4-2",
+      "title": "Consulting intermediate business information",
+      "description": "Refers to financial institutions relying on their own advantages in information, talent, reputation, etc. to collect and organize relevant data, and by recording and analyzing these data and bank and customer fund movements, they form systematic information and plans and provide them to customers. ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-4-3",
+      "title": "Transactional intermediate business information",
+      "description": "Refers to data information on financial transactions carried out by financial institutions using various financial instruments to meet the needs of customers for value preservation or own risk management, such as forward foreign exchange contracts, financial futures, commodity futures, swaps and options.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-4-4",
+      "title": "Fund custody intermediary business information",
+      "description": "Refers to commercial banks with custody qualifications accepting the entrustment of fund management companies to safely keep all the assets of the funds under custody, handling fund liquidation transfers, accounting, fund valuation, and supervising the investment operations of the managers for the funds under custody. ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-4-5",
+      "title": "Payment and settlement intermediate business information",
+      "description": "It refers to the charging business data information related to currency payments and fund transfers caused by creditor-debt relationships handled by financial institutions for customers, and the payment and settlement business information of intermediary businesses, such as bill business, collection business, letter of credit business, settlement business, etc. ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-4-6",
+      "title": "Intermediate business information on guarantees and commitments",
+      "description": "Refers to the data and information of commercial banks providing guarantees for customers' debt repayment ability and assuming customer default risks, such as acceptance bills, standby letters of credit, various types of guarantee business, and the keepwell agreements provided by financial asset management companies to their member units, etc. ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-4-7",
+      "title": "Agency intermediate business information",
+      "description": "Refers to the data and information of financial institutions accepting entrustment from customers, handling economic affairs specified by customers, and providing paid financial services, as well as agency business information of intermediary businesses, such as agency financial management business, agency collection and payment business, entrusted loan business, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-4-8",
+      "title": "Bank card business information",
+      "description": "Refers to the business data information generated when using credit payment instruments issued by authorized financial institutions to the society with all or part of the functions of consumer credit, transfer settlement, cash deposit and withdrawal, etc., including information such as credit card and debit card business.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-4-9",
+      "title": "Other types of intermediate business information",
+      "description": "Refers to other intermediate business data information that cannot be classified into the above categories, such as safe deposit boxes and other information.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-5",
+      "title": "Capital business information",
+      "description": ""
+    },
+    {
+      "id": "5-5-1",
+      "title": "Basic Information",
+      "description": "Refers to the basic information data of fund transactions, such as fund transaction types, three categories of financial assets, fund sources, delivery information and other data.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-5-2",
+      "title": "Interbank fund transaction information",
+      "description": "Refers to various financial interbank business data that serve and cooperate with financial interbank customers and center on interbank financing, such as interbank lending, interbank payment and other business data information.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-5-3",
+      "title": "Self-operated capital investment information",
+      "description": "Self-operated fund investment refers to data related to businesses in which financial institutions use their own funds to invest, such as proprietary bond transactions, proprietary exchange rate transactions, proprietary interest rate transactions, proprietary derivative transactions and other business data information.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-5-4",
+      "title": "Investment banking information",
+      "description": "Refers to data related to investment banking business, which mainly includes business data information such as mergers and acquisitions, fund management, project financing, venture capital, and credit asset securitization.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-5-5",
+      "title": "Hosting business information",
+      "description": "Refers to the custody business data of a financial institution with certain qualifications as a custodian who, in accordance with relevant laws and regulations, signs an entrusted asset custody contract with the client to safely keep the entrusted investment assets and perform the relevant responsibilities of the custodian, such as entrusted asset custody, trust assets ",
+      "levelId": "2"
+    },
+    {
+      "id": "5-6",
+      "title": "Investment and financial management business information",
+      "description": ""
+    },
+    {
+      "id": "5-6-1",
+      "title": "Investment and financial management information",
+      "description": "Refers to bank investment and financial management business information, such as investment in money market instruments, bonds, non-standard assets, public funds, financial derivatives and other business information.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-7",
+      "title": "Credit card business information",
+      "description": ""
+    },
+    {
+      "id": "5-7-1",
+      "title": "Basic Information",
+      "description": "Refers to the basic information data of credit card business, such as card opening date, activation date, credit limit and cash withdrawal limit, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-7-2",
+      "title": "Cash withdrawal information",
+      "description": "Refers to the cash withdrawal data of credit card business, such as cash withdrawal date, cash withdrawal amount, remaining limit, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-7-3",
+      "title": "consumption information",
+      "description": "Refers to the consumption data of credit card business, such as consumption amount, consumption date, remaining balance, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-7-4",
+      "title": "Installment information",
+      "description": "Refers to the installment data of credit card business, such as the number of installments, installment fees, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-8",
+      "title": "Non-bank payment business information",
+      "description": ""
+    },
+    {
+      "id": "5-8-1",
+      "title": "Basic Information",
+      "description": "Refers to the basic information data of non-bank payment services, such as providing fund transaction order information generated by fund collection and payment.",
+      "levelId": "2"
+    },
+    {
+      "id": "5-9",
+      "title": "Merchant signing information",
+      "description": ""
+    },
+    {
+      "id": "5-9-1",
+      "title": "Contract information",
+      "description": "Refers to business and product-related data signed between financial institutions and merchants, such as merchant name, merchant type, business scenario, contract time, contract service provider, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "6-1",
+      "title": "Anti-money laundering business information",
+      "description": ""
+    },
+    {
+      "id": "6-1-1",
+      "title": "Classified assessment and rating information",
+      "description": "Refers to the information on the classification assessment and rating of financial institutions in anti-money laundering work. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-1-2",
+      "title": "International cooperation information",
+      "description": "Refers to information related to foreign affairs activities and international cooperation in anti-money laundering work. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-1-3",
+      "title": "Administrative regulatory information",
+      "description": "Refers to information on the performance of supervisory functions in anti-money laundering work, inspection and punishment of financial institutions. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-1-4",
+      "title": "Investigation and assistance information",
+      "description": "Refers to information that is used to investigate anti-money laundering cases on its own or assist other institutions in investigating anti-money laundering cases. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-1-5",
+      "title": "Questionnaire information",
+      "description": "Refers to information from questionnaires issued to financial institutions during anti-money laundering work. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-1-6",
+      "title": "information communication information",
+      "description": "Refers to information on notifications, exchanges, and information sharing in anti-money laundering work and with financial institutions. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-1-7",
+      "title": "Publicity and training information",
+      "description": "Refers to anti-money laundering publicity and training information in anti-money laundering business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-10",
+      "title": "Institutional management business information",
+      "description": ""
+    },
+    {
+      "id": "6-10-1",
+      "title": "Basic information for institutional business application",
+      "description": "Refers to the business information related to the organization's application. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-10-2",
+      "title": "Institutional business license certificate management information",
+      "description": "Refers to the business information managed by a series of processes such as the printing, receipt, inquiry and destruction of institutional business license certificates. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-10-3",
+      "title": "Achievements review information",
+      "description": "Refers to business information related to results review. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-10-4",
+      "title": "Institutional annual inspection information",
+      "description": "Refers to business information for annual inspections of financial institutions, including sampling information. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-11",
+      "title": "Refinancing business information",
+      "description": ""
+    },
+    {
+      "id": "6-11-1",
+      "title": "Quota management information",
+      "description": "Refers to information related to the issuance and management of refinance (including rediscount) limits. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-11-2",
+      "title": "Refinancing business management information",
+      "description": "Refers to the information generated by refinancing business, excluding business information under the payment and settlement category. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-11-3",
+      "title": "Rediscount business management information",
+      "description": "Refers to the information generated by rediscount business, excluding business information under the payment and settlement category. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-12",
+      "title": "Interest rate reporting business information",
+      "description": ""
+    },
+    {
+      "id": "6-12-1",
+      "title": "Indicator management information",
+      "description": "Refers to business information related to interest rate indicators. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-12-2",
+      "title": "exchange rate information",
+      "description": "Refers to business information related to exchange rates. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-13",
+      "title": "Real estate monitoring and analysis business information",
+      "description": ""
+    },
+    {
+      "id": "6-13-1",
+      "title": "Real estate data processing information",
+      "description": "Refers to the relevant business information for processing the collected data. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-13-2",
+      "title": "Real estate market analysis information",
+      "description": "Refers to business information such as analysis and judgment of the real estate market. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-13-3",
+      "title": "Real estate survey information",
+      "description": "Refers to business information obtained from real estate-related investigations of institutions. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-14",
+      "title": "Public opinion monitoring business information",
+      "description": ""
+    },
+    {
+      "id": "6-14-1",
+      "title": "Public opinion collection information",
+      "description": "Refers to the collected news reporting business information. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-14-2",
+      "title": "Hotspot summary information",
+      "description": "It means that the business department summarizes and summarizes hot news information and obtains new business information. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-15",
+      "title": "Administrative pre-approval business information",
+      "description": ""
+    },
+    {
+      "id": "6-15-1",
+      "title": "Matter application information",
+      "description": "Refers to business information related to administrative matters. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-15-2",
+      "title": "Matter approval information",
+      "description": "Refers to information such as approval results and notifications. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-16",
+      "title": "Cross-border payment business information",
+      "description": ""
+    },
+    {
+      "id": "6-16-1",
+      "title": "Currency purchase and sale business information",
+      "description": "Refers to the related business of RMB or foreign exchange purchases and sales between domestic and overseas entities. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-16-10",
+      "title": "Missing and late reporting of business information",
+      "description": "Refers to business information that is late or omitted in the border business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-16-2",
+      "title": "Income and expenditure business (including summary) information",
+      "description": "Refers to cross-border receipts and payments business information and related summary information. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-16-3",
+      "title": "Cross-border investment and financing business information",
+      "description": "Refers to cross-border credit financing, securities transactions, bond issuance and other business information related to investment and financing. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-16-4",
+      "title": "Cross-border guarantee business information",
+      "description": "Refers to business information related to cross-border guarantees. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-16-5",
+      "title": "Cross-border banking entity business information",
+      "description": "Refers to settlement, clearing and other business information that occurs with banks as the main body. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-16-6",
+      "title": "Cross-border two-way capital pool business information",
+      "description": "Refers to the business information that multinational enterprises adjust internal fund balances and deficiencies according to their own operating needs. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-16-7",
+      "title": "Interest rate exchange information",
+      "description": "Refers to interest rate and exchange rate information involved in cross-border related business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-16-8",
+      "title": "Node information",
+      "description": "Refers to frequently changing business information within the cross-border payment system. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-16-9",
+      "title": "Withdraw cross-border business information",
+      "description": "Refers to canceled business information in cross-border business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-17",
+      "title": "Financial consumer rights protection business information",
+      "description": ""
+    },
+    {
+      "id": "6-17-1",
+      "title": "Consult complaint management information",
+      "description": "Refers to business information generated by financial consumers’ inquiries or complaints. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-17-2",
+      "title": "Inclusive financial information",
+      "description": "Refers to business information related to work experience in developing inclusive finance. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-17-3",
+      "title": "Inclusive financial indicator management information",
+      "description": "Refers to business information entered according to the work requirements of the inclusive financial indicator system. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-17-4",
+      "title": "Case management information",
+      "description": "Refers to past case information on financial consumer protection entered into the system. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-17-5",
+      "title": "consumer education information",
+      "description": "Refers to the popularization of financial knowledge and promotion of relevant business information. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-17-6",
+      "title": "Electronic bulletin management information",
+      "description": "Refers to the release of electronically generated business information related to the protection of financial consumer rights and interests. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-17-7",
+      "title": "Supervision and inspection information",
+      "description": "Refers to the business information generated by an institution’s assessment of financial consumer rights protection, including the institution’s self-assessment and the People’s Bank of China’s assessment. ",
+      "levelId": "1"
+    },
+    {
+      "id": "6-18",
+      "title": "Financial Stability Analysis Business Information",
+      "description": ""
+    },
+    {
+      "id": "6-18-1",
+      "title": "Indicator analysis information",
+      "description": "Refers to the analysis of business information involving indicators related to financial stability. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-18-2",
+      "title": "Report processing information",
+      "description": "Refers to the business information generated by processing financial stability statements. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-2",
+      "title": "Treasury business information",
+      "description": ""
+    },
+    {
+      "id": "6-2-1",
+      "title": "Treasury revenue and expenditure information",
+      "description": "Refers to the treasury revenue and expenditure information of treasury business. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-2-2",
+      "title": "Treasury bond issuance and redemption information",
+      "description": "Refers to the treasury bond issuance and redemption information of the treasury business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-2-3",
+      "title": "Cash management information",
+      "description": "Refers to cash management information for treasury operations. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-3",
+      "title": "Currency Bullion Business Information",
+      "description": ""
+    },
+    {
+      "id": "6-3-1",
+      "title": "Banknote handling information",
+      "description": "Refers to currency sorting, re-counting, destruction and other information in currency gold and silver business. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-3-2",
+      "title": "Issue fund management information",
+      "description": "Refers to fund issuance and management information in currency gold and silver business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-3-3",
+      "title": "Gold import and export management information",
+      "description": "Refers to gold import and export management information in monetary gold and silver business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-3-4",
+      "title": "Currency management information",
+      "description": "Refers to currency quality testing, currency entry and exit statistics and other information in currency gold and silver business. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-3-5",
+      "title": "Counterfeit currency management information",
+      "description": "Refers to counterfeit currency management information in currency gold and silver business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-3-6",
+      "title": "Gold and silver physical management information",
+      "description": "Refers to information such as physical inventory and allocation of gold and silver in monetary gold and silver business. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-3-7",
+      "title": "Warehouse management information",
+      "description": "Refers to monetary gold and silver inventory, allocation and other information in the monetary gold and aluminum business. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-3-8",
+      "title": "Small denomination reservation information",
+      "description": "Refers to currency gold and silver business small and medium denomination cash reservation withdrawal business information. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-4",
+      "title": "Deposit insurance business information",
+      "description": ""
+    },
+    {
+      "id": "6-4-1",
+      "title": "Deposit insurance premium collection information",
+      "description": "Refers to the deposit insurance premium collection information in the deposit insurance business. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-4-2",
+      "title": "Rating information of deposit insurance participating institutions",
+      "description": "Refers to the information on the ratings of insured financial institutions in the deposit insurance business. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-5",
+      "title": "Identity verification business information",
+      "description": ""
+    },
+    {
+      "id": "6-5-1",
+      "title": "Non-resident identity verification information",
+      "description": "Refers to online verification business information for non-resident identity information. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-5-2",
+      "title": "Resident ID card verification information",
+      "description": "Refers to information on the online verification business of resident ID cards. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-5-3",
+      "title": "Invalid resident ID card verification information",
+      "description": "Refers to information on the online verification business of invalid resident identity cards. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-5-4",
+      "title": "Objection feedback information",
+      "description": "Refers to feedback information regarding objections to the verification results in the identity verification business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-6",
+      "title": "Credit management business information",
+      "description": ""
+    },
+    {
+      "id": "6-6-1",
+      "title": "Personal credit agency management information",
+      "description": "Refers to the management information of personal credit reporting agencies in the credit management business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-6-2",
+      "title": "Enterprise credit agency management information",
+      "description": "Refers to the management information of corporate credit reporting agencies in the credit management business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-6-3",
+      "title": "Event announcement information",
+      "description": "Indicates important event information in the credit management business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-6-4",
+      "title": "credit rating information",
+      "description": "Refers to the management information of credit rating agencies in the credit management business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-6-5",
+      "title": "Credit investigation and rights protection information",
+      "description": "Refers to information on complaints and lawsuits against credit reporting agencies in credit reporting management business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-6-6",
+      "title": "Credit system construction management information",
+      "description": "Refers to the credit system construction and management information in the credit management business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-6-7",
+      "title": "Financial credit database management information",
+      "description": "Refers to the basic database management information of financial credit information in the credit management business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-6-8",
+      "title": "Personal credit inquiry information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "3"
+    },
+    {
+      "id": "6-7",
+      "title": "Non-bank payment structure off-site supervision business information",
+      "description": ""
+    },
+    {
+      "id": "6-7-1",
+      "title": "Announcement prompt information",
+      "description": "Refers to the announcement prompt information in the off-site supervision business of non-bank payment institutions. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-7-2",
+      "title": "Reserve fund indicator review information",
+      "description": "Refers to the review information of reserve fund indicators in the off-site supervision business of non-bank payment institutions. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-7-3",
+      "title": "Risk reserve indicator review information",
+      "description": "Refers to the review information of risk reserve indicators in the off-site supervision business of non-bank payment institutions. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-7-4",
+      "title": "Review information on cost-benefit indicators of non-bank payment institutions",
+      "description": "Refers to the review information of cost-benefit indicators of non-bank payment institutions in their off-site supervision business. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-7-5",
+      "title": "Non-bank payment institution business indicator review information",
+      "description": "Refers to the review information of business indicators of non-bank payment institutions in their off-site supervision business. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-7-6",
+      "title": "Review information on asset and liability indicators of non-bank payment institutions",
+      "description": "Refers to the review information of asset and liability indicators of non-bank payment institutions in the off-site supervision business of non-bank payment institutions. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-8",
+      "title": "Payment and settlement business information",
+      "description": ""
+    },
+    {
+      "id": "6-8-1",
+      "title": "Off-balance sheet business information",
+      "description": "Refers to off-balance sheet business information in payment and settlement business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-8-10",
+      "title": "Cash and issued fund information",
+      "description": "Refers to cash and fund issuance business information in payment and settlement business. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-8-11",
+      "title": "Refinance information",
+      "description": "Refers to the re-lending business information in the settlement business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-8-12",
+      "title": "rediscount information",
+      "description": "Refers to rediscount business information in payment and settlement business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-8-13",
+      "title": "Account adjustment information",
+      "description": "Refers to information on adjusting payment and settlement business accounts. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-8-14",
+      "title": "Important blank voucher management information",
+      "description": "Refers to the management information of important blank vouchers such as checks. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-8-2",
+      "title": "Fiscal deposit information",
+      "description": "Refers to the financial deposit payment information in payment and settlement business. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-8-3",
+      "title": "Public market business information",
+      "description": "Refers to open market business information in payment and settlement business. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-8-4",
+      "title": "Account opening and closing information",
+      "description": "Refers to information on the opening and cancellation of accounts at the People's Bank of China by financial institutions in the payment and settlement business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-8-5",
+      "title": "General transfer information",
+      "description": "Refers to the transfer business information of financial institutions in payment and settlement business. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-8-6",
+      "title": "RMB deposit reserve deposit information",
+      "description": "Refers to the business information of RMB deposit reserves deposited by financial institutions in payment and settlement business. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-8-7",
+      "title": "Special deposit information",
+      "description": "Refers to special deposit business information in payment and settlement business. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-8-8",
+      "title": "City business information",
+      "description": "Refers to intra-city business information in payment and settlement business. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-8-9",
+      "title": "Foreign exchange accounting information",
+      "description": "Refers to foreign exchange accounting business information in payment and settlement business. ",
+      "levelId": "3"
+    },
+    {
+      "id": "6-9",
+      "title": "LEI manages business information",
+      "description": ""
+    },
+    {
+      "id": "6-9-1",
+      "title": "LEI registration information",
+      "description": "Refers to the business information generated by the identification code of a registered legal person. ",
+      "levelId": "2"
+    },
+    {
+      "id": "6-9-2",
+      "title": "LEI data release information",
+      "description": "Refers to the business information released to the outside world by the identification code of the legal entity. ",
+      "levelId": "2"
+    },
+    {
+      "id": "7-1",
+      "title": "General transaction information",
+      "description": ""
+    },
+    {
+      "id": "7-1-1",
+      "title": "Basic transaction information",
+      "description": "Refers to basic transaction data, such as transaction serial number, transaction date, transaction type (including financial transactions, such as deposits, remittances, etc., and non-financial transactions, such as account inquiries, password changes, etc.), transaction channels, transaction sources, transaction locations ",
+      "levelId": "2"
+    },
+    {
+      "id": "7-1-2",
+      "title": "Transaction amount information",
+      "description": "Refers to information describing the amount actually incurred in the transaction, such as transaction currency, transaction amount, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "7-1-3",
+      "title": "Counterparty information",
+      "description": "Refers to relevant data of transaction objects in trading activities, such as counterparty type, counterparty customer name, counterparty's account opening bank and account number, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "7-1-4",
+      "title": "Transaction clearing and settlement information",
+      "description": "Refers to the data used by financial institutions to handle currency payments, fund transfers and fund settlement services for customers, such as originating banks, receiving banks, payment instructions, clearing details (merchant fees, channel costs, agent profit sharing, etc.), etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "7-1-5",
+      "title": "Transaction accounting information",
+      "description": "Refers to the accounting entity’s subsequent accounting and accounting data due to the economic activities that occurred in the transaction, such as the accounting date",
+      "levelId": "2"
+    },
+    {
+      "id": "7-2",
+      "title": "Insurance payment information",
+      "description": ""
+    },
+    {
+      "id": "7-2-1",
+      "title": "Insurance charge information",
+      "description": "Refers to various fee data such as insurance premiums that customers need to pay due to underwriting or preservation modifications, such as payment items, payment accounts, amounts, payment channels, payment dates, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "7-2-2",
+      "title": "Insurance compensation and benefit information",
+      "description": "Refers to the compensation or benefits and other expense data received by the customer due to preservation approval or claim settlement, such as benefit items, amounts, payment dates, insurance recipients, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "8-1",
+      "title": "product information",
+      "description": ""
+    },
+    {
+      "id": "8-1-1",
+      "title": "New product (project) research and development information",
+      "description": "Refers to the data generated by a series of decision-making processes by financial institutions to select products that meet market needs, from product design to normal production, such as survey and research reports, ideas or creativity for developing new products, new product or variety design information, new ",
+      "levelId": "3"
+    },
+    {
+      "id": "8-1-2",
+      "title": "Basic Information",
+      "description": "Refers to the basic description data used for product management, such as product number, product name, applicable customer type, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "8-1-3",
+      "title": "Classified information",
+      "description": "Refers to the relevant data used by financial institutions to classify the products of financial institutions based on the management needs of each department and business line, based on product classification standards, and using a specific product classification business perspective, such as product classification codes, product classification names, and product classification levels. ",
+      "levelId": "2"
+    },
+    {
+      "id": "8-1-4",
+      "title": "Feature information",
+      "description": "Refers to the collection of financial product characteristics, such as term characteristics, insurance protection characteristics, amount and payment method characteristics, interest rate characteristics, insurance terms, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "8-1-5",
+      "title": "management information",
+      "description": "Refers to the data required for daily management of products, such as relevant documents for financial industry institutions to report (approval) their own products to regulatory agencies, as well as financial asset management companies’ proposed acquisition of non-performing assets and their review and approval information, post-investment management information, etc. ",
+      "levelId": "2"
+    },
+    {
+      "id": "8-1-6",
+      "title": "interest rate information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "2"
+    },
+    {
+      "id": "8-1-7",
+      "title": "Vehicle Information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "2"
+    },
+    {
+      "id": "8-2",
+      "title": "Channel information",
+      "description": ""
+    },
+    {
+      "id": "8-2-1",
+      "title": "Offline own channel information (public)",
+      "description": "Refers to store, outlet, counter, self-service equipment, insurance direct sales and other channel data, such as store name, counter name, location, contact information, etc.",
+      "levelId": "1"
+    },
+    {
+      "id": "8-2-2",
+      "title": "Online own channel information (public)",
+      "description": "Refers to data from online banking, mobile banking, insurance online malls and other channels that contact customers through web pages, APPs, WeChat official accounts, WeChat mini programs, etc., such as website addresses, installation software package download links or QR codes, service items, etc.",
+      "levelId": "1"
+    },
+    {
+      "id": "8-2-3",
+      "title": "Third-party agent channel information (public)",
+      "description": "Refers to public third-party agency channel data, such as information about business agents and promotion agencies, such as names, contact information, etc.",
+      "levelId": "1"
+    },
+    {
+      "id": "8-2-4",
+      "title": "Channel management information",
+      "description": "Refers to data related to the daily management and maintenance of channels such as channel number, channel activation date, channel deactivation date, agency contract information, agent certificate information, etc. ",
+      "levelId": "2"
+    },
+    {
+      "id": "8-2-5",
+      "title": "Channel contact information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "3"
+    },
+    {
+      "id": "8-2-6",
+      "title": "Channel guarantee information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "2"
+    },
+    {
+      "id": "8-2-7",
+      "title": "Channel affiliation information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "2"
+    },
+    {
+      "id": "8-3",
+      "title": "marketing information",
+      "description": ""
+    },
+    {
+      "id": "8-3-1",
+      "title": "Marketing information (public)",
+      "description": "Refers to data related to marketing activities, such as marketing promotional information, etc.",
+      "levelId": "1"
+    },
+    {
+      "id": "8-3-2",
+      "title": "Marketing information (non-public)",
+      "description": "Refers to data related to marketing activities, such as market analysis, target markets, marketing plans, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "8-3-3",
+      "title": "Marketing management information",
+      "description": "Refers to all process and result data of each link involved in customer marketing, such as marketing activities, rule models, marketing lists, task events (assessment indicators), marketing contacts, marketing results, marketing evaluations, assessment profit sharing information, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "8-3-4",
+      "title": "Service management information",
+      "description": "Refers to the relevant data generated in the management attribution set up for customers and the supporting service activities provided to service customers, such as account management relationships, service complaints and suggestions, customer points, and service information such as notifications and discounts (account management information, points management, complaints, etc.) ",
+      "levelId": "2"
+    },
+    {
+      "id": "9-1",
+      "title": "Security management information",
+      "description": ""
+    },
+    {
+      "id": "9-1-1",
+      "title": "Technical security information",
+      "description": "Refers to the technical design documents, plans, program codes and other data that protect the data carriers necessary for the operation of financial institutions, such as operating system centralized certification (authorization, audit) design documents, bank card key and protective measures design documents, bank card track encryption keys ",
+      "levelId": "3"
+    },
+    {
+      "id": "9-1-2",
+      "title": "Physical security information",
+      "description": "Refers to the design documents, plans and other data for protecting the physical facilities of financial institutions, such as vault security plans, armored vehicle routes, monitoring and alarm system design plans, business outlets (including ATMs, self-service banks) security design documents, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "9-2",
+      "title": "Business operation and maintenance information",
+      "description": ""
+    },
+    {
+      "id": "9-2-1",
+      "title": "Parameter/indicator operation and maintenance information",
+      "description": "Refers to the data generated during the operation and maintenance of business-related parameters or indicator data by the information system, such as operating parameters or indicators such as exchange rates, rates, preferential activities, card information (such as debit cards, credit cards, etc.) for products and services ",
+      "levelId": "2"
+    },
+    {
+      "id": "9-3",
+      "title": "Customer service information",
+      "description": ""
+    },
+    {
+      "id": "9-3-1",
+      "title": "Counter service information",
+      "description": "Refers to the counter service interaction parties and service process data, such as service content, service personnel information, service evaluation, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "9-3-2",
+      "title": "Telephone service information",
+      "description": "Refers to the telephone service interaction parties and service process data, such as customer service content, telephone recordings, service personnel information, service records, service evaluations, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "9-3-3",
+      "title": "Network service information",
+      "description": "Refers to network service parties and service process data, such as device type (PC/mobile device), client type (browser/APP), IP address, service content, communication text or multimedia records, service personnel information, service evaluation, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "9-4",
+      "title": "Document management information",
+      "description": ""
+    },
+    {
+      "id": "9-4-1",
+      "title": "Document design information",
+      "description": "Refers to the data generated during the document design process, such as electronic document template files, document definition documents and other data.",
+      "levelId": "2"
+    },
+    {
+      "id": "9-4-2",
+      "title": "Document storage information",
+      "description": "Refers to the data generated during the document warehousing process, such as acceptance results, warehousing certification documents, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "9-4-3",
+      "title": "Document issuance information",
+      "description": "Refers to the data generated during the document issuance process, such as application information, review information, issuance information, verification information and handover information, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "9-4-4",
+      "title": "Document verification information",
+      "description": "Refers to the data generated during the document verification process.",
+      "levelId": "2"
+    },
+    {
+      "id": "9-4-5",
+      "title": "Document daily management information",
+      "description": "Refers to the data recorded in all aspects of daily document management, such as document inventory information, handover information, usage tracking information, settlement information, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "9-5",
+      "title": "Cooperation unit information",
+      "description": ""
+    },
+    {
+      "id": "9-5-1",
+      "title": "Basic information of cooperative units",
+      "description": "Refers to the basic information data of the cooperative unit, such as unit name, unit type, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "9-5-2",
+      "title": "Partner contact information",
+      "description": "Refers to the basic information of the contact person of the cooperative unit, such as name, phone number, email address, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "9-5-3",
+      "title": "Cooperation content information",
+      "description": "Refers to the cooperation content determined with the cooperative unit, such as contract agreement documents, evaluation and assessment results, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "9-5-4",
+      "title": "Specific information of cooperative units",
+      "description": "Refers to unique information data that is related to specific financial businesses and is not part of the basic information of the cooperative unit, such as repair equipment and technical personnel levels of automobile repair shops related to insurance business, business scope of adjustment companies, adjustment license information, etc. ",
+      "levelId": "2"
+    },
+    {
+      "id": "9-6",
+      "title": "Audio and video information",
+      "description": ""
+    },
+    {
+      "id": "9-6-1",
+      "title": "Customer and regulatory related audio and video information",
+      "description": "Refers to the audio and video data collected by financial industry machines when customers open accounts or handle various business activities and processed (such as compression, segmented transmission), or the image data converted from regulatory data, such as scanned documents ",
+      "levelId": "3"
+    },
+    {
+      "id": "9-6-2",
+      "title": "Daily management of related audio and video information",
+      "description": "Refers to the audio and video data generated in the daily management process of financial industry institutions, such as videos, audio recordings, photos, and accounting files collected during meetings, security, team building activities, party building activities, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "10-1",
+      "title": "Risk Appetite Information",
+      "description": ""
+    },
+    {
+      "id": "10-1-1",
+      "title": "Quantitative indicators of risk appetite",
+      "description": "Refers to the target value or target interval data of financial industry institutions' profits, risks, capital, liquidity and other related indicators.",
+      "levelId": "3"
+    },
+    {
+      "id": "10-1-2",
+      "title": "Risk appetite variable indicator",
+      "description": "It refers to data such as qualitative description documents of financial industry institutions' risk preferences that cannot be quantified, and also includes information on the reasons for taking such risks and information on the management measures taken.",
+      "levelId": "3"
+    },
+    {
+      "id": "10-1-3",
+      "title": "Risk resistance level information",
+      "description": "Refers to relevant data that can reflect the level of capital and liquidity of financial institutions against various risks.",
+      "levelId": "3"
+    },
+    {
+      "id": "10-1-4",
+      "title": "risk appetite deviation information",
+      "description": "Refers to relevant documents and other data that reflect situations and disposal methods that may lead to deviations from risk appetite targets.",
+      "levelId": "3"
+    },
+    {
+      "id": "10-2",
+      "title": "Risk management and control information",
+      "description": ""
+    },
+    {
+      "id": "10-2-1",
+      "title": "Risk Mitigation Information",
+      "description": "Refers to relevant data such as mortgage information, guarantee information, financial derivatives information, etc. that financial institutions adopt risk mitigation tools such as mortgages, guarantees, and financial derivatives, or risk transfer technologies implemented through insurance, financing, and other means.",
+      "levelId": "2"
+    },
+    {
+      "id": "10-2-2",
+      "title": "risk identification information",
+      "description": "It refers to the statistical methods and tools, analysis models and related data generated in the process of understanding the various risks faced and analyzing the potential causes of risk accidents. ",
+      "levelId": "2"
+    },
+    {
+      "id": "10-2-3",
+      "title": "Risk measurement information",
+      "description": "It refers to the full analysis and evaluation of the possibility of risk occurrence, consequences and severity of the risk on the basis of risk identification, so as to determine the relevant data of the risk level process, including models and statistical indicators, such as customer orders. ",
+      "levelId": "2"
+    },
+    {
+      "id": "10-2-4",
+      "title": "Risk monitoring information",
+      "description": "Refers to data related to dynamic and continuous monitoring of changes and development trends of various quantifiable key risk indicators and unquantifiable risk factors, including credit card warning information, PD warning information, abnormal event information, credit risk customer monitoring information, monitoring reports, etc. ",
+      "levelId": "2"
+    },
+    {
+      "id": "10-2-5",
+      "title": "Risk control information",
+      "description": "It refers to relevant data that is effectively managed and controlled by taking measures such as diversification, hedging, transfer, avoidance and compensation for identified and measured risks, including quota freezing information, account freezing information, limit information, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "10-2-6",
+      "title": "blacklist information",
+      "description": "Refers to customer information data with actual or potential risks, such as external purchases and internally generated blacklist information.",
+      "levelId": "3"
+    },
+    {
+      "id": "10-2-7",
+      "title": "Anti-fraud information",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "3"
+    },
+    {
+      "id": "11-1",
+      "title": "Project management information",
+      "description": ""
+    },
+    {
+      "id": "11-1-1",
+      "title": "planning information",
+      "description": "Refers to data such as planning documents of information projects and information systems.",
+      "levelId": "3"
+    },
+    {
+      "id": "11-1-2",
+      "title": "Quality management information",
+      "description": "Refers to information technology management documents, system documents, quality control documents and other data.",
+      "levelId": "2"
+    },
+    {
+      "id": "11-1-3",
+      "title": "development information",
+      "description": "Refers to information system design plans, source code and other data.",
+      "levelId": "3"
+    },
+    {
+      "id": "11-1-4",
+      "title": "Test information",
+      "description": "Refers to data such as test plans, test plans, and test reports.",
+      "levelId": "2"
+    },
+    {
+      "id": "11-2",
+      "title": "System management information",
+      "description": ""
+    },
+    {
+      "id": "11-2-1",
+      "title": "Configuration information",
+      "description": "Refers to data related to information system configuration, including key configuration parameters, storage paths, important parameters, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "11-2-10",
+      "title": "Temporary tables",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "1"
+    },
+    {
+      "id": "11-2-11",
+      "title": "history table",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "1"
+    },
+    {
+      "id": "11-2-2",
+      "title": "Office software resources",
+      "description": "Refers to the basic software and software product descriptions required for the office environment, such as database installation packages, upgrade packages, hardware product management information and related documentation.",
+      "levelId": "2"
+    },
+    {
+      "id": "11-2-3",
+      "title": "Information asset management information",
+      "description": "Refers to data related to information assets, including asset type information, asset value information, asset depreciation information, asset life cycle information, topological relationship information, system network security level list, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "11-2-4",
+      "title": "Data dictionary information",
+      "description": "Refers to the data dictionary in each information system, such as data symbols, data representations, explanations, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "11-2-5",
+      "title": "Security management information",
+      "description": "Refers to information system vulnerability information, security protection configuration and policy information, self-identified threat data, security alarm information, security incident information and other data.",
+      "levelId": "2"
+    },
+    {
+      "id": "11-2-6",
+      "title": "Run log information",
+      "description": "Refers to the log data recorded in various systems, applications, networks, computer room facilities, and monitoring platforms, such as recording time, recording date, recording content, alarm type, alarm level, diagnostic information, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "11-2-7",
+      "title": "System operation and maintenance information",
+      "description": "Refers to shell scripts, SQL scripts, etc. used for system maintenance or statistical data generation.",
+      "levelId": "3"
+    },
+    {
+      "id": "11-2-8",
+      "title": "Empty table",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "1"
+    },
+    {
+      "id": "11-2-9",
+      "title": "backup table",
+      "description": "This article is added manually with reference to Ji Zhi’s preliminary sorting situation.",
+      "levelId": "1"
+    },
+    {
+      "id": "12-1",
+      "title": "strategic planning information",
+      "description": ""
+    },
+    {
+      "id": "12-1-1",
+      "title": "Marketing planning information",
+      "description": "Refers to data such as marketing activities of financial institutions and related business management documents.",
+      "levelId": "3"
+    },
+    {
+      "id": "12-1-2",
+      "title": "Fund planning information",
+      "description": "Refers to documents and other data related to the overall fund management activities of financial institutions.",
+      "levelId": "3"
+    },
+    {
+      "id": "12-1-3",
+      "title": "Manpower demand planning information",
+      "description": "Refers to documents and other data related to human resource management activities of financial industry institutions.",
+      "levelId": "3"
+    },
+    {
+      "id": "12-1-4",
+      "title": "Brand strategic planning information",
+      "description": "Refers to documents and other data related to brand management activities of financial industry institutions.",
+      "levelId": "3"
+    },
+    {
+      "id": "12-1-5",
+      "title": "Business development planning information",
+      "description": "Refers to the data recorded by financial institutions in the process of future business development planning, such as major choices and strategies for business development direction, development speed and quality, development points and business development capabilities within a certain period of time.",
+      "levelId": "3"
+    },
+    {
+      "id": "12-2",
+      "title": "Job Offers",
+      "description": ""
+    },
+    {
+      "id": "12-2-1",
+      "title": "Personnel recruitment registration information",
+      "description": "Refers to the information generated by financial industry institutions when they publish recruitment positions and applicant registrations, such as recruitment positions, number of recruits, registration lists, etc.",
+      "levelId": "1"
+    },
+    {
+      "id": "12-2-2",
+      "title": "Personnel Recruitment Examination Information",
+      "description": "Refers to the information generated by candidates participating in examinations related to recruitment positions in financial industry institutions, such as recruitment examination room numbers, examination center names, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "12-3",
+      "title": "employee information",
+      "description": ""
+    },
+    {
+      "id": "12-3-1",
+      "title": "General employee information (public)",
+      "description": "Refers to employee information data recorded by financial institutions that is open to customers, such as employee numbers, employee names, office phone numbers, etc.",
+      "levelId": "1"
+    },
+    {
+      "id": "12-3-2",
+      "title": "Employee information (non-public)",
+      "description": "Refers to employee information data recorded by financial institutions that should not be widely disclosed to others (people outside a certain range), such as mobile phone information, ID card information, email information, position, rank, social security, personal tax information, social relations, rewards and punishments ",
+      "levelId": "3"
+    },
+    {
+      "id": "12-3-3",
+      "title": "File management information",
+      "description": "Refers to employee file information data recorded by financial industry institutions, such as personnel files, resumes, autobiographies, appraisals (evaluations), political history, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "12-3-4",
+      "title": "Job role information",
+      "description": "Refers to employee job positions, positions and other data recorded by financial industry institutions, such as job title, employee title, employee job title, employee team name, role information (such as political affiliation, confidential positions, members of specific working groups, etc.), etc. ",
+      "levelId": "2"
+    },
+    {
+      "id": "12-3-5",
+      "title": "Training and qualification information",
+      "description": "Refers to the employee training record data and qualification certificate data recorded by financial industry institutions, such as the time of training, training location, training content, etc. and the time of obtaining the qualification certificate, the name of the qualification certificate, the validity period of the qualification certificate, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "12-3-6",
+      "title": "Skill information",
+      "description": "Refers to the skills and expertise data of employees recorded by financial industry institutions, such as sales skills, service communication skills, insurance underwriting, loss assessment skills, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "12-3-7",
+      "title": "performance information",
+      "description": "Refers to employee performance appraisal indicators and performance completion data recorded by financial industry institutions, such as sales performance data of sales employees (such as achievement of sales targets, products sold, etc.), service performance data of service employees (such as complaint resolution) ",
+      "levelId": "3"
+    },
+    {
+      "id": "12-3-8",
+      "title": "Salary information",
+      "description": "Refers to employee salary and benefits data recorded by financial industry institutions, such as wages, allowances, bonuses, benefits, salary standards and salary grades, etc.",
+      "levelId": "1"
+    },
+    {
+      "id": "12-4",
+      "title": "Institutional information",
+      "description": ""
+    },
+    {
+      "id": "12-4-1",
+      "title": "Basic information (public)",
+      "description": "Refers to the public basic profile record data of the internal departments, branches, etc. in the organizational structure of financial industry institutions, such as institution number, institution name, institution address, institution telephone number, etc.",
+      "levelId": "1"
+    },
+    {
+      "id": "12-4-2",
+      "title": "Basic information (non-public)",
+      "description": "Refers to the basic overview record data of the internal departments, branches, etc. in the organizational structure of financial institutions that are not directly disclosed, such as department numbers, department names, department responsibilities, superior accounting agency numbers, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "12-4-3",
+      "title": "Hierarchy information",
+      "description": "Refers to the hierarchical identification data of internal departments, branches, etc. in the organizational structure of financial institutions, such as head office, branches, subsidiaries, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "12-4-4",
+      "title": "Classified information",
+      "description": "Refers to the identification data in the organizational structure of a financial industry institution, where its internal departments, branches, etc. are classified according to different management requirements, such as whether it is a business institution, whether it is an accounting institution, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "12-4-5",
+      "title": "identity informaiton",
+      "description": "Refers to the certificate information of various internal departments and branches of financial institutions, such as the unified social credit code (after the five certificates are merged into one), financial institution code certificate number, payment business license number, etc.",
+      "levelId": "1"
+    },
+    {
+      "id": "12-5",
+      "title": "Financial Information",
+      "description": ""
+    },
+    {
+      "id": "12-5-1",
+      "title": "financial accounting information",
+      "description": "Refers to relevant data generated during the accounting recognition, measurement and reporting process conducted by financial institutions in accordance with accounting standards, including accounting records, account books, statements, etc. ",
+      "levelId": "3"
+    },
+    {
+      "id": "12-5-2",
+      "title": "Enterprise financial management information",
+      "description": "Refers to financial management information such as budget execution, working capital allocation, and year-end consolidation of enterprises and institutions. ",
+      "levelId": "3"
+    },
+    {
+      "id": "12-5-3",
+      "title": "Infrastructure financial management information",
+      "description": "Refers to information such as capital construction project management and project accounting. ",
+      "levelId": "2"
+    },
+    {
+      "id": "12-5-4",
+      "title": "management accounting information",
+      "description": "It refers to various types of data that financial institutions use management accounting tools and methods to process and organize financial and business data to meet the needs of enterprise value management and decision support. ",
+      "levelId": "3"
+    },
+    {
+      "id": "12-5-5",
+      "title": "financial expense information",
+      "description": "Refers to various types of data generated by financial institutions during their financial expenditures and bidding and procurement processes, including supplier management data. ",
+      "levelId": "3"
+    },
+    {
+      "id": "12-5-6",
+      "title": "tax information",
+      "description": "Refers to various types of data generated in the process of tax formation, declaration, payment and invoice management of financial industry institutions.",
+      "levelId": "3"
+    },
+    {
+      "id": "12-5-7",
+      "title": "Internal fund transaction information",
+      "description": "Refers to information on internal fund transfers and borrowings within financial institutions (groups).",
+      "levelId": "3"
+    },
+    {
+      "id": "12-5-8",
+      "title": "Payment settlement summary information",
+      "description": "Refers to various payment clearing and settlement data aggregated by financial industry institutions, such as merchant settlement data (such as settlement cycle, settlement method, etc.), settlement order data (such as summary net amount, settlement cycle, etc.), etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "12-5-9",
+      "title": "Summary information on capital channel circulation",
+      "description": "Refers to data related to capital channel circulation summarized by financial industry institutions, such as total channel capital flow, channel reconciliation details, channel reconciliation results, etc.",
+      "levelId": "3"
+    },
+    {
+      "id": "12-6",
+      "title": "Asset and Liability Information",
+      "description": ""
+    },
+    {
+      "id": "12-6-1",
+      "title": "Treasury management information",
+      "description": "It refers to the relevant data stored by financial industry institutions to perform a series of management functions of government control budget execution and custody of government assets and liabilities.",
+      "levelId": "2"
+    },
+    {
+      "id": "12-6-2",
+      "title": "Interest rate management information",
+      "description": "It refers to the data recorded by financial industry institutions on the adjustment of interest rates by the central bank and the data recorded during the implementation of interest rate policies.",
+      "levelId": "2"
+    },
+    {
+      "id": "12-6-3",
+      "title": "Asset Liability Management Information",
+      "description": "It refers to the data recorded in the process of comprehensive, dynamic and forward-looking coordinated management of the asset and liability structure by financial institutions within certain risk limits in order to achieve business objectives.",
+      "levelId": "2"
+    },
+    {
+      "id": "12-7",
+      "title": "administrative information",
+      "description": ""
+    },
+    {
+      "id": "12-7-1",
+      "title": "Party affairs discipline inspection information",
+      "description": "Refers to the data recorded when financial industry institutions carry out party building, disciplinary inspection and other work, such as party organizational construction, party style and clean government construction, disciplinary supervision, investigation and handling of disciplinary violations, acceptance of letters and visits from party members and the public, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "12-7-2",
+      "title": "Union information",
+      "description": "Refers to the data recorded when financial industry institutions carry out trade union work, such as member information, dues management data, various activity records, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "12-7-3",
+      "title": "Charter information",
+      "description": "Refers to the electronic document data of the regulatory, guiding and binding articles of association formulated by financial institutions in accordance with laws, decrees and policies to maintain normal working order, such as company articles of association, company financial management system, company asset management system, ",
+      "levelId": "2"
+    },
+    {
+      "id": "12-7-4",
+      "title": "Disclosure information",
+      "description": "Refers to various types of public information data released by financial industry institutions, such as news, notices, announcements, etc.",
+      "levelId": "1"
+    },
+    {
+      "id": "12-7-5",
+      "title": "Official document information",
+      "description": "Refers to the electronic document data that is received or sent in the daily work of financial institutions and is formed and used in a specific manner and through certain processing procedures, such as urgency, issuing authority logo, issuing number, issuer, title, main sending authority, and text. ",
+      "levelId": "2"
+    },
+    {
+      "id": "12-7-6",
+      "title": "Email message",
+      "description": "Refers to various file information data processed by employees of financial institutions through email delivery, such as email sending time, email receiving time, email subject, email content, email attachments and pictures, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "12-8",
+      "title": "Internal control and compliance information",
+      "description": ""
+    },
+    {
+      "id": "12-8-1",
+      "title": "Compliance information",
+      "description": "Refers to the compliance result data generated by financial industry institutions with reference to the express provisions and requirements of national laws and regulations, such as information isolation, data confidentiality, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "12-8-2",
+      "title": "internal audit information",
+      "description": "Refers to the audit evaluation result data generated by financial institutions in the process of business development or business management to determine whether they meet regulatory, compliance and internal control requirements, such as medium and long-term audit plans, annual audit plans, audit plans, audit evidence, ",
+      "levelId": "2"
+    },
+    {
+      "id": "12-8-3",
+      "title": "Legal information",
+      "description": "Refers to data involving legal affairs of financial industry institutions, such as contract signing, business negotiations, legal disputes and litigation incident handling, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "13-1",
+      "title": "Regulatory reporting information",
+      "description": ""
+    },
+    {
+      "id": "13-1-1",
+      "title": "Regulatory indicator reporting information",
+      "description": "Refers to the regulatory indicator data reported by financial institutions as required, such as the total amount of risk assets, the amount and structure of net capital, core capital adequacy ratio, capital adequacy ratio, statistical indicators of the traditional non-performing asset acquisition and disposal business of financial asset management companies (legal persons), ",
+      "levelId": "3"
+    },
+    {
+      "id": "13-1-2",
+      "title": "Supervision detailed data reporting information",
+      "description": "Refers to various types of detailed regulatory data reported by financial institutions as required, such as anti-money laundering data (including but not limited to large-value and suspicious transaction reports, investigation assistance, customer risk levels and other information), regulatory standardized data, list-level business data, accounts ",
+      "levelId": "3"
+    },
+    {
+      "id": "13-1-3",
+      "title": "financial statistics",
+      "description": "Refers to macro statistics related data calculated by financial industry institutions, such as financial statements, questionnaires and other important matters.",
+      "levelId": "2"
+    },
+    {
+      "id": "14-1",
+      "title": "Evaluation, Penalty and Violation Information",
+      "description": ""
+    },
+    {
+      "id": "14-1-1",
+      "title": "Evaluation, Penalty and Violation Information",
+      "description": "Refers to the evaluation, punishment and violation data of financial industry institutions by regulatory agencies, such as fines and notifications issued by regulatory agencies.",
+      "levelId": "2"
+    },
+    {
+      "id": "14-2",
+      "title": "Supervisory statistical level warning information",
+      "description": ""
+    },
+    {
+      "id": "14-2-1",
+      "title": "Statistical analysis information",
+      "description": "It refers to the data formed by the regulatory agencies’ summary, statistics, analysis, comparison and combination of relevant data, such as the sub-scores of the evaluation indicators of systemically important financial industry institutions, etc.",
+      "levelId": "2"
+    },
+    {
+      "id": "14-2-2",
+      "title": "Warning information",
+      "description": "Refers to the early warning data generated by regulatory agencies based on specific early warning strategy settings, such as risk warnings issued by regulatory agencies, etc.",
+      "levelId": "2"
+    }
+  ]
+}

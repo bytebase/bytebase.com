@@ -13,6 +13,7 @@ You may want to batch apply masking settings. e.g.
 
 - Mask all data in production
 - Mask all data for database under a specific project
+- Maks data conditionally according to [Data Classification](../data-classification)
 
 Global masking rule allows you to do this. It's similar to the iptables where you configure an ordered
 rule list. The first matching rule will be applied. If no rule matches, the default masking level is `None`.

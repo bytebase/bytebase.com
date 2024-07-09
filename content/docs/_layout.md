@@ -85,6 +85,8 @@ expand_section_list: ['Self-host']
 
 ### [Column Data Masking](/security/data-masking/column-masking)
 
+### [Data Classification](/security/data-masking/data-classification)
+
 ### [Semantic Types](/security/data-masking/semantic-types)
 
 ### [Masking Algorithm](/security/data-masking/masking-algorithm)
