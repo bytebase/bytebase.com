@@ -31,26 +31,9 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
     color: 'blue',
     href: Route.DOCS_CHANGE_DATABASE,
     cover: '/images/page/main/hero/change-database.webp',
-    title: 'Change database',
+    title: 'Database CI/CD',
     description:
-      'Standardize database schema migrations and data changes with review, lint, and GitOps.',
-  },
-  {
-    videos: [
-      {
-        type: 'video/webm',
-        src: '/videos/page/main/hero/2.webm',
-      },
-      {
-        type: 'video/mp4',
-        src: '/videos/page/main/hero/2.mp4',
-      },
-    ],
-    color: 'green',
-    href: Route.DOCS_SQL_EDITOR,
-    cover: '/images/page/main/hero/query-data.webp',
-    title: 'Query data',
-    description: 'Run ad-hoc SQL queries with built-in data privacy protection via web-based IDE.',
+      'Standardized database schema migrations and data changes with review, lint, and GitOps.',
   },
   {
     videos: [
@@ -66,9 +49,25 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
     color: 'red',
     href: Route.DOCS_DATA_ACCESS_CONTROL,
     cover: '/images/page/main/hero/secure-access.webp',
-    title: 'Secure access',
-    description:
-      'Eliminate administrative complexity and ensure compliance with holistic policy control.',
+    title: 'Query Access Control',
+    description: 'Passwordless IAM based access control with approve flow, auditing loggings.',
+  },
+  {
+    videos: [
+      {
+        type: 'video/webm',
+        src: '/videos/page/main/hero/2.webm',
+      },
+      {
+        type: 'video/mp4',
+        src: '/videos/page/main/hero/2.mp4',
+      },
+    ],
+    color: 'green',
+    href: Route.DOCS_SQL_EDITOR,
+    cover: '/images/page/main/hero/query-data.webp',
+    title: 'Dynamic Data Masking',
+    description: 'Multi-level masking policy based on user role, data classification.',
   },
 ];
 
