@@ -19,8 +19,12 @@ Bytebase does **Prior Backup** before a data change (`UPDATE`,`DELETE`) is made.
 
 1. Create the issue and click **Rollout**. Scroll down, you'll find the comment with the backup information.
 
-1. Go to database `bbdataarchive` or schema `bbdataarchive`, you'll find the table. You may query it via SQL Editor.
+1. Go to database `bbdataarchive` or schema `bbdataarchive`, you'll find the table. You may query it via **SQL Editor**.
 
    ![database](/content/docs/change-database/rollback-data-changes/bb-bbdataarchive.webp)
 
+   ![data](/content/docs/change-database/rollback-data-changes/bb-sql-editor-archieve.webp)
+
    ![schema](/content/docs/change-database/rollback-data-changes/bb-schema-bbdataarchive.webp)
+
+   ![data](/content/docs/change-database/rollback-data-changes/bb-sql-editor-schema-archieve.webp)
