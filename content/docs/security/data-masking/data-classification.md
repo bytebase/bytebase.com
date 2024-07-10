@@ -150,17 +150,12 @@ curl --request PATCH ${bytebase_url}/v1/settings/bb.workspace.data-classificatio
                             "id": "2",
                             "title": "Level 2",
                             "description": ""
-                        },
-                        {
-                            "id": "3",
-                            "title": "Level 3",
-                            "description": ""
                         }
                     ],
                     "classification": {
                         "1": {
                             "id": "1",
-                            "title": "Basic3",
+                            "title": "Basic",
                             "description": ""
                         },
                         "1-1": {
