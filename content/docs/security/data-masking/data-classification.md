@@ -4,6 +4,7 @@ feature_name: DATA_MASKING
 ---
 
 Data classification allows you to classify columns and apply masking levels to the classified columns globally.
+This allows you to manage masking policy for many columns by controlling only a small number of classifications.
 
 ![overview](/content/docs/security/data-classification/classification-overview.webp)
 
