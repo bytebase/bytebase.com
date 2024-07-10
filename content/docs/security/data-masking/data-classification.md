@@ -129,3 +129,85 @@ If the column format follows `{classification id}-{comment}` such as `1-4-2-blab
 
 If you have a centralized security platform / data catalog service to manage the classification, then you can push
 the classification to Bytebase via [API](https://api.bytebase.com/#tag/settingservice).
+
+```shell
+curl --request PATCH ${bytebase_url}/v1/settings/bb.workspace.data-classification \
+  --header 'Authorization: Bearer '${bytebase_token} \
+  --data '{
+  "name": "bb.workspace.data-classification",
+  "value": {
+        "data_classification_setting_value": {
+            "configs": [
+                {
+                    "title": "Classification Example",
+                    "levels": [
+                        {
+                            "id": "1",
+                            "title": "Level 1",
+                            "description": ""
+                        },
+                        {
+                            "id": "2",
+                            "title": "Level 2",
+                            "description": ""
+                        },
+                        {
+                            "id": "3",
+                            "title": "Level 3",
+                            "description": ""
+                        }
+                    ],
+                    "classification": {
+                        "1": {
+                            "id": "1",
+                            "title": "Basic3",
+                            "description": ""
+                        },
+                        "1-1": {
+                            "id": "1-1",
+                            "title": "Basic",
+                            "description": "",
+                            "levelId": "1"
+                        },
+                        "1-2": {
+                            "id": "1-2",
+                            "title": "Assert",
+                            "description": "",
+                            "levelId": "1"
+                        },
+                        "1-3": {
+                            "id": "1-3",
+                            "title": "Contact",
+                            "description": "",
+                            "levelId": "2"
+                        },
+                        "1-4": {
+                            "id": "1-4",
+                            "title": "Health",
+                            "description": "",
+                            "levelId": "2"
+                        },
+                        "2": {
+                            "id": "2",
+                            "title": "Relationship",
+                            "description": ""
+                        },
+                        "2-1": {
+                            "id": "2-1",
+                            "title": "Social",
+                            "description": "",
+                            "levelId": "1"
+                        },
+                        "2-2": {
+                            "id": "2-2",
+                            "title": "Business",
+                            "description": "",
+                            "levelId": "1"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}'
+```
