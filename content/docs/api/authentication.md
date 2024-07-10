@@ -2,12 +2,11 @@
 title: Authentication
 ---
 
-|          |                                                     |
-| -------- | --------------------------------------------------- |
-| Endpoint | POST /v1/auth/login                                 |
-| Service  | https://api.bytebase.com/#bytebase.v1.AuthService   |
-| Request  | https://api.bytebase.com/#bytebase.v1.LoginRequest  |
-| Response | https://api.bytebase.com/#bytebase.v1.LoginResponse |
+|          |                                                                                     |
+| -------- | ----------------------------------------------------------------------------------- |
+| Endpoint | [POST /v1/auth/login](https://api.bytebase.com/#tag/authservice/POST/v1/auth/login) |
+| Request  | https://api.bytebase.com/#model/loginrequest                                        |
+| Response | https://api.bytebase.com/#model/loginresponse                                       |
 
 ## Service Account
 
