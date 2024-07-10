@@ -225,6 +225,8 @@ expand_section_list: ['Self-host']
 
 ### [SQL Review](/api/sql-review)
 
+### [Data Classification](/api/data-classification)
+
 ### [External Approval](/api/external-approval)
 
 ## Integrations
