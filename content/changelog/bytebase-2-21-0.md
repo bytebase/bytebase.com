@@ -3,7 +3,7 @@ title: Bytebase 2.21.0
 author: Ningjing
 published_at: 2024/7/11 17:00:00
 feature_image: /content/changelog/2-21-0-banner.webp
-description: 'Support Databricks'
+description: 'Support configuring SQL review rules by database engine.'
 ---
 
 ## 🚀 New Features
