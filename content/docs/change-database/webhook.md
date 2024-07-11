@@ -115,6 +115,17 @@ Feishu (Lark) allows to specify a list of keywords in the [security setting](htt
 
 WeCom does not provide its own official guide. Please follow this similar [setup](https://intl.cloud.tencent.com/zh/document/product/614/39581) from Tencent Cloud instead.
 
+#### Configure sending direct messages to related users
+
+1. Go to [https://work.weixin.qq.com/wework_admin/frame#apps](https://work.weixin.qq.com/wework_admin/frame#apps).
+1. Click the tab **My Company**, and then you can find **Company ID** in the **Company Information**.
+1. Click the tab **App Management**, and choose **Create an app** under **Self-built**.
+1. Open the app,
+   1. Find **AgentId** and **Secret**.
+   1. Configure **Allowed users**.
+   1. Configure **Company's Trusted IP** to your Bytebase instance IP.
+1. Make sure the user's email in Bytebase is the same as the user's email (not External account) in WeCom.
+
 ### Custom
 
 Custom is used to integrate with your own services via webhook.
