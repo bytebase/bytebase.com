@@ -9,11 +9,11 @@ description: 'Support configuring SQL review rules by database engine.'
 ## 🚀 New Features
 
 - Support configuring SQL review rules by database engine.
-- Support WeCom direct messages for issue activities.  
 - Support connecting to Redis sentinel and native cluster.
 - Add project settings:
   - Allow SQL editing after issue creation.
   - Automatically close issues after rollout completion.
+- Support WeCom direct messages for issue activities.  
 
 ## 🔔 Breaking Changes
 
