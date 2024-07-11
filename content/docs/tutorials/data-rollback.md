@@ -29,11 +29,14 @@ When changing data in the database, it's advisable to have a backup of the data 
 
 1. Click the **Setting icon** on the top right, and then click **Workspace > Subscription** to upload the license.
 
-1. Click the pen icon, select the instances you want to enable Enterprise features (including **Prior Backup**), and click **Confirm**.
+1. Click the pen icon, select the instances you want to enable Enterprise features, and click **Confirm**.
 
    ![bb-subscription](/content/docs/tutorials/data-rollback/bb-subscription.webp)
 
 ### Step 2 - Prepare schema `bbdataarchive`
+
+Bytebase stores the backup data in a dedicated place. For Postgres, it's stored under the `bbdataarchive`
+schema for the changing database.
 
 1. Go to `Sample Project`, click **Database > Databases** on the left side, choose `hr_test`, and then click **Edit Schema**.
 
@@ -45,10 +48,10 @@ When changing data in the database, it's advisable to have a backup of the data 
 
    ![bb-issue-schema-done](/content/docs/tutorials/data-rollback/bb-issue-schema-done.webp)
 
-### Step 3 - Change Data with Prior Backup
+### Step 3 - Change Data and roll back
 
 1. Before the change, go to **SQL Editor**, choose `hr_test` and double click `employee` table, and you'll see the current data. We'll try to change the `first_name` for `Georgi`.
-  
+
    ![bb-sql-editor-query](/content/docs/tutorials/data-rollback/bb-sql-editor-query.webp)
 
 1. Go to `Sample Project` and **Database > Databases** again, choose `hr_test`, and then click **Change Data**.
@@ -61,17 +64,17 @@ When changing data in the database, it's advisable to have a backup of the data 
 
    ![bb-issue-change-data](/content/docs/tutorials/data-rollback/bb-issue-change-data.webp)
 
-1. After the issue is created and then rolled out, you can see there is an activity saying the data is backed up to a specific table.
+1. After the issue is created and then rolled out, you can see there is an activity saying the data is backed up to a new table under the previously created `bbdataarchive` schema.
 
    ![bb-change-data-backup](/content/docs/tutorials/data-rollback/bb-change-data-backup.webp)
 
 1. Go to **Database > Databases** again, and click `hr_test`. You'll be redirected to the database page.
 
-1. Choose `bbdataarchive` schema, and you can see a table there with the backup data.
+1. Choose `bbdataarchive` schema, and you can see the backup table.
 
    ![bb-db-schema](/content/docs/tutorials/data-rollback/bb-db-schema.webp)
 
-1. To verify if the data is correct, go to **SQL Editor**. Choose `employee` table in `hr_test` under `public` schema, input the following SQL script and click **Run**, and you'll see the data is changed.
+1. To verify, go to **SQL Editor**. Choose `employee` table in `hr_test` under `public` schema, input the following SQL script and click **Run**, and you'll see the data is changed.
 
    ```sql
       SELECT * FROM "public"."employee" ORDER BY emp_no LIMIT 50;
@@ -85,4 +88,6 @@ When changing data in the database, it's advisable to have a backup of the data 
 
 ## Noteworthy Difference
 
-If you want to use MySQL/SQL Server/Oracle, instead of creating a `bbdataarchive` schema, you should create a `bbdataarchive` database to store the backup data.
+If you want to use MySQL/SQL Server/Oracle, instead of creating a `bbdataarchive` schema, you should create a `bbdataarchive` database to store the backup data. Check the doc for more details.
+
+<DocLinkBlock url="/docs/change-database/rollback-data-changes/" title="Data Rollback Doc"></DocLinkBlock>
