@@ -1,0 +1,34 @@
+---
+title: Bytebase 2.21.0
+author: Ningjing
+published_at: 2024/7/11 17:00:00
+feature_image: /content/changelog/2-21-0-banner.webp
+description: 'Support configuring SQL review rules by database engine.'
+---
+
+## 🚀 New Features
+
+- Support configuring SQL review rules by database engine.
+- Support connecting to Redis sentinel and native cluster.
+- Add project settings:
+  - Allow SQL editing after issue creation.
+  - Automatically close issues after rollout completion.
+- Support WeCom direct messages for issue activities.  
+
+## 🔔 Breaking Changes
+
+- Multi-tenancy configuration has been moved from project to database group.
+
+## 🎄 Enhancements
+
+- Rename "Cancel" issue to "Close" issue.
+- Add an SSL connection switch for instance setup. The system default certificate is used if no CA certificate is specified.
+- Optimize SQL Editor auto-completion without semicolons.
+- Add more detailed task run log.
+- Enhance Oracle parser performance.
+
+## 🐞 Bug Fix
+
+- Improve handling of schemas with unsupported Unicode characters.
+
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>
