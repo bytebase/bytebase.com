@@ -63,7 +63,7 @@ const CVTE: Logo = {
 const KAKAO: Logo = {
   alt: 'Kakao Entertainment',
   src: '/images/logos/kakao.svg',
-  width: 151,
+  width: 144,
   height: 64,
   small: {
     width: 110,
@@ -180,18 +180,6 @@ const PROPERTY_GURU: Logo = {
   mobileOrderClassName: 'xs:order-7',
 };
 
-const PROTON: Logo = {
-  alt: 'Proton',
-  src: '/images/logos/proton.svg',
-  width: 141,
-  height: 64,
-  small: {
-    width: 110,
-    height: 40,
-  },
-  mobileOrderClassName: 'xs:order-3',
-};
-
 const REDHAT: Logo = {
   alt: 'Red Hat',
   src: '/images/logos/redhat.svg',
@@ -214,6 +202,18 @@ const SALLA: Logo = {
     height: 40,
   },
   mobileOrderClassName: 'xs:order-8',
+};
+
+const ROLLER: Logo = {
+  alt: 'ROLLER',
+  src: '/images/logos/roller.svg',
+  width: 180,
+  height: 64,
+  small: {
+    width: 110,
+    height: 40,
+  },
+  mobileOrderClassName: 'xs:order-5',
 };
 
 const TELKOM_INDONESIA: Logo = {
@@ -280,7 +280,7 @@ export const FULL_LOGO_LIST: Logo[] = [
   LINEAR,
   TENCENT,
   KAKAO,
-  PROTON,
+  PAYER_MAX,
   REDHAT,
   PROPERTY_GURU,
   SALLA,
@@ -293,7 +293,7 @@ export const FULL_LOGO_LIST: Logo[] = [
 
 export const FINANCIAL_LOGO_LIST: Logo[] = [LONG_BRIDGE, XENDIT, PAYER_MAX];
 
-export const TECHNOLOGY_LOGO_LIST: Logo[] = [LINEAR, PROTON, SALLA, KAKAO];
+export const TECHNOLOGY_LOGO_LIST: Logo[] = [LINEAR, ROLLER, SALLA, KAKAO];
 
 export const MANUFACTURING_LOGO_LIST: Logo[] = [BYD, LI_AUTO, CVTE, ZEEKR];
 
