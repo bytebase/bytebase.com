@@ -4,7 +4,7 @@ title: Self-host Bytebase
 
 **Latest release version:** [**%%bb_version%%**](https://github.com/bytebase/bytebase/releases/latest)
 
-Bytebase is a single Go binary and the deployment easy.
+Air-gapped deployment with a single Go binary.
 
 ## Prerequisites
 

@@ -69,7 +69,7 @@ If you are an OWNER or DBA, you can also toggle debug mode at runtime. The toggl
 
 ## Which data does Bytebase collect?
 
-_You can disable the collection by passing [`--disable-metric`](/docs/reference/command-line/#disable-sample) on startup_.
+_To make deployment air-gapped, you can disable the collection by passing [`--disable-metric`](/docs/reference/command-line/#disable-sample) on startup_.
 
-- Anonymised usage data.
+- Anonymous usage data.
 - The registered email and name of the first member in the workspace.

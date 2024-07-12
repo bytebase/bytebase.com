@@ -73,8 +73,8 @@ export default function Page() {
           via <Link href="https://auth0.com">Auth0</Link>.
         </li>
         <li>
-          Anonymised usage metrics are collected and sent to Segment. Collection can be disabled
-          upon request in our Enterprise plan.
+          Anonymous usage metrics are collected and sent to Segment. Collection can be disabled upon
+          request in our Enterprise plan.
         </li>
       </ul>
       <h2 id="self-host">Bytebase self-hosted</h2>
@@ -90,8 +90,8 @@ export default function Page() {
           bare-metal.
         </li>
         <li>
-          Usage metrics are collected and sent to Segment. Collection can be disabled by passing{' '}
-          <Link href="/docs/reference/command-line/#disable-sample">--disable-sample</Link>.
+          Anonymous usage metrics are collected and sent to Segment. Collection can be disabled by
+          passing <Link href="/docs/reference/command-line/#disable-sample">--disable-sample</Link>.
         </li>
       </ul>
       <h2>Shared practices between Bytebase Cloud and self-hosted</h2>
