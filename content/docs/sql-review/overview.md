@@ -2,7 +2,15 @@
 title: SQL Review
 ---
 
-SQL Review is the classic and widely used process for developers and DBAs to coordinate database changes. To facilitate this heavily used process, Bytebase has designed an automatic process to reduce the work for DBAs who are required to do manual SQL review.
+SQL Review automatically detects SQL anti-patterns and reduce manual review workload.
+
+<HintBlock type="info">
+
+To avoid exceedingly long review time, Bytebase skips SQL Review if the statements exceed 1MB in size.
+
+</HintBlock>
+
+Bytebase has designed an automatic process to reduce the work for DBAs who are required to do manual SQL review.
 
 DBA first chooses [SQL Review rules](/docs/sql-review/review-rules) to build a unified [Review policy](/docs/sql-review/review-policy) and then chooses environments to apply it.
 
