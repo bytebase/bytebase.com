@@ -35,7 +35,7 @@ Most of the time, `Admins` and `DBAs` work with the `Environment`.
 <HintBlock type="info">
 
 Bytebase is charged based on the **number of database instances**. If you have 1 instance containing hundreds of
-databases, it will be counted as 1. The below graph has 2 database instances, 1 for MySQL and 1 for PostgreSQL. Each instance contains 3 databases.
+databases, it will be counted as 1. The below graph has 2 database instances, 1 for MySQL and 1 for PostgreSQL. Each instance contains 3 databases. You can manage all instances in Bytebase while purchase [a subset of instance licenses](/docs/administration/license/).
 
 </HintBlock>
 
