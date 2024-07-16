@@ -54,7 +54,7 @@ If you are responsible for managing horizontally partitioned databases that are 
 
 1. Go to **Database > Databases**, click **New DB**, and create a new database according to the database group rules. The database will be added to the database group automatically.
 
-    ![bb-new-db-7](/content/docs/change-database/batch-change/bb-new-db-7.webp)
+    ![bb-db-7](/content/docs/change-database/batch-change/bb-db-7.webp)
 
 1. Go back to the issue page, now you can see the newly added database in the issue. It's because we have enabled the `Multitenancy` option when creating the database group which ensures all the databases in the group have the same schema.
 
