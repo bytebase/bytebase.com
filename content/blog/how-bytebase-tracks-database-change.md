@@ -80,6 +80,12 @@ You can specify when to roll out the issue (e.g. 2:00 midnight during non-busine
 1.  Change statement
 1.  Change diff
 
+### Webhook Notification
+
+![_](/content/blog/how-bytebase-tracks-database-change/issue-detail-webhook.webp)
+
+Configure webhook to post change progress to the IM channel.
+
 ### Summary
 
 Different from a [general issue tracking system like Jira](/blog/use-jira-for-database-change/), Bytebase
