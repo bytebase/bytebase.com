@@ -40,6 +40,10 @@ const tabThemes = {
     default: 'border-[#CFFAFE] text-[#176782] hover:bg-[#CFFAFE]',
     active: 'bg-[#176782] border-[#176782]',
   },
+  newsletter: {
+    default: 'border-[#FEF6CD] text-[#8A420F] hover:bg-[#FEF6CD]',
+    active: 'bg-[#8A420F] border-[#8A420F]',
+  },
 };
 
 const getTabStyles = (slug: keyof typeof tabThemes | '', currentSlug: string) => {

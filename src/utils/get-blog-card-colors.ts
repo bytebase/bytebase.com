@@ -31,6 +31,10 @@ export default function getBlogCardColors(theme: string): {
       tagColors: 'bg-[#D1FAE5] text-[#056049]',
       titleHover: 'hover:text-[#056049]',
     },
+    newsletter: {
+      tagColors: 'bg-[#FEF6CD] text-[#8A420F]',
+      titleHover: 'hover:text-[#8A420F]',
+    },
   };
 
   return tagThemes[theme] || '';
