@@ -415,6 +415,12 @@ GRANT cloudsqlsuperuser TO bytebase
 
 Besides, you may need to grant Bytebase privileges with `GRANT role_name TO bytebase;` for all existing roles. Otherwise, Bytebase may not access existing databases or tables.
 
+<HintBlock type="info">
+
+To prevent blocking operations for a long time, consider setting a [lock_timeout](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT) on the Bytebase user.
+
+</HintBlock>
+
 ## Oracle
 
 For managing Oracle database, Bytebase provides two manage modes: **Manage based on database** and **Manage based on schema**.
