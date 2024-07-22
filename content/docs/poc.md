@@ -48,10 +48,11 @@ configure SSO. Bytebase supports all common providers such as Okta, Google, LDAP
 ## Test Database Change Workflow
 
 - [Database Change Workflow](/docs/change-database/change-workflow/)
+- [Data Rollback](/docs/change-database/rollback-data-changes/)
 - [Custom Approval](/docs/administration/custom-approval/)
 - [Webhook Notification](/docs/change-database/webhook/)
-- [GitOps](/docs/vcs-integration/overview/)
 - [Batch Change](/docs/change-database/batch-change/)
+- [GitOps](/docs/vcs-integration/overview/)
 
 ## Test SQL Editor
 
