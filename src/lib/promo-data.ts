@@ -9,7 +9,7 @@ const PROMO_DATA = {
     title: 'What is Bytebase?',
     description:
       'A web-based collaboration workspace to help DBAs and Developers manage the database development lifecycle.',
-    cta: 'See Features',
+    cta: 'Pricing',
     pathname: `${ROUTE.PRICING}?source=blog`,
   },
   DOC_ASIDE: {
