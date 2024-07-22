@@ -28,7 +28,7 @@ const cards: TCard[] = [
     buttonText: 'Deploy in 5 Minutes',
     buttonTheme: 'primary-outline',
     buttonLink: '/docs/get-started/self-host/#docker',
-    planConditions: ['Community support', 'Up to 20 users', 'Up to 10 database instances'],
+    planConditions: ['Community support', 'Up to 20 users', 'Up to 10 database servers'],
   },
   {
     image: '/images/page/pricing/team.webp',
@@ -43,7 +43,7 @@ const cards: TCard[] = [
     planConditions: [
       'Email support',
       'Unlimited users',
-      'Up to 20 database instances',
+      'Up to 20 database servers',
       'Rollout policy',
     ],
   },
@@ -59,7 +59,7 @@ const cards: TCard[] = [
     planConditions: [
       'SLA support',
       'Unlimited users',
-      'Unlimited database instances',
+      'Unlimited database servers',
       'SSO and 2FA',
       'Audit log',
     ],
@@ -91,8 +91,8 @@ const Hero = () => (
           href={Route.DOCS_CONCEPT_DB_INSTANCE}
           theme="primary-1"
         >
-          Database Instance
-        </Link>{' '}
+          database server
+        </Link>
         ❓
       </p>
     </div>
