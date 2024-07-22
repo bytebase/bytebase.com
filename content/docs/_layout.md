@@ -87,9 +87,9 @@ expand_section_list: ['Self-host']
 
 ### [Data Classification](/security/data-masking/data-classification)
 
-### [Semantic Types](/security/data-masking/semantic-types)
-
 ### [Masking Algorithm](/security/data-masking/masking-algorithm)
+
+### [Semantic Types](/security/data-masking/semantic-types)
 
 ### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
 

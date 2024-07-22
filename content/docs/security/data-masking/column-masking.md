@@ -3,13 +3,8 @@ title: Column Masking
 feature_name: DATA_MASKING
 ---
 
-<HintBlock type="info">
-
-The [column masking](../column-masking) takes precedence over the global masking rule.
-
-</HintBlock>
-
-`Workspace Admin` and `DBA` can set table columns as different **Masking Level** to mask the data.
+`Workspace Admin` and `DBA` can set table columns as different **Masking Level** to mask the data. This
+takes precedence over the [global masking rule](../global-masking-rule).
 
 1. Go to the table detail page, and click the **pen icon** in the row.
 
