@@ -1,7 +1,7 @@
 ---
-title: Top Postgres Extensions to Enhance Postgres 2023
+title: Top 9 PostgreSQL Extensions 2024
 author: Tianzhou
-published_at: 2023/07/14 09:00:00
+published_at: 2024/07/23 09:00:00
 feature_image: /content/blog/top-postgres-extension/cover.webp
 tags: Industry
 featured: true
@@ -19,33 +19,15 @@ used ones.
 
 | Extension                               | Capability                     |
 | --------------------------------------- | ------------------------------ |
-| [pg_stat_statements](#pgstatstatements) | Collect execution stats        |
 | [PostGIS](#postgis)                     | Process geospatial data        |
+| [pg_stat_statements](#pgstatstatements) | Collect execution stats        |
 | [postgres_fdw](#postgresfdw)            | Query external PostgreSQL data |
 | [uuid-ossp](#uuid-ossp)                 | Generate UUID                  |
+| [pgcrypto](#pgcrypto)                   | Cryptographic functions        |
 | [pg_cron](#pgcron)                      | Schedule job inside database   |
+| [pgAudit](#pgaudit)                     | Audit Logging                  |
 | [timescaledb](#timescaledb)             | Process time-series data       |
 | [pgvector](#pgvector)                   | Process vectorized data        |
-
-## pg_stat_statements
-
-[pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) provides a means for tracking planning and execution statistics of all SQL statements executed by a server. When pg_stat_statements is active, it tracks statistics across all databases of the server.
-The statistics gathered by the module are made available via a view named `pg_stat_statements`.
-
-Note that the pg_stat_statements extension only tracks queries that have been executed since it was enabled. If you want to track all queries, you should enable the extension at server start-up by adding the following line to your postgresql.conf file:
-
-```text
-shared_preload_libraries = 'pg_stat_statements'
-```
-
-To find the top 10 queries by total execution time:
-
-```sql
-SELECT query, total_time
-FROM pg_stat_statements
-ORDER BY total_time DESC
-LIMIT 10;
-```
 
 ## PostGIS
 
@@ -75,6 +57,26 @@ To find the nearest city to a given point:
 This query calculates the distance between each city in the cities table and the point (-74.005941, 40.712784), and sorts the results by distance using the `<->` operator. The LIMIT 1 clause returns only the nearest city.
 
 Note that the ST_Distance function returns the distance between two points in meters by default. You can convert the result to a different unit of measurement by using the appropriate PostGIS function, such as ST_Distance_Sphere for distance in kilometers.
+
+## pg_stat_statements
+
+[pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) provides a means for tracking planning and execution statistics of all SQL statements executed by a server. When pg_stat_statements is active, it tracks statistics across all databases of the server.
+The statistics gathered by the module are made available via a view named `pg_stat_statements`.
+
+Note that the pg_stat_statements extension only tracks queries that have been executed since it was enabled. If you want to track all queries, you should enable the extension at server start-up by adding the following line to your postgresql.conf file:
+
+```text
+shared_preload_libraries = 'pg_stat_statements'
+```
+
+To find the top 10 queries by total execution time:
+
+```sql
+SELECT query, total_time
+FROM pg_stat_statements
+ORDER BY total_time DESC
+LIMIT 10;
+```
 
 ## postgres_fdw
 
@@ -155,6 +157,37 @@ You can then use this namespace identifier with uuid_generate_v5() to generate U
 
 Note that UUID version 5 is recommended for use in applications where security is a concern, as it is generated using a SHA-1 hash of the namespace identifier and name string, which is less susceptible to collisions than other UUID versions.
 
+## pgcrypto
+
+[pgcrypto](https://www.postgresql.org/docs/current/pgcrypto.html) is a PostgreSQL extension that provides cryptographic functions and capabilities directly within the database. It enhances data security by allowing various cryptographic operations to be performed within SQL queries.
+
+1. Hashing
+
+   ```sql
+   SELECT digest('data to hash', 'sha256');
+   ```
+
+1. Encrytion / decryption
+
+   ```sql
+   SELECT pgp_sym_encrypt('my secret data', 'my passphrase');
+   SELECT pgp_sym_decrypt(encrypted_data, 'my passphrase');
+   ```
+
+1. Password hashing with salt
+
+   ```sql
+   INSERT INTO users (username, password_hash)
+   VALUES ('bob', crypt('foobar123', gen_salt('xyz')));
+   ```
+
+1. Public key cryptography
+
+   ```sql
+   SELECT pgp_pub_encrypt('data', dearmor('-----BEGIN PGP PUBLIC KEY BLOCK----- ...'));
+   SELECT pgp_pub_decrypt(encrypted_data, dearmor('-----BEGIN PGP PRIVATE KEY BLOCK----- ...'));
+   ```
+
 ## pg_cron
 
 [pg_cron](https://github.com/citusdata/pg_cron) is a simple cron-based job scheduler that runs inside the database as an extension. It uses the same syntax as regular cron, but it allows you to schedule PostgreSQL commands directly from the database.
@@ -180,6 +213,43 @@ The schedule uses the standard cron syntax.
    ```sql
    select * from cron.job_run_details order by start_time desc limit 5;
    ```
+
+## pgAudit
+
+[pgAudit](https://github.com/pgaudit/pgaudit) is an extension for PostgreSQL that provides detailed session and/or object audit logging via the standard logging facility provided by PostgreSQL. It is designed to help database administrators and developers meet security and compliance requirements by providing detailed information on database activities.
+
+It helps in meeting regulatory requirements like GDPR, HIPAA, SOX, and others by providing an audit trail of database activity.
+
+```sql
+-- Usage
+SET pgaudit.log = 'read, ddl';
+
+CREATE TABLE account
+(
+    id INT,
+    name TEXT,
+    password TEXT,
+    description TEXT
+);
+
+INSERT INTO account (id, name, password, description)
+             VALUES (1, 'user1', 'HASH1', 'blah, blah');
+
+SELECT * FROM account;
+```
+
+```sql
+-- Output
+AUDIT: SESSION,1,1,DDL,CREATE TABLE,TABLE,public.account,create table account
+(
+    id int,
+    name text,
+    password text,
+    description text
+);,<not logged>
+AUDIT: SESSION,2,1,READ,SELECT,,,select *
+    from account,,<not logged>
+```
 
 ## timescaledb
 
@@ -241,12 +311,11 @@ To get the nearest neighbors to a vector:
    SELECT * FROM items ORDER BY embedding <-> '[3,1,2]' LIMIT 5;
    ```
 
-_Neon recently announced a simlar extension [`pg_embedding`](https://neon.tech/blog/pg-embedding-extension-for-vector-search). It claims to be 20x faster than pgvector_.
-
 ## Summary
 
 Postgres extension is a key differentiator from its main alternative MySQL. If the business requires geospatial
-processing, then Postgres is the only choice thanks to the PostGIS extension. For a complete comparison, please read [Postgres vs. MySQL](/blog/postgres-vs-mysql).
+processing, then Postgres is the only choice thanks to the PostGIS extension. And in the era of AI, pgvector is on
+the way to become the de-factor standard for processing vector data.
 
 ## Further Readings
 
