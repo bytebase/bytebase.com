@@ -1,9 +1,10 @@
 ---
 title: Semantic Types
-feature_name: DATA_MASKING
 ---
 
-You may define semantic types and apply them to columns of different tables. Columns with the same semantic type will be masked with the same [masking algorithm](/docs/security/data-masking/masking-algorithm).
+![overview](/content/docs/security/data-masking/bb-semantic-type-overview.webp)
+
+You may define semantic types and apply them to columns of different tables. Columns with the same semantic type will be masked with the same [masking algorithm](/docs/security/data-masking/masking-algorithm). This allows you to manage masking algorithms for many columns by controlling only a small number of semantic types.
 
 1. Go to **Settings** > **Security & Policy** > **Data Masking**.
 1. Click **Semantic Types**.

@@ -1,6 +1,5 @@
 ---
 title: Export Masked Data
-feature_name: DATA_MASKING
 ---
 
 Data masking is applied not only to the results of queries but also to exported data.

@@ -1,9 +1,13 @@
 ---
 title: Access Unmasked Data
-feature_name: DATA_MASKING
 ---
 
-For the masked columns, `Workspace Admin` and `DBA` can grant specific users to access the unmasked data.
+`Workspace Admin` and `DBA` can relax the masking levels for the users.
+
+- For the full masked columns, users can be granted to access the unmasked or partial masked data.
+- For the partial masked columns, users can be granted to access the unmasked data.
+
+---
 
 1. Go to a table detail page, and click the **pen icon** on the masking level column.
    ![bb-table-detail-click-masking-pen](/content/docs/security/data-masking/bb-table-detail-click-masking-pen.webp)

@@ -1,6 +1,5 @@
 ---
 title: Column Masking
-feature_name: DATA_MASKING
 ---
 
 `Workspace Admin` and `DBA` can set table columns as different **Masking Level** to mask the data. This

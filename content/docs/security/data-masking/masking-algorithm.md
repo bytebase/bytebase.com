@@ -1,6 +1,5 @@
 ---
 title: Masking Algorithm
-feature_name: DATA_MASKING
 ---
 
 You may customize your own data masking algorithm with the help of a predefined masking type.

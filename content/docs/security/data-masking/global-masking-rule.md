@@ -1,6 +1,5 @@
 ---
 title: Global Masking Rule
-feature_name: DATA_MASKING
 ---
 
 <HintBlock type="info">

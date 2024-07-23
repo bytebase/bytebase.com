@@ -1,6 +1,5 @@
 ---
 title: Data Classification
-feature_name: DATA_MASKING
 ---
 
 Data classification allows you to classify columns and apply masking levels to the classified columns globally.
