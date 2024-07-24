@@ -19,7 +19,7 @@ const data: AccordionData[] = [
     image: '/images/page/main/batch-change/multi-environment.webp',
   },
   {
-    title: 'Database and table group',
+    title: 'Database group',
     description: 'Group and change partitioned / tenanted databases together.',
     image: '/images/page/main/batch-change/database-group.webp',
   },
