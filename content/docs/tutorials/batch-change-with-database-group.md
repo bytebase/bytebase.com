@@ -1,128 +1,130 @@
 ---
 title: Batch Change with Database Group
 author: Ningjing
-published_at: 2023/06/20 18:00
-feature_image: /content/docs/tutorials/batch-change-with-database-group/batch-change-db-group-banner.webp
+published_at: 2024/07/23 18:00
 tags: Tutorial
 integrations: General
 level: Intermediate
-estimated_time: '15 mins'
-description: This article describes using Database Group and Table Group to batch change databases.
+estimated_time: '20 mins'
+description: This article describes using Deployment Configure and Database Group to batch change databases.
 ---
 
-Bytebase [2.2.0](/changelog/bytebase-2-2-0/) introduced [**database group**](/docs/concepts/data-model/#database-group-and-table-group), a new feature that provides a new way to facilitate batch change, in addition to batch changing **multiple environments** and **multiple tenants**.
+Bytebase offers multiple features to simplify batch change management. In this tutorial, we will guide you on how to use **Deployment Configure** and **Database Group** to batch change databases for various scenarios.
 
-![database-partition](/content/docs/tutorials/batch-change-with-database-group/database-partition.webp)
+![deployment-configure-banner](/content/docs/tutorials/batch-change-with-database-group/deployment-configure-banner.webp)
+- The graph above is for Step 2 - Deployment Configure (Community Plan) 
 
-As data grows, databases and tables maybe partitioned into smaller chucks. Meanwhile, you still want to
-apply the same database change to all partitions since they share the same schema. It's painful and error-prone to make sure a database change is consistently applied to each partition.
+![database-group-banner](/content/docs/tutorials/batch-change-with-database-group/database-group-banner.webp)
+- The graph above is for Step 3 - Database Group (Enterprise Plan) &  Step 4 - Multitenancy Database Group (Enterprise Plan)
 
-You can use Database Group to model those database partitions and change them in a consistent way.
+## Preparation
 
-## Prerequisites
+1. Make sure you have [Docker](https://www.docker.com/) installed, and if you don’t have important existing Bytebase data locally, you can start over from scratch by `rm -rf ~/.bytebase/data`.
 
-This tutorial requires [Docker](https://www.docker.com/) to be installed.
+1. **Deployment configure** is a **Community Plan** feature and **Database group** is an **Enterprise Plan** feature, you need to have a valid license to enable it. You can request a trial license key from [here](https://bytebase.com/pricing).
 
-## Step 1 - Start Bytebase and MySQL
+## Procedure
 
-1. Make sure your Docker daemon is running. Copy and paste the commands to start one Bytebase and two MySQL instances via Docker.
+### Step 1 - Start Bytebase and prepare the databases
 
-<IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
+To demonstrate the batch change, we need to prepare some databases first.
 
-```text
-docker run --name mysqldtest \
-  --publish 3307:3306 \
-  -e MYSQL_ROOT_HOST=172.17.0.1 \
-  -e MYSQL_ROOT_PASSWORD=testpwd1 \
-  mysql/mysql-server:8.0
-```
+1. Copy and paste the commands to start one Bytebase via Docker.
 
-```text
-docker run --name mysqldprod \
-  --publish 3308:3306 \
-  -e MYSQL_ROOT_HOST=172.17.0.1 \
-  -e MYSQL_ROOT_PASSWORD=testpwd1 \
-  mysql/mysql-server:8.0
-```
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
 
-## Step 2 - Prepare the Console
+1. Regsiter an admin account and it will be granted the `workspace admin` role automatically.
 
-1. Register and sign in **Bytebase Console** via `localhost:8080`. Click **Add Instance** to add two instances in two environments respectively.
+1. Bytebase provides two sample PostgreSQL instances. Click `Select Project` on the top bar, and click **New Project** on the popup. Fill it with a name `batch project` and create **Create**.
+   ![bb-new-project](/content/docs/tutorials/batch-change-with-database-group/bb-new-project.webp)
 
-   - **Host or Socket**: `host.docker.internal` | **Port**: `3307`/`3308`
-   - **Environment**: `Test`/`Prod`
-   - **Username**: `root` | **Password**:`testpwd1`
+1. Go into project `batch change`, click **Database > Databases** on the left side bar. There is no databases belonging to this project yet. Click **New DB**. To mimic the real-world scenario, firstly, create `demo-test` which should be created on sample test instance. An issue will be created automatically, since we haven't configured any rollout mechanism or custom approval workflow, it will roll out automatically. After the issue is done, the database is created.
+   ![bb-new-project](/content/docs/tutorials/batch-change-with-database-group/bb-new-db-test.webp)
 
-2. Create project `Group Demo` as **Name**, `GD` as **Key** `Batch Mode` as **Mode** and click **Create**. Here you need to upgrade to **Enterprise Plan** with 14 days trial period.
-   ![bb-create-project-upgrade](/content/docs/tutorials/batch-change-with-database-group/bb-create-project-upgrade.webp)
+   ![bb-issue-test-done](/content/docs/tutorials/batch-change-with-database-group/bb-issue-test-done.webp)
 
-3. Within the project, click **Create DB** to create eight databases as follows:
-   - `demo_db_test` in `Test` environment and it will run automatically. Because by default, issue in `Test` environment will rollout automatically;
-   - `demo_db_prod_asia` in `Prod` environment and click **Rollout**;
-   - `demo_db_prod_europe` in `Prod` environment and click **Rollout**;
-   - `demo_db_prod_africa` in `Prod` environment and click **Rollout**;
-   - `demo_db_prod_australia` in `Prod` environment and click **Rollout**;
-   - `demo_db_prod_north_america` in `Prod` environment and click **Rollout**;
-   - `demo_db_prod_south_america` in `Prod` environment and click **Rollout**;
-   - `demo_db_prod_antarctica` in `Prod` environment and click **Rollout**.
+1. In the same way, create `demo-prod-1`,`demo-prod-2`,`demo-prod-3`,`demo-prod-4`,`demo-prod-5`,`demo-prod-6`, `other-prod-1` and `other-prod-2`.
 
-## Step 3 - Group Databases and Create Tables in Batch
+   ![bb-new-db-prod-1](/content/docs/tutorials/batch-change-with-database-group/bb-new-db-prod-1.webp)
 
-1. Within the project `Group Demo`, click **Database Groups** tab, and click **New database group**. Fill in the form as follows:
+1. Select both `demo-prod-1` and `demo-prod-2` , and click **Edit Labels**. Assign a label Key: `Location`, Value: `Asia`.
 
-   - **Name**: `demo-all` | **Environment**: `Prod`
-   - **Condition**: Where `Database name` `startsWith` `demo_db_prod`
-     ![bb-new-db-group-demo-all](/content/docs/tutorials/batch-change-with-database-group/bb-new-db-group-demo-all.webp)
-     You may create other database group such as:
-   - **Name**: `demo-human` | **Environment**: `Prod`
-   - **Condition**: Where `Database name` `startsWith` `demo_db_prod`
-     `and` `Database name` `!=` `demo_db_prod_antarctica`
-     ![bb-new-db-group-demo-human](/content/docs/tutorials/batch-change-with-database-group/bb-new-db-group-demo-human.webp)
+   ![bb-assign-label](/content/docs/tutorials/batch-change-with-database-group/bb-assign-label.webp)
 
-2. Within the project, click **Alter Schema**. Choose **Manual Selection** > **Database Group** > `demo-all`, and click **Next**. Copy and paste the SQL below and click **Create**.
+1. In the same way, assign `EU` and `NA` to other demo-prod databases.
 
-   ```sql
-   CREATE TABLE t1 (
-      id INTEGER PRIMARY KEY
-   );
+   ![bb-dbs-label](/content/docs/tutorials/batch-change-with-database-group/bb-dbs-label.webp)
+
+### Step 2 - Deployment Configure (Community Plan)
+
+We'll show you the difference deployment configuration makes.
+
+1. Go to **Databases > Database** in the project, select `demo-test` and `demo-prod-1`~`demo-prod-6` and click **Edit Schema**. Fill in a SQL and click **Create**. You can see the pipeline has two stages - Test and Prod, and there're six databases, which means the SQL will run against these six databases simutaneously.
+
+   ```SQL
+      CREATE TABLE t2("id" INTEGER NOT NULL);
+   ```
+   ![bb-select-demo-dbs](/content/docs/tutorials/batch-change-with-database-group/bb-select-demo-dbs.webp)
+
+   ![bb-issue-t2-done](/content/docs/tutorials/batch-change-with-database-group/bb-issue-t2-done.webp)
+
+1. What if we want to do the change to Asia first, then EU,and NA the last? Stay in the project, click **Deployment Configure** on the leftside bar. Add new stages with label filtering.
+
+   ![bb-deployment-config](/content/docs/tutorials/batch-change-with-database-group/bb-deployment-config.webp)
+
+1. Go to **Databases > Database** in the project, select `demo-test` and `demo-prod-1`~`demo-prod-6` and click **Edit Schema**. Fill in a SQL and click **Create**. You can see the pipeline has four stages as we configure.
+   ```SQL
+      CREATE TABLE t1("id" INTEGER NOT NULL);
    ```
 
-3. On the issue page, click the **down arrow** and choose **Rollout** to run one database first. If it's OK, then click **Rollout current stage** to run all.
-   ![bb-issue-7-db-t1](/content/docs/tutorials/batch-change-with-database-group/bb-issue-7-db-t1.webp)
-   ![bb-issue-7-db-t1-one-db-passed](/content/docs/tutorials/batch-change-with-database-group/bb-issue--7-db-t1-one-db-passed.webp)
+   ![bb-issue-t1-done](/content/docs/tutorials/batch-change-with-database-group/bb-issue-t1-done.webp)
+   
+### Step 3 - Database Group (Enterprise Plan)
 
-4. Repeat 2 to 3 to create another issue for another table `t2`:
-   ```sql
-   CREATE TABLE t2 (
-      id INTEGER PRIMARY KEY
-   );
+We need first to upgrade to Enterprise Plan to use Database Group.
+
+1. Click the **Setting icon** on the top right, and then click **Workspace > Subscription** to upload the license.
+
+1. Click the pen icon, select the instances you want to enable Enterprise features , and click **Confirm**.
+
+   ![bb-subscription](/content/docs/tutorials/data-rollback/bb-subscription.webp)
+
+1. Go to **Database > Groups** in the project, click **New database group**, fill the fields as follows, when you scroll down, you will see there's an option **Multitennancy**, keep it unchecked for now and click **Save**.
+   - **Name:** `demo-prod-all`
+   - **Condition:** `Environment == Prod` & `Database name startsWith demo-prod-`
+
+   ![bb-new-db-group](/content/docs/tutorials/batch-change-with-database-group/bb-new-db-group.webp)
+ 
+   ![bb-db-group-multi-t-uncheck](/content/docs/tutorials/batch-change-with-database-group/bb-db-group-multi-t-uncheck.webp)  
+
+
+1. Go to **Database > Groups** in the project, click **Edit Schema**, and choose **Database group** and click **Next**.
+
+   ![bb-edit-schema-db-group](/content/docs/tutorials/batch-change-with-database-group/bb-edit-schema-db-group.webp)  
+   
+
+1. You many see the six databases in three stages. Fill in the SQLs and click **Create**.
+
+   ```SQL
+      CREATE TABLE t3("id" INTEGER NOT NULL);
    ```
+   
+   ![bb-issue-db-group-multi-uncheck](/content/docs/tutorials/batch-change-with-database-group/bb-issue-db-group-multi-uncheck.webp)  
 
-## Step 4 - Group Tables and Alter tables in Batch
+1. Go to **Database > Databases** in the project, and click **New DB**. Create a database `demo-prod-7` which belongs to the database group. Check the schema, it's empty.
 
-1. Within the project `Group Demo`, click **Database Groups** tab, and click **New table group**. Fill in the form as follows:
+   ![bb-demo-7-empty](/content/docs/tutorials/batch-change-with-database-group/bb-demo-7-empty.webp)  
 
-   - **Database Group**: `demo-all` | **Environment**: `Prod` | **Name**: `demo-all-t`
-   - **Condition**: Where `Table name` `startsWith` `t`
-     ![bb-new-table-group-t](/content/docs/tutorials/batch-change-with-database-group/bb-new-table-group-t.webp)
+### Step 4 - Multitenancy Database Group (Enterprise Plan)
 
-2. Click **New table group** again. Fill in the form as follows:
+When the database group has **Multitenancy** enabled, the new database will inherit group schemas automatically.
 
-   - **Database Group**: `demo-all` | **Environment**: `Prod` | **Name**: `demo-all-t1`
-   - **Condition**: Where `Table name` `==` `t1`
+1. Go to **Database > Groups** in the project, click **Configure**, this time we check **Multitenancy** and click **Confirm**.
 
-3. Within the project, click **Alter Schema**. Choose **Manual Selection** > **Database Group** > `demo-all`, and click **Next**. You'll see the following field.
-   ![bb-table-alter-schema-t1-t](/content/docs/tutorials/batch-change-with-database-group/bb-table-alter-schema-t1-t.webp)
+1. Go to **Database > Databases** in the project, and click **New DB**. Create a database `demo-prod-8` which belongs to the database group. Check the schema, it's the same schema as other demo-prod databases. Pay attention here, even if there is an on going issue, the new database will be appended.
 
-4. Here we choose `demoall_t` which includes `t1` and `t2`. Uncomment the last line, replace it with the SQL below and click **Create**.
-
-   ```sql
-   ALTER TABLE demoall_t ADD COLUMN name VARCHAR(255) NOT NULL;
-   ```
-
-5. On the issue page, click the **down arrow** and choose **Rollout** to run one database first. If it's OK, then click **Rollout current stage** to run all.
-   ![bb-issue-14-alter-schema](/content/docs/tutorials/batch-change-with-database-group/bb-issue-14-alter-schema.webp)
+   ![bb-demo-8-same](/content/docs/tutorials/batch-change-with-database-group/bb-demo-8-same.webp)  
 
 ## Summary
 
-Now you have learned how to use database group and table group to run batch changes in Bytebase. Bytebase also provides other ways to batch change databases across multiple environments, SaaS tenants. Please refer to [Batch Change](/docs/change-database/batch-change/) for more details.
+Now you have learned how to use deployment config and database group to run batch changes in Bytebase.
