@@ -5,7 +5,7 @@ published_at: 2021/07/26 07:49:00
 
 ## 🐞 Important Bug Fixes
 
-- **MySQL connection leak** - In the previous version, when Bytebase does not properly release the connection after finishing connecting the MySQL instance, which will cause MySQL connection pool exhaustation.
+- **MySQL connection leak** - In the previous version, when Bytebase does not properly release the connection after finishing connecting the MySQL instance, which will cause MySQL connection pool exhaustion.
 
 ## 🚀 New Features
 
