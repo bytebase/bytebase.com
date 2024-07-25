@@ -11,7 +11,7 @@ description: 'Support monitoring blocking sessions during PostgreSQL task execut
 - Support monitoring blocking sessions during PostgreSQL task execution.
 - Support auto-completion for Oracle.
 - Support Kerberos authentication for Hive.
-- Sync extended property `MS_Descriptio`n on Table/Column as comment for SQL Server.
+- Sync extended property `MS_Description` on Table/Column as comment for SQL Server.
 
 ## 🎄 Enhancements
 
