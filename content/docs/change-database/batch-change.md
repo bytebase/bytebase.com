@@ -19,7 +19,7 @@ Then Bytebase will then create an issue to track the multi-database changes. You
 
 <PricingPlanBlock feature_name='BATCH_CHANGE' />
 
-Bytebase allows you to create a database group in `Multitenancy` mode and change **a collection of databases with identical schemas**, these databases are often referred to as `tenant databases``. Typical scenarios of tenant databases are:
+Bytebase allows you to create a database group in `Multitenancy` mode and change **a collection of databases with identical schemas**, these databases are often referred to as `tenant databases`. Typical scenarios of tenant databases are:
 
 - A Software as a Service (SaaS) provider provides separate database instances for each of its customers (aka. tenants) alongside their application deployments.
 - An internal platform team provides multi-region database deployments (e.g. US, EU), and has separate database instances in different deployment environments (e.g. Staging, Prod).
