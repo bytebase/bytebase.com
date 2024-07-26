@@ -76,6 +76,10 @@ export default function Page() {
           Anonymous usage metrics are collected and sent to Segment. Collection can be disabled upon
           request in our Enterprise plan.
         </li>
+        <li>
+          The customer Bytebase instance will be deactivated automatically if there is no traffic in
+          48 hours. The data will be purged in 60 days after deactivation.
+        </li>
       </ul>
       <h2 id="self-host">Bytebase self-hosted</h2>
       <Image
