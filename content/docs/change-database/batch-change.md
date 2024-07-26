@@ -32,11 +32,11 @@ If you are responsible for managing horizontally partitioned databases that are 
 
 1. Within a project, click **Database > Groups** on the left-side bar. Then click **New database group** to create a new database group.
 
-    ![bb-project-groups-create](/content/docs/change-database/batch-change/bb-project-groups-create.webp)
+   ![bb-project-groups-create](/content/docs/change-database/batch-change/bb-project-groups-create.webp)
 
 2. Fill in the name and rules for filtering the desired databases. There is a option **Multitenancy** to enable the database group to be used for tenant databases. If it's checked, then all the databases to be added to this group are tenant databases which have the same schema.
 
-    ![bb-new-db-group-create-multi-t](/content/docs/change-database/batch-change/bb-new-db-group-create-multi-t.webp)
+   ![bb-new-db-group-create-multi-t](/content/docs/change-database/batch-change/bb-new-db-group-create-multi-t.webp)
 
 3. Click **Save**, you'll see the newly created group in the list.
 
@@ -44,27 +44,27 @@ If you are responsible for managing horizontally partitioned databases that are 
 
 1. Within the project, click **Database > Groups** on the left-side bar. Click **Edit Schema**, choose **Database Group**, select the database group you'll operate and click **Next**.
 
-    ![bb-db-group-edit](/content/docs/change-database/batch-change/bb-db-group-edit.webp)
+   ![bb-db-group-edit](/content/docs/change-database/batch-change/bb-db-group-edit.webp)
 
 1. An issue with the selected databases will be previewed. Add the SQL in the text field and click **Create**. The issue is created and waiting for approval.
 
-    ![bb-issue-batch-created](/content/docs/change-database/batch-change/bb-issue-batch-created.webp)
+   ![bb-issue-batch-created](/content/docs/change-database/batch-change/bb-issue-batch-created.webp)
 
 ### Step 3 - Add a new database to the group while there is a change going on
 
 1. Go to **Database > Databases**, click **New DB**, and create a new database according to the database group rules. The database will be added to the database group automatically.
 
-    ![bb-db-7](/content/docs/change-database/batch-change/bb-db-7.webp)
+   ![bb-db-7](/content/docs/change-database/batch-change/bb-db-add-7.webp)
 
 1. Go back to the issue page, now you can see the newly added database in the issue. It's because we have enabled the `Multitenancy` option when creating the database group which ensures all the databases in the group have the same schema.
 
-    ![bb-issue-add-7](/content/docs/change-database/batch-change/bb-issue-add-7.webp)
+   ![bb-issue-add-7](/content/docs/change-database/batch-change/bb-issue-add-7.webp)
 
 1. Click **Approve** approve the issue and then click **Rollout**. The schema change will be applied to all the databases in the group. To verify the change, you can check the database schema in SQL Editor.
 
-    ![bb-issue-7-done](/content/docs/change-database/batch-change/bb-issue-7-done.webp)
+   ![bb-issue-7-done](/content/docs/change-database/batch-change/bb-issue-7-done.webp)
 
-    ![bb-sql-editor-7](/content/docs/change-database/batch-change/bb-sql-editor-7.webp)
+   ![bb-sql-editor-7](/content/docs/change-database/batch-change/bb-sql-editor-7.webp)
 
 ### Step 4- Add a new database to the group when there is no change going on
 
