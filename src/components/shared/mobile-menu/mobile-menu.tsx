@@ -122,7 +122,7 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
       {isDocs && (
         <AlgoliaSearch
           className={clsx(
-            'fixed top-0 right-0 mt-[36px] hidden sm:block',
+            'fixed right-0 top-0 mt-[36px] hidden sm:block',
             isOpen ? 'z-40' : 'z-50',
           )}
         />
@@ -240,11 +240,8 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
               </li>
             </ul>
             <div className="sticky bottom-0 z-10 mt-auto hidden flex-col gap-4 sm:flex sm:gap-2">
-              <Button href={Route.HUB} theme="gray-filled" size="md">
-                Free Cloud
-              </Button>
-              <Button href={Route.DOCS_SELF_HOST} theme="primary-outline" size="md">
-                Self Host
+              <Button href={Route.DOCS_SELF_HOST} theme="gray-filled" size="md">
+                Deploy in 5 mins
               </Button>
             </div>
           </div>

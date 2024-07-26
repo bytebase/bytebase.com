@@ -15,17 +15,17 @@ expand_section_list: ['Self-host']
 
 ---
 
-## [Cloud](/get-started/cloud)
+## Install
 
-## Self-host
-
-### [Install](/get-started/self-host)
+### [Self-host](/get-started/self-host)
 
 ### [Upgrade](/get-started/upgrade)
 
 ### [Configure External PostgreSQL](/get-started/install/external-postgres)
 
 ### [Configure External URL](/get-started/install/external-url)
+
+### [Cloud](/get-started/cloud)
 
 ## Quickstart
 

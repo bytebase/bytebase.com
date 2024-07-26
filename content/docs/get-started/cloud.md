@@ -4,11 +4,11 @@ title: Bytebase Cloud
 
 <HintBlock type="info">
 
-Cloud instance provides limited memory. If you run large queries, please [self host Bytebase](/docs/get-started/self-host) (don't be scared, it's a single binary and deployment is easy).
+Cloud is for **demo** purpose and provides limited memory. For production use, please [self host Bytebase](/docs/get-started/self-host) (don't be scared, it's a single binary and deployment is easy).
 
 </HintBlock>
 
-Bytebase Cloud is hosted on Google Cloud us-central region. With Bytebase Cloud, you can provision your Bytebase instance instantly.
+[Bytebase Cloud](https://hub.bytebase.com/) is hosted on Google Cloud GKE us-central region. With Bytebase Cloud, you can provision your Bytebase instance instantly.
 
 ## Whitelist the Bytebase Cloud IP
 
@@ -46,5 +46,3 @@ Because Bytebase Cloud disables self-signup, so the `Workspace Admin` needs to a
 Then set a temporary password and tell the user offline to let her sign-in.
 
 ![set-password](/content/docs/get-started/saas/set-password.webp)
-
-
