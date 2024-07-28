@@ -38,9 +38,9 @@ const GithubStarCounter = () => {
   return (
     <Link
       href={Route.GITHUB}
-      className="inline-flex items-center gap-2 text-18 font-bold uppercase leading-none"
+      className="inline-flex items-center gap-2 text-16 font-bold uppercase leading-none"
     >
-      <GitHubIcon width={28} height={28} />
+      <GitHubIcon width={24} height={24} />
       <span className="w-12 whitespace-nowrap">
         {starsCount ? `${(starsCount / 1000).toFixed(1)}k` : '...'}
       </span>
