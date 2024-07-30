@@ -11,7 +11,7 @@ expand_section_list: ['Self-host']
 
 ## [POC Checklist](/poc)
 
-## [Onboarding Phases](/onboarding)
+## [Onboarding Phases🪜](/onboarding)
 
 ## [FAQ](/faq)
 

@@ -1,5 +1,5 @@
 ---
-title: Onboarding Phases
+title: Onboarding Phases🪜
 ---
 
 <HintBlock type="info">
@@ -13,16 +13,16 @@ The ultimate goal is to make Bytebase the only tool to manage all human-to-db op
 if your team has existing tooling and process. Bytebase can be adopted in phases to improve the
 database operational practices gradually:
 
-1. [Standardize ad-hoc change process (1 week)](#phase-1-standardize-ad-hoc-change-process)
+1. [Standardize ad-hoc change process (2 weeks)](#phase-1-standardize-ad-hoc-change-process)
 1. [Centralize data query access (2 weeks)](#phase-2-centralize-data-query-access)
-1. [Integrate SQL review into CI (2 weeks)](#phase-3-integrate-sql-review-into-ci)
+1. [Integrate SQL review into CI (1 week)](#phase-3-integrate-sql-review-into-ci)
 1. [Manage schema migration (4 ~ 8 weeks)](#phase-4-manage-schema-migration)
 
 ## Phase 1 - Standardize ad-hoc change process
 
 |              |                                                                                                                                                      |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Duration** | 1 week                                                                                                                                               |
+| **Duration** | 2 weeks                                                                                                                                              |
 | **Goals**    | 1. Remove direct human write access to database.<br/>2. Streamlined change process with review, check, rollout, rollback, notification, and history. |
 
 Manage one-off DML changes (e.g. INSERT/UPDATE/DELETE) and out-of-band schema changes (e.g. add an index on emergency).
@@ -57,7 +57,7 @@ Related features:
 
 |              |                                                                                              |
 | ------------ | -------------------------------------------------------------------------------------------- |
-| **Duration** | 2 weeks                                                                                      |
+| **Duration** | 1 week                                                                                       |
 | **Goals**    | 1. Auto check SQL anti-patterns during CI.<br/>2. Non-intrusive to the existing CI pipeline. |
 
 If your team has the existing database schema migration process in place. You can start by including the
