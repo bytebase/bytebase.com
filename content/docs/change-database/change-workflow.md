@@ -28,6 +28,43 @@ If you want to roll out changes during non-business hours, you can set a rollout
 
 ![rollout-time](/content/docs/change-database/change-workflow/rollout-time.webp)
 
+## Rollout Process
+
+### Order
+
+Database rollout is organized into stages. Each stage can contain multiple tasks. Each task contains
+one or more SQL statements to be executed.
+
+![rollout-process-order](/content/docs/change-database/change-workflow/rollout-process-order.webp)
+
+<HintBlock type="info">
+
+Stage progresses sequentially. Tasks from the late stage must wait until all the tasks from the previous stage complete.
+
+Tasks from the same stage run concurrently. Failed task will not block tasks from the same stage.
+
+</HintBlock>
+
+### Task Detail
+
+You can check the running/completed task details.
+
+![rollout-detail-button](/content/docs/change-database/change-workflow/rollout-detail-button.webp)
+
+The logs shows how Bytebase runs SQL statements.
+
+![rollout-detail-log](/content/docs/change-database/change-workflow/rollout-detail-log.webp)
+
+<HintBlock type="info">
+
+If you initiate the change from `Edit Schema` (DDL), Bytebase will take the schema snapshot before and after the change.
+
+</HintBlock>
+
+The sessions view shows all active sessions (PostgreSQL only).
+
+![rollout-detail-session](/content/docs/change-database/change-workflow/rollout-detail-session.webp)
+
 ## Migration Types
 
 Bytebase records the migration history with the migration type information.
