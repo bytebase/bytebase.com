@@ -15,9 +15,20 @@ English, 简体中文, Español, 日本語
 
 ## System requirements
 
-Bytebase is lightweight and has no external dependency. For normal workload, 1 CPU core and 2 GB RAM are sufficient.
+### Resources
 
-If you use Docker, please upgrade to at least [20.10.24](https://docs.docker.com/engine/release-notes/20.10/#201024).
+Bytebase is a single Go binary and is lightweight.
+
+|                                 |                           |
+| ------------------------------- | ------------------------- |
+| 5 users and 5 instances         | 1 CPU cores and 2 GB RAM  |
+| 20 users and 20 instances       | 2 CPU cores and 4 GB RAM  |
+| 50 users and 50 instances       | 4 CPU cores and 8 GB RAM  |
+| Above 250 users or 50 instances | 8 CPU cores and 16 GB RAM |
+
+### Docker
+
+If you use Docker to deploy Bytebase, please use Docker version >= [20.10.24](https://docs.docker.com/engine/release-notes/20.10/).
 
 ## Supported database and versions
 
