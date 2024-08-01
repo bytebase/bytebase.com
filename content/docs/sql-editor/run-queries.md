@@ -21,6 +21,14 @@ Click the `Run` button or use the shortcut key `(⌘ + Enter)` to run your queri
 
 If you have multiple SQL queries separated by semicolons, SQL Editor will only run the first query for now.
 
+<HintBlock type="info">
+
+SQL Editor can return at most **100,000 rows** and **100 MB** size in total.
+
+</HintBlock>
+
+![Query Limit](/content/docs/sql-editor/query-limit.webp)
+
 ## Explain query
 
 SQL Editor provides an `Explain` button to run EXPLAIN on the selected query. You can click it or use the shortcut key `(⌘ + E)` instead of prepending EXPLAIN manually.
