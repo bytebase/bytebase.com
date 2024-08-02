@@ -30,6 +30,10 @@ Bytebase is a single Go binary and is lightweight.
 
 If you use Docker to deploy Bytebase, please use Docker version >= [20.10.24](https://docs.docker.com/engine/release-notes/20.10/).
 
+### WebSocket
+
+SQL Editor autocomplete requires [enabling WebSocket](/docs/get-started/self-host/#enable-websocket-for-sql-editor) in your gateway if present.
+
 ## Supported database and versions
 
 See [Supported Databases](/docs/introduction/supported-databases).

@@ -53,9 +53,9 @@ If you need more control over the server configuration, check other [Server Star
 
 Check [Configure External URL](/docs/get-started/install/external-url#configure-via-ui) for details.
 
-#### Enable HTTPS and WebSocket
+#### Enable WebSocket for SQL Editor
 
-Bytebase does not support enabeling HTTPS in server configuration. We suggest use NGINX or Caddy as a reverse proxy in front of Bytebase to enable HTTPS and WebSocket (for SQL Editor autocomplete). Here is an example NGINX configuration:
+SQL Editor autocomplete requires WebSocket. Here is an sample NGINX configuration (including the optional HTTPS mentioned below):
 
 ```nginx
 
@@ -68,17 +68,19 @@ http {
     server {
         listen       80;
         listen  [::]:80;
+        # Listen HTTPS
         listen       443 ssl;
         listen  [::]:443 ssl;
         server_name  www.example.com;
 
+        # SSL cert and key
         ssl_certificate /path/to/certificate/file;
         ssl_certificate_key /path/to/private/key/file;
 
        location ~ ^/(v1:adminExecute|lsp) {
             proxy_pass http://www.example.com;
             proxy_http_version 1.1;
-            # Below two lines enables WebSocket which is required for SQL Editor autocomplete
+            # Enables WebSocket which is required for SQL Editor autocomplete
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection $connection_upgrade;
         }
@@ -92,6 +94,10 @@ http {
     }
 }
 ```
+
+#### Enable HTTPS
+
+Bytebase does not support enabling HTTPS in server configuration. We suggest use [NGINX](https://nginx.org/) or [Caddy](https://caddyserver.com/) as a reverse proxy in front of Bytebase to enable HTTPS.
 
 ### Troubleshooting
 
