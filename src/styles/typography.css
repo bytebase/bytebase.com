@@ -1,32 +1,8 @@
 @layer components {
   .content {
-    > * {
-      &:first-child {
-        @apply mt-0;
-
-        &.hint-block {
-          @apply mt-6 xl:mt-[26px] md:mt-[22px] sm:mt-2.5;
-        }
-      }
-
-      &:last-child {
-        @apply mb-0;
-      }
-    }
-
     @apply leading-normal xl:text-16 md:leading-snug;
 
     @apply prose-headings:mb-5 prose-headings:mt-11 prose-headings:font-semibold prose-headings:text-gray-15 prose-p:my-5 prose-p:text-gray-15 prose-a:break-words prose-a:font-semibold prose-a:text-primary-1 prose-a:no-underline prose-a:transition-colors prose-a:duration-200 hover:prose-a:text-gray-60 prose-ul:my-5 prose-li:text-gray-15 xl:prose-headings:mb-4 xl:prose-headings:mt-10 xl:prose-p:my-4 md:prose-headings:mt-9 sm:prose-headings:mt-6 sm:prose-headings:leading-tight sm:prose-p:my-3;
-
-    > * {
-      &:first-child {
-        @apply mt-0;
-      }
-
-      &:last-child {
-        @apply mb-0;
-      }
-    }
 
     /* this fixes the fixed width video embeds in docs */
     iframe {
@@ -111,11 +87,16 @@
       }
     }
 
-    h2,
-    h3,
+    h2 {
+      @apply !-mt-[144px] !pt-[174px];
+    }
+
+    h3 {
+      @apply !-mt-[144px] !pt-[164px];
+    }
+
     h4 {
-      /* NOTE: it's the height of sticky header */
-      @apply !-mt-[144px] !pt-[180px] lg:!pt-[168px] md:!pt-[160px];
+      @apply !-mt-[144px] !pt-[150px];
     }
 
     li {
