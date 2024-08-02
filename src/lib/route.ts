@@ -3,7 +3,6 @@ const Route = {
   ABOUT: '/about',
   PRICING: '/pricing',
   BRAND: '/about#brand-kit',
-  TECHSTACK: '/techstack',
   SCHEMA_MIGRATION: '/schema-migration',
   SQL_EDITOR: '/sql-editor',
   DATA_MASKING: '/data-masking',
