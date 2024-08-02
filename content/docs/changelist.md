@@ -19,12 +19,6 @@ The [change history](/docs/change-database/change-workflow/#migration-history) a
 
 ![Change Center](/content/docs/changelist/bb-change-history.webp)
 
-### Branch
-
-The [branch](/docs/branching) differences between the latest branch state and its baseline schema.
-
-![bb-changelist-add-branch](/content/docs/changelist/bb-changelist-add-branch.webp)
-
 ### Raw SQL
 
 Arbitrary SQL statements.

@@ -42,12 +42,6 @@ Database version control often relies on migration scripts, which are code files
 
 ![change-list](/content/blog/database-version-control/changelist.webp)
 
-## Branching and Merging
-
-Version control systems allow branching, which allows teams to work on different features or modifications simultaneously. Bytebase offers a similar [Branching](/docs/branching/) feature for database changes.
-
-![branch-merge](/content/blog/database-version-control/branch-merge.webp)
-
 ## Deployment and Rollback
 
 By keeping a history of changes, version control enables controlled deployment of database updates. If a problem occurs, it allows teams to roll back to a previous version of the database schema and associated data. Bytebase provides the following rollback options:

@@ -30,8 +30,6 @@ for DBAs and developers to collaborate on database changes.
   ![schema-review-table-drop-naming](/content/docs/sql-review/schema-review-table-drop-naming.webp)
 - [Streamline the change](/docs/change-database/batch-change/) across different environments and allow to batch change many databases consistently.
   ![streamline-change](/images/page/main/batch-change/deployment-config.webp)
-- [Git-like branching](/docs/branching/) for database change.
-  ![branching](/images/page/main/branching/create-branch.webp)
 - [Point-and-click integration](/docs/vcs-integration/overview/) with mainstream VCSs to enable GitOps workflow.
   ![gitops-workflow](/content/docs/vcs-integration/overview/gitops-workflow.webp)
 - [Online schema migration for MySQL](/docs/change-database/online-schema-migration-for-mysql/) with gh-ost integration.

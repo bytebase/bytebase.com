@@ -5,9 +5,9 @@ expand_section_list: ['Self-host']
 
 ## [Why Bytebase](/introduction/what-is-bytebase)
 
-## [Use Cases](/introduction/use-cases)
-
 ## [Supported Databases](/introduction/supported-databases)
+
+## [Use Cases](/introduction/use-cases)
 
 ## [POC Checklist](/poc)
 
@@ -100,8 +100,6 @@ expand_section_list: ['Self-host']
 ## [Batch Change](/change-database/batch-change)
 
 ## [Changelist](/changelist)
-
-## [Branching](/branching)
 
 ---
 

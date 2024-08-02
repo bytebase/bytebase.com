@@ -138,7 +138,6 @@ You have now learned how to use Bytebase to deploy schema migration in a basic w
 
 - [GitOps](/docs/vcs-integration/overview/) - Observe Git code push events and trigger schema migration;
 - [Batch changes](/docs/change-database/batch-change/) - Change multiple databases in a single workflow;
-- [Branching](/docs/branching/) - Collaborate on schema changes using Git-like branching;
 - [Changelist](/docs/changelist/) - Organize and apply changes sequentially, or export them for offline execution.
 
 Join our [Discord channel](https://discord.com/invite/huyw7gRsyA) to discuss.

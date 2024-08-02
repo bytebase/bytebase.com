@@ -30,12 +30,6 @@ export const MENU = {
           linkUrl: Route.BATCH_CHANGE,
           iconName: 'batch',
         },
-        {
-          name: 'Branching',
-          description: 'Change database the Git way',
-          linkUrl: Route.BRANCHING,
-          iconName: 'branch',
-        },
       ],
     },
     {
@@ -145,12 +139,6 @@ export const MENU = {
           description: 'Multi-environments, multi-regions, multi-tenants',
           linkUrl: Route.BATCH_CHANGE,
           iconName: 'batch',
-        },
-        {
-          name: 'Branching',
-          description: 'Change database the Git way',
-          linkUrl: Route.BRANCHING,
-          iconName: 'branch',
         },
       ],
     },
