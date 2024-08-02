@@ -88,6 +88,7 @@
     }
 
     h2 {
+      /* NOTE: it's the height of sticky header */
       @apply !-mt-[144px] !pt-[174px];
     }
 
