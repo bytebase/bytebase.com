@@ -50,11 +50,17 @@ Bytebase allows you to define a `database group` to change **a collection of dat
 
 ### Multitenancy
 
+<HintBlock type="info">
+
+Only applicable if the new database is created via Bytebase.
+
+</HintBlock>
+
 If the database group enables `Multitenancy`, Bytebase will enforce extra schema consistencies:
 
 - If a new database is added to the database group, the new database will be applied with the schema from the first database in the database group.
 
-- Further, if the new database is added when there is an ongoing change to the database group. The new database will be added to the change issue automatically.
+- Further, if the new database is created via Bytebase when there is an ongoing change to the database group. The new database will be added to the change issue automatically.
 
   The example below shows we are adding `hr_prod_7` to the existing `hr_prod` database group. And there is an ongoing change
   to the `hr_prod` group.
