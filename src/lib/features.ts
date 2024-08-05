@@ -24,7 +24,7 @@ export const FEATURES = {
   ADMIN_MODE: 'Admin Mode',
   SAVED_SQL: 'Saved SQL script',
   BATCH_QUERY: 'Batch query multiple databases',
-  READONLY_CONNECTION: 'Separate connection for read-only operations',
+  READONLY_CONNECTION: 'Separate read-only connections',
   CHATSQL: 'Query using natural language',
 
   //Collaboration

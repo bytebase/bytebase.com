@@ -137,11 +137,11 @@ expand_section_list: ['Self-host']
 
 ### [Data Masking](/sql-editor/mask-data)
 
-### [Manage SQL Scripts with Sheet](/sql-editor/manage-sql-scripts)
+### [Manage SQL Scripts](/sql-editor/manage-sql-scripts)
 
 ### [Explore Schema](/sql-editor/explore-schema)
 
-### [ChatSQL](/sql-editor/chatsql)
+### [Query with Natural Language](/sql-editor/chatsql)
 
 ## Secure Data
 

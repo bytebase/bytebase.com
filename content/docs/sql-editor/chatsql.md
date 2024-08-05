@@ -1,5 +1,5 @@
 ---
-title: ChatSQL
+title: Query with Natural Language
 feature_name: CHATSQL
 ---
 
