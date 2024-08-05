@@ -1,31 +1,18 @@
 ---
-title: SQL Primary Key - UUID or Auto Increment Integer / Serial?
+title: UUID or Auto Increment Integer / Serial as the Database Primary Key?
 author: Tianzhou
-published_at: 2021/08/24 08:37:00
-feature_image: /content/blog/choose-primary-key-uuid-or-auto-incement/uuid.webp
+published_at: 2024/08/05 08:00:00
+feature_image: /content/blog/choose-primary-key-uuid-or-auto-increment/uuid.webp
 tags: Explanation
-description: Pros and Cons between choosing UUID or auto increment integer / serial for SQL database.
+featured: true
+description: Pros and Cons between choosing UUID or auto increment integer / serial as the primary key for SQL database.
 ---
-
-> tl;dr **choosing Auto Increment Integer 95% of the time for readability.**
 
 One of the first things when designing a new SQL database schema is to decide which type of **primary key** to use. And 99% of the time, developers need to choose between either UUID or Auto Increment Integer/Serial.
 
 Developers may not realize initially, but choosing the primary key type can have consequential impact down the road and it's almost impossible to switch afterwards.
 
-> _Choosing a proper primary key format requires a good understanding of both the business requirements as well as the underlying database system, so that the schema designer can make the educated tradeoff._
-
-## **UUID**
-
-There are 5 standard UUID formats nowadays. Most of the time, people either choose v4 (random UUID) or v1 (timestamp UUID)
-
-- Globally unique. e.g. No false positive for finding items using log. Easy for migrating data between systems since collision is only theoratically possible.
-- Stateless, it can be generated on the fly.
-- A sense of secure since malicious user can't guess the ID. However, your security team would always insist that a public accessible UUID path does not meet the security standard.
-- Version 1 UUID stores timestamp info, could be useful sometimes.
-- Not readable.
-- Not naturally sortable according to creation time. Though v1 UUID format contains timestamp, it encodes the timestamp using little-endian in that the least significant time appears first, which renders the UUID hard to sort according to creation time. People design their own UUID format to fix this and there is also a draft proposal to [standardize](https://datatracker.ietf.org/doc/html/draft-peabody-dispatch-new-uuid-format) it.
-- For database like MySQL, Oracle, which uses clustered primary key, version 4 randomly generated UUID will hurt insertion performance if used as the primary key. This is because it requires reordering the rows to place the newly inserted row at the right position inside the clustered index. On the other hand, PostgreSQL uses heap instead of clustered primary key, thus using UUID as the primary key won't impact PostgreSQL's insertion performance.
+**Choosing a proper primary key format requires a good understanding of both the business requirements as well as the underlying database system, so that the schema designer can make the educated tradeoff.**
 
 ## **Auto Increment Integer/Serial**
 
@@ -33,31 +20,71 @@ Using auto increment integer/serial as the primary key in your SQL database is a
 
 - MySQL - **AUTO_INCREMENT**
 - PostgreSQL - **SERIAL**
+- SQL Server - **IDENTITY**
 - SQLite - **AUTOINCREMENT**
-- Readable. This is especially valuable if we would expose it externally. Thinking of issue id, obviously, issue-123 is much more readable than issue-b1e92c3b-a44a-4856-9fe3-925444ac4c23.
+
+### Pros
+
+- Readable. This is especially valuable if we would expose it externally. Thinking of issue id, obviously, `issue-123` is much more readable than `issue-b1e92c3b-a44a-4856-9fe3-925444ac4c23`.
 - Less space. UUID always occupies 16 bytes. For Auto Increment Integer, when stored as Long format, it occupies 8 bytes. If the table itself has only a few columns, the extra primary key space overhead will become more significant.
+
+### Cons
+
 - It can't be used in the distributed system since it's quite likely that different hosts could produce exactly the same number.
 - It can't be generated on the fly. Instead, we must consult the database to figure out the next available primary key. In a distributed system, this often means to introduce a separate service to produce this sequential number. And that service becomes a single-point-of-failure (SPOF).
 - Some business data can be exposed, since the latest ID could represent the total number of inventory. Attackers can also scan the integer range to explore leakage (though it shouldn't happen if ACL is implemented correctly).
 
-## **Which one to choose?**
+## **UUID**
 
-As listed above, there are Pros and Cons between the 2 approaches. But based on our experience, 95% of the time, the default choice should always be **Auto Increment Integer**. Why?
+The original UUID standard includes 5 UUID formats. Most of the time, people either choose UUIDv1 (timestamp) or UUIDv4 (random).
 
-> _Readability, and readability leads simplicity. Number is easy to write, easy to remember and easy to communicate. The primary key is not only used by the system, it's also exposed to the end user (e.g. order #), inspected by the operation engineer, customer suppport etc..._
+### Pros
 
-99.9% of the applications won't reach internet scale and they just consist of several models allowing CRUD operations, containing thousands of records. And doesn't need a distributed system.
+- Globally unique. e.g. No false positive for finding items using log. Easy for migrating data between systems since collision is only theoretically possible.
+- Stateless, it can be generated on the fly.
+- A sense of secure since malicious user can't guess the ID. However, your security team would always insist that a public accessible UUID path does not meet the security standard.
+- Version 1 UUID stores timestamp info, could be useful sometimes.
 
-Taking the classic issue tracking/project management tool as an example. The tool likely will have at most 5 figure projects each containing 5 figure issues. and issue id such as **issue/123** is definitely more readable than **issue/b1e92c3b-a44a-4856-9fe3-925444ac4c23**. In fact, all major issue tracking systems use integer as the issue id. Jira, Apple's Radar, Google's issue tracker etc... And most applications are less complex than those issue tracking tools.
+### Cons
 
-There are valid cases of choosing UUID e.g. log entry. But most of the time, using UUID as the primary key is a sign of pre-mature optimization and it's also a choice hard to revert afterwards.
+- Not readable.
+- Not naturally sortable according to creation time. Though v1 UUID format contains timestamp, it encodes the timestamp using little-endian in that the least significant time appears first, which renders the UUID hard to sort according to creation time.
+- For database like MySQL, Oracle, which uses clustered primary key, both UUIDv1 and UUIDv4 will hurt insertion performance if used as the primary key. This is because it requires reordering the rows to place the newly inserted row at the right position inside the clustered index. On the other hand, PostgreSQL uses heap instead of clustered primary key, thus using UUID as the primary key won't impact PostgreSQL's insertion performance.
 
-What do you think😊
+### UUIDv7 - Best of Both Worlds (Almost)
 
-> _BTW, if you like this article, you might also be interested in our product [Bytebase](https://bytebase.com), an open source, web-based schema change and version control tool. It will not tell you which primary key format to pick, but it will help you to collaborate with your Developer and DBA peers to reach a better consensus._
+Bespoke solutions are invented to address the limitation of UUID including [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID), [ulid](https://github.com/ulid/spec), [cuid](https://github.com/paralleldrive/cuid2). IETF also published
+a draft in April 2021 to propose a new UUID format. And in May 2024, IETF finally approved the draft. The approved UUIDv7
+format:
+
+```bash
+ ## uuid7 layout
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                           unix_ts_ms                          |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|          unix_ts_ms           |  ver  |       rand_a          |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|var|                        rand_b                             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                            rand_b                             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+```
+
+The most significant difference from UUIDv1 is the first 48 bits (unix_ts_ms) store big-endian unsigned number of the Unix Epoch timestamp in milliseconds. This means that UUIDs generated at a later time will have higher values, making it easier to sort and query by creation time. Since UUIDv7 is time-ordered, it reduces the need for random I/O operations when inserting new records in databases. This can lead to better performance and more efficient indexing.
+
+|                | Auto Increment | UUIDv1          | UUIDv7           |
+| -------------- | -------------- | --------------- | ---------------- |
+| Sortable       | ✅             | ❌              | ✅               |
+| Time precision | ❌             | ✅ (nanosecond) | ✅ (millisecond) |
+| Global Unique  | ❌             | ✅              | ✅               |
+| Stateless      | ❌             | ✅              | ✅               |
+| Readable       | ✅             | ❌              | ❌               |
+
+Due to the inherent limitation of UUID, UUIDv7 is still not as human-readable as integer and occupies more space. On the other hand, UUIDv7 has addressed the biggest shortcoming from the previous versions. We expect industry will gradually abandon the bespoke solution and converge on UUIDv7 as the primary key for most use cases.
 
 ## **References**
 
-1. [RFC 4122 (the original UUID RFC)](https://tools.ietf.org/html/rfc4122)
-2. [New UUID proposal including timestamp ordered and randomness format](https://datatracker.ietf.org/doc/html/draft-peabody-dispatch-new-uuid-format)
-3. [A brief history of the UUID](https://segment.com/blog/a-brief-history-of-the-uuid)
+1. [RFC 4122 (original UUID RFC)](https://tools.ietf.org/html/rfc4122)
+1. [RFC 9562 (new UUID RFC)](https://datatracker.ietf.org/doc/html/rfc9562)
