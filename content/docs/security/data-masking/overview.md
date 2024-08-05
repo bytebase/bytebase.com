@@ -16,8 +16,8 @@ organizations to protect sensitive data from being exposed to unauthorized users
 
 Bytebase dynamic masking transforms the original column data to the masked form in 2 steps:
 
-1. Determine the effective column masking level.
-1. Determine the masking algorithm according to the masking level.
+1. [Determine the effective column masking level](#determine-the-effective-column-masking-level)
+1. [Determine the masking algorithm according to the masking level](#determine-the-masking-algorithm)
 
 ### Determine the effective column masking level
 
