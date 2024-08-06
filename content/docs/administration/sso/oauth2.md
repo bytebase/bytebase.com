@@ -92,3 +92,18 @@ Bytebase provides templates for configuring built-in OAuth providers.
 3. Update the **Client ID** and **Client secret** fields with the OAuth 2.0 client credential you just created.
 4. After filling in all the required fields, try to click **Test connection**.
 5. If everything is OK, click the **Create** button.
+
+### Microsoft Entra
+
+1. Follow the [Register an application with the Microsoft identity platform](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app) to create an Application in [Microsoft Entra admin center](https://entra.microsoft.com/).
+
+   ![entra-endpoints](/content/docs/administration/sso/entra-endpoints.webp)
+
+2. Create a client secret in the **Client credentials** tab.
+
+   ![entra-client-secret](/content/docs/administration/sso/entra-client-secret.webp)
+
+3. Open creating SSO dialog and select the **Microsoft Entra** template.
+4. Update the **Client ID**, **Client secret** and the **Endpoints** fields with the OAuth 2.0 client credential you just created.
+5. After filling in all the required fields, try to click **Test connection**.
+6. If everything is OK, click the **Create** button.
