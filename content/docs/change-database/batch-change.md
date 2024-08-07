@@ -31,10 +31,15 @@ Bytebase allows you to define a `database group` to change **a collection of dat
 
    ![bb-project-groups-create](/content/docs/change-database/batch-change/bb-project-groups-create.webp)
 
-1. Fill in the name and rules for filtering the desired databases. You can enable [Multitenancy](#multitenancy) to enforce extra
-   schema consistency.
+1. Fill in the name and rules for filtering the desired databases. You can enable [Multitenancy](#multitenancy) to enforce extra schema consistency.
 
-   ![bb-new-db-group-create-multi-t](/content/docs/change-database/batch-change/bb-new-db-group-create-multi-t.webp)
+   ![bb-new-db-group-with-raw](/content/docs/change-database/batch-change/bb-new-db-group-with-raw.webp)
+
+   _If you want to use a **database label** as a filter condition, you may use **raw expression** with the following structure:_
+   ```
+   Where resource.labels.YOUR_LABEL_KEY == "YOUR_LABEL_VALUE"
+   and has(resource.labels.YOUR_LABEL_KEY)
+   ```
 
 1. Click **Save**, you'll see the newly created group in the list.
 
