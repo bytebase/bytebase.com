@@ -61,6 +61,23 @@ To separate from admin connection, you can configure read-only connections used 
 
 ![bb-instance-read-only-connection](/content/docs/get-started/instance/bb-instance-read-only-connection.webp)
 
+## Choose your data source in SQL Editor
+
+You may select data sources between the admin and read-only connection while running SQL queries in SQL Editor.
+
+![bb-sql-editor-data-source](/content/docs/get-started/instance/bb-sql-editor-data-source.webp)
+
+The **Admin Data Source Query Restrictions** could be set either by environment or project level.
+
+![bb-data-source-env](/content/docs/get-started/instance/bb-data-source-env.webp)
+
+![bb-data-source-project](/content/docs/get-started/instance/bb-data-source-project.webp)
+
+If both are set, the higher restriction will be applied. The order of restriction level from high to low is as follows:
+1. ON - Disallow querying data from the admin data source
+1. ON - Fallback to the admin data source if no read-only data source is available
+1. Off
+
 ## Use IAM Auth
 
 <PricingPlanBlock feature_name='EXTERNAL_SECRET_MANAGER' />
