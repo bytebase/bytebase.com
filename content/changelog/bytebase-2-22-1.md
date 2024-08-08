@@ -21,7 +21,7 @@ description: 'Inline schema details in SQL Editor'
 - Improve TLS support for MongoDB, SQL Server, and PostgreSQL.
 - Show roles, databases, and IDPs in audit logs.
 - Record binding diff in SetIamPolicy in audit logs.
-- Set the application name as Bytebase for MySQL and PostgreSQL connections.
+- Set the application name to Bytebase for MySQL and PostgreSQL connections.
 - Improve compatibility for Oracle and MSSQL.
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>
