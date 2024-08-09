@@ -12,7 +12,11 @@ Database DevOps, built for developers, DBAs and platform engineers. Bytebase can
 
 ![fish](/content/docs/what-is-bytebase/fish.webp)
 
-![replaced-tools](/images/replaced-tools.webp)
+## 8-in-1
+
+[All the tools Bytebase replaces](/blog/all-database-tools-bytebase-replaces)
+
+[![replaced-tools](/images/replaced-tools.webp)](/blog/all-database-tools-bytebase-replaces)
 
 ## Key Features
 

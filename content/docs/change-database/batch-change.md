@@ -21,7 +21,7 @@ Then Bytebase will then create an issue to track the multi-database changes. You
 
 <PricingPlanBlock feature_name='BATCH_CHANGE' />
 
-Bytebase allows you to define a `database group` to change **a collection of databases with identical schemas**. Typical scenarios of using database group are:
+If you always change a fixed set of databases together, you can pre-define a `database group` to enclose those databases. Typical scenarios of using database group are:
 
 - A Software as a Service (SaaS) provider provides separate database instances for each of its customers (aka. tenants) alongside their application deployments.
 - For compliance and performance reasons, companies provision separate database instances in US, EU, AP respectively.
@@ -78,3 +78,23 @@ If the database group enables `Multitenancy`, Bytebase will enforce extra schema
   Bytebase appends `hr_prod_7` to the change as well.
 
   ![bb-issue-add-7](/content/docs/change-database/batch-change/bb-issue-add-7.webp)
+
+## Deployment Config
+
+`Deployment Config` determines how databases or database groups are deployed in order.
+
+![deployment-config](/content/docs/change-database/batch-change/deployment-config.webp)
+
+The above screenshot defines a 3 staged rollout:
+
+1. 1st stage roll outs the prod databases from Asia.
+1. 2nd stage roll outs the prod databases from Europe.
+1. 3rd stage roll outs the prod databases from North America.
+
+![staged-rollout](/content/docs/change-database/batch-change/staged-rollout.webp)
+
+If **all changed databases** are included by the deployment config, Bytebase will roll out them in order
+according to the defined deployment config.
+
+If only some of the changed databases are included by the deployment config, Bytebase will not follow the deployment config.
+Instead Bytebase will roll out them according to their corresponding environments.
