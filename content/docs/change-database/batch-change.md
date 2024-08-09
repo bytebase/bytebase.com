@@ -2,6 +2,8 @@
 title: Batch Change
 ---
 
+<TutorialBlock url="/docs/tutorials//batch-change-with-database-group" title="Batch Change with Database Group" />
+
 Bytebase allows you to change a collection of databases in a single workflow. These databases usually have a homogenous structure while belonging to different development environments, geographic locations, SaaS tenants, data centers or data partitions.
 
 ## Change databases from multiple environments
@@ -36,6 +38,7 @@ Bytebase allows you to define a `database group` to change **a collection of dat
    ![bb-new-db-group-with-raw](/content/docs/change-database/batch-change/bb-new-db-group-with-raw.webp)
 
    _If you want to use a **database label** as a filter condition, you may use **raw expression** with the following structure:_
+
    ```
    Where resource.labels.YOUR_LABEL_KEY == "YOUR_LABEL_VALUE"
    and has(resource.labels.YOUR_LABEL_KEY)
