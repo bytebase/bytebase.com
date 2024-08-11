@@ -256,25 +256,6 @@ export const MENU = {
       ],
     },
     {
-      name: 'RESOURCES',
-      items: [
-        { name: 'Documentation', linkUrl: Route.DOCS },
-        { name: 'Changelog', linkUrl: Route.CHANGELOG },
-        { name: 'Schema Migration', linkUrl: Route.SCHEMA_MIGRATION },
-        { name: 'SQL Editor', linkUrl: Route.SQL_EDITOR },
-        { name: 'Dynamic Data Masking', linkUrl: Route.DATA_MASKING },
-        { name: 'SQL Review Guide', linkUrl: Route.SQL_REVIEW_GUIDE },
-        { name: 'Database Glossary', linkUrl: Route.DATABASE_GLOSSARY },
-        { name: 'SQL Chat', linkUrl: Route.SQL_CHAT, isExternal: true },
-        { name: 'DB Cost', linkUrl: Route.DB_COST, isExternal: true },
-        {
-          name: 'Star History',
-          linkUrl: Route.STAR_HISTORY,
-          isExternal: true,
-        },
-      ],
-    },
-    {
       name: 'COMPARISONS',
       items: [
         { name: 'vs. Liquibase', linkUrl: Route.VS_LIQUIBASE },
@@ -288,11 +269,25 @@ export const MENU = {
       ],
     },
     {
+      name: 'RESOURCES',
+      items: [
+        { name: 'Documentation', linkUrl: Route.DOCS },
+        { name: 'Changelog', linkUrl: Route.CHANGELOG },
+        { name: 'Schema Migration', linkUrl: Route.SCHEMA_MIGRATION },
+        { name: 'SQL Editor', linkUrl: Route.SQL_EDITOR },
+        { name: 'Dynamic Data Masking', linkUrl: Route.DATA_MASKING },
+        { name: 'SQL Review Guide', linkUrl: Route.SQL_REVIEW_GUIDE },
+        { name: 'Database Glossary', linkUrl: Route.DATABASE_GLOSSARY },
+      ],
+    },
+    {
       name: 'COMPANY',
       items: [
         { name: 'About', linkUrl: Route.ABOUT },
         { name: 'Brand', linkUrl: Route.BRAND },
-        { name: 'Careers', linkUrl: Route.JOBS },
+        { name: 'Terms', linkUrl: Route.TERMS },
+        { name: 'Policy', linkUrl: Route.PRIVACY },
+        { name: 'Security', linkUrl: Route.SECURITY },
         { name: 'Contact', linkUrl: Route.CONTACTS },
       ],
     },

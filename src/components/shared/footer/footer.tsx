@@ -87,9 +87,6 @@ const Footer = () => {
               loading="lazy"
             />
           </Link>
-          <p className="whitespace-nowrap text-14 font-medium leading-none tracking-tight text-gray-60 xs:hidden">
-            © {new Date().getFullYear()} Bytebase. All Rights Reserved. {registration()}
-          </p>
         </div>
         <div className="col-span-2 col-start-7 flex items-center gap-x-4 lg:justify-self-end md:col-span-3 md:col-start-10 md:row-span-1 md:row-start-1 xs:col-span-full xs:col-start-1 xs:row-start-2 xs:-mt-1 xs:justify-self-start">
           {socialLinks.map(({ name, href, icon: Icon }, idx) => (
@@ -110,28 +107,9 @@ const Footer = () => {
           ))}
         </div>
         <div className="col-span-1 col-start-12 flex flex-row items-center justify-end gap-x-4 lg:gap-x-6 md:col-span-3 md:col-start-10 md:row-start-2 md:justify-self-end xs:col-start-1 xs:row-start-3 xs:justify-self-start">
-          {/* <LocaleSwitcher className="-mr-4" /> */}
-          <Link
-            className="text-16 font-medium leading-none tracking-tight xs:text-14"
-            theme="gray"
-            href={Route.TERMS}
-          >
-            Terms
-          </Link>
-          <Link
-            className="text-16 font-medium leading-none tracking-tight xs:text-14"
-            theme="gray"
-            href={Route.PRIVACY}
-          >
-            Policy
-          </Link>
-          <Link
-            className="text-16 font-medium leading-none tracking-tight xs:text-14"
-            theme="gray"
-            href={Route.SECURITY}
-          >
-            Security
-          </Link>
+          <p className="whitespace-nowrap text-14 font-medium leading-none tracking-tight text-gray-60 xs:hidden">
+            © {new Date().getFullYear()} Bytebase. All Rights Reserved. {registration()}
+          </p>
         </div>
         <p className="hidden whitespace-nowrap text-14 font-medium leading-none tracking-tight text-gray-60 xs:col-span-full xs:row-span-1 xs:row-start-4 xs:block">
           © {new Date().getFullYear()} Bytebase. All Rights Reserved. {registration()}
