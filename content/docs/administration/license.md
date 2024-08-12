@@ -45,7 +45,7 @@ You can assign or unassign your license to instances in following ways:
 
 ![license-2](/content/docs/administration/license/license-2.webp)
 
-- To assign for a table particularly so that you can operate on sensitive data, go to **Databases** to click the database this table belongs to, where you can find the row representing your table. click the row and then the pencil icon by certain column's masking level. Then you'll see the **Assign License** button.
+- You can also assign instance license when coming across a gated feature. To assign for a table particularly so that you can operate on sensitive data, go to **Databases** to click the database this table belongs to, where you can find the row representing your table. Click the row and then the pencil icon by certain column's masking level. Then you'll see the **Assign License** button.
 
 ![license-3](/content/docs/administration/license/license-3.webp)
 
