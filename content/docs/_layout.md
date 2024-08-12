@@ -229,6 +229,8 @@ expand_section_list: ['Self-host']
 
 ### [Data Classification](/api/data-classification)
 
+### [Audit Log](/api/audit-log)
+
 ### [External Approval](/api/external-approval)
 
 ## Integrations
