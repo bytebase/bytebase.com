@@ -241,14 +241,6 @@ expand_section_list: ['Self-host']
 
 ### [Neon](/how-to/integrations/neon)
 
-## CLI
-
-### [Getting Started](/cli/overview)
-
-### [Integrate with GitLab CI](/cli/integrate-with-gitlab)
-
-### [Reference](/cli/reference)
-
 ## Reference
 
 ### [Server Startup Options](/reference/command-line)

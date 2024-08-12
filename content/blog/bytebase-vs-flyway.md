@@ -29,7 +29,7 @@ for developers and DBAs to collaborate.
 |                                                                                              | Flyway           | Bytebase                             |
 | -------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------ |
 | [Product position](#product-position)                                                        | Schema change    | Schema Change, Data Query and Secure |
-| [Developer interface](#developer-interface)                                                  | CLI              | GUI                                  |
+| [Developer interface](#developer-interface)                                                  | CLI              | GUI, API                             |
 | [Supported databases](#supported-databases)                                                  | 22 Only SQL DB   | 13 SQL & NoSQL DB                    |
 | [Programming language and installation](#installation)                                       | Java + JVM       | Golang and no other dependency       |
 | [Change execution](#change-execution)                                                        | SQL script + CLI | Issue + GUI                          |
@@ -55,7 +55,7 @@ for developers and DBAs to collaborate.
 ### Developer interface
 
 - **Flyway**: A command-line tool. With JVM, it also provides Java API, Maven plugin and Gradle plugin. A simple graphical user interface (GUI) called Flyway Desktop is available for SQL Server, PostgreSQL and MySQL.
-- **Bytebase**: A web-based GUI tool. It also provides a [command-line interface (CLI)](/docs/cli/overview/), [application programming interface (API)](/docs/api/overview/), [Terraform Provider](/docs/get-started/terraform/), and [GitHub App](/docs/sql-review/github-app).
+- **Bytebase**: A web-based GUI tool. It also provides [application programming interface (API)](/docs/api/overview/), [Terraform Provider](/docs/get-started/terraform/), and [GitHub App](/docs/sql-review/github-app).
 
 ### Supported databases
 
@@ -65,7 +65,7 @@ for developers and DBAs to collaborate.
 ### Installation
 
 - **Flyway**: Java-based tool, so you need to install a Java Virtual Machine (JVM) before users can install Flyway.
-- **Bytebase**: Go-based tool, a self-contained bianry with no external dependency. Also provides [Docker](/docs/get-started/self-host/#docker/) and [Kubernetes](/docs/get-started/self-host/#kubernetes/) deployment.
+- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](/docs/get-started/self-host/#docker/) and [Kubernetes](/docs/get-started/self-host/#kubernetes/) deployment.
 
 ### Change execution
 

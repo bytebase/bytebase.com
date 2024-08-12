@@ -204,7 +204,7 @@ Dolt takes a much bolder move to adopt Database as Code since it blurs the lines
 
 Bytebase is an open source project that started in Jan 2021. It also shares some traits with the aforementioned products:
 
-- Like Liquibase / Flyway / Sqitch, Bytebase offers a CLI called [bb](/docs/cli/overview) and uses migration-based approach to apply database schema changes.
+- Like Liquibase / Flyway / Sqitch, Bytebase uses migration-based approach to apply database schema changes.
 - Like Prisma, Bytebase offers a fully-fledged web UI to conduct database development activities (schema, data change, SQL query).
 - Like Atlas, Bytebase employs a modern tech stack, using Go instead of Java.
 - Like PlanetScale / Neon, Bytebase focuses on developer experience. One example is the VCS integration, Bytebase provides a point-and-click wizard to configure VCS (the similar experience you find in Vercel / Netlify to link the code repository):

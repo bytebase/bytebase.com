@@ -3,7 +3,7 @@ title: 'Introducing bb - a Bytebase CLI tool to manage database operations'
 author: Candy
 published_at: 2022/05/27 09:57:57
 feature_image: /content/blog/introducing-bb-bytebase-cli-to-manage-database-operations/bb.webp
-tags: Announcement
+tags: Hidden, Announcement
 featured: true
 description: This article describes how to install and run Bytebase CLI bb
 ---

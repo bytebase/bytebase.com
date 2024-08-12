@@ -30,7 +30,7 @@ for developers and DBAs to collaborate.
 |                                                                                              | Liquibase       | Bytebase                             |
 | -------------------------------------------------------------------------------------------- | --------------- | ------------------------------------ |
 | [Product position](#product-position)                                                        | Schema change   | Schema Change                        |
-| [Developer interface](#developer-interface)                                                  | CLI             | GUI                                  |
+| [Developer interface](#developer-interface)                                                  | CLI             | GUI, API                             |
 | [Supported databases](#supported-databases)                                                  | 50              | 13                                   |
 | [Programming language and installation](#installation)                                       | Java + JVM      | Golang and no other dependency       |
 | [Change execution](#change-execution)                                                        | Changelog + CLI | Issue + GUI                          |
@@ -56,17 +56,17 @@ for developers and DBAs to collaborate.
 ### Developer interface
 
 - **Liquibase**: A command-line tool. A simple graphical user interface (GUI) called Liquibase Hub is available with the Pro Plan, but it has sunset in May 2023.
-- **Bytebase**: A web-based GUI tool. It also provides a [command-line interface (CLI)](/docs/cli/overview/), [application programming interface (API)](/docs/api/overview/), [Terraform Provider](/docs/get-started/terraform/), and [GitHub App](/docs/sql-review/github-app).
+- **Bytebase**: A web-based GUI tool. It also provides [application programming interface (API)](/docs/api/overview/), [Terraform Provider](/docs/get-started/terraform/), and [GitHub App](/docs/sql-review/github-app).
 
 ### Supported databases
 
-- **Liquibase**: 50 - IBM DB2, MS SQL Server, Oracle, PostgreSQL, MySQL, Snowflake, MongoDB, Clickhouse ...
+- **Liquibase**: 50 - IBM DB2, MS SQL Server, Oracle, PostgreSQL, MySQL, Snowflake, MongoDB, ClickHouse ...
 - **Bytebase**: 13 - MySQL, PostgreSQL, ClickHouse, Snowflake, MongoDB, Redis, Redshift, Oracle, MS SQL Server ...
 
 ### Installation
 
 - **Liquibase**: Java-based tool, so you need to install a Java Virtual Machine (JVM) before users can install Liquibase.
-- **Bytebase**: Go-based tool, a self-contained bianry with no external dependency. Also provides [Docker](/docs/get-started/self-host/#docker/) and [Kubernetes](/docs/get-started/self-host/#kubernetes/) deployment.
+- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](/docs/get-started/self-host/#docker/) and [Kubernetes](/docs/get-started/self-host/#kubernetes/) deployment.
 
 ### Change execution
 
