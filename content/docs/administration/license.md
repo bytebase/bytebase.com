@@ -41,12 +41,14 @@ You can assign or unassign your license to instances in following ways:
 
 ![license-1](/content/docs/administration/license/license-1.webp)
 
-- On the instance details page, toggle the **Assign License** switch, and click the **Update** button.
+- On the **Instances** details page, tick the instances you want to assign license to, and click the **Assign License** button.
 
 ![license-2](/content/docs/administration/license/license-2.webp)
 
-- From a particular feature setting, click the **lock icon** button or the **Assign License** button to open the license configuration drawer. See the example figures below for reference.
+- To assign for a table particularly so that you can operate on sensitive data, go to **Databases** to click the database this table belongs to, where you can find the row representing your table. click the row and then the pencil icon by certain column's masking level. Then you'll see the **Assign License** button.
 
 ![license-3](/content/docs/administration/license/license-3.webp)
 
 ![license-4](/content/docs/administration/license/license-4.webp)
+
+![license-5](/content/docs/administration/license/license-5.webp)
