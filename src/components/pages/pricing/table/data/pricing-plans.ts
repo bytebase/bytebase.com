@@ -65,6 +65,11 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'signin-frequency': false,
       anomaly: { value: 'Basic', tooltip: 'Connection failure' },
     },
+    aiAssistant: {
+      'query-with-natural-language': true,
+      'explain-sql': true,
+      'index-advisor': true,
+    },
     bespoke: {
       support: 'Community',
       logo: false,
@@ -129,6 +134,11 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'signup-restriction': false,
       'signin-frequency': false,
       anomaly: { value: 'Basic', tooltip: 'Connection failure' },
+    },
+    aiAssistant: {
+      'query-with-natural-language': true,
+      'explain-sql': true,
+      'index-advisor': true,
     },
     bespoke: {
       support: 'Email',
@@ -197,6 +207,11 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'signup-restriction': true,
       'signin-frequency': true,
       anomaly: { value: 'Advanced', tooltip: 'Basic + Schema drift detection' },
+    },
+    aiAssistant: {
+      'query-with-natural-language': true,
+      'explain-sql': true,
+      'index-advisor': true,
     },
     bespoke: {
       support: 'Dedicated line with SLA',
@@ -269,6 +284,14 @@ const LABELS = [
       'signup-restriction': 'Sign-up restriction',
       'signin-frequency': 'Sign-in frequency',
       anomaly: 'Anomaly detection',
+    },
+  },
+  {
+    title: 'AI Assistant',
+    items: {
+      'query-with-natural-language': 'Query with natural language',
+      'explain-sql': 'Explain SQL',
+      'index-advisor': 'Index advisor',
     },
   },
   {

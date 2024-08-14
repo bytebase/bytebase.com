@@ -141,6 +141,12 @@ const Table = () => {
                       />
                       <FeatureList
                         title={currentPlan.title}
+                        features={currentPlan.aiAssistant}
+                        currentRow={currentRow}
+                        isLastSection
+                      />
+                      <FeatureList
+                        title={currentPlan.title}
                         features={currentPlan.bespoke}
                         currentRow={currentRow}
                         isLastSection

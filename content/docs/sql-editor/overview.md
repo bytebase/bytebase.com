@@ -12,4 +12,4 @@ SQL Editor provides an all-in-one interface to perform interactive database oper
 - [Data masking](/docs/sql-editor/mask-data)
 - [Manage SQL scripts](/docs/sql-editor/manage-sql-scripts)
 - [Explore schemas](/docs/sql-editor/explore-schema)
-- [Query with natural language](/docs/sql-editor/chatsql)
+- [Query with natural language](/docs/sql-editor/text-to-sql)

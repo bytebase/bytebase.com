@@ -25,7 +25,7 @@ export const FEATURES = {
   SAVED_SQL: 'Saved SQL script',
   BATCH_QUERY: 'Batch query multiple databases',
   READONLY_CONNECTION: 'Separate read-only connections',
-  CHATSQL: 'Query using natural language',
+  AI_ASSISTANT: 'AI Assistant',
 
   //Collaboration
   INBOX_NOTIFICATION: 'Inbox notification',

@@ -97,6 +97,8 @@ expand_section_list: ['Self-host']
 
 ### [Export Masked Data](/security/data-masking/export-masked-data)
 
+## [AI Assistant](/ai-assistant)
+
 ## [Batch Change](/change-database/batch-change)
 
 ## [Changelist](/changelist)
@@ -141,7 +143,7 @@ expand_section_list: ['Self-host']
 
 ### [Explore Schema](/sql-editor/explore-schema)
 
-### [Query with Natural Language](/sql-editor/chatsql)
+### [Query with Natural Language](/sql-editor/text-to-sql)
 
 ## Secure Data
 

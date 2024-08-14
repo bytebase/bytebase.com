@@ -11,6 +11,7 @@ export type Plan = {
   sql: PricingTableItem;
   security: PricingTableItem;
   bespoke: PricingTableItem;
+  aiAssistant: PricingTableItem;
   collaboration: PricingTableItem;
 };
 

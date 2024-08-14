@@ -1,5 +1,6 @@
 ---
 title: Index Advisor
+feature_name: INDEX_ADVISOR
 ---
 
 Bytebase provides an index advisor to help you speed up your [slow queries](/docs/slow-query/overview). The index advisor will analyze the slow queries and recommend the indexes that can speed up the slow queries.
@@ -8,14 +9,8 @@ Bytebase provides an index advisor to help you speed up your [slow queries](/doc
 
 The Bytebase index advisor based on the slow query logs and OpenAI API. Make sure that:
 
-- You have enabled the [slow query logs](/docs/slow-query/overview) in your database and Bytebase console.
-- You have sign up for an account on the [OpenAI platform](https://openai.com/product) and [obtain a confidential key](https://platform.openai.com/account/api-keys).
-
-## Add the API key
-
-Go to Bytebase console, click **Settings > General**. Scroll down to **AI Augmentation**, and fill in **OpenAI API Key** field.
-
-![settings-general-ai](/content/docs/slow-query/settings-general-ai.webp)
+- Enable the [slow query logs](/docs/slow-query/overview) in your database and Bytebase console.
+- Enable [AI Assistant](/docs/ai-assistant).
 
 ## Index Advisor
 
@@ -30,4 +25,7 @@ Go to Bytebase console, click **Settings > General**. Scroll down to **AI Augmen
 
 ## Data Privacy
 
-In order to advise indexes, Bytebase must provide the OpenAI platform with the tables and column names of the current database schema and SQL fingerprints(without any literals, use question marks `?` or variable signs `$1` instead). However, Bytebase does not transmit any data from the tables.
+Bytebase sends the following info to OpenAI:
+
+- Tables and column names of the current database schema.
+- SQL fingerprints without any literals (use question marks ? or variable signs $1 instead).
