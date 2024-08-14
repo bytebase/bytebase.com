@@ -19,7 +19,7 @@ const founder = {
       sm: '/images/page/about/danny-sm.webp',
     },
     about:
-      "Danny was the Staff Engineer at Google Cloud and TL overseeing Cloud SQL and API&nbsp;&&nbsp;Service Infrastructure. He has won Google's highest engineering award twice.",
+      "Danny was the Staff Engineer at Google Cloud and the tech lead overseeing Cloud SQL and API&nbsp;&&nbsp;Service Infrastructure. He has won Google's highest engineering award twice.",
   },
   tianzhou: {
     name: 'Tianzhou',
@@ -33,7 +33,7 @@ const founder = {
       sm: '/images/page/about/tianzhou-sm.webp',
     },
     about:
-      'Tianzhou was the TL of Google Cloud SQL, and the maintainer of Google&apos;s internal PostgreSQL / MySQL fork.',
+      'Tianzhou was the tech lead of Google Cloud SQL, and the maintainer of Google&apos;s internal PostgreSQL / MySQL fork.',
   },
 };
 
@@ -43,7 +43,7 @@ const Founder = ({ id, className }: { id: keyof typeof founder; className?: stri
   return (
     <article
       className={clsx(
-        'flex items-start border border-solid pt-8 pb-6 xl:pt-6 xl:pl-6 xl:pb-5 xl:pr-1 md:flex-col md:items-center md:p-6 md:pb-5 sm:items-start sm:pb-6',
+        'flex items-start border border-solid pb-6 pt-8 xl:pb-5 xl:pl-6 xl:pr-1 xl:pt-6 md:flex-col md:items-center md:p-6 md:pb-5 sm:items-start sm:pb-6',
         {
           'border-tones-blue-dark bg-tones-blue-light pl-8 pr-2 shadow-[inset_6px_6px_0_#fff,0_5px_15px_rgba(156,186,201,0.5)]':
             id === 'danny',
