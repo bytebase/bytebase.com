@@ -21,7 +21,7 @@ curl -X POST %%bb_api_endpoint%%/v1/sql/check \
      -H 'Authorization: Bearer '${bytebase_token} \
      -d '{
            "statement": "ALTER TABLE \"user\" ADD \"address\" integer; ALTER TABLE \"user\" DROP COLUMN \"age\";",
-           "database": "instances/prod-instance/databases/example"
+           "name": "instances/prod-instance/databases/example"
          }'
 ```
 
