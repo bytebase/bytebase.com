@@ -34,8 +34,8 @@ export default function Page() {
   return (
     <>
       <Hero latestVersion={latestVersion} />
-      <Demo />
       <Logos />
+      <Demo />
       <DBScheme />
       <PromoAutomationChanges />
       <Benefits />
