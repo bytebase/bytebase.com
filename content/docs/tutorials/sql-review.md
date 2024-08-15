@@ -9,19 +9,17 @@ estimated_time: '40 mins'
 description: This tutorial will walk you through using SQL Review in Bytebase to improve your database schema change process.
 ---
 
-When modifying data in the database, it's crucial to ensure that the changes are both safe and accurate. Bytebase offers a feature called SQL Review, which allows you to evaluate your SQL changes before they are applied to the database. SQL Review can be initiated through the Bytebase GUI, a GitOps workflow, or via API.
+When modifying data in the database, it's crucial to ensure that the changes are both safe and accurate. Bytebase offers a feature called [SQL Review](/docs/sql-review/overview/), which allows you to evaluate your SQL changes before they are applied to the database. SQL Review can be initiated through the Bytebase GUI, a GitOps workflow, or via API.
 
 This tutorial will walk you through using SQL Review in Bytebase to improve your database schema change process. The Community Plan is sufficient for completing this tutorial.
 
-   ![sql-review-3](/content/docs/tutorials/sql-review/sql-review-3.webp)
+![sql-review-3](/content/docs/tutorials/sql-review/sql-review-3.webp)
 
 ## Prerequisites
 
 1. Make sure you have [Docker](https://www.docker.com/) installed, and if you don’t have important existing Bytebase data locally, you can start over from scratch by `rm -rf ~/.bytebase/data`.
 
-## Procedure
-
-### Preparation: Configure SQL Reviews in Bytebase
+## Preparation: Configure SQL Reviews in Bytebase
 
 1. Copy and paste the commands to start one Bytebase via Docker.
 
@@ -30,7 +28,7 @@ This tutorial will walk you through using SQL Review in Bytebase to improve your
 1. Register an admin account and it will be granted the `workspace admin` role automatically.
 
 1. Click **Security & Policy > SQL Review** on the left side menu. You can find there is already one default SQL Review policy named `Default SQL Review Policy`.
-  
+
    ![bb-sql-review-edit](/content/docs/tutorials/sql-review/bb-sql-review-edit.webp)
 
 1. Click **Edit**, you'll be redirected to the SQL Review policy edit page. Here you may specify different rules for different database engines, and here our sample database is PostgreSQL, so we'll focus on the PostgreSQL rules.
@@ -45,7 +43,7 @@ This tutorial will walk you through using SQL Review in Bytebase to improve your
 
    ![bb-sql-review-default-value](/content/docs/tutorials/sql-review/bb-sql-review-default-value.webp)
 
-### Case One: Trigger SQL Review in Bytebase GUI
+## Case 1: Trigger SQL Review in Bytebase GUI
 
 1. Go to `Sample Project`, since the default SQL Review policy is attached to the `Prod` environment, we'll create a new table on it. Click Database > Databases on the left side menu, select `hr_prod` and click **Edit Schema**.
 
@@ -63,7 +61,6 @@ This tutorial will walk you through using SQL Review in Bytebase to improve your
 
    ![bb-issue-sql-review-error](/content/docs/tutorials/sql-review/bb-issue-sql-review-error.webp)
 
-
 1. You may resolve this by changing the SQL as the following:
 
    ```sql
@@ -75,9 +72,9 @@ This tutorial will walk you through using SQL Review in Bytebase to improve your
 
    Here you need firstly click **Settings** on the left side menu, and then check **Allow modify statement** or otherwise the SQL is not editable.
 
-      ![bb-allow-modify](/content/docs/tutorials/sql-review/bb-allow-modify.webp)
+   ![bb-allow-modify](/content/docs/tutorials/sql-review/bb-allow-modify.webp)
 
-### Case Two: Trigger SQL Review in GitOps Workflow
+## Case 2: Trigger SQL Review in GitOps Workflow
 
 1. Go to [ngrok](https://ngrok.com/), register an account and install it on your local machine. Click **Cloud Edge > Domains** on the left side menu, and create a new domain. Copy the tunnel command and run it in your terminal:
 
@@ -88,11 +85,11 @@ This tutorial will walk you through using SQL Review in Bytebase to improve your
 1. Go back to your running Bytebase, click **Settings** (gear icon on the top right) and then **Workspace > General**. Configure your domain in the External URL field and click **Update**.
 
 1. Use your domain from ngrok to visit Bytebase (if you use localhost, it won't work). Click **Integrations > GitOps** on the left side menu and then follow the instructions to set up a GitHub.com integration.
-   
+
    1. Go to your GitHub repository, click **Settings > Developer Settings > Personal access tokens** and generate a new token. Choose `All repository` as **Repository access** and configure the token permission according to Bytebase's instructions.
-   
+
    1. Go back to Bytebase, paste the personal access token and click **Confirm and add**.
-   
+
    _You may read the [GitOps](/docs/vcs-integration/add-git-provider/) document for more details._
 
 1. Create a repository `bb-gitops-814` in your GitHub account which will be used to submit SQL changes.
@@ -133,7 +130,7 @@ This tutorial will walk you through using SQL Review in Bytebase to improve your
 
    ![bb-gitops-issue-done](/content/docs/tutorials/sql-review/bb-gitops-issue-done.webp)
 
-### Case Three: Trigger SQL Review by Bytebase API
+## Case 3: Trigger SQL Review by Bytebase API
 
 You may call [Bytebase API](/docs/api/sql-review/) in your internal portal or GitHub Actions to trigger SQL Review. We don't go into details here, but you may refer to the following examples:
 
@@ -150,4 +147,3 @@ You may call [Bytebase API](/docs/api/sql-review/) in your internal portal or Gi
 ## Summary
 
 Now you have learned how to trigger SQL Review in Bytebase GUI, GitHub, or by API. You may also refer to the [SQL Review](/docs/sql-review/) document for more details.
-
