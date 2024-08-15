@@ -469,17 +469,27 @@ If the account is located in the AWS US West (Oregon) region, then it would be s
 
 ## Databricks
 
-![databricks-0]()
-
 Choose an environment you want. You'll have to fill `Host or Socket`, `Warehouse ID` and `Token`.
 
-![databricks-1]()
+  ![databricks-0]()
 
-Go to your avatar on the upper-right to find **Settings**. Click **Developer** and then **Access tokens**, where you **Generate new token** and copy it to paste on 
+1. For `Host or Socket`, copy it from the web-address where you open your Databricks interface on browser like in the picture above.
 
-![sf-locator](/content/docs/tutorials/database-change-management-with-snowflake/sf-account-locator.webp)
+  ![databricks-host-or-socket]()
 
-If the account is located in the AWS US West (Oregon) region, then it would be something like `xy12345`, otherwise, the format will be `<<account_locator>>.<<cloud_region_id>>.<<cloud>>` such as `xy12345.us-east-2.aws`. See [official doc](https://docs.snowflake.com/en/user-guide/admin-account-identifier#using-an-account-locator-as-an-identifier).
+1. For `Warehouse ID`, go to **SQL Warehouses** and click your warehouse (that is, your database), copy the ID in **Overview** column.
+
+  ![databricks-id-1]()
+
+  ![databricks-id-2]()
+
+1. For `Token`, go to your avatar on the upper-right of Databricks' interface to find **Settings**. Click **Developer** and then **Access tokens**, where you **Generate new token** and copy it to paste under `Token` in Bytebase's interface.
+
+  ![databricks-token]()
+
+Below is an example of your filled-up Bytebase interface. Click **Test Connection** and it's done.
+
+  ![databricks-1]()
 
 ## Google Cloud Spanner
 
