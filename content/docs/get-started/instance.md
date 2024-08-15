@@ -467,6 +467,30 @@ To find the **Account Locator**, go to your Snowflake account, you can find it i
 
 If the account is located in the AWS US West (Oregon) region, then it would be something like `xy12345`, otherwise, the format will be `<<account_locator>>.<<cloud_region_id>>.<<cloud>>` such as `xy12345.us-east-2.aws`. See [official doc](https://docs.snowflake.com/en/user-guide/admin-account-identifier#using-an-account-locator-as-an-identifier).
 
+## Databricks
+
+In **Environment**, select your database. Then you'll have to fill **Host or Socket**, **Warehouse ID** and **Token**.
+
+  ![databricks-0](/public/content/docs/get-started/instance/databricks-0.webp)
+
+1. For **Host or Socket**, copy it from the URL of your Databricks account.
+
+  ![databricks-host-or-socket](/public/content/docs/get-started/instance/databricks-host-or-socket.webp)
+
+2. For **Warehouse ID**, go to **SQL Warehouses** and click your warehouse (that is, your database), copy the ID in **Overview** section.
+
+  ![databricks-id-1](/public/content/docs/get-started/instance/databricks-id-1.webp)
+
+  ![databricks-id-2](/public/content/docs/get-started/instance/databricks-id-2.webp)
+
+3. For **Token**, go to your avatar on the upper-right of Databricks to find **Settings**. Click **Developer** and then **Access tokens**, where you **Generate new token** and copy it to paste under **Token** in Bytebase.
+
+  ![databricks-token](/public/content/docs/get-started/instance/databricks-token.webp)
+
+Below is an example of your filled-up Bytebase interface. Click **Test Connection** and it's done.
+
+  ![databricks-1](/public/content/docs/get-started/instance/databricks-1.webp)
+
 ## Google Cloud Spanner
 
 For connecting to Google Cloud Spanner, you need to provide the following info:
