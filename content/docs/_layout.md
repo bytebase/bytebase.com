@@ -199,19 +199,19 @@ expand_section_list: ['Self-host']
 
 ### [Sign-in Frequency](/administration/sign-in-frequency)
 
-### [Anomaly Center](/administration/anomaly-center)
-
-### [Schema Template](/administration/schema-template)
-
 ### [Custom Approval](/administration/custom-approval)
 
 ### [Risk Center](/administration/risk-center)
+
+### [Anomaly Center](/administration/anomaly-center)
 
 ### [Custom Roles](/administration/custom-roles)
 
 ### [Customize Logo](/administration/customize-logo)
 
 ### [Announcement](/administration/announcement)
+
+### [Schema Template](/administration/schema-template)
 
 ### [SMTP and Email Delivery](/administration/mail-delivery)
 
