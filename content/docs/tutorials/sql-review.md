@@ -1,5 +1,5 @@
 ---
-title: 'Master SQL Reviews with GUI, GitOps and API'
+title: 'Master SQL Review with GUI, GitOps and API'
 author: Ningjing
 published_at: 2024/08/14 16:15
 tags: Tutorial
