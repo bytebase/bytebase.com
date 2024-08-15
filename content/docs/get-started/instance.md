@@ -467,6 +467,20 @@ To find the **Account Locator**, go to your Snowflake account, you can find it i
 
 If the account is located in the AWS US West (Oregon) region, then it would be something like `xy12345`, otherwise, the format will be `<<account_locator>>.<<cloud_region_id>>.<<cloud>>` such as `xy12345.us-east-2.aws`. See [official doc](https://docs.snowflake.com/en/user-guide/admin-account-identifier#using-an-account-locator-as-an-identifier).
 
+## Databricks
+
+![databricks-0]()
+
+Choose an environment you want. You'll have to fill `Host or Socket`, `Warehouse ID` and `Token`.
+
+![databricks-1]()
+
+Go to your avatar on the upper-right to find **Settings**. Click **Developer** and then **Access tokens**, where you **Generate new token** and copy it to paste on 
+
+![sf-locator](/content/docs/tutorials/database-change-management-with-snowflake/sf-account-locator.webp)
+
+If the account is located in the AWS US West (Oregon) region, then it would be something like `xy12345`, otherwise, the format will be `<<account_locator>>.<<cloud_region_id>>.<<cloud>>` such as `xy12345.us-east-2.aws`. See [official doc](https://docs.snowflake.com/en/user-guide/admin-account-identifier#using-an-account-locator-as-an-identifier).
+
 ## Google Cloud Spanner
 
 For connecting to Google Cloud Spanner, you need to provide the following info:
