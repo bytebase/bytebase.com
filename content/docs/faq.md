@@ -76,11 +76,7 @@ If you are an OWNER or DBA, you can also toggle debug mode at runtime. The toggl
 
 ## Does Bytebase support post action after applying a change to the database
 
-1. You can configure [project webhook](/docs/change-database/webhook/#supported-webhook-endpoints) to observe events.
-
-1. If you use GitOps workflow, there is a [schema write-back](https://www.bytebase.com/docs/vcs-integration/add-gitops-connector/#schema-change-type-required) feature where Bytebase will write back the full
-   schema to the specified file in the repository, and you can configure a pipeline to listen on that
-   file change. You can follow [this tutorial](/docs/tutorials/database-change-management-with-mysql-and-github/#step-5-change-schema-for-mysql-by-pushing-sql-schema-change-files-to-github) to learn the entire GitOps workflow.
+You can configure [project webhook](/docs/change-database/webhook/#supported-webhook-endpoints) to observe events.
 
 ## Which data does Bytebase collect?
 
