@@ -74,6 +74,7 @@ The **Admin Data Source Query Restrictions** could be set either by environment 
 ![bb-data-source-project](/content/docs/get-started/instance/bb-data-source-project.webp)
 
 If both are set, the higher restriction will be applied. The order of restriction level from high to low is as follows:
+
 1. ON - Disallow querying data from the admin data source
 1. ON - Fallback to the admin data source if no read-only data source is available
 1. Off
@@ -469,27 +470,27 @@ If the account is located in the AWS US West (Oregon) region, then it would be s
 
 ## Databricks
 
-In **Environment**, select your database. Then you'll have to fill **Host or Socket**, **Warehouse ID** and **Token**.
+In **Environment**, select your database. Then fill **Host or Socket**, **Warehouse ID** and **Token**.
 
-  ![databricks-0](/public/content/docs/get-started/instance/databricks-0.webp)
+![databricks-0](/content/docs/get-started/instance/databricks-0.webp)
 
-1. For **Host or Socket**, copy it from the URL of your Databricks account.
+- **Host or Socket**. Copy it from the URL of your Databricks account.
 
-  ![databricks-host-or-socket](/public/content/docs/get-started/instance/databricks-host-or-socket.webp)
+![databricks-host-or-socket](/content/docs/get-started/instance/databricks-host-or-socket.webp)
 
-2. For **Warehouse ID**, go to **SQL Warehouses** and click your warehouse (that is, your database), copy the ID in **Overview** section.
+- **Warehouse ID**. Go to **SQL Warehouses** and click your warehouse (that is, your database), copy the ID in **Overview** section.
 
-  ![databricks-id-1](/public/content/docs/get-started/instance/databricks-id-1.webp)
+![databricks-id-1](/content/docs/get-started/instance/databricks-id-1.webp)
 
-  ![databricks-id-2](/public/content/docs/get-started/instance/databricks-id-2.webp)
+![databricks-id-2](/content/docs/get-started/instance/databricks-id-2.webp)
 
-3. For **Token**, go to your avatar on the upper-right of Databricks to find **Settings**. Click **Developer** and then **Access tokens**, where you **Generate new token** and copy it to paste under **Token** in Bytebase.
+- **Token**. Go to your avatar on the upper-right of Databricks to find **Settings**. Click **Developer** and then **Access tokens**, where you **Generate new token** and copy it to paste under **Token** in Bytebase.
 
-  ![databricks-token](/public/content/docs/get-started/instance/databricks-token.webp)
+![databricks-token](/content/docs/get-started/instance/databricks-token.webp)
 
-Below is an example of your filled-up Bytebase interface. Click **Test Connection** and it's done.
+Below is an example after you fill the info. Click **Test Connection** to verify.
 
-  ![databricks-1](/public/content/docs/get-started/instance/databricks-1.webp)
+![databricks-1](/content/docs/get-started/instance/databricks-1.webp)
 
 ## Google Cloud Spanner
 
