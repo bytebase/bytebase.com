@@ -6,7 +6,7 @@ description: Bytebase is a database schema change and version control management
 Bytebase is a **middleware** sitting between you and your database. It's the GitLab/GitHub for
 Database DevOps, built for developers, DBAs and platform engineers. Bytebase can be used in 2 ways:
 
-- **GUI** - Bytebase provides a collaboration workspace for teams to manage database development tasks.
+- **GUI** - Bytebase provides a collaboration workspace for teams to manage database development tasks for all database systems.
 - **API (headless)** - Bytebase can go headless. Teams can integrate [Bytebase API](/docs/api/overview/) into
   their development workflow.
 
@@ -14,7 +14,7 @@ Database DevOps, built for developers, DBAs and platform engineers. Bytebase can
 
 ## 8-in-1
 
-[All the tools Bytebase replaces](/blog/all-database-tools-bytebase-replaces)
+Bytebase is an all-in-one solution for database development lifecycle management. It replaces fragmented database tools and unifies the workflow in a single place. Check [all the tools Bytebase replaces](/blog/all-database-tools-bytebase-replaces).
 
 [![replaced-tools](/images/replaced-tools.webp)](/blog/all-database-tools-bytebase-replaces)
 
