@@ -13,6 +13,8 @@ When modifying data in the database, it's crucial to ensure that the changes are
 
 This tutorial will walk you through using SQL Review in Bytebase to improve your database schema change process. The Community Plan is sufficient for completing this tutorial.
 
+   ![sql-review-3](/content/docs/tutorials/sql-review/sql-review-3.webp)
+
 ## Prerequisites
 
 1. Make sure you have [Docker](https://www.docker.com/) installed, and if you don’t have important existing Bytebase data locally, you can start over from scratch by `rm -rf ~/.bytebase/data`.
