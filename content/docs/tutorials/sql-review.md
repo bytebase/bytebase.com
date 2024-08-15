@@ -76,13 +76,11 @@ This tutorial will walk you through using SQL Review in Bytebase to improve your
 
 ## Case 2: Trigger SQL Review in GitOps Workflow
 
-1. Go to [ngrok](https://ngrok.com/), register an account and install it on your local machine. Click **Cloud Edge > Domains** on the left side menu, and create a new domain. Copy the tunnel command and run it in your terminal:
+### Start ngrok
 
-   ```bash
-   ngrok http --domain=[YOUR DOMAIN] 8080
-   ```
+<IncludeBlock url="/docs/get-started/install/vcs-with-ngrok"></IncludeBlock>
 
-1. Go back to your running Bytebase, click **Settings** (gear icon on the top right) and then **Workspace > General**. Configure your domain in the External URL field and click **Update**.
+### Configure GitOps
 
 1. Use your domain from ngrok to visit Bytebase (if you use localhost, it won't work). Click **Integrations > GitOps** on the left side menu and then follow the instructions to set up a GitHub.com integration.
 
