@@ -17,9 +17,7 @@ When changing data in the database, it's advisable to have a backup of the data 
 
 1. It's an Enterprise Plan feature, you need to have a valid license to enable it. You can request a trial license key from [here](https://bytebase.com/pricing).
 
-## Procedure
-
-### Step 1 - Start Bytebase and upgrade to Enterprise Plan
+## Step 1 - Start Bytebase and upgrade to Enterprise Plan
 
 1. Copy and paste the commands to start one Bytebase via Docker.
 
@@ -33,7 +31,7 @@ When changing data in the database, it's advisable to have a backup of the data 
 
    ![bb-subscription](/content/docs/tutorials/data-rollback/bb-subscription.webp)
 
-### Step 2 - Prepare schema `bbdataarchive`
+## Step 2 - Prepare schema `bbdataarchive`
 
 Bytebase stores the backup data in a dedicated place. For Postgres, it's stored under the `bbdataarchive`
 schema for the changing database.
@@ -48,7 +46,7 @@ schema for the changing database.
 
    ![bb-issue-schema-done](/content/docs/tutorials/data-rollback/bb-issue-schema-done.webp)
 
-### Step 3 - Change Data and roll back
+## Step 3 - Change Data and roll back
 
 1. Before the change, go to **SQL Editor**, choose `hr_test` and double click `employee` table, and you'll see the current data. We'll try to change the `first_name` for `Georgi`.
 
