@@ -488,9 +488,7 @@ In **Environment**, select your database. Then fill **Host or Socket**, **Wareho
 
 ![databricks-token](/content/docs/get-started/instance/databricks-token.webp)
 
-Below is an example after you fill the info. Click **Test Connection** to verify.
-
-![databricks-1](/content/docs/get-started/instance/databricks-1.webp)
+Click **Test Connection** to verify.
 
 ## Google Cloud Spanner
 
