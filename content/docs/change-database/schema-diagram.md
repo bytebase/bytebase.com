@@ -3,12 +3,6 @@ title: Schema Diagram
 feature_name: SCHEMA_DIAGRAM
 ---
 
-<HintBlock type="warning">
-
-This feature is in beta.
-
-</HintBlock>
-
 Bytebase's Schema Diagram provides a database [Entity-Relation Diagram](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model).
 
 ## View Database Schema Diagram

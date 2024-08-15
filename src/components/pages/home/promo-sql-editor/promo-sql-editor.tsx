@@ -14,7 +14,7 @@ const head: AccordionHead = {
 
 const data: AccordionData[] = [
   {
-    title: 'Run and explain query',
+    title: 'Run query',
     description: 'Run ad-hoc queries to explore data.',
     image: '/images/page/main/sql-editor/run.webp',
   },

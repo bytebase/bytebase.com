@@ -1,5 +1,5 @@
 ---
-title: Project Webhook
+title: Webhook
 ---
 
 User can configure project-level webhooks to let Bytebase post messages to the configured webhook endpoint upon various events.
@@ -34,44 +34,44 @@ The following events support sending direct messages/notifications to related us
 1. Choose **From an app manifest**.
 1. Pick your workspace to develop the app and click **Next**.
 1. Replace the existing JSON with this manifest content and click **Next**.
-    ```JSON
-    {
-      "display_information": {
-          "name": "Bytebase Bot"
-      },
-      "features": {
-          "bot_user": {
-              "display_name": "Bytebase Bot",
-              "always_online": false
-          }
-      },
-      "oauth_config": {
-          "scopes": {
-              "bot": [
-                  "users:read",
-                  "users:read.email",
-                  "channels:manage",
-                  "groups:write",
-                  "im:write",
-                  "chat:write",
-                  "mpim:write"
-              ]
-          }
-      },
-      "settings": {
-          "org_deploy_enabled": false,
-          "socket_mode_enabled": false,
-          "token_rotation_enabled": false
-      }
-    }
-    ```
+
+   ```JSON
+   {
+     "display_information": {
+         "name": "Bytebase Bot"
+     },
+     "features": {
+         "bot_user": {
+             "display_name": "Bytebase Bot",
+             "always_online": false
+         }
+     },
+     "oauth_config": {
+         "scopes": {
+             "bot": [
+                 "users:read",
+                 "users:read.email",
+                 "channels:manage",
+                 "groups:write",
+                 "im:write",
+                 "chat:write",
+                 "mpim:write"
+             ]
+         }
+     },
+     "settings": {
+         "org_deploy_enabled": false,
+         "socket_mode_enabled": false,
+         "token_rotation_enabled": false
+     }
+   }
+   ```
 
 1. Click **Create**.
 1. Click **Install to Workspace** and click **Allow**.
 1. Go to **Features > OAuth & Permissions** and copy the **Bot User OAuth Token**.
 1. Go back to Bytebase and paste the **Bot User OAuth Token** to the **Token** field under **Integration > IM**.
 1. Go to **Integration > Webhooks** in a project, add a webhook, check all the events you want to send direct messages, and click **Create**.
-
 
 ### Discord
 
@@ -106,8 +106,8 @@ Feishu (Lark) allows to specify a list of keywords in the [security setting](htt
 1. Go to [https://open.feishu.cn/app](https://open.feishu.cn/app).
 1. Click **Create Custom App**, fill the form and click **Create**.
 1. Click **Permisions & Scopes** on the left sidebar, find and add the following permissions:
-     - `contact:user.id:readonly`
-     - `im:message:send_as_bot`
+   - `contact:user.id:readonly`
+   - `im:message:send_as_bot`
 1. Click **Create Version**.
 1. Configure [availability](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability).
 

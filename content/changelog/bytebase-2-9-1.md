@@ -9,7 +9,7 @@ description: 'Group changes into a changelist and apply them in one issue or exp
 ## 🚀 New Features
 
 - Group changes into a changelist and apply them in one issue or export.
-- [Batch query](/docs/sql-editor/batch-query) on multiple databases with selected labels in SQL Editor.
+- [Batch query](/docs/sql-editor/run-queries/#batch-mode) on multiple databases with selected labels in SQL Editor.
 - Support integrating [external secret manager](/docs/get-started/instance/#use-secret-manager) to store database credentials.
 - Support Branching for PostgreSQL and TiDB.
 

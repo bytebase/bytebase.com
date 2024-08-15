@@ -1,5 +1,5 @@
 ---
-title: Run and EXPLAIN Query
+title: Run Query
 ---
 
 <HintBlock type="info">
@@ -32,6 +32,20 @@ SQL Editor can return at most **100,000 rows** and **100 MB** size in total.
 ## Explain query
 
 SQL Editor provides an `Explain` button to run EXPLAIN on the selected query. You can click it or use the shortcut key `(⌘ + E)` instead of prepending EXPLAIN manually.
+
+## Batch mode
+
+<PricingPlanBlock feature_name='BATCH_QUERY' />
+
+You can batch query many databases having the same schema:
+
+![batch-query-setting](/content/docs/sql-editor/batch-query-setting.webp)
+
+For each database, the query result will show up in its own tab:
+
+![batch-query-result1](/content/docs/sql-editor/batch-query-result1.webp)
+
+![batch-query-result2](/content/docs/sql-editor/batch-query-result2.webp)
 
 ## Search result
 
