@@ -469,21 +469,21 @@ If the account is located in the AWS US West (Oregon) region, then it would be s
 
 ## Databricks
 
-Choose an environment you want. You'll have to fill `Host or Socket`, `Warehouse ID` and `Token`.
+Choose an environment you want. You'll have to fill **Host or Socket**, **Warehouse ID** and **Token**.
 
   ![databricks-0](/public/content/docs/get-started/instance/databricks-0.webp)
 
-1. For `Host or Socket`, copy it from the web-address where you open your Databricks interface on browser like in the picture above.
+1. For **Host or Socket**, copy it from the web-address where you open your Databricks interface on browser like in the picture above.
 
   ![databricks-host-or-socket](/public/content/docs/get-started/instance/databricks-host-or-socket.webp)
 
-1. For `Warehouse ID`, go to **SQL Warehouses** and click your warehouse (that is, your database), copy the ID in **Overview** column.
+2. For **Warehouse ID**, go to **SQL Warehouses** and click your warehouse (that is, your database), copy the ID in **Overview** column.
 
   ![databricks-id-1](/public/content/docs/get-started/instance/databricks-id-1.webp)
 
   ![databricks-id-2](/public/content/docs/get-started/instance/databricks-id-2.webp)
 
-1. For `Token`, go to your avatar on the upper-right of Databricks' interface to find **Settings**. Click **Developer** and then **Access tokens**, where you **Generate new token** and copy it to paste under `Token` in Bytebase's interface.
+3. For **Token**, go to your avatar on the upper-right of Databricks' interface to find **Settings**. Click **Developer** and then **Access tokens**, where you **Generate new token** and copy it to paste under **Token** in Bytebase's interface.
 
   ![databricks-token](/public/content/docs/get-started/instance/databricks-token.webp)
 
