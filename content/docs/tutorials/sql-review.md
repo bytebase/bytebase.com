@@ -75,7 +75,6 @@ This tutorial will walk you through using SQL Review in Bytebase to improve your
 
       ![bb-allow-modify](/content/docs/tutorials/sql-review/bb-allow-modify.webp)
 
-
 ### Case Two: Trigger SQL Review in GitOps Workflow
 
 1. Go to [ngrok](https://ngrok.com/), register an account and install it on your local machine. Click **Cloud Edge > Domains** on the left side menu, and create a new domain. Copy the tunnel command and run it in your terminal:
@@ -126,13 +125,11 @@ This tutorial will walk you through using SQL Review in Bytebase to improve your
 
    ![gh-pr-sql-review-0](/content/docs/tutorials/sql-review/gh-pr-sql-review-0.webp)
 
-
 1. Merge the pull request in GitHub, and you may find the issue created and executed in Bytebase.
 
    ![gh-pr-merged](/content/docs/tutorials/sql-review/gh-pr-merged.webp)
 
    ![bb-gitops-issue-done](/content/docs/tutorials/sql-review/bb-gitops-issue-done.webp)
-
 
 ### Case Three: Trigger SQL Review by Bytebase API
 
@@ -148,7 +145,7 @@ You may call [Bytebase API](/docs/api/sql-review/) in your internal portal or Gi
   Sample github custom actions to call Bytebase API to coordinate the schema migration in Bytebase with the GitHub PR workflow.
   ![bb-gh-action](/content/docs/tutorials/sql-review/bb-gh-action.webp)
 
-  ## Summary
+## Summary
 
-  Now you have learned how to trigger SQL Review in Bytebase GUI, GitHub, or by API. You may also refer to the [SQL Review](/docs/sql-review/) document for more details.
+Now you have learned how to trigger SQL Review in Bytebase GUI, GitHub, or by API. You may also refer to the [SQL Review](/docs/sql-review/) document for more details.
 
