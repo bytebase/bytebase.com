@@ -4,6 +4,13 @@ title: Create Migration Files
 
 Bytebase will observe file changes in the configured VCS connector. The files must meet the following requirements.
 
+<HintBlock type="info">
+
+Bytebase creates the rollout issue on merge event that contains new files or modified files. Bytebase
+treats new and modified files the same. But **modifying existing file is only OK if its version string hasn't been successfully applied yet.**
+
+</HintBlock>
+
 ## Path
 
 Files must be under the immediate directory of the specified [base directory](http://localhost:3001/docs/vcs-integration/add-gitops-connector/). As the example below, if the base directory is `bytebase`, then

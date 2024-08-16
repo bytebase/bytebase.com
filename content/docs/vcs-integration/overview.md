@@ -11,6 +11,8 @@ The built-in Bytebase GitOps workflow is **opinionated** for the typical use cas
 - It imposes a [naming convention on the migration file](/docs/vcs-integration/create-migration-files/).
 - It only creates Bytebase rollout issue when the migration file is **merged** into the target branch.
   Under the hood, it creates a webhook in the linked repository to observe the merge event.
+- If you have successfully rolled out the issue and you want to make change based that migration file.
+  You should
 
 <HintBlock type="info">
 
