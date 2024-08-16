@@ -4,9 +4,7 @@ title: Troubleshoot
 
 ## Duplicate version
 
-This happens if a migration version has been attempted (regardless of whether it's successful or not) and you are trying to apply the same version.
-
-Once the migration is attempted, regardless of whether it's successful or not, its version string is occupied and can't be reused.
+This happens if a migration version has been attempted (regardless of whether it's successful or not) and you are trying to apply the same version. Once the migration is attempted, its version string is occupied and can't be reused.
 
 This error is more common in GitOps flow when you try to modify an existing migration file. Refer to the [GitOps troubleshoot](/docs/vcs-integration/troubleshoot/#duplicate-version)
 to learn the correct workflow.
