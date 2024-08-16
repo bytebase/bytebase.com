@@ -2,6 +2,15 @@
 title: Troubleshoot
 ---
 
+## Duplicate version
+
+This happens if a migration version has been succesfully applied and you are trying to apply the same version.
+
+You can only reuse the version string from a failed migration. Once the migration is successful, its version string is occupied and can't be reused.
+
+This error is more common in GitOps flow when you try to modify an existing migration file. Refer to the [GitOps troubleshoot](/docs/vcs-integration/troubleshoot/#duplicate-version)
+to learn the correct workflow.
+
 ## PostgreSQL
 
 _Also applicable to Redshift and RisingWave_
