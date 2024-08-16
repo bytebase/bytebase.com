@@ -41,7 +41,7 @@ databases, it will be counted as 1. The below graph has 2 database instances, 1 
 
 ![Database Instance](/content/docs/core-concepts/db-instance-and-db.webp)
 
-`Database Instance` or simply `Instance` models after a single database server which is usually accessed via a host:port address. A typical database instance could be your on-premises MySQL instance, an AWS RDS instance etc. Each `Database Instance` belongs to an `Environment`. A `Database Instance` can contain multiple `Databases`.
+`Database Instance` or simply `Instance` models after a single database server accessed via a host:port address or a primary/replica cluster. A typical database instance could be your on-premises MySQL instance, a PostgreSQL cluster, an AWS RDS instance etc. Each `Database Instance` belongs to an `Environment`. A `Database Instance` can contain multiple `Databases`.
 
 Most of the time, `Admins` and `DBAs` work with the `Database Instance`.
 
