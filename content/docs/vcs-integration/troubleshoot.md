@@ -32,15 +32,15 @@ This usually happens if a version has been succesfully applied, and you are tryi
 1. The merge event creates another Bytebase issue.
 1. Once you attempt to roll out the issue, you will receive the duplicate version error. Because version `00890` has already been applied.
 
-**Modifying existing file is only OK if its version hasn't been applied yet**. This is a OK sequence:
+**Modifying existing file is only OK if the migratiion hasn't been attempted yet**. This is a OK sequence:
 
 1. You create a new migration `00890_my_feature.sql` and merge it.
 1. The merge event creates a Bytebase issue.
-1. You attempt to roll out the issue. However the rollout fails and the version is not applied.
+1. You realize the error before attempting the rollout.
 1. You correct the error by making changes to `00890_my_feature.sql` and merge it again.
 1. The merge event creates another Bytebase issue.
 1. You successfully roll out the issue and thus apply migration version `00890` to the database.
-1. You close the previous failed issue. (You can also do this proactively after step 3).
+1. You close the first issue. (You can also do this proactively after step 3).
 
 ## GitLab
 
