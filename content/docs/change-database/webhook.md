@@ -197,7 +197,8 @@ You need to implement the webhook server yourself, it doesn't work out of the bo
     "id": 1,
     "name": "example issue",
     "status": "OPEN",
-    "type": "bb.issue.database.create"
+    "type": "bb.issue.database.create",
+    "description": "This is a test issue"
   },
   "project": {
     "id": 1,
