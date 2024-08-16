@@ -30,20 +30,16 @@ If you want to roll out changes during non-business hours, you can set a rollout
 
 ## Rollout Process
 
-### Order
+### Execution Order
 
 Database rollout is organized into stages. Each stage can contain multiple tasks. Each task contains
 one or more SQL statements to be executed.
 
 ![rollout-process-order](/content/docs/change-database/change-workflow/rollout-process-order.webp)
 
-<HintBlock type="info">
+Tasks run in the following order:
 
-Stage progresses sequentially. Tasks from the late stage must wait until all the tasks from the previous stage complete.
-
-Tasks from the same stage run concurrently. Failed task will not block tasks from the same stage.
-
-</HintBlock>
+<IncludeBlock url="/docs/tutorials/share/task-run-order"></IncludeBlock>
 
 ### Task Detail
 
