@@ -23,6 +23,7 @@ After the admin account is created, you can register a regular account.
 ### Log in
 
 After registration, you may log into Bytebase console.
+
 ![bb-login](/content/docs/get-started/step-by-step/register-accounts/bb-login.webp)
 
 For **Enterprise Plan** you may also log into Bytebase using [SSO](/docs/administration/sso/overview).
