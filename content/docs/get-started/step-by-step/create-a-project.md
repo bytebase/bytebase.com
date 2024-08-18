@@ -22,8 +22,4 @@ Go to the project page where you can **create a new database** or **transfer an 
 
 A project is only visible to its related **users**.
 
-1. Go to the project page you created or `Sample Project`.
-2. Click **Manage** > **Members** on the left sidebar, and you'll notice that you're **Project Owner** by default.
-3. Click **Grant Access** to add new project members from the accounts already added at the workspace level. You can assign project-level roles to the members.
-
-![bb-grant-access](/content/docs/get-started/step-by-step/create-a-project/bb-grant-access.webp)
+Go to the project page. Click **Manage** > **Members** on the left sidebar, where you're `Project Owner` by default. **Grant Access** to add new project members from workspace level accounts. You can assign project-level roles to the members.
