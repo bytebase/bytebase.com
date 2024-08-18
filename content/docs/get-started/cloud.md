@@ -4,7 +4,7 @@ title: Bytebase Cloud
 
 <HintBlock type="info">
 
-Cloud is for **demo** purpose and provides limited memory. For production use, please [self host Bytebase](/docs/get-started/self-host) (don't be scared, it's a single binary and deployment is easy).
+Cloud is for **testing** purpose and provides limited memory. For production use, please [self host Bytebase](/docs/get-started/self-host) (don't be scared, it's a single binary and deployment is easy).
 
 </HintBlock>
 

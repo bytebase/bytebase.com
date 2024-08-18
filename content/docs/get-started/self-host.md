@@ -4,13 +4,13 @@ title: Self-host Bytebase
 
 **Latest release version:** [**%%bb_version%%**](https://github.com/bytebase/bytebase/releases/latest)
 
-Self-host is for production use and business with security/compliance requirements. Bytebase offers an air-gapped deployment with a single Go binary.
-
 <HintBlock type="info">
 
-For quick testing or demonstrations, you can use [Bytebase Cloud](/docs/get-started/cloud).
+For testing purpose, you can consider using [Bytebase Cloud](/docs/get-started/cloud).
 
 </HintBlock>
+
+Self-host is for production use and business with security/compliance requirements. Bytebase offers an air-gapped deployment with a single Go binary.
 
 ## Prerequisites
 
