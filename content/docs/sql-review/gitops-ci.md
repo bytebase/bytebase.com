@@ -2,18 +2,20 @@
 title: CI Integration
 ---
 
-You can call [Bytebase SQL Review API](/docs/sql-review/api/) from CI. Below are some samples.
+Once you've set up the [GitOps Workflow](/docs/vcs-integration/overview/), your SQL Review Policy will automatically be applied to all pull/merge requests. The results of the SQL review will appear as a comment.
 
 ## GitHub
 
-GitHub action supports [inline comments](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions).
-
-![github](/content/docs/sql-review/gitops-ci/github.webp)
+![github](/content/docs/sql-review/gitops-ci/github-pr-sql-review.webp)
 
 ## GitLab
 
-![gitlab](/content/docs/sql-review/gitops-ci/gitlab.webp)
+![gitlab](/content/docs/sql-review/gitops-ci/gitlab-pr-sql-review.webp)
 
-## MyBatis3 Mapper
+## Bitbucket
 
-![mybatis3](/content/docs/sql-review/gitops-ci/github-mybatis.webp)
+![bitbucket](/content/docs/sql-review/gitops-ci/bb-pr-sql-review.webp)
+
+## Azure DevOps
+
+![azure devops](/content/docs/sql-review/gitops-ci/azure-devops-pr-sql-review.webp)
