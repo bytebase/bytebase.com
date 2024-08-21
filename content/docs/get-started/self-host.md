@@ -16,6 +16,7 @@ Self-host is for production use and business with security/compliance requiremen
 
 - Check [System Requirements](/docs/faq##system-requirements).
 - Check [External PostgreSQL Prerequisites](/docs/get-started/install/external-postgres/) if you configure it.
+- If you use gateway such as Nginx, enable [WebSocket](/docs/get-started/self-host/#enable-websocket-for-sql-editor) for SQL Editor autocomplete to work.
 
 ## Docker
 
