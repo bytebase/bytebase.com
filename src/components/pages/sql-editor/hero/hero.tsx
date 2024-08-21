@@ -16,7 +16,7 @@ const Hero = ({ subjects }: HeroProps) => {
   const subjectsContainerRef = useRef<null | HTMLDivElement>(null);
   // Now we only support scrollable subjects in sql editor landing page.
   // AKA, there are only 3 subjects at most: 'DBeaver+++', 'Navicat+++', 'TablePlus+++'.
-  const isSubjectsScrollable = subjects.length === 3;
+  const isSubjectsScrollable = subjects.length === 4;
   const [initialed, setInitialed] = useState(isSubjectsScrollable ? false : true);
 
   useEffect(() => {
@@ -115,7 +115,7 @@ const Hero = ({ subjects }: HeroProps) => {
           alt=""
           width={78}
           height={78}
-          className="absolute right-0 bottom-[38px] col-end-5 hidden sm:block"
+          className="absolute bottom-[38px] right-0 col-end-5 hidden sm:block"
         />
         <div className="absolute bottom-[355px] left-0 col-span-3 col-start-2 w-[266px] 3xl:w-auto xl:bottom-[328px] xl:col-span-4 xl:col-start-1 xl:w-[240px] md:bottom-[212px] md:col-span-3 md:col-start-1 md:w-auto sm:static sm:col-span-2 sm:mt-6 sm:text-center">
           <b className="font-title text-112 font-semibold leading-none xl:text-88 md:text-72 sm:text-48 sm:leading-95">
@@ -125,7 +125,7 @@ const Hero = ({ subjects }: HeroProps) => {
             SQL Editor supports every major database systems
           </p>
         </div>
-        <div className="absolute bottom-[327px] left-0 col-span-3 col-start-10 w-[284px] 3xl:w-auto xl:bottom-[303px] xl:right-0 xl:left-auto xl:col-span-4 xl:col-start-9 xl:w-[240px] md:bottom-[180px] md:col-span-3 md:col-start-10 md:w-full sm:static sm:col-span-2 sm:col-start-3 sm:mt-6 sm:text-center">
+        <div className="absolute bottom-[327px] left-0 col-span-3 col-start-10 w-[284px] 3xl:w-auto xl:bottom-[303px] xl:left-auto xl:right-0 xl:col-span-4 xl:col-start-9 xl:w-[240px] md:bottom-[180px] md:col-span-3 md:col-start-10 md:w-full sm:static sm:col-span-2 sm:col-start-3 sm:mt-6 sm:text-center">
           <b className="font-title text-112 font-semibold leading-none xl:text-88 md:text-72 sm:text-48 sm:leading-95">
             20+
           </b>
@@ -133,7 +133,7 @@ const Hero = ({ subjects }: HeroProps) => {
             SQL Editor provides the most comprehensive data security features among all SQL clients.
           </p>
         </div>
-        <div className="absolute bottom-0 left-0 col-span-3 col-start-6 w-[252px] 3xl:w-auto xl:right-0 xl:left-auto xl:col-span-4 xl:col-start-5 xl:w-[240px] md:col-span-3 md:col-start-6 md:w-full sm:static sm:col-span-2 sm:col-start-2 sm:mt-7 sm:text-center">
+        <div className="absolute bottom-0 left-0 col-span-3 col-start-6 w-[252px] 3xl:w-auto xl:left-auto xl:right-0 xl:col-span-4 xl:col-start-5 xl:w-[240px] md:col-span-3 md:col-start-6 md:w-full sm:static sm:col-span-2 sm:col-start-2 sm:mt-7 sm:text-center">
           <b className="font-title text-112 font-semibold leading-none xl:text-88 md:text-72 sm:text-48 sm:leading-95">
             100%
           </b>

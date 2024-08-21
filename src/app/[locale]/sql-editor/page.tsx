@@ -22,7 +22,10 @@ const SQLEditorPage = () => {
   return (
     <>
       <h1 className="sr-only">SQL Editor</h1>
-      <Landing posts={relatedPosts} subjects={['DBeaver+++', 'Navicat+++', 'TablePlus+++']} />
+      <Landing
+        posts={relatedPosts}
+        subjects={['DataGrip+++', 'DBeaver+++', 'Navicat+++', 'TablePlus+++']}
+      />
     </>
   );
 };
