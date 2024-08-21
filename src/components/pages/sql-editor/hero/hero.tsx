@@ -16,7 +16,7 @@ const Hero = ({ subjects }: HeroProps) => {
   const subjectsContainerRef = useRef<null | HTMLDivElement>(null);
   // Now we only support scrollable subjects in sql editor landing page.
   // AKA, there are only 3 subjects at most: 'DBeaver+++', 'Navicat+++', 'TablePlus+++'.
-  const isSubjectsScrollable = subjects.length === 3;
+  const isSubjectsScrollable = subjects.length === 4;
   const [initialed, setInitialed] = useState(isSubjectsScrollable ? false : true);
 
   useEffect(() => {
