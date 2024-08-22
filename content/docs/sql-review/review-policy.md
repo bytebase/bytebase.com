@@ -2,12 +2,13 @@
 title: Review Policy
 ---
 
-Bytebase defines SQL Review Policy for each [environment](/docs/concepts/data-model#environment).
+Bytebase defines SQL Review Policy for each [environment](/docs/concepts/data-model#environment) or [project](/docs/concepts/data-model/#project). The project level policy has higher priority than the environment level policy.
+
 The SQL Review Policy is a set of [SQL lint rules](/docs/sql-review/review-rules). Once configured, Bytebase will check SQL against those rules.
 
 ## Prerequisites
 
-- **Workspace Admin** or **Workspace DBA** role to configure the Review Policy.
+- **Workspace Admin**/**DBA** role to configure the Review Policy.
 
 ## Create SQL Review Policy
 
