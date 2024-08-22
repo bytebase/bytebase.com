@@ -10,7 +10,7 @@ description: 'Allow assigning roles to groups at the workspace level'
 
 - Allow assigning roles to groups at the workspace level.
 - Support disallowing sign-in with email and password, [allowing only SSO](/docs/administration/sso/overview/#enforce-sso-sign-in).
-- Add a Postgres SQL review rule: `Disallow setting volatile default values on columns`.
+- Add a PostgreSQL SQL review rule: `Disallow setting volatile default values on columns`.
 
 ## 🔔 Breaking Changes
 
