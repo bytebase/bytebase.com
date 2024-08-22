@@ -39,11 +39,11 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
     videos: [
       {
         type: 'video/webm',
-        src: '/videos/page/main/hero/3.webm',
+        src: '/videos/page/main/hero/2.webm',
       },
       {
         type: 'video/mp4',
-        src: '/videos/page/main/hero/3.mp4',
+        src: '/videos/page/main/hero/2.mp4',
       },
     ],
     color: 'red',
@@ -56,11 +56,11 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
     videos: [
       {
         type: 'video/webm',
-        src: '/videos/page/main/hero/2.webm',
+        src: '/videos/page/main/hero/3.webm',
       },
       {
         type: 'video/mp4',
-        src: '/videos/page/main/hero/2.mp4',
+        src: '/videos/page/main/hero/3.mp4',
       },
     ],
     color: 'green',
