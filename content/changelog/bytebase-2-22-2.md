@@ -14,7 +14,7 @@ description: 'Allow assigning roles to groups at the workspace level'
 
 ## 🔔 Breaking Changes
 
-- Retire the change histories page in the project; all change histories can be found on the database page.
+- Retire the change histories page in the project; change histories can be found on the database page.
 - Remove `BranchService.DiffDatabase` and `SQLService.DifferPreview` API.
 
 ## 🎄 Enhancements
