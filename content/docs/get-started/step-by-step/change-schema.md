@@ -4,7 +4,9 @@ title: Make a Database Schema Change
 
 **Issues** represents a collaboration between developer and DBA (like creating a database or altering a schema). It's similar to the issue concept in other issue management tools.
 
-Bytebase supports **Edit Schema** (DDL) and **Change Data** (DML). Taking **Edit Schema** as an example, this doc guides you to run a SQL UI Workflow in a project. Make sure you have a project with databases and members.
+Bytebase supports **Edit Schema** (DDL) and **Change Data** (DML). Taking **Edit Schema** as an example, this doc guides you to run a SQL UI Workflow in a project. 
+
+Make sure you have a project with databases and members.
 
 ## Create an issue
 
@@ -20,24 +22,20 @@ E.g If you chose one. In **Schema Editor**, you can operate directly on database
 
 Checks will run automatically. If any check fails, fix the error and **Retry**. You can move on when all checks pass.
 
-If you chose several:
+If you chose several: code in the **SQL** section, then **Create** and **Rollout**.
 
 ## Rollout an issue
 
-Since there's an SQL review warning, you may fix it by editing the SQL and click **Rollout** or click **Rollout** and then check **Rollout anyway**.
-
-![bb-rollout-anyway](/content/docs/get-started/step-by-step/change-schema/bb-rollout-anyway.webp)
+If there's a SQL review warning, you may fix it by editing SQL then **Rollout**, or click **Rollout** and then **Rollout anyway**.
 
 After rolling out, the issue is `Done`.
 
-![bb-issue-done](/content/docs/get-started/step-by-step/change-schema/bb-issue-done.webp)   
+## Summary
 
 Here's a graph showing the full four steps of issues.
 
 ![graph-4-steps](/content/docs/get-started/step-by-step/change-schema/graph-4-steps.webp)
 
 Since for now, you haven't configured [Custom Approval](/docs/administration/custom-approval/), the approval process will be skipped. You haven't configured [Rollout Policy](/docs/administration/environment-policy/rollout-policy/), unless there is something wrong with the auto checks, the issue will be rolled out automatically.
-
-## Summary
 
 Now you have completed the basic UI workflow to change database. There is another more advanced workflow - GitOps workflow. If you want to try **Database-as-Code** - [Run a GitOps Workflow](/docs/vcs-integration/overview).
