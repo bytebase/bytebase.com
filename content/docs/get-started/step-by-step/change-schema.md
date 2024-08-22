@@ -28,7 +28,7 @@ If you chose several: code in the **SQL** section, then **Create** and **Rollout
 
 If there's a SQL review warning, you may fix it by editing SQL then **Rollout**, or click **Rollout** and then **Rollout anyway**.
 
-After rolling out, the issue is `Done`.
+After rolling out, the issue is able to **Resolve**, meaning it's `Done`.
 
 ## Summary
 
