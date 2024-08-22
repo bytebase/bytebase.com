@@ -2,42 +2,39 @@
 title: Make a Database Schema Change
 ---
 
-`Issue` represents a specific collaboration activity between developer and DBA such as creating a database, altering a schema. It's similar to the issue concept in other issue management tools.
+**Issues** represents a collaboration between developer and DBA (like creating a database or altering a schema). It's similar to the issue concept in other issue management tools.
 
-![issue-detail](/content/docs/get-started/step-by-step/change-schema/issue-detail.webp)
+Bytebase supports **Edit Schema** (DDL) and **Change Data** (DML). Taking **Edit Schema** as an example, this doc guides you to run a SQL UI Workflow in a project. Make sure you have a project with databases and members.
 
-This document guides you to run a SQL UI Workflow in a project. Make sure you have already created a project with databases and members in it.
+## Create an issue
 
-Bytebase supports both **Edit Schema** (DDL) and **Change Data** (DML). This document takes **Edit Schema** as an example.
+Go to your project page, choose one or several databases to **Edit Schema**.
 
-## Step 1 - Create an issue
+E.g If you chose one. In **Schema Editor**, you can operate directly on databases or tables without coding. E.g. add a new table or a new column. In **Raw SQL**, **Sync SQL from Schema Editor** and you'll see your operation by code. You can also operate other schema changes.
 
-1. Go to the project page you created, click **Edit Schema**, and you will see an **Edit Schema** dialog box.
-2. Choose one or several databases. If you choose one, the **Issue** will compose them into a **Pipeline** later; if you choose several, then it's all about that specific database.
+![edit-schema-1](/content/docs/get-started/step-by-step/change-schema/edit-schema-1.webp)
+    
+![edit-schema-2](/content/docs/get-started/step-by-step/change-schema/edit-schema-2.webp)
+    
+![edit-schema-3](/content/docs/get-started/step-by-step/change-schema/edit-schema-3.webp)
 
-    ![bb-project-edit-schema](/content/docs/get-started/step-by-step/change-schema/bb-project-edit-schema.webp)
+Checks will run automatically. If any check fails, fix the error and **Retry**. You can move on when all checks pass.
 
-3. Click **Next**, you'll be prompted with **Schema Editor** if it supports the database type. With or without its help, after filling the SQL, you will be redirected to the new issue page.
+If you chose several:
 
-    ![bb-schema-editor](/content/docs/get-started/step-by-step/change-schema/bb-schema-editor.webp)
-
-4. If it's a pipeline, you may need to click **Apply to other tasks**. Put someone as **Assignee** to take responsibility, and click **Create**. Checks will run automatically. If any of the checks fail, you will need to fix the error and click **Retry**. If all checks pass, you can move on.
-
-    ![bb-issue-warning](/content/docs/get-started/step-by-step/change-schema/bb-issue-warning.webp)
-
-## Step 2 - Rollout an issue
+## Rollout an issue
 
 Since there's an SQL review warning, you may fix it by editing the SQL and click **Rollout** or click **Rollout** and then check **Rollout anyway**.
 
-    ![bb-rollout-anyway](/content/docs/get-started/step-by-step/change-schema/bb-rollout-anyway.webp)
+![bb-rollout-anyway](/content/docs/get-started/step-by-step/change-schema/bb-rollout-anyway.webp)
 
 After rolling out, the issue is `Done`.
 
-    ![bb-issue-done](/content/docs/get-started/step-by-step/change-schema/bb-issue-done.webp)   
+![bb-issue-done](/content/docs/get-started/step-by-step/change-schema/bb-issue-done.webp)   
 
 Here's a graph showing the full four steps of issues.
 
-    ![graph-4-steps](/content/docs/get-started/step-by-step/change-schema/graph-4-steps.webp)
+![graph-4-steps](/content/docs/get-started/step-by-step/change-schema/graph-4-steps.webp)
 
 Since for now, you haven't configured [Custom Approval](/docs/administration/custom-approval/), the approval process will be skipped. You haven't configured [Rollout Policy](/docs/administration/environment-policy/rollout-policy/), unless there is something wrong with the auto checks, the issue will be rolled out automatically.
 
