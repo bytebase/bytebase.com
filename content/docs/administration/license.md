@@ -2,7 +2,7 @@
 title: Manage License
 ---
 
-Bytebase offers [3 pricing plans](/pricing): `Free`, `Pro`, `Enterprise`. Both `Pro` and `Enterprise` plans require purchasing license.
+Bytebase offers [3 pricing plans](/pricing): `Free`, `Pro`, `Enterprise`. Both `Pro` and `Enterprise` plans require purchasing license. You can [contact us](/contact-us/) to require a 2-week free trial.
 
 ## Configure license
 
