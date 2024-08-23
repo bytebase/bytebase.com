@@ -16,7 +16,7 @@ SQL Editor can be acccess from the top bar or from the database.
 
 ![query](/content/docs/get-started/step-by-step/query-data/query.webp)
 
-The left sidebar only lists the databases that you have been granted query access. Select a database
+The left sidebar only lists the databases that have been granted query access. Select a database
 and run the query.
 
 Check out the detailed [SQL Editor](/docs/sql-editor/overview) docs to explore other features.
