@@ -38,7 +38,7 @@ Go to the **Settings > Workspace > General**, find the **Security** section and 
 
 ![bb-disallow-emailpass-only-sso](/content/docs/administration/sso/bb-disallow-emailpass-only-sso.webp)
 
-When you any user tries to sign in, the only option is to sign in with the configured SSO provider.
+Afterwards, when the user tries to sign in, the only option is to sign in with the configured SSO provider.
 
 ![bb-only-sso](/content/docs/administration/sso/bb-only-sso.webp)
 
