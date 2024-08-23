@@ -6,4 +6,6 @@ Bytebase disallows to delete the project/instance/environment resource permanent
 
 Meanwhile, Bytebase offers an archiving feature. Archived resources won't appear in the normal interface and can only be found from the **Archive Dashboard.** Archived resources can still be restored any time.
 
-![Archive dashboard](/content/docs/administration/archive/archive-dashboard.webp)
+![Archive dashboard-1](/content/docs/administration/archive/archive-dashboard-1.webp)
+
+![Archive dashboard-2](/content/docs/administration/archive/archive-dashboard-2.webp)
