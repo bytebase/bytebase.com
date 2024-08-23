@@ -6,7 +6,7 @@ Bytebase also provides a web-based SQL Editor to access control, data masking, a
 
 ## Access SQL Editor
 
-SQL Editor can be acccess from the top bar or from the database
+SQL Editor can be acccess from the top bar or from the database.
 
 ![sql-editor-top-bar](/content/docs/get-started/step-by-step/query-data/access-sql-editor-top.webp)
 
