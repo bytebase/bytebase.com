@@ -76,6 +76,11 @@ const SEO_DATA = {
       'Database schema migration and version control, Database CI/CD, and DevOps for developers and DBAs',
     pathname: `${Route.TERMS}/`,
   },
+  PARTNER: {
+    title: 'Bytebase Partner Program',
+    description: 'Grow your business with the Bytebase Partnership program',
+    pathname: `${Route.PARTNER}/`,
+  },
   PRIVACY: {
     title: 'Bytebase Privacy Policy',
     description:

@@ -288,6 +288,7 @@ export const MENU = {
         { name: 'Terms', linkUrl: Route.TERMS },
         { name: 'Policy', linkUrl: Route.PRIVACY },
         { name: 'Security', linkUrl: Route.SECURITY },
+        { name: 'Partners', linkUrl: Route.PARTNER },
         { name: 'Contact', linkUrl: Route.CONTACTS },
       ],
     },

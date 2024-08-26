@@ -29,6 +29,7 @@ const Route = {
   // terms
   REFUND: '/refund',
   TERMS: '/terms',
+  PARTNER: '/partner',
   PRIVACY: '/privacy',
   SECURITY: '/security',
   SLA: '/sla',
