@@ -19,12 +19,12 @@ English, 简体中文, Español, 日本語
 
 Bytebase is a single Go binary and is lightweight.
 
-|                                 |                           |
-| ------------------------------- | ------------------------- |
-| 5 users and 5 instances         | 1 CPU cores and 2 GB RAM  |
-| 20 users and 20 instances       | 2 CPU cores and 4 GB RAM  |
-| 50 users and 50 instances       | 4 CPU cores and 8 GB RAM  |
-| Above 250 users or 50 instances | 8 CPU cores and 16 GB RAM |
+| Usage                           | Bytebase                  | [External PostgreSQL](/docs/get-started/install/external-postgres/) if used |
+| ------------------------------- | ------------------------- | --------------------------------------------------------------------------- |
+| 5 users and 5 instances         | 1 CPU cores and 2 GB RAM  | 1 CPU cores and 2 GB RAM                                                    |
+| 20 users and 20 instances       | 2 CPU cores and 4 GB RAM  | 1 CPU cores and 2 GB RAM                                                    |
+| 50 users and 50 instances       | 4 CPU cores and 8 GB RAM  | 2 CPU cores and 4 GB RAM                                                    |
+| Above 250 users or 50 instances | 8 CPU cores and 16 GB RAM | 2 CPU cores and 4 GB RAM                                                    |
 
 ### Docker
 
@@ -40,7 +40,7 @@ See [Supported Databases](/docs/introduction/supported-databases).
 
 ## Supported version control systems (VCS) and providers
 
-See [Git Provider](/docs/vcs-integration/self-host-gitlab).
+See [Git Provider](/docs/vcs-integration/add-git-provider).
 
 ## How Bytebase stores the database credentials
 
