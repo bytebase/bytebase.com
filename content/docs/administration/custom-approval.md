@@ -28,6 +28,15 @@ Choose the preset "Skip manual approval" approval flow for a risk if you don't w
 You can configure an approval node pointing to an external approval system. Bytebase will sync the
 approval status from the external system, and will approve the node once the external flow is approved there.
 
+<HintBlock type="info">
+
+Bytebase polls the endpoint to sync the latest approval status when:
+
+1. Issue detail page is opened.
+1. Every 10 minutes in the background.
+
+</HintBlock>
+
 Click the **External Approval** tab. Specify the external approval system API endpoint. The API endpoint needs to implement the [external approval API](/docs/api/external-approval).
 
 ![External Approval](/content/docs/administration/custom-approval/external-approval.webp)
