@@ -12,9 +12,9 @@ To avoid exceedingly long review time, Bytebase skips SQL Review if the statemen
 
 Bytebase has designed an automatic process to reduce the work for DBAs who are required to do manual SQL review.
 
-DBA first chooses [SQL Review rules](/docs/sql-review/review-rules) to build a unified [Review policy](/docs/sql-review/review-policy) and then chooses environments to apply it.
+DBA first chooses [SQL Review rules](/docs/sql-review/review-rules) per each database engine to build a unified [Review policy](/docs/sql-review/review-policy) and then chooses environments or projects to apply it.
 
-![sql-review-policy](/content/docs/sql-review/sql-review-policy.webp)
+![bb-sql-review-policy](/content/docs/sql-review/bb-sql-review-policy.webp)
 
 Later, when developers submit SQLs to query or change the database, Bytebase will check these rules automatically before the DBAs review.
 
