@@ -12,7 +12,7 @@ title: Authentication
 
 You should create service account to interact with the Bytebase API.
 
-Visit Bytebase member management page (Click **Settings** on the navigation bar, and then click **Workspace > Members**).
+Visit Bytebase member management page (Click **Settings**, the gear icon on the upper-right. Then click **Workspace > Members**).
 
 Name your service account, and grant the **Owner** or **DBA** role to it.
 
