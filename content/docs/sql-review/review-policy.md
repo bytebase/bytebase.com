@@ -2,37 +2,56 @@
 title: Review Policy
 ---
 
-Bytebase defines SQL Review Policy for each [environment](/docs/concepts/data-model#environment) or [project](/docs/concepts/data-model/#project). The project level policy has higher priority than the environment level policy.
+In Bytebase, you can establish a SQL Review Policy for each [environment](/docs/concepts/data-model#environment) or [project](/docs/concepts/data-model/#project). This policy consists of a set of [SQL lint rules](/docs/sql-review/review-rules) tailored to each database engine.  Once configured, Bytebase will check SQL against those rules.
 
-The SQL Review Policy is a set of [SQL lint rules](/docs/sql-review/review-rules). Once configured, Bytebase will check SQL against those rules.
+![bb-sql-review-policy](/content/docs/sql-review/bb-sql-review-policy.webp)
 
 ## Prerequisites
 
 - **Workspace Admin**/**DBA** role to configure the Review Policy.
 
-## Create SQL Review Policy
+## Access SQL Review Policy
 
-<HintBlock type="info">
+You can access **SQL Review Policy** from following places:
 
-Note that only **ONE** policy can be attached per `Environment`.
+- **SQL Review** under **Security & Policy** sidebar
+- **Environment** setting
+- **Project** setting
 
-</HintBlock>
+## Start by Choosing a Template
 
-![sql-review-policy](/content/docs/sql-review/sql-review-policy.webp)
+You can choose a predefined template or create a new policy from scratch.
 
-You can access `SQL Review Policy` from following places:
+![bb-sql-review-basic-info](/content/docs/sql-review/bb-sql-review-basic-info.webp)
 
-- `SQL Review` under `Security & Policy` sidebar.
-- `Environment` setting.
+![bb-sql-review-configure-rule](/content/docs/sql-review/bb-sql-review-configure-rule.webp)
 
-## Change rule level
+## Add or Remove SQL Review Rules
+
+You can add or remove SQL Review rules per database engine to this policy.
+
+![bb-sql-review-add-remove](/content/docs/sql-review/bb-sql-review-add-remove.webp)
+
+## Change Rule Level
 
 You can choose one of `Error`, `Warning` and `Disabled`.
 
 Both `Warning` and `Error` will block the [automatic rollout](/docs/administration/environment-policy/rollout-policy/#automatic-rollout) if configured.
 
-## Disable and delete SQL Review Policy
+## Attach to Resources
 
-You can disable the `SQL Review Policy` to prevent it from taking effect.
+<HintBlock type="info">
+
+Note that **Project** level policy has higher priority than **Environment** one.
+
+</HintBlock>
+
+You can attach the **SQL Review Policy** to environments or projects. Only **ONE** policy can be attached per **Environment** or **Project**.
+
+![bb-sql-review-attach-resource](/content/docs/sql-review/bb-sql-review-attach-resource.webp)
+
+## Disable or Delete SQL Review Policy
+
+You can disable the **SQL Review Policy** to prevent it from taking effect.
 
 After disabling it, you can delete it.
