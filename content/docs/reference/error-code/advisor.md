@@ -398,7 +398,7 @@ The comment is too long. Check [Comment length limit](/docs/sql-review/review-ru
 
 <h3 id="2001">2001 - Unable to create backup</h3>
 
-[Prior backup](/docs/change-database/rollback-data-changes) is only feasible when meeting any of the following conditions:
+[Prior backup](/docs/change-database/rollback-data-changes) is only feasible when meeting **any** of the following conditions:
 
-1. All statements are UPDATE for one table with PRIMARY KEY or UNIQUE KEY in WHERE clause.
 1. No more than 5 statements.
+1. All statements are UPDATE for the same table with PRIMARY KEY or UNIQUE KEY in WHERE clause.
