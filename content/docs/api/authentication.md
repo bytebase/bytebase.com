@@ -12,9 +12,7 @@ title: Authentication
 
 You should create service account to interact with the Bytebase API.
 
-Visit Bytebase member management page (Click **Settings** on the navigation bar, and then click **Workspace > Members**).
-
-Name your service account, and grant the **Owner** or **DBA** role to it.
+Visit Bytebase **Members** management page in **Security & Policy** section on the left. Click the pencil icon on your service account's row to grant **Owner** or **DBA** role to it.
 
 ![create-service-account](/content/docs/get-started/work-with-terraform/create-service-account.webp)
 
