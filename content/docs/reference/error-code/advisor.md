@@ -393,3 +393,12 @@ The collation is disabled. Check [Collation allow list](/docs/sql-review/review-
 <h3 id="1301">1301 - Comment too long</h3>
 
 The comment is too long. Check [Comment length limit](/docs/sql-review/review-rules#system.comment.length) for details.
+
+## Backup
+
+<h3 id="2001">2001 - Unable to create backup</h3>
+
+[Prior backup](/docs/change-database/rollback-data-changes) is only feasible when meeting any of the following conditions:
+
+1. All statements are UPDATE for one table with PRIMARY KEY or UNIQUE KEY in WHERE clause.
+1. No more than 5 statements.
