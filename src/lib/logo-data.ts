@@ -72,6 +72,18 @@ const KAKAO: Logo = {
   mobileOrderClassName: 'xs:order-4',
 };
 
+const LayerX: Logo = {
+  alt: 'LayerX',
+  src: '/images/logos/layerx.svg',
+  width: 200,
+  height: 64,
+  small: {
+    width: 110,
+    height: 40,
+  },
+  mobileOrderClassName: 'xs:order-1',
+};
+
 const LI_AUTO: Logo = {
   alt: 'LiAuto',
   src: '/images/logos/li-auto.svg',
@@ -279,8 +291,8 @@ const ZEEKR: Logo = {
 export const FULL_LOGO_LIST: Logo[] = [
   LINEAR,
   TENCENT,
+  LayerX,
   KAKAO,
-  PAYER_MAX,
   REDHAT,
   PROPERTY_GURU,
   SALLA,
@@ -288,7 +300,7 @@ export const FULL_LOGO_LIST: Logo[] = [
   TELKOM_INDONESIA,
   BYD,
   APTIVE,
-  META,
+  PAYER_MAX,
 ];
 
 export const FINANCIAL_LOGO_LIST: Logo[] = [LONG_BRIDGE, XENDIT, PAYER_MAX];
