@@ -8,7 +8,7 @@ Run the following command to start Bytebase on container port `8080` and map it 
 
 <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
 
-If you ran Bytebase before, you can reset all data by running this command:
+If you've run Bytebase before, you can reset all data by running this command:
 
 ```text
 rm -rf ~/.bytebase/data
