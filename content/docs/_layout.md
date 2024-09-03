@@ -109,11 +109,9 @@ expand_section_list: ['Self-host']
 
 ### [Change Workflow](/change-database/change-workflow)
 
-### [Webhook](/change-database/webhook)
+### [1-click Data Rollback](/change-database/rollback-data-changes)
 
-### [Data Rollback](/change-database/rollback-data-changes)
-
-### [Schema Synchronization](/change-database/synchronize-schema)
+### [Schema Sync and Rollback](/change-database/synchronize-schema)
 
 ### [Stored Procedure](/change-database/stored-procedure)
 
@@ -124,6 +122,8 @@ expand_section_list: ['Self-host']
 ### [Schema Diagram](/change-database/schema-diagram)
 
 ### [Online Schema Migration](/change-database/online-schema-migration-for-mysql)
+
+### [Webhook](/change-database/webhook)
 
 ### [Troubleshoot 🐞](/change-database/troubleshoot)
 

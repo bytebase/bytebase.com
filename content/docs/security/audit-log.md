@@ -3,27 +3,28 @@ title: Audit Log
 feature_name: AUDIT_LOG
 ---
 
-Workspace admin or DBA can view the audit log of the workspace. Currently, the audit log records following operations performed by users in workspace:
+**Workspace Admin** or **DBA** can view the audit logs of the workspace.
 
-- Create Member
-- Update Member Role
-- Activate Member
-- Deactivate Member
-- Transfer Database
-- SQL Editor Query
+![overview](/content/docs/security/audit-log/overview.webp)
 
-![audit-log-overview](/content/docs/security/audit-log/audit-log-overview.webp)
+## Filter audit logs
 
-You can filter the audit log by audit activity creator and audit types.
+You can filter the audit logs by different conditions.
 
-To filter the audit log **by audit activity creator**, click the _All_ button (which indicates all creators are selected) on the top right corner, and select the creator from the dropdown list.
+![filter](/content/docs/security/audit-log/filter.webp)
 
-![select-creator](/content/docs/security/audit-log/select-creator.webp)
+You can also specify a time range.
 
-![filtering-creator](/content/docs/security/audit-log/filtering-creator.webp)
+![filter-date](/content/docs/security/audit-log/filter-date.webp)
 
-To filter the audit log **by audit types**, click the _Select Type_ button next to the creator selector, and select one or more types from the dropdown list.
+## Export audit logs
 
-![select-multiple-audit-types](/content/docs/security/audit-log/select-multiple-audit-types.webp)
+<HintBlock type="info">
 
-![filtering-audit-type](/content/docs/security/audit-log/filtering-audit-type.webp)
+If you want to export the audit logs to an external system such as S3, refer [Audit Log API](/docs/api/audit-log/).
+
+</HintBlock>
+
+You can also export the audit logs.
+
+![filter-date](/content/docs/security/audit-log/filter-date.webp)

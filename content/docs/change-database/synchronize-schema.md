@@ -1,5 +1,5 @@
 ---
-title: Schema Synchronization
+title: Schema Sync and Rollback
 ---
 
 <HintBlock type="info">
