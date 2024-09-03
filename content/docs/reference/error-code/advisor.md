@@ -400,5 +400,5 @@ The comment is too long. Check [Comment length limit](/docs/sql-review/review-ru
 
 [Prior backup](/docs/change-database/rollback-data-changes) is only feasible when meeting **any** of the following conditions:
 
-1. No more than 5 statements.
+1. No more than 5 statements and every statement is either UPDATE or DELETE.
 1. All statements are UPDATE for the same table with PRIMARY KEY or UNIQUE KEY in WHERE clause.
