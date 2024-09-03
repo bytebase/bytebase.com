@@ -23,8 +23,12 @@ After registration, you may log into Bytebase console.
 
 For **Enterprise Plan** you may also log into Bytebase using [SSO](/docs/administration/sso/overview).
 
-## Manage members
+## Manage users or members
 
-As a **Workspace Admin**, you can manage all members in **Menbers & Groups** under **Security & Policy** section. Add a member on the upper-right or edit member information (e.g. edit password) by clicking the pencil icon.
+As a **Workspace Admin**, you can manage all users in **Users & Groups** under **Security & Policy** section. You can **Add User** on the upper-right, or click the pencil icon to update user information like email.
 
-![bb-add-a-new-member](/content/docs/get-started/step-by-step/register-accounts/bb-add-a-new-member.webp)
+![user-management](/content/docs/get-started/step-by-step/register-accounts/user-management.webp)
+
+In **Members** under **Security & Policy**, you can **Grant Access** to users or groups, assigning them workspace roles or project roles. You can also update member information through the pencil icon.
+
+![member-management](/content/docs/get-started/step-by-step/register-accounts/member-management.webp)
