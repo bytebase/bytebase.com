@@ -28,7 +28,3 @@ For **Enterprise Plan** you may also log into Bytebase using [SSO](/docs/adminis
 As a **Workspace Admin**, you can manage all users in **Users & Groups** under **Security & Policy** section. You can **Add User** on the upper-right, or click the pencil icon to update user information like email.
 
 ![user-management](/content/docs/get-started/step-by-step/register-accounts/user-management.webp)
-
-In **Members** under **Security & Policy**, you can **Grant Access** to users or groups, assigning them workspace roles or project roles. You can also update member information through the pencil icon.
-
-![member-management](/content/docs/get-started/step-by-step/register-accounts/member-management.webp)
