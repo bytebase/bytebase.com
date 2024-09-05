@@ -18,7 +18,6 @@ description: 'One-click rollback for PostgreSQL DML change'
   - For unsupported backup scenarios, an error will be reported when turning on the backup switch.
   - Support MySQL generated columns.
   - Bulk `UPDATE` statements to a single table will be backed up into a single table. Before, each `UPDATE` statement will be backed up into a separate table.
-  
 - Enhance SQL Editor sidebar:
   - Display column types and nullable information.
   - Show columns and dependent columns in views.
