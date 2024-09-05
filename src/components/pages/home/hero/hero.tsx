@@ -136,10 +136,10 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
             <Link href="/changelog/bytebase-2-22-2/" className="group/link">
               <span className="inline-flex items-center gap-1 rounded-full bg-tones-purple-light p-1 text-12 font-semibold leading-none text-primary-1 transition-colors duration-200 group-hover/link:text-primary-2">
                 <span className="rounded-full bg-primary-1 px-2 py-1 text-white transition-colors duration-200 group-hover/link:bg-primary-2">
-                  Aug 22nd, 2024
+                  Sep 5th, 2024
                 </span>
                 <span className="flex items-center gap-1.5 px-2">
-                  🚀 2.22.2: Allow assigning roles to groups at the workspace level
+                  🚀 2.22.3: One-click rollback for PostgreSQL DML change
                   <SmallArrowIcon width={7} height={6} />
                 </span>
               </span>
