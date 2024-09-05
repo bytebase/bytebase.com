@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.22.1
 author: Ningjing
-published_at: 2024/8/8/ 17:00:00
+published_at: 2024/8/8 17:00:00
 feature_image: /content/changelog/2-22-1-banner.webp
 description: 'Inline schema details in SQL Editor'
 ---
