@@ -311,4 +311,4 @@ export const MANUFACTURING_LOGO_LIST: Logo[] = [BYD, LI_AUTO, CVTE, ZEEKR];
 
 export const GAMING_LOGO_LIST: Logo[] = [MIHOYO, TENCENT, CTW];
 
-export const WEB3_LOGO_LIST: Logo[] = [MATRIX_PORT, WALLEX, LUXOR];
+export const WEB3_LOGO_LIST: Logo[] = [MATRIX_PORT, LUXOR];
