@@ -1,7 +1,7 @@
 ---
 title: How many DBAs should a company hire
 author: Tianzhou
-published_at: 2024/01/15 09:00:00
+updated_at: 2024/01/15 09:00:00
 feature_image: /content/blog/how-many-dbas-should-a-company-hire/freedom-control.webp
 tags: Industry
 featured: true

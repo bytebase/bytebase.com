@@ -1,6 +1,6 @@
 ---
 title: Bytebase 1.0.1
-published_at: 2022/03/17 09:04:12
+updated_at: 2022/03/17 09:04:12
 description: Support instance read-only connection. Enable Data Change (DML) for tenant mode projects. Allow users to edit SQL statements. Allows retry for failed migration with invalid SQL statement.
 ---
 

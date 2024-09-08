@@ -1,7 +1,7 @@
 ---
 title: Top DBeaver Alternatives 2023
 author: Mila
-published_at: 2023/8/12 21:21:21
+updated_at: 2023/8/12 21:21:21
 feature_image: /content/blog/top-dbeaver-alternative/banner.webp
 tags: Industry
 featured: true

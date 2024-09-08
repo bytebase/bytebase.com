@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.2.0
 author: Ningjing
-published_at: 2023/06/09 16:30:00
+updated_at: 2023/06/09 16:30:00
 feature_image: /content/changelog/2-2-0-banner.webp
 description: 'Support batch change by database groups in tenant projects; Support table-level data query requests; SQL Editor supports multiple running SQL SELECT statements in one query; Support SQL review for OceanBase.'
 ---

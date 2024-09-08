@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.19.0
 author: Ningjing
-published_at: 2024/6/13 17:00:00
+updated_at: 2024/6/13 17:00:00
 feature_image: /content/changelog/2-19-0-banner.webp
 description: 'Support DynamoDB'
 ---
@@ -17,7 +17,7 @@ description: 'Support DynamoDB'
 ## 🔔 Breaking Changes
 
 - Creating multiple-database issues will now share SQL statements among databases.
-  
+
 ## 🎄 Enhancements
 
 - Support managing instances and environments in SQL Editor.

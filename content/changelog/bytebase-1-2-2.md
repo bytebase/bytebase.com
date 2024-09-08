@@ -1,7 +1,7 @@
 ---
 title: Bytebase 1.2.2
 author: Mila
-published_at: 2022/7/21 17:20
+updated_at: 2022/7/21 17:20
 description: '- Added support for gh-ost. - Updated the way help tips are displayed, using a side drawer instead of the pop-up tips.'
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.11.0
 author: Ningjing
-published_at: 2023/11/9 17:21:21
+updated_at: 2023/11/9 17:21:21
 feature_image: /content/changelog/2-11-0-banner.webp
 description: 'Support setting parameters for MySQL online schema change.'
 ---

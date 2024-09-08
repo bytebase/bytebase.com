@@ -1,7 +1,7 @@
 ---
 title: How to Install Local MySQL on Your Mac, Ubuntu, CentOS, Windows
 author: Mila
-published_at: 2023/11/10 21:21:21
+updated_at: 2023/11/10 21:21:21
 feature_image: /content/blog/how-to-install-local-mysql-on-mac-ubuntu-centos-windows/banner.webp
 tags: How-To
 featured: true

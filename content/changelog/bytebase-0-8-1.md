@@ -1,6 +1,6 @@
 ---
 title: Bytebase 0.8.1
-published_at: 2021/11/15 08:40:56
+updated_at: 2021/11/15 08:40:56
 ---
 
 ## 🚀 Branding update

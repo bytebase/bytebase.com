@@ -1,7 +1,7 @@
 ---
 title: 'Database Compliance for GDPR: Implications and Best Practices'
 author: Tianzhou
-published_at: 2024/07/24 09:00:00
+updated_at: 2024/07/24 09:00:00
 feature_image: /content/blog/database-compliance-for-gdpr/banner.webp
 tags: How-To
 featured: true

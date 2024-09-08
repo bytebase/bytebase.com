@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.3.0
 author: Mila
-published_at: 2023/06/21 17:21:21
+updated_at: 2023/06/21 17:21:21
 feature_image: /content/changelog/2-3-0-banner.webp
 description: 'SQL Review for Snowflake. Mask data for Oracle. Export Center for data exports.'
 ---

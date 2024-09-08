@@ -1,7 +1,7 @@
 ---
 title: 'Bytebase vs. CloudBeaver: a side-by-side comparison for web-based database management'
 author: Ningjing
-published_at: 2024/02/27 23:21:21
+updated_at: 2024/02/27 23:21:21
 feature_image: /content/blog/bytebase-vs-cloudbeaver/bb-vs-cb-banner.webp
 tags: Explanation
 description: 'When a team interacts with a database, collaborative functionalities like access control become essential. A web-based GUI also adds convenience.'
@@ -20,22 +20,22 @@ When a team interacts with a database, collaborative functionalities like access
 
 ## What are the differences between Bytebase and CloudBeaver?
 
-Bytebase is a database development tool for the developer team, while CloudBeaver is a lightweight web application for all-around data management. 
+Bytebase is a database development tool for the developer team, while CloudBeaver is a lightweight web application for all-around data management.
 
 Bytebase focuses on team collaboration, offering tailored features like access control, data masking, SQL review, and custom approval flows. CloudBeaver, on the other hand, is a cloud solution for data management, supporting a wide range of databases.
 
-|                                             | CloudBeaver                    | Bytebase                                              |
-| ------------------------------------------- | -------------------------- | ----------------------------------------------------- |
-| [Product position](#product-position)       | A lightweight web application for all-around data management  | A collaborative database development platform         |
-| [Developer interface](#developer-interface) | Server-side, web-based | Server-side, web-based                                |
-| [Installation](#installation)               | Jave-based, require JVM    | Deploy Go-binary with no external dependency          |
-| [Supported databases](#supported-databases) | Free for 13, Paid for 80+                       | 20+                                                   |
-| [Query](#query)                             | ✅                         | ✅                                                    |
-| [Change](#change)                           | Direct                     | Review workflow                                       |
-| [Access control](#access-control)           |  ✅ basic                        | ✅ Free for basic version / Paid for advanced version |
-| [Data masking](#data-masking)               | ❌                         | ✅ Paid                                               |
-| [Compare Schema](#compare)                  | ❌                  | ✅ 1:N                                             |
-| [Audit log](#audit-log)                     | ✅                         | ✅                                                |
+|                                             | CloudBeaver                                                  | Bytebase                                              |
+| ------------------------------------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
+| [Product position](#product-position)       | A lightweight web application for all-around data management | A collaborative database development platform         |
+| [Developer interface](#developer-interface) | Server-side, web-based                                       | Server-side, web-based                                |
+| [Installation](#installation)               | Jave-based, require JVM                                      | Deploy Go-binary with no external dependency          |
+| [Supported databases](#supported-databases) | Free for 13, Paid for 80+                                    | 20+                                                   |
+| [Query](#query)                             | ✅                                                           | ✅                                                    |
+| [Change](#change)                           | Direct                                                       | Review workflow                                       |
+| [Access control](#access-control)           | ✅ basic                                                     | ✅ Free for basic version / Paid for advanced version |
+| [Data masking](#data-masking)               | ❌                                                           | ✅ Paid                                               |
+| [Compare Schema](#compare)                  | ❌                                                           | ✅ 1:N                                                |
+| [Audit log](#audit-log)                     | ✅                                                           | ✅                                                    |
 
 ### Product position
 
@@ -141,7 +141,7 @@ On the other hand, the more common way to change the schema is to use **Schema E
 ### Audit log
 
 - **CloudBeaver**: **Query Manager** is available for the paid version.
-  ![cb-audit-log](/content/blog/bytebase-vs-cloudbeaver/cb-audit-log.webp) 
+  ![cb-audit-log](/content/blog/bytebase-vs-cloudbeaver/cb-audit-log.webp)
 
 - **Bytebase**: **Audit Log** is available for the **Enterprise plan**. It records all the activities within Bytebase which can be filtered or exported.
   ![bb-audit-log](/content/blog/bytebase-vs-cloudbeaver/bb-audit-log-dropdown.webp)

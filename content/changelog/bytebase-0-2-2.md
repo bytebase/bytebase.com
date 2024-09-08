@@ -1,6 +1,6 @@
 ---
 title: Bytebase 0.2.2
-published_at: 2021/07/26 07:49:00
+updated_at: 2021/07/26 07:49:00
 ---
 
 ## 🐞 Important Bug Fixes

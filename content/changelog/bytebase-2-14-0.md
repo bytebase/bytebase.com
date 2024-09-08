@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.14.0
 author: Ningjing
-published_at: 2024/3/7 17:00:00
+updated_at: 2024/3/7 17:00:00
 feature_image: /content/changelog/2-14-0-banner.webp
 description: 'Support custom roles with specific permissions.'
 ---

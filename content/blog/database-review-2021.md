@@ -1,7 +1,7 @@
 ---
 title: Database Review 2021 and 2022 Prediction
 author: Tianzhou
-published_at: 2022/02/01 10:00:00
+updated_at: 2022/02/01 10:00:00
 feature_image: /content/blog/database-review-2021-bytebase/uncharted-waters.webp
 tags: Industry
 description: What happend in database industry in 2021. OLAP (Snowflake, Databricks, ClickHouse, Firebolt, ClickHouse), OLTP (PostgreSQL, PlanetScale, SQLite) and open source.

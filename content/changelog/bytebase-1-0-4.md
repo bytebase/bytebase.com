@@ -1,6 +1,6 @@
 ---
 title: Bytebase 1.0.4
-published_at: 2022/04/28 11:29:05
+updated_at: 2022/04/28 11:29:05
 description: Support --pg option to boot Bytebase. bb CLI Support --dsn option in CLI. Add installation script of bb CLI. Add dashboard page to manage all SQL sheets. Admin page to view all projects. Added /healthz health check endpoint for supporting serverless platform.
 ---
 

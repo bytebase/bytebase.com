@@ -1,7 +1,7 @@
 ---
 title: How to Install MySQL Client on Your Mac, Ubuntu, CentOS, Windows
 author: Tianzhou
-published_at: 2023/07/13 09:00:00
+updated_at: 2023/07/13 09:00:00
 feature_image: /content/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows/cover.webp
 tags: How-To
 description: Learn how to install the official MySQL client on mac, ubuntu, centos and window.

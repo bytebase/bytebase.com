@@ -1,7 +1,7 @@
 ---
 title: Bytebase Crossed 1 Million Downloads
 author: Tianzhou
-published_at: 2023/08/02 09:00:00
+updated_at: 2023/08/02 09:00:00
 feature_image: /content/blog/one-million-downloads/cover.webp
 tags: Announcement
 featured: true

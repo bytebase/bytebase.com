@@ -1,7 +1,7 @@
 ---
 title: Top Open Source MySQL Migration Tools in 2024
 author: Mila
-published_at: 2024/02/06 09:00:00
+updated_at: 2024/02/06 09:00:00
 feature_image: /content/blog/top-open-source-mysql-migration-tools/banner.webp
 tags: Industry
 featured: true
@@ -31,8 +31,7 @@ successor of trigger-based online schema migration tool [pt-online-schema-change
 
 Traditional online schema migration methods often involve long maintenance windows or require taking the database offline. gh-ost aims to address these limitations by providing a non-blocking and online schema change solution.
 
-All existing online schema change tools operate similarly: they create a *ghost* table in the likeness of your original table, migrate that table while empty, slowly and incrementally copy data from your original table to the *ghost* table, meanwhile propagating ongoing changes (any `INSERT`, `DELETE`, `UPDATE` applied to your table) to the *ghost* table. Finally, at the right time, they replace your original table with the *ghost* table. `gh-ost` uses the same pattern. However it differs from all existing tools by not using triggers. Instead, it leverages MySQL binlog to capture table changes, and asynchronously applies them onto the *ghost* table.
-
+All existing online schema change tools operate similarly: they create a _ghost_ table in the likeness of your original table, migrate that table while empty, slowly and incrementally copy data from your original table to the _ghost_ table, meanwhile propagating ongoing changes (any `INSERT`, `DELETE`, `UPDATE` applied to your table) to the _ghost_ table. Finally, at the right time, they replace your original table with the _ghost_ table. `gh-ost` uses the same pattern. However it differs from all existing tools by not using triggers. Instead, it leverages MySQL binlog to capture table changes, and asynchronously applies them onto the _ghost_ table.
 
 ## Skeema
 
@@ -90,13 +89,13 @@ access control, dynamic data masking and audit logs to control the query path.
 
 ## Summary
 
-| Name                                                    | Interface | Language        | MySQL Only | Highlight                                                          |
-| ------------------------------------------------------- | --------- | --------------- | ------------- | ------------------------------------------------------------------ |
-| [gh-ost](https://github.com/github/gh-ost) | CLI       | Go      | Y             | Triggerless online schema migration.  |
-| [Skeema](https://github.com/skeema/skeema)              | CLI       | Go              | N  (MySQL + MariaDB)           | Declarative pure-SQL schema management. |
-| [Liquibase](https://github.com/liquibase/liquibase)     | CLI       | Java            | N             | Long-standing.                                                     |
-| [Flyway](https://github.com/flyway/flyway)              | CLI       | Java            | N             | Developer-friendly.                                                |
-| [Bytebase](https://github.com/bytebase/bytebase)        | GUI       | Go + TypeScript | N             | All in one for team collaboration.                                 |
+| Name                                                | Interface | Language        | MySQL Only          | Highlight                               |
+| --------------------------------------------------- | --------- | --------------- | ------------------- | --------------------------------------- |
+| [gh-ost](https://github.com/github/gh-ost)          | CLI       | Go              | Y                   | Triggerless online schema migration.    |
+| [Skeema](https://github.com/skeema/skeema)          | CLI       | Go              | N (MySQL + MariaDB) | Declarative pure-SQL schema management. |
+| [Liquibase](https://github.com/liquibase/liquibase) | CLI       | Java            | N                   | Long-standing.                          |
+| [Flyway](https://github.com/flyway/flyway)          | CLI       | Java            | N                   | Developer-friendly.                     |
+| [Bytebase](https://github.com/bytebase/bytebase)    | GUI       | Go + TypeScript | N                   | All in one for team collaboration.      |
 
 ## Further Readings
 

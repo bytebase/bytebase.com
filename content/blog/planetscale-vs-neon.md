@@ -1,7 +1,7 @@
 ---
 title: "PlanetScale vs. Neon: the Continued Saga between MySQL and PostgreSQL"
 author: Tianzhou
-published_at: 2023/08/04 09:00
+updated_at: 2023/08/04 09:00
 feature_image: /content/blog/planetscale-vs-neon/cover.webp
 tags: Industry
 featured: true

@@ -1,7 +1,7 @@
 ---
 title: Bytebase 1.3.2
 author: Ningjing
-published_at: 2022/9/1 17:20
+updated_at: 2022/9/1 17:20
 description: '- Integrate PostgreSQL Explain Visualizer. - Support in-place backup restore for PostgreSQL. - Support PITR to a new database for MySQL. - Users can mark an environment as protected, and a shield badge will show up next to its name.'
 ---
 

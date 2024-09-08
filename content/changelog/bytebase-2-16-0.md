@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.16.0
 author: Ningjing
-published_at: 2024/4/25 17:00:00
+updated_at: 2024/4/25 17:00:00
 feature_image: /content/changelog/2-16-0-banner.webp
 description: 'Support DML change pre-backup for Oracle and SQL Server'
 ---

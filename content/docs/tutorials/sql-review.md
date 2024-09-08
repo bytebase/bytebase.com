@@ -1,7 +1,7 @@
 ---
 title: 'Master SQL Review with GUI, GitOps and API'
 author: Ningjing
-published_at: 2024/08/14 16:15
+updated_at: 2024/08/14 16:15
 tags: Tutorial
 integrations: General
 level: Intermediate

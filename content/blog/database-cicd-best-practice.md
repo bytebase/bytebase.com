@@ -1,7 +1,7 @@
 ---
 title: 'VCS Integrated Database CI/CD Workflow Best Practice'
 author: Changyu
-published_at: 2022/12/21 19:21:21
+updated_at: 2022/12/21 19:21:21
 feature_image: /content/blog/database-cicd-best-practice/database-cicd-best-practice-banner.webp
 tags: How-To
 description: If we can develop a complete Database CI/CD workflow, and break the wall between developers and DBAs, will it improve release efficiency?

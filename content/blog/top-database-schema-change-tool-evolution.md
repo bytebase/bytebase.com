@@ -1,7 +1,7 @@
 ---
 title: Top Database Schema Migration Tools to Avoid Change Outage 2023
 author: Mila
-published_at: 2023/06/10 21:21:21
+updated_at: 2023/06/10 21:21:21
 feature_image: /content/blog/top-database-schema-change-tool-evolution/banner.webp
 tags: Industry
 featured: true

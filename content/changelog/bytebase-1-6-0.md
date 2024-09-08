@@ -1,7 +1,7 @@
 ---
 title: Bytebase 1.6.0
 author: Changyu
-published_at: 2022/10/13 17:00:00
+updated_at: 2022/10/13 17:00:00
 description: '- Support read-only data source for read-replica instance. - SQL Editor query performance improvement. - Support drag-n-drop to sort the tab in SQL Editor and auto-restore the session. - Support displaying the currently connected environment in SQL Editor - Added a hint for the maximum return rows of the query result in SQL Editor.'
 ---
 

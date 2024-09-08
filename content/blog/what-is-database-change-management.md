@@ -1,7 +1,7 @@
 ---
 title: What is Database Change Management (DCM)?
 author: Tianzhou
-published_at: 2022/12/09 09:00:00
+updated_at: 2022/12/09 09:00:00
 feature_image: /content/blog/what-is-database-change-management/change-path.webp
 tags: Explanation
 featured: true

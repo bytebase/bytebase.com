@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.22.0
 author: Ningjing
-published_at: 2024/7/25 17:00:00
+updated_at: 2024/7/25 17:00:00
 feature_image: /content/changelog/2-22-0-banner.webp
 description: 'Support monitoring blocking sessions during PostgreSQL task execution.'
 ---

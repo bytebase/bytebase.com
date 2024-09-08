@@ -1,7 +1,7 @@
 ---
 title: Database Change Management using Bytebase Cloud
 author: Ningjing
-published_at: 2023/04/17 16:15
+updated_at: 2023/04/17 16:15
 feature_image: /content/docs/tutorials/database-change-management-using-bytebase-cloud/feature-image.webp
 tags: Tutorial
 integrations: General

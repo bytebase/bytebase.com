@@ -1,7 +1,7 @@
 ---
 title: How Longbridge Whale Uses Bytebase to Manage Database per Tenant Architecture
 author: Changyu
-published_at: 2023/06/09 21:21:21
+updated_at: 2023/06/09 21:21:21
 feature_image: /content/blog/longbridge-case-study/banner.webp
 tags: Case Study
 featured: true

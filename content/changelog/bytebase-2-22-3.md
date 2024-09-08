@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.22.3
 author: Ningjing
-published_at: 2024/9/5 17:00:00
+updated_at: 2024/9/5 17:00:00
 feature_image: /content/changelog/2-22-3-banner.webp
 description: 'One-click rollback for PostgreSQL DML change'
 ---

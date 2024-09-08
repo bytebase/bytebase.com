@@ -1,7 +1,7 @@
 ---
 title: SQL Chat - Chat with Your Database
 author: Tianzhou
-published_at: 2023/03/29 21:21:21
+updated_at: 2023/03/29 21:21:21
 feature_image: /content/blog/sql-chat/sqlchat.webp
 tags: Announcement
 featured: true

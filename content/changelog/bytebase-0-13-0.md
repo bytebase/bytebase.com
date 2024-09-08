@@ -1,6 +1,6 @@
 ---
 title: Bytebase 0.13.0
-published_at: 2022/02/18 02:28:08
+updated_at: 2022/02/18 02:28:08
 description: SQL editor supports sheet sharing. Searchable member selector. Database labels can be managed as normal properties. Show comprehensive schema comparison when schema drift is detected.
 ---
 

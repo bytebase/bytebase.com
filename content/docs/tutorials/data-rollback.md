@@ -1,7 +1,7 @@
 ---
 title: Manage Database Change with Data Rollback
 author: Ningjing
-published_at: 2024/07/09 16:15
+updated_at: 2024/07/09 16:15
 tags: Tutorial
 integrations: General
 level: Beginner

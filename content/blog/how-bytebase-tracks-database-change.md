@@ -1,7 +1,7 @@
 ---
 title: How Bytebase Tracks Database Change
 author: Tianzhou
-published_at: 2024/07/15 09:00:00
+updated_at: 2024/07/15 09:00:00
 feature_image: /content/blog/how-bytebase-tracks-database-change/banner.webp
 tags: How-To
 featured: true

@@ -1,7 +1,7 @@
 ---
 title: 'Bytebase 1.10.0 Deep Dive'
 author: Tianzhou
-published_at: 2023/01/04 23:21:21
+updated_at: 2023/01/04 23:21:21
 feature_image: /content/blog/1-10-0-new-features/1-10-0-banner.webp
 tags: Explanation
 description: Last week, we released Bytebase 1.10.0. Let's take a deeper look into the new features - Audit Log - Terraform Provider to manage user roles in PostgreSQL - Support for large SQL files.

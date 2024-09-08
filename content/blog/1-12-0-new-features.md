@@ -1,7 +1,7 @@
 ---
 title: 'Bytebase 1.12.0 Deep Dive'
 author: Tianzhou
-published_at: 2023/02/07 13:21:21
+updated_at: 2023/02/07 13:21:21
 feature_image: /content/blog/1-12-0-new-features/1-12-0-banner.webp
 tags: Explanation
 description: First release of the Year of Rabbit 🐰 is out, the version number was upgraded from 1.11.0 to 1.12.0. - SQL Review Policy - Price Plan Update.

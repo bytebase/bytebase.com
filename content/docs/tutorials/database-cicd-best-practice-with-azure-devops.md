@@ -1,7 +1,7 @@
 ---
 title: The Database CI/CD Best Practice with Azure DevOps
 author: Ningjing
-published_at: 2023/10/24 14:15
+updated_at: 2023/10/24 14:15
 feature_image: /content/docs/tutorials/database-cicd-best-practice-with-azure-devops/database-cicd-with-azure-devops.webp
 tags: Tutorial
 integrations: 'Azure DevOps'

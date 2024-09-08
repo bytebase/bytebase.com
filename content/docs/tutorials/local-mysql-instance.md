@@ -2,7 +2,7 @@
 title: Run a Local MySQL Instance
 author: Adela
 tags: Tutorial
-published_at: 2022/10/07 11:15
+updated_at: 2022/10/07 11:15
 integrations: MySQL
 level: Beginner
 estimated_time: '5 mins'

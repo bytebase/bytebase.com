@@ -1,7 +1,7 @@
 ---
 title: Announcing Partnership with GitHub to Automate Database Development
 author: Mila
-published_at: 2023/02/16 15:21:21
+updated_at: 2023/02/16 15:21:21
 feature_image: /content/blog/bytebase-github-technology-partner/feature-image.webp
 tags: Announcement
 integrations: GitHub

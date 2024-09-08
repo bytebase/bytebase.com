@@ -1,7 +1,7 @@
 ---
 title: Top 5 Postgres GUI Clients to Command Postgres 2023
 author: Mila
-published_at: 2023/07/18 21:21:21
+updated_at: 2023/07/18 21:21:21
 feature_image: /content/blog/top-postgres-gui-client/banner.webp
 tags: Industry
 featured: true

@@ -1,7 +1,7 @@
 ---
 title: Bytebase 1.15.0
 author: Ningjing
-published_at: 2023/03/30 17:00:00
+updated_at: 2023/03/30 17:00:00
 feature_image: /content/changelog/1-15-0-banner.webp
 description: '- SaaS version - GitOps supports Bitbucket Cloud - SQL Chat'
 ---

@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.20.0
 author: Ningjing
-published_at: 2024/6/27 17:00:00
+updated_at: 2024/6/27 17:00:00
 feature_image: /content/changelog/2-20-0-banner.webp
 description: 'Support Databricks'
 ---
@@ -17,7 +17,7 @@ description: 'Support Databricks'
 
 - Move the classification sync config from the database setting to the workspace setting.
 - Allow only Redis read-only commands in SQL Editor read-only mode.
-  
+
 ## 🎄 Enhancements
 
 - Support configuring different SQL review policies for different projects.

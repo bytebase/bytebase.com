@@ -1,6 +1,6 @@
 ---
 title: Bytebase 0.9.0
-published_at: 2021/12/09 13:05:33
+updated_at: 2021/12/09 13:05:33
 description: Add cmd+k command bar experience. Add database webhook
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 'Notes on the DORA 2023 State of DevOps Report'
 author: Tianzhou
-published_at: 2023/10/18 21:00
+updated_at: 2023/10/18 21:00
 feature_image: /content/blog/dora-state-of-devops-2023/banner.webp
 tags: Industry
 featured: true

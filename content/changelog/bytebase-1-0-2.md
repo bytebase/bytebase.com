@@ -1,6 +1,6 @@
 ---
 title: Bytebase 1.0.2
-published_at: 2022/03/31 10:26:51
+updated_at: 2022/03/31 10:26:51
 description: Our official documentation switches from gitbook to bytebase.com/docs. Support branding customization. Highlight the editing SQL query block. Add SQL query format button.
 ---
 

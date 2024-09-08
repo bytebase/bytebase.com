@@ -1,7 +1,7 @@
 ---
 title: 'Database CI/CD and Schema Migration with SQL Server and GitHub'
 author: Ningjing
-published_at: 2024/5/9 14:45
+updated_at: 2024/5/9 14:45
 feature_image: /content/docs/tutorials/database-change-management-with-sql-server-and-github/sqlserver-github-feature.webp
 tags: Tutorial
 integrations: 'SQL Server, GitHub'

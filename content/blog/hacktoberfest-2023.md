@@ -1,7 +1,7 @@
 ---
 title: Hacktoberfest 2023 with Bytebase
 author: Mila
-published_at: 2023/09/26 21:21:21
+updated_at: 2023/09/26 21:21:21
 feature_image: /content/blog/hacktoberfest-2023/banner.webp
 tags: Announcement
 featured: true

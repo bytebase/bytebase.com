@@ -1,7 +1,7 @@
 ---
 title: What is Snowflake Auto-Suspend and Auto-Resume?
 author: Tianzhou
-published_at: 2023/08/23 9:00:00
+updated_at: 2023/08/23 9:00:00
 feature_image: /content/blog/what-is-snowflake-auto-suspend-and-auto-resume/banner.webp
 tags: Explanation
 description: Snowflake provides auto-suspend and auto-resume to help customers to save budget when the warehouse is inactive

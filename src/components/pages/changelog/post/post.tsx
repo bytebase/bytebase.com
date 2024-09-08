@@ -14,8 +14,8 @@ type PostProps = {
 };
 
 const Post = ({ post }: PostProps) => {
-  const { content, published_at, timeToRead, title, author } = post;
-  const date = new Date(published_at);
+  const { content, updated_at, timeToRead, title, author } = post;
+  const date = new Date(updated_at);
   const formattedDate = format(date, 'MMM dd, yyyy');
 
   const breadcrumbs = [
@@ -47,13 +47,13 @@ const Post = ({ post }: PostProps) => {
                     width={36}
                     height={36}
                   />
-                  <span className="relative pr-2.5 pl-0.5 before:absolute before:right-0 before:top-1/2 before:block before:h-0.5 before:w-0.5 before:translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:bg-gray-40">
+                  <span className="relative pl-0.5 pr-2.5 before:absolute before:right-0 before:top-1/2 before:block before:h-0.5 before:w-0.5 before:-translate-y-1/2 before:translate-x-1/2 before:rounded-full before:bg-gray-40">
                     {author}
                   </span>
                 </>
               )}
               <time
-                className="relative pr-2.5 text-14 uppercase leading-none before:absolute before:right-0 before:top-1/2 before:block before:h-0.5 before:w-0.5 before:translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:bg-gray-40"
+                className="relative pr-2.5 text-14 uppercase leading-none before:absolute before:right-0 before:top-1/2 before:block before:h-0.5 before:w-0.5 before:-translate-y-1/2 before:translate-x-1/2 before:rounded-full before:bg-gray-40"
                 dateTime={date.toString()}
               >
                 {formattedDate}

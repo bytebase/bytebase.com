@@ -1,7 +1,7 @@
 ---
 title: The Database CI/CD Best Practice with Bitbucket
 author: Ningjing
-published_at: 2023/11/1 16:15
+updated_at: 2023/11/1 16:15
 feature_image: /content/docs/tutorials/database-cicd-best-practice-with-bitbucket/cicd-bitbucket.webp
 tags: Tutorial
 integrations: Bitbucket

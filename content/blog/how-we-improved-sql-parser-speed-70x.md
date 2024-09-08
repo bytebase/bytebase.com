@@ -1,7 +1,7 @@
 ---
 title: How We Improved Our SQL Parser Speed by 70x
 author: Junyi
-published_at: 2024/05/24 09:00
+updated_at: 2024/05/24 09:00
 feature_image: /content/blog/how-we-improved-sql-parser-speed-70x/banner.webp
 tags: Engineering
 featured: true

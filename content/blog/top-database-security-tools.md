@@ -1,7 +1,7 @@
 ---
 title: Top Database Security Tools
 author: Ningjing
-published_at: 2024/2/1 16:21:21
+updated_at: 2024/2/1 16:21:21
 feature_image: /content/blog/top-database-security-tools/banner.webp
 tags: Industry
 description: This article explores leading database security tools designed to shield your data from varied risks.

@@ -1,7 +1,7 @@
 ---
 title: 'Database CI/CD and Schema Migration with Redis'
 author: Ningjing
-published_at: 2023/04/14 11:15
+updated_at: 2023/04/14 11:15
 feature_image: /content/docs/tutorials/database-change-management-with-redis/feature-image.webp
 tags: Tutorial
 integrations: Redis

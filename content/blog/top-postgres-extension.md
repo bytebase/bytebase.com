@@ -1,7 +1,7 @@
 ---
 title: Top 9 PostgreSQL Extensions 2024
 author: Tianzhou
-published_at: 2024/07/23 09:00:00
+updated_at: 2024/07/23 09:00:00
 feature_image: /content/blog/top-postgres-extension/cover.webp
 tags: Industry
 featured: true

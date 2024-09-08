@@ -1,7 +1,7 @@
 ---
 title: 数据库年度报告：回望2021
 author: Tianzhou
-published_at: 2022/01/25 07:48:55
+updated_at: 2022/01/25 07:48:55
 feature_image: /content/blog/database-review-2021-andy-pavlo-chinese/top-10-database.webp
 tags: Hidden, Chinese
 description: 数据库产业经历了爆发式增长的一年。在这一年里，数据库产业后浪推前浪，厂商围绕性能测试结果展开角逐，更有一轮又一轮额度惊人的融资。同时，在经历了一系列并购、破产和退出之后，我们也不得不同一些熟悉的数据库告别。 年关将至，在正式进入2022年之前，这些事件也值得我们做一次盘点、总结与反思。以下是部分要点事件。关于它们在数据库领域的意义，我做的一些思考。

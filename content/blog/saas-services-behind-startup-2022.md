@@ -1,7 +1,7 @@
 ---
 title: 20-Person Start-Up, 30+ SaaS Services, and $1,183 Monthly Bill
 author: Tianzhou
-published_at: 2022/7/26 17:00:00
+updated_at: 2022/7/26 17:00:00
 feature_image: /content/blog/saas-services-behind-startup-2022/banner.webp
 tags: Industry
 description: A breakdown of the 30+ SaaS services that we use daily at Bytebase, a 20-person 18-month tech startup, and how much they cost us monthly.

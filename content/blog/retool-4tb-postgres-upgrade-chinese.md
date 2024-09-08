@@ -1,7 +1,7 @@
 ---
 title: 解读 Retool 团队升级 4TB PostgreSQL 踩坑
 author: Ray
-published_at: 2022/05/08 14:15:34
+updated_at: 2022/05/08 14:15:34
 tags: Hidden, Chinese
 description: 最近笔者读了一篇很有意思的文章「How Retool upgraded our 4 TB main application PostgreSQL database」。该文记录了 Retool 团队从 Postgres 9.6 升级到 Postgres 13 的过程，包括了一小时停止服务的升级维护窗口，及其前后的准备工作和踩坑记录。
 ---

@@ -1,6 +1,6 @@
 ---
 title: Bytebase 0.8.0
-published_at: 2021/11/10 17:12:53
+updated_at: 2021/11/10 17:12:53
 description: Snowflake support
 ---
 

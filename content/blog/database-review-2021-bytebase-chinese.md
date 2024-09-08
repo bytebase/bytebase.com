@@ -1,7 +1,7 @@
 ---
 title: 千帆竞速，各领江湖 | 万字长文回顾 2021 年数据库行业
 author: Tianzhou
-published_at: 2022/01/25 11:25:12
+updated_at: 2022/01/25 11:25:12
 feature_image: /content/blog/database-review-2021-bytebase/uncharted-waters.webp
 tags: Industry, Hidden, Chinese
 description: 成熟的技术，注定的上云，疯狂的市场，割裂的开源。

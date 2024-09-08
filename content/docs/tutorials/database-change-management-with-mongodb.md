@@ -1,7 +1,7 @@
 ---
 title: 'Database CI/CD and Schema Migration with MongoDB'
 author: Ningjing
-published_at: 2023/03/21 11:15
+updated_at: 2023/03/21 11:15
 feature_image: /content/docs/tutorials/database-change-management-with-mongodb/feature-image.webp
 tags: Tutorial
 integrations: MongoDB

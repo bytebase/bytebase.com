@@ -1,7 +1,7 @@
 ---
 title: Top Navicat Alternatives 2023
 author: Mila
-published_at: 2023/8/24 21:21:21
+updated_at: 2023/8/24 21:21:21
 feature_image: /content/blog/top-navicat-alternative/banner.webp
 tags: Industry
 featured: true

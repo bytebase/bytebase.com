@@ -69,12 +69,12 @@ const Posts = ({ posts }: PostsProps) => {
                   )}
                 </h4>
                 <div className="mt-auto flex items-center gap-x-4">
-                  {post.published_at && (
+                  {post.updated_at && (
                     <time
                       className="relative flex items-center gap-x-2 text-14 text-gray-40 after:absolute after:-right-[9px] after:top-2.5 after:h-0.5 after:w-0.5 after:rounded-full after:bg-gray-60"
-                      dateTime={post.published_at}
+                      dateTime={post.updated_at}
                     >
-                      {format(new Date(post.published_at), 'MMM dd, yyyy')}
+                      {format(new Date(post.updated_at), 'MMM dd, yyyy')}
                     </time>
                   )}
                   {post.estimated_time && (

@@ -1,7 +1,7 @@
 ---
 title: What is a Database Schema?
 author: Tianzhou
-published_at: 2022/10/30 18:00:00
+updated_at: 2022/10/30 18:00:00
 feature_image: /content/blog/what-is-database-schema/blueprint.webp
 tags: Explanation
 description: The database schema describes the logical structure of the database data and is the most critical information of a relational database system.

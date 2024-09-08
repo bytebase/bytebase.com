@@ -1,7 +1,7 @@
 ---
 title: 'Features I wish PostgreSQL had as a developer'
 author: Tianzhou
-published_at: 2024/03/29 9:00:00
+updated_at: 2024/03/29 9:00:00
 feature_image: /content/blog/features-i-wish-postgres-had/banner.webp
 tags: Industry
 featured: true

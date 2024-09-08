@@ -1,6 +1,6 @@
 ---
 title: Bytebase 0.11.0
-published_at: 2022/01/06 10:31:49
+updated_at: 2022/01/06 10:31:49
 ---
 
 ## 🚀 New Features

@@ -1,7 +1,7 @@
 ---
 title: Bytebase 1.9.0
 author: Ningjing
-published_at: 2022/12/1 17:00:00
+updated_at: 2022/12/1 17:00:00
 description: '- Support managing with environment and instance via Terraform provider. - Support synchronizing schema for PostgreSQL. - Support masking column-level sensitive data. - New UI for Admin mode of SQL Editor.'
 ---
 

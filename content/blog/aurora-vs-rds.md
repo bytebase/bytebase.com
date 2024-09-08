@@ -1,7 +1,7 @@
 ---
 title: "Aurora vs. RDS: engineering guide to choose the right AWS database for 2024"
 author: Tianzhou
-published_at: 2024/01/22 09:00
+updated_at: 2024/01/22 09:00
 feature_image: /content/blog/aurora-vs-rds/cover.webp
 tags: Industry
 featured: true

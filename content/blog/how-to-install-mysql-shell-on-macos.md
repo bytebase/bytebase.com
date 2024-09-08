@@ -1,7 +1,7 @@
 ---
 title: How to install MySQL Shell on Your Mac
 author: Mila
-published_at: 2022/06/30 17:30:30
+updated_at: 2022/06/30 17:30:30
 feature_image: /content/blog/how-to-install-mysql-shell-on-macos/mysql-mac.webp
 tags: How-To
 description: Learn how to install MySQL Shell on your macOS.

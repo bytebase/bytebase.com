@@ -1,7 +1,7 @@
 ---
 title: How to Manage Postgres Users and Roles
 author: Tianzhou
-published_at: 2024/02/07 21:00:00
+updated_at: 2024/02/07 21:00:00
 feature_image: /content/blog/how-to-manage-postgres-users-and-roles/user-role-2.webp
 tags: How-To
 description: Best practice for managing PostgreSQL users and roles
@@ -9,10 +9,10 @@ description: Best practice for managing PostgreSQL users and roles
 
 As the world's leading open-source database, PostgreSQL has a powerful user role permission system. Let's compare it with MySQL:
 
-|           | Database  | Schema | Table | Ownership  |
-| ----------| --------- | ------ | ----- | ---------- |
-| 🐬 MySQL  | ✅    | ❌     | ✅      | ❌      |
-| 🐘 PostgreSQL |  ✅       | ✅       | ✅       | ✅       |
+|               | Database | Schema | Table | Ownership |
+| ------------- | -------- | ------ | ----- | --------- |
+| 🐬 MySQL      | ✅       | ❌     | ✅    | ❌        |
+| 🐘 PostgreSQL | ✅       | ✅     | ✅    | ✅        |
 
 But the other side of the coin is that it adds complexity to simple scenarios. In many single-application scenarios, there is actually no need for an additional schema layer or an additional owner. PGer all have encountered "must be owner of table" at some point.
 
@@ -22,19 +22,19 @@ But the other side of the coin is that it adds complexity to simple scenarios. I
 
 Let's talk about the basic use case of PG and how database users should configure it. It's basic because:
 
-* The PG instance has only 1 database.
-* The database only has 1 default public schema.
-* All tables are under that public schema.
+- The PG instance has only 1 database.
+- The database only has 1 default public schema.
+- All tables are under that public schema.
 
 Database access consists of human-to-db and application-to-db:
 
-* Human-to-db
-    1. DBA operation
-    1. Database changes, including both DDL and DML
-    1. Database query
-* App-to-db
-    1. Database changes. Application may perform DDL upon startup, otherwise, it's all DML.
-    1. Database query
+- Human-to-db
+  1. DBA operation
+  1. Database changes, including both DDL and DML
+  1. Database query
+- App-to-db
+  1. Database changes. Application may perform DDL upon startup, otherwise, it's all DML.
+  1. Database query
 
 ## Detailed Setup
 
@@ -59,7 +59,7 @@ If people other than the DBA want to access the database, it is too risky to dir
 
 1. Public cloud database services do not provide superuser privileges. They only offer a limited superuser, such as the [cloudsqlsuperuser](https://cloud.google.com/sql/docs/postgres/users) in Google Cloud SQL.
 
-    ![_](/content/blog/how-to-manage-postgres-users-and-roles/cloudsql.webp)
+   ![_](/content/blog/how-to-manage-postgres-users-and-roles/cloudsql.webp)
 
 1. The reason for setting up a separate migration user is twofold: on the one hand, it facilitates monitoring, and on the other hand, it allows us to set separate default connection parameters for the migration user. The most common parameter that is often set is [lock_timeout](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT). The reason for setting this parameter is that when performing DDL operations, locks need to be acquired. Due to PostgreSQL's queue mechanism, even if another transaction that comes later does not require a DDL lock, it will still be blocked while DDL transaction is waiting. Therefore, it is often necessary to set a `lock_timeout` for the migration user in order to avoid blocking other transactions behind for an extended period of time.
 
@@ -67,5 +67,5 @@ If people other than the DBA want to access the database, it is too risky to dir
 
 ## Troubleshoot
 
-* [Permission denied for table](/docs/how-to/postgres/permission-denied-for-table-postgres/)
-* [Must be owner of table](/docs/how-to/postgres/must-be-owner-of-table-postgres/)
+- [Permission denied for table](/docs/how-to/postgres/permission-denied-for-table-postgres/)
+- [Must be owner of table](/docs/how-to/postgres/must-be-owner-of-table-postgres/)

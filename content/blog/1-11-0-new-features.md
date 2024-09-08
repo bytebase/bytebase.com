@@ -1,7 +1,7 @@
 ---
 title: 'Bytebase 1.11.0 Deep Dive'
 author: Tianzhou
-published_at: 2023/01/17 23:21:21
+updated_at: 2023/01/17 23:21:21
 feature_image: /content/blog/1-11-0-new-features/1-11-0-banner.webp
 tags: Explanation
 description: We are thrilled to announce the first release launch of 2023, marking a new beginning for our product and our valued customers. The version number was upgraded from 1.10.0 to 1.11.0. - MongoDB - Schema Diagram - Schema Editor.

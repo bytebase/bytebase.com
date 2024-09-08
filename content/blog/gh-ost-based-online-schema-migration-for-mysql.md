@@ -1,7 +1,7 @@
 ---
 title: gh-ost Based Online Schema Migration for MySQL
 author: Candy
-published_at: 2022/08/09 16:37:17
+updated_at: 2022/08/09 16:37:17
 feature_image: /content/blog/gh-ost-based-online-schema-migration-for-mysql/cover.webp
 tags: Announcement
 integrations: MySQL

@@ -1,7 +1,7 @@
 ---
 title: Database as a Service (DBaaS) Provider 2023
 author: Tianzhou
-published_at: 2023/07/15 9:00:00
+updated_at: 2023/07/15 9:00:00
 feature_image: /content/blog/database-as-a-service-dbaas-provider/cover.webp
 tags: Industry
 description: List of Database-as-a-Service providers in 2023.

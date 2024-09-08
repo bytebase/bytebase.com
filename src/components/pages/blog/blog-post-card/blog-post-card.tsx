@@ -26,7 +26,7 @@ const BlogPostCard = ({
 }) => {
   const categorySlug = slugifyText(post.tags);
   const { tagColors, titleHover } = getBlogTagTheme(categorySlug);
-  const date = new Date(post.published_at);
+  const date = new Date(post.updated_at);
   const formattedDate = format(date, 'MMM dd, yyyy');
 
   return (
@@ -66,7 +66,7 @@ const BlogPostCard = ({
           <h3
             className={clsx(
               titleHover,
-              'font-medium line-clamp-3 md:leading-tight',
+              'line-clamp-3 font-medium md:leading-tight',
               theme === 'small'
                 ? 'text-18'
                 : 'text-24 leading-snug xl:text-20 lg:leading-snug md:text-18',

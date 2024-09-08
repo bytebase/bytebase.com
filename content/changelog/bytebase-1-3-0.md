@@ -1,7 +1,7 @@
 ---
 title: Bytebase 1.3.0
 author: Ningjing
-published_at: 2022/8/4 17:20
+updated_at: 2022/8/4 17:20
 description: '- Support SQL review for PostgreSQL. - GitHub.com VCS integration and authentication provider. - Restore a database to the time point before the last migration with one click.'
 ---
 

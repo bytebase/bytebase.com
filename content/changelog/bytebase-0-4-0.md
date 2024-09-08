@@ -1,6 +1,6 @@
 ---
 title: Bytebase 0.4.0
-published_at: 2021/08/19 07:51:00
+updated_at: 2021/08/19 07:51:00
 ---
 
 ## 🐞 Important Bug Fixes

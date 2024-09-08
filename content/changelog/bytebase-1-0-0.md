@@ -1,6 +1,6 @@
 ---
 title: Bytebase 1.0.0
-published_at: 2022/03/08 09:58:16
+updated_at: 2022/03/08 09:58:16
 description: Version 1.0.0 and announcing our Team plan
 ---
 

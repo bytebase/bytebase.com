@@ -1,7 +1,7 @@
 ---
 title: Top pgAdmin Alternatives 2023
 author: Mila
-published_at: 2023/8/31 21:21:21
+updated_at: 2023/8/31 21:21:21
 feature_image: /content/blog/top-pgadmin-alternative/banner.webp
 tags: Industry
 featured: true
@@ -90,14 +90,14 @@ There are many tools out there, but at the end of the day, they are all differen
 
 |                  | Open Source | Free version | Paid version | Audience                                                | Strength                                                         |
 | ---------------- | ----------- | ------------ | ------------ | ------------------------------------------------------- | ---------------------------------------------------------------- |
-| pgAdmin          | ✅          | ✅           | ❌           | Individual and teams                                    | Built for Postgres                                           |
+| pgAdmin          | ✅          | ✅           | ❌           | Individual and teams                                    | Built for Postgres                                               |
 | DBeaver          | ✅          | ✅           | ✅           | Individual                                              | Comprehensive features                                           |
 | Navicat          | ❌          | ✅           | ✅           | Individual                                              | Comprehensive features                                           |
-| TablePlus        | ❌           | ✅           | ✅           | Individual                                              | Native and intuitive interface                                   |
-| DataGrip         |    ❌         |          ❌    | ✅           | Individual                                              | Intuitive UX and integraiton with other JetBrains IDEs           |
+| TablePlus        | ❌          | ✅           | ✅           | Individual                                              | Native and intuitive interface                                   |
+| DataGrip         | ❌          | ❌           | ✅           | Individual                                              | Intuitive UX and integraiton with other JetBrains IDEs           |
 | Beekeeper Studio | ✅          | ✅           | ✅           | Individual                                              | Mordern and sleek interface                                      |
 | DbVisualizer     | ✅          | ✅           | ✅           | Individual                                              | Comprehensive with good visualization                            |
-| Postico     | ❌           | ❌           | ✅           | Individual                                              | Mac-native, streamlined UI                            |
+| Postico          | ❌          | ❌           | ✅           | Individual                                              | Mac-native, streamlined UI                                       |
 | Bytebase         | ✅          | ✅           | ✅           | Entire engineering org for developer, DBA and data team | Centralized access control, data masking, change review workflow |
 
 ## Further Readings

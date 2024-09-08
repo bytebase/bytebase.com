@@ -1,7 +1,7 @@
 ---
 title: 'Bytebase 1.8.0 New Features Dive'
 author: Tianzhou
-published_at: 2022/11/22 17:21:21
+updated_at: 2022/11/22 17:21:21
 feature_image: /content/blog/1-8-0-new-features/1-8-0-new-feature-banner.webp
 tags: Explanation
 description: Last week, we released Bytebase 1.8.0. Let's take a deeper look into the new features - MySQL Sync Schema, Admin Mode for SQL Editor, and External Approval via Feishu.

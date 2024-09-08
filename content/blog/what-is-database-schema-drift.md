@@ -1,7 +1,7 @@
 ---
 title: What is Database Schema Drift?
 author: Tianzhou
-published_at: 2023/12/20 12:29:20
+updated_at: 2023/12/20 12:29:20
 feature_image: /content/blog/what-is-database-schema-drift/database-schema-drift.webp
 tags: Explanation
 description: Database schema drift is the case where the actual schema in the live database is different from the source of truth. It's also one of the most frequent root cause of the database related outages.

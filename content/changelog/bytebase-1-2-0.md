@@ -1,7 +1,7 @@
 ---
 title: Bytebase 1.2.0
 author: Mila
-published_at: 2022/06/23 17:20
+updated_at: 2022/06/23 17:20
 description: Bytebase now supports Schema Review for SQL Editor.
 ---
 

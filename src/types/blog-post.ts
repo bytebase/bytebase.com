@@ -4,7 +4,7 @@ export type BlogPost = {
   content: string;
   og_image?: string;
   feature_image: string;
-  published_at: string;
+  updated_at: string;
   author: string;
   tags: string;
   slug: string;

@@ -1,6 +1,6 @@
 ---
 title: Bytebase 0.7.2
-published_at: 2021/10/25 02:36:59
+updated_at: 2021/10/25 02:36:59
 description: Support ClickHouse, the open-source, high performance columnar OLAP database management system for real-time analytics using SQL.
 ---
 

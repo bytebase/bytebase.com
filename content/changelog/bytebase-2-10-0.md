@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.10.0
 author: Mila
-published_at: 2023/10/26 17:21:21
+updated_at: 2023/10/26 17:21:21
 feature_image: /content/changelog/2-10-0-banner.webp
 description: 'More flexible options to appoint releaser to rollout changes. Set database & column labels'
 ---

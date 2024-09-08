@@ -1,7 +1,7 @@
 ---
 title: The SQL Editor for Developers and DBAs
 author: Candy
-published_at: 2023/01/06 12:37:17
+updated_at: 2023/01/06 12:37:17
 feature_image: /content/blog/the-sql-editor-for-developers-and-dbas/cover.webp
 tags: Announcement
 featured: true

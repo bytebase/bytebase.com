@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.8.0
 author: Ningjing
-published_at: 2023/09/14 17:21:21
+updated_at: 2023/09/14 17:21:21
 feature_image: /content/changelog/2-8-0-banner.webp
 description: 'Upgrade data masking, provide more granular masking and access control configuration. Revamped SQL Editor UI.'
 ---

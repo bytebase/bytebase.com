@@ -1,6 +1,6 @@
 ---
 title: Bytebase 0.12.0
-published_at: 2022/01/20 11:09:36
+updated_at: 2022/01/20 11:09:36
 description: Multi-tenancy Database Management. SQL Editor Improvement. Signup and login via GitLab EE/CE. DML workflow
 ---
 

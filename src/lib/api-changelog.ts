@@ -28,7 +28,7 @@ const getAllChangelogPosts = (): ChangelogPost[] => {
       } as ChangelogPost;
     })
     .filter((post): post is ChangelogPost => Boolean(post))
-    .sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime());
+    .sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime());
 
   return posts;
 };

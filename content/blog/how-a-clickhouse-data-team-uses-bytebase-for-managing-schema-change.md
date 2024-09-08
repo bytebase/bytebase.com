@@ -1,7 +1,7 @@
 ---
 title: How a Data Team Uses Bytebase to Manage Schema Change for ClickHouse
 author: Ningjing
-published_at: 2022/09/25 09:42:58
+updated_at: 2022/09/25 09:42:58
 feature_image: /content/blog/how-a-data-team-uses-bytebase-to-manage-schema-change-for-clickhouse/bytebase-for-feature-development.webp
 tags: Case Study
 integrations: ClickHouse

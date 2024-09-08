@@ -1,7 +1,7 @@
 ---
 title: Understanding Google Cloud AlloyDB Pricing
 author: Tianzhou
-published_at: 2024/03/26 10:00:00
+updated_at: 2024/03/26 10:00:00
 feature_image: /content/blog/understanding-google-alloydb-pricing/banner.webp
 tags: Explanation
 featured: true

@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.14.1
 author: Ningjing
-published_at: 2024/3/21 17:00:00
+updated_at: 2024/3/21 17:00:00
 feature_image: /content/changelog/2-14-1-banner-fix.webp
 description: 'Support Branching for Oracle.'
 ---

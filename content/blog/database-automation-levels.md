@@ -1,7 +1,7 @@
 ---
 title: The 6 Levels of Database Automation
 author: Tianzhou
-published_at: 2024/05/22 16:00:00
+updated_at: 2024/05/22 16:00:00
 feature_image: /content/blog/database-automation-levels/roaring-dba.webp
 tags: Industry
 featured: true

@@ -1,7 +1,7 @@
 ---
 title: Database Review 2022 and 2023 Prediction
 author: Tianzhou
-published_at: 2023/05/30 10:00:00
+updated_at: 2023/05/30 10:00:00
 feature_image: /content/blog/database-review-2022/grey-wolf-and-white-deer.webp
 tags: Industry
 description: What happend in database industry in 2022.

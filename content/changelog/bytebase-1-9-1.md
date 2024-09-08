@@ -1,7 +1,7 @@
 ---
 title: Bytebase 1.9.1
 author: Mila
-published_at: 2022/12/15 17:00:00
+updated_at: 2022/12/15 17:00:00
 description: '- Support data access control. - Schema Editor for MySQL. - Check Mark as done to skip a task. - Mark issue as Needs Attention.'
 ---
 

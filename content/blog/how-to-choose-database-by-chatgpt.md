@@ -1,7 +1,7 @@
 ---
 title: Ask ChatGPT - How to Choose the Right Database for Your Next Project
 author: Tianzhou
-published_at: 2022/12/04 08:40:00
+updated_at: 2022/12/04 08:40:00
 feature_image: /content/blog/how-you-choose-database-by-chatgpt/choice.webp
 tags: Industry
 description: A conversation with ChatGPT consulting which database to pick for your next software project.

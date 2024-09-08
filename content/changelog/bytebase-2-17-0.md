@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.17.0
 author: Ningjing
-published_at: 2024/5/16 17:00:00
+updated_at: 2024/5/16 17:00:00
 feature_image: /content/changelog/2-17-0-banner.webp
 description: 'Support configuring labels for issues'
 ---

@@ -1,7 +1,7 @@
 ---
 title: 'Neon vs. Supabase: Which One Should I Choose'
 author: Tianzhou
-published_at: 2024/07/02 09:00
+updated_at: 2024/07/02 09:00
 feature_image: /content/blog/neon-vs-supabase/cover.webp
 tags: Industry
 featured: true

@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.4.1
 author: Mila
-published_at: 2023/07/20 17:21:21
+updated_at: 2023/07/20 17:21:21
 feature_image: /content/changelog/2-4-1-banner.webp
 description: 'Support GitHub Enterprise for VCS integration; export data as XLSX files; manage Oracle instance based on schema'
 ---
