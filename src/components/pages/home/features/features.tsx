@@ -35,10 +35,10 @@ const Features = () => {
     <section className="container mt-40 3xl:mt-36 xl:mt-32 md:mt-24 sm:mt-20">
       <header className="flex flex-col items-center text-center sm:items-start sm:text-start">
         <h2 className="font-title text-88 font-semibold leading-95 xl:text-68 xl:leading-104 md:text-54 sm:text-48">
-          Stay confident
+          Stay consistent
         </h2>
         <p className="mt-5 max-w-[716px] text-20 leading-normal 3xl:mt-[22px] xl:mt-5 xl:text-18 xl:leading-snug md:mt-3 md:max-w-[468px] md:text-14 sm:mt-2">
-          Continous monitoring and always-on recovery plan to protect your database 7x24.
+          Continuous monitoring and 1-click rollback plan to protect your database 7x24.
         </p>
       </header>
       <ul className="gap-x-grid mt-14 grid grid-cols-12 3xl:mt-12 xl:mt-11 md:mt-9 sm:mt-6 sm:gap-y-8">
