@@ -66,7 +66,7 @@ _Unless otherwise specified, the comparison below is between the latest major re
   the BSD or MIT licenses.
 
 Even though MySQL adopts GPL, some people still are concerned that MySQL is owned by Oracle. It's also the
-reason that MariaDB is forked from MySQL.
+reason that MariaDB is forked from MySQL. Another limitation of GPL is it's infectious. This means that if you distribute MySQL as part of your software, you are obligated to make your source code available under the GPL or a GPL-compatible license. This can be restrictive for commercial software.
 
 ## Connection Model
 
@@ -174,6 +174,7 @@ Performance: In general, Postgres implementation of window functions is consider
 
 Postgres supports [extensions](https://www.postgresql.org/docs/current/sql-createextension.html). The
 most outstanding one is [PostGIS](https://postgis.net/) which brings Geospatial capabilities to Postgres.
+As the AI thrives, [pgvector](https://github.com/pgvector/pgvector) is becoming the de-facto standard for vector operations.
 Besides, there is Foreign Data Wrapper (FDW) to allow querying into other data systems, pg_stat_statements
 to track planning and execution statistics, and even pgvector to perform vector search for AI applications.
 
@@ -227,7 +228,7 @@ Also there are a series of Postgres derived databases targeting different worklo
 | Operability      | Good, a bit higher learning curve                                                    | Good, easy to use and operate                                        |
 | Ecosystem        | Thriving community and more hosting providers                                        | Large install base                                                   |
 
-It's year 2023, and choosing between Postgres and MySQL is still hard and often causes [heated debate](https://news.ycombinator.com/item?id=35906604).
+Choosing between Postgres and MySQL is still hard and often causes [heated debate](https://news.ycombinator.com/item?id=35906604).
 ![hn](/content/blog/postgres-vs-mysql/hn.webp)
 
 Overall, Postgres has more features, a more thriving community and ecosystem. While MySQL has an easier learning curve and a larger user base.
@@ -255,9 +256,6 @@ lifecycle for both of them, please check out [Bytebase](/).
 - [Let's make PostgreSQL multi-threaded](https://www.postgresql.org/message-id/31cc6df9-53fe-3cd9-af5b-ac0d801163f4%40iki.fi)
 - [Transaction ID Wraparound in Postgres](https://blog.sentry.io/transaction-id-wraparound-in-postgres/)
 - [The biggest mistake Postgres ever made](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)
-
-### Database Tools
-
 - [Top MySQL GUI client](/blog/top-mysql-gui-client)
 - [Top Postgres GUI client](/blog/top-postgres-gui-client)
 - [Top Open Source SQL Clients](/blog/top-open-source-sql-clients/)
