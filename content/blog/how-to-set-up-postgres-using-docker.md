@@ -1,7 +1,7 @@
 ---
 title: How to Set Up Postgres Using Docker
 author: Dec
-published_at: 2024/09/10 12:00:00
+updated_at: 2024/09/10 12:00:00
 feature_image: /content/blog/how-to-set-up-postgres-using-docker/banner.webp
 tags: How-To
 featured: true
@@ -10,7 +10,7 @@ description: 'Set up a local Postgres database with Docker.'
 
 <HintBlock type="info">
 
-If you are using Mac, you can use [StackBricks](https://www.bytebase.com/blog/free-tools-to-start-local-database-on-mac/) which includes Postgres docker images across many versions.
+If you are using Mac, you can use [StackBricks](/blog/free-tools-to-start-local-database-on-mac/#stackbricks) which includes Postgres docker images across many versions.
 
 </HintBlock>
 
@@ -67,7 +67,3 @@ docker exec -it mypostgres psql -h localhost -U postgres
 Then we can operate with SQL command after the "#".
 
 ![step3](/content/blog/how-to-set-up-postgres-using-docker/step3.webp)
-
-## Summary
-
-With the convenience of Docker, we've set up a PostgreSQL environment without local installation.
