@@ -81,7 +81,7 @@ const Hero = () => (
         ))}
       </ul>
       <p
-        aria-label="You can upgrade, downgrade, or cancel your subscription anytime. No hidden charges"
+        aria-label="What is a database instance"
         className="mt-9 text-center text-15 leading-snug text-gray-40 lg:mt-8 lg:text-14 lg:leading-tight md:mt-7 sm:mt-6"
       >
         What is a{' '}
