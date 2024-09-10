@@ -1,6 +1,6 @@
 ---
 title: How to Set Up Postgres Using Docker
-author: dec
+author: Dec
 published_at: 2024/09/10 12:00:00
 feature_image: /content/blog/how-to-set-up-postgres-using-docker/banner.webp
 tags: How-To
