@@ -1,7 +1,7 @@
 ---
 title: Top psql Commands with Examples
 author: Ningjing
-published_at: 2023/11/16 18:00:00
+updated_at: 2023/11/16 18:00:00
 feature_image: /content/blog/top-psql-commands-with-examples/cover.webp
 tags: How-To
 description: The official psql CLI is still the most widely used PostgreSQL client. Let's learn the most common psql commands by example.

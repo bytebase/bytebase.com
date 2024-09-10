@@ -1,7 +1,7 @@
 ---
 title: Announcing Partnership with GitLab to Automate Database Development
 author: Mila
-published_at: 2023/09/19 21:21:21
+updated_at: 2023/09/19 21:21:21
 feature_image: /content/blog/bytebase-gitlab-technology-partner/banner.webp
 tags: Announcement
 integrations: GitLab

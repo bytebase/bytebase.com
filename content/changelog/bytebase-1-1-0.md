@@ -1,7 +1,7 @@
 ---
 title: Bytebase 1.1.0
 author: Ray
-published_at: 2022/5/26 08:10:08
+updated_at: 2022/5/26 08:10:08
 description: Update CLI docs. Sync your SQL scripts stored in the linked VCS system. Star the sheets to save them in a list. - List database extensions for PostgreSQL. Support creating a Postgres database with an owner. Support changing data for a single database in a tenant project.
 ---
 

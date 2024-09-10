@@ -1,7 +1,7 @@
 ---
 title: 'What is Dynamic Data Masking (DDM)'
 author: Tianzhou
-published_at: 2024/09/02 09:00
+updated_at: 2024/09/02 09:00
 feature_image: /content/blog/what-is-dynamic-data-masking/cover.webp
 tags: Explanation
 featured: true

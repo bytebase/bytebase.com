@@ -1,7 +1,7 @@
 ---
 title: 8 Database Tools Bytebase Replaces
 author: Tianzhou
-published_at: 2024/01/01 09:00:00
+updated_at: 2024/01/01 09:00:00
 feature_image: /images/replaced-tools-horizontal.webp
 tags: Explanation
 featured: true

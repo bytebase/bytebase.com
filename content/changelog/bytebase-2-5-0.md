@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.5.0
 author: Ningjing
-published_at: 2023/08/03 17:21:21
+updated_at: 2023/08/03 17:21:21
 feature_image: /content/changelog/2-5-0-banner.webp
 description: 'Support Azure DevOps for VCS integration; Support setting Sign-in Frequency'
 ---

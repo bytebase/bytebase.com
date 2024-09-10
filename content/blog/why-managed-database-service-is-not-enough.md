@@ -1,7 +1,7 @@
 ---
 title: Why Managed Database Service is not Enough
 author: Tianzhou
-published_at: 2024/06/26 9:00:00
+updated_at: 2024/06/26 9:00:00
 feature_image: /content/blog/why-managed-database-service-is-not-enough/banner.webp
 tags: Industry
 featured: true

@@ -1,7 +1,7 @@
 ---
 title: 'Bytebase vs. DBeaver: a side-by-side comparison for database management'
 author: Ningjing
-published_at: 2024/02/07 23:21:21
+updated_at: 2024/02/07 23:21:21
 feature_image: /content/blog/bytebase-vs-dbeaver/bytebase-vs-dbeaver-banner.webp
 tags: Explanation
 description: 'While interacting with databases, a suitable tool can significantly boost your efficiency. In this article, we will compare two popular database management tools, Bytebase and DBeaver, to assist your evaluation.'

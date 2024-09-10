@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.4.0
 author: Ningjing
-published_at: 2023/07/06 17:21:21
+updated_at: 2023/07/06 17:21:21
 feature_image: /content/changelog/2-4-0-banner.webp
 description: 'Support data access control for query and export at workspace level, and support custom approval'
 ---

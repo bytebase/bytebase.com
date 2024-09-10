@@ -1,7 +1,7 @@
 ---
 title: 'Database CI/CD and Schema Migration with Amazon Aurora and GitHub'
 author: Ningjing
-published_at: 2024/05/06 16:15
+updated_at: 2024/05/06 16:15
 feature_image: /content/docs/tutorials/database-change-management-with-amazon-aurora-and-github/feature-image.webp
 tags: Tutorial
 integrations: MySQL, GitHub

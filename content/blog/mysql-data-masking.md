@@ -1,7 +1,7 @@
 ---
 title: Data Masking for MySQL Databases
 author: Mila
-published_at: 2023/10/27 21:21:21
+updated_at: 2023/10/27 21:21:21
 feature_image: /content/blog/mysql-data-masking/banner.webp
 tags: Explanation
 featured: true

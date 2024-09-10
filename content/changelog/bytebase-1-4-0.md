@@ -1,7 +1,7 @@
 ---
 title: Bytebase 1.4.0
 author: Mila
-published_at: 2022/9/15 17:20
+updated_at: 2022/9/15 17:20
 description: '- AWS S3 is now supported as a backup storage backend. - Added a new onboarding guide. - Introduced `--external-url` and removed `--host` in the startup option.'
 ---
 

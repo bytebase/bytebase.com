@@ -1,7 +1,7 @@
 ---
 title: UUID or Auto Increment Integer / Serial as the Database Primary Key?
 author: Tianzhou
-published_at: 2024/08/05 08:00:00
+updated_at: 2024/08/05 08:00:00
 feature_image: /content/blog/choose-primary-key-uuid-or-auto-increment/uuid.webp
 tags: Explanation
 featured: true

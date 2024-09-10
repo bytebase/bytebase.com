@@ -1,7 +1,7 @@
 ---
 title: 'Flyway (Redgate) vs. Liquibase: a side-by-side comparison for database schema migration'
 author: Changyu
-published_at: 2024/03/04 19:21:21
+updated_at: 2024/03/04 19:21:21
 feature_image: /content/blog/flyway-vs-liquibase/flyway-vs-liquibase-banner.webp
 tags: Explanation
 description: 'When looking for a database CI/CD and schema migration change tool, Flyway and Liquibase are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.'

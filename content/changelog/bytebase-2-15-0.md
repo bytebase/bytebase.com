@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.15.0
 author: Ningjing
-published_at: 2024/4/11 17:00:00
+updated_at: 2024/4/11 17:00:00
 feature_image: /content/changelog/2-15-0-banner.webp
 description: 'Brand new GitOps'
 ---

@@ -1,7 +1,7 @@
 ---
 title: Top 5 MySQL GUI Clients to Command MySQL 2024
 author: Mila
-published_at: 2024/01/19 21:21:21
+updated_at: 2024/01/19 21:21:21
 feature_image: /content/blog/top-mysql-gui-client/banner.webp
 tags: Industry
 featured: true

@@ -1,7 +1,7 @@
 ---
 title: 'Database CI/CD and Schema Migration with MySQL'
 author: Mila
-published_at: 2023/02/07 11:15
+updated_at: 2023/02/07 11:15
 feature_image: /content/docs/tutorials/database-change-management-with-mysql/feature-image.webp
 tags: Tutorial
 integrations: MySQL

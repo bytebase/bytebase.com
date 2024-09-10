@@ -1,7 +1,7 @@
 ---
 title: Deploy Schema Migration with Rollout Policy
 author: Ningjing
-published_at: 2023/11/3 14:15
+updated_at: 2023/11/3 14:15
 tags: Tutorial
 integrations: General
 level: Beginner

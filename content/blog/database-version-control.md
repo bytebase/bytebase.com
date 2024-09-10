@@ -1,7 +1,7 @@
 ---
 title: What is Database Version Control?
 author: Tianzhou
-published_at: 2023/11/14 16:40:00
+updated_at: 2023/11/14 16:40:00
 feature_image: /content/blog/database-version-control/banner.webp
 tags: Explanation
 description: Collaboration and Teamwork, Change Tracking and History, Migration Scripts, Branching and Merging, Deployment and Rollback, VCS Integration GitOps are key aspects of database version control

@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.11.1
 author: Mila
-published_at: 2023/11/23 15:21:21
+updated_at: 2023/11/23 15:21:21
 feature_image: /content/changelog/2-11-1-banner.webp
 description: 'Customizable Masking Algorithms and Semantic Types for Data Masking.'
 ---

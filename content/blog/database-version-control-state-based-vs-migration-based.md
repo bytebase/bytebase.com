@@ -1,7 +1,7 @@
 ---
 title: Database Version Control, State-based or Migration-based?
 author: Tianzhou
-published_at: 2021/09/10 11:16:32
+updated_at: 2021/09/10 11:16:32
 feature_image: /content/blog/database-version-control-state-based-vs-migration-based/state-based-vs-migration-based.webp
 tags: Explanation
 description: We dive the rationale behind the industry divergence between state-based and migration-based approach. In the end, we also show how Bytebase can help to get the best of both worlds.

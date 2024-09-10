@@ -1,7 +1,7 @@
 ---
 title: Introducing MongoDB Support in Bytebase
 author: Candy
-published_at: 2023/01/12 13:37:17
+updated_at: 2023/01/12 13:37:17
 feature_image: /content/blog/introducing-mongodb-support-in-bytebase/cover.webp
 tags: Announcement
 integrations: MongoDB

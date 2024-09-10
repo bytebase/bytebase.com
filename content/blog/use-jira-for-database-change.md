@@ -1,7 +1,7 @@
 ---
 title: "Using Jira for Database Changes Won't Cut It"
 author: Tianzhou
-published_at: 2024/05/17 19:21:21
+updated_at: 2024/05/17 19:21:21
 feature_image: /content/blog/use-jira-for-database-change/banner.webp
 tags: Industry
 description: "When team wants to enforce a process for database change management. A quick approach is to reuse their existing ITSM system such as Jira. Let's review how a typical Jira workflow looks like and its inherent limitations."

@@ -1,7 +1,7 @@
 ---
 title: 'Fault in Schema Migration Outage: Author or Reviewer?'
 author: Tianzhou
-published_at: 2024/03/04 20:00:00
+updated_at: 2024/03/04 20:00:00
 feature_image: /content/blog/fault-in-schema-migration-outage/sql-from-dev-to-dba.webp
 tags: Industry
 description: 'When schema migration outage happens, who should be more responsible in order to prevent

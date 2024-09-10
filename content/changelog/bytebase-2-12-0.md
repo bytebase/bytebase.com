@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.12.0
 author: Ningjing
-published_at: 2023/12/14 15:21:21
+updated_at: 2023/12/14 15:21:21
 feature_image: /content/changelog/2-12-0-banner.webp
 description: 'Improve auto-completion and overall layout navigation.'
 ---

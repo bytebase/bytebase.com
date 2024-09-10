@@ -1,7 +1,7 @@
 ---
 title: The Database CI/CD Best Practice with GitHub
 author: Changyu
-published_at: 2022/11/29 15:15
+updated_at: 2022/11/29 15:15
 feature_image: /content/docs/tutorials/database-cicd-best-practice-with-github/database-cicd-best-practice-with-github.webp
 tags: Tutorial
 integrations: GitHub
@@ -15,6 +15,7 @@ _Wanna other VCS providers instead?_ 👉
 - [The Database CI/CD Best Practice with GitLab](/docs/tutorials/database-cicd-best-practice-with-gitlab)
 - [The Database CI/CD Best Practice with Azure DevOps](/docs/tutorials/database-cicd-best-practice-with-azure-devops)
 - [The Database CI/CD Best Practice with Bitbucket](/docs/tutorials/database-cicd-best-practice-with-bitbucket)
+
 ---
 
 Database change is a tricky part of the application development process: it usually involves multiple databases from different environments and cross-team collaboration, to add on top of it, databases are touch and go. It got us thinking: **can we treat database the same way we treat application code?**
@@ -146,8 +147,8 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with GitHub 
    ![bb-sql-review-policy-not-null](/content/docs/tutorials/database-cicd-best-practice-with-github/bb-sql-review-policy-not-null.webp)
 
 2. To test SQL Review CI, we'll create a pull request to change the `Prod` database schema. However, it will voliate the SQL Review policy first. Go to `bytebase-ngrok-gitops` on GitHub.
-   
 3. Create a subdirectory `bytebase`, and create a sub-subdirectory `prod`. Within the `prod` directory, create a file `hr_prod##202309262500##ddl##add_nickname_table_employee.sql`. Copy the following SQL script into the file and commit the change in a new branch.
+
    ```sql
    ALTER TABLE "public"."employee"
    ADD COLUMN "nickname" text;

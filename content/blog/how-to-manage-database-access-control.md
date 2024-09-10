@@ -1,7 +1,7 @@
 ---
 title: 'How to Manage Database Access Control'
 author: Tianzhou
-published_at: 2022/11/24 17:21:21
+updated_at: 2022/11/24 17:21:21
 feature_image: /content/blog/how-to-manage-database-access-control/freedom-control.webp
 tags: How-To
 featured: true

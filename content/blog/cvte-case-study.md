@@ -1,7 +1,7 @@
 ---
 title: How CVTE Uses Bytebase to Manage Factory Databases
 author: Changyu
-published_at: 2023/11/16 21:21:21
+updated_at: 2023/11/16 21:21:21
 feature_image: /content/blog/cvte-case-study/banner.webp
 tags: Case Study
 featured: true

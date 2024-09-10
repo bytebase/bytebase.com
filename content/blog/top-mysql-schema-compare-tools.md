@@ -1,7 +1,7 @@
 ---
 title: Top 5 MySQL Schema Compare Tool to Diff and Sync Database 2023
 author: Candy
-published_at: 2023/06/30 10:29:20
+updated_at: 2023/06/30 10:29:20
 feature_image: /content/blog/top-mysql-schema-compare-tools/top-mysql-compare-tools.webp
 tags: Industry
 featured: true

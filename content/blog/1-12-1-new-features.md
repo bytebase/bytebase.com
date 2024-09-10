@@ -1,7 +1,7 @@
 ---
 title: 'Bytebase 1.12.1 Deep Dive'
 author: Tianzhou
-published_at: 2023/02/21 13:21:21
+updated_at: 2023/02/21 13:21:21
 feature_image: /content/blog/1-12-1-new-features/1-12-1-banner.webp
 tags: Explanation
 description: The second release of the 🐰  year, the version number was upgraded from 1.12.0 to 1.12.1, and although it was a minor upgrade (since no schema changes were involved), it still included 230 code commits

@@ -1,7 +1,7 @@
 ---
 title: Introducing DB Cost, the simple cloud database pricing sheet for AWS RDS and Google Cloud SQL instance
 author: Xiong
-published_at: 2022/11/02 14:00
+updated_at: 2022/11/02 14:00
 feature_image: /content/blog/introducing-dbcost/background.webp
 tags: Announcement
 description: DB Cost is a tool for developers to compare performance and cost differences among cloud database providers.

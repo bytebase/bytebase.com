@@ -1,6 +1,6 @@
 ---
 title: Bytebase 0.7.0
-published_at: 2021/10/07 09:57:00
+updated_at: 2021/10/07 09:57:00
 description: PostgreSQL support, schema drift detection, anomaly center, backward incompatible schema migration check, backup schedule enforcement and more
 ---
 

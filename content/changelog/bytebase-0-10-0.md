@@ -1,6 +1,6 @@
 ---
 title: Bytebase 0.10.0
-published_at: 2021/12/22 16:36:07
+updated_at: 2021/12/22 16:36:07
 description: Chinese language support, scheduled time to execute a task and enhancement / bug fixes.
 ---
 

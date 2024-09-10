@@ -1,7 +1,7 @@
 ---
 title: 'Introducing Schema Review Policy for MySQL'
 author: Candy
-published_at: 2022/06/15 10:39:19
+updated_at: 2022/06/15 10:39:19
 feature_image: /content/blog/schema-review-policy-mysql/schema-review-policy-cover.webp
 tags: Announcement
 integrations: MySQL

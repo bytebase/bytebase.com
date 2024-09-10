@@ -1,7 +1,7 @@
 ---
 title: MotherDuck, from SQLite to the Docker for Data
 author: Tianzhou
-published_at: 2022/11/18 12:00
+updated_at: 2022/11/18 12:00
 feature_image: /content/blog/motherduck-from-sqlite-to-the-docker-for-data/motherduck.webp
 tags: Industry
 description: From the SQLite-insipred DuckDB to the real Snowflake challenger and the Docker for data.

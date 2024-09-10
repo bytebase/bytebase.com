@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.18.0
 author: Ningjing
-published_at: 2024/5/30 17:00:00
+updated_at: 2024/5/30 17:00:00
 feature_image: /content/changelog/2-18-0-banner.webp
 description: 'Support user groups'
 ---
@@ -23,7 +23,7 @@ description: 'Support user groups'
 - Remove issue assignee.
 - Remove table groups.
 - Plan-related gRPC endpoints have been migrated from RolloutService to PlanService.
-  
+
 ## 🎄 Enhancements
 
 - Support automatically testing connections when adding or updating instances.
@@ -34,7 +34,6 @@ description: 'Support user groups'
 ## 📰 Fresh Off the Press
 
 - ⚙️ Automating databases can boost efficiency, minimize human mistakes, maintain uniformity, and allow database administrators and developers to concentrate on more strategic initiatives. 🚗 Inspired by the six levels of autonomous driving, we can outline the [six levels of database automation](/blog/database-automation-levels/).
-  
 - 🧑‍💻 As the engineering team grows and daily database operations become more complex, there is a pressing need for a centralized method to manage and enforce the change process. 🛠️ Implementing a tool such as Jira might be an effective immediate solution. However, [using Jira for database changes won't cut It](/blog/use-jira-for-database-change/).
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

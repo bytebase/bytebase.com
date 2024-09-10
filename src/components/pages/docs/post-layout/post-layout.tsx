@@ -21,7 +21,7 @@ const PostLayout = ({
   title,
   featureImage = null,
   children,
-  published_at = null,
+  updated_at = null,
   estimated_time = null,
   feature_name,
   currentSlug,
@@ -30,7 +30,7 @@ const PostLayout = ({
 }: {
   title: string;
   featureImage: string | null;
-  published_at: string | null;
+  updated_at: string | null;
   estimated_time: string | null;
   feature_name: string;
   currentSlug: string;
@@ -46,12 +46,12 @@ const PostLayout = ({
       </h1>
       <PricingPlanBlock feature_name={feature_name} />
       <div className="flex justify-between">
-        {published_at && (
+        {updated_at && (
           <time
             className="mt-2.5 text-14 uppercase leading-none text-gray-40"
-            dateTime={published_at}
+            dateTime={updated_at}
           >
-            {format(new Date(published_at), 'MMM dd, yyyy')}
+            {format(new Date(updated_at), 'MMM dd, yyyy')}
           </time>
         )}
 
@@ -63,7 +63,7 @@ const PostLayout = ({
       </div>
       {featureImage && (
         <Image
-          className="my-11 w-full rounded lg:mt-10 lg:mb-8 sm:mt-5 sm:mb-6"
+          className="my-11 w-full rounded lg:mb-8 lg:mt-10 sm:mb-6 sm:mt-5"
           src={featureImage}
           alt={title}
           width={967}

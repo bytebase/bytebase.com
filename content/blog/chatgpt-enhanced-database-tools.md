@@ -1,7 +1,7 @@
 ---
 title: A (Non-Exhaustive) Summary of ChatGPT Enhanced Database Tools
 author: Mila
-published_at: 2023/03/27 21:21:21
+updated_at: 2023/03/27 21:21:21
 feature_image: /content/blog/chatgpt-enhanced-database-tools/cover.webp
 tags: Industry
 featured: true

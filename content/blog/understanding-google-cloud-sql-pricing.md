@@ -1,7 +1,7 @@
 ---
 title: Understanding Google Cloud SQL Pricing
 author: Candy
-published_at: 2023/07/06 10:29:47
+updated_at: 2023/07/06 10:29:47
 feature_image: /content/blog/understanding-google-cloud-sql-pricing/cover.webp
 tags: Industry
 description: In the post, we explore the Google Cloud SQL pricing structure, tools for estimating its cost, and tips for optimizing the cost.

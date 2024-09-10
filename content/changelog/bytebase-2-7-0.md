@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.7.0
 author: Mila
-published_at: 2023/08/31 17:21:21
+updated_at: 2023/08/31 17:21:21
 feature_image: /content/changelog/2-7-0-banner.webp
 description: 'Git-like Branching for database schema migration. Search all Issue histories. Export Audit Logs.'
 ---

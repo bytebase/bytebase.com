@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.1.0
 author: Mila
-published_at: 2023/05/25 16:30:00
+updated_at: 2023/05/25 16:30:00
 feature_image: /content/changelog/2-1-0-banner.webp
 description: 'Data Query and Data Export approval flow; SQL Review for Oracle; SSH tunneling for PostgreSQL and Redis.'
 ---

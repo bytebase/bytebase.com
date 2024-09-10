@@ -1,7 +1,7 @@
 ---
 title: Top 3 Free Tools to Start a Local Database Instance on Mac
 author: Mila
-published_at: 2023/04/24 21:21:21
+updated_at: 2023/04/24 21:21:21
 feature_image: /content/blog/local-db/local-db-cover.jpg
 tags: Industry
 featured: true

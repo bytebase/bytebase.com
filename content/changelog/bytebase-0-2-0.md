@@ -1,6 +1,6 @@
 ---
 title: Bytebase 0.2.0
-published_at: 2021/07/19 07:46:00
+updated_at: 2021/07/19 07:46:00
 ---
 
 ## 🚀 New Features

@@ -1,7 +1,7 @@
 ---
 title: Bytebase 1.3.1
 author: Mila
-published_at: 2022/8/18 17:20
+updated_at: 2022/8/18 17:20
 description: '- SQL review now available on GitHub Actions. - MySQL database restore sped up by 20x. - Project owners can now be set as Issue approvers.'
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Batch Change with Database Group
 author: Ningjing
-published_at: 2024/07/23 18:00
+updated_at: 2024/07/23 18:00
 tags: Tutorial
 integrations: General
 level: Intermediate
@@ -12,10 +12,12 @@ description: This article describes using Deployment Configure and Database Grou
 Bytebase offers multiple features to simplify batch change management. In this tutorial, we will guide you on how to use **Deployment Configure** and **Database Group** to batch change databases for various scenarios.
 
 ![deployment-configure-banner](/content/docs/tutorials/batch-change-with-database-group/deployment-configure-banner.webp)
-- The graph above is for Step 2 - Deployment Configure (Community Plan) 
+
+- The graph above is for Step 2 - Deployment Configure (Community Plan)
 
 ![database-group-banner](/content/docs/tutorials/batch-change-with-database-group/database-group-banner.webp)
-- The graph above is for Step 3 - Database Group (Enterprise Plan) &  Step 4 - Multitenancy Database Group (Enterprise Plan)
+
+- The graph above is for Step 3 - Database Group (Enterprise Plan) & Step 4 - Multitenancy Database Group (Enterprise Plan)
 
 ## Preparation
 
@@ -64,6 +66,7 @@ We'll show you the difference deployment configuration makes.
    ```SQL
       CREATE TABLE t2("id" INTEGER NOT NULL);
    ```
+
    ![bb-select-demo-dbs](/content/docs/tutorials/batch-change-with-database-group/bb-select-demo-dbs.webp)
 
    ![bb-issue-t2-done](/content/docs/tutorials/batch-change-with-database-group/bb-issue-t2-done.webp)
@@ -73,12 +76,13 @@ We'll show you the difference deployment configuration makes.
    ![bb-deployment-config](/content/docs/tutorials/batch-change-with-database-group/bb-deployment-config.webp)
 
 1. Go to **Databases > Database** in the project, select `demo-test` and `demo-prod-1`~`demo-prod-6` and click **Edit Schema**. Fill in a SQL and click **Create**. You can see the pipeline has four stages as we configure.
+
    ```SQL
       CREATE TABLE t1("id" INTEGER NOT NULL);
    ```
 
    ![bb-issue-t1-done](/content/docs/tutorials/batch-change-with-database-group/bb-issue-t1-done.webp)
-   
+
 ### Step 3 - Database Group (Enterprise Plan)
 
 We need first to upgrade to Enterprise Plan to use Database Group.
@@ -90,30 +94,29 @@ We need first to upgrade to Enterprise Plan to use Database Group.
    ![bb-subscription](/content/docs/tutorials/data-rollback/bb-subscription.webp)
 
 1. Go to **Database > Groups** in the project, click **New database group**, fill the fields as follows, when you scroll down, you will see there's an option **Multitennancy**, keep it unchecked for now and click **Save**.
+
    - **Name:** `demo-prod-all`
    - **Condition:** `Environment == Prod` & `Database name startsWith demo-prod-`
 
    ![bb-new-db-group](/content/docs/tutorials/batch-change-with-database-group/bb-new-db-group.webp)
- 
-   ![bb-db-group-multi-t-uncheck](/content/docs/tutorials/batch-change-with-database-group/bb-db-group-multi-t-uncheck.webp)  
 
+   ![bb-db-group-multi-t-uncheck](/content/docs/tutorials/batch-change-with-database-group/bb-db-group-multi-t-uncheck.webp)
 
 1. Go to **Database > Groups** in the project, click **Edit Schema**, and choose **Database group** and click **Next**.
 
-   ![bb-edit-schema-db-group](/content/docs/tutorials/batch-change-with-database-group/bb-edit-schema-db-group.webp)  
-   
+   ![bb-edit-schema-db-group](/content/docs/tutorials/batch-change-with-database-group/bb-edit-schema-db-group.webp)
 
 1. You many see the six databases in three stages. Fill in the SQLs and click **Create**.
 
    ```SQL
       CREATE TABLE t3("id" INTEGER NOT NULL);
    ```
-   
-   ![bb-issue-db-group-multi-uncheck](/content/docs/tutorials/batch-change-with-database-group/bb-issue-db-group-multi-uncheck.webp)  
+
+   ![bb-issue-db-group-multi-uncheck](/content/docs/tutorials/batch-change-with-database-group/bb-issue-db-group-multi-uncheck.webp)
 
 1. Go to **Database > Databases** in the project, and click **New DB**. Create a database `demo-prod-7` which belongs to the database group. Check the schema, it's empty.
 
-   ![bb-demo-7-empty](/content/docs/tutorials/batch-change-with-database-group/bb-demo-7-empty.webp)  
+   ![bb-demo-7-empty](/content/docs/tutorials/batch-change-with-database-group/bb-demo-7-empty.webp)
 
 ### Step 4 - Multitenancy Database Group (Enterprise Plan)
 
@@ -123,7 +126,7 @@ When the database group has **Multitenancy** enabled, the new database will inhe
 
 1. Go to **Database > Databases** in the project, and click **New DB**. Create a database `demo-prod-8` which belongs to the database group. Check the schema, it's the same schema as other demo-prod databases. Pay attention here, even if there is an on going issue, the new database will be appended.
 
-   ![bb-demo-8-same](/content/docs/tutorials/batch-change-with-database-group/bb-demo-8-same.webp)  
+   ![bb-demo-8-same](/content/docs/tutorials/batch-change-with-database-group/bb-demo-8-same.webp)
 
 ## Summary
 

@@ -1,7 +1,7 @@
 ---
 title: Manage Databases in Bytebase with Terraform
 author: Ningjing
-published_at: 2023/01/16 21:15
+updated_at: 2023/01/16 21:15
 feature_image: /content/docs/tutorials/manage-databases-in-bytebase-with-terraform/terraform-feature.webp
 tags: Tutorial
 integrations: Terraform

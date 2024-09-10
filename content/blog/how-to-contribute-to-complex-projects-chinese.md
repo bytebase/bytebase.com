@@ -2,7 +2,7 @@
 title: 如何为复杂项目做贡献
 author: Ray
 slug: how-to-contribute-to-complex-projects
-published_at: 2022/04/20 02:42:56
+updated_at: 2022/04/20 02:42:56
 tags: Hidden, Chinese
 description: 我建立了一套可复用的模版，用以帮助大家理解复杂项目。我不奢求这套模版对所有人都有效，但我希望它能帮助人们有信心去尝试了解复杂项目，并做出自己的贡献。
 ---

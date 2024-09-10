@@ -1,7 +1,7 @@
 ---
 title: How to Set Up Local Postgres on Your Mac, Ubuntu, CentOS, or Windows
 author: Mila
-published_at: 2023/08/03 09:00:00
+updated_at: 2023/08/03 09:00:00
 feature_image: /content/blog/how-to-install-local-postgres-on-mac-ubuntu-centos-windows/banner.webp
 tags: How-To
 description: Learn how to set up local postgres on mac, ubuntu, centos and windows.

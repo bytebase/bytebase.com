@@ -1,7 +1,7 @@
 ---
 title: Announcing Bytebase. Open source, web-based, zero-config, dependency-free database schema change and version control tool for Developer and DBA
 author: Tianzhou
-published_at: 2021/07/12 08:27:00
+updated_at: 2021/07/12 08:27:00
 feature_image: /content/blog/announce-bytebase/logo-full.webp
 tags: Announcement
 description: Bytebase is a tool for database schema change and version control, its main audience are Developers and DBAs. We want to make Bytebase the industry benchmark solution for managing database schema change.

@@ -1,7 +1,7 @@
 ---
 title: 'Bytebase vs. Liquibase: a side-by-side comparison for database schema migration'
 author: Changyu
-published_at: 2023/06/08 19:21:21
+updated_at: 2023/06/08 19:21:21
 feature_image: /content/blog/bytebase-vs-liquibase/bytebase-vs-liquibase-banner.webp
 tags: Explanation
 description: 'When looking for a database CI/CD and schema migration change tool, Bytebase and Liquibase are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.'

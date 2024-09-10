@@ -1,7 +1,7 @@
 ---
 title: 40+ SaaS Services Behind 15-Person Startup - 2nd Year in Review
 author: Tianzhou
-published_at: 2023/10/24 11:00:00
+updated_at: 2023/10/24 11:00:00
 feature_image: /content/blog/saas-services-behind-startup-2023/banner.webp
 tags: Industry
 featured: true
@@ -200,7 +200,7 @@ The spending increased by 80%, mostly from increased usage (more email subscribe
 | Pulley           | $120     | $0       |
 | Slack            | $50      | $50      |
 | 🌱 Setapp        |          | $100     |
-| 🌱 Zapier       |          | $18      |
+| 🌱 Zapier        |          | $18      |
 | **Total**        | $550     | **$378** |
 
 Spending is decreased as we find ourselves not needing the paid features. We stopped our Grammarly subscription because we now use ChatGPT or other tools to refine the wording.

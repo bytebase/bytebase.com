@@ -1,7 +1,7 @@
 ---
 title: Stop Using Navicat as Your SQL Client
 author: Tianzhou
-published_at: 2023/01/11 21:00
+updated_at: 2023/01/11 21:00
 feature_image: /content/blog/stop-using-navicat/feature-image.webp
 tags: Industry
 featured: true

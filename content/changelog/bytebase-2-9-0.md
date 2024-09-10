@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.9.0
 author: Mila
-published_at: 2023/09/28 17:21:21
+updated_at: 2023/09/28 17:21:21
 feature_image: /content/changelog/2-9-0-banner.webp
 description: 'Run SQL Review checks without requiring a rollout. Predefine table templates.'
 ---

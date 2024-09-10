@@ -1,6 +1,6 @@
 ---
 title: Bytebase 0.7.1
-published_at: 2021/10/18 09:25:16
+updated_at: 2021/10/18 09:25:16
 ---
 
 This is a security fix release. Please consider upgrading it.

@@ -1,6 +1,6 @@
 ---
 title: Bytebase 1.0.3
-published_at: 2022/04/14 10:46:34
+updated_at: 2022/04/14 10:46:34
 description: Release MySQL Database Review Guide. Toggle Debug mode at runtime for easier troubleshooting. SQL editor support more types of EXPLAIN queries on the basis of EXPLAIN SELECT, such as EXPLAIN INSERT.
 ---
 

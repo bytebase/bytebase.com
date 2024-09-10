@@ -1,7 +1,7 @@
 ---
 title: Announcing our $3M Seed Round
 author: Tianzhou
-published_at: 2021/11/19 11:29:26
+updated_at: 2021/11/19 11:29:26
 feature_image: /content/blog/announcing-our-3m-seed-round/banner.webp
 tags: Announcement
 featured: true

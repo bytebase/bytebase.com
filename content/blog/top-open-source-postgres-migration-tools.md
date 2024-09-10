@@ -1,7 +1,7 @@
 ---
 title: Top Open Source Postgres Migration Tools in 2024
 author: Tianzhou
-published_at: 2024/01/16 09:00:00
+updated_at: 2024/01/16 09:00:00
 feature_image: /content/blog/top-open-source-postgres-migration-tools/cover.webp
 tags: Industry
 featured: true

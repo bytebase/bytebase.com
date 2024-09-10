@@ -1,7 +1,7 @@
 ---
 title: Introducing Terraform Bytebase Provider
 author: Candy
-published_at: 2023/02/08 11:37:27
+updated_at: 2023/02/08 11:37:27
 feature_image: /content/blog/introducing-terraform-bytebase-provider/cover.webp
 tags: Announcement
 integrations: Terraform

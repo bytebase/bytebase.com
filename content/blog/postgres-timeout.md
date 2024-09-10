@@ -1,7 +1,7 @@
 ---
 title: Postgres Timeout Explained
 author: Tianzhou
-published_at: 2024/08/10 18:00
+updated_at: 2024/08/10 18:00
 feature_image: /content/blog/postgres-timeout/banner.webp
 tags: Explanation
 featured: true

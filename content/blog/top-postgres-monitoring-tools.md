@@ -1,7 +1,7 @@
 ---
 title: Top Postgres Monitoring Tools and Best Practices in 2024
 author: Tianzhou
-published_at: 2024/07/21 19:00:00
+updated_at: 2024/07/21 19:00:00
 feature_image: /content/blog/top-postgres-monitoring-tools/banner.webp
 tags: Industry
 featured: true

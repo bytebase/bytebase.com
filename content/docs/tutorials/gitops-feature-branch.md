@@ -1,7 +1,7 @@
 ---
 title: GitOps with Feature Branch Workflow
 author: Ningjing
-published_at: 2023/06/20 18:00
+updated_at: 2023/06/20 18:00
 feature_image: /content/docs/tutorials/gitops-feature-branch/final-setup.webp
 tags: Tutorial
 integrations: 'Azure DevOps, GitHub, GitLab, Bitbucket'

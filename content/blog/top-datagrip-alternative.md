@@ -1,7 +1,7 @@
 ---
 title: Top DataGrip Alternatives 2023
 author: Mila
-published_at: 2023/9/7 21:21:21
+updated_at: 2023/9/7 21:21:21
 feature_image: /content/blog/top-datagrip-alternative/banner.webp
 tags: Industry
 featured: true
@@ -61,11 +61,11 @@ DataGrip is a powerful SQL tool, but whether it is the right option for you depe
 Below is a summary for the aforementioned tools:
 
 |                  | Open Source | Free version | Paid version | Audience                                                | Strength                                                         |
-| ---------------- | ----------- | ------------ | ------------ | ------------------------------------------------------- | ---------------------------------------------------------------- |
-| DataGrip         |    ❌         |          ❌    | ✅           | Individual                                              | Intuitive UX and integraiton with other JetBrains IDEs           |                        |
+| ---------------- | ----------- | ------------ | ------------ | ------------------------------------------------------- | ---------------------------------------------------------------- | --- |
+| DataGrip         | ❌          | ❌           | ✅           | Individual                                              | Intuitive UX and integraiton with other JetBrains IDEs           |     |
 | DBeaver          | ✅          | ✅           | ✅           | Individual                                              | Comprehensive features                                           |
 | Navicat          | ❌          | ✅           | ✅           | Individual                                              | Comprehensive features                                           |
-| TablePlus        | ❌           | ✅           | ✅           | Individual                                              | Native and intuitive interface                                   |
+| TablePlus        | ❌          | ✅           | ✅           | Individual                                              | Native and intuitive interface                                   |
 | Beekeeper Studio | ✅          | ✅           | ✅           | Individual                                              | Mordern and sleek interface                                      |
 | Bytebase         | ✅          | ✅           | ✅           | Entire engineering org for developer, DBA and data team | Centralized access control, data masking, change review workflow |
 

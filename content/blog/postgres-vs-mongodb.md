@@ -1,7 +1,7 @@
 ---
 title: 'Postgres vs. MongoDB: a Complete Comparison in 2024'
 author: Tianzhou
-published_at: 2024/01/14 12:00
+updated_at: 2024/01/14 12:00
 feature_image: /content/blog/postgres-vs-mongodb/cover.webp
 tags: Industry
 featured: true

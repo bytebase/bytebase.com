@@ -1,7 +1,7 @@
 ---
 title: The SQL Review Tool for Developers
 author: Changyu
-published_at: 2022/10/28 18:00
+updated_at: 2022/10/28 18:00
 feature_image: /content/blog/sql-review-tool-for-devs/dev-fighting-dba.webp
 tags: Industry
 featured: true

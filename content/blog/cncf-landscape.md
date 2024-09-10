@@ -1,7 +1,7 @@
 ---
 title: CNCF Landscape includes Bytebase as the first-ever database CI/CD solution
 author: Tianzhou
-published_at: 2022/10/21 18:00
+updated_at: 2022/10/21 18:00
 feature_image: /content/blog/cncf-landscape/cncf-landscape.webp
 tags: Announcement
 featured: true

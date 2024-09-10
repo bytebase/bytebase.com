@@ -1,7 +1,7 @@
 ---
 title: Modern Snowflake Stack in 2024
 author: Tianzhou
-published_at: 2024/02/08 12:00
+updated_at: 2024/02/08 12:00
 feature_image: /content/blog/modern-snowflake-stack/modern-snowflake-stack.webp
 tags: Industry
 featured: true
@@ -67,11 +67,10 @@ With its data health agent, Bigeye can surface data quality and pipeline health 
 
 Data Activation aka reverse-ETL, which focuses on operationalizing data by syncing it from data warehouses to various SaaS applications, operational systems, and customer relationship management (CRM) platforms. [Census](https://www.getcensus.com/) and [Hightouch](https://hightouch.com/) are two leading solutions, they are neck-to-neck and provide similar feature sets.
 
-
 Both products claim to be superior than the other. The competition is real and we think it's better to leave the judgement to the audience:
-* [Census vs Hightouch (Census view)](https://www.getcensus.com/compare/census-vs-hightouch)
-* [Hightouch vs Census (Hightouch view)](https://hightouch.com/blog/hightouch-vs-census)
 
+- [Census vs Hightouch (Census view)](https://www.getcensus.com/compare/census-vs-hightouch)
+- [Hightouch vs Census (Hightouch view)](https://hightouch.com/blog/hightouch-vs-census)
 
 ## Customer Data Platform (CDP) - Segment
 
@@ -87,7 +86,7 @@ customer data. Since the purpose for reverse-ETL is to deliver more personalized
 ## CI/CD - Bytebase
 
 After all, Snowflake is a database system. And for database, one of pain points is to manage schema migrations. All aforementioned solutions belong to the DataOps domain, while the schema migration falls into the DevOps and CI/CD category. Snowflake itself open sourced [schemachange](https://github.com/Snowflake-Labs/schemachange) for database change management. It's a python-based CLI
- carrying the spirit of classic java schema migration tool [flyway](https://github.com/flyway/flyway).
+carrying the spirit of classic java schema migration tool [flyway](https://github.com/flyway/flyway).
 
 [Bytebase](/) is another CI/CD and change management solution providing review workflow and version control for Snowflake schema migration and ad-hoc changes. Different from schemachange, Bytebase provides a GUI collaborative workspace like what GitHub does for code management.
 
@@ -106,7 +105,6 @@ FWIW, Snowflake also [added Git integration](https://www.snowflake.com/blog/snow
 The acute reader might have already noticed that we missed an elephant in the room, the BI tool. We don't include BI because
 although there are quite a few options like Tableau, Mode, Looker, There is no outstanding one specifically built for Snowflake.
 Maybe the industry is just waiting for Snowflake to announce its own BI solution, not a far sight from Snowsight anyway.
-
 
 ## Summary
 

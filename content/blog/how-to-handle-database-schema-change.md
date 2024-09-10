@@ -1,7 +1,7 @@
 ---
 title: How to Handle Database Migration / Schema Change?
 author: Tianzhou
-published_at: 2023/05/19 18:00:00
+updated_at: 2023/05/19 18:00:00
 feature_image: /content/blog/how-to-handle-database-schema-change/change.webp
 tags: Explanation
 description: The common mistakes when making schema migrations and the best practice to avoid those pitfalls.

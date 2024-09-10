@@ -1,7 +1,7 @@
 ---
 title: Bytebase 1.17.0
 author: Mila
-published_at: 2023/04/27 18:00:00
+updated_at: 2023/04/27 18:00:00
 feature_image: /content/changelog/1-17-0-banner.webp
 description: 'OB support'
 ---

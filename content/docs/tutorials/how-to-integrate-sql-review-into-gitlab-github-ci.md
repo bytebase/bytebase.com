@@ -1,7 +1,7 @@
 ---
 title: How to integrate SQL Review into Your GitLab or GitHub CI/CD
 author: Mila
-published_at: 2022/12/2 21:21:21
+updated_at: 2022/12/2 21:21:21
 feature_image: /content/docs/tutorials/how-to-integrate-sql-review-into-gitlab-github-ci/sql-review-ci.webp
 tags: Tutorial
 integrations: GitHub, GitLab

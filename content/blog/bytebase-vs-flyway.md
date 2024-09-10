@@ -1,7 +1,7 @@
 ---
 title: 'Bytebase vs. Flyway: a side-by-side comparison for database schema migration'
 author: Changyu
-published_at: 2023/06/14 19:21:21
+updated_at: 2023/06/14 19:21:21
 feature_image: /content/blog/bytebase-vs-flyway/bytebase-vs-flyway-banner.webp
 tags: Explanation
 description: 'When looking for a database CI/CD and schema migration change tool, Bytebase and flyway are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.'

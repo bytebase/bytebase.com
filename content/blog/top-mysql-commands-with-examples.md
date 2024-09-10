@@ -1,7 +1,7 @@
 ---
 title: Top mysql Commands with Examples
 author: Tianzhou
-published_at: 2023/07/19 09:00:00
+updated_at: 2023/07/19 09:00:00
 feature_image: /content/blog/top-mysql-commands-with-examples/cover.webp
 tags: How-To
 description: The official mysql CLI is still the most widely used MySQL client. Let's learn the most common mysql commands by example.

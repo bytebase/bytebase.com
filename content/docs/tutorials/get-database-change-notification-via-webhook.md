@@ -1,7 +1,7 @@
 ---
 title: Get Database Change Notification via Webhook
 author: Candy
-published_at: 2022/05/16 09:42:58
+updated_at: 2022/05/16 09:42:58
 feature_image: /content/docs/tutorials/get-database-change-notification-via-webhook/fish-hook.webp
 tags: Tutorial
 integrations: General

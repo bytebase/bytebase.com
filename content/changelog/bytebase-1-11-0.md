@@ -1,7 +1,7 @@
 ---
 title: Bytebase 1.11.0
 author: Mila
-published_at: 2023/01/12 17:00:00
+updated_at: 2023/01/12 17:00:00
 feature_image: /content/changelog/1-11-0-banner.webp
 description: '- Added support for MongoDB. - View ER Diagrams with the new Schema Diagram. - Edit PostgreSQL schema via the UI-based Schema Editor.'
 ---

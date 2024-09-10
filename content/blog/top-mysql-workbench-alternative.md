@@ -1,7 +1,7 @@
 ---
 title: Top MySQL Workbench Alternatives 2023
 author: Mila
-published_at: 2023/9/5 21:21:21
+updated_at: 2023/9/5 21:21:21
 feature_image: /content/blog/top-mysql-workbench-alternative/banner.webp
 tags: Industry
 featured: true
@@ -70,15 +70,15 @@ If you have multiple different databases at your organization and are looking fo
 
 There are many tools out there, but at the end of the day, they are all different (albeit slightly) and have different focuses on the problem they are trying to solve. The choice of which one to go for eventually comes down to you and your organization. Below is a summary for the aforementioned tools:
 
-|                  | Open Source | Free version | Paid version | Audience                                                | Strength                                                         |
-| ---------------- | ----------- | ------------ | ------------ | ------------------------------------------------------- | ---------------------------------------------------------------- |
-| MySQL Workbench          | ✅          | ✅           | ✅           | Individual and teams                                    | Built for MySQL                                           |
-| phpMyAdmin          | ✅          | ✅           | ❌           | Individual                                    | Built for MySQL                                           |
-| DBeaver          | ✅          | ✅           | ✅           | Individual                                              | Comprehensive features                                           |
-| Navicat          | ❌          | ✅           | ✅           | Individual                                              | Comprehensive features                                           |
-| TablePlus        | ❌           | ✅           | ✅           | Individual                                              | Native and intuitive interface                                   |
-| DataGrip         |    ❌         |          ❌    | ✅           | Individual                                              | Intuitive UX and integraiton with other JetBrains IDEs           |                        |
-| Bytebase         | ✅          | ✅           | ✅           | Entire engineering org for developer, DBA and data team | Centralized access control, data masking, change review workflow |
+|                 | Open Source | Free version | Paid version | Audience                                                | Strength                                                         |
+| --------------- | ----------- | ------------ | ------------ | ------------------------------------------------------- | ---------------------------------------------------------------- | --- |
+| MySQL Workbench | ✅          | ✅           | ✅           | Individual and teams                                    | Built for MySQL                                                  |
+| phpMyAdmin      | ✅          | ✅           | ❌           | Individual                                              | Built for MySQL                                                  |
+| DBeaver         | ✅          | ✅           | ✅           | Individual                                              | Comprehensive features                                           |
+| Navicat         | ❌          | ✅           | ✅           | Individual                                              | Comprehensive features                                           |
+| TablePlus       | ❌          | ✅           | ✅           | Individual                                              | Native and intuitive interface                                   |
+| DataGrip        | ❌          | ❌           | ✅           | Individual                                              | Intuitive UX and integraiton with other JetBrains IDEs           |     |
+| Bytebase        | ✅          | ✅           | ✅           | Entire engineering org for developer, DBA and data team | Centralized access control, data masking, change review workflow |
 
 ## Further Readings
 

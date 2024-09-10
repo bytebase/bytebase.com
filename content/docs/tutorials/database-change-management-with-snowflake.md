@@ -1,7 +1,7 @@
 ---
 title: 'Database CI/CD and Schema Migration with Snowflake'
 author: Ningjing
-published_at: 2022/12/22 21:15
+updated_at: 2022/12/22 21:15
 feature_image: /content/docs/tutorials/database-change-management-with-snowflake/db-change-snowflake.webp
 tags: Tutorial
 integrations: Snowflake

@@ -1,7 +1,7 @@
 ---
 title: 'Bytebase 1.9.0 Deep Dive'
 author: Tianzhou
-published_at: 2022/12/6 21:21:21
+updated_at: 2022/12/6 21:21:21
 feature_image: /content/blog/1-9-0-new-features/1-9-0-new-features-banner.webp
 tags: Explanation
 description: Last week, we released Bytebase 1.9.0. Let's take a deeper look into the new features - Sync Schema for PostgreSQL, SQL Editor Admin Mode, and External Approval via Feishu.

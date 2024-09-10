@@ -1,7 +1,7 @@
 ---
 title: 'Database CI/CD and Schema Migration with Spanner'
 author: Ningjing
-published_at: 2023/05/25 17:15
+updated_at: 2023/05/25 17:15
 feature_image: /content/docs/tutorials/database-change-management-with-spanner/feature-image.webp?
 tags: Tutorial
 integrations: Spanner

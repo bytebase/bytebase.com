@@ -1,7 +1,7 @@
 ---
 title: Automating Database Schema Change workflow Using GitHub Actions
 author: Ningjing
-published_at: 2024/03/19 17:00
+updated_at: 2024/03/19 17:00
 tags: Tutorial
 integrations: GitHub
 level: Advanced

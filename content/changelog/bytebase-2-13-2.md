@@ -1,7 +1,7 @@
 ---
 title: Bytebase 2.13.2
 author: Ningjing
-published_at: 2024/2/4 17:01:21
+updated_at: 2024/2/4 17:01:21
 feature_image: /content/changelog/2-13-2-banner.webp
 description: 'Support Japanese and Vietnamese.'
 ---

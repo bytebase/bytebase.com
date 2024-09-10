@@ -1,7 +1,7 @@
 ---
 title: 'Bytebase vs. Metabase: a side-by-side comparison for collaborative database tools'
 author: Ningjing
-published_at: 2024/02/19 20:21:21
+updated_at: 2024/02/19 20:21:21
 feature_image: /content/blog/bytebase-vs-metabase/bytebase-vs-metabase-banner.webp
 tags: Explanation
 description: 'Bytebase and Metabase stand out in the collaborative database tool spectrum, each serving different purposes. '

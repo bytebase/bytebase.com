@@ -1,7 +1,7 @@
 ---
 title: Data Masking for PostgreSQL Databases
 author: Mila
-published_at: 2023/11/21 21:21:21
+updated_at: 2023/11/21 21:21:21
 feature_image: /content/blog/postgres-data-masking/banner.webp
 tags: Explanation
 featured: true

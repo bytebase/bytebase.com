@@ -1,7 +1,7 @@
 ---
 title: Step-by-Step Guide to Data Masking
 author: Ningjing
-published_at: 2023/10/11 18:00
+updated_at: 2023/10/11 18:00
 feature_image: /content/docs/tutorials/step-by-step-guide-to-data-masking/data-mask-banner.webp
 tags: Tutorial
 integrations: General

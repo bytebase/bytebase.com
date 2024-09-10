@@ -1,7 +1,7 @@
 ---
 title: What is Database Schema Migration?
 author: Candy
-published_at: 2023/06/28 10:29:20
+updated_at: 2023/06/28 10:29:20
 feature_image: /content/blog/what-is-database-migration/cover.webp
 tags: Explanation
 description: Database schema migration involves modifying the structure of objects within relational databases, evolving their schema from the current state to a new desired state. The two main schema transformation strategies are migration-based migration and state-based migration.

@@ -1,7 +1,7 @@
 ---
 title: Introducing Single Sign-On in Bytebase
 author: Candy
-published_at: 2023/03/07 17:37:17
+updated_at: 2023/03/07 17:37:17
 feature_image: /content/blog/introducing-single-sign-on-in-bytebase/cover.webp
 tags: Announcement
 featured: true

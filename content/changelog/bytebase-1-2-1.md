@@ -1,7 +1,7 @@
 ---
 title: Bytebase 1.2.1
 author: Ningjing
-published_at: 2022/7/7 17:20
+updated_at: 2022/7/7 17:20
 description: '- In-place Point-in-time Recovery for the database (preview version). - Added GET /v1/sql/advise OpenAPI.'
 ---
 

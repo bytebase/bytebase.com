@@ -1,7 +1,7 @@
 ---
 title: Bytebase 1.14.0
 author: Mila
-published_at: 2023/03/16 17:00:00
+updated_at: 2023/03/16 17:00:00
 feature_image: /content/changelog/1-14-0-banner.webp
 description: '- Text2SQL: convert natural language to SQL, credit to OpenAI. - Support 2FA - State-based Migration for MySQL in GitOps workflow. - Support for Redis.'
 ---

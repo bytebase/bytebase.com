@@ -1,7 +1,7 @@
 ---
 title: Bytebase 1.1.1
 author: Lucy
-published_at: 2022/06/09 17:20
+updated_at: 2022/06/09 17:20
 description: Allow schema review policy configuration for the environment. Add archive checkers for environment/project/instance. UI improvements for tenant-mode deployment. Improved PostgreSQL schema dump. The owner of newly created PostgreSQL schemas is the database owner by default. Display applicable conditions for Environment policies.
 ---
 

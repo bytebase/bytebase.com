@@ -1,7 +1,7 @@
 ---
 title: The Database as Code Landscape
 author: Tianzhou
-published_at: 2022/06/15 09:00:00
+updated_at: 2022/06/15 09:00:00
 feature_image: /content/blog/database-as-code-landscape/database-as-code-landscape-2022.webp
 tags: Industry
 featured: true

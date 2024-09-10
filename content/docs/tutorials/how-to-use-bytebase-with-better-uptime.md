@@ -1,7 +1,7 @@
 ---
 title: How to use Bytebase with Better Uptime
 author: Zhe
-published_at: 2022/04/21 10:35:39
+updated_at: 2022/04/21 10:35:39
 feature_image: /content/docs/tutorials/how-to-use-bytebase-with-better-uptime/bytebase-use-better-uptime.webp
 tags: Tutorial
 integrations: General

@@ -1,7 +1,7 @@
 ---
 title: Three Ways to Integrate Automatic SQL Review into GitHub
 author: Changyu
-published_at: 2022/12/08 09:00
+updated_at: 2022/12/08 09:00
 feature_image: /content/blog/integrate-sql-review-into-github/overview.webp
 tags: Explanation
 integrations: GitHub
