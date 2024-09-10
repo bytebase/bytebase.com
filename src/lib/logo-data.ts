@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Logo } from '@/types/logo';
 
 const APTIVE: Logo = {
