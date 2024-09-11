@@ -5,7 +5,7 @@ published_at: 2024/09/11 12:12:12
 feature_image: /content/blog/top-text-to-sql-ai-sql-client-2024/banner.webp
 tags: Industry
 featured: true
-description: Some of the most popular SQL AI tools on the market in 2024.
+description: 'Some of the most popular SQL AI tools on the market in 2024.'
 ---
 
 If you work with databases, SQL AI tools can significantly improve your productivity and efficiency. They help generate SQL commands automatically from natural language input and optimize query performance as functional and starter-friendly tool.
