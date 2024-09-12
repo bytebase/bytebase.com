@@ -3,8 +3,10 @@ title: Why Bytebase
 description: Bytebase is a database schema change and version control management tool for teams. It consists of a web console and a backend. The backend has a migration core to manage database schema changes. It also integrates with VCS to enable version controlled schema management.
 ---
 
-Bytebase is a **middleware** sitting between you and your database. It's the GitLab/GitHub for
-Database DevOps, built for developers, DBAs and platform engineers. Bytebase can be used in 2 ways:
+Previously, our founding team managed Google Cloud database and API infrastructure. We envision Bytebase
+to be the GitLab/GitHub equivalent for Database DevOps, specifically built for developers, DBAs and platform engineers.
+
+Bytebase is a **middleware** sitting between you and your database. It can be used in 2 ways:
 
 - **GUI** - Bytebase provides a collaboration workspace for teams to manage database development tasks for all database systems.
 - **API (headless)** - Bytebase can go headless. Teams can integrate [Bytebase API](/docs/api/overview/) into
