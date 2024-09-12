@@ -15,7 +15,7 @@ It provides an intuitive GUI to manage database schema changes. On the other han
 they may want to integrate Bytebase into their existing DevOps platform. This requires calling the
 Bytebase API.
 
-![before-after](/content/docs/tutorials/api/before-after.webp)
+![before-after](/content/docs/tutorials/api-issue/before-after.webp)
 
 In this tutorial, you will begin by creating a schema change within the Bytebase console. Then, you will proceed to run an external sample application that utilizes the API to create a similar change.
 
@@ -43,10 +43,10 @@ This tutorial code repository is at https://github.com/bytebase/api-example/issu
 1. Log in as the admin user, click on the gear icon on the top right corner and click on **Workspace** > **Members**.
 
 1. Turn on **Create as service account**, fill in with `api-example`, choose the `DBA` role that is sufficient for this tutorial and click **Add**.
-   ![service-account-create](/content/docs/tutorials/api/service-account-create.webp)
+   ![service-account-create](/content/docs/tutorials/api-issue/service-account-create.webp)
 
 1. Find the newly created service account in the **Active members** section and click on **Copy Service Key**. We will use this token to authenticate the API calls.
-   ![service-account-key](/content/docs/tutorials/api/service-account-key.webp)
+   ![service-account-key](/content/docs/tutorials/api-issue/service-account-key.webp)
 
 1. Click **Select Project** on the top bar, and you'll see there's a sample project called **Sample Project**. Click on it to enter the project page, there are two databases: `hr_prod` and `hr_test`.
 
@@ -93,7 +93,7 @@ Below is an example app demonstrating the following APIs:
    ```
 
 1. Open the application in your browser, you'll see the following page.
-   ![sample-empty](/content/docs/tutorials/api/sample-empty.webp)
+   ![sample-empty](/content/docs/tutorials/api-issue/sample-empty.webp)
 
 1. Choose `Sample Project`, then `hr_prod`, input the following SQL and click **Create New Issue**.
 
@@ -104,13 +104,13 @@ Below is an example app demonstrating the following APIs:
    ```
 
 1. The issue will be created and you'll see the following page.
-   ![sample-open](/content/docs/tutorials/api/sample-open.webp)
+   ![sample-open](/content/docs/tutorials/api-issue/sample-open.webp)
 
 1. Click the link `View issue xxx in Bytebase[OPEN]` to see the issue in Bytebase Console. You'll notice the issue rolls out automatically and becomes `Done`.
-   ![bb-issue-from-api](/content/docs/tutorials/api/bb-issue-from-api.webp)
+   ![bb-issue-from-api](/content/docs/tutorials/api-issue/bb-issue-from-api.webp)
 
 1. Go back to the sample application, and click **Refresh status**. You'll see the status has changed from [OPEN] to [DONE].
-   ![sample-done](/content/docs/tutorials/api/sample-done.webp)
+   ![sample-done](/content/docs/tutorials/api-issue/sample-done.webp)
 
 1. For additional information about the example application, refer to the README in its corresponding [GitHub repository](https://github.com/bytebase/api-example/).
 

@@ -2,6 +2,8 @@
 title: SQL Review API
 ---
 
+<TutorialBlock url="/docs/tutorials/sql-review" title="Master SQL Review with GUI, GitOps and API" />
+
 |          |                                                                                  |
 | -------- | -------------------------------------------------------------------------------- |
 | Endpoint | [POST /v1/sql/check](https://api.bytebase.com/#tag/sqlservice/POST/v1/sql/check) |

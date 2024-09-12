@@ -227,9 +227,11 @@ expand_section_list: ['Self-host']
 
 ### [Issue](/api/issue)
 
-### [Data Classification](/api/data-classification)
+### [Permission](/api/permission)
 
 ### [Audit Log](/api/audit-log)
+
+### [Data Classification](/api/data-classification)
 
 ### [External Approval](/api/external-approval)
 

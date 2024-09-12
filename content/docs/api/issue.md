@@ -2,6 +2,8 @@
 title: Issue
 ---
 
+<TutorialBlock url="/docs/tutorials/api-issue" title="Deploy Schema Migration with Bytebase API" />
+
 |                 |                                               |
 | --------------- | --------------------------------------------- |
 | Issue Service   | https://api.bytebase.com/#/tag/issueservice   |
