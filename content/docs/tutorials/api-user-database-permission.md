@@ -1,27 +1,25 @@
 ---
-title: Building a Database Permission Monitor with Bytebase API
+title: Inspect User and Database Permission with Bytebase API
 author: Ningjing
 updated_at: 2024/09/12 18:00
 tags: Tutorial
 integrations: General, API
 level: Advanced
 estimated_time: '40 mins'
-description: 'Learn how to use the Bytebase API to monitor database permissions, including user access and database accessibility.'
+description: 'Learn how to use the Bytebase API to inspect user and database permissions.'
 ---
 
 Bytebase is a database DevOps and CI/CD tool designed for developers, DBAs, and platform engineering teams. While it offers an intuitive GUI for managing database schema changes and access control, some teams may want to integrate Bytebase into their existing DevOps platforms using the [Bytebase API](/docs/api/overview/).
 
-![before-after](/content/docs/tutorials/api-permission/api-permission.webp)
+![before-after](/content/docs/tutorials/api-user-database-permission/api-permission.webp)
 
-In our [previous tutorial](/docs/tutorials/api), we demonstrated how to create a schema change using the Bytebase API. This tutorial will focus on monitoring database permissions in Bytebase, it's OK if you haven't gone through the previous tutorial.
+In our [previous tutorial](/docs/tutorials/api), we demonstrated how to create a schema change using the Bytebase API. This tutorial will focus on inspect user and database permissions in Bytebase, it's OK if you haven't gone through the previous tutorial.
 
 By following this guide, you'll learn how to:
 
-- Set up and configure API access
-- Fetch users with specific permissions for a given database
-- Fetch databases for a specific user with given permissions
-
-Let's dive in and explore how to effectively manage Bytebase API permissions for your team's needs.
+- Set up and configure API access.
+- Fetch users with specific permissions for a given database.
+- Fetch databases for a specific user with given permissions.
 
 <HintBlock type="info">
 
@@ -43,7 +41,7 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
 1. Bytebase is now running via Docker, and you can access it via `localhost:8080`. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
 
 1. Log in as the admin user, and go to **Security & Policy > Users & Groups**. Click **+ Add User**, fill in with `api-example`, choose the `DBA` role that is sufficient for this tutorial and click **Confirm**.
-   ![service-account-create](/content/docs/tutorials/api-permission/bb-add-service-account.webp)
+   ![service-account-create](/content/docs/tutorials/api-user-database-permission/bb-add-service-account.webp)
 
 1. Find the newly created service account and click on **Copy Service Key**. We will use this token to authenticate the API calls.
    ![service-account-key](/content/docs/tutorials/api/service-account-key.webp)
@@ -64,7 +62,7 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
    ```
 
 1. Open the demo in your browser, you'll see the following page.
-   ![api-permission-home](/content/docs/tutorials/api-permission/api-permission-demo.webp)
+   ![api-permission-home](/content/docs/tutorials/api-user-database-permission/api-permission-demo.webp)
 
 1. To enhance the demo's realism, go to Bytebase and add more users and set up user permissions:
    - Add new users in **Security & Policy > Users & Groups**
@@ -72,7 +70,7 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
      - For workspace-level access: **Security & Policy > Members & Roles**
      - For project-specific access: Navigate to a project and use **Manage > Members**
 
-## Implementing Permission Checks
+## Inspecting Permissions
 
 ### Database + Permission => Users
 
@@ -243,9 +241,9 @@ By following these steps, you can effectively identify all databases a specific 
 
 ## Summary
 
-Congratulations! You've successfully created a database permission monitoring tool using the Bytebase API. This monitor allows you to:
+Congratulations! You've successfully created a user and database permission inspection tool using the Bytebase API. This allows you to:
 
-1. Track which users have access to specific databases
-1. Monitor which databases a particular user can access
+1. Inspect which users have access to specific databases.
+1. Inspect which databases a particular user can access.
 
-By leveraging these API calls within existing DevOps platforms, organizations can significantly improve their database access governance and security posture.
+By leveraging these API calls within existing DevOps platforms, organizations can improve their database access governance and security posture.
