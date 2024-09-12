@@ -4,22 +4,27 @@ title: Add an Instance
 
 `Database Instance` or simply `Instance` models after a single database server which is usually accessed via a host:port address. A typical database instance could be your on-premises MySQL instance, an AWS RDS instance etc. Each `Database Instance` belongs to an `Environment`.
 
-
 ## Prerequisites
 
 - **Workspace Admin** or **Workspace DBA** role
 
 - Bytebase provides two embedded sample PostgreSQL instances. You may add your own or [add a local MySQL instance](/docs/tutorials/local-mysql-instance).
 
-  ![bb-instances](/content/docs/get-started/step-by-step/add-an-instance/bb-instances.webp)
-
-
 ## Add instance
+
+Go to **Instances** and **Add Instance**.
 
 ![bb-instances](/content/docs/get-started/step-by-step/add-an-instance/bb-instances.webp)
 
 ![bb-instances-2](/content/docs/get-started/step-by-step/add-an-instance/bb-instances-2.webp)
 
-For **Host or socket**, the screenshot assumes you run Bytebase inside Docker and try to connect to a database instance on the same host, thus it uses `host.docker.internal`. Check out [Configure Instance Connection](/docs/get-started/instance) for the detailed configuration guide.
+For **Host or socket**, the screenshot assumes you run Bytebase inside Docker and try to connect to a database instance on the same host, thus it uses `host.docker.internal`. Check out [Instance Connection Configuration](/docs/get-started/instance) for the detailed guide.
 
-Click **Sync** and **Assign License**. Go to **Databases** to assign a project to your newly-created instances.
+## Sync instance
+
+After instance is added, click **Sync Now** to synchronize the instance schema such as its containing databases to Bytebase.
+
+![bb-instance-sync](/content/docs/get-started/step-by-step/add-an-instance/bb-instance-sync.webp)
+
+By default, Bytebase doesn't automatically sync the instance schema. You can set a **Scan Interval** to ask Bytebase
+to sync the schema periodically.

@@ -8,9 +8,15 @@ In Bytebase, A **Database** or an **Issue** always belongs to a single **Project
 
 Make sure you have configured environments, instances, and members properly at the workspace level.
 
+## Create project
+
+Go to **Projects** and click **New Project**.
+
+![create-project](/content/docs/get-started/step-by-step/create-a-project/create-project.webp)
+
 ## Prepare a database in the project
 
-Bytebase periodically syncs the databases' info for all managed instances. To make changes to a database, you need to place it in a user project first. A new project is still empty right after it's created, you need to fill it with some Databases.
+To make changes to a database, you need to place it in a project first. Once a project is created, you need to fill it with some Databases.
 
 Go to the project page where you can **create a new database** or **transfer an existing database into the project**.
 
@@ -20,8 +26,9 @@ Go to the project page where you can **create a new database** or **transfer an 
 
 ## Manage the members in the project
 
-A project is only visible to its related **users**.
+A project is only visible to its related **users**. The project creator assumes `Project Owner`role and
+can manage project members.
 
-Go to the project page. Click **Manage** > **Members** on the left sidebar, where you're `Project Owner` by default. **Grant Access** to add new project members from workspace level accounts. You can assign project-level roles to the members. You can also click the pencil icon of a certain member to **Grant Access**.
+Go to the project page. Click **Manage** > **Members** on the left sidebar. **Grant Access** to add new project members from workspace level accounts. You can assign project-level roles to the members.
 
 ![grant-access](/content/docs/get-started/step-by-step/create-a-project/grant-access.webp)

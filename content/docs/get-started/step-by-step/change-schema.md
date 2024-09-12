@@ -4,38 +4,40 @@ title: Make a Database Schema Change
 
 **Issues** represents a collaboration between developer and DBA (like creating a database or altering a schema). It's similar to the issue concept in other issue management tools.
 
-Bytebase supports **Edit Schema** (DDL) and **Change Data** (DML). Taking **Edit Schema** as an example, this doc guides you to run a SQL UI Workflow in a project. 
-
-Make sure you have a project with databases and members.
+Issue drives the database change workflow covering `Database Creation`, `DDL` and `DML`.
 
 ## Create an issue
 
 Go to your project page, choose one or several databases to **Edit Schema**.
 
-E.g If you chose one. In **Schema Editor**, you can operate directly on databases or tables without coding. E.g. add a new table or a new column. In **Raw SQL**, **Sync SQL from Schema Editor** and you'll see your operation by code. You can also operate other schema changes.
+You may use the **Schema Editor** to visually design the schema.
 
-![edit-schema-1](/content/docs/get-started/step-by-step/change-schema/edit-schema-1.webp)
-    
-![edit-schema-2](/content/docs/get-started/step-by-step/change-schema/edit-schema-2.webp)
-    
-![edit-schema-3](/content/docs/get-started/step-by-step/change-schema/edit-schema-3.webp)
+![schema-editor](/content/docs/get-started/step-by-step/change-schema/schema-editor.webp)
 
-Checks will run automatically. If any check fails, fix the error and **Retry**. You can move on when all checks pass.
+Alternatively, you can switch to the **Raw SQL** mode. You can sync the raw SQL from the schema editor or supply your own
+SQL statements.
 
-If you chose several: code in the **SQL** section, then **Create** and **Rollout**.
+![raw-sql](/content/docs/get-started/step-by-step/change-schema/raw-sql.webp)
+
+Once you finish writing the SQL, click **Preview issue**.
+
+![preview-issue](/content/docs/get-started/step-by-step/change-schema/preview-issue.webp)
+
+By default, Bytebase will create a **Rollout issue**. You can check **SQL Review Only** to create a review-only issue.
 
 ## Rollout an issue
 
-If there's a SQL review warning, you may fix it by editing SQL then **Rollout**, or click **Rollout** and then **Rollout anyway**.
+![rollout-issue](/content/docs/get-started/step-by-step/change-schema/rollout-issue.webp)
 
-After rolling out, the issue is able to **Resolve**, meaning it's `Done`.
+If there's a [SQL review](/docs/sql-review/overview) warning, you may need to fix it first.
 
-## Summary
+A issue may also require one or multiple manual approvals. Once all approvals are granted, the issue
+can be rolled out.
 
-Here's a graph showing the full four steps of issues.
+## Issue lifecycle
 
-![graph-4-steps](/content/docs/get-started/step-by-step/change-schema/graph-4-steps.webp)
+Here's a graph demonstrating the issue lifecycle.
 
-Since for now, you haven't configured [Custom Approval](/docs/administration/custom-approval/), the approval process will be skipped. You haven't configured [Rollout Policy](/docs/administration/environment-policy/rollout-policy/), unless there is something wrong with the auto checks, the issue will be rolled out automatically.
+![issue-lifecycle](/content/docs/get-started/step-by-step/change-schema/issue-lifecycle.webp)
 
-Now you have completed the basic UI workflow to change database. There is another more advanced workflow - GitOps workflow. If you want to try **Database-as-Code** - [Run a GitOps Workflow](/docs/vcs-integration/overview).
+Bytebase supports 2 change workflow, **UI** and **GitOps**. Check [Database Change Workflow](/docs/change-database/change-workflow/) for further details.

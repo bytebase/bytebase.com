@@ -2,7 +2,7 @@
 title: Query Data
 ---
 
-Bytebase also provides a web-based SQL Editor to access control, data masking, audit logging, etc.
+Bytebase also provides a web-based SQL Editor for querying data. Unlike traditional client-side SQL clients, this server-side SQL Editor allows you to enable data access control, data masking, audit logging, etc.
 
 ## Access SQL Editor
 
