@@ -21,10 +21,8 @@ const TutorialLayout = ({ posts, filters, children }: TutorialLayoutProps) => {
   const filteredItems = useMemo(() => {
     let filteredPosts = posts;
     if (activeFilters.length > 0) {
-      filteredPosts = posts.filter(
-        (post) =>
-          post.pinned ||
-          post.integrations?.split(', ').some((integration) => activeFilters.includes(integration)),
+      filteredPosts = posts.filter((post) =>
+        post.integrations?.split(', ').some((integration) => activeFilters.includes(integration)),
       );
     }
 
