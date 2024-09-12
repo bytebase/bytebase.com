@@ -1,7 +1,7 @@
 ---
 title: Top 5 Text2SQL AI SQL in 2024
 author: Dec
-published_at: 2024/09/11 12:12:12
+updated_at: 2024/09/11 12:12:12
 feature_image: /content/blog/top-text-to-sql-ai-sql-client-2024/banner.webp
 tags: Industry
 featured: true
@@ -67,3 +67,5 @@ Postgres.new is an in-browser PostgreSQL sandbox with AI assistance. It allows u
 ![](/content/blog/top-text-to-sql-ai-sql-client-2024/postgresnew.webp)
 
 [Postgres.new](https://postgres.new/) is currently in early alpha with limited functionality and lacks mobile support. It may have limitations compared to a full native PostgreSQL installation.
+
+SQL AI tools improve efficiency, make it easier to interact with databases. Although they also use state-of-the-art natural language processing models, the results may sometimes be inaccurate. If you want to use them in production, make sure to double-check before you hit RUN.
