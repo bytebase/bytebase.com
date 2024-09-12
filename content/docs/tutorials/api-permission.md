@@ -1,12 +1,12 @@
 ---
 title: Building a Database Permission Monitor with Bytebase API
 author: Ningjing
-published_at: 2024/09/12 18:00
+updated_at: 2024/09/12 18:00
 tags: Tutorial
 integrations: General
 level: Advanced
 estimated_time: '40 mins'
-description: "Learn how to use the Bytebase API to fetch and show database permissions, including user access and database accessibility."
+description: "Learn how to use the Bytebase API to monitor database permissions, including user access and database accessibility."
 ---
 
 Bytebase is a database DevOps and CI/CD tool designed for developers, DBAs, and platform engineering teams. While it offers an intuitive GUI for managing database schema changes and access control, some teams may want to integrate Bytebase into their existing DevOps platforms using the Bytebase API.
