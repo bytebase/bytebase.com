@@ -6,10 +6,10 @@ tags: Tutorial
 integrations: General, API
 level: Advanced
 estimated_time: '40 mins'
-description: "Learn how to use the Bytebase API to monitor database permissions, including user access and database accessibility."
+description: 'Learn how to use the Bytebase API to monitor database permissions, including user access and database accessibility.'
 ---
 
-Bytebase is a database DevOps and CI/CD tool designed for developers, DBAs, and platform engineering teams. While it offers an intuitive GUI for managing database schema changes and access control, some teams may want to integrate Bytebase into their existing DevOps platforms using the Bytebase API.
+Bytebase is a database DevOps and CI/CD tool designed for developers, DBAs, and platform engineering teams. While it offers an intuitive GUI for managing database schema changes and access control, some teams may want to integrate Bytebase into their existing DevOps platforms using the [Bytebase API](/docs/api/overview/).
 
 ![before-after](/content/docs/tutorials/api-permission/api-permission.webp)
 
@@ -25,7 +25,7 @@ Let's dive in and explore how to effectively manage Bytebase API permissions for
 
 <HintBlock type="info">
 
-The API example repository is at https://github.com/bytebase/api-example
+This tutorial code repository is at https://github.com/bytebase/api-example/tree/main/permission-check
 
 </HintBlock>
 
@@ -89,6 +89,7 @@ Let's dig into the code:
    ```
 
 1. Bytebase has two levels of Identity Access Management (IAM): **Workspace** and **Project**. We fetch both:
+
    - Workspace-level IAM: `/v1/workspaces/*:getIamPolicy` API
    - Project-level IAM: `/v1/projects/${shortproject}:getIamPolicy` API
 
@@ -96,26 +97,26 @@ Let's dig into the code:
 
    ```json
    {
-      "role": "roles/workspaceDBA",
-      "members": [
-         "user:api-sample@service.bytebase.com",
-         "user:a@bytebase.com",
-         "user:admin2@x.com"
-      ],
-      "condition": {
-         "expression": "",
-         "title": "",
-         "description": "",
-         "location": ""
-      },
-      "parsedExpr": null
+     "role": "roles/workspaceDBA",
+     "members": [
+       "user:api-sample@service.bytebase.com",
+       "user:a@bytebase.com",
+       "user:admin2@x.com"
+     ],
+     "condition": {
+       "expression": "",
+       "title": "",
+       "description": "",
+       "location": ""
+     },
+     "parsedExpr": null
    }
    ```
 
 1. We compare the roles with the given IAM to find matches:
 
    ```javascript
-   rolesWithPermission.some((role) => role.name === iam.role)
+   rolesWithPermission.some((role) => role.name === iam.role);
    ```
 
 1. Some project-level IAM objects include a `condition` field for fine-grained access control. For example:
@@ -135,7 +136,7 @@ Let's dig into the code:
 
    This grants the `projectQuerier` role only for the `hr_test` database in `test-sample-instance`.
 
-1. When processing IAM policies, handle CEL (Common Expression Language) format conditions carefully. In this demo, we parse these conditions using a custom `parseCelExpression` function:
+1. When processing IAM policies, handle [CEL (Common Expression Language)](https://cel.dev/) format conditions carefully. In this demo, we parse these conditions using a custom `parseCelExpression` function:
 
    ```javascript
    const celValue = await parseCelExpression(iam.condition.expression);
@@ -149,12 +150,12 @@ Let's dig into the code:
 
    ```javascript
    for (let dbrs of celValue.databaseResources) {
-      if (dbrs.databaseName == database) {
-         return iam.members.map(member => ({ member, expiredTime }));
-      }
+     if (dbrs.databaseName == database) {
+       return iam.members.map((member) => ({ member, expiredTime }));
+     }
    }
    ```
- 
+
 1. The `members` array may include both users and groups. To handle groups, use the `v1/groups` API:
 
    ```json
@@ -186,26 +187,34 @@ The right side form demonstrates a scenario where you have a user and want to mo
    ```javascript
    const hasUserWorkspacePermission = (rolesWithPermission, rolesToBeMatched) => {
      if (rolesToBeMatched.length === 0) return false;
-     return rolesToBeMatched.some(roleToBeMatched => 
-       rolesWithPermission.some(roleWithPermission => 
-         roleWithPermission.name === roleToBeMatched.role &&
-         roleToBeMatched.members.includes(`user:${user}`)
-       )
+     return rolesToBeMatched.some((roleToBeMatched) =>
+       rolesWithPermission.some(
+         (roleWithPermission) =>
+           roleWithPermission.name === roleToBeMatched.role &&
+           roleToBeMatched.members.includes(`user:${user}`),
+       ),
      );
    };
    ```
 
    - Project-level check:
-  
+
    ```javascript
    for (const project of allProjects) {
-     const projectIamData = await fetchData(`/api/projectiam/${encodeURIComponent(project.name.split("/")[1])}`);
-     const userHasMatchedRoles = getUserProjectPermissionRoles(rolesWithPermission, projectIamData.bindings, userGroups.length > 0, project.name);
+     const projectIamData = await fetchData(
+       `/api/projectiam/${encodeURIComponent(project.name.split('/')[1])}`,
+     );
+     const userHasMatchedRoles = getUserProjectPermissionRoles(
+       rolesWithPermission,
+       projectIamData.bindings,
+       userGroups.length > 0,
+       project.name,
+     );
      // ... process matched roles
    }
    ```
 
-1. Handle CEL (Common Expression Language) conditions:
+1. Handle CEL conditions:
 
    ```javascript
    if (role.condition && role.condition.expression === '') {
@@ -219,13 +228,15 @@ The right side form demonstrates a scenario where you have a user and want to mo
 1. Group should be taken into consideration too.
 
    ```javascript
-         return refinedRolesToBeMatched.filter(roleToBeMatched => {
-            const memberMatch = roleToBeMatched.members.includes(`user:${user}`);
-            const groupMatch = hasGroups && userGroups.some(group => 
-                roleToBeMatched.members.includes(group.replace('groups/', 'group:'))
-            );
-            return memberMatch || groupMatch;
-        });
+   return refinedRolesToBeMatched.filter((roleToBeMatched) => {
+     const memberMatch = roleToBeMatched.members.includes(`user:${user}`);
+     const groupMatch =
+       hasGroups &&
+       userGroups.some((group) =>
+         roleToBeMatched.members.includes(group.replace('groups/', 'group:')),
+       );
+     return memberMatch || groupMatch;
+   });
    ```
 
 By following these steps, you can effectively identify all databases a specific user has access to, taking into account various permission levels and conditions.

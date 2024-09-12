@@ -23,7 +23,7 @@ By following the step-by-step instructions provided, you will have the opportuni
 
 <HintBlock type="info">
 
-The API example repository is at https://github.com/bytebase/api-example
+This tutorial code repository is at https://github.com/bytebase/api-example/issue-creation
 
 </HintBlock>
 
