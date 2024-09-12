@@ -20,6 +20,7 @@ import SpannerIcon from '@/svgs/spanner.inline.svg';
 import TerraformIcon from '@/svgs/terraform.inline.svg';
 import TidbIcon from '@/svgs/tidb.inline.svg';
 import MySQLIcon from '@/svgs/mysql.inline.svg';
+import APIIcon from '@/svgs/api.inline.svg';
 
 const allIntegrations: { [key: string]: React.FunctionComponent<React.SVGProps<SVGSVGElement>> } = {
   aurora: AuroraIcon,
@@ -40,6 +41,7 @@ const allIntegrations: { [key: string]: React.FunctionComponent<React.SVGProps<S
   mongodb: MongoDBIcon,
   mysql: MySQLIcon,
   mariadb: MariaDBIcon,
+  api: APIIcon,
 };
 
 type PostsProps = {

@@ -3,7 +3,7 @@ title: Building a Database Permission Monitor with Bytebase API
 author: Ningjing
 updated_at: 2024/09/12 18:00
 tags: Tutorial
-integrations: General
+integrations: General, API
 level: Advanced
 estimated_time: '40 mins'
 description: "Learn how to use the Bytebase API to monitor database permissions, including user access and database accessibility."
