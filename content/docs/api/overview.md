@@ -2,7 +2,7 @@
 title: Overview
 ---
 
-<TutorialBlock url="/docs/tutorials/api" title="Deploy Schema Migration with Bytebase API" />
+<TutorialBlock url="/docs/tutorials/api-issue" title="Deploy Schema Migration with Bytebase API" />
 
 <HintBlock type="info">
 

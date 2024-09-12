@@ -32,23 +32,13 @@ This tutorial code repository is at https://github.com/bytebase/api-example/issu
 1. [Docker](https://www.docker.com/) installed
 2. Node.js >= v18
 
-## Start Bytebase and prepare the accounts
+## Start Bytebase
 
-1. Make sure your Docker daemon is running. Copy and paste the commands to start Bytebase.
+<IncludeBlock url="/docs/tutorials/share/start-bytebase"></IncludeBlock>
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
+## Create Service Account
 
-1. Bytebase is now running via Docker, and you can access it via `localhost:8080`. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
-
-1. Log in as the admin user, click on the gear icon on the top right corner and click on **Workspace** > **Members**.
-
-1. Turn on **Create as service account**, fill in with `api-example`, choose the `DBA` role that is sufficient for this tutorial and click **Add**.
-   ![service-account-create](/content/docs/tutorials/api-issue/service-account-create.webp)
-
-1. Find the newly created service account in the **Active members** section and click on **Copy Service Key**. We will use this token to authenticate the API calls.
-   ![service-account-key](/content/docs/tutorials/api-issue/service-account-key.webp)
-
-1. Click **Select Project** on the top bar, and you'll see there's a sample project called **Sample Project**. Click on it to enter the project page, there are two databases: `hr_prod` and `hr_test`.
+<IncludeBlock url="/docs/tutorials/share/create-service-account"></IncludeBlock>
 
 ## Create a schema change in Bytebase Console
 

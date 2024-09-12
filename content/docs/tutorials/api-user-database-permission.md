@@ -1,5 +1,5 @@
 ---
-title: Inspect User and Database Permission with Bytebase API
+title: Inspect User and Database Permissions with Bytebase API
 author: Ningjing
 updated_at: 2024/09/12 18:00
 tags: Tutorial
@@ -13,7 +13,7 @@ Bytebase is a database DevOps and CI/CD tool designed for developers, DBAs, and 
 
 ![before-after](/content/docs/tutorials/api-user-database-permission/api-permission.webp)
 
-In our [previous tutorial](/docs/tutorials/api), we demonstrated how to create a schema change using the Bytebase API. This tutorial will focus on inspect user and database permissions in Bytebase, it's OK if you haven't gone through the previous tutorial.
+In our [previous tutorial](/docs/tutorials/api-issue), we demonstrated how to create a schema change using the Bytebase API. This tutorial will focus on inspect user and database permissions in Bytebase, it's OK if you haven't gone through the previous tutorial.
 
 By following this guide, you'll learn how to:
 
@@ -32,19 +32,15 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
 1. [Docker](https://www.docker.com/) installed
 1. Node.js >= v18
 
-## Start Bytebase and Prepare the Accounts
+## Start Bytebase
 
-1. Make sure your Docker daemon is running. Copy and paste the commands to start Bytebase.
+<IncludeBlock url="/docs/tutorials/share/start-bytebase"></IncludeBlock>
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
+## Create Service Account
 
-1. Bytebase is now running via Docker, and you can access it via `localhost:8080`. Register the first admin account which will be granted [`Workspace Admin`](/docs/concepts/roles-and-permissions).
+<IncludeBlock url="/docs/tutorials/share/create-service-account"></IncludeBlock>
 
-1. Log in as the admin user, and go to **Security & Policy > Users & Groups**. Click **+ Add User**, fill in with `api-example`, choose the `DBA` role that is sufficient for this tutorial and click **Confirm**.
-   ![service-account-create](/content/docs/tutorials/api-user-database-permission/bb-add-service-account.webp)
-
-1. Find the newly created service account and click on **Copy Service Key**. We will use this token to authenticate the API calls.
-   ![service-account-key](/content/docs/tutorials/api/service-account-key.webp)
+## Run Demo
 
 1. Go to [Bytebase API Example
    repo](https://github.com/bytebase/api-example) and clone it.
@@ -55,7 +51,7 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
    - `NEXT_PUBLIC_BB_SERVICE_ACCOUNT`: `api-example`
    - `NEXT_PUBLIC_BB_SERVICE_KEY`: service key copied in Step 2
 
-1. Enter `permission-check`, and run the following commands to start the demo application.
+1. Go to subfolder `permission-check`, and run the following commands to start the demo application.
 
    ```text
    pnpm i && pnpm dev
@@ -70,7 +66,7 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
      - For workspace-level access: **Security & Policy > Members & Roles**
      - For project-specific access: Navigate to a project and use **Manage > Members**
 
-## Inspecting Permissions
+## Inspect Permissions
 
 ### Database + Permission => Users
 
