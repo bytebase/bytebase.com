@@ -17,8 +17,13 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.rulers": [100],
-  "i18n-ally.localesPaths": ["src/locales", "data/locales"],
+  "editor.rulers": [
+    100
+  ],
+  "i18n-ally.localesPaths": [
+    "src/locales",
+    "data/locales"
+  ],
   "cSpell.words": [
     "bytebase",
     "Bytebase",
