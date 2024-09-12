@@ -67,14 +67,3 @@ Postgres.new is an in-browser PostgreSQL sandbox with AI assistance. It allows u
 ![](/content/blog/top-text-to-sql-ai-sql-client-2024/postgresnew.webp)
 
 [Postgres.new](https://postgres.new/) is currently in early alpha with limited functionality and lacks mobile support. It may have limitations compared to a full native PostgreSQL installation.
-
-## What We Think
-
-SQL AI tools improve efficiency, make it easier to interact with databases. Although they also use state-of-the-art natural language processing models, the results may sometimes be inaccurate. If you want to use them in production, make sure to double-check before you hit RUN.
-
-On the other hand, if you are not ready to jump to the AI ship, below are the traditional options for you:
-
-- [Top Open Source SQL Clients](/blog/top-open-source-sql-clients)
-- [Top Postgres GUI client](/blog/top-postgres-gui-client)
-- [Top MySQL GUI client](/blog/top-mysql-gui-client)
-- [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution)
