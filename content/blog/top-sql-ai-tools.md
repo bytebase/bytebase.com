@@ -8,6 +8,12 @@ featured: true
 description: If you work with data and databases, SQL AI tools can significantly improve your productivity and efficiency; if you want to start learning SQL, this is also an excellent way to get started.
 ---
 
+<HintBlock type="info">
+
+Check out [the 2024 edition](/blog/top-text-to-sql-ai-sql-client-2024/).
+
+</HintBlock>
+
 If you work with data and databases, SQL AI tools can significantly improve your productivity and efficiency. Say you are a data analyst, data scientist, developer, or DBA, wouldn't it be great to have SQL queries generated automatically from natural language input (perfect for data analysts!), or have query performance optimized? If you want to start learning SQL, this is also an excellent way to get started.
 
 Here we gathered some of the most popular SQL AI tools on the market.
