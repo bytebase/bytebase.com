@@ -66,7 +66,6 @@ Postgres.new is an in-browser PostgreSQL sandbox with AI assistance. It allows u
 
 ![](/content/blog/top-text-to-sql-ai-sql-client-2024/postgresnew.webp)
 
-
 [Postgres.new](https://postgres.new/) is currently in early alpha with limited functionality and lacks mobile support. It may have limitations compared to a full native PostgreSQL installation.
 
 ## What We Think
