@@ -11,7 +11,7 @@ description: 'Learn how to use the Bytebase API to inspect user and database per
 
 Bytebase is a database DevOps and CI/CD tool designed for developers, DBAs, and platform engineering teams. While it offers an intuitive GUI for managing database schema changes and access control, some teams may want to integrate Bytebase into their existing DevOps platforms using the [Bytebase API](/docs/api/overview/).
 
-![before-after](/content/docs/tutorials/api-user-database-permission/api-permission.webp)
+![before-after](/content/docs/tutorials/api-user-database-permission/api-user-db-permission.webp)
 
 In our [previous tutorial](/docs/tutorials/api-issue), we demonstrated how to create a schema change using the Bytebase API. This tutorial will focus on inspect user and database permissions in Bytebase, it's OK if you haven't gone through the previous tutorial.
 
@@ -49,7 +49,7 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
 
    - `NEXT_PUBLIC_BB_URL`: `http://localhost:8080`
    - `NEXT_PUBLIC_BB_SERVICE_ACCOUNT`: `api-example`
-   - `NEXT_PUBLIC_BB_SERVICE_KEY`: service key copied in Step 2
+   - `NEXT_PUBLIC_BB_SERVICE_KEY`: service key copied in previous step
 
 1. Go to subfolder `permission-check`, and run the following commands to start the demo application.
 
@@ -70,11 +70,12 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
 
 ### Database + Permission => Users
 
-The left side form demonstrates a scenario where you have a **database** and want to monitor who has access to it. This is useful for continuously tracking access to sensitive databases and ensuring only authorized users have permissions.
+The left side form demonstrates a scenario where you have a **database** and want to inspect who has access to it. This is useful for continuously tracking access to sensitive databases and ensuring only authorized users have permissions.
+![demo-db-user](/content/docs/tutorials/api-user-database-permission/demo-db-user.webp)
 
 Let's dig into the code:
 
-1. In `page.tsx`, we fetch all roles by calling the `/v1/roles` API before any user selection.
+1. In `page.tsx`, we fetch all roles by calling the [/v1/roles](https://api.bytebase.com/#tag/roleservice/GET/v1/roles) API before any user selection.
 
 1. In `db-fetch-user-permission.tsx`, after the user selects a **project**, **database**, and **permission**, we filter the roles with the given permission:
 
@@ -84,8 +85,8 @@ Let's dig into the code:
 
 1. Bytebase has two levels of Identity Access Management (IAM): **Workspace** and **Project**. We fetch both:
 
-   - Workspace-level IAM: `/v1/workspaces/*:getIamPolicy` API
-   - Project-level IAM: `/v1/projects/${shortproject}:getIamPolicy` API
+   - Workspace-level IAM: [/v1/workspaces/*:getIamPolicy](https://api.bytebase.com/#tag/workspaceservice/GET/v1/workspaces/{workspace}:getIamPolicy) API
+   - Project-level IAM: [/v1/projects/PROJECT_ID:getIamPolicy](https://api.bytebase.com/#tag/projectservice/GET/v1/projects/{project}:getIamPolicy) API
 
    The IAM object structure varies slightly between levels. Here's an example of a workspace-level IAM:
 
@@ -136,9 +137,7 @@ Let's dig into the code:
    const celValue = await parseCelExpression(iam.condition.expression);
    ```
 
-   This function, adapted from Bytebase's [cel plugin](https://github.com/bytebase/bytebase/tree/main/frontend/src/plugins/cel) and [cel.ts](https://github.com/bytebase/bytebase/blob/main/frontend/src/utils/issue/cel.ts), parses the condition expression string and returns an array of database resources along with their expiration times.
-
-   The `parseCelExpression` function and related CEL parsing logic are implemented in a custom `plugins/cel` folder in the demo project.
+    This function `parseCelExpression`, adapted from Bytebase's [CEL plugin](https://github.com/bytebase/bytebase/tree/main/frontend/src/plugins/cel) and [cel.ts](https://github.com/bytebase/bytebase/blob/main/frontend/src/utils/issue/cel.ts), parses the condition expression string. It is primarily based on the `convertFromCELString` function in [cel.ts](https://github.com/bytebase/bytebase/blob/main/frontend/src/utils/issue/cel.ts), though you could use `convertFromExpr` to create your own. The function returns an array of database resources with their associated expiration times. This function and related CEL parsing logic are implemented in a custom `plugins/cel` folder within the demo project.
 
 1. We then check if the conditions are met for the specific database:
 
@@ -150,7 +149,7 @@ Let's dig into the code:
    }
    ```
 
-1. The `members` array may include both users and groups. To handle groups, use the `v1/groups` API:
+1. The `members` array may include both users and groups. To handle groups, use the [v1/groups](https://api.bytebase.com/#tag/groupservice/GET/v1/groups) API:
 
    ```json
    {
@@ -164,9 +163,11 @@ By following these steps, you can effectively determine which users have access 
 
 ### User + Permission => Databases
 
-The right side form demonstrates a scenario where you have a user and want to monitor which databases they have access to. This is useful for ongoing tracking of user permissions, especially when roles change or users leave the company.
+The right side form demonstrates a scenario where you have a **user** and want to inspect which databases they have access to. This is useful for ongoing tracking of user permissions, especially when roles change or users leave the company.
 
-1. Fetch all roles using the `/v1/roles` API in `page.tsx`.
+![demo-user-db](/content/docs/tutorials/api-user-database-permission/demo-user-db.webp)
+
+1. Fetch all roles using the [/v1/roles](https://api.bytebase.com/#tag/roleservice/GET/v1/roles) API in `page.tsx`.
 
 1. In `user-fetch-db-permission.tsx`, filter roles based on the selected permission:
 
