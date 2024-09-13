@@ -116,6 +116,7 @@ work around this by configuring a [readonly connection](/docs/get-started/instan
 | OceanBase  | ✔️                 | ✔️                                                       |                                          |
 | RisingWave | ✔️                 | ✔️                                                       |                                          |
 | CockroachDB | ✔️                 | ✔️                                                       |                                          |
+
 ### Advanced Schema Management
 
 _Bytebase is trailblazing the schema management landscape. Each database engine requires non-trivial investment. If you are looking for a feature not supported in your database, please [contact us](/docs/faq/#how-to-reach-us)._
