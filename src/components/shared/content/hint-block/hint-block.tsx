@@ -45,7 +45,7 @@ const HintBlock = ({ type, children }: { type: 'info' | 'warning'; children: Rea
 
         <div
           className={clsx(
-            '-mt-2 space-y-2.5 !text-15 !leading-snug prose-p:my-2.5 prose-p:first:mt-0 prose-p:last:mb-0 prose-a:break-all md:-mt-2 sm:-mt-3 sm:!text-14 sm:leading-snug',
+            '-mt-2 max-w-[calc(100%-2em)] space-y-2.5 !text-15 !leading-snug prose-p:my-2.5 prose-p:first:mt-0 prose-p:last:mb-0 prose-a:break-all md:-mt-2 sm:-mt-3 sm:!text-14 sm:leading-snug',
             typeClassNames[type].text,
           )}
         >
