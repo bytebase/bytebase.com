@@ -25,6 +25,8 @@ Bytebase officially supports the following major versions for each supported dat
 - BigQuery
 - DynamoDB
 - Databricks
+- CockroachDB - 24.1 and above, PostgreSQL compatible syntax supported only.
+
 
 Bytebase usually works fine with older database versions, we just won't support features specific to those older versions. We may add other open source databases in the future.
 
@@ -48,6 +50,7 @@ Bytebase usually works fine with older database versions, we just won't support 
 | MariaDB    | ✔️                                                                  | ✔️                                                                          | ✔️                             | ✔️                                                 | ✔️                                         |                                                                |
 | OceanBase  | ✔️                                                                  | ✔️                                                                          | ✔️                             | ✔️                                                 | ✔️                                         |                                                                |
 | RisingWave | ✔️                                                                  | ✔️                                                                          | ✔️                             | ✔️                                                 |                                            |                                                                |
+| CockroachDB| ✔️                                                                  | ✔️                                                                          | ✔️                             | ✔️                                                 |                                            |                                                                |
 
 _\* Data Rollback supports `UPDATE` and `DELETE` statements._
 
@@ -69,6 +72,7 @@ _\* Data Rollback supports `UPDATE` and `DELETE` statements._
 | MariaDB    | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                                     | ✔️                                       |
 | OceanBase  | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                                     | ✔️                                       |
 | RisingWave | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                                     | ✔️                                       |
+| CockroachDB | ✔️                                                      | ✔️                                         | ✔️                                        | ✔️                                                     | ✔️                                       |
 
 _\* Normally, Bytebase will block non-readonly statements in Query Mode. This is not supported in MongoDB and Redis. You can
 work around this by configuring a [readonly connection](/docs/get-started/instance/#configure-read-only-connection)._
@@ -91,6 +95,7 @@ work around this by configuring a [readonly connection](/docs/get-started/instan
 | MariaDB    | ✔️                                           | ✔️                                    | ✔️                                                                        | ✔️                                                     | ✔️                                       |
 | OceanBase  | ✔️                                           | ✔️                                    | ✔️                                                                        | ✔️                                                     | ✔️                                       |
 | RisingWave | ✔️                                           | ✔️                                    | ✔️                                                                        | ✔️                                                     |                                          |
+| CockroachDB | ✔️                                           | ✔️                                    | ✔️                                                                        | ✔️                                                     | ✔️                                       |
 
 ### Anomaly Detection
 
@@ -110,6 +115,7 @@ work around this by configuring a [readonly connection](/docs/get-started/instan
 | MariaDB    | ✔️                 | ✔️                                                       |                                          |
 | OceanBase  | ✔️                 | ✔️                                                       |                                          |
 | RisingWave | ✔️                 | ✔️                                                       |                                          |
+| CockroachDB | ✔️                 | ✔️                                                       |                                          |
 
 ### Advanced Schema Management
 
@@ -131,3 +137,4 @@ _Bytebase is trailblazing the schema management landscape. Each database engine 
 | MariaDB    |                                                                    |                                                      |                                                                                 |
 | OceanBase  |                                                                    |                                                      |                                                                                 |
 | RisingWave |                                                                    |                                                      |                                                                                 |
+CockroachDB |                                                                    |                                                      |                                                                                 |
