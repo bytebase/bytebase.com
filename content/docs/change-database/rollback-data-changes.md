@@ -26,6 +26,10 @@ Toggle **Prior Backup** switch. You can do this before or after creating the iss
 
 ![bb-prior-bk-on](/content/docs/change-database/rollback-data-changes/bb-prior-bk-on.webp)
 
+You can enable **Prior Backup** by default in the **Project Setting**.
+
+![prior-backup-default](/content/docs/change-database/rollback-data-changes/bb-prior-backup-default.webp)
+
 ## 1-click rollback
 
 1. Once the change has been rolled out. You can click the **Rollback** button to create the rollback issue.
