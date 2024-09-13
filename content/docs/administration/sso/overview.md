@@ -11,6 +11,10 @@ Bytebase supports the following standard protocols that provide SSO:
 - [OpenID Connect (OIDC)](/docs/administration/sso/oidc)
 - [Lightweight Directory Access Protocol (LDAP)](/docs/administration/sso/ldap)
 
+## Prerequisites
+
+Configure [External URL](/docs/get-started/install/external-url).
+
 ## Create SSO provider
 
 As a **Workspace Admin**, you can create a SSO provider with the following steps:

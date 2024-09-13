@@ -28,7 +28,12 @@ const cards: TCard[] = [
     buttonText: 'Deploy in 5 Minutes',
     buttonTheme: 'primary-outline',
     buttonLink: '/docs/get-started/self-host/#docker',
-    planConditions: ['Community support', 'Up to 20 users', 'Up to 10 database instances'],
+    planConditions: [
+      'Community support',
+      'Up to 20 users',
+      'Up to 10 database instances',
+      'SQL lint, GitOps, API',
+    ],
   },
   {
     image: '/images/page/pricing/team.webp',
@@ -44,7 +49,7 @@ const cards: TCard[] = [
       'Email support',
       'Unlimited users',
       'Up to 20 database instances',
-      'Rollout policy',
+      'Manual review, scheduled rollout',
     ],
   },
   {
@@ -60,8 +65,8 @@ const cards: TCard[] = [
       'SLA support',
       'Unlimited users',
       'Unlimited database instances',
-      'SSO and 2FA',
-      'Audit log',
+      'SSO, SCIM, 2FA, Audit log',
+      'Custom approval, dynamic data masking',
     ],
   },
 ];

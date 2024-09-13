@@ -195,6 +195,8 @@ expand_section_list: ['Self-host']
 
 #### [LDAP](/administration/sso/ldap)
 
+### [SCIM](/administration/scim/overview)
+
 ### [Two-Factor Authentication](/administration/2fa)
 
 ### [Sign-in Frequency](/administration/sign-in-frequency)

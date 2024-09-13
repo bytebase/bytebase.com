@@ -14,6 +14,7 @@ Bytebase supports following Git Providers:
 ## Prerequisites
 
 - You must be the **Workspace Admin** to add Git provider.
+- Configure [External URL](/docs/get-started/install/external-url).
 - You may also need the help of the selected Git provider admin to create the dedicated
   service user and the personal access token.
 
@@ -46,11 +47,10 @@ permissions/scopes.
 You can either create:
 
 1. A **personal** access token, and make sure it has access to the project:
-  ![gitlab](/content/docs/vcs-integration/add-git-provider/gitlab-access-token-personal.webp)
+   ![gitlab](/content/docs/vcs-integration/add-git-provider/gitlab-access-token-personal.webp)
 
 1. A **project** access token, you'll need at least `Maintainer` role:
-  ![gitlab](/content/docs/vcs-integration/add-git-provider/gitlab-access-token.webp)
-
+   ![gitlab](/content/docs/vcs-integration/add-git-provider/gitlab-access-token.webp)
 
 ## Bitbucket.org
 

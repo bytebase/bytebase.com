@@ -8,6 +8,7 @@ You must configure the correct External URL otherwise following features won't w
 
     - [VCS integration](/docs/vcs-integration/overview)
     - [SSO](/docs/administration/sso/overview)
+    - [SCIM](/docs/administration/scim/overview)
 
 You may also need to configure the additional GitOps Webhook URL if the public endpoint is different
 than the internal one.

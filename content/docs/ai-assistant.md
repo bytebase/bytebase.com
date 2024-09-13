@@ -1,6 +1,5 @@
 ---
 title: AI Assistant
-feature_name: AI_ASSISTANT
 ---
 
 AI Assistant uses OpenAPI to argument the database development.
