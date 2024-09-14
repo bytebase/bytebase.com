@@ -105,7 +105,7 @@ work around this by configuring a [readonly connection](/docs/get-started/instan
 | MariaDB     | ✔️                                           | ✔️                                    | ✔️                                                                        | ✔️                                                     | ✔️                                       |
 | OceanBase   | ✔️                                           | ✔️                                    | ✔️                                                                        | ✔️                                                     | ✔️                                       |
 | RisingWave  | ✔️                                           | ✔️                                    | ✔️                                                                        | ✔️                                                     |                                          |
-| CockroachDB | ✔️                                           | ✔️                                    | ✔️                                                                        | ✔️                                                     | ✔️                                       |
+| CockroachDB | ✔️                                           | ✔️                                    | ✔️                                                                        | ✔️                                                     |                                         |
 
 ### Anomaly Detection
 
