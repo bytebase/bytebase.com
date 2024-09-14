@@ -7,9 +7,9 @@ SCIM (System for Cross-domain Identity Management) is a standard for provisionin
 
 Bytebase implements SCIM 2.0 and provides built-in support for Entra ID (Azure AD).
 
-| IdP Provider        | User and group sync | Role sync | Sync Interval                                                                                                                                                                                 |
-| ------------------- | ------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Entra ID (Azure AD) | ✅                  | ❌        | [40 minutes](https://learn.microsoft.com/en-us/entra/identity/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) |
+| IdP                 | User                | Group                           | Role | Interval                                                                                                                                                                                      |
+| ------------------- | ------------------- | ------------------------------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Entra ID (Azure AD) | Sync name and email | Sync group email and membership | ❌   | [40 minutes](https://learn.microsoft.com/en-us/entra/identity/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) |
 
 ## Prerequisites
 
