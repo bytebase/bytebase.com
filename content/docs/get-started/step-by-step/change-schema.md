@@ -31,8 +31,7 @@ By default, Bytebase will create a **Rollout issue**. You can check **SQL Review
 
 If there's a [SQL review](/docs/sql-review/overview) warning, you may need to fix it first.
 
-A issue may also require one or multiple manual approvals. Once all approvals are granted, the issue
-can be rolled out.
+An issue may also require one or multiple manual approvals. Once all approvals are granted, the issue can be rolled out.
 
 ## Issue lifecycle
 

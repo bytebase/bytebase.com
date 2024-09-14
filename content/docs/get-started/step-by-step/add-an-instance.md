@@ -26,5 +26,4 @@ After instance is added, click **Sync Now** to synchronize the instance schema s
 
 ![bb-instance-sync](/content/docs/get-started/step-by-step/add-an-instance/bb-instance-sync.webp)
 
-By default, Bytebase doesn't automatically sync the instance schema. You can set a **Scan Interval** to ask Bytebase
-to sync the schema periodically.
+By default, Bytebase doesn't automatically sync the instance schema. You can set a **Scan Interval** to ask Bytebase to sync the schema periodically.
