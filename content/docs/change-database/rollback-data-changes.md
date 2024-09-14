@@ -20,20 +20,11 @@ Support `MySQL`, `PostgreSQL`, `Oracle`, `SQL Server`, applicable to `UPDATE` an
 | Oracle     | Create a `bbdataarchive` **database** on the instance where your database is located. | ✅               |
 | SQL Server | Create a `bbdataarchive` **database** on the instance where your database is located. | ❌               |
 
-## Project Backup Settings
-
-- You can enable **Prior Backup** by default.
-- You can control whether you want to skip backup errors and continue changing the data.
-
-![prior-backup-default](/content/docs/change-database/rollback-data-changes/bb-prior-backup-default.webp)
-
 ## Create backup
 
 You can toggle **Prior Backup** switch before or after creating the issue.
 
 ![bb-prior-bk-on](/content/docs/change-database/rollback-data-changes/bb-prior-bk-on.webp)
-
-In the **Project Setting**. You can enable **Prior Backup** by default
 
 ## 1-click rollback
 
@@ -57,3 +48,12 @@ If the DML change contains more than 5 statements, then all statements will be b
 ![bb-prior-bk-single-table-issue](/content/docs/change-database/rollback-data-changes/bb-prior-bk-single-table-issue.webp)
 
 ![bb-prior-bk-single-table](/content/docs/change-database/rollback-data-changes/bb-prior-bk-single-table.webp)
+
+## Project Backup Settings
+
+<PricingPlanBlock feature_name='ISSUE_SETTING' />
+
+- You can enable **Prior Backup** by default.
+- You can control whether you want to skip backup errors and continue changing the data.
+
+![prior-backup-default](/content/docs/change-database/rollback-data-changes/bb-prior-backup-default.webp)
