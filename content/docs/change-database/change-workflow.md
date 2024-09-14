@@ -20,6 +20,18 @@ Aka `Database-as-Code`. Database migration scripts are stored in a git repositor
 
 ![workflow-vcs](/content/docs/change-database/change-workflow/workflow-vcs.webp)
 
+## Review Center
+
+You can create a review-only ticket. Go to a particular project and click **Review Center**.
+
+![review-center](/content/docs/change-database/change-workflow/review-center.webp)
+
+If there are review errors, then you won't be able to create the rollout.
+
+![review-center-error](/content/docs/change-database/change-workflow/review-center-error.webp)
+
+![review-center-block-creation](/content/docs/change-database/change-workflow/review-center-block-creation.webp)
+
 ## Rollout Time
 
 <PricingPlanBlock feature_name='SCHEDULE_CHANGE' />
