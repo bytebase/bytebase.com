@@ -25,6 +25,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       schedule: false,
       'online-schema-change': false,
       'rollout-policy': { value: 'Basic', tooltip: 'Automatic' },
+      'issue-setting': { value: 'Basic', tooltip: 'Labels' },
       synchronize: { value: 'Basic', tooltip: 'Sync from the latest schema version' },
       'batch-change': { value: 'Basic', tooltip: 'Multi-environment change' },
       'custom-approval': false,
@@ -96,6 +97,10 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       schedule: true,
       'online-schema-change': true,
       'rollout-policy': { value: 'Advanced', tooltip: 'Automatic + Manual Review' },
+      'issue-setting': {
+        value: 'Advanced',
+        tooltip: 'Title, label enforcement, auto backup, auto resolve',
+      },
       synchronize: { value: 'Advanced', tooltip: 'Sync from arbitrary schema version' },
       'batch-change': { value: 'Basic', tooltip: 'Multi-environment change' },
       'custom-approval': false,
@@ -167,6 +172,10 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       schedule: true,
       'online-schema-change': true,
       'rollout-policy': { value: 'Advanced', tooltip: 'Automatic + Manual Review' },
+      'issue-setting': {
+        value: 'Advanced',
+        tooltip: 'Title, label enforcement, auto backup, auto resolve',
+      },
       synchronize: { value: 'Advanced', tooltip: 'Sync from arbitrary schema version' },
       'batch-change': {
         value: 'Advanced',
@@ -239,6 +248,7 @@ const LABELS = [
       schedule: 'Scheduled change at specific time',
       'online-schema-change': 'Online schema change',
       'rollout-policy': 'Rollout policy',
+      'issue-setting': 'Issue setting',
       synchronize: 'Synchronize schema between databases',
       'batch-change': 'Batch change',
       'custom-approval': 'Custom approval workflow',
