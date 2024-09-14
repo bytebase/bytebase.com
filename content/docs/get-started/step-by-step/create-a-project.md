@@ -26,8 +26,7 @@ Go to the project page where you can **create a new database** or **transfer an 
 
 ## Manage the members in the project
 
-A project is only visible to its related **users**. The project creator assumes `Project Owner`role and
-can manage project members.
+A project is only visible to its related **users**. The project creator assumes `Project Owner`role and can manage project members.
 
 Go to the project page. Click **Manage** > **Members** on the left sidebar. **Grant Access** to add new project members from workspace level accounts. You can assign project-level roles to the members.
 
