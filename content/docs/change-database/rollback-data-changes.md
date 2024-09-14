@@ -20,15 +20,20 @@ Support `MySQL`, `PostgreSQL`, `Oracle`, `SQL Server`, applicable to `UPDATE` an
 | Oracle     | Create a `bbdataarchive` **database** on the instance where your database is located. | ✅               |
 | SQL Server | Create a `bbdataarchive` **database** on the instance where your database is located. | ❌               |
 
+## Project Backup Settings
+
+- You can enable **Prior Backup** by default.
+- You can control whether you want to skip backup errors and continue changing the data.
+
+![prior-backup-default](/content/docs/change-database/rollback-data-changes/bb-prior-backup-default.webp)
+
 ## Create backup
 
-Toggle **Prior Backup** switch. You can do this before or after creating the issue.
+You can toggle **Prior Backup** switch before or after creating the issue.
 
 ![bb-prior-bk-on](/content/docs/change-database/rollback-data-changes/bb-prior-bk-on.webp)
 
-You can enable **Prior Backup** by default in the **Project Setting**.
-
-![prior-backup-default](/content/docs/change-database/rollback-data-changes/bb-prior-backup-default.webp)
+In the **Project Setting**. You can enable **Prior Backup** by default
 
 ## 1-click rollback
 
