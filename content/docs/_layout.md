@@ -181,6 +181,8 @@ expand_section_list: ['Self-host']
 
 ### [Back up Data](/administration/back-up-data)
 
+### [Database Change Mode](/administration/mode)
+
 ### [Environment Policy](/administration/environment-policy/overview)
 
 #### [Environment Tier](/administration/environment-policy/tier)
