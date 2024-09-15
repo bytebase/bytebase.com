@@ -1,18 +1,18 @@
 ---
 title: "Postgres vs. MySQL: a Complete Comparison in 2024"
 author: Tianzhou
-updated_at: 2024/01/11 12:00
+updated_at: 2024/09/16 12:00
 feature_image: /content/blog/postgres-vs-mysql/cover.webp
 tags: Industry
 featured: true
 description: 'An extensive comparison between Postgres and MySQL on performance, features, security,
-extensibility, usability, architecture, ecosystem and more.'
+extensibility, usability, architecture, ecosystem, industry best practices.'
 ---
 
 <HintBlock type="info">
 
 This post is updated regularly. For the impatience, jump to the [last section](#postgres-or-mysql) to
-see the comparison table.
+see the comparison table. The [References](#references) collects many industry best practices.
 
 </HintBlock>
 
@@ -245,18 +245,56 @@ lifecycle for both of them, please check out [Bytebase](/).
 
 ![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
 
-## Further Readings
+## References
 
-- [Postgres vs. MongoDB](/blog/postgres-vs-mongodb)
-- [PlanetScale vs. Neon](/blog/planetscale-vs-neon)
-- [Ask HN: It's 2023, how do you choose between MySQL and Postgres?](https://news.ycombinator.com/item?id=35906604)
-- [Why Uber Engineering Switched from Postgres to MySQL](https://www.uber.com/en-SG/blog/postgres-to-mysql-migration/)
-- [The Part of PostgreSQL We Hate the Most](https://ottertune.com/blog/the-part-of-postgresql-we-hate-the-most/)
-- [Leaving MySQL](https://news.ycombinator.com/item?id=29455852)
-- [Let's make PostgreSQL multi-threaded](https://www.postgresql.org/message-id/31cc6df9-53fe-3cd9-af5b-ac0d801163f4%40iki.fi)
-- [Transaction ID Wraparound in Postgres](https://blog.sentry.io/transaction-id-wraparound-in-postgres/)
-- [The biggest mistake Postgres ever made](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)
+### Scaling and Sharding
+
+- [Canva: From Zero to 50 Million Uploads per Day: Scaling Media at Canva - Nov 29, 2022](https://www.canva.dev/blog/engineering/from-zero-to-50-million-uploads-per-day-scaling-media-at-canva/)
+- [Figma: How Figma’s databases team lived to tell the scale (Postgres) - Mar 14, 2024](https://www.figma.com/blog/how-figmas-databases-team-lived-to-tell-the-scale/)
+- [GitHub: Partitioning GitHub’s relational databases to handle scale (MySQL) - Sep 27, 2021](https://github.blog/2021-09-27-partitioning-githubs-relational-databases-scale/)
+- [Instagram: Sharding & IDs at Instagram (Postgres) - Dec 30, 2012](https://instagram-engineering.com/sharding-ids-at-instagram-1cf5a71e5a5c)
+- [Notion: The Great Re-shard from Notion (Postgres) - July 17, 2023](https://www.notion.so/blog/the-great-re-shard)
+- [Notion: Herding elephants: Lessons learned from sharding Postgres at Notion - Oct 6, 2021](https://www.notion.so/blog/sharding-postgres-at-notion)
+- [Pinterest: Sharding Pinterest: How we scaled our MySQL fleet - Aug 17, 2015](https://medium.com/pinterest-engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f)
+- [Slack: Scaling Datastores at Slack with Vitess - Dec 1, 2020](https://slack.engineering/scaling-datastores-at-slack-with-vitess/)
+
+### Upgrading and Migration
+
+- [Airtable: Migrating Airtable to MySQL 8.0 - Jun 2, 2022](https://medium.com/airtable-eng/migrating-airtable-to-mysql-8-0-809f0398a493)
+- [GitHub: Upgrading GitHub.com to MySQL 8.0 - Dec 17, 2023](https://github.blog/2023-12-07-upgrading-github-com-to-mysql-8-0/)
+- [Klaviyo: Database Migration Service (Postgres) - Aug 29, 2023](https://klaviyo.tech/database-migration-service-case-study-1-6f9dd49d5855)
+- [Klaviyo: Database Migration Service (MySQL) - May 9, 2023](https://klaviyo.tech/database-migration-service-case-study-1-6f9dd49d5855)
+- [Retool: How Retool upgraded our 4 TB main application PostgreSQL database - Apr 15, 2022](https://retool.com/blog/how-we-upgraded-postgresql-database)
+
+### Automation
+
+- [GitHub: Automating MySQL schema migrations with GitHub Actions and more - Feb 14, 2020](https://github.blog/2020-02-14-automating-mysql-schema-migrations-with-github-actions-and-more/)
+- [Goldman Sachs: Introducing Obevo: Get Your Database SDLC under Control - Dec 1, 2017](https://www.infoq.com/articles/Obevo-Introduction/)
+
+### Tools
+
+#### SQL Client
+
 - [Top MySQL GUI client](/blog/top-mysql-gui-client)
 - [Top Postgres GUI client](/blog/top-postgres-gui-client)
 - [Top Open Source SQL Clients](/blog/top-open-source-sql-clients/)
+
+#### Schema Migration
+
 - [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)
+
+##### MySQL
+
+- [gh-ost](https://github.com/github/gh-ost)
+- [pt-online-schema-change](https://docs.percona.com/percona-toolkit/pt-online-schema-change.html)
+- [SB-OSC](https://github.com/sendbird/sb-osc)
+
+##### Postgres
+
+- [pgroll](https://github.com/xataio/pgroll)
+- [reshape](https://github.com/fabianlindfors/reshape)
+
+### Other Comparisons
+
+- [Postgres vs. MongoDB](/blog/postgres-vs-mongodb)
+- [PlanetScale vs. Neon](/blog/planetscale-vs-neon)
