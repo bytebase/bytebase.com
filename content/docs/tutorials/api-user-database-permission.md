@@ -18,8 +18,8 @@ In our [previous tutorial](/docs/tutorials/api-issue), we demonstrated how to cr
 By following this guide, you'll learn how to:
 
 - Set up and configure API access.
-- Fetch users with specific permissions for a given database.
-- Fetch databases for a specific user with given permissions.
+- For a given database, which users have been granted permissions?
+- For a given user, which databases have been granted permissions?
 
 <HintBlock type="info">
 
@@ -85,7 +85,7 @@ Let's dig into the code:
 
 1. Bytebase has two levels of Identity Access Management (IAM): **Workspace** and **Project**. We fetch both:
 
-   - Workspace-level IAM: [/v1/workspaces/*:getIamPolicy](https://api.bytebase.com/#tag/workspaceservice/GET/v1/workspaces/{workspace}:getIamPolicy) API
+   - Workspace-level IAM: [/v1/workspaces/\*:getIamPolicy](https://api.bytebase.com/#tag/workspaceservice/GET/v1/workspaces/{workspace}:getIamPolicy) API
    - Project-level IAM: [/v1/projects/PROJECT_ID:getIamPolicy](https://api.bytebase.com/#tag/projectservice/GET/v1/projects/{project}:getIamPolicy) API
 
    The IAM object structure varies slightly between levels. Here's an example of a workspace-level IAM:
@@ -137,7 +137,7 @@ Let's dig into the code:
    const celValue = await parseCelExpression(iam.condition.expression);
    ```
 
-    This function `parseCelExpression`, adapted from Bytebase's [CEL plugin](https://github.com/bytebase/bytebase/tree/main/frontend/src/plugins/cel) and [cel.ts](https://github.com/bytebase/bytebase/blob/main/frontend/src/utils/issue/cel.ts), parses the condition expression string. It is primarily based on the `convertFromCELString` function in [cel.ts](https://github.com/bytebase/bytebase/blob/main/frontend/src/utils/issue/cel.ts), though you could use `convertFromExpr` to create your own. The function returns an array of database resources with their associated expiration times. This function and related CEL parsing logic are implemented in a custom `plugins/cel` folder within the demo project.
+   This function `parseCelExpression`, adapted from Bytebase's [CEL plugin](https://github.com/bytebase/bytebase/tree/main/frontend/src/plugins/cel) and [cel.ts](https://github.com/bytebase/bytebase/blob/main/frontend/src/utils/issue/cel.ts), parses the condition expression string. It is primarily based on the `convertFromCELString` function in [cel.ts](https://github.com/bytebase/bytebase/blob/main/frontend/src/utils/issue/cel.ts), though you could use `convertFromExpr` to create your own. The function returns an array of database resources with their associated expiration times. This function and related CEL parsing logic are implemented in a custom `plugins/cel` folder within the demo project.
 
 1. We then check if the conditions are met for the specific database:
 
