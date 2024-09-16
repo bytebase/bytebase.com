@@ -1,23 +1,29 @@
 ---
-title: Top Database Schema Migration Tools to Avoid Change Outage 2023
+title: Top Database Schema Migration Tools to Avoid Change Outage 2024
 author: Mila
-updated_at: 2023/06/10 21:21:21
+updated_at: 2024/09/16 12:00:00
 feature_image: /content/blog/top-database-schema-change-tool-evolution/banner.webp
 tags: Industry
 featured: true
-description: Database schema migration have come a long way, from CLI to GUI, and all the way to GitOps/Database-as-Code. Let's review the state-of-the-art of database schema chanage / migration tools in 2023.
+description: Database schema migration have come a long way, from CLI to GUI, and all the way to GitOps/Database-as-Code. Let's review the state-of-the-art of database schema change / migration tools in 2023.
 ---
+
+<HintBlock type="info">
+
+This post is updated regularly.
+
+</HintBlock>
 
 This is a series of articles about database schema change / database schema migration:
 
 1. [What is a Database Schema?](/blog/what-is-database-schema)
 1. [What is a Database Schema Migration?](/blog/what-is-database-migration)
 1. [How to Handle Database Migration / Schema Change?](/blog/how-to-handle-database-schema-change)
-1. Top Database Schema Migration Tools in 2023 (this one)
+1. Top Database Schema Migration Tools in 2024 (this one)
 
 ---
 
-It's year 2023, database schema migration is still the riskiest area in application development - it's tough, risky, and painful. Database schema migration tools exist to alleviate pain, and have come a long way: from the basic CLI tools to GUI tools, from simple SQL GUI clients to the all-in-one collaboration database platform.
+It's year ~2023~2024, database schema migration is still the riskiest area in application development - it's tough, risky, and painful. Database schema migration tools exist to alleviate pain, and have come a long way: from the basic CLI tools to GUI tools, from simple SQL GUI clients to the all-in-one collaboration database platform.
 
 ## Command-Line Clients (CLI) - mysql / psql
 
@@ -25,9 +31,7 @@ It's year 2023, database schema migration is still the riskiest area in applicat
 
 ![_](/content/blog/top-database-schema-change-tool-evolution/mysql.webp)
 
-Although the CLI interface is simple, sometimes it's intimidating to the beginners. However, according to [Timescale's State of PostgreSQL 2022 survey results](https://www.timescale.com/state-of-postgres/2022), psql is the most popular tool for interacting with PostgreSQL, surpassing GUI tools like pgAdmin and DBeaver 🤯.
-
-![_](/content/blog/top-database-schema-change-tool-evolution/psql.webp)
+Although the CLI interface is simple, sometimes it's intimidating to the beginners.
 
 ## GUI
 
@@ -42,6 +46,14 @@ phpMyAdmin and pgAdmin are classic SQL clients. phpMyAdmin is already an establi
 DBeaver's initial release came in 2010, this open-source SQL client supports a whole range of databases (SQL, NoSQL, and cloud DBs), and keeps up with the latest trends in the AI realm by incorporating OpenAI's GPT-capabilities, allowing natural language to be converted into SQL.
 
 ![_](/content/blog/top-database-schema-change-tool-evolution/dbeaver.webp)
+
+### DataGrip
+
+DataGrip is another commercial SQL client developed by JetBrains. DataGrip has powerful code completion and
+refactoring tools for efficient database development. You can also purchase the AI Assistant addon. The
+AI Assistant supports text2sql, schema optimization, code explanation, and etc.
+
+![_](/content/blog/top-database-schema-change-tool-evolution/datagrip.webp)
 
 ### Navicat
 
