@@ -1,7 +1,7 @@
 ---
 title: The Database CI/CD Best Practice with Bitbucket
 author: Ningjing
-updated_at: 2023/11/1 16:15
+updated_at: 2024/9/14 16:15
 feature_image: /content/docs/tutorials/database-cicd-best-practice-with-bitbucket/cicd-bitbucket.webp
 tags: Tutorial
 integrations: Bitbucket
@@ -46,38 +46,68 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
 
 ### Step 2 - Add Bitbucket.org as a Git provider in Bytebase
 
-1. Visit Bytebase via your ngrok URL. Click **gear icon** (Settings) > **Integration** > **GitOps**, choose `Bitbucket.org`, and click **Next**. You will see STEP 2. Copy the **Redirect URI**.
-   ![bb-gitops-bitbucket](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-gitops-bitbucket.webp)
+1. Visit Bytebase via your ngrok URL. Click **CI/CD** > **GitOps**, choose `Bitbucket.org`.
 
-2. Go to `https://bitbucket.org/`, your account must be an workspace admin of the Bitbucket workspace (able to access the workspace Settings page). Go to the **Settings** page, then navigate to **APPS AND FEATURES** > **OAuth consumers** section and click **Add a consumer**. Fill in the following fields:
+   ![bb-gitops-bitb](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-gitops-bitb.webp)
 
-   - **Name**: `Bytebase`
-   - **Redirect URI**: Copied from Bytebase GitOps config STEP 2
-   - **Permissions**: `Account > Read`, `Webhooks > Read and write`, `Repositories > Write`
+1. Follow the **app password** link to [https://bitbucket.org/account/settings/app-passwords/](https://bitbucket.org/account/settings/app-passwords/) and click **Create app password**. Fill in the Label, then check the following fields and click **Create**.
 
-   Click **Save**.
+   - Account (Read)
+   - Workspace membership (Read)
+   - Projects (Read)
+   - Webhooks (Read and Write)
+   - Repositories (Read and Write)
+   - Pull requests (Read and Write)
+  bitb-app-pwd.png
 
-   ![bib-add-oauth](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bib-add-oauth.webp)
-
-3. Copy the **Key** and **Secret** from the Bitbucket and paste them into the Bytebase GitOps config page. Click **Next**. Click **Authorize** on popup. You will be redirected to the confirmation page. Click **Confirm and add**, and the Git provider is successfully added.
-
-   ![bb-gitops-done](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-gitops-done.webp)
+1. Copy the generated password, go back to Bytebase, and paste the password into the field with your bitbucket username and click **Confirm and add**. The provider is added successfully.
 
 ### Step 3 - Configure a GitOps Workflow in Bytebase
 
-1. Go to `bitbucket.org` and create a new project `bb-gitops-ngrok`.
+1. Go to `bitbucket.org`, under workspace `bytebase-demo`, create a new project `bb-gitops-2024` and a repository `bb-test`.
 
-2. Go to Bytebase, go to the `Sample Project`. Click **GitOps** tab and choose `GitOps workflow`. Click **Configure GitOps**. Choose `Bitbucket.org` (the git provider you just configured) and the repository you just created.
+1. Go to Bytebase, go to the `Sample Project`. Click **Integration >GitOps** on the left and click **Add GitOps connector**. Choose `Bitbucket.org 2024` (the git provider you just configured) and `bytebase-demo/bb-test` (the repository you just created).
 
-   ![bb-proj-gitops-repo](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-proj-gitops-repo.webp)
+1. Keep the default settings for the remaining fields and click **Finish**. The gitops connector is created successfully.
+bb-gitops-bitb-configure
 
-3. You'll be redirected to STEP 3. Change **Branch** to `master`, keep everything else as default, and click **Finish**.
+### Step 4 - Configure SQL Review on Prod
 
-   ![bb-proj-gitops-branch](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-proj-gitops-branch.webp)
+1. Go to **CI/CD > SQL Review** in workspace, choose `Prod` as the environment. Make sure a SQL review policy is attached and enabled on `Prod`.
+   bb-sql-review
 
-### Step 4 - Create a Pull Request to trigger issue creation
+1. Click **Edit**, click **PostgreSQL** tab. Make sure `Enforce "NOT NULL" constraints on columns` is enabled. This is to make sure the SQL Review can work.
 
-1. Go to `bb-gitops-ngrok` on Bitbucket. Create a new branch `add-nickname-table-employee`. On the new branch, create a subdirectory `bytebase`, and create a sub-subdirectory `prod`. Within the `prod` directory, create a file `employee##202311012500##ddl##add_nickname_table_employee.sql`. Copy the following SQL script into the file and commit the change.
+   bb-sql-review-not-null
+
+### Step 5 - Create a Pull Request to trigger issue creation
+
+1. Go to `bb-test` on Bitbucket. Add a new file `20240914_create_table_t2024.sql` under `bb-test/bytebase/` which is the directory configured in the previous step. Copy the following SQL script into the file and commit the change **via a new branch** which will create a Pull Request automatically.
+
+```sql
+ CREATE TABLE "public"."t2024" (
+      "id" integer PRIMARY KEY,
+      "name" text
+  );
+```
+
+1. Wait for a while, there is a SQL Review comment added. As we configured in the previous step, not null is a warning level SQL Review rule.
+
+bitb-sql-review-warning
+
+1. Edit our sql file as following and commit it on the same branch.
+
+```sql
+ CREATE TABLE "public"."t2024" (
+      "id" integer NOT NULL PRIMARY KEY,
+      "name" text NOT NULL
+  );
+```
+
+1. Click 
+
+
+1. Create a new branch `add-nickname-table-employee`. On the new branch, create a subdirectory `bytebase`, and create a sub-subdirectory `prod`. Within the `prod` directory, create a file `employee##202311012500##ddl##add_nickname_table_employee.sql`. Copy the following SQL script into the file and commit the change.
 
    ```sql
    ALTER TABLE "public"."employee"
