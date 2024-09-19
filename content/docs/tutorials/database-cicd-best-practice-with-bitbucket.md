@@ -1,7 +1,7 @@
 ---
 title: The Database CI/CD Best Practice with Bitbucket
 author: Ningjing
-updated_at: 2023/11/1 16:15
+updated_at: 2024/9/14 16:15
 feature_image: /content/docs/tutorials/database-cicd-best-practice-with-bitbucket/cicd-bitbucket.webp
 tags: Tutorial
 integrations: Bitbucket
@@ -26,15 +26,15 @@ But how does it work, really?
 
 Here, we present **a complete Database CI/CD workflow with Bitbucket**. It's similar with GitLab, GitHub or Azure DevOps.
 
-![database-devops-workflow-bitbucket](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/database-devops-workflow-bitbucket.webp)
+![database-devops-workflow-bitbucket](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/workflow-bitbucket.webp)
 
-1. The developer creates a Merge Request containing the SQL migration script;
-2. The team leader or another peer on the dev teams approves the change and merges the SQL script into a branch;
-3. The merge event automatically triggers the release pipeline in Bytebase and creates a release ticket capturing the intended change;
-4. (Optional) an approval flow will be auto matched based on the change risk and be followed via Bytebase’s built-in UI;
-5. Approved scripts are executed gradually according to the configured rollout stages;
-6. The latest database schema is automatically written back to the code repository after applying changes. With this, the Dev team always has a copy of the latest schema. Furthermore, they can configure downstream pipelines based on the change of that latest schema;
-7. Confirm the migration and proceed to the corresponding application rollout.
+1. The developer creates a Pull Request containing the SQL script;
+1. SQL Review CI is automatically triggered to review SQL and offers suggestions via a comment in the PR;
+1. The team leader or another peer on the dev teams approves the change and merges the SQL script into the watched branch (default is the main branch);
+1. The merge event automatically triggers the rollout pipeline in Bytebase and creates a ticket capturing the intended change;
+1. (Optional) an approval flow will be auto matched based on the change risk and be followed via Bytebase’s built-in UI;
+1. Approved scripts are executed gradually according to the configured rollout stages;
+1. When the rollout is completed, Bitbucket CI may get notified and proceed to deploy the application.
 
 ## Set Up Database CI/CD with Bitbucket in Bytebase (Free Plan)
 
@@ -46,111 +46,102 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
 
 ### Step 2 - Add Bitbucket.org as a Git provider in Bytebase
 
-1. Visit Bytebase via your ngrok URL. Click **gear icon** (Settings) > **Integration** > **GitOps**, choose `Bitbucket.org`, and click **Next**. You will see STEP 2. Copy the **Redirect URI**.
-   ![bb-gitops-bitbucket](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-gitops-bitbucket.webp)
+1. Visit Bytebase via your ngrok URL. Click **CI/CD** > **GitOps**, choose `Bitbucket.org`.
 
-2. Go to `https://bitbucket.org/`, your account must be an workspace admin of the Bitbucket workspace (able to access the workspace Settings page). Go to the **Settings** page, then navigate to **APPS AND FEATURES** > **OAuth consumers** section and click **Add a consumer**. Fill in the following fields:
+   ![bb-gitops-bitb](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-gitops-bitb.webp)
 
-   - **Name**: `Bytebase`
-   - **Redirect URI**: Copied from Bytebase GitOps config STEP 2
-   - **Permissions**: `Account > Read`, `Webhooks > Read and write`, `Repositories > Write`
+1. Follow the **app password** link to [https://bitbucket.org/account/settings/app-passwords/](https://bitbucket.org/account/settings/app-passwords/) and click **Create app password**. Fill in the Label, then check the following fields and click **Create**.
 
-   Click **Save**.
+   - Account (Read)
+   - Workspace membership (Read)
+   - Projects (Read)
+   - Webhooks (Read and Write)
+   - Repositories (Read and Write)
+   - Pull requests (Read and Write)
 
-   ![bib-add-oauth](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bib-add-oauth.webp)
+   ![bitb-app-pwd](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bitb-app-pwd.webp)
 
-3. Copy the **Key** and **Secret** from the Bitbucket and paste them into the Bytebase GitOps config page. Click **Next**. Click **Authorize** on popup. You will be redirected to the confirmation page. Click **Confirm and add**, and the Git provider is successfully added.
-
-   ![bb-gitops-done](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-gitops-done.webp)
+1. Copy the generated password, go back to Bytebase, and paste the password into the field with your bitbucket username and click **Confirm and add**. The provider is added successfully.
 
 ### Step 3 - Configure a GitOps Workflow in Bytebase
 
-1. Go to `bitbucket.org` and create a new project `bb-gitops-ngrok`.
+1. Go to `bitbucket.org`, under workspace `bytebase-demo`, create a new project `bb-gitops-2024` and a repository `bb-test`.
 
-2. Go to Bytebase, go to the `Sample Project`. Click **GitOps** tab and choose `GitOps workflow`. Click **Configure GitOps**. Choose `Bitbucket.org` (the git provider you just configured) and the repository you just created.
+1. Go to Bytebase, go to the `Sample Project`. Click **Integration >GitOps** on the left and click **Add GitOps connector**. Choose `Bitbucket.org 2024` (the git provider you just configured) and `bytebase-demo/bb-test` (the repository you just created).
 
-   ![bb-proj-gitops-repo](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-proj-gitops-repo.webp)
+1. Keep the default settings for the remaining fields and click **Finish**. The gitops connector is created successfully.
 
-3. You'll be redirected to STEP 3. Change **Branch** to `master`, keep everything else as default, and click **Finish**.
+   ![bb-gitops-bitb-configure](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-gitops-bitb-configure.webp)
 
-   ![bb-proj-gitops-branch](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-proj-gitops-branch.webp)
+### Step 4 - Configure SQL Review on Prod
 
-### Step 4 - Create a Pull Request to trigger issue creation
+1. Go to **CI/CD > SQL Review** in workspace, choose `Prod` as the environment. Make sure a SQL review policy is attached and enabled on `Prod`.
 
-1. Go to `bb-gitops-ngrok` on Bitbucket. Create a new branch `add-nickname-table-employee`. On the new branch, create a subdirectory `bytebase`, and create a sub-subdirectory `prod`. Within the `prod` directory, create a file `employee##202311012500##ddl##add_nickname_table_employee.sql`. Copy the following SQL script into the file and commit the change.
+   ![bb-sql-review](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-sql-review.webp)
 
-   ```sql
-   ALTER TABLE "public"."employee"
-   ADD COLUMN "nick_name" text;
-   ```
+1. Click **Edit**, click **PostgreSQL** tab. Make sure `Enforce "NOT NULL" constraints on columns` is enabled. This is to make sure the SQL Review can work.
 
-   ![bb-bitbucket-file](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-bitbucket-file.webp)
+   ![bb-sql-review-not-null](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-sql-review-not-null.webp)
 
-2. Create a pull request including the above commits and merge it. Go back to Bytebase, you'll see there is a new issue created by the pull request.
+### Step 5 - Create a Pull Request to trigger issue creation
 
-   ![bb-push-event-notification](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-push-event-notification.webp)
-
-   ![bb-project-activity-push-event](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-project-activity-push-event.webp)
-
-3. Click the issue to see the details. SQL review automatic checks failed. Click the warning, you'll see the details.
-
-   ![bb-issue-sql-review-warning](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-issue-sql-review-warning.webp)
-
-   ![bb-issue-sql-review-not-null-warning](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-issue-sql-review-not-null-warning.webp)
-
-4. Go to **Environments**, you'll see there's a SQL Review policy attached with `Prod`. Click **Edit**, you'll see three activated SQL Review rules.
-
-   ![bb-sql-policy](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-sql-policy.webp)
-
-5. Update the SQL script and commit in a new branch and click **Merge**.
+1. Go to `bb-test` on Bitbucket. Add a new file `20240919_create_table_t2024.sql` under `bb-test/bytebase/` which is the directory configured in the previous step. Copy the following SQL script into the file and commit the change **via a new branch** which will create a Pull Request automatically.
 
    ```sql
-   ALTER TABLE "public"."employee"
-   ADD COLUMN "nick_name" text NOT NULL DEFAULT '';
+   CREATE TABLE "public"."t2024" (
+         "id" integer PRIMARY KEY,
+         "name" text
+   );
    ```
 
-6. Go back to Bytebase, and refresh the issue. You'll see the SQL review passed. Because there is no approval flow or manual rollout configured. The issue rollouts automatically. You may click **View change** to see the diff.
+1. Wait for a while, there is a SQL Review comment added. As we configured in the previous step, not null is a warning level SQL Review rule.
 
-   ![bb-issue-done](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-issue-done.webp)
+   ![bitb-sql-review-warning](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bitb-sql-review-warning.webp)
+
+1. Edit our sql file as following and commit it on the same branch, and merge the PR.
+
+   ```sql
+   CREATE TABLE "public"."t2024" (
+         "id" integer NOT NULL PRIMARY KEY,
+         "name" text NOT NULL
+   );
+   ```
+
+1. There will be a new comment saying the PR has triggered a Bytebase rollout.
+
+    ![bitb-merged](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bitb-merged.webp)  
+  
+1. Follow the link to go to Bytebase. There's an issue with two stages, this is because we have two databases in this project, by default, the SQL will be applied to all databases within the project. If you merge the previous version SQL script, the SQL Review task run here will show yellow warning and waiting for rollout. Click **Resolve** to resolve the issue.
+
+    ![bb-issue-rollout](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-issue-rollout.webp)
+
+1. After the rollout completes, click **View change** to see the diff.
+
+    ![bb-view-change-diff](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-view-change-diff.webp)
+
+1. You may also go to a specific database page to view all its change history.
+
+    ![bb-db-change-history](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-db-change-history.webp)
 
 ## Advanced Features (Enterprise Plan)
 
 You may upgrade to Enterprise plan to explore more features.
 
-Click **Start free trial** on the left bottom and upgrade to Enterprise plan,
-Go to **Instances** to **Assign License** for the existing two instances.
-
 ### Manual Rollout
 
 Go to **Environments** > **2.Prod**, Find **Rollout policy** section, and choose **Manual rollout** > **Require rolling out by dedicated roles**.
 
-    ![bb-env-prod-manual-rollout](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-env-prod-manual-rollout.webp)
+   ![bb-env-prod-manual-rollout](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-env-prod-manual-rollout.webp)
 
 ### Custom Approval
 
-1. Go to **Settings** > **Security & Policy** > **Custom Approval**. Set `Project Owner -> DBA` as Approval flow for **DDL** > **High Risk**.
+1. Go to **CI/CD** > **Custom Approval**. Set `Project Owner -> DBA` as Approval flow for **DDL** > **High Risk**.
 
    ![bb-custom-approval](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-custom-approval.webp)
 
-2. Go to **Settings** > **Security & Policy** > **Risk Center**. Click **Add rule** and click **Load** for the first template. Click **Add**.
+2. Go to **CI/CD** > **Risk Center**. Click **Add rule** and click **Load** for the first template. Click **Add**.
 
    ![bb-risk-center-ddl-high](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-risk-center-ddl-high.webp)
-
-### LATEST Schema Write-back
-
-After schema migration completes, Bytebase will write the latest schema back to the Git repository. So that
-the team always has a canonical source of truth for the database schema in Git.
-
-1. Go back to Bitbucket, and create a new branch `add-country-table-employee`. Create a file `employee##202311011700##ddl##add_country_table_employee.sql` under `bytebase/prod` directory. Copy the following SQL script into the file and commit the change.
-   ```sql
-   ALTER TABLE "public"."employee"
-   ADD COLUMN "country" text NOT NULL DEFAULT '';
-   ```
-2. Go back to Bytebase, and go to the newly created issue. Because of the settings we made above, it matches the approval flow `Project Owner -> DBA`,
-
-3. After following the approval flow to click **Approve**, the banner will show **Waiting for Rollout** instead. The **Assignee** then can click **Rollout**.
-
-4. Go back to Bitbucket, you'll notice there's a new file `.employee##LATEST.sql` under `bytebase/prod/` with the latest schema written back by Bytebase.
 
 ### Schema Drift
 
@@ -169,7 +160,7 @@ Bytebase has built-in [schema drift detection](/docs/change-database/drift-detec
 
    ![bb-db-schema-drift](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-db-schema-drift.webp)
 
-4. Go to **Anomaly Center**, and you'll see the Schema drift there too.
+4. Go to **Database** > **Anomalies**, and you'll see the Schema drift there too.
 
 ## Summary
 
