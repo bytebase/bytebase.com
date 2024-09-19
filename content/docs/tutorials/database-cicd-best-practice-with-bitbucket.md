@@ -44,7 +44,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
 
 <IncludeBlock url="/docs/get-started/install/vcs-with-ngrok"></IncludeBlock>
 
-### Step 2 - Add Bitbucket.org as a Git provider in Bytebase
+## Step 2 - Add Bitbucket.org as a Git provider in Bytebase
 
 1. Visit Bytebase via your ngrok URL. Click **CI/CD** > **GitOps**, choose `Bitbucket.org`.
 
@@ -63,7 +63,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
 
 1. Copy the generated password, go back to Bytebase, and paste the password into the field with your bitbucket username and click **Confirm and add**. The provider is added successfully.
 
-### Step 3 - Configure a GitOps Workflow in Bytebase
+## Step 3 - Configure a GitOps Workflow in Bytebase
 
 1. Go to `bitbucket.org`, under workspace `bytebase-demo`, create a new project `bb-gitops-2024` and a repository `bb-test`.
 
@@ -73,7 +73,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
 
    ![bb-gitops-bitb-configure](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-gitops-bitb-configure.webp)
 
-### Step 4 - Configure SQL Review on Prod
+## Step 4 - Configure SQL Review in Prod
 
 1. Go to **CI/CD > SQL Review** in workspace, choose `Prod` as the environment. Make sure a SQL review policy is attached and enabled on `Prod`.
 
@@ -83,7 +83,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
 
    ![bb-sql-review-not-null](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-sql-review-not-null.webp)
 
-### Step 5 - Create a Pull Request to trigger issue creation
+## Step 5 - Create a Pull Request to trigger issue creation
 
 1. Go to `bb-test` on Bitbucket. Add a new file `20240919_create_table_t2024.sql` under `bb-test/bytebase/` which is the directory configured in the previous step. Copy the following SQL script into the file and commit the change **via a new branch** which will create a Pull Request automatically.
 
@@ -94,7 +94,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
    );
    ```
 
-1. Wait for a while, there is a SQL Review comment added. As we configured in the previous step, not null is a warning level SQL Review rule.
+1. Wait for a while, there is a SQL Review comment added. As we configured in the previous step, `NOT NULL` is a warning level SQL Review rule.
 
    ![bitb-sql-review-warning](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bitb-sql-review-warning.webp)
 
@@ -109,19 +109,19 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
 
 1. There will be a new comment saying the PR has triggered a Bytebase rollout.
 
-    ![bitb-merged](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bitb-merged.webp)  
-  
+   ![bitb-merged](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bitb-merged.webp)
+
 1. Follow the link to go to Bytebase. There's an issue with two stages, this is because we have two databases in this project, by default, the SQL will be applied to all databases within the project. If you merge the previous version SQL script, the SQL Review task run here will show yellow warning and waiting for rollout. Click **Resolve** to resolve the issue.
 
-    ![bb-issue-rollout](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-issue-rollout.webp)
+   ![bb-issue-rollout](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-issue-rollout.webp)
 
 1. After the rollout completes, click **View change** to see the diff.
 
-    ![bb-view-change-diff](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-view-change-diff.webp)
+   ![bb-view-change-diff](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-view-change-diff.webp)
 
 1. You may also go to a specific database page to view all its change history.
 
-    ![bb-db-change-history](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-db-change-history.webp)
+   ![bb-db-change-history](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-db-change-history.webp)
 
 ## Advanced Features (Enterprise Plan)
 
@@ -131,7 +131,7 @@ You may upgrade to Enterprise plan to explore more features.
 
 Go to **Environments** > **2.Prod**, Find **Rollout policy** section, and choose **Manual rollout** > **Require rolling out by dedicated roles**.
 
-   ![bb-env-prod-manual-rollout](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-env-prod-manual-rollout.webp)
+![bb-env-prod-manual-rollout](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-env-prod-manual-rollout.webp)
 
 ### Custom Approval
 
