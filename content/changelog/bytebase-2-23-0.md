@@ -20,7 +20,6 @@ description: 'Entra (Azure AD) directory sync and CockroachDB support'
 
 ## 🎄 Enhancements
 
-- Allow workspace admin to disable other users' MFA settings.
 - Split the `WHERE` SQL Review restriction into two rules: one for `SELECT` statements and one for DML operations.
 - Support selecting PostgreSQL schema in SQL Editor.
 - Display detailed PostgreSQL error messages in the SQL Editor.
