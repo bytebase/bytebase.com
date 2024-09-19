@@ -131,7 +131,7 @@ You may upgrade to Enterprise plan to explore more features.
 
 Go to **Environments** > **2.Prod**, Find **Rollout policy** section, and choose **Manual rollout** > **Require rolling out by dedicated roles**.
 
-    ![bb-env-prod-manual-rollout](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-env-prod-manual-rollout.webp)
+   ![bb-env-prod-manual-rollout](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-env-prod-manual-rollout.webp)
 
 ### Custom Approval
 
