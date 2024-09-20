@@ -3,17 +3,18 @@ title: Data Rollback
 feature_name: 'ROLLBACK_DATA_CHANGES'
 ---
 
-Bytebase allows taking **Prior Backup** before a data change (`UPDATE`, `DELETE`) is made. Bytebase stores the pre-snapshot of the affected rows, which allows you to revert that data change if needed.
+<TutorialBlock url="/docs/tutorials/data-rollback" title="Manage Database Change with 1-Click Data Rollback" />
+
+Bytebase allows taking **Prior Backup** before a data change is made. Bytebase stores the pre-snapshot of the affected rows, which allows you to revert that data change if needed.
 
 ## Support Matrix
 
-<HintBlock type="info">
+Prior backup is only feasible when meeting **any** of the following conditions:
 
-Support `MySQL`, `PostgreSQL`, `Oracle`, `SQL Server`, applicable to `UPDATE` and `DELETE` DML.
+1. No more than 5 statements and every statement is either `UPDATE` or `DELETE`.
+1. All statements are `UPDATE` for the same table with `PRIMARY KEY` or `UNIQUE KEY` in `WHERE` clause.
 
-</HintBlock>
-
-| Database   | Prerequisite                                                                          | 1-click Rollback |
+| Database   | Prerequisites                                                                         | 1-click Rollback |
 | ---------- | ------------------------------------------------------------------------------------- | ---------------- |
 | MySQL      | Create a `bbdataarchive` **database** on the instance where your database is located. | ✅               |
 | PostgreSQL | Create a `bbdataarchive` **schema** on the database.                                  | ✅               |
