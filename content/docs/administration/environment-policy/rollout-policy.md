@@ -2,6 +2,8 @@
 title: Rollout Policy
 ---
 
+<TutorialBlock url="/docs/tutorials/deploy-schema-migration" title="Deploy Schema Migration with Rollout Policy" />
+
 `Workspace Admin` or `DBA` can configure the **Rollout policy** for a particular environment from the **Environment** detail page:
 
 ![environment-configure](/content/docs/administration/environment-policy/bb-env-rollout-policy.webp)

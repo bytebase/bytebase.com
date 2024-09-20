@@ -14,7 +14,7 @@ Go to **Projects** and click **New Project**.
 
 ![create-project](/content/docs/get-started/step-by-step/create-a-project/create-project.webp)
 
-## Prepare a database in the project
+## Transfer a database into the project
 
 To make changes to a database, you need to place it in a project first. Once a project is created, you need to fill it with some Databases.
 

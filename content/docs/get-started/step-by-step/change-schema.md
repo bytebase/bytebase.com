@@ -2,9 +2,7 @@
 title: Make a Database Schema Change
 ---
 
-**Issues** represents a collaboration between developer and DBA (like creating a database or altering a schema). It's similar to the issue concept in other issue management tools.
-
-Issue drives the database change workflow covering `Database Creation`, `DDL` and `DML`.
+**Issue** drives the database change workflow such as `Database Creation`, `DDL` and `DML`. It's similar to the issue concept in other issue management tools.
 
 ## Create an issue
 
@@ -23,9 +21,9 @@ Once you finish writing the SQL, click **Preview issue**.
 
 ![preview-issue](/content/docs/get-started/step-by-step/change-schema/preview-issue.webp)
 
-By default, Bytebase will create a **Rollout issue**. You can check **SQL Review Only** to create a review-only issue.
+By default, Bytebase will create a **Rollout issue**. You can check **SQL Review Only** to create a review-only plan.
 
-## Rollout an issue
+## Roll out an issue
 
 ![rollout-issue](/content/docs/get-started/step-by-step/change-schema/rollout-issue.webp)
 

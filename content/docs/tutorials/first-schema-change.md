@@ -19,7 +19,7 @@ In this tutorial, you'll use the sample databases Bytebase provides by default t
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
 
-   When the Terminal shows the following message, the execution is successful.
+   Bytebase starts successfully if you see following message.
 
    <IncludeBlock url="/docs/get-started/install/terminal-startup-output-success"></IncludeBlock>
 

@@ -16,7 +16,7 @@ Internally, Bytebase uses term `Principal` instead of `User` because former is m
 
 ## User Group
 
-`User group` is a collection of `Users` that are organized together to simplify the management of roles and permissions.
+`User group`or `Group` is a collection of `Users` that are organized together to simplify the management of roles and permissions.
 
 `Admins` can create user groups and assign `Users` to them at the `Workspace` level. `Admins`,`DBAs` and `Project Owners` can then assign these `User Groups` to `Roles` at the `Project` level.
 
@@ -51,6 +51,10 @@ Most of the time, `Admins` and `DBAs` work with the `Database Instance`.
 
 Most of the time, `Developers` and `DBAs` work with the `Database`.
 
+## Database Group
+
+A list of databases usually having the same schema structure. Examples like per-tenant databases, and partitioned databases. Bytebase can [batch change](/docs/change-database/batch-change) `Database Group` consistently.
+
 ## Project
 
 `Project` is a logic unit to model a team effort. It's similar to the project concept in other dev tools such as Jira, GitLab. `Project` is the container to group logically related `Databases`, `Issues` and `Users` together. In Bytebase, A `Database` or an `Issue` always belongs to a single `Project`. `Project` is also the peering entity with the VCS repository to setup [GitOps workflow](/docs/vcs-integration/add-gitops-connector).
@@ -59,7 +63,7 @@ Most of the time, `Developers` work with the `Project`.
 
 ## Issue
 
-`Issue` represents a specific collaboration activity between `Member` and `DBA` such as creating a database, altering a schema. It's similar to the issue concept in other issue management tools.
+`Issue` drives the database change workflow such as `Database Creation`, `DDL` and `DML`. It's similar to the issue concept in other issue management tools.
 
 In Bytebase, `Issue` is optimized for **database domain**. An `Issue` always belongs to a `Project`. A single `Issue` is only dealing with a particular `Database Instance` (e.g. creating a database on a database instance). Except for creating database issue, most other issues are also associated with an existing `Database` (e.g. altering a table on a database).
 
@@ -70,10 +74,3 @@ Internally, the issue progression is represented by a `Pipeline`. A `Pipeline` c
 `Sheet` is the entity where users store, run and share the SQL scripts. A paritcular sheet belongs
 to a project and may or may not attach a database context. Users interacts with the Sheet from
 [SQL Editor](/docs/sql-editor/manage-sql-scripts).
-
-## Database Group
-
-A list of databases usually has the same schema structure. Examples like per-tenant databases, and partitioned databases. They are used in:
-
-- [Batch change](/docs/change-database/batch-change) to
-  change many databases in a consistent manner.

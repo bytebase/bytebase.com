@@ -49,8 +49,6 @@ expand_section_list: ['Self-host']
 
 ## [Core Concepts](/concepts/data-model)
 
-## [Roles and Permissions](/concepts/roles-and-permissions)
-
 ---
 
 ## Database CI/CD
@@ -184,6 +182,8 @@ expand_section_list: ['Self-host']
 ---
 
 ## Security Admin 🔐
+
+### [Roles and Permissions](/concepts/roles-and-permissions)
 
 ### [Audit Log](/security/audit-log)
 
