@@ -66,7 +66,6 @@ const Route = {
   DOCS_DATA_MASKING_ACCESS: '/docs/security/data-masking/access-unmasked-data',
   DOCS_AUDIT_LOG: '/docs/security/audit-log',
   DOCS_INDEX_ADVISOR: '/docs/slow-query/overview',
-  DOCS_ANOMALY_CENTER: '/docs/administration/anomaly-center',
   DOCS_DRIFT_DETECTION: '/docs/change-database/drift-detection',
   DOCS_VCS_INTEGRATION: '/docs/vcs-integration/overview',
   DOCS_BATCH_CHANGE: '/docs/change-database/batch-change',

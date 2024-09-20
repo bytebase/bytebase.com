@@ -125,8 +125,6 @@ expand_section_list: ['Self-host']
 
 #### [Risk Center](/administration/risk-center)
 
-#### [Anomaly Center](/administration/anomaly-center)
-
 #### [Schema Template](/administration/schema-template)
 
 ### [Troubleshoot 🐞](/change-database/troubleshoot)
