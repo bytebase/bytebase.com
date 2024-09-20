@@ -80,7 +80,7 @@ const generateIndexElement = (
 };
 
 const getRecords = () => {
-  const docs = getAllPosts();
+  const docs = getAllPosts().filter((item) => !item.slug.startsWith('/tutorials'));
 
   const resultObj: AlgoliaIndexObject[] = [];
 
