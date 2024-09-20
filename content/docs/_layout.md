@@ -91,7 +91,9 @@ expand_section_list: ['Self-host']
 
 ### Rollback
 
-#### [1-click Data Rollback](/change-database/rollback-data-changes)
+#### [Data Rollback](/change-database/rollback-data-changes)
+
+#### [Schema Rollback](/change-database/rollback-schema-changes)
 
 ### Monitor
 
