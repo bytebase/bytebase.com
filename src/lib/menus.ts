@@ -20,7 +20,7 @@ export const MENU = {
         },
         {
           name: 'Dynamic Data Masking',
-          description: 'Multi-level masking policy with access control',
+          description: 'Role-based multi-level masking policy',
           linkUrl: Route.DATA_MASKING,
           iconName: 'mask',
         },
@@ -130,7 +130,7 @@ export const MENU = {
         },
         {
           name: 'Dynamic Data Masking',
-          description: 'Multi-level masking policy with access control',
+          description: 'Role-based multi-level masking policy',
           linkUrl: Route.DATA_MASKING,
           iconName: 'mask',
         },

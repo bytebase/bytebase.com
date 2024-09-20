@@ -33,7 +33,7 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
     cover: '/images/page/main/hero/change-database.webp',
     title: 'Database CI/CD',
     description:
-      'Standardized database schema migrations and data changes with review, lint, and GitOps.',
+      'Standardized database schema migrations and data changes with review, linting, and GitOps.',
   },
   {
     videos: [
@@ -50,7 +50,7 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
     href: Route.DOCS_DATA_ACCESS_CONTROL,
     cover: '/images/page/main/hero/secure-access.webp',
     title: 'Query Access Control',
-    description: 'Passwordless IAM based access control with approve flow, auditing loggings.',
+    description: 'Passwordless IAM-based access control with approval flow and audit logging.',
   },
   {
     videos: [
@@ -67,7 +67,7 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
     href: Route.DOCS_SQL_EDITOR,
     cover: '/images/page/main/hero/query-data.webp',
     title: 'Dynamic Data Masking',
-    description: 'Multi-level masking policy based on user role, data classification.',
+    description: 'Role-based multi-level masking policy with data classification.',
   },
 ];
 

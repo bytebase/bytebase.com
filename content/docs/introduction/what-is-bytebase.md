@@ -45,7 +45,7 @@ A web-based SQL Editor to query and export data. DBAs no longer need to give awa
 
 [Dynamic Data Masking](/docs/security/data-masking/overview/)
 
-Bytebase provides multi-level masking policy with workflow to grant unmasked data access.
+Bytebase provides role-based multi-level masking policy with approval workflow to grant unmasked data access.
 
 [Data Access Control](/docs/security/data-query/)
 
