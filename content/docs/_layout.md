@@ -125,6 +125,8 @@ expand_section_list: ['Self-host']
 
 ### [Webhook](/change-database/webhook)
 
+### [Secret Variable](/change-database/secret)
+
 ### [Troubleshoot 🐞](/change-database/troubleshoot)
 
 ## SQL Editor
@@ -150,8 +152,6 @@ expand_section_list: ['Self-host']
 ### [Data Query Approval Flow](/security/data-query)
 
 ### [Data Export Approval Flow](/security/data-export)
-
-### [Secret Variable](/security/secret)
 
 ### [Watermark](/security/watermark)
 
