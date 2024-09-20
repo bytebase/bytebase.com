@@ -32,7 +32,7 @@ Cloud is for **testing** purpose and provides limited memory. For production use
 
 1. Click the **Login to your workspace** link in the email, you'll be redirected to the Bytebase console login page.
 
-![bb-login](/content/docs/get-started/saas/bb-login.webp)
+![bb-login](/content/docs/get-started/saas/login.webp)
 
 2. Fill in the **Email** and **Password**, and click **Sign in**.
 3. A sample PostgreSQL instance is already available.
