@@ -16,26 +16,7 @@ _Wanna other VCS providers instead?_ 👉
 - [The Database CI/CD Best Practice with Azure DevOps](/docs/tutorials/database-cicd-best-practice-with-azure-devops)
 - [The Database CI/CD Best Practice with Bitbucket](/docs/tutorials/database-cicd-best-practice-with-bitbucket)
 
-Database change is a tricky part of the application development process: it usually involves multiple databases from different environments and cross-team collaboration, to add on top of it, databases are touch and go. It got us thinking: **can we treat database the same way we treat application code?**
-
-DORA (DevOps Research & Assessment) [pointed out](https://cloud.google.com/architecture/devops/devops-tech-database-change-management) that integrating database work into the software delivery process positively contributes to continuous delivery. It’s about time to make databases a part of the CI/CD cycle.
-
-But how does it work, really?
-
-## A Complete Database CI/CD Workflow
-
-Here, we present **a complete Database CI/CD workflow with GitLab**. It's similar with GitHub, Bitbucket or Azure DevOps.
-
-![database-devops-workflow-gitlab](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/database-devops-workflow-gitlab.webp)
-
-1. The developer creates a Merge Request containing the SQL migration script;
-2. SQL Review CI is automatically triggered to review SQL and offers suggestions to assist the code review;
-3. After several possible iterations, the team leader or another peer on the dev teams approves the change and merges the SQL script into a branch;
-4. The merge event automatically triggers the release pipeline in Bytebase and creates a release ticket capturing the intended change;
-5. (Optional) an approval flow will be auto matched based on the change risk and be followed via Bytebase’s built-in UI;
-6. Approved scripts are executed gradually according to the configured rollout stages;
-7. The latest database schema is automatically written back to the code repository after applying changes. With this, the Dev team always has a copy of the latest schema. Furthermore, they can configure downstream pipelines based on the change of that latest schema;
-8. Confirm the migration and proceed to the corresponding application rollout.
+<IncludeBlock url="/docs/tutorials/share/database-workflow"></IncludeBlock>
 
 ## Set Up Database CI/CD with GitLab in Bytebase (Free Plan)
 
