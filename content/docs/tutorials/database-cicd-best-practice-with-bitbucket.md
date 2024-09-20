@@ -26,7 +26,7 @@ But how does it work, really?
 
 Here, we present **a complete Database CI/CD workflow with Bitbucket**. It's similar with GitLab, GitHub or Azure DevOps.
 
-![database-devops-workflow-bitbucket](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/workflow-bitbucket.webp)
+![database-devops-workflow-bitbucket](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/cicd-workflow.webp)
 
 1. The developer creates a Pull Request containing the SQL script;
 1. SQL Review CI is automatically triggered to review SQL and offers suggestions via a comment in the PR;
