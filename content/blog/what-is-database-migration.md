@@ -16,7 +16,7 @@ This is a series of articles about database schema change / database schema migr
 
 ## What is Database Schema Migration
 
-Database schema migrations, also known as database migrations, schema migrations, or simply migrations, are the process of modifying the structure of objects within relational databases. Migrations enable the evolution of database schema from their current state to a new desired state, which may include adding views or tables, changing the type of fields, or defining constraints.
+Database schema migrations, also known as database migrations, schema evolution, schema migrations, or simply migrations, are the process of modifying the structure of objects within relational databases. Migrations enable the evolution of database schema from their current state to a new desired state, which may include adding views or tables, changing the type of fields, or defining constraints.
 
 Take an example of adding a table, you can execute the following SQLs in a Terminal connected to MySQL server. By executing these commands, you will have successfully completed a database migration.
 
@@ -104,7 +104,7 @@ Bytebase provides different roles for members at two levels: Workspace and Proje
 
 Bytebase offers an index advisor based on OpenAI API, which analyzes the slow queries and recommends the indexes that can effectively speed up the slow queries.
 
-For comparing among different database migration tools on the market, you can take a look at [Top Database Schema Migration Tools in 2023](/blog/top-database-schema-change-tool-evolution/#to-sum-up) for more details.
+For comparing among different database migration tools on the market, you can take a look at [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/) for more details.
 
 ## Conclusion
 

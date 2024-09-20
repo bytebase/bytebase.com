@@ -16,26 +16,9 @@ _Wanna other VCS providers instead?_ 👉
 - [The Database CI/CD Best Practice with GitHub](/docs/tutorials/database-cicd-best-practice-with-github)
 - [The Database CI/CD Best Practice with Bitbucket](/docs/tutorials/database-cicd-best-practice-with-bitbucket)
 
-Database change is a tricky part of the application development process: it usually involves multiple databases from different environments and cross-team collaboration, to add on top of it, databases are touch and go. It got us thinking: **can we treat database the same way we treat application code?**
+## The Database CI/CD Workflow
 
-DORA (DevOps Research & Assessment) [pointed out](https://cloud.google.com/architecture/devops/devops-tech-database-change-management) that integrating database work into the software delivery process positively contributes to continuous delivery. It’s about time to make databases a part of the CI/CD cycle.
-
-But how does it work, really?
-
-## A Complete Database CI/CD Workflow
-
-Here, we present **a complete Database CI/CD workflow with Azure DevOps**. It's similar with GitHub, Bitbucket or GitLab.
-
-![database-devops-workflow-azure-devops](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/database-devops-workflow-azure-devops.webp)
-
-1. The developer creates a Pull Request containing the SQL migration script;
-2. SQL Review CI is automatically triggered to review SQL and offers suggestions to assist the code review;
-3. After several possible iterations, the team leader or another peer on the dev teams approves the change and merges the SQL script into a branch;
-4. The merge event automatically triggers the release pipeline in Bytebase and creates a release ticket capturing the intended change;
-5. (Optional) an approval flow will be auto matched based on the change risk and be followed via Bytebase’s built-in UI;
-6. Approved scripts are executed gradually according to the configured rollout stages;
-7. The latest database schema is automatically written back to the code repository after applying changes. With this, the Dev team always has a copy of the latest schema. Furthermore, they can configure downstream pipelines based on the change of that latest schema;
-8. Confirm the migration and proceed to the corresponding application rollout.
+<IncludeBlock url="/docs/tutorials/share/database-workflow"></IncludeBlock>
 
 ## Set Up Database CI/CD with Azure DevOps in Bytebase (Free Plan)
 
@@ -125,65 +108,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Azure D
 
 ## Advanced Features (Enterprise Plan)
 
-You may upgrade to Enterprise plan to explore more features.
-
-Click **Start free trial** on the left bottom and upgrade to Enterprise plan,
-Go to **Instances** to **Assign License** for the existing two instances.
-
-### Manual Rollout
-
-Go to **Environments** > **2.Prod**, Find **Rollout policy** section, and choose **Manual rollout by fixed roles** with all items checked.
-
-    ![bb-env-prod-manual-rollout](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-env-prod-manual-rollout.webp)
-
-### Custom Approval
-
-1. Go to **Settings** > **Security & Policy** > **Custom Approval**. Set `Project Owner -> DBA` as Approval flow for **DDL** > **High Risk**.
-
-   ![bb-custom-approval](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-custom-approval.webp)
-
-2. Go to **Settings** > **Security & Policy** > **Risk Center**. Click **Add rule** and click **Load** for the first template. Click **Add**.
-
-   ![bb-risk-center-ddl-high](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-risk-center-ddl-high.webp)
-
-### LATEST Schema Write-back
-
-After schema migration completes, Bytebase will write the latest schema back to the Git repository. So that
-the team always has a canonical source of truth for the database schema in Git.
-
-1. Go back to Azure DevOps, and create a new branch `add-country-table-employee`. Create a file `employee##202310201700##ddl##add_country_table_employee.sql` under `bytebase/prod` directory. Copy the following SQL script into the file and commit the change.
-   ```sql
-   ALTER TABLE "public"."employee"
-   ADD COLUMN "country" text NOT NULL DEFAULT '';
-   ```
-2. Go back to Bytebase, and go to the newly created issue. Because of the settings we made above, it matches the approval flow `Project Owner -> DBA`,
-
-   ![bb-issue-waiting-for-review](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-issue-waiting-for-review.webp)
-
-3. After following the approval flow to click **Approve**, the banner will show **Waiting for Rollout** instead. The **Assignee** then can click **Rollout**.
-
-4. Go back to Azure DevOps, you'll notice there's a new file `.employee##LATEST.sql` under `bytebase/prod/` with the latest schema written back by Bytebase. Ensure the branch policies permit the file to be committed to main.
-
-   ![az-prod-latest](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/az-prod-latest.webp)
-
-### Schema Drift
-
-Bytebase has built-in [schema drift detection](/docs/change-database/drift-detection/) to detect unexpected schema changes. Let's use the [SQL Editor Admin Mode](/docs/sql-editor/admin-mode/) to simulate this.
-
-1. Click **terminal icon** (SQL Editor) on the top right. You'll be redirected to **SQL Editor**. Click **Admin mode**. Everything you do in this mode is the same as connecting directly to the server, which is not recorded by Bytebase.
-
-2. Select `(Test) employee` on the left, and paste and run the following script:
-
-   ```sql
-       ALTER TABLE "public"."employee"
-       ADD COLUMN "city" text NOT NULL DEFAULT '';
-   ```
-
-3. Go back to Bytebase Console, and click **Databases** > `employee` under `Test`. Click **Sync Now**. After seeing the success message, refresh the page. You'll see the schema drift. You may configure auto scan on instance detail page to avoid manual sync.
-
-   ![bb-db-schema-drift](/content/docs/tutorials/database-cicd-best-practice-with-azure-devops/bb-db-schema-drift.webp)
-
-4. Go to **Anomaly Center**, and you'll see the schema drift there too.
+<IncludeBlock url="/docs/tutorials/share/database-workflow-advanced-features"></IncludeBlock>
 
 ## Summary
 

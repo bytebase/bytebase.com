@@ -14,4 +14,4 @@ Go to **Environments**, view two predefined environments - `Test` and `Prod`.
 
 ![environment](/content/docs/get-started/step-by-step/set-up-environments/environment.webp)
 
-You can keep the default setting as is. To configure the environment, check [Environment Policy](/docs/administration/environment-policy/overview/).
+Keep the default setting as is.

@@ -16,25 +16,9 @@ _Wanna other VCS providers instead?_ 👉
 - [The Database CI/CD Best Practice with GitHub](/docs/tutorials/database-cicd-best-practice-with-github)
 - [The Database CI/CD Best Practice with Azure DevOps](/docs/tutorials/database-cicd-best-practice-with-azure-devops)
 
-Database change is a tricky part of the application development process: it usually involves multiple databases from different environments and cross-team collaboration, to add on top of it, databases are touch and go. It got us thinking: **can we treat database the same way we treat application code?**
+## The Database CI/CD Workflow
 
-DORA (DevOps Research & Assessment) [pointed out](https://cloud.google.com/architecture/devops/devops-tech-database-change-management) that integrating database work into the software delivery process positively contributes to continuous delivery. It’s about time to make databases a part of the CI/CD cycle.
-
-But how does it work, really?
-
-## A Complete Database CI/CD Workflow
-
-Here, we present **a complete Database CI/CD workflow with Bitbucket**. It's similar with GitLab, GitHub or Azure DevOps.
-
-![database-devops-workflow-bitbucket](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/workflow-bitbucket.webp)
-
-1. The developer creates a Pull Request containing the SQL script;
-1. SQL Review CI is automatically triggered to review SQL and offers suggestions via a comment in the PR;
-1. The team leader or another peer on the dev teams approves the change and merges the SQL script into the watched branch (default is the main branch);
-1. The merge event automatically triggers the rollout pipeline in Bytebase and creates a ticket capturing the intended change;
-1. (Optional) an approval flow will be auto matched based on the change risk and be followed via Bytebase’s built-in UI;
-1. Approved scripts are executed gradually according to the configured rollout stages;
-1. When the rollout is completed, Bitbucket CI may get notified and proceed to deploy the application.
+<IncludeBlock url="/docs/tutorials/share/database-workflow"></IncludeBlock>
 
 ## Set Up Database CI/CD with Bitbucket in Bytebase (Free Plan)
 
@@ -44,7 +28,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
 
 <IncludeBlock url="/docs/get-started/install/vcs-with-ngrok"></IncludeBlock>
 
-### Step 2 - Add Bitbucket.org as a Git provider in Bytebase
+## Step 2 - Add Bitbucket.org as a Git provider in Bytebase
 
 1. Visit Bytebase via your ngrok URL. Click **CI/CD** > **GitOps**, choose `Bitbucket.org`.
 
@@ -63,7 +47,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
 
 1. Copy the generated password, go back to Bytebase, and paste the password into the field with your bitbucket username and click **Confirm and add**. The provider is added successfully.
 
-### Step 3 - Configure a GitOps Workflow in Bytebase
+## Step 3 - Configure a GitOps Workflow in Bytebase
 
 1. Go to `bitbucket.org`, under workspace `bytebase-demo`, create a new project `bb-gitops-2024` and a repository `bb-test`.
 
@@ -73,7 +57,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
 
    ![bb-gitops-bitb-configure](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-gitops-bitb-configure.webp)
 
-### Step 4 - Configure SQL Review on Prod
+## Step 4 - Configure SQL Review in Prod
 
 1. Go to **CI/CD > SQL Review** in workspace, choose `Prod` as the environment. Make sure a SQL review policy is attached and enabled on `Prod`.
 
@@ -83,7 +67,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
 
    ![bb-sql-review-not-null](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-sql-review-not-null.webp)
 
-### Step 5 - Create a Pull Request to trigger issue creation
+## Step 5 - Create a Pull Request to trigger issue creation
 
 1. Go to `bb-test` on Bitbucket. Add a new file `20240919_create_table_t2024.sql` under `bb-test/bytebase/` which is the directory configured in the previous step. Copy the following SQL script into the file and commit the change **via a new branch** which will create a Pull Request automatically.
 
@@ -94,7 +78,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
    );
    ```
 
-1. Wait for a while, there is a SQL Review comment added. As we configured in the previous step, not null is a warning level SQL Review rule.
+1. Wait for a while, there is a SQL Review comment added. As we configured in the previous step, `NOT NULL` is a warning level SQL Review rule.
 
    ![bitb-sql-review-warning](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bitb-sql-review-warning.webp)
 
@@ -109,58 +93,23 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
 
 1. There will be a new comment saying the PR has triggered a Bytebase rollout.
 
-    ![bitb-merged](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bitb-merged.webp)  
-  
+   ![bitb-merged](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bitb-merged.webp)
+
 1. Follow the link to go to Bytebase. There's an issue with two stages, this is because we have two databases in this project, by default, the SQL will be applied to all databases within the project. If you merge the previous version SQL script, the SQL Review task run here will show yellow warning and waiting for rollout. Click **Resolve** to resolve the issue.
 
-    ![bb-issue-rollout](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-issue-rollout.webp)
+   ![bb-issue-rollout](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-issue-rollout.webp)
 
 1. After the rollout completes, click **View change** to see the diff.
 
-    ![bb-view-change-diff](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-view-change-diff.webp)
+   ![bb-view-change-diff](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-view-change-diff.webp)
 
 1. You may also go to a specific database page to view all its change history.
 
-    ![bb-db-change-history](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-db-change-history.webp)
+   ![bb-db-change-history](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-db-change-history.webp)
 
 ## Advanced Features (Enterprise Plan)
 
-You may upgrade to Enterprise plan to explore more features.
-
-### Manual Rollout
-
-Go to **Environments** > **2.Prod**, Find **Rollout policy** section, and choose **Manual rollout** > **Require rolling out by dedicated roles**.
-
-   ![bb-env-prod-manual-rollout](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-env-prod-manual-rollout.webp)
-
-### Custom Approval
-
-1. Go to **CI/CD** > **Custom Approval**. Set `Project Owner -> DBA` as Approval flow for **DDL** > **High Risk**.
-
-   ![bb-custom-approval](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-custom-approval.webp)
-
-2. Go to **CI/CD** > **Risk Center**. Click **Add rule** and click **Load** for the first template. Click **Add**.
-
-   ![bb-risk-center-ddl-high](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-risk-center-ddl-high.webp)
-
-### Schema Drift
-
-Bytebase has built-in [schema drift detection](/docs/change-database/drift-detection/) to detect unexpected schema changes. Let's use the [SQL Editor Admin Mode](/docs/sql-editor/admin-mode/) to simulate this.
-
-1. Click **terminal icon** (SQL Editor) on the top right. You'll be redirected to **SQL Editor**. Click **Admin mode**. Everything you do in this mode is the same as connecting directly to the server, which is not recorded by Bytebase.
-
-2. Select `(Prod) employee` on the left, and paste and run the following script:
-
-   ```sql
-       ALTER TABLE "public"."employee"
-       ADD COLUMN "city" text NOT NULL DEFAULT '';
-   ```
-
-3. Go back to Bytebase Console, and click **Databases** > `employee` under `Prod`. Click **Sync Now**. After seeing the success message, refresh the page. You'll see the schema drift. You may configure auto scan on instance detail page to avoid manual sync.
-
-   ![bb-db-schema-drift](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-db-schema-drift.webp)
-
-4. Go to **Database** > **Anomalies**, and you'll see the Schema drift there too.
+<IncludeBlock url="/docs/tutorials/share/database-workflow-advanced-features"></IncludeBlock>
 
 ## Summary
 

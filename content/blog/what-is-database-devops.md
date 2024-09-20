@@ -84,4 +84,4 @@ Database DevOps emphasizes the integration of databases into the DevOps lifecycl
 
 - [Database-as-Code](/blog/database-as-code)
 - [How many DBAs should a company hire](/blog/how-many-dbas-should-a-company-hire)
-- [Using Jira for Database Changes Won't Cut It](blog/use-jira-for-database-change)
+- [Using Jira for Database Changes Won't Cut It](/blog/use-jira-for-database-change)
