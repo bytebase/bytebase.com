@@ -95,6 +95,7 @@ schema for the changing database.
 ## Step 5 - Upgrade and Enable Auto-Backup
 
 1. Go to **Setting** in the Project, there're two options under Issue related:
+
    - Auto enable backup
    - Skip backup errors
 
@@ -102,7 +103,7 @@ schema for the changing database.
 
    ![bb-project-setting-bk](/content/docs/tutorials/data-rollback/bb-project-setting-bk.webp)
 
-1. You can request a trial license key from [here](https://bytebase.com/pricing).
+1. You can [contact us](/contact-us) to request a trial license key.
 
 1. After you get a license, click the **Setting icon** on the top right, and then click **Workspace > Subscription** to upload the license.
 
@@ -114,6 +115,6 @@ schema for the changing database.
 
 ## Noteworthy Difference
 
-If you want to use MySQL/SQL Server/Oracle, instead of creating a `bbdataarchive` schema, you should create a `bbdataarchive` database to store the backup data. Check the doc for more details.
+If you want to use MySQL/SQL Server/Oracle, instead of creating a `bbdataarchive` schema, you should create a `bbdataarchive` **database** instead of **schema** to store the backup data. Check the doc for more details.
 
 <DocLinkBlock url="/docs/change-database/rollback-data-changes/" title="Data Rollback Doc"></DocLinkBlock>
