@@ -1,5 +1,5 @@
 ---
-title: Onboarding Phases 🚀
+title: Onboarding Phases 🚠
 ---
 
 <HintBlock type="info">

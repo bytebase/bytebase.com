@@ -1,5 +1,5 @@
 ---
-title: POC Checklist
+title: POC Checklist 📝
 ---
 
 The POC (Proof of Concept) checklist guides the potential buyers to evaluate the Bytebase Enterprise

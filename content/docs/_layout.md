@@ -9,9 +9,9 @@ expand_section_list: ['Self-host']
 
 ## [Use Cases](/introduction/use-cases)
 
-## [POC Checklist](/poc)
+## [POC Checklist 📝](/poc)
 
-## [Onboarding Phases 🚀](/onboarding)
+## [Onboarding Phases 🚠](/onboarding)
 
 ## [FAQ](/faq)
 
