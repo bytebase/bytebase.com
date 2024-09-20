@@ -115,11 +115,7 @@ expand_section_list: ['Self-host']
 
 #### [Webhook](/change-database/webhook)
 
-#### [Environment Policy](/administration/environment-policy/overview)
-
-##### [Environment Tier](/administration/environment-policy/tier)
-
-##### [Rollout Policy](/administration/environment-policy/rollout-policy)
+#### [Rollout Policy](/administration/environment-policy/rollout-policy)
 
 #### [Custom Approval](/administration/custom-approval)
 
@@ -185,7 +181,7 @@ expand_section_list: ['Self-host']
 
 ---
 
-## Security Admin
+## Security Admin 🔐
 
 ### [Audit Log](/security/audit-log)
 
@@ -207,7 +203,7 @@ expand_section_list: ['Self-host']
 
 ### [Watermark](/security/watermark)
 
-## General Admin
+## General Admin ⚙️
 
 ### [Manage License](/administration/license)
 
@@ -218,6 +214,8 @@ expand_section_list: ['Self-host']
 ### [Database Change Mode](/administration/mode)
 
 ### [AI Assistant](/ai-assistant)
+
+### [Environment Tier](/administration/environment-policy/tier)
 
 ### [Customize Logo](/administration/customize-logo)
 
