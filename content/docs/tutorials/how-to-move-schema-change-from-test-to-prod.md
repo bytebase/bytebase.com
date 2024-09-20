@@ -7,7 +7,7 @@ tags: Tutorial
 integrations: General
 level: Beginner
 estimated_time: '5 mins'
-description: 'Learn how to move schema change from test to prod.'
+description: 'Learn to move schema change from test to prod.'
 ---
 
 We're demonstrating this process using our sample [demo](https://demo.bytebase.com/) data in the Basic Project.
