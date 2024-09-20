@@ -30,40 +30,40 @@ By default, the first registered user is granted the `Admin` role, all following
 
 | Workspace Permission                | Member | DBA | Admin |
 | ----------------------------------- | ------ | --- | ----- |
-| Change own name and password        | ✔️      | ✔️   | ✔️     |
-| Add new user                        |        |     | ✔️     |
-| View all users                      | ✔️      | ✔️   | ✔️     |
-| Change any user's role              |        |     | ✔️     |
-| De-activate/re-activate user        |        |     | ✔️     |
-| Change any user's name and password |        |     | ✔️     |
-| Add environment                     |        | ✔️   | ✔️     |
-| View all environments               | ✔️      | ✔️   | ✔️     |
-| Edit environment                    |        | ✔️   | ✔️     |
-| Reorder environment                 |        | ✔️   | ✔️     |
-| Archive environment                 |        | ✔️   | ✔️     |
-| View all instances                  |        | ✔️   | ✔️     |
-| Add instance                        |        | ✔️   | ✔️     |
-| Edit instance                       |        | ✔️   | ✔️     |
-| Archive instance                    |        | ✔️   | ✔️     |
-| Sync instance schema                |        | ✔️   | ✔️     |
-| Create database                     |        | ✔️   | ✔️     |
-| View all databases                  |        | ✔️   | ✔️     |
-| Create project                      | ✔️      | ✔️   | ✔️     |
-| View all projects                   |        | ✔️   | ✔️     |
-| Create issue                        | ✔️      | ✔️   | ✔️     |
-| View all issues                     |        | ✔️   | ✔️     |
-| Become issue assignee               |        | ✔️   | ✔️     |
-| Re-assign issue                     |        | ✔️   | ✔️     |
-| Add comment to all issues           | ✔️      | ✔️   | ✔️     |
-| Subscribe to all issues             | ✔️      | ✔️   | ✔️     |
-| Alter schema                        | ✔️      | ✔️   | ✔️     |
-| Change data                         | ✔️      | ✔️   | ✔️     |
-| Configure SQL Review Policy         |        | ✔️   | ✔️     |
-| Manage version control system (VCS) |        |     | ✔️     |
-| Manage sensitive data               |        | ✔️   | ✔️     |
-| Manage database acccess control     |        | ✔️   | ✔️     |
-| Manage IM integration               |        |     | ✔️     |
-| Change logo                         |        |     | ✔️     |
+| Change own name and password        | ✔️     | ✔️  | ✔️    |
+| Add new user                        |        |     | ✔️    |
+| View all users                      | ✔️     | ✔️  | ✔️    |
+| Change any user's role              |        |     | ✔️    |
+| De-activate/re-activate user        |        |     | ✔️    |
+| Change any user's name and password |        |     | ✔️    |
+| Add environment                     |        | ✔️  | ✔️    |
+| View all environments               | ✔️     | ✔️  | ✔️    |
+| Edit environment                    |        | ✔️  | ✔️    |
+| Reorder environment                 |        | ✔️  | ✔️    |
+| Archive environment                 |        | ✔️  | ✔️    |
+| View all instances                  |        | ✔️  | ✔️    |
+| Add instance                        |        | ✔️  | ✔️    |
+| Edit instance                       |        | ✔️  | ✔️    |
+| Archive instance                    |        | ✔️  | ✔️    |
+| Sync instance schema                |        | ✔️  | ✔️    |
+| Create database                     |        | ✔️  | ✔️    |
+| View all databases                  |        | ✔️  | ✔️    |
+| Create project                      | ✔️     | ✔️  | ✔️    |
+| View all projects                   |        | ✔️  | ✔️    |
+| Create issue                        |        | ✔️  | ✔️    |
+| View all issues                     |        | ✔️  | ✔️    |
+| Become issue assignee               |        | ✔️  | ✔️    |
+| Re-assign issue                     |        | ✔️  | ✔️    |
+| Add comment to all issues           |        | ✔️  | ✔️    |
+| Subscribe to all issues             |        | ✔️  | ✔️    |
+| Alter schema                        |        | ✔️  | ✔️    |
+| Change data                         |        | ✔️  | ✔️    |
+| Configure SQL Review Policy         |        | ✔️  | ✔️    |
+| Manage version control system (VCS) |        |     | ✔️    |
+| Manage sensitive data               |        | ✔️  | ✔️    |
+| Manage database acccess control     |        | ✔️  | ✔️    |
+| Manage IM integration               |        |     | ✔️    |
+| Change logo                         |        |     | ✔️    |
 
 ## Project roles
 
@@ -72,24 +72,24 @@ Any user can create project. By default, the project creator is granted the `Pro
 
 | Project Permission           | Project Querier | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
 | ---------------------------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
-| Sync sheet from VCS          |                 |                  | ✔️                 | ✔️             | ✔️             | ✔️               |
-| Change project role          |                 |                  |                   | ✔️             | ✔️             | ✔️               |
-| Edit project                 |                 |                  |                   | ✔️             | ✔️             | ✔️               |
-| Archive project              |                 |                  |                   | ✔️             | ✔️             | ✔️               |
-| Configure UI/GitOps workflow |                 |                  |                   | ✔️             | ✔️             | ✔️               |
+| Sync sheet from VCS          |                 |                  | ✔️                | ✔️            | ✔️            | ✔️              |
+| Change project role          |                 |                  |                   | ✔️            | ✔️            | ✔️              |
+| Edit project                 |                 |                  |                   | ✔️            | ✔️            | ✔️              |
+| Archive project              |                 |                  |                   | ✔️            | ✔️            | ✔️              |
+| Configure UI/GitOps workflow |                 |                  |                   | ✔️            | ✔️            | ✔️              |
 
 ## Database permissions
 
 Bytebase does not define database specific roles. Whether a user can perform certain action to the database is based on the user's Workspace role and the role of the project owning the database.
 
-| Database Permission | Project Querier | Project Exporter  | Project Developer         | Project Owner | Workspace DBA | Workspace Admin |
-| ------------------- | --------------- | ----------------- | ------------------------- | ------------- | ------------- | --------------- |
-| Query               | ✔️               |                   |                           | ✔️             | ✔️             | ✔️               |
-| Export              |                 | ✔️                 |                           | ✔️             | ✔️             | ✔️               |
-| Take manual backup  |                 |                   | ✔️                         | ✔️             | ✔️             | ✔️               |
-| Enable backup       |                 |                   |                           | ✔️             | ✔️             | ✔️               |
-| Edit database label |                 |                   |                           | ✔️             | ✔️             | ✔️               |
-| Transfer database   |                 |                   |                           | ✔️             | ✔️             | ✔️               |
+| Database Permission | Project Querier | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
+| ------------------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
+| Query               | ✔️              |                  |                   | ✔️            | ✔️            | ✔️              |
+| Export              |                 | ✔️               |                   | ✔️            | ✔️            | ✔️              |
+| Take manual backup  |                 |                  | ✔️                | ✔️            | ✔️            | ✔️              |
+| Enable backup       |                 |                  |                   | ✔️            | ✔️            | ✔️              |
+| Edit database label |                 |                  |                   | ✔️            | ✔️            | ✔️              |
+| Transfer database   |                 |                  |                   | ✔️            | ✔️            | ✔️              |
 
 ## Sheet permissions
 
@@ -103,28 +103,28 @@ User can save sheets from [SQL Editor](/docs/sql-editor/overview). A sheet alway
 
 | Permission | Creator | Project Querier | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
 | ---------- | ------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
-| Star       | ✔️       |                 |                  |                   |               |               |                 |
-| Read       | ✔️       |                 |                  |                   |               |               |                 |
-| Write      | ✔️       |                 |                  |                   |               |               |                 |
-| Delete     | ✔️       |                 |                  |                   |               |               |                 |
+| Star       | ✔️      |                 |                  |                   |               |               |                 |
+| Read       | ✔️      |                 |                  |                   |               |               |                 |
+| Write      | ✔️      |                 |                  |                   |               |               |                 |
+| Delete     | ✔️      |                 |                  |                   |               |               |                 |
 
 ### Project Sheet
 
 | Permission | Creator | Project Querier | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
 | ---------- | ------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
-| Star       | ✔️       | ✔️               | ✔️                | ✔️                 | ✔️             | ✔️             | ✔️               |
-| Read       | ✔️       | ✔️               | ✔️                | ✔️                 | ✔️             | ✔️             | ✔️               |
-| Write      | ✔️       |                 |                  |                   | ✔️             | ✔️             | ✔️               |
-| Delete     | ✔️       |                 |                  |                   | ✔️             | ✔️             | ✔️               |
+| Star       | ✔️      | ✔️              | ✔️               | ✔️                | ✔️            | ✔️            | ✔️              |
+| Read       | ✔️      | ✔️              | ✔️               | ✔️                | ✔️            | ✔️            | ✔️              |
+| Write      | ✔️      |                 |                  |                   | ✔️            | ✔️            | ✔️              |
+| Delete     | ✔️      |                 |                  |                   | ✔️            | ✔️            | ✔️              |
 
 ### Public Sheet
 
 | Permission | Creator | Project Querier | Project Exporter | Project Developer | Project Owner | Others |
 | ---------- | ------- | --------------- | ---------------- | ----------------- | ------------- | ------ |
-| Star       | ✔️       | ✔️               | ✔️                | ✔️                 | ✔️             | ✔️      |
-| Read       | ✔️       | ✔️               | ✔️                | ✔️                 | ✔️             | ✔️      |
-| Write      | ✔️       |                 |                  |                   | ✔️             |        |
-| Delete     | ✔️       |                 |                  |                   | ✔️             |        |
+| Star       | ✔️      | ✔️              | ✔️               | ✔️                | ✔️            | ✔️     |
+| Read       | ✔️      | ✔️              | ✔️               | ✔️                | ✔️            | ✔️     |
+| Write      | ✔️      |                 |                  |                   | ✔️            |        |
+| Delete     | ✔️      |                 |                  |                   | ✔️            |        |
 
 ## Issue permissions
 
