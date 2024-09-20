@@ -5,7 +5,7 @@ feature_name: DATA_ACCESS_CONTROL
 
 <TutorialBlock url="/docs/tutorials/how-to-manage-data-access-for-developers" title="How to Manage Data Access for Developers" />
 
-Data Access Control restricts how the `Developer` access and export the data. `Workspace Admin` or `DBA` are exempt from these restrictions.
+Data Access Control restricts how the users access and export the data. `Workspace Admin` or `DBA` are exempt from these restrictions.
 
 At the project level, the `Project Owner` is also exempt from these restrictions. `Workspace Admin` or `DBA` can configure the following data access control:
 
@@ -29,4 +29,4 @@ At the workspace level, the `Workspace Admin` or `Workspace DBA` can configure t
 
 - Go to **Environments**, If **Disable copy data from SQL editor** is checked, then no one can copy data from databases belonging to that environment via SQL Editor.
 
-   ![bb-env-ac](/content/docs/security/data-access-control/bb-env-ac.webp)
+  ![bb-env-ac](/content/docs/security/data-access-control/bb-env-ac.webp)

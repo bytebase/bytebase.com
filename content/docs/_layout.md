@@ -143,9 +143,9 @@ expand_section_list: ['Self-host']
 
 ### [Query with Natural Language](/sql-editor/text-to-sql)
 
-## Secure Data
+## Data Access Control
 
-### [Data Access Control](/security/data-access-control)
+### [Overview](/security/data-access-control)
 
 ### [Data Query Approval Flow](/security/data-query)
 
