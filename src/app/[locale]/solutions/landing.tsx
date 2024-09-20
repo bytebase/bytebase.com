@@ -14,7 +14,7 @@ const Landing = ({ solution }: LandingProps) => {
     <section className="pb-20 pt-[64px] lg:pb-16 md:pb-[54px] md:pt-24 sm:pb-11">
       <div className="container max-w-[1396px] 2xl:max-w-full">
         <Pill theme="secondary-1" className="col-span-full">
-          {solution.title}
+          <h1>{solution.title}</h1>
         </Pill>
         <ul>
           {solution.values.map((value, index) => (
