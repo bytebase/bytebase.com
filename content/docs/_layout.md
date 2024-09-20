@@ -53,19 +53,83 @@ expand_section_list: ['Self-host']
 
 ---
 
-## SQL Review
+## Database CI/CD
 
-### [Overview](/sql-review/overview)
+### [Overview](/change-database/change-workflow)
 
-### [Review Policy](/sql-review/review-policy)
+### Change
 
-### [Review Rules](/sql-review/review-rules)
+#### [Batch Change](/change-database/batch-change)
 
-### [UI Integration](/sql-review/ui)
+#### [Schema Sync](/change-database/synchronize-schema)
 
-### [CI Integration](/sql-review/gitops-ci)
+#### [Changelist](/changelist)
 
-### [API](/sql-review/api)
+#### [Stored Procedure](/change-database/stored-procedure)
+
+#### [Schema Editor](/change-database/schema-editor)
+
+#### [Schema Diagram](/change-database/schema-diagram)
+
+#### [Online Schema Migration](/change-database/online-schema-migration-for-mysql)
+
+#### [Secret Variable](/change-database/secret)
+
+### Review
+
+#### [Overview](/sql-review/overview)
+
+#### [Review Policy](/sql-review/review-policy)
+
+#### [Review Rules](/sql-review/review-rules)
+
+#### [UI Integration](/sql-review/ui)
+
+#### [CI Integration](/sql-review/gitops-ci)
+
+#### [API](/sql-review/api)
+
+### Rollback
+
+#### [1-click Data Rollback](/change-database/rollback-data-changes)
+
+### Monitor
+
+#### [Drift Detection](/change-database/drift-detection)
+
+#### Slow Query
+
+##### [Overview](/slow-query/overview)
+
+##### [Enable Slow Query Log for MySQL](/slow-query/enable-slow-query-log-for-mysql)
+
+##### [Enable pg_stat_statements for PostgreSQL](/slow-query/enable-pg-stat-statements-for-postgresql)
+
+##### [Turn on Slow Query Report in Bytebase](/slow-query/slow-query-report)
+
+##### [Weekly Email Report](/slow-query/email-report)
+
+##### [Index Advisor](/slow-query/index-advisor)
+
+### Settings
+
+#### [Webhook](/change-database/webhook)
+
+#### [Environment Policy](/administration/environment-policy/overview)
+
+##### [Environment Tier](/administration/environment-policy/tier)
+
+##### [Rollout Policy](/administration/environment-policy/rollout-policy)
+
+#### [Custom Approval](/administration/custom-approval)
+
+#### [Risk Center](/administration/risk-center)
+
+#### [Anomaly Center](/administration/anomaly-center)
+
+#### [Schema Template](/administration/schema-template)
+
+### [Troubleshoot 🐞](/change-database/troubleshoot)
 
 ## GitOps
 
@@ -78,6 +142,22 @@ expand_section_list: ['Self-host']
 ### [Create Migration Files](/vcs-integration/create-migration-files)
 
 ### [Troubleshoot 🐞](/vcs-integration/troubleshoot)
+
+## SQL Editor
+
+### [Overview](/sql-editor/overview)
+
+### [Run Query](/sql-editor/run-queries)
+
+### [Admin Mode](/sql-editor/admin-mode)
+
+### [Data Masking](/sql-editor/mask-data)
+
+### [Manage SQL Scripts](/sql-editor/manage-sql-scripts)
+
+### [Explore Schema](/sql-editor/explore-schema)
+
+### [Query with Natural Language](/sql-editor/text-to-sql)
 
 ## Dynamic Data Masking
 
@@ -97,54 +177,6 @@ expand_section_list: ['Self-host']
 
 ### [Export Masked Data](/security/data-masking/export-masked-data)
 
-## [AI Assistant](/ai-assistant)
-
-## [Batch Change](/change-database/batch-change)
-
-## [Changelist](/changelist)
-
----
-
-## Change Database
-
-### [Change Workflow](/change-database/change-workflow)
-
-### [1-click Data Rollback](/change-database/rollback-data-changes)
-
-### [Schema Sync and Rollback](/change-database/synchronize-schema)
-
-### [Stored Procedure](/change-database/stored-procedure)
-
-### [Drift Detection](/change-database/drift-detection)
-
-### [Schema Editor](/change-database/schema-editor)
-
-### [Schema Diagram](/change-database/schema-diagram)
-
-### [Online Schema Migration](/change-database/online-schema-migration-for-mysql)
-
-### [Webhook](/change-database/webhook)
-
-### [Secret Variable](/change-database/secret)
-
-### [Troubleshoot 🐞](/change-database/troubleshoot)
-
-## SQL Editor
-
-### [Overview](/sql-editor/overview)
-
-### [Run Query](/sql-editor/run-queries)
-
-### [Admin Mode](/sql-editor/admin-mode)
-
-### [Data Masking](/sql-editor/mask-data)
-
-### [Manage SQL Scripts](/sql-editor/manage-sql-scripts)
-
-### [Explore Schema](/sql-editor/explore-schema)
-
-### [Query with Natural Language](/sql-editor/text-to-sql)
-
 ## Data Access Control
 
 ### [Overview](/security/data-access-control)
@@ -153,41 +185,11 @@ expand_section_list: ['Self-host']
 
 ### [Data Export Approval Flow](/security/data-export)
 
-### [Watermark](/security/watermark)
-
-### [Audit Log](/security/audit-log)
-
-## Slow Query
-
-### [Overview](/slow-query/overview)
-
-### [Enable Slow Query Log for MySQL](/slow-query/enable-slow-query-log-for-mysql)
-
-### [Enable pg_stat_statements for PostgreSQL](/slow-query/enable-pg-stat-statements-for-postgresql)
-
-### [Turn on Slow Query Report in Bytebase](/slow-query/slow-query-report)
-
-### [Weekly Email Report](/slow-query/email-report)
-
-### [Index Advisor](/slow-query/index-advisor)
-
 ---
 
-## Administration
+## Security Admin
 
-### [Manage License](/administration/license)
-
-### [Production Setup](/administration/production-setup)
-
-### [Back up Data](/administration/back-up-data)
-
-### [Database Change Mode](/administration/mode)
-
-### [Environment Policy](/administration/environment-policy/overview)
-
-#### [Environment Tier](/administration/environment-policy/tier)
-
-#### [Rollout Policy](/administration/environment-policy/rollout-policy)
+### [Audit Log](/security/audit-log)
 
 ### [Single Sign-On](/administration/sso/overview)
 
@@ -203,19 +205,25 @@ expand_section_list: ['Self-host']
 
 ### [Sign-in Frequency](/administration/sign-in-frequency)
 
-### [Custom Approval](/administration/custom-approval)
-
-### [Risk Center](/administration/risk-center)
-
-### [Anomaly Center](/administration/anomaly-center)
-
 ### [Custom Roles](/administration/custom-roles)
+
+### [Watermark](/security/watermark)
+
+## General Admin
+
+### [Manage License](/administration/license)
+
+### [Production Setup](/administration/production-setup)
+
+### [Back up Data](/administration/back-up-data)
+
+### [Database Change Mode](/administration/mode)
+
+### [AI Assistant](/ai-assistant)
 
 ### [Customize Logo](/administration/customize-logo)
 
 ### [Announcement](/administration/announcement)
-
-### [Schema Template](/administration/schema-template)
 
 ### [SMTP and Email Delivery](/administration/mail-delivery)
 
