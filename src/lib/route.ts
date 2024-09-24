@@ -46,6 +46,7 @@ const Route = {
   DOCS: '/docs',
   DOCS_DATA_COLLECTION: '/docs/faq/#which-data-does-bytebase-collect',
   DOCS_SELF_HOST: '/docs/get-started/self-host',
+  DOCS_CLOUD: '/docs/get-started/cloud',
   DOCS_USE_CASE: '/docs/introduction/use-cases/',
   DOCS_CONCEPT: '/docs/concepts/data-model',
   DOCS_CONCEPT_DB_INSTANCE: '/docs/concepts/data-model/#database-instance',

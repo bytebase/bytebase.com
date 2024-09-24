@@ -197,10 +197,13 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
               );
             })}
           </ul>
-          <div className="ml-auto flex items-center gap-4 md:mr-10 sm:hidden">
+          <div className="ml-auto flex items-center gap-2 md:mr-10 sm:hidden">
             <GithubStarCounter />
-            <Button href={Route.DOCS_SELF_HOST} theme="gray-filled" className="w-[164px]" size="sm">
-              Deploy in 5 mins
+            <Button href={Route.DOCS_CLOUD} theme="primary-outline" className="w-[88px]" size="sm">
+              Cloud
+            </Button>
+            <Button href={Route.DOCS_SELF_HOST} theme="gray-filled" className="w-[116px]" size="sm">
+              Self-host
             </Button>
           </div>
         </nav>
