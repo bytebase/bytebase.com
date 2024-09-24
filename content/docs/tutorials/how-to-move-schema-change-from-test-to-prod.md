@@ -13,7 +13,7 @@ We're demonstrating this process using our sample [demo](https://demo.bytebase.c
 
 ![basic-project](/content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/basic-project.webp)
 
-You have three options to move schema change from test to prod as follows.
+You have three options to move schema change from `test` to `prod` as follows.
 
 ## Option 1: Streamlined rollout
 
@@ -60,3 +60,9 @@ We can choose `Change History` as Change source to add our former schema changes
 Having finished editing the new changelist, **Apply to database** where you choose both databases to **Edit Schema**. Then just create and roll out the issue as we did.
 
 ![changelist-apply](/content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/changelist-apply.webp)
+
+## Related docs
+
+- [Streamlined Rollout](/docs/change-database/batch-change/#change-databases-from-multiple-environments)
+- [Schema Synchronization](/docs/change-database/synchronize-schema)
+- [Changelist](/docs/changelist)
