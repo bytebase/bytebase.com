@@ -1,7 +1,7 @@
 ---
 title: How to move schema change from test to prod
 author: Dec
-updated_at: 2024/09/20 18:00
+updated_at: 2024/09/24 18:00
 tags: Tutorial
 integrations: General
 level: Beginner
