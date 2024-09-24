@@ -1,39 +1,62 @@
 ---
-title: How to Move Schema Change from Test to Prod
+title: How to move schema change from test to prod
 author: Dec
 updated_at: 2024/09/20 18:00
-feature_image: /content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/feature.webp
 tags: Tutorial
 integrations: General
 level: Beginner
-estimated_time: '30 mins'
-description: 'Learn to move database schema change from test to prod environment.'
+estimated_time: '5 mins'
+description: 'Learn to move schema change from test to prod.'
 ---
 
-We're demonstrating this process using our sample [demo](https://demo.bytebase.com/) data in the Basic Project.
+We're demonstrating this process using our sample [demo](https://demo.bytebase.com/) data in the Basic Project. You're in Workspace on opening Bytebase. **Select Project** on the upper-left where you choose `Basic Project`. Now you can operate within the project.
 
-You have three options to move database schema change from test to prod as follows.
+![basic-project](content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/basic-project.webp)
+
+You have three options to move schema change from test to prod as follows.
 
 ## Option 1: Streamlined rollout
 
-Select both databases to **Edit Schema**, where you type in raw SQL code and click **Create**. Checks will automatically run and you can **Approve** the change and **Rollout**.
+Go to **Database** -> **Databases** section on the left-side bar. Select both databases to **Edit Schema**, where you type in raw SQL code in the code block and click **Create**. Checks will automatically run and then you can **Approve** the change and **Rollout**.
 
-![streamlined-rollout](/content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/streamlined-rollout.webp)
-
-If anything went wrong, rollout would be blocked.
-
-![streamlined-rollout-error](/content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/streamlined-rollout-error.webp)
+![streamlined-rollout](content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/streamlined-rollout.webp)
 
 ## Option 2: Schema Synchronization
 
-Select only `test` database to **Edit Schema**. Approve and Rollout like we did to the two databases in Option 1. Then enter **Sync Schema** on the left-side bar. Select `test` in **Database** to refer to, and choose a **Schema version**. Select `prod` as target database, then you can preview the Schema change.
+Also within **Database** -> **Databases** section on the left-side bar in `Basic Project` interface, select only `test` database to **Edit Schema**. Create, Approve and Rollout like we did to the two databases in Option 1.
 
-![select-target-databases](/content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/select-target-databases.webp)
+Then enter **Sync Schema** on the left-side bar. Select `test` in **Database** to refer to, and choose a **Schema version**. Click **Next**.
 
-**Prevew issue** to Run checks, Approve, and Rollout as we did before. Thus the Schema change is successfully synced from `test` to `prod`.
+![select-source-schema](content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/select-source-schema.webp)
 
-## Option 3: Use Changelist
+Select `prod` as target database.
 
-Enter **Changelists** on the left-side bar. You can create a **New Changelist** by uploading file.
+![select-target-databases-1](content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/select-target-databases-1.webp)
 
-Choose the changelist and **Apply to database**, choose both database and you'll be Creating an issue interface again. Just Rollout this issue as we did.
+You can see how Schema change makes difference to your Target database. **Prevew issue** to Rollout the Schema Synchronization.
+
+![select-target-databases-2](content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/select-target-databases-2.webp)
+
+**Create** this issue of Schema Synchronization, Approve and Rollout as we did before.
+
+![select-target-databases-3](content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/select-target-databases-3.webp)
+
+Thus the Schema change is successfully synced from `test` to `prod`.
+
+## Option 3: Use changelist
+
+Still within `Basic Project` interface, enter **Changelists** section on the left-side bar, where you can create a **New Changelist**.
+
+![changelist-entry](content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/changelist-entry.webp)
+
+In the details page of our new changelist, besides **Upload .sql or .zip file**, we can also click the `+` to **Add Change**.
+
+![changelist-details-page](content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/changelist-details-page.webp)
+
+We can choose `Change History` as Change source to add our former shcema changes to changelist. Or, we can edit **Raw SQL** to apply any Schema change with our changelist.
+
+![changelist-add-change](content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/changelist-add-change.webp)
+
+Having finished editing the new changelist, **Apply to database** where you choose both databases to Edit Schema. Then just Create and Rollout the issue as we did.
+
+![changelist-apply](content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/changelist-apply.webp)
