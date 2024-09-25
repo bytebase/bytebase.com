@@ -11,10 +11,7 @@
 1. Create a new branch for this commit and start a pull request. Click **Merge pull request** to merge the new branch into the main branch.
    ![gh-create-table](/content/docs/tutorials/database-change-management-share/gh-create-table.webp)
 
-1. Go to Bytebase, and go into project `Sample Project`. You’ll find there is a new `Push Event` and a new issue created.
-   ![bb-push-notification-only](/content/docs/tutorials/database-change-management-share/bb-push-notification-only.webp)
-
-1. Click and go to the issue page, you’ll see
+1. There will be a comment saying there's a rollout in Bytebase. Click and go to the issue page, you’ll see
 
    1. The issue is created via GitHub.com, there's a link to the GitHub commit.
    1. The SQL is exactly the one we have committed to the GitHub repository.
