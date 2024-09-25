@@ -56,7 +56,7 @@ Check [Configure External URL](/docs/get-started/install/external-url#configure-
 
 #### Enable WebSocket for SQL Editor
 
-SQL Editor autocomplete requires WebSocket. Here is an sample NGINX configuration (including the optional HTTPS mentioned below):
+SQL Editor autocomplete requires WebSocket. If you access Bytebase via a gateway, you need to enable WebSocket there. Here is an sample NGINX configuration (including the optional HTTPS mentioned below):
 
 ```nginx
 

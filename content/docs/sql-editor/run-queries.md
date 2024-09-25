@@ -1,5 +1,5 @@
 ---
-title: Run Query
+title: Query
 ---
 
 <HintBlock type="info">
@@ -32,6 +32,30 @@ SQL Editor can return at most **100,000 rows** and **100 MB** size in total.
 ## Explain query
 
 SQL Editor provides an `Explain` button to run EXPLAIN on the selected query. You can click it or use the shortcut key `(⌘ + E)` instead of prepending EXPLAIN manually.
+
+## Autocomplete
+
+![autocomplete](/content/docs/sql-editor/autocomplete.webp)
+
+Autocomplete depends on WebSocket. If you access Bytebase via a gateway, you need to enable WebSocket there. Here is a NGINX configuration:
+
+```nginx
+
+http {
+    server {
+        ...
+
+       location ~ ^/(v1:adminExecute|lsp) {
+            proxy_pass http://www.example.com;
+            proxy_http_version 1.1;
+            # Enables WebSocket which is required for SQL Editor autocomplete
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection $connection_upgrade;
+        }
+        ...
+    }
+}
+```
 
 ## Batch mode
 

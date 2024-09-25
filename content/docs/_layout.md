@@ -141,7 +141,7 @@ expand_section_list: ['Self-host']
 
 ### [Overview](/sql-editor/overview)
 
-### [Run Query](/sql-editor/run-queries)
+### [Query](/sql-editor/run-queries)
 
 ### [Admin Mode](/sql-editor/admin-mode)
 
