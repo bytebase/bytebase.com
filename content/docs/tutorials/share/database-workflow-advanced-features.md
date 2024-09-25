@@ -12,7 +12,7 @@ Go to **Environments** > **Prod**, Find **Rollout policy** section, and choose *
 
    ![bb-custom-approval](/content/docs/tutorials/share/bb-custom-approval.webp)
 
-2. Go to **CI/CD** > **Risk Center**. Click **Add rule** and click **Load** for the first template. Click **Add**.
+1. Go to **CI/CD** > **Risk Center**. Click **Add rule** and click **Load** for the first template. Click **Add**.
 
    ![bb-risk-center-ddl-high](/content/docs/tutorials/share/bb-risk-center-ddl-high.webp)
 
@@ -22,15 +22,15 @@ Bytebase has built-in [schema drift detection](/docs/change-database/drift-detec
 
 1. Click **terminal icon** (SQL Editor) on the top right. You'll be redirected to **SQL Editor**. Click **Admin mode**. Everything you do in this mode is the same as connecting directly to the server, which is not recorded by Bytebase.
 
-2. Select `(Prod) employee` on the left, and paste and run the following script:
+1. Select `(Prod) employee` on the left, and paste and run the following script:
 
    ```sql
        ALTER TABLE "public"."employee"
        ADD COLUMN "city" text NOT NULL DEFAULT '';
    ```
 
-3. Go back to Bytebase Console, and click **Databases** > `employee` under `Prod`. Click **Sync Now**. After seeing the success message, refresh the page. You'll see the schema drift. You may configure auto scan on instance detail page to avoid manual sync.
+1. Go back to Bytebase Console, and click **Databases** > `employee` under `Prod`. Click **Sync Now**. After seeing the success message, refresh the page. You'll see the schema drift. You may configure auto scan on instance detail page to avoid manual sync.
 
    ![bb-db-schema-drift](/content/docs/tutorials/share/bb-db-schema-drift.webp)
 
-4. Go to **Database** > **Anomalies**, and you'll see the Schema drift there too.
+14. Go to **Database** > **Anomalies**, and you'll see the Schema drift there too.

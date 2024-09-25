@@ -1,7 +1,7 @@
 ---
 title: The Database CI/CD Best Practice with GitLab
 author: Ningjing
-updated_at: 2023/09/27 14:15
+updated_at: 2024/09/25 17:15
 feature_image: /content/docs/tutorials/database-cicd-best-practice-with-gitlab/cicd-gitlab.webp
 tags: Tutorial
 integrations: GitLab
@@ -30,74 +30,67 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with GitLab 
 
 ### Step 2 - Add GitLab.com as a Git provider in Bytebase
 
-1. Visit Bytebase via your ngrok URL. Click **gear icon** (Settings) > **Integration** > **GitOps**, choose `GitLab.com`, and click **Next**. You will see STEP 2. Copy the **Redirect URI**.
-   ![bb-gitops-step2](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-gitops-step2.webp)
+1. Visit Bytebase via your ngrok URL. Click **CI/CD** > **GitOps**, choose `GitLab.com`.
+   ![bb-gitops-provider-gitlab](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-gitops-provider-gitlab.webp)
 
-2. Go to `https://gitlab.com/`, click your avatar and choose **Preferences** on the dropdown menu. Click **Applications** on the left bar. Click **Add new application**. Fill in the following fields:
+1. Follow the **personal access token** link to [https://gitlab.com/-/user_settings/personal_access_tokens](https://gitlab.com/-/user_settings/personal_access_tokens) or you may configure project access token with at least `maintainer` role.
 
-   - **Name**: `Bytebase`
-   - **Redirect URI**: Copied from Bytebase GitOps config STEP 2
-   - **Confidential**: `Yes`
-   - **Scope**: `api`
+1. Click **Add new token**, fill in name, select `api` and `read_repository` as scopes, and click **Create personal access token**.
+   ![gl-personal-access-token](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/gl-personal-access-token.webp)
 
-   Click **Save application**.
-
-   ![gitlab-add-new-app](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/gitlab-add-new-app.webp)
-
-3. Copy the **Application ID** and **Secret** from the GitLab application page and paste them into the Bytebase GitOps config page. Click **Next**. Click **Authorize** on popup. You will be redirected to the confirmation page. Click **Confirm and add**, and the Git provider is successfully added.
-
-   ![bb-gitlabcom-added](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-gitlabcom-added.webp)
+1. Copy the generated token, go back to Bytebase, and paste the token into the field and click **Confirm and add**. The provider is added successfully.
 
 ### Step 3 - Configure a GitOps Workflow in Bytebase
 
-1. Go to `https://gitlab.com/` and create a new project `bytebase-gitlabcom-demo`. Set the **Visibility Level** to `Public`. Click **Create project**.
+1. Go to `https://gitlab.com/` and create a new project `bb-gitops-2024`. Click **Create project**.
 
-2. Go to Bytebase, go to the `Sample Project`. Click **GitOps** tab and choose `GitOps workflow`. Click **Configure GitOps**.
+1. Go to Bytebase, go to the `Sample Project`. Click **Integration >GitOps** on the left and click **Add GitOps connector**. Choose `GitLab.com` (the git provider you just configured) and `Bytebase Sample/bb-gitops-2024` (the repository you just created).
 
-3. Choose `GitLab.com` (the git provider you just configured) and the repository you just created. You'll be redirected to STEP 3. Keep everything as default, scroll down to the bottom and check `Enable SQL Review CI via GitLab CI`. Click **Finish**.
+1. Keep the default settings for the remaining fields and click **Finish**. The gitops connector is created successfully.
+   ![bb-gitops-gitlab-configure](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-gitops-gitlab-configure.webp)
 
-   ![bb-sql-review-ci-setup](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-sql-review-ci-setup.webp)
+### Step 4 - Configure SQL Review in Prod
 
-4. After SQL Review CI is automatically setup, click **Review the merge request**. You'll be redirected to GitLab. Click **Merge** and you'll see the CI is automatically configured. It will be triggered later once a new merge request is created.
+<IncludeBlock url="/docs/tutorials/share/sql-review-not-null"></IncludeBlock>
 
-   ![gitlab-sql-ci-installed](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/gitlab-sql-ci-installed.webp)
+### Step 5 - Create a Merge Request to trigger issue creation
 
-5. Go back to Bytebase, you'll see the GitOps workflow is configured successfully.
-
-### Step 4 - Create a Merge Request and Trigger SQL Review CI
-
-1. Go to **Environments**, you'll see there's a SQL Review policy attached with `Prod`. Click **Edit**, you'll see three activated SQL Review rules which will be applied via CI.
-
-   ![bb-sql-policy](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-sql-policy.webp)
-
-2. To test SQL Review CI, we'll create a merge request to change the `Prod` database schema. However, it will voliate the SQL Review policy first. Go to `bytebase-gitlabcom-demo` on GitLab. Click **New branch**, name it `add-nickname-table-employee`. Click **Create branch**.
-3. On the new branch, create a subdirectory `bytebase`, and create a sub-subdirectory `prod`. Within the `prod` directory, create a file `employee##202309262500##ddl##add_nickname_table_employee.sql`. Copy the following SQL script into the file and commit the change.
-   ```sql
-   ALTER TABLE "public"."employee"
-   ADD COLUMN "nick_name" text;
-   ```
-4. Create a merge request including the above commits. The SQL Review CI will run automatically and show the fail message. However you can still merge it regardless of the CI result.
-
-   ![gitlab-sql-review-ci-no-null-fail](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/gitlab-sql-review-ci-no-null-fail.webp)
-
-5. Update the SQL script and commit in the current branch. The SQL Review CI will run again and show the pass message. Click **Merge**.
+1. Go to `bb-gitops-2024` on GitLab.com. Add a new file `20240925_create_table_t2024.sql` under `bytebase/` which is the directory configured in the previous step. Copy the following SQL script into the file and commit the change to another branch which will then create a Merge Request.
 
    ```sql
-   ALTER TABLE "public"."employee"
-   ADD COLUMN "nick_name" text NOT NULL DEFAULT '';
+   CREATE TABLE "public"."t2024" (
+         "id" integer PRIMARY KEY,
+         "name" text
+   );
    ```
 
-   ![gitlab-sql-review-ci-pass](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/gitlab-sql-review-ci-pass.webp)
+1. Wait for a while, there is a SQL Review comment added. As we configured in the previous step, `NOT NULL` is a warning level SQL Review rule.
 
-6. Go back to project `Sample Project` in Bytebase, you'll see there's an issue created by a push event.
+   ![gitlab-sql-review-warning](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/gitlab-sql-review-warning.webp)
 
-   ![bb-push-event-notification](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-push-event-notification.webp)
+1. Edit our sql file as following and commit it on the same branch, and merge the MR.
 
-   ![bb-project-activity-push-event](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-project-activity-push-event.webp)
+   ```sql
+   CREATE TABLE "public"."t2024" (
+         "id" integer NOT NULL PRIMARY KEY,
+         "name" text NOT NULL
+   );
+   ```
 
-7. Click `issue/102` and redirect to the issue. Because there is no approval flow or manual rollout configured. The issue rollouts automatically. You may click **View change** to see the diff.
+1. There will be a new comment saying the PR has triggered a Bytebase rollout.
+   ![gitlab-merged](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/gitlab-merged.webp)
 
-   ![bb-issue-done](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-issue-done.webp)
+1. Follow the link to go to Bytebase. There's an issue with two stages, this is because we have two databases in this project, by default, the SQL will be applied to all databases within the project. If you merge the previous version SQL script, the SQL Review task run here will show yellow warning and waiting for rollout. Click **Resolve** to resolve the issue.
+
+   ![bb-issue-rollout](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-issue-rollout.webp)
+
+1. After the rollout completes, click **View change** to see the diff.
+
+   ![bb-view-diff](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-view-diff.webp)
+
+1. You may also go to a specific database page to view all its change history.
+
+   ![bb-db-change-history](/content/docs/tutorials/database-cicd-best-practice-with-bitbucket/bb-db-change-history.webp)
 
 ## Advanced Features (Enterprise Plan)
 
