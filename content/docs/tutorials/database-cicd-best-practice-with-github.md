@@ -1,7 +1,7 @@
 ---
 title: The Database CI/CD Best Practice with GitHub
 author: Changyu
-updated_at: 2022/11/29 15:15
+updated_at: 2024/09/25 18:15
 feature_image: /content/docs/tutorials/database-cicd-best-practice-with-github/database-cicd-best-practice-with-github.webp
 tags: Tutorial
 integrations: GitHub
@@ -73,18 +73,7 @@ A SQL change rollout tool for Database CI/CD should have the ability to integrat
 
 ## A Complete Database CI/CD Workflow
 
-Here, we present **a complete Database CI/CD workflow**:
-
-![database-devops-workflow](/content/docs/tutorials/database-cicd-best-practice-with-github/database-devops-workflow.webp)
-
-1. The developer creates a Merge Request / Pull Request containing the SQL migration script;
-2. SQL Review Action is automatically triggered to review SQL and offers suggestions to assist the code review;
-3. After several possible iterations, the team leader or another peer on the dev teams approves the change and merges the SQL script into a branch;
-4. The merge event automatically triggers the release pipeline in Bytebase and creates a release ticket capturing the intended change;
-5. (Optional) an approval flow will be auto matched based on the change risk and be followed via Bytebase’s built-in UI;
-6. Approved scripts are executed gradually according to the configured rollout stages;
-7. The latest database schema is automatically written back to the code repository after applying changes. With this, the Dev team always has a copy of the latest schema. Furthermore, they can configure downstream pipelines based on the change of that latest schema;
-8. Confirm the migration and proceed to the corresponding application rollout.
+<IncludeBlock url="/docs/tutorials/share/database-workflow"></IncludeBlock>
 
 ## Set Up Database CI/CD with GitHub in Bytebase (Free Plan)
 
@@ -96,88 +85,71 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with GitHub 
 
 ### Step 2 - Add GitHub.com as a Git provider in Bytebase
 
-1. Visit Bytebase via your ngrok URL. Click **gear icon** (Settings) > **Integration** > **GitOps**, choose `GitHub.com`, and click **Next**. You will see STEP 2. Copy the **Redirect URI**.
+1. Visit Bytebase via your ngrok URL. Click **CI/CD** > **GitOps**, choose `GitHub.com`.
 
-![bb-gitops-github](/content/docs/tutorials/database-cicd-best-practice-with-github/bb-gitops-github.webp)
+   ![bb-gitops-github](/content/docs/tutorials/database-cicd-best-practice-with-github/bb-gitops-github.webp)
 
-2. Copy the **Authorization callback URL**.
+1. Follow the **fine-grained personal access token** link to [https://github.com/settings/tokens?type=beta](https://github.com/settings/tokens?type=beta) and click **Generate new token**. Fill in the fields, then select the permission as follows and click **Generate token**.
 
-![bb-gitops-step2](/content/docs/tutorials/database-cicd-best-practice-with-github/bb-gitops-step2.webp)
+   - Contents (Read-only)
+   - Metadata (Read-only)
+   - Pull requests (Read and write)
+   - Webhooks (Read and write)
 
-3. Open GitHub, and go to **Settings > Developer Settings > OAuth Apps**. Click **New OAuth App**.
-
-![gh-oauth](/content/docs/tutorials/database-cicd-best-practice-with-github/gh-oauth.webp)
-
-4. Scroll down on the new OAuth App page, paste the **Authorization callback URL**, then click **Update Application**.
-
-![gh-auth-callback](/content/docs/tutorials/database-cicd-best-practice-with-github/gh-auth-callback.webp)
-
-5. On the same page, you can also find **Client ID** and **Client secrets**.
-
-![gh-client-id-secrets](/content/docs/tutorials/database-cicd-best-practice-with-github/gh-client-id-secrets.webp)
-
-6. Switch back to the Bytebase console, fill Client ID and Client secrets in the form as **Application ID** and **Secret**.
-
-![bb-gitops-step2](/content/docs/tutorials/database-cicd-best-practice-with-github/bb-gitops-step2.webp)
-
-7. Click **Next**. You will be redirected to the confirmation page. Click **Confirm and add**, and the Git provider is successfully added.
-
-![bb-gitops-step3](/content/docs/tutorials/database-cicd-best-practice-with-github/bb-gitops-step3.webp)
+1. Copy the generated token, go back to Bytebase, and paste the token into the field and click **Confirm and add**. The provider is added successfully.
 
 ### Step 3 - Configure a GitOps Workflow in Bytebase
 
-1. Create a repository named `bytebase-ngrok-gitops` in GitHub.
+1. Go to GitHub, create a new project `bb-gitops-2024`.
 
-2. Go to Bytebase, go to the `Sample Project`. Click **GitOps** tab and choose `GitOps workflow`. Click **Configure GitOps**.
+1. Go to Bytebase, go to the `Sample Project`. Click **Integration >GitOps** on the left and click **Add GitOps connector**. Choose `GitHub.com` (the git provider you just configured) and `xxxx/bb-gitops-2024` (the repository you just created).
 
-3. Choose `GitHub.com` (the git provider you just configured) and the repository you just created. You'll be redirected to STEP 3. Keep everything as default, scroll down to the bottom and check `Enable SQL Review CI via GitHub Action`. Click **Finish**.
+1. Keep the default settings for the remaining fields and click **Finish**. The gitops connector is created successfully.
 
-   ![bb-project-gitops-sql-review-ci](/content/docs/tutorials/database-cicd-best-practice-with-github/bb-project-gitops-sql-review-ci.webp)
+   ![bb-gitops-github-configure](/content/docs/tutorials/database-cicd-best-practice-with-github/bb-gitops-github-configure.webp)
 
-4. After SQL Review CI is automatically setup, click **Review the pull request**. You'll be redirected to GitHub. Click **Merge** and you'll see the CI is automatically configured. It will be triggered later once a new merge request is created.
+### Step 4 - Configure SQL Review in Prod
 
-   ![gh-setup-sql-review-ci](/content/docs/tutorials/database-cicd-best-practice-with-github/gh-setup-sql-review-ci.webp)
+<IncludeBlock url="/docs/tutorials/share/sql-review-not-null"></IncludeBlock>
 
-5. Go back to Bytebase, you'll see the GitOps workflow is configured successfully.
+### Step 5 - Create a Pull Request and Trigger SQL Review CI
 
-### Step 4 - Create a Pull Request and Trigger SQL Review CI
-
-1. Go to **Environments**, you'll see there's a SQL Review policy attached with `Prod`. Click **Edit**, you'll see three activated SQL Review rules which will be applied via CI.
-
-   ![bb-sql-review-policy-not-null](/content/docs/tutorials/database-cicd-best-practice-with-github/bb-sql-review-policy-not-null.webp)
-
-2. To test SQL Review CI, we'll create a pull request to change the `Prod` database schema. However, it will voliate the SQL Review policy first. Go to `bytebase-ngrok-gitops` on GitHub.
-3. Create a subdirectory `bytebase`, and create a sub-subdirectory `prod`. Within the `prod` directory, create a file `hr_prod##202309262500##ddl##add_nickname_table_employee.sql`. Copy the following SQL script into the file and commit the change in a new branch.
+1. Go to `bb-gitops-2024` on GitHub.com. Add a new file `2024092500_create_table_t2024.sql` under `bytebase/` which is the directory configured in the previous step. Copy the following SQL script into the file and commit the change to a new branch which will then create a Pull Request.
 
    ```sql
-   ALTER TABLE "public"."employee"
-   ADD COLUMN "nickname" text;
+   CREATE TABLE "public"."t2024" (
+         "id" integer PRIMARY KEY,
+         "name" text
+   );
    ```
 
-4. Create a pull request including the above commits. The SQL Review CI will run automatically and show the fail message. However, you can still merge it regardless of the CI result.
+1. Wait for a while, there is a SQL Review comment added. As we configured in the previous step, `NOT NULL` is a warning level SQL Review rule.
 
-   ![gh-sql-review-failed](/content/docs/tutorials/database-cicd-best-practice-with-github/gh-sql-review-failed.webp)
+   ![github-sql-review-warning](/content/docs/tutorials/database-cicd-best-practice-with-github/github-sql-review-warning.webp)
 
-   ![gh-sql-review-failed-detail](/content/docs/tutorials/database-cicd-best-practice-with-github/gh-sql-review-failed-detail.webp)
-
-5. Update the SQL script and commit in the current branch. The SQL Review CI will run again and show the pass message. Click **Merge**.
+1. Edit our sql file as following and commit it on the same branch, and merge the MR.
 
    ```sql
-   ALTER TABLE "public"."employee"
-   ADD COLUMN "nickname" text NOT NULL DEFAULT '';
+   CREATE TABLE "public"."t2024" (
+         "id" integer NOT NULL PRIMARY KEY,
+         "name" text NOT NULL
+   );
    ```
 
-   ![gh-sql-review-pass](/content/docs/tutorials/database-cicd-best-practice-with-github/gh-sql-review-pass.webp)
+1. There will be a new comment saying the PR has triggered a Bytebase rollout.
+   ![github-merged](/content/docs/tutorials/database-cicd-best-practice-with-github/github-merged.webp)
 
-6. Go back to project `Sample Project` in Bytebase, you'll see there's an issue created by a push event.
+1. Follow the link to go to Bytebase. There's an issue with two stages, this is because we have two databases in this project, by default, the SQL will be applied to all databases within the project. If you merge the previous version SQL script, the SQL Review task run here will show yellow warning and waiting for rollout. Click **Resolve** to resolve the issue.
 
-   ![bb-push-event-notification](/content/docs/tutorials/database-cicd-best-practice-with-github/bb-push-event-notification.webp)
+   ![bb-issue-rollout-github](/content/docs/tutorials/database-cicd-best-practice-with-github/bb-issue-rollout-github.webp)
 
-   ![bb-project-activity-push-event](/content/docs/tutorials/database-cicd-best-practice-with-github/bb-project-activity-push-event.webp)
+1. After the rollout completes, click **View change** to see the diff.
 
-7. Click `issue/102` and redirect to the issue. Because there is no approval flow or manual rollout configured. The issue rolls out automatically. You may click **View change** to see the diff.
+   ![bb-view-diff](/content/docs/tutorials/database-cicd-best-practice-with-github/bb-view-diff.webp)
 
-   ![bb-issue-done](/content/docs/tutorials/database-cicd-best-practice-with-github/bb-issue-done.webp)
+1. You may also go to a specific database page to view all its change history.
+
+   ![bb-db-change-history](/content/docs/tutorials/database-cicd-best-practice-with-github/bb-db-change-history.webp)
 
 ## Advanced Features (Enterprise Plan)
 
