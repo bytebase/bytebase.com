@@ -10,7 +10,7 @@ You need a [render](https://render.com) account (free signup).
 
 ## Overview
 
-The Bytebase render deployment contains a web service and a PosgreSQL database. The [blueprint](https://github.com/bytebase/render/blob/main/render.yaml) uses render's free plan, you can fork the repository if you want to change the plan or the deploy region.
+The Bytebase render deployment contains a web service and a PostgreSQL database. The [blueprint](https://github.com/bytebase/render/blob/main/render.yaml) uses render's free plan, you can fork the repository if you want to change the plan or the deploy region.
 
 <HintBlock type="info">
 
