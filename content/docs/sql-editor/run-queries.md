@@ -46,7 +46,7 @@ http {
         ...
 
        location ~ ^/(v1:adminExecute|lsp) {
-            proxy_pass http://www.example.com;
+            proxy_pass http://bytebase.example.com;
             proxy_http_version 1.1;
             # Enables WebSocket which is required for SQL Editor autocomplete
             proxy_set_header Upgrade $http_upgrade;

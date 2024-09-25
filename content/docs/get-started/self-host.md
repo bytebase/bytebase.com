@@ -72,14 +72,14 @@ http {
         # Listen HTTPS
         listen       443 ssl;
         listen  [::]:443 ssl;
-        server_name  www.example.com;
+        server_name  bytebase.example.com;
 
         # SSL cert and key
         ssl_certificate /path/to/certificate/file;
         ssl_certificate_key /path/to/private/key/file;
 
        location ~ ^/(v1:adminExecute|lsp) {
-            proxy_pass http://www.example.com;
+            proxy_pass http://bytebase.example.com;
             proxy_http_version 1.1;
             # Enables WebSocket which is required for SQL Editor autocomplete
             proxy_set_header Upgrade $http_upgrade;
@@ -87,7 +87,7 @@ http {
         }
 
         location / {
-            proxy_pass http://www.example.com;
+            proxy_pass http://bytebase.example.com;
         }
 
         proxy_read_timeout 3600;
