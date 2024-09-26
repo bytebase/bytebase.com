@@ -183,12 +183,6 @@ expand_section_list: ['Self-host']
 
 ## Security Admin 🔐
 
-### [Roles and Permissions](/concepts/roles-and-permissions)
-
-### [Custom Roles](/administration/custom-roles)
-
-### [Audit Log](/security/audit-log)
-
 ### [Single Sign-On](/administration/sso/overview)
 
 #### [OAuth 2.0](/administration/sso/oauth2)
@@ -196,6 +190,12 @@ expand_section_list: ['Self-host']
 #### [OpenID Connect (OIDC)](/administration/sso/oidc)
 
 #### [LDAP](/administration/sso/ldap)
+
+### [Roles and Permissions](/concepts/roles-and-permissions)
+
+### [Custom Roles](/administration/custom-roles)
+
+### [Audit Log](/security/audit-log)
 
 ### [SCIM](/administration/scim/overview)
 
