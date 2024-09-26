@@ -17,9 +17,7 @@ expand_section_list: ['Self-host']
 
 ---
 
-## Install
-
-### [Self-host](/get-started/self-host)
+## [Self-host](/get-started/self-host)
 
 ### [Upgrade](/get-started/upgrade)
 
@@ -27,7 +25,7 @@ expand_section_list: ['Self-host']
 
 ### [Configure External URL](/get-started/install/external-url)
 
-### [Cloud](/get-started/cloud)
+## [Cloud](/get-started/cloud)
 
 ## Quickstart
 
