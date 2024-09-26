@@ -185,6 +185,8 @@ expand_section_list: ['Self-host']
 
 ### [Roles and Permissions](/concepts/roles-and-permissions)
 
+### [Custom Roles](/administration/custom-roles)
+
 ### [Audit Log](/security/audit-log)
 
 ### [Single Sign-On](/administration/sso/overview)
@@ -200,8 +202,6 @@ expand_section_list: ['Self-host']
 ### [Two-Factor Authentication](/administration/2fa)
 
 ### [Sign-in Frequency](/administration/sign-in-frequency)
-
-### [Custom Roles](/administration/custom-roles)
 
 ### [Watermark](/security/watermark)
 
