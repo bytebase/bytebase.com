@@ -40,9 +40,13 @@ permissions/scopes.
 
 ## GitHub.com and GitHub Enterprise (self-host)
 
+<TutorialBlock url="/docs/tutorials/database-cicd-best-practice-with-github" title="The Database CI/CD Best Practice with GitHub" />
+
 ![github](/content/docs/vcs-integration/add-git-provider/github-access-token.webp)
 
 ## GitLab.com and GitLab (self-host)
+
+<TutorialBlock url="/docs/tutorials/database-cicd-best-practice-with-gitlab/" title="The Database CI/CD Best Practice with GitLab" />
 
 You can either create:
 
@@ -54,9 +58,13 @@ You can either create:
 
 ## Bitbucket.org
 
+<TutorialBlock url="/docs/tutorials/database-cicd-best-practice-with-bitbucket/" title="The Database CI/CD Best Practice with Bitbucket" />
+
 ![bitbucket](/content/docs/vcs-integration/add-git-provider/bitbucket-app-password-personal.webp)
 
 ## Azure DevOps
+
+<TutorialBlock url="/docs/tutorials/database-cicd-best-practice-with-azure-devops/" title="The Database CI/CD Best Practice with Azure DevOps" />
 
 <p align="center">
 <img src="/content/docs/vcs-integration/add-git-provider/azure-devops-access-token.webp" alt="Azure DevOps" width="300" height="auto"  />
