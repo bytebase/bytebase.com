@@ -2,7 +2,7 @@ import ROUTE from '@/lib/route';
 
 const PROMO_DATA = {
   TOP_BANNER: {
-    title: 'Ensure GDPR Compliance for Your Database',
+    title: 'Prevent Data Breach and Ensure GDPR Compliance for Your Database',
     pathname: `/blog/database-compliance-for-gdpr/?source=top-banner`,
   },
   BLOG_ASIDE: {
