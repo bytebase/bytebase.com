@@ -166,17 +166,9 @@ The column does not exist. Found in Bytebase's pre-execution checks, please conf
 
 The column is changed with `CHANGE COLUMN`. Check [Disallow ALTER TABLE CHANGE COLUMN statements](/docs/sql-review/review-rules#column.disallow-change) for details.
 
-<h3 id="407">407 - change column order</h3>
+<h3 id="407">407 - Change column order</h3>
 
 The column order is changed. Check [Disallow changing column order](/docs/sql-review/review-rules#column.disallow-changing-order) for details.
-
-<h3 id="408">408 - Column has no comment</h3>
-
-The column has no comment. Check [Column comment convention](/docs/sql-review/review-rules#column.comment) for details.
-
-<h3 id="409">409 - Column comment too long</h3>
-
-The column comment is too long. Check [Column comment convention](/docs/sql-review/review-rules#column.comment) for details.
 
 <h3 id="410">410 - Auto-increment column is not integer</h3>
 
@@ -249,14 +241,6 @@ The table name mismatches with the naming convention for drop table operation. C
 <h3 id="604">604 - Table not exists</h3>
 
 The table does not exist. Found in Bytebase's pre-execution checks, please confirm if there is a problem with the SQL.
-
-<h3 id="605">605 - Table has no comment</h3>
-
-The table has no comment. Check [Table comment convention](/docs/sql-review/review-rules#table.comment) for details.
-
-<h3 id="606">606 - Table comment too long</h3>
-
-The table comment is too long. Check [Table comment convention](/docs/sql-review/review-rules#table.comment) for details.
 
 <h3 id="607">607 - Table already exists</h3>
 
@@ -393,6 +377,14 @@ The collation is disabled. Check [Collation allow list](/docs/sql-review/review-
 <h3 id="1301">1301 - Comment too long</h3>
 
 The comment is too long. Check [Comment length limit](/docs/sql-review/review-rules#system.comment.length) for details.
+
+<h3 id="1302">1302 - Comment is empty</h3>
+
+The comment is empty. Check [Comment convention](/docs/sql-review/review-rules#table.comment) for details.
+
+<h3 id="1303">1303 - Comment missing classification</h3>
+
+The comment missing classification. Check [Comment classification](/docs/security/data-masking/data-classification/#comment-classification) for details.
 
 ## Backup
 
