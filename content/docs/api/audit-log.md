@@ -2,6 +2,8 @@
 title: Audit Log
 ---
 
+<TutorialBlock url="/docs/tutorials/api-audit-log/" title="Audit Database Activities with Bytebase API" />
+
 |                   |                                               |
 | ----------------- | --------------------------------------------- |
 | Audit Log Service | https://api.bytebase.com/#tag/auditlogservice |

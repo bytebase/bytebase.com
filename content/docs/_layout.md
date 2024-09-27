@@ -17,9 +17,7 @@ expand_section_list: ['Self-host']
 
 ---
 
-## Install
-
-### [Self-host](/get-started/self-host)
+## [Self-host](/get-started/self-host)
 
 ### [Upgrade](/get-started/upgrade)
 
@@ -27,7 +25,7 @@ expand_section_list: ['Self-host']
 
 ### [Configure External URL](/get-started/install/external-url)
 
-### [Cloud](/get-started/cloud)
+## [Cloud](/get-started/cloud)
 
 ## Quickstart
 
@@ -183,10 +181,6 @@ expand_section_list: ['Self-host']
 
 ## Security Admin 🔐
 
-### [Roles and Permissions](/concepts/roles-and-permissions)
-
-### [Audit Log](/security/audit-log)
-
 ### [Single Sign-On](/administration/sso/overview)
 
 #### [OAuth 2.0](/administration/sso/oauth2)
@@ -195,13 +189,17 @@ expand_section_list: ['Self-host']
 
 #### [LDAP](/administration/sso/ldap)
 
+### [Roles and Permissions](/concepts/roles-and-permissions)
+
+### [Custom Roles](/administration/custom-roles)
+
+### [Audit Log](/security/audit-log)
+
 ### [SCIM](/administration/scim/overview)
 
 ### [Two-Factor Authentication](/administration/2fa)
 
 ### [Sign-in Frequency](/administration/sign-in-frequency)
-
-### [Custom Roles](/administration/custom-roles)
 
 ### [Watermark](/security/watermark)
 

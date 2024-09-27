@@ -2,6 +2,8 @@
 title: Roles and Permissions
 ---
 
+<TutorialBlock url="/docs/tutorials/how-to-manage-roles" title="How to Manage Roles" />
+
 ## Overview
 
 Bytebase employs RBAC (Role-Based-Access-Control) and provides two role sets at the workspace and project level:

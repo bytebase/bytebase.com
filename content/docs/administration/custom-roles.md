@@ -3,6 +3,8 @@ title: Custom Roles
 feature_name: CUSTOM_ROLES
 ---
 
+<TutorialBlock url="/docs/tutorials/how-to-manage-roles" title="How to Manage Roles" />
+
 In **Settings > Custom Roles**, you can define new custom roles and apply them to project members.
 
 Custom roles don't bear any additional permissions in the project. They are used in the [custom approval](/docs/administration/custom-approval). e.g. If you want to add `tester` to the approval flow, you can define a `tester` custom role and
