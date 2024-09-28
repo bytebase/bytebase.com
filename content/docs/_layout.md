@@ -93,7 +93,7 @@ expand_section_list: ['Self-host']
 
 ### Monitor
 
-#### [Drift Detection](/change-database/drift-detection)
+#### [Schema Drift Detection](/change-database/drift-detection)
 
 #### Slow Query
 

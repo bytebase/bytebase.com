@@ -41,6 +41,7 @@ Check out [Roles and Permissions](/docs/concepts/roles-and-permissions/).
 - [Data Rollback](/docs/change-database/rollback-data-changes/)
 - [Custom Approval](/docs/administration/custom-approval/)
 - [Webhook Notification](/docs/change-database/webhook/)
+- [Schema Drift Detection](/docs/change-database/drift-detection/)
 - [Batch Change](/docs/change-database/batch-change/)
 - [GitOps](/docs/vcs-integration/overview/)
 
