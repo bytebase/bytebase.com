@@ -13,13 +13,15 @@ assigned testers.
 
 ## Create custom roles
 
-To create custom roles, go to **Settings > Custom Roles**. Click **Add role** to create a new role.
+To create custom roles, go to **IAM & Admin > Custom Roles**. Click **Add role** to create a new role.
 
 ![add-custom-role](/content/docs/administration/custom-roles/add-custom-role.webp)
 
+You can choose `Import from role` to build your custom role based on the existing role.
+
 ## Add to custom approval flow
 
-Go to **Settings > Custom Approval**. From **Approval Flows** tab, choose an approval flow to add.
+Go to **CI/CD > Custom Approval**. From **Approval Flows** tab, choose an approval flow to add.
 
 ![add-to-custom-approval-flow](/content/docs/administration/custom-roles/add-to-custom-approval-flow.webp)
 
