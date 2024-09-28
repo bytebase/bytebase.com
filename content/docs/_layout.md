@@ -173,9 +173,9 @@ expand_section_list: ['Self-host']
 
 ### [Overview](/security/data-access-control)
 
-### [Data Query Approval Flow](/security/data-query)
+### [Data Query](/security/data-query)
 
-### [Data Export Approval Flow](/security/data-export)
+### [Data Export](/security/data-export)
 
 ---
 
