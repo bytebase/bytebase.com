@@ -57,7 +57,7 @@ from the following dimensions:
 - [Operability](#operability)
 - [Ecosystem](#ecosystem)
 
-_Unless otherwise specified, the comparison below is between the latest major release, Postgres 15 vs. MySQL 8.0 (using InnoDB). We also use Postgres instead of PostgreSQL throughout the article, though we know the latter is the official name, which is considered as [the biggest mistake in Postgres History](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)_.
+_Unless otherwise specified, the comparison below is between the latest stable release, Postgres 15 vs. MySQL 8.0 (using InnoDB). We also use Postgres instead of PostgreSQL throughout the article, though we know the latter is the official name, which is considered as [the biggest mistake in Postgres History](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)_.
 
 ## License
 
@@ -66,7 +66,7 @@ _Unless otherwise specified, the comparison below is between the latest major re
   the BSD or MIT licenses.
 
 Even though MySQL adopts GPL, some people still are concerned that MySQL is owned by Oracle. It's also the
-reason that MariaDB is forked from MySQL. Another limitation of GPL is it's infectious. This means that if you distribute MySQL as part of your software, you are obligated to make your source code available under the GPL or a GPL-compatible license. This can be restrictive for commercial software.
+reason that MariaDB is forked from MySQL. Another limitation of GPL is it's infectious. This means that if you distribute MySQL as part of your software, you are obligated to make your source code available under the GPL or a GPL-compatible license. This can be restrictive for commercial software. Alternatively, you can purchase a commercial license from Oracle.
 
 ## Connection Model
 
@@ -297,4 +297,6 @@ lifecycle for both of them, please check out [Bytebase](/).
 ### Other Comparisons
 
 - [Postgres vs. MongoDB](/blog/postgres-vs-mongodb)
+- [MySQL vs. MariaDB](/blog/mysql-vs-mariadb)
 - [PlanetScale vs. Neon](/blog/planetscale-vs-neon)
+- [Neon vs. Supabase](/blog/neon-vs-supabase)

@@ -113,7 +113,9 @@ Bytebase can augment Neon and Supabase database with change review process, a da
 
 </HintBlock>
 
-## Further Readings
+## Other Comparisons
 
+- [PlanetScale vs. Neon](/blog/planetscale-vs-neon)
 - [Postgres vs. MySQL](/blog/postgres-vs-mysql)
 - [Postgres vs. MongoDB](/blog/postgres-vs-mongodb)
+- [MySQL vs. MariaDB](/blog/mysql-vs-mariadb)

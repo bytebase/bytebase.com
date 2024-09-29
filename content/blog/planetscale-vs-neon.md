@@ -236,6 +236,11 @@ BTW, if you still stick with vanilla MySQL/Postgres and want PlanetScale's datab
 - [One million queries per second with MySQL](https://planetscale.com/blog/one-million-queries-per-second-with-mysql)
 - [Neon – Serverless Postgres](https://news.ycombinator.com/item?id=31536827)
 - [Architecture decisions in Neon](https://neon.tech/blog/architecture-decisions-in-neon)
-- [Postgres vs. MySQL](/blog/postgres-vs-mysql)
-- [Postgres vs. MongoDB](/blog/postgres-vs-mongodb)
 - [Database as a Service (DBaaS) Provider](/blog/database-as-a-service-dbaas-provider/)
+
+## Other Comparisons
+
+- [Postgres vs. MySQL](/blog/postgres-vs-mysql)
+- [MySQL vs. MariaDB](/blog/mysql-vs-mariadb)
+- [Postgres vs. MongoDB](/blog/postgres-vs-mongodb)
+- [Neon vs. Supabase](/blog/neon-vs-supabase)
