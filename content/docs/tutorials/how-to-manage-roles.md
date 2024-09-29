@@ -14,7 +14,7 @@ A typical requirement is to create a `Manager` role in Bytebase who can only rol
     - Using a system predefined role
     - Creating a custom role
 
-![manage-roles-graph](/content/docs/tutorials/how-to-manage-roles/manage-roles-graph.webp)
+![rbac-graph](/content/docs/tutorials/how-to-manage-roles/rbac-graph.webp)
 
 ## Approach 1: Using a System Predefined Role
 
