@@ -21,6 +21,7 @@ Bytebase officially supports the following major versions for each supported dat
 
 - MongoDB - 4.0 and above
 - Redis - 6.0 and above
+- DocumentDB
 - DynamoDB
 
 #### Data Warehouse
@@ -105,7 +106,7 @@ work around this by configuring a [readonly connection](/docs/get-started/instan
 | MariaDB     | ✔️                                           | ✔️                                    | ✔️                                                                        | ✔️                                                     | ✔️                                       |
 | OceanBase   | ✔️                                           | ✔️                                    | ✔️                                                                        | ✔️                                                     | ✔️                                       |
 | RisingWave  | ✔️                                           | ✔️                                    | ✔️                                                                        | ✔️                                                     |                                          |
-| CockroachDB | ✔️                                           | ✔️                                    | ✔️                                                                        | ✔️                                                     |                                         |
+| CockroachDB | ✔️                                           | ✔️                                    | ✔️                                                                        | ✔️                                                     |                                          |
 
 ### Anomaly Detection
 

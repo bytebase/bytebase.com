@@ -6,19 +6,36 @@ title: Roles and Permissions
 
 ## Overview
 
-Bytebase employs RBAC (Role-Based-Access-Control) and provides two role sets at the workspace and project level:
+Bytebase employs RBAC (Role-Based-Access-Control). Permissions are assigned to roles and roles are
+granted to the users and groups.
 
-- Workspace roles: `Admin`, `DBA`, `Member`.
-- Project roles: `Owner`, `Developer`, `Releaser`, `Querier`, `Exporter`, `Viewer`.
+**Workspace Roles**
 
-The workspace role maps to the role in an organization, while the project level role maps to the role in a specific team or project. Every user is assigned a workspace role, and if a particular user is involved in a particular project, then she will also be assigned a project role accordingly.
+Built-in roles: `Workspace Admin`, `Workspace DBA`, `Workspace Member`.
+
+The workspace role maps to the roles at the organization level. Every Bytebase user has `Workspace Member` role.
+Users can also be granted `Workspace Admin`, `Workspace DBA`. These 2 roles should be granted judiciously though.
+
+**Project Roles**
+
+- Built-in roles: `Project Owner`, `Project Developer`, `Project Releaser`, `Project Querier`, `Project Exporter`, `Project Viewer`.
+- [Custom roles](/docs/administration/custom-roles/).
+
+In addition to the inherent `Workspace Member` role, most users will be granted project roles. These roles
+allow users to perform specific database operations.
+
+<HintBlock type="info">
+
+To grant users a project role for all the projects, grant that project role at the workspace level.
+
+</HintBlock>
 
 ![org-role-mapping](/content/docs/rbac/org-role-mapping.webp)
 
 Above diagram describes the mapping between an engineering org and the corresponding roles in the Bytebase workspace. Note, a particular user can be assigned multiple roles as well:
 
-- A user can only be assigned one of the workspace roles.
-- In a particular project, a user can be assigned one of the project roles, while a user can be assigned different project roles in the different projects.
+- A user can only be assigned multiple workspace roles.
+- In a particular project, a user can be assigned multiple project roles. A user can also be assigned different project roles in the different projects.
 
 Real-world scenarios:
 

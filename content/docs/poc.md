@@ -18,17 +18,6 @@ and [Production Setup](/docs/administration/production-setup).
 
 Check out [Roles and Permissions](/docs/concepts/roles-and-permissions/).
 
-## Login and SSO
-
-User can self self-signup or invited by the `Workspace Admin`. Alternatively, `Workspace Admin` can
-configure SSO. Bytebase supports all common providers such as Okta, Google, LDAP.
-
-- [SSO](/docs/administration/sso/overview/)
-- [SCIM (Directory Sync)](/docs/administration/scim/overview/)
-- [2FA](/docs/administration/2fa/)
-- [Sign-in Frequency](/docs/administration/sign-in-frequency/)
-- [Audit Log](/docs/security/audit-log/)
-
 ## Configure Environment
 
 - [What is Environment](/docs/concepts/data-model/#environment)
@@ -46,20 +35,36 @@ configure SSO. Bytebase supports all common providers such as Okta, Google, LDAP
 - [What is Project](/docs/concepts/data-model/#project)
 - [Create a Project and Transfer Database](/docs/get-started/step-by-step/create-a-project/#option-a-transfer-an-existing-database-into-the-project)
 
-## Test Database Change Workflow
+## Database Change Workflow
 
 - [Database Change Workflow](/docs/change-database/change-workflow/)
 - [Data Rollback](/docs/change-database/rollback-data-changes/)
 - [Custom Approval](/docs/administration/custom-approval/)
 - [Webhook Notification](/docs/change-database/webhook/)
+- [Schema Drift Detection](/docs/change-database/drift-detection/)
 - [Batch Change](/docs/change-database/batch-change/)
 - [GitOps](/docs/vcs-integration/overview/)
 
-## Test SQL Editor
+## SQL Editor
+
+- [Query Mode (read-only)](/docs/sql-editor/run-queries/)
+- [Admin Mode](/docs/sql-editor/admin-mode/)
+
+## Data Security
 
 - [Data Access Control](/docs/security/data-access-control/)
 - [Dynamic Data Masking](/docs/security/data-masking/overview/)
-- [Admin Mode](/docs/sql-editor/admin-mode/)
+
+## Login and SSO
+
+User can self self-signup or invited by the `Workspace Admin`. Alternatively, `Workspace Admin` can
+configure SSO. Bytebase supports all common providers such as Okta, Google, LDAP.
+
+- [SSO](/docs/administration/sso/overview/)
+- [SCIM (Directory Sync)](/docs/administration/scim/overview/)
+- [2FA](/docs/administration/2fa/)
+- [Sign-in Frequency](/docs/administration/sign-in-frequency/)
+- [Audit Log](/docs/security/audit-log/)
 
 ## Misc
 

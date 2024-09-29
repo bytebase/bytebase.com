@@ -17,10 +17,9 @@ Similar to how GitLab/GitHub streamlines the code delivery, Bytebase streamlines
 
 Organizations want to limit database access and enforce approval flow to conform compliance and avoid data leaks. Bytebase provides a suite of features to support this:
 
-- [Data Query Approval Flow](/docs/security/data-query)
-- [Data Export Approval Flow](/docs/security/data-export)
+- [Data Query](/docs/security/data-query)
+- [Data Export](/docs/security/data-export)
 - [Data Masking](/docs/security/mask-data)
-- [Data Access Control](/docs/security/data-access-control)
 - [Watermark](/docs/security/watermark)
 - [Audit Log](/docs/security/audit-log)
 

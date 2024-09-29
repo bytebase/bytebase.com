@@ -1,5 +1,5 @@
 ---
-title: Drift Detection
+title: Schema Drift Detection
 feature_name: 'DRIFT_DETECTION'
 ---
 

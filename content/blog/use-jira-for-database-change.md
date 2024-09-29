@@ -1,5 +1,5 @@
 ---
-title: "Using Jira for Database Changes Won't Cut It"
+title: 'Hope is not a Strategy, nor is Jira'
 author: Tianzhou
 updated_at: 2024/05/17 19:21:21
 feature_image: /content/blog/use-jira-for-database-change/banner.webp
