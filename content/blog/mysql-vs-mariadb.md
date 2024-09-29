@@ -121,6 +121,15 @@ MariaDB is more Oracle-compatible than MySQL due to the introduction of some Ora
 
 - PL/SQL Syntax: MariaDB has added PL/SQL-like syntax as of MariaDB 10.3. This allows for easier migration of Oracle’s PL/SQL code into MariaDB without significant changes.
 
+### CREATE OR REPLACE PROCEDURE
+
+MariaDB supports CREATE OR REPLACE for stored procedures starting from MariaDB 10.1.
+
+MySQL does not support CREATE OR REPLACE for stored procedures. In MySQL, you need to first DROP the procedure before creating a new one. This is not ideal:
+
+- **Temporary Loss of Functionality**: During the time the procedure is dropped, it is no longer available for use by applications or queries. This can lead to errors or downtime in production environments, especially if the procedure is accessed frequently.
+- **Loss of Permission**: When you DROP a stored procedure, any specific permissions or grants (such as GRANT EXECUTE) associated with that procedure are removed. After recreating the procedure, you must manually reassign those permissions.
+
 ### Dynamic Columns
 
 MariaDB has a unique Dynamic Columns feature, allowing you to store non-relational data (such as JSON-like structures) in a relational table without needing to define the structure beforehand. This enables MariaDB to handle flexible data types while still using a relational schema.
