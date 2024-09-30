@@ -2,34 +2,55 @@
 title: Data Export
 ---
 
-There are two ways to export data:
+Bytebase users obtain `Project Exporter` role to export data repeatedly or request a one-time export in **Export Center**.
 
-- Obtain the **Project Exporter** role to export repeatedly.
-- Request a one-time export in the **Export Center**.
+## Assign Project Exporter Role
 
-## Project Exporter Role
+### Project level
 
-`Project Owner` can export data directly from the result panel in SQL Editor. This requires both [`Project Querier`](/docs/security/data-query) and `Project Exporter` roles.
+**Select Project** and go to **Manage > Members**. `Project Exporter` role can be assigned in **Grant Access**.
 
-![bb-sql-editor-export](/content/docs/security/data-export/bb-sql-editor-export.webp)
+![project-exporter-grant](/content/docs/security/data-export/project-exporter-grant.webp)
 
-`Project Owner` can Assign `Project Exporter` role to users in **Manage > Members** of the project. You can Manually select databases/shcema/tables and alter Max export rows.
+Select Users or Groups, assign `Project Exporter` role. You can Manually select databases/shcema/tables and alter Max export rows. Choose Expiration and click **Confirm**.
 
-![bb-project-members-grant](/content/docs/security/data-export/bb-project-members-grant.webp)
+### Workspace level
 
-For **Enterprise Plan**, you can request **Project Exporter** role in **Database > Databases** of the project.
+`Workspace Admin` can assign `Project Exporter` role at the workspace level. This will grant export permission to _all databases_ within _all projects_.
 
-![bb-project-apply-exporter](/content/docs/security/data-export/bb-project-apply-exporter.webp)
+From the workspace page, go to **IAM & Admin > Members**, **Grant Access** to Select users/groups and assign `Project Exporter` to them.
 
-![bb-project-request-export-issue](/content/docs/security/data-export/bb-project-request-export-issue.webp)
+![assign-workspace](/content/docs/security/data-export/assign-workspace.webp)
 
-## One-time Export Request
+## Request Project Exporter Role
 
-Enter **Export Center** either within a project or from workspace level, where you **Request Export**, select a database and click **Next**.
+### Within SQL Editor
 
-![bb-project-export-center](/content/docs/security/data-export/bb-project-export-center.webp)
+Data can be directly exported from result panel in SQL Editor. This requires [`Project Querier`](/docs/security/data-query) besides `Project Exporter` roles, for query permission is the precondition of data export.
 
-![bb-export-center](/content/docs/security/data-export/bb-export-center.webp)
+![sql-editor](/content/docs/security/data-export/sql-editor.webp)
+
+Without export permission, you'll have to **Request Export**.
+
+![sql-editor-request-export](/content/docs/security/data-export/sql-editor-request-export.webp)
+
+You will be redirected to an issue page. **Create** the issue. After approval, you'll be able to **Export**.
+
+![sql-editor-export](/content/docs/security/data-export/sql-editor-export.webp)
+
+### Project level
+
+<PricingPlanBlock feature_name='QUERY_EXPORT_APPROVAL_WORKFLOW' />
+
+**Request Exporter Role** in **Database > Databases** of the project, where you can Manually select databases/shcema/tables and alter Max export rows.
+
+![request-exporter-role](/content/docs/security/data-export/request-exporter-role.webp)
+
+### One-time Export Request
+
+Enter **Export Center** within a project, where you **Request Export**, select a database and click **Next**.
+
+![export-center](/content/docs/security/data-export/export-center.webp)
 
 You'll be creating an issue. Enable **Encrypt** and set **Password** if needed, fill your query commands in **SQL** block. **Create** the issue. By configuring [custom approval](/docs/administration/custom-approval/), it will match the corresponding approvers.
 
@@ -37,10 +58,8 @@ You'll be creating an issue. Enable **Encrypt** and set **Password** if needed, 
 
 After approval, you can click **Export** to download the exported file.
 
-![bb-1-export-export](/content/docs/security/data-export/bb-1-export-export.webp)
+![export](/content/docs/security/data-export/export.webp)
 
-The exported issue will be displayed in the **Export Center**.
+The exported issue will be displayed in **Export Center**.
 
-![bb-1-export-project-list-export](/content/docs/security/data-export/bb-1-export-project-list-export.webp)
-
-![bb-1-export-list-export](/content/docs/security/data-export/bb-1-export-list-export.webp)
+![export-list](/content/docs/security/data-export/export-list.webp)

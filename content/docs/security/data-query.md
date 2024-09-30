@@ -2,8 +2,7 @@
 title: Data Query
 ---
 
-Bytebase users query data from [SQL Editor](/docs/sql-editor/run-queries/). Bytebase can enforce
-query access control for a particular user at the database, schema or table level.
+Bytebase users query data from [SQL Editor](/docs/sql-editor/run-queries/). Bytebase can enforce query access control for a particular user at the database, schema or table level.
 
 ## Assign Project Querier Role
 
@@ -15,7 +14,7 @@ query access control for a particular user at the database, schema or table leve
 
 ![project-members-grant](/content/docs/security/data-query/project-members-grant.webp)
 
-Select Users or Groups, assign `Project Querier` role, choose the database object, expiration and click **Confirm**.
+Select Users or Groups, assign `Project Querier` role, choose the database object, Expiration and click **Confirm**.
 
 You can choose the entire database, a particular schema, or a particular table.
 
