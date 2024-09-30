@@ -25,22 +25,22 @@ This tutorial will guide you through managing database changes using Jira and By
 
 ### Setup
 
-1. Prepare a Jira project.
-1. Create a `database change` issue type with custom fields **SQL**, **database**.
+1. Prepare a Jira project: Create a `database change` issue type with custom fields **SQL**, **database**.
 1. Prepare a corresponding Bytebase project and database.
 
 ### Change process
 
-1. Developer creates a Jira `database change` issue filling the **SQL**, **database**, and **description** fields.
-1. DBA reviews the Jira issue and go to Bytebase to create an issue with the developer supplied **SQL**, **database**, and **description**.
-1. DBA updates the Jira issue status to indicate the change is in progress.
-1. DBA goes to Bytebase to roll out the database change.
-1. DBA updates the Jira issue status to indicate the change has completed.
+1. (Jira) Developer creates a Jira `database change` issue filling the **SQL**, **database**, and **description** fields.
+1. (Jira -> Bytebase) DBA reviews the Jira issue and go to Bytebase to create an issue with the developer supplied **SQL**, **database**, and **description**.
+1. (Jira) DBA updates the Jira issue status to indicate the change is in progress.
+1. (Bytbease) DBA goes to Bytebase to roll out the database change.
+1. (Jira) DBA updates the Jira issue status to indicate the change has completed.
 
-## Step 1: Create a Project in Jira, Customize the Fields and Create an Issue
+## Setup
 
-1. Create a Project `API Sample`, and from the **Project settings >Details**, you can see the **Project Key** is `API`. You'll need this to map to Bytebase later.
+### Step 1 (Jira): Configure database change issue and custom fields
 
+1. Create a Jira project.
    ![jira-details](/content/docs/tutorials/database-change-management-with-jira/jira-details.webp)
 
 1. The default issue fields `Summary`,`Description` are not enough for us to track the database changes, so we need to have a new issue type `database changes` and customize the fields accordingly.
@@ -53,43 +53,60 @@ This tutorial will guide you through managing database changes using Jira and By
 
    ![jira-create-issue](/content/docs/tutorials/database-change-management-with-jira/jira-create-issue.webp)
 
-1. Create an issue of this type, fill in the fields and click **Create**. Here's the screenshot of the issue.
-
-   ![jira-issue-in-review](/content/docs/tutorials/database-change-management-with-jira/jira-issue-in-review.webp)
-
-## Step 2: Create a Project and Database in Bytebase
+### Step 2 (Bytebase): Create a project and database in Bytebase
 
 1. Start Bytebase via Docker and register an account which will be granted `Workspace Admin` role.
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
 
-2. Click **Projects** on the sidebar, and then click **New Project**. Fill in the project name `Jira API`, and project key `API`. The key must be the same as the project key in Jira.
+1. Click **Projects** on the sidebar, and then click **New Project**.
 
    ![bb-create-proj-api](/content/docs/tutorials/database-change-management-with-jira/bb-create-proj-api.webp)
 
-3. Bytebase has embedded sample database instances `Prod Sample Instance` and `Test Sample Instance` for you to explore the product.
+1. Bytebase has embedded sample database instances `Prod Sample Instance` and `Test Sample Instance` for you to explore the product.
 
-4. Go to the `Jira API` project, and then click **New DB**. Select `Test Sample Instance`, fill in the database name `demodb`, and click **Create**.
+1. Go to the project, and then click **New DB**. Select `Test Sample Instance`, fill in the database name `demodb`, and click **Create**.
 
    ![bb-create-db](/content/docs/tutorials/database-change-management-with-jira/bb-create-db.webp)
 
-## Step 3: Mapping the Jira Issue to Bytebase
+## Change process
 
-After the above preparation, it's time to act as the DBA (Database Administrator) to review and execute the SQL change.
+### Step 1 (Jira): Create a database change issue
 
-1. Go to the `Jira API` project, and open the issue you created before. What we need is to copy the content to Bytebase.
+You act as a developer, now go to the Jira project to create a `database change` issue, fill in the fields and click **Create**. Here's the screenshot of the issue.
+
+![jira-issue-in-review](/content/docs/tutorials/database-change-management-with-jira/jira-issue-in-review.webp)
+
+### Step 2 (Jira -> Bytebase): Review the Jira issue and create a corresponding Bytebase issue
+
+1. You act as a DBA, now visit the Jira project, and open the `database change` issue just created.
 
    ![jira-issue-in-review](/content/docs/tutorials/database-change-management-with-jira/jira-issue-in-review.webp)
 
-1. Go to Bytebase in another browser tab, and go to the `Jira API` project, click **Database** on the sidebar, you'll see the database `demodb` we created before. Select the database, and click **Edit Schema**.
+   The Jira issue contains the following info:
+
+   1. **Database**: `demodb`.
+   1. **SQL**: `CREATE TABLE t2024 (id INT, name TEXT);`
+   1. **Description**: `Create a table t2024, first to demodb`
+
+1. Visit Bytebase, and go to the Bytebase project, click **Database** on the sidebar, you'll see the database `demodb` just created. Select the database, and click **Edit Schema**.
 
    ![bb-proj-db-edit](/content/docs/tutorials/database-change-management-with-jira/bb-proj-db-edit.webp)
 
-1. You'll be redirected to **Schema Editor**. Click **Raw SQL** tab, paste the **SQL** content in Jira issue to the text area, and then click **Preview issue**. An issue will be previewed with SQL filled in. Fill in the **Summary** and **Description** for the issue, and then click **Create**. If there's any error in the SQL, it will show a warning or error message. If not, the issue will rollout to the database (you can configure to add manual approval and approval flow to fit your needs).
+1. You'll be redirected to **Schema Editor**. Click **Raw SQL** tab, paste the **SQL** content in Jira issue to the text area, and then click **Preview issue**. An issue will be previewed with SQL filled in. Fill in the issue **Description**, and then click **Create**.
+
+### Step 3 (Jira): Paste the Bytebase issue URL and update the Jira issue status
+
+Copy the Bytebase issue URL, and paste it to the **Bytebase issue link** field in Jira issue. Then
+update the Jira issue status.
+
+### Step 4 (Bytebase): Roll out the database change in Bytebase
+
+1. Go to Bytebase to roll out the database change.
 
    ![bb-issue-jira-done](/content/docs/tutorials/database-change-management-with-jira/bb-issue-jira-done.webp)
 
-1. Every change in Bytebase will be recorded in the **Change History** of the database.
+1. Once change is rolled out, Bytebase will record the change in the database **Change History**.
 
    ![bb-db-history](/content/docs/tutorials/database-change-management-with-jira/bb-db-history.webp)
 
@@ -97,17 +114,19 @@ After the above preparation, it's time to act as the DBA (Database Administrator
 
    ![bb-view-diff-jira](/content/docs/tutorials/database-change-management-with-jira/bb-view-diff-jira.webp)
 
-1. After the issue is `Done` in Bytebase, copy the url of the issue, and paste it in the **Bytebase issue link** field in Jira issue and set the status to `Done`. The whole process is done.
+### Step 5 (Jira): Update Jira status to Done
 
-   ![jira-issue-done](/content/docs/tutorials/database-change-management-with-jira/jira-issue-done.webp)
+Visit Jira issue and set the status to `Done`. The whole process is completed.
 
-## Conclusion and Next Step
+![jira-issue-done](/content/docs/tutorials/database-change-management-with-jira/jira-issue-done.webp)
+
+## Summary and next
 
 In this tutorial, you have successfully set up a database change workflow with Jira and Bytebase.
 
 - Jira takes care of the review process and the overall progress tracking.
 - Bytebase takes care of the database change rollout and history tracking.
 
-On the other hand, there are still manual steps to move the information back and forth between Jira
+On the other hand, there are still manual steps to move the fields and update the status in Jira
 and Bytebase. In the next tutorial, we will show you how to automate those by leveraging Jira trigger
 and Bytebase API.
