@@ -21,6 +21,7 @@ import TerraformIcon from '@/svgs/terraform.inline.svg';
 import TidbIcon from '@/svgs/tidb.inline.svg';
 import MySQLIcon from '@/svgs/mysql.inline.svg';
 import APIIcon from '@/svgs/api.inline.svg';
+import JiraIcon from '@/svgs/jira.inline.svg';
 
 const allIntegrations: { [key: string]: React.FunctionComponent<React.SVGProps<SVGSVGElement>> } = {
   aurora: AuroraIcon,
@@ -30,6 +31,7 @@ const allIntegrations: { [key: string]: React.FunctionComponent<React.SVGProps<S
   clickhouse: ClickHouseIcon,
   github: GithubIcon,
   gitlab: GitLabIcon,
+  jira: JiraIcon,
   oracle: OracleIcon,
   postgresql: PostgresIcon,
   snowflake: SnowflakeIcon,
