@@ -215,6 +215,8 @@ expand_section_list: ['Self-host']
 
 ### [AI Assistant](/ai-assistant)
 
+### [Database Instance](/administration/instance)
+
 ### [Environment Tier](/administration/environment-policy/tier)
 
 ### [Customize Logo](/administration/customize-logo)
