@@ -16,6 +16,7 @@ import SpannerIcon from '@/svgs/spanner.inline.svg';
 import SQLServerIcon from '@/svgs/sqlserver.inline.svg';
 import TerraformIcon from '@/svgs/terraform.inline.svg';
 import TiDBIcon from '@/svgs/tidb.inline.svg';
+import JiraIcon from '@/svgs/jira.inline.svg'; // Import the Jira icon
 import clsx from 'clsx';
 
 const IntegrationList = [
@@ -91,13 +92,17 @@ const IntegrationList = [
     name: 'Terraform',
     Icon: TerraformIcon,
   },
+  {
+    name: 'Jira', // Add Jira to the integration list
+    Icon: JiraIcon,
+  },
 ];
 
 const Integrations = ({ className }: { className?: string }) => {
   return (
     <ul
       className={clsx(
-        'mt-11 flex flex-wrap justify-center gap-x-[25px] gap-y-6 px-7 pt-7 pb-8 shadow-[0px_5px_15px_rgba(15,22,36,.2)] 2xl:gap-[21px] 2xl:py-6 2xl:px-[29px] xl:gap-x-5 xl:px-[18px] lg:mt-10 md:mt-9 md:gap-6 md:px-[26px] md:pt-7 md:pb-8 sm:mt-8 sm:gap-y-[26px] sm:py-6 sm:pl-6 sm:pr-[22px]',
+        'mt-11 flex flex-wrap justify-center gap-x-[25px] gap-y-6 px-7 pb-8 pt-7 shadow-[0px_5px_15px_rgba(15,22,36,.2)] 2xl:gap-[21px] 2xl:px-[29px] 2xl:py-6 xl:gap-x-5 xl:px-[18px] lg:mt-10 md:mt-9 md:gap-6 md:px-[26px] md:pb-8 md:pt-7 sm:mt-8 sm:gap-y-[26px] sm:py-6 sm:pl-6 sm:pr-[22px]',
         className,
       )}
     >
