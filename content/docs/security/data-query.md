@@ -4,33 +4,31 @@ title: Data Query
 
 `Workspace Admin` or `Project Owner` can always manually grant `Project Querier` role to users. 
 
-Meanwhile, as is more often the case, users sometimes find their query access limited. When this happens, they can apply for `Project Querier` role by submitting a request grant issue on the spot.
+Users can apply for `Project Querier` role by submitting a request grant issue in SQL Editor as well.
 
-## Assign `Project Querier` Role
+## Assign Project Querier Role
 
 For all plans, `Workspace Admin` or `Project Owner` can manually assign `Project Querier` role to users or groups.
 
-### Assign generally within Workspace -> IAM & Admin
+### Within Project level
 
-As `Workspace Admin`, you can assign `Project Querier` role.
-
-Within Workspace level, go to **Members** section under **IAM & Admin** on the left-side bar. **Grant Access** to Select users and Assign `Project Querier` to them.
-
-Thus they will be granted access to all databases within all projects.
-
-![assign-workspace](/content/docs/security/data-query/assign-workspace.webp)
-
-### Assign specifically within a certain project
-
-On the other hand, **Select Project** and go to **Manage > Members**. Then you can **Grant Access** as a `Project Owner`.
+**Select Project** and go to **Manage > Members**. Then you can **Grant Access** as a `Project Owner`.
 
 ![project-members-grant](/content/docs/security/data-query/project-members-grant.webp)
 
 Select Users or Groups, Assign role of `Project Querier`, choose Databases, Exipration and click **Confirm**.
 
-As to the choice of Databases within this Project level, it can actually be several Databases, Schema or Tables in particular.
+The choice of Databases within this Project level can be several Databases, Schema or Tables in particular.
 
 ![project-members-querier](/content/docs/security/data-query/project-members-querier.webp)
+
+### Within Workspace level
+
+On the other hand, As `Workspace Admin`, you can assign `Project Querier` role. Note that access will be granted to *all databases* within *all projects*.
+
+Within Workspace level, go to **Members** section under **IAM & Admin** on the left-side bar. **Grant Access** to Select users and Assign `Project Querier` to them.
+
+![assign-workspace](/content/docs/security/data-query/assign-workspace.webp)
 
 ## Request Project Querier Role
 
@@ -58,7 +56,7 @@ Enter Bytebase SQL Editor from any **SQL Editor** button. **Select a database to
 
 ![sql-editor-request](/content/docs/security/data-query/sql-editor-request.webp)
 
-Choose the databases you want to request access for, then click **OK**. An issue will be created, just wait for it to be approved and you will be able to access those data.
+Choose the databases you want to request access for, then click **OK**. An issue will be created. You will be able to access those data after the issue rolls out.
 
 ![sql-editor-issue](/content/docs/security/data-query/sql-editor-issue.webp)
 
