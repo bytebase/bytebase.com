@@ -33,7 +33,7 @@ Enter **Export Center** either within a project or from workspace level, where y
 
 You'll be creating an issue. Enable **Encrypt** and set **Password** if needed, fill your query commands in **SQL** block. **Create** the issue. By configuring [custom approval](/docs/administration/custom-approval/), it will match the corresponding approvers.
 
-![bb-1-export-preview](/content/docs/security/data-export/bb-1-export-preview.webp)
+![export-preview](/content/docs/security/data-export/export-preview.webp)
 
 After approval, you can click **Export** to download the exported file.
 
