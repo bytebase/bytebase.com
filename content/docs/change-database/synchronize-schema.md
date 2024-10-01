@@ -13,7 +13,7 @@ Syncing from arbitrary schema versions is available in the Pro Plan and Enterpri
 
 Bytebase supports synchronizing a specified schema version of one database to others. It
 
-Schema synchronization compares the schema differences between a source database and one or multiple target databases. Then it generates the suggested DDL statements (e.g. ALTER TABLE) to transit the source database schema state to the target database schema. You can:
+Schema synchronization calculates the schema differences between a source database and one or multiple target databases. Then it generates the suggested DDL statements (e.g. ALTER TABLE) to transit the source database schema state to the target database schema. You can:
 
 - Propagate the schema changes from the one database to others.
 - Revert the database schema to an old version.
