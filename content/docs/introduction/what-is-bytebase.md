@@ -53,11 +53,7 @@ Bytebase provides a suite of features to enable organizations to enforce data se
 
 [Data Rollback](/docs/change-database/rollback-data-changes/)
 
-- Statement-level rollback
-
-- Database-level manual and periodical backup and restore
-
-- Point-in-time recovery (PITR)
+Bytebase provides streamlined 1-click data rollback.
 
 [API](/docs/api/overview/)
 
