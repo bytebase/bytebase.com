@@ -228,7 +228,7 @@ Bytebase also provides built-in schema review policies to enforce the schema sta
 
 ![_](/content/blog/database-as-code-landscape/bytebase-schema-review.webp)
 
-Bytebase is envisioned to be the counterpart of GitLab / GitHub to manage the database development aspect. It's positioned as a Database DevOps solution for team collaboration.
+Bytebase is envisioned to be the counterpart of GitLab / GitHub to manage the database development aspect. It's positioned as a Database DevSecOps solution for team collaboration.
 
 ![_](/content/blog/database-as-code-landscape/bytebase-position.webp)
 
