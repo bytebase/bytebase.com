@@ -80,7 +80,7 @@ By default, the first registered user is granted the `Admin` role, all following
 | Configure SQL Review Policy         |        | ✔️  | ✔️    |
 | Manage version control system (VCS) |        |     | ✔️    |
 | Manage sensitive data               |        | ✔️  | ✔️    |
-| Manage database acccess control     |        | ✔️  | ✔️    |
+| Manage database access control      |        | ✔️  | ✔️    |
 | Manage IM integration               |        |     | ✔️    |
 | Change logo                         |        |     | ✔️    |
 
