@@ -8,7 +8,7 @@ Bytebase users query data from [SQL Editor](/docs/sql-editor/run-queries/). Byte
 
 `Workspace Admin`, `Workspace DBA` or `Project Owner` can manually grant `Project Querier` role to users/groups.
 
-### Project level
+### Assign at Project level
 
 **Select Project** and go to **Manage > Members**. Then **Grant Access**.
 
@@ -20,7 +20,7 @@ You can choose the entire database, a particular schema, or a particular table.
 
 ![project-members-querier](/content/docs/security/data-query/project-members-querier.webp)
 
-### Workspace level
+### Assign at Workspace level
 
 `Workspace Admin` can assign `Project Querier` role at the workspace level. This will grant query permission to _all databases_ within _all projects_.
 
@@ -32,9 +32,9 @@ From the workspace page, go to **IAM & Admin > Members**, **Grant Access** to Se
 
 <PricingPlanBlock feature_name='QUERY_EXPORT_APPROVAL_WORKFLOW' />
 
-Users can also apply for `Project Querier` role by submitting an issue.
+Users can also apply for `Project Querier` role by submitting an issue. Approval flow matches the `Request Querier Role` in [custom approval](/docs/administration/custom-approval/) if configured.
 
-### Project level
+### Request at Project level
 
 Within project page, click **Request Query Role**. You can either choose all databases or specific databases, schema or tables to request for access.
 
@@ -48,7 +48,7 @@ After the request is approved, you can query data in SQL Editor from the specifi
 
 ![bb-issue-querier-done](/content/docs/security/data-query/bb-issue-querier-done.webp)
 
-### Within SQL Editor
+### Request from SQL Editor
 
 You can also request the access within SQL Editor.
 
