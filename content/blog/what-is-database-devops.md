@@ -5,8 +5,14 @@ updated_at: 2024/08/20 09:00:00
 feature_image: /content/blog/what-is-database-devops/cover.webp
 tags: Explanation
 featured: true
-description: What is Database DevOps?
+description: Database DevOps integrates DevOps practices into database management, automating processes like schema changes, testing, and deployment.
 ---
+
+<HintBlock type="info">
+
+Beyond Database DevOps, you can also check out [Database DevSecOps](/blog/what-is-database-devsecops/) that integrates security into the database DevOps framework.
+
+</HintBlock>
 
 Before delving into Database DevOps, let's first review what is DevOps. While there is no uniform definition for
 DevOps, we know DevOps originates from combining software development methodologies with deployment and operations.
@@ -82,6 +88,7 @@ Database DevOps emphasizes the integration of databases into the DevOps lifecycl
 
 ## Further Readings
 
+- [What is Database DevSecOps](/blog/what-is-database-devsecops)
 - [Database-as-Code](/blog/database-as-code)
 - [How many DBAs should a company hire](/blog/how-many-dbas-should-a-company-hire)
 - [Using Jira for Database Changes Won't Cut It](/blog/use-jira-for-database-change)
