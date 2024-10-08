@@ -11,12 +11,20 @@ Syncing from arbitrary schema versions is available in the Pro Plan and Enterpri
 
 <TutorialBlock url="/docs/tutorials/how-to-synchronize-database-schemas" title="How to Synchronize Database Schemas" />
 
-Bytebase supports synchronizing a specified schema version of one database to others. It
-
-Schema synchronization calculates the schema differences between a source database and one or multiple target databases. Then it generates the suggested DDL statements (e.g. ALTER TABLE) to transit the source database schema state to the target database schema. You can:
+Bytebase supports synchronizing a specified schema version of one source database to one or multiple target databases.
+You can use Schema Synchronization to:
 
 - Propagate the schema changes from the one database to others.
 - Revert the database schema to an old version.
+
+![workflow](/content/docs/change-database/synchronize-schema/workflow.webp)
+
+The overall workflow:
+
+1. Compare a source database schema with one or multiple target databases' schema.
+1. Generate the suggested DDL statements (e.g. `ALTER TABLE`) to transit the source database schema state to each of the target database schema.
+1. Create an issue.
+1. Deploy the DDL statements to the targeted databases.
 
 ## Supported Objects
 

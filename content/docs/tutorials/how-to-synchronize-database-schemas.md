@@ -2,7 +2,7 @@
 title: How to Synchronize Database Schemas
 author: Ningjing
 updated_at: 2024/02/29 18:00
-feature_image: /content/docs/tutorials/how-to-synchronize-database-schemas/sync-schema.webp
+feature_image: /content/docs/tutorials/how-to-synchronize-database-schemas/workflow.webp
 tags: Tutorial
 integrations: General
 level: Beginner
