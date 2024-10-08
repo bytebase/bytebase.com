@@ -104,8 +104,7 @@ What if you want to reveal the masked data to a specific user? You can grant unm
 
    ![bb-sql-editor-query-salary-prod-not-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-salary-prod-not-masked.webp)
 
-## Summary
+## Related content
 
-You can now mask data in Bytebase using two methods: use **Global Masking Rule** to batch apply masking settings, and use **Column Masking Rule** to mask a specific column in a specific table. You can also grant access to a specific user to reveal the masked data.
-
-If you have any questions, please [join our discord](https://discord.com/invite/huyw7gRsyA).
+- [Deploy Schema Migration with Rollout Policy](/docs/tutorials/deploy-schema-migration/)
+- [How to Manage Data Access for Developers](/docs/tutorials/how-to-manage-data-access-for-developers/)
