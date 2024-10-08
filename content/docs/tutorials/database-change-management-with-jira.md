@@ -31,7 +31,7 @@ This tutorial will guide you through managing database changes using Jira and By
 ### Change process
 
 1. (Jira) Developer creates a Jira `Database Change` issue filling the **SQL**, **database**, and **description** fields.
-1. (Jira -> Bytebase) DBA reviews the Jira issue and go to Bytebase to create an issue with the developer supplied **SQL**, **database**, and **description**.
+1. (Jira -> Bytebase) DBA reviews the Jira issue and goes to Bytebase to create an issue with the developer supplied **SQL**, **database**, and **description**.
 1. (Jira) DBA updates the Jira issue status to indicate the change is in progress.
 1. (Bytbease) DBA goes to Bytebase to roll out the database change.
 1. (Jira) DBA updates the Jira issue status to indicate the change has completed.
@@ -99,9 +99,9 @@ You act as a developer, now go to the Jira project to create a `Database Change`
 
 ### Step 3 (Jira): Paste the Bytebase issue URL and update the Jira issue status
 
-Copy the Bytebase issue URL, and paste it to the **Bytebase issue link** field in Jira issue. Then update the Jira issue status.
+Copy the Bytebase issue URL, and paste it to the **Bytebase issue link** field in Jira issue. Then update the Jira issue status to `In Progress`.
 
-   ![jira-in-progress](/content/docs/tutorials/database-change-management-with-jira/jira-in-progress.webp)
+![jira-in-progress](/content/docs/tutorials/database-change-management-with-jira/jira-in-progress.webp)
 
 ### Step 4 (Bytebase): Roll out the database change in Bytebase
 
@@ -121,7 +121,7 @@ Copy the Bytebase issue URL, and paste it to the **Bytebase issue link** field i
 
 Visit Jira issue and set the status to `Done`. The whole process is completed.
 
-   ![jira-done](/content/docs/tutorials/database-change-management-with-jira/jira-done.webp)
+![jira-done](/content/docs/tutorials/database-change-management-with-jira/jira-done.webp)
 
 ## Summary and next
 
@@ -130,6 +130,6 @@ In this tutorial, you have successfully set up a database change workflow with J
 - Jira takes care of the review process and the overall progress tracking.
 - Bytebase takes care of the database change rollout and history tracking.
 
-On the other hand, there are still manual steps to move the fields and update the status in Jira
-and Bytebase. In the next tutorial, we will show you how to automate those by leveraging Jira trigger
+On the other hand, there are still manual steps to move the fields' information and update the status
+in Jira and Bytebase. In the next tutorial, we will show you how to automate those by leveraging Jira trigger
 and Bytebase API.
