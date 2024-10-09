@@ -1,7 +1,7 @@
 ---
 title: Step-by-Step Guide to Data Masking
 author: Ningjing
-updated_at: 2023/10/11 18:00
+updated_at: 2024/10/09 18:00
 feature_image: /content/docs/tutorials/step-by-step-guide-to-data-masking/data-mask-banner.webp
 tags: Tutorial
 integrations: General
@@ -25,84 +25,92 @@ Before starting, make sure you have installed [Docker](https://www.docker.com/).
 
 ## Preparation
 
-1. Make sure your Docker is running, and start the Bytebase Docker container with following command:
+1. Make sure your Docker is running, and start the Bytebase Docker container with command:
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
 
-2. Bytebase is running successfully in Docker, and you can visit it via `localhost:8080`. Register an admin account and it will be granted the `workspace admin` role automatically.
+2. Having Bytebase successfully running in Docker, visit it via `localhost:8080`. Register an admin account and it will be granted the `workspace admin` role automatically.
 
-3. Go back to the Bytebase console, click **Start free trial** on the left bottom and upgrade to **Enterprise plan**.
+3. Click your avatar on top right and **Start free trial** from the dropdown menu. Upgrade to **Enterprise plan**.
 
-4. Click **Instances**, and click **Assign License**. Select both instances, and click **Confirm**. Without doing this, the enterprise plan required for data masking won't be enabled on instances.
+4. Enter **Instances** on the left. Select both instances to **Assign License**.
 
 ### No Masking
 
-Login to Bytebase,click **SQL Editor**, you'll be redirected to SQL Editor page. Choose `(Prod) employee` > `public` > `employee`, and then run `SELECT * FROM employee;`, you'll see the following result. Run the same query against `(Test) employee`, the result is the same.
+Enter **SQL Editor** on top right. Without any worksheet open(no tab page open on top), click **Connect to a database** or **Select a database to start**.
 
-![bb-sql-editor-query-employee-prod](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-prod.webp)
+![sql-editor-entry](/content/docs/tutorials/step-by-step-guide-to-data-masking/sql-editor-entry.webp)
 
-![bb-sql-editor-query-employee-test](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-test.webp)
+Choose database `hr_prod` under `Prod Sample Instance` within the Connection detail page. Run `SELECT * FROM employee;`, you'll see the following result.
+
+![prod-without-masking](/content/docs/tutorials/step-by-step-guide-to-data-masking/prod-without-masking.webp)
+
+Run the same query against database `hr_test`, the result is the same.
 
 ### Global Masking Rule
 
-You may want to batch apply masking settings, for example, you want to mask all the `birth_date` columns in all the tables in the `employee` database. You can use **Global Masking Rule** to achieve this.
+You may want to batch apply masking settings. Use [Global Masking Rule](https://www.bytebase.com/docs/security/data-masking/global-masking-rule/) to achieve this.
 
-1. Click the **Setting icon** on the top right. Click **Security & Policy** > **Data Masking**. Click **Global Masking Rule** and then **Add rule**.
+Here for example, we'll mask all the `birth_date` columns in all tables.
 
-2. Name the rule as `birth_date should be masked`, and select `Column name`, `==`. Fill `birth_date` in the input box, and click **Confirm**.
+1. Within Workspace, enter **Security & Policy** > **Data Masking** on the left. Click **Add** on top right of `Global Masking Rule` page.
 
-   ![bb-data-masking-global-birth-date](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-data-masking-global-birth-date.webp)
+2. Name the rule as `birth_date should be masked`, select `Column name`, `==`. Fill `birth_date` in the input box, and **Confirm**.
+   ![global-birth-date](/content/docs/tutorials/step-by-step-guide-to-data-masking/global-birth-date.webp)
 
-3. Go back to the SQL Editor page, Choose `(Prod) employee` > `public` > `employee` and run `SELECT * FROM employee;` again. You'll see the `birth_date` is masked. Choose `(Test) employee`, the result is the same.
+3. Go back to SQL Editor. Run `SELECT * FROM employee;` within `hr_prod` again. You'll see the `birth_date` is masked. Result within `hr_test` is the same.
+   ![query-prod-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/query-prod-masked.webp)
 
-   ![bb-sql-editor-query-employee-prod-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-prod-masked.webp)
-   ![bb-sql-editor-query-employee-test-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-test-masked.webp)
+For a more organized and hierarchical global masking management, check [Data Classification](https://www.bytebase.com/docs/security/data-masking/data-classification/).
 
 ### Export data with masked columns
 
 Exported data is masked in the same way as query results.
 
 1. Stay on the SQL Editor after querying, and click **Export**.
-
-   ![bb-sql-editor-export](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-export.webp)
+   ![prod-export](/content/docs/tutorials/step-by-step-guide-to-data-masking/prod-export.webp)
 
 2. Fill in the export rows number, choose the format and click **Confirm**. The file will start downloading.
 
-   ![bb-sql-editor-export-data](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-export-data.webp)
-
 3. Open the downloaded file, you'll see the `birth_date` is masked.
-
-   ![bb-sql-editor-exported-data](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-exported-data.webp)
+   ![exported-data](/content/docs/tutorials/step-by-step-guide-to-data-masking/exported-data.webp)
 
 ### Column Masking Rule
 
 If you want to mask a specific column in a specific table, you can use **Column Masking Rule**.
 
-1. Click **Databases** and choose `employee` on `Prod`, and select `salary` table.
-2. Click the edit(pen) icon on the `amount` row, and click **Full**.
+1. Enter **Database** > **Databases** within `Sample Project`. Choose table `salary` of database `hr_prod`.
 
-   ![bb-database-table-amount](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-database-table-amount.webp)
+2. Click the pencil icon by `Masking level` of row `amount`, choose `Full` for Masking level in Setting detail page.
+   ![prod-salary-amount](/content/docs/tutorials/step-by-step-guide-to-data-masking/prod-salary-amount.webp)
 
-3. Go back to the SQL Editor page, Choose `(Prod) employee` > `public` > `salary` and run `SELECT * FROM salary;` again. You'll see the `amount` is masked. Choose `(Test) employee`, it's not.
-
-   ![bb-sql-editor-query-salary-prod-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-salary-prod-masked.webp)
-   ![bb-sql-editor-query-salary-test](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-salary-test.webp)
-
+3. Go back to SQL Editor. Run `SELECT * FROM salary;` within `hr_prod`. You'll see `amount` been masked.
+   ![query-prod-salary-amount-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/query-prod-salary-amount-masked.webp)
+   
+   Switch to database `hr_test` to run the same command, `amount` will appear not masked.
+   
+   ![query-prod-salary-amount-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/query-prod-salary-amount-masked.webp)
+   
 ### Grant unmasked access to a user
 
-What if you want to reveal the masked data to a specific user? You can grant unmasked access.
+What if you want to reveal masked data to a specific user (other than yourself)? Grant unmasked access.
 
-1. Click **Settings icon** on the top right, and click **Members**. Add a `DBA` user and click **+ Add**. Click its link in the **Active members** section, click **Edit** to set a password, click **Save**.
+1. Have this DBA user granted access of `Project Developer`, otherwise he couldn't see the project in his workspace.
 
-2. Click **Databases** and choose `employee` on `Prod`, and select `salary` table.
+In case you didn't have this DBA yet:
+   - Click your avatar, Logout from the dropdown menu and Sign up for another DBA account.
+   - Login as Workspace Admin again, choose `Sample Project`, enter **Manage** > **Members** from the left.
+   - **Grant Access** on top right, assign `Project Querier` and `Project Exporter` role for your DBA user and **Confirm**.
 
-3. Click the **edit(pen) icon** on the `amount` row, and click **Grant Access**. Select the `DBA` user, and click **Confirm**.
+1. In **Database** > **Databases** within `Sample Project`, choose table `salary` of database `hr_prod`.
 
-   ![bb-database-table-amount-grant-access](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-database-table-amount-grant-access.webp)
+1. Click the pencil icon by `Masking level` of row `amount`, **Grant Access**. Select the `DBA` user and **Confirm**.
+   ![grant-access](/content/docs/tutorials/step-by-step-guide-to-data-masking/grant-access.webp)
 
-4. Login as the `DBA` user, go to SQL Editor, choose `(Prod)Employee` > `public` > `salary` and run `SELECT * FROM salary;` again. You'll see the `amount` is not masked.
+   ![grant-access-detail](/content/docs/tutorials/step-by-step-guide-to-data-masking/grant-access-detail.webp)
 
-   ![bb-sql-editor-query-salary-prod-not-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-salary-prod-not-masked.webp)
+1. Login as the `DBA` user. Run `SELECT * FROM salary;` within database `hr_prod` in SQL Editor. `amount` appears not masked.
+   ![dba-query-salary](/content/docs/tutorials/step-by-step-guide-to-data-masking/dba-query-salary.webp)
 
 ## Related content
 
