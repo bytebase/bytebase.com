@@ -461,5 +461,4 @@ ulimit -n 10240
 
 - [Deploy to Zeabur](/docs/get-started/install/deploy-to-zeabur/)
 
-- [Deploy to AlibabaCloud](/docs/get-started/install/deploy-to-alibabacloud/)
-
+- [Deploy to Alibaba Cloud](/docs/get-started/install/deploy-to-alibabacloud/)
