@@ -1,7 +1,7 @@
 ---
 title: How to Manage Data Access for Developers
 author: Ningjing
-updated_at: 2024/10/08 20:00
+updated_at: 2024/10/09 20:00
 feature_image: /content/docs/tutorials/how-to-manage-data-access-for-developers/feature.webp
 tags: Tutorial
 integrations: General

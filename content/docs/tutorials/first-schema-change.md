@@ -2,7 +2,7 @@
 title: Your First Schema Change in 5 Minutes
 author: Ningjing
 tags: Tutorial
-updated_at: 2024/10/08 20:00
+updated_at: 2024/10/10 20:00
 integrations: General
 level: Beginner
 estimated_time: '5 mins'

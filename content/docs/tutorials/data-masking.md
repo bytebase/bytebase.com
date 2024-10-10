@@ -1,7 +1,7 @@
 ---
-title: Step-by-Step Guide to Data Masking
+title: How to Configure Dynamic Data Masking
 author: Ningjing
-updated_at: 2024/10/09 18:00
+updated_at: 2024/10/08 20:00
 feature_image: /content/docs/tutorials/step-by-step-guide-to-data-masking/data-mask-banner.webp
 tags: Tutorial
 integrations: General
