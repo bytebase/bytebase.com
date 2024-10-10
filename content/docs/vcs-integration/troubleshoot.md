@@ -4,7 +4,7 @@ title: Troubleshoot
 
 _If you need further assistance setting up GitOps, feel free to [reach us](/docs/faq/#how-to-reach-us)._
 
-## General
+## Issue not created
 
 1. Bytebase only observes **merge** event. If the file is pushed to the branch directly, it will be ignored.
 1. Migration file must follow the [path and naming convention](/docs/vcs-integration/create-migration-files/).
@@ -18,6 +18,28 @@ connector setting page.
 Check the webhook running history to debug the reason.
 
 ![webhook-running-detail](/content/docs/vcs-integration/troubleshoot/webhook-running-detail.webp)
+
+## Empty repository list
+
+![empty-repository-list](/content/docs/vcs-integration/troubleshoot/empty-repository-list.webp)
+
+When you [add GitOps connector](/docs/vcs-integration/add-gitops-connector/) to your project, make sure
+the configured Git Provider user has admin access to the repository. You can verify this by calling the
+VCS API directly:
+
+- GitHub. https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#list-repositories-for-the-authenticated-user
+
+  ```bash
+  curl --header "PRIVATE-TOKEN: <your_access_token>" https://api.github.com/user/repos
+  ```
+
+  Then filter the repository having `permissions.admin`.
+
+- GitLab. https://docs.gitlab.com/ee/api/members.html
+
+  ```bash
+  curl --header "PRIVATE-TOKEN: <your_access_token>" https://gitlab.example.com/api/v4/projects?membership=true&simple=true&min_access_level=40
+  ```
 
 ## Duplicate version
 
