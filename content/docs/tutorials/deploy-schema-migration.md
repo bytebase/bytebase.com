@@ -1,7 +1,7 @@
 ---
 title: Deploy Schema Migration with Rollout Policy
 author: Ningjing
-updated_at: 2023/11/3 14:15
+updated_at: 2024/10/10 12:00
 tags: Tutorial
 integrations: General
 level: Beginner
@@ -33,44 +33,38 @@ unlock new capabilities of deploying schema migrations and this tutorial will wa
 
 ### Level 1: Automatic rollout with SQL review (Community Plan)
 
-1. Go to **Environments** > **Test** and **Environments** > **Prod**, you'll see
-   1. The `Rollout policy` is `automatic`. **Unless there's some warning or error, the rollout will be automatically executed after the issue is created**.
-   2. `SQL Review` is enabled on `Prod` with a sample policy.
+1. Within Workspace, go to **Environments** > **Test** and **Environments** > **Prod**, you'll see
 
-![bb-env-rollout-automatic-test-prod](/content/docs/tutorials/deploy-schema-migration/bb-env-rollout-automatic-test-prod.webp)
+   - `Rollout policy` is `automatic`. Unless there's warning or error, rollout will be automatically executed after an issue is created.
+   - `SQL Review` is enabled on `Prod` with a sample policy.
 
-2. Click `SQL Review Sample Policy` to go to SQL Review policy, there're three rules activated. Let's pay attention to `Enforce NOT NULL constraints on columns` rule, and we'll try to violate it.
+    ![environment-settings-default](/content/docs/tutorials/deploy-schema-migration/environment-settings-default.webp)
 
-![bb-sql-review-sample-policy](/content/docs/tutorials/deploy-schema-migration/bb-sql-review-sample-policy.webp)
+2. Click **SQL Review Sample Policy** to enter **SQL Review** under **CI/CD** section, where three rules have been activated. We'll be trying to violate the Column rule `Enforce NOT NULL constraints on columns`.
 
-3. Go to `Sample Project`, click **Edit Schema**, choose both `Test` and `Prod` databases, and click **Next**. Paste the following SQL statements into **Raw SQL**, and click **Preview issue**.
+    ![sql-review-sample-policy](/content/docs/tutorials/deploy-schema-migration/sql-review-sample-policy.webp)
 
-```sql
-ALTER TABLE "public"."employee"
-    ADD COLUMN "country" text;
-```
+3. Go to `Sample Project` from top left. Go to **Database** > **Databases**, choose both `hr_prod` and `hr_test` databases to **Edit Schema**. Paste this command into **SQL** block, and **Create** this issue on top right:
 
-4. SQL Review checks will dry run before the issue is created. Here let's create the issue regardless of the dry run result.
-5. After the issue is created, SQL Review will run automatically along with some other checks. You'll see there's a warning for the task on `Prod`.
+    ```sql
+    ALTER TABLE "public"."employee"
+        ADD COLUMN "country" text;
+    ```
 
-![bb-issue-warning-prod](/content/docs/tutorials/deploy-schema-migration/bb-issue-warning-prod.webp)
+4. SQL Review will run automatically along with some other checks. You'll see a warning for the task on `Prod`. Click `Prod Stage` of the pipe above for details.
 
-![bb-issue-sql-review-warning](/content/docs/tutorials/deploy-schema-migration/bb-issue-sql-review-warning.webp)
+    ![prod-warning-detail](/content/docs/tutorials/deploy-schema-migration/prod-warning-detail.webp)
 
-6. Click **Edit**, paste this SQL statement and click **Save**. Apply this change to all tasks. The SQL checks will run again, and you'll see the warning disappear and it will roll out automatically.
+5. Now try again: Repeat step 3, but replace the former command with this:
 
-```sql
-ALTER TABLE "public"."employee"
-ADD COLUMN "country" text NOT NULL DEFAULT '';
-```
+    ```sql
+    ALTER TABLE "public"."employee"
+    ADD COLUMN "country" text NOT NULL DEFAULT '';
+    ```
 
-![bb-issue-done-free](/content/docs/tutorials/deploy-schema-migration/bb-issue-done-free.webp)
+6. Now you'll see the warning disappear and the issue rolls out automatically. Click **View change** to see the diff.
 
-7. Click **View change** to see the diff or go to **Change History** to view all changes.
-
-![bb-issue-done-show-diff](/content/docs/tutorials/deploy-schema-migration/bb-issue-done-show-diff.webp)
-
-![bb-proj-change-list](/content/docs/tutorials/deploy-schema-migration/bb-proj-change-list.webp)
+    ![view-change](/content/docs/tutorials/deploy-schema-migration/view-change.webp)
 
 ### Level 2: Manual rollout with dedicated roles and scheduled time (Pro Plan)
 
@@ -81,56 +75,53 @@ With Pro Plan, you'll get two additional features:
 
 To simplify the process, we'll use 14-day enterprise trial here. Click the **Start free trial** to upgrade.
 
-1. Go to **Environments** > **Prod**, choose `Manual rollout by dedicated roles` and check all the roles. Click **Update**.
+1. Within Workspace, go to **Environments** > **Prod**. Choose `Manual rollout by dedicated roles`, check all but the last role. Click **Update** on bottom right.
 
-![bb-env-prod-manual](/content/docs/tutorials/deploy-schema-migration/bb-env-prod-manual.webp)
+    ![policy-manual-rollout](/content/docs/tutorials/deploy-schema-migration/policy-manual-rollout.webp)
 
-2. Go to `Sample Project`, click **Edit Schema**, choose both `Test` and `Prod` databases, and click **Next**. Paste the following SQL statements into **Raw SQL**, and click **Preview issue**.
+2. Go to `Sample Project`, enter **Database** > **Databases** to **Edit Schema** for both databases. Paste this command into **SQL** block and **Create**.
 
-```sql
-ALTER TABLE "public"."employee"
-    ADD COLUMN "city" text NOT NULL DEFAULT '';
-```
+    ```sql
+    ALTER TABLE "public"."employee"
+        ADD COLUMN "city" text NOT NULL DEFAULT '';
+    ```
 
-3. Click **Create**, and after **Task checks** runs, you'll see the SQL running on `Test` automatically but waiting to run on `Prod`.
+3. **Task checks** runs. SQL runs on `Test` automatically but waits to run on `Prod`. Click **Rollout** to trigger directly.
 
-![bb-issue-prod-waiting](/content/docs/tutorials/deploy-schema-migration/bb-issue-prod-waiting.webp)
+    ![issue-await](/content/docs/tutorials/deploy-schema-migration/issue-await.webp)
 
-4. Click **Rollout** to trigger directly or set a **Rollout time**.
+    Or set a **Rollout time**.
 
-![bb-proj-set-rollout-time](/content/docs/tutorials/deploy-schema-migration/bb-proj-set-rollout-time.webp)
+    ![rollout-time](/content/docs/tutorials/deploy-schema-migration/rollout-time.webp)
 
 ### Level 3: Manual rollout with custom approval (Enterprise Plan)
 
-If you want the approval flow to be more dynamic based on the context like the type of SQL statements, the affected rows and etc,
-then you can configure [custom approval flow](/docs/administration/custom-approval/).
+If you want the approval flow to be more dynamic based on the context like the type of SQL statements, the affected rows and etc, configure [custom approval flow](/docs/administration/custom-approval/).
 
-Go to **Instances** and click **Assign License** for both instances. Without doing this, the enterprise plan required for custom approval won't be enabled on instances.
+Within Workspace, go to **Instances** and choose both instances to **Assign License**. Without doing this, the enterprise plan required for custom approval wouldn't be enabled on instances.
 
-1. Click **Settings** (the gear icon) > **Security & Policy** > **Custom Approval**. Choose `Project Owner -> DBA` as High Risk for DDL.
+1. Go to **CI/CD** > **Custom Approval**. Choose `Project Owner -> DBA` as High Risk for DDL.
 
-![bb-custom-approval](/content/docs/tutorials/deploy-schema-migration/bb-custom-approval.webp)
+    ![custom-approval](/content/docs/tutorials/deploy-schema-migration/custom-approval.webp)
 
-2. Click **the related risk rules** or **Settings** (the gear icon) > **Security & Policy** > **Risk Center**. Click **Add rule**. Set `High` Risk and `DDL` as `The risk for the production environment is considered to be high.`
+2. Click **the related risk rules** beside or **CI/CD** > **Risk Center**. **Add** on top right. Set `High` Risk and `DDL` as `The risk for the production environment is considered to be high.`
 
-![bb-risk-center-add-rule](/content/docs/tutorials/deploy-schema-migration/bb-risk-center-add-rule.webp)
+    ![risk-center-add-rule](/content/docs/tutorials/deploy-schema-migration/risk-center-add-rule.webp)
 
 3. Click **Settings** (the gear icon) and add a DBA account. Click it in the **Active members** list, and edit its password. You'll need this account later to do the approval.
 
-4. Go to **Environments** > **Prod**, you now unlock the third option for rollout policy `Manual rollout by the last approver from the custom approval flow`. Choose it.
+4. Within Workspace, go to **Environments** > **Prod**. Now the third option for rollout policy `Manual rollout by the last approver from the custom approval` is unlocked. Choose it.
 
-![bb-env-prod-manual-approval](/content/docs/tutorials/deploy-schema-migration/bb-env-prod-manual-approval.webp)
-
-4. Go to `Sample Project`, click **Edit Schema**, choose both `Test` and `Prod` databases, and click **Next**. Paste the following SQL statements into **Raw SQL**, and click **Preview issue**.
+4. Go to `Sample Project`, choose both databases to **Edit Schema**. Paste this command into **SQL** block and **Create**.
 
 ```sql
 ALTER TABLE "public"."employee"
     ADD COLUMN "district" text NOT NULL DEFAULT '';
 ```
 
-5. Create the issue and the approval flow is matched. Since it's in the pipeline, it will be brought forward to the `Test` stage to review earlier. Follow its order to approve. `DBA` will be the one to do the rollout.
+5. The approval flow is matched. Since it's in the pipeline, it will be brought forward to the `Test` stage to review earlier. Follow its order to approve. A `DBA` will be the one to do the rollout. If you didn't have a DBA in your Worksapce, you can Logout and register another DBA account, Login as the DBA to experience the entire workflow.
 
-![bb-issue-custom-approval-waiting](/content/docs/tutorials/deploy-schema-migration/bb-issue-custom-approval-waiting.webp)
+![custom-approval-await](/content/docs/tutorials/deploy-schema-migration/custom-approval-await.webp)
 
 ### Summary
 
