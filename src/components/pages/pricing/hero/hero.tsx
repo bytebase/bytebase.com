@@ -32,7 +32,7 @@ const cards: TCard[] = [
       'Community support',
       'Up to 20 users',
       'Up to 10 database instances',
-      'SQL lint, GitOps, API',
+      'SQL lint, GitOps, API, AI assistant',
     ],
   },
   {
