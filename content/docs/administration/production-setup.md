@@ -29,3 +29,18 @@ Status: Failed
 Reason: Evicted
 Message: Pod The node had condition: [DiskPressure].
 ```
+
+## Cloud vendor stack
+
+If you self-host Bytebase in the cloud provider, below is the recommended stack.
+
+### AWS
+
+- EC2 + RDS for PostgreSQL.
+- ECS/EKS + RDS for PostgreSQL.
+- (Less common) Fargate + RDS for PostgreSQL.
+
+### GCP
+
+- GCE + Cloud SQL for PostgreSQL.
+- GKE + Cloud SQL for PostgreSQL.

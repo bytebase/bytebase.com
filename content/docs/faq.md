@@ -19,12 +19,21 @@ English, 简体中文, Español, 日本語
 
 Bytebase is a single Go binary and is lightweight.
 
+#### CPU and RAM
+
 | Usage                           | Bytebase                  | [External PostgreSQL](/docs/get-started/install/external-postgres/) if used |
 | ------------------------------- | ------------------------- | --------------------------------------------------------------------------- |
 | 5 users and 5 instances         | 1 CPU cores and 2 GB RAM  | 1 CPU cores and 2 GB RAM                                                    |
 | 20 users and 20 instances       | 2 CPU cores and 4 GB RAM  | 1 CPU cores and 2 GB RAM                                                    |
 | 50 users and 50 instances       | 4 CPU cores and 8 GB RAM  | 2 CPU cores and 4 GB RAM                                                    |
 | Above 250 users or 50 instances | 8 CPU cores and 16 GB RAM | 2 CPU cores and 4 GB RAM                                                    |
+
+#### Storage
+
+Bytebase stores the SQL statements. If your team submits large SQL statements frequently,
+then you need to reserve large disk space. A good starting point is to reserve 100 GB for where
+the Bytebase server runs. And if you use [External PostgreSQL](/docs/get-started/install/external-postgres/),
+then you need to make sure to reserve enough space there.
 
 ### Docker
 
@@ -33,6 +42,10 @@ If you use Docker to deploy Bytebase, please use Docker version >= [20.10.24](ht
 ### WebSocket
 
 SQL Editor autocomplete requires [enabling WebSocket](/docs/get-started/self-host/#enable-websocket-for-sql-editor) in your gateway if present.
+
+## Production Setup
+
+See [Production Setup](/docs/administration/production-setup/).
 
 ## Supported database and versions
 
