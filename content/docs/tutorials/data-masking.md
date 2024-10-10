@@ -1,110 +1,107 @@
 ---
 title: Step-by-Step Guide to Data Masking
 author: Ningjing
-updated_at: 2023/10/11 18:00
+updated_at: 2024/10/09 18:00
 feature_image: /content/docs/tutorials/step-by-step-guide-to-data-masking/data-mask-banner.webp
 tags: Tutorial
 integrations: General
-level: Beginner
-estimated_time: '15 mins'
+level: Intermediate
+estimated_time: '30 mins'
 pinned: true
 feature_name: DATA_MASKING
 description: This tutorial will teach you how to set up and try out data masking in Bytebase.
 ---
 
-Bytebase **Dynamic Data Masking** can mask sensitive data in the query result based on the context on the fly.
-It helps organizations to **protect sensitive data** from being exposed to unauthorized users.
+Bytebase [Dynamic Data Masking](/docs/security/data-masking/overview/) can mask sensitive data in
+the query result based on the context on the fly. It helps organizations to **protect sensitive data**
+from being exposed to unauthorized users.
 
 ![bb-masking-overview](/content/docs/security/data-masking/bb-masking-overview.webp)
 
-This tutorial will teach you how to set up and try out data masking in Bytebase within 30 mins.
-
 ## Prerequisites
 
-Before starting, make sure you have installed [Docker](https://www.docker.com/).
+- [Docker](https://www.docker.com/)
+- Bytebase Enterprise plan, you can request a free trial [here](/contact-us/)
 
 ## Preparation
 
-1. Make sure your Docker is running, and start the Bytebase Docker container with following command:
+1. Make sure your [Docker](https://www.docker.com/) is running, and start the Bytebase Docker container with command:
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
 
-2. Bytebase is running successfully in Docker, and you can visit it via `localhost:8080`. Register an admin account and it will be granted the `workspace admin` role automatically.
+1. Having Bytebase successfully running in Docker, visit it via `localhost:8080`. Register an admin account and it will be granted the `workspace admin` role automatically.
 
-3. Go back to the Bytebase console, click **Start free trial** on the left bottom and upgrade to **Enterprise plan**.
-
-4. Click **Instances**, and click **Assign License**. Select both instances, and click **Confirm**. Without doing this, the enterprise plan required for data masking won't be enabled on instances.
+1. Acquire the Enterprise license. Enter **Instances** on the left. Select both instances to **Assign License**.
 
 ### No Masking
 
-Login to Bytebase,click **SQL Editor**, you'll be redirected to SQL Editor page. Choose `(Prod) employee` > `public` > `employee`, and then run `SELECT * FROM employee;`, you'll see the following result. Run the same query against `(Test) employee`, the result is the same.
+Enter **SQL Editor** on top right. Without any worksheet open (no tab page open on top), click **Connect to a database** or **Select a database to start**.
 
-![bb-sql-editor-query-employee-prod](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-prod.webp)
+![sql-editor-entry](/content/docs/tutorials/step-by-step-guide-to-data-masking/sql-editor-entry.webp)
 
-![bb-sql-editor-query-employee-test](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-test.webp)
+Choose database `hr_prod` under `Prod Sample Instance` within the Connection detail page. Run `SELECT * FROM employee;`, you'll see the following result without any masking.
+
+![prod-without-masking](/content/docs/tutorials/step-by-step-guide-to-data-masking/prod-without-masking.webp)
+
+Run the same query against database `hr_test`, the result is the same.
 
 ### Global Masking Rule
 
-You may want to batch apply masking settings, for example, you want to mask all the `birth_date` columns in all the tables in the `employee` database. You can use **Global Masking Rule** to achieve this.
+You may want to batch apply masking settings. Use [Global Masking Rule](/docs/security/data-masking/global-masking-rule/) to achieve this.
 
-1. Click the **Setting icon** on the top right. Click **Security & Policy** > **Data Masking**. Click **Global Masking Rule** and then **Add rule**.
+Here for example, we'll mask all the `birth_date` columns in all tables.
 
-2. Name the rule as `birth_date should be masked`, and select `Column name`, `==`. Fill `birth_date` in the input box, and click **Confirm**.
+1. Within Workspace, enter **Security & Policy** > **Data Masking** on the left. Click **Add** on top right of `Global Masking Rule` page.
 
-   ![bb-data-masking-global-birth-date](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-data-masking-global-birth-date.webp)
+2. Name the rule as `birth_date should be masked`, select `Column name`, `==`. Fill `birth_date` in the input box, and **Confirm**.
+   ![global-birth-date](/content/docs/tutorials/step-by-step-guide-to-data-masking/global-birth-date.webp)
 
-3. Go back to the SQL Editor page, Choose `(Prod) employee` > `public` > `employee` and run `SELECT * FROM employee;` again. You'll see the `birth_date` is masked. Choose `(Test) employee`, the result is the same.
+3. Go back to SQL Editor. Run `SELECT * FROM employee;` within `hr_prod` again. You'll see the `birth_date` is masked. Result within `hr_test` is the same.
+   ![query-prod-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/query-prod-masked.webp)
 
-   ![bb-sql-editor-query-employee-prod-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-prod-masked.webp)
-   ![bb-sql-editor-query-employee-test-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-employee-test-masked.webp)
+For a more organized and hierarchical global masking management, check [Data Classification](/docs/security/data-masking/data-classification/).
 
 ### Export data with masked columns
 
 Exported data is masked in the same way as query results.
 
 1. Stay on the SQL Editor after querying, and click **Export**.
-
-   ![bb-sql-editor-export](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-export.webp)
+   ![prod-export](/content/docs/tutorials/step-by-step-guide-to-data-masking/prod-export.webp)
 
 2. Fill in the export rows number, choose the format and click **Confirm**. The file will start downloading.
 
-   ![bb-sql-editor-export-data](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-export-data.webp)
-
 3. Open the downloaded file, you'll see the `birth_date` is masked.
-
-   ![bb-sql-editor-exported-data](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-exported-data.webp)
+   ![exported-data](/content/docs/tutorials/step-by-step-guide-to-data-masking/exported-data.webp)
 
 ### Column Masking Rule
 
 If you want to mask a specific column in a specific table, you can use **Column Masking Rule**.
 
-1. Click **Databases** and choose `employee` on `Prod`, and select `salary` table.
-2. Click the edit(pen) icon on the `amount` row, and click **Full**.
+1. Enter **Database** > **Databases** within `Sample Project`. Choose table `salary` of database `hr_prod`.
 
-   ![bb-database-table-amount](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-database-table-amount.webp)
+2. Click the pencil icon by `Masking level` of row `amount`, choose `Full` for Masking level in Setting detail page.
+   ![prod-salary-amount](/content/docs/tutorials/step-by-step-guide-to-data-masking/prod-salary-amount.webp)
 
-3. Go back to the SQL Editor page, Choose `(Prod) employee` > `public` > `salary` and run `SELECT * FROM salary;` again. You'll see the `amount` is masked. Choose `(Test) employee`, it's not.
+3. Go back to SQL Editor. Run `SELECT * FROM salary;` within `hr_prod`. You'll see `amount` been masked.
+   ![query-prod-salary-amount-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/query-prod-salary-amount-masked.webp)
 
-   ![bb-sql-editor-query-salary-prod-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-salary-prod-masked.webp)
-   ![bb-sql-editor-query-salary-test](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-salary-test.webp)
+   Switch to database `hr_test` to run the same command, `amount` will appear not masked.
+
+   ![query-prod-salary-amount-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/query-prod-salary-amount-masked.webp)
 
 ### Grant unmasked access to a user
 
-What if you want to reveal the masked data to a specific user? You can grant unmasked access.
+You can reveal masked data to a specific user by granting unmasked access.
 
-1. Click **Settings icon** on the top right, and click **Members**. Add a `DBA` user and click **+ Add**. Click its link in the **Active members** section, click **Edit** to set a password, click **Save**.
+1. Locate the column and click the pencil icon by `Masking level` of row `amount`, **Grant Access**. Select the user and **Confirm**.
+   ![grant-access](/content/docs/tutorials/step-by-step-guide-to-data-masking/grant-access.webp)
 
-2. Click **Databases** and choose `employee` on `Prod`, and select `salary` table.
+   ![grant-access-detail](/content/docs/tutorials/step-by-step-guide-to-data-masking/grant-access-detail.webp)
 
-3. Click the **edit(pen) icon** on the `amount` row, and click **Grant Access**. Select the `DBA` user, and click **Confirm**.
-
-   ![bb-database-table-amount-grant-access](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-database-table-amount-grant-access.webp)
-
-4. Login as the `DBA` user, go to SQL Editor, choose `(Prod)Employee` > `public` > `salary` and run `SELECT * FROM salary;` again. You'll see the `amount` is not masked.
-
-   ![bb-sql-editor-query-salary-prod-not-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/bb-sql-editor-query-salary-prod-not-masked.webp)
+1. Login as the granted user. Run `SELECT * FROM salary;` within database `hr_prod` in SQL Editor. `amount` data is shown as unmasked.
+   ![dba-query-salary](/content/docs/tutorials/step-by-step-guide-to-data-masking/dba-query-salary.webp)
 
 ## Related content
 
-- [Deploy Schema Migration with Rollout Policy](/docs/tutorials/deploy-schema-migration/)
+- [Docs for Dynamic Data Masking](/docs/security/data-masking/overview/)
 - [How to Manage Data Access for Developers](/docs/tutorials/how-to-manage-data-access-for-developers/)

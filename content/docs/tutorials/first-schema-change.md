@@ -10,7 +10,7 @@ pinned: true
 description: How to perform your first schema change in 5 minutes via Bytebase.
 ---
 
-In this tutorial, you'll use the sample databases Bytebase provides by default to get familiar with the product in the quickest way.
+In this tutorial, you'll use the default sample databases to get familiar with the product in the quickest way.
 
 ## Step 1 - Run via Docker
 
@@ -47,17 +47,18 @@ In this tutorial, you'll use the sample databases Bytebase provides by default t
 
    ![issue-test](/content/docs/tutorials/first-schema-change/issue-test.webp)
 
-1. Click **Prod Stage** to switch to it, and you will see the two stages share the same SQL but to different databases. You may also notice there's a warning sign for SQL review on the **Prod** stage. That's because when the issue is created, Bytebase will run task checks automatically. SQL review is one of them.
+1. Click **Prod Stage** to switch to it, and you will see the two stages share the same SQL but to different databases. You may also notice there's a warning sign for SQL review on the `Prod` stage. That's because when the issue is created, Bytebase will run task checks automatically.
    ![issue-prod](/content/docs/tutorials/first-schema-change/issue-prod.webp)
 
-1. Click the warning sign to see the details. If you wonder why only **Prod Stage** has the warning sign, it's because by default SQL Review is only configured for `Prod` environment. You can click the **Settings** (gear) on the top right, and click **Security & Policy** > **SQL Review** to have a look.
+1. Click the warning sign to see the details. If you wonder why only `Prod` stage has the warning sign, it's because by default SQL Review is only configured for `Prod` environment.
+
    ![sql-review-not-null](/content/docs/tutorials/first-schema-change/sql-review-not-null.webp)
 
 ## Step 3 - Roll out on Test Stage
 
 1. Switch back to **Test Stage** and click **Rollout**. Click **Rollout** on the confirmation dialog.
 
-1. When the SQL is applied, there will be a checkmark on the **Test Stage**. Click **View change** and you'll see the diff.
+1. When the SQL is applied, there will be a checkmark on the **Test Stage**. Click **View change** and you'll see the change history diff.
    ![view-change-test](/content/docs/tutorials/first-schema-change/view-change-test.webp)
 
    ![issue-snapshot-diff](/content/docs/tutorials/first-schema-change/issue-snapshot-diff.webp)
