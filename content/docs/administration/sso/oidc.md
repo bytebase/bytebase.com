@@ -130,3 +130,11 @@ In some GitLab self-hosted setups, the **Issuer** is `http://gitlab.acme.com` (H
    - **Client secret**: the app secret of your application
    - **Email**: `email`
    - **Display name**: `name`
+
+## Troubleshoot
+
+### CORS
+
+If you click the login button and there is no response. It could be you are hitting the CORS error.
+You can verify this by inspecting the [browser network](https://developer.chrome.com/docs/devtools/network).
+Please ask your network admin to whitelist Bytebase host. Alternatively, you can configure [OAuth](/docs/administration/sso/oauth2/).
