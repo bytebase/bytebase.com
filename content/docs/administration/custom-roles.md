@@ -19,6 +19,13 @@ To create custom roles, go to **IAM & Admin > Custom Roles**. Click **Add role**
 
 You can choose `Import from role` to build your custom role based on the existing role.
 
+<HintBlock type="info">
+
+If you want a role to approve and comment the issue. You can create a `Project Approver` custom role
+based on the existing `Project Releaser`.
+
+</HintBlock>
+
 ## Add to custom approval flow
 
 Go to **CI/CD > Custom Approval**. From **Approval Flows** tab, choose an approval flow to add.
