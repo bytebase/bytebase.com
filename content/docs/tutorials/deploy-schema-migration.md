@@ -40,9 +40,7 @@ unlock new capabilities of deploying schema migrations and this tutorial will wa
 
    ![environment-settings-default](/content/docs/tutorials/deploy-schema-migration/environment-settings-default.webp)
 
-1. Click **SQL Review Sample Policy** to enter **SQL Review** under **CI/CD** section, where three rules have been activated. We'll be trying to violate the Column rule `Enforce NOT NULL constraints on columns`.
-
-   ![sql-review-sample-policy](/content/docs/tutorials/deploy-schema-migration/sql-review-sample-policy.webp)
+1. Click **SQL Review Sample Policy** to enter **SQL Review** under **CI/CD** section, where three rules have been activated. We'll intentionally violate the Column rule `Enforce NOT NULL constraints on columns`.
 
 1. Go to `Sample Project` from top left. Go to **Database** > **Databases**, choose both `hr_prod` and `hr_test` databases to **Edit Schema**. Paste this command into **SQL** block, and **Create** this issue on top right:
 
