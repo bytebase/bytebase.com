@@ -18,8 +18,8 @@ Prior backup is only feasible when meeting **any** of the following conditions:
 | ---------- | ------------------------------------------------------------------------------------- | ---------------- |
 | MySQL      | Create a `bbdataarchive` **database** on the instance where your database is located. | ✅               |
 | PostgreSQL | Create a `bbdataarchive` **schema** on the database.                                  | ✅               |
-| Oracle     | Create a `bbdataarchive` **database** on the instance where your database is located. | ✅               |
-| SQL Server | Create a `bbdataarchive` **database** on the instance where your database is located. | ❌               |
+| Oracle     | Create a `bbdataarchive` **database** on the instance where your database is located. | ❌               |
+| SQL Server | Create a `bbdataarchive` **database** on the instance where your database is located. | ✅               |
 
 ## Create backup
 
