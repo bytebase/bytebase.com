@@ -149,7 +149,7 @@ expand_section_list: ['Self-host']
 
 ### [Explore Schema](/sql-editor/explore-schema)
 
-### [Query with Natural Language](/sql-editor/text-to-sql)
+### [AI Assistant](/sql-editor/ai-assistant)
 
 ## Dynamic Data Masking
 
