@@ -13,9 +13,9 @@ Go to Bytebase console, click **Settings > General**. Scroll down to **AI Assist
 - **OpenAI API Key**. The Open API key you obtained [here](https://platform.openai.com/account/api-keys).
 - **OpenAI API Endpoint**. If you use an OpenAPI compatible service or access OpenAPI via a proxy, you can optionally specify the custom endpoint.
 
-## Use Ollama
+## Integrate model with Ollama
 
-If you have privacy concerns, you can self-host LLMs and use Ollama which provides [OpenAI compatible Chat Completions API](https://ollama.com/blog/openai-compatibility).
+If you have privacy concerns, you can self-host model and use Ollama which provides [OpenAI compatible Chat Completions API](https://ollama.com/blog/openai-compatibility).
 
 ## Features
 
