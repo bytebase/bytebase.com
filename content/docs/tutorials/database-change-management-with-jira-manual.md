@@ -1,12 +1,12 @@
 ---
-title: Manage Database Change with Jira
+title: Manual Database Change with Jira
 author: Ningjing
 updated_at: 2024/09/30 21:15
 tags: Tutorial
 level: Intermediate
 integrations: Jira
 estimated_time: '30 mins'
-description: Manage database changes using Jira and Bytebase.
+description: Manage database changes using Jira and Bytebase manually.
 ---
 
 Jira is a leading issue tracking product for software development teams, aiding in planning, tracking, and releasing great software. Teams may also want to adopt Jira for the database change management process.
@@ -16,7 +16,7 @@ have such capability. By integrating Bytebase, an open-source database DevOps to
 
 This is a 2-series tutorials:
 
-- Manage Database Change with Jira (this one)
+- Manual Database Change with Jira (this one)
 - [Automate Database Change with Jira](/docs/tutorials/database-change-management-with-jira-automated/)
 
 ## Prerequisites

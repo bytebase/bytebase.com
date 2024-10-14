@@ -15,7 +15,7 @@ In the [previous tutorial](/docs/tutorials/database-change-management-with-jira-
 
 - A Jira workspace
 - A Bytebase instance
-- [Manage Database Change with Jira](/docs/tutorials/database-change-management-with-jira-manual) completed
+- [Manual Database Change with Jira](/docs/tutorials/database-change-management-with-jira-manual) completed
 - Download the [api-example repository](https://github.com/bytebase/api-example), you'll only need `jira` folder for this tutorial
 
 ## Workflow Overview
@@ -29,16 +29,16 @@ In the [previous tutorial](/docs/tutorials/database-change-management-with-jira-
 ### Change process
 
 1. (Jira) Developer creates a Jira `Database Change` issue filling the **summary**, **SQL**, **database**, and **description** fields, the status is `Todo`.
-1. (Jira Webhook -> Bytebase API) Once the Jira issue is created, Jira Webhook will trigger Bytebase API to create a corresponding issue.
-1. (Bytebase API -> Jira API) Once the Bytebase issue is created, the Jira API will set Bytebase issue link in Jira issue, and set status as `In Progress`.
+1. (Jira Webhook -> Bytebase API) Once the Jira issue is created, Jira webhook will trigger Bytebase API to create a corresponding issue.
+1. (Bytebase API -> Jira API) Once the Bytebase issue is created, Bytebase webhook will trigger the Jira API, set the Bytebase issue link and change the status to `In Progress`.
 1. (Bytebase) DBA goes to Bytebase to roll out the database change.
-1. (Bytebase Webhook -> Jira API) Once the Bytebase issue rolls out and becomes `Done`, Bytebase Webhook will trigger Jira API to set Jira issue status as `Done`.
+1. (Bytebase Webhook -> Jira API) Once the Bytebase issue rolls out and becomes `Done`, Bytebase Webhook will trigger Jira API to set Jira issue status to `Done`.
 
 ## Setup
 
 ### Configure the environment variables and run the `jira` demo app.
 
-1. Go to the `jira` folder of the `api-example` repository, and copy `env-template.local` file as `.env.local`. Replace the placeholders with the ones you have now. If not, you can change it along the way.
+1. Go to the `jira` folder of the `api-example` repository, and copy `env-template.local` file as `.env.local`. Replace the placeholders with yours.
 
    ```javascript
 
@@ -51,17 +51,17 @@ In the [previous tutorial](/docs/tutorials/database-change-management-with-jira-
 
    ```
 
-1. Run `pnpm i` and `pnpm run dev`, you can run the demo app locally with `localhost:xxxx`. However, the app need to listen to webhook from Jira and Bytebase, so you need to open it to public. By using [ngrok](https://ngrok.com/) or [vscode ports](https://code.visualstudio.com/docs/editor/port-forwarding), you can acheive this.
+1. Run `pnpm i` and `pnpm run dev`, you can run the demo app locally with `localhost:xxxx`. However, the app need to listen to webhook from Jira and Bytebase, so you need to make the app network accessible from both. By using [ngrok](https://ngrok.com/) or [vscode ports](https://code.visualstudio.com/docs/editor/port-forwarding), you can acheive this.
 
    ![wm-empty](/content/docs/tutorials/database-change-management-with-jira-automated/wm-empty.webp)
 
-### Jira Webhook: To trigger when Jira issue is created or updated
+### Jira webhook: To trigger when Jira issue is created or updated
 
 1. Go to Jira, click **Settings** and then **System settings** in the dropdown menu.
 
    ![jira-go-setting](/content/docs/tutorials/database-change-management-with-jira-automated/jira-go-setting.webp)
 
-1. Click **Webhooks** on the left sidebar, and then click **+ Create a WebHook**.
+1. Click **WebHooks** on the left sidebar, and then click **+ Create a WebHook**.
 
    ![jira-create-webhook](/content/docs/tutorials/database-change-management-with-jira-automated/jira-create-webhook.webp)
 
@@ -280,6 +280,12 @@ The logic is in `src/app/api/receive-bb-issue-webhook/route.ts`. If it's a issue
 
 ```
 
-## Summary and next
+## Summary
 
-In this tutorial, you have successfully set up a automatic database change workflow with Jira and Bytebase. You may adjust the logic in the demo app to fit your needs.
+In this tutorial, you have successfully set up a automatic database change workflow with Jira and Bytebase.
+We eliminate most of the manual process in the last tutorial.
+
+1. Bytebase issue is automatically created. And the created issue link is set automatically in the Jira issue.
+1. Once Bytebase rolls out the SQL, the Jira issue status is updated automatically.
+
+If you want to automate further, you can also call Bytebase API to approve and roll out the SQL.
