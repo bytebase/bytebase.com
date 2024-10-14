@@ -9,13 +9,13 @@ estimated_time: '45 mins'
 description: Automate database changes using Jira and Bytebase.
 ---
 
-In the [previous tutorial](/docs/tutorials/database-change-management-with-jira), we have set up a manual database change workflow with Jira and Bytebase. In this tutorial, we will show you how to automate the process by leveraging Jira and Bytebase Webhook and API. You need to finish the previous tutorial first.
+In the [previous tutorial](/docs/tutorials/database-change-management-with-jira-manual), we have set up a manual database change workflow with Jira and Bytebase. In this tutorial, we will show you how to automate the process by leveraging Jira and Bytebase Webhook and API. You need to finish the previous tutorial first.
 
 ## Prerequisites
 
 - A Jira workspace
 - A Bytebase instance
-- [Manage Database Change with Jira](/docs/tutorials/database-change-management-with-jira) completed
+- [Manage Database Change with Jira](/docs/tutorials/database-change-management-with-jira-manual) completed
 - Download the [api-example repository](https://github.com/bytebase/api-example), you'll only need `jira` folder for this tutorial
 
 ## Workflow Overview
@@ -53,47 +53,47 @@ In the [previous tutorial](/docs/tutorials/database-change-management-with-jira)
 
 1. Run `pnpm i` and `pnpm run dev`, you can run the demo app locally with `localhost:xxxx`. However, the app need to listen to webhook from Jira and Bytebase, so you need to open it to public. By using [ngrok](https://ngrok.com/) or [vscode ports](https://code.visualstudio.com/docs/editor/port-forwarding), you can acheive this.
 
-   ![wm-empty](/content/docs/tutorials/automate-database-change-with-jira/wm-empty.webp)
+   ![wm-empty](/content/docs/tutorials/database-change-management-with-jira-automated/wm-empty.webp)
 
 ### Jira Webhook: To trigger when Jira issue is created or updated
 
 1. Go to Jira, click **Settings** and then **System settings** in the dropdown menu.
 
-   ![jira-go-setting](/content/docs/tutorials/automate-database-change-with-jira/jira-go-setting.webp)
+   ![jira-go-setting](/content/docs/tutorials/database-change-management-with-jira-automated/jira-go-setting.webp)
 
 1. Click **Webhooks** on the left sidebar, and then click **+ Create a WebHook**.
 
-   ![jira-create-webhook](/content/docs/tutorials/automate-database-change-with-jira/jira-create-webhook.webp)
+   ![jira-create-webhook](/content/docs/tutorials/database-change-management-with-jira-automated/jira-create-webhook.webp)
 
 1. Fill in the **URL**, remember to append `/api/receive-jira-issue-webhook` to your base URL for the demo jira app, select `Issue created and updated`, and click **Create**.
 
-   ![jira-webhook-details](/content/docs/tutorials/automate-database-change-with-jira/jira-webhook-details.webp)
+   ![jira-webhook-details](/content/docs/tutorials/database-change-management-with-jira-automated/jira-webhook-details.webp)
 
 ### Bytebase API: To create a Bytebase issue
 
 1. Go to Bytebase, click **IAM & Admin > Users & Groups** on the left sidebar, and then click **+Add User**.
 
-   ![bb-add-user](/content/docs/tutorials/automate-database-change-with-jira/bb-add-user.webp)
+   ![bb-add-user](/content/docs/tutorials/database-change-management-with-jira-automated/bb-add-user.webp)
 
 1. Choose `Service Account` as **User Type**, fill in the **Email**, give it `Workspace DBA` role, and then click **Create**. Copy the **API Token** to the `.env.local` file.
 
-   ![bb-new-user](/content/docs/tutorials/automate-database-change-with-jira/bb-new-user.webp)
+   ![bb-new-user](/content/docs/tutorials/database-change-management-with-jira-automated/bb-new-user.webp)
 
 ### Jira API: To update Jira issue status to `In Progress`/ `Done` and set its Bytebase issue link
 
 1. Go to [Atlassian Account >Security > API tokens](https://id.atlassian.com/manage-profile/security/api-tokens) to generate an API token. Copy the **API Token** to the `.env.local` file.
 
-   ![jira-api-tokens](/content/docs/tutorials/automate-database-change-with-jira/jira-api-tokens.webp)
+   ![jira-api-tokens](/content/docs/tutorials/database-change-management-with-jira-automated/jira-api-tokens.webp)
 
 ### Bytebase Webhook: To trigger when Bytebase issue is set to `Done`
 
 1. Go in to the project, click **Integration > Webhooks** on the left sidebar and click **Add A Webhook**.
 
-   ![bb-add-webhook](/content/docs/tutorials/automate-database-change-with-jira/bb-add-webhook.webp)
+   ![bb-add-webhook](/content/docs/tutorials/database-change-management-with-jira-automated/bb-add-webhook.webp)
 
 1. Choose `Custom` as **Destination**, fill in the **Webhook URL**, remember to append `/api/receive-bb-issue-webhook` to your base URL for the demo jira app, select `Issue status change` as **Triggering activities** and click **Create**.
 
-   ![bb-new-webhook](/content/docs/tutorials/automate-database-change-with-jira/bb-new-webhook.webp)
+   ![bb-new-webhook](/content/docs/tutorials/database-change-management-with-jira-automated/bb-new-webhook.webp)
 
 ## Change process
 
@@ -101,17 +101,17 @@ In the [previous tutorial](/docs/tutorials/database-change-management-with-jira)
 
 1. You act as a developer, now go to the Jira project to create a `Database Change` issue, fill in the fields **summary**, **SQL**, **database**, and **description**, and click **Create**. Here's the screenshot of the issue.
 
-   ![jira-todo](/content/docs/tutorials/automate-database-change-with-jira/jira-todo.webp)
+   ![jira-todo](/content/docs/tutorials/database-change-management-with-jira-automated/jira-todo.webp)
 
 1. View the `jira` app demo, you will see there's a jira webhook received with `Todo` status.
 
-   ![wm-todo](/content/docs/tutorials/automate-database-change-with-jira/wm-todo.webp)
+   ![wm-todo](/content/docs/tutorials/database-change-management-with-jira-automated/wm-todo.webp)
 
 ### Step 2 (Jira Webhook -> Bytebase API) Once the Jira issue is created, Jira Webhook will trigger Bytebase API to create a corresponding issue
 
 Go to the Bytebase project and find the issue which is waiting to rollout.
 
-![bb-to-rollout](/content/docs/tutorials/automate-database-change-with-jira/bb-to-rollout.webp)
+![bb-to-rollout](/content/docs/tutorials/database-change-management-with-jira-automated/bb-to-rollout.webp)
 
 It's because the jira webhook trigger Bytebase API to create an issue there. The logic is in `src/api/receive-jira-issue-webhook/route.ts`.
 
@@ -194,11 +194,11 @@ It's because the jira webhook trigger Bytebase API to create an issue there. The
 
 1. If you go back to Jira, you'll see the Jira issue status becomes `In Progress` with **Bytebase url link** filled.
 
-   ![jira-in-progress](/content/docs/tutorials/automate-database-change-with-jira/jira-in-progress.webp)
+   ![jira-in-progress](/content/docs/tutorials/database-change-management-with-jira-automated/jira-in-progress.webp)
 
 1. View the `jira` app demo, it's updated, too.
 
-   ![wm-in-progress](/content/docs/tutorials/automate-database-change-with-jira/wm-in-progress.webp)
+   ![wm-in-progress](/content/docs/tutorials/database-change-management-with-jira-automated/wm-in-progress.webp)
 
 The logic is still in `src/api/receive-jira-issue-webhook/route.ts`.
 
@@ -241,25 +241,25 @@ The logic is still in `src/api/receive-jira-issue-webhook/route.ts`.
 
 1. You now act as DBA, go to Bytebase to roll out the database change.
 
-   ![bb-done](/content/docs/tutorials/automate-database-change-with-jira/bb-done.webp)
+   ![bb-done](/content/docs/tutorials/database-change-management-with-jira-automated/bb-done.webp)
 
 1. Once change is rolled out, Bytebase will record the change in the database **Change History**.
 
-   ![bb-history](/content/docs/tutorials/automate-database-change-with-jira/bb-history.webp)
+   ![bb-history](/content/docs/tutorials/database-change-management-with-jira-automated/bb-history.webp)
 
 1. You can also click **View change** to view the change diff.
 
-   ![bb-diff](/content/docs/tutorials/automate-database-change-with-jira/bb-diff.webp)
+   ![bb-diff](/content/docs/tutorials/database-change-management-with-jira-automated/bb-diff.webp)
 
 ### Step 5 (Bytebase Webhook -> Jira API) Once the Bytebase issue rolls out and becomes `Done`, Bytebase Webhook will trigger Jira API to set Jira issue status as `Done`.
 
 1. Once the issue has rolled out in Bytebase, the configured webhook will trigger `jira` app demo.
 
-   ![wm-done](/content/docs/tutorials/automate-database-change-with-jira/wm-done.webp)
+   ![wm-done](/content/docs/tutorials/database-change-management-with-jira-automated/wm-done.webp)
 
 1. Go to Jira, you'll see the Jira issue status becomes `Done`.
 
-   ![jira-done](/content/docs/tutorials/automate-database-change-with-jira/jira-done.webp)
+   ![jira-done](/content/docs/tutorials/database-change-management-with-jira-automated/jira-done.webp)
 
 The logic is in `src/app/api/receive-bb-issue-webhook/route.ts`. If it's a issue update, it will parse the Jira issue key from the Bytebase issue name, and then call the Jira API to update the issue status to `Done`.
 
