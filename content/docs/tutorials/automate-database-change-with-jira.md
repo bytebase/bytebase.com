@@ -38,7 +38,7 @@ In the [previous tutorial](/docs/tutorials/database-change-management-with-jira)
 
 ### Configure the environment variables and run the `jira` demo app.
 
-1. Go to the `jira` folder of the `api-example` repository, and copy  `env-template.local` file as `.env.local`. Replace the placeholders with the ones you have now. If not, you can change it along the way.
+1. Go to the `jira` folder of the `api-example` repository, and copy `env-template.local` file as `.env.local`. Replace the placeholders with the ones you have now. If not, you can change it along the way.
 
    ```javascript
 
@@ -111,7 +111,7 @@ In the [previous tutorial](/docs/tutorials/database-change-management-with-jira)
 
 Go to the Bytebase project and find the issue which is waiting to rollout.
 
-   ![bb-to-rollout](/content/docs/tutorials/automate-database-change-with-jira/bb-to-rollout.webp)
+![bb-to-rollout](/content/docs/tutorials/automate-database-change-with-jira/bb-to-rollout.webp)
 
 It's because the jira webhook trigger Bytebase API to create an issue there. The logic is in `src/api/receive-jira-issue-webhook/route.ts`.
 
@@ -137,7 +137,7 @@ It's because the jira webhook trigger Bytebase API to create an issue there. The
 1. If both are true, via Bytebase API, it will try to match the Jira's `project key` with Bytebase's `project key` to make sure they're the same. then it will try to match the Jira's `database` with the database belonging to that matching Bytebase project.
 
    ```javascript
-     ...    
+     ...
       // Find matching Bytebase project
       const matchingProject = allProjectData.projects.find((project: BytebaseProject) => project.key === projectKey);
       if (!matchingProject) {
@@ -145,7 +145,7 @@ It's because the jira webhook trigger Bytebase API to create an issue there. The
       }
       // Fetch databases for the matching project
       const databasesData = await fetchData(`${process.env.NEXT_PUBLIC_BB_HOST}/v1/${matchingProject.name}/databases`, token);
-      
+
       // Find matching database
       const matchingDatabase = databasesData.databases.find((db: BytebaseDatabase) => db.name.split('/').pop() === database);
       if (!matchingDatabase) {
@@ -154,28 +154,40 @@ It's because the jira webhook trigger Bytebase API to create an issue there. The
 
       // Create Bytebase issue
       const result = await createBBIssueWorkflow(matchingProject.name, matchingDatabase, sqlStatement, summary, description, issueKey);
-      
+
    ```
 
 1. Only if the project and database are both matched, it will create a Bytebase issue.
 
    ```javascript
-
-      // Create Bytebase issue
-      const result = await createBBIssueWorkflow(matchingProject.name, matchingDatabase, sqlStatement, summary, description, issueKey);
-      
+   // Create Bytebase issue
+   const result = await createBBIssueWorkflow(
+     matchingProject.name,
+     matchingDatabase,
+     sqlStatement,
+     summary,
+     description,
+     issueKey,
+   );
    ```
 
    which internally involves four steps:
 
    ```javascript
-      const sheetData = await createSheet(project, database, SQL);
+   const sheetData = await createSheet(project, database, SQL);
 
-      const planData = await createPlan(project, database, sheetData.name);
+   const planData = await createPlan(project, database, sheetData.name);
 
-      const issueData = await createIssue(project, database, planData.name, summary, description, jiraIssueKey);
+   const issueData = await createIssue(
+     project,
+     database,
+     planData.name,
+     summary,
+     description,
+     jiraIssueKey,
+   );
 
-      const rolloutData = await createRollout(project, planData.name);
+   const rolloutData = await createRollout(project, planData.name);
    ```
 
 ### Step 3 (Bytebase API -> Jira API) Once the Bytebase issue is created, the Jira API will set Bytebase issue link in Jira issue, and set status as `In Progress`
@@ -193,32 +205,37 @@ The logic is still in `src/api/receive-jira-issue-webhook/route.ts`.
 1. Once the Bytebase issue is created via API, the demo app will parse the **Bytebase issue link**.
 
    ```javascript
+   if (result.success && result.issueLink) {
+     bytebaseIssueLink = result.issueLink;
+     parsedData.bytebaseIssueLink = bytebaseIssueLink;
 
-       if (result.success && result.issueLink) {
-            bytebaseIssueLink = result.issueLink;
-            parsedData.bytebaseIssueLink = bytebaseIssueLink;
-
-            try {
-               // Update Jira issue with Bytebase link and set status to "In Progress"
-               await updateJiraIssueAfterBBIssueCreated(issueKey, bytebaseIssueLink);
-            } catch (error) {
-               return Response.json({ error: 'Failed to update Jira issue', details: error instanceof Error ? error.message : String(error) }, { status: 500 });
-            }
-      } 
-   
+     try {
+       // Update Jira issue with Bytebase link and set status to "In Progress"
+       await updateJiraIssueAfterBBIssueCreated(issueKey, bytebaseIssueLink);
+     } catch (error) {
+       return Response.json(
+         {
+           error: 'Failed to update Jira issue',
+           details: error instanceof Error ? error.message : String(error),
+         },
+         { status: 500 },
+       );
+     }
+   }
    ```
 
 1. Then call the Jira API to update **Bytebase issue link** field and change the status from `Todo` to `In Progress`.
 
    ```javascript
-      ... 
+      ...
       await updateJiraIssueAfterBBIssueCreated(issueKey, bytebaseIssueLink);
-   
+
    ```
 
    Here we need to call two Jira APIs:
-      - `/rest/api/3/issue/${issueKey}` to update Bytebase Link
-      - `/rest/api/3/issue/${issueKey}/transitions` to change the status
+
+   - `/rest/api/3/issue/${issueKey}` to update Bytebase Link
+   - `/rest/api/3/issue/${issueKey}/transitions` to change the status
 
 ### Step 4 (Bytebase) DBA goes to Bytebase to roll out the database change.
 
@@ -246,22 +263,22 @@ The logic is still in `src/api/receive-jira-issue-webhook/route.ts`.
 
 The logic is in `src/app/api/receive-bb-issue-webhook/route.ts`. If it's a issue update, it will parse the Jira issue key from the Bytebase issue name, and then call the Jira API to update the issue status to `Done`.
 
-   ```javascript
+```javascript
 
-      const payload: BytebaseWebhookPayload = await request.json();
-      
-      if (payload.activity_type === "bb.issue.status.update") {
-         ...
-         const jiraIssueKeyMatch = payload.issue.name.match(/\[JIRA>([^\]]+)\]/);
+   const payload: BytebaseWebhookPayload = await request.json();
 
-         ...
-         if (payload.issue.status === "DONE") {
-            jiraStatus = "Done";
-         } ...
-         }
+   if (payload.activity_type === "bb.issue.status.update") {
+      ...
+      const jiraIssueKeyMatch = payload.issue.name.match(/\[JIRA>([^\]]+)\]/);
+
+      ...
+      if (payload.issue.status === "DONE") {
+         jiraStatus = "Done";
+      } ...
       }
+   }
 
-   ```
+```
 
 ## Summary and next
 

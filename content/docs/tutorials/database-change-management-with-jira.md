@@ -14,7 +14,10 @@ Jira is a leading issue tracking product for software development teams, aiding 
 However, a database change workflow also involves deploying and tracking those changes, and Jira doesn't
 have such capability. By integrating Bytebase, an open-source database DevOps tool, you can achieve this goal.
 
-This tutorial will guide you through managing database changes using Jira and Bytebase.
+This is a 2-series tutorials:
+
+- Manage Database Change with Jira (this one)
+- [Automate Database Change with Jira](/docs/tutorials/automate-database-change-with-jira/)
 
 ## Prerequisites
 
@@ -131,5 +134,4 @@ In this tutorial, you have successfully set up a database change workflow with J
 - Bytebase takes care of the database change rollout and history tracking.
 
 On the other hand, there are still manual steps to move the fields' information and update the status
-in Jira and Bytebase. In the next tutorial, we will show you how to automate those by leveraging Jira trigger
-and Bytebase API.
+in Jira and Bytebase. In the [next tutorial](/docs/tutorials/automate-database-change-with-jira/), we will show you how to automate those by leveraging Jira/Bytebase webhook and API.
