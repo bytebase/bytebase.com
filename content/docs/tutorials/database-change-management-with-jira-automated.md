@@ -11,6 +11,8 @@ description: Automate database changes using Jira and Bytebase.
 
 In the [previous tutorial](/docs/tutorials/database-change-management-with-jira-manual), we have set up a manual database change workflow with Jira and Bytebase. In this tutorial, we will show you how to automate the process by leveraging Jira and Bytebase Webhook and API. You need to finish the previous tutorial first.
 
+![auto-jira](/content/docs/tutorials/database-change-management-with-jira-automated/auto-jira.webp)
+
 ## Prerequisites
 
 - A Jira workspace
@@ -33,6 +35,8 @@ In the [previous tutorial](/docs/tutorials/database-change-management-with-jira-
 1. (Bytebase API -> Jira API) Once the Bytebase issue is created, Bytebase webhook will trigger the Jira API, set the Bytebase issue link and change the status to `In Progress`.
 1. (Bytebase) DBA goes to Bytebase to roll out the database change.
 1. (Bytebase Webhook -> Jira API) Once the Bytebase issue rolls out and becomes `Done`, Bytebase Webhook will trigger Jira API to set Jira issue status to `Done`.
+
+![auto-jira](/content/docs/tutorials/database-change-management-with-jira-automated/auto-jira.webp)
 
 ## Setup
 
