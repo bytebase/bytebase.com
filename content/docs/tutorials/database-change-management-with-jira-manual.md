@@ -14,6 +14,8 @@ Jira is a leading issue tracking product for software development teams, aiding 
 However, a database change workflow also involves deploying and tracking those changes, and Jira doesn't
 have such capability. By integrating Bytebase, an open-source database DevOps tool, you can achieve this goal.
 
+![manual-jira](/content/docs/tutorials/database-change-management-with-jira-manual/manual-jira.webp)
+
 This is a 2-series tutorials:
 
 - Manual Database Change with Jira (this one)
@@ -38,6 +40,8 @@ This is a 2-series tutorials:
 1. (Jira) DBA updates the Jira issue status to indicate the change is in progress.
 1. (Bytbease) DBA goes to Bytebase to roll out the database change.
 1. (Jira) DBA updates the Jira issue status to indicate the change has completed.
+
+![manual-jira](/content/docs/tutorials/database-change-management-with-jira-manual/manual-jira.webp)
 
 ## Setup
 
