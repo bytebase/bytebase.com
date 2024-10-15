@@ -32,7 +32,7 @@ In the [previous tutorial](/docs/tutorials/database-change-management-with-jira-
 
 1. (Jira) Developer creates a Jira `Database Change` issue filling the **summary**, **SQL**, **database**, and **description** fields, the status is `Todo`.
 1. (Jira Webhook -> Bytebase API) Once the Jira issue is created, Jira webhook will trigger Bytebase API to create a corresponding issue.
-1. (Bytebase API -> Jira API) Once the Bytebase issue is created, Bytebase webhook will trigger the Jira API, set the Bytebase issue link and change the status to `In Progress`.
+1. (Bytebase API -> Jira API) Once the Bytebase issue is created, the success response will trigger Jira API to set the Bytebase issue link and change the status to `In Progress`.
 1. (Bytebase) DBA goes to Bytebase to roll out the database change.
 1. (Bytebase Webhook -> Jira API) Once the Bytebase issue rolls out and becomes `Done`, Bytebase Webhook will trigger Jira API to set Jira issue status to `Done`.
 
