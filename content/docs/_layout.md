@@ -191,6 +191,8 @@ expand_section_list: ['Self-host']
 
 ### [Roles and Permissions](/concepts/roles-and-permissions)
 
+### [User Groups](/administration/user-groups)
+
 ### [Custom Roles](/administration/custom-roles)
 
 ### [Audit Log](/security/audit-log)
