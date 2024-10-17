@@ -30,6 +30,12 @@ As a **Workspace Admin**, you can create a SSO provider with the following steps
 
 ## Sign in with SSO
 
+<HintBlock type="info">
+
+Bytebase employs JIT (Just-In-Time) user provisioning. It will create the user the first time the user signs in.
+
+</HintBlock>
+
 Once a valid SSO has been created, the user can choose the configured SSO provider to sign in.
 
 ![sign-in-with-github](/content/docs/administration/sso/sign-in-with-github.webp)
