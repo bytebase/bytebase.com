@@ -11,6 +11,8 @@ description: This tutorial will guide you on how to use the Data Rollback featur
 
 When changing data in the database, it's advisable to have a backup of the data you plan to modify in case you need to roll back. Bytebase offers a feature called [**1-Click Data Rollback**](/docs/change-database/rollback-data-changes/) to assist with this. You can also enable auto-backup feature to automatically backup the data when you create a change data issue. This tutorial will guide you through this process.
 
+![rollback-graph](/content/docs/tutorials/data-rollback/rollback-graph.webp)
+
 ## Preparation
 
 1. Make sure you have [Docker](https://www.docker.com/) installed, and if you don’t have important existing Bytebase data locally, you can start over from scratch by `rm -rf ~/.bytebase/data`.
