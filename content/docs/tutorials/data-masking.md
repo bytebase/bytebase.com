@@ -18,6 +18,13 @@ from being exposed to unauthorized users.
 
 ![bb-masking-overview](/content/docs/security/data-masking/bb-masking-overview.webp)
 
+<HintBlock type="info">
+
+This tutorial covers configuration via UI console. You can also codify the masking policies, check
+out [this sample](https://github.com/bytebase/api-example/tree/main/data-security).
+
+</HintBlock>
+
 ## Prerequisites
 
 - [Docker](https://www.docker.com/)
