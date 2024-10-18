@@ -5,7 +5,7 @@ updated_at: 2024/10/17 12:00:00
 feature_image: /content/blog/database-security-vulnerabilities-are-craziest/banner.webp
 tags: Industry
 featured: true
-description: Some of the craziest database security vulnerabilities uncovered in DBAs' career.
+description: Some of the craziest database security vulnerabilities uncovered in DBAs' career
 ---
 
 Lately, a Post in `r/ExperiencedDevs` community of reddit, named `What are some of the craziest security vulnerabilities you've uncovered?`, raised hundreds of
