@@ -11,6 +11,8 @@ description: Some of the craziest database security vulnerabilities uncovered in
 Lately, a Post in `r/ExperiencedDevs` community of reddit, named `What are some of the craziest security vulnerabilities you've uncovered?`, raised hundreds of
 sad stories, among which are several tragedies about database. Let's laugh at some of them.
 
+## Stories
+
 The first story tells about a security breach that exposes core permissions like admin access, free account creation and even credit card information.
 The worst thing is, still nobody cared even after the narrater revealed problem. But this narrater was sweet. He patched all errors.
 
