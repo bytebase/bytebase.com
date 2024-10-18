@@ -3,13 +3,22 @@ title: User Groups
 feature_name: USER_GROUPS
 ---
 
-## Add Groups
+`User Group` or simply `Group` contains a set of users. `Group` simplifies access management as you can grant
+roles to a `Group` instead of granting to the individual users one by one.
+
+<HintBlock type="info">
+
+Bytebase does not support nested group. A group can only contain users, it can't contain another group.
+
+</HintBlock>
+
+## Add group
 
 Within Workspace, go to **IAM & Admin** > **Users & Groups**, and **Add Group** from top-right.
 
 ![add-group](/content/docs/administration/user-groups/add-group.webp)
 
-Create an Email for this group, it'll serve as an account and *cannot be changed after creation*. Fill the group's name into the Title bar. You can **Add member** below, where they can be `Group member` as well as `Group owner`.
+Create an Email for this group, it'll serve as an account and _cannot be changed after creation_. Fill the group's name into the Title bar. You can **Add member** below, where they can be `Group member` as well as `Group owner`.
 
 ![add-group-detail](/content/docs/administration/user-groups/add-group-detail.webp)
 
@@ -21,7 +30,7 @@ You can see which group a user belongs to under **Users** page as well.
 
 ![view-under-users](/content/docs/administration/user-groups/view-under-users.webp)
 
-## Grant access in project
+## Grant roles to group
 
 Now that we've created this `Contractor Group`, we can assign corresponding permissions to these groups within any project.
 

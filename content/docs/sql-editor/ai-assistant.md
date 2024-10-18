@@ -3,6 +3,10 @@ title: AI Assistant
 feature_name: AI_ASSISTANT
 ---
 
+Here is a video demoing this feature:
+
+<iframe width="100%" height="320" src="https://www.youtube.com/embed/3qGyad0RK50?si=UO0M98Brd0ByY2aC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Setup
 
 Enable [AI Assistant](/docs/ai-assistant). Afterward, an OpenAI icon will appear on the SQL Editor.
