@@ -52,6 +52,6 @@ Bytebase ties the version number with the underlying database schema progression
 
 Just replace the version string and restart. Bytebase will self-upgrade automatically.
 
-### Upgrade from 1.x
+### Upgrade from 1.x or 2.x
 
 Please first upgrade to 2.1.0 and then upgrade to the latest version.
