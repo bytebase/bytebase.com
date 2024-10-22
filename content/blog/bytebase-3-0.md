@@ -32,10 +32,12 @@ In addition to centralizing database operations, Bytebase offers features such a
 
 ## AI Assistant
 
+![text-to-sql](/content/blog/bytebase-3-0/text-to-sql.webp)
+
 Databases are ideal candidates for leveraging recent AI breakthroughs. In addition to the well-known Text2SQL capability, Bytebase integrates AI in various other ways:
 
 - Suggesting index optimizations for slow queries.
-- Clarifying cryptic stored procedures.
+- Explaining cryptic stored procedures.
 - Fixing and rewriting SQL statements.
 
 ## Revamped API
@@ -57,5 +59,7 @@ As an [open-source project](https://github.com/bytebase/bytebase), Bytebase has 
 It has been downloaded over 4 million times worldwide, reaching users from [a small island in the middle of the Pacific Ocean](https://www.google.com/maps/place/French+Polynesia) to [some of the most successful game developers on the planet](https://www.mihoyo.com/). The 3.0 release is a steady step toward our founding mission from 2021: to become the unified platform for all human-to-database operations across all databases.
 
 ---
+
+You can obtain Bytebase directly or through the [AWS](https://aws.amazon.com/marketplace/seller-profile?id=seller-mqp4ph2m6bzzc) and [GCP](https://console.cloud.google.com/marketplace/product/bytebase-public/bytebase) marketplaces. To learn more, [schedule a demo](/request-demo/) with us.
 
 _Upgrading to version 3.0 is designed to be straightforward—just increase the version number and restart (but don’t forget to back up your data as a precaution), please refer to the [upgrade guide](/docs/get-started/upgrade/)._
