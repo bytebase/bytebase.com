@@ -8,7 +8,7 @@ featured: true
 description: Some of the craziest database security vulnerabilities uncovered in DBAs' career
 ---
 
-Lately, a Post in `r/ExperiencedDevs` community of reddit, named `What are some of the craziest security vulnerabilities you've uncovered?`, raised hundreds of
+Lately, a Post in `r/ExperiencedDevs` community of reddit, named [What are some of the craziest security vulnerabilities you've uncovered?](https://www.reddit.com/r/ExperiencedDevs/comments/1fzwzkd/what_are_some_of_the_craziest_security/), raised hundreds of
 sad stories, among which are several tragedies about database. Let's laugh at some of them.
 
 ## Stories
