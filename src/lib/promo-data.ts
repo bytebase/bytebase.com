@@ -2,8 +2,8 @@ import ROUTE from '@/lib/route';
 
 const PROMO_DATA = {
   TOP_BANNER: {
-    title: 'Database DevSecOps: Embedding Security into Database Operations',
-    pathname: `/blog/what-is-database-devsecops/?source=top-banner`,
+    title: '🚀 Announcing Bytebase 3.0 - DevSecOps for Databases',
+    pathname: `/blog/bytebase-3-0/?source=top-banner`,
   },
   BLOG_ASIDE: {
     title: 'What is Bytebase?',

@@ -6,6 +6,8 @@ feature_image: /content/changelog/3-0-0-banner.webp
 description: 'AI Assistant for SQL Editor'
 ---
 
+Check out our official 3.0 announcement - [Bytebase 3.0 - DevSecOps for Database](/blog/bytebase-3-0/)
+
 ## 🚀 New Features
 
 - **AI Assistant for SQL Editor**: Convert natural language into SQL, explain SQL queries and identifies potential problems.
