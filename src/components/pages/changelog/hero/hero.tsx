@@ -12,7 +12,7 @@ const Hero = () => {
         <p className="mt-4 border-b border-gray-90 pb-11 text-18 lg:mt-3 lg:pb-9 lg:text-16 md:mt-2 md:pb-8 md:leading-snug sm:pb-6">
           Reliable Database change for DevOps and DBA teams.
           <br />
-          Want to be notifed? Follow us on{' '}
+          Want to be notified? Follow us on{' '}
           <Link
             href={Route.TWITTER}
             target="_blank"
