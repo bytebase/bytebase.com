@@ -3,7 +3,7 @@ title: Bytebase 3.0 - DevSecOps for Database
 author: Tianzhou
 updated_at: 2024/10/24 10:24:00
 feature_image: /content/blog/bytebase-3-0/cover.webp
-tags: Announcement, Hidden
+tags: Announcement
 featured: true
 description: Database DevSecOps, maintain developer velocity without compromising data security
 ---
@@ -42,6 +42,8 @@ Databases are ideal candidates for leveraging recent AI breakthroughs. In additi
 
 ## Revamped API
 
+![api](/content/blog/bytebase-3-0/api.webp)
+
 We’ve completely rebuilt our API infrastructure. The new API speaks both gRPC and HTTP/REST, offering fine-grained IAM permissions that allow for precise control over every aspect of Bytebase. Our customers utilize the Bytebase API in ways that best suit their needs:
 
 - Create custom GitOps workflows to review and deploy database changes.
@@ -60,6 +62,6 @@ It has been downloaded over 4 million times worldwide, reaching users from [a sm
 
 ---
 
-You can obtain Bytebase directly or through the [AWS](https://aws.amazon.com/marketplace/seller-profile?id=seller-mqp4ph2m6bzzc) and [GCP](https://console.cloud.google.com/marketplace/product/bytebase-public/bytebase) marketplaces. To learn more, [schedule a demo](/request-demo/) with us.
+_You can obtain Bytebase directly or through the [AWS](https://aws.amazon.com/marketplace/seller-profile?id=seller-mqp4ph2m6bzzc) and [GCP](https://console.cloud.google.com/marketplace/product/bytebase-public/bytebase) marketplaces. To learn more, [schedule a demo](/request-demo/) with us._
 
 _Upgrading to version 3.0 is designed to be straightforward—just increase the version number and restart (but don’t forget to back up your data as a precaution), please refer to the [upgrade guide](/docs/get-started/upgrade/)._
