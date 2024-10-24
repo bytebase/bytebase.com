@@ -31,7 +31,9 @@ SQL Editor can return at most **100,000 rows** and **100 MB** size in total.
 
 ## Explain query
 
-SQL Editor provides an `Explain` button to run EXPLAIN on the selected query. You can click it or use the shortcut key `(⌘ + E)` instead of prepending EXPLAIN manually.
+![Explain Query](/content/docs/sql-editor/explain-query.webp)
+
+SQL Editor provides an `Explain Query` action to run EXPLAIN on the selected query. You can access it from right click or use the shortcut key `(⌘ + E)` instead of prepending EXPLAIN manually.
 
 ## Autocomplete
 
