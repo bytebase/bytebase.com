@@ -1,0 +1,40 @@
+---
+title: Bytebase 3.0.0
+author: Ningjing
+updated_at: 2024/10/24 17:00:00
+feature_image: /content/changelog/3-0-0-banner.webp
+description: 'AI Assistant for SQL Editor'
+---
+
+## 🚀 New Features
+
+- **AI Assistant for SQL Editor**: Convert natural language into SQL, explain SQL queries and identifies potential problems.
+- Support 1-click rollback for SQL Server DML change.
+- Support gh-ost online schema change for MariaDB.
+- Add new SQL Review Rules:
+  - Require `MAX_EXECUTION_TIME` for MySQL.
+  - Require `MAX_STATEMENT_TIME` for MariaDB.
+  - Require `ALGORITHM` and `LOCK` options for online DDL in MySQL/MariaDB.
+  - Table comment checks for PostgreSQL/Oracle.
+  - Column comment checks for PostgreSQL/Oracle.
+- Separate SQL review rules to disallow mixing statements in DDL or DML tasks.
+
+## 🔔 Breaking API Changes
+
+- CEL parsed expressions have been updated to remove unused sourceInfo, impacting the following APIs: `/v1/cel/batchDeparse`, `/v1/cel/batchParse`, `/v1/workspaces/*:getIamPolicy`, `/v1/workspaces/*:setIamPolicy`, `/v1/projects/{project}:getIamPolicy`, `/v1/projects/{project}:setIamPolicy`.
+- Force to set `group_email` while calling `POST /v1/groups` API to create a new group. For example, `POST /v1/groups?group_email=dba@bytebase.com`
+
+## 🎄 Enhancements
+
+- Support table-level risk rule for DML in Risk center.
+- SQL Editor displays function signatures with parameters instead of just function names.
+- SELECT prompt prioritizes columns over tables in SQL Editor.
+- Ignore `bbdataarchive` schema for PostgreSQL during schema synchronization.
+- Add `allow_missing` parameter in APIs `PATCH /v1/groups/{group}` and `PATCH /v1/roles/{role}`. For example, you can use `PATCH /v1/groups/not_exist_group?allow_missing=true` to create a new group if the resource not found.
+- Use user-specified PostgreSQL role in SQL review.
+
+## 🎠 Community
+
+- Thanks to [@blight19](https://github.com/blight19) for the PR: [#14114](https://github.com/bytebase/bytebase/pull/14114) fix: redis get database with proxy.
+
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>
