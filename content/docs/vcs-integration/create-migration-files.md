@@ -13,7 +13,7 @@ treats new and modified files the same. But **modifying existing file is only OK
 
 ## Path
 
-Files must be under the immediate directory of the specified [base directory](/docs/vcs-integration/add-gitops-connector/). As the example below, if the base directory is `bytebase`, then
+Files must be under the **immediate directory** of the specified [base directory](/docs/vcs-integration/add-gitops-connector/). As the example below, if the base directory is `bytebase`, then
 only `bytebase/100_create_t1.sql` will be observed by Bytebase.
 
 ![activity](/content/docs/vcs-integration/troubleshoot/migraiton-file-path.webp)
