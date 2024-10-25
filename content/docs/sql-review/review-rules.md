@@ -75,6 +75,8 @@ Different sets of rules can form different [SQL Review Policies](/docs/sql-revie
   - [Charset allow list](/docs/sql-review/review-rules#system.charset.allowlist)
   - [Collation allow list](/docs/sql-review/review-rules#system.collation.allowlist)
   - [Comment length limit](/docs/sql-review/review-rules#system.comment.length)
+- Builtin Rules
+  - [Prior backup feasibility check](/docs/sql-review/review-rules#builtin.prior-backup-check)
 
 ## Engine
 
@@ -1516,3 +1518,10 @@ Bytebase checks all `COMMENT ON` statements.
 #### Support database engine
 
 - PostgreSQL
+
+## Builtin rules
+
+<div id="builtin.prior-backup-check"></div>
+### Prior backup feasibility check
+
+Check [Data Rollback](/content/docs/change-database/rollback-data-changes.md) for details.
