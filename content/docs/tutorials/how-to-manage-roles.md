@@ -6,6 +6,7 @@ tags: Tutorial
 integrations: General
 level: Intermediate
 estimated_time: '20 mins'
+pinned: true
 description: Assign a manager role who can only roll out issue but not query or change database.
 ---
 
