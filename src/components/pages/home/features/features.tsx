@@ -25,7 +25,7 @@ const cards: TCard[] = [
   {
     href: Route.DOCS_DRIFT_DETECTION,
     icon: '/images/attention.svg',
-    title: 'Drift detection',
+    title: 'Drift Detection',
     description: 'Proactively detect schema drift caused by unexpected out-of-band change.',
   },
 ];
