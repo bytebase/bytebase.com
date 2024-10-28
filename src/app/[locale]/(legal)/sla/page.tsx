@@ -50,7 +50,7 @@ export default function Page() {
       </table>
       <ul>
         <li>
-          <strong>Business Hours:</strong> Defined as 8:00 AM to 5:00 PM Pacific Time (PT), Monday
+          <strong>Business Hours:</strong> Defined as 9:00 AM to 5:00 PM Pacific Time (PT), Monday
           through Friday, excluding public holidays observed in the United States.
         </li>
         <li>
