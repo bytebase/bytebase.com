@@ -203,7 +203,7 @@ offers a GUI-based collaboration space.
 
 As an analogy, **Liquibase is Git for database, and Bytebase is GitHub/GitLab for database**. Git is good for local and personal use. On the other hand, for team development which needs collaboration, review, access control and etc, GitHub/GitLab is more suitable.
 
-Related comparisions:
+Related comparisons:
 
 - [Bytebase vs. Flyway](/blog/bytebase-vs-flyway/)
 - [Flyway vs. Liquibase](/blog/flyway-vs-liquibase/)

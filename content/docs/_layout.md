@@ -199,7 +199,7 @@ expand_section_list: ['Self-host']
 
 ### [SCIM](/administration/scim/overview)
 
-### [Two-Factor Authentication](/administration/2fa)
+### [2FA](/administration/2fa)
 
 ### [Sign-in Frequency](/administration/sign-in-frequency)
 

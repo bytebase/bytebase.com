@@ -213,7 +213,7 @@ As an analogy, **Flyway is Git for database, and Bytebase is GitHub/GitLab for d
 
 ---
 
-Related comparisions:
+Related comparisons:
 
 - [Bytebase vs. Liquibase](/blog/bytebase-vs-liquibase/)
 - [Flyway vs. Liquibase](/blog/flyway-vs-liquibase/)
