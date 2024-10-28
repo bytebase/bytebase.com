@@ -10,7 +10,7 @@ const COLORS = {
 const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   free: {
     title: 'community',
-    description: `Process Standarization`,
+    description: `Standardized Procedure`,
     buttonText: 'Deploy in 5 Minutes',
     buttonTheme: 'primary-outline',
     buttonUrl: '/docs/get-started/self-host/#docker',
@@ -85,7 +85,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     buttonText: 'Buy Now',
     buttonTheme: 'primary-outline',
     buttonUrl: Route.PRO_PAYMENT,
-    additionalDescription: 'Annual subscription, cancel anytime',
+    additionalDescription: 'Monthly subscription, cancel anytime',
     changeManagement: {
       'state-based-change': true,
       'migration-based-change': true,
