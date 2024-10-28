@@ -26,23 +26,24 @@ While both Bytebase and Flyway are tools for database DevOps, there are some key
 product is its CLI and the java library. Bytebase also provides a CLI, while its main product is the GUI-based workspace
 for developers and DBAs to collaborate.
 
-|                                                                                              | Flyway           | Bytebase                             |
-| -------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------ |
-| [Product position](#product-position)                                                        | Schema change    | Schema Change, Data Query and Secure |
-| [Developer interface](#developer-interface)                                                  | CLI              | GUI, API                             |
-| [Supported databases](#supported-databases)                                                  | 22 Only SQL DB   | 13 SQL & NoSQL DB                    |
-| [Programming language and installation](#installation)                                       | Java + JVM       | Golang and no other dependency       |
-| [Change execution](#change-execution)                                                        | SQL script + CLI | Issue + GUI                          |
-| [Batch Change](#change-execution)                                                            | -                | ✅ Multi-environment / Multi-tenant  |
-| [Database GitOps](#database-gitops-configuration)                                            | ✅               | ✅                                   |
-| [SQL auto check](#sql-auto-check)                                                            | ✅ Paid version  | ✅ Available in Free version         |
-| [Approval flow](#approval-flow)                                                              | -                | ✅                                   |
-| [Change history](#change-history)                                                            | ✅               | ✅                                   |
-| [Sync schema](#sync-schema)                                                                  | ✅               | ✅                                   |
-| [Rollback](#rollback)                                                                        | ✅ Manual        | ✅ Auto generated rollback statement |
-| [Schema drift detection](#schema-drift-detection)                                            | ✅ Manual        | ✅ Auto                              |
-| [Slow query detection and advisor](#slow-query-detection-and-advisor)                        | -                | ✅                                   |
-| [Data access control, security and compliance](#data-access-control-security-and-compliance) | -                | ✅                                   |
+|                                                                                                            | Flyway           | Bytebase                             |
+| ---------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------ |
+| [Product position](#product-position)                                                                      | Schema change    | Schema Change, Data Query and Secure |
+| [Developer interface](#developer-interface)                                                                | CLI              | GUI, API                             |
+| [Supported databases](#supported-databases)                                                                | 22 Only SQL DB   | 22 SQL & NoSQL DB                    |
+| [Programming language and installation](#installation)                                                     | Java + JVM       | Golang and no other dependency       |
+| [Change execution](#change-execution)                                                                      | SQL script + CLI | Issue, GUI                           |
+| [Database GitOps](#database-gitops-configuration)                                                          | ✅               | ✅                                   |
+| [Change history](#change-history)                                                                          | ✅               | ✅                                   |
+| [Sync schema](#sync-schema)                                                                                | ✅               | ✅                                   |
+| [SQL auto check](#sql-auto-check)                                                                          | ⚠️ Paid version  | ✅ Available in Free version         |
+| [Rollback](#rollback)                                                                                      | ⚠️ Manual        | ✅ Auto generated rollback statement |
+| [Schema drift detection](#schema-drift-detection)                                                          | ⚠️ Manual        | ✅ Auto                              |
+| [Approval flow](#approval-flow)                                                                            | -                | ✅                                   |
+| [Batch Change](#change-execution)                                                                          | -                | ✅ Multi-environment / Multi-tenant  |
+| [Slow query detection and advisor](#slow-query-detection-and-advisor)                                      | -                | ✅                                   |
+| [Data access control, data masking, security and compliance](#data-access-control-security-and-compliance) | -                | ✅                                   |
+| [Webhook](#webhook)                                                                                        | -                | ✅                                   |
 
 ### Product position
 
@@ -60,7 +61,7 @@ for developers and DBAs to collaborate.
 ### Supported databases
 
 - **Flyway**: 22 SQL databases - MySQL, PostgreSQL, IBM DB2, MS SQL Server, Oracle, PostgreSQL, MySQL, Snowflake ...
-- **Bytebase**: 13 SQL and NoSQL databases - MySQL, PostgreSQL, ClickHouse, Snowflake, MongoDB, Redis, Redshift, Oracle, MS SQL Server ...
+- **Bytebase**: 22 SQL and NoSQL databases - MySQL, PostgreSQL, Oracle, MS SQL Server, ClickHouse, MongoDB, Redis, Redshift, Snowflake, ...
 
 ### Installation
 
@@ -96,6 +97,24 @@ for developers and DBAs to collaborate.
   Check the video: [Setting up GitLab VCS integration for Bytebase (GitOps)](https://www.youtube.com/watch?v=51_bL7Vnqww&t=221s)
 
   Because Bytebase has the similar project concept as seen in GitLab/GitHub, the GitOps integration is nature to the developers.
+
+### Change history
+
+- **Flyway**: Run `flyway info` to show a simple history table.
+  ![flyway-info](/content/blog/bytebase-vs-flyway/flyway-info.webp)
+
+- **Bytebase**: Change History tracking diffs and the originated issue.
+  ![bytebase-change-history](/content/blog/bytebase-vs-flyway/bytebase-change-history.webp)
+  ![bytebase-change-diff](/content/blog/bytebase-vs-flyway/bytebase-change-diff.webp)
+
+### Sync schema
+
+- **Flyway**: Via the flyway desktop, there is a way to generate a migration script to bring the target database schema in sync with the one you already created (usually dev).
+  ![flyway-sync-schema](/content/blog/bytebase-vs-flyway/flyway-sync-schema.webp)
+
+- **Bytebase**: Choose a specific schema version, auto calculate the diff with selected databases.
+  ![bytebase-sync-schema-step1](/content/blog/bytebase-vs-flyway/bytebase-sync-schema-step1.webp)
+  ![bytebase-sync-schema-step2](/content/blog/bytebase-vs-flyway/bytebase-sync-schema-step2.webp)
 
 ### SQL auto check
 
@@ -138,6 +157,17 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
   3. When users enable GitOps workflow, before a new SQL is merged into the main branch.
      ![bytebase-gitops-merge](/content/blog/bytebase-vs-flyway/bytebase-gitops-merge.webp)
 
+### Rollback
+
+- **Flyway**: Write rollback scripts manually. Supported in Team version or above.
+- **Bytebase**: By using sync schema, users may revert to a specific version. Also support [auto rollback](/docs/change-database/rollback-data-changes/). For Free version, users can revert to the latest version, while for Pro version or above, users can choose any version.
+
+### Schema drift detection
+
+- **Flyway**: Run `flyway check -drift ...` to produce a report indicating difference between target database and the one created by the migrations applied by Flyway.
+- **Bytebase**: Will auto detect schema diff if someone manipulates the schemas out of Bytebase.
+  ![bytebase-schema-drift](/content/blog/bytebase-vs-flyway/bytebase-schema-drift.webp)
+
 ### Approval flow
 
 - **Flyway**: Not supported.
@@ -146,42 +176,13 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
   ![bytebase-custom-approval-flow](/content/blog/bytebase-vs-flyway/bytebase-custom-approval-flow.webp)
   ![bytebase-risk-center](/content/blog/bytebase-vs-flyway/bytebase-risk-center.webp)
 
-### Change history
-
-- **Flyway**: Run `flyway info` to show a simple history table.
-  ![flyway-info](/content/blog/bytebase-vs-flyway/flyway-info.webp)
-
-- **Bytebase**: Change History tracking diffs and the originated issue.
-  ![bytebase-change-history](/content/blog/bytebase-vs-flyway/bytebase-change-history.webp)
-  ![bytebase-change-diff](/content/blog/bytebase-vs-flyway/bytebase-change-diff.webp)
-
-### Sync schema
-
-- **Flyway**: Via the flyway desktop, there is a way to generate a migration script to bring the target database schema in sync with the one you already created (usually dev).
-  ![flyway-sync-schema](/content/blog/bytebase-vs-flyway/flyway-sync-schema.webp)
-
-- **Bytebase**: Choose a specific schema version, auto calculate the diff with selected databases.
-  ![bytebase-sync-schema-step1](/content/blog/bytebase-vs-flyway/bytebase-sync-schema-step1.webp)
-  ![bytebase-sync-schema-step2](/content/blog/bytebase-vs-flyway/bytebase-sync-schema-step2.webp)
-
-### Schema drift detection
-
-- **Flyway**: Run `flyway check -drift ...` to produce a report indicating difference between target database and the one created by the migrations applied by Flyway.
-- **Bytebase**: Will auto detect schema diff if someone manipulates the schemas out of Bytebase.
-  ![bytebase-schema-drift](/content/blog/bytebase-vs-flyway/bytebase-schema-drift.webp)
-
-### Rollback
-
-- **Flyway**: Write rollback scripts manually. Supported in Team version or above.
-- **Bytebase**: By using sync schema, users may revert to a specific version. Also support [auto rollback](/docs/change-database/rollback-data-changes/). For Free version, users can revert to the latest version, while for Pro version or above, users can choose any version.
-
 ### Slow query detection and advisor
 
 - **Flyway**: Not supported.
 - **Bytebase**: Will auto detect slow queries and send weekly summary report. Provide an AI-based index advisor to provide query optimization advice.
   ![bytebase-slow-query](/content/blog/bytebase-vs-flyway/bytebase-slow-query.webp)
 
-### Data access control, security and compliance
+### Data access control, data masking, security and compliance
 
 - **Flyway**: Not supported.
 
@@ -195,7 +196,13 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
   Everything that happened within Bytebase will be recorded for audit purposes.
   ![bytebase-audit](/content/blog/bytebase-vs-flyway/bytebase-audit.webp)
 
-  Bytebase also supports [SSO](/docs/administration/sso/overview/), [IM webhook](/docs/change-database/webhook/) and etc.
+  Bytebase also supports [SSO](/docs/administration/sso/overview/).
+
+### Webhook
+
+- **Flyway**: Not supported.
+
+- **Bytebase**: [IM webhook](/docs/change-database/webhook/).
 
 ## Summary
 

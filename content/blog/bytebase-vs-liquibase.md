@@ -31,7 +31,7 @@ for developers and DBAs to collaborate.
 | -------------------------------------------------------------------------------------------- | --------------- | ------------------------------------ |
 | [Product position](#product-position)                                                        | Schema change   | Schema Change                        |
 | [Developer interface](#developer-interface)                                                  | CLI             | GUI, API                             |
-| [Supported databases](#supported-databases)                                                  | 50              | 13                                   |
+| [Supported databases](#supported-databases)                                                  | 50              | 22                                   |
 | [Programming language and installation](#installation)                                       | Java + JVM      | Golang and no other dependency       |
 | [Change execution](#change-execution)                                                        | Changelog + CLI | Issue + GUI                          |
 | [Batch Change](#change-execution)                                                            | -               | ✅ Multi-environment / Multi-tenant  |
@@ -61,7 +61,7 @@ for developers and DBAs to collaborate.
 ### Supported databases
 
 - **Liquibase**: 50 - IBM DB2, MS SQL Server, Oracle, PostgreSQL, MySQL, Snowflake, MongoDB, ClickHouse ...
-- **Bytebase**: 13 - MySQL, PostgreSQL, ClickHouse, Snowflake, MongoDB, Redis, Redshift, Oracle, MS SQL Server ...
+- **Bytebase**: 22 - MySQL, PostgreSQL, ClickHouse, Snowflake, MongoDB, Redis, Redshift, Oracle, MS SQL Server ...
 
 ### Installation
 
