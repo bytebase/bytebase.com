@@ -14,8 +14,7 @@ export default function Page() {
         The SLA times listed are the time frames in which you can expect the first response.
         Bytebase Support will make a best effort to resolve any issues to your satisfaction as
         quickly as possible. However, the SLA times are not to be considered as an expected
-        time-to-resolution. The SLAs apply to the Enterprise plan and exclude beta features. Premium
-        support are available as an add-on.
+        time-to-resolution. The SLAs apply to the Enterprise plan and exclude beta features.
       </p>
       <table>
         <tr>
