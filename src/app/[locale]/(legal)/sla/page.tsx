@@ -14,51 +14,53 @@ export default function Page() {
         The SLA times listed are the time frames in which you can expect the first response.
         Bytebase Support will make a best effort to resolve any issues to your satisfaction as
         quickly as possible. However, the SLA times are not to be considered as an expected
-        time-to-resolution. The SLAs apply to generally available products and exclude beta
-        features. Premium support / enhanced SLAs are available as an add-on for our Enterprise
-        plans.
+        time-to-resolution. The SLAs apply to the Enterprise plan and exclude beta features. Premium
+        support are available as an add-on.
       </p>
       <table>
         <tr>
           <th>Severity</th>
-          <th>First Response time</th>
-          <th>Support Availability</th>
+          <th>Standard</th>
+          <th>Premium</th>
         </tr>
         <tr>
-          <td>Emergency (Your Bytebase instance is completely unusable)</td>
-          <td>Within 2 business hours of becoming aware of the issue</td>
-          <td>24x5 (Monday - Friday)</td>
+          <td>Urgent (Your Bytebase instance is completely unusable)</td>
+          <td>2h (24x5 Monday - Friday)</td>
+          <td>1h (24x5 Monday - Friday)</td>
+        </tr>
+        <tr>
+          <td>High (Important features unavailable or extremely slow; No acceptable workaround)</td>
+          <td>4h (24x5 Monday - Friday)</td>
+          <td>2h (24x5 Monday - Friday)</td>
         </tr>
         <tr>
           <td>
-            Highly Degraded (Important features unavailable or extremely slow; No acceptable
-            workaround)
+            Medium (Important features unavailable or somewhat slowed, but a workaround is
+            available)
           </td>
-          <td>Within 4 business hours of becoming aware of the issue</td>
-          <td>24x5 (Monday - Friday)</td>
+          <td>16h (8x5 Monday - Friday)</td>
+          <td>8h (8x5 Monday - Friday)</td>
         </tr>
         <tr>
-          <td>Medium Impact</td>
-          <td>Within 8 business hours of becoming aware of the issue</td>
-          <td>8x5 (Monday - Friday)</td>
-        </tr>
-        <tr>
-          <td>Low Impact</td>
-          <td>Within 2 business days of becoming aware of the issue</td>
-          <td>8x5 (Monday - Friday)</td>
+          <td>
+            Low (Questions or clarifications around features with minimal or no business impact)
+          </td>
+          <td>2d (8x5 Monday - Friday)</td>
+          <td>1d (8x5 Monday - Friday)</td>
         </tr>
       </table>
       <ul>
         <li>
-          <strong>Business Hours:</strong> Defined as 9:00 AM to 5:00 PM Pacific Time (PT), Monday
-          through Friday, excluding public holidays observed in the United States.
+          <strong>Initial Response:</strong> Acknowledgment or preliminary assistance to customer
+          inquiries.
         </li>
         <li>
-          <strong>24x5 Support:</strong> Refers to support services available 24 hours a day, Monday
-          through Friday Pacific Time (PT), excluding public holidays observed in the United States.
+          <strong>24x5:</strong> Support services available 24 hours a day, Monday through Friday,
+          Pacific Time (PT), excluding public holidays observed in the United States.
         </li>
         <li>
-          <strong>8x5 Support:</strong> Refers to support services available during Business Hours.
+          <strong>8x5:</strong> Support services available from 9:00 AM to 5:00 PM, Monday through
+          Friday, Pacific Time (PT), excluding public holidays observed in the United States.
         </li>
       </ul>
     </>
