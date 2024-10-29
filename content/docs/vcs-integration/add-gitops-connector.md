@@ -41,18 +41,27 @@ Select the repository you want to link to the Bytebase project.
 
 ![project-vcs-step](/content/docs/vcs-integration/add-gitops-connector/project-vcs-step4.webp)
 
-### Database Group (Optional)
+### Target one or multiple databases
 
-If specified, Bytebase only applies the migration files from VCS to all the databases in the group.
-Otherwise, Bytebase applies the migrations to all the databases in the project.
+Specify the `Database Group` that the migration files apply to from VCS. If not specified, Bytebase will
+apply the migration files to all the databases in the project.
 
-### Branch (Required)
+### Observe branch
 
-The branch where Bytebase observes the migration file.
+Specify the `Branch` where Bytebase observes the migration files.
 
-### Base directory (Optional)
+### Observe migration files
 
-`/` if not specified. Bytebase only observes migration file changes under this **immediate** directory (subdirectories ignored). We recommend to create a dedicated directory called `bytebase` under the repository root to store all your Bytebase related migration files.
+Specify the `Base directory` where Bytebase observes the migration files. Bytebase only observes
+migration file changes under this **immediate** directory (subdirectories ignored).
+
+By default, Bytebase observes the root directory `/`.
+
+<HintBlock type="info">
+
+We recommend to create a dedicated directory called `bytebase` under the repository root to store all your Bytebase related migration files.
+
+</HintBlock>
 
 ---
 
