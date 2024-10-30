@@ -3,20 +3,21 @@ title: Automate Database Change with Jira
 author: Ningjing
 updated_at: 2024/10/14 21:15
 tags: Tutorial
-level: Intermediate
-integrations: Jira
+level: Advanced
+integrations: Jira, API
 estimated_time: '45 mins'
 description: Automate database changes using Jira and Bytebase.
 ---
 
 In the [previous tutorial](/docs/tutorials/database-change-management-with-jira-manual), we have set up a manual database change workflow with Jira and Bytebase. In this tutorial, we will show you how to automate the process by leveraging Jira and Bytebase Webhook and API. You need to finish the previous tutorial first.
 
+Bytebase is an open-source database DevSecOps solution for Developer, Security, DBA, and Platform Engineering teams. The GitLab for database DevSecOps.
+
 Here is what you will achieve by the end of this tutorial:
 
 <iframe width="100%" height="320" src="https://www.youtube.com/embed/t23dFR6ZJl0?si=g_UkL8fTm6WnZihW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ![auto-jira](/content/docs/tutorials/database-change-management-with-jira-automated/auto-jira.webp)
-
 
 ## Prerequisites
 
