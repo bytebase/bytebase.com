@@ -13,7 +13,7 @@ Bytebase is an open-source database DevSecOps solution for Developer, Security, 
 
 The SQL Editor is Bytebase's SQL client, offering powerful features such as **centralized access control**, **data masking**, **audit logs**, **AI assistance**, and more. This tutorial will guide you through the process of integrating it into your internal web portal using the Bytebase API.
 
-One possible scenario: You are a SaaS provider and you provision a separate database to store the data for each customer. Sometimes, you need your support team to query the customer database for troubleshooting. You want to embed SQL Editor into your internal support portal and grant query permission to the support team on demand.
+![embed-sql-editor-graph](/content/docs/tutorials/embed-sql-editor/embed-sql-editor-graph.webp)
 
 By the end of this tutorial, you will have achieved the following:
 
