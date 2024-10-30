@@ -21,7 +21,13 @@ Check out our official 3.0 announcement - [Bytebase 3.0 - DevSecOps for Database
   - Column comment checks for PostgreSQL/Oracle.
 - Separate SQL review rules to disallow mixing statements in DDL or DML tasks.
 
-## 🔔 Breaking API Changes
+## 🔔 Breaking Changes
+
+### Behavior
+
+We no longer allow the users to approve their own issues.
+
+### API
 
 - CEL parsed expressions have been updated to remove unused sourceInfo, impacting the following APIs: `/v1/cel/batchDeparse`, `/v1/cel/batchParse`, `/v1/workspaces/*:getIamPolicy`, `/v1/workspaces/*:setIamPolicy`, `/v1/projects/{project}:getIamPolicy`, `/v1/projects/{project}:setIamPolicy`.
 - Force to set `group_email` while calling `POST /v1/groups` API to create a new group. For example, `POST /v1/groups?group_email=dba@bytebase.com`
