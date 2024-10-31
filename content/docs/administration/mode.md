@@ -5,7 +5,8 @@ title: Database Change Mode
 Bytebase supports 2 database change mode:
 
 - **Issue mode**. Designed for the team collaboration. Use issue to request, review, roll out, and version database changes.
-- **SQL Editor Mode**. Designed for the individual. Use SQL Editor to execute database changes directly.
+- **SQL Editor Mode**. Designed for the individual. Use SQL Editor to execute database changes directly. You may also choose this mode if you want to [embed SQL Editor into your
+  own app](/docs/tutorials/embed-sql-editor/).
 
 ## Configuration
 
@@ -18,3 +19,5 @@ The first registered user will be prompted to choose the database change mode. A
 The default view is **My Issues**
 
 ## SQL Editor Mode
+
+The default view is SQL Editor.

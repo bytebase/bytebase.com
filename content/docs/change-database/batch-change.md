@@ -17,7 +17,7 @@ In Bytebase, you can select multiple databases from different environments to ap
 
 Then Bytebase will then create an issue to track the multi-database changes. You may roll out changes one database after another or batch rollout databases at the same stage.
 
-## Change database group
+## Database group
 
 <PricingPlanBlock feature_name='BATCH_CHANGE' />
 
