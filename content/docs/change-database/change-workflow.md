@@ -88,11 +88,3 @@ Data migration is the migration type for DML statements.
 ### Baseline Migration
 
 Baseline migration instructs Bytebase to use the latest live schema as the source of truth. This is normally used when [schema drift](/docs/change-database/drift-detection) occurs and Bytebase needs to re-establish the baseline based on the latest live schema.
-
-## Migration History
-
-Bytebase records the detailed migration history and the before/after schema snapshot for each migration it applies. It also leverages these records to [detect schema drifts](/docs/change-database/drift-detection).
-
-![schema-migration-bytebase](/content/docs/change-database/change-workflow/schema-migration-bytebase.webp)
-
-![schema-migration-gitlab](/content/docs/change-database/change-workflow/schema-migration-gitlab.webp)

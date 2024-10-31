@@ -91,6 +91,10 @@ expand_section_list: ['Self-host']
 
 #### [Schema Rollback](/change-database/rollback-schema-changes)
 
+### Version
+
+#### [Change History](/change-database/change-history)
+
 ### Monitor
 
 #### [Schema Drift Detection](/change-database/drift-detection)
