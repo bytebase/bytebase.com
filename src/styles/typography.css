@@ -76,8 +76,8 @@
     h4,
     h5,
     h6 {
-      > code {
-        @apply rounded-md bg-gray-97 px-1.5 py-0.5 font-mono text-gray-15;
+      code {
+        @apply rounded-md bg-gray-97 px-1.5 py-0.5 font-mono text-[1em] text-gray-15;
         font-size: inherit;
 
         &::before,
