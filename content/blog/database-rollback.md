@@ -45,7 +45,7 @@ A complete rollback involves restoring both the database schema and data to a pr
 
 <HintBlock type="info">
 
-Complete rollback are rarely used because it's a hard reset. It removes the bad changes as well as the good ones.
+Complete rollback is rarely used because it's a hard reset. It removes the bad changes as well as the good ones.
 
 </HintBlock>
 
