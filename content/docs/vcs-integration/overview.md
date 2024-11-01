@@ -4,6 +4,15 @@ title: GitOps with VCS Integration
 
 ## Built-in GitOps
 
+### Prerequisites
+
+- Configure [External URL](/docs/get-started/install/external-url).
+- VCS and Bytebase are network reachable from each other.
+  - VCS needs to push webhook to Bytebase.
+  - Bytebase needs to fetch file content from VCS.
+
+### Workflow
+
 ![gitops-workflow](/content/docs/vcs-integration/overview/gitops-workflow.webp)
 
 The built-in Bytebase GitOps workflow is **opinionated** for the typical use case:
@@ -11,8 +20,7 @@ The built-in Bytebase GitOps workflow is **opinionated** for the typical use cas
 - It imposes a [naming convention on the migration file](/docs/vcs-integration/create-migration-files/).
 - It only creates Bytebase rollout issue when the migration file is **merged** into the target branch.
   Under the hood, it creates a webhook in the linked repository to observe the merge event.
-- If you have successfully rolled out the issue and you want to make change based that migration file.
-  You should
+- If you have successfully rolled out the issue and you want to make further change based on that migration file, you need to create a new migration file instead of editing the original one inline.
 
 <HintBlock type="info">
 
