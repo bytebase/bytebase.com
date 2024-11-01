@@ -1,7 +1,7 @@
 ---
 title: 'Database Security: Read, Write, and Admin Access Control levels'
 author: Ningjing
-updated_at: 2024/11/01 20:00:00
+updated_at: 2024/11/04 16:00:00
 feature_image: /content/blog/database-security-read-write-admin-access-control-level/db-security-cover.webp
 tags: Explanation
 description: Explain database security and access control levels
