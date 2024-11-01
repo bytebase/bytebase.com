@@ -74,8 +74,8 @@ You may encounter this error when executing the schema migration on PostgreSQL d
 When Bytebase executes schema migration, it will use pg_dump to record the before/after schema snapshot.
 
 This error happens when the user configured in the Bytebase PostgreSQL instance doesn't have the SELECT permission on the table. Let's suppose the Bytebase user
-configured in the Bytebase PG instance is called `bytebase`. You should do grant
-the table owner permission to `bytebase`:
+configured in the Bytebase PG instance is called `bytebase`. You should grant
+the table SELECT permission to `bytebase`:
 
 ```sql
 GRANT SELECT ON TABLE <<TABLE_NAME>> TO bytebase
