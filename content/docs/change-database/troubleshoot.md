@@ -80,3 +80,19 @@ the table SELECT permission to `bytebase`:
 ```sql
 GRANT SELECT ON TABLE <<TABLE_NAME>> TO bytebase
 ```
+
+### Ask for support
+
+If you still can't resolve, please check the Bytebase user permission. [Contact us](/docs/faq/#how-to-reach-us)
+with the query result.
+
+```sql
+SELECT
+    table_schema,
+    table_name,
+    privilege_type
+FROM
+    information_schema.role_table_grants
+WHERE
+    grantee = '<<user>>';
+```
