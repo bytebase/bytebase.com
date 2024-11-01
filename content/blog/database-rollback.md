@@ -33,15 +33,21 @@ A complete rollback involves restoring both the database schema and data to a pr
 
 - **Restore from backup**
 
-    Restore from backup is the most straightforward way. A backup creates a snapshot of your database at a specific time. When rollback is needed, you use this backup file to overwrite the existing database or to create a new instance. This restoration brings the database back to the exact state it was in at the backup's timestamp. Most cloud providers (AWS, GCP, Azure) offer automated backup solutions with simple restore procedures.
+  Restore from backup is the most straightforward way. A backup creates a snapshot of your database at a specific time. When rollback is needed, you use this backup file to overwrite the existing database or to create a new instance. This restoration brings the database back to the exact state it was in at the backup's timestamp. Most cloud providers (AWS, GCP, Azure) offer automated backup solutions with simple restore procedures.
 
-    This approach is particularly effective for disaster recovery scenarios, testing environments, and data migration processes.
+  This approach is particularly effective for disaster recovery scenarios, testing environments, and data migration processes.
 
 - **Point-in-time recovery (PITR)**
 
-    In comparison with restore from backup, PITR is more flexible. It allows you to restore a database to a specific moment in time, rather than to the static moment when a backup was taken. This works by combining base backups with continuous transaction logs. Cloud providers also offer this feature.
+  In comparison with restore from backup, PITR is more flexible. It allows you to restore a database to a specific moment in time, rather than to the static moment when a backup was taken. This works by combining base backups with continuous transaction logs. Cloud providers also offer this feature.
 
-    This capability is particularly valuable in situations where you want to undo recent changes. Human errors such as accidental data deletion or wrong schema changes are fit for this scenario.
+  This capability is particularly valuable in situations where you want to undo recent changes. Human errors such as accidental data deletion or wrong schema changes are fit for this scenario.
+
+<HintBlock type="info">
+
+Complete rollback are rarely used because it's a hard reset. It removes the bad changes as well as the good ones.
+
+</HintBlock>
 
 ### Schema Rollback (DDL)
 
@@ -57,32 +63,19 @@ Accidental data modifications such as incorrect mass update or unintended data d
 
 ## Database Rollback Automation
 
-To automate database rollback effectively, systems need to maintain comprehensive change tracking. While cloud providers offer automated backup solutions with straightforward restore procedures for complete rollbacks, more granular control requires detailed migration history management. Several tools can help achieve this.
+To automate database rollback effectively, systems need to maintain comprehensive change tracking. While cloud providers offer automated backup solutions with straightforward restore procedures for complete rollbacks, more granular control requires detailed migration history management.
 
-### Code-first approach
-
-Traditional database migration tools like Liquibase and Flyway follow a code-first approach to version control. With these tools, you:
-
-1. Organizemigration scripts in a version-controlled repository
-2. Define both "forward" (migration) and "backward" (rollback) scripts
-3. Let the tools handle script execution and maintain a migration history table
-4. Can rollback changes by executing pre-defined rollback scripts in reverse chronological order
-
-### GUI-based approach
-
-Modern platforms like Bytebase combine GitOps workflows with intuitive GUI-based solutions with enhanced collaboration features. It keeps a history of all human-to-database changes.
+Bytebase provides an intuitive GUI-based solution with enhanced collaboration features. It keeps a history of all human-to-database changes.
 
 For schema rollback, you can review the change history and pick the specific version you need. The system will generate the rollback script for you.
-    ![bb-schema-rollback](/content/blog/database-rollback/version-rollback.webp)
+![bb-schema-rollback](/content/blog/database-rollback/version-rollback.webp)
 
 For data rollback, it offers a handy 1-click data rollback from automatic backups.
 
     ![bb-prior-bk-rollback](/content/blog/database-rollback/bb-prior-bk-rollback.webp)
 
-
-You may use both code and GUI approaches in Bytebase, to combine the reliability of GitOps workflows with the convenience of visual management tools.
+You can also trigger the Bytebase rollback via [API](/docs/api/issue/) and build a GitOps workflow to combine the reliability of GitOps workflows with the convenience of visual management tools.
 
 ## Conclusion
 
 Database rollbacks are essential for maintaining data integrity and recovering from errors. A well-planned rollback strategy, combined with proper automation and testing, ensures your organization can quickly recover from database issues while minimizing impact on business operations.
-
