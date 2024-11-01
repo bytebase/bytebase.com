@@ -1,7 +1,7 @@
 ---
 title: 'Database Rollback: When Shit Hits the Fan'
 author: Ningjing
-updated_at: 2024/10/31 18:27:00
+updated_at: 2024/11/01 18:00:00
 feature_image: /content/blog/database-rollback/database-rollback-cover.webp
 tags: Explanation
 description: Explain database rollback and how to automate it
