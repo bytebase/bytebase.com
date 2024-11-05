@@ -1,7 +1,7 @@
 ---
 title: 'MySQL vs. MariaDB: a Complete Comparison in 2024'
 author: Tianzhou
-updated_at: 2024/09/29 09:00
+updated_at: 2024/11/05 08:00
 feature_image: /content/blog/mysql-vs-mariadb/cover.webp
 tags: Industry
 featured: true
@@ -48,12 +48,6 @@ It may seem at first glance that MariaDB is more "strict" because it lacks the c
 - MariaDB, on the other hand, is more open-source focused and does not offer a proprietary version, which can be seen as either more "strict" or more "free" depending on your perspective. MariaDB prioritizes openness and community control, ensuring that its code and features remain accessible to all without the possibility of being locked behind a commercial paywall.
 
 ## Features where MySQL Shines
-
-### Atomic DDL
-
-MySQL 8.0 introduced Atomic DDL, ensuring that schema changes (like ALTER TABLE) are either fully committed or fully rolled back in the event of failure. This reduces the risk of corruption or inconsistent states during schema changes.
-
-MariaDB uses Aria, a crash-safe alternative to MyISAM for the system tables. Howeer, Aria does not have full Atomic DDL support.
 
 ### Native Data Dictionary
 
@@ -145,6 +139,8 @@ On the other hand, the open-source MariaDB project still carries the torch passe
 ---
 
 It's also possible that MySQL and MariaDB co-exist inside an organization. And if you want to manage the database development lifecycle for both of them, please check out [Bytebase](/).
+
+Updated 2024/10/05 - It was noted that MariaDB has had Atomic DDL since MariaDB 10.6.
 
 ![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
 
