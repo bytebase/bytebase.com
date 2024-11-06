@@ -38,8 +38,8 @@ const cards: TCard[] = [
   {
     image: '/images/page/pricing/team.webp',
     planTitle: 'pro',
-    price: 100,
-    priceDescription: 'instance per month',
+    price: 20,
+    priceDescription: 'user per month',
     description: 'Advanced Collaboration',
     additionalDescription: 'Monthly subscription, cancel anytime',
     buttonText: 'Buy Now',
@@ -47,8 +47,8 @@ const cards: TCard[] = [
     buttonLink: Route.PRO_PAYMENT,
     planConditions: [
       'Email support',
-      'Unlimited users',
-      'Up to 20 database instances',
+      'Up to 20 users',
+      '10 database instances',
       'Manual review, scheduled rollout',
     ],
   },
