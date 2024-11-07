@@ -16,7 +16,7 @@ description: 'Configurable DDL/DML Execution in SQL Editor'
 ## 🔔 Breaking Changes
 
 - Disallow issue creators from approving their own issues.
-- SQL review configuration API supports upsert via `PATCH`. For example, `PATCH /v1/reviewConfigs/{not exist}?allow_missing=true`
+- SQL review configuration API supports upsert via `PATCH`. For example, `PATCH /v1/reviewConfigs/not_exist_review_config?allow_missing=true`
 
 ## 🎄 Enhancements
 
@@ -26,6 +26,6 @@ description: 'Configurable DDL/DML Execution in SQL Editor'
 ## 💰 Pricing Adjustments
 
 - The database group/batch change feature is now extended to the **Pro Plan** besides the **Enterprise Plan**.
-- The Pro plan is now billed per user instead of per database instance. [https://www.bytebase.com/pricing](/pricing)
+- The Pro plan is now billed per user instead of per database instance. [/pricing](/pricing)
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>
