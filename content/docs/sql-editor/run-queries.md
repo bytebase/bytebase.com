@@ -21,13 +21,17 @@ Click the `Run` button or use the shortcut key `(⌘ + Enter)` to run your queri
 
 If you have multiple SQL queries separated by semicolons, SQL Editor will only run the first query for now.
 
-<HintBlock type="info">
+### Max returned row count
 
-SQL Editor can return at most **100,000 rows** and **100 MB** size in total.
+SQL Editor can return at most **100,000 rows**.
 
-</HintBlock>
+![Query Row Limit](/content/docs/sql-editor/query-row-limit.webp)
 
-![Query Limit](/content/docs/sql-editor/query-limit.webp)
+### Max returned result size
+
+The default query result size is **100 MB**. You can change it under the Workspace settings.
+
+![Query Result Size Limit](/content/docs/sql-editor/query-result-size-limit.webp)
 
 ## Explain query
 
