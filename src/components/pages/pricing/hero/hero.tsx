@@ -50,6 +50,7 @@ const cards: TCard[] = [
       'Up to 20 users',
       '10 database instances',
       'Manual review, scheduled rollout',
+      'Batch change',
     ],
   },
   {

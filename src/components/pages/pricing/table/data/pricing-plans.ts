@@ -102,7 +102,10 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
         tooltip: 'Title, label enforcement, auto backup, auto resolve',
       },
       synchronize: { value: 'Advanced', tooltip: 'Sync from arbitrary schema version' },
-      'batch-change': { value: 'Basic', tooltip: 'Multi-environment change' },
+      'batch-change': {
+        value: 'Advanced',
+        tooltip: 'Multi-environment + Multi-region / Multi-tenancy change',
+      },
       'custom-approval': false,
     },
     sql: {

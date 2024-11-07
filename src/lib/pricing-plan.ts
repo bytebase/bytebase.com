@@ -19,7 +19,7 @@ const PRICING_PLANS = new Map([
   ['ISSUE_SETTING', 'PRO'],
   ['SYNCHRONIZE_SCHEMA', 'COMMUNITY'],
   ['ONLINE_SCHEMA_CHANGE', 'PRO'],
-  ['BATCH_CHANGE', 'ENTERPRISE'],
+  ['BATCH_CHANGE', 'PRO'],
   ['CUSTOM_APPROVAL', 'ENTERPRISE'],
 
   //Not in the pricing page
