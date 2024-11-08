@@ -7,7 +7,12 @@ feature_name: 'ROLLBACK_DATA_CHANGES'
 
 Bytebase allows taking **Prior Backup** before a data change is made. Bytebase stores the pre-snapshot of the affected rows, which allows you to revert that data change if needed.
 
-## Support Matrix
+<HintBlock type="info">
+
+The backup data is stored in your own database instance. Bytebase does not purge the backup data automatically.
+You can manually delete the data in `bbdataarchive` database/schema.
+
+</HintBlock>
 
 Prior backup is only feasible when meeting **any** of the following conditions:
 
@@ -50,7 +55,7 @@ If the DML change contains more than 5 statements, then all statements will be b
 
 ![bb-prior-bk-single-table](/content/docs/change-database/rollback-data-changes/bb-prior-bk-single-table.webp)
 
-## Project Backup Settings
+## Project backup settings
 
 <PricingPlanBlock feature_name='ISSUE_SETTING' />
 
