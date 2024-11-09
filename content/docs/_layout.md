@@ -157,13 +157,13 @@ expand_section_list: ['Self-host']
 
 ## Database Permission
 
-### [Overview](/security/data-access-control)
+### [Overview](/security/database-permission/overview)
 
 ### [EXPLAIN](/security/database-permission/explain)
 
-### [Data Query](/security/data-query)
+### [Query](/security/database-permission/query)
 
-### [Data Export](/security/data-export)
+### [Export](/security/database-permission/export)
 
 ## Dynamic Data Masking
 

@@ -50,10 +50,12 @@ Check out [Roles and Permissions](/docs/concepts/roles-and-permissions/).
 - [Query Mode (read-only)](/docs/sql-editor/run-queries/)
 - [Admin Mode](/docs/sql-editor/admin-mode/)
 
-## Data Security
+## Database Security
 
-- [Data Access Control](/docs/security/data-access-control/)
+- [Database Permission](/docs/security/database-permission/overview/)
 - [Dynamic Data Masking](/docs/security/data-masking/overview/)
+- [Audit Log](/docs/security/audit-log/)
+- [Watermark](/docs/security/watermark/)
 
 ## Login and SSO
 
@@ -64,10 +66,8 @@ configure SSO. Bytebase supports all common providers such as Okta, Google, LDAP
 - [SCIM (Directory Sync)](/docs/administration/scim/overview/)
 - [2FA](/docs/administration/2fa/)
 - [Sign-in Frequency](/docs/administration/sign-in-frequency/)
-- [Audit Log](/docs/security/audit-log/)
 
 ## Misc
 
 - [Customize Logo](/docs/administration/customize-logo/)
-- [Watermark](/docs/security/watermark/)
-- [Display Announcement](/docs/administration/announcement/)
+- [Announcement Banner](/docs/administration/announcement/)

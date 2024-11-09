@@ -60,7 +60,7 @@ const Route = {
   DOCS_ROLLBACK_DATA: '/docs/change-database/rollback-data-changes',
   DOCS_SCHEMA_SYNC: '/docs/change-database/synchronize-schema',
   DOCS_SQL_EDITOR: '/docs/sql-editor/overview',
-  DOCS_DATA_ACCESS_CONTROL: '/docs/security/data-access-control',
+  DOCS_DATABASE_PERMISSION: '/docs/security/database-permission/overview',
   DOCS_DATA_MASKING: '/docs/security/data-masking/overview',
   DOCS_DATA_MASKING_COLUMN: '/docs/security/data-masking/column-masking',
   DOCS_DATA_MASKING_GLOBAL: '/docs/security/data-masking/global-masking-rule',

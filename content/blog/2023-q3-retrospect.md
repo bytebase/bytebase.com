@@ -56,7 +56,7 @@ Bytebase keeps up with the bi-weekly release cadence and released 7 versions.
 
 ### Data Security
 
-- [Data access control](/docs/security/data-access-control/) for query, export, and copy data.
+- [Data access control](/docs/security/database-permission/overview/) for query, export, and copy data.
 - Dynamic [Data Masking](/docs/sql-editor/mask-data/) for MySQL, Postgres, TiDB, Oracle, SQL Server, MariaDB, and OceanBase.
 - Enforce [sign-in frequency](/docs/administration/sign-in-frequency/).
 - [LDAP](/docs/administration/sso/ldap/) for SSO.

@@ -225,7 +225,7 @@ Both PlanetScale and Neon could become the next MongoDB / Snowflake for modern R
 
 ---
 
-BTW, if you still stick with vanilla MySQL/Postgres and want PlanetScale's database change workflow or Neon's visual SQL Editor, please check out [Bytebase](/). Bytebase is a database tool for all mainstream databases, covering database change, query, security and governance all-in-one. It provides more customizable [change workflow](/docs/concepts/database-change-workflow/) and visual [SQL Editor](/docs/sql-editor/overview/) integrated with [access control](/docs/security/data-access-control/) and [data masking](/docs/security/mask-data/).
+BTW, if you still stick with vanilla MySQL/Postgres and want PlanetScale's database change workflow or Neon's visual SQL Editor, please check out [Bytebase](/). Bytebase is a database tool for all mainstream databases, covering database change, query, security and governance all-in-one. It provides more customizable [change workflow](/docs/concepts/database-change-workflow/) and visual [SQL Editor](/docs/sql-editor/overview/) integrated with [access control](/docs/security/database-permission/overview/) and [data masking](/docs/security/data-masking/overview/).
 
 ![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
 

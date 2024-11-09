@@ -47,10 +47,10 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
       },
     ],
     color: 'red',
-    href: Route.DOCS_DATA_ACCESS_CONTROL,
+    href: Route.DOCS_DATABASE_PERMISSION,
     cover: '/images/page/main/hero/secure-access.webp',
-    title: 'Query Access Control',
-    description: 'Passwordless IAM-based access control with approval flow and audit logging.',
+    title: 'Database Permission',
+    description: 'Passwordless IAM-based database permission with approval flow and audit logging.',
   },
   {
     videos: [

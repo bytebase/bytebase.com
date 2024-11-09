@@ -16,7 +16,7 @@ description: 'Support GitHub Enterprise for VCS integration; export data as XLSX
 
 - Support masking sensitive data for CTE in Oracle.
 - Support more [SQL Review Rules](/docs/sql-review/review-rules/) for Snowflake.
-- [DAC](/docs/security/data-access-control/) (Data Access Control) now supports more types of Snowflake SQL statements.
+- [DAC](/docs/security/database-permission/overview/) (Data Access Control) now supports more types of Snowflake SQL statements.
 - Improved the file format of data export as JSON.
 - Disable copying data via SQL Editor by configuring Environment Policy.
 - Prepared one test and prod instance each, for onboarding purposes.

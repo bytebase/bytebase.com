@@ -36,12 +36,12 @@ When users want to connect to databases to run admin commands, they can do it in
 
 ### Database-based Access Control
 
-When users want to allow developers to access some databases in the production environment, they can mark the production environment as a protected environment and configure an allowlist. You can get more details from the document [Data Access Control](/docs/security/data-access-control).
+When users want to allow developers to access some databases in the production environment, they can mark the production environment as a protected environment and configure an allowlist. You can get more details from the document [Data Access Control](/docs/security/database-permission/overview).
 ![access-control](/content/blog/the-sql-editor-for-developers-and-dbas/access-control.webp)
 
 ### Data Masking
 
-When developers query tables containing sensitive columns in SQL Editor, the result of these columns will display as "**\*\***". You can learn the configuration details from the document [Data Masking](/docs/security/mask-data).
+When developers query tables containing sensitive columns in SQL Editor, the result of these columns will display as "**\*\***". You can learn the configuration details from the document [Data Masking](/docs/security/data-masking/overview).
 ![mask-data](/content/blog/the-sql-editor-for-developers-and-dbas/mask-data.webp)
 
 ### Audit Logs

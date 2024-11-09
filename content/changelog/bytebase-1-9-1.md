@@ -7,7 +7,7 @@ description: '- Support data access control. - Schema Editor for MySQL. - Check 
 
 ## 🚀 New Features
 
-- Support [data access control](/docs/security/data-access-control).
+- Support [data access control](/docs/security/database-permission/overview).
 - [Schema Editor](/docs/change-database/schema-editor) for MySQL.
 - Check "Mark as done" to skip a task.
 - The issue creator can mark an issue as "Needs attention", which is highlighted in the assignee's view.
@@ -17,7 +17,7 @@ description: '- Support data access control. - Schema Editor for MySQL. - Check 
 - Terraform Bytebase Provider
   - Manage [instance details](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/instance).
   - Manage [environment details](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/environment).
-- [Data masking](/docs/security/mask-data) for MySQL databases now supports all query types.
+- [Data masking](/docs/security/data-masking/overview) for MySQL databases now supports all query types.
 - [Schema Sync for PostgreSQL](/docs/change-database/synchronize-schema) supports Enum Type, Function, Trigger, and Extension.
 - [Tenant database label](/docs/change-database/batch-change) supports arbitrary values without pre-definition.
 - A fresh look for SQL Editor's [Admin mode](/docs/sql-editor/admin-mode) tabs.

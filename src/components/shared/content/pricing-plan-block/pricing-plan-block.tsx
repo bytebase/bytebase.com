@@ -11,7 +11,7 @@ Example 1:
 
 ---
 title: Data Access Control
-feature_name: DATA_ACCESS_CONTROL
+feature_name: DATABASE_PERMISSION
 ---
 
 Example 2: 
@@ -37,7 +37,7 @@ const PricingPlanBlock = ({ feature_name }: { feature_name: string }) => {
     return (
       <figure
         className={clsx(
-          'hint-block mt-8 mb-4 border',
+          'hint-block mb-4 mt-8 border',
           'border-tones-purple-dark shadow-[0px_5px_15px_rgba(156,186,201,0.5)]',
         )}
       >

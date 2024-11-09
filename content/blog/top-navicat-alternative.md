@@ -87,7 +87,7 @@ That's the problem PopSQL is trying to solve. Users can share query results, col
 
 ## Bytebase
 
-If you have multiple different databases at your organization and are looking for a universal tool that can handle them all while covering database change, query, security, and governance all in one, please check out [Bytebase](/). Aside from the visual [SQL Editor](/docs/sql-editor/overview/) integrated with [access control](/docs/security/data-access-control/) and [data masking](/docs/security/mask-data/), it also provides a customizable [change workflow](/docs/concepts/database-change-workflow/) to fit your data/database change requirements.
+If you have multiple different databases at your organization and are looking for a universal tool that can handle them all while covering database change, query, security, and governance all in one, please check out [Bytebase](/). Aside from the visual [SQL Editor](/docs/sql-editor/overview/) integrated with [access control](/docs/security/database-permission/overview/) and [data masking](/docs/security/data-masking/overview/), it also provides a customizable [change workflow](/docs/concepts/database-change-workflow/) to fit your data/database change requirements.
 
 ![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
 

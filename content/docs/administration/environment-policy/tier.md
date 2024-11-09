@@ -17,4 +17,4 @@ A caution notice will also appear at the top of the SQL Editor when you connect 
 
 ![tier-editor](/content/docs/administration/tier/env-tier-editor.webp)
 
-By default, instances and databases in a production environment will be inaccessible to developers. Workspace admins and DBAs can configure some databases as accessible to developers via [Data Access Control](/docs/security/data-access-control).
+By default, instances and databases in a production environment will be inaccessible to developers. Workspace admins and DBAs can configure some databases as accessible to developers via [Database Permission](/docs/security/database-permission/overview).

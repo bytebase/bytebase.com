@@ -17,7 +17,7 @@ Bytebase is an all-in-one solution for database development lifecycle management
 Traditional SQL clients such as DBeaver, DataGrip, Navicat, pgAdmin, phpMyAdmin provide a GUI interface.
 Bytebase also provides a web-based [SQL Editor](/sql-editor/). By adopting Bytebase, DBAs no longer
 need to distribute database credentials to the individuals. DBAs configure the database credentials
-in Bytebase once, then grant [database/table access](/docs/security/data-access-control/) to individuals conditionally. Furthermore, they can also configure [dynamic data masking](/docs/security/data-masking/overview/).
+in Bytebase once, then grant [database permissions](/docs/security/database-permission/overview/) to individuals conditionally. Furthermore, they can also configure [dynamic data masking](/docs/security/data-masking/overview/).
 
 ![sql-editor-data-masking](/images/page/main/sql-editor/mask.webp)
 

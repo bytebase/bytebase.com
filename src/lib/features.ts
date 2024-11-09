@@ -49,7 +49,7 @@ export const FEATURES = {
   QUERY_EXPORT_APPROVAL_WORKFLOW: 'Query and export approval workflow',
   ENVIRONMENT_TIER: 'Environment Tier',
   DATA_MASKING: 'Sensitive data masking',
-  DATA_ACCESS_CONTROL: 'Data Access Control',
+  DATABASE_PERMISSION: 'Data Access Control',
   WATERMARK: 'Watermark',
   AUDIT_LOG: 'Audit Log',
   SIGNUP_RESTRICTION: 'Sign-up Restriction',

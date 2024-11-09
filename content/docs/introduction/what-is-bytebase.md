@@ -43,13 +43,13 @@ a single query against multiple databases.
 
 A web-based SQL Editor to query and export data. DBAs no longer need to give away sensitive database credentials when developers need to access the data.
 
+[Database Permission](/docs/security/database-permission/query/)
+
+Bytebase provides a suite of features to enable organizations to enforce data security policies, avoid data leaks and conform compliance.
+
 [Dynamic Data Masking](/docs/security/data-masking/overview/)
 
 Bytebase provides role-based multi-level masking policy with approval workflow to grant unmasked data access.
-
-[Data Access Control](/docs/security/data-query/)
-
-Bytebase provides a suite of features to enable organizations to enforce data security policies, avoid data leaks and conform compliance.
 
 [Data Rollback](/docs/change-database/rollback-data-changes/)
 

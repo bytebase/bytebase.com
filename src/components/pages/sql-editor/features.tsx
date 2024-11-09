@@ -11,11 +11,10 @@ type TCard = {
 
 const cards: TCard[] = [
   {
-    href: Route.DOCS_DATA_ACCESS_CONTROL,
-    icon: '/images/access-control.svg',
-    title: 'Access control',
-    description:
-      'Multi-factor granular access control based on role, environment, project, database.',
+    href: Route.DOCS_DATABASE_PERMISSION,
+    icon: '/images/database-permission.svg',
+    title: 'Database permission',
+    description: 'Multi-factor granular permissions based on role, environment, project, database.',
   },
   {
     href: Route.DOCS_DATA_MASKING_COLUMN,

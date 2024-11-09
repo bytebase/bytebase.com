@@ -13,8 +13,8 @@ export const MENU = {
           iconName: 'migrate',
         },
         {
-          name: 'Online Web-based SQL Editor',
-          description: 'Bastionless human-to-database access',
+          name: 'Permission-based SQL Editor',
+          description: 'Bastion-less human-to-database permission control',
           linkUrl: Route.SQL_EDITOR,
           iconName: 'editor',
         },

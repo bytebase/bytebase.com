@@ -1,5 +1,5 @@
 ---
-title: EXPLAIN
+title: EXPLAIN Query
 ---
 
 You may only want to allow your developers to run EXPLAIN to debug slow queries, while disallow them

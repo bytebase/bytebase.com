@@ -65,7 +65,7 @@ const Hero = ({ subjects }: HeroProps) => {
               )}
             </div>
           </div>{' '}
-          with access control, data masking, and collaboration
+          with permission control, data masking, and collaboration
         </h2>
         <Image
           src="/images/page/about/why-we-build.webp"

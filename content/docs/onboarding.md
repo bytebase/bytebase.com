@@ -49,8 +49,8 @@ Bytebase provides a web-based SQL Editor.
 Related features:
 
 - [SQL Editor](/docs/sql-editor/overview/)
-- [Data Access Control](/docs/security/data-access-control/)
-- [Request Query](/docs/security/data-query/) and [Export](/docs/security/data-export/) access flow
+- [Database Permission](/docs/security/database-permission/overview/)
+- [Request Query](/docs/security/database-permission/query/) and [Export](/docs/security/database-permission/export/) access flow
 - [Dynamic Data Masking](/docs/security/data-masking/overview/)
 
 ## Phase 3 - Integrate SQL review into CI

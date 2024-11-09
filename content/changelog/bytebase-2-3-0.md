@@ -9,8 +9,8 @@ description: 'SQL Review for Snowflake. Mask data for Oracle. Export Center for 
 ## 🚀 New Features
 
 - [SQL Review](/docs/sql-review/review-rules/) for Snowflake.
-- [Mask data](/docs/security/mask-data/) for Oracle.
-- Introduced [Export Center](/docs/security/data-export/#download-in-export-center) for data exports.
+- [Mask data](/docs/security/data-masking/overview/) for Oracle.
+- Introduced [Export Center](/docs/security/database-permission/export/#download-in-export-center) for data exports.
 
 ## 🎄 Enhancements
 
