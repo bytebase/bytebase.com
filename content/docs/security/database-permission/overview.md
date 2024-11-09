@@ -20,8 +20,8 @@ Database permission controls individual users' or groups' actions within the dat
 
 You can also pick out specific permissions to build [custom roles](/docs/administration/custom-roles/).
 
-| Permission               | Action                                                 |
-| ------------------------ | ------------------------------------------------------ |
-| `databases.query`        | [Query](/docs/security/database-permission/query/)     |
-| `databases.export`       | [Export](/docs/security/database-permission/export/)   |
-| `databases.queryExplain` | [EXPLAIN](/docs/security/database-permission/explain/) |
+| Action                                                 | Permission               |
+| ------------------------------------------------------ | ------------------------ |
+| [Query](/docs/security/database-permission/query/)     | `databases.query`        |
+| [Export](/docs/security/database-permission/export/)   | `databases.export`       |
+| [EXPLAIN](/docs/security/database-permission/explain/) | `databases.queryExplain` |
