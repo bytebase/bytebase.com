@@ -155,6 +155,16 @@ expand_section_list: ['Self-host']
 
 ### [AI Assistant](/sql-editor/ai-assistant)
 
+## Database Permission
+
+### [Overview](/security/data-access-control)
+
+### [EXPLAIN](/security/database-permission/explain)
+
+### [Data Query](/security/data-query)
+
+### [Data Export](/security/data-export)
+
 ## Dynamic Data Masking
 
 ### [Overview](/security/data-masking/overview)
@@ -172,14 +182,6 @@ expand_section_list: ['Self-host']
 ### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
 
 ### [Export Masked Data](/security/data-masking/export-masked-data)
-
-## Data Access Control
-
-### [Overview](/security/data-access-control)
-
-### [Data Query](/security/data-query)
-
-### [Data Export](/security/data-export)
 
 ---
 

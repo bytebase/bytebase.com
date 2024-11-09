@@ -1,13 +1,13 @@
 ---
-title: 'Database Security: Read, Write, and Admin Access Control levels'
+title: 'Database Security: Read, Write, and Admin Permission Levels'
 author: Ningjing
 updated_at: 2024/11/04 16:00:00
-feature_image: /content/blog/database-security-read-write-admin-access-control-level/db-security-cover.webp
+feature_image: /content/blog/database-security-read-write-admin-permission-level/db-permission-cover.webp
 tags: Explanation
-description: Explain database security and access control levels
+description: Explain the different database permission levels
 ---
 
-Database security is a critical aspect of information technology that focuses on protecting databases from unauthorized access or malicious attacks. Access control, one of its fundamental components, involves assigning different permission levels to users based on their roles and responsibilities. In most database systems, these permissions are categorized into three main levels: Read, Write, and Admin.
+Database permissions are one of the database security fundamental component, involves assigning different permission levels to users based on their roles and responsibilities. In most database systems, these permissions are categorized into three main levels: `Read`, `Write`, and `Admin`.
 
 ## Read
 
@@ -16,6 +16,12 @@ Database security is a critical aspect of information technology that focuses on
 - Fetch metadata (information_schema or catalog info)
 - Run EXPLAIN. This is for developer to troubleshoot problematic queries
 - Run SELECT
+
+<HintBlock type="info">
+
+This post is updated regularly. For the impatience, jump to the [Recommended Setup](#recommended-setup) section.
+
+</HintBlock>
 
 ## Write
 
