@@ -1,5 +1,6 @@
 ---
 title: EXPLAIN Query
+feature_name: CUSTOM_ROLES
 ---
 
 You may only want to allow your developers to run EXPLAIN to debug slow queries, while disallow them
