@@ -7,7 +7,7 @@ import { BlogPost } from '@/types/blog-post';
 
 export const metadata = getMetadata(SEO_DATA.SQL_EDITOR);
 
-const POSTS = ['top-dbeaver-alternative', 'top-open-source-sql-clients', 'stop-using-navicat'];
+const POSTS = ['bytebase-vs-cloudbeaver', 'bytebase-vs-dbeaver', 'stop-using-navicat'];
 
 const SQLEditorPage = () => {
   const relatedPosts: BlogPost[] = [];
