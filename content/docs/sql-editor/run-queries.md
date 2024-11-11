@@ -33,7 +33,24 @@ The default query result size is **100 MB**. You can change it under the Workspa
 
 ![Query Result Size Limit](/content/docs/sql-editor/query-result-size-limit.webp)
 
-## Explain query
+## Export data
+
+<HintBlock type="info">
+
+The exported data still respects the [masking policy](/docs/sql-editor/mask-data/) to mask exported columns if enforced.
+
+</HintBlock>
+
+If you have been granted export access, you can directly export query results in various formats.
+
+![Export Data](/content/docs/sql-editor/export-data.webp)
+
+Otherwise, you can request the exported data
+
+![Request Export](/content/docs/sql-editor/export-request1.webp)
+![Request Export](/content/docs/sql-editor/export-request2.webp)
+
+## EXPLAIN query
 
 ![Explain Query](/content/docs/sql-editor/explain-query.webp)
 
@@ -82,20 +99,3 @@ For each database, the query result will show up in its own tab:
 You can retrieve anything you want from query results quickly.
 
 ![Search Result](/content/docs/sql-editor/search-result.webp)
-
-## Export data
-
-<HintBlock type="info">
-
-The exported data still respects the [masking policy](/docs/sql-editor/mask-data/) to mask exported columns if enforced.
-
-</HintBlock>
-
-If you have been granted export access, you can directly export query results in various formats.
-
-![Export Data](/content/docs/sql-editor/export-data.webp)
-
-Otherwise, you can request the exported data
-
-![Request Export](/content/docs/sql-editor/export-request1.webp)
-![Request Export](/content/docs/sql-editor/export-request2.webp)

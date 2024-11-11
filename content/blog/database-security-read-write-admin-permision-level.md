@@ -32,11 +32,10 @@ This post is updated regularly. For the impatience, jump to the [Recommended Set
 
 ## Admin
 
-**Admin** is the highest level of access that grants users the ability to manage database users, permissions, and system settings. DBAs use this level to perform tasks such as granting user permissions, setting database level settings, and restarting the database.
+**Admin** is the highest level of access. DBAs use this level to perform tasks such as killing the connections.
 
-- Grant user permissions
-- System change (e.g. set database level settings, restart database)
+## Fine-grained database permissions in Bytebase
 
-## Conclusion
+You can configure [Bytebase database permissions](/docs/security/database-permission/overview/) to provide fine-grained control over database operations.
 
-Access control levels are essential for database security, ensuring data protection while enabling authorized users to perform their tasks. Instead of logging in different database engines to configure, modern platforms like [Bytebase](https://www.bytebase.com/) now offer centralized permission management across multiple database engines, improving both security and efficiency.
+<IncludeBlock url="/docs/share/database-permission-table"></IncludeBlock>
