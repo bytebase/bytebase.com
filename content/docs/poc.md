@@ -21,7 +21,7 @@ Check out [Roles and Permissions](/docs/concepts/roles-and-permissions/).
 ## Configure Environment
 
 - [What is Environment](/docs/concepts/data-model/#environment)
-- [Rollout Policy](/docs/administration/environment-policy/tier/)
+- [Rollout Policy](/docs/administration/environment-policy/rollout-policy/)
 - [SQL Review Policy](/docs/sql-review/review-policy/)
 
 ## Configure Instance
