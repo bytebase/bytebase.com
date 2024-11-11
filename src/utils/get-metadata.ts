@@ -5,7 +5,7 @@ type Metadata = {
   imagePath?: string;
 };
 
-const DEFAULT_IMAGE_PATH = '/images/social-previews/bytebase-3-0.png';
+const DEFAULT_IMAGE_PATH = '/images/social-previews/index.jpg';
 
 export default function getMetadata({
   title,
