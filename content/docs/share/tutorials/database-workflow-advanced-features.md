@@ -4,17 +4,17 @@ You may upgrade to Enterprise plan to explore more features.
 
 Go to **Environments** > **Prod**, Find **Rollout policy** section, and choose **Manual rollout** > **Require rolling out by dedicated roles**.
 
-![bb-env-prod-manual-rollout](/content/docs/tutorials/share/bb-env-prod-manual-rollout.webp)
+![bb-env-prod-manual-rollout](/content/docs/share/tutorials/bb-env-prod-manual-rollout.webp)
 
 ### Custom Approval
 
 1. Go to **CI/CD** > **Custom Approval**. Set `Project Owner -> DBA` as Approval flow for **DDL** > **High Risk**.
 
-   ![bb-custom-approval](/content/docs/tutorials/share/bb-custom-approval.webp)
+   ![bb-custom-approval](/content/docs/share/tutorials/bb-custom-approval.webp)
 
 1. Go to **CI/CD** > **Risk Center**. Click **Add rule** and click **Load** for the first template. Click **Add**.
 
-   ![bb-risk-center-ddl-high](/content/docs/tutorials/share/bb-risk-center-ddl-high.webp)
+   ![bb-risk-center-ddl-high](/content/docs/share/tutorials/bb-risk-center-ddl-high.webp)
 
 ### Schema Drift
 
@@ -31,6 +31,6 @@ Bytebase has built-in [schema drift detection](/docs/change-database/drift-detec
 
 1. Go back to Bytebase Console, and click **Databases** > `employee` under `Prod`. Click **Sync Now**. After seeing the success message, refresh the page. You'll see the schema drift. You may configure auto scan on instance detail page to avoid manual sync.
 
-   ![bb-db-schema-drift](/content/docs/tutorials/share/bb-db-schema-drift.webp)
+   ![bb-db-schema-drift](/content/docs/share/tutorials/bb-db-schema-drift.webp)
 
-14. Go to **Database** > **Anomalies**, and you'll see the Schema drift there too.
+1. Go to **Database** > **Anomalies**, and you'll see the Schema drift there too.

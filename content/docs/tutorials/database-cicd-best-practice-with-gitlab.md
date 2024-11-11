@@ -18,7 +18,7 @@ _Wanna other VCS providers instead?_ 👉
 
 ## The Database CI/CD Workflow
 
-<IncludeBlock url="/docs/tutorials/share/database-workflow"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/database-workflow"></IncludeBlock>
 
 ## Set Up Database CI/CD with GitLab in Bytebase (Free Plan)
 
@@ -51,7 +51,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with GitLab 
 
 ### Step 4 - Configure SQL Review in Prod
 
-<IncludeBlock url="/docs/tutorials/share/sql-review-not-null"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/sql-review-not-null"></IncludeBlock>
 
 ### Step 5 - Create a Merge Request to trigger issue creation
 
@@ -94,7 +94,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with GitLab 
 
 ## Advanced Features (Enterprise Plan)
 
-<IncludeBlock url="/docs/tutorials/share/database-workflow-advanced-features"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/database-workflow-advanced-features"></IncludeBlock>
 
 ## Summary
 

@@ -15,8 +15,8 @@ Bytebase is a database DevOps and CI/CD tool designed for developers, DBAs, and 
 
 In our previous tutorials, we demonstrated how to use the Bytebase API to:
 
-  1. [Create a schema change](/docs/tutorials/api-issue)
-  1. [Check user and database permissions](/docs/tutorials/api-user-database-permission)
+1. [Create a schema change](/docs/tutorials/api-issue)
+1. [Check user and database permissions](/docs/tutorials/api-user-database-permission)
 
 This tutorial will focus on fetch and filter audit log in Bytebase, it's OK if you haven't gone through the previous tutorials.
 
@@ -33,11 +33,11 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
 
 ## Start Bytebase
 
-<IncludeBlock url="/docs/tutorials/share/start-bytebase"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/start-bytebase"></IncludeBlock>
 
 ## Create Service Account
 
-<IncludeBlock url="/docs/tutorials/share/create-service-account"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/create-service-account"></IncludeBlock>
 
 ## Run Demo
 

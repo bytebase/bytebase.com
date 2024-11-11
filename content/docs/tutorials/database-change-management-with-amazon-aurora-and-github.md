@@ -52,16 +52,16 @@ Before you start this tutorial, make sure you have the following ready:
 
 ## Step 3 - Connect Bytebase with GitHub.com
 
-<IncludeBlock url="/docs/tutorials/share/vcs-with-github"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/vcs-with-github"></IncludeBlock>
 
 ## Step 4 - Enable GitOps workflow with Amazon Aurora
 
-<IncludeBlock url="/docs/tutorials/share/vcs-in-project-github"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/vcs-in-project-github"></IncludeBlock>
 
 ## Step 5 - Change schema for Amazon Aurora by pushing SQL schema change files to GitHub
 
-<IncludeBlock url="/docs/tutorials/share/vcs-change-github" db="aurora"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/vcs-change-github" db="aurora"></IncludeBlock>
 
 ## Summary and What's Next
 
-<IncludeBlock url="/docs/tutorials/share/vcs-summary-github"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/vcs-summary-github"></IncludeBlock>

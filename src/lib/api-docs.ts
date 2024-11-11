@@ -13,7 +13,7 @@ const DOCS_DIR_PATH = `${process.cwd()}/content/docs`;
 
 const getPostSlugs = (): string[] => {
   const files = glob.sync(`${DOCS_DIR_PATH}/**/*.md`, {
-    ignore: ['**/_layout.md', `${DOCS_DIR_PATH}/tutorials/share/*.md`],
+    ignore: ['**/_layout.md', `${DOCS_DIR_PATH}/share/**/*.md`],
   });
   return files.map((file) => file.replace(DOCS_DIR_PATH, '').replace('.md', ''));
 };

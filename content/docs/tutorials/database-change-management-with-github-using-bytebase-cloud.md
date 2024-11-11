@@ -38,16 +38,16 @@ Before you start this tutorial, make sure you have the following ready:
 
 ## Step 1 - Connect Bytebase with GitHub.com
 
-<IncludeBlock url="/docs/tutorials/share/vcs-with-github"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/vcs-with-github"></IncludeBlock>
 
 ## Step 2 - Enable GitOps workflow
 
-<IncludeBlock url="/docs/tutorials/share/vcs-in-project-github"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/vcs-in-project-github"></IncludeBlock>
 
 ## Step 3 - Change schema by pushing SQL schema change files to GitHub
 
-<IncludeBlock url="/docs/tutorials/share/vcs-change-github" db="mysql"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/vcs-change-github" db="mysql"></IncludeBlock>
 
 ## Summary and What's Next
 
-<IncludeBlock url="/docs/tutorials/share/vcs-summary-github"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/vcs-summary-github"></IncludeBlock>

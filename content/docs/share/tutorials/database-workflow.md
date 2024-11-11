@@ -4,7 +4,7 @@ DORA (DevOps Research & Assessment) [pointed out](https://cloud.google.com/archi
 
 But how does it work, really? Here, we present our envisioned Database CI/CD workflow.
 
-![database-devops-workflow](/content/docs/tutorials/share/cicd-workflow.webp)
+![database-devops-workflow](/content/docs/share/tutorials/cicd-workflow.webp)
 
 1. The developer creates a Pull Request containing the SQL script;
 1. SQL Review CI is automatically triggered to review SQL and offers suggestions via a comment in the PR;

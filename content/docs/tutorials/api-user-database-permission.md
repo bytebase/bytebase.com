@@ -34,11 +34,11 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
 
 ## Start Bytebase
 
-<IncludeBlock url="/docs/tutorials/share/start-bytebase"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/start-bytebase"></IncludeBlock>
 
 ## Create Service Account
 
-<IncludeBlock url="/docs/tutorials/share/create-service-account"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/create-service-account"></IncludeBlock>
 
 ## Run Demo
 
