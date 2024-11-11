@@ -225,7 +225,7 @@ expand_section_list: ['Self-host']
 
 ### [Database Instance](/administration/instance)
 
-### [Environment Tier](/administration/environment-policy/tier)
+### [Environment Policy](/administration/environment-policy/overview)
 
 ### [Customize Logo](/administration/customize-logo)
 
