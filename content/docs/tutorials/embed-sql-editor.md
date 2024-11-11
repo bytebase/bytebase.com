@@ -19,7 +19,7 @@ You can also embed the Bytebase SQL Editor into your application. This tutorial 
 
 By the end of this tutorial, you will have achieved the following:
 
-<iframe width="100%" height="320" src="https://www.youtube.com/embed/SrH2kwQhALI?si=hI-b3sGMnscLwvgt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="100%" height="320" src="https://www.youtube.com/embed/SrH2kwQhALI?si=hI-b3sGMnscLwvgt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="allowFullScreen"></iframe>
 
 ## Prerequisites
 

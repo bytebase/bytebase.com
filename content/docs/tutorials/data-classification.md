@@ -15,7 +15,7 @@ This tutorial guides you through setting up data classification and masking usin
 
 By the end of this tutorial, you will have accomplished the following:
 
-<iframe width="100%" height="315" src="https://www.youtube.com/embed/ExH5lWy5f10?si=yaLf-hbhyGFHKkww" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/ExH5lWy5f10?si=yaLf-hbhyGFHKkww" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="allowFullScreen"></iframe>
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ This demo app simulates the process of fetching data from databases connected to
 1. Start Bytebase via Docker and register an account which will be granted `Workspace Admin` role.
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
-You'll need an API service account user too:
+   You'll need an API service account user too:
 
 1. Go to **IAM&Admin > Users&Groups**, click **+Add User**.
 1. Choose `Service Account` as the **Type**, fill in the **Email** with `api-sample@service.bytebase.com`, choose `Workspace DBA` as **Roles**, and click **Confirm**.
@@ -63,30 +63,30 @@ There are two ways to configure the data masking based on the classification lev
 1. Choose **Masking Level** as `Partial` and click **Confirm**.
 1. The same way, we can add another masking rule for `Level 2` with **Masking Level** as `Full`.
 
-    ![bb-data-masking](/content/docs/tutorials/data-classification/bb-data-masking.webp)
+   ![bb-data-masking](/content/docs/tutorials/data-classification/bb-data-masking.webp)
 
 #### API
 
 1. Find the [data masking configuration file](https://github.com/bytebase/api-example/blob/main/data-security/masking/global-masking-rule.json) within the `data-security` repository.
 1. Generate the token for the service account user:
 
-    ```bash
-        export bytebase_url=http://localhost:8080
-        bytebase_account="api-sample@service.bytebase.com"
-        bytebase_password="bbs_bxxxxxxxxxoUxfY"
-        bytebase_token=$(curl -v ${bytebase_url}/v1/auth/login \
-            --data-raw '{"email":"'${bytebase_account}'","password":"'${bytebase_password}'","web":true}' \ --compressed 2>&1 | grep token | grep -o 'access-token=[^;]*;' | grep -o '[^;]*' | sed 's/access-token=//g; s/;//g')
+   ```bash
+       export bytebase_url=http://localhost:8080
+       bytebase_account="api-sample@service.bytebase.com"
+       bytebase_password="bbs_bxxxxxxxxxoUxfY"
+       bytebase_token=$(curl -v ${bytebase_url}/v1/auth/login \
+           --data-raw '{"email":"'${bytebase_account}'","password":"'${bytebase_password}'","web":true}' \ --compressed 2>&1 | grep token | grep -o 'access-token=[^;]*;' | grep -o '[^;]*' | sed 's/access-token=//g; s/;//g')
 
-        echo $bytebase_token
-    ```
+       echo $bytebase_token
+   ```
 
 1. Import the data masking configuration:
 
-    ```bash
-        curl --request PATCH "${bytebase_url}/v1/policies/masking_rule?allow_missing=true&update_mask=payload" \
-        --header 'Authorization: Bearer '${bytebase_token} \
-        --data @global-masking-rule.json
-    ```
+   ```bash
+       curl --request PATCH "${bytebase_url}/v1/policies/masking_rule?allow_missing=true&update_mask=payload" \
+       --header 'Authorization: Bearer '${bytebase_token} \
+       --data @global-masking-rule.json
+   ```
 
 1. Login to Bytebase console and go to **Data Access > Data Masking**, you'll see the data masking is configured.
 
@@ -112,7 +112,7 @@ There are two ways to configure the data masking based on the classification lev
    ![demo-two-levels](/content/docs/tutorials/data-classification/demo-two-levels.webp)
 
 1. Go to Bytebase SQL Editor, double click the `salary` table, you'll see the data is masked accordingly.
-    ![bb-sql-editor](/content/docs/tutorials/data-classification/bb-sql-editor.webp)
+   ![bb-sql-editor](/content/docs/tutorials/data-classification/bb-sql-editor.webp)
 
 ## Code explanation
 
@@ -122,121 +122,126 @@ There are two ways to configure the data masking based on the classification lev
 
 1. Use the API `/v1/instances/${instance}/databases/${database}/metadata` to fetch the database schema information. In this demo, the instance is hardcoded as `test-sample-instance` and the database is `test-sample-database`.
 
-    ```javascript
-        const instance = 'prod-sample-instance';
-        const database = 'hr_prod';
+   ```javascript
+   const instance = 'prod-sample-instance';
+   const database = 'hr_prod';
 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BB_HOST}/v1/instances/${instance}/databases/${database}/metadata`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                "Authorization": 'Bearer '+ token 
-            },
-            cache: 'no-store'
-        });
-    ```
+   const response = await fetch(
+     `${process.env.NEXT_PUBLIC_BB_HOST}/v1/instances/${instance}/databases/${database}/metadata`,
+     {
+       method: 'GET',
+       headers: {
+         'Content-Type': 'application/json',
+         Authorization: 'Bearer ' + token,
+       },
+       cache: 'no-store',
+     },
+   );
+   ```
 
 1. The metadata response includes the database schema under `schemas`:
 
-    ```javascript
-        "schemas": [
-            {
-                "name": "public",
-                "tables": [
-                    {
-                        "name": "dept_emp",
-                        "columns": [
-                            {
-                                "name": "emp_no",
-                                "position": 1,
-                                "hasDefault": false,
-                                "onUpdate": "",
-                                "nullable": false,
-                                "type": "integer",
-                                "characterSet": "",
-                                "collation": "",
-                                "comment": "",
-                                "userComment": "",
-                                "effectiveMaskingLevel": "MASKING_LEVEL_UNSPECIFIED",
-                                "generation": null
-                            },
-                            {
-                                "name": "dept_no",
-                                "position": 2,
-                                "hasDefault": false,
-                                "onUpdate": "",
-                                "nullable": false,
-                                "type": "text",
-                                "characterSet": "",
-                                "collation": "",
-                                "comment": "",
-                                "userComment": "",
-                                "effectiveMaskingLevel": "MASKING_LEVEL_UNSPECIFIED",
-                                "generation": null
-                            },
-                            ...
-                        ]
-                    }
-                    ...
-                ]
-            }
-        ]
-    ```
+   ```javascript
+       "schemas": [
+           {
+               "name": "public",
+               "tables": [
+                   {
+                       "name": "dept_emp",
+                       "columns": [
+                           {
+                               "name": "emp_no",
+                               "position": 1,
+                               "hasDefault": false,
+                               "onUpdate": "",
+                               "nullable": false,
+                               "type": "integer",
+                               "characterSet": "",
+                               "collation": "",
+                               "comment": "",
+                               "userComment": "",
+                               "effectiveMaskingLevel": "MASKING_LEVEL_UNSPECIFIED",
+                               "generation": null
+                           },
+                           {
+                               "name": "dept_no",
+                               "position": 2,
+                               "hasDefault": false,
+                               "onUpdate": "",
+                               "nullable": false,
+                               "type": "text",
+                               "characterSet": "",
+                               "collation": "",
+                               "comment": "",
+                               "userComment": "",
+                               "effectiveMaskingLevel": "MASKING_LEVEL_UNSPECIFIED",
+                               "generation": null
+                           },
+                           ...
+                       ]
+                   }
+                   ...
+               ]
+           }
+       ]
+   ```
 
-    Meanwhile, it also includes the classification information under `schemaConfigs`:
+   Meanwhile, it also includes the classification information under `schemaConfigs`:
 
-    ```javascript
-    "schemaConfigs": [
-            {
-                "name": "public",
-                "tableConfigs": [
-                    {
-                        "name": "employee",
-                        "columnConfigs": [
-                            {
-                                "name": "birth_date",
-                                "semanticTypeId": "",
-                                "labels": {},
-                                "classificationId": "1-3"
-                            },
-                            {
-                                "name": "emp_no",
-                                "semanticTypeId": "",
-                                "labels": {},
-                                "classificationId": "1-1"
-                            }
-                        ],
-                        "classificationId": "",
-                        "updater": "",
-                        "sourceBranch": "",
-                        "updateTime": null
-                    }
-                ],
-                "functionConfigs": [],
-                "procedureConfigs": [],
-                "viewConfigs": []
-            }
-        ]
-        ...
+   ```javascript
+   "schemaConfigs": [
+           {
+               "name": "public",
+               "tableConfigs": [
+                   {
+                       "name": "employee",
+                       "columnConfigs": [
+                           {
+                               "name": "birth_date",
+                               "semanticTypeId": "",
+                               "labels": {},
+                               "classificationId": "1-3"
+                           },
+                           {
+                               "name": "emp_no",
+                               "semanticTypeId": "",
+                               "labels": {},
+                               "classificationId": "1-1"
+                           }
+                       ],
+                       "classificationId": "",
+                       "updater": "",
+                       "sourceBranch": "",
+                       "updateTime": null
+                   }
+               ],
+               "functionConfigs": [],
+               "procedureConfigs": [],
+               "viewConfigs": []
+           }
+       ]
+       ...
 
-    ```
+   ```
 
 ### Update the schema with classification
 
 1. To update the schema with classification, we need to use the API `/v1/instances/${instance}/databases/${database}/metadata` with `PATCH` method.
 
-  ```javascript
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BB_HOST}/v1/instances/${instance}/databases/${database}/metadata`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          "Authorization": 'Bearer '+ token 
-        },
-        body: JSON.stringify(req),
-        cache: 'no-store'
-    });
-
-  ```
+```javascript
+const response = await fetch(
+  `${process.env.NEXT_PUBLIC_BB_HOST}/v1/instances/${instance}/databases/${database}/metadata`,
+  {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + token,
+    },
+    body: JSON.stringify(req),
+    cache: 'no-store',
+  },
+);
+```
 
 ### Fetch defined classification
 
