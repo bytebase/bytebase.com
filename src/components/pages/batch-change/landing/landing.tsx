@@ -1,7 +1,7 @@
 import Hero from '../hero';
 import Features from '../features';
 import PromoBatchChange from '@/components/pages/home/promo-batch-change';
-import Community from '@/components/shared/community';
+import EnterpriseInquiry from '@/components/shared/enterprise-inquiry';
 import RelatedPosts from '@/components/pages/blog/related-posts';
 import { BlogPost } from '@/types/blog-post';
 
@@ -16,7 +16,7 @@ const Landing = ({ posts }: RelatedPostsProps) => {
       <PromoBatchChange />
       <Features />
       <RelatedPosts posts={posts} module="LANDING" />
-      <Community />
+      <EnterpriseInquiry />
     </>
   );
 };
