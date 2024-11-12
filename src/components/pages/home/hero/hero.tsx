@@ -192,7 +192,7 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
       >
         <Card {...cards[0]} autoplay={autoplay} onLoad={onLoad} />
       </div>
-      <div className="col-start-5 col-end-9 row-start-1 row-end-4 pt-[461px] 3xl:pt-[459px] xl:row-start-2 xl:-mt-5 xl:pt-0 lg:mt-0 lg:pt-7 sm:col-auto sm:row-auto sm:mt-8 sm:pt-0">
+      <div className="col-start-5 col-end-9 row-start-1 row-end-4 pt-[341px] 3xl:pt-[339px] xl:row-start-2 xl:-mt-5 xl:pt-0 lg:mt-0 lg:pt-7 sm:col-auto sm:row-auto sm:mt-8 sm:pt-0">
         <Card
           {...cards[1]}
           style={{ top: stickyTopValue }}
