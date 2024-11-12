@@ -260,10 +260,10 @@ export const MENU = {
       items: [
         { name: 'vs. Liquibase', linkUrl: Route.VS_LIQUIBASE },
         { name: 'vs. Flyway', linkUrl: Route.VS_FLYWAY },
+        { name: 'vs. CloudBeaver', linkUrl: Route.VS_CLOUDBEAVER },
         { name: 'vs. DBeaver', linkUrl: Route.VS_DBEAVER },
         { name: 'vs. Navicat', linkUrl: Route.VS_NAVICAT },
         { name: 'vs. Metabase', linkUrl: Route.VS_METABASE },
-        { name: 'vs. CloudBeaver', linkUrl: Route.VS_CLOUDBEAVER },
         { name: 'vs. schemachange', linkUrl: Route.VS_SCHEMACHANGE },
         { name: 'vs. Jira', linkUrl: Route.VS_JIRA },
       ],
