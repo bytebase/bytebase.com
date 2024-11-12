@@ -44,8 +44,8 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
    export bytebase_account=api-sample@service.bytebase.com
    export bytebase_password=bbs_xxxxxxxxxxxxxilcLVG
    bytebase_token=$(curl -v ${bytebase_url}/v1/auth/login \
-         --data-raw '{"email":"'${bytebase_account}'","password":"'${bytebase_password}'","web":true}' \
-         --compressed 2>&1 | grep token | grep -o 'access-token=[^;]*;' | grep -o '[^;]*' | sed 's/access-token=//g; s/;//g')
+      --data-raw '{"email":"'${bytebase_account}'","password":"'${bytebase_password}'","web":true}' \
+      --compressed 2>&1 | grep token | grep -o 'access-token=[^;]*;' | grep -o '[^;]*' | sed 's/access-token=//g; s/;//g')
    echo $bytebase_token
    ```
 
@@ -85,11 +85,11 @@ You may notice that the SQL review rules are not applied to any resources yet fr
 1. Follow the `README.md` to run the scripts to apply the SQL review rules to environments.
 
    ```bash
-      curl --request PATCH "${bytebase_url}/v1/environments/test/policies/tag?allow_missing=true&update_mask=payload" \
+   curl --request PATCH "${bytebase_url}/v1/environments/test/policies/tag?allow_missing=true&update_mask=payload" \
       --header 'Authorization: Bearer '${bytebase_token} \
       --data @binding/environments/test.json
 
-      curl --request PATCH "${bytebase_url}/v1/environments/prod/policies/tag?allow_missing=true&update_mask=payload" \
+   curl --request PATCH "${bytebase_url}/v1/environments/prod/policies/tag?allow_missing=true&update_mask=payload" \
       --header 'Authorization: Bearer '${bytebase_token} \
       --data @binding/environments/prod.json
    ```
@@ -97,7 +97,7 @@ You may notice that the SQL review rules are not applied to any resources yet fr
 1. Continue with the `README.md` to apply the SQL review rules to projects.
 
    ```bash
-      curl --request PATCH "${bytebase_url}/v1/projects/project-sample/policies/tag?allow_missing=true&update_mask=payload" \
+   curl --request PATCH "${bytebase_url}/v1/projects/project-sample/policies/tag?allow_missing=true&update_mask=payload" \
       --header 'Authorization: Bearer '${bytebase_token} \
       --data @binding/projects/project-sample.json
    ```
