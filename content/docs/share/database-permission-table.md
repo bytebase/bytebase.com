@@ -5,4 +5,5 @@
 |                                                                                                       | Export       | `databases.export`       |
 | Write (subject to [execution mode](/docs/administration/environment-policy/overview/#execution-mode)) | Mutation DML | `databases.queryDML`     |
 |                                                                                                       | DDL          | `databases.queryDDL`     |
+| Request change for review                                                                             | Create Issue | `issues.create`          |
 | [Admin](/docs/sql-editor/admin-mode/)                                                                 | Admin        | `instances.adminExecute` |
