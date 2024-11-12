@@ -1,5 +1,5 @@
 ---
-title: Configure SQL Review Rules with Bytebase API
+title: Configure SQL Review Policies with Bytebase API
 author: Ningjing
 updated_at: 2024/11/12 18:00
 tags: Tutorial
@@ -11,7 +11,7 @@ description: 'Learn how to use the Bytebase API to configure SQL review rules in
 
 Bytebase is a database DevOps and CI/CD tool designed for developers, DBAs, and platform engineering teams. While it offers an intuitive GUI for managing database schema changes and access control, some teams may want to integrate Bytebase into their existing DevOps platforms using the [Bytebase API](/docs/api/overview/).
 
-This tutorial will show you how to configure SQL review rules with Bytebase API. With this method, you can prepare your SQL review rules as code in your repository and let the DBAs(or platform engineering team) apply them to Bytebase when needed.
+This tutorial will guide you through configuring SQL review rules using the Bytebase API. This approach allows you to manage SQL review rules as code within your repository, enabling DBAs or platform engineering teams to apply them to Bytebase as needed.
 
 <HintBlock type="info">
 
@@ -53,7 +53,7 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
 
 ### Configure SQL Review Policies
 
-1. Continue to follow the instructions in the `README.md` to run the scripts.
+1. Continue following the `README.md` to run the scripts.
 
    ```bash
       curl --request PATCH ${bytebase_url}/v1/reviewConfigs/basic \
@@ -65,10 +65,10 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
       --data @policy/advanced.json
    ```
 
-1. Go to Bytebase console, navigate to **CI/CD > SQL Review**, you will see the SQL review rules are applied. You may click **Edit** to change the rules.
+1. In the Bytebase console, navigate to **CI/CD > SQL Review** to see the applied SQL review rules. You may click **Edit** to change the rules.
    ![bb-sql-review-config](/content/docs/tutorials/api-sql-review/bb-sql-review-config.webp)
 
-1. You can also run the following command to delete the SQL review rules.
+1. To delete the SQL review rules, use the following commands:
 
    ```bash
       curl --request PATCH "${bytebase_url}/v1/reviewConfigs/basic?allow_missing=true&update_mask=rules" \
@@ -82,9 +82,9 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
 
 ### Apply SQL Review Policies to Resources
 
-You may notice that the SQL review rules are not applied to any resources yet from the above screenshot. In Bytebase, the SQL review rules can be applied to the `environments` or `projects`. Project level rules has higher priority than environment level rules.
+You may notice that the SQL review rules are not applied to any resources yet from the above screenshot. In Bytebase, the SQL review rules can be applied to the `environments` or `projects`. Project-level rules take precedence over environment-level rules.
 
-1. Follow the instructions in the `README.md` to run the scripts which will apply the SQL review rules to the corresponding environments.
+1. Follow the `README.md` to run the scripts to apply the SQL review rules to environments.
 
    ```bash
       curl --request PATCH "${bytebase_url}/v1/environments/test/policies/tag?allow_missing=true&update_mask=payload" \
@@ -96,7 +96,7 @@ You may notice that the SQL review rules are not applied to any resources yet fr
       --data @binding/environments/prod.json
    ```
 
-1. Continue to run the scripts in the `README.md` to apply the SQL review rules to the projects.
+1. Continue with the `README.md` to apply the SQL review rules to projects.
 
    ```bash
       curl --request PATCH "${bytebase_url}/v1/projects/project-sample/policies/tag?allow_missing=true&update_mask=payload" \
@@ -104,16 +104,16 @@ You may notice that the SQL review rules are not applied to any resources yet fr
       --data @binding/projects/project-sample.json
    ```
 
-1. Go to **CI/CD > SQL Review** page, you will see the SQL review rules are applied to environments and projects.
+1. On the **CI/CD > SQL Review** page, you will see the SQL review rules are applied to environments and projects.
    ![bb-sql-review-config-rsc](/content/docs/tutorials/api-sql-review/bb-sql-review-config-rsc.webp)
 
-1. Go to **Environments** page, click **Test** environment, you will see the SQL review rules are applied.
+1. Go to **Environments** page, click **Test** environment to see the applied SQL review rules.
    ![bb-env](/content/docs/tutorials/api-sql-review/bb-env.webp)
 
-1. Go to `Sample Project` page, click **Setting** on the left sidebar, you will see the SQL review rules are applied.
+1. Go to `Sample Project` page, click **Setting** on the left sidebar to see the applied the SQL review rules.
    ![bb-project-setting](/content/docs/tutorials/api-sql-review/bb-project-setting.webp)
 
-1. If you want to delete the SQL review rules, you can run the following commands: environments and projects.
+1. To delete SQL review rules from environments and projects, use the following commands:
 
    ```bash
       curl --request DELETE ${bytebase_url}/v1/environments/test/policies/tag \
@@ -130,4 +130,4 @@ You may notice that the SQL review rules are not applied to any resources yet fr
 
 ## Summary
 
-Congratulations! From now on, besides using the Bytebase GUI to configure SQL review rules, you can also use the Bytebase API to do so. Which makes SQL review policy as code a reality.
+Congratulations! You can now configure SQL review rules using the Bytebase API, in addition to the Bytebase GUI, making SQL review policy as code a reality.
