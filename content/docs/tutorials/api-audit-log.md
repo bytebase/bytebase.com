@@ -9,7 +9,7 @@ estimated_time: '40 mins'
 description: 'Learn how to use the Bytebase API to fetch audit log in Bytebase'
 ---
 
-Bytebase is a database DevOps and CI/CD tool designed for developers, DBAs, and platform engineering teams. While it offers an intuitive GUI for managing database schema changes and access control, some teams may want to integrate Bytebase into their existing DevOps platforms using the [Bytebase API](/docs/api/overview/).
+Bytebase is a database DevSecOps platform designed for developers, security, DBA, and platform engineering teams. While it offers an intuitive GUI for managing database schema changes and access control, some teams may want to integrate Bytebase into their existing DevOps platforms using the [Bytebase API](/docs/api/overview/).
 
 ![before-after](/content/docs/tutorials/api-audit-log/api-audit-log-graph.webp)
 
