@@ -12,7 +12,7 @@ organizations to protect sensitive data from being exposed to unauthorized users
 
 <HintBlock type="info">
 
-You can configure the masking policies from UI or via API. Check out [this GitOps example](https://github.com/bytebase/api-example/tree/main/data-security) to see how to codify the masking policies.
+You can configure the masking policies from UI or via API. Check out [this GitOps example](https://github.com/bytebase/database-security-github-actions-example) to see how to codify the masking policies.
 
 </HintBlock>
 

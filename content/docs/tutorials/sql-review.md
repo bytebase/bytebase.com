@@ -142,7 +142,7 @@ You may call [Bytebase API](/docs/api/sql-review/) in your internal portal or Gi
   Sample portal to call Bytebase API to trigger schema change including SQL Review.
   ![bb-api](/content/docs/tutorials/sql-review/bb-api.webp)
 
-- [🐙 API in GitHub Actions Example](https://github.com/bytebase/github-action-example)
+- [🐙 API in GitHub Actions Example](https://github.com/bytebase/cicd-github-actions-example)
 
   Sample github custom actions to call Bytebase API to coordinate the schema migration in Bytebase with the GitHub PR workflow.
   ![bb-gh-action](/content/docs/tutorials/sql-review/bb-gh-action.webp)

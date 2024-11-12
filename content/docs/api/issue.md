@@ -21,7 +21,7 @@ title: Issue
 
 ## How to create an issue
 
-Code sample: https://github.com/bytebase/github-action-example/blob/main/.github/actions/upsert-issue/index.ts#L68-L75
+Code sample: https://github.com/bytebase/cicd-github-actions-example/blob/main/.github/actions/upsert-issue/index.ts#L68-L75
 
 ```go
 // Create plan
