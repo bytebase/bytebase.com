@@ -1,5 +1,5 @@
 ---
-title: Configure SQL Review Policies with Bytebase API
+title: Codify SQL Review Policies with Bytebase API
 author: Ningjing
 updated_at: 2024/11/12 18:00
 tags: Tutorial

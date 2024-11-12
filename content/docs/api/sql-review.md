@@ -3,6 +3,7 @@ title: SQL Review API
 ---
 
 <TutorialBlock url="/docs/tutorials/sql-review" title="Master SQL Review with GUI, GitOps and API" />
+<TutorialBlock url="/docs/tutorials/api-sql-review/" title="Codify SQL Review Policies with Bytebase API" />
 
 |          |                                                                                  |
 | -------- | -------------------------------------------------------------------------------- |
