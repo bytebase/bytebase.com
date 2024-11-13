@@ -30,7 +30,7 @@ const BlogPostHero = ({ post, isBlogPost = true }: BlogPostHeroProps) => {
     <section
       className={clsx(
         isBlogPost
-          ? 'pt-[136px] 2xl:pt-32 lg:pt-[120px] md:pt-[104px] sm:pt-24'
+          ? 'pt-[136px] 2xl:pt-32 lg:pt-[120px] md:pt-[104px] sm:pt-8'
           : 'mt-16 2xl:mt-14 lg:mt-12 md:mt-8',
         'container',
       )}
