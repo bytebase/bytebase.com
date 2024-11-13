@@ -14,7 +14,7 @@ const head: AccordionHead = {
 
 const data: AccordionData[] = [
   {
-    title: 'Run query',
+    title: 'Query with auto-complete',
     description: 'Run ad-hoc queries to explore data.',
     image: '/images/page/main/sql-editor/run.webp',
   },
@@ -24,7 +24,7 @@ const data: AccordionData[] = [
     image: '/images/page/main/sql-editor/access-control.webp',
   },
   {
-    title: 'Mask data',
+    title: 'Mask data on the fly',
     description:
       'Built-in dynamic data masking to protect sensitive information without performance impact.',
     image: '/images/page/main/sql-editor/mask.webp',
