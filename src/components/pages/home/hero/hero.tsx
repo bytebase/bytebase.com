@@ -146,7 +146,7 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
             </Link>
           )}
           <div className="relative mt-4 xl:mt-3.5 sm:mt-3">
-            <h1 className="font-title text-120 font-semibold leading-none 3xl:max-w-4xl xl:max-w-2xl xl:text-90 xl:leading-95 md:max-w-2xl md:text-80 sm:text-48">
+            <h1 className="font-title text-112 font-semibold leading-none 3xl:max-w-4xl xl:max-w-2xl xl:text-90 xl:leading-95 md:max-w-2xl md:text-80 sm:text-48">
               Database CI/CD and <mark className="bg-transparent text-primary-1">Security</mark> at
               Scale
             </h1>
