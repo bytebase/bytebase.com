@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
 import Pill from '@/components/shared/pill';
-import '@/styles/sql-editor-hero.css';
+import { generateScrollAnimationCSS } from '@/utils/hero-animate';
 
 type HeroProps = {
   // subjects is an array of comparison subjects.
@@ -51,7 +51,15 @@ const Hero = ({ subjects }: HeroProps) => {
               {initialed && isSubjectsScrollable ? (
                 <>
                   <div className="absolute z-[1] h-4 w-full bg-white blur-md" />
-                  <div className="scroll-animation flex flex-col items-end justify-center">
+                  <style
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={{
+                      __html: generateScrollAnimationCSS(scrollableSubjects.length),
+                    }}
+                  />
+                  <div
+                    className={`scroll-animation-${scrollableSubjects.length} flex flex-col items-end justify-center`}
+                  >
                     {scrollableSubjects.map((subject, index) => (
                       // eslint-disable-next-line react/no-array-index-key
                       <mark key={`${subject}-${index}`} className="bg-transparent text-primary-1">
