@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { codeInspectorPlugin } = require('code-inspector-plugin');
+
 const skippedSectionsInNewWebsite = [
   '/database-review-guide',
   '/techstack',
@@ -138,6 +141,7 @@ module.exports = {
     ];
   },
   webpack: (config) => {
+    config.plugins.push(codeInspectorPlugin({ bundler: 'webpack' }));
     config.module.rules.push({
       test: /\.inline.svg$/,
       use: [
