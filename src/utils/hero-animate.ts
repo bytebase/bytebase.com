@@ -12,6 +12,7 @@ export const generateScrollAnimationCSS = (size: number): string => {
   const keyframes: string[] = [];
   const stepPercentage = 100 / (size - 1);
   const transformStep = 100 / size;
+  const animateDuration = 3;
 
   for (let i = 0; i < size; i++) {
     const percentage = i * stepPercentage;
@@ -35,8 +36,8 @@ export const generateScrollAnimationCSS = (size: number): string => {
 
   return `
     .scroll-animation-${size} {
-      animation: hero-scroll-${size} ${3 * (size - 1)}s ease-in-out infinite;
-      animation-delay: 3s;
+      animation: hero-scroll-${size} ${animateDuration * (size - 1)}s ease-in-out infinite;
+      animation-delay: ${animateDuration}s;
     }
     ${keyframesCSS}
   `;
