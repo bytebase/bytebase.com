@@ -3,7 +3,7 @@ title: 'The Guardians of Database DevSecOps'
 author: Tianzhou
 updated_at: 2024/11/14 21:00:00
 feature_image: /content/blog/database-devsecops-guardians/cover.webp
-tags: Industry, Hidden
+tags: Industry
 description: In a mystical land where data flows like rivers, four heroes — a warrior, a cleric, a druid, and a paladin — unite to tame the Hydra of Database DevSecOps, a powerful three-headed dragon embodying Velocity, Security, and Reliability.
 ---
 
