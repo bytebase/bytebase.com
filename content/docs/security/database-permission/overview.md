@@ -13,7 +13,7 @@ Database permission controls individual users' or groups' actions within the dat
 | Workspace DBA     | ✅      | ✅    | ✅     | ✅           | ✅  | ✅    |
 | Project Owner     | ✅      | ✅    | ✅     | ✅           | ✅  |       |
 | Project Developer |         |       |        | \*           | \*  |       |
-| Project Querier   | ✅      | ✅    |        |              |     |       |
+| Project Querier   | ✅      | ✅    |        | ✅           | ✅  |       |
 | Project Exporter  |         |       | ✅     |              |     |       |
 | Project Releaser  |         |       |        |              |     |       |
 | Project Viewer    |         |       |        |              |     |       |
