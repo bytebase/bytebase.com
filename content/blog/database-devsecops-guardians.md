@@ -29,7 +29,7 @@ Beside him stands the steadfast **DBA, a wise cleric🧙** cloaked in deep purpl
 
 ![platform](/content/blog/database-devsecops-guardians/platform.webp)
 
-To Dev’s other side is the powerful **Platform Engineer, a druid🐻** draped in furs and feathers, symbolizing the strength and resilience of the infrastructure. The Platform Engineer’s mastery of the landscape allows them to provide a stable foundation upon which all other advancements rely. With an unwavering gaze, the druid keeps the systems in sync with nature’s rhythm, ensuring the entire ecosystem functions smoothly and resiliently.
+To Developer’s other side is the powerful **Platform Engineer, a druid🐻** draped in furs and feathers, symbolizing the strength and resilience of the infrastructure. The Platform Engineer’s mastery of the landscape allows them to provide a stable foundation upon which all other advancements rely. With an unwavering gaze, the druid keeps the systems in sync with nature’s rhythm, ensuring the entire ecosystem functions smoothly and resiliently.
 
 ![security](/content/blog/database-devsecops-guardians/security.webp)
 
@@ -37,7 +37,7 @@ And finally, on the far side, stands the **Security Engineer, a noble paladin�
 
 ![cover](/content/blog/database-devsecops-guardians/cover.webp)
 
-Together, the guild faces the Hydra of Database DevSecOps, each member knowing that they must work in harmony to subdue the beast. Dev’s speed alone could provoke the dragon’s wrath, leading to instability. The DBA’s wisdom ensures that their actions are thoughtful and balanced, while the Platform Engineer’s resilience provides a solid foundation. Finally, the Security Engineer’s vigilance keeps danger at bay, allowing the team to operate within a safe framework.
+Together, the guild faces the Hydra of Database DevSecOps, each member knowing that they must work in harmony to subdue the beast. Developer’s speed alone could provoke the dragon’s wrath, leading to instability. The DBA’s wisdom ensures that their actions are thoughtful and balanced, while the Platform Engineer’s resilience provides a solid foundation. Finally, the Security Engineer’s vigilance keeps danger at bay, allowing the team to operate within a safe framework.
 
 The guild knows they cannot slay the Hydra, for it is an eternal entity born from the very needs of the kingdom. Instead, their quest is to tame it — to transform its chaotic energy into a disciplined force that propels the realm forward while keeping it safe and reliable. With weapons drawn, spells prepared, and shields at the ready, the heroes advance, knowing that the journey will be long and fraught with challenges. But united in purpose, they march on, for they are the guardians of Database DevSecOps, bound by a common oath to protect, stabilize, and advance their world.
 
