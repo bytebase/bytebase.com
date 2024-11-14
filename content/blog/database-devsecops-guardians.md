@@ -19,21 +19,23 @@ At the base of the mountain stand four mighty heroes, each a master of their cra
 protectors of the realm, determined to tame the Hydra and harness its powers for the good of the kingdom.
 Together, they form the legendary Database DevSecOps Guild, each member bringing their own unique skills and virtues to the team.
 
-Leading the charge is **Dev, the bold and dynamic warrior🗡️**. Clad in light armor and wielding a gleaming sword, Dev embodies the spirit of rapid progress and continuous improvement. His eyes are sharp and eager, always looking for ways to move forward faster. But he knows well that unchecked speed can lead to chaos — a lesson he learned from the many scars he bears.
-
 ![dev](/content/blog/database-devsecops-guardians/dev.webp)
 
-Beside him stands the steadfast **DBA, a wise cleric cloaked🧙** in deep purple robes, marked with the ancient sigils of knowledge and control. The DBA keeps the others grounded, holding a potion of database healing and monitoring with a careful eye, ready to mend any cracks that emerge in the system. With every spell and incantation, the DBA maintains the equilibrium between the push for innovation and the need for structure.
+Leading the charge is **Dev, the bold and dynamic warrior🗡️**. Clad in light armor and wielding a gleaming sword, Dev embodies the spirit of rapid progress and continuous improvement. His eyes are sharp and eager, always looking for ways to move forward faster. But he knows well that unchecked speed can lead to chaos — a lesson he learned from the many scars he bears.
 
 ![dba](/content/blog/database-devsecops-guardians/dba.webp)
 
-To Dev’s other side is the powerful **Platform Engineer, a druid🐻** draped in furs and feathers, symbolizing the strength and resilience of the infrastructure. The Platform Engineer’s mastery of the landscape allows them to provide a stable foundation upon which all other advancements rely. With an unwavering gaze, the druid keeps the systems in sync with nature’s rhythm, ensuring the entire ecosystem functions smoothly and resiliently.
+Beside him stands the steadfast **DBA, a wise cleric cloaked🧙** in deep purple robes, marked with the ancient sigils of knowledge and control. The DBA keeps the others grounded, holding a potion of database healing and monitoring with a careful eye, ready to mend any cracks that emerge in the system. With every spell and incantation, the DBA maintains the equilibrium between the push for innovation and the need for structure.
 
 ![platform](/content/blog/database-devsecops-guardians/platform.webp)
 
-And finally, on the far side, stands the **Security Engineer, a noble paladin🛡️** donned in shining armor, bearing a massive shield with the symbol of a lock. The Security Engineer is the last line of defense, ensuring that the domain is safeguarded against malevolent forces. Their shield can withstand the strongest of blows, warding off threats that lurk beyond the boundaries of the kingdom.
+To Dev’s other side is the powerful **Platform Engineer, a druid🐻** draped in furs and feathers, symbolizing the strength and resilience of the infrastructure. The Platform Engineer’s mastery of the landscape allows them to provide a stable foundation upon which all other advancements rely. With an unwavering gaze, the druid keeps the systems in sync with nature’s rhythm, ensuring the entire ecosystem functions smoothly and resiliently.
 
 ![security](/content/blog/database-devsecops-guardians/security.webp)
+
+And finally, on the far side, stands the **Security Engineer, a noble paladin🛡️** donned in shining armor, bearing a massive shield with the symbol of a lock. The Security Engineer is the last line of defense, ensuring that the domain is safeguarded against malevolent forces. Their shield can withstand the strongest of blows, warding off threats that lurk beyond the boundaries of the kingdom.
+
+![cover](/content/blog/database-devsecops-guardians/cover.webp)
 
 Together, the guild faces the Hydra of DevSecOps, each member knowing that they must work in harmony to subdue the beast. Dev’s speed alone could provoke the dragon’s wrath, leading to instability. The DBA’s wisdom ensures that their actions are thoughtful and balanced, while the Platform Engineer’s resilience provides a solid foundation. Finally, the Security Engineer’s vigilance keeps danger at bay, allowing the team to operate within a safe framework.
 
