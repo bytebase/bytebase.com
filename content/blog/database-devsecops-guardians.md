@@ -21,11 +21,11 @@ Together, they form the legendary Database DevSecOps Guild, each member bringing
 
 ![dev](/content/blog/database-devsecops-guardians/dev.webp)
 
-Leading the charge is **Dev, the bold and dynamic warrior🗡️**. Clad in light armor and wielding a gleaming sword, Dev embodies the spirit of rapid progress and continuous improvement. His eyes are sharp and eager, always looking for ways to move forward faster. But he knows well that unchecked speed can lead to chaos — a lesson he learned from the many scars he bears.
+Leading the charge is **Developer, the bold and dynamic warrior🗡️**. Clad in light armor and wielding a gleaming sword, Dev embodies the spirit of rapid progress and continuous improvement. His eyes are sharp and eager, always looking for ways to move forward faster. But he knows well that unchecked speed can lead to chaos — a lesson he learned from the many scars he bears.
 
 ![dba](/content/blog/database-devsecops-guardians/dba.webp)
 
-Beside him stands the steadfast **DBA, a wise cleric cloaked🧙** in deep purple robes, marked with the ancient sigils of knowledge and control. The DBA keeps the others grounded, holding a potion of database healing and monitoring with a careful eye, ready to mend any cracks that emerge in the system. With every spell and incantation, the DBA maintains the equilibrium between the push for innovation and the need for structure.
+Beside him stands the steadfast **DBA, a wise cleric🧙** cloaked in deep purple robes, marked with the ancient sigils of knowledge and control. The DBA keeps the others grounded, holding a potion of database healing and monitoring with a careful eye, ready to mend any cracks that emerge in the system. With every spell and incantation, the DBA maintains the equilibrium between the push for innovation and the need for structure.
 
 ![platform](/content/blog/database-devsecops-guardians/platform.webp)
 
@@ -37,7 +37,7 @@ And finally, on the far side, stands the **Security Engineer, a noble paladin�
 
 ![cover](/content/blog/database-devsecops-guardians/cover.webp)
 
-Together, the guild faces the Hydra of DevSecOps, each member knowing that they must work in harmony to subdue the beast. Dev’s speed alone could provoke the dragon’s wrath, leading to instability. The DBA’s wisdom ensures that their actions are thoughtful and balanced, while the Platform Engineer’s resilience provides a solid foundation. Finally, the Security Engineer’s vigilance keeps danger at bay, allowing the team to operate within a safe framework.
+Together, the guild faces the Hydra of Database DevSecOps, each member knowing that they must work in harmony to subdue the beast. Dev’s speed alone could provoke the dragon’s wrath, leading to instability. The DBA’s wisdom ensures that their actions are thoughtful and balanced, while the Platform Engineer’s resilience provides a solid foundation. Finally, the Security Engineer’s vigilance keeps danger at bay, allowing the team to operate within a safe framework.
 
 The guild knows they cannot slay the Hydra, for it is an eternal entity born from the very needs of the kingdom. Instead, their quest is to tame it — to transform its chaotic energy into a disciplined force that propels the realm forward while keeping it safe and reliable. With weapons drawn, spells prepared, and shields at the ready, the heroes advance, knowing that the journey will be long and fraught with challenges. But united in purpose, they march on, for they are the guardians of Database DevSecOps, bound by a common oath to protect, stabilize, and advance their world.
 
