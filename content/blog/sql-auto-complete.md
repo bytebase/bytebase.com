@@ -137,9 +137,9 @@ The entire autocomplete architecture is actually very simple and consists of two
 
 ## Autocomplete Core on ANTLR4
 
-Thanks to ANTLR4! The ANTLR4 runtime provides interfaces for using and manipulating the Augmented Transition Network (ATN), which makes it easy for us to do what we need with the ATN.
+Thanks to ANTLR4! The ANTLR4 runtime provides interfaces for using and manipulating the ATN, which makes it easy for us to do what we need with the ATN.
 
-The general idea here is to first traverse the ATN to the cursor position, then find the possible subsequent states from the current state. These "possible subsequent states" are referred to as the `Follow Set`. We then check the `Follow Set` to see if it contains any syntax rules or terminals that we are interested in. After that, we collect these candidates and pass them to the next stage.
+The general idea here is to first traverse the ATN to the cursor position, then find the possible subsequent states from the current state. These possible subsequent states are referred to as the `Follow Set`. We then check the `Follow Set` to see if it contains any syntax rules or terminals that we are interested in. After that, we collect these candidates and pass them to the next stage.
 
 Here’s a small optimization: it's clear that the `Follow Set` only depends on the ATN, so we can pre-compute and cache all the `Follow Sets` for each specific grammar. This way, we don't need to recalculate them every time we perform autocomplete.
 
