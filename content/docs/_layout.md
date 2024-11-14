@@ -85,6 +85,14 @@ expand_section_list: ['Self-host']
 
 #### [API](/sql-review/api)
 
+### Approve
+
+#### [Custom Approval](/administration/custom-approval)
+
+#### [Risk Center](/administration/risk-center)
+
+#### [Rollout Policy](/administration/environment-policy/rollout-policy)
+
 ### Rollback
 
 #### [Data Rollback](/change-database/rollback-data-changes)
@@ -116,12 +124,6 @@ expand_section_list: ['Self-host']
 ### Settings
 
 #### [Webhook](/change-database/webhook)
-
-#### [Rollout Policy](/administration/environment-policy/rollout-policy)
-
-#### [Custom Approval](/administration/custom-approval)
-
-#### [Risk Center](/administration/risk-center)
 
 #### [Schema Template](/administration/schema-template)
 
