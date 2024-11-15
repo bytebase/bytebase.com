@@ -25,7 +25,7 @@ Leading the charge is **Developer, the bold and dynamic warrior🗡️**. Clad i
 
 ![dba](/content/blog/database-devsecops-guardians/dba.webp)
 
-Beside him stands the steadfast **DBA, a wise cleric🧙** cloaked in deep purple robes, marked with the ancient sigils of knowledge and control. The DBA keeps the others grounded, holding a potion of database healing and monitoring with a careful eye, ready to mend any cracks that emerge in the system. With every spell and incantation, the DBA maintains the equilibrium between the push for innovation and the need for structure.
+Beside him stands the steadfast **DBA, a wise cleric🧙** cloaked in deep purple robes, marked with the ancient sigils of knowledge and control.The DBA keeps the others grounded, wielding a flame of database power and vigilance, casting it to ward off corruption and keep the system’s foundations strong. With every spell and incantation, the DBA ensures the delicate balance between innovation and structure remains intact.
 
 ![platform](/content/blog/database-devsecops-guardians/platform.webp)
 
