@@ -1,40 +1,35 @@
+import { BsGithub, BsDiscord, BsTwitterX, BsYoutube, BsLinkedin } from 'react-icons/bs';
+
 import Link from '@/components/shared/link';
 
 import { MENU } from '@/lib/menus';
 import Route from '@/lib/route';
 
-import DiscordIcon from '@/svgs/discord.inline.svg';
-import GithubIcon from '@/svgs/github.inline.svg';
-import TwitterIcon from '@/svgs/twitter.inline.svg';
-import LinkedInIcon from '@/svgs/linkedin.inline.svg';
-import YoutubeIcon from '@/svgs/youtube.inline.svg';
-import LocaleSwitcher from '@/components/locale-switcher';
-
 const socialLinks = [
   {
     name: 'Github',
     href: Route.GITHUB,
-    icon: GithubIcon,
+    icon: BsGithub,
   },
   {
     name: 'Discord',
     href: Route.DISCORD,
-    icon: DiscordIcon,
+    icon: BsDiscord,
   },
   {
     name: 'Twitter',
-    href: Route.TWITTER,
-    icon: TwitterIcon,
+    href: Route.X,
+    icon: BsTwitterX,
   },
   {
     name: 'Youtube',
     href: Route.YOUTUBE,
-    icon: YoutubeIcon,
+    icon: BsYoutube,
   },
   {
     name: 'LinkedIn',
     href: Route.LINKEDIN,
-    icon: LinkedInIcon,
+    icon: BsLinkedin,
   },
 ];
 
@@ -94,8 +89,7 @@ const Footer = () => {
             >
               <span className="sr-only">{name}</span>
               <Icon
-                width={24}
-                height={24}
+                size={24}
                 className="shrink-0 transition-opacity duration-200 hover:opacity-80"
               />
             </Link>

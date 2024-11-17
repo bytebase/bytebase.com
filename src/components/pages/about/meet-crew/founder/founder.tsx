@@ -1,10 +1,8 @@
-import Link from '@/components/shared/link';
-import Image from 'next/image';
-
 import clsx from 'clsx';
+import Image from 'next/image';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
 
-import LinkedInIcon from '@/svgs/linkedin.inline.svg';
-import GitHubIcon from '@/svgs/github.inline.svg';
+import Link from '@/components/shared/link';
 
 const founder = {
   danny: {
@@ -105,17 +103,15 @@ const Founder = ({ id, className }: { id: keyof typeof founder; className?: stri
               <div className="flex items-center">
                 {position}
                 <Link href={linkedin}>
-                  <LinkedInIcon
-                    width={20}
-                    height={20}
-                    className="ml-1 shrink-0 items-center transition-opacity duration-200 hover:opacity-80"
+                  <BsLinkedin
+                    size={16}
+                    className="ml-2 shrink-0 items-center transition-opacity duration-200 hover:opacity-80"
                   />
                 </Link>
                 <Link href={github}>
-                  <GitHubIcon
-                    width={16}
-                    height={16}
-                    className="ml-1 shrink-0 items-center transition-opacity duration-200 hover:opacity-80"
+                  <BsGithub
+                    size={16}
+                    className="ml-2 shrink-0 items-center transition-opacity duration-200 hover:opacity-80"
                   />
                 </Link>
               </div>

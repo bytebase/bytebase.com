@@ -146,7 +146,7 @@ const Route = {
   LIVE_DEMO: 'https://demo.bytebase.com',
   HUB: 'https://hub.bytebase.com/workspace',
   DISCORD: 'https://discord.com/invite/huyw7gRsyA',
-  TWITTER: 'https://twitter.com/Bytebase',
+  X: 'https://x.com/Bytebase',
   YOUTUBE: 'https://www.youtube.com/channel/UCIlxsMmakGxeaAwpu1Z6jJg',
   GITHUB: 'https://github.com/bytebase/bytebase',
   LINKEDIN: 'https://www.linkedin.com/company/bytebase',
