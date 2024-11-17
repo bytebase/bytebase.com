@@ -1,4 +1,4 @@
-import { BsGithub, BsDiscord, BsTwitterX } from 'react-icons/bs';
+import { BsGithub, BsDiscord, BsTwitter } from 'react-icons/bs';
 
 import NextLink from 'next/link';
 
@@ -31,7 +31,7 @@ const socials = [
 
 const icon = {
   Discord: BsDiscord,
-  Twitter: BsTwitterX,
+  Twitter: BsTwitter,
   GitHub: BsGithub,
 };
 
