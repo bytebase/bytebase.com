@@ -14,7 +14,7 @@ const Hero = () => {
           <br />
           Want to be notified? Follow us on{' '}
           <Link
-            href={Route.TWITTER}
+            href={Route.X}
             target="_blank"
             className="font-semibold text-primary-1 hover:text-gray-60"
           >
