@@ -6,11 +6,10 @@ feature_name: USER_GROUPS
 `User Group` or simply `Group` contains a set of users. `Group` simplifies access management as you can grant
 roles to a `Group` instead of granting to the individual users one by one.
 
-<HintBlock type="info">
+## Constraints
 
-Bytebase does not support nested group. A group can only contain users, it can't contain another group.
-
-</HintBlock>
+- Bytebase does not support nested group. A group can only contain users, it can't contain another group.
+- You can only add normal user account to the group and can not add service account. Service account within a group is an [anti-pattern](https://cloud.google.com/iam/docs/best-practices-service-accounts#groups).
 
 ## Add group
 
@@ -49,3 +48,9 @@ Now you can see the `Contractor Group` under **View by members** page as well as
 ![project-members-or-roles](/content/docs/administration/user-groups/project-members-or-roles.webp)
 
 All members within this group now share permission to the project.
+
+## Service account
+
+You can only add normal user account to the group and can not add service account.
+
+Service accounts are designed for application use, with each application typically having unique access needs. Since applications rarely perform identical functions, their required resource access tends to differ, making shared or identical permissions uncommon.
