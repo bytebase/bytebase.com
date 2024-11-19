@@ -1,5 +1,5 @@
 ---
-title: Applying Data Masking with GitHub Actions - Part 1
+title: 'Applying Data Masking with GitHub Actions - Part 1'
 author: Ningjing
 updated_at: 2024/11/19 18:00
 tags: Tutorial
@@ -8,6 +8,7 @@ level: Advanced
 estimated_time: '30 mins'
 description: 'Learn how to automate database masking policies using GitHub Actions and Bytebase API'
 ---
+
 Bytebase is a database DevSecOps platform designed for developers, security, DBA, and platform engineering teams. While it offers an intuitive GUI for managing database schema changes and access control, some teams may want to integrate Bytebase into their existing DevOps platforms using the [Bytebase API](/docs/api/overview/).
 
 Bytebase provides database [dynamic data masking feature](/docs/security/data-masking/overview/) in the **Enterprise Plan**, which can mask sensitive data in the SQL Editor query result based on the context. It helps organizations to protect sensitive data from being exposed to unauthorized users.
@@ -40,6 +41,7 @@ The complete code for this tutorial is available at: [database-security-github-a
 ## Prerequisites
 
 Before you begin, make sure you have:
+
 - [Docker](https://www.docker.com/) installed
 - A [GitHub](https://github.com/) account
 - An[ngrok](http://ngrok.com/) account
