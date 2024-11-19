@@ -44,7 +44,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with GitLab 
 
 1. Go to `https://gitlab.com/` and create a new project `bb-gitops-2024`. Click **Create project**.
 
-1. Go to Bytebase, go to the `Sample Project`. Click **Integration >GitOps** on the left and click **Add GitOps connector**. Choose `GitLab.com` (the git provider you just configured) and `Bytebase Sample/bb-gitops-2024` (the repository you just created).
+1. Go to Bytebase, go to the `Sample Project`. Click **Integration > GitOps** on the left and click **Add GitOps connector**. Choose `GitLab.com` (the git provider you just configured) and `Bytebase Sample/bb-gitops-2024` (the repository you just created).
 
 1. Keep the default settings for the remaining fields and click **Finish**. The gitops connector is created successfully.
    ![bb-gitops-gitlab-configure](/content/docs/tutorials/database-cicd-best-practice-with-gitlab/bb-gitops-gitlab-configure.webp)
