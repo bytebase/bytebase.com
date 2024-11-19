@@ -133,6 +133,18 @@ const LUXOR: Logo = {
   mobileOrderClassName: 'xs:order-1',
 };
 
+const NOTE: Logo = {
+  alt: 'Note',
+  src: '/images/logos/note.svg',
+  width: 160,
+  height: 64,
+  small: {
+    width: 110,
+    height: 40,
+  },
+  mobileOrderClassName: 'xs:order-1',
+};
+
 const MATRIX_PORT: Logo = {
   alt: 'Meta',
   src: '/images/logos/matrix-port.svg',
@@ -292,8 +304,8 @@ const ZEEKR: Logo = {
 export const FULL_LOGO_LIST: Logo[] = [
   LINEAR,
   TENCENT,
-  LayerX,
   KAKAO,
+  NOTE,
   REDHAT,
   PROPERTY_GURU,
   SALLA,
@@ -301,12 +313,12 @@ export const FULL_LOGO_LIST: Logo[] = [
   TELKOM_INDONESIA,
   BYD,
   APTIVE,
-  PAYER_MAX,
+  LayerX,
 ];
 
 export const FINANCIAL_LOGO_LIST: Logo[] = [LONG_BRIDGE, XENDIT, PAYER_MAX];
 
-export const TECHNOLOGY_LOGO_LIST: Logo[] = [LINEAR, ROLLER, SALLA, KAKAO];
+export const TECHNOLOGY_LOGO_LIST: Logo[] = [LINEAR, ROLLER, SALLA, NOTE];
 
 export const MANUFACTURING_LOGO_LIST: Logo[] = [BYD, LI_AUTO, CVTE, ZEEKR];
 
