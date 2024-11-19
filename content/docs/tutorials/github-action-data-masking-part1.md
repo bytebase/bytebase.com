@@ -87,7 +87,7 @@ Let's dig into the GitHub Actions workflow [code](https://github.com/bytebase/da
 
 1. **Apply Masking Columns**: Then step `Apply column masking` will apply the column masking to the database. First it will parse all the column masking files and then do a loop to apply the column masking to the database one by one. The code it calls Bytebase API is as follows:
 
-   ```
+   ```bash
    response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/instances/${INSTANCE_NAME}/databases/${DATABASE_NAME}/policies/masking?allow_missing=true&update_mask=payload" \
       --header "Authorization: Bearer ${BYTEBASE_TOKEN}" \
       --header "Content-Type: application/json" \
