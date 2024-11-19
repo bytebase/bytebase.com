@@ -7,7 +7,11 @@ import { BlogPost } from '@/types/blog-post';
 
 export const metadata = getMetadata(SEO_DATA.DATA_MASKING);
 
-const POSTS = ['how-to-manage-database-access-control', 'mysql-data-masking', 'bytebase-vs-flyway'];
+const POSTS = [
+  'what-is-dynamic-data-masking',
+  'how-to-manage-database-access-control',
+  'bytebase-vs-cloudbeaver',
+];
 
 const DataMaskingPage = () => {
   const relatedPosts: BlogPost[] = [];
