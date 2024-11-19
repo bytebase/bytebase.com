@@ -9,7 +9,7 @@ estimated_time: '40 mins'
 description: 'Learn how to use the Bytebase API to configure SQL review rules in Bytebase'
 ---
 
-Bytebase is a database DevSecOps platform designed for developers, security, DBA, and platform engineering teams. While it offers an intuitive GUI for managing database schema changes and access control, some teams may want to integrate Bytebase into their existing DevOps platforms using the [Bytebase API](/docs/api/overview/).
+<IncludeBlock url="/docs/share/tutorials/api-preface"></IncludeBlock>
 
 This tutorial will guide you through configuring SQL review rules using the Bytebase API. This approach allows you to manage SQL review rules as code within your repository, enabling DBAs or platform engineering teams to apply them to Bytebase as needed.
 

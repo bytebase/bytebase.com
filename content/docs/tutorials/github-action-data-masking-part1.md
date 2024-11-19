@@ -9,7 +9,7 @@ estimated_time: '30 mins'
 description: 'Learn how to automate database masking policies using GitHub Actions and Bytebase API'
 ---
 
-Bytebase is a database DevSecOps platform designed for developers, security, DBA, and platform engineering teams. While it offers an intuitive GUI for managing database schema changes and access control, some teams may want to integrate Bytebase into their existing DevOps platforms using the [Bytebase API](/docs/api/overview/).
+<IncludeBlock url="/docs/share/tutorials/api-preface"></IncludeBlock>
 
 Bytebase provides database [dynamic data masking feature](/docs/security/data-masking/overview/) in the **Enterprise Plan**, which can mask sensitive data in the SQL Editor query result based on the context. It helps organizations to protect sensitive data from being exposed to unauthorized users.
 
