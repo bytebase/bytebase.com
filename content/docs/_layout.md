@@ -175,13 +175,13 @@ expand_section_list: ['Self-host']
 
 ### [Column Masking](/security/data-masking/column-masking)
 
+### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
+
 ### [Data Classification](/security/data-masking/data-classification)
 
 ### [Masking Algorithm](/security/data-masking/masking-algorithm)
 
 ### [Semantic Types](/security/data-masking/semantic-types)
-
-### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
 
 ### [Export Masked Data](/security/data-masking/export-masked-data)
 
