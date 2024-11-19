@@ -11,16 +11,16 @@ description: 'Learn how to automate database masking policies using GitHub Actio
 
 <IncludeBlock url="/docs/share/tutorials/api-preface"></IncludeBlock>
 
-Bytebase provides database [dynamic data masking feature](/docs/security/data-masking/overview/) in the **Enterprise Plan**, which can mask sensitive data in the SQL Editor query result based on the context. It helps organizations to protect sensitive data from being exposed to unauthorized users.
+Bytebase provides database [dynamic data masking](/docs/security/data-masking/overview/) in the **Enterprise Plan**, which can mask sensitive data in the SQL Editor query result based on the context on the fly. It helps organizations to protect sensitive data from being exposed to unauthorized users.
 
-By using GitHub Actions with Bytebase API, you can implement policy-as-code to apply database masking policies when a pull request is merged. This tutorial will guide you through the process.
+By using GitHub Actions with Bytebase API, you can implement policy-as-code to apply database masking policies via the GitOps workflow. This tutorial will guide you through the process.
 
 ---
 
 This is Part 1 of our tutorial series on implementing automated database masking using GitHub Actions:
 
-- Part 1: Applying Data Masking with GitHub Actions (this one)
-- Part 2: Customizing Data Masking Algorithm with GitHub Actions
+- Part 1: Column masking and masking exception with GitHub Actions (this one)
+- Part 2: Masking Algorithm with GitHub Actions
 - Part 3: Data Classification and Global Masking with GitHub Actions
 
 ## Overview
@@ -44,8 +44,8 @@ Before you begin, make sure you have:
 
 - [Docker](https://www.docker.com/) installed
 - A [GitHub](https://github.com/) account
-- An[ngrok](http://ngrok.com/) account
-- Bytebase Enterprise Plan subscription
+- An [ngrok](http://ngrok.com/) account
+- Bytebase Enterprise Plan subscription (you can request a free trial)
 
 ## Setup Instructions
 
@@ -67,40 +67,40 @@ Before you begin, make sure you have:
 
 ### Step 4 - Configure GitHub Actions
 
-1. Go to [Database Security GitHub Actions Example](https://github.com/bytebase/database-security-github-actions-example) and clone it.
+1. Fork [Database Security GitHub Actions Example](https://github.com/bytebase/database-security-github-actions-example).
 
 1. Click **Settings** and then click **Secrets and variables > Actions**. Add the following secrets:
 
    - `BYTEBASE_URL`: ngrok external URL
    - `BYTEBASE_SERVICE_KEY`: `api-example@service.bytebase.com`
-   - `BYTEBASE_SERVICE_SECRET`: service key copied in previous step
+   - `BYTEBASE_SERVICE_SECRET`: service key copied in the previous step
 
 ## Understanding the Workflow
 
-Let's dig into the GitHub Actionsworkflow [code](https://github.com/bytebase/database-security-github-actions-example/blob/main/.github/workflows/bb-masking-1.yml):
+Let's dig into the GitHub Actions workflow [code](https://github.com/bytebase/database-security-github-actions-example/blob/main/.github/workflows/bb-masking-1.yml):
 
 1. **Trigger**: Workflow runs when PRs are merged to `main`.
 
-1. **Authentication**: The step `Login Bytebase` will log in Bytebase using an action [bytebase-login](https://github.com/marketplace/actions/bytebase-login). The variables you configured in the GitHub **Secrets and variables** are mapped to the variables in the action.
+1. **Authentication**: The step `Login Bytebase` will log in Bytebase using the official [bytebase-login](https://github.com/marketplace/actions/bytebase-login) action. The variables you configured in the GitHub **Secrets and variables** are mapped to the variables in the action.
 
 1. **File Detection**: The step `Get changed files` will monitor the changed files in the pull request. For this workflow, we only care about column masking and masking exception. So `masking/databases/**/**/column-masking.json` and `masking/projects/**/masking-exception.json` are filtered out.
 
 1. **Apply Masking Columns**: Then step `Apply column masking` will apply the column masking to the database. First it will parse all the column masking files and then do a loop to apply the column masking to the database one by one. The code it calls Bytebase API is as follows:
 
-   ```bash
+   ```
    response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/instances/${INSTANCE_NAME}/databases/${DATABASE_NAME}/policies/masking?allow_missing=true&update_mask=payload" \
-   --header "Authorization: Bearer ${BYTEBASE_TOKEN}" \
-   --header "Content-Type: application/json" \
-   --data @"$CHANGED_FILE")
+      --header "Authorization: Bearer ${BYTEBASE_TOKEN}" \
+      --header "Content-Type: application/json" \
+      --data @"$CHANGED_FILE")
    ```
 
 1. **Apply Masking Exceptions**: The step `Apply masking exception` will apply the masking exception to the database and the process is similar, the code it calls Bytebase API is as follows:
 
    ```bash
-   response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/projects/${PROJECT_NAME}/policies/masking_exception?allow_missing=true&update_mask=payload" \
-   --header "Authorization: Bearer ${BYTEBASE_TOKEN}" \
-   --header "Content-Type: application/json" \
-   --data @"$CHANGED_FILE")
+   response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/projects/${PROJECT_NAME}/policies/masking_exception?allow_missing=true&   update_mask=payload" \
+      --header "Authorization: Bearer ${BYTEBASE_TOKEN}" \
+      --header "Content-Type: application/json" \
+      --data @"$CHANGED_FILE")
    ```
 
 1. **PR Feedback**: The step `Comment on PR` will comment on the merged pull to notify the result.
