@@ -25,7 +25,7 @@ You can manually delete the data in `bbdataarchive` database/schema.
 
 ## Supported Operations
 
-We are working on removing more limitations preventing backup and 1-click rollback.
+We are working on enabling backup and 1-click rollback for more SQL statements.
 
 ### Enhanced experience
 
@@ -35,13 +35,17 @@ Applicable to `MySQL`.
 
 </HintBlock>
 
-Prior backup is feasible when meeting **any** of the following conditions:
+Prior backup is feasible when meeting **all** of the following conditions:
 
-1. The SQL size is less than 2M.
+- The SQL statement size is less than 2M.
 
-1-click rollback is feasible when meeting **any** of the following conditions:
+- No mixed `UPDATE`/`DELETE` on the same table.
 
-1. The changed table has primary key.
+- No mixed DDL/DML.
+
+1-click rollback is feasible when meeting **all** of the following conditions:
+
+- The changed table has primary key.
 
 ### Classic experience
 
@@ -51,10 +55,11 @@ Applicable to `PostgreSQL`, `Oracle`, `SQL Server`.
 
 </HintBlock>
 
-Prior backup is feasible when meeting **any** of the following conditions:
+Prior backup is feasible when meeting **all** of the following conditions:
 
-1. No more than 5 statements and every statement is either `UPDATE` or `DELETE`.
-1. All statements are `UPDATE` for the same table with `PRIMARY KEY` or `UNIQUE KEY` in `WHERE` clause.
+- The SQL statement size is less than 2M.
+- No more than 5 statements and every statement is either `UPDATE` or `DELETE`, or all statements are `UPDATE` for the same table with `PRIMARY KEY` or `UNIQUE KEY` in `WHERE` clause.
+- No mixed DDL/DML.
 
 ## Create backup
 
