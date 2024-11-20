@@ -247,11 +247,13 @@ expand_section_list: ['Self-host']
 
 ### [Issue](/api/issue)
 
+### [SQL Editor](/api/sql-editor)
+
 ### [Permission](/api/permission)
 
-### [Audit Log](/api/audit-log)
-
 ### [Data Classification](/api/data-classification)
+
+### [Audit Log](/api/audit-log)
 
 ### [External Approval](/api/external-approval)
 
