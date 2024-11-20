@@ -3,7 +3,11 @@ title: Use Cases
 description: The common use cases Engineering teams use Bytebase.
 ---
 
-Bytebase provides a centralized database development portal for Developers/DBAs/Platform Engineers to collaborate on database-related tasks. This page lists the common Bytebase use cases.
+Bytebase provides a centralized database development portal for the Developer, Security, DBA and platform engineering teams to collaborate on database-related tasks. This page lists the common Bytebase use cases.
+
+## Database Change Automation
+
+Similar to how GitLab/GitHub streamlines the code delivery, Bytebase streamlines the database change deployment from the non-prod environment all the way to the prod environment. Bytebase also supports GitOps with [built-in VCS integration](/docs/vcs-integration/overview) and custom CI integration via [API](/docs/api/overview/).
 
 ## Database Security
 
@@ -14,13 +18,13 @@ Organizations want to limit database access and enforce approval flow to conform
 - [Watermark](/docs/security/watermark)
 - [Audit Log](/docs/security/audit-log)
 
+## Grant Temporary Database Permissions
+
+You can grant temporary database permissions to the users when they need to troubleshoot. Users can self-request the permission via the Bytebase UI or it can be integrated into the existing GitOps flow.
+
 ## Multi-Database Management
 
 Organizations normally have more than one database system for managing OLTP and OLAP workload. Bytebase supports all [mainstream databases](/docs/introduction/supported-databases).
-
-## Database Change Automation
-
-Similar to how GitLab/GitHub streamlines the code delivery, Bytebase streamlines the database change deployment from the non-prod environment all the way to the prod environment. Bytebase also supports GitOps with [built-in VCS integration](/docs/vcs-integration/overview) and custom CI integration via [API](/docs/api/overview/).
 
 ## Schema Enforcement
 
