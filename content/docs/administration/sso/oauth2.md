@@ -60,7 +60,22 @@ If you start Bytebase with `--external-url http://bytebase.example.com`, then th
 
 Bytebase provides templates for configuring built-in OAuth providers.
 
+### Google
+
+<PricingPlanBlock feature_name='SSO_BASIC' />
+
+1. Follow the [Using OAuth 2.0 to Access Google APIs](https://developers.google.com/identity/protocols/oauth2) to create OAuth 2.0 client credentials in [Google API Console](https://console.developers.google.com/).
+
+   ![google-oauth-app-config](/content/docs/administration/sso/google-oauth-app-config.webp)
+
+2. Open creating SSO dialog and select the **Google** template.
+3. Update the **Client ID** and **Client secret** fields with the OAuth 2.0 client credential you just created.
+4. After filling in all the required fields, try to click **Test connection**.
+5. If everything is OK, click the **Create** button.
+
 ### GitHub
+
+<PricingPlanBlock feature_name='SSO_BASIC' />
 
 1. Follow [Creating an OAuth App in GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) to create an OAuth app in GitHub.
 
@@ -73,6 +88,8 @@ Bytebase provides templates for configuring built-in OAuth providers.
 
 ### GitLab
 
+<PricingPlanBlock feature_name='SSO_ADVANCED' />
+
 1. Follow [Configure GitLab as an OAuth 2.0 authentication identity provider](https://docs.gitlab.com/ee/integration/oauth_provider.html) to create an OAuth 2 application in GitLab.
 
    ![gitlab-oauth-app-config](/content/docs/administration/sso/gitlab-oauth-app-config.webp)
@@ -82,18 +99,9 @@ Bytebase provides templates for configuring built-in OAuth providers.
 4. After filling in all the required fields, try to click **Test connection**.
 5. If everything is OK, click the **Create** button.
 
-### Google
-
-1. Follow the [Using OAuth 2.0 to Access Google APIs](https://developers.google.com/identity/protocols/oauth2) to create OAuth 2.0 client credentials in [Google API Console](https://console.developers.google.com/).
-
-   ![google-oauth-app-config](/content/docs/administration/sso/google-oauth-app-config.webp)
-
-2. Open creating SSO dialog and select the **Google** template.
-3. Update the **Client ID** and **Client secret** fields with the OAuth 2.0 client credential you just created.
-4. After filling in all the required fields, try to click **Test connection**.
-5. If everything is OK, click the **Create** button.
-
 ### Microsoft Entra (Azure AD)
+
+<PricingPlanBlock feature_name='SSO_ADVANCED' />
 
 1. Follow the [Register an application with the Microsoft identity platform](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app) to create an Application in [Microsoft Entra admin center](https://entra.microsoft.com/).
 

@@ -52,7 +52,7 @@ export const FEATURES = {
   DATABASE_PERMISSION: 'Data Access Control',
   WATERMARK: 'Watermark',
   AUDIT_LOG: 'Audit Log',
-  SIGNUP_RESTRICTION: 'Sign-up Restriction',
+  SIGNUP_RESTRICTION: 'Self-signup restriction',
   SIGNIN_FREQUENCY: 'Sign-in Frequency',
   ANOMALY_CENTER: 'Anomaly Center',
 

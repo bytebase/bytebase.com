@@ -50,7 +50,7 @@ const cards: TCard[] = [
       'Up to 20 users',
       '10 database instances',
       'Manual review, scheduled rollout',
-      'Batch change',
+      'Google, GitHub SSO',
     ],
   },
   {
@@ -66,7 +66,7 @@ const cards: TCard[] = [
       'SLA support',
       'Unlimited users',
       'Unlimited database instances',
-      'SSO, SCIM, 2FA, Audit log',
+      'OIDC, LDAP SSO, SCIM, 2FA, Audit log',
       'Custom approval, dynamic data masking',
     ],
   },
