@@ -9,16 +9,16 @@ Bytebase provides a centralized database development portal for the Developer, S
 
 Similar to how GitLab/GitHub streamlines the code delivery, Bytebase streamlines the database change deployment from the non-prod environment all the way to the prod environment. Bytebase also supports GitOps with [built-in VCS integration](/docs/vcs-integration/overview) and custom CI integration via [API](/docs/api/overview/).
 
-## Database Security
+## Holistic Database Security
 
 Organizations want to limit database access and enforce approval flow to conform compliance and avoid data leaks. Bytebase provides a suite of features to support this:
 
 - [Database Permission](/docs/security/database-permission/overview)
-- [Data Masking](/docs/security/data-masking/overview)
+- [Dynamic Data Masking](/docs/security/data-masking/overview)
 - [Watermark](/docs/security/watermark)
 - [Audit Log](/docs/security/audit-log)
 
-## Grant Temporary Database Permissions
+## Temporary Database Access
 
 You can grant temporary database permissions to the users when they need to troubleshoot. Users can self-request the permission via the Bytebase UI or it can be integrated into the existing GitOps flow.
 
