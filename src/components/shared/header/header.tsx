@@ -7,7 +7,6 @@ import Button from '@/components/shared/button';
 import Link from '@/components/shared/link';
 import MobileMenu from '@/components/shared/mobile-menu';
 
-import { MENU } from '@/lib/menus';
 import Route from '@/lib/route';
 
 import AboutIcon from '@/svgs/about.inline.svg';
@@ -56,11 +55,16 @@ const icons: {
   tutorial: TutorialsIcon,
 };
 
+type Menu = {
+  items: MenuItem[];
+  title?: string;
+};
+
 type MenuItem = {
   name: string;
-  description: string;
-  iconName: string;
   linkUrl: string;
+  description?: string;
+  iconName?: string;
 };
 
 type HighlightItem = {
@@ -74,9 +78,135 @@ type HighlightItem = {
 type Header = {
   title: string;
   href?: string;
-  items?: MenuItem[];
+  menus?: Menu[];
   highlight?: HighlightItem;
 };
+
+export const HEADER_MENU: Header[] = [
+  { title: 'WHY Bytebase', href: Route.DOCS },
+  {
+    title: 'Solutions',
+    menus: [
+      {
+        title: 'By Use Case',
+        items: [
+          {
+            name: 'Database CI/CD',
+            linkUrl: Route.DOCS_DATABASE_CI_CD,
+          },
+          {
+            name: 'Multi-tenant, multi-region deployment',
+            linkUrl: Route.DOCS_MULTI_TENANCY_DEPLOYMENT,
+          },
+          {
+            name: 'Headless database workflow backend',
+            linkUrl: Route.DOCS_API_OVERVIEW,
+          },
+        ],
+      },
+      {
+        title: 'By Industry',
+        items: [
+          {
+            name: 'Financial Services',
+            linkUrl: Route.INDUSTRY_FINANCIAL_SERVICES,
+          },
+          {
+            name: 'Technology',
+            linkUrl: Route.INDUSTRY_TECHNOLOGY,
+          },
+          {
+            name: 'Manufacturing',
+            linkUrl: Route.INDUSTRY_MANUFACTURING,
+          },
+          {
+            name: 'Gaming',
+            linkUrl: Route.INDUSTRY_GAMING,
+          },
+          {
+            name: 'Web3',
+            linkUrl: Route.INDUSTRY_WEB3,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Features',
+    menus: [
+      {
+        items: [
+          {
+            name: 'Schema Migration',
+            description: 'GUI-based, database CI/CD with GitOps',
+            linkUrl: Route.SCHEMA_MIGRATION,
+            iconName: 'migrate',
+          },
+          {
+            name: 'Permission-based SQL Editor',
+            description: 'Bastion-less human-to-database permission control',
+            linkUrl: Route.SQL_EDITOR,
+            iconName: 'editor',
+          },
+          {
+            name: 'Dynamic Data Masking',
+            description: 'Role-based multi-level masking policy',
+            linkUrl: Route.DATA_MASKING,
+            iconName: 'mask',
+          },
+          {
+            name: 'Batch Change',
+            description: 'Multi-environments, multi-regions, multi-tenants',
+            linkUrl: Route.BATCH_CHANGE,
+            iconName: 'batch',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Resources',
+    menus: [
+      {
+        items: [
+          {
+            name: 'Docs',
+            linkUrl: Route.DOCS,
+            iconName: 'intro',
+          },
+          {
+            name: 'Supported Databases',
+            linkUrl: Route.DOCS_DB,
+            iconName: 'db',
+          },
+          {
+            name: 'Case Study',
+            linkUrl: Route.BLOG_CASE_STUDY,
+            iconName: 'casestudy',
+          },
+          {
+            name: 'Blog',
+            linkUrl: Route.BLOG,
+            iconName: 'blog',
+          },
+          {
+            name: 'Company',
+            linkUrl: Route.ABOUT,
+            iconName: 'about',
+          },
+        ],
+      },
+    ],
+    highlight: {
+      name: 'Tutorial',
+      description: 'Step-by-step guide through common features.',
+      linkUrl: Route.TUTORIAL,
+      cta: 'Start Learning',
+      iconName: 'tutorial',
+    },
+  },
+  { title: 'Pricing', href: Route.PRICING },
+];
 
 const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
   const topBanner = PROMO_DATA.TOP_BANNER;
@@ -118,10 +248,10 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
               loading="eager"
             />
           </Link>
-          <ul className="ml-9 mt-0.5 flex items-center gap-1 md:hidden">
-            {MENU.header.map(({ title, href = '', items, highlight }: Header) => {
+          <ul className="ml-8 mt-0.5 flex items-center gap-1 md:hidden">
+            {HEADER_MENU.map(({ title, href = '', menus, highlight }: Header) => {
               return (
-                <li key={title} className="group relative inline-block hover:cursor-pointer">
+                <li key={title} className="group relative inline-block">
                   {href ? (
                     <Link
                       className="px-3 py-2.5 text-16 font-medium tracking-wider"
@@ -138,36 +268,52 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                       <ChevronIcon className="h-3 w-3 transition-transform duration-200 group-hover:-rotate-180" />
                     </button>
                   )}
-                  {items?.length && canShowSubmenu && (
-                    <div className="invisible absolute -left-5 top-6 pt-6 opacity-0 transition-[opacity,visibility] duration-200 group-hover:visible group-hover:opacity-100">
-                      <div className="relative flex items-center gap-x-[30px] rounded-lg border border-gray-80 bg-white p-4 pl-8 shadow-menu before:absolute before:-top-[8.5px] before:left-11 before:h-4 before:w-4 before:rotate-45 before:rounded-tl before:border-l before:border-t before:border-gray-80 before:bg-white">
-                        <ul className="flex flex-col">
-                          {items?.map(({ name, linkUrl, description, iconName }) => {
-                            const Icon = iconName ? icons[iconName] : null;
-                            return (
-                              <li key={name} className="pt-6 first:pt-2">
-                                <Link
-                                  className="group/link block whitespace-nowrap"
-                                  size="md"
-                                  theme="gray"
-                                  href={linkUrl}
-                                  prefetch={false}
-                                  onClick={handleSubmenuClick}
-                                >
-                                  <div className="flex flex-col gap-y-2.5">
-                                    <div className="flex items-center gap-x-2 group-hover/link:text-primary-1">
-                                      {Icon && <Icon className="h-5 w-5 shrink-0" />}
-                                      <span className="font-medium tracking-tight">{name}</span>
-                                    </div>
-                                    <span className="text-16 leading-normal text-gray-40">
-                                      {description}
-                                    </span>
-                                  </div>
-                                </Link>
-                              </li>
-                            );
-                          })}
-                        </ul>
+                  {menus?.length && canShowSubmenu && (
+                    <div className="invisible absolute left-0 top-6 pt-4 opacity-0 transition-[opacity,visibility] duration-200 group-hover:visible group-hover:opacity-100">
+                      <div className="relative -left-1/3 flex items-start gap-x-8 rounded-lg border border-gray-80 bg-white p-6 shadow-menu">
+                        {menus.map(({ items, title: subtitle }) => (
+                          <div
+                            key={`${title}-${subtitle}`}
+                            className="flex h-full flex-col items-start justify-start"
+                          >
+                            {subtitle && (
+                              <p className="pb-2 pt-1 text-16 font-medium leading-none text-gray-60">
+                                {subtitle}
+                              </p>
+                            )}
+                            <ul className="flex flex-col justify-between">
+                              {items?.map(({ name, linkUrl, description, iconName }) => {
+                                const Icon = iconName ? icons[iconName] : null;
+                                return (
+                                  <li key={name} className="pb-2 pt-1">
+                                    <Link
+                                      className="group/link block whitespace-nowrap"
+                                      size="md"
+                                      theme="gray"
+                                      href={linkUrl}
+                                      prefetch={false}
+                                      onClick={handleSubmenuClick}
+                                    >
+                                      <div className="flex flex-col">
+                                        <div className="flex items-center gap-x-2 group-hover/link:text-primary-1">
+                                          {Icon && (
+                                            <Icon className="inline-block h-5 w-5 shrink-0 opacity-80" />
+                                          )}
+                                          <span className="font-medium tracking-tight">{name}</span>
+                                        </div>
+                                        {description && (
+                                          <span className="pt-1 text-16 leading-normal text-gray-40">
+                                            {description}
+                                          </span>
+                                        )}
+                                      </div>
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </div>
+                        ))}
                         {highlight && (
                           <Link
                             className="group/box flex h-full min-h-[272px] w-[244px] grow flex-col justify-between rounded-md bg-tutorials p-5 text-gray-15"

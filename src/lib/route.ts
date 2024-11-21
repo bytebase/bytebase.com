@@ -73,6 +73,9 @@ const Route = {
   DOCS_ONLINE_SCHEMA_CHANGE: '/docs/change-database/online-schema-migration-for-mysql',
   DOCS_RBAC: '/docs/concepts/roles-and-permissions',
   DOCS_SSO: '/docs/administration/sso/overview',
+  DOCS_DATABASE_CI_CD: '/docs/tutorials/how-to-move-schema-change-from-test-to-prod',
+  DOCS_MULTI_TENANCY_DEPLOYMENT: '/docs/tutorials/batch-change-with-database-group',
+  DOCS_API_OVERVIEW: '/docs/api/overview',
 
   // blog
   BLOG_CASE_STUDY: '/blog/category/case-study',
