@@ -277,7 +277,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                             className="flex h-full flex-col items-start justify-start"
                           >
                             {subtitle && (
-                              <p className="pb-2 pt-1 text-16 font-medium leading-none text-gray-60">
+                              <p className="pb-3 pt-1 text-16 font-medium leading-none text-gray-60">
                                 {subtitle}
                               </p>
                             )}
