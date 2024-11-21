@@ -140,7 +140,7 @@ export const HEADER_MENU: Header[] = [
             linkUrl: Route.DOCS_MULTI_TENANCY_DEPLOYMENT,
           },
           {
-            name: 'Headless Backend',
+            name: 'Headless Database Backend',
             linkUrl: Route.DOCS_API_OVERVIEW,
           },
         ],
@@ -293,7 +293,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                               {items?.map(({ name, linkUrl, description, iconName }) => {
                                 const Icon = iconName ? icons[iconName] : null;
                                 return (
-                                  <li key={name} className="pb-2 pt-1">
+                                  <li key={name} className="pt-6 first:pt-2">
                                     <Link
                                       className="group/link block whitespace-nowrap"
                                       size="md"
@@ -324,7 +324,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                         ))}
                         {highlight && (
                           <Link
-                            className="group/box -my-2 flex h-full min-h-[238px] w-[244px] grow flex-col justify-between rounded-md bg-tutorials p-5 text-gray-15"
+                            className="group/box -my-2 flex h-full min-h-[258px] w-[244px] grow flex-col justify-between rounded-md bg-tutorials p-5 text-gray-15"
                             href={highlight.linkUrl}
                             prefetch={false}
                             onClick={handleSubmenuClick}
