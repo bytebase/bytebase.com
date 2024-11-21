@@ -30,9 +30,9 @@ const data: AccordionData[] = [
     image: '/images/page/main/sql-editor/mask.webp',
   },
   {
-    title: 'Explore the schema',
+    title: 'Record audit logs',
     description: 'Navigate database schema to understand data.',
-    image: '/images/page/main/sql-editor/explore.webp',
+    image: '/images/page/main/sql-editor/auditlog.webp',
   },
 ];
 
