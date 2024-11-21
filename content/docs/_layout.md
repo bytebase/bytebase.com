@@ -91,9 +91,11 @@ expand_section_list: ['Self-host']
 
 #### [Risk Center](/administration/risk-center)
 
+### Roll out
+
 #### [Rollout Policy](/administration/environment-policy/rollout-policy)
 
-### Rollback
+### Roll back
 
 #### [Data Rollback](/change-database/rollback-data-changes)
 
