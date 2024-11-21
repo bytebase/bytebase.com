@@ -95,7 +95,7 @@ Log in as `Developer`, and you can see `Sample Project`. Enter **SQL Editor** on
 
 ## Audit log
 
-As you can see all change history in **Issues** section or under **Change History** page of a certain database in Community plan, Bytebase records all the data access activities in the **[Audit Log](/docs/security/audit-log/)** section as well. **Audit Log** is only available in the Enterprise plan.
+As you can see all change history in **Issues** section or under **Change History** page of a certain database. Bytebase also records all the data access activities in the **[Audit Log](/docs/security/audit-log/)** section as well.
 
 ## Related content
 
