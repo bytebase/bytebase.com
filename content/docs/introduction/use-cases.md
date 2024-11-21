@@ -18,7 +18,7 @@ Organizations want to limit database access and enforce approval flow to conform
 - [Watermark](/docs/security/watermark)
 - [Audit Log](/docs/security/audit-log)
 
-## Temporary Database Access
+## Just-in-Time (JIT) Database Access
 
 You can grant temporary database permissions to the users when they need to troubleshoot. Users can self-request the permission via the Bytebase UI or it can be integrated into the existing GitOps flow.
 

@@ -85,53 +85,6 @@ type Header = {
 export const HEADER_MENU: Header[] = [
   { title: 'WHY Bytebase', href: Route.DOCS },
   {
-    title: 'Solutions',
-    menus: [
-      {
-        title: 'By Use Case',
-        items: [
-          {
-            name: 'Database CI/CD',
-            linkUrl: Route.DOCS_DATABASE_CI_CD,
-          },
-          {
-            name: 'Multi-tenant, multi-region deployment',
-            linkUrl: Route.DOCS_MULTI_TENANCY_DEPLOYMENT,
-          },
-          {
-            name: 'Headless database workflow backend',
-            linkUrl: Route.DOCS_API_OVERVIEW,
-          },
-        ],
-      },
-      {
-        title: 'By Industry',
-        items: [
-          {
-            name: 'Financial Services',
-            linkUrl: Route.INDUSTRY_FINANCIAL_SERVICES,
-          },
-          {
-            name: 'Technology',
-            linkUrl: Route.INDUSTRY_TECHNOLOGY,
-          },
-          {
-            name: 'Manufacturing',
-            linkUrl: Route.INDUSTRY_MANUFACTURING,
-          },
-          {
-            name: 'Gaming',
-            linkUrl: Route.INDUSTRY_GAMING,
-          },
-          {
-            name: 'Web3',
-            linkUrl: Route.INDUSTRY_WEB3,
-          },
-        ],
-      },
-    ],
-  },
-  {
     title: 'Features',
     menus: [
       {
@@ -159,6 +112,61 @@ export const HEADER_MENU: Header[] = [
             description: 'Multi-environments, multi-regions, multi-tenants',
             linkUrl: Route.BATCH_CHANGE,
             iconName: 'batch',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Solutions',
+    menus: [
+      {
+        title: 'Use Case',
+        items: [
+          {
+            name: 'Planned Database CI/CD',
+            linkUrl: Route.DOCS_DATABASE_CI_CD,
+          },
+          {
+            name: 'Just-in-Time Database Access',
+            linkUrl: Route.DATABASE_JIT_ACCESS,
+          },
+          {
+            name: 'Adhoc Database Change',
+            linkUrl: Route.DOCS_DATABASE_ADHOC_CHANGE,
+          },
+          {
+            name: 'Large-Scale Deployment',
+            linkUrl: Route.DOCS_MULTI_TENANCY_DEPLOYMENT,
+          },
+          {
+            name: 'Headless Backend',
+            linkUrl: Route.DOCS_API_OVERVIEW,
+          },
+        ],
+      },
+      {
+        title: 'Industry',
+        items: [
+          {
+            name: 'Financial Services',
+            linkUrl: Route.INDUSTRY_FINANCIAL_SERVICES,
+          },
+          {
+            name: 'Technology',
+            linkUrl: Route.INDUSTRY_TECHNOLOGY,
+          },
+          {
+            name: 'Manufacturing',
+            linkUrl: Route.INDUSTRY_MANUFACTURING,
+          },
+          {
+            name: 'Gaming',
+            linkUrl: Route.INDUSTRY_GAMING,
+          },
+          {
+            name: 'Web3',
+            linkUrl: Route.INDUSTRY_WEB3,
           },
         ],
       },
@@ -316,7 +324,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
                         ))}
                         {highlight && (
                           <Link
-                            className="group/box flex h-full min-h-[272px] w-[244px] grow flex-col justify-between rounded-md bg-tutorials p-5 text-gray-15"
+                            className="group/box -my-2 flex h-full min-h-[238px] w-[244px] grow flex-col justify-between rounded-md bg-tutorials p-5 text-gray-15"
                             href={highlight.linkUrl}
                             prefetch={false}
                             onClick={handleSubmenuClick}

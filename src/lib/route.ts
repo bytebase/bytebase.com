@@ -74,6 +74,7 @@ const Route = {
   DOCS_RBAC: '/docs/concepts/roles-and-permissions',
   DOCS_SSO: '/docs/administration/sso/overview',
   DOCS_DATABASE_CI_CD: '/docs/tutorials/how-to-move-schema-change-from-test-to-prod',
+  DOCS_DATABASE_ADHOC_CHANGE: '/docs/tutorials/data-rollback',
   DOCS_MULTI_TENANCY_DEPLOYMENT: '/docs/tutorials/batch-change-with-database-group',
   DOCS_API_OVERVIEW: '/docs/api/overview',
 
@@ -93,6 +94,7 @@ const Route = {
   PG_VS_MYSQL: '/blog/postgres-vs-mysql',
   PG_VS_MONGO: '/blog/postgres-vs-mongodb',
   PLANETSCALE_VS_NEON: '/blog/planetscale-vs-neon',
+  DATABASE_JIT_ACCESS: '/blog/just-in-time-database-access',
 
   // databases
   DATABASE_MYSQL: '/database/mysql',

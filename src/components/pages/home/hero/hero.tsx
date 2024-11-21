@@ -49,8 +49,9 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
     color: 'red',
     href: Route.DOCS_DATABASE_PERMISSION,
     cover: '/images/page/main/hero/secure-access.webp',
-    title: 'Database Permission',
-    description: 'Passwordless IAM-based database permission with approval flow and audit logging.',
+    title: 'Just-in-Time Access',
+    description:
+      'Just-in-Time (JIT) IAM-based database permissions with approval flow and audit logging.',
   },
   {
     videos: [
