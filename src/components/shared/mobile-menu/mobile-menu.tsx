@@ -11,7 +11,6 @@ import AlgoliaSearch from '@/components/pages/docs/algolia-search';
 import Button from '@/components/shared/button';
 import Link from '@/components/shared/link';
 
-import { MENU } from '@/lib/menus';
 import Route from '@/lib/route';
 
 import AboutIcon from '@/svgs/about.inline.svg';
@@ -31,6 +30,7 @@ import MaskIcon from '@/svgs/mask-menu-docs.inline.svg';
 import Burger from './burger';
 import BatchIcon from '@/svgs/batch-menu-docs.inline.svg';
 import BranchIcon from '@/svgs/branch-menu-docs.inline.svg';
+import { HEADER_MENU } from '../header/header';
 
 const icons: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -142,12 +142,15 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
             )}
             onClick={(evt) => evt.stopPropagation()}
           >
-            <ul className="flex max-h-[70%] flex-col items-stretch divide-y divide-gray-90 overflow-y-auto">
-              {MENU.mobile.map(({ title, href = '', items }, idx) => {
+            <div className="flex flex-col items-stretch divide-y divide-gray-90 overflow-y-auto">
+              {HEADER_MENU.map(({ title, href = '', menus }, idx) => {
                 const isDropdownOpened = openedDropdown === idx;
                 return (
-                  <li className="relative first:-mt-4 last:border-b last:border-gray-90" key={idx}>
-                    {items ? (
+                  <ul
+                    className="relative first:-mt-4 last:border-b last:border-gray-90"
+                    key={title}
+                  >
+                    {menus ? (
                       <button
                         className="flex w-full flex-col items-start justify-center whitespace-nowrap py-5 text-20 font-medium leading-none tracking-tight transition-colors duration-200 hover:cursor-pointer"
                         tabIndex={0}
@@ -157,7 +160,7 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
                       >
                         <span className="flex w-full items-center justify-between">
                           <span>{title}</span>
-                          {items && (
+                          {menus && (
                             <span className="relative">
                               <span
                                 className={clsx(
@@ -187,7 +190,7 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
                     )}
                     <LazyMotion features={domAnimation}>
                       <AnimatePresence initial={false} mode="wait">
-                        {isDropdownOpened && items && (
+                        {isDropdownOpened && menus && (
                           <m.ul
                             className="flex flex-col items-start"
                             initial="hidden"
@@ -195,39 +198,46 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
                             exit="hidden"
                             variants={dropdownVariants}
                           >
-                            {items.map(({ name, description, iconName, linkUrl }) => {
-                              const Icon = iconName ? icons[iconName] : null;
-                              return (
-                                <li className="w-full first:-mt-4 last:pb-4" key={name}>
-                                  <Link
-                                    className="group block pt-4"
-                                    size="lg"
-                                    theme="gray"
-                                    href={linkUrl}
-                                    prefetch={isDropdownOpened && items ? false : undefined}
-                                    onClick={() => {
-                                      toggleMenu();
-                                      setOpenedDropdown(-1);
-                                    }}
-                                  >
-                                    <div className="flex flex-col gap-y-1">
-                                      <div className="flex items-center gap-x-2 group-hover:text-primary-1">
-                                        {Icon && <Icon className="h-5 w-5 shrink-0" />}
-                                        <span className="font-medium tracking-tight">{name}</span>
-                                      </div>
-                                      <span className="text-16 leading-normal text-gray-40">
-                                        {description}
-                                      </span>
-                                    </div>
-                                  </Link>
-                                </li>
-                              );
-                            })}
+                            {menus.map(({ title: subtitle, items }) => (
+                              <div key={`${title}-${subtitle}`}>
+                                {subtitle && <p className="text-16 opacity-80">{subtitle}</p>}
+                                {items.map(({ name, description, iconName, linkUrl }) => {
+                                  const Icon = iconName ? icons[iconName] : null;
+                                  return (
+                                    <li className="w-full first:-mt-4 last:pb-4" key={name}>
+                                      <Link
+                                        className="group block pt-4"
+                                        size="lg"
+                                        theme="gray"
+                                        href={linkUrl}
+                                        prefetch={isDropdownOpened && items ? false : undefined}
+                                        onClick={() => {
+                                          toggleMenu();
+                                          setOpenedDropdown(-1);
+                                        }}
+                                      >
+                                        <div className="flex flex-col gap-y-1">
+                                          <div className="flex items-center gap-x-2 group-hover:text-primary-1">
+                                            {Icon && <Icon className="h-5 w-5 shrink-0" />}
+                                            <span className="font-medium tracking-tight">
+                                              {name}
+                                            </span>
+                                          </div>
+                                          <span className="text-16 leading-normal text-gray-40">
+                                            {description}
+                                          </span>
+                                        </div>
+                                      </Link>
+                                    </li>
+                                  );
+                                })}
+                              </div>
+                            ))}
                           </m.ul>
                         )}
                       </AnimatePresence>
                     </LazyMotion>
-                  </li>
+                  </ul>
                 );
               })}
               <li className="relative hidden first:-mt-4 last:border-b last:border-gray-90 sm:block">
@@ -238,8 +248,8 @@ const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
                   GitHub
                 </Link>
               </li>
-            </ul>
-            <div className="sticky bottom-0 z-10 mt-auto hidden flex-col gap-4 sm:flex sm:gap-2">
+            </div>
+            <div className="sticky bottom-0 z-10 mt-auto hidden flex-col gap-4 pt-4 sm:flex sm:gap-2">
               <Button href={Route.DOCS_CLOUD} theme="gray-filled" size="md">
                 Self-host
               </Button>
