@@ -5,6 +5,12 @@ feature_name: DATABASE_PERMISSION
 
 <TutorialBlock url="/docs/tutorials/how-to-manage-data-access-for-developers" title="How to Manage Data Access for Developers" />
 
+Bytebase is a middleware sitting between users and databases. It provides a fine-grained database permissions. Bytebase enforces
+database permissions via [change approval flow](/docs/change-database/change-workflow/) and [SQL Editor](/docs/sql-editor/overview/).
+You can use Bytebase to manage persistent database permissions as well as implement Just-in-Time (JIT) database access workflow.
+
+---
+
 Database permission controls individual users' or groups' actions within the database. Below shows the built-in roles' database permissions.
 
 | Role              | EXPLAIN | Query | Export | Mutation DML | DDL | Admin |
