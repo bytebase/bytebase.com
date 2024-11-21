@@ -75,7 +75,7 @@ Before you begin, make sure you have:
    - `BYTEBASE_SERVICE_KEY`: `api-example@service.bytebase.com`
    - `BYTEBASE_SERVICE_SECRET`: service key copied in the previous step
 
-## Understanding the Workflow
+### Step 5 - Understanding the GitHub Workflow
 
 Let's dig into the GitHub Actions workflow [code](https://github.com/bytebase/database-security-github-actions-example/blob/main/.github/workflows/bb-masking-1.yml):
 
@@ -85,7 +85,15 @@ Let's dig into the GitHub Actions workflow [code](https://github.com/bytebase/da
 
 1. **File Detection**: The step `Get changed files` will monitor the changed files in the pull request. For this workflow, we only care about column masking and masking exception. So `masking/databases/**/**/column-masking.json` and `masking/projects/**/masking-exception.json` are filtered out.
 
-1. **Apply Masking Columns**: Then step `Apply column masking` will apply the column masking to the database. First it will parse all the column masking files and then do a loop to apply the column masking to the database one by one. The code it calls Bytebase API is as follows:
+1. **PR Feedback**: The step `Comment on PR` will comment on the merged pull to notify the result.
+
+## Column Masking
+
+[Column Masking](/docs/security/data-masking/column-masking/) lets you specify table columns  different Masking Level to mask the data.
+
+In Bytebase console, go to a database page, then pick a table, you can specify masking level by clicking pen icon on table detail page.
+
+In the GitHub workflow, find the step `Apply column masking`, which will apply the column masking to the database via API. First it will parse all the column masking files and then do a loop to apply the column masking to the database one by one. The code it calls Bytebase API is as follows:
 
    ```bash
    response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/instances/${INSTANCE_NAME}/databases/${DATABASE_NAME}/policies/masking?allow_missing=true&update_mask=payload" \
@@ -94,7 +102,17 @@ Let's dig into the GitHub Actions workflow [code](https://github.com/bytebase/da
       --data @"$CHANGED_FILE")
    ```
 
-1. **Apply Masking Exceptions**: The step `Apply masking exception` will apply the masking exception to the database and the process is similar, the code it calls Bytebase API is as follows:
+By changing the files `masking/databases/**/**/column-masking.json`, create a PR and then merge, the change will be applied to the database.
+
+Log in Bytebase console, at the workspace level, click **Data Access > Data Masking**. Click **Explicit Masked Columns**, you can see the column masking is applied to the database.
+
+   ![bb-column-masking](/content/docs/tutorials/github-action-data-masking-part1/bb-column-masking.webp)
+
+## Access Unmasked Data
+
+[Access Unmasked Data](/docs/security/data-masking/access-unmasked-data/) lets you relax the masking levels for the users. Full masked column to partial or partial masked column to none.
+
+In the GitHub workflow, find the step `Apply masking exception`, which will apply the masking exception to the database and the process is similar, the code it calls Bytebase API is as follows:
 
    ```bash
    response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/projects/${PROJECT_NAME}/policies/masking_exception?allow_missing=true&   update_mask=payload" \
@@ -103,17 +121,9 @@ Let's dig into the GitHub Actions workflow [code](https://github.com/bytebase/da
       --data @"$CHANGED_FILE")
    ```
 
-1. **PR Feedback**: The step `Comment on PR` will comment on the merged pull to notify the result.
+By changing the files `masking/projects/**/masking-exception.json`, create a PR and then merge, the change will be applied to the database.
 
-## Verifying the Setup
-
-1. Create and merge a test PR with masking changes.
-
-1. Log in Bytebase console, at the workspace level, click **Data Access > Data Masking**. Click **Explicit Masked Columns**, you can see the column masking is applied to the database.
-
-   ![bb-column-masking](/content/docs/tutorials/github-action-data-masking-part1/bb-column-masking.webp)
-
-1. Go to the project `Sample Project`, click **Database > Masking Access**, you can see the masking exception is applied to the database.
+Log in Bytebase console, go to the project `Sample Project`, click **Database > Masking Access**, you can see the masking exception is applied to the database.
 
    ![bb-masking-exception](/content/docs/tutorials/github-action-data-masking-part1/bb-masking-exception.webp)
 
