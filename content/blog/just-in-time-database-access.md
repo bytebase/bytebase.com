@@ -22,7 +22,13 @@ Below shows a typical workflow offered by the existing JIT database access solut
 1. Incident ends.
 1. JIT system revokes the temporary database user or let the user expire automatically.
 
-A limitation arises when the system used to request and provision JIT database access is separate from the system where end users connect to the databases. For example, while we can review and audit JIT access requests, we cannot record or control the SQL queries executed by end users.
+Although existing JIT solutions provide some degree of automation and centralized control, they are
+limited by the disconnect between the system used to request and provision JIT database access and
+the system where end users actually connect to the databases.
+
+1. Users have to set up different database credentials in their SQL client every time.
+
+1. While the system can review and audit JIT access requests, it cannot record or control the SQL queries executed by the end users.
 
 ## Bytebase workflow
 
