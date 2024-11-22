@@ -31,7 +31,7 @@ const data: AccordionData[] = [
   },
   {
     title: 'Record audit logs',
-    description: 'Navigate database schema to understand data.',
+    description: 'Record every query attempt and execution.',
     image: '/images/page/main/sql-editor/auditlog.webp',
   },
 ];
