@@ -61,7 +61,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'query-and-export-workflow': false,
       environment: false,
       masking: false,
-      'access-control': false,
+      'database-permission': false,
       watermark: false,
       'audit-log': false,
       'signin-frequency': false,
@@ -70,6 +70,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     aiAssistant: {
       'query-with-natural-language': true,
       'explain-sql': true,
+      'suggest-sql': true,
       'index-advisor': true,
     },
     bespoke: {
@@ -139,7 +140,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'query-and-export-workflow': false,
       environment: false,
       masking: false,
-      'access-control': false,
+      'database-permission': false,
       watermark: false,
       'audit-log': false,
       'signin-frequency': false,
@@ -148,6 +149,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     aiAssistant: {
       'query-with-natural-language': true,
       'explain-sql': true,
+      'suggest-sql': true,
       'index-advisor': true,
     },
     bespoke: {
@@ -217,7 +219,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'query-and-export-workflow': true,
       environment: true,
       masking: true,
-      'access-control': true,
+      'database-permission': true,
       watermark: true,
       'audit-log': true,
       'signin-frequency': true,
@@ -226,6 +228,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     aiAssistant: {
       'query-with-natural-language': true,
       'explain-sql': true,
+      'suggest-sql': true,
       'index-advisor': true,
     },
     bespoke: {
@@ -248,7 +251,7 @@ const LABELS = [
       changelist: 'Changelist',
       'change-history': 'Change history',
       terraform: 'Terraform integration',
-      schedule: 'Scheduled change at specific time',
+      schedule: 'Scheduled rollout',
       'online-schema-change': 'Online schema change',
       'rollout-policy': 'Rollout policy',
       'issue-setting': 'Issue setting',
@@ -285,7 +288,7 @@ const LABELS = [
     items: {
       sso: 'Single sign-on (SSO)',
       rbac: 'RBAC',
-      'slow-query': 'Slow Query',
+      'slow-query': 'Slow query',
       archiving: 'Archiving',
       'secret-variable': 'Secret variable',
       'signup-restriction': 'Self-signup restriction',
@@ -296,7 +299,7 @@ const LABELS = [
       'query-and-export-workflow': 'Query and export approval workflow',
       environment: 'Environment tier',
       masking: 'Dynamic data masking',
-      'access-control': 'Data access control',
+      'database-permission': 'Fine-grained database permission',
       watermark: 'Watermark',
       'audit-log': 'Audit log',
       'signin-frequency': 'Sign-in frequency',
@@ -308,6 +311,7 @@ const LABELS = [
     items: {
       'query-with-natural-language': 'Query with natural language',
       'explain-sql': 'Explain SQL',
+      'suggest-sql': 'Suggest SQL',
       'index-advisor': 'Index advisor',
     },
   },

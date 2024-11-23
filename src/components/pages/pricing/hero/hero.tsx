@@ -64,10 +64,10 @@ const cards: TCard[] = [
     buttonLink: '/contact-us',
     planConditions: [
       'SLA support',
-      'Unlimited users',
-      'Unlimited database instances',
-      'OIDC, LDAP SSO, SCIM, 2FA, Audit log',
+      'Custom users',
+      'Custom database instances',
       'Custom approval, dynamic data masking',
+      'OIDC, LDAP SSO, SCIM, 2FA, audit log',
     ],
   },
 ];
