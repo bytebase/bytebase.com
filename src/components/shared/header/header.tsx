@@ -83,7 +83,7 @@ type Header = {
 };
 
 export const HEADER_MENU: Header[] = [
-  { title: 'WHY Bytebase', href: Route.DOCS },
+  { title: '8-in-1', href: Route.DOCS },
   {
     title: 'Features',
     menus: [
