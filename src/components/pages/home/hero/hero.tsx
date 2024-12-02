@@ -148,8 +148,8 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
           )}
           <div className="relative mt-4 xl:mt-3.5 sm:mt-3">
             <h1 className="font-title text-112 font-semibold leading-none 3xl:max-w-4xl xl:max-w-2xl xl:text-90 xl:leading-95 md:max-w-2xl md:text-80 sm:text-48">
-              Database CI/CD and <mark className="bg-transparent text-primary-1">Security</mark> at
-              Scale
+              Database CI/CD and Security
+              <mark className="bg-transparent text-primary-1"> at Scale</mark>
             </h1>
             {/* <p className="absolute top-[244px] left-[338px] max-w-lg text-20 leading-140 xl:top-[177px] xl:left-[271px] xl:max-w-md xl:text-18 xl:leading-snug md:left-[230px] md:top-[158px] md:max-w-sm md:text-16 sm:static sm:mt-3 sm:max-w-full">
               Bytebase offers a web-based collaboration workspace to help DBAs and Developers manage
