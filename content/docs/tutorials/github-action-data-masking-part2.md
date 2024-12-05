@@ -18,8 +18,8 @@ In the [previous tutorial](/docs/tutorials/github-action-data-masking-part1), yo
 This is Part 2 of our tutorial series on implementing automated database masking using GitHub Actions:
 
 - Part 1: [Column masking and masking exception with GitHub Actions](/docs/tutorials/github-action-data-masking-part1)
-- Part 2: Masking Algorithm with GitHub Actions (this one)
-- Part 3: Data Classification and Global Masking with GitHub Actions
+- Part 2: Masking Algorithm with GitHub Actions(this one)
+- Part 3: [Data Classification and Global Masking with GitHub Actions](/docs/tutorials/github-action-data-masking-part3)
 
 ## Overview
 
@@ -36,15 +36,19 @@ The complete code for this tutorial is available at: [database-security-github-a
 
 </HintBlock>
 
-This tutorial skips the setup part, if you haven't set up the Bytebase and GitHub Action, please refer to the [previous tutorial](/docs/tutorials/github-action-data-masking-part1).
+This tutorial skips the setup part, if you haven't set up the Bytebase and GitHub Action, please follow **Setup Instructions** section in the [previous tutorial](/docs/tutorials/github-action-data-masking-part1).
 
 ## Masking Algorithm
 
 You may customize your own [data masking algorithm](/docs/security/data-masking/masking-algorithm/) with the help of a predefined masking type, such as Full mask, Range mask, MD5 mask and Inner/Outer mask.
 
-In Bytebase console, go to **Data Access > Data Masking**, click **Masking Algorithm** and click **Add**. You can create a new masking algorithm with a name and description, and later it can be used in the definition of semantic types.
+### In Bytebase console
+
+Go to **Data Access > Data Masking**, click **Masking Algorithm** and click **Add**. You can create a new masking algorithm with a name and description, and later it can be used in the definition of semantic types.
 
    ![bb-masking-algorithm](/content/docs/tutorials/github-action-data-masking-part2/bb-masking-algorithm.webp)
+
+### In GitHub Workflow
 
 In the GitHub workflow `bb-masking-2.yml`, find the step `Apply masking algorithm`, which will apply the masking algorithm to the database via API. All the masking algorithms should be defined in one file in the root directory of `masking/masking-algorithm.json`. The code it calls Bytebase API is as follows:
 
@@ -54,6 +58,8 @@ response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/sett
 --header "Content-Type: application/json" \
 --data @"$CHANGED_FILE")
 ```
+
+By changing file `masking/masking-algorithm.json`, you can apply the masking algorithm to the database. Go to Bytebase console, click **Data Access > Data Masking**, go to **Masking Algorithm** page, you can see the masking algorithm is applied to the database.
 
 ## Semantic Type
 
@@ -71,6 +77,8 @@ response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/sett
    --header "Content-Type: application/json" \
    --data @"$CHANGED_FILE")
 ```
+
+By changing file `masking/semantic-type.json`, you can apply the semantic type to the database. Go to Bytebase console, click **Data Access > Data Masking**, go to **Semantic Types** page, you can see the semantic type is applied to the database.
 
 ## Next Steps
 
