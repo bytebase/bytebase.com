@@ -65,11 +65,15 @@ By changing file `masking/masking-algorithm.json`, you can apply the masking alg
 
 You may define [semantic types](/docs/security/data-masking/semantic-types/) and apply them to columns of different tables. Columns with the same semantic type will be masked with the same masking algorithm. For example, you may define a semantic type `mobile` and apply it to all the columns of phone number. Then you can define a masking algorithm `range 4-10` for the partial level masking for semantic type `mobile`.
 
-In Bytebase console, go to **Data Access > Data Masking**, click **Semantic Types** and click **Add**. You can create a new semantic type with a name and description, and select the masking algorithm.
+### In Bytebase Console
+
+Go to **Data Access > Data Masking**, click **Semantic Types** and click **Add**. You can create a new semantic type with a name and description, and select the masking algorithm.
 
    ![bb-semantic-types](/content/docs/tutorials/github-action-data-masking-part2/bb-semantic-types.webp)
 
-In the GitHub workflow, find the step `Apply semantic type`, which will apply the semantic type to the database via API. All the masking algorithms should be defined in one file in the root directory as `masking/semantic-type.json`. The code it calls Bytebase API is as follows:
+### In GitHub Workflow
+
+Find the step `Apply semantic type`, which will apply the semantic type to the database via API. All the masking algorithms should be defined in one file in the root directory as `masking/semantic-type.json`. The code it calls Bytebase API is as follows:
 
 ```bash
 response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/settings/bb.workspace.semantic-types?allow_missing=true" \
