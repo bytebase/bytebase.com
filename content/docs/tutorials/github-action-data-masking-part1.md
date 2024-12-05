@@ -20,8 +20,8 @@ By using GitHub Actions with Bytebase API, you can implement policy-as-code to a
 This is Part 1 of our tutorial series on implementing automated database masking using GitHub Actions:
 
 - Part 1: Column masking and masking exception with GitHub Actions (this one)
-- Part 2: Masking Algorithm with GitHub Actions
-- Part 3: Data Classification and Global Masking with GitHub Actions
+- Part 2: [Masking Algorithm with GitHub Actions](/docs/tutorials/github-action-data-masking-part2)
+- Part 3: [Data Classification and Global Masking with GitHub Actions](/docs/tutorials/github-action-data-masking-part3)
 
 ## Overview
 
@@ -102,7 +102,7 @@ In the GitHub workflow, find the step `Apply column masking`, which will apply t
       --data @"$CHANGED_FILE")
    ```
 
-By changing the files `masking/databases/**/**/column-masking.json`, create a PR and then merge, the change will be applied to the database.
+By changing file `masking/databases/**/**/column-masking.json`, create a PR and then merge, the change will be applied to the database.
 
 Log in Bytebase console, at the workspace level, click **Data Access > Data Masking**. Click **Explicit Masked Columns**, you can see the column masking is applied to the database.
 
@@ -121,7 +121,7 @@ In the GitHub workflow, find the step `Apply masking exception`, which will appl
       --data @"$CHANGED_FILE")
    ```
 
-By changing the files `masking/projects/**/masking-exception.json`, create a PR and then merge, the change will be applied to the database.
+By changing file `masking/projects/**/masking-exception.json`, create a PR and then merge, the change will be applied to the database.
 
 Log in Bytebase console, go to the project `Sample Project`, click **Database > Masking Access**, you can see the masking exception is applied to the database.
 
