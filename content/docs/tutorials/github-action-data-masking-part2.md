@@ -18,7 +18,7 @@ In the [previous tutorial](/docs/tutorials/github-action-data-masking-part1), yo
 This is Part 2 of our tutorial series on implementing automated database masking using GitHub Actions:
 
 - Part 1: [Column masking and masking exception with GitHub Actions](/docs/tutorials/github-action-data-masking-part1)
-- Part 2: Masking Algorithm with GitHub Actions(this one)
+- Part 2: Masking Algorithm with GitHub Actions (this one)
 - Part 3: [Data Classification and Global Masking with GitHub Actions](/docs/tutorials/github-action-data-masking-part3)
 
 ## Overview
@@ -46,7 +46,7 @@ You may customize your own [data masking algorithm](/docs/security/data-masking/
 
 Go to **Data Access > Data Masking**, click **Masking Algorithm** and click **Add**. You can create a new masking algorithm with a name and description, and later it can be used in the definition of semantic types.
 
-   ![bb-masking-algorithm](/content/docs/tutorials/github-action-data-masking-part2/bb-masking-algorithm.webp)
+![bb-masking-algorithm](/content/docs/tutorials/github-action-data-masking-part2/bb-masking-algorithm.webp)
 
 ### In GitHub Workflow
 
@@ -69,7 +69,7 @@ You may define [semantic types](/docs/security/data-masking/semantic-types/) and
 
 Go to **Data Access > Data Masking**, click **Semantic Types** and click **Add**. You can create a new semantic type with a name and description, and select the masking algorithm.
 
-   ![bb-semantic-types](/content/docs/tutorials/github-action-data-masking-part2/bb-semantic-types.webp)
+![bb-semantic-types](/content/docs/tutorials/github-action-data-masking-part2/bb-semantic-types.webp)
 
 ### In GitHub Workflow
 

@@ -19,7 +19,7 @@ This is Part 3 of our tutorial series on implementing automated database masking
 
 - Part 1: [Column masking and masking exception with GitHub Actions](/docs/tutorials/github-action-data-masking-part1)
 - Part 2: [Masking Algorithm with GitHub Actions](/docs/tutorials/github-action-data-masking-part2)
-- Part 3: Data Classification and Global Masking with GitHub Actions(this one)
+- Part 3: Data Classification and Global Masking with GitHub Actions (this one)
 
 ## Overview
 
