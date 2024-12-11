@@ -29,6 +29,7 @@ const PostsList = ({ posts, page, pageCount }: PostsListProps) => {
             const date = new Date(updated_at);
             const formattedDate = format(date, 'MMM dd, yyyy');
             const preview = getPostPreview(content);
+            const isFullLoaded = preview === content;
 
             return (
               <li key={slug} className={clsx(index !== 0 && 'border-gray-90 sm:border-t sm:pt-7')}>
@@ -70,6 +71,14 @@ const PostsList = ({ posts, page, pageCount }: PostsListProps) => {
                       </Link>
                     </h2>
                     <Content content={preview} className="content-sm mt-9 lg:mt-6 md:mt-5" />
+                    {!isFullLoaded && (
+                      <Link
+                        href={`${Route.CHANGELOG}/${slug}`}
+                        className="text-14 font-semibold leading-none text-primary-1 hover:underline"
+                      >
+                        Read more
+                      </Link>
+                    )}
                   </div>
                 </article>
               </li>
