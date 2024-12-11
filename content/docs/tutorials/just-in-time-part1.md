@@ -9,9 +9,9 @@ estimated_time: '30 mins'
 description: 'In this tutorial, we will demonstrate how to set up Just-in-Time (JIT) access using the Bytebase GUI.'
 ---
 
-Imagine a scenario where an incident occurs in the production environment, requiring a developer to access the production database to verify data. However, the developer lacks the necessary access. As a solution, the developer can request Just-in-Time (JIT) access to the production database. Bytebase facilitates this process by enabling developers to request JIT access efficiently.
+In a production environment, an incident arises that requires a developer to access the production database for troubleshooting. However, the developer does not have the necessary access privileges. To address this, the developer can request Just-in-Time (JIT) access to the production database. Bytebase streamlines this process, allowing developers to efficiently request and obtain temporary access when needed.
 
-In this tutorial, we will demonstrate how to set up JIT access using the Bytebase GUI. In the subsequent tutorial, we will cover how to automate JIT access via Slack, utilizing Bytebase webhooks and API.
+This tutorial will guide you through setting up Just-in-Time (JIT) access using the Bytebase GUI. In the next tutorial, we will explore automating JIT access through Slack by leveraging Bytebase webhooks and API.
 
 ## Prerequisites
 
@@ -79,7 +79,7 @@ In Bytebase **Enterprise Plan**, you can request a JIT access to the production 
 
    ![bb-custom-approval](/content/docs/tutorials/just-in-time-part1/bb-custom-approval.webp)
 
-1. Click  **CI/CD** > **Risk Center** on the left sidebar. Define a High risk policy for `Request Querier Role` which triggers when the environment is `Prod`.
+1. Click **CI/CD** > **Risk Center** on the left sidebar. Define a High risk policy for `Request Querier Role` which triggers when the environment is `Prod`.
 
    ![bb-risk-center](/content/docs/tutorials/just-in-time-part1/bb-risk-center.webp)
 

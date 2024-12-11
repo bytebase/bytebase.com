@@ -32,6 +32,8 @@ From the workspace page, go to **IAM & Admin > Members**, **Grant Access** to Se
 
 <PricingPlanBlock feature_name='QUERY_EXPORT_APPROVAL_WORKFLOW' />
 
+<TutorialBlock url="/docs/tutorials/just-in-time-part1/" title="Just-in-Time Database Access" />
+
 Users can also apply for `Project Querier` role by submitting an issue. Approval flow matches the `Request Querier Role` in [custom approval](/docs/administration/custom-approval/) if configured.
 
 ### Request at Project level
