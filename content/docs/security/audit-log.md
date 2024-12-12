@@ -28,3 +28,17 @@ If you want to export the audit logs to an external system such as S3, refer [Au
 You can also export the audit logs.
 
 ![filter-date](/content/docs/security/audit-log/filter-date.webp)
+
+## Retention
+
+Bytebase does not purge the audit logs. If you want to purge the audit logs, please locate the
+`audit_log` table in the metadata database and delete manually.
+
+![audit-log-table](/content/docs/security/audit-log/audit-log-table.webp)
+
+```sql
+
+DELETE FROM public.audit_log
+WHERE created_ts < EXTRACT(EPOCH FROM NOW() - INTERVAL '3 months');
+
+```

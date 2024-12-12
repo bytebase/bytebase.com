@@ -72,7 +72,7 @@ To ensure GDPR compliance for these database operations, organizations must rest
 
 <HintBlock type="info">
 
-Bytebase is a single place to provide [access control](/docs/security/data-access-control/), [review workflow](/docs/change-database/change-workflow/), [data masking](/docs/security/data-masking/overview/), [audit logging](/docs/security/audit-log/) for all database development operations for all database systems.
+Bytebase is a single place to provide [access control](/docs/security/database-permission/overview/), [review workflow](/docs/change-database/change-workflow/), [data masking](/docs/security/data-masking/overview/), [audit logging](/docs/security/audit-log/) for all database development operations for all database systems.
 
 </HintBlock>
 

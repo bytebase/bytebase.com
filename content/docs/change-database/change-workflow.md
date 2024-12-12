@@ -51,7 +51,7 @@ one or more SQL statements to be executed.
 
 Tasks run in the following order:
 
-<IncludeBlock url="/docs/tutorials/share/task-run-order"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/task-run-order"></IncludeBlock>
 
 ### Task Detail
 

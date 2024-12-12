@@ -7,12 +7,12 @@ feature_name: DATA_MASKING
 
 ![bb-masking-overview](/content/docs/security/data-masking/bb-masking-overview.webp)
 
-Dynamic Data Masking can mask sensitive data in the [SQL Editor](/docs/sql-editor/overview) query result based on the context. It helps
+Dynamic Data Masking (DDM) can mask sensitive data in the [SQL Editor](/docs/sql-editor/overview) query result based on the context. It helps
 organizations to protect sensitive data from being exposed to unauthorized users.
 
 <HintBlock type="info">
 
-You can configure the masking policies from UI or via API. Check out [this GitOps example](https://github.com/bytebase/api-example/tree/main/data-security) to see how to codify the masking policies.
+You can configure the masking policies from UI or via API. Check out [this GitOps example](https://github.com/bytebase/database-security-github-actions-example) to see how to codify the masking policies.
 
 </HintBlock>
 

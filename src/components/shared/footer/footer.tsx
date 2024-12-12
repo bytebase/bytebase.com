@@ -1,40 +1,108 @@
+import { BsGithub, BsDiscord, BsTwitterX, BsYoutube, BsLinkedin } from 'react-icons/bs';
+
 import Link from '@/components/shared/link';
 
-import { MENU } from '@/lib/menus';
 import Route from '@/lib/route';
 
-import DiscordIcon from '@/svgs/discord.inline.svg';
-import GithubIcon from '@/svgs/github.inline.svg';
-import TwitterIcon from '@/svgs/twitter.inline.svg';
-import LinkedInIcon from '@/svgs/linkedin.inline.svg';
-import YoutubeIcon from '@/svgs/youtube.inline.svg';
-import LocaleSwitcher from '@/components/locale-switcher';
+const FOOTER_MENU = [
+  {
+    name: 'DATABASES',
+    items: [
+      { name: 'MySQL', linkUrl: Route.DATABASE_MYSQL },
+      { name: 'PostgreSQL', linkUrl: Route.DATABASE_POSTGRES },
+      { name: 'Snowflake', linkUrl: Route.DATABASE_SNOWFLAKE },
+      { name: 'Oracle', linkUrl: Route.DATABASE_ORACLE },
+      { name: 'SQL Server', linkUrl: Route.DATABASE_SQLSERVER },
+      { name: 'MongoDB', linkUrl: Route.DATABASE_MONGO },
+      { name: 'Redis', linkUrl: Route.DATABASE_REDIS },
+      { name: 'Redshift', linkUrl: Route.DATABASE_REDSHIFT },
+      { name: 'ClickHouse', linkUrl: Route.DATABASE_CLICKHOUSE },
+      { name: 'TiDB', linkUrl: Route.DATABASE_TIDB },
+      { name: 'OceanBase', linkUrl: Route.DATABASE_OCEANBASE },
+      { name: 'Google Spanner', linkUrl: Route.DATABASE_SPANNER },
+      { name: 'MariaDB', linkUrl: Route.DATABASE_MARIADB },
+      { name: 'Databricks', linkUrl: Route.DATABASE_DATABRICKS },
+    ],
+  },
+  {
+    name: 'INTEGRATIONS',
+    items: [
+      { name: 'GitLab', linkUrl: Route.INTEGRATION_GITLAB },
+      { name: 'GitHub', linkUrl: Route.INTEGRATION_GITHUB },
+      { name: 'Bitbucket', linkUrl: Route.INTEGRATION_BITBUCKET },
+      { name: 'Azure DevOps', linkUrl: Route.INTEGRATION_AZURE_DEVOPS },
+      { name: 'Slack', linkUrl: Route.INTEGRATION_SLACK },
+      { name: 'Discord', linkUrl: Route.INTEGRATION_DISCORD },
+      { name: 'Teams', linkUrl: Route.INTEGRATION_TEAMS },
+      { name: 'DingTalk', linkUrl: Route.INTEGRATION_DINGTALK },
+      { name: 'Lark', linkUrl: Route.INTEGRATION_LARK },
+      { name: 'WeCom', linkUrl: Route.INTEGRATION_WECOM },
+    ],
+  },
+  {
+    name: 'COMPARISONS',
+    items: [
+      { name: 'vs. Liquibase', linkUrl: Route.VS_LIQUIBASE },
+      { name: 'vs. Flyway', linkUrl: Route.VS_FLYWAY },
+      { name: 'vs. CloudBeaver', linkUrl: Route.VS_CLOUDBEAVER },
+      { name: 'vs. DBeaver', linkUrl: Route.VS_DBEAVER },
+      { name: 'vs. Navicat', linkUrl: Route.VS_NAVICAT },
+      { name: 'vs. Metabase', linkUrl: Route.VS_METABASE },
+      { name: 'vs. schemachange', linkUrl: Route.VS_SCHEMACHANGE },
+      { name: 'vs. Jira', linkUrl: Route.VS_JIRA },
+    ],
+  },
+  {
+    name: 'RESOURCES',
+    items: [
+      { name: 'Documentation', linkUrl: Route.DOCS },
+      { name: 'Changelog', linkUrl: Route.CHANGELOG },
+      { name: 'Schema Migration', linkUrl: Route.SCHEMA_MIGRATION },
+      { name: 'SQL Editor', linkUrl: Route.SQL_EDITOR },
+      { name: 'Dynamic Data Masking', linkUrl: Route.DATA_MASKING },
+      { name: 'SQL Review Guide', linkUrl: Route.SQL_REVIEW_GUIDE },
+      { name: 'Database Glossary', linkUrl: Route.DATABASE_GLOSSARY },
+    ],
+  },
+  {
+    name: 'COMPANY',
+    items: [
+      { name: 'About', linkUrl: Route.ABOUT },
+      { name: 'Brand', linkUrl: Route.BRAND },
+      { name: 'Terms', linkUrl: Route.TERMS },
+      { name: 'Policy', linkUrl: Route.PRIVACY },
+      { name: 'Security', linkUrl: Route.SECURITY },
+      { name: 'Partners', linkUrl: Route.PARTNER },
+      { name: 'Contact', linkUrl: Route.CONTACTS },
+    ],
+  },
+];
 
 const socialLinks = [
   {
     name: 'Github',
     href: Route.GITHUB,
-    icon: GithubIcon,
+    icon: BsGithub,
   },
   {
     name: 'Discord',
     href: Route.DISCORD,
-    icon: DiscordIcon,
+    icon: BsDiscord,
   },
   {
     name: 'Twitter',
-    href: Route.TWITTER,
-    icon: TwitterIcon,
+    href: Route.X,
+    icon: BsTwitterX,
   },
   {
     name: 'Youtube',
     href: Route.YOUTUBE,
-    icon: YoutubeIcon,
+    icon: BsYoutube,
   },
   {
     name: 'LinkedIn',
     href: Route.LINKEDIN,
-    icon: LinkedInIcon,
+    icon: BsLinkedin,
   },
 ];
 
@@ -48,8 +116,8 @@ const Footer = () => {
   return (
     <footer className="safe-paddings container relative z-10 shrink-0 pt-20 lg:pt-14 md:pt-12 xs:pt-10">
       <div className="grid grid-cols-10 gap-x-10 xl:gap-x-9 lg:gap-x-6 md:gap-x-7 sm:grid sm:grid-cols-4 sm:gap-x-4 sm:gap-y-14">
-        {MENU.footer.map(({ name, items }, idx) => (
-          <div className="col-span-2" key={idx}>
+        {FOOTER_MENU.map(({ name, items }) => (
+          <div className="col-span-2" key={name}>
             <h3 className="text-14 font-bold leading-none tracking-wider text-gray-60">{name}</h3>
             <ul className="mt-7 flex flex-col gap-[18px]">
               {items.map(({ name: childName, linkUrl }, childIdx) => (
@@ -94,8 +162,7 @@ const Footer = () => {
             >
               <span className="sr-only">{name}</span>
               <Icon
-                width={24}
-                height={24}
+                size={24}
                 className="shrink-0 transition-opacity duration-200 hover:opacity-80"
               />
             </Link>

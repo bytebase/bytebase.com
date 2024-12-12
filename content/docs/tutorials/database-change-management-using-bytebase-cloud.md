@@ -46,7 +46,7 @@ Before you start, make sure you have:
 
 1. Visit [Bytebase Cloud Hub](https://hub.bytebase.com/).
 
-2. Signup or Log in to Bytebase Hub via your email / Google / GitHub / Microsoft account.
+2. Sign up or Log in to Bytebase Hub via your email / Google / GitHub / Microsoft account.
 
 3. You'll be redirected to the workspace page, click **Create workspace**, and give it a name.
 

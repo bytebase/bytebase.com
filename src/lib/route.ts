@@ -60,7 +60,7 @@ const Route = {
   DOCS_ROLLBACK_DATA: '/docs/change-database/rollback-data-changes',
   DOCS_SCHEMA_SYNC: '/docs/change-database/synchronize-schema',
   DOCS_SQL_EDITOR: '/docs/sql-editor/overview',
-  DOCS_DATA_ACCESS_CONTROL: '/docs/security/data-access-control',
+  DOCS_DATABASE_PERMISSION: '/docs/security/database-permission/overview',
   DOCS_DATA_MASKING: '/docs/security/data-masking/overview',
   DOCS_DATA_MASKING_COLUMN: '/docs/security/data-masking/column-masking',
   DOCS_DATA_MASKING_GLOBAL: '/docs/security/data-masking/global-masking-rule',
@@ -73,6 +73,10 @@ const Route = {
   DOCS_ONLINE_SCHEMA_CHANGE: '/docs/change-database/online-schema-migration-for-mysql',
   DOCS_RBAC: '/docs/concepts/roles-and-permissions',
   DOCS_SSO: '/docs/administration/sso/overview',
+  DOCS_DATABASE_CI_CD: '/docs/tutorials/how-to-move-schema-change-from-test-to-prod',
+  DOCS_DATABASE_ADHOC_CHANGE: '/docs/tutorials/data-rollback',
+  DOCS_MULTI_TENANCY_DEPLOYMENT: '/docs/tutorials/batch-change-with-database-group',
+  DOCS_API_OVERVIEW: '/docs/api/overview',
 
   // blog
   BLOG_CASE_STUDY: '/blog/category/case-study',
@@ -90,6 +94,7 @@ const Route = {
   PG_VS_MYSQL: '/blog/postgres-vs-mysql',
   PG_VS_MONGO: '/blog/postgres-vs-mongodb',
   PLANETSCALE_VS_NEON: '/blog/planetscale-vs-neon',
+  DATABASE_JIT_ACCESS: '/blog/just-in-time-database-access',
 
   // databases
   DATABASE_MYSQL: '/database/mysql',
@@ -146,7 +151,7 @@ const Route = {
   LIVE_DEMO: 'https://demo.bytebase.com',
   HUB: 'https://hub.bytebase.com/workspace',
   DISCORD: 'https://discord.com/invite/huyw7gRsyA',
-  TWITTER: 'https://twitter.com/Bytebase',
+  X: 'https://x.com/Bytebase',
   YOUTUBE: 'https://www.youtube.com/channel/UCIlxsMmakGxeaAwpu1Z6jJg',
   GITHUB: 'https://github.com/bytebase/bytebase',
   LINKEDIN: 'https://www.linkedin.com/company/bytebase',

@@ -21,7 +21,7 @@ title: Issue
 
 ## How to create an issue
 
-Code sample: https://github.com/bytebase/github-action-example/blob/main/.github/actions/upsert-issue/index.ts#L68-L75
+Code sample: https://github.com/bytebase/cicd-github-actions-example/blob/main/.github/actions/upsert-issue/index.ts#L68-L75
 
 ```go
 // Create plan
@@ -87,7 +87,7 @@ Inside the plan, create one or more sheets if needed. Then you orchestrate the o
 
 Each spec corresponds to a task. A task is a single change unit. Tasks run in the following order:
 
-<IncludeBlock url="/docs/tutorials/share/task-run-order"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/task-run-order"></IncludeBlock>
 
 If you want to enforce strict running order inside a step/stage. You can specify `dependsOnSpecs` with the previous task.
 

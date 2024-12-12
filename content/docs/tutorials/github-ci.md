@@ -9,7 +9,7 @@ estimated_time: '30 mins'
 description: 'In this article, you will delve into a practical example from Bytebase, demonstrating how to automate database schema change workflow using GitHub Actions and Bytebase API.'
 ---
 
-> Tutorial repository [https://github.com/bytebase/github-action-example](https://github.com/bytebase/github-action-example)
+> Tutorial repository [https://github.com/bytebase/cicd-github-actions-example](https://github.com/bytebase/cicd-github-actions-example)
 
 Developers like to keep their schema migration scripts in Git along with the application code. Thus
 the migration scripts will be reviewed and version-controlled in the same way as the application code.
@@ -125,7 +125,7 @@ and emit GitHub inline annotations for each advice and mark the check as failed 
       ...
 ```
 
-We create a [PR](https://github.com/bytebase/github-action-example/pull/15) with several SQL files, and it triggers both `bytebase-sql-review.yml` and `bytebase-check-migration-status.yml`. After these checks are completed, the PR is blocked due to failures.
+We create a [PR](https://github.com/bytebase/cicd-github-actions-example/pull/15) with several SQL files, and it triggers both `bytebase-sql-review.yml` and `bytebase-check-migration-status.yml`. After these checks are completed, the PR is blocked due to failures.
 
 ![gh-pr1-blocked](/content/docs/tutorials/github-ci/gh-pr1-blocked.webp)
 

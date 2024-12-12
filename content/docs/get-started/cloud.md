@@ -17,7 +17,7 @@ For teams with security/compliance requirements, please [self host Bytebase](/do
 ## Provision a Bytebase instance
 
 1. Visit [Bytebase Cloud Hub](https://hub.bytebase.com/).
-2. Signup or Log in to Bytebase Hub via your email / Google / GitHub / Microsoft account.
+2. Sign up or Log in to Bytebase Hub via your email / Google / GitHub / Microsoft account.
 
 ![login-hub](/content/docs/get-started/saas/login-hub.webp)
 

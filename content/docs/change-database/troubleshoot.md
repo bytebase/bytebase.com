@@ -42,6 +42,12 @@ You need to grant the database owner permission to the Bytebase user configured 
 GRANT <<DATABASE_OWNER>> TO bytebase WITH INHERIT FALSE
 ```
 
+<HintBlock type="warning">
+
+If you use AlloyDB, the database owner must NOT be created via [Cloud IAM](https://cloud.google.com/alloydb/docs/manage-iam-authn).
+
+</HintBlock>
+
 ### ERROR: must be owner of table xxx (SQLSTATE 42501)
 
 You may encounter this error when executing the schema migration on PostgreSQL databases.

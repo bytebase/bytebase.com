@@ -93,6 +93,10 @@ Log in as `Developer`, and you can see `Sample Project`. Enter **SQL Editor** on
 
 1. Input `SELECT * FROM employee;` and run, it'll show permission denied because `Developer` has not been granted permission to query `employee` table. You can click **Request Query** to request permission.
 
+## Audit log
+
+As you can see all change history in **Issues** section or under **Change History** page of a certain database. Bytebase also records all the data access activities in the **[Audit Log](/docs/security/audit-log/)** section as well.
+
 ## Related content
 
 - [Deploy Schema Migration with Rollout Policy](/docs/tutorials/deploy-schema-migration/)

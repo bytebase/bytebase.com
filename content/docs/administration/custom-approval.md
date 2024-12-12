@@ -5,7 +5,13 @@ feature_name: CUSTOM_APPROVAL
 
 <TutorialBlock url="/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow" title="Database Change Management with Risk-Adjusted Approval Flow" />
 
-<iframe width="675" height="380" src="https://www.youtube.com/embed/K_RWlqdplZQ" title="YouTube video player" className="w-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+<iframe width="675" height="380" src="https://www.youtube.com/embed/K_RWlqdplZQ" title="YouTube video player" className="w-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowFullScreen"></iframe>
+
+<HintBlock type="info">
+
+You **can not** self-approve your own created issue even if you are a qualified approver. But you **can** [roll out](/docs/administration/environment-policy/rollout-policy/) your own issue if qualified.
+
+</HintBlock>
 
 In **Settings > Custom Approval**, you can choose which approval flow to use for a [risk level](/docs/administration/risk-center) and define approval flows.
 

@@ -24,7 +24,7 @@ const ITEMS = [
   },
   {
     title: 'Data Access Control',
-    url: Route.DOCS_DATA_ACCESS_CONTROL,
+    url: Route.DOCS_DATABASE_PERMISSION,
   },
   {
     title: 'GitOps',

@@ -7,19 +7,59 @@ feature_name: 'ROLLBACK_DATA_CHANGES'
 
 Bytebase allows taking **Prior Backup** before a data change is made. Bytebase stores the pre-snapshot of the affected rows, which allows you to revert that data change if needed.
 
-## Support Matrix
+<HintBlock type="info">
 
-Prior backup is only feasible when meeting **any** of the following conditions:
+The backup data is stored in your own database instance. Bytebase does not purge the backup data automatically.
+You can manually delete the data in `bbdataarchive` database/schema.
 
-1. No more than 5 statements and every statement is either `UPDATE` or `DELETE`.
-1. All statements are `UPDATE` for the same table with `PRIMARY KEY` or `UNIQUE KEY` in `WHERE` clause.
+</HintBlock>
 
-| Database   | Prerequisites                                                                         | 1-click Rollback |
-| ---------- | ------------------------------------------------------------------------------------- | ---------------- |
-| MySQL      | Create a `bbdataarchive` **database** on the instance where your database is located. | ✅               |
-| PostgreSQL | Create a `bbdataarchive` **schema** on the database.                                  | ✅               |
-| Oracle     | Create a `bbdataarchive` **database** on the instance where your database is located. | ❌               |
-| SQL Server | Create a `bbdataarchive` **database** on the instance where your database is located. | ✅               |
+## Supported Databases
+
+| Database   | Prerequisites                                                                         | Prior Backup | 1-click Rollback |
+| ---------- | ------------------------------------------------------------------------------------- | ------------ | ---------------- |
+| MySQL      | Create a `bbdataarchive` **database** on the instance where your database is located. | ✅           | ✅               |
+| PostgreSQL | Create a `bbdataarchive` **schema** on the database.                                  | ✅           | ✅               |
+| Oracle     | Create a `bbdataarchive` **database** on the instance where your database is located. | ✅           | ❌               |
+| SQL Server | Create a `bbdataarchive` **database** on the instance where your database is located. | ✅           | ✅               |
+
+## Supported Operations
+
+We are working on enabling backup and 1-click rollback for more SQL statements.
+
+### Enhanced experience
+
+<HintBlock type="info">
+
+Applicable to `MySQL`.
+
+</HintBlock>
+
+Prior backup is feasible when meeting **all** of the following conditions:
+
+- The SQL statement size is less than 2M.
+
+- No mixed `UPDATE`/`DELETE` on the same table.
+
+- No mixed DDL/DML.
+
+1-click rollback is feasible when meeting **all** of the following conditions:
+
+- The changed table has primary key.
+
+### Classic experience
+
+<HintBlock type="info">
+
+Applicable to `PostgreSQL`, `Oracle`, `SQL Server`.
+
+</HintBlock>
+
+Prior backup is feasible when meeting **all** of the following conditions:
+
+- The SQL statement size is less than 2M.
+- No more than 5 statements and every statement is either `UPDATE` or `DELETE`, or all statements are `UPDATE` for the same table with `PRIMARY KEY` or `UNIQUE KEY` in `WHERE` clause.
+- No mixed DDL/DML.
 
 ## Create backup
 
@@ -50,7 +90,7 @@ If the DML change contains more than 5 statements, then all statements will be b
 
 ![bb-prior-bk-single-table](/content/docs/change-database/rollback-data-changes/bb-prior-bk-single-table.webp)
 
-## Project Backup Settings
+## Project backup settings
 
 <PricingPlanBlock feature_name='ISSUE_SETTING' />
 

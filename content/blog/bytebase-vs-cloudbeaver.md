@@ -31,11 +31,13 @@ Bytebase focuses on team collaboration, offering tailored features like access c
 | [Installation](#installation)               | Jave-based, require JVM                                      | Deploy Go-binary with no external dependency          |
 | [Supported databases](#supported-databases) | Free for 13, Paid for 80+                                    | 20+                                                   |
 | [Query](#query)                             | ✅                                                           | ✅                                                    |
-| [Change](#change)                           | Direct                                                       | Review workflow                                       |
-| [Access control](#access-control)           | ✅ basic                                                     | ✅ Free for basic version / Paid for advanced version |
+| [Change](#change)                           | ⚠️ Direct                                                    | ✅ Configurable direct or review workflow             |
+| [Access control](#access-control)           | ⚠️ Basic                                                     | ✅ Free for basic version / Paid for advanced version |
 | [Data masking](#data-masking)               | ❌                                                           | ✅ Paid                                               |
-| [Compare Schema](#compare)                  | ❌                                                           | ✅ 1:N                                                |
+| [Compare Schema](#compare-schema)           | ❌                                                           | ✅ 1:N                                                |
 | [Audit log](#audit-log)                     | ✅                                                           | ✅                                                    |
+| [API](#api)                                 | ✅ GraphQL                                                   | ✅ gRPC + HTTP/REST                                   |
+| [GitOps](#gitops)                           | ⚠️ No built-in solution                                      | ✅                                                    |
 
 ### Product position
 
@@ -88,15 +90,15 @@ Bytebase focuses on team collaboration, offering tailored features like access c
   You may turn on **Query History** to track activities.
   ![cb-change-query-history](/content/blog/bytebase-vs-cloudbeaver/cb-change-query-history.webp)
 
-- **Bytebase**: Every change to the database should proceed through an issue. The issue will automatically bring you **SQL Review**, **Custom Approval Flow** and other related features.
+- **Bytebase**: Admin can configure whether to allow direct change or enforce the review process. When the review process is enforced, every change to the database will proceed through an issue. The issue will automatically bring you **SQL Review**, **Custom Approval Flow** and other related features.
   ![bb-issue](/content/blog/bytebase-vs-cloudbeaver/bb-issue-waiting.webp)
 
-  Every change will be recorded in the **Change History**. Bytebase will also detect the schema changes made by other tools and mark them as **Schema Drift**.
-  ![bb-history](/content/blog/bytebase-vs-cloudbeaver/bb-history.webp)
+Every change will be recorded in the **Change History**. Bytebase will also detect the schema changes made by other tools and mark them as **Schema Drift**.
+![bb-history](/content/blog/bytebase-vs-cloudbeaver/bb-history.webp)
 
-  If you write a SQL script such `ALTER TABLE` in **SQL Editor**, you'll either create a new issue or switch to **Admin mode** (similar to SSH in the terminal).
-  ![bb-force-issue](/content/blog/bytebase-vs-cloudbeaver/bb-force-issue.webp)
-  ![bb-force-issue-preview](/content/blog/bytebase-vs-cloudbeaver/bb-force-issue-preview.webp)
+If you write a SQL script such `ALTER TABLE` in **SQL Editor**, you'll either create a new issue or switch to **Admin mode** (similar to SSH in the terminal).
+![bb-force-issue](/content/blog/bytebase-vs-cloudbeaver/bb-force-issue.webp)
+![bb-force-issue-preview](/content/blog/bytebase-vs-cloudbeaver/bb-force-issue-preview.webp)
 
 On the other hand, the more common way to change the schema is to use **Schema Editor**.
 
@@ -129,7 +131,7 @@ On the other hand, the more common way to change the schema is to use **Schema E
   Furthermore, `Admins`/`DBAs` can define semantic types for masking algorithms, such as email, phone, credit card, etc. As a result, the data will be masked according to the semantic type configured.
   ![bb-masking-graph](/content/blog/bytebase-vs-cloudbeaver/bb-masking-graph.webp)
 
-### Compare
+### Compare Schema
 
 - **CloudBeaver**: Not available.
 
@@ -145,6 +147,18 @@ On the other hand, the more common way to change the schema is to use **Schema E
 
 - **Bytebase**: **Audit Log** is available for the **Enterprise plan**. It records all the activities within Bytebase which can be filtered or exported.
   ![bb-audit-log](/content/blog/bytebase-vs-cloudbeaver/bb-audit-log-dropdown.webp)
+
+### API
+
+- **CloudBeaver**: Support [GraphQL](https://github.com/dbeaver/cloudbeaver/wiki/Server-API-explorer), while the doc is pretty light.
+
+- **Bytebase**: Support gRPC and HTTP/REST. Bytebase provides extensive [docs](/docs/api/overview/), [code samples](https://github.com/bytebase/api-example), and [tutorials](/tutorial/).
+
+### GitOps
+
+- **CloudBeaver**: In theory, you can build GitOps solution via the GraphQL API, but there is no mature solutions.
+
+- **Bytebase**: [GitOps best practice](https://github.com/bytebase/database-security-github-actions-example) to configure every aspect of database security.
 
 ## Summary
 

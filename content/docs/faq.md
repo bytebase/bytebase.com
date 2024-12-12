@@ -43,6 +43,29 @@ If you use Docker to deploy Bytebase, please use Docker version >= [20.10.24](ht
 
 SQL Editor autocomplete requires [enabling WebSocket](/docs/get-started/self-host/#enable-websocket-for-sql-editor) in your gateway if present.
 
+## Does Bytebase retain your data
+
+Bytebase does not retain any database row data.
+
+### Database credentials
+
+In order to perform database operations on users' behalf, Bytebase needs users to provide the database credentials.
+By default, Bytebase stores the supplied credentials in the obfuscated format. For the Enterprise plan, you can
+instruct Bytebase to [use the external secret manager](/docs/get-started/instance/#use-secret-manager).
+
+### Database schema (metadata)
+
+Bytebase syncs and stores the database schema information. If you enable [AI Assistant](/docs/ai-assistant/),
+Bytebase will also send the schema info to OpenAI or the configured endpoint.
+
+### Database data (row data)
+
+When you query the database via Bytebase, Bytebase does not store the result data. [Audit log](/docs/security/audit-log/)
+only records the query.
+
+If you enable [Data Rollback](/docs/change-database/rollback-data-changes/), Bytebase will store the backup data in your
+own database instance.
+
 ## Production Setup
 
 See [Production Setup](/docs/administration/production-setup/).
@@ -54,12 +77,6 @@ See [Supported Databases](/docs/introduction/supported-databases).
 ## Supported version control systems (VCS) and providers
 
 See [Git Provider](/docs/vcs-integration/add-git-provider).
-
-## How Bytebase stores the database credentials
-
-In order to perform database operations on users' behalf, Bytebase needs users to provide the database credentials.
-By default, Bytebase stored the supplied credentials in the obfuscated format. For the Enterprise plan, you can
-instruct Bytebase to [use the external secret manager](/docs/get-started/instance/#use-secret-manager).
 
 ## How to enable https
 

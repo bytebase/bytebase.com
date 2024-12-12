@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { codeInspectorPlugin } = require('code-inspector-plugin');
+
 const skippedSectionsInNewWebsite = [
   '/database-review-guide',
   '/techstack',
@@ -130,14 +133,10 @@ module.exports = {
         destination: '/docs/change-database/change-workflow',
         permanent: true,
       },
-      {
-        source: `/blog/30saas-services-behind-startup`,
-        destination: '/blog/saas-services-behind-startup-2022',
-        permanent: true,
-      },
     ];
   },
   webpack: (config) => {
+    config.plugins.push(codeInspectorPlugin({ bundler: 'webpack' }));
     config.module.rules.push({
       test: /\.inline.svg$/,
       use: [

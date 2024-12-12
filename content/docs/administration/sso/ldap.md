@@ -1,5 +1,6 @@
 ---
 title: Lightweight Directory Access Protocol (LDAP)
+feature_name: SSO_ADVANCED
 ---
 
 Lightweight Directory Access Protocol (LDAP) is a vendor-neutral software protocol used to lookup information or devices within a network. Bytebase supports using LDAP for configuring Single Sign-On (SSO).
@@ -8,25 +9,25 @@ Lightweight Directory Access Protocol (LDAP) is a vendor-neutral software protoc
 
 Basic information:
 
-* **Name**: the display name shown to your users (e.g. `JumpCloud`)
-* **Identity Provider ID**: a human-readable unique string, only lower-case alphabets and hyphens are allowed (e.g. `jumpcloud`)
-* **Domain**: the domain name to scope associated users (e.g. `jumpcloud.com`, optional)
+- **Name**: the display name shown to your users (e.g. `JumpCloud`)
+- **Identity Provider ID**: a human-readable unique string, only lower-case alphabets and hyphens are allowed (e.g. `jumpcloud`)
+- **Domain**: the domain name to scope associated users (e.g. `jumpcloud.com`, optional)
 
 Identity provider information:
 
-* **Host**: the host of LDAP server (e.g. `ldap.jumpcloud.com`)
-* **Port**: the port number of the LDAP server, usually 389 for StartTLS and 636 for LDAPS
-* **Bind DN**: the Distinguished Name (DN) of the user to bind as a service account to perform search requests (e.g. `uid=system,ou=Users,dc=jumpcloud,dc=com`)
-* **Bind Password**: the password of the user to bind as a service account
-* **Base DN**: the base Distinguished Name (DN) to search for users (e.g. `ou=users,dc=jumpcloud,dc=com`)
-* **User Filter**: the filter to search for users (e.g. `(uid=%s)`, where `%s` will be subsituted by the username)
-* **Security protocol**: the security protocol to be used for establishing connections with the LDAP server
+- **Host**: the host of LDAP server (e.g. `ldap.jumpcloud.com`)
+- **Port**: the port number of the LDAP server, usually 389 for StartTLS and 636 for LDAPS
+- **Bind DN**: the Distinguished Name (DN) of the user to bind as a service account to perform search requests (e.g. `uid=system,ou=Users,dc=jumpcloud,dc=com`)
+- **Bind Password**: the password of the user to bind as a service account
+- **Base DN**: the base Distinguished Name (DN) to search for users (e.g. `ou=users,dc=jumpcloud,dc=com`)
+- **User Filter**: the filter to search for users (e.g. `(uid=%s)`, where `%s` will be subsituted by the username)
+- **Security protocol**: the security protocol to be used for establishing connections with the LDAP server
 
 User information field mapping:
 
-* **Email**: the attribute to be used as the Bytebase user email address (e.g. `mail`)
-* **Display name**: the attribute to be used as the Bytebase user display name (e.g. `displayName`, optional)
-* **Phone**: the attribute to be used as the Bytebase user phone number (e.g. `phone`, optional)
+- **Email**: the attribute to be used as the Bytebase user email address (e.g. `mail`)
+- **Display name**: the attribute to be used as the Bytebase user display name (e.g. `displayName`, optional)
+- **Phone**: the attribute to be used as the Bytebase user phone number (e.g. `phone`, optional)
 
 ### JumpCloud
 
@@ -73,4 +74,3 @@ The attribute `uid` is the username (e.g. `system`) not the email (e.g. `system@
    - **Security protocol** `StartTLS`
    - **Email**: `mail`
    - **Display name**: `cn`
-

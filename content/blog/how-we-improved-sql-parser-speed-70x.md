@@ -8,6 +8,11 @@ featured: true
 description: How we optimize the ANTLR's grammar to significantly increase the SQL parsing speed for SQL Server.
 ---
 
+This is a series of articles about SQL parsers
+
+1. How We Improved Our SQL Parser Speed by 70x (this one)
+1. [How We Built the SQL Autocomplete Framework with ANTLR4](/blog/sql-auto-complete)
+
 ## Background
 
 Bytebase provides [SQL Review](/docs/sql-review/overview/) to detect anti-SQL patterns for all mainstream

@@ -30,8 +30,8 @@ const data: AccordionData[] = [
     image: '/images/page/main/data-masking/column-level.webp',
   },
   {
-    title: 'Unmasked access',
-    description: 'Grant access to unmasked data for specific users.',
+    title: 'Conditional unmasking',
+    description: 'Grant access to unmasked data for specific users and groups.',
     image: '/images/page/main/data-masking/access-control.webp',
   },
 ];

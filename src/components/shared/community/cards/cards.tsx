@@ -1,12 +1,10 @@
+import { BsGithub, BsDiscord, BsTwitter } from 'react-icons/bs';
+
 import NextLink from 'next/link';
 
 import clsx from 'clsx';
 
 import Route from '@/lib/route';
-
-import DiscordIcon from '@/svgs/discord.inline.svg';
-import GithubIcon from '@/svgs/github.inline.svg';
-import TwitterIcon from '@/svgs/twitter.inline.svg';
 
 const socials = [
   {
@@ -19,7 +17,7 @@ const socials = [
     name: 'Twitter',
     description:
       'Latest news and updates. Tag us if you need any help or want to share a feedback.',
-    href: Route.TWITTER,
+    href: Route.X,
     action: 'Follow Us',
   },
   {
@@ -32,9 +30,9 @@ const socials = [
 ];
 
 const icon = {
-  Discord: DiscordIcon,
-  Twitter: TwitterIcon,
-  GitHub: GithubIcon,
+  Discord: BsDiscord,
+  Twitter: BsTwitter,
+  GitHub: BsGithub,
 };
 
 const Icon = ({ name }: { name: keyof typeof icon }) => {

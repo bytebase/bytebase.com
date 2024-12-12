@@ -9,7 +9,7 @@ description: 'Support batch change by database groups in tenant projects; Suppor
 ## 🚀 New Features
 
 - Support batch change by [database groups](/docs/change-database/batch-change/#change-databases-from-database-groups) in tenant projects.
-- Support [table-level data query requests](/docs/security/data-query/#apply-for-querier-role-at-table-level).
+- Support [table-level data query requests](/docs/security/database-permission/query/#apply-for-querier-role-at-table-level).
 - SQL Editor supports multiple running SQL SELECT statements in one query.
 - Support SQL review for OceanBase.
 

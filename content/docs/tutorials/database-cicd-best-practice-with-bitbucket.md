@@ -18,7 +18,7 @@ _Wanna other VCS providers instead?_ 👉
 
 ## The Database CI/CD Workflow
 
-<IncludeBlock url="/docs/tutorials/share/database-workflow"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/database-workflow"></IncludeBlock>
 
 ## Set Up Database CI/CD with Bitbucket in Bytebase (Free Plan)
 
@@ -109,7 +109,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Bitbuck
 
 ## Advanced Features (Enterprise Plan)
 
-<IncludeBlock url="/docs/tutorials/share/database-workflow-advanced-features"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/database-workflow-advanced-features"></IncludeBlock>
 
 ## Summary
 

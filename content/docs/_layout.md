@@ -85,7 +85,17 @@ expand_section_list: ['Self-host']
 
 #### [API](/sql-review/api)
 
-### Rollback
+### Approve
+
+#### [Custom Approval](/administration/custom-approval)
+
+#### [Risk Center](/administration/risk-center)
+
+### Roll out
+
+#### [Rollout Policy](/administration/environment-policy/rollout-policy)
+
+### Roll back
 
 #### [Data Rollback](/change-database/rollback-data-changes)
 
@@ -116,12 +126,6 @@ expand_section_list: ['Self-host']
 ### Settings
 
 #### [Webhook](/change-database/webhook)
-
-#### [Rollout Policy](/administration/environment-policy/rollout-policy)
-
-#### [Custom Approval](/administration/custom-approval)
-
-#### [Risk Center](/administration/risk-center)
 
 #### [Schema Template](/administration/schema-template)
 
@@ -155,6 +159,16 @@ expand_section_list: ['Self-host']
 
 ### [AI Assistant](/sql-editor/ai-assistant)
 
+## Database Permission
+
+### [Overview](/security/database-permission/overview)
+
+### [Query](/security/database-permission/query)
+
+### [Export](/security/database-permission/export)
+
+### [EXPLAIN](/security/database-permission/explain)
+
 ## Dynamic Data Masking
 
 ### [Overview](/security/data-masking/overview)
@@ -163,23 +177,15 @@ expand_section_list: ['Self-host']
 
 ### [Column Masking](/security/data-masking/column-masking)
 
+### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
+
 ### [Data Classification](/security/data-masking/data-classification)
 
 ### [Masking Algorithm](/security/data-masking/masking-algorithm)
 
 ### [Semantic Types](/security/data-masking/semantic-types)
 
-### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
-
 ### [Export Masked Data](/security/data-masking/export-masked-data)
-
-## Data Access Control
-
-### [Overview](/security/data-access-control)
-
-### [Data Query](/security/data-query)
-
-### [Data Export](/security/data-export)
 
 ---
 
@@ -223,7 +229,7 @@ expand_section_list: ['Self-host']
 
 ### [Database Instance](/administration/instance)
 
-### [Environment Tier](/administration/environment-policy/tier)
+### [Environment Policy](/administration/environment-policy/overview)
 
 ### [Customize Logo](/administration/customize-logo)
 
@@ -243,11 +249,13 @@ expand_section_list: ['Self-host']
 
 ### [Issue](/api/issue)
 
+### [SQL Editor](/api/sql-editor)
+
 ### [Permission](/api/permission)
 
-### [Audit Log](/api/audit-log)
-
 ### [Data Classification](/api/data-classification)
+
+### [Audit Log](/api/audit-log)
 
 ### [External Approval](/api/external-approval)
 

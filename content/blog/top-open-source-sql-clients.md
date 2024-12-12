@@ -88,7 +88,7 @@ Aforementioned tools are all client-side SQL editors for individual use. What if
 - **Data masking**. You may want to prevent users seeing sensitive data.
 - **Request and review workflow**. You want users go through a ticketing process to request the access rights.
 - **Audit logging**. You want to capture all operations performed on the database.
-- **Policy as Code (GitOps)**. Permission control and masking policies can be [codified](https://github.com/bytebase/api-example/tree/main/data-security) and integrated with your existing DevOps pipeline.
+- **Policy as Code (GitOps)**. Permission control and masking policies can be [codified](https://github.com/bytebase/database-security-github-actions-example) and integrated with your existing DevOps pipeline.
 
 All above requirements call for a server-side solution. And that's what [Bytebase SQL Editor](/sql-editor) provides.
 

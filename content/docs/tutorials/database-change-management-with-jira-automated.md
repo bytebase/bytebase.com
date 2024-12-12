@@ -15,7 +15,7 @@ Bytebase is an open-source database DevSecOps solution for Developer, Security, 
 
 Here is what you will achieve by the end of this tutorial:
 
-<iframe width="100%" height="320" src="https://www.youtube.com/embed/t23dFR6ZJl0?si=g_UkL8fTm6WnZihW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="100%" height="320" src="https://www.youtube.com/embed/t23dFR6ZJl0?si=g_UkL8fTm6WnZihW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="allowFullScreen"></iframe>
 
 ![auto-jira](/content/docs/tutorials/database-change-management-with-jira-automated/auto-jira.webp)
 

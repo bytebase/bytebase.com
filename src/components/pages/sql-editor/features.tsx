@@ -11,11 +11,11 @@ type TCard = {
 
 const cards: TCard[] = [
   {
-    href: Route.DOCS_DATA_ACCESS_CONTROL,
-    icon: '/images/access-control.svg',
-    title: 'Access control',
+    href: Route.DOCS_DATABASE_PERMISSION,
+    icon: '/images/database-permission.svg',
+    title: 'Database permission',
     description:
-      'Multi-factor granular access control based on role, environment, project, database.',
+      'Multi-factor granular IAM permissions based on role, environment, project, database.',
   },
   {
     href: Route.DOCS_DATA_MASKING_COLUMN,
@@ -36,10 +36,11 @@ const Features = () => {
     <section className="container mt-10 3xl:mt-9 xl:mt-8 md:mt-3 sm:mt-2">
       <header className="flex flex-col items-center text-center sm:items-start sm:text-start">
         <h2 className="font-title text-88 font-semibold leading-95 xl:text-68 xl:leading-104 md:text-54 sm:text-48">
-          Secure human-to-db interaction
+          Database security at scale
         </h2>
         <p className="mt-5 max-w-[716px] text-20 leading-normal 3xl:mt-[22px] xl:mt-5 xl:text-18 xl:leading-snug md:mt-3 md:max-w-[468px] md:text-14 sm:mt-2">
-          Centralize data access management and audit logs for all human-to-database operations.
+          Centralize data access management, apply dynamic data masking, and record audit logs for
+          all human-to-database operations.
         </p>
       </header>
       <ul className="gap-x-grid mt-14 grid grid-cols-12 3xl:mt-12 xl:mt-11 md:mt-9 sm:mt-6 sm:gap-y-8">

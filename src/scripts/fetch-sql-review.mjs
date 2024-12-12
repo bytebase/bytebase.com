@@ -39,7 +39,8 @@ async function downloadFile(inputUrl, outputFile) {
     process.exit(1);
   }
 
-  const buffer = await response.buffer();
+  const arrayBuffer = await response.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
 
   await writeFileAsync(outputFile, buffer);
 }

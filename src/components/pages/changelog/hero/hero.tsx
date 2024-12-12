@@ -4,7 +4,7 @@ import Route from '@/lib/route';
 
 const Hero = () => {
   return (
-    <section className="pt-[136px] 2xl:pt-32 lg:pt-[120px] md:pt-[104px] sm:pt-24">
+    <section className="pt-[136px] 2xl:pt-32 lg:pt-[120px] md:pt-[104px] sm:pt-8">
       <div className="container">
         <h1 className="font-title text-90 font-semibold leading-none lg:text-68 md:text-56 sm:text-40">
           Bytebase <mark className="bg-transparent text-primary-1">Changelog</mark>
@@ -14,7 +14,7 @@ const Hero = () => {
           <br />
           Want to be notified? Follow us on{' '}
           <Link
-            href={Route.TWITTER}
+            href={Route.X}
             target="_blank"
             className="font-semibold text-primary-1 hover:text-gray-60"
           >

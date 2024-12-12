@@ -10,7 +10,8 @@ title: Authentication
 
 ## Service Account
 
-You should create service account to interact with the Bytebase API.
+A service account is a non-human account used by applications, scripts, or services to access the Bytebase API. The service account follows the same permission model as the normal user account. The only exception
+is service account can't be added to a group as it's an [anti-pattern](https://cloud.google.com/iam/docs/best-practices-service-accounts#groups).
 
 In **Users & Groups** under **Security & Policy** section, **Add User** on the upper-right. Choose **Service Account** Type, fill in the email and **Confirm**. Then you can see your service account in the list. **Copy Service Key** right away.
 

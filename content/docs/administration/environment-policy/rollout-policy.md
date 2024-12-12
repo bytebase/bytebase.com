@@ -4,6 +4,13 @@ title: Rollout Policy
 
 <TutorialBlock url="/docs/tutorials/deploy-schema-migration" title="Deploy Schema Migration with Rollout Policy" />
 
+<HintBlock type="info">
+
+While you **can not** [self-approve](/docs/administration/custom-approval/) your own created issue, once
+the issue is approved by the others, you **can** roll out your own issue if qualified.
+
+</HintBlock>
+
 `Workspace Admin` or `DBA` can configure the **Rollout policy** for a particular environment from the **Environment** detail page:
 
 ![environment-configure](/content/docs/administration/environment-policy/bb-env-rollout-policy.webp)

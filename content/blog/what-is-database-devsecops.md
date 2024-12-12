@@ -75,7 +75,7 @@ efficient querying for authorized users.
 
 <HintBlock type="info">
 
-Unlike client-side solutions, Bytebase is a server-side solution providing [access control](/docs/security/data-access-control/), [dynamic data masking](/docs/security/data-masking/overview/), [audit logging](/docs/security/audit-log/). You can also [codify these data security policies (Policy-as-Code)](https://github.com/bytebase/api-example/tree/main/data-security).
+Unlike client-side solutions, Bytebase is a server-side solution providing [access control](/docs/security/database-permission/overview/), [dynamic data masking](/docs/security/data-masking/overview/), [audit logging](/docs/security/audit-log/). You can also [codify these data security policies (Policy-as-Code)](https://github.com/bytebase/database-security-github-actions-example).
 
 </HintBlock>
 

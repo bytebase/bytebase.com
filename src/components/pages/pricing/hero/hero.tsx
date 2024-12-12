@@ -31,7 +31,7 @@ const cards: TCard[] = [
     planConditions: [
       'Community support',
       'Up to 20 users',
-      'Up to 10 database instances',
+      '10 database instances',
       'SQL lint, GitOps, API, AI assistant',
     ],
   },
@@ -50,6 +50,7 @@ const cards: TCard[] = [
       'Up to 20 users',
       '10 database instances',
       'Manual review, scheduled rollout',
+      'Google, GitHub SSO',
     ],
   },
   {
@@ -63,10 +64,10 @@ const cards: TCard[] = [
     buttonLink: '/contact-us',
     planConditions: [
       'SLA support',
-      'Unlimited users',
-      'Unlimited database instances',
-      'SSO, SCIM, 2FA, Audit log',
+      'Custom users',
+      'Custom database instances',
       'Custom approval, dynamic data masking',
+      'OIDC, LDAP SSO, SCIM, 2FA, audit log',
     ],
   },
 ];

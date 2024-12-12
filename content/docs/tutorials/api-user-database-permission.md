@@ -9,7 +9,7 @@ estimated_time: '40 mins'
 description: 'Learn how to use the Bytebase API to inspect user and database permissions.'
 ---
 
-Bytebase is a database DevOps and CI/CD tool designed for developers, DBAs, and platform engineering teams. While it offers an intuitive GUI for managing database schema changes and access control, some teams may want to integrate Bytebase into their existing DevOps platforms using the [Bytebase API](/docs/api/overview/).
+<IncludeBlock url="/docs/share/tutorials/api-preface"></IncludeBlock>
 
 ![before-after](/content/docs/tutorials/api-user-database-permission/api-user-db-permission.webp)
 
@@ -34,11 +34,11 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
 
 ## Start Bytebase
 
-<IncludeBlock url="/docs/tutorials/share/start-bytebase"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/start-bytebase"></IncludeBlock>
 
 ## Create Service Account
 
-<IncludeBlock url="/docs/tutorials/share/create-service-account"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/create-service-account"></IncludeBlock>
 
 ## Run Demo
 

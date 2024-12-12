@@ -2,7 +2,7 @@
 title: 8 Database Tools Bytebase Replaces
 author: Tianzhou
 updated_at: 2024/01/01 09:00:00
-feature_image: /images/replaced-tools-horizontal.webp
+feature_image: /images/replaced-tools.webp
 tags: Explanation
 featured: true
 description: Bytebase is an all-in-one solution for database development lifecycle management. It replaces fragmented database tools and unifies the workflow in a single place.
@@ -10,14 +10,14 @@ description: Bytebase is an all-in-one solution for database development lifecyc
 
 Bytebase is an all-in-one solution for database development lifecycle management for developers, DBAs and platform engineers. It replaces fragmented database tools and unifies the workflow in a single place.
 
-![replaced-tools](/images/replaced-tools-horizontal.webp)
+![replaced-tools](/images/replaced-tools.webp)
 
 ## SQL Client
 
 Traditional SQL clients such as DBeaver, DataGrip, Navicat, pgAdmin, phpMyAdmin provide a GUI interface.
 Bytebase also provides a web-based [SQL Editor](/sql-editor/). By adopting Bytebase, DBAs no longer
 need to distribute database credentials to the individuals. DBAs configure the database credentials
-in Bytebase once, then grant [database/table access](/docs/security/data-access-control/) to individuals conditionally. Furthermore, they can also configure [dynamic data masking](/docs/security/data-masking/overview/).
+in Bytebase once, then grant [database permissions](/docs/security/database-permission/overview/) to individuals conditionally. Furthermore, they can also configure [dynamic data masking](/docs/security/data-masking/overview/).
 
 ![sql-editor-data-masking](/images/page/main/sql-editor/mask.webp)
 

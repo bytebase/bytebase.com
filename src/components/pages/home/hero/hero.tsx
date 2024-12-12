@@ -47,10 +47,11 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
       },
     ],
     color: 'red',
-    href: Route.DOCS_DATA_ACCESS_CONTROL,
+    href: Route.DOCS_DATABASE_PERMISSION,
     cover: '/images/page/main/hero/secure-access.webp',
-    title: 'Query Access Control',
-    description: 'Passwordless IAM-based access control with approval flow and audit logging.',
+    title: 'Just-in-Time Access',
+    description:
+      'Just-in-Time (JIT) IAM-based database permissions with approval flow and audit logging.',
   },
   {
     videos: [
@@ -133,22 +134,22 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
       <section className="col-start-1 col-end-8 row-start-1 row-end-2 3xl:col-end-9 xl:col-end-10 md:col-end-12 sm:col-auto sm:row-auto">
         <header>
           {latestVersion !== null && (
-            <Link href="/changelog/bytebase-3-0-0/" className="group/link">
+            <Link href="/changelog/bytebase-3-1-1/" className="group/link">
               <span className="inline-flex items-center gap-1 rounded-full bg-tones-purple-light p-1 text-12 font-semibold leading-none text-primary-1 transition-colors duration-200 group-hover/link:text-primary-2">
                 <span className="rounded-full bg-primary-1 px-2 py-1 text-white transition-colors duration-200 group-hover/link:bg-primary-2">
-                  Oct 24th, 2024
+                  Dec 5th, 2024
                 </span>
                 <span className="flex items-center gap-1.5 px-2">
-                  🚀 3.0.0: AI Assistant for SQL Editor
+                  🚀 3.1.1: Customizable homepage with shortcut list
                   <SmallArrowIcon width={7} height={6} />
                 </span>
               </span>
             </Link>
           )}
           <div className="relative mt-4 xl:mt-3.5 sm:mt-3">
-            <h1 className="font-title text-120 font-semibold leading-none 3xl:max-w-4xl xl:max-w-2xl xl:text-90 xl:leading-95 md:max-w-2xl md:text-80 sm:text-48">
-              Schema Migration and Database{' '}
-              <mark className="bg-transparent text-primary-1">Security</mark> at Scale
+            <h1 className="font-title text-112 font-semibold leading-none 3xl:max-w-4xl xl:max-w-2xl xl:text-90 xl:leading-95 md:max-w-2xl md:text-80 sm:text-48">
+              Database CI/CD and Security
+              <mark className="bg-transparent text-primary-1"> at Scale</mark>
             </h1>
             {/* <p className="absolute top-[244px] left-[338px] max-w-lg text-20 leading-140 xl:top-[177px] xl:left-[271px] xl:max-w-md xl:text-18 xl:leading-snug md:left-[230px] md:top-[158px] md:max-w-sm md:text-16 sm:static sm:mt-3 sm:max-w-full">
               Bytebase offers a web-based collaboration workspace to help DBAs and Developers manage
@@ -192,7 +193,7 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
       >
         <Card {...cards[0]} autoplay={autoplay} onLoad={onLoad} />
       </div>
-      <div className="col-start-5 col-end-9 row-start-1 row-end-4 pt-[461px] 3xl:pt-[459px] xl:row-start-2 xl:-mt-5 xl:pt-0 lg:mt-0 lg:pt-7 sm:col-auto sm:row-auto sm:mt-8 sm:pt-0">
+      <div className="col-start-5 col-end-9 row-start-1 row-end-4 pt-[341px] 3xl:pt-[339px] xl:row-start-2 xl:-mt-5 xl:pt-0 lg:mt-0 lg:pt-7 sm:col-auto sm:row-auto sm:mt-8 sm:pt-0">
         <Card
           {...cards[1]}
           style={{ top: stickyTopValue }}

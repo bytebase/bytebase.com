@@ -1,7 +1,7 @@
 ---
 title: 'MySQL vs. MariaDB: a Complete Comparison in 2024'
 author: Tianzhou
-updated_at: 2024/09/29 09:00
+updated_at: 2024/11/05 08:00
 feature_image: /content/blog/mysql-vs-mariadb/cover.webp
 tags: Industry
 featured: true
@@ -13,6 +13,12 @@ description: 'While MariaDB was initially a fork of MySQL, the two have evolved 
 This post is updated regularly.
 
 </HintBlock>
+
+| Update History | Comment                                                                         |
+| -------------- | ------------------------------------------------------------------------------- |
+| 2024.9.29      | Initial version.                                                                |
+| 2024.11.05     | It was noted that MariaDB has had Atomic DDL since MariaDB 10.6.                |
+|                | It was noted that MariaDB has equal or better set of JSON functions that MySQL. |
 
 While MariaDB was initially a fork of MySQL, the two have evolved over time, each with its own strengths and development priorities. Recently, [MariaDB is acquired by K1](https://mariadb.com/newsroom/press-releases/k1-acquires-a-leading-database-software-company-mariadb-and-appoints-new-ceo/), marking the new journey for MariaDB.
 
@@ -49,12 +55,6 @@ It may seem at first glance that MariaDB is more "strict" because it lacks the c
 
 ## Features where MySQL Shines
 
-### Atomic DDL
-
-MySQL 8.0 introduced Atomic DDL, ensuring that schema changes (like ALTER TABLE) are either fully committed or fully rolled back in the event of failure. This reduces the risk of corruption or inconsistent states during schema changes.
-
-MariaDB uses Aria, a crash-safe alternative to MyISAM for the system tables. Howeer, Aria does not have full Atomic DDL support.
-
 ### Native Data Dictionary
 
 MySQL 8.0 introduced a Native Data Dictionary, which is used to store metadata (like table definitions and schema information) in transactional tables within the InnoDB engine. This eliminates the need for traditional `.frm` files and improves the management of metadata, especially during upgrades and changes.
@@ -65,7 +65,7 @@ MariaDB still relies on the older `.frm` file-based system for table definitions
 
 MySQL has developed robust, native JSON support starting with MySQL 5.7. This includes JSON data types, JSON functions, and indexing mechanisms to efficiently store, query, and manipulate JSON data.
 
-MariaDB can store JSON-like data using standard text fields or its dynamic columns feature, but it lacks the fully integrated JSON support and functions that MySQL offers.
+MariaDB can store JSON data using standard text fields or its dynamic columns feature, but doesn't support MySQL's `->` or `->>` syntax. MariaDB was original behind in JSON functions on offer, but has since offering a comparable set of functions.
 
 ### InnoDB Cluster and Group Replication:
 

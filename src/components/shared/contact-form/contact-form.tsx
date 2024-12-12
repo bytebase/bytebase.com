@@ -162,7 +162,7 @@ const ContactForm = ({ className, formId }: { className: string; formId: string 
               type="submit"
               state={buttonState}
             >
-              {formId == VIEW_LIVE_DEMO ? 'View Live Demo' : 'Submit'}
+              {formId == VIEW_LIVE_DEMO ? 'View Now' : 'Submit'}
             </Button>
             {formError && (
               <span className="mt-1.5 text-12 leading-none text-secondary-6 sm:text-center 2xs:max-w-[144px]">

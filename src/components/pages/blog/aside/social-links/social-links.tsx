@@ -2,22 +2,22 @@
 
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
+import { BsTwitterX, BsLinkedin } from 'react-icons/bs';
+
 import Link from '@/components/shared/link';
-import TwitterIcon from '@/svgs/twitter.inline.svg';
-import LinkedinIcon from '@/svgs/linkedin.inline.svg';
 import HackerNewsIcon from '@/svgs/hackernews.inline.svg';
 
 const icons = {
   twitter: {
-    Icon: TwitterIcon,
-    className: 'text-secondary-3',
+    Icon: BsTwitterX,
+    className: 'text-gray-40',
     iconClassName: 'h-6 w-6',
     getShareUrl: (text: string, url: string) => {
-      return `https://twitter.com/share?text=${text}&url=${url}`;
+      return `https://x.com/share?text=${text}&url=${url}`;
     },
   },
   linkedIn: {
-    Icon: LinkedinIcon,
+    Icon: BsLinkedin,
     className: 'text-secondary-3',
     iconClassName: 'h-6 w-6',
     getShareUrl: (text: string, url: string) => {
@@ -28,7 +28,7 @@ const icons = {
     Icon: HackerNewsIcon,
     className: 'text-secondary-3',
     // Hacknew news's icon is a bit bigger than others. So we need to make it smaller.
-    iconClassName: 'h-5 w-5',
+    iconClassName: 'h-6 w-6',
     getShareUrl: (text: string, url: string) => {
       return `https://news.ycombinator.com/submitlink?u=${url}&t=${text}`;
     },

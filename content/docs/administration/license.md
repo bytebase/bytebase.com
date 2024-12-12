@@ -19,7 +19,7 @@ The license includes a number of database instance quota.
 
 Features like [SSO](/docs/administration/sso/overview/), [Watermark](/docs/security/watermark/) are Enterprise features and not specific to a particular instance. Thus as long as you have the Enterprise license, you can use those features.
 
-On the other hand, there are instance specific features like [custom approval](/docs/administration/custom-approval), [sensitive data masking](/docs/security/mask-data). To activate those features on the instance, you need to assign the quota to the instance.
+On the other hand, there are instance specific features like [custom approval](/docs/administration/custom-approval), [sensitive data masking](/docs/security/data-masking/overview). To activate those features on the instance, you need to assign the quota to the instance.
 
 <HintBlock type="info">
 

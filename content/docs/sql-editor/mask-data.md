@@ -3,7 +3,7 @@ title: Data Masking
 feature_name: DATA_MASKING
 ---
 
-Workspace Admins and DBAs can [configure data masking policy](/docs/security/mask-data) to prevent
+Workspace Admins and DBAs can [configure data masking policy](/docs/security/data-masking/overview) to prevent
 unauthorized access to the sensitive data.
 
 ![query result](/content/docs/sql-editor/mask-data.webp)

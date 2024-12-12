@@ -28,7 +28,7 @@ Bytebase provides a collaboration workspace for developers, DBAs, and security e
 1. One-off, ad-hoc change.
 1. Data query.
 
-In addition to centralizing database operations, Bytebase offers features such as [SQL Review for linting SQL statements](/docs/sql-review/overview/), [one-click rollbacks](/docs/change-database/rollback-data-changes/), [data access control](/docs/security/data-access-control/), and [dynamic data masking](/docs/security/data-masking/overview/). To deliver these capabilities, Bytebase must comprehend the SQL dialects of various target database systems, which is why we build custom parsers [for](https://github.com/bytebase/mysql-parser) [each](https://github.com/bytebase/postgresql-parser) [of](https://github.com/bytebase/plsql-parser) [them](https://github.com/bytebase/tsql-parser).
+In addition to centralizing database operations, Bytebase offers features such as [SQL Review for linting SQL statements](/docs/sql-review/overview/), [one-click rollbacks](/docs/change-database/rollback-data-changes/), [data access control](/docs/security/database-permission/overview/), and [dynamic data masking](/docs/security/data-masking/overview/). To deliver these capabilities, Bytebase must comprehend the SQL dialects of various target database systems, which is why we build custom parsers [for](https://github.com/bytebase/mysql-parser) [each](https://github.com/bytebase/postgresql-parser) [of](https://github.com/bytebase/plsql-parser) [them](https://github.com/bytebase/tsql-parser).
 
 ## AI Assistant
 

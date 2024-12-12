@@ -18,7 +18,7 @@ _Wanna other VCS providers instead?_ 👉
 
 ## The Database CI/CD Workflow
 
-<IncludeBlock url="/docs/tutorials/share/database-workflow"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/database-workflow"></IncludeBlock>
 
 ## Set Up Database CI/CD with Azure DevOps in Bytebase (Free Plan)
 
@@ -59,7 +59,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Azure D
 
 ## Step 4 - Configure SQL Review in Prod
 
-   <IncludeBlock url="/docs/tutorials/share/sql-review-not-null"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/sql-review-not-null"></IncludeBlock>
 
 ## Step 5 - Create a Pull Request and Trigger SQL Review CI
 
@@ -103,7 +103,7 @@ Here's a step-by-step tutorial on how to set up this Database CI/CD with Azure D
 
 ## Advanced Features (Enterprise Plan)
 
-<IncludeBlock url="/docs/tutorials/share/database-workflow-advanced-features"></IncludeBlock>
+<IncludeBlock url="/docs/share/tutorials/database-workflow-advanced-features"></IncludeBlock>
 
 ## Summary
 

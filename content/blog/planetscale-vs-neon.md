@@ -1,12 +1,19 @@
 ---
 title: "PlanetScale vs. Neon: the Continued Saga between MySQL and PostgreSQL"
 author: Tianzhou
-updated_at: 2023/08/04 09:00
+updated_at: 2024/11/27 09:00
 feature_image: /content/blog/planetscale-vs-neon/cover.webp
 tags: Industry
 featured: true
 description: 'An extensive comparison between PlanetScale and Neon on architecture, compatibility, developer workflow,
 scalability, operability, integration, compliance, pricing and more.'
+---
+
+_A side note: PlanetScale has shifted its website art direction to a simplistic style, marking another drastic difference from Neon._
+
+![website-planetscale](/content/blog/planetscale-vs-neon/website-planetscale.webp)
+![website-neon](/content/blog/planetscale-vs-neon/website-neon.webp)
+
 ---
 
 The [2023 Stack Overflow survey](https://survey.stackoverflow.co/2023/) shows that PostgreSQL has taken
@@ -225,7 +232,7 @@ Both PlanetScale and Neon could become the next MongoDB / Snowflake for modern R
 
 ---
 
-BTW, if you still stick with vanilla MySQL/Postgres and want PlanetScale's database change workflow or Neon's visual SQL Editor, please check out [Bytebase](/). Bytebase is a database tool for all mainstream databases, covering database change, query, security and governance all-in-one. It provides more customizable [change workflow](/docs/concepts/database-change-workflow/) and visual [SQL Editor](/docs/sql-editor/overview/) integrated with [access control](/docs/security/data-access-control/) and [data masking](/docs/security/mask-data/).
+BTW, if you still stick with vanilla MySQL/Postgres and want PlanetScale's database change workflow or Neon's visual SQL Editor, please check out [Bytebase](/). Bytebase is a database tool for all mainstream databases, covering database change, query, security and governance all-in-one. It provides more customizable [change workflow](/docs/concepts/database-change-workflow/) and visual [SQL Editor](/docs/sql-editor/overview/) integrated with [access control](/docs/security/database-permission/overview/) and [data masking](/docs/security/data-masking/overview/).
 
 ![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
 

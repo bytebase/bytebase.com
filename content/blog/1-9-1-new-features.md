@@ -37,7 +37,7 @@ Regarding how to nudge people, some collaborative tools choose to ping others, o
 
 Now, let’s chat about Bytebase’s security capabilities.
 
-We introduced [Data Access Control](/docs/security/data-access-control) with this release, leveraging Access Control Policy and Environment Tier.
+We introduced [Data Access Control](/docs/security/database-permission/overview) with this release, leveraging Access Control Policy and Environment Tier.
 
 Some users suggested that they don’t want developers to access all databases in the production environment by default. This can be achieved by the DBA setting the `Environment Tier` to `Protected`. But at the same time, the user wants to open access to some databases in this environment, which is possible by whitelisting those databases.
 
@@ -45,7 +45,7 @@ Some users suggested that they don’t want developers to access all databases i
 
 ![_](/content/blog/1-9-1-new-features/accesss-control-env.webp)
 
-The overall Bytebase design follows the same security practice of default blacklisting. This is yet another feature focusing on data security after [Data Masking](/docs/security/mask-data).
+The overall Bytebase design follows the same security practice of default blacklisting. This is yet another feature focusing on data security after [Data Masking](/docs/security/data-masking/overview).
 
 ## Data Masking
 

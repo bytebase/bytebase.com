@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
 import Pill from '@/components/shared/pill';
-import '@/styles/sql-editor-hero.css';
+import { generateScrollAnimationCSS } from '@/utils/hero-animate';
 
 type HeroProps = {
   // subjects is an array of comparison subjects.
@@ -40,7 +40,7 @@ const Hero = ({ subjects }: HeroProps) => {
   }, []);
 
   return (
-    <section className="container pt-[136px] 3xl:pt-[128px] xl:pt-[120px] md:pt-[104px] sm:pt-24">
+    <section className="container pt-[136px] 3xl:pt-[128px] xl:pt-[120px] md:pt-[104px] sm:pt-8">
       <div className="gap-x-grid relative grid grid-cols-12 justify-items-center sm:grid-cols-4">
         <Pill theme="secondary-1" className="col-span-full">
           Web-based
@@ -51,7 +51,15 @@ const Hero = ({ subjects }: HeroProps) => {
               {initialed && isSubjectsScrollable ? (
                 <>
                   <div className="absolute z-[1] h-4 w-full bg-white blur-md" />
-                  <div className="scroll-animation flex flex-col items-end justify-center">
+                  <style
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={{
+                      __html: generateScrollAnimationCSS(scrollableSubjects.length),
+                    }}
+                  />
+                  <div
+                    className={`scroll-animation-${scrollableSubjects.length} flex flex-col items-end justify-center`}
+                  >
                     {scrollableSubjects.map((subject, index) => (
                       // eslint-disable-next-line react/no-array-index-key
                       <mark key={`${subject}-${index}`} className="bg-transparent text-primary-1">
@@ -65,7 +73,7 @@ const Hero = ({ subjects }: HeroProps) => {
               )}
             </div>
           </div>{' '}
-          with access control, data masking, and collaboration
+          with centralized permission, data masking, and audit logging
         </h2>
         <Image
           src="/images/page/about/why-we-build.webp"
@@ -127,18 +135,18 @@ const Hero = ({ subjects }: HeroProps) => {
         </div>
         <div className="absolute bottom-[327px] left-0 col-span-3 col-start-10 w-[284px] 3xl:w-auto xl:bottom-[303px] xl:left-auto xl:right-0 xl:col-span-4 xl:col-start-9 xl:w-[240px] md:bottom-[180px] md:col-span-3 md:col-start-10 md:w-full sm:static sm:col-span-2 sm:col-start-3 sm:mt-6 sm:text-center">
           <b className="font-title text-112 font-semibold leading-none xl:text-88 md:text-72 sm:text-48 sm:leading-95">
-            20+
-          </b>
-          <p className="leading-1.4 font-regular text-20 xl:mt-2 xl:text-16 xl:leading-snug md:text-14 md:leading-tight md:tracking-tight sm:mt-0">
-            SQL Editor provides the most comprehensive data security features among all SQL clients.
-          </p>
-        </div>
-        <div className="absolute bottom-0 left-0 col-span-3 col-start-6 w-[252px] 3xl:w-auto xl:left-auto xl:right-0 xl:col-span-4 xl:col-start-5 xl:w-[240px] md:col-span-3 md:col-start-6 md:w-full sm:static sm:col-span-2 sm:col-start-2 sm:mt-7 sm:text-center">
-          <b className="font-title text-112 font-semibold leading-none xl:text-88 md:text-72 sm:text-48 sm:leading-95">
             100%
           </b>
           <p className="leading-1.4 font-regular text-20 xl:mt-2 xl:text-16 xl:leading-snug md:text-14 md:leading-tight md:tracking-tight sm:mt-0">
             All SQL Editor source code is available on GitHub
+          </p>
+        </div>
+        <div className="absolute bottom-0 left-0 col-span-3 col-start-6 w-[252px] 3xl:w-auto xl:left-auto xl:right-0 xl:col-span-4 xl:col-start-5 xl:w-[240px] md:col-span-3 md:col-start-6 md:w-full sm:static sm:col-span-2 sm:col-start-2 sm:mt-7 sm:text-center">
+          <b className="font-title text-112 font-semibold leading-none xl:text-88 md:text-72 sm:text-48 sm:leading-95">
+            GitOps
+          </b>
+          <p className="leading-1.4 font-regular text-20 xl:mt-2 xl:text-16 xl:leading-snug md:text-14 md:leading-tight md:tracking-tight sm:mt-0">
+            Codify database security policies as code.
           </p>
         </div>
       </div>

@@ -18,12 +18,13 @@ This tutorial will walk you through using SQL Review in Bytebase to improve your
 ## Prerequisites
 
 1. Make sure you have [Docker](https://www.docker.com/) installed, and if you don’t have important existing Bytebase data locally, you can start over from scratch by `rm -rf ~/.bytebase/data`.
-
-## Preparation: Configure SQL Reviews in Bytebase
-
 1. Copy and paste the commands to start one Bytebase via Docker.
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
+
+## Configure SQL Review Policies
+
+### UI
 
 1. Register an admin account and it will be granted the `workspace admin` role automatically.
 
@@ -42,6 +43,10 @@ This tutorial will walk you through using SQL Review in Bytebase to improve your
 1. Click **Change the template**, keep the default template `Default SQL Review Template` and click **Next**. Add one rule `Enforce setting default value on columns`, set **Error Level** to `Error` and click **Confirm and update**.
 
    ![bb-sql-review-default-value](/content/docs/tutorials/sql-review/bb-sql-review-default-value.webp)
+
+### GitOps
+
+<TutorialBlock url="/docs/tutorials/api-sql-review/" title="Codify SQL Review Policies with Bytebase API" />
 
 ## Case 1: Trigger SQL Review in Bytebase GUI
 
@@ -137,7 +142,7 @@ You may call [Bytebase API](/docs/api/sql-review/) in your internal portal or Gi
   Sample portal to call Bytebase API to trigger schema change including SQL Review.
   ![bb-api](/content/docs/tutorials/sql-review/bb-api.webp)
 
-- [🐙 API in GitHub Actions Example](https://github.com/bytebase/github-action-example)
+- [🐙 API in GitHub Actions Example](https://github.com/bytebase/cicd-github-actions-example)
 
   Sample github custom actions to call Bytebase API to coordinate the schema migration in Bytebase with the GitHub PR workflow.
   ![bb-gh-action](/content/docs/tutorials/sql-review/bb-gh-action.webp)
