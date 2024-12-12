@@ -29,6 +29,8 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       synchronize: { value: 'Basic', tooltip: 'Sync from the latest schema version' },
       'batch-change': { value: 'Basic', tooltip: 'Multi-environment change' },
       'custom-approval': false,
+      'password-restriction': false,
+      'sync-entra-id': false,
     },
     sql: {
       'auto-complete': true,
@@ -43,9 +45,15 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     },
     collaboration: {
       ui: true,
-      gitops: true,
-      webhook: true,
+      gitops: {
+        value: 'Basic',
+        tooltip: 'GitOps CI/CD, SQL Review CI',
+      },
       shared: false,
+      im: {
+        value: 'Basic',
+        tooltip: 'IM + Custom Webhook',
+      },
     },
     security: {
       sso: false,
@@ -108,6 +116,8 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
         tooltip: 'Multi-environment + Multi-region / Multi-tenancy change',
       },
       'custom-approval': false,
+      'password-restriction': false,
+      'sync-entra-id': false,
     },
     sql: {
       'auto-complete': true,
@@ -122,12 +132,21 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     },
     collaboration: {
       ui: true,
-      gitops: true,
-      webhook: true,
+      gitops: {
+        value: 'Advanced',
+        tooltip: 'Basic + Latest Schema Write-back, SQL Scripts Sync',
+      },
       shared: true,
+      im: {
+        value: 'Basic',
+        tooltip: 'IM + Custom Webhook',
+      },
     },
     security: {
-      sso: 'Google, GitHub',
+      sso: {
+        value: 'Partly support',
+        tooltip: 'Support Google & GitHub',
+      },
       rbac: true,
       'slow-query': true,
       archiving: true,
@@ -187,6 +206,8 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
         tooltip: 'Multi-environment + Multi-region / Multi-tenancy change',
       },
       'custom-approval': true,
+      'password-restriction': true,
+      'sync-entra-id': true,
     },
     sql: {
       'auto-complete': true,
@@ -201,12 +222,21 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     },
     collaboration: {
       ui: true,
-      gitops: true,
-      webhook: true,
+      gitops: {
+        value: 'Advanced',
+        tooltip: 'Basic + Latest Schema Write-back, SQL Scripts Sync',
+      },
       shared: true,
+      im: {
+        value: 'Advanced',
+        tooltip: 'Basic + IM Approval',
+      },
     },
     security: {
-      sso: 'OAuth, LDAP, OIDC',
+      sso: {
+        value: 'Advanced',
+        tooltip: 'All available including Google, GitHub, GitLab, Microsoft, etc',
+      },
       rbac: true,
       'slow-query': true,
       archiving: true,
@@ -232,7 +262,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'index-advisor': true,
     },
     bespoke: {
-      support: 'Dedicated line with SLA',
+      support: 'Dedicated Slack channel, CSM and SLA',
       logo: true,
       roadmap: true,
       msa: true,
@@ -258,6 +288,8 @@ const LABELS = [
       synchronize: 'Synchronize schema between databases',
       'batch-change': 'Batch change',
       'custom-approval': 'Custom approval workflow',
+      'password-restriction': 'Password restriction',
+      'sync-entra-id': 'Sync from Entra ID',
     },
   },
   {
@@ -279,8 +311,8 @@ const LABELS = [
     items: {
       ui: 'UI based SQL review',
       gitops: 'GitOps workflow',
-      webhook: 'Webhook integration',
       shared: 'Shared SQL script',
+      im: 'IM integration',
     },
   },
   {
