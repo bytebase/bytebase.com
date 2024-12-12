@@ -37,15 +37,15 @@ This tutorial skips the Bytebase setup part, if you haven't set up the Bytebase 
 
 Before you begin, make sure you have:
 
-- Finished the [previous tutorial](/docs/tutorials/just-in-time-part1)
+- Docker installed
 - Slack workspace
 - VS Code for port forwarding
 
 ## Step 1 - Finished the previous tutorial
 
-Make sure you finished the [previous tutorial](/docs/tutorials/just-in-time-part1) and have the Bytebase instance running. Particularly, pay attention to **Step 4**.
+Make sure you finished the [previous tutorial](/docs/tutorials/just-in-time-part1) and have the Bytebase instance running. Particularly, pay attention to **Step 4**, which is to request JIT access via Bytebase GUI.
 
-**Enterprise Plan** supports `Request role` feature which will be needed for this tutorial, other plans only allow the `Assign role` feature which is not enough. You may request a trial from [here](https://www.bytebase.com/contact-us/).
+The `Request role` feature is supported by  **Enterprise Plan** which will be needed for this tutorial, other plans only allow the `Assign role` feature which is not enough. You may request a trial from [here](https://www.bytebase.com/contact-us/).
 
 ## Step 2 - Register a service account in Bytebase
 
