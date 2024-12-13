@@ -85,12 +85,12 @@ The `Request role` feature is supported by **Enterprise Plan** which will be nee
 1. Go to [Slack apps](https://api.slack.com/apps) and click **Create New App**.
 1. Choose **From scratch**, enter the **App name**, and select your **Workspace**.
 1. Go to **OAuth & Permissions** and add the following permissions under **Scopes**:
-   - `chat:write`
-   - `chat:write.public`
+   - `chat:write` (send message)
+   - `channels:read` (read channel id for public channel)
+   - `groups:read` (read channel id for private channel)
 1. Scroll up to **OAuth Tokens**, click **Install to YOUR_WORKSPACE**, and authorize the app.
 1. Copy the **Bot User OAuth Token** and paste it into the `.env.local` file as **SLACK_BOT_TOKEN**.
 1. Choose a channel and invite the bot to the channel by typing `/invite @YOUR_BOT_NAME`.
-1. Get the **Channel ID** via copying the channel link and extracting the ID from the URL. Copy and paste it into the `.env.local` file as **SLACK_CHANNEL_ID**.
 1. Go to **Interactivity & Shortcuts** in app settings, turn on **Interactivity** and add the **Request URL**: `YOUR_3000_FORWARDED_URL/api/slack/interact`. Click **Save Changes**.
 
 ## Step 6 - Verify the workflow
@@ -117,7 +117,7 @@ Now, everything is ready, let's verify the workflow:
 If digging into the code is your interest, here is a brief explanation of the code structure:
 
 - `src/app/api/bytebase/webhook/route.ts`: handle the webhook from Bytebase.
-- `src/app/api/slack/interact/route.ts`: handle the interaction from Slack.
+- `src/app/api/slack/interact/route.ts`: handle the interaction (Approve or Deny) from Slack to Bytebase.
 - `src/lib/slack.ts`: send the message to Slack via using the its [web API](https://tools.slack.dev/node-slack-sdk/web-api/).
 
 ## Conclusion
