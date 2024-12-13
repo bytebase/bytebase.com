@@ -18,7 +18,7 @@ This tutorial will guide you through setting up Just-in-Time (JIT) access using 
 This is Part 1 of our tutorial series on implementing Just-in-Time (JIT) access:
 
 - Part 1: JIT database access via Bytebase GUI
-- Part 2: [Approve JIT database access via Slack](/docs/tutorials/just-in-time-part2)
+- Part 2: [Approve JIT database access via Slack](/docs/tutorials/just-in-time-database-access-part2)
 - Part 3: Request JIT database access via Slack
 
 ## Prerequisites
@@ -53,7 +53,7 @@ As a developer user, you will not have the access to query the production databa
 
 1. Click `hr_prod`, you will see the SQL Editor icon is greyed out, which means you don't have access to this database in SQL Editor. Even you click **SQL Editor** button on the top bar to navigate to the SQL Editor page, you still don't have access to this database.
 
-   ![bb-sql-editor-grey](/content/docs/tutorials/just-in-time-part1/bb-sql-editor-grey.webp)
+   ![bb-sql-editor-grey](/content/docs/tutorials/just-in-time-database-access-part1/bb-sql-editor-grey.webp)
 
 ## Step 3 - DBA assign you access to the production database (Community and Pro Plan)
 
@@ -65,11 +65,11 @@ In Bytebase **Community** and **Pro Plan**, the Admin/DBA can assign you access 
 
 1. In the **Grant Access** modal, select the `SQL Editor User` role, then set 1 day Expiration, and click **Confirm** button. Here you may notice in Community and Pro Plan, you can only set access to all databases in the project.
 
-   ![bb-community-grant-query](/content/docs/tutorials/just-in-time-part1/bb-community-grant-query.webp)
+   ![bb-community-grant-query](/content/docs/tutorials/just-in-time-database-access-part1/bb-community-grant-query.webp)
 
 1. After the access is granted, login as the developer user again, you should see the SQL Editor icon is no longer greyed out, which means you have access to the production database in SQL Editor. After one day, the access will expire automatically.
 
-   ![bb-sql-editor-query](/content/docs/tutorials/just-in-time-part1/bb-sql-editor-query.webp)
+   ![bb-sql-editor-query](/content/docs/tutorials/just-in-time-database-access-part1/bb-sql-editor-query.webp)
 
 ## Step 4 - Request a JIT access to the production database (Enterprise Plan)
 
@@ -81,37 +81,37 @@ In Bytebase **Enterprise Plan**, you can request a JIT access to the production 
 
 1. Click **CI/CD** > **Custom Approval** on the left sidebar. Assign licenses to the instances to enable this feature.
 
-   ![bb-assign-license](/content/docs/tutorials/just-in-time-part1/bb-assign-license.webp)
+   ![bb-assign-license](/content/docs/tutorials/just-in-time-database-access-part1/bb-assign-license.webp)
 
 1. Scroll down to **Request Querier Role** section, add `high` risk an approval flow `Project Owner`.
 
-   ![bb-custom-approval](/content/docs/tutorials/just-in-time-part1/bb-custom-approval.webp)
+   ![bb-custom-approval](/content/docs/tutorials/just-in-time-database-access-part1/bb-custom-approval.webp)
 
 1. Click **CI/CD** > **Risk Center** on the left sidebar. Define a High risk policy for `Request Querier Role` which triggers when the environment is `Prod`.
 
-   ![bb-risk-center](/content/docs/tutorials/just-in-time-part1/bb-risk-center.webp)
+   ![bb-risk-center](/content/docs/tutorials/just-in-time-database-access-part1/bb-risk-center.webp)
 
 1. Login as the developer user again, then go to SQL Editor page. Click **Connect to a database** or **Select a database to start**. You should see the `hr_prod` and `hr_test` databases listed, click **Request query** to request a JIT access.
 
-   ![bb-sql-editor-request](/content/docs/tutorials/just-in-time-part1/bb-sql-editor-request.webp)
+   ![bb-sql-editor-request](/content/docs/tutorials/just-in-time-database-access-part1/bb-sql-editor-request.webp)
 
 1. Another way is to go to **Database > Databases** page, click **Request Querier Role**.
 
-   ![bb-databases-request](/content/docs/tutorials/just-in-time-part1/bb-databases-request.webp)
+   ![bb-databases-request](/content/docs/tutorials/just-in-time-database-access-part1/bb-databases-request.webp)
 
 1. In the **Request Querier Role** modal, choose **Manually select**, then `employee` `salary` and `title` under `hr_prod` database, and click **OK** button. Here you may also specify the expiration time which can be a specific time, or relative time from now.
 
-   ![bb-sql-editor-choose](/content/docs/tutorials/just-in-time-part1/bb-sql-editor-choose.webp)
+   ![bb-sql-editor-choose](/content/docs/tutorials/just-in-time-database-access-part1/bb-sql-editor-choose.webp)
 
-   ![bb-sql-editor-custom-expr](/content/docs/tutorials/just-in-time-part1/bb-sql-editor-custom-expr.webp)
+   ![bb-sql-editor-custom-expr](/content/docs/tutorials/just-in-time-database-access-part1/bb-sql-editor-custom-expr.webp)
 
 1. An request issue will be created, switch to the project owner (the admin user), go to **Issue** page, you should see the request issue. Click **Approve** button to approve the request.
 
-   ![bb-request-waiting](/content/docs/tutorials/just-in-time-part1/bb-request-waiting.webp)
+   ![bb-request-waiting](/content/docs/tutorials/just-in-time-database-access-part1/bb-request-waiting.webp)
 
 1. Switch back to the developer user, go to SQL Editor page, you should be able to query from these three tables. If you query from other tables, you will get errors and suggest to request a JIT access.
 
-   ![bb-sql-editor-not-ok](/content/docs/tutorials/just-in-time-part1/bb-sql-editor-not-ok.webp)
+   ![bb-sql-editor-not-ok](/content/docs/tutorials/just-in-time-database-access-part1/bb-sql-editor-not-ok.webp)
 
 1. After the developer user get the access, he can solve the incident. The admin user can revoke the access directly from the **Manage** > **Members** page or wait for the access expiration.
 
