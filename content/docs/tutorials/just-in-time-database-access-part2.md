@@ -9,7 +9,7 @@ estimated_time: '30 mins'
 description: 'In this tutorial, we will demonstrate how to automate JIT access via Slack, utilizing Bytebase webhooks and API'
 ---
 
-In the [previous tutorial](/docs/tutorials/just-in-time-part1), we demonstrated how to set up JIT access using the Bytebase GUI. In this tutorial, we will cover how to automate JIT access via Slack, utilizing Bytebase webhooks and API.
+In the [previous tutorial](/docs/tutorials/just-in-time-database-access-part1), we demonstrated how to set up JIT access using the Bytebase GUI. In this tutorial, we will cover how to automate JIT access via Slack, utilizing Bytebase webhooks and API.
 
 When developers need urgent production database access during incidents but lack permissions, they can request Just-in-Time (JIT) access. By triggering the Bytebase webhook, the DBA will receive a notification in Slack immediately and can approve there.
 
@@ -17,7 +17,7 @@ When developers need urgent production database access during incidents but lack
 
 This is Part 2 of our tutorial series on implementing Just-in-Time (JIT) access:
 
-- Part 1: [Grant JIT database access via Bytebase GUI](/docs/tutorials/just-in-time-part1)
+- Part 1: [Grant JIT database access via Bytebase GUI](/docs/tutorials/just-in-time-database-access-part1)
 - Part 2: Approve JIT database access via Slack (this one)
 - Part 3: Request JIT database access via Slack
 
@@ -31,7 +31,7 @@ The complete code for this tutorial is available at: [slack-example](https://git
 
 </HintBlock>
 
-This tutorial skips the Bytebase setup part, if you haven't set up the Bytebase and registered admin and developer users, please follow instructions in the [previous tutorial](/docs/tutorials/just-in-time-part1).
+This tutorial skips the Bytebase setup part, if you haven't set up the Bytebase and registered admin and developer users, please follow instructions in the [previous tutorial](/docs/tutorials/just-in-time-database-access-part1).
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ Before you begin, make sure you have:
 
 ## Step 1 - Finished the previous tutorial
 
-Make sure you finished the [previous tutorial](/docs/tutorials/just-in-time-part1) and have the Bytebase instance running. Particularly, pay attention to **Step 4**, which is to request JIT access via Bytebase GUI.
+Make sure you finished the [previous tutorial](/docs/tutorials/just-in-time-database-access-part1) and have the Bytebase instance running. Particularly, pay attention to **Step 4**, which is to request JIT access via Bytebase GUI.
 
 The `Request role` feature is supported by **Enterprise Plan** which will be needed for this tutorial, other plans only allow the `Assign role` feature which is not enough. You may request a trial from [here](https://www.bytebase.com/contact-us/).
 
@@ -67,7 +67,7 @@ The `Request role` feature is supported by **Enterprise Plan** which will be nee
 1. By using VS Code's [Port forwarding](https://code.visualstudio.com/docs/editor/port-forwarding), you can forward the local server's ports:
    - `3000` for the `slack-example` app
    - `8080` for the Bytebase instance
-     ![vscode-ports](/content/docs/tutorials/just-in-time-part2/vscode-ports.webp)
+     ![vscode-ports](/content/docs/tutorials/just-in-time-database-access-part2/vscode-ports.webp)
 1. Copy the 8080 port forwarded address to the `.env.local` file as `BB_HOST`.
 1. Also, go to Bytebase, click **Settings > General** to set the address as **External URL**.
 
@@ -78,7 +78,7 @@ The `Request role` feature is supported by **Enterprise Plan** which will be nee
 1. Set the **Name** as `Slack` webhook, **URL** as `YOUR_3000_FORWARDED_URL/api/bytebase/webhook`.
 1. Select `Issue approval needed` as **Triggering activities**.
 1. Click **Test webhook** and if it's successful, then click **Create**.
-   ![bb-webhook](/content/docs/tutorials/just-in-time-part2/bb-webhook.webp)
+   ![bb-webhook](/content/docs/tutorials/just-in-time-database-access-part2/bb-webhook.webp)
 
 ## Step 5 - Create and invite a Slack bot
 
@@ -100,17 +100,17 @@ Now, everything is ready, let's verify the workflow:
 1. Go to Bytebase, log in as the developer and go into the `Sample Project`.
 1. By default, the developer has no permission to access the database. Click **Manage > Members** and you'll see the devloper only has **Project Developer** role. If you go to **SQL Editor**, you'll see the `hr_prod` database is not accessible.
 1. Click **Database > databases**, select the `hr_prod` database, and click **Request Querier role**.
-   ![bb-db-request](/content/docs/tutorials/just-in-time-part2/bb-db-request.webp)
+   ![bb-db-request](/content/docs/tutorials/just-in-time-database-access-part2/bb-db-request.webp)
 1. Choose the database or table you want to access, and click **OK**.
-   ![bb-request-select](/content/docs/tutorials/just-in-time-part2/bb-request-select.webp)
+   ![bb-request-select](/content/docs/tutorials/just-in-time-database-access-part2/bb-request-select.webp)
 1. A request issue is created, the configured custom approval flow will be matched.
-   ![bb-issue-waiting](/content/docs/tutorials/just-in-time-part2/bb-issue-waiting.webp)
+   ![bb-issue-waiting](/content/docs/tutorials/just-in-time-database-access-part2/bb-issue-waiting.webp)
 1. Go to Slack, the bot already sent a message to the channel, which is triggered by the webhook.
-   ![slack-to-approve](/content/docs/tutorials/just-in-time-part2/slack-to-approve.webp)
+   ![slack-to-approve](/content/docs/tutorials/just-in-time-database-access-part2/slack-to-approve.webp)
 1. Click **Approve** and the Slack Bot will trigger the interact API, which calls Bytebase API to approve the issue.
-   ![slack-request-approved](/content/docs/tutorials/just-in-time-part2/slack-request-approved.webp)
+   ![slack-request-approved](/content/docs/tutorials/just-in-time-database-access-part2/slack-request-approved.webp)
 1. Go back to Bytebase, the issue is approved. The developer can access the database now.
-   ![bb-issue-approved](/content/docs/tutorials/just-in-time-part2/bb-issue-approved.webp)
+   ![bb-issue-approved](/content/docs/tutorials/just-in-time-database-access-part2/bb-issue-approved.webp)
 
 ## Code structure
 
