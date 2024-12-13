@@ -37,15 +37,21 @@ This tutorial skips the Bytebase setup part, if you haven't set up the Bytebase 
 
 Before you begin, make sure you have:
 
-- Docker installed
+- [Docker](https://www.docker.com/) installed
 - Slack workspace
 - VS Code for port forwarding
+
+## Overall Workflow
+
+1. Create a Slack app. The Slack app listens on the webhook notification when someone submits a database access request.
+1. Upon receiving the webhook event, the Slack app will present a message card in the configured channel with request details and approve/deny buttons.
+1. Upon clicking the approve/deny button, the Slack app will call the corresponding Bytebase API to approve/deny the request.
 
 ## Step 1 - Finished the previous tutorial
 
 Make sure you finished the [previous tutorial](/docs/tutorials/just-in-time-part1) and have the Bytebase instance running. Particularly, pay attention to **Step 4**, which is to request JIT access via Bytebase GUI.
 
-The `Request role` feature is supported by  **Enterprise Plan** which will be needed for this tutorial, other plans only allow the `Assign role` feature which is not enough. You may request a trial from [here](https://www.bytebase.com/contact-us/).
+The `Request role` feature is supported by **Enterprise Plan** which will be needed for this tutorial, other plans only allow the `Assign role` feature which is not enough. You may request a trial from [here](https://www.bytebase.com/contact-us/).
 
 ## Step 2 - Register a service account in Bytebase
 
@@ -61,7 +67,7 @@ The `Request role` feature is supported by  **Enterprise Plan** which will be ne
 1. By using VS Code's [Port forwarding](https://code.visualstudio.com/docs/editor/port-forwarding), you can forward the local server's ports:
    - `3000` for the `slack-example` app
    - `8080` for the Bytebase instance
-   ![vscode-ports](/content/docs/tutorials/just-in-time-part2/vscode-ports.webp)
+     ![vscode-ports](/content/docs/tutorials/just-in-time-part2/vscode-ports.webp)
 1. Copy the 8080 port forwarded address to the `.env.local` file as `BB_HOST`.
 1. Also, go to Bytebase, click **Settings > General** to set the address as **External URL**.
 
