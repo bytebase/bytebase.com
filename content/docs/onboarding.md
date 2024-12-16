@@ -1,6 +1,8 @@
 ---
-title: Onboarding Phases 🚠
+title: Best Practices 📘
 ---
+
+## Onboarding Phases
 
 <HintBlock type="info">
 
@@ -18,7 +20,7 @@ database operational practices gradually:
 1. [Integrate SQL review into CI (1 week)](#phase-3-integrate-sql-review-into-ci)
 1. [Manage schema migration (4 ~ 8 weeks)](#phase-4-manage-schema-migration)
 
-## Phase 1 - Standardize ad-hoc change process
+### Phase 1 - Standardize ad-hoc change process
 
 |              |                                                                                                                                                      |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -37,7 +39,7 @@ Related features:
   - [Alert when DML attempts to update more than 100 rows](/docs/sql-review/review-rules/#limit-affected-row-limit)
   - [Specify explicit columns in INSERT](/docs/sql-review/review-rules/#insert-statements-must-specify-columns)
 
-## Phase 2 - Centralize data query access
+### Phase 2 - Centralize data query access
 
 |              |                                                                                                                                                           |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -53,7 +55,7 @@ Related features:
 - [Request Query](/docs/security/database-permission/query/) and [Export](/docs/security/database-permission/export/) access flow
 - [Dynamic Data Masking](/docs/security/data-masking/overview/)
 
-## Phase 3 - Integrate SQL review into CI
+### Phase 3 - Integrate SQL review into CI
 
 |              |                                                                                              |
 | ------------ | -------------------------------------------------------------------------------------------- |
@@ -69,7 +71,7 @@ Related features:
 - [SQL Review API](/docs/api/sql-review/)
 - [Service Account](/docs/api/authentication/#service-account)
 
-## Phase 4 - Manage schema migration
+### Phase 4 - Manage schema migration
 
 |              |                                                                                                                                                     |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -95,3 +97,25 @@ Related features (in addition to Phase 1):
 1. [Batch Change](/docs/change-database/batch-change/)
 1. [Changelist](/docs/changelist/)
 1. [Online Schema Migration (MySQL only)](/docs/change-database/online-schema-migration-for-mysql/)
+
+## Configuration Guideline
+
+Bytebase provides settings at the workspace, environment, project levels. Below we provide a sample configuration settings for a typical scenarios:
+
+- Three environments `Dev`, `UAT`, `Prod`.
+- `Dev` does not enforce any review and access control.
+- `UAT` enforces limited review and access control.
+- `Prod` enforces strict review and access control.
+
+|                                                                                                        |                                                                           | Dev         | UAT             | Prod               |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------- | ----------- | --------------- | ------------------ |
+| [Environment tier](/docs/administration/environment-policy/overview/#environment-tier)                 | Environment color                                                         | Black       | Yellow          | Red                |
+|                                                                                                        | Production indicator                                                      | ❌          | ❌              | ✅                 |
+| [Statement execution mode](/docs/administration/environment-policy/overview/#statement-execution-mode) | Allow running DDL in SQL Editor                                           | ✅          | ❌              | ❌                 |
+|                                                                                                        | Allow running data-modifying DML in SQL Editor                            | ✅          | ❌              | ❌                 |
+| Database CI/CD                                                                                         | [Approval Policy](/docs/administration/custom-approval/)                  | No approver | Single approver | Multiple approvers |
+|                                                                                                        | [Rollout Policy](/docs/administration/environment-policy/rollout-policy/) | Automatic   | Manual          | Manual             |
+| [Database Permission](/docs/security/database-permission/overview/)                                    | EXPLAIN                                                                   | ✅          | ✅              | ✅                 |
+|                                                                                                        | Query                                                                     | ✅          | ✅              | Require approval   |
+|                                                                                                        | Export                                                                    | ✅          | ✅              | Require approval   |
+| [Data masking](/docs/security/data-masking/global-masking-rule/)                                       |                                                                           | ❌          | ❌              | ✅                 |
