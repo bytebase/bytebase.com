@@ -13,6 +13,8 @@ In a production environment, an incident arises that requires a developer to acc
 
 This tutorial will guide you through setting up Just-in-Time (JIT) access using the Bytebase GUI. In the next tutorial, we will explore automating JIT access through Slack by leveraging Bytebase webhooks and API.
 
+![jit-graph1](/content/docs/tutorials/just-in-time-database-access-part1/jit-graph1.webp)
+
 ---
 
 This is Part 1 of our tutorial series on implementing Just-in-Time (JIT) access:

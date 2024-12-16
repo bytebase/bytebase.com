@@ -13,6 +13,8 @@ In the [previous tutorial](/docs/tutorials/just-in-time-database-access-part1), 
 
 When developers need urgent production database access during incidents but lack permissions, they can request Just-in-Time (JIT) access. By triggering the Bytebase webhook, the DBA will receive a notification in Slack immediately and can approve there.
 
+![jit-graph-part2](/content/docs/tutorials/just-in-time-database-access-part2/jit-graph2.webp)
+
 ---
 
 This is Part 2 of our tutorial series on implementing Just-in-Time (JIT) access:
