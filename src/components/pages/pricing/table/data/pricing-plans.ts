@@ -262,7 +262,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'index-advisor': true,
     },
     bespoke: {
-      support: 'Dedicated Slack channel, CSM and SLA',
+      support: 'Dedicated line with SLA',
       logo: true,
       roadmap: true,
       msa: true,
