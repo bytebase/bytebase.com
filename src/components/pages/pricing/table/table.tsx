@@ -104,7 +104,7 @@ const Table = () => {
                     <div
                       className={clsx(
                         'sticky top-[122px] z-30 md:static',
-                        'h-[276px] 3xl:h-[272px] md:h-[245px] sm:h-[260px]',
+                        'h-[272px] md:h-[245px] sm:h-[260px]',
                         {
                           'border-r border-tones-purple-dark': currentPlan.title === 'enterprise',
                         },
