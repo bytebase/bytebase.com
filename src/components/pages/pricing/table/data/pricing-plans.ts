@@ -45,11 +45,11 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     },
     collaboration: {
       ui: true,
+      shared: false,
       gitops: {
         value: 'Basic',
         tooltip: 'GitOps CI/CD, SQL Review CI',
       },
-      shared: false,
       im: {
         value: 'Basic',
         tooltip: 'IM + Custom Webhook',
@@ -132,11 +132,11 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     },
     collaboration: {
       ui: true,
+      shared: true,
       gitops: {
         value: 'Advanced',
         tooltip: 'Basic + Latest Schema Write-back, SQL Scripts Sync',
       },
-      shared: true,
       im: {
         value: 'Basic',
         tooltip: 'IM + Custom Webhook',
@@ -144,8 +144,8 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     },
     security: {
       sso: {
-        value: 'Partly support',
-        tooltip: 'Support Google & GitHub',
+        value: 'Basic',
+        tooltip: 'Google & GitHub',
       },
       rbac: true,
       'slow-query': true,
@@ -222,11 +222,11 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     },
     collaboration: {
       ui: true,
+      shared: true,
       gitops: {
         value: 'Advanced',
         tooltip: 'Basic + Latest Schema Write-back, SQL Scripts Sync',
       },
-      shared: true,
       im: {
         value: 'Advanced',
         tooltip: 'Basic + IM Approval',
@@ -235,7 +235,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     security: {
       sso: {
         value: 'Advanced',
-        tooltip: 'All available including Google, GitHub, GitLab, Microsoft, etc',
+        tooltip: 'Google, GitHub, GitLab, Microsoft, Okta, etc',
       },
       rbac: true,
       'slow-query': true,
@@ -310,8 +310,8 @@ const LABELS = [
     title: 'Collaboration',
     items: {
       ui: 'UI based SQL review',
-      gitops: 'GitOps workflow',
       shared: 'Shared SQL script',
+      gitops: 'GitOps workflow',
       im: 'IM integration',
     },
   },
