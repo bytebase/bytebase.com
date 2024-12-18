@@ -82,21 +82,21 @@ You have achieved decent success in implementing Bytebase for your org. You may 
 is OK to deploy schema migration together with the code release. On the other hand, it's beneficial to use Bytebase
 for schema migration if you have any of the following situations:
 
-1. Multiple servers connecting to the same database.
-1. Multi-region database deployment.
-1. Multi-tenant service and each tenant has its own database.
-1. Long-running schema migration.
+- Multiple servers connecting to the same database.
+- Multi-region database deployment.
+- Multi-tenant service and each tenant has its own database.
+- Long-running schema migration.
 
 The implementation duration depends on how many existing schema migration workflows need to be moved to Bytebase.
 
 Related features (in addition to Phase 1):
 
-1. [Schema Synchronization](/docs/change-database/synchronize-schema/)
-1. [GitOps](/docs/vcs-integration/overview/)
-1. [Drift Detection](/docs/change-database/drift-detection/)
-1. [Batch Change](/docs/change-database/batch-change/)
-1. [Changelist](/docs/changelist/)
-1. [Online Schema Migration (MySQL only)](/docs/change-database/online-schema-migration-for-mysql/)
+- [Schema Synchronization](/docs/change-database/synchronize-schema/)
+- [GitOps](/docs/vcs-integration/overview/)
+- [Drift Detection](/docs/change-database/drift-detection/)
+- [Batch Change](/docs/change-database/batch-change/)
+- [Changelist](/docs/changelist/)
+- [Online Schema Migration (MySQL only)](/docs/change-database/online-schema-migration-for-mysql/)
 
 ## Configuration Guideline
 
@@ -107,15 +107,15 @@ Bytebase provides settings at the workspace, environment, project levels. Below 
 - `UAT` enforces limited review and access control.
 - `Prod` enforces strict review and access control.
 
-|                                                                                                        |                                                                           | Dev         | UAT             | Prod               |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------- | ----------- | --------------- | ------------------ |
-| [Environment tier](/docs/administration/environment-policy/overview/#environment-tier)                 | Environment color                                                         | Black       | Yellow          | Red                |
-|                                                                                                        | Production indicator                                                      | ❌          | ❌              | ✅                 |
-| [Statement execution mode](/docs/administration/environment-policy/overview/#statement-execution-mode) | Allow running DDL in SQL Editor                                           | ✅          | ❌              | ❌                 |
-|                                                                                                        | Allow running data-modifying DML in SQL Editor                            | ✅          | ❌              | ❌                 |
-| Database CI/CD                                                                                         | [Approval Policy](/docs/administration/custom-approval/)                  | No approver | Single approver | Multiple approvers |
-|                                                                                                        | [Rollout Policy](/docs/administration/environment-policy/rollout-policy/) | Automatic   | Manual          | Manual             |
-| [Database Permission](/docs/security/database-permission/overview/)                                    | EXPLAIN                                                                   | ✅          | ✅              | ✅                 |
-|                                                                                                        | Query                                                                     | ✅          | ✅              | Require approval   |
-|                                                                                                        | Export                                                                    | ✅          | ✅              | Require approval   |
-| [Data masking](/docs/security/data-masking/global-masking-rule/)                                       |                                                                           | ❌          | ❌              | ✅                 |
+|                                                                                                        |                                                                           | Dev         | UAT             | Prod                       |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------- | ----------- | --------------- | -------------------------- |
+| [Environment tier](/docs/administration/environment-policy/overview/#environment-tier)                 | Environment color                                                         | Black       | Yellow          | Red                        |
+|                                                                                                        | Production indicator                                                      | ❌          | ❌              | ✅                         |
+| [Statement execution mode](/docs/administration/environment-policy/overview/#statement-execution-mode) | Allow running DDL in SQL Editor                                           | ✅          | ❌              | ❌                         |
+|                                                                                                        | Allow running data-modifying DML in SQL Editor                            | ✅          | ❌              | ❌                         |
+| Database CI/CD                                                                                         | [Approval Policy](/docs/administration/custom-approval/)                  | No approver | Single approver | Multiple approvers         |
+|                                                                                                        | [Rollout Policy](/docs/administration/environment-policy/rollout-policy/) | Automatic   | Manual          | Manual                     |
+| Database Permission                                                                                    | [EXPLAIN](/docs/security/database-permission/explain/)                    | ✅          | ✅              | ✅                         |
+|                                                                                                        | [Query](/docs/security/database-permission/query/)                        | ✅          | ✅              | Approval at db/table level |
+|                                                                                                        | [Export](/docs/security/database-permission/export/)                      | ✅          | ✅              | Approval at db/table level |
+| [Data masking](/docs/security/data-masking/global-masking-rule/)                                       |                                                                           | ❌          | ❌              | ✅                         |
