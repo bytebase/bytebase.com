@@ -3,7 +3,7 @@ title: 'Just-in-Time Database Access - Part 2'
 author: Ningjing
 tags: Tutorial
 updated_at: 2024/12/11 18:15
-integrations: General
+integrations: General, Slack
 level: Advanced
 estimated_time: '30 mins'
 description: 'In this tutorial, we will demonstrate how to automate JIT access via Slack, utilizing Bytebase webhooks and API'

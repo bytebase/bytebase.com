@@ -22,6 +22,7 @@ import TidbIcon from '@/svgs/tidb.inline.svg';
 import MySQLIcon from '@/svgs/mysql.inline.svg';
 import APIIcon from '@/svgs/api.inline.svg';
 import JiraIcon from '@/svgs/jira.inline.svg';
+import SlackIcon from '@/svgs/slack.inline.svg';
 
 const allIntegrations: { [key: string]: React.FunctionComponent<React.SVGProps<SVGSVGElement>> } = {
   aurora: AuroraIcon,
@@ -44,6 +45,7 @@ const allIntegrations: { [key: string]: React.FunctionComponent<React.SVGProps<S
   mysql: MySQLIcon,
   mariadb: MariaDBIcon,
   api: APIIcon,
+  slack: SlackIcon,
 };
 
 type PostsProps = {
