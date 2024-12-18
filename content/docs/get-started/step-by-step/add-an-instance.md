@@ -2,7 +2,7 @@
 title: Add an Instance
 ---
 
-`Database Instance` or simply `Instance` models after a single database server which is usually accessed via a host:port address. A typical database instance could be your on-premises MySQL instance, an AWS RDS instance etc. Each `Database Instance` belongs to an `Environment`.
+**Database Instance** or simply **Instance** models after a single database server accessed via a host:port address or a primary/replica cluster. A typical database instance could be your on-premises MySQL instance, a PostgreSQL cluster, an AWS RDS instance etc. Each **Database Instance** belongs to an **Environment**.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ Go to **Instances** and **Add Instance**.
 
 For **Host or socket**, the screenshot assumes you run Bytebase inside Docker and try to connect to a database instance on the same host, thus it uses `host.docker.internal`. Check out [Instance Connection Configuration](/docs/get-started/instance) for the detailed guide.
 
-## Sync instance
+## Sync instance schema
 
 After instance is added, click **Sync Now** to synchronize the instance schema such as its containing databases to Bytebase.
 

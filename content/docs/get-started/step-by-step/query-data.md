@@ -2,7 +2,7 @@
 title: Query Data
 ---
 
-Bytebase also provides a web-based SQL Editor for querying data. Unlike traditional client-side SQL clients, this server-side SQL Editor allows you to enable data access control, data masking, audit logging, etc.
+Bytebase also provides a web-based SQL Editor for querying data. Unlike traditional client-side SQL clients, this server-side SQL Editor can enforce fine-grained data access control, data masking, audit logging, etc.
 
 ## Access SQL Editor
 
@@ -14,9 +14,12 @@ SQL Editor can be acccess from the top bar or from the database.
 
 ## Query data
 
-![query](/content/docs/get-started/step-by-step/query-data/query.webp)
+Select a database.
 
-The left sidebar only lists the databases that have been granted query access. Select a database
-and run the query.
+![select-database](/content/docs/get-started/step-by-step/query-data/select-database.webp)
+
+Run the query.
+
+![query](/content/docs/get-started/step-by-step/query-data/query.webp)
 
 Check out the detailed [SQL Editor](/docs/sql-editor/overview) docs to explore other features.

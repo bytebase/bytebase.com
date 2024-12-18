@@ -2,11 +2,13 @@
 title: Make a Database Schema Change
 ---
 
-**Issue** drives the database change workflow such as `Database Creation`, `DDL` and `DML`. It's similar to the issue concept in other issue management tools.
+**Issue** drives the database change workflow such as `Schema Change (DDL)`, `Data Change (DML)`, and `Database Creation`. It's similar to the issue concept in other issue management tools.
 
-## Create an issue
+## Create issue
 
 Go to your project page, choose one or several databases to **Edit Schema**.
+
+![edit-schema](/content/docs/get-started/step-by-step/change-schema/edit-schema.webp)
 
 You may use the **Schema Editor** to visually design the schema.
 
@@ -23,18 +25,24 @@ Once you finish writing the SQL, click **Preview issue**.
 
 By default, Bytebase will create a **Rollout issue**. You can check **SQL Review Only** to create a review-only plan.
 
-## Roll out an issue
+## Review issue
 
-![rollout-issue](/content/docs/get-started/step-by-step/change-schema/rollout-issue.webp)
+![review-issue](/content/docs/get-started/step-by-step/change-schema/review-issue.webp)
 
 If there's a [SQL review](/docs/sql-review/overview) warning, you may need to fix it first.
 
-An issue may also require one or multiple manual approvals. Once all approvals are granted, the issue can be rolled out.
+An issue may also require one or multiple manual approvals.
 
-## Issue lifecycle
+## Roll out issue
 
-Here's a graph demonstrating the issue lifecycle.
+Once all approvals are granted, the issue can be rolled out.
+
+![roll-out-issue](/content/docs/get-started/step-by-step/change-schema/roll-out-issue.webp)
+
+## Summary
+
+An issue lifecycle: Create -> Review -> Approve -> Roll out.
 
 ![issue-lifecycle](/content/docs/get-started/step-by-step/change-schema/issue-lifecycle.webp)
 
-Bytebase supports 2 change workflow, **UI** and **GitOps**. Check [Database Change Workflow](/docs/change-database/change-workflow/) for further details.
+Check [Database Change Workflow](/docs/change-database/change-workflow/) for further details.

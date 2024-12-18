@@ -16,15 +16,25 @@ Go to **Projects** and click **New Project**.
 
 ## Transfer a database into the project
 
-To make changes to a database, you need to place it in a project first. Once a project is created, you need to fill it with some Databases.
+<HintBlock type="info">
 
-Go to the project page where you can **create a new database** or **transfer an existing database into the project**.
+To make changes to a database, you need to place it in a project first.
+
+</HintBlock>
+
+Once a project is created, you need to fill it with some Databases. Go to the project page where you can **create a new database** or **transfer an existing database into the project**.
 
 ![manage-db](/content/docs/get-started/step-by-step/create-a-project/manage-db.webp)
 
 ![manage-db-2](/content/docs/get-started/step-by-step/create-a-project/manage-db-2.webp)
 
 ## Manage the members in the project
+
+<HintBlock type="info">
+
+To manage fine-grained database access, check out [Database Permission](/docs/security/database-permission/overview/).
+
+</HintBlock>
 
 A project is only visible to its related **users**. The project creator assumes `Project Owner`role and can manage project members.
 
