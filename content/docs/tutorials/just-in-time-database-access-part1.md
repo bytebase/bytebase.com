@@ -2,7 +2,7 @@
 title: 'Just-in-Time Database Access - Part 1'
 author: Ningjing
 tags: Tutorial
-updated_at: 2024/12/02 18:15
+updated_at: 2024/12/06 18:15
 integrations: General
 level: Beginner
 estimated_time: '30 mins'
