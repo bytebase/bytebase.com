@@ -4,7 +4,7 @@ description: Bytebase is a database schema change and version control management
 ---
 
 Our founding team previously built the Google Cloud database and API infrastructure. We envision Bytebase
-to be the GitLab/GitHub equivalent for Database DevSecOps, specifically built for the developer, security, DBA and platform engineering teams.
+to be the GitLab/GitHub equivalent for **Database DevSecOps**, specifically built for the developer, security, DBA and platform engineering teams.
 
 Bytebase is a **middleware** sitting between you and your database. It can be used in 2 ways:
 
