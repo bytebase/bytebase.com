@@ -2,7 +2,7 @@
 title: Slack Integration
 ---
 
-## Builtin webhook
+## Built-in webhook
 
 - [IM Integration](/docs/change-database/webhook/#slack)
 

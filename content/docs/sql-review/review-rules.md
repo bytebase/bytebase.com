@@ -75,7 +75,7 @@ Different sets of rules can form different [SQL Review Policies](/docs/sql-revie
   - [Charset allow list](/docs/sql-review/review-rules#system.charset.allowlist)
   - [Collation allow list](/docs/sql-review/review-rules#system.collation.allowlist)
   - [Comment length limit](/docs/sql-review/review-rules#system.comment.length)
-- Builtin Rules
+- Built-in Rules
   - [Prior backup feasibility check](/docs/sql-review/review-rules#builtin.prior-backup-check)
 
 ## Engine
@@ -114,11 +114,11 @@ Bytebase checks whether the object name appearing in the SQL statement is fully 
 
 ##### Some typical format
 
-| Object Name                                 | Fully qualified          |
-| --------------------------------------------| ------------------------ |
-| table_name                                  | no                       |
-| schema_name.table_name                      | yes                      |
-| database_name.schema_name.table_name        | yes                      |
+| Object Name                          | Fully qualified |
+| ------------------------------------ | --------------- |
+| table_name                           | no              |
+| schema_name.table_name               | yes             |
+| database_name.schema_name.table_name | yes             |
 
 #### Support database engine
 
@@ -734,7 +734,7 @@ DDL operations on large tables can cause long locks because they need exclusive 
 
 #### How the rule works
 
-Bytebase considers this rule to be violated if the SQL tries to apply DDL operations on a table with sizes exceeding the set value. 
+Bytebase considers this rule to be violated if the SQL tries to apply DDL operations on a table with sizes exceeding the set value.
 
 #### Support database engine
 
@@ -1519,9 +1519,9 @@ Bytebase checks all `COMMENT ON` statements.
 
 - PostgreSQL
 
-## Builtin rules
+## Built-in rules
 
 <div id="builtin.prior-backup-check"></div>
 ### Prior backup feasibility check
 
-Check [Data Rollback](/content/docs/change-database/rollback-data-changes.md) for details.
+Check [Data Rollback](/docs/change-database/rollback-data-changes) for details.
