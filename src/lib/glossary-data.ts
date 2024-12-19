@@ -183,6 +183,16 @@ export const GLOSSARY_LIST: GlossaryLetterSet[] = [
         tagList: ['General', 'Bytebase'],
       },
       {
+        name: 'Database Index',
+        description: `A data structure greatly improves the speed of data retrieval. Like the physical book index, the index
+        helps quickly locate a particular value or a range of values (finding a needle in a haystack). While good for boosting
+        query performance, index brings the overhead of updating the index entry whenever underlying data changes. Thus adding
+        /removing index is a balanced art and should be evaluated carefully.
+        maintaining index `,
+        reference: 'https://en.wikipedia.org/wiki/Database_index',
+        tagList: ['General'],
+      },
+      {
         name: 'Database instance',
         description: `The complete running environment providing the database service. This is usually denoted by a host:port pointing
         to the running instance. When people talk about MySQL/PostgreSQL instance, they usually refer to the database instance. A single
@@ -338,16 +348,6 @@ export const GLOSSARY_LIST: GlossaryLetterSet[] = [
   {
     letter: 'I',
     list: [
-      {
-        name: 'Index',
-        description: `A data structure greatly improves the speed of data retrieval. Like the physical book index, the index
-        helps quickly locate a particular value or a range of values (finding a needle in a haystack). While good for boosting
-        query performance, index brings the overhead of updating the index entry whenever underlying data changes. Thus adding
-        /removing index is a balanced art and should be evaluated carefully.
-        maintaining index `,
-        reference: 'https://en.wikipedia.org/wiki/Database_index',
-        tagList: ['General'],
-      },
       {
         name: 'InnoDB',
         description: `A well-engineered storage engine which is now the default storage engined used by MySQL. It's a performant
