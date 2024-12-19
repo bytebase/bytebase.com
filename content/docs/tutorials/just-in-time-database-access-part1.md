@@ -1,5 +1,5 @@
 ---
-title: 'Just-in-Time Database Access - Part 1'
+title: 'Just-in-Time Database Access via Bytebase GUI'
 author: Ningjing
 tags: Tutorial
 updated_at: 2024/12/06 18:15
@@ -19,7 +19,7 @@ This tutorial will guide you through setting up Just-in-Time (JIT) access using 
 
 This is Part 1 of our tutorial series on implementing Just-in-Time (JIT) access:
 
-- Part 1: JIT database access via Bytebase GUI
+- Part 1: JIT database access via Bytebase GUI (this one)
 - Part 2: [Approve JIT database access via Slack](/docs/tutorials/just-in-time-database-access-part2)
 - Part 3: Request JIT database access via Slack
 

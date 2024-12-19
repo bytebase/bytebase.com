@@ -265,6 +265,10 @@ expand_section_list: ['Self-host']
 
 ### [Terraform](/get-started/terraform)
 
+### [Slack](/how-to/integrations/slack)
+
+### [Jira](/how-to/integrations/jira)
+
 ### [Supabase](/how-to/integrations/supabase)
 
 ### [Render](/how-to/integrations/render)
