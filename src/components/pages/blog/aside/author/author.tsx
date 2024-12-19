@@ -27,7 +27,7 @@ const Author = ({ author }: AuthorProps) => {
       <div className="flex items-center gap-x-3.5">
         <Image
           className="h-14 w-14 rounded-full border border-gray-90 bg-white"
-          src={`/images/authors/${slugifyText(author)}.webp`}
+          src={`/images/people/${slugifyText(author)}.webp`}
           alt={author}
           width={56}
           height={56}

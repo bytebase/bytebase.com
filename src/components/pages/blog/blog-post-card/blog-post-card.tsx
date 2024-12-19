@@ -82,7 +82,7 @@ const BlogPostCard = ({
                 theme === 'small' && 'hidden md:block',
                 'h-9 w-9 rounded-full border border-gray-90 md:h-8 md:w-8',
               )}
-              src={`/images/authors/${slugifyText(post.author)}.webp`}
+              src={`/images/people/${slugifyText(post.author)}.webp`}
               alt={post.author}
               width={36}
               height={36}

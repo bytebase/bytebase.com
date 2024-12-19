@@ -62,7 +62,7 @@ const BlogPostHero = ({ post, isBlogPost = true }: BlogPostHeroProps) => {
           <div className="flex items-center gap-x-3">
             <Image
               className="h-9 w-9 rounded-full border border-gray-90"
-              src={`/images/authors/${slugifyText(author)}.webp`}
+              src={`/images/people/${slugifyText(author)}.webp`}
               alt={author}
               width={36}
               height={36}
