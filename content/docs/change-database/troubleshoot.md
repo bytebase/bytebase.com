@@ -17,24 +17,18 @@ _Also applicable to Redshift and RisingWave_
 
 Following permission errors are likely to happen if either conditions meet:
 
-1. Your PostgreSQL instance in hosted in the cloud, which means the configured Bytebase database instance
+1. Your PostgreSQL instance is hosted in the cloud, which means the configured Bytebase database instance
    user does not have `superuser` role.
-1. Your database/table has different owners.
+1. The instance user you configure in Bytebase is different from the database OWNER.
+1. Your database/table has different OWNERs.
 
 </HintBlock>
 
 ### ERROR: permission denied to set role xxx (SQLSTATE 42501)
 
-You may encounter this error when executing the schema migration on PostgreSQL databases.
+This could happen if you turn on [Postgres database tenant mode](/docs/change-database/issue/#postgres-database-tenant-mode).
 
-When Bytebase executes schema migration on PostgreSQL databases, it will not use the configured user
-in the instance to execute. Instead, it uses [`SET LOCAL ROLE`](https://github.com/bytebase/bytebase/blob/b79d79d81279a29ab6e9f147632f5a2631755299/backend/plugin/db/pg/pg.go#L340-L341) to switch to the
-targeting PostgreSQL database owner.
-
-Bytebase does this because if you are creating a table, it's likely you want the created table
-owner to be the database owner specific to the database instead of that shared Bytebase user.
-
-You need to grant the database owner permission to the Bytebase user configured in the PostgreSQL instance.
+You need to grant the database owner permission to the Bytebase user configured in your PostgreSQL instance.
 
 ```sql
 -- Suppose the Bytebase user is `bytebase`
@@ -50,16 +44,9 @@ If you use AlloyDB, the database owner must NOT be created via [Cloud IAM](https
 
 ### ERROR: must be owner of table xxx (SQLSTATE 42501)
 
-You may encounter this error when executing the schema migration on PostgreSQL databases.
+This could happen if you turn on [Postgres database tenant mode](/docs/change-database/issue/#postgres-database-tenant-mode).
 
-When Bytebase executes schema migration on PostgreSQL databases, it will not use the configured user
-in the instance to execute. Instead, it uses [`SET LOCAL ROLE`](https://github.com/bytebase/bytebase/blob/b79d79d81279a29ab6e9f147632f5a2631755299/backend/plugin/db/pg/pg.go#L340-L341) to switch to the
-targeting PostgreSQL database owner.
-
-Bytebase does this because if you are creating a table, it's likely you want the created table
-owner to be the database owner specific to the database instead of that shared Bytebase user.
-
-However, for some sophisticated setup where database owner and table owner are different, this causes problem.
+For some sophisticated setup where database owner and table owner are different, this causes problem.
 Because only table owner can alter that table schema, and if the database owner is not a member of
 the table owner, then the execution will throw the `ERROR: must be owner of table xxx` error.
 

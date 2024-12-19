@@ -127,6 +127,8 @@ expand_section_list: ['Self-host']
 
 #### [Webhook](/change-database/webhook)
 
+#### [Issue](/change-database/issue)
+
 #### [Schema Template](/administration/schema-template)
 
 ### [Troubleshoot 🐞](/change-database/troubleshoot)
