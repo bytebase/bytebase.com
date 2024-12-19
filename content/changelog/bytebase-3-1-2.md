@@ -10,7 +10,7 @@ description: 'Tooltips for tables, columns, and PostgreSQL view comments in SQL 
 
 - Add tooltips for tables, columns, and PostgreSQL view comments in SQL Editor.
 - Support IM and webhook integration for Lark.
-- Display table or view definition for Redshift.
+- Display table and view definition for Redshift.
 
 ## 🔔 Breaking Changes
 
