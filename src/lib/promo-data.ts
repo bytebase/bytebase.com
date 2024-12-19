@@ -2,8 +2,8 @@ import ROUTE from '@/lib/route';
 
 const PROMO_DATA = {
   TOP_BANNER: {
-    title: '🚀 How We Built the SQL Autocomplete with ANTLR4',
-    pathname: `/blog/sql-auto-complete/?source=top-banner`,
+    title: 'Just-in-Time Database Access',
+    pathname: `/blog/just-in-time-database-access/?source=top-banner`,
   },
   BLOG_ASIDE: {
     title: 'What is Bytebase?',
