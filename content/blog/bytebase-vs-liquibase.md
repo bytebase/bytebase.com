@@ -1,6 +1,6 @@
 ---
 title: 'Bytebase vs. Liquibase: a side-by-side comparison for database schema migration'
-author: Changyu
+author: Cayden
 updated_at: 2023/06/08 19:21:21
 feature_image: /content/blog/bytebase-vs-liquibase/bytebase-vs-liquibase-banner.webp
 tags: Explanation

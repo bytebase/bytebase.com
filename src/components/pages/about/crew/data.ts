@@ -20,8 +20,8 @@ export const crewList = [
     position: 'Engineering',
   },
   {
-    image: '/images/page/about/changyu.webp',
-    name: 'Changyu',
+    image: '/images/page/about/Cayden.webp',
+    name: 'Cayden',
     position: 'Solution Architect',
   },
   {

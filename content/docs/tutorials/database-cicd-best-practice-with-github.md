@@ -1,6 +1,6 @@
 ---
 title: The Database CI/CD Best Practice with GitHub
-author: Changyu
+author: Cayden
 updated_at: 2024/09/25 18:15
 feature_image: /content/docs/tutorials/database-cicd-best-practice-with-github/database-cicd-best-practice-with-github.webp
 tags: Tutorial

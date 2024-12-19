@@ -1,6 +1,6 @@
 ---
 title: How Salla Uses Bytebase to Build the Shopify for Arab
-author: Changyu
+author: Cayden
 updated_at: 2023/10/16 21:21:21
 feature_image: /content/blog/salla-case-study/banner.webp
 tags: Case Study

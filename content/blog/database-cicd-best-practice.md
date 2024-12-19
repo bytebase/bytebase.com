@@ -1,6 +1,6 @@
 ---
 title: 'VCS Integrated Database CI/CD Workflow Best Practice'
-author: Changyu
+author: Cayden
 updated_at: 2022/12/21 19:21:21
 feature_image: /content/blog/database-cicd-best-practice/database-cicd-best-practice-banner.webp
 tags: How-To

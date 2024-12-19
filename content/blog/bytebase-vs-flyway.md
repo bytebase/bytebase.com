@@ -1,6 +1,6 @@
 ---
 title: 'Bytebase vs. Flyway: a side-by-side comparison for database schema migration'
-author: Changyu
+author: Cayden
 updated_at: 2023/06/14 19:21:21
 feature_image: /content/blog/bytebase-vs-flyway/bytebase-vs-flyway-banner.webp
 tags: Explanation

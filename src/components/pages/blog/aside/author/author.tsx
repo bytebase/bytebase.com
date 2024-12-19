@@ -38,9 +38,7 @@ const Author = ({ author }: AuthorProps) => {
         </span>
       </div>
       <p className="mt-3 text-15 leading-snug lg:text-14">
-        Changyu is a product marketer at Ahrefs. He has been involved in product marketing at
-        various SaaS companies for more than 6 years, specializing in content marketing and short
-        form video.
+        Cayden is a solution architect at Bytebase.
       </p>
       <SocialLinks items={SocialItems} />
     </figure>

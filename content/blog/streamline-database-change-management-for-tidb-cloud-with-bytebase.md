@@ -1,6 +1,6 @@
 ---
 title: Streamline Database Change Management for TiDB Cloud with Bytebase
-author: Changyu
+author: Cayden
 updated_at: 2023/02/15 11:37:27
 feature_image: /content/blog/streamline-database-change-management-for-tidb-cloud-with-bytebase/feature-image.webp
 tags: Announcement
