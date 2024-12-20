@@ -22,21 +22,21 @@ const Backed = () => (
       </div>
       <div className="col-span-6 row-start-3 mt-16 flex items-center border border-gray-90 xl:mt-12 md:mt-11 md:flex-col md:py-6 md:text-center sm:col-span-4 sm:row-start-4 sm:mt-4">
         <Image
-          src="/images/page/about/cto.webp"
+          src="/images/page/about/dongxu.webp"
           alt=""
           width={308}
           height={306}
           className="self-start 3xl:hidden xl:w-[206px] md:w-[198px] md:self-center sm:w-[124px]"
         />
         <Image
-          src="/images/page/about/cto-3xl.webp"
+          src="/images/page/about/dongxu-3xl.webp"
           alt=""
           width={296}
           height={296}
           className="hidden 3xl:block xl:w-[206px] md:hidden"
         />
         <Image
-          src="/images/page/about/cto-md.webp"
+          src="/images/page/about/dongxu-md.webp"
           alt=""
           width={198}
           height={174}
