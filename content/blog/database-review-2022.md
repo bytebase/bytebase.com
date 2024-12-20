@@ -4,7 +4,7 @@ author: Tianzhou
 updated_at: 2023/05/30 10:00:00
 feature_image: /content/blog/database-review-2022/grey-wolf-and-white-deer.webp
 tags: Industry
-description: What happend in database industry in 2022.
+description: What happened in database industry in 2022.
 ---
 
 ## Market Cooling Down
