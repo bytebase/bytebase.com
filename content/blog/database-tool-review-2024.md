@@ -11,29 +11,32 @@ description: What happened in the database tooling landscape in 2024.
 Database tools are the critical enablers that bridge the diverse needs of developers, database administrators (DBAs), security engineers, and platform engineers, serving as the foundation for managing, optimizing, securing, and governing data systems.
 Let's take a look at the database tooling landscape in 2024.
 
-## Debuts
+## Starlets
+
+### DataGrip
+
+[DataGrip](https://www.jetbrains.com/datagrip/) a familiar name in the world of database tools, continues to evolve with the introduction of an [AI Assistant](https://www.jetbrains.com/datagrip/features/ai/) this year.
+By integrating AI capabilities, DataGrip can provide schema-aware AI chat, text-to-SQL, SQL fix and rewrite.
+
+### Metis
+
+[Metis](https://www.metisdata.io/) is a database observability platform designed to empower developers and DevOps teams to effectively manage and optimize their databases throughout the software development lifecycle.
 
 ### Neosync
 
 [Neosync](https://www.neosync.dev/) is an open-source platform designed to help developers manage sensitive data by providing tools for data anonymization, synthetic data generation, and environment synchronization.
 
+### Outerbase
+
+[Outerbase](https://www.outerbase.com/) is an AI-powered database platform that enables users to view, query, visualize, and edit their data through an intuitive interface. Recently, they [open-sourced Outerbase Studio](https://github.com/outerbase/studio) browser-based GUI client for managing databases like SQLite, PostgreSQL, and MySQL.
+
 ### Teable
 
 [Teable](https://teable.io/) is an open-source, no-code database platform that combines the simplicity of a spreadsheet interface with the robustness of PostgreSQL. It enables users to create and manage complex database applications without writing code, facilitating real-time collaboration and scalability.
 
-## Starlets
-
 ### Bytebase
 
-Being part of the database tooling ecosystem, 2024 is also a pivotal year for us at Bytebase:
-
-- In April, our GitHub stars [have surpassed 10k](/blog/ten-thousands-github-stars), making us the fastest-growing and most popular project in our segment.
-- In October, we launched [Bytebase 3.0](/blog/bytebase-3-0), marking our evolution from a Database DevOps solution to a Database DevSecOps solution, with a strong emphasis on security.
-- Our customer base and revenue have grown multifold, leading to operational profitability. Our products are trusted by small teams in Polynesia as well as some of the largest Fortune 500 companies worldwide.
-
-### Outerbase
-
-[Outerbase](https://www.outerbase.com/) is an AI-powered database platform that enables users to view, query, visualize, and edit their data through an intuitive interface. Recently, they [open-sourced Outerbase Studio](https://github.com/outerbase/studio) browser-based GUI client for managing databases like SQLite, PostgreSQL, and MySQL.
+Being part of the database tooling ecosystem, 2024 is also a pivotal year for us at Bytebase. Beside passing 10K GitHub starts, we launched [Bytebase 3.0](/blog/bytebase-3-0), marking our evolution to a **database DevSecOps** solution, with a strong emphasis on security.
 
 ## Acquisitions
 
