@@ -118,18 +118,18 @@ Let's dig into the code:
 
    ```json
    {
-     "role": "roles/projectQuerier",
+     "role": "roles/sqlEditorUser",
      "members": ["user:dev@x.com", "user:dev2@x.com"],
      "condition": {
        "expression": "(resource.database in [\"instances/test-sample-instance/databases/hr_test\"])",
-       "title": "project querier hr_prod",
+       "title": "SQL Editor User hr_prod",
        "description": "",
        "location": ""
      }
    }
    ```
 
-   This grants the `projectQuerier` role only for the `hr_test` database in `test-sample-instance`.
+   This grants the `SQL Editor User` role only for the `hr_test` database in `test-sample-instance`.
 
 1. When processing IAM policies, handle [CEL (Common Expression Language)](https://cel.dev/) format conditions carefully. In this demo, we parse these conditions using a custom `parseCelExpression` function:
 

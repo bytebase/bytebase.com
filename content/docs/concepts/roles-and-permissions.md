@@ -18,7 +18,7 @@ Users can also be granted `Workspace Admin`, `Workspace DBA`. These 2 roles shou
 
 **Project Roles**
 
-- Built-in roles: `Project Owner`, `Project Developer`, `Project Releaser`, `Project Querier`, `Project Exporter`, `Project Viewer`.
+- Built-in roles: `Project Owner`, `Project Developer`, `Project Releaser`, `SQL Editor User` (previously called `Project Querier`), `Project Exporter`, `Project Viewer`.
 - [Custom roles](/docs/administration/custom-roles/).
 
 In addition to the inherent `Workspace Member` role, most users will be granted project roles. These roles
@@ -89,7 +89,7 @@ By default, the first registered user is granted the `Admin` role, all following
 Any user can create project. By default, the project creator is granted the `Project Owner` role.
 `Workspace DBA` and `Workspace Admin` assume the `Project Owner` role for all projects.
 
-| Project Permission           | Project Querier | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
+| Project Permission           | SQL Editor User | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
 | ---------------------------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
 | Sync sheet from VCS          |                 |                  | ✔️                | ✔️            | ✔️            | ✔️              |
 | Change project role          |                 |                  |                   | ✔️            | ✔️            | ✔️              |
@@ -101,7 +101,7 @@ Any user can create project. By default, the project creator is granted the `Pro
 
 Bytebase does not define database specific roles. Whether a user can perform certain action to the database is based on the user's Workspace role and the role of the project owning the database.
 
-| Database Permission | Project Querier | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
+| Database Permission | SQL Editor User | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
 | ------------------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
 | Query               | ✔️              |                  |                   | ✔️            | ✔️            | ✔️              |
 | Export              |                 | ✔️               |                   | ✔️            | ✔️            | ✔️              |
@@ -120,7 +120,7 @@ User can save sheets from [SQL Editor](/docs/sql-editor/overview). A sheet alway
 
 ### Private Sheet
 
-| Permission | Creator | Project Querier | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
+| Permission | Creator | SQL Editor User | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
 | ---------- | ------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
 | Star       | ✔️      |                 |                  |                   |               |               |                 |
 | Read       | ✔️      |                 |                  |                   |               |               |                 |
@@ -129,7 +129,7 @@ User can save sheets from [SQL Editor](/docs/sql-editor/overview). A sheet alway
 
 ### Project Sheet
 
-| Permission | Creator | Project Querier | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
+| Permission | Creator | SQL Editor User | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
 | ---------- | ------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
 | Star       | ✔️      | ✔️              | ✔️               | ✔️                | ✔️            | ✔️            | ✔️              |
 | Read       | ✔️      | ✔️              | ✔️               | ✔️                | ✔️            | ✔️            | ✔️              |
@@ -138,7 +138,7 @@ User can save sheets from [SQL Editor](/docs/sql-editor/overview). A sheet alway
 
 ### Public Sheet
 
-| Permission | Creator | Project Querier | Project Exporter | Project Developer | Project Owner | Others |
+| Permission | Creator | SQL Editor User | Project Exporter | Project Developer | Project Owner | Others |
 | ---------- | ------- | --------------- | ---------------- | ----------------- | ------------- | ------ |
 | Star       | ✔️      | ✔️              | ✔️               | ✔️                | ✔️            | ✔️     |
 | Read       | ✔️      | ✔️              | ✔️               | ✔️                | ✔️            | ✔️     |
@@ -147,7 +147,7 @@ User can save sheets from [SQL Editor](/docs/sql-editor/overview). A sheet alway
 
 ## Issue permissions
 
-| Issue Permission          | Assignee | Creator | Project Querier | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
+| Issue Permission          | Assignee | Creator | SQL Editor User | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
 | ------------------------- | -------- | ------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
 | Create issue              | N/A      | N/A     | ✔️              | ✔️               | ✔️                | ✔️            | ✔️            | ✔️              |
 | Re-assign issue           | ✔️       | ✔️      |                 |                  |                   |               | ✔️            | ✔️              |

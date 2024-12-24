@@ -69,7 +69,7 @@ Log in as `Developer`, and you can see `Sample Project`. Enter **SQL Editor** on
 
 ### Admin grants data query access directly
 
-1. Log in as `Admin`, and go to `Sample Project`. Click **Members** and then **Grant Access**. Choose `Developer` and assign the role `Project Querier`, `All` for **Databases**. Click **Confirm**.
+1. Log in as `Admin`, and go to `Sample Project`. Click **Members** and then **Grant Access**. Choose `Developer` and assign the role `SQL Editor User`, `All` for **Databases**. Click **Confirm**.
 
 1. Log in as `Developer`, and go to SQL Editor. You can see all databases under `Test` and `Prod` environment. Select `hr_prod`, input `SELECT * FROM employee;` and run, you can see the result. Change `employee` to any other tables and run, you can see data as well.
 

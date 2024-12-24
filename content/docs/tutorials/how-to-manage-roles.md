@@ -23,7 +23,7 @@ A typical requirement is to create a `Manager` role in Bytebase who can only rol
 
    - **Project Owner**: All permissions within the project
    - **Project Developer**: All viewer permissions, plus permissions for requesting database changes.
-   - **Project Querier**: Permissions for querying database data.
+   - **SQL Editor User**: Permissions for querying database data.
    - **Project Exporter**: Permissions for exporting database data.
    - **Project Releaser**: All viewer permissions, plus permission for reviewing database change requests for release purposes.
    - **Project Viewer**: Read-only permissions for viewing basic project information, accessing databases, and initiating privilege requests.

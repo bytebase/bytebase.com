@@ -4,9 +4,9 @@ title: Data Query
 
 Bytebase users query data from [SQL Editor](/docs/sql-editor/run-queries/). Bytebase can enforce query access control for a particular user at the database, schema or table level.
 
-## Assign Project Querier Role
+## Assign SQL Editor User Role
 
-`Workspace Admin`, `Workspace DBA` or `Project Owner` can manually grant `Project Querier` role to users/groups.
+`Workspace Admin`, `Workspace DBA` or `Project Owner` can manually grant `SQL Editor User` role to users/groups.
 
 ### Assign at Project level
 
@@ -14,7 +14,7 @@ Bytebase users query data from [SQL Editor](/docs/sql-editor/run-queries/). Byte
 
 ![project-members-grant](/content/docs/security/database-permission/query/project-members-grant.webp)
 
-Select Users or Groups, assign `Project Querier` role, choose the database object, Expiration and click **Confirm**.
+Select Users or Groups, assign `SQL Editor User` role, choose the database object, Expiration and click **Confirm**.
 
 You can choose the entire database, a particular schema, or a particular table.
 
@@ -22,19 +22,19 @@ You can choose the entire database, a particular schema, or a particular table.
 
 ### Assign at Workspace level
 
-`Workspace Admin` can assign `Project Querier` role at the workspace level. This will grant query permission to _all databases_ within _all projects_.
+`Workspace Admin` can assign `SQL Editor User` role at the workspace level. This will grant query permission to _all databases_ within _all projects_.
 
-From the workspace page, go to **IAM & Admin > Members**, **Grant Access** to Select users/groups and assign `Project Querier` to them.
+From the workspace page, go to **IAM & Admin > Members**, **Grant Access** to Select users/groups and assign `SQL Editor User` to them.
 
 ![assign-workspace](/content/docs/security/database-permission/query/assign-workspace.webp)
 
-## Request Project Querier Role
+## Request SQL Editor User Role
 
 <PricingPlanBlock feature_name='QUERY_EXPORT_APPROVAL_WORKFLOW' />
 
 <TutorialBlock url="/docs/tutorials/just-in-time-part1/" title="Just-in-Time Database Access" />
 
-Users can also apply for `Project Querier` role by submitting an issue. Approval flow matches the `Request Querier Role` in [custom approval](/docs/administration/custom-approval/) if configured.
+Users can also apply for `SQL Editor User` role by submitting an issue. Approval flow matches the `Request Querier Role` in [custom approval](/docs/administration/custom-approval/) if configured.
 
 ### Request at Project level
 
