@@ -105,22 +105,22 @@ On the other hand, the more common way to change the schema is to use **Schema E
 
 - **DBeaver**: DBeaver is client-based, thus it can't enforce centralized access control.
 
-- **Bytebase**: Roles are divided into two levels - Workspace and Project. `Workspace Admins`/`DBAs` set up database instances and manage members. `Project Owners` handle databases, issues, and members at the Project level. Individuals can hold multiple project-level roles, such as `Project Developers` (change database), and `Project Queriers` (query database).
+- **Bytebase**: Roles are divided into two levels - Workspace and Project. `Workspace Admin`/`DBA` set up database instances and manage members. `Project Owners` handle databases, issues, and members at the Project level. Individuals can hold multiple project-level roles, such as `Project Developer` (change database), and `SQL Editor User` (query database).
   ![bb-access-control](/content/blog/bytebase-vs-dbeaver/bb-access-control.webp)
 
-  With **Community plan**, if one's not assigned to a project, one can't see the project at all. With **Enterprise plan**, `Project Owner` can grant access to specific databases or tables instead of all project databases to a specific `Project Querier`. `Project Developer` can also request to query or export a database or table with a request issue.
+  With **Community plan**, if one's not assigned to a project, one can't see the project at all. With **Enterprise plan**, `Project Owner` can grant access to specific databases or tables instead of all project databases to a specific `SQL Editor User`. `Project Developer` can also request to query or export a database or table with a request issue.
   ![bb-access-control-adv](/content/blog/bytebase-vs-dbeaver/bb-access-control-adv.webp)
 
-  Additionally, `Admins`/`DBAs` can set different data access controls for various environments, such as restricted access to production data and open access to development data.
-  ![bb-ac-env](/content/blog/bytebase-vs-dbeaver/bb-ac-env.webp)
+  Additionally, `Admin`/`DBA` can set different data access controls for various environments, such as restricted access to production data and open access to development data.
+  ![bb-access-project](/content/blog/bytebase-vs-dbeaver/bb-ac-env.webp)
 
 ### Data Masking
 
 - **DBeaver**: DBeaver is client-based, thus it can't enforce data masking policies.
 
-- **Bytebase**: `Admins`/`DBAs`/`Project Owners` can configure data masking for specific columns within a table and can also authorize particular users to access the original, unmasked data. `Project Querier`, on the other hand, is limited to accessing only the masked data.
+- **Bytebase**: `Admin`/`DBA`/`Project Owner` can configure data masking for specific columns within a table and can also authorize particular users to access the original, unmasked data. `SQL Editor User`, on the other hand, is limited to accessing only the masked data.
 
-  Furthermore, `Admins`/`DBAs` can define semantic types for masking algorithms, such as email, phone, credit card, etc. As a result, the data will be masked according to the semantic type configured.
+  Furthermore, `Admin`/`DBA` can define semantic types for masking algorithms, such as email, phone, credit card, etc. As a result, the data will be masked according to the semantic type configured.
   ![bb-masking-graph](/content/blog/bytebase-vs-dbeaver/bb-masking-graph.webp)
 
 ### Compare
