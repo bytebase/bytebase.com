@@ -2,9 +2,9 @@
 title: 'Database Tools in 2024: A Year in Review'
 author: Tianzhou
 updated_at: 2024/12/21 10:00:00
-feature_image: /content/blog/database-tool-review-2024/grey-wolf-and-white-deer.webp
+feature_image: /content/blog/database-tool-review-2024/cover.webp
 featured: true
-tags: Industry, Hidden
+tags: Industry
 description: What happened in the database tooling landscape in 2024.
 ---
 
@@ -15,26 +15,38 @@ Let's take a look at the database tooling landscape in 2024.
 
 ### DataGrip
 
-[DataGrip](https://www.jetbrains.com/datagrip/) a familiar name in the world of database tools, continues to evolve with the introduction of an [AI Assistant](https://www.jetbrains.com/datagrip/features/ai/) this year.
-By integrating AI capabilities, DataGrip can provide schema-aware AI chat, text-to-SQL, SQL fix and rewrite.
+![datagrip](/content/blog/database-tool-review-2024/datagrip-ai.webp)
+
+[DataGrip](https://www.jetbrains.com/datagrip/), a familiar name in the world of database tools, continues to evolve with the introduction of an [AI Assistant](https://www.jetbrains.com/datagrip/features/ai/) this year.
+By integrating AI capabilities, DataGrip can provide schema-aware AI chat, text-to-SQL, SQL rewrite, and more.
 
 ### Metis
+
+![metis](/content/blog/database-tool-review-2024/metis.webp)
 
 [Metis](https://www.metisdata.io/) is a database observability platform designed to empower developers and DevOps teams to effectively manage and optimize their databases throughout the software development lifecycle.
 
 ### Neosync
 
+![neosync](/content/blog/database-tool-review-2024/neosync.webp)
+
 [Neosync](https://www.neosync.dev/) is an open-source platform designed to help developers manage sensitive data by providing tools for data anonymization, synthetic data generation, and environment synchronization.
 
 ### Outerbase
+
+![outerbase](/content/blog/database-tool-review-2024/outerbase.webp)
 
 [Outerbase](https://www.outerbase.com/) is an AI-powered database platform that enables users to view, query, visualize, and edit their data through an intuitive interface. Recently, they [open-sourced Outerbase Studio](https://github.com/outerbase/studio) browser-based GUI client for managing databases like SQLite, PostgreSQL, and MySQL.
 
 ### Teable
 
+![teable](/content/blog/database-tool-review-2024/teable.webp)
+
 [Teable](https://teable.io/) is an open-source, no-code database platform that combines the simplicity of a spreadsheet interface with the robustness of PostgreSQL. It enables users to create and manage complex database applications without writing code, facilitating real-time collaboration and scalability.
 
 ### Bytebase
+
+![bytebase](/images/db-scheme-lg.png)
 
 Being part of the database tooling ecosystem, 2024 is also a pivotal year for us at Bytebase. Beside passing 10K GitHub starts, we launched [Bytebase 3.0](/blog/bytebase-3-0), marking our evolution to a **database DevSecOps** solution, with a strong emphasis on security.
 
@@ -47,9 +59,13 @@ While database tooling acquisitions may not grab headlines like high-profile dat
 - [Perforce acquires Delphix](https://www.perforce.com/blog/perforce-to-acquire-delphix): Delphix is a data platform specializing in data masking, virtualization, and compliance solutions.
 - [Timescale acquires PopSQL](https://www.timescale.com/blog/best-postgresql-gui-popsql-joins-timescale/): PopSQL is a collaborative SQL editor known for its intuitive interface and team-friendly features (also our favorite besides our very own [SQL Editor](/sql-editor/)).
 
-## Bittersweet Farewell
+## Farewells
 
-As we reflect on the evolving database tooling landscape, it’s worth acknowledging the bittersweet reality that not all tools achieve longevity, even when they embody innovation and promise. Tools like [OtterTune](https://ottertune.com/), a trailblazer in database tuning, and [Snaplet](https://snaplet.dev/), which streamlined database cloning and sanitization for development environments, stand out as examples of ingenuity.
+As we reflect on the evolving database tooling landscape, it’s worth acknowledging the bittersweet reality that not all tools achieve longevity, even when they embody innovation and promise.
+
+![ottertune-snaplet](/content/blog/database-tool-review-2024/ottertune-snaplet.webp)
+
+Tools like [OtterTune](https://ottertune.com/), a trailblazer in database tuning, and [Snaplet](https://snaplet.dev/), which streamlined database cloning and sanitization for development environments, stand out as examples of ingenuity.
 
 Though these tools may have ceased operations, their contributions to the ecosystem remain impactful and enduring.
 
