@@ -3,7 +3,7 @@ title: 'Applying Data Masking with GitHub Actions - Part 2'
 author: Ningjing
 updated_at: 2024/11/25 18:00
 tags: Tutorial
-integrations: General, API
+integrations: API
 level: Advanced
 estimated_time: '30 mins'
 description: 'Learn how to automate database masking algorithm and semantic types using GitHub Actions and Bytebase API'

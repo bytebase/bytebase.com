@@ -3,7 +3,7 @@ title: Audit Database Activities with Bytebase API
 author: Ningjing
 updated_at: 2024/09/23 18:00
 tags: Tutorial
-integrations: General, API
+integrations: API
 level: Advanced
 estimated_time: '40 mins'
 description: 'Learn how to use the Bytebase API to fetch audit log in Bytebase'

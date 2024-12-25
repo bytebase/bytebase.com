@@ -68,6 +68,9 @@ const Posts = ({ posts }: PostsProps) => {
                   {post.integrations && (
                     <div className="ml-2 flex items-center gap-x-2">
                       {post.integrations.split(', ').map((integration) => {
+                        if (integration.toLowerCase() == 'general') {
+                          return;
+                        }
                         const Logo = allIntegrations[integration.toLowerCase()];
                         return <Logo className="h-5 w-5" key={integration.toLowerCase()} />;
                       })}

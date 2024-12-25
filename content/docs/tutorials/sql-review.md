@@ -3,7 +3,7 @@ title: 'Master SQL Review with GUI, GitOps and API'
 author: Ningjing
 updated_at: 2024/08/14 16:15
 tags: Tutorial
-integrations: General, API
+integrations: API
 level: Intermediate
 estimated_time: '40 mins'
 description: This tutorial will walk you through using SQL Review in Bytebase to improve your database schema change process.

@@ -3,7 +3,7 @@ title: Codify SQL Review Policies with Bytebase API
 author: Ningjing
 updated_at: 2024/11/12 18:00
 tags: Tutorial
-integrations: General, API
+integrations: API
 level: Advanced
 estimated_time: '40 mins'
 description: 'Learn how to use the Bytebase API to configure SQL review rules in Bytebase'

@@ -3,7 +3,7 @@ title: 'Applying Data Masking with GitHub Actions - Part 3'
 author: Dec
 updated_at: 2024/12/04 18:00
 tags: Tutorial
-integrations: General, API
+integrations: API
 level: Advanced
 estimated_time: '30 mins'
 description: 'Learn how to use data classification and global masking policy using GitHub Actions and Bytebase API'
