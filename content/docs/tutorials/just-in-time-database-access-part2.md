@@ -17,11 +17,10 @@ When developers need urgent production database access during incidents but lack
 
 ---
 
-This is Part 2 of our tutorial series on implementing Just-in-Time (JIT) access:
+This is Part 2 of our tutorial series on implementing Just-in-Time (JIT) database access:
 
 - Part 1: [Grant JIT database access via Bytebase GUI](/docs/tutorials/just-in-time-database-access-part1)
 - Part 2: Approve JIT database access via Slack (this one)
-- Part 3: Request JIT database access via Slack
 
 ## Overview
 
@@ -48,6 +47,8 @@ Before you begin, make sure you have:
 1. Create a Slack app. The Slack app listens on the webhook notification when someone submits a database access request.
 1. Upon receiving the webhook event, the Slack app will present a message card in the configured channel with request details and approve/deny buttons.
 1. Upon clicking the approve/deny button, the Slack app will call the corresponding Bytebase API to approve/deny the request.
+
+Another option would require clicking to go to bytebase to approve the request, which can be done by [built-in Slack webhook integration](/docs/change-database/webhook/#slack).
 
 ## Step 1 - Finished the previous tutorial
 
@@ -124,4 +125,4 @@ If digging into the code is your interest, here is a brief explanation of the co
 
 ## Conclusion
 
-In this tutorial, you learned how to set up JIT access via Slack with the help of Bytebase webhooks and APIs. In the next part, we will cover how to request JIT access via Slack.
+Congratulations! You've successfully set up JIT database access via Slack with the help of Bytebase webhooks and APIs.

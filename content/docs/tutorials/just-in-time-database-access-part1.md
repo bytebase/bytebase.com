@@ -17,11 +17,10 @@ This tutorial will guide you through setting up Just-in-Time (JIT) access using 
 
 ---
 
-This is Part 1 of our tutorial series on implementing Just-in-Time (JIT) access:
+This is Part 1 of our tutorial series on implementing Just-in-Time (JIT) database access:
 
 - Part 1: JIT database access via Bytebase GUI (this one)
 - Part 2: [Approve JIT database access via Slack](/docs/tutorials/just-in-time-database-access-part2)
-- Part 3: Request JIT database access via Slack
 
 ## Prerequisites
 
