@@ -68,7 +68,8 @@ const cards: Omit<CardProps, 'autoplay' | 'onLoad'>[] = [
     href: Route.DOCS_SQL_EDITOR,
     cover: '/images/page/main/hero/query-data.webp',
     title: 'Dynamic Data Masking',
-    description: 'Role-based multi-level masking policy with data classification.',
+    description:
+      'Role-based multi-level masking policy with data classification, custom algorithm.',
   },
 ];
 
