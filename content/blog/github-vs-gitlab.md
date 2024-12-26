@@ -5,14 +5,13 @@ updated_at: 2024/12/25 12:00
 feature_image: /content/blog/github-vs-gitlab/cover.webp
 tags: Industry
 featured: true
-description: 'An extensive comparison between GitHub and GitLab on history, code hosting, code review,
-code search, ci/cd, security, project management, ai, open '
+description: 'An extensive comparison between GitHub and GitLab on history, deployment model, tech stack, repository management, code review,
+code search, ci/cd, security, project management, ai, pricing'
 ---
 
 <HintBlock type="info">
 
-This post is updated regularly. For the impatience, jump to the [last section](#github-or-gitlab) to
-see the comparison table. The [References](#references) provides further readings.
+As GitHub and GitLab continue to iterate, we will update this post regularly.
 
 </HintBlock>
 
@@ -25,16 +24,15 @@ across the following key areas.
 - [Deployment Model](#deployment-model)
 - [Tech Stack](#tech-stack)
 - [Repository Management](#repository-management)
+- [CI/CD](#cicd)
 - [Code Review](#code-review)
 - [Code Search](#code-search)
-- [CI/CD](#cicd)
 - [Security](#security)
 - [Project Management](#project-management)
 - [AI](#ai)
 - [Open Source](#open-source)
-- [Ecosystem](#ecosystem)
 - [Pricing](#pricing)
-- [Switching Cost](#switching-cost)
+- [GitHub or GitLab](#github-or-gitlab)
 
 ## History
 
@@ -87,39 +85,83 @@ a Git RPC service written in Go. For more details on GitLab’s tech stack, refe
 
 The core feature sets are comparable. However, GitHub leads the way in code collaboration, pioneering lightweight forks and pull requests (PRs).
 
+GitHub co-founder Chris Wanstrath [wrote a detailed thread](https://x.com/defunkt/status/1623393340967501824) on the origins of pull requests.
+
 GitLab later introduced merge requests (MRs), its equivalent to GitHub's PRs, along with fork functionality.
-
-## Code Review
-
-## Code Search
 
 ## CI/CD
 
+GitLab CI pioneered CI/CD space:
+
+- It's the first product with the built-in integration with the code repository.
+- It's the first product introducing Auto DevOps and integrated security (DevSecOps).
+
+Feature-wise, GitLab excels with built-in support for advanced features like [multi-project](https://docs.gitlab.com/ee/ci/pipelines/downstream_pipelines.html) pipelines, [canary deployments](https://docs.gitlab.com/ee/user/project/canary_deployments.html).
+
+In contrast, GitHub Actions stands out with its extensive third-party ecosystem and user-friendly interface. Additionally, GitHub offers [more runtime environments](https://docs.github.com/en/actions/sharing-automations/creating-actions/about-custom-actions), supporting not only Shell and Docker images, but also JavaScript, which GitLab [does not natively support](https://docs.gitlab.com/runner/executors/index.html).
+
+## Code Review
+
+GitHub and GitLab both offer standard code review features. GitHub excels in third-party integration through GitHub Apps and GitHub Actions.
+
+In GitLab, third-party tools can only post comments below merge requests. In GitHub, third-party tools can post inline comments directly within pull requests, enhancing review workflows. For instance, Bytebase's [SQL Review GitHub Actions](https://www.bytebase.com/docs/sql-review/gitops-ci/) can lint SQL and post inline comments within the code:
+
+![github-pr-inline](/content/blog/github-vs-gitlab/github-pr-inline.webp)
+
+If you're not satisfied with the built-in code review interface, you can explore [Graphite](https://graphite.dev/) (inspired by Meta's `stacked diffs`) and [Gerrit](https://www.gerritcodereview.com/) (Google's open-source version).
+
+## Code Search
+
+GitHub offers superior code search capabilities and has a much larger pool of source code to ~copy~search from.
+However, neither platform provides an optimal code search experience, so it's worth exploring [Sourcegraph](sourcegraph.com)
+for a more powerful solution.
+
 ## Security
+
+GitLab pioneered the DevSecOps concept, being the first platform to fully integrate security into the development pipeline. In the latest Gartner® Magic Quadrant™ for Application Security Testing, it also ranks higher than GitHub.
+
+![2023-magic-quadrant](/content/blog/github-vs-gitlab/2023-mq-ast.webp)
+
+GitHub continues to excel in usability. In 2019, it acquired Semmle, the creator of CodeQL, and Dependabot. These two features have since become the foundation of GitHub's security portfolio.
 
 ## Project Management
 
+Both GitHub and GitLab offer project management features, such as `projects` and `issues`. However, many users still prefer specialized project management tools, like [Linear](https://linear.app/) or the mighty [Jira](https://www.atlassian.com/software/jira).
+
 ## AI
+
+GitHub has Copilot
+
+![2024-mq-ai-code](/content/blog/github-vs-gitlab/2024-mq-ai-code.webp)
 
 ## Open Source
 
-## Ecosystem
+GitLab is fully open-source. However, while GitHub is the go-to platform for hosting and promoting open-source projects, GitHub itself is not open-source. Nevertheless, GitHub has contributed significantly to the open-source ecosystem, developing impactful projects like [gh-ost](https://github.com/github/gh-ost), a MySQL online schema migration tool.
 
-## Installation
+<HintBlock type="info">
 
-GitHub uses MySQL
-GitLab uses PostgreSQL
+Bytebase has integrated [gh-ost](/docs/change-database/online-schema-migration-for-mysql/), offering a more user-friendly interface with the built-in approval workflow.
+
+</HintBlock>
 
 ## Pricing
 
-## Switching Cost
+![pricing-github](/content/blog/github-vs-gitlab/pricing-github.webp)
+![pricing-gitlab](/content/blog/github-vs-gitlab/pricing-gitlab.webp)
+
+Both GitHub and GitLab offer three tiers, starting with a free plan. GitHub [provides a free tier for Copilot](https://github.blog/news-insights/product-news/github-copilot-in-vscode-free/), while GitLab Duo is available at an additional cost.
 
 ## GitHub or GitLab
 
-## Trajectory
+![2024-mq-devops](/content/blog/github-vs-gitlab/2024-mq-devops.webp)
+
+In the latest 2024 Gartner Magic Quadrant for DevOps Platforms, GitLab remains the highest-ranked platform. We acknowledge GitLab's leadership, particularly in more advanced features. However, GitHub has narrowed the feature gap and offers a more intuitive interface. Based on our work with engineering teams globally, we observe a growing trend of GitHub's increasing popularity. Today, GitHub is not just a platform for hosting open-source projects; it is increasingly seen as a competitive enterprise developer platform.
+
+GitLab does have an advantage with its free self-hosted tier. However, unless your organization has a stringent requirement for a self-hosted option or lacks the budget for GitHub Enterprise, we recommend starting with GitHub. GitHub provides all the essential features, an intuitive interface, and integrated AI capabilities. Moreover, your developers are likely already familiar with GitHub, as many use it for personal projects or exploration in their spare time.
 
 ## References
 
+- [Chris Wanstrath (GitHub co-founder) thread on starting GitHub](https://x.com/defunkt/status/1715128542391153068)
 - [A Brief History of the Pull Request](https://rdnlsmith.com/posts/2023/004/pull-request-origins/)
 - [History of GitLab](https://handbook.gitlab.com/handbook/company/history/)
 - [The road to Gitaly v1.0](https://about.gitlab.com/blog/2018/09/12/the-road-to-gitaly-1-0/)
