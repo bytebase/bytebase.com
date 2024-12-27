@@ -61,7 +61,7 @@ docker run --name one-api -d --restart always -p 3000:3000 -e TZ=Asia/Shanghai -
 
 Seeing the Docker container start and id output means successful deployment. If you encounter any issues, refer to the solution in One API documentation.
 
-![one-api-docker-run](/content/docs/tutorials/one-api-ollama-sql-editor/one-api-docker-run.webp)
+![one-api-docker-run](/content/docs/tutorials/self-host-llama/one-api-docker-run.webp)
 
 In Docker dashboard, you can see one-api container and its address as well. You can access `localhost:3000` here to log in to One API dashboard.
 
@@ -110,8 +110,8 @@ curl http://localhost:3000/v1/chat/completions \
 
 In Bytebase Workspace, go to **Settings** -> **General**, and scroll down to **AI Assistant** section. Fill `YOUR_TOKEN` we generated in One API into `OpenAI API Key` bar, and fill the `OpenAI API Endpoint` bar with `http://localhost:3000`. Click **Update**.
 
-![bytebase-ai-assistant-config](/content/docs/tutorials/one-api-ollama-sql-editor/ai-assistant-config.webp)
+![bytebase-ai-assistant-config](/content/docs/tutorials/self-host-llama/ai-assistant-config.webp)
 
 Enter **SQL Editor** from top of any page. You can see an OpenAI icon on top right corner. Click it to start conversation with AI assistant, ask questions in natural language and get SQL results.
 
-![bytebase-ai-assistant-sql-editor](/content/docs/tutorials/one-api-ollama-sql-editor/bytebase-ai-assistant-sql-editor.webp)
+![bytebase-ai-assistant-sql-editor](/content/docs/tutorials/self-host-llama/bytebase-ai-assistant-sql-editor.webp)

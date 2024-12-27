@@ -15,7 +15,7 @@ Go to Bytebase console, click **Settings > General**. Scroll down to **AI Assist
 
 ## Use self-hosted model
 
-<TutorialBlock url="/docs/tutorials/one-api-ollama-sql-editor/" title="Self-host Llama3 for Bytebase AI Assistant" />
+<TutorialBlock url="/docs/tutorials/self-host-llama/" title="Self-host Llama3 for Bytebase AI Assistant" />
 
 ## Features
 
