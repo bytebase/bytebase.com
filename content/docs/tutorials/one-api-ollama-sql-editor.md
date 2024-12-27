@@ -1,5 +1,5 @@
 ---
-title: 'Deploying llama3 to Bytebase SQL editor via One API for natural language to SQL conversion'
+title: 'Deploying llama3 to Bytebase SQL editor for text2SQL'
 author: Dec
 tags: Tutorial
 updated_at: 2024/12/27 18:15
@@ -53,10 +53,10 @@ Seeing the results streaming out means that API is working well.
 
 ## Configure One API
 
-Choose a directory with read&write permissions (replace <YOUR_PATH> in the following command) to save data and logs. For example, you can use the `pwd` command in the mac terminal to view the current path and replace <YOUR_PATH> with it.
+Choose a directory with read&write permissions (replace `YOUR_PATH` in the following command) to save data and logs. For example, you can use the `pwd` command in the mac terminal to view the current path and replace `YOUR_PATH` with it.
 
 ```bash
-docker run --name one-api -d --restart always -p 3000:3000 -e TZ=Asia/Shanghai -v <YOUR_PATH>/one-api:/data justsong/one-api-en
+docker run --name one-api -d --restart always -p 3000:3000 -e TZ=Asia/Shanghai -v YOUR_PATH/one-api:/data justsong/one-api-en
 ```
 
 Seeing the Docker container start and id output means successful deployment. If you encounter any issues, refer to the solution in One API documentation.
@@ -88,12 +88,12 @@ Furthermore, we mentioned above that the model name can be mapped in One-API. Th
 
 In the **API keys** page, click **Add New Token**, and fill in the **Name** (for example `llama3`) and **Model scope** (for example `gpt-3.5-turbo`).
 
-After clicking **Submit**, you will see the new API key in **My keys** list within **API keys** page. Click **Copy** to get a token starting with `sk-`, with witch you can repalce <YOUR_TOKEN> in the code below. If the code runs successfully in your terminal, it means that One API configuration is complete.
+After clicking **Submit**, you will see the new API key in **My keys** list within **API keys** page. Click **Copy** to get a token starting with `sk-`, with witch you can repalce `YOUR_TOKEN` in the code below. If the code runs successfully in your terminal, it means that One API configuration is complete.
 
 ```bash
 curl http://localhost:3000/v1/chat/completions \
     -H "Content-Type: application/json" \
-        -H "Authorization: Bearer <YOUR_TOKEN>" \
+        -H "Authorization: Bearer YOUR_TOKEN" \
     -d '{
         "model": "gpt-3.5-turbo",
         "messages": [
@@ -108,7 +108,7 @@ curl http://localhost:3000/v1/chat/completions \
 
 ## Configure Bytebase and run
 
-In Bytebase Workspace, go to **Settings** -> **General**, and scroll down to **AI Assistant** section. Fill <YOUR_TOKEN> we generated in One API into `OpenAI API Key` bar, and fill the `OpenAI API Endpoint` bar with `http://localhost:3000`. Click **Update**.
+In Bytebase Workspace, go to **Settings** -> **General**, and scroll down to **AI Assistant** section. Fill `YOUR_TOKEN` we generated in One API into `OpenAI API Key` bar, and fill the `OpenAI API Endpoint` bar with `http://localhost:3000`. Click **Update**.
 
 ![bytebase-ai-assistant-config](/content/docs/tutorials/one-api-ollama-sql-editor/bytebase-ai-assistant-config.webp)
 
