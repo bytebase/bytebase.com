@@ -1,15 +1,15 @@
 ---
-title: 'Deploying llama3 to Bytebase SQL editor for text2SQL'
+title: 'Self-host Llama3 for Bytebase AI Assistant'
 author: Dec
 tags: Tutorial
 updated_at: 2024/12/27 18:15
 integrations: General
 level: Intermediate
 estimated_time: '20 mins'
-description: 'In this tutorial, we will demonstrate how to use One API to help deploy llama3 to Bytebase SQL editor'
+description: 'In this tutorial, we will demonstrate how to use One API to help deploy Llama3 to Bytebase SQL editor'
 ---
 
-With Open AI-compatible API, it is possible to query database using natural language in Bytebase SQL editor. For data security reasons, privately deploying a large language model is a good option - here we chose the powerful open source model llama3. Since OpenAI blocks outbound traffic by default, to simplify network configuration and further prevent token leakage, we used the open source project One API as a relay to convert between Bytebase's OpenAI API-compliant requests and llama3 API requests.
+For data security reasons, you may want to enable [AI Assistant](/docs/ai-assistant/) with a self-deployed LLM. Here we chose the powerful open source model Llama3. We used [Ollama](https://ollama.com/) and [One API](https://github.com/songquanpeng/one-api/blob/main/README.en.md) as a relay to convert between Bytebase's OpenAI API-compliant requests and Llama3 API requests.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ Before you begin, make sure you have:
 - [Docker](https://www.docker.com/) installed
 - [Bytebase](https://www.bytebase.com/docs/get-started/step-by-step/deploy-with-docker/) instance running
 
-## Get llama3 running in Docker
+## Get Llama3 running in Docker
 
 Run the following command in terminal to get a Docker container running:
 
@@ -32,11 +32,11 @@ Container starts and returns id, then enter the container with the following com
 docker exec -it ollama bash
 ```
 
-Pull and run the llama3 model. Due to permission issues, the model needs to be renamed to gpt-3.5-turbo (or mapped in One-API). After renaming, the model name is gpt-3.5-turbo, but indeed it is still llama3.
+Pull and run the Llama3 model. Due to mapping issues, the model needs to be renamed to `gpt-3.5-turbo` (or mapped in One-API). After renaming, the model name is `gpt-3.5-turbo`, but indeed it is still Llama3.
 
 ```bash
-ollama pull llama3
-ollama cp llama3 gpt-3.5-turbo
+ollama pull Llama3
+ollama cp Llama3 gpt-3.5-turbo
 ollama run gpt-3.5-turbo
 ```
 
@@ -44,7 +44,7 @@ Now that the model is running, you can test if the API is working properly in a 
 
 ```bash
 curl http://localhost:11434/api/generate -d '{
-  "model": "gpt-3.5-turbo",  
+  "model": "gpt-3.5-turbo",
   "prompt":"Why is the sky blue?"
 }'
 ```
@@ -76,7 +76,7 @@ The initial account username is `root`, password is `123456`.
 Enter **channel page**, select **Add a new channel**. Fill in model information:
 
 - **Type**: `ollama`
-- **Name**: `llama3`
+- **Name**: `Llama3`
 - **Group**: `default`
 - **Model**: `gpt-3.5-turbo`
 - **Key**: Anything (for example `SSSS|sssss|1111`) with format `APPID|APISecret|APIKey` if ollama has not set up for key
@@ -86,7 +86,7 @@ Furthermore, we mentioned above that the model name can be mapped in One-API. Th
 
 ### Configure API Keys
 
-In the **API keys** page, click **Add New Token**, and fill in the **Name** (for example `llama3`) and **Model scope** (for example `gpt-3.5-turbo`).
+In the **API keys** page, click **Add New Token**, and fill in the **Name** (for example `Llama3`) and **Model scope** (for example `gpt-3.5-turbo`).
 
 After clicking **Submit**, you will see the new API key in **My keys** list within **API keys** page. Click **Copy** to get a token starting with `sk-`, with witch you can repalce `YOUR_TOKEN` in the code below. If the code runs successfully in your terminal, it means that One API configuration is complete.
 
@@ -110,7 +110,7 @@ curl http://localhost:3000/v1/chat/completions \
 
 In Bytebase Workspace, go to **Settings** -> **General**, and scroll down to **AI Assistant** section. Fill `YOUR_TOKEN` we generated in One API into `OpenAI API Key` bar, and fill the `OpenAI API Endpoint` bar with `http://localhost:3000`. Click **Update**.
 
-![bytebase-ai-assistant-config](/content/docs/tutorials/one-api-ollama-sql-editor/bytebase-ai-assistant-config.webp)
+![bytebase-ai-assistant-config](/content/docs/tutorials/one-api-ollama-sql-editor/ai-assistant-config.webp)
 
 Enter **SQL Editor** from top of any page. You can see an OpenAI icon on top right corner. Click it to start conversation with AI assistant, ask questions in natural language and get SQL results.
 
