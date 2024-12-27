@@ -14,8 +14,12 @@ As GitHub and GitLab continue to iterate, we will update this post regularly.
 
 </HintBlock>
 
+![2024-mq-devops](/content/blog/github-vs-gitlab/2024-mq-devops.webp)
+
+In the latest 2024 Gartner Magic Quadrant for DevOps Platforms, GitLab remains the highest-ranked platform. We acknowledge GitLab's leadership, particularly in more advanced features. However, GitHub has narrowed the feature gap and offers a more intuitive interface. Based on our work with engineering teams globally, we observe a growing trend of GitHub's increasing popularity. Today, GitHub is not just a platform for hosting open-source projects; it is increasingly seen as a competitive enterprise developer platform.
+
 Unless you are an Atlassian fanatic, your choice for source code management (SCM) will likely come
-down to GitHub or GitLab. At Bytebase, we’ve extensively used both to develop our [database-as-code](/docs/vcs-integration/overview/)
+down to GitHub or GitLab. At Bytebase, we’ve extensively used both to develop our database-as-code
 solutions. Drawing from our hands-on experience, we provide a detailed comparison of GitHub and GitLab
 across the following key areas.
 
@@ -31,7 +35,7 @@ across the following key areas.
 - [AI](#ai)
 - [Open Source](#open-source)
 - [Pricing](#pricing)
-- [GitHub or GitLab](#github-or-gitlab)
+- [Summary - GitHub vs GitLab](#summary-github-vs-gitlab)
 
 ## History
 
@@ -150,13 +154,15 @@ Bytebase has integrated [gh-ost](/docs/change-database/online-schema-migration-f
 
 Both GitHub and GitLab offer three tiers, starting with a free plan. GitHub [provides a free tier for Copilot](https://github.blog/news-insights/product-news/github-copilot-in-vscode-free/), while GitLab Duo is available at an additional cost.
 
-## GitHub or GitLab
+## Summary - GitHub vs GitLab
 
-![2024-mq-devops](/content/blog/github-vs-gitlab/2024-mq-devops.webp)
+GitLab offers a free self-hosted tier and advanced features without relying on third-party integrations.
 
-In the latest 2024 Gartner Magic Quadrant for DevOps Platforms, GitLab remains the highest-ranked platform. We acknowledge GitLab's leadership, particularly in more advanced features. However, GitHub has narrowed the feature gap and offers a more intuitive interface. Based on our work with engineering teams globally, we observe a growing trend of GitHub's increasing popularity. Today, GitHub is not just a platform for hosting open-source projects; it is increasingly seen as a competitive enterprise developer platform.
+GitHub, in contrast, provides an intuitive interface, integrated AI capabilities, and a rich third-party ecosystem.
 
-GitLab does have an advantage with its free self-hosted tier. However, unless your organization has a stringent requirement for a self-hosted option or lacks the budget for GitHub Enterprise, we recommend starting with GitHub. GitHub provides all the essential features, an intuitive interface, and integrated AI capabilities. Moreover, your developers are likely already familiar with GitHub, as many use it for personal projects or exploration in their spare time.
+Unless your organization has a stringent requirement for a self-hosted option or lacks the budget for GitHub Enterprise, we recommend starting with GitHub. Your developers are likely already familiar with GitHub, as many use it for personal projects or exploration in their spare time.
+
+Happy hacking!
 
 ## References
 
@@ -164,3 +170,4 @@ GitLab does have an advantage with its free self-hosted tier. However, unless yo
 - [A Brief History of the Pull Request](https://rdnlsmith.com/posts/2023/004/pull-request-origins/)
 - [History of GitLab](https://handbook.gitlab.com/handbook/company/history/)
 - [The road to Gitaly v1.0](https://about.gitlab.com/blog/2018/09/12/the-road-to-gitaly-1-0/)
+- [Database as Code](/blog/database-as-code/)
