@@ -4,7 +4,6 @@ author: Tianzhou
 updated_at: 2024/12/25 12:00
 feature_image: /content/blog/github-vs-gitlab/cover.webp
 tags: Industry
-featured: true
 description: 'An extensive comparison between GitHub and GitLab on history, deployment model, tech stack, repository management, code review,
 code search, ci/cd, security, project management, ai, pricing'
 ---

@@ -4,7 +4,6 @@ author: Tianzhou
 updated_at: 2024/12/24 09:00:00
 feature_image: /content/blog/top-devsecops-tool/cover.webp
 tags: Industry
-featured: true
 description: DevSecOps tools empower teams to seamlessly integrate security into every phase of the software development lifecycle, fostering the adoption of DevSecOps practices.
 ---
 
