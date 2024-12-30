@@ -15,7 +15,10 @@ User can configure project-level webhooks to let Bytebase post messages to the c
 - `Issue info change` - Post message when issue's basic info such as assignee, title, description has been changed.
 - `Issue comment creation` - Post message when new comment added to the issue.
 
-The following events support sending direct messages/notifications to related users, you must enable the `Enable direct messages` option to enable this feature.
+The following events support sending direct messages/notifications to related users, make sure you have:
+
+1. enabled the `Enable direct messages` option to enable this feature.
+1. configured the `IM` integration to send messages to related users.
 
 - `Issue approval needed` - Post message when issue needs approval.
 - `Issue approved` - Post message when issue has been approved.
@@ -111,6 +114,8 @@ Feishu (Lark) allows to specify a list of keywords in the [security setting](htt
    - `im:message:send_as_bot`
 1. Click **Create Version**.
 1. Configure [availability](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability).
+1. Go back to Bytebase and fill **App Id** and **App Secret** fields under **Integration > IM**.
+1. Go to **Integration > Webhooks** in a project, add a webhook, check all the events you want to send direct messages, and click **Create**.
 
 ### WeCom
 
@@ -126,6 +131,8 @@ WeCom does not provide its own official guide. Please follow this similar [setup
    1. Configure **Allowed users**.
    1. Configure **Company's Trusted IP** to your Bytebase instance IP.
 1. Make sure the user's email in Bytebase is the same as the user's email (not External account) in WeCom.
+1. Go back to Bytebase and fill **Corp Id**, **Agent Id** and **Secret** fields under **Integration > IM**.
+1. Go to **Integration > Webhooks** in a project, add a webhook, check all the events you want to send direct messages, and click **Create**.
 
 ### Custom
 
