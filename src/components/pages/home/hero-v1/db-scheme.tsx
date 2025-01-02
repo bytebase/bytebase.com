@@ -48,16 +48,7 @@ const DBScheme = () => {
   }, [rive, isVisible]);
 
   return (
-    <section className="mt-40 3xl:mt-36 xl:mt-32 md:mt-[90px] sm:mt-[74px]" ref={containerRef}>
-      <header className="container relative z-20">
-        <h2 className="mx-auto mt-3 max-w-4xl text-center font-title text-72 font-semibold leading-none xl:text-56 xl:leading-none md:text-48 md:leading-none sm:text-48 sm:leading-95">
-          Change, Query, Secure, Govern{' '}
-          <mark className="whitespace-nowrap bg-transparent text-center text-primary-1">
-            all databases
-          </mark>{' '}
-          in a single place
-        </h2>
-      </header>
+    <section className="mt-16 xl:mt-10 sm:mt-0" ref={containerRef}>
       <div
         className="relative z-10 3xl:mt-12 2xl:px-5 xl:mt-10 md:mt-9 md:px-3 sm:mt-5 sm:px-0"
         ref={animationRef}
