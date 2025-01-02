@@ -2,7 +2,7 @@ import getMetadata from '@/utils/get-metadata';
 
 import Benefits from '@/components/pages/home/benefits';
 import Features from '@/components/pages/home/features/features';
-import HeroV1 from '@/components/pages/home/hero-v1';
+import Hero from '@/components/pages/home/hero';
 import Demo from '@/components/pages/home/demo';
 import Logos from '@/components/pages/home/logos';
 import PromoSQLEditor from '@/components/pages/home/promo-sql-editor';
@@ -32,7 +32,7 @@ export default function Page() {
 
   return (
     <>
-      <HeroV1 latestVersion={latestVersion} />
+      <Hero latestVersion={latestVersion} />
       <Logos />
       <Demo />
       <PromoAutomationChanges />

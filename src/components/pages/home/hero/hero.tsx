@@ -12,7 +12,7 @@ import SmallArrowIcon from '@/svgs/small-arrow.inline.svg';
 import DBScheme from './db-scheme';
 import PromoCards from '../promo-cards';
 
-const HeroV1 = ({ latestVersion }: { latestVersion: { number: string; slug: string } | null }) => {
+const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string } | null }) => {
   return (
     <div className={clsx('container mt-16 flex w-full flex-col md:mt-8 sm:mt-4')}>
       <section className="flex w-full flex-col items-center justify-center">
@@ -56,4 +56,4 @@ const HeroV1 = ({ latestVersion }: { latestVersion: { number: string; slug: stri
   );
 };
 
-export default HeroV1;
+export default Hero;
