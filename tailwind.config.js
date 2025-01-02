@@ -108,7 +108,7 @@ module.exports = {
       },
     }),
     screens: {
-      '3xl': { max: '1919px' },
+      '3xl': { min: '1600px' },
       '2xl': { max: '1599px' },
       xl: { max: '1439px' },
       lg: { max: '1279px' },
