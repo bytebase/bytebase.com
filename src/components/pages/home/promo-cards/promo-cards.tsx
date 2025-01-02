@@ -29,7 +29,7 @@ const cards: CardProps[] = [
     cover: '/images/page/main/hero/query-data.webp',
     title: 'Dynamic Data Masking',
     description:
-      'Role-based multi-level masking policy with data classification, custom algorithm.',
+      'Role-based multi-level masking with data classification, custom algorithm, policy-as-code.',
   },
 ];
 
