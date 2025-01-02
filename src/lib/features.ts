@@ -53,6 +53,7 @@ export const FEATURES = {
   AUDIT_LOG: 'Audit Log',
   SIGNUP_RESTRICTION: 'Self-signup restriction',
   SIGNIN_FREQUENCY: 'Sign-in Frequency',
+  PASSWORD: 'Password Restriction',
   ANOMALY_CENTER: 'Anomaly Center',
 
   //Bespoke
