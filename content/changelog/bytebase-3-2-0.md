@@ -20,6 +20,6 @@ description: 'Selectively sync databases from an instance'
 ## 🎄 Enhancements
 
 - Support querying special date/time values(e.g., infinity) for PostgreSQL in SQL Editor.
-- Failed task run is now recorded to change log, before it's not.
+- Failed task run is now recorded to changelog, before it's not.
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>
