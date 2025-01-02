@@ -1,7 +1,6 @@
 import getMetadata from '@/utils/get-metadata';
 
 import Benefits from '@/components/pages/home/benefits';
-import DBScheme from '@/components/pages/home/db-scheme';
 import Features from '@/components/pages/home/features/features';
 import HeroV1 from '@/components/pages/home/hero-v1';
 import Demo from '@/components/pages/home/demo';
@@ -36,7 +35,6 @@ export default function Page() {
       <HeroV1 latestVersion={latestVersion} />
       <Logos />
       <Demo />
-      <DBScheme />
       <PromoAutomationChanges />
       <Benefits />
       <PromoSQLEditor />
