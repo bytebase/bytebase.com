@@ -48,7 +48,7 @@ const DBScheme = () => {
   }, [rive, isVisible]);
 
   return (
-    <section className="mt-16 xl:mt-10 sm:mt-0" ref={containerRef}>
+    <section className="" ref={containerRef}>
       <div
         className="relative z-10 3xl:mt-12 2xl:px-5 xl:mt-10 md:mt-9 md:px-3 sm:mt-5 sm:px-0"
         ref={animationRef}

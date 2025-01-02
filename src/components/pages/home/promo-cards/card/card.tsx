@@ -35,7 +35,7 @@ const Card = forwardRef<HTMLElement, CardProps>(function CardComponent(
           alt=""
         />
       </div>
-      <div className="mt-4">
+      <div className="mt-8">
         <h3 className="overflow-hidden text-ellipsis whitespace-nowrap text-36 font-bold leading-extra-tight tracking-tighter xl:text-32 md:text-30 sm:text-24">
           {title}
         </h3>
