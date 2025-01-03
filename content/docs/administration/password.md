@@ -20,7 +20,7 @@ You can toggle the visibility of your password by clicking the eye icon on the i
 
 ![pwd-violate](/content/docs/administration/password/pwd-violate.webp)
 
-The restrictions above can be seen when your mouse hovers over the `?` icon by the `Password should follow restriction setting` comment on **Password** bar. The tooltips tells wether you've violated a rule by a `!` or `tick` icon.
+The restrictions above can be seen when your mouse hovers over the `?` icon by the `Password should follow restriction setting` comment on **Password** bar. The tooltips tells whether you've violated a rule by a `!` or `tick` icon.
 
 ![pwd-restrictions](/content/docs/administration/password/pwd-restrictions.webp)
 
