@@ -7,7 +7,7 @@ This document explains the **Password Restriction** on Bytebase accounts.
 
 ## Default restriction
 
-When signing up for an account, wether you're an Enterprise Plan user or Community plan user, you must follow these restrictions by default:
+When signing up for an account, whether you're an Enterprise Plan or Community plan user, you must follow these default restrictions:
 
 - Minimum length for password should no less than 8 characters
 - The password must contain at least one letter, regardless of upper case or lower case
