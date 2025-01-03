@@ -213,6 +213,8 @@ expand_section_list: ['Self-host']
 
 ### [2FA](/administration/2fa)
 
+### [Password Restriction](/administration/password)
+
 ### [Sign-in Frequency](/administration/sign-in-frequency)
 
 ### [Watermark](/security/watermark)
