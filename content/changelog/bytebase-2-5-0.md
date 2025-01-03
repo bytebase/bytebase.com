@@ -9,7 +9,7 @@ description: 'Support Azure DevOps for VCS integration; Support setting Sign-in 
 ## 🚀 New Features
 
 - Support [Azure DevOps](/docs/vcs-integration/azure-devops/) for VCS integration.
-- Support setting [Sign-in Frequency](/docs/administration/sign-in-frequency/).
+- Support setting [Sign-in Frequency](/docs/administration/sign-in-restriction/#sign-in-frequency).
 - Support export changes from database change history.
 - Schema Designer for MySQL.
 - Support defining column template.

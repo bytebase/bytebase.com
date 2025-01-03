@@ -65,7 +65,8 @@ configure SSO. Bytebase supports all common providers such as Okta, Google, LDAP
 - [SSO](/docs/administration/sso/overview/)
 - [SCIM (Directory Sync)](/docs/administration/scim/overview/)
 - [2FA](/docs/administration/2fa/)
-- [Sign-in Frequency](/docs/administration/sign-in-frequency/)
+- [Password Restriction](/docs/administration/password/)
+- [Sign-in Restriction](/docs/administration/sign-in-restriction/)
 
 ## Misc
 

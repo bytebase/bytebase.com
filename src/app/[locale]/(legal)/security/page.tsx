@@ -109,8 +109,8 @@ export default function Page() {
           User/password authentication is enabled by default.{' '}
           <Link href="/docs/administration/sso/overview/">SSO </Link>with the Bytebase instance is
           configurable via OAuth, OIDC, or LDAP. <Link href="/docs/administration/2fa/">2FA</Link>{' '}
-          and <Link href="/docs/administration/sign-in-frequency/">Sign-in frequency</Link> can be
-          further enforced in the Enterprise plan.
+          and <Link href="/docs/administration/sign-in-restriction/">Sign-in restriction</Link> can
+          be further enforced in the Enterprise plan.
         </li>
       </ul>
       <h2 id="faq">FAQ</h2>

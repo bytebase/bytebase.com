@@ -215,7 +215,7 @@ expand_section_list: ['Self-host']
 
 ### [Password Restriction](/administration/password)
 
-### [Sign-in Frequency](/administration/sign-in-frequency)
+### [Sign-in Restriction](/administration/sign-in-restriction)
 
 ### [Watermark](/security/watermark)
 
