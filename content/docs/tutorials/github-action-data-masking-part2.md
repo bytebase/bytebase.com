@@ -1,9 +1,9 @@
 ---
-title: 'Applying Data Masking with GitHub Actions - Part 2'
+title: 'Data Masking with GitHub Actions Part 2 - Masking Algorithm'
 author: Ningjing
 updated_at: 2024/11/25 18:00
 tags: Tutorial
-integrations: API
+integrations: API, GitHub
 level: Advanced
 estimated_time: '30 mins'
 description: 'Learn how to automate database masking algorithm and semantic types using GitHub Actions and Bytebase API'
@@ -17,9 +17,10 @@ In the [previous tutorial](/docs/tutorials/github-action-data-masking-part1), yo
 
 This is Part 2 of our tutorial series on implementing automated database masking using GitHub Actions:
 
-- Part 1: [Column masking and masking exception with GitHub Actions](/docs/tutorials/github-action-data-masking-part1)
-- Part 2: Masking Algorithm with GitHub Actions (this one)
-- Part 3: [Data Classification and Global Masking with GitHub Actions](/docs/tutorials/github-action-data-masking-part3)
+- Part 1: [Column masking](/docs/tutorials/github-action-data-masking-part1)
+- Part 2: Masking Algorithm (this one)
+- Part 3: [Data Classification and Global Masking](/docs/tutorials/github-action-data-masking-part3)
+- Part 4: Data export with masking (TBD)
 
 ## Overview
 

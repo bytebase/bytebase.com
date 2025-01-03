@@ -1,9 +1,9 @@
 ---
-title: 'Applying Data Masking with GitHub Actions - Part 1'
+title: 'Data Masking with GitHub Actions Part 1 - Column Masking'
 author: Ningjing
 updated_at: 2024/11/19 18:00
 tags: Tutorial
-integrations: API
+integrations: API, GitHub
 level: Advanced
 estimated_time: '30 mins'
 description: 'Learn how to automate database masking policies using GitHub Actions and Bytebase API'
@@ -19,9 +19,10 @@ By using GitHub Actions with Bytebase API, you can implement policy-as-code to a
 
 This is Part 1 of our tutorial series on implementing automated database masking using GitHub Actions:
 
-- Part 1: Column masking and masking exception with GitHub Actions (this one)
-- Part 2: [Masking Algorithm with GitHub Actions](/docs/tutorials/github-action-data-masking-part2)
-- Part 3: [Data Classification and Global Masking with GitHub Actions](/docs/tutorials/github-action-data-masking-part3)
+- Part 1: Column Masking (this one)
+- Part 2: [Masking Algorithm](/docs/tutorials/github-action-data-masking-part2)
+- Part 3: [Data Classification and Global Masking](/docs/tutorials/github-action-data-masking-part3)
+- Part 4: Data Export with Masking (TBD)
 
 ## Overview
 
