@@ -1,7 +1,7 @@
 ---
 title: "GitHub vs. GitLab: a Complete Comparison in 2025"
 author: Tianzhou
-updated_at: 2024/12/25 12:00
+updated_at: 2025/01/03 12:00
 feature_image: /content/blog/github-vs-gitlab/cover.webp
 tags: Industry
 description: 'An extensive comparison between GitHub and GitLab on history, deployment model, tech stack, repository management, code review,
@@ -23,7 +23,9 @@ down to GitHub or GitLab. At Bytebase, we’ve extensively used both to develop 
 solutions. Drawing from our hands-on experience, we provide a detailed comparison of GitHub and GitLab
 across the following key areas.
 
+- [Summary](#summary)
 - [History](#history)
+- [Open Source](#open-source)
 - [Deployment Model](#deployment-model)
 - [Tech Stack](#tech-stack)
 - [Repository Management](#repository-management)
@@ -33,9 +35,23 @@ across the following key areas.
 - [Security](#security)
 - [Project Management](#project-management)
 - [AI](#ai)
-- [Open Source](#open-source)
 - [Pricing](#pricing)
-- [Summary - GitHub vs GitLab](#summary-github-vs-gitlab)
+- [GitHub vs GitLab](#github-or-gitlab)
+
+## Summary
+
+|                       | GitHub                   | GitLab                                            | Notes                                                                                        |
+| --------------------- | ------------------------ | ------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Cloud                 | github.com               | gitlab.com                                        |                                                                                              |
+| Self-host             | GitHub Enterprise (paid) | GitLab Community (free), GetLab Enterprise (paid) |                                                                                              |
+| Open-source           | ❌                       | ✅                                                |                                                                                              |
+| Tech Stack            | RoR + MySQL              | RoR + Go + Postgres                               |                                                                                              |
+| Repository Management | ⭐️⭐️⭐️                | ⭐️⭐️⭐️                                         |                                                                                              |
+| Code Review           | ⭐️                      | ⭐️⭐️                                            | Alternatives: [Graphite](https://graphite.dev/), [Gerrit](https://www.gerritcodereview.com/) |
+| Code Search           | ⭐️                      | ⭐️⭐️                                            | Alternatives: [Sourcegraph](sourcegraph.com)                                                 |
+| Security              | ⭐️⭐️⭐️                | ⭐️⭐️                                            |                                                                                              |
+| Project Management    | ⭐️                      | ⭐️                                               | Alternatives: [Linear](https://linear.app/), [Jira](https://www.atlassian.com/software/jira) |
+| AI                    | ⭐️                      | ⭐️⭐️⭐️                                         |                                                                                              |
 
 ## History
 
@@ -62,6 +78,16 @@ open-source GitHub alternative. In 2021, GitLab goes public on the NASDAQ under 
 GitLab evolved from a DevOps platform to a comprehensive DevSecOps solution, integrating security into the software development lifecycle (SDLC).
 In May 2023, GitLab [introduced AI-powered features](https://about.gitlab.com/press/releases/2023-05-22-gitlab-16-announces-ai-powered-devsecops-platform/)
 with the release of GitLab 16, followed by the beta release of GitLab Duo Chat in November 2023.
+
+## Open Source
+
+GitLab is fully open-source. However, while GitHub is the go-to platform for hosting and promoting open-source projects, GitHub itself is not open-source. Nevertheless, GitHub has contributed significantly to the open-source ecosystem, developing impactful projects like [gh-ost](https://github.com/github/gh-ost), a MySQL online schema migration tool.
+
+<HintBlock type="info">
+
+Bytebase has integrated [gh-ost](/docs/change-database/online-schema-migration-for-mysql/), offering a more user-friendly interface with the built-in approval workflow.
+
+</HintBlock>
 
 ## Deployment Model
 
@@ -137,16 +163,6 @@ GitHub has Copilot
 
 ![2024-mq-ai-code](/content/blog/github-vs-gitlab/2024-mq-ai-code.webp)
 
-## Open Source
-
-GitLab is fully open-source. However, while GitHub is the go-to platform for hosting and promoting open-source projects, GitHub itself is not open-source. Nevertheless, GitHub has contributed significantly to the open-source ecosystem, developing impactful projects like [gh-ost](https://github.com/github/gh-ost), a MySQL online schema migration tool.
-
-<HintBlock type="info">
-
-Bytebase has integrated [gh-ost](/docs/change-database/online-schema-migration-for-mysql/), offering a more user-friendly interface with the built-in approval workflow.
-
-</HintBlock>
-
 ## Pricing
 
 ![pricing-github](/content/blog/github-vs-gitlab/pricing-github.webp)
@@ -154,7 +170,7 @@ Bytebase has integrated [gh-ost](/docs/change-database/online-schema-migration-f
 
 Both GitHub and GitLab offer three tiers, starting with a free plan. GitHub [provides a free tier for Copilot](https://github.blog/news-insights/product-news/github-copilot-in-vscode-free/), while GitLab Duo is available at an additional cost.
 
-## Summary - GitHub vs GitLab
+## GitHub or GitLab
 
 GitLab offers a free self-hosted tier and advanced features without relying on third-party integrations.
 
