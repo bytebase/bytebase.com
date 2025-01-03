@@ -28,6 +28,6 @@ The restrictions above can be seen when your mouse hovers over the `?` icon by t
 
 Enterprise Plan users can configure custom password restrictions.
 
-Go to **Settings** -> **General** from the left side bar in Workspace. Scroll down to the **Account** section, where you can alter the minimum length or components of your password. You can also decide wether users should reset their password after the first login or after a specified number of days.
+Go to **Settings** -> **General** from the left side bar in Workspace. Scroll down to the **Account** section, where you can alter the minimum length or components of your password. You can also decide whether users should reset their password after the first login or after a specified number of days.
 
 ![pwd-configuration](/content/docs/administration/password/pwd-configuration.webp)
