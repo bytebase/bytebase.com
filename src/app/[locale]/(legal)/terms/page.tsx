@@ -14,7 +14,7 @@ export default function Page() {
         Terms of service
       </h1>
       <p className="text-gray-50 sm:my-3">
-        Last modified: <time>Feb 11, 2022</time>
+        Last modified: <time>Jan 6, 2024</time>
       </p>
       <p className="sm:mt-3">
         This Services Agreement is an agreement between Bytebase (as defined below) and you or the
@@ -60,8 +60,7 @@ export default function Page() {
       </p>
       <p>
         <strong>&quot;Bytebase&quot;</strong>, <strong>&quot;we&quot;</strong>, or{' '}
-        <strong>&quot;us&quot;</strong> refers to Bytebase (HongKong) Limited, as well as its
-        affiliates.
+        <strong>&quot;us&quot;</strong> refers to Bytebase, LLC, as well as its affiliates.
       </p>
       <p>
         <strong>&quot;You&quot;</strong> refers to the individual person, company, or organization
@@ -540,13 +539,12 @@ export default function Page() {
       <h2>16. Miscellaneous</h2>
       <h3>16.1 Governing Law and Jurisdiction.</h3>
       <p>
-        This Agreement is governed by the laws of the Hong Kong Special Administrative Region
-        without regard to conflicts of law principles. Where any dispute between the parties arises
-        from the content of this Agreement or the implementation hereof, the parties shall try their
-        best to resolve it through friendly negotiation. If no agreement is reached through
-        negotiation, each party agrees to submit to the exclusive jurisdiction of, and venue in, the
-        courts in the Hong Kong Special Administrative Region in any dispute arising out of or
-        relating to this Agreement.
+        This Agreement is governed by the laws of the State of Delaware, United States, without
+        regard to conflicts of law principles. Where any dispute between the parties arises from the
+        content of this Agreement or the implementation hereof, the parties shall try their best to
+        resolve it through friendly negotiation. If no agreement is reached through negotiation,
+        each party agrees to submit to the exclusive jurisdiction of, and venue in, the courts in
+        the State of Delaware in any dispute arising out of or relating to this Agreement.
       </p>
       <h3>16.2 Notices and Electronic Communications.</h3>
       <p>
@@ -607,7 +605,7 @@ export default function Page() {
       </p>
       <h3>16.10 Disclosures.</h3>
       <p>
-        The Software is offered by Bytebase (HongKong) Limited and can be reached via email at{' '}
+        The Software is offered by Bytebase, LLC and can be reached via email at{' '}
         <Link href="mailto:support@bytebase.com">support@bytebase.com</Link>.
       </p>
     </>
