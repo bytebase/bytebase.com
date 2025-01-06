@@ -28,6 +28,7 @@ const Route = {
 
   // terms
   REFUND: '/refund',
+  SUB_PROCESSORS: '/subprocessors',
   TERMS: '/terms',
   PARTNER: '/partner',
   PRIVACY: '/privacy',

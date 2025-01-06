@@ -104,6 +104,11 @@ const SEO_DATA = {
       'Schema migration and database security for developer, security, DBA, and platform engineering teams.',
     pathname: `${Route.SQL_REVIEW_GUIDE}/`,
   },
+  SUB_PROCESSORS: {
+    title: 'Sub-processors',
+    description: 'List of Bytebase sub-processors.',
+    pathname: `${Route.SUB_PROCESSORS}/`,
+  },
   DBA: {
     title: 'Bytebase for DBA',
     description:
