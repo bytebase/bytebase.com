@@ -105,8 +105,8 @@ const SEO_DATA = {
     pathname: `${Route.SQL_REVIEW_GUIDE}/`,
   },
   SUB_PROCESSORS: {
-    title: 'Sub-processors',
-    description: 'List of Bytebase sub-processors.',
+    title: 'Subprocessors',
+    description: 'List of Bytebase subprocessors.',
     pathname: `${Route.SUB_PROCESSORS}/`,
   },
   DBA: {
