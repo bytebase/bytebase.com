@@ -1,11 +1,17 @@
 ---
-title: 'Flyway (Redgate) vs. Liquibase: a side-by-side comparison for database schema migration'
+title: 'Flyway (Redgate) vs. Liquibase in 2025'
 author: Cayden
-updated_at: 2024/03/04 19:21:21
+updated_at: 2025/01/06 19:21:21
 feature_image: /content/blog/flyway-vs-liquibase/flyway-vs-liquibase-banner.webp
 tags: Explanation
 description: 'When looking for a database CI/CD and schema migration change tool, Flyway and Liquibase are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.'
 ---
+
+<HintBlock type="info">
+
+As Flyway and Liquibase continue to iterate, we will update this post regularly.
+
+</HintBlock>
 
 When looking for a database CI/CD and schema migration change tool, Flyway (Redgate) and Liquibase are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.
 
@@ -25,20 +31,20 @@ When looking for a database CI/CD and schema migration change tool, Flyway (Redg
 
 While both Flyway and Liquibase are tools for database CI/CD, there are some key differences between the two. The following table summarizes the differences between Flyway and Liquibase.
 
-|                                                        | Flyway                          | Liquibase                       |
-| ------------------------------------------------------ | ------------------------------- | ------------------------------- |
-| [Product position](#product-position)                  | Schema Change & Version Control | Schema Change & Version Control |
-| [Developer interface](#developer-interface)            | CLI                             | CLI                             |
-| [Supported databases](#supported-databases)            | 22 Only SQL                     | 50 SQL & NoSQL DB               |
-| [Programming language and installation](#installation) | Java + JVM                      | Java + JVM                      |
-| [Change execution](#change-execution)                  | SQL script + CLI                | Changelog (XML) + CLI           |
-| [Change order](#change-order)                          | Numbering of SQL files          | Changelog (XML)                 |
-| [Database GitOps](#database-gitops-configuration)      | ✅                              | ✅                              |
-| [SQL auto check](#sql-auto-check)                      | ✅                              | ✅                              |
-| [Change history](#change-history)                      | ✅                              | ✅                              |
-| [Sync schema](#sync-schema)                            | ✅                              | ✅                              |
-| [Rollback](#rollback)                                  | ✅                              | ✅                              |
-| [Schema drift detection](#schema-drift-detection)      | ✅                              | ✅                              |
+|                                                        | Flyway                          | Liquibase                              |
+| ------------------------------------------------------ | ------------------------------- | -------------------------------------- |
+| [Product position](#product-position)                  | Schema Change & Version Control | Schema Change & Version Control        |
+| [Developer interface](#developer-interface)            | CLI                             | CLI                                    |
+| [Supported databases](#supported-databases)            | 22 Only SQL                     | 50 SQL & NoSQL DB                      |
+| [Programming language and installation](#installation) | Java + JVM                      | Java + JVM                             |
+| [Change execution](#change-execution)                  | SQL script + CLI                | Changelog (SQL, XML, JSON, YAML) + CLI |
+| [Change orchestration](#change-orchestration)          | Numbering of SQL files          | Changelog                              |
+| [Database GitOps](#database-gitops-configuration)      | ✅                              | ✅                                     |
+| [SQL auto check](#sql-auto-check)                      | ✅                              | ✅                                     |
+| [Change history](#change-history)                      | ✅                              | ✅                                     |
+| [Sync schema](#sync-schema)                            | ✅                              | ✅                                     |
+| [Rollback](#rollback)                                  | ✅                              | ✅                                     |
+| [Schema drift detection](#schema-drift-detection)      | ✅                              | ✅                                     |
 
 ### Product position
 
@@ -76,12 +82,14 @@ While both Flyway and Liquibase are tools for database CI/CD, there are some key
 ![liquibase-changelog](/content/blog/flyway-vs-liquibase/liquibase-changelog.webp)
 ![liquibase-update](/content/blog/flyway-vs-liquibase/liquibase-update.webp)
 
-### Change order
+### Change orchestration
 
 - **Flyway**: Number the SQL files in the order you want them to be executed.
   ![liquibase-change-order](/content/blog/flyway-vs-liquibase/flyway-change-order.webp)
 - **Liquibase**: Specify the order of changes in the changelog file.
   ![liquibase-change-order](/content/blog/flyway-vs-liquibase/liquibase-change-order.webp)
+
+Liquibase is more flexible as it can specify arbitrary orders. Also Liquibase provides a [flow file](https://docs.liquibase.com/liquibase-pro/flow/home.html) to orchestrate complex steps.
 
 ### Database GitOps configuration
 
@@ -150,13 +158,12 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 
 ## Summary
 
-Flyway and Liquibase are the two well-established tools for database CI/CD. They are similar in many ways, both are Java based, provide and only provide Java SDK and CLI, without GUI and API, adopt [migration-based](/blog/database-version-control-state-based-vs-migration-based/#migration-based-version-control-imperative) schema migration, and
-use the same open-source monetization strategy.
+Both Flyway and Liquibase are Java-based, offering with SDKs and CLI support, and follow a [migration-based](/blog/database-version-control-state-based-vs-migration-based/#migration-based-version-control-imperative) approach to schema changes.
+They also leverage the same open-source monetization strategy. While Flyway is generally considered more developer-friendly, Liquibase offers a broader set of advanced features.
 
-The most significant difference is Liquibase has an additional [Changelog concept](https://docs.liquibase.com/concepts/changelogs/home.html) to allow user to specify explicit migration ordering, preconditions, labels and context,
-while Flyway relies on the [file naming](https://flywaydb.org/documentation/concepts/migrations#naming-1) to determine the order.
+The key difference is that Liquibase introduces the Changelog and Flow concepts, enabling users to specify explicit migration ordering, preconditions, labels, and contexts. In contrast, Flyway determines migration order based solely on file naming conventions.
 
-Both tools provide a git-like experience for database migrations. On the other hand, if you are looking for a GitHub/GitLab experience with a nice GUI and team collaboration features, please check out our own Bytebase and continue reading the side-by-side comparison with each of them:
+Both tools offer a Git-like experience for database migrations. However, if you're seeking a GitHub/GitLab-style experience with a user-friendly GUI and team collaboration features, consider our own Bytebase. Continue reading for a side-by-side comparison with each tool:
 
 - [Bytebase vs. Liquibase](/blog/bytebase-vs-liquibase/)
 - [Bytebase vs. Flyway](/blog/bytebase-vs-flyway/)
