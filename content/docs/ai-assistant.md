@@ -2,6 +2,13 @@
 title: AI Assistant
 ---
 
+<HintBlock type="warning">
+
+Bytebase sends the database schema to OpenAI or your configured endpoint. Bytebase does not send the table data.
+You can check the [relevant code](https://github.com/bytebase/bytebase/blob/main/frontend/src/plugins/ai/logic/prompt.ts).
+
+</HintBlock>
+
 AI Assistant uses OpenAPI or its compatible service to argument the database development workflow.
 
 ## Enable AI Assistant
