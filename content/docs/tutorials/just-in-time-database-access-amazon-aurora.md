@@ -51,7 +51,7 @@ The diagram below shows how Bytebase integrates with IAM Auth to enable Just-in-
 
 - Bytebase itself can run under an IAM role that can connect to Aurora/RDS using the shared IAM-based user.
 
-- **Developers authenticate to Bytebase** with their corporate IdP (via SSO). Developers don’t need to see or store any DB credentials.Each developer’s actions are tracked individually in Bytebase.
+- **Developers authenticate to Bytebase** with their corporate IdP (via SSO). Developers don’t need to see or store any DB credentials. Each developer’s actions are tracked individually in Bytebase.
 
 In this model, you don’t have discrete DB users or discrete IAM policies per developer. Bytebase is the gatekeeper, and the real DB connection still use the shared IAM-based user.
 
