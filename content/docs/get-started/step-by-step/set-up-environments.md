@@ -1,5 +1,5 @@
 ---
-title: Set up Environments
+title: Configure Environments
 ---
 
 **Environment** models after various environments in the development pipeline such as `test`, `uat`, `staging`, `prod`.

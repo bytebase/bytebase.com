@@ -35,7 +35,7 @@ expand_section_list: ['Self-host']
 
 ### [Step 2 - Register Accounts](/get-started/step-by-step/register-accounts)
 
-### [Step 3 - Set up Environments](/get-started/step-by-step/set-up-environments)
+### [Step 3 - Configure Environments](/get-started/step-by-step/set-up-environments)
 
 ### [Step 4 - Add an Instance](/get-started/step-by-step/add-an-instance)
 
