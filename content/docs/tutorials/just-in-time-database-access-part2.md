@@ -1,5 +1,5 @@
 ---
-title: 'Approve Just-in-Time database access via Slack'
+title: 'Approve Just-in-Time Database Access via Slack'
 author: Ningjing
 tags: Tutorial
 updated_at: 2024/12/11 18:15
