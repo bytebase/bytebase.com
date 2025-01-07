@@ -17,7 +17,9 @@ expand_section_list: ['Self-host']
 
 ---
 
-## [Self-host](/get-started/self-host)
+## Self-host
+
+### [Install](/get-started/self-host)
 
 ### [Upgrade](/get-started/upgrade)
 
