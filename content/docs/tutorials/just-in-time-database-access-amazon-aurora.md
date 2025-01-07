@@ -1,54 +1,69 @@
 ---
-title: 'Just-in-time database access to Amazon Aurora using Bytebase'
+title: 'Just-in-time Database Access to Amazon Aurora using Bytebase'
 author: Ningjing
 tags: Tutorial
 updated_at: 2025/01/07 18:15
 integrations: General
-level: Beginner
+level: Advanced
 estimated_time: '40 mins'
 description: 'In this tutorial, we will demonstrate how to set up Just-in-Time (JIT) access using the Bytebase GUI connecting to Amazon Aurora.'
 ---
 
-In modern database management, when an incident occurs, developers often need quick access to production databases to troubleshoot and resolve the issue. However, traditional methods, such as using static passwords, can pose security risks and complicate management. For Amazon Aurora, AWS IAM authentication provides a solution by enabling temporary, secure access without the need for password rotation.
+In modern database management, when an incident occurs, developers often need quick access to production databases to troubleshoot and resolve the issue. However, traditional methods, such as using static passwords, can pose security risks and complicate management.
 
-But there’s a more flexible and professional approach to manage database access while maintaining robust security: Bytebase.
+## AWS IAM Auth
 
-Bytebase is a modern, web-based database management tool that simplifies the database administration process. By offering a user-friendly interface, Bytebase makes managing complex database environments—both on AWS and beyond—easy and professional. It supports a wide range of databases and enables granular control over access permissions.
+For Amazon Aurora and RDS, AWS IAM authentication provides a solution by enabling temporary, secure access without the need for password rotation. With IAM Auth:
 
-In this post, we demonstrate how to configure Just-in-Time (JIT) access to Amazon Aurora via Bytebase, allowing developers to quickly connect and troubleshoot production databases in a secure and efficient way. We’ll walk you through the steps to set up AWS IAM authentication in Bytebase, giving you both flexibility and security when managing access to your Aurora databases.
+- **Short-lived tokens**: Instead of using a static password, a temporary authentication token is generated via AWS SDK or CLI. These tokens are time-limited (by default, valid for 15 minutes).
 
-By the end of this guide, you'll understand how to streamline access management in Bytebase while maintaining high security and flexibility.
+- **Centralized identity**: Access is controlled via IAM policies rather than within the DB itself, letting you use fine-grained IAM policies and leverage AWS’s centralized identity management.
+
+- **Eliminates hard-coded passwords**: No more storing long-lived passwords in configuration files or environment variables. You simply request a token when you need to connect.
+
+### Limitation
+
+There are still limitations with AWS IAM Auth:
+
+- **Limited DB Engine Support**: Only MySQL, PostgreSQL, and Amazon Aurora (MySQL/PostgreSQL-compatible) support IAM auth. Other RDS engines (e.g., SQL Server, Oracle, MariaDB) do not.
+
+- **Separate DB-Level User Management**: IAM can control who can connect, but once connected, the user’s DB privileges are still governed by database grants (e.g., `GRANT SELECT ON …`). You can’t manage fine-grained table-level permissions solely through IAM.
+
+- **Auditing & Visibility Trade-Offs**: If you opt for one shared database user for everyone, you lose per-user audit trails inside the DB. Creating one DB user per developer (and possibly per IAM identity) can be cumbersome. You do get detailed auditing but at the cost of more management complexity.
+
+- **Complexity with Large Teams & Enterprise Integrations**: AWS SSO/Identity Center integration simplifies IAM user management, but you still need a strategy for mapping many developers to DB users (shared vs. individual). For large teams, mapping roles/groups to DB users can become complex.
+
+## Bytebase
+
+Bytebase is an open-source database DevSecOps solution that complements AWS IAM Auth:
+
+- **More DB Engine Support**: Bytebase supports MySQL, Postgres, Amazon Aurora as well as other RDS engines (e.g., SQL Server, Oracle, MariaDB).
+
+- **Fine-Grained Access via Bytebase**: Even if you opt for a shared DB user in Aurora/RDS (e.g. db_iam_dev_user), Bytebase maintains its own user/role model. Each developer logs into Bytebase with their individual identity (integrated with SSO). You can grant database permission at the table level.
+
+- **Auditing at the Platform Level**: Bytebase tracks exactly which user performed which action, even if the database sees only one shared DB user. This gives you per-user audit trails without the overhead of creating separate Aurora/RDS DB users or separate IAM policies per developer.
 
 ## Solution Overview
 
-The following diagram illustrates the configuration of Bytebase connecting to Amazon Aurora MySQL.
+The diagram below shows how Bytebase integrates with IAM Auth to enable Just-in-Time (JIT) end-user access to Amazon Aurora.
 
-   ![aws-bb](/content/docs/tutorials/just-in-time-database-access-amazon-aurora/aws-bb.webp)
+![aws-bb](/content/docs/tutorials/just-in-time-database-access-amazon-aurora/aws-bb.webp)
 
-1. Install Bytebase via Docker in an EC2 instance.
-1. Use Amazon Aurora PostgreSQL as the metadata database.
-1. Connect to Amazon Aurora MySQL via AWS IAM authentication.
+- Bytebase itself can run under an IAM role that can connect to Aurora/RDS using the shared IAM-based user.
 
-### Why use AWS IAM authentication over password authentication?
+- **Developers authenticate to Bytebase** with their corporate IdP (via SSO). Developers don’t need to see or store any DB credentials.Each developer’s actions are tracked individually in Bytebase.
 
-While adding connection to Aurora MySQL, Bytebase provides both password and AWS IAM authentication.
+In this model, you don’t have discrete DB users or discrete IAM policies per developer. Bytebase is the gatekeeper, and the real DB connection still use the shared IAM-based user.
 
-1. **Stronger Security**: Uses temporary tokens instead of static passwords, eliminating storage and rotation risks.
-1. **Simplified Management**: Centralized control through IAM, with dynamic permissions and seamless AWS service integration.
-1. **Scalability**: Ideal for cloud-native and multi-region deployments.
-1. **Compliance**: Provides granular control and audit logs via CloudTrail.
+Below is a brief walkthrough of the setup:
 
-### Why use Bytebase over granting AWS IAM user access to Aurora MySQL directly?
-
-Then you may ask, provided that AWS IAM can manage access to Aurora MySQL, why bother using Bytebase?
-
-1. **Simplified Management**: Bytebase provides a web-based GUI for database management, making it user-friendly, professional, and easy to navigate.
-1. **Flexible Access Control**: AWS IAM user access to Aurora MySQL typically involves granting full control over the database. Bytebase, on the other hand, allows you to grant fine-grained access—specific permissions for databases, tables, and even with expiration times—offering much greater flexibility.
-1. **Support for Multiple Database Types**: Bytebase supports a wide range of databases, both within AWS and beyond, making it a versatile solution for diverse database environments.
+1. Install Bytebase using Docker on an EC2 instance.
+1. Configure Bytebase to connect to your Amazon Aurora MySQL database (Bytebase also supports other RDS engines).
+1. Developer requests Just-in-Time (JIT) table-level access with an expiration time directly through Bytebase.
 
 ## Prerequisites
 
-Before starting this tutorial, you will need:
+For this walkthrough, you need the following:
 
 - An AWS account
 - An AWS Identity and Access Management (IAM) user with permissions to connect to Amazon Aurora
@@ -62,7 +77,7 @@ Before starting this tutorial, you will need:
 
 While creating Aurora MySQL instance, you need to enable AWS IAM authentication.
 
-   ![db-password-iam](/content/docs/tutorials/just-in-time-database-access-amazon-aurora/db-password-iam.webp)
+![db-password-iam](/content/docs/tutorials/just-in-time-database-access-amazon-aurora/db-password-iam.webp)
 
 ### Create IAM policy
 
@@ -72,7 +87,7 @@ While creating Aurora MySQL instance, you need to enable AWS IAM authentication.
 
    ![rds-iam-auth](/content/docs/tutorials/just-in-time-database-access-amazon-aurora/rds-iam-auth.webp)
 
-1. Select `connect` permission and specific as **Resource**. Check `Any in this account.`
+1. Select `connect` permission and `specific` as **Resource**. Check `Any in this account.`
 
 1. Name it `rds-connect` and create this policy.
 
@@ -84,7 +99,7 @@ While creating Aurora MySQL instance, you need to enable AWS IAM authentication.
 
 1. Then you can save the `Access key ID` and `Secret access key` for later use.
 
-## Run Bytebase in EC2 instance
+## Step 1: Run Bytebase in EC2 instance
 
 1. Connect to the Aurora PostgreSQL instance and create a database `bb` for Bytebase metadata.
 
@@ -101,7 +116,7 @@ While creating Aurora MySQL instance, you need to enable AWS IAM authentication.
    bytebase/bytebase:3.2.0
    ```
 
-## Connect to Aurora MySQL via AWS IAM in Bytebase
+## Step 2: Configure Bytebase to Connect to Aurora MySQL via AWS IAM
 
 1. The first registration will be granted an **admin** role. Log in, click **Instances** on the left bar and click **Add instance**.
 
@@ -124,21 +139,21 @@ While creating Aurora MySQL instance, you need to enable AWS IAM authentication.
 
    ![bb-sql-editor-admin](/content/docs/tutorials/just-in-time-database-access-amazon-aurora/bb-sql-editor-admin.webp)
 
-## Register a developer and gain access to the production database
+## Step 3: Developer requests Just-in-Time (JIT) table-level access through Bytebase
 
-### Step 1 - Register a developer
+### Register a developer
 
 1. By default, the `(workspace) admin` has the full access to the database. Click **IAM&Admin > Users&Groups** on the left bar, and then click **Add user**.
 
 1. Create a user `dev` with the role `Project Developer`. This project-level role will be applied to all projects automatically.
 
-1. Log in as the user `dev`, click **Select Project** on the top sidebar, and choose  `Aurora MySQL Project`
+1. Log in as the user `dev`, click **Select Project** on the top sidebar, and choose `Aurora MySQL Project`
 1. Click **Database > Databases** on the left bar, you should see two database `employee`.
 1. Click **SQL Editor** on the top bar, connecting to the `employee` database is impossible. Because it's **Community Plan**.
 
-### Step 2 - Admin assign you access to the production database (Community and Pro Plan)
+### Admin assigns developer access to the database (Community and Pro Plan)
 
-In Bytebase **Community** and **Pro Plan**, the Admin/DBA can assign developer access to the production database.
+In Bytebase **Community** and **Pro Plan**, the Admin/DBA can assign developer access to the database.
 
 1. Login as the `admin` user, go into `Aurora MySQL Project`, click **Manage > Members** on the left sidebar.
 
@@ -150,7 +165,7 @@ In Bytebase **Community** and **Pro Plan**, the Admin/DBA can assign developer a
 
    ![bb-sql-editor-dev](/content/docs/tutorials/just-in-time-database-access-amazon-aurora/bb-sql-editor-dev.webp)
 
-### Step 3 - Request JIT access to the production database (Enterprise Plan)
+### Developer requests JIT access to the database (Enterprise Plan)
 
 In Bytebase **Enterprise Plan**, you can request a JIT access to the production database.
 
@@ -194,6 +209,9 @@ In Bytebase **Enterprise Plan**, you can request a JIT access to the production 
 
 ## Conclusion
 
-In this tutorial, we demonstrated how to set up Just-in-Time (JIT) access using the Bytebase GUI connecting to Amazon Aurora MySQL. We also discussed the benefits of using AWS IAM authentication over password authentication and how Bytebase can provide a more flexible and professional approach to managing database access while maintaining robust security.
+In this walkthrough, we explored both the benefits and limitations of using AWS IAM authentication, and demonstrated how Bytebase can complement AWS IAM Auth.
 
-By following these steps, you can streamline access management in Bytebase while maintaining high security and flexibility.
+By layering Bytebase on top of AWS IAM, you can achieve a passwordless, self-service JIT database access solution that provides fine-grained access control and per-user auditing—without the complexity of managing numerous users or roles at the database
+instance level.
+
+Additionally, you can leverage [Bytebase's API](https://api.bytebase.com/) to further automate the process and integrate with other tools such as Slack.
