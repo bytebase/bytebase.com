@@ -28,12 +28,13 @@ The overall workflow:
 
 ## Supported Objects
 
-| Database   | Objects                                                                                                       |
-| ---------- | ------------------------------------------------------------------------------------------------------------- |
-| MySQL      | `Table`, `Index`, `Constraint`, `View`, `Event`, `Trigger`, `Function`, `Procedure`                           |
-| PostgreSQL | `Schema`, `Table`, `Index`, `Constraint`, `View`, `Sequence`, `Extension`, `Function`, `Trigger`, `Enum Type` |
-| TiDB       | `Table`, `Index`, `Constraint`, `View`                                                                        |
-| Oracle     | `Table`, `Index`, `Constraint`                                                                                |
+| Database              | Objects                                                                                                                            |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| MySQL                 | `Table`, `Index`, `Constraint`, `View`, `Event`, `Trigger`, `Function`, `Procedure`                                                |
+| PostgreSQL            | `Schema`, `Table`, `Index`, `Constraint`, `View`, `Materialized View`, `Sequence`, `Extension`, `Function`, `Trigger`, `Enum Type` |
+| TiDB                  | `Table`, `Index`, `Constraint`, `View`                                                                                             |
+| Oracle                | `Table`, `Index`, `Constraint`                                                                                                     |
+| Microsoft SQL Server  | `Table`, `Index`, `Constraint`                                                                                                     |
 
 ## How to use
 
