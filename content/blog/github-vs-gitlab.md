@@ -47,11 +47,11 @@ across the following key areas.
 | Open-source           | ❌                       | ✅                                                |                                                                                              |
 | Tech Stack            | RoR + MySQL              | RoR + Go + Postgres                               |                                                                                              |
 | Repository Management | ⭐️⭐️⭐️                | ⭐️⭐️⭐️                                         |                                                                                              |
-| Code Review           | ⭐️                      | ⭐️⭐️                                            | Alternatives: [Graphite](https://graphite.dev/), [Gerrit](https://www.gerritcodereview.com/) |
-| Code Search           | ⭐️                      | ⭐️⭐️                                            | Alternatives: [Sourcegraph](sourcegraph.com)                                                 |
-| Security              | ⭐️⭐️⭐️                | ⭐️⭐️                                            |                                                                                              |
+| Code Review           | ⭐️⭐️                   | ⭐️                                               | Alternatives: [Graphite](https://graphite.dev/), [Gerrit](https://www.gerritcodereview.com/) |
+| Code Search           | ⭐️⭐️                   | ⭐️                                               | Alternatives: [Sourcegraph](sourcegraph.com)                                                 |
+| Security              | ⭐️⭐️                   | ⭐️⭐️ ⭐️                                        |                                                                                              |
 | Project Management    | ⭐️                      | ⭐️                                               | Alternatives: [Linear](https://linear.app/), [Jira](https://www.atlassian.com/software/jira) |
-| AI                    | ⭐️                      | ⭐️⭐️⭐️                                         |                                                                                              |
+| AI                    | ⭐️⭐️⭐️                | ⭐️                                               |                                                                                              |
 
 ## History
 
