@@ -114,7 +114,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="safe-paddings container relative z-10 shrink-0 pt-20 lg:pt-14 md:pt-12 xs:pt-10">
+    <footer className="safe-paddings container relative z-10 shrink-0 pb-10 pt-24 lg:pt-16 md:pt-14 xs:pt-12">
       <div className="grid grid-cols-10 gap-x-10 xl:gap-x-9 lg:gap-x-6 md:gap-x-7 sm:grid sm:grid-cols-4 sm:gap-x-4 sm:gap-y-14">
         {FOOTER_MENU.map(({ name, items }) => (
           <div className="col-span-2" key={name}>
@@ -150,15 +150,6 @@ const Footer = () => {
               loading="lazy"
             />
           </Link>
-          {/* Add SOC2 badge */}
-          <img
-            className="h-8 xl:h-7"
-            src="/images/soc2.png"
-            alt="SOC2 badge"
-            width={36}
-            height={36}
-            loading="lazy"
-          />
         </div>
         <div className="col-span-2 col-start-7 flex items-center gap-x-4 lg:justify-self-end md:col-span-3 md:col-start-10 md:row-span-1 md:row-start-1 xs:col-span-full xs:col-start-1 xs:row-start-2 xs:-mt-1 xs:justify-self-start">
           {socialLinks.map(({ name, href, icon: Icon }, idx) => (
@@ -178,11 +169,27 @@ const Footer = () => {
           ))}
         </div>
         <div className="col-span-1 col-start-12 flex flex-row items-center justify-end gap-x-4 lg:gap-x-6 md:col-span-3 md:col-start-10 md:row-start-2 md:justify-self-end xs:col-start-1 xs:row-start-3 xs:justify-self-start">
+          <img
+            className="h-16 xl:h-14 md:h-12"
+            src="/images/soc2.png"
+            alt="SOC2 badge"
+            width={64}
+            height={64}
+            loading="lazy"
+          />
           <p className="whitespace-nowrap text-14 font-medium leading-none tracking-tight text-gray-60 xs:hidden">
             © {new Date().getFullYear()} Bytebase. All Rights Reserved. {registration()}
           </p>
         </div>
         <p className="hidden whitespace-nowrap text-14 font-medium leading-none tracking-tight text-gray-60 xs:col-span-full xs:row-span-1 xs:row-start-4 xs:block">
+          <img
+            className="mb-4 h-12"
+            src="/images/soc2.png"
+            alt="SOC2 badge"
+            width={48}
+            height={48}
+            loading="lazy"
+          />
           © {new Date().getFullYear()} Bytebase. All Rights Reserved. {registration()}
         </p>
       </div>
