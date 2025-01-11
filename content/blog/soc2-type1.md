@@ -1,5 +1,5 @@
 ---
-title: Bytebase has Obtained SOC 2 Type 1 Certification
+title: SOC 2 Type 1 Certification
 author: Tianzhou
 updated_at: 2025/01/13 09:00:00
 feature_image: /content/blog/soc2-type1/soc2-bytebase.webp
