@@ -114,6 +114,8 @@ export default function Page() {
         </li>
       </ul>
       <h2 id="faq">FAQ</h2>
+      <h3>Which certification does Bytebase have?</h3>
+      <p> SOC 2 Type 1 (Type 2 in progress).</p>
       <h3>Which data does Bytebase store?</h3>
       Bytebase stores the following data:
       <ul>
@@ -122,10 +124,6 @@ export default function Page() {
         <li>
           Slow query statistics if <Link href="/docs/slow-query/overview/">slow query report</Link>{' '}
           is enabled.
-        </li>
-        <li>
-          (MySQL Only) Binlog if{' '}
-          <Link href="/docs/change-database/rollback-data-changes/">data rollback</Link> is enabled.
         </li>
       </ul>
       <h3>How do I report a potential vulnerability or security concern?</h3>

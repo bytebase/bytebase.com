@@ -13,6 +13,10 @@ title: FAQ
 
 English, 简体中文, Español, 日本語
 
+## Certifications
+
+SOC 2 Type 1 (Type 2 in progress).
+
 ## System requirements
 
 ### Resources

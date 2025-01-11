@@ -150,6 +150,15 @@ const Footer = () => {
               loading="lazy"
             />
           </Link>
+          {/* Add SOC2 badge */}
+          <img
+            className="h-8 xl:h-7"
+            src="/images/soc2.png"
+            alt="SOC2 badge"
+            width={36}
+            height={36}
+            loading="lazy"
+          />
         </div>
         <div className="col-span-2 col-start-7 flex items-center gap-x-4 lg:justify-self-end md:col-span-3 md:col-start-10 md:row-span-1 md:row-start-1 xs:col-span-full xs:col-start-1 xs:row-start-2 xs:-mt-1 xs:justify-self-start">
           {socialLinks.map(({ name, href, icon: Icon }, idx) => (
