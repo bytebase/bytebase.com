@@ -30,7 +30,6 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'batch-change': { value: 'Basic', tooltip: 'Multi-environment change' },
       'custom-approval': false,
       'password-restriction': false,
-      'sync-entra-id': false,
     },
     sql: {
       'auto-complete': true,
@@ -117,7 +116,6 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       },
       'custom-approval': false,
       'password-restriction': false,
-      'sync-entra-id': false,
     },
     sql: {
       'auto-complete': true,
@@ -207,7 +205,6 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       },
       'custom-approval': true,
       'password-restriction': true,
-      'sync-entra-id': true,
     },
     sql: {
       'auto-complete': true,
@@ -289,7 +286,6 @@ const LABELS = [
       'batch-change': 'Batch change',
       'custom-approval': 'Custom approval workflow',
       'password-restriction': 'Password restriction',
-      'sync-entra-id': 'Sync from Entra ID',
     },
   },
   {
