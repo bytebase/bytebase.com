@@ -31,7 +31,7 @@ We are working on enabling backup and 1-click rollback for more SQL statements.
 
 <HintBlock type="info">
 
-Applicable to `MySQL`.
+Applicable to `MySQL`, `Oracle`.
 
 </HintBlock>
 
@@ -51,7 +51,7 @@ Prior backup is feasible when meeting **all** of the following conditions:
 
 <HintBlock type="info">
 
-Applicable to `PostgreSQL`, `Oracle`, `SQL Server`.
+Applicable to `PostgreSQL`, `SQL Server`.
 
 </HintBlock>
 
