@@ -186,7 +186,7 @@ In Bytebase **Enterprise Plan**, you can request a JIT access to the production 
 
    ![bb-assign-license](/content/docs/tutorials/just-in-time-database-access-amazon-aurora/bb-assign-license.webp)
 
-   To explain custom approval a bit more, have a look at the following diagram. By defining a custom approval flow along with risk policy, Bytebase will automatically trigger the approval flow when the corresponding risk level is met. In our case, we define a high risk policy for `Request Querier Role` which triggers when the environment is `Prod`.
+   To elaborate on custom approval, take a look at the following diagram. By defining a custom approval flow along with risk policy, Bytebase will automatically trigger the approval flow when the corresponding risk level is met. In our case, we define a high risk policy for `Request Querier Role` which triggers when the environment is `Prod`.
 
    ![request-query](/content/docs/tutorials/just-in-time-database-access-amazon-aurora/request-query.webp)
 
