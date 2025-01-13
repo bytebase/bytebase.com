@@ -45,9 +45,11 @@ Bytebase is an open-source database DevSecOps solution that complements AWS IAM 
 
 ## Solution Overview
 
-The diagram below shows how Bytebase integrates with IAM Auth to enable Just-in-Time (JIT) end-user access to Amazon Aurora.
+The following architecture shows how Bytebase enables Just-in-Time (JIT) database access for Amazon Aurora:
 
-![aws-bb](/content/docs/tutorials/just-in-time-database-access-amazon-aurora/aws-bb.webp)
+![aurora-jit-ep](/content/docs/tutorials/just-in-time-database-access-amazon-aurora/aurora-jit-ep.webp)
+
+### Architecture Components
 
 - Bytebase itself can run under an IAM role that can connect to Aurora/RDS using the shared IAM-based user.
 
@@ -55,11 +57,14 @@ The diagram below shows how Bytebase integrates with IAM Auth to enable Just-in-
 
 In this model, you don’t have discrete DB users or discrete IAM policies per developer. Bytebase is the gatekeeper, and the real DB connection still use the shared IAM-based user.
 
-Below is a brief walkthrough of the setup:
+### JIT Database Access Workflow
 
-1. Install Bytebase using Docker on an EC2 instance.
-1. Configure Bytebase to connect to your Amazon Aurora MySQL database (Bytebase also supports other RDS engines).
+1. All users can authenticate to Bytebase with their corporate IdP (via SSO).
+1. DBAs configure Bytebase to connect to your Amazon Aurora MySQL database (Bytebase also supports other RDS engines).
 1. Developer requests Just-in-Time (JIT) table-level access with an expiration time directly through Bytebase.
+1. DBAs review the request and approve it.
+1. Developer can query data via Bytebase SQL Editor.
+1. The developer's actions are tracked in Bytebase audit log.
 
 ## Prerequisites
 
@@ -153,6 +158,8 @@ While creating Aurora MySQL instance, you need to enable AWS IAM authentication.
 
 ### Admin assigns developer access to the database (Community and Pro Plan)
 
+![aurora-jit-cp](/content/docs/tutorials/just-in-time-database-access-amazon-aurora/aurora-jit-cp.webp)
+
 In Bytebase **Community** and **Pro Plan**, the Admin/DBA can assign developer access to the database.
 
 1. Login as the `admin` user, go into `Aurora MySQL Project`, click **Manage > Members** on the left sidebar.
@@ -167,6 +174,8 @@ In Bytebase **Community** and **Pro Plan**, the Admin/DBA can assign developer a
 
 ### Developer requests JIT access to the database (Enterprise Plan)
 
+![aurora-jit-ep](/content/docs/tutorials/just-in-time-database-access-amazon-aurora/aurora-jit-ep.webp)
+
 In Bytebase **Enterprise Plan**, you can request a JIT access to the production database.
 
 1. Login as `admin` user, go into `Aurora MySQL Project` and revoke the `dev` user's access to the production database.
@@ -176,6 +185,10 @@ In Bytebase **Enterprise Plan**, you can request a JIT access to the production 
 1. Click **CI/CD** > **Custom Approval** on the left sidebar. Assign licenses to the aurora mysql instance to enable this feature.
 
    ![bb-assign-license](/content/docs/tutorials/just-in-time-database-access-amazon-aurora/bb-assign-license.webp)
+
+   To explain custom approval a bit more, have a look at the following diagram. By defining a custom approval flow along with risk policy, Bytebase will automatically trigger the approval flow when the corresponding risk level is met. In our case, we define a high risk policy for `Request Querier Role` which triggers when the environment is `Prod`.
+
+   ![request-query](/content/docs/tutorials/just-in-time-database-access-amazon-aurora/request-query.webp)
 
 1. Scroll down to **Request Querier Role** section, add `high` risk an approval flow `Project Owner`.
 
@@ -206,6 +219,8 @@ In Bytebase **Enterprise Plan**, you can request a JIT access to the production 
    ![bb-sql-editor-not-ok](/content/docs/tutorials/just-in-time-database-access-amazon-aurora/bb-sql-editor-not-ok.webp)
 
 1. After the `dev` user get the access, he can solve the incident. The admin user can revoke the access directly from the **Manage** > **Members** page or wait for the access expiration.
+
+1. `admin` user can also check the audit log by clicking **IAM&Admin** > **Audit Log** on the left sidebar. The audit log will show all the data access history of the `dev` user.
 
 ## Conclusion
 
