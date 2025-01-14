@@ -39,7 +39,6 @@ const validationSchema = yup.object().shape({
     .email('Please provide a valid email')
     .required('Work email is a required field'),
   company: yup.string().trim().required('Company name is a required field'),
-  message: yup.string().trim().required('Please tell us your interests'),
 });
 
 const getButtonTitle = (formId: string) => {
@@ -176,7 +175,7 @@ const ContactForm = ({
           className="col-span-full"
           inputClassName="p-4 pt-3 md:pt-2"
           tag="textarea"
-          placeholder="I'm interested in (e.g. Database CI/CD, GitOps, Data Access Control, Data Masking)*"
+          placeholder="I'm interested in (e.g. Database CI/CD, GitOps, Data Access Control, Dynamic Data Masking)"
           error={errors?.message?.message}
           {...register('message')}
         />
