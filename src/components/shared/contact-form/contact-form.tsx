@@ -19,7 +19,7 @@ import Route from '@/lib/route';
 import { useRouter } from 'next/navigation';
 
 const feishuWebhookList = [
-  'https://open.feishu.cn/open-apis/bot/v2/hook/58f9ac0b-238e-45cd-9d3d-aca7baae4d30',
+  'https://open.feishu.cn/open-apis/bot/v2/hook/5a2a1fe6-2ed8-4c0b-8621-0be9ebd188ec',
 ];
 
 type ValueType = {
