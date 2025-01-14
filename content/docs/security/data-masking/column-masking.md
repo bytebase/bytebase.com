@@ -2,21 +2,22 @@
 title: Column Masking
 ---
 
-`Workspace Admin` and `DBA` can set table columns as different **Masking Level** to mask the data. This
-takes precedence over the [global masking rule](../global-masking-rule).
+<HintBlock type="info">
 
-1. Go to the table detail page, and click the **pen icon** in the row.
+The [global masking rule](../global-masking-rule) takes precedence over the column masking.
 
-![bb-table-detail-click-masking-pen](/content/docs/security/data-masking/bb-table-detail-click-masking-pen.webp)
+</HintBlock>
 
-2. Choose the **Masking Level** according to your needs.
+In the project level, besides `Workspace Admin` and `DBA`, `Project Owner` can set table columns semantic type to mask the data. However, the [global masking rule](../global-masking-rule) takes precedence over the column masking.
 
-![bb-masking-setting](/content/docs/security/data-masking/bb-masking-setting.webp)
+Go to the **table detail** page, and click the **pen icon** and apply the semantic type.
 
-- **Follow [global masking rules](../global-masking-rule)**
-- **Full**: Mask the original data entirely
-  ![bb-masking-full](/content/docs/security/data-masking/bb-masking-full.webp)
-- **Partial**: Mask the original data partialy
-  ![bb-masking-partial](/content/docs/security/data-masking/bb-masking-partial.webp)
-- **None**: No masking
-  ![bb-masking-none](/content/docs/security/data-masking/bb-masking-none.webp)
+![bb-column-masking](/content/docs/security/data-masking/bb-column-masking.webp)
+
+Combined with [Semantic Types](/docs/security/data-masking/semantic-types), here is the result you will get in **SQL Editor**.
+
+![bb-sql-editor-partial-masking](/content/docs/security/data-masking/bb-sql-editor-partial-masking.webp)
+
+However, if the global masking rule is also applied, the result will be as follows. Because the global masking rule takes precedence over the column masking.
+
+![bb-sql-editor-full-masking](/content/docs/security/data-masking/bb-sql-editor-full-masking.webp)

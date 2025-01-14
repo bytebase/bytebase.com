@@ -177,19 +177,19 @@ expand_section_list: ['Self-host']
 
 ### [Overview](/security/data-masking/overview)
 
+### [Semantic Types](/security/data-masking/semantic-types)
+
 ### [Global Masking Rule](/security/data-masking/global-masking-rule)
 
 ### [Column Masking](/security/data-masking/column-masking)
 
 ### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
 
-### [Data Classification](/security/data-masking/data-classification)
+### [Export Masked Data](/security/data-masking/export-masked-data)
 
 ### [Masking Algorithm](/security/data-masking/masking-algorithm)
 
-### [Semantic Types](/security/data-masking/semantic-types)
-
-### [Export Masked Data](/security/data-masking/export-masked-data)
+### [Data Classification](/security/data-masking/data-classification)
 
 ---
 

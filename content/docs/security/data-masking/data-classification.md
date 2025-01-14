@@ -7,15 +7,15 @@ This allows you to manage masking policy for many columns by controlling only a 
 
 ![overview](/content/docs/security/data-classification/classification-overview.webp)
 
-In the above example, column `first_name` and `last_name` will be applied `Partial Masking`, because:
+In the above example, column `first_name` and `last_name` will be applied `Default Partial Masking`, because:
 
 - Column `first_name` and `last_name` are classified as `Contact Info`.
 - `Contact Info` corresponds to `security level 2`.
-- `Security level 2` applies `Partial Masking`.
+- `Security level 2` applies semantic type `Default Partial Masking`.
 
 ## Step 1 - Define Classification
 
-![definition](/content/docs/security/data-classification/classification-definition.webp)
+![definition](/content/docs/security/data-classification/bb-classification-definition.webp)
 
 You upload a JSON file containing the classification definition. The definition contains 2 sections:
 
@@ -44,54 +44,54 @@ This is a [simple classification](/content/docs/security/data-classification/cla
       "description": ""
     }
   ],
-  "classifications": [
-    {
+  "classification": {
+    "1": {
       "id": "1",
       "title": "Basic",
       "description": ""
     },
-    {
+    "1-1": {
       "id": "1-1",
       "title": "Basic",
       "description": "",
       "levelId": "1"
     },
-    {
+    "1-2": {
       "id": "1-2",
       "title": "Assert",
       "description": "",
       "levelId": "1"
     },
-    {
+    "1-3": {
       "id": "1-3",
       "title": "Contact",
       "description": "",
       "levelId": "2"
     },
-    {
+    "1-4": {
       "id": "1-4",
       "title": "Health",
       "description": "",
       "levelId": "2"
     },
-    {
+    "2": {
       "id": "2",
       "title": "Relationship",
       "description": ""
     },
-    {
+    "2-1": {
       "id": "2-1",
       "title": "Social",
       "description": "",
       "levelId": "1"
     },
-    {
+    "2-2": {
       "id": "2-2",
       "title": "Business",
       "description": "",
       "levelId": "1"
     }
-  ]
+  }
 }
 ```
 
@@ -105,7 +105,7 @@ A comprehensive data classification ([English](/content/docs/security/data-class
 
 ## Step 2 - Configure Global Masking Policy
 
-![global](/content/docs/security/data-classification/classification-global.webp)
+![global](/content/docs/security/data-classification/bb-classification-global-masking.webp)
 
 From the [Global Masking Policy](../global-masking-rule), you can define the masking level for each classification level.
 
@@ -113,15 +113,17 @@ From the [Global Masking Policy](../global-masking-rule), you can define the mas
 
 ### Manual Classification
 
-![classify-manual](/content/docs/security/data-classification/classify-manual.webp)
+If you turn off `Sync classification from comment`, then you can manually set the classification for each column.
+
+![bb-classification-column-masking](/content/docs/security/data-classification/bb-classification-column-masking.webp)
 
 Go to the column definition and set the classification.
 
 ### Comment Classification
 
-![classify-from-comment](/content/docs/security/data-classification/classify-from-comment.webp)
+![bb-classification-definition](/content/docs/security/data-classification/bb-classification-definition.webp)
 
-If you turn on `Sync classification from comment`, then the column classification is derived from the comment.
+If you turn on `Sync classification from comment` (by default it's on), then the column classification is derived from the comment.
 If the column format follows `{classification id}-{comment}` such as `1-4-2-blabla`, then Bytebase will extract
 `1-4-2` as the classification id and assigns the column classification accordingly.
 
