@@ -27,7 +27,7 @@ type ValueType = {
   lastname: string;
   email: string;
   company: string;
-  message: string;
+  message?: string;
 };
 
 const validationSchema = yup.object().shape({
@@ -39,6 +39,7 @@ const validationSchema = yup.object().shape({
     .email('Please provide a valid email')
     .required('Work email is a required field'),
   company: yup.string().trim().required('Company name is a required field'),
+  message: yup.string().trim().optional(),
 });
 
 const getButtonTitle = (formId: string) => {
