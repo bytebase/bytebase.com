@@ -26,7 +26,7 @@ export default function Page() {
       <div className="col-span-7 lg:col-span-full">
         <ContactForm
           className="rounded-2xl bg-white p-8 shadow-dark-big lg:my-10 md:my-8 md:p-6 sm:p-5 sm:px-4 xs:my-7"
-          formId={WHITE_PAPER}
+          formId={WHITE_PAPER + ' - Just-in-time Database Access'}
           redirectURL="/content/whitepaper/just-in-time-database-access/bytebase-whitepaper-just-in-time-database-access-best-practices.pdf"
         />
         <Logos />

@@ -63,6 +63,7 @@ const ContactForm = ({
   className: string;
   formId: string;
   redirectURL: string;
+  comment?: string;
 }) => {
   const [buttonState, setButtonState] = useState(STATES.DEFAULT);
   const [formError, setFormError] = useState('');
@@ -82,13 +83,17 @@ const ContactForm = ({
     setFormError('');
 
     try {
-      if (formId == VIEW_LIVE_DEMO || formId == ENTERPRISE_INQUIRY || formId == WHITE_PAPER) {
+      if (
+        formId == VIEW_LIVE_DEMO ||
+        formId == ENTERPRISE_INQUIRY ||
+        formId.startsWith(WHITE_PAPER)
+      ) {
         let tag = '';
         if (formId == VIEW_LIVE_DEMO) {
           tag = 'demo';
         } else if (formId == ENTERPRISE_INQUIRY) {
           tag = 'enterprise-inquiry';
-        } else if (formId == WHITE_PAPER) {
+        } else if (formId.startsWith(WHITE_PAPER)) {
           tag = 'white-paper';
         }
         await fetch('/api/subscribe', {
