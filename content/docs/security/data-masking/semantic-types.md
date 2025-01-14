@@ -4,24 +4,24 @@ title: Semantic Types
 
 ![overview](/content/docs/security/data-masking/bb-semantic-type-overview.webp)
 
-You may define semantic types and apply them to columns of different tables. Columns with the same semantic type will be masked with the same [masking algorithm](/docs/security/data-masking/masking-algorithm). This allows you to manage masking algorithms for many columns by controlling only a small number of semantic types.
+You may define semantic types and apply them to columns of different tables. Columns with the same semantic type will be masked with the same masking algorithm. This allows you to manage masking algorithms for many columns by controlling only a small number of semantic types.
 
-1. Go to **Settings** > **Security & Policy** > **Data Masking**.
-1. Click **Semantic Types**.
-1. Click **Add**, and fill in the name and description. Choose a masking algorithm for full and partial conditions respectively, or you may leave it as `default` which means it will use the system default masking algorithm. Click the checkmark to save.
+1. Go to **Data Access** > **Semantic Types**. You'll see the default semantic type `Default` and `Default Partial`.
+1. Click **Add**, and fill in the name and description.
 
-   ![bb-semantic-types-choose](/content/docs/security/data-masking/bb-semantic-types-choose.webp)
+   ![bb-add-semantic-type](/content/docs/security/data-masking/bb-add-semantic-type.webp)
 
-1. Go to a table detail page. Click pencil icon and choose value for **Semantic Types** and **Masking Level**.
+1. Click the pencil under **Masking Algorithm** column to attach a masking algorithm. Click the checkmark to save.
 
-   ![bb-table-detail](/content/docs/security/data-masking/bb-table-detail.webp)
+   ![bb-add-algorithm](/content/docs/security/data-masking/bb-add-algorithm.webp)
 
-1. Go to **SQL Editor**, run a query and you will see the masked data.
+   _Check [Masking Algorithm](/docs/security/data-masking/masking-algorithm) for more details._
 
-   ![bb-birth-date-full-masking](/content/docs/security/data-masking/bb-birth-date-full-masking.webp)
+1. You may add other semantic types as needed.
 
-1. Go back to table detail page, click pencil to edit the column **Masking Level** and change the masking level to `Partial`.
+   ![bb-semantic-type-list](/content/docs/security/data-masking/bb-semantic-type-list.webp)
 
-1. Go to **SQL Editor**, run a query and you will see the partially masked data.
+There're two ways to apply this semantic type to take effect:
 
-   ![bb-birth-date-partial-masking](/content/docs/security/data-masking/bb-birth-date-partial-masking.webp)
+   - [Global Masking](/docs/security/data-masking/global-masking-rule)
+   - [Column Masking](/docs/security/data-masking/column-masking)
