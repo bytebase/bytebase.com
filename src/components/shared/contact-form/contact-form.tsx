@@ -8,13 +8,18 @@ import * as yup from 'yup';
 import Button from '@/components/shared/button';
 import Field from '@/components/shared/field';
 import Link from '@/components/shared/link/link';
-import { BUTTON_SUCCESS_TIMEOUT_MS, ENTERPRISE_INQUIRY, VIEW_LIVE_DEMO } from '@/lib/forms';
+import {
+  BUTTON_SUCCESS_TIMEOUT_MS,
+  ENTERPRISE_INQUIRY,
+  VIEW_LIVE_DEMO,
+  WHITE_PAPER,
+} from '@/lib/forms';
 import { STATES } from '@/lib/states';
 import Route from '@/lib/route';
 import { useRouter } from 'next/navigation';
 
 const feishuWebhookList = [
-  'https://open.feishu.cn/open-apis/bot/v2/hook/5a2a1fe6-2ed8-4c0b-8621-0be9ebd188ec',
+  'https://open.feishu.cn/open-apis/bot/v2/hook/58f9ac0b-238e-45cd-9d3d-aca7baae4d30',
 ];
 
 type ValueType = {
@@ -37,7 +42,28 @@ const validationSchema = yup.object().shape({
   message: yup.string().trim().required('Please tell us your interests'),
 });
 
-const ContactForm = ({ className, formId }: { className: string; formId: string }) => {
+const getButtonTitle = (formId: string) => {
+  switch (formId) {
+    case VIEW_LIVE_DEMO:
+      return 'View Live Demo';
+    case WHITE_PAPER:
+      return 'Download White Paper';
+    case ENTERPRISE_INQUIRY:
+      return 'Submit Inquiry';
+    default:
+      return 'Submit';
+  }
+};
+
+const ContactForm = ({
+  className,
+  formId,
+  redirectURL,
+}: {
+  className: string;
+  formId: string;
+  redirectURL: string;
+}) => {
   const [buttonState, setButtonState] = useState(STATES.DEFAULT);
   const [formError, setFormError] = useState('');
   const router = useRouter();
@@ -56,8 +82,15 @@ const ContactForm = ({ className, formId }: { className: string; formId: string 
     setFormError('');
 
     try {
-      if (formId == VIEW_LIVE_DEMO || formId == ENTERPRISE_INQUIRY) {
-        const tag = formId == VIEW_LIVE_DEMO ? 'demo' : 'enterprise-inquiry';
+      if (formId == VIEW_LIVE_DEMO || formId == ENTERPRISE_INQUIRY || formId == WHITE_PAPER) {
+        let tag = '';
+        if (formId == VIEW_LIVE_DEMO) {
+          tag = 'demo';
+        } else if (formId == ENTERPRISE_INQUIRY) {
+          tag = 'enterprise-inquiry';
+        } else if (formId == WHITE_PAPER) {
+          tag = 'white-paper';
+        }
         await fetch('/api/subscribe', {
           method: 'POST',
           body: JSON.stringify({ email, tag }),
@@ -87,15 +120,9 @@ const ContactForm = ({ className, formId }: { className: string; formId: string 
           window.open(Route.LIVE_DEMO, '_blank');
         }
 
-        let confirm = Route.CONFIRM_MESSAGE;
-        if (formId == VIEW_LIVE_DEMO) {
-          confirm = Route.CONFIRM_VIEW_LIVE_DEMO;
-        } else if (formId == ENTERPRISE_INQUIRY) {
-          confirm = Route.CONFIRM_INQUIRY;
-        }
         setButtonState(STATES.SUCCESS);
         setTimeout(() => {
-          router.push(confirm);
+          router.push(redirectURL);
           setButtonState(STATES.DEFAULT);
           reset();
         }, BUTTON_SUCCESS_TIMEOUT_MS);
@@ -162,7 +189,7 @@ const ContactForm = ({ className, formId }: { className: string; formId: string 
               type="submit"
               state={buttonState}
             >
-              {formId == VIEW_LIVE_DEMO ? 'View Now' : 'Submit'}
+              {getButtonTitle(formId)}
             </Button>
             {formError && (
               <span className="mt-1.5 text-12 leading-none text-secondary-6 sm:text-center 2xs:max-w-[144px]">

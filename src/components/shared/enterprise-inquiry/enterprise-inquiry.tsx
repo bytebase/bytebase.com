@@ -2,6 +2,8 @@ import Logos from '@/components/pages/contact/logos';
 import ContactForm from '@/components/shared/contact-form';
 import { ENTERPRISE_INQUIRY } from '@/lib/forms';
 
+import Route from '@/lib/route';
+
 const EnterpriseInquiry = () => {
   return (
     <section className="container enterprise-inquiry mt-20 lg:mt-14 md:mt-10 sm:mt-8">
@@ -19,6 +21,7 @@ const EnterpriseInquiry = () => {
           <ContactForm
             className="col-span-6 col-start-7 row-span-4 rounded-2xl bg-white p-8 shadow-dark-big lg:col-span-full lg:my-10 md:my-8 md:p-6 sm:p-5 sm:px-4 xs:my-7"
             formId={ENTERPRISE_INQUIRY}
+            redirectURL={Route.CONFIRM_INQUIRY}
           />
           <Logos />
         </div>

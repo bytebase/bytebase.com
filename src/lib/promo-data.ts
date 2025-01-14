@@ -2,8 +2,8 @@ import ROUTE from '@/lib/route';
 
 const PROMO_DATA = {
   TOP_BANNER: {
-    title: 'Just-in-Time Database Access',
-    pathname: `/blog/just-in-time-database-access/?source=top-banner`,
+    title: 'White Paper: Just-in-Time Database Access Best Practices for Enterprises',
+    pathname: `/whitepaper/just-in-time-database-access/?source=top-banner`,
   },
   BLOG_ASIDE: {
     title: 'What is Bytebase?',
