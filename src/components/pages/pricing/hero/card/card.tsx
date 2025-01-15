@@ -64,7 +64,7 @@ const Card = ({
         <span
           className={clsx(
             'relative mt-4 font-title text-104 font-semibold leading-none tracking-tighter text-gray-15 lg:text-72 lg:tracking-normal md:mt-3 md:text-56',
-            { 'text-primary-1 lg:-ml-11 sm:ml-0': planTitle.toLowerCase() === 'enterprise' },
+            { 'text-primary-1': planTitle.toLowerCase() === 'enterprise' },
           )}
         >
           {typeof price === 'number' ? `$${price}` : price}

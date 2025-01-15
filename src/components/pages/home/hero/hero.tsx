@@ -30,7 +30,7 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
           </Link>
         )}
         <header className="relative mt-4 xl:mt-3.5 sm:mt-3">
-          <h1 className="mx-auto mt-3 max-w-4xl text-center font-title text-108 font-semibold leading-none xl:text-80 xl:leading-none md:text-48 md:leading-none sm:text-48 sm:leading-95">
+          <h1 className="mx-auto mt-3 max-w-4xl text-balance text-center font-title text-108 font-semibold leading-none xl:text-80 xl:leading-none md:text-48 md:leading-none sm:text-48 sm:leading-95">
             Database CI/CD and Security{' '}
             <mark className="whitespace-nowrap bg-transparent text-center text-primary-1">
               at Scale
