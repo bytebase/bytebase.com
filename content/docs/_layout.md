@@ -183,7 +183,7 @@ expand_section_list: ['Self-host']
 
 ### [Column Masking](/security/data-masking/column-masking)
 
-### [Access Unmasked Data](/security/data-masking/access-unmasked-data)
+### [Masking Exemption](/security/data-masking/access-unmasked-data)
 
 ### [Export Masked Data](/security/data-masking/export-masked-data)
 

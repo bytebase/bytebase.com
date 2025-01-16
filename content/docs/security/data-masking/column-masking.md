@@ -4,11 +4,11 @@ title: Column Masking
 
 <HintBlock type="info">
 
-The [global masking rule](../global-masking-rule) takes precedence over the column masking.
+Masking precedence: [Masking Exemption](/security/data-masking/access-unmasked-data) > [Global Masking Rule](/security/data-masking/global-masking-rule) > [Column Masking](/security/data-masking/column-masking).
 
 </HintBlock>
 
-In the project level, besides `Workspace Admin` and `DBA`, `Project Owner` can set table columns semantic type to mask the data. However, the [global masking rule](../global-masking-rule) takes precedence over the column masking.
+In the project level, besides `Workspace Admin` and `DBA`, `Project Owner` can set table columns semantic type to mask the data.
 
 Go to the **table detail** page, and click the **pen icon** and apply the semantic type.
 
