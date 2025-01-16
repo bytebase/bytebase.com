@@ -16,43 +16,26 @@ You can configure the masking policies from UI or via API. Check out [this GitOp
 
 </HintBlock>
 
-## How Dynamic Masking works
+## Configure Dynamic Data Masking
 
-Bytebase dynamic masking transforms the original column data to the masked form in 2 steps:
+- Workspace-level admins configure the [Global Masking Rule](/docs/security/data-masking/global-masking-rule), [Semantic Types](/docs/security/data-masking/semantic-types), and [Masking Algorithm](/docs/security/data-masking/masking-algorithm).
 
-1. [Determine the effective column masking level](#determine-the-effective-column-masking-level)
+- Project-level owners configure the [Column Masking](/docs/security/data-masking/column-masking) on the table column. This is only needed when the global masking rule is not applicable to a particular project.
 
-1. [Determine the masking algorithm according to the masking level](#determine-the-masking-algorithm)
+- Workspace-level admins or project-level owners grant [Masking Exemption](/docs/security/data-masking/access-unmasked-data) to the users to access the unmasked data.
 
-### Determine the effective column masking level
+## Determine whether to mask data
 
-Bytebase defines 3 masking levels: `No Masking`, `Partial Masking`, `Full Masking`.
+![bb-masking-detail](/content/docs/security/data-masking/bb-masking-detail.webp)
 
-![masking-level](/content/docs/security/data-masking/masking-level.webp)
+### Masking precedence
 
-The effective column masking level is determined by the inherent column masking level and the user access grant.
+1. [Masking Exemption](/docs/security/data-masking/access-unmasked-data). If user has been granted exemption, the data will not be masked.
 
-| Inherent Column Masking Level | User Access Grant | Effective Column Masking Level |
-| ----------------------------- | ----------------- | ------------------------------ |
-| No Masking                    | No Masking        | No Masking                     |
-|                               | Partial Masking   | No Masking                     |
-| Partial Masking               | No Masking        | No Masking                     |
-|                               | Partial Masking   | Partial Masking                |
-| Full Masking                  | No Masking        | No Masking                     |
-|                               | Partial Masking   | Partial Masking                |
+1. [Global Masking Rule](/docs/security/data-masking/global-masking-rule). If no exemption is granted, the global masking rule will be applied.
 
-### Determine the masking algorithm
+1. [Column Masking](/docs/security/data-masking/column-masking). If no global masking rule is configured, the column masking will be applied.
 
-Once the masking level is determined, the next step is to determine the corresponding masking algorithm.
+### Masking algorithm
 
-![masking-algorithm](/content/docs/security/data-masking/masking-algorithm.webp)
-
-Bytebase provides the default masking algorithm for `Partial Masking` and `Full Masking`:
-
-- **Partial Masking**. Use `*` to cover the start and end of the text.
-- **Full Masking**. Use `*` to cover all text.
-
-You can also [customize the masking algorithm](../masking-algorithm) and specify it on the column.
-
-Further, if you want to manage masking algorithms for different column categories, you can use
-[Semantic Types](../semantic-types).
+The global masking rule and column masking are both mapped to the [Semantic Types](/docs/security/data-masking/semantic-types). The semantic type determines the masking algorithm.

@@ -8,7 +8,7 @@ Masking precedence: [Masking Exemption](/security/data-masking/access-unmasked-d
 
 </HintBlock>
 
-You may want to batch apply masking settings. e.g.
+Admins may want to batch apply masking settings globally. e.g.
 
 - Mask all data in production
 - Mask all data for database under a specific project

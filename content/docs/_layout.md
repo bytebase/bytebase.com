@@ -9,7 +9,7 @@ expand_section_list: ['Self-host']
 
 ## [Use Cases](/introduction/use-cases)
 
-## [POC Checklist 📝](/poc)
+## [POC Checklist 📝](/poc)Self-host
 
 ## [Best Practices 📘](/onboarding)
 
@@ -179,15 +179,15 @@ expand_section_list: ['Self-host']
 
 ### [Semantic Types](/security/data-masking/semantic-types)
 
+#### [Masking Algorithm](/security/data-masking/masking-algorithm)
+
 ### [Global Masking Rule](/security/data-masking/global-masking-rule)
+
+#### [Data Classification](/security/data-masking/data-classification)
 
 ### [Column Masking](/security/data-masking/column-masking)
 
 ### [Masking Exemption](/security/data-masking/access-unmasked-data)
-
-### [Masking Algorithm](/security/data-masking/masking-algorithm)
-
-### [Data Classification](/security/data-masking/data-classification)
 
 ---
 

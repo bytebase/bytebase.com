@@ -2,8 +2,7 @@
 title: Data Classification
 ---
 
-Data classification allows you to classify columns and apply masking levels to the classified columns globally.
-This allows you to manage masking policy for many columns by controlling only a small number of classifications.
+Data classification allows you to classify columns and apply masking to those columns via the [Global Masking Rule](/docs/security/data-masking/global-masking-rule). This allows you to manage masking policy for many columns by controlling only a small number of classifications.
 
 ![overview](/content/docs/security/data-classification/classification-overview.webp)
 
