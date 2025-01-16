@@ -9,7 +9,7 @@ expand_section_list: ['Self-host']
 
 ## [Use Cases](/introduction/use-cases)
 
-## [POC Checklist 📝](/poc)Self-host
+## [POC Checklist 📝](/poc)
 
 ## [Best Practices 📘](/onboarding)
 
