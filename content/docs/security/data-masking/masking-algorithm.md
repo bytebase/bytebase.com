@@ -4,27 +4,25 @@ title: Masking Algorithm
 
 You may customize your data masking algorithm with the help of a predefined masking type while [creating a semantic type](/docs/security/data-masking/semantic-types).
 
-## Configure Masking Algorithms
-
-### Full mask
+## Full mask
 
 Mask the entire value and show **Substitute** value.
 
 ![bb-algorithm-full](/content/docs/security/data-masking/bb-algorithm-full.webp)
 
-### Range mask
+## Range mask
 
 Mask several characters of a string and replace them with **Substitute** value.
 
 ![bb-algorithm-range](/content/docs/security/data-masking/bb-algorithm-range.webp)
 
-### MD5 mask
+## MD5 mask
 
 Use MD5 algorithm together with **Salt** value to hash.
 
 ![bb-algorithm-md5](/content/docs/security/data-masking/bb-algorithm-md5.webp)
 
-### Inner / Outer mask
+## Inner / Outer mask
 
 - Inner mask: Mask `123456` to format like `12**56`, `1***56`.
 - Outer mask: Mask `123456` to format like `**34**`, `*23***`.
