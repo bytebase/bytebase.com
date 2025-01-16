@@ -185,8 +185,6 @@ expand_section_list: ['Self-host']
 
 ### [Masking Exemption](/security/data-masking/access-unmasked-data)
 
-### [Export Masked Data](/security/data-masking/export-masked-data)
-
 ### [Masking Algorithm](/security/data-masking/masking-algorithm)
 
 ### [Data Classification](/security/data-masking/data-classification)
