@@ -17,13 +17,13 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
     <div className={clsx('container mt-16 flex w-full flex-col md:mt-8 sm:mt-4')}>
       <section className="flex w-full flex-col items-center justify-center">
         {latestVersion !== null && (
-          <Link href="/changelog/bytebase-3-2-0/" className="group/link">
+          <Link href="/changelog/bytebase-3-3-0/" className="group/link">
             <span className="inline-flex items-center gap-1 rounded-full bg-tones-purple-light p-1 text-12 font-semibold leading-none text-primary-1 transition-colors duration-200 group-hover/link:text-primary-2">
               <span className="rounded-full bg-primary-1 px-2 py-1 text-white transition-colors duration-200 group-hover/link:bg-primary-2">
-                Jan 2nd, 2025
+                Jan 16th, 2025
               </span>
               <span className="flex items-center gap-1.5 px-2">
-                🚀 3.2.0: Selectively sync databases from an instance
+                🚀 3.3.0: SOC 2
                 <SmallArrowIcon width={7} height={6} />
               </span>
             </span>
