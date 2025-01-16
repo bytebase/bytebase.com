@@ -12,10 +12,10 @@ You may want to batch apply masking settings. e.g.
 
 - Mask all data in production
 - Mask all data for database under a specific project
-- Maks data conditionally according to [Data Classification](../data-classification)
+- Mask data conditionally according to [Data Classification](../data-classification)
 
 Global masking rule along with [Semantic Types](/docs/security/data-masking/semantic-types) allows you to do this. It's similar to the iptables where you configure an ordered
-rule list. The first matching rule will be applied. If no rule matches, the default masking level is `None`.
+rule list. The first matching rule will be applied. If no rule matches, no `Semantic Type` will be applied.
 
 `Workspace Admin` and `DBA` can set global masking rules to mask the data.
 
@@ -26,4 +26,4 @@ rule list. The first matching rule will be applied. If no rule matches, the defa
    ![bb-global-masking-2](/content/docs/security/data-masking/bb-global-masking-2.webp)
 
 Combined with [Semantic Types](/docs/security/data-masking/semantic-types), here is the result you will get in **SQL Editor**.
-   ![bb-sql-editor-full-masking](/content/docs/security/data-masking/bb-sql-editor-full-masking.webp)
+![bb-sql-editor-full-masking](/content/docs/security/data-masking/bb-sql-editor-full-masking.webp)
