@@ -31,7 +31,7 @@ We are working on enabling backup and 1-click rollback for more SQL statements.
 
 <HintBlock type="info">
 
-Applicable to `MySQL`, `Oracle`.
+Applicable to `MySQL`, `Oracle(Prior backup only)`.
 
 </HintBlock>
 
