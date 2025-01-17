@@ -41,7 +41,7 @@ This tutorial skips the setup part, if you haven't set up the Bytebase and GitHu
 
 ## Column Masking
 
-[Column Masking](/docs/security/data-masking/column-masking/) lets you specify table columns different semantic type to mask the data.
+[Column Masking](/docs/security/data-masking/column-masking/) lets you specify table columns different semantic type to mask the data differently.
 
 ### In Bytebase Console
 
@@ -60,13 +60,13 @@ response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/inst
    --data @"$CHANGED_FILE")
 ```
 
-By changing file `masking/databases/**/**/database-catalog.json`, create a PR and then merge, the change will be applied to the database.
+By changing file `masking/databases/**/**/database-catalog.json`, create a PR and then merge, the change will be applied.
 
-Log in Bytebase console, at the workspace level, go to the database page, you can see the column semantic type is applied to the database.
+Log in Bytebase console, at the workspace level, go to the database page, you can see the column semantic type is applied.
 
 ## Masking Exemption
 
-[Masking Exemption](/docs/security/data-masking/masking-exemption/) lets you unmask data for specific users.
+[Masking Exemption](/docs/security/data-masking/masking-exemption/) lets you exempt users from data masking and see the unmasked data.
 
 ### In Bytebase Console
 
@@ -85,9 +85,9 @@ response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/proj
    --data @"$CHANGED_FILE")
 ```
 
-By changing file `masking/projects/**/masking-exception.json`, create a PR and then merge, the change will be applied to the database.
+By changing file `masking/projects/**/masking-exception.json`, create a PR and then merge, the change will be applied.
 
-Log in Bytebase console, go to the project `Sample Project`, click **Manage > Masking Exemptions**, you can see the masking exemption is applied to the database.
+Log in Bytebase console, go to the project `Sample Project`, click **Manage > Masking Exemptions**, you can see the masking exemption is applied.
 
 ## Next Steps
 
