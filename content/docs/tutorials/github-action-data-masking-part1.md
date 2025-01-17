@@ -1,12 +1,12 @@
 ---
-title: 'Data Masking with GitHub Actions Part 1 - Column Masking'
+title: 'Data Masking with GitHub Actions Part 1 - Semantic Type and Global Masking Rule'
 author: Ningjing
-updated_at: 2024/11/19 18:00
+updated_at: 2025/01/17 18:00
 tags: Tutorial
 integrations: API, GitHub
 level: Advanced
 estimated_time: '30 mins'
-description: 'Learn how to automate database masking policies using GitHub Actions and Bytebase API'
+description: 'Learn how to automate semantic type and global masking rule using GitHub Actions and Bytebase API'
 ---
 
 <IncludeBlock url="/docs/share/tutorials/api-preface"></IncludeBlock>
@@ -19,9 +19,9 @@ By using GitHub Actions with Bytebase API, you can implement policy-as-code to a
 
 This is Part 1 of our tutorial series on implementing automated database masking using GitHub Actions:
 
-- Part 1: Column Masking (this one)
-- Part 2: [Masking Algorithm](/docs/tutorials/github-action-data-masking-part2)
-- Part 3: [Data Classification and Global Masking](/docs/tutorials/github-action-data-masking-part3)
+- Part 1: [Semantic Type and Global Masking Rule](/docs/tutorials/github-action-data-masking-part1)
+- Part 2: [Column Masking and Masking Exemption](/docs/tutorials/github-action-data-masking-part2)
+- Part 3: [Data Classification](/docs/tutorials/github-action-data-masking-part3)
 - Part 4: Data Export with Masking (TBD)
 
 ## Overview
@@ -31,7 +31,7 @@ In this tutorial, you'll learn how to automate database masking policies using G
 - Manage data masking rules as code
 - Automatically apply masking policies when PRs are merged
 
-Here is [a merged pull request](https://github.com/bytebase/database-security-github-actions-example/pull/5) as an example.
+Here is [a merged pull request](https://github.com/bytebase/database-security-github-actions-example/pull/81) as an example, for this tutorial, only "Semantic Type and Global Masking Rule" is covered.
 
 <HintBlock type="info">
 
@@ -78,56 +78,62 @@ Before you begin, make sure you have:
 
 ### Step 5 - Understanding the GitHub Workflow
 
-Let's dig into the GitHub Actions workflow [code](https://github.com/bytebase/database-security-github-actions-example/blob/main/.github/workflows/bb-masking-1.yml):
+Let's dig into the GitHub Actions workflow [code](https://github.com/bytebase/database-security-github-actions-example/blob/main/.github/workflows/1-bb-masking-semantic-type-global.yml):
 
 1. **Trigger**: Workflow runs when PRs are merged to `main`.
 
 1. **Authentication**: The step `Login Bytebase` will log in Bytebase using the official [bytebase-login](https://github.com/marketplace/actions/bytebase-login) action. The variables you configured in the GitHub **Secrets and variables** are mapped to the variables in the action.
 
-1. **File Detection**: The step `Get changed files` will monitor the changed files in the pull request. For this workflow, we only care about column masking and masking exception. So `masking/databases/**/**/column-masking.json` and `masking/projects/**/masking-exception.json` are filtered out.
+1. **File Detection**: The step `Get changed files` will monitor the changed files in the pull request. For this workflow, we only care about semantic type and global masking rule. So `masking/semantic-type.json` and `masking/global-masking-rule.json` are filtered out.
 
 1. **PR Feedback**: The step `Comment on PR` will comment on the merged pull to notify the result.
 
-## Column Masking
+## Semantic Type
 
-[Column Masking](/docs/security/data-masking/column-masking/) lets you specify table columns different Masking Level to mask the data.
+You may define [semantic types](/docs/security/data-masking/semantic-types/) and apply them to global masking rule or columns of different tables. For example, you may define a semantic type `birth_date` with a masking algorithm to mask month and day.
 
-In Bytebase console, go to a database page, then pick a table, you can specify masking level by clicking pen icon on table detail page.
+### In Bytebase Console
 
-In the GitHub workflow, find the step `Apply column masking`, which will apply the column masking to the database via API. First it will parse all the column masking files and then do a loop to apply the column masking to the database one by one. The code it calls Bytebase API is as follows:
+Go to **Data Access > Semantic Types** and click **Add**. You can create a new semantic type with a name and description, and customize the masking algorithm.
+
+![bb-add-semantic-type](/content/docs/tutorials/github-action-data-masking-part1/bb-add-semantic-type.webp)
+
+![bb-add-algorithm](/content/docs/tutorials/github-action-data-masking-part1/bb-add-algorithm.webp)
+
+### In GitHub Workflow
+
+Find the step `Apply semantic type`, which will apply the semantic type to the database via API. All the masking algorithms should be defined in one file in the root directory as `masking/semantic-type.json`. The code it calls Bytebase API is as follows:
 
 ```bash
-response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/instances/${INSTANCE_NAME}/databases/${DATABASE_NAME}/policies/masking?allow_missing=true&update_mask=payload" \
+response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/settings/bb.workspace.semantic-types?allow_missing=true" \
    --header "Authorization: Bearer ${BYTEBASE_TOKEN}" \
    --header "Content-Type: application/json" \
    --data @"$CHANGED_FILE")
 ```
 
-By changing file `masking/databases/**/**/column-masking.json`, create a PR and then merge, the change will be applied to the database.
+By changing file `masking/semantic-type.json`, creating a PR and merging, the semantic type will be applied. Go to Bytebase console, click **Data Access > Semantic Types**, you can see the applied semantic types.
 
-Log in Bytebase console, at the workspace level, click **Data Access > Data Masking**. Click **Explicit Masked Columns**, you can see the column masking is applied to the database.
+## Global Masking Rule
 
-![bb-column-masking](/content/docs/tutorials/github-action-data-masking-part1/bb-column-masking.webp)
+### In Bytebase Console
 
-## Access Unmasked Data
+Go to **Data Access > Global Masking** and click **Add**. You can create a new global masking rule with conditions and semantic type.
 
-[Access Unmasked Data](/docs/security/data-masking/access-unmasked-data/) lets you relax the masking levels for the users. Full masked column to partial or partial masked column to none.
+![bb-global-masking](/content/docs/tutorials/github-action-data-masking-part1/bb-global-masking.webp)
 
-In the GitHub workflow, find the step `Apply masking exception`, which will apply the masking exception to the database and the process is similar, the code it calls Bytebase API is as follows:
+### In GitHub Workflow
+
+Find the step `Apply global masking rule`, which will apply the global masking rule to the database via API. All the global masking rules should be defined in one file in the root directory as `masking/global-masking-rule.json`. The code it calls Bytebase API is as follows:
 
 ```bash
-response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/projects/${PROJECT_NAME}/policies/masking_exception?allow_missing=true&   update_mask=payload" \
+response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/policies/masking_rule?allow_missing=true&update_mask=payload" \
    --header "Authorization: Bearer ${BYTEBASE_TOKEN}" \
    --header "Content-Type: application/json" \
    --data @"$CHANGED_FILE")
 ```
 
-By changing file `masking/projects/**/masking-exception.json`, create a PR and then merge, the change will be applied to the database.
-
-Log in Bytebase console, go to the project `Sample Project`, click **Database > Masking Access**, you can see the masking exception is applied to the database.
-
-![bb-masking-exception](/content/docs/tutorials/github-action-data-masking-part1/bb-masking-exception.webp)
+By changing file `masking/global-masking-rule.json`, creating a PR and merge, you can apply the global masking rule to the database. Go to Bytebase console, click **Data Access > Global Masking** page, you can see the global masking rule is applied to the database.
 
 ## Next Steps
 
-Now you have successfully applied data masking policies using GitHub Actions and Bytebase API. In the next part of this tutorial, you'll learn how to customize the masking algorithm. Stay tuned!
+Now you have successfully define semantic types and apply global masking rule using GitHub Actions and Bytebase API. In the next part of this tutorial, you'll learn how to apply column masking and masking exemption. Stay tuned!
