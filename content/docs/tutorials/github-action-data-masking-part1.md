@@ -136,4 +136,4 @@ response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/poli
 
 By changing file `masking/global-masking-rule.json`, creating a PR and merge, you can apply the global masking rules.
 
-Now you have successfully define semantic types and apply global masking rule using GitHub Actions and Bytebase API. In the next part of this tutorial, you'll learn how to apply column masking and masking exemption. Stay tuned!
+<DocLinkBlock url="/docs/tutorials/github-action-data-masking-part2" title="Next Step: Column Masking and Masking Exemption"></DocLinkBlock>

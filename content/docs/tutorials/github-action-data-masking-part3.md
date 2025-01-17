@@ -39,9 +39,11 @@ This tutorial skips the setup part, if you haven't set up the Bytebase and GitHu
 
 ## Data Classification
 
+[Data Classification](/docs/security/data-masking/data-classification/) allows you to manage masking policy for many columns by controlling only a small number of classifications.
+
 ### In Bytebase Console
 
-Go to **Data Access > Data Classification**, you can upload the classification file. 
+Go to **Data Access > Data Classification**, you can upload the classification file.
 
 ![bb-classification-definition](/content/docs/tutorials/github-action-data-masking-part3/bb-classification-definition.webp)
 
@@ -56,7 +58,7 @@ response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/sett
    --data @"$CHANGED_FILE")
 ```
 
-By changing file `masking/data-classification.json`, creating a PR and merging, you can apply the classification to the database. Go to Bytebase console, click **Data Access > Data Classification**, you can see the classification is applied to the database.
+By changing file `masking/data-classification.json`, creating a PR and merging, you can apply the classification. Go to Bytebase console, click **Data Access > Data Classification**, you can see the classification is applied.
 
 Here in the github workflow, we also apply global masking rule and column masking with classification with files `masking/global-masking-rule-classification.json` and `masking/databases/test-sample-instance/hr_test/database-catalog-classification.json`.
 

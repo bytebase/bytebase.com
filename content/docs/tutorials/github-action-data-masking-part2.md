@@ -1,5 +1,5 @@
 ---
-title: 'Data Masking with GitHub Actions Part 2 - Column Masking'
+title: 'Data Masking with GitHub Actions Part 2 - Column Masking and Masking Exemption'
 author: Ningjing
 updated_at: 2025/01/17 18:00
 tags: Tutorial
@@ -89,6 +89,4 @@ By changing file `masking/projects/**/masking-exception.json`, create a PR and t
 
 Log in Bytebase console, go to the project `Sample Project`, click **Manage > Masking Exemptions**, you can see the masking exemption is applied.
 
-## Next Steps
-
-Now you have successfully applied column masking and masking exemption using GitHub Actions and Bytebase API. In the next part of this tutorial, you'll learn how to use data classification with GitHub Actions. Stay tuned!
+<DocLinkBlock url="/docs/tutorials/github-action-data-masking-part3" title="Next Step: Data Classification"></DocLinkBlock>
