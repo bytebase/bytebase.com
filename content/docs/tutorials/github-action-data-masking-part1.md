@@ -90,7 +90,7 @@ Let's dig into the GitHub Actions workflow [code](https://github.com/bytebase/da
 
 ## Semantic Type
 
-You may define [semantic types](/docs/security/data-masking/semantic-types/) and apply them to global masking rule or columns of different tables. For example, you may define a semantic type `birth_date` with a masking algorithm to mask month and day.
+Masking algorithm is associated with [Semantic Type](/docs/security/data-masking/semantic-types/). You define semantic types and apply them to global masking rule or table columns. For example, you may define a semantic type `birth_date` with a masking algorithm to mask month and day.
 
 ### In Bytebase Console
 
@@ -102,7 +102,7 @@ Go to **Data Access > Semantic Types** and click **Add**. You can create a new s
 
 ### In GitHub Workflow
 
-Find the step `Apply semantic type`, which will apply the semantic type to the database via API. All the masking algorithms should be defined in one file in the root directory as `masking/semantic-type.json`. The code it calls Bytebase API is as follows:
+Find the step `Apply semantic type`, which will apply the semantic type to the database via API. All the masking algorithms should be defined in one file in the root directory as `masking/semantic-type.json`.
 
 ```bash
 response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/settings/bb.workspace.semantic-types?allow_missing=true" \
@@ -111,13 +111,15 @@ response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/sett
    --data @"$CHANGED_FILE")
 ```
 
-By changing file `masking/semantic-type.json`, creating a PR and merging, the semantic type will be applied. Go to Bytebase console, click **Data Access > Semantic Types**, you can see the applied semantic types.
+By changing file `masking/semantic-type.json`, creating a PR and merging, the semantic types will be applied. Go to Bytebase console, click **Data Access > Semantic Types**, you can see the applied semantic types.
 
 ## Global Masking Rule
 
+[Global Masking Rule](/docs/security/data-masking/global-masking-rule/) is configured by the admin.
+
 ### In Bytebase Console
 
-Go to **Data Access > Global Masking** and click **Add**. You can create a new global masking rule with conditions and semantic type.
+Go to **Data Access > Global Masking** and click **Add**. You can create a new global masking rule mapping condition to a semantic type.
 
 ![bb-global-masking](/content/docs/tutorials/github-action-data-masking-part1/bb-global-masking.webp)
 
@@ -132,8 +134,6 @@ response=$(curl -s -w "\n%{http_code}" --request PATCH "${BYTEBASE_API_URL}/poli
    --data @"$CHANGED_FILE")
 ```
 
-By changing file `masking/global-masking-rule.json`, creating a PR and merge, you can apply the global masking rule to the database. Go to Bytebase console, click **Data Access > Global Masking** page, you can see the global masking rule is applied to the database.
-
-## Next Steps
+By changing file `masking/global-masking-rule.json`, creating a PR and merge, you can apply the global masking rules.
 
 Now you have successfully define semantic types and apply global masking rule using GitHub Actions and Bytebase API. In the next part of this tutorial, you'll learn how to apply column masking and masking exemption. Stay tuned!
