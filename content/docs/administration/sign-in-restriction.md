@@ -37,5 +37,5 @@ Domain restriction applies to:
 - Sign-in page. (Note that the new restriction only applies to the accounts registered after the `Workspace Domain` was updated)
   ![sign-in-domain-restriction](/content/docs/administration/sign-in-restriction/sign-in-domain-restriction.webp)
 
-- **Add User** in **IAM & Admin** -> **Users & Groups**. Users' email must be of the domain you set in both scenarios.
+- **Add User** in **IAM & Admin** -> **Users & Groups**. Users' email must be of the domain you set.
   ![add-user-domain-restriction](/content/docs/administration/sign-in-restriction/add-user-domain-restriction.webp)
