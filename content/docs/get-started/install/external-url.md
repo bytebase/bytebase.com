@@ -15,6 +15,8 @@ than the internal one.
 
 </HintBlock>
 
+For testing purpose, you can get an endpoint online with [ngrok](https://dashboard.ngrok.com/get-started/setup/macos) as external URL.
+
 When running Bytebase in production, you should not make the node that's running the Bytebase server directly accessible to the client. Instead, you should set up an gateway such as Nginx or Caddy to forward requests to Bytebase.
 
 Logically, you need to configure 2 endpoints, the external URL that users use to access the Bytebase console, and the GitOps Webhook URL that the VCS pushes the webhook event for GitOps workflow. The former usually is accessed from

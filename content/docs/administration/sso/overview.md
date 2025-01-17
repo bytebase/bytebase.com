@@ -16,16 +16,16 @@ Configure [External URL](/docs/get-started/install/external-url).
 
 ## Create SSO provider
 
-As a **Workspace Admin**, you can create a SSO provider with the following steps:
+As a **Workspace Admin**, you can create a SSO provider following the steps below:
 
-1. Go to the **Settings** page.
-
-   ![settings-sso](/content/docs/administration/sso/settings-sso.webp)
-
+1. In Workspace, go to **IAM & Admin** -> **SSO** from left side bar.
 2. Click **Create** to start creating SSO.
 3. Fill in all the required fields.
 
    ![create-sso-dialog](/content/docs/administration/sso/create-sso-dialog.webp)
+
+4. **Test Connection** on bottom left.
+5. If successfully connected, click **Update** on bottom right.
 
 ## Sign in with SSO
 
@@ -35,20 +35,20 @@ Bytebase employs JIT (Just-In-Time) user provisioning. It will create the user t
 
 </HintBlock>
 
-Once a valid SSO has been created, the user can choose the configured SSO provider to sign in.
+Once a valid SSO has been created, you can choose to sign in with the configured SSO provider.
 
 ![sign-in-with-github](/content/docs/administration/sso/sign-in-with-github.webp)
 
 ## Enforce SSO Sign-in
 
-As a **Workspace Admin**, you can enforce SSO sign-in for all users in the workspace.
+As `Workspace Admin`, you can enforce SSO sign-in for all users in Workspace.
 
-Go to the **Settings > Workspace > General**, find the **Security** section and turn on the **Disallow signin with email&password** option.
+In **Workspace**, go to **Settings** > **General**, scroll down to **Account** section and switch on `Disallow signin with email & password`. Then users can only sign in with SSO.
 
-![bb-disallow-emailpass-only-sso](/content/docs/administration/sso/bb-disallow-emailpass-only-sso.webp)
+![disallow-emailpass-only-sso](/content/docs/administration/sso/disallow-emailpass-only-sso.webp)
 
 Afterwards, when the user tries to sign in, the only option is to sign in with the configured SSO provider.
 
-![bb-only-sso](/content/docs/administration/sso/bb-only-sso.webp)
+![only-sso](/content/docs/administration/sso/only-sso.webp)
 
-In case of an emergency, the admin can log in by navigating to `<YOUR_URL>/auth/admin` and entering the email and password.
+In case of emergency, the admin can log in by navigating to `<YOUR_URL>/auth/admin` and entering the email and password.
