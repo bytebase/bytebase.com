@@ -14,13 +14,13 @@ In the creating SSO dialog, you need to fill following fields:
 
 ![oauth2-basic-information](/content/docs/administration/sso/oauth2-basic-information.webp)
 
-- **Name**: the display name shown to your users (e.g. `GitHub` will be shown as `Sign in with GitHub`)
-- **Identity Provider ID**: a human-readable unique string, only lower-case alphabets and hyphens are allowed (e.g. `github`)
-- **Domain**: the domain name to scope associated users (e.g. `github.com`, optional)
+- **Name**: the display name shown to your users (e.g. `Google` will be shown as `Sign in with Google`)
+- **Identity Provider ID**: a human-readable unique string, only lower-case alphabets and hyphens are allowed (e.g. `google-fsgs`)
+- **Domain**: the domain name to scope associated users (e.g. `google.com`, optional)
 
 ### Identity provider information
 
-The information is the base concept of [OAuth 2.0](https://oauth.net/2/) and comes from your provider.
+The information is the base concept of [OAuth 2.0](https://oauth.net/2) and comes from your provider.
 
 ![oauth2-identity-provider-information](/content/docs/administration/sso/oauth2-identity-provider-information.webp)
 
@@ -36,10 +36,11 @@ The information is the base concept of [OAuth 2.0](https://oauth.net/2/) and com
 
 ### User information mapping
 
-For different providers, the structures returned by their user information API are usually not the same. In order to know how to map the user information from an provider into Bytebase user fields, you need to fill the user information mapping form.
+For different providers, the structures returned by their user information API are usually not the same. That's why you need to fill an information mapping form for mapping user information into Bytebase user fields.
 
-Bytebase will use the mapping to import the user profile fields when creating new accounts.
-The most important user field mapping is the identifier which is used to identify the Bytebase account associated with the OAuth 2.0 login.
+Bytebase uses the mapping to import user profile fields when creating new accounts.
+
+The most important information is `Bytebase user's email`. It identifies the Bytebase account associated with the OAuth 2.0 login.
 
 ![oauth2-user-information-field-mapping](/content/docs/administration/sso/oauth2-user-information-field-mapping.webp)
 
@@ -77,7 +78,7 @@ Bytebase provides templates for configuring built-in OAuth providers.
 
 <PricingPlanBlock feature_name='SSO_BASIC' />
 
-1. Follow [Creating an OAuth App in GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) to create an OAuth app in GitHub.
+1. Follow [Creating an OAuth App in GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) to create an OAuth app in GitHub, where you replace `YOUR_EXTERNAL_URL` in the image below with the external URL you [configured](https://www.bytebase.com/docs/get-started/install/external-url) in Bytebase Workspace.
 
    ![github-oauth-app-config](/content/docs/administration/sso/github-oauth-app-config.webp)
 
