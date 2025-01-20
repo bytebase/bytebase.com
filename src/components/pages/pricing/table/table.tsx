@@ -41,13 +41,6 @@ const Table = () => {
       <section className="container gap-x-grid grid grid-cols-12 pt-20 xl:pt-16 md:pt-14 sm:pt-3.5">
         <h2 className="sr-only">Rate plans comparison</h2>
         <div className="relative z-20 col-span-3 col-start-2 3xl:col-span-4 3xl:col-start-1 sm:col-span-6">
-          <Image
-            src="/images/page/pricing/table-decor.webp"
-            width={338}
-            height={330}
-            alt=""
-            className="absolute -left-10 -top-[123px] max-w-none 3xl:-top-[124px] 3xl:left-0 3xl:h-auto 3xl:w-[345px] xl:-top-[83px] xl:w-[280px] md:-top-[10px] md:w-[225px] sm:-top-px xs:-left-[68px] xs:w-[204px]"
-          />
           <div
             className={clsx(
               'flex grow flex-col shadow-labels',
