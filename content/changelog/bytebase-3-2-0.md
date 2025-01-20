@@ -15,7 +15,7 @@ description: 'Selectively sync databases from an instance'
 
 - `Change History` module is renamed to `Changelog`. `ChangeHistory` API is removed, use `Changelog` API instead.
 - Changes initiated from the UI no longer carry the version, but changes initiated from GitOps still do.
-- Tasks with lower versions will block tasks with higher versions.
+- For the same database, tasks with lower versions will block tasks with higher versions.
 
 ## 🎄 Enhancements
 
