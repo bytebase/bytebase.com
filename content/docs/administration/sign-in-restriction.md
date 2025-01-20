@@ -22,7 +22,7 @@ You need to restart Bytebase to make the change take effect.
 
 ## Disallow Sign-in with Email & Password
 
-<PricingPlanBlock feature_name='SSO' />
+<PricingPlanBlock feature_name='DISALLOW_SIGNIN_WITH_EMAIL_PASSWORD' />
 
 Once [SSO](/docs/administration/sso/overview) is configured, you can [enforce SSO sign-in](/docs/administration/sso/overview/#enforce-sso-sign-in) for all users.
 

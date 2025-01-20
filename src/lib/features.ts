@@ -42,6 +42,7 @@ export const FEATURES = {
   SECRET_VARIABLE: 'Secret variable',
   EXTERNAL_SECRET_MANAGER: 'External Secret Manager',
   SSO: 'Single Sign-On (SSO)',
+  DISALLOW_SIGNIN_WITH_EMAIL_PASSWORD: 'Disallow signin with email & password',
   SCIM: 'SCIM',
   '2FA': 'Two-Factor Authentication (2FA)',
   SSH_TUNNEL: 'SSH Tunnel',
