@@ -98,3 +98,87 @@ If the DML change contains more than 5 statements, then all statements will be b
 - You can control whether you want to skip backup errors and continue changing the data.
 
 ![prior-backup-default](/content/docs/change-database/rollback-data-changes/bb-prior-backup-default.webp)
+
+## Appendix: Setting Up `bbdataarchive`
+
+### MySQL
+
+1. Create the `bbdataarchive` Database:
+
+   ```sql
+   CREATE DATABASE bbdataarchive;
+   ```
+
+1. Grant Necessary Privileges:
+
+   Replace `your_user` with the actual username.
+
+   ```sql
+   GRANT ALL PRIVILEGES ON bbdataarchive.* TO 'your_user'@'%';
+   FLUSH PRIVILEGES;
+   ```
+
+### PostgreSQL
+
+1. Create the `bbdataarchive` Schema:
+
+   ```sql
+   CREATE SCHEMA bbdataarchive;
+   ```
+
+1. Grant Necessary Privileges:
+
+   Replace `your_user` with the actual username.
+
+   ```sql
+   GRANT ALL PRIVILEGES ON SCHEMA bbdataarchive TO your_user;
+   GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA bbdataarchive TO your_user;
+   ```
+
+### Oracle
+
+1. Create the `bbdataarchive` User:
+
+   ```sql
+   CREATE USER bbdataarchive IDENTIFIED BY password;
+   ```
+
+1. Grant Connection Privileges:
+
+   ```sql
+   GRANT CREATE SESSION TO bbdataarchive;
+   ```
+
+1. Grant unlimited space quota to the `bbdataarchive` user on the specified `tablespace`:
+
+   Replace `tablespace_name` with the actual tablespace name.
+
+   ```sql
+   GRANT QUOTA UNLIMITED ON tablespace_name TO bbdataarchive;
+   ```
+
+1. Grant Privileges to the Instance Administrator:
+
+   Replace `admin_user` with the actual username of the instance administrator.
+
+   ```sql
+   GRANT CREATE ANY TABLE TO admin_user;
+   GRANT SELECT ANY TABLE TO admin_user;
+   ```
+
+### SQL Server
+
+1. Create the `bbdataarchive` Database:
+
+   ```sql
+   CREATE DATABASE bbdataarchive;
+   ```
+
+1. Grant Necessary Privileges:
+
+   Replace `your_user` with the actual username.
+
+   ```sql
+   USE bbdataarchive;
+   GRANT CONTROL ON DATABASE::bbdataarchive TO your_user;
+   ```
