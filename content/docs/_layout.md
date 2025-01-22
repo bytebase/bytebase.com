@@ -139,13 +139,23 @@ expand_section_list: ['Self-host']
 
 ### [Overview](/vcs-integration/overview)
 
-### [Add Git Provider](/vcs-integration/add-git-provider)
+### Simple GitOps
 
-### [Add GitOps Connector in Project](/vcs-integration/add-gitops-connector)
+#### [Overview](/vcs-integration/simple/overview)
 
-### [Create Migration Files](/vcs-integration/create-migration-files)
+#### [Add Git Provider](/vcs-integration/add-git-provider)
 
-### [Troubleshoot 🐞](/vcs-integration/troubleshoot)
+#### [Add GitOps Connector in Project](/vcs-integration/add-gitops-connector)
+
+#### [Create Migration Files](/vcs-integration/create-migration-files)
+
+#### [Troubleshoot 🐞](/vcs-integration/troubleshoot)
+
+### Custom GitOps
+
+#### [Overview](/vcs-integration/custom/overview)
+
+#### [Release](/vcs-integration/custom/release)
 
 ## SQL Editor
 
