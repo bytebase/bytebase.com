@@ -9,7 +9,8 @@ feature_name: CUSTOM_APPROVAL
 
 <HintBlock type="info">
 
-You **can not** self-approve your own created issue even if you are a qualified approver. But you **can** [roll out](/docs/administration/environment-policy/rollout-policy/) your own issue if qualified.
+By default, you **can not** self-approve your own created issue even if you are a qualified approver. You
+can toggle this behavior under project settings.
 
 </HintBlock>
 
