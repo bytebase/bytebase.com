@@ -462,3 +462,5 @@ ulimit -n 10240
 - [Deploy to Zeabur](/docs/get-started/install/deploy-to-zeabur/)
 
 - [Deploy to Alibaba Cloud](/docs/get-started/install/deploy-to-alibabacloud/)
+
+- [Deploy to AWS Fargate](/docs/get-started/install/deploy-to-fargate/)
