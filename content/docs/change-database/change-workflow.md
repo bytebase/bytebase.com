@@ -14,7 +14,7 @@ There are 2 typical workflows employed by the team to deal with database schema 
 
 <HintBlock type="info">
 
-Release is only used in [Custom GitOps workflow](/docs/vcs-integration/custom/overview/).
+Release is only used in [Custom GitOps workflow](/docs/vcs-integration/custom/overview/). Like a Docker image, a `release` is immutable after it is created.
 
 </HintBlock>
 
