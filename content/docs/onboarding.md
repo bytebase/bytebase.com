@@ -98,6 +98,17 @@ Related features (in addition to Phase 1):
 - [Changelist](/docs/changelist/)
 - [Online Schema Migration (MySQL only)](/docs/change-database/online-schema-migration-for-mysql/)
 
+## How to Organize Projects
+
+Bytebase has a `Project` concept to group logically related `Databases`, `Issues` and `Users` together. This
+is similar to the project concept in other tools such as Jira, GitLab.
+
+We recommend you to put databases sharing the same schema structure into the same project. For example,
+if you have a multi-tenant SaaS application, you can put all the tenant databases into the same project.
+
+If you have a single team managing databases with different schema structure, you can create a project for each
+schema structure, and create a [user group](/docs/administration/user-groups/) for the team. You then grant the project role to the user group.
+
 ## Configuration Guideline
 
 Bytebase provides settings at the workspace, environment, project levels. Below we provide a sample configuration settings for a typical scenarios:
