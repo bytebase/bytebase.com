@@ -8,6 +8,34 @@ For a typical change workflow, a developer first submits the SQL statement for D
 
 There are 2 typical workflows employed by the team to deal with database schema changes (DDL) and data changes (DML). [UI workflow](#ui-workflow) and [GitOps workflow (GitOps)](#gitops-workflow).
 
+## Core Concepts
+
+### Release
+
+<HintBlock type="info">
+
+Release is only used in [Custom GitOps workflow](/docs/vcs-integration/custom/overview/).
+
+</HintBlock>
+
+A `release` is a deployable unit that encapsulates a set of SQL statements. You can think of a `release` as a collection of SQL statements layered on top of a scratch Docker image.
+
+### Rollout
+
+To roll out the changes, Bytebase creates a multi-stage rollout pipeline from you project deployment config setting. The changes are pushed to databases stage by stage.
+
+### Issue
+
+`Issue` adds the collaboration such as approval, comment, and notification to the database change process. An issue is often created via the UI workflow. On the other hand, an issue may not be created via the GitOps workflow since the GitOps workflow may only need the [rollout](/docs/change-database/change-workflow/#rollout) without further human intervention.
+
+### Revision
+
+`Revision` records the versioned changes applied to a database. You can get a database from version A to version B by replaying the revisions between A and B. When applying a [release](/docs/change-database/change-workflow/#release) to a database, the changes with a version present in the revision are skipped so that the same changes are not applied twice.
+
+### Changelog
+
+`Changelog` records all changes applied to a database, whether they are versioned or not, successfully applied or not. This includes change database [issues](/docs/change-database/change-workflow/#issue) created on Bytebase UI or [rollout](/docs/change-database/change-workflow/#rollout) via Bytebase APIs, but NOT changes from Bytebase SQL Editor or other external database tools. Changelog offers you insights into the database schema evolution.
+
 ## UI workflow
 
 Classic SQL Review workflow where the developer submits a SQL review ticket directly from Bytebase and waits for the assigned DBA or peer developer to review. Bytebase applies the SQL change after review approved.
