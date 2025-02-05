@@ -1,8 +1,7 @@
 ---
 title: How to Configure Dynamic Data Masking
 author: Ningjing
-updated_at: 2024/10/08 20:00
-feature_image: /content/docs/tutorials/step-by-step-guide-to-data-masking/data-mask-banner.webp
+updated_at: 2025/02/05 18:00
 tags: Tutorial
 integrations: General
 level: Intermediate
@@ -21,7 +20,7 @@ from being exposed to unauthorized users.
 <HintBlock type="info">
 
 This tutorial covers configuration via UI console. You can also codify the masking policies, check
-out [this sample](https://github.com/bytebase/database-security-github-actions-example).
+out [this sample](https://github.com/bytebase/database-security-github-actions-example/tree/main/masking).
 
 </HintBlock>
 
@@ -44,69 +43,87 @@ out [this sample](https://github.com/bytebase/database-security-github-actions-e
 
 Enter **SQL Editor** on top right. Without any worksheet open (no tab page open on top), click **Connect to a database** or **Select a database to start**.
 
-![sql-editor-entry](/content/docs/tutorials/step-by-step-guide-to-data-masking/sql-editor-entry.webp)
+![sql-editor-entry](/content/docs/tutorials/data-masking/sql-editor-entry.webp)
 
 Choose database `hr_prod` under `Prod Sample Instance` within the Connection detail page. Run `SELECT * FROM employee;`, you'll see the following result without any masking.
 
-![prod-without-masking](/content/docs/tutorials/step-by-step-guide-to-data-masking/prod-without-masking.webp)
+![prod-without-masking](/content/docs/tutorials/data-masking/prod-without-masking.webp)
 
-Run the same query against database `hr_test`, the result is the same.
+### Semantic Types
+
+Semantic type is a way to classify data into different categories. You may apply them to columns to apply the same masking rule.
+
+1. Enter **Data Access > Semantic Types**, click **Add**.
+1. Fill in the name, description and specify the **Masking Algorithm**. Click the check mark.
+
+![bb-semantic-type](/content/docs/tutorials/data-masking/bb-semantic-type.webp)
+
+There are two ways to apply the semantic type and its masking algorithm:
+
+1. Apply to a column directly.
+2. Apply according to a global masking rule.
+
+### Column Masking Rule
+
+As a project owner, you may want to apply the semantic type to a column, usually it's a column that you want to mask on production environment.
+
+1. Go into the project `Sample Project`, and click database `hr_prod`.
+
+1. Go into the `employee` table, and set the `birth_date` column to apply the `birth_date` semantic type.
+
+   ![bb-column-semantic-type](/content/docs/tutorials/data-masking/bb-column-semantic-type.webp)
+
+1. Go back to SQL Editor, run `SELECT * FROM employee;` within `hr_prod`. You'll see the `birth_date` is masked based on the masking algorithm.
+
+   ![bb-sql-editor-column-masking](/content/docs/tutorials/data-masking/bb-sql-editor-column-masking.webp)
 
 ### Global Masking Rule
 
-You may want to batch apply masking settings. Use [Global Masking Rule](/docs/security/data-masking/global-masking-rule/) to achieve this.
+As a DBA, you may want to batch apply masking settings. Use [Global Masking Rule](/docs/security/data-masking/global-masking-rule/) to achieve this.
 
-Here for example, we'll mask all the `birth_date` columns in all tables.
+1. Enter **Data Access > Semantic Types**, click **Use Predefined Type**.
+1. Add the predefined type `Default`.
+1. Enter **Data Access > Global Masking Rule**, click **Add**.
+1. Here define a global masking rule to mask all the `birth_date` columns in all tables on production environment with semantic type `Default`, and click **Confirm**.
 
-1. Within Workspace, enter **Security & Policy** > **Data Masking** on the left. Click **Add** on top right of `Global Masking Rule` page.
+   ![bb-global-masking-rule](/content/docs/tutorials/data-masking/bb-global-masking-rule.webp)
 
-2. Name the rule as `birth_date should be masked`, select `Column name`, `==`. Fill `birth_date` in the input box, and **Confirm**.
-   ![global-birth-date](/content/docs/tutorials/step-by-step-guide-to-data-masking/global-birth-date.webp)
+1. Go back to SQL Editor, run `SELECT * FROM employee;` within `hr_prod`. You'll see the `birth_date` is masked.
 
-3. Go back to SQL Editor. Run `SELECT * FROM employee;` within `hr_prod` again. You'll see the `birth_date` is masked. Result within `hr_test` is the same.
-   ![query-prod-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/query-prod-masked.webp)
+   ![bb-sql-editor-column-masking](/content/docs/tutorials/data-masking/bb-sql-editor-column-masking.webp)
 
-For a more organized and hierarchical global masking management, check [Data Classification](/docs/security/data-masking/data-classification/).
+1. You may also notice that the global masking rule take precedence over the column masking rule.
 
 ### Export data with masked columns
 
 Exported data is masked in the same way as query results.
 
 1. Stay on the SQL Editor after querying, and click **Export**.
-   ![prod-export](/content/docs/tutorials/step-by-step-guide-to-data-masking/prod-export.webp)
 
-2. Fill in the export rows number, choose the format and click **Confirm**. The file will start downloading.
+   ![bb-sql-editor-export](/content/docs/tutorials/data-masking/bb-sql-editor-export.webp)
 
-3. Open the downloaded file, you'll see the `birth_date` is masked.
-   ![exported-data](/content/docs/tutorials/step-by-step-guide-to-data-masking/exported-data.webp)
+1. Fill in the export rows number, choose the format and click **Confirm**. The file will start downloading.
 
-### Column Masking Rule
+1. Open the downloaded file, you'll see the `birth_date` is masked.
 
-If you want to mask a specific column in a specific table, you can use **Column Masking Rule**.
+   ![exported-data](/content/docs/tutorials/data-masking/exported-data.webp)
 
-1. Enter **Database** > **Databases** within `Sample Project`. Choose table `salary` of database `hr_prod`.
+### Masking Exemptions
 
-2. Click the pencil icon by `Masking level` of row `amount`, choose `Full` for Masking level in Setting detail page.
-   ![prod-salary-amount](/content/docs/tutorials/step-by-step-guide-to-data-masking/prod-salary-amount.webp)
+You can reveal masked data to a specific user by granting masking exemption.
 
-3. Go back to SQL Editor. Run `SELECT * FROM salary;` within `hr_prod`. You'll see `amount` been masked.
-   ![query-prod-salary-amount-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/query-prod-salary-amount-masked.webp)
+1. Go into the project `Sample Project`, and click **Manage > Masking Exemptions**.
+1. Grant exemption to the user and click **Confirm**.
 
-   Switch to database `hr_test` to run the same command, `amount` will appear not masked.
+   ![bb-masking-exemption](/content/docs/tutorials/data-masking/bb-masking-exemption.webp)
 
-   ![query-prod-salary-amount-masked](/content/docs/tutorials/step-by-step-guide-to-data-masking/query-prod-salary-amount-masked.webp)
+1. Go back to SQL Editor, run `SELECT * FROM employee;` within database `hr_prod`. You'll see the `birth_date` is unmasked.
 
-### Grant unmasked access to a user
+   ![bb-sql-editor-exemption](/content/docs/tutorials/data-masking/bb-sql-editor-exemption.webp)
 
-You can reveal masked data to a specific user by granting unmasked access.
+1. If you export the data, the `birth_date` is also unmasked.
 
-1. Locate the column and click the pencil icon by `Masking level` of row `amount`, **Grant Access**. Select the user and **Confirm**.
-   ![grant-access](/content/docs/tutorials/step-by-step-guide-to-data-masking/grant-access.webp)
-
-   ![grant-access-detail](/content/docs/tutorials/step-by-step-guide-to-data-masking/grant-access-detail.webp)
-
-1. Login as the granted user. Run `SELECT * FROM salary;` within database `hr_prod` in SQL Editor. `amount` data is shown as unmasked.
-   ![dba-query-salary](/content/docs/tutorials/step-by-step-guide-to-data-masking/dba-query-salary.webp)
+   ![exported-data-exemption](/content/docs/tutorials/data-masking/exported-data-exemption.webp)
 
 ## Related content
 
