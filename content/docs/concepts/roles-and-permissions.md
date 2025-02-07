@@ -149,7 +149,7 @@ User can save sheets from [SQL Editor](/docs/sql-editor/overview). A sheet alway
 
 | Issue Permission          | Assignee | Creator | SQL Editor User | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
 | ------------------------- | -------- | ------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
-| Create issue              | N/A      | N/A     | ✔️              | ✔️               | ✔️                | ✔️            | ✔️            | ✔️              |
+| Create issue              | N/A      | N/A     |                 | ✔️               | ✔️                | ✔️            | ✔️            | ✔️              |
 | Re-assign issue           | ✔️       | ✔️      |                 |                  |                   |               | ✔️            | ✔️              |
 | Change issue status       | ✔️       |         |                 |                  |                   | Depends\*     | ✔️            | ✔️              |
 | Edit name and description | ✔️       | ✔️      |                 |                  |                   |               | ✔️            | ✔️              |
