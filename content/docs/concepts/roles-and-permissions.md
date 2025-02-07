@@ -91,7 +91,6 @@ Any user can create project. By default, the project creator is granted the `Pro
 
 | Project Permission           | SQL Editor User | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
 | ---------------------------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
-| Sync sheet from VCS          |                 |                  | ✔️                | ✔️            | ✔️            | ✔️              |
 | Change project role          |                 |                  |                   | ✔️            | ✔️            | ✔️              |
 | Edit project                 |                 |                  |                   | ✔️            | ✔️            | ✔️              |
 | Archive project              |                 |                  |                   | ✔️            | ✔️            | ✔️              |
@@ -148,7 +147,6 @@ User can save sheets from [SQL Editor](/docs/sql-editor/overview). A sheet alway
 | Issue Permission          | Assignee | Creator | SQL Editor User | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
 | ------------------------- | -------- | ------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
 | Create issue              | N/A      | N/A     |                 | ✔️               | ✔️                | ✔️            | ✔️            | ✔️              |
-| Re-assign issue           | ✔️       | ✔️      |                 |                  |                   |               | ✔️            | ✔️              |
 | Change issue status       | ✔️       |         |                 |                  |                   | Depends\*     | ✔️            | ✔️              |
 | Edit name and description | ✔️       | ✔️      |                 |                  |                   |               | ✔️            | ✔️              |
 | Edit SQL Statement        |          | ✔️      |                 |                  |                   |               |               |                 |
