@@ -105,8 +105,6 @@ Bytebase does not define database specific roles. Whether a user can perform cer
 | ------------------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
 | Query               | ✔️              |                  |                   | ✔️            | ✔️            | ✔️              |
 | Export              |                 | ✔️               |                   | ✔️            | ✔️            | ✔️              |
-| Take manual backup  |                 |                  | ✔️                | ✔️            | ✔️            | ✔️              |
-| Enable backup       |                 |                  |                   | ✔️            | ✔️            | ✔️              |
 | Edit database label |                 |                  |                   | ✔️            | ✔️            | ✔️              |
 | Transfer database   |                 |                  |                   | ✔️            | ✔️            | ✔️              |
 
