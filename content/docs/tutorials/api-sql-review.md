@@ -36,7 +36,9 @@ This tutorial will guide you through configuring SQL review rules using the Byte
 
 1. Go to [Bytebase API Example repo](https://github.com/bytebase/api-example) and clone it.
 
-1. Go to subfolder `sql-review`, and follow the instructions in  `README.md` of  to run the scripts. replace the `bytebase_url`, `bytebase_account`, `bytebase_password` with your own values. Then you will get a `bytebase_token` looks like `ey....9V8s`.
+1. Navigate to the `sql-review` subfolder and follow the instructions in the `README.md` file of the example code repository to execute the scripts.
+   
+1. Replace `bytebase_url`, `bytebase_account`, and `bytebase_password` in the commands below with your own values, then run them to obtain a `bytebase_token` in your terminal.
 
    ```bash
    export bytebase_url=http://localhost:8080
@@ -54,12 +56,12 @@ This tutorial will guide you through configuring SQL review rules using the Byte
 
    ```bash
    curl --request PATCH "${bytebase_url}/v1/reviewConfigs/basic?allow_missing=true&update_mask=rules" \
-  --header 'Authorization: Bearer '${bytebase_token} \
-  --data @policy/basic.json
+      --header 'Authorization: Bearer '${bytebase_token} \
+      --data @policy/basic.json
 
    curl --request PATCH "${bytebase_url}/v1/reviewConfigs/advanced?allow_missing=true&update_mask=rules" \
-  --header 'Authorization: Bearer '${bytebase_token} \
-  --data @policy/advanced.json
+      --header 'Authorization: Bearer '${bytebase_token} \
+      --data @policy/advanced.json
    ```
 
 1. In the Bytebase console, navigate to **CI/CD > SQL Review** to see the applied SQL review rules. You may click **Edit** to change the rules.
