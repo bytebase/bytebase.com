@@ -121,10 +121,10 @@ We'll apply these SQL review rules to `environments` or `projects`. Project-leve
 
    ```bash
    curl --request DELETE ${bytebase_url}/v1/reviewConfigs/basic \
-  --header 'Authorization: Bearer '${bytebase_token}
+      --header 'Authorization: Bearer '${bytebase_token}
 
    curl --request DELETE ${bytebase_url}/v1/reviewConfigs/advanced \
-  --header 'Authorization: Bearer '${bytebase_token}
+      --header 'Authorization: Bearer '${bytebase_token}
    ```
 
 ## Summary
