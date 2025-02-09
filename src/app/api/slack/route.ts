@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 const slackWebhookList = [
-  'https://hooks.slack.com/services/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',
+  'https://hooks.slack.com/services/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',
 ];
 
 export async function POST(request: Request) {
