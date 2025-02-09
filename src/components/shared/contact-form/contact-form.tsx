@@ -132,7 +132,8 @@ const ContactForm = ({
             body: JSON.stringify({
               text: `${formId} by ${firstname} ${lastname} (${email}) from ${company}\n\n${message}`,
             }),
-          }),
+            // Workaround for the CORS issue.
+          }).then(() => new Response('', { status: 200 })),
         ),
       ]);
 
