@@ -22,9 +22,6 @@ const feishuWebhookList = [
   'https://open.feishu.cn/open-apis/bot/v2/hook/5a2a1fe6-2ed8-4c0b-8621-0be9ebd188ec',
 ];
 
-// This is a zapier webhook which in turns posts to Slack to workaround the CORS issue.
-const slackWebhookList = ['https://hooks.zapier.com/hooks/catch/12340893/2aacw9b/'];
-
 type ValueType = {
   firstname: string;
   lastname: string;
@@ -121,20 +118,20 @@ const ContactForm = ({
             }),
           }),
         ),
-        ...slackWebhookList.map((url) =>
-          fetch(url, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-              'Content-Type': 'application/json',
-              Accept: 'application/json, text/plain, */*',
-            },
-            body: JSON.stringify({
-              text: `${formId} by ${firstname} ${lastname} (${email}) from ${company}\n\n${message}`,
-            }),
-            // Workaround for the CORS issue.
-          }).then(() => new Response('', { status: 200 })),
-        ),
+        fetch('/api/slack', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            formId,
+            firstname,
+            lastname,
+            email,
+            company,
+            message,
+          }),
+        }),
       ]);
 
       if (responses.every((response) => response.ok)) {
