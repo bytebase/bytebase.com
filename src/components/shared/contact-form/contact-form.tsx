@@ -22,6 +22,10 @@ const feishuWebhookList = [
   'https://open.feishu.cn/open-apis/bot/v2/hook/5a2a1fe6-2ed8-4c0b-8621-0be9ebd188ec',
 ];
 
+const slackWebhookList = [
+  'https://hooks.slack.com/services/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',
+];
+
 type ValueType = {
   firstname: string;
   lastname: string;
@@ -102,8 +106,20 @@ const ContactForm = ({
         });
       }
 
-      const responses = await Promise.all(
-        feishuWebhookList.map((url) =>
+      const responses = await Promise.all([
+        ...slackWebhookList.map((url) =>
+          fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json, text/plain, */*',
+            },
+            body: JSON.stringify({
+              text: `${formId} by ${firstname} ${lastname} (${email}) from ${company}\n\n${message}`,
+            }),
+          }),
+        ),
+        ...feishuWebhookList.map((url) =>
           fetch(url, {
             method: 'POST',
             headers: {
@@ -118,7 +134,7 @@ const ContactForm = ({
             }),
           }),
         ),
-      );
+      ]);
 
       if (responses.every((response) => response.ok)) {
         if (formId == VIEW_LIVE_DEMO) {
