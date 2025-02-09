@@ -23,10 +23,26 @@ export async function POST(request: Request) {
       ),
     );
 
-    if (!responses.every((response) => response.ok)) {
-      return NextResponse.json({ error: 'Failed to send to Slack' }, { status: 500 });
-    }
+    const failedResponses = await Promise.all(
+      responses.map(async (response) => {
+        if (!response.ok) {
+          const error = await response.text();
+          return error;
+        }
+        return null;
+      }),
+    );
+    const errors = failedResponses.filter(Boolean);
 
+    if (errors.length > 0) {
+      return NextResponse.json(
+        {
+          error: 'Failed to send to Slack',
+          details: errors,
+        },
+        { status: 500 },
+      );
+    }
     return NextResponse.json({ success: true });
   } catch (error) {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
