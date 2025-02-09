@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const slackWebhookList = [process.env.SLACK_WEBHOOK_URL];
+const slackWebhookList = [process.env.SLACK_WEBHOOK_URL as string];
 
 export async function POST(request: Request) {
   try {
