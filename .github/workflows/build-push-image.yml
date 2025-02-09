@@ -39,6 +39,7 @@ jobs:
             MAILCHIMP_API_KEY=${{ secrets.MAILCHIMP_API_KEY }}
             MAILCHIMP_AUDIENCE_ID=${{ secrets.MAILCHIMP_AUDIENCE_ID }}
             MAILCHIMP_API_SERVER=${{ secrets.MAILCHIMP_API_SERVER }}
+            SLACK_WEBHOOK_URL=${{ secrets.SLACK_WEBHOOK_URL }}
 
       - name: Image digest
         run: echo "Successfully pushed bytebase/website" ${{ steps.docker_build.outputs.digest }}
