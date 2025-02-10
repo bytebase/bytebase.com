@@ -38,8 +38,6 @@ const SOLUTIONS_DATA: SolutionsData = {
       getBlogPostBySlug('longbridge-case-study')!,
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('salla-case-study')!,
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('cvte-case-study')!,
     ],
     quote:
       'Bytebase enables us to automate the database change process. In particular, its batch mode ensures consistent changes across all databases for each of our tenants.',
@@ -57,11 +55,9 @@ const SOLUTIONS_DATA: SolutionsData = {
     },
     caseStudyList: [
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      getBlogPostBySlug('note-case-study')!,
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('salla-case-study')!,
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('longbridge-case-study')!,
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('cvte-case-study')!,
     ],
     quote:
       'We use Bytebase to manage our multi-region database migrations. Bytebase has been great and their team has been very responsive in addressing any requests we’ve had.',
@@ -82,10 +78,6 @@ const SOLUTIONS_DATA: SolutionsData = {
       getBlogPostBySlug('cvte-case-study')!,
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('ev-manufacturer-case-study')!,
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('salla-case-study')!,
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('longbridge-case-study')!,
     ],
     quote:
       'Bytebase enables us to automate the database change process. In particular, its batch mode ensures consistent changes across all databases for each of our tenants.',
