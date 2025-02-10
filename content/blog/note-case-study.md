@@ -1,5 +1,5 @@
 ---
-title: How note inc. Implements Just-in-Time (JIT) Database Access Control with Bytebase
+title: How note.com Implements Just-in-Time (JIT) Database Access Control with Bytebase
 author: Cayden
 updated_at: 2025/02/06 21:21:21
 feature_image: /content/blog/note-case-study/banner.webp
