@@ -26,7 +26,7 @@ Bytebase, as a database change management tool designed for developer teams, not
 
 ## Building a Data Classification System
 
-Data classification helps organizations efficiently identify sensitive data and provide appropriate security policies to meet various compliance requirements. However, data classification efforts were often tokenistic. This was mainly due to the lack of consideration on how to align classification data with security policies during implementation. Early on, the PayerMax team identified this challenge, with their primary goal being to leverage data classification to effectively control access permissions for querying, exporting, and modifying specific data.
+[Data classification](/docs/security/data-masking/data-classification/) helps organizations efficiently identify sensitive data and provide appropriate security policies to meet various compliance requirements. However, data classification efforts were often tokenistic. This was mainly due to the lack of consideration on how to align classification data with security policies during implementation. Early on, the PayerMax team identified this challenge, with their primary goal being to leverage data classification to effectively control access permissions for querying, exporting, and modifying specific data.
 
 Once the target was clear, the next step was to design a solution that was easy to store and maintain the classification data. Two common options are:
 
@@ -38,7 +38,7 @@ Another challenge is initializing classification labels for large amounts of exi
 
 - **Automatic**: The automatic data classification based on data content is typically only about 50% accurate, requiring manual review to validate all data. In the global business system, the complexity of field content can further reduce accuracy. Additionally, the team’s own classification standards often aren't compatible with automated tools. As a result, automatic data classification has limited practical value.
 
-- **Fully Manual**: The development team manually categorizes and tags business data based on a unified standard.
+- **Manual**: The development team manually categorizes and tags business data based on a unified standard.
 
 PayerMax applied the **DevSecOps** concept in its data classification practices. The security team defines the standards and imports them into Bytebase, then embeds classification data in the schema comment field. The security team audits and controls the workflow and results via Bytebase.
 
@@ -46,11 +46,11 @@ PayerMax applied the **DevSecOps** concept in its data classification practices.
 
 ## Data Access Compliance
 
-Under conventional security strategies, strict centralized controls often limit developer teams' access to databases, which can significantly impact development efficiency. Applying the **DevSecOps** concept, PayerMax built a two-layer data access control system using Bytebase. This system integrates security policies into the development workflow, allowing developer teams to self-manage limited access permissions for specific needs under global security control.
+Under conventional security strategies, strict centralized controls often limit developer teams' access to databases, which can significantly impact development efficiency. Applying the **DevSecOps** concept, PayerMax built a two-layer [data access control system](/docs/security/database-permission/overview/) using Bytebase. This system integrates security policies into the development workflow, allowing developer teams to self-manage limited access permissions for specific needs under global security control.
 
-- **First layer:** Database Access Groups by Project: In this layer, different business units can only access the databases related to their projects. Global administrators grant each team leader an admin role for specific projects, and the leader then determines the access permissions of team members within the project. All changes in permissions are audited, and global administrators regularly monitor and review them.
+- **First layer, Database Access Groups by Project:** In this layer, different business units can only access the databases related to their projects. Global administrators grant each team leader an admin role for specific projects, and the leader then determines the access permissions of team members within the project. All changes in permissions are audited, and global administrators regularly monitor and review them.
 
-- **Second layer:** Fine-Grained Data Access Control: Global security administrators create global security policies, such as defining data masking strategies based on classification data, and enforce these policies across all projects.
+- **Second layer, Fine-Grained Data Access Control:** Global security administrators create global security policies, such as defining data masking strategies based on classification data, and enforce these policies across all projects.
 
 In this security framework, business unit leaders, who are most familiar with their team's needs, are empowered to allocate data access permissions efficiently without relying on DBAs or security officers. Meanwhile, global security policies ensure compliance with sensitive data access, balancing efficiency and security.
 
@@ -64,7 +64,7 @@ Since classification data is embedded in the database schema and maintained by t
 
 ## Integrating Secret Management Service to Enhance Platform Security
 
-Database credentials are another key concern for the PayerMax team. Bytebase offers integration with an external secret management service, eliminating the need to store plaintext credentials in Bytebase. Instead, the credentials are managed by a dedicated service and called on-demand, providing higher security. Bytebase supports several mainstream solutions, including HashiCorp Vault, AWS Secrets Manager, and GCP Secret Manager, and also supports custom secret management service.
+Database credentials are another key concern for the PayerMax team. Bytebase offers integration with an [external secret management service](/docs/get-started/instance/#use-external-secret-manager), eliminating the need to store plaintext credentials in Bytebase. Instead, the credentials are managed by a dedicated service and called on-demand, providing higher security. Bytebase supports several mainstream solutions, including HashiCorp Vault, AWS Secrets Manager, and GCP Secret Manager, and also supports custom secret management service.
 
 ![secret-manager](/content/blog/payermax-case-study/secret-manager.webp)
 
