@@ -243,7 +243,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
         {topBanner && <Banner bannerText={topBanner.title} bannerUrl={topBanner.pathname} />}
 
         <nav
-          className="container flex items-center py-[18px] md:justify-between md:py-[10px]"
+          className="mx-auto flex w-full max-w-[1920px] items-center px-10 py-[18px] md:justify-between md:py-[10px] sm:px-4"
           aria-label="Global"
         >
           <Link className="shrink-0" href="/">
