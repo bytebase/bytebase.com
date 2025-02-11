@@ -7,7 +7,7 @@ const Promo = () => {
 
   return (
     <Link
-      className="flex flex-col justify-between rounded-xl bg-primary-1 p-5 text-white hover:bg-primary-2 lg:col-span-5 lg:col-start-2 md:col-span-6 sm:col-span-full sm:rounded-[4px]"
+      className="flex w-full flex-col justify-between rounded-xl bg-primary-1 p-5 text-white hover:bg-primary-2 sm:rounded-[4px]"
       href={aside.pathname}
     >
       <div>
