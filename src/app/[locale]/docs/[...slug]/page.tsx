@@ -56,7 +56,7 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
 
   return (
     <>
-      <article className="col-span-6 col-start-4 flex flex-col lg:col-span-9 md:col-span-full">
+      <article className="col-span-3 col-start-2 flex flex-col lg:col-span-4 md:col-span-full">
         <PostLayout
           title={title}
           featureImage={feature_image || null}
@@ -70,11 +70,11 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
           <Content content={content} />
         </PostLayout>
       </article>
-      <aside className="scrollbar-hidden lg:gap-x-grid sticky top-[144px] col-span-3 ml-auto flex max-h-[calc(100vh-40px)] w-full flex-col overflow-y-auto lg:col-span-full lg:mt-14 lg:grid lg:grid-cols-12 md:mt-10 sm:mt-8 sm:gap-y-4">
+      <aside className="scrollbar-hidden lg:gap-x-grid sticky top-[144px] col-span-1 ml-auto flex max-h-[calc(100vh-40px)] w-full flex-col overflow-y-auto lg:col-span-full lg:col-start-2 lg:mt-14 lg:grid md:col-span-full md:col-start-2 md:mt-10 sm:mt-8 sm:gap-y-4">
         {tableOfContents && tableOfContents.length > 0 && (
           <TableOfContents items={tableOfContents} className="overflow-y-auto" hasBackToTop />
         )}
-        <div className="mt-4 flex w-full flex-col items-start justify-start pl-5">
+        <div className="mt-4 flex w-full flex-col items-start justify-start pl-5 lg:pl-0">
           <Promo />
         </div>
       </aside>
