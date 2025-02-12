@@ -2,13 +2,13 @@
 title: 'OpenAI vs. DeepSeek: SSN Database Schema Design'
 author: Tianzhou
 updated_at: 2025/02/12 21:21:21
-feature_image: /content/blog/openai-vs-deepSeek-ssn-database-schema-design/banner.webp
+feature_image: /content/blog/openai-vs-deepseek-ssn-database-schema-design/banner.webp
 tags: Industry
 featured: true
 description: 'How OpenAI and DeepSeek designs SSN database schema.'
 ---
 
-![debate](/content/blog/openai-vs-deepSeek-ssn-database-schema-design/debate.webp)
+![debate](/content/blog/openai-vs-deepseek-ssn-database-schema-design/debate.webp)
 
 Elon Musk's comment about SSN database de-duplication has sparked significant debate within the developer community. Many software engineers have dismissed his remark. Let's see how OpenAI and DeepSeek designs this SSN database schema.
 
