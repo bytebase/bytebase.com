@@ -18,6 +18,13 @@ See [Configure External URL](/docs/get-started/install/external-url).
 
 See [Configure External PostgreSQL](/docs/get-started/install/external-postgres).
 
+## High Availability (HA)
+
+You can only run a single Bytebase instance at any point it time. In another word, you can scale-up the instance but not scale-out the instance to multiple replicas.
+
+Restarting the Bytebase instance usually takes under 10 seconds. To minimize the downtime, you should
+store the metadata in an [external PostgreSQL](/docs/administration/production-setup/#store-metadata-in-external-postgresql) and make sure the PostgreSQL instance is highly available.
+
 ## Kubernetes
 
 ### Use Persistent Volume
@@ -38,7 +45,7 @@ If you self-host Bytebase in the cloud provider, below is the recommended stack.
 
 - EC2 + RDS for PostgreSQL.
 - ECS/EKS + RDS for PostgreSQL.
-- (Less common) Fargate + RDS for PostgreSQL.
+- [Fargate + RDS for PostgreSQL](/docs/get-started/self-host/#aws-fargate).
 
 ### GCP
 
