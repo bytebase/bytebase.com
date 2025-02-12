@@ -10,7 +10,7 @@ description: 'How OpenAI and DeepSeek designs SSN database schema.'
 
 ![debate](/content/blog/openai-vs-deepseek-ssn-database-schema-design/debate.webp)
 
-Elon Musk's comment about SSN database de-duplication has sparked significant debate within the developer community. Many software engineers have dismissed his remark. Let's see how OpenAI and DeepSeek designs this SSN database schema.
+[Elon Musk's comment](https://x.com/elonmusk/status/1888484555092312466) about SSN database de-duplication has sparked significant debate within the developer community. Many software engineers have dismissed his remark. Let's see how OpenAI and DeepSeek designs this SSN database schema.
 
 ## What is SSN?
 
