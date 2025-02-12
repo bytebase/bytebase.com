@@ -1,12 +1,14 @@
 ---
-title: 'OpenAI vs DeepSeek: SSN Database Schema Design'
+title: 'OpenAI vs. DeepSeek: SSN Database Schema Design'
 author: Tianzhou
 updated_at: 2025/02/12 21:21:21
-feature_image: /content/blog/openai-vs-DeepSeek-ssn-database-schema-design/banner.webp
+feature_image: /content/blog/openai-vs-deepSeek-ssn-database-schema-design/banner.webp
 tags: Industry
 featured: true
 description: 'How OpenAI and DeepSeek designs SSN database schema.'
 ---
+
+![debate](/content/blog/openai-vs-deepSeek-ssn-database-schema-design/debate.webp)
 
 Elon Musk's comment about SSN database de-duplication has sparked significant debate within the developer community. Many software engineers have dismissed his remark. Let's see how OpenAI and DeepSeek designs this SSN database schema.
 
@@ -76,7 +78,7 @@ ChartGPT also explains the design choices:
 
 A pleasant surprise is the model designs `gender` column as a non-binary option and use `O` to represent other gender.
 
-### DeepSeek
+### DeepSeek R1
 
 ```sql
 -- Table to store personal information
@@ -164,7 +166,7 @@ Changes & justifications:
    - `idx_person_name_unique` ensures only one `is_current = TRUE` record per SSN.
    - `idx_person_name_last_name` allows searching by last name efficiently.
 
-### DeepSeek
+### DeepSeek R1
 
 ```sql
 -- Table to store personal information
@@ -269,7 +271,7 @@ Improvements for Security & Best Practices:
     - `person_name` and `payment_profile` reference `person_id` instead of `ssn`.
     - Avoids exposing SSN in multiple places.
 
-### DeepSeek
+### DeepSeek R1
 
 ```sql
 -- Table to store personal information
@@ -327,14 +329,14 @@ Both ChatGPT 4o and DeepSeek can perform the SSN schema design task well:
 1. They are able to alter the design based on the followup prompts. In the above example, both
    are able to incorporate the name change and introduce surrogate key to address the security concern.
 
-ChatGPT's highlight:
+ChatGPT 4o's highlight:
 
 - Design `gender` column as a non-binary option.
 - Enforce the data validity using column checks.
 - Include indexes on the columns that are frequently queried.
 - Explain the design choices and justify the design decisions.
 
-DeepSeek's highlight:
+DeepSeek R1's highlight:
 
 - I personally like its refined `person` table design as it can return the current name, which will make the query more convenient.
 - The explanation is terse and to the point.
