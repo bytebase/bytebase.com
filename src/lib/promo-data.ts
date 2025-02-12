@@ -8,9 +8,9 @@ const PROMO_DATA = {
   BLOG_ASIDE: {
     title: 'What is Bytebase?',
     description:
-      'Database DevSecOps platform for Developer, Security, DBA, and Platform Engineering team to manage the database development lifecycle.',
-    cta: 'Pricing',
-    pathname: `${ROUTE.PRICING}?source=blog`,
+      'Schema migrations, adhoc changes, just-in-time (JIT) database access, and data masking in one place.',
+    cta: 'Learn more',
+    pathname: `/blog/all-database-tools-bytebase-replaces/?source=blog`,
   },
   DOC_ASIDE: {
     title: '🕹️ Live Demo',
