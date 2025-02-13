@@ -39,3 +39,7 @@ You can configure the masking policies from UI or via API. Check out [this GitOp
 ### Masking algorithm
 
 The global masking rule and column masking are both mapped to the [Semantic Types](/docs/security/data-masking/semantic-types). The semantic type determines the masking algorithm.
+
+### Masking propagation
+
+When a column in a database table is masked, the masking effect is **infectious** in the sense that it propagates to any views or derived structures that depend on that column. This ensures that the protection applied to the underlying data is consistently enforced, even when accessed through alternative pathways like views.
