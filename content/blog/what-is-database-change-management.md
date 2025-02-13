@@ -8,14 +8,10 @@ featured: true
 description: What is Database Change Management (DCM), the challenges and solution.
 ---
 
-This is a series of articles about database version control and database-as-code (GitOps)
+This is a series of articles about database change management (DCM):
 
 1. What is Database Change Management? (this one)
-1. [What is Database Schema Drift?](/blog/what-is-database-schema-drift)
-1. [What is Database Version Control?](/blog/database-version-control)
-1. [Database Version Control, State-based or Migration-based?](/blog/database-version-control-state-based-vs-migration-based)
-1. [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
-1. [The Database as Code Landscape](/blog/database-as-code-landscape)
+1. [Top Database Change Management Tools](/blog/top-database-change-management-tools)
 
 ---
 
