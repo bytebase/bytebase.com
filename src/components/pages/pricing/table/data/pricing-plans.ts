@@ -44,7 +44,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     },
     collaboration: {
       ui: true,
-      shared: false,
+      shared: true,
       gitops: {
         value: 'Basic',
         tooltip: 'GitOps CI/CD, SQL Review CI',

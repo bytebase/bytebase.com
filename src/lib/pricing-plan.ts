@@ -39,7 +39,7 @@ const PRICING_PLANS = new Map([
   //Collaboration
   ['INBOX_NOTIFICATION', 'COMMUNITY'],
   ['UI_SQL_REVIEW', 'COMMUNITY'],
-  ['SHARED_SQL', 'PRO'],
+  ['SHARED_SQL', 'COMMUNITY'],
   ['GITOPS_WORKFLOW', 'COMMUNITY'],
 
   //Data Security & Compliance
