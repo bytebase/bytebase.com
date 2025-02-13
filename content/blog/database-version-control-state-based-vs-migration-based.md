@@ -9,11 +9,9 @@ description: We dive the rationale behind the industry divergence between state-
 
 This is a series of articles about database version control and database-as-code (GitOps)
 
-1. [What is Database Change Management?](/blog/what-is-database-change-management)
-1. [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
 1. [What is Database Version Control?](/blog/database-version-control)
 1. Database Version Control, State-based or Migration-based? (this one)
-1. [What is Database Schema Drift?](/blog/what-is-database-schema-drift)
+1. [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
 1. [The Database as Code Landscape](/blog/database-as-code-landscape)
 
 ---
@@ -101,7 +99,3 @@ With that, it makes Bytebase become a hybrid schema migration system. Team using
 As a side note, I do hope database engine could innovate in the direction as Kubernetes to pave the way for state-based approach. Actually, Google's own database system Spanner does provide these support and you know what, every team at Google use the state-based approach to manage their database schemas.
 
 The whole industry are not quite there yet, but at least Bytebase can bridge the gap.
-
-## Reference
-
-1. [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code) - our previous article touching Database Version Control (aka Database-as-Code) in details.

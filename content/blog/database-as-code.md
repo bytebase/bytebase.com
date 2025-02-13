@@ -9,8 +9,6 @@ description: Database-as-Code has many benefits in today's DevOps world. However
 
 This is a series of articles about database version control and database-as-code (GitOps)
 
-1. [What is Database Change Management?](/blog/what-is-database-change-management)
-1. [What is Database Schema Drift?](/blog/what-is-database-schema-drift)
 1. [What is Database Version Control?](/blog/database-version-control)
 1. [Database Version Control, State-based or Migration-based?](/blog/database-version-control-state-based-vs-migration-based)
 1. Database as Code - the Good, the Bad and the Ugly (this one)

@@ -9,8 +9,6 @@ description: Collaboration and Teamwork, Change Tracking and History, Migration 
 
 This is a series of articles about database version control and database-as-code (GitOps)
 
-1. [What is Database Change Management?](/blog/what-is-database-change-management)
-1. [What is Database Schema Drift?](/blog/what-is-database-schema-drift)
 1. Database Version Control (this one)
 1. [Database Version Control, State-based or Migration-based?](/blog/database-version-control-state-based-vs-migration-based)
 1. [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
