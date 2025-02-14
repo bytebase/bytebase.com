@@ -20,7 +20,7 @@ You can manually delete the data in `bbdataarchive` database/schema.
 | ---------- | ------------------------------------------------------------------------------------- | ------------ | ---------------- |
 | MySQL      | Create a `bbdataarchive` **database** on the instance where your database is located. | ✅           | ✅               |
 | PostgreSQL | Create a `bbdataarchive` **schema** on the database.                                  | ✅           | ✅               |
-| Oracle     | Create a `bbdataarchive` **database** on the instance where your database is located. | ✅           | ✅               |
+| Oracle     | Create a `bbdataarchive` **schema** on the database. | ✅           | ✅               |
 | SQL Server | Create a `bbdataarchive` **database** on the instance where your database is located. | ✅           | ✅               |
 
 ## Supported Operations
