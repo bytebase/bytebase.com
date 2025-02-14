@@ -20,3 +20,5 @@ To grant masking exemption:
 1. Select the user/groups and the database/table, and click **Confirm**.
 
    ![bb-grant-exemption](/content/docs/security/data-masking/bb-grant-exemption.webp)
+
+You can't grant masking exemption to the service account. Because the intended use is to exempt human users from the masking policy when they query from SQL Editor.
