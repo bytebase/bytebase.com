@@ -9,35 +9,19 @@ to be the GitLab/GitHub equivalent for **Database DevSecOps**, specifically buil
 Bytebase is a **middleware** sitting between you and your database. It can be used in 2 ways:
 
 - **GUI** - Bytebase provides a collaboration workspace for teams to manage database development tasks for all database systems.
-- **API (headless)** - Bytebase can go headless. Teams can integrate [Bytebase API](/docs/api/overview/) into
-  their development workflow.
-
-![fish](/content/docs/what-is-bytebase/fish.webp)
+- **API (headless)** - Bytebase can go headless. Teams can leverage [Bytebase API](/docs/api/overview/) as the database operation backend and integrate with their own development workflow.
 
 ## 8-in-1
 
-Bytebase is an all-in-one solution for database development lifecycle management. It replaces fragmented database tools and unifies the workflow in a single place. Check [all the tools Bytebase replaces](/blog/all-database-tools-bytebase-replaces).
+![venn](/content/docs/what-is-bytebase/venn.webp)
 
-[![replaced-tools](/images/replaced-tools.webp)](/blog/all-database-tools-bytebase-replaces)
+Bytebase is an all-in-one solution for database development lifecycle management. It replaces fragmented database tools and unifies the workflow in a single place. Check [all the tools Bytebase replaces](/blog/all-database-tools-bytebase-replaces).
 
 ## Key Features
 
-[SQL Review](/docs/sql-review/overview/)
-
-Bytebase analyzes SQL changes to enforce rules in compliance with your organization's policy. The enforcement includes naming conventions, anti-SQL pattern detection and etc. Prod and non-prod environments can also enforce different rules respectively.
-
 [Database CI/CD and Change Automation](/docs/change-database/change-workflow/)
 
-Like code review, Bytebase streamlines the database change process. Within a single workflow, a database change can be reviewed and deployed from the dev environment all the way to the production environment.
-
-[GitOps (Database-as-Code)](/docs/vcs-integration/overview/)
-
-Bytebase keeps the complete schema change history. It also integrates with VCS systems. Teams can manage the SQL migration scripts in the VCS and trigger schema deployment on code commit.
-
-[Batch Change and Query](/docs/change-database/batch-change/)
-
-Bytebase allows you to change a collection of databases in a single workflow. It also allows you to issue
-a single query against multiple databases.
+Like code review, Bytebase streamlines the database change process. Within a single workflow, a database change can be requested, reviewed, approved and deployed from the dev environment all the way to the production environment. It also supports [automated SQL Review](/docs/sql-review/overview/) and [GitOps (Database-as-Code)](/docs/vcs-integration/overview/).
 
 [SQL Editor](/docs/sql-editor/overview/)
 
@@ -51,13 +35,18 @@ Bytebase provides a suite of features to enable organizations to enforce data se
 
 Bytebase provides role-based multi-level masking policy with approval workflow to grant unmasked data access.
 
-[Data Rollback](/docs/change-database/rollback-data-changes/)
+[1-click Rollback](/docs/change-database/rollback-data-changes/)
 
 Bytebase provides streamlined 1-click data rollback.
 
+[Batch Change and Query](/docs/change-database/batch-change/)
+
+Bytebase allows you to change a collection of databases in a single workflow. It also allows you to issue
+a single query against multiple databases.
+
 [API](/docs/api/overview/)
 
-Bytebase GUI is built on the Bytebase API. In theory, 3rd-party can build a new Bytebase
+Bytebase GUI is built on the public Bytebase API. In theory, 3rd-party can build a new Bytebase
 GUI based on the same API.
 
 ## Compare with Liquibase / Flyway / schemachange
@@ -71,6 +60,14 @@ is growing way faster and ranked No.1 among alternatives.
 - [Bytebase vs. Flyway](/blog/bytebase-vs-flyway/)
 - [Bytebase vs. schemachange](/blog/snowflake-schema-change/)
 
+## Compare with CloudBeaver
+
+Both have web-based SQL clients. Additionally, Bytebase offers review workflow, more collaboration and security features.
+
+![bytebase-vs-cloudbeaver](/content/docs/what-is-bytebase/bytebase-vs-cloudbeaver.webp)
+
+[Bytebase vs. CloudBeaver](/blog/bytebase-vs-cloudbeaver/)
+
 ## Compare with DBeaver / Navicat
 
 SQL GUI Client such as MySQL Workbench, pgAdmin, DBeaver, Navicat provide a GUI to interact with the
@@ -79,12 +76,6 @@ for data security and governance.
 
 - [Bytebase vs. DBeaver](/blog/bytebase-vs-dbeaver/)
 - [Bytebase vs. Navicat](/blog/stop-using-navicat/)
-
-## Compare with CloudBeaver
-
-Both have web-based SQL clients. Additionally, Bytebase offers review workflow, more collaboration and security features.
-
-[Bytebase vs. CloudBeaver](/blog/bytebase-vs-cloudbeaver/)
 
 ## Compare with Metabase
 
