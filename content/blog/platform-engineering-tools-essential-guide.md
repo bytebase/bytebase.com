@@ -27,8 +27,8 @@ In this essential series, we will cover the following tools:
 
 - [GitHub - Code Hosting and CI/CD](#github)
 - [Datadog - Observability](#datadog)
-- [HashiCorp Terraform - Resource Provisioning](#hashicorp-terraform)
-- [HashiCorp Vault - Secret Management](#hashicorp-vault)
+- [Terraform - Resource Provisioning](#hashicorp-terraform)
+- [Vault - Secret Management](#hashicorp-vault)
 
 ## GitHub - Code Hosting and CI/CD
 
@@ -65,3 +65,19 @@ Cons:
 Comments:
 
 Many people have a love-hate relationship with Datadog. It's an all-in-one observability platform, but it can also be very expensive due to its per-host pricing model. But we think it's a good investment for the right team. For small-to-medium teams, infrastructure costs are typically manageable, with product-market fit being the key focus. For larger teams, there’s often more flexibility to explore alternatives or negotiate better pricing with Datadog.
+
+## Terraform - Resource Provisioning
+
+Pros:
+
+- Best practice. IaC, state-based, declarative approach.
+- Great ecosystem with many terraform providers.
+
+Cons:
+
+- Learning curve.
+- HCL language limitation.
+
+Comments:
+
+Terraform is usually the first tool that comes to mind when people think of platform engineering. While it has faced competition from newer tools like Pulumi in recent years, Terraform remains a reliable choice, particularly due to its extensive provider ecosystem. You're more likely to find a Terraform provider for your infrastructure than for most other alternatives.
