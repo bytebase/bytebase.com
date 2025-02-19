@@ -21,8 +21,8 @@ Platform engineering adoption has surged in recent years. To better understand t
 
 ---
 
-We pick GitHub, Datadog, Terraform and Vault as the essential tools for platform engineering. We believe these tools
-represent the best practices in the industry and serve as the building blocks to expand your platform engineering practice. Let’s dive in.
+We pick GitHub, Datadog, Terraform and Vault as the platform engineering essential toolkit. We believe these tools
+represent the best practices in the industry and serve as the fundamental building blocks to expand your platform engineering practice. Let’s dive in.
 
 ## [GitHub](https://github.com/) - Code Hosting and CI/CD
 
