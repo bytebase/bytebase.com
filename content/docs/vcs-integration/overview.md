@@ -4,13 +4,20 @@ title: GitOps
 
 Bytebase offers a database-as-code workflow, enabling you to manage database changes directly through your version control system (VCS).
 
-Bytebase provides two GitOps workflows:
+Bytebase GitOps workflow is built upon the [Bytebase API](/docs/api/overview). It provides the ultimate flexibility to customize the GitOps workflow to integrate with your CI/CD pipeline.
 
-- [Simple GitOps](/docs/vcs-integration/simple/overview): Opinionated and restricted for the simple use case.
-- [Custom GitOps](/docs/vcs-integration/custom/overview): Fully customizable via the Bytebase API.
+## GitHub
 
-<HintBlock type="info">
+- Pre-built GitHub Actions: https://github.com/marketplace?query=bytebase&type=actions
+- Examples: https://github.com/bytebase/release-cicd-workflows-example
+- Tutorial: [Database Release CI/CD with GitHub Action](/docs/tutorials/github-release-cicd-workflow/)
 
-If you manage database changes for multiple teams or have any branching strategy beyond the most basic, you will be likely need the [Custom GitOps](/docs/vcs-integration/custom/overview) workflow.
+## Other VCSs
 
-</HintBlock>
+For other VCSs, we provide API integrations examples to help you get started.
+
+- For other VCSs, we provide API integrations examples to help you get started.
+
+## Legacy GitOps
+
+Besides the API-driven GitOps, Bytebase also provides a [legacy GitOps workflow](/docs/vcs-integration/simple/overview/) based on the VCS webhooks. This approach is only kept for backward compatibility and we will sunset it in the future release.
