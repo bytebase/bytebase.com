@@ -87,10 +87,6 @@ Access request notifications will be pushed to Slack.
 
 After implementing Bytebase's database access control, the following issues have become apparent. In response, note is considering further leveraging Bytebase's capabilities to address these challenges:
 
-- [External approval via Slack](/docs/api/external-approval/)
-
-  Currently, workflow approvals are only carried out on Bytebase. By utilizing the external approval feature, approvals can be processed through Slack.
-
 - [CI/CD for DML and DDL changes](/docs/change-database/change-workflow/)
 
   At present, only read queries are utilized; the aim is to enable modifications for both DML and DDL directly on Bytebase.

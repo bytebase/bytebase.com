@@ -255,8 +255,6 @@ expand_section_list: ['Self-host']
 
 ### [Audit Log](/api/audit-log)
 
-### [External Approval](/api/external-approval)
-
 ## Integrations
 
 ### [Terraform](/get-started/terraform)
