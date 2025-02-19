@@ -17,7 +17,7 @@ The post does not cover infrastructure components like Kubernetes, database syst
 Platform engineering adoption has surged in recent years. To better understand the landscape, we interviewed over 100 platform teams about their challenges and the tools they rely on. Drawing from these insights and our own experience, we have curated a list of essential platform engineering tools. This is the first of a two-part series exploring the tools that power modern platform engineering teams:
 
 1. Platform Engineering Tools: Essential Guide (this one)
-1. Platform Engineering Tools: Advanced Guide (TBD)
+1. [Platform Engineering Tools: Advanced Guide](/blog/platform-engineering-tools-advanced-guide/)
 
 ---
 
@@ -102,4 +102,4 @@ When picking the essential tools for platform engineering, we focus on the follo
 - **Comprehensiveness**. A single tool can cover multiple aspects of platform engineering.
 - **Strong ecosystem**. A robust ecosystem ensures that tools can integrate seamlessly with others. It's also easier to find help and resources when you have a strong ecosystem.
 
-As your platform engineering practice evolves, your team can begin to explore more specialized, domain-specific tools. Stay tuned for our upcoming advanced guide, where we’ll dive deeper into the tools that support larger, more complex environments.
+As your platform engineering practice evolves, your team can begin to explore more specialized, domain-specific tools. Check out the [advanced guide](/blog/platform-engineering-tools-advanced-guide/), where we’ll dive deeper into the tools that support larger, more complex environments.
