@@ -10,7 +10,7 @@ description: Introduce the essential tools for platform engineering. Covering co
 
 <HintBlock type="info">
 
-The post is updated regularly and focuses solely on tools. It does not cover infrastructure components like Kubernetes, PostgreSQL, Kafka, Elasticsearch. It also does not cover collaboration tools like Slack, Notion, Jira, Linear.
+The post does not cover infrastructure components like Kubernetes, database systems. It also does not cover collaboration tools like Slack, Notion, Jira, Linear.
 
 </HintBlock>
 
