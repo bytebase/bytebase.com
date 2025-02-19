@@ -14,6 +14,7 @@ This tutorial demonstrates how to automate database release CI/CD using GitHub A
 - Set up a workflow where developers can submit SQL migration files to GitHub
 - Implement automated SQL review checks for pull requests
 - Automatically create releases in Bytebase after merging to the `main` branch and roll out to the database
+- Manually rollout the release to the database by stage (for **Pro or Enterprise plan**)
 
 While this guide uses GitHub Actions, the same principles can be applied to other CI/CD platforms like GitLab CI, Bitbucket Pipelines, or Azure DevOps using the Bytebase API.
 
@@ -211,6 +212,52 @@ To create migration files to trigger release creation, the files have to match t
 
     ![bb-manual-apply](/content/docs/tutorials/github-release-cicd-workflow/bb-manual-apply.webp)
 
+## Step 5 - Manual Rollout for Pro or Enterprise Plan
+
+If you have **Pro** or **Enterprise** plan, you can manually rollout the release to the database by stage.
+
+1. Upgrade your Bytebase plan to **Pro** or **Enterprise** plan, assign the license to your instances.
+
+1. Click **Environments** on the left sidebar, click **Prod** tab, set **Rollout Policy** as `Manual rollout by dedicated roles`.
+
+1. Go to the `.github/workflows/bytebase-release-cicd.yml` file, uncomment the last line and commit the changes.
+
+    ```yaml
+    target-stage: 'Test Stage'
+    ```
+
+1. You can find the stage name in the **Deployment Config** under `Sample Project`.
+
+    ![bb-deployment-config](/content/docs/tutorials/github-release-cicd-workflow/bb-deployment-config.webp)
+
+1. Create a new branch with this file, and create a pull request. Merge it to the `main` branch.
+
+   - 20250101003_create_table_t3_ddl.sql
+
+    ```sql
+        CREATE TABLE t3(id INT PRIMARY KEY NOT NULL);
+    ```
+
+1. Go to the **Actions** tab, you can see the workflow run and pass. Expand the **Rollout** section, the rollout is created and the stage is skipped.
+
+    ![gh-rollout-skip](/content/docs/tutorials/github-release-cicd-workflow/gh-rollout-skip.webp)
+
+1. Click the link in the **Rollout** section, you will go to the **Rollout Pipeline** in Bytebase.
+
+    ![bb-manual-rollout](/content/docs/tutorials/github-release-cicd-workflow/bb-manual-rollout.webp)
+
+1. Click the arrow button, and click **Confirm**. The **Prod Stage** will be created.
+
+    ![bb-confirm-add](/content/docs/tutorials/github-release-cicd-workflow/bb-confirm-add.webp)
+
+1. Click into the script and click **Run**. The script will be applied to the prod database.
+
+    ![bb-prod-run](/content/docs/tutorials/github-release-cicd-workflow/bb-prod-run.webp)
+
+1. Go back to the **Rollout Pipeline** page, you can see the **Prod Stage** is completed.
+
+    ![bb-rollout-done](/content/docs/tutorials/github-release-cicd-workflow/bb-rollout-done.webp)
+
 ## Summary
 
-In this tutorial, you have learned how to create a release and then rollout to the database in Bytebase with GitHub Action. If you want to trigger a release creation with other git providers (e.g. GitLab, Bitbucket, Azure DevOps), you may customize the workflow file.
+Now you have learned how to create a release and then rollout to the database in Bytebase with GitHub Action. If you want to trigger a release creation with other git providers (e.g. GitLab, Bitbucket, Azure DevOps), you may customize the workflow file.
