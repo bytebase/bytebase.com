@@ -12,6 +12,7 @@ description: 'Learn how to automate database release CI/CD using GitHub Actions 
 This tutorial shows you how to build an automated database release pipeline using GitHub Actions and Bytebase API. You'll learn to:
 
 1. Create a streamlined database release workflow where you can:
+
    - Submit SQL migrations through GitHub
    - Automatically run SQL reviews on pull requests
    - Auto-create and deploy Bytebase releases when merging to `main`
@@ -31,7 +32,7 @@ This tutorial code repository is at [https://github.com/bytebase/release-cicd-wo
 - [Docker](https://www.docker.com/) installed
 - An [ngrok](https://ngrok.com/) account
 
-## Streamline database release workflow
+## Automatic Rollout across environments
 
 ### Step 1 - Start Bytebase with ngrok
 
@@ -212,9 +213,10 @@ To create migration files to trigger release creation, the files have to match t
 
    The rollout pipeline stages are created on demand in the **Rollout** step.
 
-## Manual Rollout by Stage (Pro or Enterprise Plan)
+## Manual Rollout by Environment (Pro or Enterprise Plan)
 
-If you have **Pro** or **Enterprise** plan, you can manually rollout the release to the database by stage.
+In the previous section, once the PR is merged, we create a release and roll out it to both test and prod environments automatically.
+You can also manually control the rollout by stage if you have **Pro** or **Enterprise** plan.
 
 1. Upgrade your Bytebase plan to **Pro** or **Enterprise** plan, assign the license to your instances.
 
