@@ -3,7 +3,7 @@ title: 'How to Pick Platform Engineering Tools in 2025: Advanced Guide'
 author: Tianzhou
 updated_at: 2025/02/20 09:00:00
 feature_image: /content/blog/platform-engineering-tools-advanced-guide/banner.webp
-tags: Industry, Hidden
+tags: Industry
 featured: true
 description: Introduce the advanced tools for platform engineering. Covering CD, security, workflow orchestration, database development workflow, and internal development portal.
 ---
