@@ -1,5 +1,5 @@
 ---
-title: 'How to Pick Platform Engineering Tools in 2025: Advanced Guide'
+title: 'Platform Engineering Tools in 2025: Advanced Guide'
 author: Tianzhou
 updated_at: 2025/02/20 09:00:00
 feature_image: /content/blog/platform-engineering-tools-advanced-guide/banner.webp
