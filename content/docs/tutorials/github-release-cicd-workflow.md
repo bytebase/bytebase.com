@@ -1,5 +1,5 @@
 ---
-title: Database Release CI/CD with GitHub Action
+title: Database Release CI/CD with GitHub Actions
 author: Ningjing
 updated_at: 2025/02/17 18:00
 tags: Tutorial
@@ -16,7 +16,7 @@ This tutorial demonstrates how to automate database release CI/CD using GitHub A
 - Automatically create releases in Bytebase after merging to the `main` branch and roll out to the database
 - Manually rollout the release to the database by stage (for **Pro or Enterprise plan**)
 
-While this guide uses GitHub Actions, the same principles can be applied to other CI/CD platforms like GitLab CI, Bitbucket Pipelines, or Azure DevOps using the Bytebase API.
+While this guide uses GitHub Actions, the same principles can be applied to other platforms like GitLab CI, Bitbucket Pipelines, or Azure DevOps using the Bytebase API.
 
 <HintBlock type="info">
 
@@ -56,10 +56,10 @@ If you have **Enterprise Plan**, you can create a **Custom Role** for the servic
 
 ## Step 3 - Fork the Example Repository and Configure Variables
 
-1. Go to the [bytebase-release-cicd-workflows-example](https://github.com/bytebase/release-cicd-workflows-example) repository and fork it. There are two workflows in this repository:
+1. Fork [bytebase/release-cicd-workflows-example](https://github.com/bytebase/release-cicd-workflows-example). There are two workflows in this repository:
 
-      - `.github/workflows/bytebase-check-release.yml`: Check the release SQL syntax when there's a pull request.
-      - `.github/workflows/bytebase-release-cicd.yml`: Create a release in Bytebase when there's a merge to the `main` branch.
+   - `.github/workflows/bytebase-check-release.yml`: [Lint the SQL](/docs/sql-review/overview/) migration files after the PR is created.
+   - `.github/workflows/bytebase-release-cicd.yml`: Create a release in Bytebase after the PR is merged to the `main` branch.
 
 1. Go into `.github/workflows/bytebase-release-cicd.yml` and `.github/workflows/bytebase-check-release.yml`. In the `env` section, replace the variable values with your own and commit the changes.
 
@@ -134,7 +134,7 @@ To create migration files to trigger release creation, the files have to match t
 
    ![bb-rollout](/content/docs/tutorials/github-release-cicd-workflow/bb-rollout.webp)
 
-## Breakdown of the GitHub Action Workflow
+## Breakdown of the GitHub Actions Workflow
 
 1. Check out your repo and log in to Bytebase to gain the access token.
 
@@ -152,7 +152,7 @@ To create migration files to trigger release creation, the files have to match t
 
 1. The **create_release** step scans the files matching the pattern and collects them into a bundle. Note that these files should also obey the naming scheme mentioned above.
 
-   The bundle is first sent to check. If the check passes, a release is then created on Bytebase.
+   The bundle is first sent for check. Because we set `FAIL_ON_ERROR`, the release will be created in Bytebase only when the check passes.
 
    ```yaml
    - name: Create release
@@ -199,12 +199,12 @@ To create migration files to trigger release creation, the files have to match t
 
    These are the steps:
 
-   - create the plan from the release
-   - check the plan
-   - create the rollout
-   - wait for the rollout to complete
+   - Create the plan from the release
+   - Check the plan
+   - Create the rollout
+   - Wait for the rollout to complete
 
-   In the **create_plan** step, you can set check-plan to FAIL_ON_ERROR to fail the action if plan checks report errors. Use SKIP to skip plan checks. Use FAIL_ON_WARNING to fail the action if plan checks report warning.
+   In the **create_plan** step, you can set check-plan to `FAIL_ON_ERROR `to fail the action if plan checks report errors. Use `SKIP` to skip plan checks. Use `FAIL_ON_WARNING` to fail the action if plan checks report warning.
 
    The rollout pipeline stages are created on demand in the **wait_rollout** step. You can use target-stage to early exit the step. When the target stage completes, it exits. If target-stage is not provided or not found, wait_rollout will wait until all stages complete. The target-stage is a stage title in the deployment config in the project setting.
 

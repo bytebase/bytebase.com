@@ -10,7 +10,7 @@ Bytebase GitOps workflow is built upon the [Bytebase API](/docs/api/overview). I
 
 - Pre-built GitHub Actions: https://github.com/marketplace?query=bytebase&type=actions
 - Examples: https://github.com/bytebase/release-cicd-workflows-example
-- Tutorial: [Database Release CI/CD with GitHub Action](/docs/tutorials/github-release-cicd-workflow/)
+- Tutorial: [Database Release CI/CD with GitHub Actions](/docs/tutorials/github-release-cicd-workflow/)
 
 ## Other VCSs
 
