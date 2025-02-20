@@ -139,8 +139,6 @@ expand_section_list: ['Self-host']
 
 ### [Overview](/vcs-integration/overview)
 
-### [GitHub Actions](/vcs-integration/github-actions)
-
 ### [Release](/vcs-integration/release)
 
 ## SQL Editor
