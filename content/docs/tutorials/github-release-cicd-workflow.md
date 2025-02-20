@@ -9,14 +9,16 @@ estimated_time: '40 mins'
 description: 'Learn how to automate database release CI/CD using GitHub Actions and Bytebase API.'
 ---
 
-This tutorial demonstrates how to automate database release CI/CD using GitHub Actions and Bytebase API. You'll learn how to:
+This tutorial shows you how to build an automated database release pipeline using GitHub Actions and Bytebase API. You'll learn to:
 
-- Set up a workflow where developers can submit SQL migration files to GitHub
-- Implement automated SQL review checks for pull requests
-- Automatically create releases in Bytebase after merging to the `main` branch and roll out to the database
-- Manually rollout the release to the database by stage (for **Pro or Enterprise plan**)
+1. Create a streamlined database release workflow where you can:
+   - Submit SQL migrations through GitHub
+   - Automatically run SQL reviews on pull requests
+   - Auto-create and deploy Bytebase releases when merging to `main`
 
-While this guide uses GitHub Actions, the same principles can be applied to other platforms like GitLab CI, Bitbucket Pipelines, or Azure DevOps using the Bytebase API.
+2. Manually control rollouts by stage (available with Pro/Enterprise plans)
+
+While we use GitHub Actions in this guide, you can apply these concepts to other CI platforms like GitLab CI, Bitbucket Pipelines, or Azure DevOps using the Bytebase API.
 
 <HintBlock type="info">
 
@@ -29,11 +31,13 @@ This tutorial code repository is at [https://github.com/bytebase/release-cicd-wo
 - [Docker](https://www.docker.com/) installed
 - An [ngrok](https://ngrok.com/) account
 
-## Step 1 - Start Bytebase with ngrok
+## Streamline database release workflow
+
+### Step 1 - Start Bytebase with ngrok
 
 <IncludeBlock url="/docs/get-started/install/vcs-with-ngrok"></IncludeBlock>
 
-## Step 2 - Create Service Account
+### Step 2 - Create Service Account
 
 <IncludeBlock url="/docs/share/tutorials/create-service-account"></IncludeBlock>
 
@@ -54,7 +58,7 @@ If you have **Enterprise Plan**, you can create a **Custom Role** for the servic
     - planCheckRuns.list
     - planCheckRuns.run
 
-## Step 3 - Fork the Example Repository and Configure Variables
+### Step 3 - Fork the Example Repository and Configure Variables
 
 1. Fork [bytebase/release-cicd-workflows-example](https://github.com/bytebase/release-cicd-workflows-example). There are two workflows in this repository:
 
@@ -72,7 +76,7 @@ If you have **Enterprise Plan**, you can create a **Custom Role** for the servic
 
 1. Go to **Actions** tab, enable actions workflow run.
 
-## Step 4 - Create the Release and Roll out
+### Step 4 - Create the Release and Roll out
 
 To create migration files to trigger release creation, the files have to match the following pattern:
 
@@ -134,7 +138,7 @@ To create migration files to trigger release creation, the files have to match t
 
    ![bb-rollout](/content/docs/tutorials/github-release-cicd-workflow/bb-rollout.webp)
 
-## Breakdown of the GitHub Actions Workflow
+### Breakdown of the GitHub Actions Workflow
 
 1. Check out your repo and log in to Bytebase to gain the access token.
 
@@ -206,13 +210,9 @@ To create migration files to trigger release creation, the files have to match t
 
    In the **create_plan** step, you can set check-plan to `FAIL_ON_ERROR `to fail the action if plan checks report errors. Use `SKIP` to skip plan checks. Use `FAIL_ON_WARNING` to fail the action if plan checks report warning.
 
-   The rollout pipeline stages are created on demand in the **wait_rollout** step. You can use target-stage to early exit the step. When the target stage completes, it exits. If target-stage is not provided or not found, wait_rollout will wait until all stages complete. The target-stage is a stage title in the deployment config in the project setting.
+   The rollout pipeline stages are created on demand in the **Rollout** step.
 
-1. You can also apply releases to databases on Bytebase UI. If you wish, you can set up an action to just create the release and manually roll out later.
-
-   ![bb-manual-apply](/content/docs/tutorials/github-release-cicd-workflow/bb-manual-apply.webp)
-
-## Step 5 - Manual Rollout for Pro or Enterprise Plan
+## Manual Rollout by Stage (Pro or Enterprise Plan)
 
 If you have **Pro** or **Enterprise** plan, you can manually rollout the release to the database by stage.
 
@@ -220,10 +220,18 @@ If you have **Pro** or **Enterprise** plan, you can manually rollout the release
 
 1. Click **Environments** on the left sidebar, click **Prod** tab, set **Rollout Policy** as `Manual rollout by dedicated roles`.
 
-1. Go to the `.github/workflows/bytebase-release-cicd.yml` file, uncomment the last line and commit the changes.
+1. Go to the `.github/workflows/bytebase-release-cicd.yml` file, look at the **Rollout** section, You can use `target-stage` to early exit the step. When the target stage completes, it exits. If `target-stage` is not provided or not found, **Rollout** will wait until all stages complete. Uncomment the last line `target-stage: 'Test Stage'` and commit the changes.
 
    ```yaml
-   target-stage: 'Test Stage'
+   - name: Rollout
+     id: rollout
+     uses: bytebase/rollout-action@v1
+     with:
+       url: ${{ env.BYTEBASE_URL }}
+       token: ${{ steps.login.outputs.token }}
+       plan: ${{ steps.create_plan.outputs.plan }}
+       # set target-stage to exit after the stage completes
+       # target-stage: 'Test Stage'
    ```
 
 1. You can find the stage name in the **Deployment Config** under `Sample Project`.
