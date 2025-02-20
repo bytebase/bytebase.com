@@ -111,8 +111,8 @@ On the other hand, the more common way to change the schema is to use **Schema E
   With **Community plan**, if one's not assigned to a project, one can't see the project at all. With **Enterprise plan**, `Project Owner` can grant access to specific databases or tables instead of all project databases to a specific `SQL Editor User`. `Project Developer` can also request to query or export a database or table with a request issue.
   ![bb-access-control-adv](/content/blog/bytebase-vs-dbeaver/bb-access-control-adv.webp)
 
-  Additionally, `Admin`/`DBA` can set different data access controls for various environments, such as restricted access to production data and open access to development data.
-  ![bb-access-project](/content/blog/bytebase-vs-dbeaver/bb-ac-env.webp)
+  Additionally, admins can set different data access controls for various environments, such as restricted access to production data and open access to development data.
+  ![bb-access-environment](/content/blog/bytebase-vs-dbeaver/bb-access-control-env.webp)
 
 ### Data Masking
 

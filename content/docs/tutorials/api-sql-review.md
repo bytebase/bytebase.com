@@ -37,7 +37,6 @@ This tutorial will guide you through configuring SQL review rules using the Byte
 1. Go to [Bytebase API Example repo](https://github.com/bytebase/api-example) and clone it.
 
 1. Navigate to the `sql-review` subfolder and follow the instructions in the `README.md` file of the example code repository to execute the scripts.
-   
 1. Replace `bytebase_url`, `bytebase_account`, and `bytebase_password` in the commands below with your own values, then run them to obtain a `bytebase_token` in your terminal.
 
    ```bash
@@ -98,7 +97,7 @@ We'll apply these SQL review rules to `environments` or `projects`. Project-leve
    ![sql-review-env](/content/docs/tutorials/api-sql-review/sql-review-env.webp)
 
 1. Go to `Sample Project` page, click **Setting** on the left sidebar to see the applied the SQL review rules.
-   ![bb-project-setting](/content/docs/tutorials/api-sql-review/bb-project-setting.webp)
+   ![bb-project-setting](/content/docs/tutorials/api-sql-review/sql-review-project-setting.webp)
 
 1. To detach SQL review policies from environments, use the following commands:
 

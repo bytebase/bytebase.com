@@ -4,7 +4,7 @@ title: Global Masking Rule
 
 <HintBlock type="info">
 
-Masking precedence: [Masking Exemption](/security/data-masking/access-unmasked-data) > [Global Masking Rule](/security/data-masking/global-masking-rule) > [Column Masking](/security/data-masking/column-masking).
+Masking precedence: [Masking Exemption](/docs/security/data-masking/access-unmasked-data) > [Global Masking Rule](/docs/security/data-masking/global-masking-rule) > [Column Masking](/docs/security/data-masking/column-masking).
 
 </HintBlock>
 

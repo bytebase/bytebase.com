@@ -120,7 +120,7 @@ On the other hand, the more common way to change the schema is to use **Schema E
   ![bb-access-control-adv](/content/blog/bytebase-vs-cloudbeaver/bb-access-control-adv.webp)
 
   Additionally, admins can set different data access controls for different projects, such as restricted access to production data and open access to development data.
-  ![bb-access-project](/content/blog/bytebase-vs-cloudbeaver/bb-access-project.webp)
+  ![bb-access-environment](/content/blog/bytebase-vs-cloudbeaver/bb-access-control-env.webp)
 
 ### Data Masking
 
