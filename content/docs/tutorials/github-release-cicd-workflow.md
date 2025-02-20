@@ -20,11 +20,7 @@ While this guide uses GitHub Actions, the same principles can be applied to othe
 
 <HintBlock type="info">
 
-This tutorial code repository is at [https://github.com/bytebase/release-cicd-workflows-example
-
-](https://github.com/bytebase/release-cicd-workflows-example
-
-)
+This tutorial code repository is at [https://github.com/bytebase/release-cicd-workflows-example](https://github.com/bytebase/release-cicd-workflows-example)
 
 </HintBlock>
 
@@ -43,29 +39,27 @@ This tutorial code repository is at [https://github.com/bytebase/release-cicd-wo
 
 If you have **Enterprise Plan**, you can create a **Custom Role** for the service account which require fewer permissions, and assign this role instead of DBA:
 
-- plans.create
-- plans.get
-- plans.preview
-- releases.check
-- releases.create
-- releases.get
-- rollouts.create
-- rollouts.get
-- rollouts.list
-- sheets.create
-- sheets.get
-- taskRuns.create
-- planCheckRuns.list
-- planCheckRuns.run
+    - plans.create
+    - plans.get
+    - plans.preview
+    - releases.check
+    - releases.create
+    - releases.get
+    - rollouts.create
+    - rollouts.get
+    - rollouts.list
+    - sheets.create
+    - sheets.get
+    - taskRuns.create
+    - planCheckRuns.list
+    - planCheckRuns.run
 
 ## Step 3 - Fork the Example Repository and Configure Variables
 
-1. Go to the [bytebase-release-cicd-workflows-example](https://github.com/bytebase/release-cicd-workflows-example
+1. Go to the [bytebase-release-cicd-workflows-example](https://github.com/bytebase/release-cicd-workflows-example) repository and fork it. There are two workflows in this repository:
 
-) repository and fork it. There are two workflows in this repository:
-
-- `.github/workflows/bytebase-check-release.yml`: Check the release SQL syntax when there's a pull request.
-- `.github/workflows/bytebase-release-cicd.yml`: Create a release in Bytebase when there's a merge to the `main` branch.
+      - `.github/workflows/bytebase-check-release.yml`: Check the release SQL syntax when there's a pull request.
+      - `.github/workflows/bytebase-release-cicd.yml`: Create a release in Bytebase when there's a merge to the `main` branch.
 
 1. Go into `.github/workflows/bytebase-release-cicd.yml` and `.github/workflows/bytebase-check-release.yml`. In the `env` section, replace the variable values with your own and commit the changes.
 
