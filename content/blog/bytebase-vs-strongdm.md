@@ -26,7 +26,7 @@ While both Bytebase and StrongDM are tools that can solve database Just-in-time 
 | [Open source or not](#open-source)          | ❌                                                           | ✅                                                                   |
 | [Installation](#installation)               | Requires multiple components                                 | One command to start                                                 |
 | [Developer interface](#developer-interface) | GUI+CLI, API, Terraform Provider                             | GUI, API, Terraform Provider                                         |
-| [Supported databases](#supported-databases) | 30+ SQL & NoSQL DB                                           | 22 SQL & NoSQL DB                                                    |
+| [Supported databases](#supported-databases) | 30+ SQL & NoSQL DB                                           | 20+ SQL & NoSQL DB                                                   |
 | [Permission model](#permission-model)       | Data access defined by access rules can be static or dynamic | Data Access can be configured to specific database and time period   |
 | [SQL client](#sql-client)                   | Need external SQL client                                     | Built-in SQL client                                                  |
 | [Data masking](#data-masking)               | ❌                                                           | Dynamic data masking                                                 |
