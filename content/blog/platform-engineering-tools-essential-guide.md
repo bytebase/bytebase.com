@@ -1,5 +1,5 @@
 ---
-title: 'Platform Engineering Tools in 2025: Essential Guide'
+title: '4 Essential Platform Engineering Tools in 2025'
 author: Tianzhou
 updated_at: 2025/02/18 09:00:00
 feature_image: /content/blog/platform-engineering-tools-essential-guide/banner.webp
