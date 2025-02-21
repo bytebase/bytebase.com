@@ -1,6 +1,6 @@
 ---
 title: Risk Center
-feature_name: CUSTOM_APPROVAL
+feature_name: RISK_CENTER
 ---
 
 In **Settings > Risk Center**, you can define different risk levels for each operation types ([DML, DDL, Create Database](/docs/change-database/change-workflow/), [Request Query](/docs/security/database-permission/query/), [Request Export](/docs/security/database-permission/export/)) with custom rules.

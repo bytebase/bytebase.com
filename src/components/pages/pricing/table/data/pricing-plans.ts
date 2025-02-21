@@ -29,6 +29,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       synchronize: { value: 'Basic', tooltip: 'Sync from the latest schema version' },
       'batch-change': { value: 'Basic', tooltip: 'Multi-environment change' },
       'custom-approval': false,
+      'risk-center': false,
       'password-restriction': false,
     },
     sql: {
@@ -115,6 +116,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
         tooltip: 'Multi-environment + Multi-region / Multi-tenancy change',
       },
       'custom-approval': false,
+      'risk-center': false,
       'password-restriction': false,
     },
     sql: {
@@ -204,6 +206,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
         tooltip: 'Multi-environment + Multi-region / Multi-tenancy change',
       },
       'custom-approval': true,
+      'risk-center': true,
       'password-restriction': true,
     },
     sql: {
@@ -285,6 +288,7 @@ const LABELS = [
       synchronize: 'Synchronize schema between databases',
       'batch-change': 'Batch change',
       'custom-approval': 'Custom approval workflow',
+      'risk-center': 'Risk center',
       'password-restriction': 'Password restriction',
     },
   },

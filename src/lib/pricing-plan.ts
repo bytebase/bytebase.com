@@ -21,6 +21,7 @@ const PRICING_PLANS = new Map([
   ['ONLINE_SCHEMA_CHANGE', 'PRO'],
   ['BATCH_CHANGE', 'PRO'],
   ['CUSTOM_APPROVAL', 'ENTERPRISE'],
+  ['RISK_CENTER', 'ENTERPRISE'],
 
   //Not in the pricing page
   ['DRIFT_DETECTION', 'ENTERPRISE'],
