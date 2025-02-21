@@ -91,8 +91,6 @@ expand_section_list: ['Self-host']
 
 #### [Custom Approval](/administration/custom-approval)
 
-#### [Risk Center](/administration/risk-center)
-
 ### Roll out
 
 #### [Rollout Policy](/administration/environment-policy/rollout-policy)
@@ -128,6 +126,8 @@ expand_section_list: ['Self-host']
 ### Settings
 
 #### [Webhook](/change-database/webhook)
+
+#### [Risk Center](/administration/risk-center)
 
 #### [Issue](/change-database/issue)
 
