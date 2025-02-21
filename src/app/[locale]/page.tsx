@@ -9,7 +9,6 @@ import PromoSQLEditor from '@/components/pages/home/promo-sql-editor';
 import PromoAutomationChanges from '@/components/pages/home/promo-automation-changes';
 import PromoSecurity from '@/components/pages/home/promo-security';
 import Community from '@/components/shared/community';
-import SubscriptionForm from '@/components/shared/subscription';
 
 import { getLatestChangelogPost } from '@/lib/api-changelog';
 import SEO_DATA from '@/lib/seo-data';
@@ -41,7 +40,6 @@ export default function Page() {
       <PromoSecurity />
       <Features />
       <Community />
-      <SubscriptionForm />
     </>
   );
 }
