@@ -28,7 +28,7 @@ represent the best practices in the industry and serve as the fundamental buildi
 
 **Pros:**
 
-- User familiarity (who doesn't use [GitHub](https://github.com/)?).
+- User familiarity (who doesn't ~know~use [GitHub](https://github.com/)?).
 - Integrated and powerful CI/CD capabilities with GitHub Actions.
 - Integrated security like CodeQL, Dependabot and a wide range of 3rd party tools.
 - AI advancement with Copilot.
