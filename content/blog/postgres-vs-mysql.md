@@ -1,5 +1,5 @@
 ---
-title: "Postgres vs. MySQL: a Complete Comparison in 2024"
+title: "Postgres vs. MySQL: a Complete Comparison in 2025"
 author: Tianzhou
 updated_at: 2024/09/16 12:00
 feature_image: /content/blog/postgres-vs-mysql/cover.webp
@@ -11,17 +11,21 @@ extensibility, usability, architecture, ecosystem, industry best practices.'
 
 <HintBlock type="info">
 
-This post is updated regularly. For the impatience, jump to the [last section](#postgres-or-mysql) to
-see the comparison table. The [References](#references) collects many industry best practices.
+This post is maintained by Bytebase, an open-source database DevSecOps tool that can manage both Postgres and MySQL. We update the post ~2 times per year.
+
+**Changelog:**
+
+- 2025/02/23: 2025 update.
+- 2024/09/16: Added scaling and sharding references.
+- 2023/07/11: Initial version.
 
 </HintBlock>
 
-PostgreSQL just took over Snowflake and [won DBMS of the Year 2023 again](https://db-engines.com/en/blog_post/106#:~:text=PostgreSQL%20is%20the%20database%20management,DBMS%20of%20the%20Year%202023.).
+> For the impatience, jump to the [last section](#postgres-or-mysql) to see the comparison table. The [References](#references) collects many industry best practices.
 
-![dbengine](/content/blog/postgres-vs-mysql/dbengine.webp)
+In 2024, Postgres ranked the 2nd after Snowflake in the [DB-Engines Ranking](https://db-engines.com/en/blog_post/109), one year after it took over Snowflake and [won DBMS of the Year 2023](https://db-engines.com/en/blog_post/106#:~:text=PostgreSQL%20is%20the%20database%20management,DBMS%20of%20the%20Year%202023.).
 
-The result also echos the [2023 Stack Overflow survey](https://survey.stackoverflow.co/2023/) shows that Postgres has taken
-over the first place spot from MySQL and become the most admired, desired database.
+The Postgres rise is also reflected in the recent Stack Overflow survey ([2024](https://survey.stackoverflow.co/2024/), [2023](https://survey.stackoverflow.co/2023/)). Postgres has taken over the first place spot from MySQL and become the most admired, desired database.
 
 ![stackoverflow](/content/blog/postgres-vs-mysql/stackoverflow.webp)
 
@@ -57,7 +61,7 @@ from the following dimensions:
 - [Operability](#operability)
 - [Ecosystem](#ecosystem)
 
-_Unless otherwise specified, the comparison below is between the latest stable release, Postgres 15 vs. MySQL 8.0 (using InnoDB). We also use Postgres instead of PostgreSQL throughout the article, though we know the latter is the official name, which is considered as [the biggest mistake in Postgres History](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)_.
+_Unless otherwise specified, the comparison below is between the latest stable release, Postgres 17 vs. MySQL 9 (using InnoDB). We also use Postgres instead of PostgreSQL throughout the article, though we know the latter is the official name, which is considered as [the biggest mistake in Postgres History](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)_.
 
 ## License
 
@@ -170,6 +174,10 @@ Performance: In general, Postgres implementation of window functions is consider
 
 ~Advanced Functions: Postgres supports more advanced window functions, such as LAG(), LEAD(), FIRST_VALUE(), and LAST_VALUE()~. MySQL 8.0 also supports these [window functions](https://dev.mysql.com/doc/refman/8.0/en/window-function-descriptions.html).
 
+### AI
+
+Postgres leverages pgvector for vector operations. MySQL 9 introduces [VECTOR type](https://dev.mysql.com/doc/refman/9.0/en/mysql-nutshell.html), but the support is quite limited as it only supports the distance functions.
+
 ## Extensibility
 
 Postgres supports [extensions](https://www.postgresql.org/docs/current/sql-createextension.html). The
@@ -257,6 +265,7 @@ lifecycle for both of them, please check out [Bytebase](/).
 - [Notion: Herding elephants: Lessons learned from sharding Postgres at Notion - Oct 6, 2021](https://www.notion.so/blog/sharding-postgres-at-notion)
 - [Pinterest: Sharding Pinterest: How we scaled our MySQL fleet - Aug 17, 2015](https://medium.com/pinterest-engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f)
 - [Slack: Scaling Datastores at Slack with Vitess - Dec 1, 2020](https://slack.engineering/scaling-datastores-at-slack-with-vitess/)
+- [MySQL At Uber](https://www.uber.com/blog/mysql-at-uber/)
 
 ### Upgrading and Migration
 
