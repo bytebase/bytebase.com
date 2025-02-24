@@ -10,7 +10,7 @@ description: SQL clients makes it safer and easier to manage databases. In this 
 
 <HintBlock type="info">
 
-This post is updated regularly.
+This post is maintained by Bytebase, an open-source database DevSecOps tools. We update the post ~2 times per year.
 
 </HintBlock>
 

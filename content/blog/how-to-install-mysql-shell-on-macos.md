@@ -9,7 +9,7 @@ description: Learn how to install MySQL Shell on your macOS.
 
 <HintBlock type="info">
 
-This article refers to the advanced MySQL Shell introduced in MySQL 8.0, if you want to install the advanced [MySQL Shell `mysqlsh`](https://dev.mysql.com/doc/mysql-shell/8.0/en/), check out [How to install MySQL Client on Your Mac, Ubuntu, Debian, Windows](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows).
+This article refers to the advanced MySQL Shell introduced in MySQL 8.0, if you want to install the classic [MySQL client `mysql`](https://dev.mysql.com/doc/refman/8.0/en/mysql.html), check out [How to install MySQL Client on Your Mac, Ubuntu, Debian, Windows](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows).
 
 </HintBlock>
 
@@ -123,7 +123,7 @@ This will start MySQL Shell in JavaScript mode (by default). To connect to a ser
 
 ## More MySQL Tools
 
-MySQL Shell provides the advanced capabilities. Meanwhile you can also check out following tools
+MySQL Shell provides the advanced capabilities. Meanwhile you can also check out following tools:
 
 1. [Classic `mysql`](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows), still the most widely used MySQL client.
 1. [Top MySQL GUI client](/blog/top-mysql-gui-client).
