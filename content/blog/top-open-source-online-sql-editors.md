@@ -1,5 +1,5 @@
 ---
-title: Top 5 Open Source, online SQL Editors you can self-host
+title: Top 5 Open Source, Online SQL Editors You can Self-host
 author: Tianzhou
 updated_at: 2025/02/25 09:00:00
 feature_image: /content/blog/top-open-source-online-sql-editors/banner.webp
