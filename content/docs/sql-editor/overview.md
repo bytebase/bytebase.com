@@ -8,7 +8,7 @@ You can also embed SQL Editor into your own app, check out [this tutorial](/docs
 
 </HintBlock>
 
-![SQL Editor Preview](/content/docs/sql-editor/query.webp)
+![SQL Editor Preview](/content/docs/sql-editor/sql-editor.webp)
 
 SQL Editor provides an all-in-one interface to perform interactive database operations:
 
