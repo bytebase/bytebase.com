@@ -2,8 +2,8 @@
 title: SQL Review API
 ---
 
-<TutorialBlock url="/docs/tutorials/sql-review" title="Master SQL Review with GUI, GitOps and API" />
-<TutorialBlock url="/docs/tutorials/api-sql-review/" title="Codify SQL Review Policies with Bytebase API" />
+<TutorialBlock url="/docs/tutorials/sql-review-api" title="SQL Review with Bytebase API" />
+<TutorialBlock url="/docs/tutorials/api-sql-review-policy/" title="Codify SQL Review Policies with Bytebase API" />
 
 The SQL Review API provides SQL checks based on your schema review policy.
 

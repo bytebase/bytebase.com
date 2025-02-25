@@ -23,20 +23,19 @@ This tutorial will walk you through using SQL Review in Bytebase with Bytebase A
 
 Make sure you have completed the previous tutorial [SQL Review with Bytebase GUI](/docs/tutorials/sql-review-gui/).
 
-## Bytebase API Examples
-
-You may call [Bytebase API](/docs/api/sql-review/) in your internal portal or GitHub Actions to trigger SQL Review. Check out the following examples:
-
-- Configure SQL Review Policies via API: https://github.com/bytebase/api-example/tree/main/sql-review
-- Trigger SQL Review via API: https://github.com/bytebase/api-example/tree/main/issue-creation
-
-  ![bb-api](/content/docs/tutorials/sql-review-api/bb-api.webp)
-
-## Configure ngrok
-
 If you want to test the SQL Review API locally, you may need to configure ngrok.
 
 <IncludeBlock url="/docs/get-started/install/vcs-with-ngrok"></IncludeBlock>
+
+## API Examples
+
+You may call [Bytebase API](/docs/api/sql-review/) in your internal portal or GitHub Actions to trigger SQL Review. Check out https://github.com/bytebase/api-example/tree/main/issue-creation
+
+![bb-api](/content/docs/tutorials/sql-review-api/bb-api.webp)
+
+You can also call the API to configure SQL Review policies.
+
+<TutorialBlock url="/docs/tutorials/api-sql-review-policy/" title="Codify SQL Review Policies with Bytebase API" />
 
 ## Summary
 

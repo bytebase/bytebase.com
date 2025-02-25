@@ -64,7 +64,7 @@ This tutorial will guide you through configuring SQL review rules using the Byte
    ```
 
 1. In the Bytebase console, navigate to **CI/CD > SQL Review** to see the applied SQL review rules. You may click **Edit** to change the rules.
-   ![sql-review-config](/content/docs/tutorials/api-sql-review/sql-review-config.webp)
+   ![sql-review-config](/content/docs/tutorials/api-sql-review-policy/sql-review-config.webp)
 
 ## Attach SQL Review Policies to Resources
 
@@ -91,13 +91,13 @@ We'll apply these SQL review rules to `environments` or `projects`. Project-leve
    ```
 
 1. On the **CI/CD > SQL Review** page, you will see the SQL review rules are applied to environments and projects.
-   ![sql-review-config-apply](/content/docs/tutorials/api-sql-review/sql-review-config-apply.webp)
+   ![sql-review-config-apply](/content/docs/tutorials/api-sql-review-policy/sql-review-config-apply.webp)
 
 1. Go to **Environments** page, click **Test** environment to see the applied SQL review rules.
-   ![sql-review-env](/content/docs/tutorials/api-sql-review/sql-review-env.webp)
+   ![sql-review-env](/content/docs/tutorials/api-sql-review-policy/sql-review-env.webp)
 
 1. Go to `Sample Project` page, click **Setting** on the left sidebar to see the applied the SQL review rules.
-   ![bb-project-setting](/content/docs/tutorials/api-sql-review/sql-review-project-setting.webp)
+   ![bb-project-setting](/content/docs/tutorials/api-sql-review-policy/sql-review-project-setting.webp)
 
 1. To detach SQL review policies from environments, use the following commands:
 

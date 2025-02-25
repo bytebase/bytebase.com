@@ -2,6 +2,8 @@
 title: UI Integration
 ---
 
+<TutorialBlock url="/docs/tutorials/sql-review-gui" title="SQL Review with Bytebase GUI" />
+
 SQL advisor runs automatic SQL checks when:
 
 - Schema or data change
