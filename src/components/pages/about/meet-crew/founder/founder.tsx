@@ -9,7 +9,6 @@ const founder = {
     name: 'Danny',
     position: 'Co-Founder & CTO',
     linkedin: 'https://www.linkedin.com/in/danny-xu-579b1a54/',
-    github: 'https://github.com/d-bytebase',
     image: {
       default: '/images/page/about/danny.webp',
       xl: '/images/page/about/danny-xl.webp',
@@ -23,7 +22,6 @@ const founder = {
     name: 'Tianzhou',
     position: 'Co-Founder & CEO',
     linkedin: 'https://www.linkedin.com/in/tianzhouchen/',
-    github: 'https://github.com/tianzhou',
     image: {
       default: '/images/page/about/tianzhou.webp',
       xl: '/images/page/about/tianzhou-xl.webp',
@@ -36,7 +34,7 @@ const founder = {
 };
 
 const Founder = ({ id, className }: { id: keyof typeof founder; className?: string }) => {
-  const { position, linkedin, github, name, image, about } = founder[id];
+  const { position, linkedin, name, image, about } = founder[id];
 
   return (
     <article
@@ -104,12 +102,6 @@ const Founder = ({ id, className }: { id: keyof typeof founder; className?: stri
                 {position}
                 <Link href={linkedin}>
                   <BsLinkedin
-                    size={16}
-                    className="ml-2 shrink-0 items-center transition-opacity duration-200 hover:opacity-80"
-                  />
-                </Link>
-                <Link href={github}>
-                  <BsGithub
                     size={16}
                     className="ml-2 shrink-0 items-center transition-opacity duration-200 hover:opacity-80"
                   />
