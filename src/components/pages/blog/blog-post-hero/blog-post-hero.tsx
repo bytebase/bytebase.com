@@ -85,7 +85,7 @@ const BlogPostHero = ({ post, isBlogPost = true }: BlogPostHeroProps) => {
         </div>
         {isBlogPost ? (
           <Image
-            className="relative col-span-6 aspect-[2] overflow-hidden rounded-lg border border-gray-15 border-opacity-20 object-cover shadow-pricing lg:aspect-[1.6] md:col-span-full md:aspect-auto"
+            className="relative col-span-6 h-auto w-full rounded-lg border border-gray-15 border-opacity-20 object-contain shadow-pricing md:col-span-full"
             src={feature_image}
             alt={title}
             width="967"
@@ -95,7 +95,7 @@ const BlogPostHero = ({ post, isBlogPost = true }: BlogPostHeroProps) => {
         ) : (
           <Link href={`${ROUTE.BLOG}/${slug}`} className="col-span-6 md:col-span-full">
             <Image
-              className="relative aspect-[2] overflow-hidden rounded-lg border border-gray-15 border-opacity-20 object-cover shadow-pricing lg:aspect-[1.6] md:aspect-auto"
+              className="relative h-auto w-full rounded-lg border border-gray-15 border-opacity-20 object-contain shadow-pricing"
               src={feature_image}
               alt={title}
               width="967"

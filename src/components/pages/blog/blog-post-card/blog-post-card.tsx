@@ -38,14 +38,15 @@ const BlogPostCard = ({
     >
       {hasImage && post?.feature_image && (
         <Link
-          className="relative aspect-[2.07] overflow-hidden rounded-[4px] border border-gray-90 lg:aspect-[2.084] sm:aspect-[2.1]"
+          className="relative overflow-hidden rounded-[4px] border border-gray-90"
           href={`${ROUTE.BLOG}/${post.slug}`}
         >
           <Image
-            className="absolute left-0 top-0 min-h-full min-w-full object-cover"
+            className="h-auto w-full object-contain"
             src={post.feature_image}
             alt={post.title}
-            fill
+            width={800}
+            height={400}
           />
         </Link>
       )}
