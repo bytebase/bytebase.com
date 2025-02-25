@@ -1,5 +1,5 @@
 ---
-title: 'Master SQL Review with Bytebase GUI'
+title: 'SQL Review with Bytebase GUI'
 author: Ningjing
 updated_at: 2025/02/24 16:15
 tags: Tutorial
@@ -8,13 +8,13 @@ estimated_time: '20 mins'
 description: This tutorial will walk you through using SQL Review via Bytebase GUI to improve your database schema change process.
 ---
 
-When modifying data in the database, it's crucial to ensure that the changes are both safe and accurate. Bytebase offers a feature called [SQL Review](/docs/sql-review/overview/), which allows you to evaluate your SQL changes before they are applied to the database. SQL Review can be initiated through the Bytebase GUI, CI or API.
+When modifying data in the database, it's crucial to ensure that the changes are both safe and accurate. Bytebase offers a feature called [SQL Review](/docs/sql-review/overview/), which allows you to evaluate your SQL changes before they are applied to the database. SQL Review can be invoked from the Bytebase GUI, CI or API.
 
 This is the first part of tutorial series of SQL Review:
 
-   1. Master SQL Review with Bytebase GUI (This one)
-   1. [Master SQL Review with Bytebase API](/docs/tutorials/sql-review-api/)
-   1. Master SQL Review with Bytebase CI
+1.  SQL Review with Bytebase GUI (This one)
+1.  [SQL Review with Bytebase API](/docs/tutorials/sql-review-api/)
+1.  SQL Review with Bytebase CI
 
 This tutorial will walk you through using SQL Review in Bytebase with Bytebase GUI to improve your database schema change process. The **Community Plan** is sufficient for completing this tutorial.
 
@@ -61,7 +61,7 @@ This tutorial will walk you through using SQL Review in Bytebase with Bytebase G
 
    ![bb-issue-sql-review-error](/content/docs/tutorials/sql-review-gui/bb-issue-sql-review-error.webp)
 
-1. You may resolve this by changing the SQL as the following:
+1. You may resolve this by changing the SQL as follows:
 
    ```sql
    CREATE TABLE "public"."t1" (
@@ -76,4 +76,4 @@ This tutorial will walk you through using SQL Review in Bytebase with Bytebase G
 
 ## Summary
 
-Now you have learned how to trigger SQL Review in Bytebase GUI, you may also refer to the [SQL Review](/docs/sql-review/) document for more details.
+Now you have learned how to trigger SQL Review in Bytebase GUI, you may also refer to the [SQL Review](/docs/sql-review/overview) document for more details. Next, let's learn how to [trigger SQL Review via Bytebase API](/docs/tutorials/sql-review-api/).
