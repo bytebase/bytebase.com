@@ -10,7 +10,15 @@ description: SQL clients makes it safer and easier to manage databases. In this 
 
 <HintBlock type="info">
 
+<<<<<<< ours
 This post is maintained by Bytebase, an open-source database DevSecOps tools. We update the post ~2 times per year.
+||||||| ancestor
+This post is updated regularly.
+=======
+Companion for [Top 3 free SQL Editors with bulit-in AI](https://www.bytebase.com/blog/top-open-source-sql-clients/).
+
+This post is updated regularly.
+>>>>>>> theirs
 
 </HintBlock>
 

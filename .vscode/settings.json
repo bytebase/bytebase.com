@@ -34,5 +34,6 @@
     "postgres",
     "WDYT",
     "webp"
-  ]
+  ],
+  "git.ignoreLimitWarning": true
 }
