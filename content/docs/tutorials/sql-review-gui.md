@@ -10,11 +10,12 @@ description: This tutorial will walk you through using SQL Review via Bytebase G
 
 When modifying data in the database, it's crucial to ensure that the changes are both safe and accurate. Bytebase offers a feature called [SQL Review](/docs/sql-review/overview/), which allows you to evaluate your SQL changes before they are applied to the database. SQL Review can be invoked from the Bytebase GUI, CI or API.
 
-This is the first part of tutorial series of SQL Review:
+This is the 3rd part of tutorial series of SQL Review:
 
-1.  SQL Review with Bytebase GUI (This one)
+1.  SQL Review with Bytebase GUI (this one)
+1.  SQL Review with CI (TBD)
 1.  [SQL Review with Bytebase API](/docs/tutorials/sql-review-api/)
-1.  SQL Review with Bytebase CI
+1.  [Codify SQL Review Policies with Bytebase API](/docs/tutorials/api-sql-review-policy/)
 
 This tutorial will walk you through using SQL Review in Bytebase with Bytebase GUI to improve your database schema change process. The **Community Plan** is sufficient for completing this tutorial.
 
@@ -76,4 +77,4 @@ This tutorial will walk you through using SQL Review in Bytebase with Bytebase G
 
 ## Summary
 
-Now you have learned how to trigger SQL Review in Bytebase GUI, you may also refer to the [SQL Review](/docs/sql-review/overview) document for more details. Next, let's learn how to [trigger SQL Review via Bytebase API](/docs/tutorials/sql-review-api/).
+Now you have learned how to trigger SQL Review in Bytebase GUI, you may also refer to the [SQL Review](/docs/sql-review/overview) document for more details. Next, let's learn how to [trigger SQL Review from your CI API](/docs/tutorials/sql-review-api/).

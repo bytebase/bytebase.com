@@ -2,7 +2,9 @@
 title: Review Policy
 ---
 
-In Bytebase, you can establish a SQL Review Policy for each [environment](/docs/concepts/data-model#environment) or [project](/docs/concepts/data-model/#project). This policy consists of a set of [SQL lint rules](/docs/sql-review/review-rules) tailored to each database engine.  Once configured, Bytebase will check SQL against those rules.
+<TutorialBlock url="/docs/tutorials/api-sql-review-policy/" title="Codify SQL Review Policies with Bytebase API" />
+
+In Bytebase, you can establish a SQL Review Policy for each [environment](/docs/concepts/data-model#environment) or [project](/docs/concepts/data-model/#project). This policy consists of a set of [SQL lint rules](/docs/sql-review/review-rules) tailored to each database engine. Once configured, Bytebase will check SQL against those rules.
 
 ![bb-sql-review-policy](/content/docs/sql-review/bb-sql-review-policy.webp)
 

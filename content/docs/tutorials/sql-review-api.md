@@ -14,8 +14,9 @@ When modifying data in the database, it's crucial to ensure that the changes are
 This is the first part of tutorial series of SQL Review:
 
 1.  [SQL Review with Bytebase GUI](/docs/tutorials/sql-review-gui/)
-1.  SQL Review with Bytebase API (This one)
-1.  SQL Review with Bytebase CI (TBD)
+1.  SQL Review with CI (TBD)
+1.  SQL Review with Bytebase API (this one)
+1.  [Codify SQL Review Policies with Bytebase API](/docs/tutorials/api-sql-review-policy/)
 
 This tutorial will walk you through using SQL Review in Bytebase with Bytebase API to improve your database schema change process. The **Community Plan** is sufficient for completing this tutorial.
 
@@ -39,4 +40,4 @@ You can also call the API to configure SQL Review policies.
 
 ## Summary
 
-Now you have learned how to trigger SQL Review in Bytebase API. You may also refer to the [SQL Review](/docs/sql-review/overview) document for more details.
+Now you have learned how to trigger SQL Review in Bytebase API. You may also refer to the [SQL Review](/docs/sql-review/overview) document for more details. Next, let's learn how to [codify SQL Review policies with API](/docs/tutorials/api-sql-review-policy/)
