@@ -1,5 +1,6 @@
 ---
-title: How to check Postgres version
+title: How to Check Postgres Version
+updated_at: 2025/02/27 09:00:00
 ---
 
 Postgres releases a new major version about once a year. For `psql`, it works best with servers of

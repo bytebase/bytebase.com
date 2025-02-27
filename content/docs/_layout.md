@@ -283,11 +283,11 @@ expand_section_list: ['Self-host']
 
 ### Postgres
 
-#### [How to check Postgres version](/how-to/postgres/how-to-check-postgres-version)
+#### [How to Check Postgres version](/how-to/postgres/how-to-check-postgres-version)
 
-#### [Permission denied for table](/how-to/postgres/permission-denied-for-table-postgres)
+#### [How to Fix Permission denied for table](/how-to/postgres/permission-denied-for-table-postgres)
 
-#### [Must be owner of table](/how-to/postgres/must-be-owner-of-table-postgres)
+#### [How to Fix Must be owner of table](/how-to/postgres/must-be-owner-of-table-postgres)
 
 ### ClickHouse
 
