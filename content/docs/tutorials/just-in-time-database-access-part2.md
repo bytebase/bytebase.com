@@ -1,6 +1,6 @@
 ---
 title: 'Approve Just-in-Time Database Access via Slack'
-author: Ningjing
+author: Adela
 tags: Tutorial
 updated_at: 2024/12/11 18:15
 integrations: Slack

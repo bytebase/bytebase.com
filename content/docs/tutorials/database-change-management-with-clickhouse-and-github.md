@@ -1,6 +1,6 @@
 ---
 title: 'Database CI/CD and Schema Migration with ClickHouse and GitHub'
-author: Ningjing
+author: Adela
 updated_at: 2024/05/11 17:45
 feature_image: /content/docs/tutorials/database-change-management-with-clickhouse-and-github/feature-image.webp
 tags: Tutorial

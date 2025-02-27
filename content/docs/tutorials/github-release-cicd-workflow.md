@@ -1,6 +1,6 @@
 ---
 title: Database Release CI/CD with GitHub Actions
-author: Ningjing
+author: Adela
 updated_at: 2025/02/17 18:00
 tags: Tutorial
 integrations: API, GitHub

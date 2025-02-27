@@ -1,6 +1,6 @@
 ---
 title: 'SQL Review with Bytebase GUI'
-author: Ningjing
+author: Adela
 updated_at: 2025/02/24 16:15
 tags: Tutorial
 level: Intermediate

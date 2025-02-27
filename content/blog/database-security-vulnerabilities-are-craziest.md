@@ -1,6 +1,6 @@
 ---
 title: Database security vulnerabilities are the craziest
-author: Dec
+author: Arya
 updated_at: 2024/10/18 12:00:00
 feature_image: /content/blog/database-security-vulnerabilities-are-craziest/banner.webp
 tags: Industry

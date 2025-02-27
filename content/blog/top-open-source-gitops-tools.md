@@ -1,6 +1,6 @@
 ---
 title: Top Open Source GitOps Tools in 2024
-author: Ningjing
+author: Adela
 updated_at: 2024/03/12 19:00:00
 feature_image: /content/blog/top-open-source-gitops-tools/banner.webp
 tags: Industry

@@ -1,6 +1,6 @@
 ---
 title: Bytebase 2.23.1
-author: Ningjing
+author: Adela
 updated_at: 2024/10/10 17:00:00
 feature_image: /content/changelog/2-23-1-banner.webp
 description: 'Support applying changelists to database groups'

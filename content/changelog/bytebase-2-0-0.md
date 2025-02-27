@@ -1,6 +1,6 @@
 ---
 title: Bytebase 2.0.0
-author: Ningjing
+author: Adela
 updated_at: 2023/05/11 15:30:00
 feature_image: /content/changelog/2-0-0-banner.webp
 description: 'Support AI-based index optimization advisor for slow query'

@@ -1,6 +1,6 @@
 ---
 title: Bytebase 3.1.1
-author: Ningjing
+author: Adela
 updated_at: 2024/12/05 17:00:00
 feature_image: /content/changelog/3-1-1-banner.webp
 description: 'Customizable homepage with shortcut list'
@@ -15,7 +15,7 @@ description: 'Customizable homepage with shortcut list'
 ## 🔔 Breaking Changes
 
 - Remove instance roles from Database messages. Call `GetInstance` or `ListInstanceRoles` to get instance role information.
-  
+
 ## 🎄 Enhancements
 
 - Well-formatted JSON in SQL Editor.

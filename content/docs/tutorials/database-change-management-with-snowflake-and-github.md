@@ -1,6 +1,6 @@
 ---
 title: 'Database CI/CD and Schema Migration with Snowflake and GitHub'
-author: Ningjing
+author: Adela
 updated_at: 2024/5/11 16:15
 feature_image: /content/docs/tutorials/database-change-management-with-snowflake-and-github/db-change-snowflake-github.webp
 tags: Tutorial

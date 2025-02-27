@@ -1,6 +1,6 @@
 ---
 title: Database Change Management with Spanner and GitHub
-author: Ningjing
+author: Adela
 updated_at: 2024/04/30 16:15
 feature_image: /content/docs/tutorials/database-change-management-with-spanner-and-github/feature-image.webp
 tags: Tutorial

@@ -1,6 +1,6 @@
 ---
 title: Bytebase 3.4.0
-author: Ningjing
+author: Adela
 updated_at: 2025/02/13 17:00:00
 feature_image: /content/changelog/3-4-0-banner.webp
 description: 'More features moved to community plan'

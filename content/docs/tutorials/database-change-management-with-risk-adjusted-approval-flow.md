@@ -1,6 +1,6 @@
 ---
 title: 'Database Change Management with Risk-Adjusted Approval Flow'
-author: Ningjing
+author: Adela
 updated_at: 2023/06/01 16:15
 feature_image: /content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/dcm-approval-flow.webp
 tags: Tutorial

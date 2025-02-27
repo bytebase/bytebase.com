@@ -1,6 +1,6 @@
 ---
 title: Automate Database Change with Jira
-author: Ningjing
+author: Adela
 updated_at: 2024/10/14 21:15
 tags: Tutorial
 level: Advanced

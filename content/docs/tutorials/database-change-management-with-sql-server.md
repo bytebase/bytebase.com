@@ -1,6 +1,6 @@
 ---
 title: 'Database CI/CD and Schema Migration with SQL Server'
-author: Ningjing
+author: Adela
 updated_at: 2024/1/8 18:15
 feature_image: /content/docs/tutorials/database-change-management-with-sql-server/sqlserver-feature.webp
 tags: Tutorial

@@ -1,6 +1,6 @@
 ---
 title: Snowflake Schema Change and CI/CD Best Practice
-author: Ningjing
+author: Adela
 updated_at: 2023/07/11 18:00:00
 feature_image: /content/blog/snowflake-schema-change/snowflake-schema-change.webp
 tags: Explanation

@@ -1,6 +1,6 @@
 ---
 title: 'Database CI/CD and Schema Migration with GitHub using Bytebase Cloud'
-author: Ningjing
+author: Adela
 updated_at: 2024/05/11 16:15
 feature_image: /content/docs/tutorials/database-change-management-with-github-using-bytebase-cloud/feature-image.webp
 tags: Tutorial

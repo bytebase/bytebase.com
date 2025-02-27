@@ -1,6 +1,6 @@
 ---
 title: Bytebase 1.0.5
-author: Ningjing
+author: Adela
 updated_at: 2022/05/12 10:58:34
 description: Launch the Chinese version of our official website. Add custom project webhook. Add "Format on save" checkbox on the issue detail page. Add "Sync schema afterward" checkbox on the instance create and detail page.
 ---

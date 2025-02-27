@@ -1,6 +1,6 @@
 ---
 title: Bytebase 2.22.2
-author: Ningjing
+author: Adela
 updated_at: 2024/8/22 17:00:00
 feature_image: /content/changelog/2-22-2-banner.webp
 description: 'Allow assigning roles to groups at the workspace level'

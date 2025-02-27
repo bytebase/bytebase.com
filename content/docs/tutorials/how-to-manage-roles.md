@@ -1,6 +1,6 @@
 ---
 title: How to Manage Roles
-author: Ningjing
+author: Adela
 updated_at: 2024/09/26 20:15
 tags: Tutorial
 integrations: General

@@ -1,6 +1,6 @@
 ---
 title: 'Just-in-time Database Access to Amazon Aurora using Bytebase'
-author: Ningjing
+author: Adela
 tags: Tutorial
 updated_at: 2025/01/07 18:15
 integrations: General

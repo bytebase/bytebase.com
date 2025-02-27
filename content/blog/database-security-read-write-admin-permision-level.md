@@ -1,6 +1,6 @@
 ---
 title: 'Database Security: Read, Write, and Admin Permission Levels'
-author: Ningjing
+author: Adela
 updated_at: 2024/11/04 16:00:00
 feature_image: /content/blog/database-security-read-write-admin-permission-level/db-permission-cover.webp
 tags: Explanation

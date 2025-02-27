@@ -1,6 +1,6 @@
 ---
 title: Data Masking with Classification Levels
-author: Ningjing
+author: Adela
 updated_at: 2024/11/07 18:15
 tags: Tutorial
 level: Intermediate

@@ -1,6 +1,6 @@
 ---
 title: Bytebase 2.20.0
-author: Ningjing
+author: Adela
 updated_at: 2024/6/27 17:00:00
 feature_image: /content/changelog/2-20-0-banner.webp
 description: 'Support Databricks'

@@ -1,6 +1,6 @@
 ---
 title: Your First Schema Change in 5 Minutes
-author: Ningjing
+author: Adela
 tags: Tutorial
 updated_at: 2024/10/10 20:00
 integrations: General

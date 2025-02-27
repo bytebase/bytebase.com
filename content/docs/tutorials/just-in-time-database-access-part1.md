@@ -1,6 +1,6 @@
 ---
 title: 'Just-in-Time Database Access via Bytebase GUI'
-author: Ningjing
+author: Adela
 tags: Tutorial
 updated_at: 2024/12/06 18:15
 integrations: General

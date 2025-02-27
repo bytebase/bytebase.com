@@ -1,6 +1,6 @@
 ---
 title: Steamline Database Schema Changes with Changelist
-author: Ningjing
+author: Adela
 updated_at: 2024/01/23 18:00
 tags: Tutorial
 integrations: General

@@ -1,6 +1,6 @@
 ---
 title: 'Data Masking with GitHub Actions Part 1 - Semantic Type and Global Masking Rule'
-author: Ningjing
+author: Adela
 updated_at: 2025/01/17 18:00
 tags: Tutorial
 integrations: API, GitHub

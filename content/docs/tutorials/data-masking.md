@@ -1,6 +1,6 @@
 ---
 title: How to Configure Dynamic Data Masking
-author: Ningjing
+author: Adela
 updated_at: 2025/02/05 18:00
 tags: Tutorial
 integrations: General

@@ -1,6 +1,6 @@
 ---
 title: 'Bytebase vs. CloudBeaver: a side-by-side comparison for web-based database management'
-author: Ningjing
+author: Adela
 updated_at: 2024/02/27 23:21:21
 feature_image: /content/blog/bytebase-vs-cloudbeaver/bb-vs-cb-banner.webp
 tags: Explanation

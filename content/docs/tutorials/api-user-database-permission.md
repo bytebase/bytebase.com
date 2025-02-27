@@ -1,6 +1,6 @@
 ---
 title: Inspect User and Database Permissions with Bytebase API
-author: Ningjing
+author: Adela
 updated_at: 2024/09/12 18:00
 tags: Tutorial
 integrations: API

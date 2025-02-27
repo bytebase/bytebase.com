@@ -1,6 +1,6 @@
 ---
 title: 'Database CI/CD and Schema Migration with MongoDB and GitHub'
-author: Ningjing
+author: Adela
 updated_at: 2024/05/11 11:45
 feature_image: /content/docs/tutorials/database-change-management-with-mongodb-and-github/feature-image.webp
 tags: Tutorial

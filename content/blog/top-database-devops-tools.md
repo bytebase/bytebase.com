@@ -1,6 +1,6 @@
 ---
 title: Top Database DevOps Tools in 2025
-author: Ningjing
+author: Adela
 updated_at: 2025/02/21 18:00:00
 feature_image: /content/blog/top-database-devops-tools/banner.webp
 tags: Industry

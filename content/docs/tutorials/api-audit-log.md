@@ -1,6 +1,6 @@
 ---
 title: Audit Database Activities with Bytebase API
-author: Ningjing
+author: Adela
 updated_at: 2024/09/23 18:00
 tags: Tutorial
 integrations: API

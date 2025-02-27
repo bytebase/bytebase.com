@@ -1,6 +1,6 @@
 ---
 title: 'Database Rollback: When Shit Hits the Fan'
-author: Ningjing
+author: Adela
 updated_at: 2024/11/01 18:00:00
 feature_image: /content/blog/database-rollback/database-rollback-cover.webp
 tags: Explanation

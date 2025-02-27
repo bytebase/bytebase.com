@@ -1,6 +1,6 @@
 ---
 title: Deploy Schema Migration with Bytebase API
-author: Ningjing
+author: Adela
 updated_at: 2023/12/21 18:00
 tags: Tutorial
 integrations: API

@@ -1,6 +1,6 @@
 ---
 title: Bytebase 2.22.1
-author: Ningjing
+author: Adela
 updated_at: 2024/8/8 17:00:00
 feature_image: /content/changelog/2-22-1-banner.webp
 description: 'Inline schema details in SQL Editor'

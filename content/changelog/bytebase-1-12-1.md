@@ -1,6 +1,6 @@
 ---
 title: Bytebase 1.12.1
-author: Ningjing
+author: Adela
 updated_at: 2023/02/16 17:00:00
 feature_image: /content/changelog/1-12-1-banner.webp
 description: '- Support OAuth 2.0 for Single Sign-On (SSO). - Support change and query for Spanner. - Support watermark. - Mask sensitive fields for PostgreSQL '

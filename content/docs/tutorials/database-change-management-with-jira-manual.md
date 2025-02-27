@@ -1,6 +1,6 @@
 ---
 title: Manual Database Change with Jira
-author: Ningjing
+author: Adela
 updated_at: 2024/09/30 21:15
 tags: Tutorial
 level: Beginner

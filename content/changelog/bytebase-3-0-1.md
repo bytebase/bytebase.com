@@ -1,6 +1,6 @@
 ---
 title: Bytebase 3.0.1
-author: Ningjing
+author: Adela
 updated_at: 2024/11/7 17:00:00
 feature_image: /content/changelog/3-0-1-banner.webp
 description: 'Configurable DDL/DML Execution in SQL Editor'

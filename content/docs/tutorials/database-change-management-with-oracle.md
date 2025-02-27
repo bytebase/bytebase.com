@@ -1,6 +1,6 @@
 ---
 title: 'Database CI/CD and Schema Migration with Oracle'
-author: Ningjing
+author: Adela
 updated_at: 2024/01/25 18:15
 feature_image: /content/docs/tutorials/database-change-management-with-oracle/oracle-feature.webp
 tags: Tutorial

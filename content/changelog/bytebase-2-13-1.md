@@ -1,6 +1,6 @@
 ---
 title: Bytebase 2.13.1
-author: Ningjing
+author: Adela
 updated_at: 2024/1/11 15:21:21
 feature_image: /content/changelog/2-13-1-banner.webp
 description: 'Support backing up data before DML is performed for MySQL.'

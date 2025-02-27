@@ -1,6 +1,6 @@
 ---
 title: Bytebase 3.2.0
-author: Ningjing
+author: Adela
 updated_at: 2025/01/02 17:00:00
 feature_image: /content/changelog/3-2-0-banner.webp
 description: 'Selectively sync databases from an instance'

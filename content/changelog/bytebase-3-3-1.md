@@ -1,6 +1,6 @@
 ---
 title: Bytebase 3.3.1
-author: Ningjing
+author: Adela
 updated_at: 2025/01/30 17:00:00
 feature_image: /content/changelog/3-3-1-banner.webp
 description: 'Support 1-click DML rollback for Oracle'

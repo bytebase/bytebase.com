@@ -1,6 +1,6 @@
 ---
 title: Bytebase 3.1.0
-author: Ningjing
+author: Adela
 updated_at: 2024/11/21 17:00:00
 feature_image: /content/changelog/3-1-0-banner.webp
 description: 'Google/GitHub SSO available in Pro Plan'
@@ -20,6 +20,7 @@ description: 'Google/GitHub SSO available in Pro Plan'
 ## 🔔 Breaking Changes
 
 - Redefine SQL Editor related permissions:
+
   - Permissions
     - `bb.databases.query` -> `bb.sql.select`
     - `bb.databases.queryDML` -> `bb.sql.dml`
@@ -35,7 +36,6 @@ description: 'Google/GitHub SSO available in Pro Plan'
   - Remove the `database` field of `sheet` in `SheetService`.
   - Disallow adding service account to a group via API (previously restricted in the UI) .
   - Deprecate `SQLService.Execute` method.
-  
 - Default PostgreSQL role to run a DDL/DML issue:
   - Instance connection user (previously database owner)
   - If PostgreSQL database tenant mode is on for a project, the role remains database owner.

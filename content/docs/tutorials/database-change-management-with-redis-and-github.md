@@ -1,6 +1,6 @@
 ---
 title: 'Database CI/CD and Schema Migration with Redis and GitHub'
-author: Ningjing
+author: Adela
 updated_at: 2023/5/9 11:45
 feature_image: /content/docs/tutorials/database-change-management-with-redis-and-github/feature-image.webp
 tags: Tutorial

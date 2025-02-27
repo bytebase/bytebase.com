@@ -1,6 +1,6 @@
 ---
 title: 'Database CI/CD and Schema Migration with TiDB'
-author: Ningjing
+author: Adela
 updated_at: 2023/01/03 21:15
 feature_image: /content/docs/tutorials/database-change-management-with-tidb/db-change-tidb.webp
 tags: Tutorial

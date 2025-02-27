@@ -1,6 +1,6 @@
 ---
 title: GitOps with Feature Branch Workflow
-author: Ningjing
+author: Adela
 updated_at: 2023/06/20 18:00
 feature_image: /content/docs/tutorials/gitops-feature-branch/final-setup.webp
 tags: Tutorial

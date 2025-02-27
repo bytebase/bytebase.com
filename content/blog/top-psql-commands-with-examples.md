@@ -1,6 +1,6 @@
 ---
 title: Top psql Commands with Examples
-author: Ningjing
+author: Adela
 updated_at: 2023/11/16 18:00:00
 feature_image: /content/blog/top-psql-commands-with-examples/cover.webp
 tags: How-To

@@ -1,6 +1,6 @@
 ---
 title: Manage Database Change with 1-Click Data Rollback
-author: Ningjing
+author: Adela
 updated_at: 2024/09/20 16:15
 tags: Tutorial
 integrations: General

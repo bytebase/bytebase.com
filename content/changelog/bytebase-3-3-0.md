@@ -1,6 +1,6 @@
 ---
 title: Bytebase 3.3.0
-author: Ningjing
+author: Adela
 updated_at: 2025/01/16 17:00:00
 feature_image: /content/changelog/3-3-0-banner.webp
 description: 'SOC 2'

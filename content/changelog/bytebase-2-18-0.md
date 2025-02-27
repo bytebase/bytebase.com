@@ -1,6 +1,6 @@
 ---
 title: Bytebase 2.18.0
-author: Ningjing
+author: Adela
 updated_at: 2024/5/30 17:00:00
 feature_image: /content/changelog/2-18-0-banner.webp
 description: 'Support user groups'

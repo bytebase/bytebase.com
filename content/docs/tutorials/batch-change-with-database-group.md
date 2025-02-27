@@ -1,6 +1,6 @@
 ---
 title: Batch Change with Database Group
-author: Ningjing
+author: Adela
 updated_at: 2024/07/23 18:00
 tags: Tutorial
 integrations: General

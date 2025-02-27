@@ -1,6 +1,6 @@
 ---
 title: 'Data Masking with GitHub Actions Part 2 - Column Masking and Masking Exemption'
-author: Ningjing
+author: Adela
 updated_at: 2025/01/17 18:00
 tags: Tutorial
 integrations: API, GitHub

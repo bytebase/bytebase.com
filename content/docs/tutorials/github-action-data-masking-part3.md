@@ -1,6 +1,6 @@
 ---
 title: 'Data Masking with GitHub Actions Part 3 - Data Classification'
-author: Dec
+author: Arya
 updated_at: 2025/01/17 18:00
 tags: Tutorial
 integrations: API, GitHub

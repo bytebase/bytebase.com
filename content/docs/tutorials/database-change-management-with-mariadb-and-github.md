@@ -1,6 +1,6 @@
 ---
 title: 'Database CI/CD and Schema Migration with MariaDB and GitHub'
-author: Ningjing
+author: Adela
 updated_at: 2024/05/06 16:45
 feature_image: /content/docs/tutorials/database-change-management-with-mariadb-and-github/bytebase-mariadb-github-banner.webp
 tags: Tutorial

@@ -23,7 +23,7 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
                 Feb 27th, 2025
               </span>
               <span className="flex items-center gap-1.5 px-2">
-                🚀 3.4.1: Bytebase Terraform enables managing additional resources
+                🚀 3.4.1: Terraform provider manages more resources
                 <SmallArrowIcon width={7} height={6} />
               </span>
             </span>

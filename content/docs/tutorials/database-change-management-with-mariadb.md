@@ -1,6 +1,6 @@
 ---
 title: 'Database CI/CD and Schema Migration with MariaDB'
-author: Ningjing
+author: Adela
 updated_at: 2023/06/16 17:15
 feature_image: /content/docs/tutorials/database-change-management-with-mariadb/bytebase-mariadb-banner.webp
 tags: Tutorial

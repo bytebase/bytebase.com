@@ -1,6 +1,6 @@
 ---
 title: Top Database Security Tools
-author: Ningjing
+author: Adela
 updated_at: 2024/2/1 16:21:21
 feature_image: /content/blog/top-database-security-tools/banner.webp
 tags: Industry

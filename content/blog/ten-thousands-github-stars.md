@@ -1,6 +1,6 @@
 ---
 title: Bytebase Surpasses 10,000 Stars on GitHub
-author: Ningjing
+author: Adela
 updated_at: 2024/04/24 18:00:00
 feature_image: /content/blog/ten-thousands-github-stars/cover.webp
 tags: Announcement

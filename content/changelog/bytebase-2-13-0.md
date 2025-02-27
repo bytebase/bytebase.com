@@ -1,6 +1,6 @@
 ---
 title: Bytebase 2.13.0
-author: Ningjing
+author: Adela
 updated_at: 2023/12/28 15:21:21
 feature_image: /content/changelog/2-13-0-banner-fix.webp
 description: 'Support advanced SQL auto-completion for PostgreSQL, Redshift and RisingWave.'

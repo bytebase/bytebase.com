@@ -1,6 +1,6 @@
 ---
 title: Bytebase 3.1.2
-author: Ningjing
+author: Adela
 updated_at: 2024/12/19 17:00:00
 feature_image: /content/changelog/3-1-2-banner.webp
 description: 'Tooltips for tables, columns, and PostgreSQL view comments in SQL Editor'

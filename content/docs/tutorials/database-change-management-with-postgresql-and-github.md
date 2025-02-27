@@ -1,6 +1,6 @@
 ---
 title: 'Database CI/CD and Schema Migration with PostgreSQL and GitHub'
-author: Ningjing
+author: Adela
 updated_at: 2024/04/12 17:45
 feature_image: /content/docs/tutorials/database-change-management-with-postgresql-and-github/feature-image.webp
 tags: Tutorial

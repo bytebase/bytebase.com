@@ -1,6 +1,6 @@
 ---
 title: 'SQL Review with Bytebase API'
-author: Ningjing
+author: Adela
 updated_at: 2025/02/24 16:15
 tags: Tutorial
 integrations: API

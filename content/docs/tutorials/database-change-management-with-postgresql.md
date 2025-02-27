@@ -1,6 +1,6 @@
 ---
 title: 'Database CI/CD and Schema Migration with PostgreSQL'
-author: Ningjing
+author: Adela
 updated_at: 2023/02/14 12:15
 feature_image: /content/docs/tutorials/database-change-management-with-postgresql/feature-image.webp
 tags: Tutorial

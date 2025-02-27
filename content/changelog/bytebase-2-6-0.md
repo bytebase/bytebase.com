@@ -1,6 +1,6 @@
 ---
 title: Bytebase 2.6.0
-author: Ningjing
+author: Adela
 updated_at: 2023/08/17 17:21:21
 feature_image: /content/changelog/2-6-0-banner.webp
 description: 'Support using LDAP for configuring SSO. Support adding multiple read-only data sources.'

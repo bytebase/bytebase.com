@@ -1,6 +1,6 @@
 ---
 title: 'Bytebase vs. DBeaver: a side-by-side comparison for database management'
-author: Ningjing
+author: Adela
 updated_at: 2024/02/07 23:21:21
 feature_image: /content/blog/bytebase-vs-dbeaver/bytebase-vs-dbeaver-banner.webp
 tags: Explanation

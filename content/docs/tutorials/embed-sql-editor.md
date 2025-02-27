@@ -1,6 +1,6 @@
 ---
 title: Embed SQL Editor in Your Internal Web Portal
-author: Ningjing
+author: Adela
 updated_at: 2024/10/31 21:15
 tags: Tutorial
 level: Intermediate

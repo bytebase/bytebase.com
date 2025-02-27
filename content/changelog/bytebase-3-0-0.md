@@ -1,6 +1,6 @@
 ---
 title: Bytebase 3.0.0
-author: Ningjing
+author: Adela
 updated_at: 2024/10/24 17:00:00
 feature_image: /content/changelog/3-0-0-banner.webp
 description: 'AI Assistant for SQL Editor'

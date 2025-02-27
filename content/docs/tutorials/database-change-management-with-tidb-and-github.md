@@ -1,6 +1,6 @@
 ---
 title: 'Database CI/CD and Schema Migration with TiDB and GitHub'
-author: Ningjing
+author: Adela
 updated_at: 2024/04/30 21:15
 feature_image: /content/docs/tutorials/database-change-management-with-tidb-and-github/db-change-tidb-github.webp
 tags: Tutorial

@@ -1,6 +1,6 @@
 ---
 title: Bytebase 2.9.1
-author: Ningjing
+author: Adela
 updated_at: 2023/10/12 17:21:21
 feature_image: /content/changelog/2-9-1-banner.webp
 description: 'Group changes into a changelist and apply them in one issue or export.'

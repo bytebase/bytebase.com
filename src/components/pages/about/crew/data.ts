@@ -2,7 +2,7 @@ export const crewList = [
   {
     image: '/images/page/people/zhe.webp',
     name: 'Zhe',
-    position: 'Intern',
+    position: 'Engineering',
   },
   {
     image: '/images/page/people/junyi.webp',
@@ -12,6 +12,11 @@ export const crewList = [
   {
     image: '/images/page/people/mila.webp',
     name: 'Mila',
+    position: 'Product Marketing',
+  },
+  {
+    image: '/images/page/people/ayra.webp',
+    name: 'Arya',
     position: 'Product Marketing',
   },
   {
@@ -25,14 +30,14 @@ export const crewList = [
     position: 'Solution Architect',
   },
   {
-    image: '/images/page/people/ningjing.webp',
-    name: 'Ningjing',
+    image: '/images/page/people/adela.webp',
+    name: 'Adela',
     position: 'Developer Advocate',
   },
   {
     image: '/images/page/people/zipeng.webp',
     name: 'Zipeng',
-    position: 'Intern',
+    position: 'Engineering',
   },
   {
     image: '/images/page/people/ji.webp',

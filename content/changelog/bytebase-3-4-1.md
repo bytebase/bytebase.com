@@ -3,19 +3,20 @@ title: Bytebase 3.4.1
 author: Ayra
 updated_at: 2025/02/27 17:00:00
 feature_image: /content/changelog/3-4-1-banner.webp
-description: 'Bytebase Terraform enables managing additional resources'
+description: 'Terraform provider manages more resources'
 ---
 
 ## 🎄 Enhancements
 
-- The Bytebase Terraform provider enables the management of additional resources.
-    - Support managing custom roles, semantic types, and database resources.
-    - Support assigning instance licenses.
-    - Support external secrets for instances.
+- Terraform provider manages more resources.
+
+  - Support managing custom roles, semantic types, and database resources.
+  - Support assigning instance licenses.
+  - Support external secrets for instances.
 
 - Allow retrying online migration tasks.
 - Enable the following flags for online migration: `throttle-control-replicas` and `attempt-instant-ddl`.
-- Improved the automatic quotation feature in the SQL editor.
+- Improve the automatic quotation feature in the SQL editor.
 - Consolidate the setting update UX for workspace, instance, environment, and project.
 
 ## 🔔 Breaking Changes
