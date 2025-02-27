@@ -13,13 +13,13 @@ extensibility, usability, architecture, ecosystem, industry best practices.'
 
 This post is maintained by Bytebase, an open-source database DevSecOps tool that can manage both Postgres and MySQL. We update the post ~2 times per year.
 
-**Changelog:**
-
-- 2025/02/23: Added online DDL.
-- 2024/09/16: Added scaling and sharding references.
-- 2023/07/11: Initial version.
-
 </HintBlock>
+
+| Update History | Comment                                |
+| -------------- | -------------------------------------- |
+| 2023/07/11     | Initial version.                       |
+| 2024/09/16     | Added scaling and sharding references. |
+| 2025/02/23     | Added online DDL.                      |
 
 > For the impatience, jump to the [last section](#postgres-or-mysql) to see the comparison table. The [References](#references) collects many industry best practices.
 

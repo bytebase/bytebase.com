@@ -1,7 +1,7 @@
 ---
-title: 'Postgres vs. MongoDB: a Complete Comparison in 2024'
+title: 'Postgres vs. MongoDB: a Complete Comparison in 2025'
 author: Tianzhou
-updated_at: 2024/01/14 12:00
+updated_at: 2025/02/27 12:00
 feature_image: /content/blog/postgres-vs-mongodb/cover.webp
 tags: Industry
 featured: true
@@ -10,14 +10,20 @@ description: 'An extensive comparison between Postgres and MongoDB on performanc
 
 <HintBlock type="info">
 
-This post is updated regularly. For the impatience, jump to the [last section](#postgres-or-mongodb) to
-see the comparison table.
+This post is maintained by Bytebase, an open-source database DevSecOps tool that can manage both Postgres and MongoDB. We update the post ~2 times per year.
 
 </HintBlock>
 
+| Update History | Comment           |
+| -------------- | ----------------- |
+| 2024/01/14     | Initial version.  |
+| 2025/02/27     | Added AI section. |
+
+> For the impatience, jump to the [last section](#postgres-or-mongodb) to see the comparison table.
+
 ## Why Comparing Postgres and MongoDB
 
-The [2023 Stack Overflow survey](https://survey.stackoverflow.co/2023/) shows that Postgres has become the most admired, desired database.
+Postgres is the most admired, desired database in the last 2 Stack Overflow surveys ([2024](https://survey.stackoverflow.co/2024/), [2023](https://survey.stackoverflow.co/2023/)).
 
 ![stackoverflow](/content/blog/postgres-vs-mongodb/stackoverflow.webp)
 
@@ -54,6 +60,7 @@ from the following dimensions:
 - [Usability](#usability)
 - [Operability](#operability)
 - [Ecosystem](#ecosystem)
+- [AI](#ai)
 
 _Unless otherwise specified, the comparison below is between the latest major release, Postgres 15 vs. MongoDB 6. We also use Postgres instead of PostgreSQL throughout the article, though we know the latter is the official name, which is considered as [the biggest mistake in Postgres History](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)_.
 
@@ -165,6 +172,12 @@ to make sure it becomes an integral part of the overall MongoDB product line. No
 
 Though Postgres and MongoDB take polarized approach to cultivate the ecosystem, both are widely successful.
 
+## AI
+
+Postgres leverages [pgvector](https://github.com/pgvector/pgvector) extension for vector operations. MongoDB provide built-in [vector search](https://www.mongodb.com/products/platform/atlas-vector-search). MongoDB also [just acquired Voyage AI](https://www.mongodb.com/blog/post/redefining-database-ai-why-mongodb-acquired-voyage-ai) to tackle the hallucination problem of LLM.
+
+![mongodb-voyage](/content/blog/postgres-vs-mongodb/mongodb-voyage.webp)
+
 ## Postgres or MongoDB
 
 |              | Postgres                                                        | MongoDB                                                 |
@@ -178,6 +191,7 @@ Though Postgres and MongoDB take polarized approach to cultivate the ecosystem, 
 | Usability    | Rigorous and powerful query capability                          | Relaxed enforcement and easy to start                   |
 | Operability  | Optimized for single node and a wide range of hosting providers | Optimized for multi-node and a polished hosting service |
 | Ecosystem    | Community driven, decentralized, vibrant                        | Business driven, centralized, integral                  |
+| AI           | pgvector extension                                              | Built-in vector search                                  |
 
 There are obvious domains where one database is more suitable than the other:
 

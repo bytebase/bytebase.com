@@ -10,14 +10,14 @@ description: 'While MariaDB was initially a fork of MySQL, the two have evolved 
 
 <HintBlock type="info">
 
-This post is updated regularly.
+This post is maintained by Bytebase, an open-source database DevSecOps tool that can manage both MySQL and MariaDB. We update the post ~2 times per year.
 
 </HintBlock>
 
 | Update History | Comment                                                                         |
 | -------------- | ------------------------------------------------------------------------------- |
-| 2024.9.29      | Initial version.                                                                |
-| 2024.11.05     | It was noted that MariaDB has had Atomic DDL since MariaDB 10.6.                |
+| 2024/09/29     | Initial version.                                                                |
+| 2024/11/05     | It was noted that MariaDB has had Atomic DDL since MariaDB 10.6.                |
 |                | It was noted that MariaDB has equal or better set of JSON functions that MySQL. |
 
 While MariaDB was initially a fork of MySQL, the two have evolved over time, each with its own strengths and development priorities. Recently, [MariaDB is acquired by K1](https://mariadb.com/newsroom/press-releases/k1-acquires-a-leading-database-software-company-mariadb-and-appoints-new-ceo/), marking the new journey for MariaDB.
