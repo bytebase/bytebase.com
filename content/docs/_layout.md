@@ -289,6 +289,8 @@ expand_section_list: ['Self-host']
 
 #### [How to Fix Must be owner of table](/how-to/postgres/must-be-owner-of-table-postgres)
 
+#### [How to Create Index in Postgres](/how-to/postgres/how-to-create-index-postgres)
+
 ### ClickHouse
 
 #### [How to Create a Database](/how-to/clickhouse/how-to-create-a-database-clickhouse)
