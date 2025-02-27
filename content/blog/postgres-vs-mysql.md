@@ -1,7 +1,7 @@
 ---
 title: "Postgres vs. MySQL: a Complete Comparison in 2025"
 author: Tianzhou
-updated_at: 2024/09/16 12:00
+updated_at: 2025/02/23 12:00
 feature_image: /content/blog/postgres-vs-mysql/cover.webp
 tags: Industry
 featured: true
@@ -15,7 +15,7 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 
 **Changelog:**
 
-- 2025/02/23: 2025 update.
+- 2025/02/23: Added online DDL.
 - 2024/09/16: Added scaling and sharding references.
 - 2023/07/11: Initial version.
 
@@ -52,6 +52,7 @@ from the following dimensions:
   - [ACID Transaction](#acid-transaction)
   - [Security](#security)
   - [Query Optimizer](#query-optimizer)
+  - [Online DDL](#online-ddl)
   - [Replication](#replication)
   - [JSON](#json)
   - [CTE (Common Table Expression)](#cte-common-table-expression)
@@ -137,6 +138,17 @@ extra views to emulate this behavior.
 ### Query Optimizer
 
 Postgres has a better query optimizer. More details in this [rant](https://news.ycombinator.com/item?id=29455852).
+
+### Online DDL
+
+Postgres provides online DDL for the following cases:
+
+1. `ADD COLUMN` without a default value.
+1. (Postgres 11+) `ADD COLUMN` with a default value.
+1. Specify `CONCURRENTLY` when running `CREATE INDEX`.
+
+MySQL provides a more comprehensive support for online DDL. You can specify the `ALGORITHM` to be `INSTANT`, `INPLACE` or `COPY` when running `ALTER TABLE`.
+In addition, there are [gh-ost](https://github.com/github/gh-ost), [pt-online-schema-change](https://docs.percona.com/percona-toolkit/pt-online-schema-change.html) to support online DDL for MySQL where the native support is limited.
 
 ### Replication
 
