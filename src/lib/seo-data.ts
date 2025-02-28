@@ -46,6 +46,12 @@ const SEO_DATA = {
       'Schema migration and database security for developer, security, DBA, and platform engineering teams.',
     pathname: `${Route.PRICING}/`,
   },
+  RESOURCES: {
+    title: 'Bytebase Resources',
+    description:
+      'Schema migration and database security for developer, security, DBA, and platform engineering teams.',
+    pathname: `${Route.RESOURCES}/`,
+  },
   CHANGELOG: {
     title: 'Changelog',
     description:

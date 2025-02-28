@@ -51,6 +51,7 @@ const FOOTER_MENU = [
   {
     name: 'RESOURCES',
     items: [
+      { name: 'Resources', linkUrl: Route.RESOURCES },
       { name: 'Documentation', linkUrl: Route.DOCS },
       { name: 'Changelog', linkUrl: Route.CHANGELOG },
       { name: 'Schema Migration', linkUrl: Route.SCHEMA_MIGRATION },

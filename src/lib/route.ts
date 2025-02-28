@@ -2,6 +2,7 @@ const Route = {
   INDEX: '/',
   ABOUT: '/about',
   PRICING: '/pricing',
+  RESOURCES: '/resources',
   BRAND: '/about#brand-kit',
   SCHEMA_MIGRATION: '/schema-migration',
   SQL_EDITOR: '/sql-editor',

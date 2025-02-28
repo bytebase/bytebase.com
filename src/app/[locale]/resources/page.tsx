@@ -1,0 +1,24 @@
+import getMetadata from '@/utils/get-metadata';
+
+import SEO_DATA from '@/lib/seo-data';
+
+export const metadata = getMetadata(SEO_DATA.RESOURCES);
+
+export default function ResourcesPage() {
+  return (
+    <>
+      <section className="bg-pricing-hero pb-20 pt-[64px] lg:pb-16 md:pb-[54px] md:pt-24 sm:pb-11">
+        <div className="container max-w-[1396px] 2xl:max-w-full">
+          <header className="text-center">
+            <h1 className="sr-only">Bytebase resources page</h1>
+            <section className="container flex flex-col items-center">
+              <h2 className="max-w-3xl text-center font-title text-56 font-semibold leading-none xl:max-w-2xl xl:text-56 md:max-w-lg md:text-48 sm:text-40">
+                Resources
+              </h2>
+            </section>
+          </header>
+        </div>
+      </section>
+    </>
+  );
+}
