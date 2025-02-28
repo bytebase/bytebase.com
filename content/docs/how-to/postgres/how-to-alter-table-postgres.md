@@ -1,0 +1,292 @@
+---
+title: How to Alter Table in Postgres
+updated_at: 2025/02/28 09:00:00
+---
+
+_Official documentation: [ALTER TABLE](https://www.postgresql.org/docs/current/sql-altertable.html)_
+
+## Performance Considerations
+
+<HintBlock type="info">
+
+Alter column type should be conducted with caution as many operations will lock the table for a long time and cause service outage.
+
+Some organizations have strict approval process. You can enforce [approval process](/docs/administration/custom-approval/) or [automated review](/docs/sql-review/review-rules/#column) via Bytebase.
+
+</HintBlock>
+
+1. **Lock Duration**: Most ALTER TABLE commands take an ACCESS EXCLUSIVE lock, which blocks all operations on the table.
+
+1. **Transaction Size**: Performing alterations in a transaction can lead to large write-ahead logs.
+
+1. **Proper Planning**: Schedule major alterations during off-peak hours.
+
+1. **Concurrent Index Creation**: Use `CREATE INDEX CONCURRENTLY` before adding constraints that require indexes.
+
+```sql
+-- Create index without exclusive lock
+CREATE INDEX CONCURRENTLY idx_email ON users(email);
+
+-- Then add unique constraint using the index
+ALTER TABLE users
+ADD CONSTRAINT unique_email UNIQUE USING INDEX idx_email;
+```
+
+## Renaming a Table
+
+```sql
+-- Rename a table
+ALTER TABLE old_table_name
+RENAME TO new_table_name;
+```
+
+## Column Operations
+
+### Adding Columns
+
+```sql
+-- Add a simple column
+ALTER TABLE employees
+ADD COLUMN email VARCHAR(100);
+
+-- Add a column with constraints
+ALTER TABLE products
+ADD COLUMN price NUMERIC(10,2) NOT NULL DEFAULT 0;
+
+-- Add multiple columns at once
+ALTER TABLE customers
+ADD COLUMN phone VARCHAR(20),
+ADD COLUMN fax VARCHAR(20),
+ADD COLUMN preferred_contact VARCHAR(10);
+```
+
+### Removing Columns
+
+```sql
+-- Remove a column
+ALTER TABLE employees
+DROP COLUMN middle_name;
+
+-- Remove multiple columns
+ALTER TABLE legacy_data
+DROP COLUMN obsolete_col1,
+DROP COLUMN obsolete_col2;
+
+-- Remove a column only if it exists
+ALTER TABLE customers
+DROP COLUMN IF EXISTS temporary_notes;
+
+-- Remove a column and its dependencies
+ALTER TABLE orders
+DROP COLUMN status CASCADE;
+```
+
+### Renaming Columns
+
+```sql
+-- Rename a column
+ALTER TABLE products
+RENAME COLUMN product_name TO name;
+```
+
+### Changing Column Data Types
+
+See [How to Alter Column Type in Postgres](/how-to/postgres/how-to-alter-column-type-postgres).
+
+### Modifying Column Constraints
+
+```sql
+-- Add NOT NULL constraint
+ALTER TABLE users
+ALTER COLUMN email SET NOT NULL;
+
+-- Drop NOT NULL constraint
+ALTER TABLE orders
+ALTER COLUMN shipping_address DROP NOT NULL;
+
+-- Set default value
+ALTER TABLE products
+ALTER COLUMN created_at SET DEFAULT CURRENT_TIMESTAMP;
+
+-- Drop default value
+ALTER TABLE employees
+ALTER COLUMN status DROP DEFAULT;
+```
+
+## Constraint Operations
+
+### Adding Constraints
+
+```sql
+-- Add primary key
+ALTER TABLE products
+ADD PRIMARY KEY (product_id);
+
+-- Add unique constraint
+ALTER TABLE users
+ADD CONSTRAINT unique_email UNIQUE (email);
+
+-- Add check constraint
+ALTER TABLE employees
+ADD CONSTRAINT valid_salary CHECK (salary > 0);
+
+-- Add foreign key
+ALTER TABLE orders
+ADD CONSTRAINT fk_customer
+FOREIGN KEY (customer_id)
+REFERENCES customers (id);
+
+-- Add composite unique constraint
+ALTER TABLE order_items
+ADD CONSTRAINT unique_order_product
+UNIQUE (order_id, product_id);
+```
+
+### Removing Constraints
+
+```sql
+-- Remove constraint by name
+ALTER TABLE products
+DROP CONSTRAINT unique_sku;
+
+-- Remove primary key
+ALTER TABLE users
+DROP CONSTRAINT users_pkey;
+
+-- Remove constraint if exists
+ALTER TABLE orders
+DROP CONSTRAINT IF EXISTS fk_shipping_address;
+
+-- Force removal of constraint and dependent objects
+ALTER TABLE employees
+DROP CONSTRAINT employee_department_fkey CASCADE;
+```
+
+## Table Storage and Maintenance
+
+### Changing Table Schema
+
+```sql
+-- Move table to different schema
+ALTER TABLE public.events
+SET SCHEMA archive;
+```
+
+### Changing Ownership
+
+See [How to Change Table Owner in Postgres](/how-to/postgres/how-to-change-table-owner-postgres).
+
+### Setting Table Options
+
+```sql
+-- Change tablespace
+ALTER TABLE large_records
+SET TABLESPACE fast_ssd;
+
+-- Set fillfactor for better update performance
+ALTER TABLE frequently_updated
+SET (fillfactor = 70);
+
+-- Enable/disable row security
+ALTER TABLE sensitive_data
+ENABLE ROW LEVEL SECURITY;
+```
+
+### Inheritance
+
+```sql
+-- Add inheritance
+ALTER TABLE employees_2023
+INHERIT employees;
+
+-- Remove inheritance
+ALTER TABLE employees_2022
+NO INHERIT employees;
+```
+
+## Advanced Operations
+
+### Adding/Removing Partitioning
+
+```sql
+-- Convert regular table to partitioned table
+ALTER TABLE logs
+PARTITION BY RANGE (log_date);
+
+-- Detach a partition
+ALTER TABLE logs
+DETACH PARTITION logs_2022;
+```
+
+### Working with Identity Columns (PostgreSQL 10+)
+
+```sql
+-- Add identity column
+ALTER TABLE products
+ADD COLUMN id INT GENERATED ALWAYS AS IDENTITY;
+
+-- Modify identity column
+ALTER TABLE users
+ALTER COLUMN id
+SET GENERATED BY DEFAULT;
+
+-- Set identity sequence options
+ALTER TABLE orders
+ALTER COLUMN order_id
+SET GENERATED ALWAYS AS IDENTITY
+(START WITH 10000 INCREMENT BY 10);
+```
+
+### Altering Multiple Tables
+
+```sql
+-- Script to alter multiple tables with the same structure
+DO $$
+DECLARE
+    t text;
+BEGIN
+    FOR t IN
+        SELECT table_name
+        FROM information_schema.tables
+        WHERE table_name LIKE 'sales_%'
+          AND table_schema = 'public'
+    LOOP
+        EXECUTE format('ALTER TABLE %I ADD COLUMN last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP', t);
+    END LOOP;
+END $$;
+```
+
+## Common Errors and Solutions
+
+### "cannot alter type of a column used by a view or rule"
+
+```sql
+-- Find dependent views
+SELECT dependent_ns.nspname as dependent_schema,
+       dependent_view.relname as dependent_view
+FROM pg_depend
+JOIN pg_rewrite ON pg_depend.objid = pg_rewrite.oid
+JOIN pg_class as dependent_view ON pg_rewrite.ev_class = dependent_view.oid
+JOIN pg_class as source_table ON pg_depend.refobjid = source_table.oid
+JOIN pg_namespace dependent_ns ON dependent_ns.oid = dependent_view.relnamespace
+JOIN pg_namespace source_ns ON source_ns.oid = source_table.relnamespace
+WHERE source_table.relname = 'your_table'
+  AND source_ns.nspname = 'your_schema'
+  AND dependent_view.relkind = 'v';
+
+-- Drop and recreate views, or use a different approach
+```
+
+### "cannot acquire lock on relation due to conflicting locks"
+
+```sql
+-- Find blocking processes
+SELECT pid,
+       usename,
+       pg_blocking_pids(pid) as blocked_by,
+       query as blocked_query
+FROM pg_stat_activity
+WHERE cardinality(pg_blocking_pids(pid)) > 0;
+
+-- You may need to terminate blocking queries
+```
