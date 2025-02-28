@@ -10,7 +10,11 @@ description: 'Set up a local Postgres database with Docker.'
 
 <HintBlock type="info">
 
-If you are using Mac, you can use [StackBricks](/blog/free-tools-to-start-local-database-on-mac/#stackbricks) which includes Postgres docker images across many versions.
+If you are using Mac, you can use following tools which include Postgres docker images across many versions:
+
+- [StackBricks](https://stackbricks.app/)
+- [DBngin](https://dbngin.com/)
+- [Postgres.app](https://postgresapp.com/)
 
 </HintBlock>
 
