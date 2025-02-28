@@ -281,9 +281,9 @@ expand_section_list: ['Self-host']
 
 ### [Schema Definition Language](/reference/schema-definition-language)
 
-### [PostgreSQL SQL Review Guide](/how-to/sql-review/postgres-sql-review-guide)
-
 ### Postgres
+
+### [PostgreSQL SQL Review Guide](/how-to/sql-review/postgres-sql-review-guide)
 
 #### [How to Check Postgres version](/how-to/postgres/how-to-check-postgres-version)
 
@@ -292,6 +292,8 @@ expand_section_list: ['Self-host']
 #### [How to Fix Must be owner of table](/how-to/postgres/must-be-owner-of-table-postgres)
 
 #### [How to Create Index in Postgres](/how-to/postgres/how-to-create-index-postgres)
+
+#### [How to Alter Column Type in Postgres](/how-to/postgres/how-to-alter-column-type-postgres)
 
 ### ClickHouse
 
