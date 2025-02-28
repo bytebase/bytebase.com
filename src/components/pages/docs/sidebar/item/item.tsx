@@ -34,7 +34,7 @@ const Item = ({
   expandedList?: string[];
   isParentOpen?: boolean;
 } & SidebarItem) => {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? '';
   const currentUrl = pathname.replace(Route.DOCS, '').slice(0, -1);
   const hasActiveChild = isActiveItem(children, currentUrl);
   const [isOpen, setIsOpen] = useState(() => {
