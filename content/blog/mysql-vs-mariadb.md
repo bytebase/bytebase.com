@@ -1,7 +1,7 @@
 ---
-title: 'MySQL vs. MariaDB: a Complete Comparison in 2024'
+title: 'MySQL vs. MariaDB: a Complete Comparison in 2025'
 author: Tianzhou
-updated_at: 2024/11/05 08:00
+updated_at: 2025/02/29 08:00
 feature_image: /content/blog/mysql-vs-mariadb/cover.webp
 tags: Industry
 featured: true
@@ -19,8 +19,9 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 | 2024/09/29     | Initial version.                                                                |
 | 2024/11/05     | It was noted that MariaDB has had Atomic DDL since MariaDB 10.6.                |
 |                | It was noted that MariaDB has equal or better set of JSON functions that MySQL. |
+| 2025/02/28     | Update TOC                                                                      |
 
-While MariaDB was initially a fork of MySQL, the two have evolved over time, each with its own strengths and development priorities. Recently, [MariaDB is acquired by K1](https://mariadb.com/newsroom/press-releases/k1-acquires-a-leading-database-software-company-mariadb-and-appoints-new-ceo/), marking the new journey for MariaDB.
+MySQL turns 30 in 2025. While MariaDB was initially a fork of MySQL, the two have evolved over time, each with its own strengths and development priorities. Recently, [MariaDB is acquired by K1](https://mariadb.com/newsroom/press-releases/k1-acquires-a-leading-database-software-company-mariadb-and-appoints-new-ceo/), marking the new journey for MariaDB.
 
 At Bytebase, we work with both databases extensively since the Bytebase product needs to integrate
 with both databases. Our founders also build [Google Cloud SQL](https://cloud.google.com/sql). Drawing from our operational experience, we outline below the respective strengths of MySQL and MariaDB:
@@ -30,7 +31,7 @@ with both databases. Our founders also build [Google Cloud SQL](https://cloud.go
 - [Features where MySQL Shines](#features-where-mysql-shines)
 - [Features where MariaDB Shines](#features-where-mariadb-shines)
 
-_Unless otherwise specified, the comparison below is between the latest stable release, MySQL 8.0 vs. MariaDB 11.5_.
+_Unless otherwise specified, the comparison below is between the latest stable release, MySQL 8.0 vs. MariaDB 11.7_.
 
 ## Popularity
 
