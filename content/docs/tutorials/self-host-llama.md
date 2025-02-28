@@ -1,6 +1,6 @@
 ---
 title: 'Self-host Llama3 for Bytebase AI Assistant'
-author: Arya
+author: Ayra
 tags: Tutorial
 updated_at: 2024/12/27 18:15
 integrations: General

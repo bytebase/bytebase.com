@@ -1,6 +1,6 @@
 ---
 title: Top 5 Text2SQL AI Tools in 2024
-author: Arya
+author: Ayra
 updated_at: 2024/09/11 12:00:00
 feature_image: /content/blog/top-text-to-sql-ai-sql-client-2024/banner.webp
 tags: Industry

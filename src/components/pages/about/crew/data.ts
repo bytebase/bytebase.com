@@ -16,7 +16,7 @@ export const crewList = [
   },
   {
     image: '/images/page/people/ayra.webp',
-    name: 'Arya',
+    name: 'Ayra',
     position: 'Product Marketing',
   },
   {

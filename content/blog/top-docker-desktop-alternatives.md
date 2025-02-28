@@ -1,6 +1,6 @@
 ---
 title: Top 4 Free Docker Desktop Alternatives 2024
-author: Arya
+author: Ayra
 updated_at: 2024/9/27 12:00:00
 feature_image: /content/blog/top-docker-desktop-alternatives/banner.webp
 tags: Industry
