@@ -1277,7 +1277,7 @@ Specifically, Bytebase checks:
 <div id="column.default-disallow-volatile"></div>
 ### Disallow setting volatile default value on columns
 
-Volatile functions, such as `clock_timestamp()`, update each row with the value at the time of `ALTER TABLE` execution. This can lead to lengthy updates and potential performance issues.
+Volatile functions, such as `clock_timestamp()`, update each row with the value at the time of `ALTER TABLE ADD COLUMN` execution. This can lead to lengthy updates and potential performance issues.
 
 ![sql-review-column-default-disallow-volatile](/content/docs/sql-review/sql-review-column-default-disallow-volatile.webp)
 
