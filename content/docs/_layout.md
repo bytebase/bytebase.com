@@ -49,6 +49,8 @@ expand_section_list: ['Self-host']
 
 ## [Core Concepts](/concepts/data-model)
 
+## [Terraform](/get-started/terraform)
+
 ---
 
 ## Database CI/CD

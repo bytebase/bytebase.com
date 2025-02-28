@@ -16,4 +16,4 @@ Bytebase provides the [Terraform Provider](https://registry.terraform.io/provide
 
 1. Configure Bytebase Terraform Provider
    - [Provider docs](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs)
-   - [Usage examples](https://github.com/bytebase/terraform-example)
+   - [Usage examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
