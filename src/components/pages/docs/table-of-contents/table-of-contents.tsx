@@ -8,13 +8,10 @@ import clsx from 'clsx';
 import { TableOfContents as TOCProps } from '@/types/docs';
 
 import BackToTopIcon from '@/svgs/back-to-top.inline.svg';
-import SocialLinks from '../../blog/aside/social-links';
-import { SocialLink } from '../../blog/aside/social-links/social-links';
 
 type TableOfContentsProps = {
   items: TOCProps[];
   hasBackToTop?: boolean;
-  showSocialShare?: boolean;
   className?: string;
 };
 
@@ -42,26 +39,9 @@ const onClick = (evt: React.MouseEvent<HTMLAnchorElement>, id: string) => {
   }
 };
 
-const SocialItems = [
-  {
-    network: 'twitter',
-  },
-  {
-    network: 'linkedIn',
-  },
-  {
-    network: 'hackerNews',
-  },
-] as SocialLink[];
-
 const CURRENT_ANCHOR_GAP_PX = 16;
 
-const TableOfContents = ({
-  items,
-  hasBackToTop,
-  showSocialShare,
-  className,
-}: TableOfContentsProps) => {
+const TableOfContents = ({ items, hasBackToTop, className }: TableOfContentsProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const titles = useRef<HTMLElement[]>([]);
   const [currentAnchor, setCurrentAnchor] = useState<string | null>(null);
@@ -150,13 +130,6 @@ const TableOfContents = ({
           <BackToTopIcon className="h-[18px] w-[18px]" />
           <span>Back to top</span>
         </button>
-      )}
-
-      {showSocialShare && (
-        <div className="mt-4 flex w-full flex-col items-start justify-start pl-5">
-          <h3 className="text-14">Share this article</h3>
-          <SocialLinks items={SocialItems} />
-        </div>
       )}
     </nav>
   );
