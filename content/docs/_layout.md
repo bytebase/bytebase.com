@@ -13,13 +13,15 @@ expand_section_list: ['Self-host']
 
 ## [Best Practices 📘](/onboarding)
 
+## [Core Concepts 💡](/concepts/data-model)
+
 ## [FAQ](/faq)
 
 ---
 
-## Self-host
+## Install
 
-### [Install](/get-started/self-host)
+### [Self-host](/get-started/self-host)
 
 ### [Upgrade](/get-started/upgrade)
 
@@ -27,7 +29,7 @@ expand_section_list: ['Self-host']
 
 ### [Configure External URL](/get-started/install/external-url)
 
-## [Cloud](/get-started/cloud)
+### [Cloud](/get-started/cloud)
 
 ## Quickstart
 
@@ -47,9 +49,7 @@ expand_section_list: ['Self-host']
 
 ## [Connect Your Database](/get-started/instance)
 
-## [Core Concepts](/concepts/data-model)
-
-## [Terraform](/get-started/terraform)
+## [Terraform Provider](/get-started/terraform)
 
 ---
 
