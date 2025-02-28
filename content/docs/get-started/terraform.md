@@ -8,14 +8,7 @@ The Bytebase Provider itself is free to use. Some advanced resource operations r
 
 </HintBlock>
 
-Bytebase provides the [Terraform Provider](https://registry.terraform.io/providers/bytebase/bytebase) to let you manage your Bytebase resources via Terraform. Users can use Terraform provider to manage following Bytebase resources:
-
-- Environment
-- Instance
-- Instance Role
-- More to come
-
----
+Bytebase provides the [Terraform Provider](https://registry.terraform.io/providers/bytebase/bytebase) to let you manage your Bytebase resources via Terraform.
 
 1. Create [service account](/docs/api/authentication/#service-account). After creation, you can copy the service key as `service_key` and the email as `service_account` to initialize the Bytebase provider in next step.
 
