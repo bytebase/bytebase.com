@@ -16,7 +16,7 @@ _A side note: PlanetScale has shifted its website art direction to a simplistic 
 
 ---
 
-The [2023 Stack Overflow survey](https://survey.stackoverflow.co/2023/) shows that PostgreSQL has taken
+The last 2 years Stack Overflow survey ([2024](https://survey.stackoverflow.co/2024/technology/#1-databases), [2023](https://survey.stackoverflow.co/2023/#most-popular-technologies-database) shows that PostgreSQL has taken
 over the first place spot from MySQL and become the most admired, desired database.
 
 ![stackoverflow](/content/blog/planetscale-vs-neon/stackoverflow.webp)

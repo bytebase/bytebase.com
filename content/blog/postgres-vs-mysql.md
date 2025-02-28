@@ -25,7 +25,7 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 
 In 2024, Postgres ranked the 2nd after Snowflake in the [DB-Engines Ranking](https://db-engines.com/en/blog_post/109), one year after it took over Snowflake and [won DBMS of the Year 2023](https://db-engines.com/en/blog_post/106#:~:text=PostgreSQL%20is%20the%20database%20management,DBMS%20of%20the%20Year%202023.).
 
-The Postgres rise is also reflected in the recent Stack Overflow survey ([2024](https://survey.stackoverflow.co/2024/), [2023](https://survey.stackoverflow.co/2023/)). Postgres has taken over the first place spot from MySQL and become the most admired, desired database.
+The Postgres rise is also reflected in the recent Stack Overflow survey ([2024](https://survey.stackoverflow.co/2024/technology/#1-databases), [2023](https://survey.stackoverflow.co/2023/#most-popular-technologies-database)). Postgres has taken over the first place spot from MySQL and become the most admired, desired database.
 
 ![stackoverflow](/content/blog/postgres-vs-mysql/stackoverflow.webp)
 

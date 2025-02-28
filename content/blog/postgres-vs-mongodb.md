@@ -22,7 +22,7 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 
 ## Why Comparing Postgres and MongoDB
 
-Postgres is the most admired, desired database in the last 2 Stack Overflow surveys ([2024](https://survey.stackoverflow.co/2024/), [2023](https://survey.stackoverflow.co/2023/)).
+Postgres is the most admired, desired database in the last 2 Stack Overflow surveys ([2024](https://survey.stackoverflow.co/2024/technology/#1-databases), [2023](https://survey.stackoverflow.co/2023/#most-popular-technologies-database).
 
 ![stackoverflow](/content/blog/postgres-vs-mongodb/stackoverflow.webp)
 
