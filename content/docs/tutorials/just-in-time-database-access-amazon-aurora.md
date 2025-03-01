@@ -9,6 +9,12 @@ estimated_time: '40 mins'
 description: 'In this tutorial, we will demonstrate how to set up Just-in-Time (JIT) access using the Bytebase GUI connecting to Amazon Aurora.'
 ---
 
+<HintBlock type="info">
+
+The tutorial uses Amazon Aurora, while the same approach can be applied to Amazon RDS and other database engines as well.
+
+</HintBlock>
+
 In modern database management, when an incident occurs, developers often need quick access to production databases to troubleshoot and resolve the issue. However, traditional methods, such as using static passwords, can pose security risks and complicate management.
 
 ## AWS IAM Auth
