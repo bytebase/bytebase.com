@@ -22,7 +22,7 @@ This post is maintained by Bytebase, an open-source database DevSecOps tools. We
 
 In the past, the only way to access or modify a database was through the command line, which was not only not intuitive, but also prone to errors that could lead to major problems. So people began to develop tools with a graphical user interface (GUI), and that became what we now know as SQL clients, which are basically front-end applications for database services. In this post, we are taking a look at some open source SQL clients options for you to try.
 
-[![star-history](/content/blog/top-open-source-sql-clients/star-history.webp)](https://star-history.com/#dbgate/dbgate&sqlchat/sqlchat&dbeaver/dbeaver&beekeeper-studio/beekeeper-studio&heidisql/heidisql&phpmyadmin/phpmyadmin&pgadmin-org/pgadmin4&bytebase/bytebase&Date)
+[![star-history](/content/blog/top-open-source-sql-clients/star-history.webp)](https://star-history.com/#sqlchat/sqlchat&dbgate/dbgate&dbeaver/dbeaver&beekeeper-studio/beekeeper-studio&heidisql/heidisql&phpmyadmin/phpmyadmin&pgadmin-org/pgadmin4&bytebase/bytebase&Date)
 
 ## SQL Chat
 
