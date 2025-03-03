@@ -1,8 +1,8 @@
 ---
-title: Top 9 Free, Open Source SQL Clients to Make Database Management Easier 2024
+title: Top 8 Free, Open Source SQL Clients to Make Database Management Easier 2025
 author: Mila
-updated_at: 2024/09/21 21:21:21
-feature_image: /content/blog/top-open-source-sql-clients/os-sql-clients-cover.jpg
+updated_at: 2025/03/03 10:00:00
+feature_image: /content/blog/top-open-source-sql-clients/banner.webp
 tags: Industry
 featured: true
 description: SQL clients makes it safer and easier to manage databases. In this post, we are taking a look at open source SQL clients options for you to try in 2024.
@@ -14,9 +14,15 @@ This post is maintained by Bytebase, an open-source database DevSecOps tools. We
 
 </HintBlock>
 
+| Update History | Comment                                        |
+| -------------- | ---------------------------------------------- |
+| 2023/04/28     | Initial version.                               |
+| 2024/06/30     | Add reference link.                            |
+| 2025/03/03     | Remove Sqlectron as it's no longer maintained. |
+
 In the past, the only way to access or modify a database was through the command line, which was not only not intuitive, but also prone to errors that could lead to major problems. So people began to develop tools with a graphical user interface (GUI), and that became what we now know as SQL clients, which are basically front-end applications for database services. In this post, we are taking a look at some open source SQL clients options for you to try.
 
-[![starhistory](/content/blog/top-open-source-sql-clients/starhistory.webp)](https://star-history.com/#dbgate/dbgate&sqlchat/sqlchat&dbeaver/dbeaver&beekeeper-studio/beekeeper-studio&sqlectron/sqlectron&heidisql/heidisql&phpmyadmin/phpmyadmin&pgadmin-org/pgadmin4&bytebase/bytebase&Date)
+[![star-history](/content/blog/top-open-source-sql-clients/star-history.webp)](https://star-history.com/#dbgate/dbgate&sqlchat/sqlchat&dbeaver/dbeaver&beekeeper-studio/beekeeper-studio&heidisql/heidisql&phpmyadmin/phpmyadmin&pgadmin-org/pgadmin4&bytebase/bytebase&Date)
 
 ## SQL Chat
 
@@ -49,14 +55,6 @@ The author of Beekeeper Studio is an independent developer who started building 
 ![dbgate](/content/blog/top-open-source-sql-clients/dbgate.webp)
 
 The author of DbGate [says](https://news.ycombinator.com/item?id=26899100) this was his passion project because he couldn't find a SQL client for Linux. He had built SQL clients for Windows in the past, so this was influenced by his own work experience.
-
-## Sqlectron
-
-[Sqlectron](https://github.com/sqlectron/sqlectron-gui) is lightweight SQL client with simplicity in mind. It has cross-database (PostgreSQL, Redshift, MySQL, MariaDB, SQL Server, Cassandra, SQLite) and platform (Mac, Linux, Windows) support.
-
-![sqlectron](/content/blog/top-open-source-sql-clients/sqlectron.webp)
-
-Similar to the story of the two aforementioned tools, the original authors of Sqlectron built this because he couldn't find a tool on the market that worked well and solved his pain points (a simple, lightweight SQL client desktop with cross-database and platform support), but 2018 he mentioned that he hadn't used SQL databases since changing jobs, and opened a [GitHub Issue](https://github.com/sqlectron/sqlectron-gui/issues/433) looking for a successor. It seems someone (semi-)took it over, with the most recent release last May.
 
 ## HeidiSQL
 

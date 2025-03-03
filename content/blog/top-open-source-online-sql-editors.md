@@ -14,6 +14,10 @@ This post is maintained by Bytebase, an open-source database DevSecOps tools. We
 
 </HintBlock>
 
+| Update History | Comment          |
+| -------------- | ---------------- |
+| 2025/02/25     | Initial version. |
+
 ## What are the criteria?
 
 1. **Open source**.
