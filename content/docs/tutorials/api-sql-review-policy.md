@@ -16,7 +16,8 @@ This tutorial will guide you through configuring SQL review rules using the Byte
 This is the 4th part of tutorial series of SQL Review:
 
 1.  [SQL Review with Bytebase GUI](/docs/tutorials/sql-review-gui/)
-1.  SQL Review with CI (TBD)
+1.  SQL Review with CI:
+    - [SQL Review with GitHub Actions](/docs/tutorials/sql-review-github-action/)
 1.  [SQL Review with Bytebase API](/docs/tutorials/sql-review-api/)
 1.  Codify SQL Review Policies with Bytebase API (this one)
 

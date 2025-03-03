@@ -13,7 +13,8 @@ When modifying data in the database, it's crucial to ensure that the changes are
 This is the 3rd part of tutorial series of SQL Review:
 
 1.  SQL Review with Bytebase GUI (this one)
-1.  SQL Review with CI (TBD)
+1.  SQL Review with CI:
+    - [SQL Review with GitHub Actions](/docs/tutorials/sql-review-github-action/)
 1.  [SQL Review with Bytebase API](/docs/tutorials/sql-review-api/)
 1.  [Codify SQL Review Policies with Bytebase API](/docs/tutorials/api-sql-review-policy/)
 

@@ -3,6 +3,7 @@ title: 'SQL Review with GitHub Actions'
 author: Adela
 updated_at: 2025/03/03 18:15
 tags: Tutorial
+integrations: GitHub
 level: Intermediate
 estimated_time: '20 mins'
 description: Learn how to use SQL Review via GitHub CI to enhance your database schema change process.
@@ -20,9 +21,15 @@ This tutorial is part of the SQL Review series:
 
 This tutorial will show you how to integrate SQL Review with GitHub Actions to improve your database schema change process.
 
-Example repository: [release-cicd-workflows-example](https://github.com/bytebase/release-cicd-workflows-example).
+<HintBlock type="info">
 
-For detailed steps on setting up SQL Review in conjunction with database release CI/CD using GitHub Actions, refer to the [Database Release CI/CD with GitHub Actions](/docs/tutorials/github-release-cicd-workflow/) tutorial.
+This tutorial code repository is at https://github.com/bytebase/release-cicd-workflows-example
+
+</HintBlock>
+
+## Prerequisites
+
+Configure ngrok and create service account same as [Database Release CI/CD with GitHub Actions](/docs/tutorials/github-release-cicd-workflow/#step-1-start-bytebase-with-ngrok).
 
 ## GitHub Action Workflow
 
@@ -31,12 +38,12 @@ This [bytebase-check-release.yml](https://github.com/bytebase/release-cicd-workf
 Configuration snippet:
 
 ```yaml
-   env:
-   BYTEBASE_URL: "https://demo.bytebase.com"
-   BYTEBASE_SERVICE_ACCOUNT: "ci@service.bytebase.com"
-   BYTEBASE_PROJECT: "projects/project-sample"
-   BYTEBASE_TARGETS: "instances/test-sample-instance/databases/hr_test,instances/prod-sample-instance/databases/hr_prod"
-   FILE_PATTERN: "migrations/*.sql"
+env:
+BYTEBASE_URL: 'https://demo.bytebase.com'
+BYTEBASE_SERVICE_ACCOUNT: 'ci@service.bytebase.com'
+BYTEBASE_PROJECT: 'projects/project-sample'
+BYTEBASE_TARGETS: 'instances/test-sample-instance/databases/hr_test,instances/prod-sample-instance/databases/hr_prod'
+FILE_PATTERN: 'migrations/*.sql'
 ```
 
 The deployment target is the database that the SQL files will be applied to. So the SQL Review policy is fetched based on the target database. Visit the [demo sql review policy page](https://demo.bytebase.com/sql-review) to see the `SQL Review Sample Policy` for the `Prod` environment.
@@ -45,22 +52,22 @@ The deployment target is the database that the SQL files will be applied to. So 
 
 ## Example PR
 
-[Example PR](https://github.com/bytebase/release-cicd-workflows-example/pull/4)cointains four sql files in the `migrations` folder:
+[Example PR](https://github.com/bytebase/release-cicd-workflows-example/pull/4) contains four sql files in the `migrations` folder:
 
 - `001__drop_dept_emp.sql`
 - `002__add_employee_phone.sql`
 - `003__update_employee_gender.sql`
 - `004__create_book.sql`
 
-Upon PR creation, the GitHub Action triggers SQL Review. A summary, including affected rows, risk level, and advice, is posted as a PR comment. With four files and two stages, there are eight lines of review results.
+Upon PR creation, the GitHub Action triggers SQL Review. A summary, including **affected rows**, **risk level**, and **advices**, is posted as a PR comment. With four files and two stages, there are eight lines of review results.
 
 ![gh-sql-review-summary](/content/docs/tutorials/sql-review-github-action/gh-sql-review-summary.webp)
 
-Click the **Files changed** tab for detailed SQL review results per file.
+Click the **Files changed** tab for detailed SQL review results posted inlined in the PR.
 
 ![gh-file-changed](/content/docs/tutorials/sql-review-github-action/gh-file-changed.webp)
 
-You may correct the SQL files and push again. The SQL Review will be performed again and the results will be updated.
+You may correct the SQL files and push again. The SQL Review will be triggered again and the results will be updated.
 
 ## Summary
 

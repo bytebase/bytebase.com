@@ -6,6 +6,8 @@ Once you've set up the [GitOps Workflow](/docs/vcs-integration/overview/), your 
 
 ## GitHub
 
+<TutorialBlock url="/docs/tutorials/sql-review-github-action" title="SQL Review with GitHub Actions" />
+
 ![github](/content/docs/sql-review/gitops-ci/github-pr-sql-review.webp)
 
 ## GitLab
