@@ -1,6 +1,7 @@
 import getMetadata from '@/utils/get-metadata';
-
 import SEO_DATA from '@/lib/seo-data';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata = getMetadata(SEO_DATA.RESOURCES);
 
@@ -19,6 +20,31 @@ export default function ResourcesPage() {
           </header>
         </div>
       </section>
+      <section className="container max-w-[1396px] 2xl:max-w-full">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 md:grid-cols-2">
+          {/* Documentation Card */}
+          <ResourceCard
+            title="Postgres Error Reference"
+            description="Postgres error reference guide"
+            link="/postgres/error/overview"
+          />
+        </div>
+      </section>
     </>
   );
 }
+
+interface ResourceCardProps {
+  title: string;
+  description: string;
+  link: string;
+}
+
+const ResourceCard = ({ title, description, link }: ResourceCardProps) => (
+  <Link href={link} className="block">
+    <div className="border-gray-200 h-full rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-md">
+      <h3 className="text-2xl mb-2 font-title font-semibold">{title}</h3>
+      <p className="text-gray-600">{description}</p>
+    </div>
+  </Link>
+);
