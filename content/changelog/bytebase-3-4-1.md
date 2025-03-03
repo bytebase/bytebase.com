@@ -23,5 +23,6 @@ description: 'Terraform provider manages more resources'
 
 - External Approval Deprecated: Users should now use the Bytebase API for managing approvals and rollouts.
 - MySQL online migration sync and cutover tasks have been consolidated into a single task. As a prerequisite, you should first create a `bbdataarchive` database.
+- HTTP API update: Implemented strict request parsing, rejecting unknown fields. Response serialization now excludes unset values.
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>
