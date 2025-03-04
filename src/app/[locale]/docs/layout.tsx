@@ -5,8 +5,10 @@ import { getSidebar } from '@/lib/api-docs';
 
 import '@/styles/docsearch.css';
 
+const DOCS_DIR_PATH = `${process.cwd()}/content/docs`;
+
 export default function DocLayout({ children }: { children: React.ReactNode }) {
-  const { sidebar, expandedList } = getSidebar();
+  const { sidebar, expandedList } = getSidebar(DOCS_DIR_PATH);
 
   return (
     <>

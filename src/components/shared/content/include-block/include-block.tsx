@@ -2,9 +2,10 @@ import Content from '@/components/shared/content';
 
 import { getPostBySlug } from '@/lib/api-docs';
 
+const DOCS_DIR_PATH = `${process.cwd()}/content/docs`;
 const getPost = (url: string) => {
   const docUrl = url.replace('/docs/', '');
-  return getPostBySlug(docUrl);
+  return getPostBySlug(DOCS_DIR_PATH, docUrl);
 };
 
 const IncludeBlock = ({ url, db }: { url: string; db: string }) => {

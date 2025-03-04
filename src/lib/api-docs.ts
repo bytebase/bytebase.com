@@ -9,20 +9,21 @@ import { Breadcrumb } from '@/types/breadcrumb';
 import { PostData, PreviousAndNextLinks, SidebarItem, TableOfContents } from '@/types/docs';
 import Route from './route';
 
-const DOCS_DIR_PATH = `${process.cwd()}/content/docs`;
-
-const getPostSlugs = (): string[] => {
-  const files = glob.sync(`${DOCS_DIR_PATH}/**/*.md`, {
-    ignore: ['**/_layout.md', `${DOCS_DIR_PATH}/share/**/*.md`],
+const getPostSlugs = (docsPath: string): string[] => {
+  const files = glob.sync(`${docsPath}/**/*.md`, {
+    ignore: ['**/_layout.md', `${docsPath}/share/**/*.md`],
   });
-  return files.map((file) => file.replace(DOCS_DIR_PATH, '').replace('.md', ''));
+  return files.map((file) => file.replace(docsPath, '').replace('.md', ''));
 };
 
-const getPostBySlug = (slug: string): { data: Record<string, any>; content: string } | null => {
+const getPostBySlug = (
+  docsPath: string,
+  slug: string,
+): { data: Record<string, any>; content: string } | null => {
   try {
     const VERSION = fs.readFileSync(`${process.cwd()}/VERSION`).toString();
     const API_ENDPOINT = 'http://bytebase.example.com';
-    const source = fs.readFileSync(`${DOCS_DIR_PATH}/${slug}.md`);
+    const source = fs.readFileSync(`${docsPath}/${slug}.md`);
     const { data, content } = matter(source);
 
     const contentWithReplacements = content.replace(
@@ -43,12 +44,12 @@ const getPostBySlug = (slug: string): { data: Record<string, any>; content: stri
   }
 };
 
-const getAllPosts = (): PostData[] => {
-  const slugs = getPostSlugs();
+const getAllPosts = (docsPath: string): PostData[] => {
+  const slugs = getPostSlugs(docsPath);
 
   return slugs
     .map((slug) => {
-      const postData = getPostBySlug(slug);
+      const postData = getPostBySlug(docsPath, slug);
       if (!postData) return null;
       const slugWithoutFirstSlash = slug.slice(1);
       const { data, content } = postData;
@@ -82,8 +83,8 @@ const getNestedSidebar = (data: SidebarItem[]): SidebarItem[] => {
   return data;
 };
 
-const getSidebar = (): { sidebar: SidebarItem[]; expandedList: string[] } => {
-  const layoutFile = glob.sync(`${DOCS_DIR_PATH}/_layout.md`);
+const getSidebar = (docsPath: string): { sidebar: SidebarItem[]; expandedList: string[] } => {
+  const layoutFile = glob.sync(`${docsPath}/_layout.md`);
 
   const sidebar: SidebarItem[] = [];
 
@@ -131,9 +132,13 @@ const getDocPreviousAndNextLinks = (
   return { previousLink: previousItem, nextLink: nextItem };
 };
 
-const getBreadcrumbs = (slug: string, flatSidebar: SidebarItem[]): Breadcrumb[] => {
+const getBreadcrumbs = (
+  docsPath: string,
+  slug: string,
+  flatSidebar: SidebarItem[],
+): Breadcrumb[] => {
   const path = flatSidebar.find((item) => item.url === slug)?.path;
-  const { sidebar } = getSidebar();
+  const { sidebar } = getSidebar(docsPath);
 
   const arr: Breadcrumb[] = [];
 

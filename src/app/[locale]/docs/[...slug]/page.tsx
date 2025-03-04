@@ -20,8 +20,10 @@ import Route from '@/lib/route';
 import TableOfContents from '@/components/pages/docs/table-of-contents';
 import Promo from './promo';
 
+const DOCS_DIR_PATH = `${process.cwd()}/content/docs`;
+
 export function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = getAllPosts(DOCS_DIR_PATH);
 
   return posts.map(({ slug }) => {
     const slugsArray = slug.split('/');
@@ -37,14 +39,14 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
   const currentSlug = slug.join('/');
   const currentPath = `/${currentSlug}`;
 
-  const post = getPostBySlug(currentSlug);
+  const post = getPostBySlug(DOCS_DIR_PATH, currentSlug);
 
   if (!post) return notFound();
 
-  const { sidebar } = getSidebar();
+  const { sidebar } = getSidebar(DOCS_DIR_PATH);
   const flatSidebar = getFlatSidebar(sidebar);
 
-  const breadcrumbs = getBreadcrumbs(currentPath, flatSidebar);
+  const breadcrumbs = getBreadcrumbs(DOCS_DIR_PATH, currentPath, flatSidebar);
   const navigationLinks = getDocPreviousAndNextLinks(currentPath, flatSidebar);
 
   const {
@@ -91,7 +93,7 @@ export async function generateMetadata({
   const currentSlug = slug.join('/');
   const currentPath = `/${currentSlug}`;
 
-  const post = getPostBySlug(currentSlug);
+  const post = getPostBySlug(DOCS_DIR_PATH, currentSlug);
 
   if (!post) return notFound();
 
