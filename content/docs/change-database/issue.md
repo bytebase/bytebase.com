@@ -2,14 +2,18 @@
 title: Issue
 ---
 
-**Issue** drives the database change workflow. You can change the issue behavior under **Project**->**Setting**.
+**Issue** drives the database change workflow. You can change the issue behavior under the **Issue Related** section of **Project** -> **Setting**.
 
 ## Postgres database tenant mode
 
 ![postgres-database-tenant](/content/docs/change-database/issue/postgres-database-tenant.webp)
 
-By default, Bytebase runs the database change using the user you configure in the Bytebase instance.
+By default, Bytebase executes database changes using the credentials configured in your Bytebase instance.
 
-If you turn on this setting, Bytebase will call `SET LOCAL ROLE` to the targeting PostgreSQL database OWNER
-before running the database change. You may need this if you have a multi-tenant service and each
-database has separate database OWNER.
+When you enable this setting, Bytebase automatically switches to the target PostgreSQL database's OWNER role (via `SET LOCAL ROLE`) before executing changes. This feature is particularly valuable for multi-tenant environments where each database has its own distinct owner, ensuring changes are always executed with appropriate permissions.
+
+## Self approval
+
+Issue creators themselves are not allowed to approve the issue by default. To allow self approval, check the **Allow self approval** option box under the **Issue Related** section of **Setting** in a certain project.
+
+![self-approval](/content/docs/change-database/issue/self-approval.webp)
