@@ -15,7 +15,8 @@ import Navigation, { type NavigationProps } from '../navigation';
 
 import Breadcrumbs from '@/components/shared/breadcrumbs';
 
-const FILE_ORIGIN_PATH = 'https://github.com/bytebase/bytebase.com/tree/main/content/docs';
+const FILE_ORIGIN_PATH =
+  'https://github.com/bytebase/bytebase.com/tree/main/content/reference/postgres/error';
 
 const PostLayout = ({
   title,

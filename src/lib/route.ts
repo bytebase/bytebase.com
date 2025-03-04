@@ -80,6 +80,9 @@ const Route = {
   DOCS_MULTI_TENANCY_DEPLOYMENT: '/docs/tutorials/batch-change-with-database-group',
   DOCS_API_OVERVIEW: '/docs/api/overview',
 
+  // reference
+  REFERENCE_POSTGRES_ERROR: '/reference/postgres/error',
+
   // blog
   BLOG_CASE_STUDY: '/blog/category/case-study',
 

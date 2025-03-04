@@ -35,7 +35,7 @@ const Item = ({
   isParentOpen?: boolean;
 } & SidebarItem) => {
   const pathname = usePathname() ?? '';
-  const currentUrl = pathname.replace(Route.DOCS, '').slice(0, -1);
+  const currentUrl = pathname.replace(Route.REFERENCE_POSTGRES_ERROR, '').slice(0, -1);
   const hasActiveChild = isActiveItem(children, currentUrl);
   const [isOpen, setIsOpen] = useState(() => {
     return (
@@ -74,7 +74,7 @@ const Item = ({
           depth === 1 && hasActiveChild && 'text-black',
           depth >= 2 && url === currentUrl && 'before:bg-primary-1',
         )}
-        href={Route.DOCS + url}
+        href={Route.REFERENCE_POSTGRES_ERROR + url}
         onClick={toggle}
       >
         {children && (

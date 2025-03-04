@@ -9,35 +9,20 @@ import { Breadcrumb } from '@/types/breadcrumb';
 import { PostData, PreviousAndNextLinks, SidebarItem, TableOfContents } from '@/types/docs';
 import Route from './route';
 
-const DOCS_DIR_PATH = `${process.cwd()}/content/docs`;
+const REFERENCE_DIR_PATH = `${process.cwd()}/content/reference/postgres/error`;
 
 const getPostSlugs = (): string[] => {
-  const files = glob.sync(`${DOCS_DIR_PATH}/**/*.md`, {
-    ignore: ['**/_layout.md', `${DOCS_DIR_PATH}/share/**/*.md`],
+  const files = glob.sync(`${REFERENCE_DIR_PATH}/**/*.md`, {
+    ignore: ['**/_layout.md', `${REFERENCE_DIR_PATH}/share/**/*.md`],
   });
-  return files.map((file) => file.replace(DOCS_DIR_PATH, '').replace('.md', ''));
+  return files.map((file) => file.replace(REFERENCE_DIR_PATH, '').replace('.md', ''));
 };
 
 const getPostBySlug = (slug: string): { data: Record<string, any>; content: string } | null => {
   try {
-    const VERSION = fs.readFileSync(`${process.cwd()}/VERSION`).toString();
-    const API_ENDPOINT = 'http://bytebase.example.com';
-    const source = fs.readFileSync(`${DOCS_DIR_PATH}/${slug}.md`);
+    const source = fs.readFileSync(`${REFERENCE_DIR_PATH}/${slug}.md`);
     const { data, content } = matter(source);
-
-    const contentWithReplacements = content.replace(
-      /%%bb_version%%|%%bb_api_endpoint%%/g,
-      (match) => {
-        if (match === '%%bb_version%%') {
-          return VERSION;
-        } else if (match === '%%bb_api_endpoint%%') {
-          return API_ENDPOINT;
-        }
-        return match; // Just in case there's a match that doesn't fit any case
-      },
-    );
-
-    return { data, content: contentWithReplacements };
+    return { data, content };
   } catch (e) {
     return null;
   }
@@ -83,7 +68,7 @@ const getNestedSidebar = (data: SidebarItem[]): SidebarItem[] => {
 };
 
 const getSidebar = (): { sidebar: SidebarItem[]; expandedList: string[] } => {
-  const layoutFile = glob.sync(`${DOCS_DIR_PATH}/_layout.md`);
+  const layoutFile = glob.sync(`${REFERENCE_DIR_PATH}/_layout.md`);
 
   const sidebar: SidebarItem[] = [];
 
@@ -145,7 +130,7 @@ const getBreadcrumbs = (slug: string, flatSidebar: SidebarItem[]): Breadcrumb[] 
 
       arr.push({
         title: current.title,
-        url: current.url ? `${Route.DOCS}${current.url}` : undefined,
+        url: current.url ? `${Route.REFERENCE_POSTGRES_ERROR}${current.url}` : undefined,
       });
       return current;
     }, sidebar as SidebarItem[] | SidebarItem);
