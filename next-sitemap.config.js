@@ -21,7 +21,7 @@ module.exports = {
 
     var priority = config.priority;
     const components = path.split('/');
-    // Top level pathes having top priority
+    // Top level paths having top priority
     if (components.length <= 2) {
       priority = 1.0;
     } else if (
@@ -31,9 +31,13 @@ module.exports = {
       path.startsWith('/schema-migration/')
     ) {
       priority = 0.9;
-    } else if (path.startsWith('/blog/')) {
+    } else if (path.startsWith('/blog/') || path.startsWith('/tutorial/')) {
       priority = 0.8;
-    } else if (path.startsWith('/docs/') || path.startsWith('/tutorial/')) {
+    } else if (
+      path.startsWith('/docs/') ||
+      path.startsWith('/changelog/') ||
+      path.startsWith('/reference/')
+    ) {
       priority = 0.7;
     } else {
       priority = 0.3;
