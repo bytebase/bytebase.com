@@ -8,6 +8,8 @@ import crypto from 'crypto';
 import { getAllPosts } from '@/lib/api-docs';
 import Route from '@/lib/route';
 
+const DOCS_DIR_PATH = `${process.cwd()}/content/docs`;
+
 const algoliaClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!,
   process.env.NEXT_PUBLIC_ALGOLIA_ADMIN_API_KEY!,
@@ -80,7 +82,7 @@ const generateIndexElement = (
 };
 
 const getRecords = () => {
-  const docs = getAllPosts().filter((item) => !item.slug.startsWith('tutorials/'));
+  const docs = getAllPosts(DOCS_DIR_PATH).filter((item) => !item.slug.startsWith('tutorials/'));
 
   const resultObj: AlgoliaIndexObject[] = [];
 
