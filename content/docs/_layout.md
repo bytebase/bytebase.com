@@ -283,8 +283,6 @@ expand_section_list: ['Self-host']
 
 ### Postgres
 
-#### [PostgreSQL SQL Review Guide](/docs/how-to/sql-review/postgres-sql-review-guide)
-
 #### [How to Check Postgres version](/docs/how-to/postgres/how-to-check-postgres-version)
 
 #### [How to Fix Permission denied for table](/docs/how-to/postgres/permission-denied-for-table-postgres)

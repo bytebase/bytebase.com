@@ -1,6 +1,11 @@
 ---
 title: PostgreSQL SQL Review and Style Guide
+author: Tianzhou
 updated_at: 2025/02/28 09:00:00
+feature_image: /content/blog/postgres-sql-review-guide/banner.webp
+tags: Industry
+featured: true
+description: An extensive list of PostgreSQL SQL Review and Style Guide.
 ---
 
 ## Background

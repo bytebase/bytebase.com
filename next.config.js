@@ -133,6 +133,11 @@ module.exports = {
         destination: '/docs/change-database/change-workflow',
         permanent: true,
       },
+      {
+        source: `/docs/how-to/sql-review/postgres-sql-review-guide`,
+        destination: '/blog/postgres-sql-review-guide',
+        permanent: true,
+      },
     ];
   },
   webpack: (config) => {
