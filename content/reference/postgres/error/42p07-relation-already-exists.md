@@ -1,9 +1,6 @@
 ---
 title: 'SQLSTATE[42P07]: relation already exists'
-tags: Reference
 ---
-
-# PostgreSQL Troubleshooting Guide: SQLSTATE[42P07] - Relation Already Exists
 
 ## Overview
 
