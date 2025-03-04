@@ -11,8 +11,9 @@ description: 'Set up a local MySQL database with Docker.'
 <HintBlock type="info">
 
 If you are using Mac, you can use following tools which include MySQL docker images across many versions:
-- [DBngin](https://dbngin.com/) - A free all-in-one database version manager
-- [Homebrew](https://brew.sh/) - Package manager for macOS
+
+- [StackBricks](https://stackbricks.app/)
+- [DBngin](https://dbngin.com/)
 
 </HintBlock>
 
@@ -39,9 +40,10 @@ docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=your_password -p 3306:3
 ```
 
 This command:
+
 - Creates a container named `mysql-container`
 - Sets the root password to `your_password` (change this!)
-- Maps port 3306 from the container to your host
+- Maps MySQL default port 3306 from the container to your host
 - Runs MySQL in detached mode
 
 ### Step 3: Verify the Container is Running
@@ -66,11 +68,15 @@ This command opens a MySQL shell inside the running container, giving you direct
 
 Alternatively, if you have the MySQL client installed on your host machine:
 
+<HintBlock type="info">
+
+To install MySQL client, you can refer to [this post](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows).
+
+</HintBlock>
+
 ```bash
 mysql -h 127.0.0.1 -P 3306 -uroot -p
 ```
-
-When prompted, enter the password you specified.
 
 ### Step 5: Create a Database and User
 
@@ -85,7 +91,7 @@ FLUSH PRIVILEGES;
 
 You can exit MySQL server by `EXIT;`.
 
-## More Optional Operations
+## Other Operations
 
 ### Persisting Data
 
@@ -100,51 +106,61 @@ This creates a Docker volume named `mysql-data` that persists your database file
 ### Common Docker MySQL Commands
 
 Stop the container:
+
 ```bash
 docker stop mysql-container
 ```
 
 Start an existing container:
+
 ```bash
 docker start mysql-container
 ```
 
 Remove the container:
+
 ```bash
 docker rm mysql-container
 ```
 
 ### Using Docker Compose (Recommended for Development)
 
-For a more manageable setup, create a `docker-compose.yml` file:
+A bare minimum `docker-compose.yml` file with MySQL and an application:
 
 ```yaml
-version: '3'
+version: '1'
+
 services:
   mysql:
-    image: mysql:8.0
-    container_name: mysql-container
+    image: mysql:8
     environment:
-      MYSQL_ROOT_PASSWORD: your_password
-      MYSQL_DATABASE: my_database
-      MYSQL_USER: my_user
-      MYSQL_PASSWORD: my_password
-    ports:
-      - "3306:3306"
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
     volumes:
-      - mysql-data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
+    ports:
+      - '3306:3306'
+
+  app:
+    image: my-application:latest
+    depends_on:
+      - mysql
+    environment:
+      DB_HOST: mysql
+      DB_NAME: mydatabase
+      DB_USER: user
+      DB_PASSWORD: password
+    ports:
+      - '8080:8080'
 
 volumes:
-  mysql-data:
+  mysql_data:
 ```
 
 Run with:
+
 ```bash
 docker-compose up -d
 ```
-
-## Conclusion
-
-You now have a MySQL database running in Docker! This setup is ideal for development environments as it's isolated, reproducible, and easy to manage.
-
-For production deployments, consider additional security configurations and backup strategies.
