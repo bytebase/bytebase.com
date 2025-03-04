@@ -1,12 +1,14 @@
 import MobileSidebar from '@/components/pages/reference/mobile-sidebar';
 import Sidebar from '@/components/pages/reference/sidebar';
 
-import { getSidebar } from '@/lib/api-reference';
+import { getSidebar } from '@/lib/api-docs';
 
 import '@/styles/docsearch.css';
 
+const REFERENCE_DIR_PATH = `${process.cwd()}/content/reference/postgres/error`;
+
 export default function DocLayout({ children }: { children: React.ReactNode }) {
-  const { sidebar, expandedList } = getSidebar();
+  const { sidebar, expandedList } = getSidebar(REFERENCE_DIR_PATH);
 
   return (
     <>

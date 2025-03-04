@@ -15,13 +15,15 @@ import {
   getPostBySlug,
   getSidebar,
   getTableOfContents,
-} from '@/lib/api-reference';
+} from '@/lib/api-docs';
 import Route from '@/lib/route';
 import TableOfContents from '@/components/pages/reference/table-of-contents';
 import Promo from './promo';
 
+const REFERENCE_DIR_PATH = `${process.cwd()}/content/reference/postgres/error`;
+
 export function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = getAllPosts(REFERENCE_DIR_PATH);
 
   return posts.map(({ slug }) => {
     const slugsArray = slug.split('/');
@@ -37,14 +39,14 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
   const currentSlug = slug.join('/');
   const currentPath = `/${currentSlug}`;
 
-  const post = getPostBySlug(currentSlug);
+  const post = getPostBySlug(REFERENCE_DIR_PATH, currentSlug);
 
   if (!post) return notFound();
 
-  const { sidebar } = getSidebar();
+  const { sidebar } = getSidebar(REFERENCE_DIR_PATH);
   const flatSidebar = getFlatSidebar(sidebar);
 
-  const breadcrumbs = getBreadcrumbs(currentPath, flatSidebar);
+  const breadcrumbs = getBreadcrumbs(REFERENCE_DIR_PATH, currentPath, flatSidebar);
   const navigationLinks = getDocPreviousAndNextLinks(currentPath, flatSidebar);
 
   const {
@@ -91,7 +93,7 @@ export async function generateMetadata({
   const currentSlug = slug.join('/');
   const currentPath = `/${currentSlug}`;
 
-  const post = getPostBySlug(currentSlug);
+  const post = getPostBySlug(REFERENCE_DIR_PATH, currentSlug);
 
   if (!post) return notFound();
 
