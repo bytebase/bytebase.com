@@ -89,7 +89,7 @@ You can exit MySQL server by `EXIT;`.
 
 ### Persisting Data
 
-To persist your MySQL data beyond the container lifecycle, use a volume:
+To persist your MySQL data beyond the container lifecycle, use a volume when creating the container:
 
 ```bash
 docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=your_password -p 3306:3306 -v mysql-data:/var/lib/mysql -d mysql:8.0
