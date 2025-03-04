@@ -26,7 +26,7 @@ export default function ResourcesPage() {
           <ResourceCard
             title="Postgres Error Reference"
             description="Postgres error reference guide"
-            link="/postgres/error/overview"
+            link="/reference/postgres/error/overview"
           />
         </div>
       </section>
