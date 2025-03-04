@@ -2,8 +2,6 @@ import Link from '@/components/shared/link';
 
 import { SidebarItem } from '@/types/docs';
 
-import Route from '@/lib/route';
-
 import ArrowIcon from '@/svgs/arrow.inline.svg';
 
 export type NavigationProps = {
@@ -18,8 +16,8 @@ const Navigation = ({ previousLink, nextLink }: NavigationProps) => {
     <nav className="navigation mt-8 flex gap-x-10 border-t border-gray-90 pt-8 2xl:gap-x-9 xl:gap-x-14 sm:flex-col sm:gap-y-3">
       {previousLinkUrl && (
         <Link
-          className="mr-auto flex w-1/2 gap-x-4 rounded-lg bg-gray-97 py-3.5 px-5 hover:bg-gray-90 sm:order-1 sm:w-full"
-          href={Route.DOCS + previousLinkUrl}
+          className="mr-auto flex w-1/2 gap-x-4 rounded-lg bg-gray-97 px-5 py-3.5 hover:bg-gray-90 sm:order-1 sm:w-full"
+          href={previousLinkUrl}
         >
           <ArrowIcon className="h-auto w-[18px] shrink-0 rotate-180" />
           <div className="flex flex-col">
@@ -32,8 +30,8 @@ const Navigation = ({ previousLink, nextLink }: NavigationProps) => {
       )}
       {nextLinkUrl && (
         <Link
-          className="ml-auto flex w-1/2 justify-between rounded-lg bg-gray-97 py-3.5 px-5 hover:bg-gray-90 sm:w-full"
-          href={Route.DOCS + nextLinkUrl}
+          className="ml-auto flex w-1/2 justify-between rounded-lg bg-gray-97 px-5 py-3.5 hover:bg-gray-90 sm:w-full"
+          href={nextLinkUrl}
         >
           <div className="flex flex-col">
             <span className="text-14 font-medium leading-none text-gray-50">Next article</span>

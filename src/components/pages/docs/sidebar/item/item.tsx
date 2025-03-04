@@ -34,14 +34,12 @@ const Item = ({
   expandedList?: string[];
   isParentOpen?: boolean;
 } & SidebarItem) => {
-  const pathname = usePathname() ?? '';
-  const currentUrl = pathname.replace(Route.DOCS, '').slice(0, -1);
-  const hasActiveChild = isActiveItem(children, currentUrl);
+  // Normalize the pathname to remove the trailing slash
+  const pathname = (usePathname() ?? '').replace(/\/$/, '');
+  const hasActiveChild = isActiveItem(children, pathname);
   const [isOpen, setIsOpen] = useState(() => {
     return (
-      url === currentUrl ||
-      hasActiveChild ||
-      (title && depth === 1 && expandedList?.includes(title))
+      url === pathname || hasActiveChild || (title && depth === 1 && expandedList?.includes(title))
     );
   });
 
@@ -70,11 +68,11 @@ const Item = ({
         className={clsx(
           'relative flex w-full items-center py-2 text-15 text-gray-30 transition-colors duration-200 before:absolute before:-left-[14.5px] before:top-1/2 before:h-4/5 before:w-0.5 before:-translate-y-1/2 before:rounded-sm before:transition-colors before:duration-200 hover:text-gray-60',
           depth === 1 ? 'font-semibold' : 'font-medium',
-          url === currentUrl && 'text-primary-1',
+          url === pathname && 'text-primary-1',
           depth === 1 && hasActiveChild && 'text-black',
-          depth >= 2 && url === currentUrl && 'before:bg-primary-1',
+          depth >= 2 && url === pathname && 'before:bg-primary-1',
         )}
-        href={Route.DOCS + url}
+        href={url ?? ''}
         onClick={toggle}
       >
         {children && (

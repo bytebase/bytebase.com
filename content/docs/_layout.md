@@ -3,312 +3,312 @@
 expand_section_list: ['Self-host']
 ---
 
-## [Why Bytebase](/introduction/what-is-bytebase)
+## [Why Bytebase](/docs/introduction/what-is-bytebase)
 
-## [Supported Databases](/introduction/supported-databases)
+## [Supported Databases](/docs/introduction/supported-databases)
 
-## [Use Cases](/introduction/use-cases)
+## [Use Cases](/docs/introduction/use-cases)
 
-## [POC Checklist 📝](/poc)
+## [POC Checklist 📝](/docs/poc)
 
-## [Best Practices 📘](/onboarding)
+## [Best Practices 📘](/docs/onboarding)
 
-## [Core Concepts 💡](/concepts/data-model)
+## [Core Concepts 💡](/docs/concepts/data-model)
 
-## [FAQ](/faq)
+## [FAQ](/docs/faq)
 
 ---
 
 ## Install
 
-### [Self-host](/get-started/self-host)
+### [Self-host](/docs/get-started/self-host)
 
-### [Upgrade](/get-started/upgrade)
+### [Upgrade](/docs/get-started/upgrade)
 
-### [Configure External PostgreSQL](/get-started/install/external-postgres)
+### [Configure External PostgreSQL](/docs/get-started/install/external-postgres)
 
-### [Configure External URL](/get-started/install/external-url)
+### [Configure External URL](/docs/get-started/install/external-url)
 
-### [Cloud](/get-started/cloud)
+### [Cloud](/docs/get-started/cloud)
 
 ## Quickstart
 
-### [Step 1 - Deploy with Docker](/get-started/step-by-step/deploy-with-docker)
+### [Step 1 - Deploy with Docker](/docs/get-started/step-by-step/deploy-with-docker)
 
-### [Step 2 - Register Accounts](/get-started/step-by-step/register-accounts)
+### [Step 2 - Register Accounts](/docs/get-started/step-by-step/register-accounts)
 
-### [Step 3 - Configure Environments](/get-started/step-by-step/set-up-environments)
+### [Step 3 - Configure Environments](/docs/get-started/step-by-step/set-up-environments)
 
-### [Step 4 - Add an Instance](/get-started/step-by-step/add-an-instance)
+### [Step 4 - Add an Instance](/docs/get-started/step-by-step/add-an-instance)
 
-### [Step 5 - Create a Project](/get-started/step-by-step/create-a-project)
+### [Step 5 - Create a Project](/docs/get-started/step-by-step/create-a-project)
 
-### [Step 6 - Change Schema](/get-started/step-by-step/change-schema)
+### [Step 6 - Change Schema](/docs/get-started/step-by-step/change-schema)
 
-### [Step 7 - Query Data](/get-started/step-by-step/query-data)
+### [Step 7 - Query Data](/docs/get-started/step-by-step/query-data)
 
-## [Connect Your Database](/get-started/instance)
+## [Connect Your Database](/docs/get-started/instance)
 
-## [Terraform Provider](/get-started/terraform)
+## [Terraform Provider](/docs/get-started/terraform)
 
 ---
 
 ## Database CI/CD
 
-### [Overview](/change-database/change-workflow)
+### [Overview](/docs/change-database/change-workflow)
 
 ### Change
 
-#### [Batch Change](/change-database/batch-change)
+#### [Batch Change](/docs/change-database/batch-change)
 
-#### [Schema Sync](/change-database/synchronize-schema)
+#### [Schema Sync](/docs/change-database/synchronize-schema)
 
-#### [Changelist](/changelist)
+#### [Changelist](/docs/changelist)
 
-#### [Stored Procedure](/change-database/stored-procedure)
+#### [Stored Procedure](/docs/change-database/stored-procedure)
 
-#### [Schema Editor](/change-database/schema-editor)
+#### [Schema Editor](/docs/change-database/schema-editor)
 
-#### [Schema Diagram](/change-database/schema-diagram)
+#### [Schema Diagram](/docs/change-database/schema-diagram)
 
-#### [Online Schema Migration](/change-database/online-schema-migration-for-mysql)
+#### [Online Schema Migration](/docs/change-database/online-schema-migration-for-mysql)
 
-#### [Secret Variable](/change-database/secret)
+#### [Secret Variable](/docs/change-database/secret)
 
 ### Review
 
-#### [Overview](/sql-review/overview)
+#### [Overview](/docs/sql-review/overview)
 
-#### [Review Policy](/sql-review/review-policy)
+#### [Review Policy](/docs/sql-review/review-policy)
 
-#### [Review Rules](/sql-review/review-rules)
+#### [Review Rules](/docs/sql-review/review-rules)
 
-#### [UI Integration](/sql-review/ui)
+#### [UI Integration](/docs/sql-review/ui)
 
-#### [CI Integration](/sql-review/gitops-ci)
+#### [CI Integration](/docs/sql-review/gitops-ci)
 
-#### [API](/sql-review/api)
+#### [API](/docs/sql-review/api)
 
 ### Approve
 
-#### [Custom Approval](/administration/custom-approval)
+#### [Custom Approval](/docs/administration/custom-approval)
 
 ### Roll out
 
-#### [Rollout Policy](/administration/environment-policy/rollout-policy)
+#### [Rollout Policy](/docs/administration/environment-policy/rollout-policy)
 
 ### Roll back
 
-#### [Data Rollback](/change-database/rollback-data-changes)
+#### [Data Rollback](/docs/change-database/rollback-data-changes)
 
-#### [Schema Rollback](/change-database/rollback-schema-changes)
+#### [Schema Rollback](/docs/change-database/rollback-schema-changes)
 
 ### Version
 
-#### [Change History](/change-database/change-history)
+#### [Change History](/docs/change-database/change-history)
 
 ### Monitor
 
-#### [Schema Drift Detection](/change-database/drift-detection)
+#### [Schema Drift Detection](/docs/change-database/drift-detection)
 
 #### Slow Query
 
-##### [Overview](/slow-query/overview)
+##### [Overview](/docs/slow-query/overview)
 
-##### [Enable Slow Query Log for MySQL](/slow-query/enable-slow-query-log-for-mysql)
+##### [Enable Slow Query Log for MySQL](/docs/slow-query/enable-slow-query-log-for-mysql)
 
-##### [Enable pg_stat_statements for PostgreSQL](/slow-query/enable-pg-stat-statements-for-postgresql)
+##### [Enable pg_stat_statements for PostgreSQL](/docs/slow-query/enable-pg-stat-statements-for-postgresql)
 
-##### [Turn on Slow Query Report in Bytebase](/slow-query/slow-query-report)
+##### [Turn on Slow Query Report in Bytebase](/docs/slow-query/slow-query-report)
 
-##### [Weekly Email Report](/slow-query/email-report)
+##### [Weekly Email Report](/docs/slow-query/email-report)
 
-##### [Index Advisor](/slow-query/index-advisor)
+##### [Index Advisor](/docs/slow-query/index-advisor)
 
 ### Settings
 
-#### [Webhook](/change-database/webhook)
+#### [Webhook](/docs/change-database/webhook)
 
-#### [Risk Center](/administration/risk-center)
+#### [Risk Center](/docs/administration/risk-center)
 
-#### [Issue](/change-database/issue)
+#### [Issue](/docs/change-database/issue)
 
-#### [Schema Template](/administration/schema-template)
+#### [Schema Template](/docs/administration/schema-template)
 
-### [Troubleshoot 🐞](/change-database/troubleshoot)
+### [Troubleshoot 🐞](/docs/change-database/troubleshoot)
 
 ## GitOps
 
-### [Overview](/vcs-integration/overview)
+### [Overview](/docs/vcs-integration/overview)
 
-### [Release](/vcs-integration/release)
+### [Release](/docs/vcs-integration/release)
 
 ## SQL Editor
 
-### [Overview](/sql-editor/overview)
+### [Overview](/docs/sql-editor/overview)
 
-### [Query](/sql-editor/run-queries)
+### [Query](/docs/sql-editor/run-queries)
 
-### [Admin Mode](/sql-editor/admin-mode)
+### [Admin Mode](/docs/sql-editor/admin-mode)
 
-### [Data Masking](/sql-editor/mask-data)
+### [Data Masking](/docs/sql-editor/mask-data)
 
-### [Manage SQL Scripts](/sql-editor/manage-sql-scripts)
+### [Manage SQL Scripts](/docs/sql-editor/manage-sql-scripts)
 
-### [Explore Schema](/sql-editor/explore-schema)
+### [Explore Schema](/docs/sql-editor/explore-schema)
 
-### [AI Assistant](/sql-editor/ai-assistant)
+### [AI Assistant](/docs/sql-editor/ai-assistant)
 
 ## Database Permission
 
-### [Overview](/security/database-permission/overview)
+### [Overview](/docs/security/database-permission/overview)
 
-### [Query](/security/database-permission/query)
+### [Query](/docs/security/database-permission/query)
 
-### [Export](/security/database-permission/export)
+### [Export](/docs/security/database-permission/export)
 
-### [EXPLAIN](/security/database-permission/explain)
+### [EXPLAIN](/docs/security/database-permission/explain)
 
 ## Dynamic Data Masking
 
-### [Overview](/security/data-masking/overview)
+### [Overview](/docs/security/data-masking/overview)
 
-### [Semantic Types](/security/data-masking/semantic-types)
+### [Semantic Types](/docs/security/data-masking/semantic-types)
 
-#### [Masking Algorithm](/security/data-masking/masking-algorithm)
+#### [Masking Algorithm](/docs/security/data-masking/masking-algorithm)
 
-### [Global Masking Rule](/security/data-masking/global-masking-rule)
+### [Global Masking Rule](/docs/security/data-masking/global-masking-rule)
 
-#### [Data Classification](/security/data-masking/data-classification)
+#### [Data Classification](/docs/security/data-masking/data-classification)
 
-### [Column Masking](/security/data-masking/column-masking)
+### [Column Masking](/docs/security/data-masking/column-masking)
 
-### [Masking Exemption](/security/data-masking/access-unmasked-data)
+### [Masking Exemption](/docs/security/data-masking/access-unmasked-data)
 
 ---
 
 ## Security Admin 🔐
 
-### [Single Sign-On](/administration/sso/overview)
+### [Single Sign-On](/docs/administration/sso/overview)
 
-#### [OAuth 2.0](/administration/sso/oauth2)
+#### [OAuth 2.0](/docs/administration/sso/oauth2)
 
-#### [OpenID Connect (OIDC)](/administration/sso/oidc)
+#### [OpenID Connect (OIDC)](/docs/administration/sso/oidc)
 
-#### [LDAP](/administration/sso/ldap)
+#### [LDAP](/docs/administration/sso/ldap)
 
-### [Roles and Permissions](/concepts/roles-and-permissions)
+### [Roles and Permissions](/docs/concepts/roles-and-permissions)
 
-### [User Groups](/administration/user-groups)
+### [User Groups](/docs/administration/user-groups)
 
-### [Custom Roles](/administration/custom-roles)
+### [Custom Roles](/docs/administration/custom-roles)
 
-### [Audit Log](/security/audit-log)
+### [Audit Log](/docs/security/audit-log)
 
-### [SCIM](/administration/scim/overview)
+### [SCIM](/docs/administration/scim/overview)
 
-### [2FA](/administration/2fa)
+### [2FA](/docs/administration/2fa)
 
-### [Password Restriction](/administration/password)
+### [Password Restriction](/docs/administration/password)
 
-### [Sign-in Restriction](/administration/sign-in-restriction)
+### [Sign-in Restriction](/docs/administration/sign-in-restriction)
 
-### [Watermark](/security/watermark)
+### [Watermark](/docs/security/watermark)
 
 ## General Admin ⚙️
 
-### [Manage License](/administration/license)
+### [Manage License](/docs/administration/license)
 
-### [Production Setup](/administration/production-setup)
+### [Production Setup](/docs/administration/production-setup)
 
-### [Back up Data](/administration/back-up-data)
+### [Back up Data](/docs/administration/back-up-data)
 
-### [Database Change Mode](/administration/mode)
+### [Database Change Mode](/docs/administration/mode)
 
-### [AI Assistant](/ai-assistant)
+### [AI Assistant](/docs/ai-assistant)
 
-### [Database Instance](/administration/instance)
+### [Database Instance](/docs/administration/instance)
 
-### [Environment Policy](/administration/environment-policy/overview)
+### [Environment Policy](/docs/administration/environment-policy/overview)
 
-### [Customize Logo](/administration/customize-logo)
+### [Customize Logo](/docs/administration/customize-logo)
 
-### [Announcement](/administration/announcement)
+### [Announcement](/docs/administration/announcement)
 
-### [SMTP and Email Delivery](/administration/mail-delivery)
+### [SMTP and Email Delivery](/docs/administration/mail-delivery)
 
-### [Archive](/administration/archive)
+### [Archive](/docs/administration/archive)
 
 ## API
 
-### [Overview](/api/overview)
+### [Overview](/docs/api/overview)
 
-### [Authentication](/api/authentication)
+### [Authentication](/docs/api/authentication)
 
-### [SQL Review](/api/sql-review)
+### [SQL Review](/docs/api/sql-review)
 
-### [Issue](/api/issue)
+### [Issue](/docs/api/issue)
 
-### [SQL Editor](/api/sql-editor)
+### [SQL Editor](/docs/api/sql-editor)
 
-### [Permission](/api/permission)
+### [Permission](/docs/api/permission)
 
-### [Data Classification](/api/data-classification)
+### [Data Classification](/docs/api/data-classification)
 
-### [Audit Log](/api/audit-log)
+### [Audit Log](/docs/api/audit-log)
 
 ## Integrations
 
-### [Terraform](/get-started/terraform)
+### [Terraform](/docs/get-started/terraform)
 
-### [Slack](/how-to/integrations/slack)
+### [Slack](/docs/how-to/integrations/slack)
 
-### [Jira](/how-to/integrations/jira)
+### [Jira](/docs/how-to/integrations/jira)
 
-### [Supabase](/how-to/integrations/supabase)
+### [Supabase](/docs/how-to/integrations/supabase)
 
-### [Render](/how-to/integrations/render)
+### [Render](/docs/how-to/integrations/render)
 
-### [Neon](/how-to/integrations/neon)
+### [Neon](/docs/how-to/integrations/neon)
 
 ## Reference
 
-### [Server Startup Options](/reference/command-line)
+### [Server Startup Options](/docs/reference/command-line)
 
-### [Error Code for Bytebase Core](/reference/error-code/core)
+### [Error Code for Bytebase Core](/docs/reference/error-code/core)
 
-### [Error Code for SQL Advisor](/reference/error-code/advisor)
+### [Error Code for SQL Advisor](/docs/reference/error-code/advisor)
 
-### [Schema Definition Language](/reference/schema-definition-language)
+### [Schema Definition Language](/docs/reference/schema-definition-language)
 
 ### Postgres
 
-#### [PostgreSQL SQL Review Guide](/how-to/sql-review/postgres-sql-review-guide)
+#### [PostgreSQL SQL Review Guide](/docs/how-to/sql-review/postgres-sql-review-guide)
 
-#### [How to Check Postgres version](/how-to/postgres/how-to-check-postgres-version)
+#### [How to Check Postgres version](/docs/how-to/postgres/how-to-check-postgres-version)
 
-#### [How to Fix Permission denied for table](/how-to/postgres/permission-denied-for-table-postgres)
+#### [How to Fix Permission denied for table](/docs/how-to/postgres/permission-denied-for-table-postgres)
 
-#### [How to Fix Must be owner of table](/how-to/postgres/must-be-owner-of-table-postgres)
+#### [How to Fix Must be owner of table](/docs/how-to/postgres/must-be-owner-of-table-postgres)
 
-#### [How to Create Index in Postgres](/how-to/postgres/how-to-create-index-postgres)
+#### [How to Create Index in Postgres](/docs/how-to/postgres/how-to-create-index-postgres)
 
-#### [How to Alter Table in Postgres](/how-to/postgres/how-to-alter-table-postgres)
+#### [How to Alter Table in Postgres](/docs/how-to/postgres/how-to-alter-table-postgres)
 
-#### [How to Alter Column Type in Postgres](/how-to/postgres/how-to-alter-column-type-postgres)
+#### [How to Alter Column Type in Postgres](/docs/how-to/postgres/how-to-alter-column-type-postgres)
 
 ### ClickHouse
 
-#### [How to Create a Database](/how-to/clickhouse/how-to-create-a-database-clickhouse)
+#### [How to Create a Database](/docs/how-to/clickhouse/how-to-create-a-database-clickhouse)
 
-#### [How to Create a Table](/how-to/clickhouse/how-to-create-a-table-clickhouse)
+#### [How to Create a Table](/docs/how-to/clickhouse/how-to-create-a-table-clickhouse)
 
-#### [How to List Tables from a Database](/how-to/clickhouse/how-to-list-tables-from-a-database-clickhouse)
+#### [How to List Tables from a Database](/docs/how-to/clickhouse/how-to-list-tables-from-a-database-clickhouse)
 
-#### [How to Rename a Table](/how-to/clickhouse/how-to-rename-a-table-clickhouse)
+#### [How to Rename a Table](/docs/how-to/clickhouse/how-to-rename-a-table-clickhouse)
 
 ### Spanner
 
-#### [How to Find Project ID and Instance ID](/how-to/spanner/how-to-find-project-id-and-instance-id)
+#### [How to Find Project ID and Instance ID](/docs/how-to/spanner/how-to-find-project-id-and-instance-id)
 
-#### [How to Create a Service Account for Bytebase](/how-to/spanner/how-to-create-a-service-account-for-bytebase)
+#### [How to Create a Service Account for Bytebase](/docs/how-to/spanner/how-to-create-a-service-account-for-bytebase)

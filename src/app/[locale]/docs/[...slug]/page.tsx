@@ -21,6 +21,7 @@ import TableOfContents from '@/components/pages/docs/table-of-contents';
 import Promo from './promo';
 
 const DOCS_DIR_PATH = `${process.cwd()}/content/docs`;
+const FILE_ORIGIN_PATH = 'https://github.com/bytebase/bytebase.com/tree/main/content/docs';
 
 export function generateStaticParams() {
   const posts = getAllPosts(DOCS_DIR_PATH);
@@ -37,7 +38,7 @@ export function generateStaticParams() {
 export default function DocPage({ params }: { params: { slug: string[] } }) {
   const { slug } = params;
   const currentSlug = slug.join('/');
-  const currentPath = `/${currentSlug}`;
+  const currentPath = `${Route.DOCS}/${currentSlug}`;
 
   const post = getPostBySlug(DOCS_DIR_PATH, currentSlug);
 
@@ -67,6 +68,7 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
           feature_name={feature_name || null}
           currentSlug={currentSlug}
           breadcrumbs={breadcrumbs}
+          fileOriginPath={FILE_ORIGIN_PATH}
           navigationLinks={navigationLinks}
         >
           <Content content={content} />

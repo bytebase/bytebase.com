@@ -7,7 +7,6 @@ import matter from 'gray-matter';
 import { Breadcrumb } from '@/types/breadcrumb';
 
 import { PostData, PreviousAndNextLinks, SidebarItem, TableOfContents } from '@/types/docs';
-import Route from './route';
 
 const getPostSlugs = (docsPath: string): string[] => {
   const files = glob.sync(`${docsPath}/**/*.md`, {
@@ -134,10 +133,10 @@ const getDocPreviousAndNextLinks = (
 
 const getBreadcrumbs = (
   docsPath: string,
-  slug: string,
+  currentPath: string,
   flatSidebar: SidebarItem[],
 ): Breadcrumb[] => {
-  const path = flatSidebar.find((item) => item.url === slug)?.path;
+  const path = flatSidebar.find((item) => item.url === currentPath)?.path;
   const { sidebar } = getSidebar(docsPath);
 
   const arr: Breadcrumb[] = [];
@@ -150,7 +149,7 @@ const getBreadcrumbs = (
 
       arr.push({
         title: current.title,
-        url: current.url ? `${Route.DOCS}${current.url}` : undefined,
+        url: current.url ? current.url : undefined,
       });
       return current;
     }, sidebar as SidebarItem[] | SidebarItem);

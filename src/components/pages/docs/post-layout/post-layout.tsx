@@ -15,8 +15,6 @@ import Navigation, { type NavigationProps } from '../navigation';
 
 import Breadcrumbs from '@/components/shared/breadcrumbs';
 
-const FILE_ORIGIN_PATH = 'https://github.com/bytebase/bytebase.com/tree/main/content/docs';
-
 const PostLayout = ({
   title,
   featureImage = null,
@@ -26,6 +24,7 @@ const PostLayout = ({
   feature_name,
   currentSlug,
   breadcrumbs,
+  fileOriginPath,
   navigationLinks: { previousLink, nextLink },
 }: {
   title: string;
@@ -36,6 +35,7 @@ const PostLayout = ({
   currentSlug: string;
   children: React.ReactNode;
   breadcrumbs: Breadcrumb[];
+  fileOriginPath: string;
   navigationLinks: NavigationProps;
 }) => {
   return (
@@ -74,7 +74,7 @@ const PostLayout = ({
       <div className={clsx(!featureImage && 'mt-5 xl:mt-3.5')}>{children}</div>
       <Link
         className="mt-20 flex items-center text-18 font-medium leading-none text-gray-15 hover:text-gray-60 xl:mt-14 xl:text-16 sm:mt-10"
-        href={`${FILE_ORIGIN_PATH}/${currentSlug}.md`}
+        href={`${fileOriginPath}/${currentSlug}.md`}
         target="_blank"
         rel="noopener noreferrer"
       >

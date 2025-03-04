@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { getExcerpt } from '@/utils/get-excerpt';
 import getMetadata from '@/utils/get-metadata';
 
-import PostLayout from '@/components/pages/reference/post-layout';
+import PostLayout from '@/components/pages/docs/post-layout';
 import Content from '@/components/shared/content';
 
 import {
@@ -17,10 +17,12 @@ import {
   getTableOfContents,
 } from '@/lib/api-docs';
 import Route from '@/lib/route';
-import TableOfContents from '@/components/pages/reference/table-of-contents';
+import TableOfContents from '@/components/pages/docs/table-of-contents';
 import Promo from './promo';
 
 const REFERENCE_DIR_PATH = `${process.cwd()}/content/reference/postgres/error`;
+const FILE_ORIGIN_PATH =
+  'https://github.com/bytebase/bytebase.com/tree/main/content/reference/postgres/error';
 
 export function generateStaticParams() {
   const posts = getAllPosts(REFERENCE_DIR_PATH);
@@ -37,7 +39,7 @@ export function generateStaticParams() {
 export default function DocPage({ params }: { params: { slug: string[] } }) {
   const { slug } = params;
   const currentSlug = slug.join('/');
-  const currentPath = `/${currentSlug}`;
+  const currentPath = `${Route.REFERENCE_POSTGRES_ERROR}/${currentSlug}`;
 
   const post = getPostBySlug(REFERENCE_DIR_PATH, currentSlug);
 
@@ -67,6 +69,7 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
           feature_name={feature_name || null}
           currentSlug={currentSlug}
           breadcrumbs={breadcrumbs}
+          fileOriginPath={FILE_ORIGIN_PATH}
           navigationLinks={navigationLinks}
         >
           <Content content={content} />
