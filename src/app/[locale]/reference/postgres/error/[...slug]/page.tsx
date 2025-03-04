@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { getExcerpt } from '@/utils/get-excerpt';
 import getMetadata from '@/utils/get-metadata';
 
-import PostLayout from '@/components/pages/docs/post-layout';
+import PostLayout from '@/components/pages/reference/post-layout';
 import Content from '@/components/shared/content';
 
 import {
@@ -15,9 +15,9 @@ import {
   getPostBySlug,
   getSidebar,
   getTableOfContents,
-} from '@/lib/api-docs';
+} from '@/lib/api-reference';
 import Route from '@/lib/route';
-import TableOfContents from '@/components/pages/docs/table-of-contents';
+import TableOfContents from '@/components/pages/reference/table-of-contents';
 import Promo from './promo';
 
 export function generateStaticParams() {
@@ -105,6 +105,6 @@ export async function generateMetadata({
   return getMetadata({
     title,
     description,
-    pathname: `${Route.DOCS}${currentPath}/`,
+    pathname: `${Route.REFERENCE_POSTGRES_ERROR}${currentPath}/`,
   });
 }
