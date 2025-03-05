@@ -199,7 +199,7 @@ To create migration files to trigger release creation, the files have to match t
        token: ${{ steps.login.outputs.token }}
        plan: ${{ steps.create_plan.outputs.plan }}
        # set target-stage to exit after the stage completes
-       # target-stage: 'Test Stage'
+       # target-stage: 'test'
    ```
 
    These are the steps:
@@ -222,7 +222,7 @@ You can also manually control the rollout by stage if you have **Pro** or **Ente
 
 1. Click **Environments** on the left sidebar, click **Prod** tab, set **Rollout Policy** as `Manual rollout by dedicated roles`.
 
-1. Go to the `.github/workflows/bytebase-release-cicd.yml` file, look at the **Rollout** section, You can use `target-stage` to early exit the step. When the target stage completes, it exits. If `target-stage` is not provided or not found, **Rollout** will wait until all stages complete. Uncomment the last line `target-stage: 'Test Stage'` and commit the changes.
+1. Go to the `.github/workflows/bytebase-release-cicd.yml` file, look at the **Rollout** section, You can use `target-stage` to early exit the step. When the target stage completes, it exits. If `target-stage` is not provided or not found, **Rollout** will wait until all stages complete. Uncomment the last line `target-stage: 'test'` and commit the changes.
 
    ```yaml
    - name: Rollout
@@ -233,12 +233,10 @@ You can also manually control the rollout by stage if you have **Pro** or **Ente
        token: ${{ steps.login.outputs.token }}
        plan: ${{ steps.create_plan.outputs.plan }}
        # set target-stage to exit after the stage completes
-       # target-stage: 'Test Stage'
+       # target-stage: 'test'
    ```
 
-1. You can find the stage name in the **Deployment Config** under `Sample Project`.
-
-   ![bb-deployment-config](/content/docs/tutorials/github-release-cicd-workflow/bb-deployment-config.webp)
+1. You can find the **Environment ID** as target-stage in your **Environments** page.
 
 1. Create a new branch with this file, and create a pull request. Merge it to the `main` branch.
 
