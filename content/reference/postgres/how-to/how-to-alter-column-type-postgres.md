@@ -1,5 +1,5 @@
 ---
-title: How to Alter Column Type in Postgres
+title: How to ALTER COLUMN TYPE in Postgres
 updated_at: 2025/02/28 09:00:00
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: How to Create a Database in ClickHouse
+title: How to create a database in ClickHouse
 ---
 
 The `CREATE DATABASE` command is used create a new **database**.

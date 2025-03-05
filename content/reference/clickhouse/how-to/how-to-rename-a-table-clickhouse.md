@@ -1,5 +1,5 @@
 ---
-title: How to Rename a Table in ClickHouse
+title: How to rename a table in ClickHouse
 ---
 
 Here is an example to rename `employee` to `employee_new`:

@@ -1,5 +1,5 @@
 ---
-title: How to List Tables from a Database in ClickHouse
+title: How to list tables from a database in ClickHouse
 ---
 
 You can run the following command to show all the tables in an existing database:

@@ -1,5 +1,5 @@
 ---
-title: How to Alter Table in Postgres
+title: How to ALTER TABLE in Postgres
 updated_at: 2025/02/28 09:00:00
 ---
 

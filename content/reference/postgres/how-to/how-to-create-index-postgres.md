@@ -1,5 +1,5 @@
 ---
-title: How to Create Index in Postgres
+title: How to CREATE INDEX in Postgres
 updated_at: 2025/02/27 12:00:00
 ---
 

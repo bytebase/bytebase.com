@@ -3,12 +3,12 @@
 
 ## [Overview](/reference/postgres/how-to/overview)
 
-## [How to Check Postgres Version](/reference/postgres/how-to/how-to-check-postgres-version)
+## [How to check Postgres version](/reference/postgres/how-to/how-to-check-postgres-version)
 
-## [How to Create Index](/reference/postgres/how-to/how-to-create-index-postgres)
+## [How to enable pg_stat_statements](/reference/postgres/how-to/how-to-enable-pg-stat-statements-postgres)
 
-## [How to Alter Table](/reference/postgres/how-to/how-to-alter-table-postgres)
+## [How to CREATE INDEX](/reference/postgres/how-to/how-to-create-index-postgres)
 
-## [How to Alter Column Type](/reference/postgres/how-to/how-to-alter-column-type-postgres)
+## [How to ALTER TABLE](/reference/postgres/how-to/how-to-alter-table-postgres)
 
-## [How to Enable pg_stat_statements](/reference/postgres/how-to/how-to-enable-pg-stat-statements-postgres)
+## [How to ALTER COLUMN TYPE](/reference/postgres/how-to/how-to-alter-column-type-postgres)

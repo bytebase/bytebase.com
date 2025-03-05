@@ -1,5 +1,5 @@
 ---
-title: How to Check Postgres Version
+title: How to check Postgres version
 updated_at: 2025/02/27 09:00:00
 ---
 
