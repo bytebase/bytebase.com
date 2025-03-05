@@ -91,7 +91,7 @@ RENAME COLUMN product_name TO name;
 
 ### Changing Column Data Types
 
-See [How to Alter Column Type in Postgres](/how-to/postgres/how-to-alter-column-type-postgres).
+See [How to Alter Column Type in Postgres](/reference/postgres/how-to/how-to-alter-column-type-postgres).
 
 ### Modifying Column Constraints
 
@@ -174,7 +174,7 @@ SET SCHEMA archive;
 
 ### Changing Ownership
 
-See [How to Change Table Owner in Postgres](/how-to/postgres/how-to-change-table-owner-postgres).
+See [How to Change Table Owner in Postgres](/reference/postgres/how-to/how-to-change-table-owner-postgres).
 
 ### Setting Table Options
 

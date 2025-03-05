@@ -144,8 +144,18 @@ module.exports = {
         permanent: true,
       },
       {
-        source: `/docs/how-to/postgres/how-to-check-postgres-version`,
-        destination: '/reference/postgres/how-to/how-to-check-postgres-version',
+        source: `/docs/how-to/postgres/permission-denied-for-table-postgres`,
+        destination: '/reference/postgres/error/42501-permission-denied-for-table-postgres',
+        permanent: true,
+      },
+      {
+        source: `/docs/how-to/postgres/must-be-owner-of-table-postgres`,
+        destination: '/reference/postgres/error/42501-must-be-owner-of-table-postgres',
+        permanent: true,
+      },
+      {
+        source: `/docs/slow-query/enable-pg-stat-statements-for-postgresql`,
+        destination: '/reference/postgres/how-to/how-to-enable-pg-stat-statements-postgres',
         permanent: true,
       },
       {
@@ -166,21 +176,6 @@ module.exports = {
       {
         source: `/docs/how-to/clickhouse/how-to-rename-a-table-clickhouse`,
         destination: '/reference/clickhouse/how-to/how-to-rename-a-table-clickhouse',
-        permanent: true,
-      },
-      {
-        source: `/docs/how-to/postgres/permission-denied-for-table-postgres`,
-        destination: '/reference/postgres/error/42501-permission-denied-for-table-postgres',
-        permanent: true,
-      },
-      {
-        source: `/docs/how-to/postgres/must-be-owner-of-table-postgres`,
-        destination: '/reference/postgres/error/42501-must-be-owner-of-table-postgres',
-        permanent: true,
-      },
-      {
-        source: `/docs/slow-query/enable-pg-stat-statements-for-postgresql`,
-        destination: '/reference/postgres/how-to/how-to-enable-pg-stat-statements-postgres',
         permanent: true,
       },
       {

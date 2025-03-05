@@ -3,7 +3,7 @@ title: How to Find Project ID and Instance ID in Spanner
 description: Instructions on how to find project ID and instance ID of a Spanner instance
 ---
 
-![Spanner database detail page](/content/docs/how-to/spanner/spanner.webp)
+![Spanner database detail page](/content/reference/spanner/how-to/how-to-find-project-id-and-instance-id-spanner/spanner.webp)
 
 From the Spanner database detail page, you can get the project ID and the instance ID from the URL.
 

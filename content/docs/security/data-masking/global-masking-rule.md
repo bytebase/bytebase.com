@@ -25,5 +25,5 @@ rule list. The first matching rule will be applied. If no rule matches, no `Sema
 1. Repeat to add more rules.
    ![bb-global-masking-2](/content/docs/security/data-masking/bb-global-masking-2.webp)
 
-Combined with [Semantic Types](/docs/security/data-masking/semantic-types), here is the result you will get in **SQL Editor**.
-![bb-sql-editor-full-masking](/content/docs/security/data-masking/bb-sql-editor-full-masking.webp)
+   Combined with [Semantic Types](/docs/security/data-masking/semantic-types), here is the result you will get in **SQL Editor**.
+   ![bb-sql-editor-full-masking](/content/docs/security/data-masking/bb-sql-editor-full-masking.webp)

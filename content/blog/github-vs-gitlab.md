@@ -142,7 +142,7 @@ If you're not satisfied with the built-in code review interface, you can explore
 ## Code Search
 
 GitHub offers superior code search capabilities and has a much larger pool of source code to ~copy~search from.
-However, neither platform provides an optimal code search experience, so it's worth exploring [Sourcegraph](sourcegraph.com)
+However, neither platform provides an optimal code search experience, so it's worth exploring [Sourcegraph](https://sourcegraph.com)
 for a more powerful solution.
 
 ## Security
