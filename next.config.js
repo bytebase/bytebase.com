@@ -183,6 +183,11 @@ module.exports = {
         destination: '/reference/postgres/how-to/how-to-enable-pg-stat-statements-postgres',
         permanent: true,
       },
+      {
+        source: `/docs/slow-query/enable-slow-query-log-for-mysql`,
+        destination: '/reference/mysql/how-to/how-to-enable-slow-query-log-mysql',
+        permanent: true,
+      },
     ];
   },
   webpack: (config) => {

@@ -10,7 +10,7 @@ Slow Queries is a feature that helps you identify slow queries in your database.
 
 Before you can use this feature, you need to enable slow query logs in your database. Please refer to the following instructions:
 
-- [Enable slow query log for MySQL](/docs/slow-query/enable-slow-query-log-for-mysql)
+- [Enable slow query log for MySQL](/reference/mysql/how-to/how-to-enable-slow-query-log-mysql)
 - [Enable pg_stat_statements for PostgreSQL](/reference/postgres/how-to/how-to-enable-pg-stat-statements-postgres)
 
 ## [Step 2 - Turn on Slow Queries Report in Bytebase](/docs/slow-query/slow-query-report)

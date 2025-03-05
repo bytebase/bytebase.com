@@ -115,9 +115,7 @@ expand_section_list: ['Self-host']
 
 ##### [Overview](/docs/slow-query/overview)
 
-##### [Enable Slow Query Log for MySQL](/docs/slow-query/enable-slow-query-log-for-mysql)
-
-##### [Turn on Slow Query Report in Bytebase](/docs/slow-query/slow-query-report)
+##### [Slow Query Report](/docs/slow-query/slow-query-report)
 
 ##### [Weekly Email Report](/docs/slow-query/email-report)
 

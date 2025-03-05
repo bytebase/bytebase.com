@@ -31,6 +31,7 @@ export default function ResourcesPage() {
             title="🐘 Postgres How-to Guide"
             link="/reference/postgres/how-to/overview"
           />
+          <ResourceCard title="🐬 MySQL How-to Guide" link="/reference/mysql/how-to/overview" />
           <ResourceCard
             title="🏠 ClickHouse How-to Guide"
             link="/reference/clickhouse/how-to/overview"

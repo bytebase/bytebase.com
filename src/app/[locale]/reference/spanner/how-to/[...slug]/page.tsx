@@ -19,7 +19,7 @@ export default function Page({ params }: { params: { slug: string[] } }) {
       params={params}
       dirPath={DIR_PATH}
       fileOriginPath={FILE_ORIGIN_PATH}
-      routePath={Route.REFERENCE_POSTGRES_HOW_TO}
+      routePath={Route.REFERENCE_SPANNER_HOW_TO}
     />
   );
 }
