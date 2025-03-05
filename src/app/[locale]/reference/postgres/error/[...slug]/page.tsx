@@ -1,115 +1,34 @@
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-
-import { getExcerpt } from '@/utils/get-excerpt';
-import getMetadata from '@/utils/get-metadata';
-
-import PostLayout from '@/components/pages/docs/post-layout';
-import Content from '@/components/shared/content';
+import Route from '@/lib/route';
 
 import {
-  getAllPosts,
-  getBreadcrumbs,
-  getDocPreviousAndNextLinks,
-  getFlatSidebar,
-  getPostBySlug,
-  getSidebar,
-  getTableOfContents,
-} from '@/lib/api-docs';
-import Route from '@/lib/route';
-import TableOfContents from '@/components/pages/docs/table-of-contents';
-import Promo from './promo';
+  generatePostStaticParams,
+  generatePostMetadata,
+  default as PostgresDocPage,
+} from '@/components/pages/reference/postgres/postgresDocPage';
 
-const REFERENCE_DIR_PATH = `${process.cwd()}/content/reference/postgres/error`;
+const DIR_PATH = `${process.cwd()}/content/reference/postgres/error`;
 const FILE_ORIGIN_PATH =
   'https://github.com/bytebase/bytebase.com/tree/main/content/reference/postgres/error';
 
 export function generateStaticParams() {
-  const posts = getAllPosts(REFERENCE_DIR_PATH);
-
-  return posts.map(({ slug }) => {
-    const slugsArray = slug.split('/');
-
-    return {
-      slug: slugsArray,
-    };
-  });
+  return generatePostStaticParams(DIR_PATH);
 }
 
 export default function DocPage({ params }: { params: { slug: string[] } }) {
-  const { slug } = params;
-  const currentSlug = slug.join('/');
-  const currentPath = `${Route.REFERENCE_POSTGRES_ERROR}/${currentSlug}`;
-
-  const post = getPostBySlug(REFERENCE_DIR_PATH, currentSlug);
-
-  if (!post) return notFound();
-
-  const { sidebar } = getSidebar(REFERENCE_DIR_PATH);
-  const flatSidebar = getFlatSidebar(sidebar);
-
-  const breadcrumbs = getBreadcrumbs(REFERENCE_DIR_PATH, currentPath, flatSidebar);
-  const navigationLinks = getDocPreviousAndNextLinks(currentPath, flatSidebar);
-
-  const {
-    data: { title, feature_image, updated_at, estimated_time, feature_name },
-    content,
-  } = post;
-
-  const tableOfContents = getTableOfContents(content);
-
   return (
-    <>
-      <article className="col-span-3 col-start-2 flex flex-col lg:col-span-4 md:col-span-full">
-        <PostLayout
-          title={title}
-          featureImage={feature_image || null}
-          updated_at={updated_at || null}
-          estimated_time={estimated_time || null}
-          feature_name={feature_name || null}
-          currentSlug={currentSlug}
-          breadcrumbs={breadcrumbs}
-          fileOriginPath={FILE_ORIGIN_PATH}
-          navigationLinks={navigationLinks}
-        >
-          <Content content={content} />
-        </PostLayout>
-      </article>
-      <aside className="scrollbar-hidden lg:gap-x-grid sticky top-[144px] col-span-1 ml-auto flex max-h-[calc(100vh-40px)] w-full flex-col overflow-y-auto lg:col-span-full lg:col-start-2 lg:mt-14 lg:grid md:col-span-full md:col-start-2 md:mt-10 sm:mt-8 sm:gap-y-4">
-        {tableOfContents && tableOfContents.length > 0 && (
-          <TableOfContents items={tableOfContents} className="overflow-y-auto" hasBackToTop />
-        )}
-        <div className="mt-4 flex w-full flex-col items-start justify-start pl-5 lg:pl-0">
-          <Promo />
-        </div>
-      </aside>
-    </>
+    <PostgresDocPage
+      params={params}
+      dirPath={DIR_PATH}
+      fileOriginPath={FILE_ORIGIN_PATH}
+      routePath={Route.REFERENCE_POSTGRES_ERROR}
+    />
   );
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string[] };
-}): Promise<Metadata> {
-  const { slug } = params;
-  const currentSlug = slug.join('/');
-  const currentPath = `/${currentSlug}`;
-
-  const post = getPostBySlug(REFERENCE_DIR_PATH, currentSlug);
-
-  if (!post) return notFound();
-
-  const {
-    data: { title },
-    content,
-  } = post;
-
-  const description = getExcerpt({ content, length: 160 });
-
-  return getMetadata({
-    title,
-    description,
-    pathname: `${Route.REFERENCE_POSTGRES_ERROR}${currentPath}/`,
+export async function generateMetadata({ params }: { params: { slug: string[] } }) {
+  return generatePostMetadata({
+    params,
+    dirPath: DIR_PATH,
+    routePath: Route.REFERENCE_POSTGRES_ERROR,
   });
 }
