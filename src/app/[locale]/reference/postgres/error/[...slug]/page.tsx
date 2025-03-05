@@ -1,10 +1,9 @@
 import Route from '@/lib/route';
-
 import {
   generatePostStaticParams,
   generatePostMetadata,
-  default as PostgresDocPage,
-} from '@/components/pages/reference/postgres/postgresDocPage';
+  default as DocPage,
+} from '@/components/pages/docs/docPage';
 
 const DIR_PATH = `${process.cwd()}/content/reference/postgres/error`;
 const FILE_ORIGIN_PATH =
@@ -14,9 +13,9 @@ export function generateStaticParams() {
   return generatePostStaticParams(DIR_PATH);
 }
 
-export default function DocPage({ params }: { params: { slug: string[] } }) {
+export default function Page({ params }: { params: { slug: string[] } }) {
   return (
-    <PostgresDocPage
+    <DocPage
       params={params}
       dirPath={DIR_PATH}
       fileOriginPath={FILE_ORIGIN_PATH}

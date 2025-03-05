@@ -19,6 +19,7 @@ import {
 } from '@/lib/api-docs';
 import Promo from '@/components/pages/docs/promo';
 
+// Generic function for any documentation page to generate static params
 export function generatePostStaticParams(dirPath: string) {
   const posts = getAllPosts(dirPath);
 
@@ -31,7 +32,8 @@ export function generatePostStaticParams(dirPath: string) {
   });
 }
 
-export default function PostgresDocPage({
+// Generic documentation page component that can be used for any documentation section
+export default function DocPage({
   params,
   dirPath,
   fileOriginPath,
@@ -92,6 +94,7 @@ export default function PostgresDocPage({
   );
 }
 
+// Generic metadata generation function for any documentation page
 export async function generatePostMetadata({
   params,
   dirPath,
