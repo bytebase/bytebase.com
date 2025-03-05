@@ -1,12 +1,16 @@
 ---
-title: 'SQLSTATE[2bp01]: cannot drop constraint used by foreign key'
+title: '2BP01: cannot drop constraint used by foreign key'
 ---
+
+| Code    | Name                            | Class                                                  |
+| ------- | ------------------------------- | ------------------------------------------------------ |
+| `2BP01` | `dependent_objects_still_exist` | Dependent Privilege Descriptors Still Exist (Class 2B) |
 
 ## Error Overview
 
 When working with PostgreSQL, you might encounter this error:
 
-```
+```bash
 ERROR: cannot drop constraint used by foreign key constraint
 ERRCODE: 2BP01 (dependent_objects_still_exist)
 ```

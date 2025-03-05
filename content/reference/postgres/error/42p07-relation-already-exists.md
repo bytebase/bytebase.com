@@ -1,14 +1,16 @@
 ---
-title: 'SQLSTATE[42P07]: relation already exists'
+title: '42P07: relation already exists'
 ---
 
-Error code: `42P07` ERRCODE_DUPLICATE_TABLE
+| Code    | Name              | Class                                            |
+| ------- | ----------------- | ------------------------------------------------ |
+| `42P07` | `duplicate_table` | Syntax Error or Access Rule Violation (Class 42) |
 
 ## Overview
 
 The `SQLSTATE[42P07]` error in PostgreSQL occurs when attempting to create a database object (like a table, view, sequence, or index) that already exists in the database. The full error message typically appears as:
 
-```
+```bash
 ERROR:  relation "table_name" already exists
 SQLSTATE[42P07]: Duplicate table: 7 ERROR:  relation "table_name" already exists
 ```
