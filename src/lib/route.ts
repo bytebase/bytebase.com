@@ -82,6 +82,7 @@ const Route = {
 
   // reference
   REFERENCE_POSTGRES_ERROR: '/reference/postgres/error',
+  REFERENCE_POSTGRES_HOW_TO: '/reference/postgres/how-to',
 
   // blog
   BLOG_CASE_STUDY: '/blog/category/case-study',

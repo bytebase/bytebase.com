@@ -3,7 +3,7 @@ import Sidebar from '@/components/pages/docs/sidebar';
 
 import { getSidebar } from '@/lib/api-docs';
 
-const DIR_PATH = `${process.cwd()}/content/reference/postgres/error`;
+const DIR_PATH = `${process.cwd()}/content/reference/postgres/how-to`;
 
 export default function DocLayout({ children }: { children: React.ReactNode }) {
   const { sidebar, expandedList } = getSidebar(DIR_PATH);
