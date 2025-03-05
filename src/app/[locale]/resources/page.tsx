@@ -25,9 +25,9 @@ export default function ResourcesPage() {
           {/* Documentation Card */}
           <ResourceCard
             title="Postgres Error Reference"
-            description="Postgres error reference guide"
             link="/reference/postgres/error/overview"
           />
+          <ResourceCard title="Postgres How-to Guide" link="/reference/postgres/how-to/overview" />
         </div>
       </section>
     </>
@@ -36,15 +36,13 @@ export default function ResourcesPage() {
 
 interface ResourceCardProps {
   title: string;
-  description: string;
   link: string;
 }
 
-const ResourceCard = ({ title, description, link }: ResourceCardProps) => (
+const ResourceCard = ({ title, link }: ResourceCardProps) => (
   <Link href={link} className="block">
     <div className="border-gray-200 h-full rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-md">
-      <h3 className="text-2xl mb-2 font-title font-semibold">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <h3 className="mb-2 font-title text-24 font-medium">📕 {title}</h3>
     </div>
   </Link>
 );
