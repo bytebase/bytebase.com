@@ -117,8 +117,6 @@ expand_section_list: ['Self-host']
 
 ##### [Enable Slow Query Log for MySQL](/docs/slow-query/enable-slow-query-log-for-mysql)
 
-##### [Enable pg_stat_statements for PostgreSQL](/docs/slow-query/enable-pg-stat-statements-for-postgresql)
-
 ##### [Turn on Slow Query Report in Bytebase](/docs/slow-query/slow-query-report)
 
 ##### [Weekly Email Report](/docs/slow-query/email-report)

@@ -178,6 +178,11 @@ module.exports = {
         destination: '/reference/postgres/error/42501-must-be-owner-of-table-postgres',
         permanent: true,
       },
+      {
+        source: `/docs/slow-query/enable-pg-stat-statements-for-postgresql`,
+        destination: '/reference/postgres/how-to/how-to-enable-pg-stat-statements-postgres',
+        permanent: true,
+      },
     ];
   },
   webpack: (config) => {

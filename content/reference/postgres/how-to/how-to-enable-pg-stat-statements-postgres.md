@@ -1,5 +1,5 @@
 ---
-title: Enable pg_stat_statements for PostgreSQL
+title: How to enable pg_stat_statements in PostgreSQL
 ---
 
 <HintBlock type="info">

@@ -10,3 +10,5 @@
 ## [How to Alter Table](/reference/postgres/how-to/how-to-alter-table-postgres)
 
 ## [How to Alter Column Type](/reference/postgres/how-to/how-to-alter-column-type-postgres)
+
+## [How to Enable pg_stat_statements](/reference/postgres/how-to/how-to-enable-pg-stat-statements-postgres)
