@@ -1,12 +1,12 @@
 ---
-title: '2BP01: cannot drop constraint used by foreign key'
+title: 'How to fix cannot drop constraint used by foreign key in Postgres - Error [2BP01]'
 ---
 
 | Code    | Name                            | Class                                                  |
 | ------- | ------------------------------- | ------------------------------------------------------ |
 | `2BP01` | `dependent_objects_still_exist` | Dependent Privilege Descriptors Still Exist (Class 2B) |
 
-## Error Overview
+## Overview
 
 When working with PostgreSQL, you might encounter this error:
 

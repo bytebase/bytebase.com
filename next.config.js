@@ -168,6 +168,16 @@ module.exports = {
         destination: '/reference/clickhouse/how-to/how-to-rename-a-table-clickhouse',
         permanent: true,
       },
+      {
+        source: `/docs/how-to/postgres/permission-denied-for-table-postgres`,
+        destination: '/reference/postgres/error/42501-permission-denied-for-table-postgres',
+        permanent: true,
+      },
+      {
+        source: `/docs/how-to/postgres/must-be-owner-of-table-postgres`,
+        destination: '/reference/postgres/error/42501-must-be-owner-of-table-postgres',
+        permanent: true,
+      },
     ];
   },
   webpack: (config) => {

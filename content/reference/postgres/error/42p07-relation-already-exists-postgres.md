@@ -1,5 +1,5 @@
 ---
-title: '42P07: relation already exists'
+title: 'How to fix relation already exists in Postgres - ERROR [42P07]'
 ---
 
 | Code    | Name              | Class                                            |
