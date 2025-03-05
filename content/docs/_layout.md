@@ -280,9 +280,3 @@ expand_section_list: ['Self-host']
 ### [Error Code for SQL Advisor](/docs/reference/error-code/advisor)
 
 ### [Schema Definition Language](/docs/reference/schema-definition-language)
-
-### Postgres
-
-#### [How to Fix Permission denied for table](/docs/how-to/postgres/permission-denied-for-table-postgres)
-
-#### [How to Fix Must be owner of table](/docs/how-to/postgres/must-be-owner-of-table-postgres)
