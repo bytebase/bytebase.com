@@ -296,9 +296,3 @@ expand_section_list: ['Self-host']
 #### [How to List Tables from a Database](/docs/how-to/clickhouse/how-to-list-tables-from-a-database-clickhouse)
 
 #### [How to Rename a Table](/docs/how-to/clickhouse/how-to-rename-a-table-clickhouse)
-
-### Spanner
-
-#### [How to Find Project ID and Instance ID](/docs/how-to/spanner/how-to-find-project-id-and-instance-id)
-
-#### [How to Create a Service Account for Bytebase](/docs/how-to/spanner/how-to-create-a-service-account-for-bytebase)

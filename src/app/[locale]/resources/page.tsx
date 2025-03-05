@@ -28,6 +28,7 @@ export default function ResourcesPage() {
             link="/reference/postgres/error/overview"
           />
           <ResourceCard title="Postgres How-to Guide" link="/reference/postgres/how-to/overview" />
+          <ResourceCard title="Spanner How-to Guide" link="/reference/spanner/how-to/overview" />
         </div>
       </section>
     </>
