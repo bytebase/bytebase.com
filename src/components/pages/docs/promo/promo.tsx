@@ -1,5 +1,4 @@
 import Link from '@/components/shared/link';
-
 import PROMO_DATA from '@/lib/promo-data';
 
 const Promo = () => {

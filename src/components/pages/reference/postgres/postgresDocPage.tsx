@@ -17,7 +17,7 @@ import {
   getSidebar,
   getTableOfContents,
 } from '@/lib/api-docs';
-import Promo from '@/components/pages/reference/postgres/promo';
+import Promo from '@/components/pages/docs/promo';
 
 export function generatePostStaticParams(dirPath: string) {
   const posts = getAllPosts(dirPath);

@@ -18,7 +18,7 @@ import {
 } from '@/lib/api-docs';
 import Route from '@/lib/route';
 import TableOfContents from '@/components/pages/docs/table-of-contents';
-import Promo from './promo';
+import Promo from '@/components/pages/docs/promo';
 
 const DOCS_DIR_PATH = `${process.cwd()}/content/docs`;
 const FILE_ORIGIN_PATH = 'https://github.com/bytebase/bytebase.com/tree/main/content/docs';
