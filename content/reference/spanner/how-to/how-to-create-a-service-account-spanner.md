@@ -1,5 +1,5 @@
 ---
-title: How to Create a Service Account for Spanner
+title: How to Create a Service Account in Spanner
 ---
 
 1. Go to [Google Cloud console](https://console.cloud.google.com/).

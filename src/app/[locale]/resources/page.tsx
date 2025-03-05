@@ -24,11 +24,18 @@ export default function ResourcesPage() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 md:grid-cols-2">
           {/* Documentation Card */}
           <ResourceCard
-            title="Postgres Error Reference"
+            title="🐘 Postgres Error Reference"
             link="/reference/postgres/error/overview"
           />
-          <ResourceCard title="Postgres How-to Guide" link="/reference/postgres/how-to/overview" />
-          <ResourceCard title="Spanner How-to Guide" link="/reference/spanner/how-to/overview" />
+          <ResourceCard
+            title="🐘 Postgres How-to Guide"
+            link="/reference/postgres/how-to/overview"
+          />
+          <ResourceCard
+            title="🏠 ClickHouse How-to Guide"
+            link="/reference/clickhouse/how-to/overview"
+          />
+          <ResourceCard title="🔧 Spanner How-to Guide" link="/reference/spanner/how-to/overview" />
         </div>
       </section>
     </>
@@ -42,8 +49,8 @@ interface ResourceCardProps {
 
 const ResourceCard = ({ title, link }: ResourceCardProps) => (
   <Link href={link} className="block">
-    <div className="border-gray-200 h-full rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-md">
-      <h3 className="mb-2 font-title text-24 font-medium">📕 {title}</h3>
+    <div className="border-gray-200 h-full rounded-lg border bg-white p-4 shadow-sm transition-all hover:shadow-md">
+      <h3 className="mb-2 text-24">{title}</h3>
     </div>
   </Link>
 );

@@ -143,6 +143,31 @@ module.exports = {
         destination: '/reference/postgres/how-to/how-to-check-postgres-version',
         permanent: true,
       },
+      {
+        source: `/docs/how-to/postgres/how-to-check-postgres-version`,
+        destination: '/reference/postgres/how-to/how-to-check-postgres-version',
+        permanent: true,
+      },
+      {
+        source: `/docs/how-to/clickhouse/how-to-create-a-database-clickhouse`,
+        destination: '/reference/clickhouse/how-to/how-to-create-a-database-clickhouse',
+        permanent: true,
+      },
+      {
+        source: `/docs/how-to/clickhouse/how-to-create-a-table-clickhouse`,
+        destination: '/reference/clickhouse/how-to/how-to-create-a-table-clickhouse',
+        permanent: true,
+      },
+      {
+        source: `/docs/how-to/clickhouse/how-to-list-tables-from-a-database-clickhouse`,
+        destination: '/reference/clickhouse/how-to/how-to-list-tables-from-a-database-clickhouse',
+        permanent: true,
+      },
+      {
+        source: `/docs/how-to/clickhouse/how-to-rename-a-table-clickhouse`,
+        destination: '/reference/clickhouse/how-to/how-to-rename-a-table-clickhouse',
+        permanent: true,
+      },
     ];
   },
   webpack: (config) => {

@@ -1,5 +1,5 @@
 ---
-title: How to Find Project ID and Instance ID for Spanner
+title: How to Find Project ID and Instance ID in Spanner
 description: Instructions on how to find project ID and instance ID of a Spanner instance
 ---
 

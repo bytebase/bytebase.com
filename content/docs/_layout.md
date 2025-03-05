@@ -286,13 +286,3 @@ expand_section_list: ['Self-host']
 #### [How to Fix Permission denied for table](/docs/how-to/postgres/permission-denied-for-table-postgres)
 
 #### [How to Fix Must be owner of table](/docs/how-to/postgres/must-be-owner-of-table-postgres)
-
-### ClickHouse
-
-#### [How to Create a Database](/docs/how-to/clickhouse/how-to-create-a-database-clickhouse)
-
-#### [How to Create a Table](/docs/how-to/clickhouse/how-to-create-a-table-clickhouse)
-
-#### [How to List Tables from a Database](/docs/how-to/clickhouse/how-to-list-tables-from-a-database-clickhouse)
-
-#### [How to Rename a Table](/docs/how-to/clickhouse/how-to-rename-a-table-clickhouse)
