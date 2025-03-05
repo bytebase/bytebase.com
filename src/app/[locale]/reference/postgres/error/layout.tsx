@@ -1,7 +1,11 @@
-import PostgresDocLayout from '@/components/pages/reference/postgres/postgresDocLayout';
+import DocsLayout from '@/components/pages/docs/layout';
 
 const DIR_PATH = `${process.cwd()}/content/reference/postgres/error`;
 
 export default function DocLayout({ children }: { children: React.ReactNode }) {
-  return <PostgresDocLayout dirPath={DIR_PATH}>{children}</PostgresDocLayout>;
+  return (
+    <DocsLayout dirPath={DIR_PATH} includeSearch={false}>
+      {children}
+    </DocsLayout>
+  );
 }
