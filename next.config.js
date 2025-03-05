@@ -138,6 +138,11 @@ module.exports = {
         destination: '/blog/postgres-sql-review-guide',
         permanent: true,
       },
+      {
+        source: `/docs/how-to/postgres/how-to-check-postgres-version`,
+        destination: '/reference/postgres/how-to/how-to-check-postgres-version',
+        permanent: true,
+      },
     ];
   },
   webpack: (config) => {

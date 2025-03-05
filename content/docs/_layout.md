@@ -283,17 +283,9 @@ expand_section_list: ['Self-host']
 
 ### Postgres
 
-#### [How to Check Postgres version](/docs/how-to/postgres/how-to-check-postgres-version)
-
 #### [How to Fix Permission denied for table](/docs/how-to/postgres/permission-denied-for-table-postgres)
 
 #### [How to Fix Must be owner of table](/docs/how-to/postgres/must-be-owner-of-table-postgres)
-
-#### [How to Create Index in Postgres](/docs/how-to/postgres/how-to-create-index-postgres)
-
-#### [How to Alter Table in Postgres](/docs/how-to/postgres/how-to-alter-table-postgres)
-
-#### [How to Alter Column Type in Postgres](/docs/how-to/postgres/how-to-alter-column-type-postgres)
 
 ### ClickHouse
 
