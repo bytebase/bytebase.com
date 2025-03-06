@@ -1,11 +1,18 @@
 ---
-title: UUID or Auto Increment Integer / Serial as the Database Primary Key?
+title: How to Choose between UUID and Auto Increment Integer / Serial as the Primary Key?
 author: Tianzhou
 updated_at: 2024/08/05 08:00:00
 feature_image: /content/blog/choose-primary-key-uuid-or-auto-increment/uuid.webp
 tags: Explanation
 featured: true
 description: Pros and Cons between choosing UUID or auto increment integer / serial as the primary key for SQL database.
+---
+
+This is a series of articles about database keys:
+
+1. [How to Choose Database UUID?](/blog/how-to-choose-database-uuid)
+1. How to Choose between UUID and Auto Increment Integer / Serial as the Primary Key? (this one)
+
 ---
 
 One of the first things when designing a new SQL database schema is to decide which type of **primary key** to use. And 99% of the time, developers need to choose between either UUID or Auto Increment Integer/Serial.
@@ -51,14 +58,13 @@ The original UUID standard includes 5 UUID formats. Most of the time, people eit
 - Not naturally sortable according to creation time. Though v1 UUID format contains timestamp, it encodes the timestamp using little-endian in that the least significant time appears first, which renders the UUID hard to sort according to creation time.
 - For database like MySQL, Oracle, which uses clustered primary key, both UUIDv1 and UUIDv4 will hurt insertion performance if used as the primary key. This is because it requires reordering the rows to place the newly inserted row at the right position inside the clustered index. On the other hand, PostgreSQL uses heap instead of clustered primary key, thus using UUID as the primary key won't impact PostgreSQL's insertion performance.
 
-### UUIDv7 - Best of Both Worlds (Almost)
+## UUIDv7 - Best of Both Worlds (Almost)
 
 Bespoke solutions are invented to address the limitation of UUID including [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID), [ulid](https://github.com/ulid/spec), [cuid](https://github.com/paralleldrive/cuid2). IETF also published
 a draft in April 2021 to propose a new UUID format. And in May 2024, IETF finally approved the draft. The approved UUIDv7
 format:
 
 ```bash
- ## uuid7 layout
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
