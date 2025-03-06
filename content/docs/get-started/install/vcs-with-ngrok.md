@@ -2,7 +2,13 @@
 title: VCS with ngrok
 ---
 
-[ngrok](https://ngrok.com/) is a reverse proxy tunnel, and in our case, we need it for a public network address in order to receive webhooks from VCS. ngrok we used here is for demonstration purposes. For production use, we recommend using [Caddy](https://caddyserver.com/).
+<HintBlock type="info">
+
+For production tunneling, consider [Cloudflare Zero Trust](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/).
+
+</HintBlock>
+
+[ngrok](https://ngrok.com/) is a reverse proxy tunnel, and in our case, we need it for a public network address in order to receive webhooks from VCS. ngrok we used here is for demonstration purposes.
 
     ![ngrok-reverse-proxy](/content/docs/get-started/vcs-with-ngrok/ngrok-reverse-proxy.webp)
 

@@ -10,6 +10,12 @@ Bytebase GitOps workflow is built upon the [Bytebase API](/docs/api/overview). I
 
 <TutorialBlock url="/docs/tutorials/github-release-cicd-workflow/" title="Database Release CI/CD with GitHub Actions" />
 
+<HintBlock type="info">
+
+To tunnel GitHub Actions from GitHub.com to your self-hosted Bytebase, consider using [Cloudflare Zero Trust](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) with [Cloudflare Warp GitHub Actions](https://github.com/marketplace/actions/setup-cloudflare-warp).
+
+</HintBlock>
+
 Bytebase provides pre-built [GitHub Actions](https://github.com/marketplace?query=bytebase&type=actions) to ease the GitHub integration.
 
 ## API
