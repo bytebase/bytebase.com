@@ -14,8 +14,8 @@ const PROMO_DATA = {
     title: ' All-in-One Database Workflows',
     description:
       'Schema migrations, adhoc changes, just-in-time (JIT) database access, and data masking in one place.',
-    cta: '⚙️ Unify now',
-    pathname: `/docs/introduction/what-is-bytebase/?source=docs`,
+    cta: '🕹️ Live Demo',
+    pathname: `/view-live-demo/?source=blog`,
   },
 };
 

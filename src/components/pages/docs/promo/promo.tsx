@@ -13,7 +13,7 @@ const Promo = () => {
         <h3 className="font-title text-34 leading-none">{aside.title}</h3>
         <p className="mt-3 text-15 leading-snug lg:mt-2.5 sm:mt-2">{aside.description}</p>
       </div>
-      <span className="mt-4 flex h-9 w-[132px] items-center justify-center rounded-full bg-gray-15 text-13 font-bold uppercase tracking-wide text-white">
+      <span className="mt-4 flex h-9 w-[120px] items-center justify-center rounded-full bg-gray-15 text-13 font-bold uppercase tracking-wide text-white">
         {aside.cta}
       </span>
     </Link>
