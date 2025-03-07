@@ -3,7 +3,7 @@ title: How to Choose Database UUID?
 author: Tianzhou
 updated_at: 2025/03/06 08:00:00
 feature_image: /content/blog/how-to-choose-database-uuid/banner.webp
-tags: Explanation
+tags: How-To
 featured: true
 description: Pros and Cons between choosing uuidv1, uuidv4, uuidv7
 ---
