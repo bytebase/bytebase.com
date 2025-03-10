@@ -2,11 +2,9 @@
 title: How to enable pg_stat_statements in PostgreSQL
 ---
 
-<HintBlock type="info">
+_Official documentation: [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html)_
 
-The pg_stat_statements module provides a means for tracking planning and execution statistics of all SQL statements executed by a server.
-
-</HintBlock>
+`pg_stat_statements` module provides a means for tracking planning and execution statistics of all SQL statements executed by a server.
 
 ## Modify PostgreSQL Configuration
 
@@ -42,7 +40,3 @@ You can use the [Bytebase Batch Change](/docs/change-database/batch-change) feat
 ```sql
 SELECT count(*) FROM pg_stat_statements;
 ```
-
-## References
-
-- [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html)
