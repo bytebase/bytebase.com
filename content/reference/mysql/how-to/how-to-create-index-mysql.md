@@ -3,6 +3,16 @@ title: How to CREATE INDEX in MySQL
 updated_at: 2025/03/10 12:00:00
 ---
 
+_Official documentation: [CREATE INDEX](https://dev.mysql.com/doc/refman/8.0/en/create-index.html)_
+
+<HintBlock type="info">
+
+When designing indexes, consider the query patterns that will use them. Not every column needs an index, and too many indexes can slow down write operations and increase storage requirements.
+
+Organizations often enforce index standards. You can implement [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#column) via Bytebase.
+
+</HintBlock>
+
 ## Basic Index Creation
 
 The simplest form of index creation uses the `CREATE INDEX` command:
@@ -15,7 +25,7 @@ This creates a BTREE index (the default type) on the `email` column of the `cust
 
 ## Index Types in MySQL
 
-MySQL supports several index types:
+MySQL supports several index types: `BTREE`, `HASH`, `FULLTEXT`, and `SPATIAL`.
 
 ```sql
 -- B-TREE index (default)
@@ -134,7 +144,7 @@ Managing indexes in production environments requires careful planning and monito
 
 2. **Impact Assessment**: Before creating a new index on large tables, estimate the required time and disk space using similar tables or by testing in a staging environment.
 
-3. **Online DDL**: Use MySQL's online DDL capabilities when available:
+3. **Online DDL**: Use [MySQL's online DDL capabilities](https://dev.mysql.com/doc/refman/8.4/en/innodb-online-ddl-operations.html) when available:
 
 ```sql
 ALTER TABLE orders ADD INDEX idx_status (status), ALGORITHM=INPLACE, LOCK=NONE;
@@ -192,11 +202,3 @@ ANALYZE TABLE your_table;
    - Rebuild fragmented indexes with `OPTIMIZE TABLE`
    - Update statistics with `ANALYZE TABLE`
    - Monitor and remove unused indexes
-
-<HintBlock type="info">
-
-When designing indexes, consider the query patterns that will use them. Not every column needs an index, and too many indexes can slow down write operations and increase storage requirements.
-
-Organizations often enforce index standards. You can implement [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#column) via Bytebase.
-
-</HintBlock>
