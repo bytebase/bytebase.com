@@ -1,10 +1,10 @@
 ---
-title: Top 6 Infrastructure as Code (IaC) Tools 2025
+title: Top 6 Open Source Infrastructure as Code (IaC) Tools 2025
 author: Adela
 updated_at: 2025/3/10 18:00:00
 feature_image: /content/blog/top-infrastructure-as-code-iac-tools/top-iac-tools.webp
 tags: Industry
-description: Explore the top IaC solutions for 2025 that help DevOps teams implement infrastructure automation at scale.
+description: Explore the top IaC solutions for 2025 that help DevOps and platform engineering teams implement infrastructure automation at scale.
 ---
 
 <HintBlock type="info">
@@ -17,8 +17,7 @@ This post is maintained by Bytebase, an open-source database Management Software
 | -------------- | ---------------- |
 | 2025/03/10     | Initial version. |
 
-
-Infrastructure as Code (IaC) tools have revolutionized how organizations deploy and manage their cloud infrastructure, enabling teams to automate provisioning and ensure consistency across environments. In this guide, we explore the top IaC solutions for 2025 that help DevOps teams implement infrastructure automation at scale.
+Infrastructure as Code (IaC) tools have revolutionized how organizations deploy and manage their cloud infrastructure, enabling teams to automate provisioning and ensure consistency across environments. In this guide, we explore the top IaC solutions for 2025 that help DevOps and platform engineering teams automate infrastructure at scale.
 
 ## Criteria
 
@@ -31,13 +30,13 @@ We evaluate IaC tools based on:
 
 ## Terraform
 
-[HashiCorp Terraform](https://www.terraform.io/) is an infrastructure as code tool that lets you define both cloud and on-prem resources in human-readable configuration files that you can version, reuse, and share. You can then use a consistent workflow to provision and manage all of your infrastructure throughout its lifecycle. Terraform can manage low-level components like compute, storage, and networking resources, as well as high-level components like DNS entries and SaaS features.
+[HashiCorp Terraform](https://www.terraform.io/) is the GOAT of IAC. It lets you define both cloud and on-prem resources in human-readable configuration files that you can version, reuse, and share. You can then use a consistent workflow to provision and manage all of your infrastructure throughout its lifecycle. Terraform can manage low-level components like compute, storage, and networking resources, as well as high-level components like DNS entries and SaaS features.
 
 **License: Commercial (Business Source License)** - Terraform was open-source under the Mozilla Public License (MPL) until August 2023, when HashiCorp changed Terraform's license to the Business Source License (BSL). This licensing change led to the creation of [OpenTofu](https://opentofu.org/), an open-source fork of Terraform maintained by the Linux Foundation.
 
 Terraform uses configuration files (written in HashiCorp Configuration Language, HCL) to describe the desired infrastructure state. It then automatically provisions and manages resources based on that configuration.
 
-### Features
+**Features**
 
 - Declarative Configuration: Defines infrastructure using HCL, focusing on what to build rather than how.
 - Infrastructure as Code (IaC): Version-controlled, reusable, and Git-friendly infrastructure management.
@@ -49,7 +48,7 @@ Terraform uses configuration files (written in HashiCorp Configuration Language,
 - Immutable Infrastructure: Ensures consistency by replacing resources when needed.
 - Automation Integration: Works with Ansible, Chef, Puppet for additional provisioning.
 
-### Example
+**Example**
 
 ```hcl
 # Define the AWS provider
@@ -75,13 +74,13 @@ output "public_ip" {
 
 ## Pulumi
 
-[Pulumi](https://www.pulumi.com/) is an Infrastructure as Code (IaC) tool that enables developers to define, deploy, and manage cloud infrastructure using real programming languages like TypeScript, Python, Go, C#, and Java instead of domain-specific languages (DSL) like Terraform's HCL.
+[Pulumi](https://www.pulumi.com/) enables developers to define, deploy, and manage cloud infrastructure using real programming languages like TypeScript, Python, Go, C#, and Java instead of domain-specific languages (DSL) like Terraform's HCL. This approach allows you to use the full power of the programming language to manage your infrastructure once restricted by the Terraform DSL.
 
 **License: Open Source (Apache 2.0) with Commercial Offerings** - Pulumi's core functionality is open source, while their enterprise features are available through paid plans.
 
 Pulumi supports multiple cloud providers, including AWS, Azure, Google Cloud, Kubernetes, and on-premises environments, offering a modern approach to IaC with native support for software engineering best practices.
 
-### Features
+**Features**
 
 - Real programming languages: TypeScript, Python, Go, C#, and Java.
 - Multi-Cloud & Multi-Provider: Supports AWS, Azure, Google Cloud, Kubernetes, and on-premises environments.
@@ -90,17 +89,17 @@ Pulumi supports multiple cloud providers, including AWS, Azure, Google Cloud, Ku
 - Immutable Infrastructure: Ensures consistency by replacing resources when needed.
 - Automation Integration: Works with Ansible, Chef, Puppet for additional provisioning.
 
-### Example
+**Example**
 
 ```js
-import * as pulumi from "@pulumi/pulumi";
-import * as aws from "@pulumi/aws";
+import * as pulumi from '@pulumi/pulumi';
+import * as aws from '@pulumi/aws';
 
 // Create an AWS EC2 instance
-const instance = new aws.ec2.Instance("myInstance", {
-    ami: "ami-0c55b159cbfafe1f0", // Amazon Linux 2 AMI (change based on region)
-    instanceType: "t2.micro",      // Small, free-tier eligible instance
-    tags: { Name: "MyPulumiInstance" },
+const instance = new aws.ec2.Instance('myInstance', {
+  ami: 'ami-0c55b159cbfafe1f0', // Amazon Linux 2 AMI (change based on region)
+  instanceType: 't2.micro', // Small, free-tier eligible instance
+  tags: { Name: 'MyPulumiInstance' },
 });
 
 // Export the instance public IP
@@ -113,9 +112,9 @@ export const publicIp = instance.publicIp;
 
 **License: Open Source (Apache 2.0)** - Argo CD is a Cloud Native Computing Foundation (CNCF) graduated project.
 
-Argo CD follows the GitOps pattern of using Git repositories as the source of truth for defining the desired application state. It supports multiple configuration formats including Kustomize, Helm charts, Jsonnet, and plain YAML manifests.
+Argo CD follows the GitOps pattern of using Git repositories as the source of truth for defining the desired application state. It supports multiple configuration formats including Kustomize, Helm charts, Jsonnet, and plain YAML manifests. [Akuity](https://www.akuity.io/) is a commercial offering that extends Argo CD with additional features.
 
-### Features
+**Features**
 
 - Automated deployment and syncing of applications to target environments
 - Multi-cluster management capabilities
@@ -137,7 +136,7 @@ Crossplane lets you manage anything, anywhere, all through standard Kubernetes A
 
 With Crossplane, platform teams can create new abstractions and custom APIs with the full power of Kubernetes policies, namespaces, role based access controls and more. Crossplane brings all your non-Kubernetes resources under one roof.
 
-### Features
+**Features**
 
 - Declarative configuration.
 - Unify application and infrastructure configuration and deployment.
@@ -162,7 +161,7 @@ It performs Software Composition Analysis (SCA) scanning which is a scan of open
 
 Checkov also powers **Prisma Cloud Application Security**, the developer-first platform that codifies and streamlines cloud security throughout the development lifecycle. Prisma Cloud identifies, fixes, and prevents misconfigurations in cloud resources and infrastructure-as-code files.
 
-### Features
+**Features**
 
 - Over 1000 built-in policies for AWS, Azure and Google Cloud security and compliance
 - Multi-platform scanning: Terraform, CloudFormation, Kubernetes, Dockerfile, Serverless, ARM, and more
@@ -174,7 +173,7 @@ Checkov also powers **Prisma Cloud Application Security**, the developer-first p
 - Supports suppression of false positives
 - Multiple output formats: CLI, JSON, CSV, SARIF, and more
 
-### Example
+**Example**
 
 ```bash
 checkov -f tf.json
@@ -191,13 +190,15 @@ Check: CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enab
 
 ## DNSControl
 
+DNS configuration mistakes often draw the most blood. Look at [Meta](https://engineering.fb.com/2021/10/04/networking-traffic/outage/), [Cloudflare](https://blog.cloudflare.com/cloudflare-outage-on-july-17-2020/). So you really need to consider IaC for DNS management.
+
 [DNSControl](https://github.com/StackExchange/dnscontrol) is a system for maintaining DNS zones - Infrastructure as code for DNS!
 
 **License: Open Source (MIT)** - DNSControl was developed by Stack Exchange and is freely available under the MIT license.
 
 It has two parts: a domain specific language (DSL) for describing DNS zones plus software that processes the DSL and pushes the resulting zones to DNS providers such as Route53, Cloudflare, and Gandi. It can send the same DNS records to multiple providers. It even generates the most beautiful BIND zone files ever. It runs anywhere Go runs (Linux, macOS, Windows). The provider model is extensible, so more providers can be added.
 
-### Features
+**Features**
 
 - Less error-prone than editing a BIND zone file.
 - More reproducible than clicking buttons on a web portal.
@@ -210,17 +211,20 @@ It has two parts: a domain specific language (DSL) for describing DNS zones plus
 - Keep similar domains in sync with transforms and other features.
 - It is extendable.
 
-### Example
+**Example**
 
 ```js
 // define our registrar and providers
-var REG_NAMECOM = NewRegistrar("name.com");
-var r53 = NewDnsProvider("r53")
+var REG_NAMECOM = NewRegistrar('name.com');
+var r53 = NewDnsProvider('r53');
 
-D("example.com", REG_NAMECOM, DnsProvider(r53),
-  A("@", "1.2.3.4"),
-  CNAME("www","@"),
-  MX("@",5,"mail.myserver.com."),
-  A("test", "5.6.7.8")
-)
+D(
+  'example.com',
+  REG_NAMECOM,
+  DnsProvider(r53),
+  A('@', '1.2.3.4'),
+  CNAME('www', '@'),
+  MX('@', 5, 'mail.myserver.com.'),
+  A('test', '5.6.7.8'),
+);
 ```
