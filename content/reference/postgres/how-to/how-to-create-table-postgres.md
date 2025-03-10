@@ -350,7 +350,11 @@ CREATE TABLE rectangles (
 
 ## Common Errors and Solutions
 
-### "relation already exists"
+See [Postgres Error Reference](https://www.bytebase.com/reference/postgres/error/overview/) for errors you may encounter.
+
+Here are the most common errors you might face when creating tables and how to solve them:
+
+### relation already exists
 
 ```sql
 -- Use IF NOT EXISTS to prevent errors
@@ -360,7 +364,7 @@ CREATE TABLE IF NOT EXISTS users (
 );
 ```
 
-### "type does not exist"
+### type does not exist
 
 ```sql
 -- Create custom type first
@@ -373,7 +377,7 @@ CREATE TABLE users (
 );
 ```
 
-### "value too long for type character varying(N)"
+### value too long for type character varying(N)
 
 ```sql
 -- Make sure to use appropriate lengths for VARCHAR
