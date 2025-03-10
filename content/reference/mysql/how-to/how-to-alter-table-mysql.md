@@ -274,7 +274,7 @@ ALTER TABLE customers
 
 ## Common Errors and Solutions
 
-See [MySQL Error Reference](https://www.bytebase.com/reference/mysql/error/overview/) for a comprehensive list of errors you may encounter. Below are common errors specific to ALTER TABLE operations and their solutions:
+See [MySQL Error Reference](https://dev.mysql.com/doc/mysql-errors/8.0/en/) for a comprehensive list of errors you may encounter. Below are common errors specific to ALTER TABLE operations and their solutions:
 
 ### Cannot add foreign key constraint
 
