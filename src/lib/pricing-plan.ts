@@ -45,7 +45,6 @@ const PRICING_PLANS = new Map([
 
   //Data Security & Compliance
   ['RBAC', 'COMMUNITY'],
-  ['SLOW_QUERY', 'COMMUNITY'],
   ['ARCHIVING', 'COMMUNITY'],
   ['BACKUP_POLICY', 'PRO'],
   ['SECRET_VARIABLE', 'PRO'],

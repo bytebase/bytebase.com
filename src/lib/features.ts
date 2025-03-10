@@ -37,7 +37,6 @@ export const FEATURES = {
 
   //Data Security & Compliance
   RBAC: 'RBAC',
-  SLOW_QUERY: 'Slow query',
   ARCHIVING: 'Archiving',
   BACKUP_POLICY: 'Backup policy',
   SECRET_VARIABLE: 'Secret variable',

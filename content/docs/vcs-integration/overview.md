@@ -24,4 +24,10 @@ If the pre-built GitHub Actions do not meet your needs or you want to integrate 
 
 ## Legacy GitOps
 
-Besides the API-driven GitOps, Bytebase also provides a [legacy GitOps workflow](/docs/vcs-integration/simple/overview/) based on the VCS webhooks. This approach is only kept for backward compatibility and we will sunset it in the future release.
+<HintBlock type="warning">
+
+This feature is deprecated since 3.5.0 and we will sunset it in the future release.
+
+</HintBlock>
+
+Besides the API-driven GitOps, Bytebase also provides a [legacy GitOps workflow](/docs/vcs-integration/simple/overview/) based on the VCS webhooks.

@@ -2,6 +2,12 @@
 title: Slow Queries
 ---
 
+<HintBlock type="warning">
+
+This feature is deprecated since 3.5.0 and we will sunset it in the future release.
+
+</HintBlock>
+
 Slow Queries is a feature that helps you identify slow queries in your database. This feature is implemented based on [MySQL Slow Query Logs](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) and [PostgreSQL pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html).
 
 ---

@@ -2,6 +2,12 @@
 title: Simple GitOps
 ---
 
+<HintBlock type="warning">
+
+This feature is deprecated since 3.5.0 and we will sunset it in the future release.
+
+</HintBlock>
+
 Bytebase provides a built-in GitOps workflow out of the box.
 
 ![gitops-workflow](/content/docs/vcs-integration/overview/gitops-workflow.webp)

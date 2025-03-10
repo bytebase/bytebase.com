@@ -58,6 +58,12 @@ If you always change a fixed set of databases together, you can pre-define a `da
 
 ### Multitenancy
 
+<HintBlock type="warning">
+
+This feature is deprecated since 3.5.0.
+
+</HintBlock>
+
 <HintBlock type="info">
 
 Only applicable if the new database is created via Bytebase.
@@ -80,6 +86,12 @@ If the database group enables `Multitenancy`, Bytebase will enforce extra schema
   ![bb-issue-add-7](/content/docs/change-database/batch-change/bb-issue-add-7.webp)
 
 ## Deployment Config
+
+<HintBlock type="warning">
+
+This feature is deprecated since 3.5.0.
+
+</HintBlock>
 
 `Deployment Config` determines how databases or database groups are deployed in order.
 

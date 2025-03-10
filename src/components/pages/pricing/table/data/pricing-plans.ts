@@ -58,7 +58,6 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     security: {
       sso: false,
       rbac: true,
-      'slow-query': true,
       archiving: true,
       'secret-variable': false,
       'signup-restriction': false,
@@ -148,7 +147,6 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
         tooltip: 'Google & GitHub',
       },
       rbac: true,
-      'slow-query': true,
       archiving: true,
       'secret-variable': true,
       'signup-restriction': true,
@@ -238,7 +236,6 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
         tooltip: 'Google, GitHub, GitLab, Microsoft, Okta, etc',
       },
       rbac: true,
-      'slow-query': true,
       archiving: true,
       'secret-variable': true,
       'signup-restriction': true,
@@ -320,7 +317,6 @@ const LABELS = [
     items: {
       sso: 'Single sign-on (SSO)',
       rbac: 'RBAC',
-      'slow-query': 'Slow query',
       archiving: 'Archiving',
       'secret-variable': 'Secret variable',
       'signup-restriction': 'Self-signup restriction',
