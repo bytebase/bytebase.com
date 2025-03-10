@@ -1,5 +1,5 @@
 ---
-title: Top 3 free SQL Editors with built-in AI
+title: Top 3 Free SQL Editors with Built-in AI
 author: Ayra
 updated_at: 2025/03/04 12:00:00
 feature_image: /content/blog/top-free-sql-editors-with-ai/banner.webp
