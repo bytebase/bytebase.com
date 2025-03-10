@@ -21,7 +21,7 @@ CREATE TABLE [IF NOT EXISTS] table_name (
 
 When designing tables, consider future growth and query patterns. Poor table design can lead to performance issues that are difficult to fix later.
 
-Organizations often enforce schema standards. You can implement approval processes or automated schema reviews via Bytebase.
+Organizations often enforce schema standards. You can implement [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#column) via Bytebase.
 
 </HintBlock>
 
@@ -350,7 +350,7 @@ CREATE TABLE rectangles (
 
 ## Common Errors and Solutions
 
-See [Postgres Error Reference](https://www.bytebase.com/reference/postgres/error/overview/) for errors you may encounter.
+See [Postgres Error Reference](/reference/postgres/error/overview/) for errors you may encounter.
 
 Here are the most common errors you might face when creating tables and how to solve them:
 
