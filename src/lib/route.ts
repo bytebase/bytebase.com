@@ -84,6 +84,7 @@ const Route = {
   REFERENCE_POSTGRES_ERROR: '/reference/postgres/error',
   REFERENCE_POSTGRES_HOW_TO: '/reference/postgres/how-to',
   REFERENCE_CLICKHOUSE_HOW_TO: '/reference/clickhouse/how-to',
+  REFERENCE_MYSQL_ERROR: '/reference/mysql/error',
   REFERENCE_MYSQL_HOW_TO: '/reference/mysql/how-to',
   REFERENCE_SPANNER_HOW_TO: '/reference/spanner/how-to',
 

@@ -24,14 +24,15 @@ export default function ResourcesPage() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 md:grid-cols-2">
           {/* Documentation Card */}
           <ResourceCard
-            title="🐘 Postgres Error Reference"
-            link="/reference/postgres/error/overview"
-          />
-          <ResourceCard
             title="🐘 Postgres How-to Guide"
             link="/reference/postgres/how-to/overview"
           />
+          <ResourceCard
+            title="🐘 Postgres Error Reference"
+            link="/reference/postgres/error/overview"
+          />
           <ResourceCard title="🐬 MySQL How-to Guide" link="/reference/mysql/how-to/overview" />
+          <ResourceCard title="🐬 MySQL Error Reference" link="/reference/mysql/error/overview" />
           <ResourceCard
             title="🏠 ClickHouse How-to Guide"
             link="/reference/clickhouse/how-to/overview"

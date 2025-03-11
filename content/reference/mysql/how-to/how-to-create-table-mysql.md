@@ -371,7 +371,7 @@ CREATE TABLE rectangles (
 
 ## Common Errors and Solutions
 
-See [MySQL Error Reference](https://www.bytebase.com/reference/mysql/error/overview/) for errors you may encounter.
+See [MySQL Error Reference](/reference/mysql/error/overview/) for errors you may encounter.
 
 Here are the most common errors you might face when creating tables and how to solve them:
 
