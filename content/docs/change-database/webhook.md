@@ -88,6 +88,19 @@ The following events support sending direct messages/notifications to related us
 
 [Official guide](https://developers.dingtalk.com/document/robots/custom-robot-access)
 
+#### Configure sending direct messages to related users
+
+1. Go to [https://open-dev.dingtalk.com/](https://open-dev.dingtalk.com/).
+1. Select **Application Development**, click **Create Application**.
+1. Select **Credentials and Basic Information** on the left sidebar. Obtain the **Client ID** and **Client Secret**.
+1. Select **Permission Management**, grant the following permissions:
+    - `qyapi_get_member_by_mobile`
+    - `qyapi_robot_sendmsg`
+1. Select **Add Application Capability**, add the **Robot** capability. Configure the robot, and for **Message receiving mode** select `Stream mode`. In "Robot Configuration", click **Copy RobotCode** to obtain the **Robot Code**. Publish the robot.
+1. Select **Version Management and Release**. Click **Create New Version**. Fill in the relevant information, then **Save** and **Directly Publish**.
+1. Go back to Bytebase and fill **Client ID**, **Client Secret** and **Robot Code** fields under **Integration > IM**.
+1. Go to **Integration > Webhooks** in a project, add a webhook, check all the events you want to send direct messages, and click **Create**.
+
 <HintBlock type="info">
 
 DingTalk allows to specify a list of keywords in the [security setting](https://developers.dingtalk.com/document/robots/customize-robot-security-settings) to protect webhook endpoint. You can add "Bytebase" to that keyword list.
