@@ -9,8 +9,9 @@ feature_name: CUSTOM_APPROVAL
 
 <HintBlock type="info">
 
-By default, you **can not** self-approve your own created issue even if you are a qualified approver. You
-can toggle this behavior under project settings.
+- Custom Approval is mostly used by [UI workflow](/docs/change-database/change-workflow/#ui-workflow). If you use [GitOps workflow](/docs/change-database/change-workflow/#gitops-workflow), we recommend you to configure approval in the PR/MR process.
+- By default, you **can not** self-approve your own created issue even if you are a qualified approver. You
+  can [toggle](/docs/change-database/issue/#self-approval) this behavior under project settings.
 
 </HintBlock>
 

@@ -12,6 +12,12 @@ If an operation matches more than one risk levels, the highest level will be use
 
 ### Custom Approval
 
+<HintBlock type="info">
+
+Custom Approval is mostly used by [UI workflow](/docs/change-database/change-workflow/#ui-workflow). If you use [GitOps workflow](/docs/change-database/change-workflow/#gitops-workflow), we recommend you to configure approval in the PR/MR process.
+
+</HintBlock>
+
 You can configure different [custom approval flows](/docs/administration/custom-approval) for each operation types and risk levels.
 
 ![ddl-dml](/content/docs/administration/risk-center/ddl-dml.webp)
