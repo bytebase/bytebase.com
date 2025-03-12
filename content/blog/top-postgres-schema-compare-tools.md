@@ -48,11 +48,13 @@ pgAdmin is ideal for database administrators who want a quick visual way to comp
 
 ## Bytebase (all-in-one platform)
 
-[Bytebase](/docs/change-database/synchronize-schema/) is a database DevOps platform that offers schema synchronization as part of its broader database change management capabilities.
+[Bytebase](https://www.bytebase.com/) is a database DevSecOps platform that offers [schema synchronization](/docs/change-database/synchronize-schema/) as part of its broader database change management capabilities.
+
+![bytebase](/content/blog/top-postgres-schema-compare-tools/bytebase.webp)
 
 Bytebase provides a comprehensive suite of tools centered around database change management with an intuitive visualization system that clearly highlights schema differences. Its platform enables one-click schema synchronization between environments while maintaining detailed change history tracking and seamless version control integration. For organizations with formal processes, Bytebase incorporates approval workflows for schema changes, ensuring proper governance throughout the development lifecycle.
 
-![bytebase](/content/blog/top-postgres-schema-compare-tools/bytebase.webp)
+![bytebase-sync](/content/blog/top-postgres-schema-compare-tools/bytebase-sync.webp)
 
 Unlike some tools limited to specific database systems, Bytebase supports multiple database types including PostgreSQL, MySQL, and others. The platform is fully GitOps-ready, allowing teams to manage database changes alongside application code. Its schema sync feature is particularly powerful, enabling teams to compare and synchronize database schemas across different environments (dev, staging, production) with built-in safeguards and approval processes.
 
@@ -78,8 +80,7 @@ Your choice should depend on several factors:
 
 ## Further Readings
 
-- [What is Database Version Control and Why You Need It](/blog/what-is-database-version-control-why-you-need-it/)
-- [Database Change Management Tools Comparison](/blog/database-change-management-tools-comparison/)
-- [Top MySQL Schema Compare Tools](/blog/top-mysql-schema-compare-tools/)
-- [Database as Code: The New Way to Manage Database Changes](/blog/database-as-code/)
-- [PostgreSQL vs MySQL: Choosing the Right Database](/blog/postgresql-vs-mysql/)
+- [What is Database Version Control?](/blog/database-version-control/)
+- [Top Database Change Management Tools in 2025](/blog/top-database-change-management-tools/)
+- [Top 4 MySQL Schema Compare Tool to Diff and Sync Database 2025](/blog/top-mysql-schema-compare-tools/)
+- [Postgres vs. MySQL: a Complete Comparison in 2025](/blog/postgres-vs-mysql/)
