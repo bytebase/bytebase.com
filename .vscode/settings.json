@@ -39,5 +39,6 @@
   "markdown.validate.ignoredLinks": [
     "/blog/postgresql-vs-mysql/",
     "/blog/database-as-code/"
-  ]
+  ],
+  "git.ignoreLimitWarning": true
 }
