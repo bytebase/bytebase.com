@@ -34,5 +34,10 @@
     "postgres",
     "WDYT",
     "webp"
+  ],
+  "markdown.validate.enabled": false,
+  "markdown.validate.ignoredLinks": [
+    "/blog/postgresql-vs-mysql/",
+    "/blog/database-as-code/"
   ]
 }
