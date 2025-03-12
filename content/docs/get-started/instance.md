@@ -234,7 +234,7 @@ For more information about the credential chain in default Azure credential, ple
 
 #### Enable Microsoft Entra Authentication in Azure SQL
 
-1. Go to the Azure SQL pane, and set the Microsoft Entra Admin for Azure SQL managed instance, don't forget to click Save button. Once you set the Microsoft Entra Admin, the Microsoft Entra authentication is enabled. Check the [Microsoft guide](https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm?view=azuresql&tabs=azure-portal) if you use Azure SQL on VM.
+1. Go to the Azure SQL panel, and set the Microsoft Entra Admin for Azure SQL managed instance, don't forget to click Save button. Once you set the Microsoft Entra Admin, the Microsoft Entra authentication is enabled. Check the [Microsoft guide](https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm?view=azuresql&tabs=azure-portal) if you use Azure SQL on VM.
 
    ![](/content/docs/get-started/instance/azure-iam/set-microsoft-entra-admin-in-azure-sql-panel.webp)
 
