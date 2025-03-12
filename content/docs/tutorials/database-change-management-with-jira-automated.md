@@ -146,6 +146,10 @@ It's because the jira webhook trigger Bytebase API to create an issue there. The
 
 1. If both are true, via Bytebase API, it will try to match the Jira's `project key` with Bytebase's `project key` to make sure they're the same. then it will try to match the Jira's `database` with the database belonging to that matching Bytebase project.
 
+   <HintBlock type="warning">
+   The Bytebase project `key` is deprecated since 3.4.0, use `ID` instead. You may need to update the code to use `ID` instead of `key`.
+   </HintBlock>
+
    ```javascript
      ...
       // Find matching Bytebase project
