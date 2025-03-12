@@ -255,7 +255,7 @@ For more information about the credential chain in default Azure credential, ple
 
    ![](/content/docs/get-started/instance/azure-iam/connect-to-azure-sql-using-azure-iam-frontend-form.webp)
 
-In this way, Bytebase can only connect to one specific Azure SQL database. To managed multiple Azure SQL databases in one instance inside Bytebase, considering set the VM principal as the Azure SQL Managed Instance Microsoft Entra Admin.
+In this way, Bytebase can only connect to one specific Azure SQL database. To manage multiple Azure SQL databases in one instance inside Bytebase, considering set the VM principal as the Azure SQL Managed Instance Microsoft Entra Admin.
 
 ## Use external secret manager
 
