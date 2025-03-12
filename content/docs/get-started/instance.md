@@ -211,6 +211,52 @@ While creating an RDS or Aurora instance, you can choose to enable IAM authentic
 1. Go to SQL overview page, you'll find the **Connection name**, use it as the host. Choose `Google Cloud SQL IAM` along with your user `bytebase` to connect to the database.  
    ![](/content/docs/get-started/instance/gcp-iam/connection-name.webp)
 
+### Azure SQL
+
+Bytebase supports connect to Azure SQL through Azure IAM by using default Azure credential and client secret credential. This section introduces how to use [system-assigned managed identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview#managed-identity-types) to connect to Azure SQL.
+For more information about the credential chain in default Azure credential, please refer to [default azure credential overview](https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#how-a-chained-credential-works).
+
+#### Create a VM with enabled system-assigned managed identity
+
+1. Enable system assigned managed identity while creating a VM.
+   ![](/content/docs/get-started/instance/azure-iam/enable-system-assigned-managed-identity-while-creating-vm.webp)
+
+2. Deploy the Bytebase on the VM in Docker:
+
+   ```bash
+     docker run --init \
+     --network=host \
+     --name bytebase \
+     --pull always \
+     --volume ~/.bytebase/data:/var/opt/bytebase \
+     bytebase/bytebase:%%bb_version%%
+   ```
+
+#### Enable Microsoft Entra Authentication in Azure SQL
+
+1. Go to the Azure SQL panel, and set the Microsoft Entra Admin for Azure SQL managed instance, don't forget to click Save button. Once you set the Microsoft Entra Admin, the Microsoft Entra authentication is enabled. Check the [Microsoft guide](https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm?view=azuresql&tabs=azure-portal) if you use Azure SQL on VM.
+
+   ![](/content/docs/get-started/instance/azure-iam/set-microsoft-entra-admin-in-azure-sql-panel.webp)
+
+#### Create a contained database user
+
+1. Connect to the Azure SQL database using the Microsoft Entra Admin account.
+
+2. For each databases desired to be managed by Bytebase, running the following SQL command inside the database to a contained database user:
+
+   ```sql
+      CREATE USER [<Microsoft_Entra_principal_name>] FROM EXTERNAL PROVIDER;
+      ALTER ROLE db_owner ADD MEMBER [<Microsoft_Entra_principal_name>];
+   ```
+
+#### Connect to Azure SQL Database in Bytebase
+
+1. Using Azure IAM default credential to connect to Azure SQL database:
+
+   ![](/content/docs/get-started/instance/azure-iam/connect-to-azure-sql-using-azure-iam-frontend-form.webp)
+
+In this way, Bytebase can only connect to one specific Azure SQL database. To managed multiple Azure SQL databases in one instance inside Bytebase, considering set the VM principal as the Azure SQL Managed Instance Microsoft Entra Admin.
+
 ## Use external secret manager
 
 <PricingPlanBlock feature_name='EXTERNAL_SECRET_MANAGER' />
