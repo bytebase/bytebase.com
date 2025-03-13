@@ -23,7 +23,7 @@ While we use GitHub Actions in this guide, you can apply these concepts to other
 
 <HintBlock type="info">
 
-This tutorial code repository is at [https://github.com/bytebase/release-cicd-workflows-example](https://github.com/bytebase/release-cicd-workflows-example)
+This tutorial code repository is at [https://github.com/bytebase/example-gitops-github-flow](https://github.com/bytebase/example-gitops-github-flow)
 
 </HintBlock>
 
@@ -73,7 +73,7 @@ Since you will need to run SQL review on your PRs, you need to configure the SQL
 
 ### Step 4 - Fork the Example Repository and Configure Variables
 
-1. Fork [https://github.com/bytebase/release-cicd-workflows-example](https://github.com/bytebase/release-cicd-workflows-example). There are two workflows in this repository:
+1. Fork [https://github.com/bytebase/example-gitops-github-flow](https://github.com/bytebase/example-gitops-github-flow). There are two workflows in this repository:
 
    - `.github/workflows/sql-review.yml`: [Lint the SQL](/docs/sql-review/overview/) migration files after the PR is created.
    - `.github/workflows/release.yml`: Create a release in Bytebase after the PR is merged to the `main` branch.
