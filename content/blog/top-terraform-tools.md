@@ -15,7 +15,7 @@ This post is maintained by Bytebase, an open-source database Management Software
 
 | Update History | Comment          |
 | -------------- | ---------------- |
-| 2025/03/12    | Initial version. |
+| 2025/03/12     | Initial version. |
 
 [HashiCorp Terraform](https://www.terraform.io/) lets you define both cloud and on-prem resources in human-readable configuration files that you can version, reuse, and share. You can then use a consistent workflow to provision and manage all of your infrastructure throughout its lifecycle.
 
@@ -24,7 +24,7 @@ However, when it comes to managing Terraform code, there are many tools that can
 ## Criteria
 
 1. **Open Source**: The tool must be open source.
-1. **Terraform**: The tool must support Terraform. However, hashicorp transitioned Terraform's license from MPL v2 to BSL, affecting versions beyond v1.5.7. These tools support Terraform v1.5.7 or earlier, and advocate to use opentofu instead.
+1. **Terraform**: The tool must support Terraform. However, HashiCorp transitioned Terraform's license from MPL v2 to BSL, affecting versions beyond v1.5.7. These tools support Terraform v1.5.7 or earlier, and advocate to use [OpenTofu](https://opentofu.org/) instead.
 
 ## Digger
 
@@ -49,20 +49,14 @@ However, when it comes to managing Terraform code, there are many tools that can
 
 [Checkov](https://www.checkov.io/) is a static code analysis tool for scanning infrastructure as code (IaC) files for misconfigurations that may lead to security or compliance problems.
 
-Checkov includes more than 750 predefined policies to check for common misconfiguration issues. Checkov also supports the creation and contribution of custom policies.
-
-It scans cloud infrastructure provisioned using **Terraform, Terraform plan, Cloudformation, AWS SAM, Kubernetes, Helm charts, Kustomize, Dockerfile, Serverless, Bicep, OpenAPI, ARM Templates, or OpenTofu** and detects security and compliance misconfigurations using graph-based scanning.
-
-It performs Software Composition Analysis (SCA) scanning which is a scan of open source packages and images for Common Vulnerabilities and Exposures (CVEs).
-
-Checkov also powers **Prisma Cloud Application Security**, the developer-first platform that codifies and streamlines cloud security throughout the development lifecycle. Prisma Cloud identifies, fixes, and prevents misconfigurations in cloud resources and infrastructure-as-code files.
+Checkov includes more than 750 predefined policies to check for common misconfiguration issues. Checkov also supports the creation and contribution of custom policies. It scans cloud infrastructure provisioned using Terraform/OpenTofu, Terraform plan as well as other IaC solutions such as Cloudformation, Helm charts, Kustomize, Dockerfile, and etc. It detects security and compliance misconfigurations using graph-based scanning.
 
 **License: Open Source (Apache 2.0)** - Checkov is developed by Bridgecrew, which was acquired by Palo Alto Networks. While Checkov itself is open source, it powers the commercial Prisma Cloud Application Security platform.
 
 **Features**
 
 - Over 1000 built-in policies for AWS, Azure and Google Cloud security and compliance
-- Multi-platform scanning: Terraform, CloudFormation, Kubernetes, Dockerfile, Serverless, ARM, and more
+- Multi-platform scanning: Terraform/OpenTofu, CloudFormation, Kubernetes, Dockerfile, and more
 - CI/CD integration: Scans Argo Workflows, Azure Pipelines, GitHub Actions, GitLab CI and other pipeline files
 - Context-aware policies with graph-based scanning
 - Supports multiple policy formats (Python and YAML)
@@ -92,7 +86,7 @@ Check: CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enab
 
 [infracost.io](https://infracost.io/) is an open-source cost estimation tool for Terraform.
 
-It enables a shift-left approach for cloud costs by providing cost estimates for Terraform before deployment. Additionally, it can check for FinOps best practices in accordance with the Well-Architected Frameworks of cloud vendors, and your company's required tag keys/values. This not only saves your team money but also streamlines discussions about costs within the engineering workflow rather than it being a post-deployment consideration. Infracost works with AWS, Azure and Google.
+It enables a shift-left approach for cloud costs by providing cost estimates for Terraform before deployment. Additionally, it can check for FinOps best practices in accordance with the Well-Architected Frameworks of cloud vendors. Infracost works with AWS, Azure and Google Cloud.
 
 **License: Open Source (MIT)** - Infracost is developed by Infracost Inc. and is available under the Apache 2.0 license. While the core Infracost CLI is open source, the company offers additional services through Infracost Cloud, which provides features like centralized management, budget enforcement, and policy automation.
 
@@ -112,7 +106,7 @@ It enables a shift-left approach for cloud costs by providing cost estimates for
 
 It enables teams to build, deploy, manage and observe cloud infrastructure with Infrastructure as Code (IaC) tools such as Terraform, OpenTofu, Terragrunt, Kubernetes and others.
 
-**License: Open Source (MPL 2.0)** - Terramate is developed by Terramate GmbH and is available under the Mozilla Public License 2.0. While the core Terramate CLI is open source, the company offers Terramate Cloud, a commercial platform that provides additional features such as observability, drift detection, asset inventory management, and policy enforcement. 
+**License: Open Source (MPL 2.0)** - Terramate is developed by Terramate GmbH and is available under the Mozilla Public License 2.0. While the core Terramate CLI is open source, the company offers Terramate Cloud, a commercial platform that provides additional features such as observability, drift detection, asset inventory management, and policy enforcement.
 
 **Features**
 
@@ -128,11 +122,9 @@ It enables teams to build, deploy, manage and observe cloud infrastructure with 
 
 ![terragrunt](/content/blog/top-terraform-tools/terragrunt.webp)
 
-[Terragrunt](https://terragrunt.gruntwork.io/) is a flexible orchestration tool that allows Infrastructure as Code to scale.
+[Terragrunt](https://terragrunt.gruntwork.io/) is a flexible orchestration tool that allows Infrastructure as Code to scale. It is a thin wrapper around Terraform that provides extra tools for working with multiple Terraform modules.
 
-It is a thin wrapper around Terraform that provides extra tools for working with multiple Terraform modules.
-
-**License: Open Source (MIT)** -  Terragrunt is developed by Gruntwork and is available under the MIT License. While Terragrunt itself is open source, Gruntwork offers commercial support and additional services through their platform, which provides a comprehensive suite of infrastructure as code (IaC) tools and modules. 
+**License: Open Source (MIT)** - Terragrunt is developed by Gruntwork and is available under the MIT License. While Terragrunt itself is open source, Gruntwork offers commercial support and additional services through their platform, which provides a comprehensive suite of infrastructure as code (IaC) tools and modules.
 
 **Features**
 
