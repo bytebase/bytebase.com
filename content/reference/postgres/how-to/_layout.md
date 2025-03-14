@@ -9,8 +9,10 @@
 
 ## [How to CREATE INDEX](/reference/postgres/how-to/how-to-create-index-postgres)
 
-## [How to ALTER TABLE](/reference/postgres/how-to/how-to-alter-table-postgres)
-
 ## [How to CREATE TABLE](/reference/postgres/how-to/how-to-create-table-postgres)
 
+## [How to ALTER TABLE](/reference/postgres/how-to/how-to-alter-table-postgres)
+
 ## [How to ALTER COLUMN TYPE](/reference/postgres/how-to/how-to-alter-column-type-postgres)
+
+## [How to drop a CONSTRAINT](/reference/postgres/how-to/how-to-drop-constraint-postgres)

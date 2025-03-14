@@ -258,6 +258,10 @@ END $$;
 
 ## Common Errors and Solutions
 
+See [Postgres Error Reference](/reference/postgres/error/overview/) for errors you may encounter.
+
+Here are the most common errors you might face when creating tables and how to solve them:
+
 ### "cannot alter type of a column used by a view or rule"
 
 ```sql

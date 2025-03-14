@@ -7,6 +7,8 @@
 
 ## [How to CREATE INDEX](/reference/mysql/how-to/how-to-create-index-mysql)
 
+## [How to CREATE TABLE](/reference/mysql/how-to/how-to-create-table-mysql)
+
 ## [How to ALTER TABLE](/reference/mysql/how-to/how-to-alter-table-mysql)
 
-## [How to CREATE TABLE](/reference/mysql/how-to/how-to-create-table-mysql)
+## [How to drop a CONSTRAINT](/reference/mysql/how-to/how-to-drop-constraint-mysql)
