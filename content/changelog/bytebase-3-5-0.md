@@ -12,11 +12,12 @@ description: 'Azure IAM Auth for Cosmos DB & Azure SQL'
 
 ## 🔔 Breaking Changes
 
-- Deprecated [slow query feature](https://www.bytebase.com/docs/slow-query).
-- To simplify the deployment process, the [custom deployment configuration feature](https://www.bytebase.com/docs/change-database/batch-change/#deployment-config) has been removed. Deployments will now follow the straightforward order of your defined environments. For canary deployments, create a separate `canary` environment. Then, point your database environment to this canary environment.
-- Deprecated [multitenancy feature](https://www.bytebase.com/docs/change-database/batch-change/#multitenancy).
+- Deprecated slow query feature.
+- To simplify the deployment process, the custom deployment configuration feature has been removed. Deployments will now follow the straightforward order of your defined environments. For canary deployments, create a separate `canary` environment. Then, point your database environment to this canary environment.
+- Deprecated multitenancy feature.
 - Deprecated [built-in GitOps feature](https://www.bytebase.com/docs/vcs-integration/overview/#legacy-gitops), now you can use [GitOps in a new way](https://www.bytebase.com/docs/tutorials/gitops-github-workflow/).
 - API support pagination and filter.
+
   - ListProjects support `page_size` and `page_token`. [Doc](https://api.bytebase.com/#tag/projectservice/GET/v1/projects)
   - SearchProjects support filter by `name` and `resource_id`. [Doc](https://api.bytebase.com/#tag/projectservice/POST/v1/projects:search)
   - ListDatabases support filter by `environment/project/instance/name/engine/label/exclude_unassigned`. [Doc](https://api.bytebase.com/#tag/databaseservice/GET/v1/instances/{instance}/databases)
@@ -24,9 +25,9 @@ description: 'Azure IAM Auth for Cosmos DB & Azure SQL'
 
   These API changes bring huge UI change and influence many features:
 
-    - Will NOT list all projects anymore, users must fetch projects per page, or search projects by name/resource id. (For the project table & selector)
-    - Will NOT list all databases anymore, users must fetch databases per page, or search databases by filter. (Almost all features are affected as long as it's using the database, for example, issue, release, rollout, database group, masking, SQL editor)
-    - Will NOT list all users anymore, users must fetch users per page, or search users by name/email. (Many features are affected as long as it's using the user, for example, issue, release, group, member/IAM)
+  - Will NOT list all projects anymore, users must fetch projects per page, or search projects by name/resource id. (For the project table & selector)
+  - Will NOT list all databases anymore, users must fetch databases per page, or search databases by filter. (Almost all features are affected as long as it's using the database, for example, issue, release, rollout, database group, masking, SQL editor)
+  - Will NOT list all users anymore, users must fetch users per page, or search users by name/email. (Many features are affected as long as it's using the user, for example, issue, release, group, member/IAM)
 
 ## 🚀 New Features
 
