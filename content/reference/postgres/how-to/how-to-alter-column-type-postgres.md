@@ -251,6 +251,10 @@ ALTER TABLE large_table RENAME COLUMN new_column TO old_column;
 
 ## Common Errors and Solutions
 
+See [Postgres Error Reference](/reference/postgres/error/overview/) for errors you may encounter.
+
+Here are the most common errors you might face when creating tables and how to solve them:
+
 ### "cannot cast type X to Y"
 
 ```sql
