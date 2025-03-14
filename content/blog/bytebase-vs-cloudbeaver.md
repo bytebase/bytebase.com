@@ -158,7 +158,7 @@ On the other hand, the more common way to change the schema is to use **Schema E
 
 - **CloudBeaver**: In theory, you can build GitOps solution via the GraphQL API, but there is no mature solutions.
 
-- **Bytebase**: [GitOps best practice](https://github.com/bytebase/database-security-github-actions-example) to configure every aspect of database security.
+- **Bytebase**: [GitOps best practice](https://github.com/bytebase/example-database-security) to configure every aspect of database security.
 
 ## Summary
 

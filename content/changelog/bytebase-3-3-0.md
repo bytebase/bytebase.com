@@ -14,7 +14,7 @@ To request our SOC 2 Type 1 report, please email [support@bytebase.com](mailto:s
 
 ## 🔔 Breaking Changes
 
-- Simplify data masking, both UI and API are affected, check [docs](/docs/security/data-masking/overview/) and [API examples](https://github.com/bytebase/database-security-github-actions-example/tree/main/masking) for details. Behavior changes:
+- Simplify data masking, both UI and API are affected, check [docs](/docs/security/data-masking/overview/) and [API examples](https://github.com/bytebase/example-database-security/tree/main/masking) for details. Behavior changes:
   - Global masking takes precedence over column masking. Previously, column masking takes precedence over global masking.
   - Eliminate masking levels. For both global masking and column masking, you now configure the associated semantic type. Semantic type in turn maps to the corresponding masking algorithm.
 

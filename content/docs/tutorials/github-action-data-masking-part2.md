@@ -29,11 +29,11 @@ In this tutorial, you'll learn how to automate column masking and masking exempt
 - Manage data masking rules as code
 - Automatically apply masking policies when PRs are merged
 
-Here is [a merged pull request](https://github.com/bytebase/database-security-github-actions-example/pull/81) as an example.
+Here is [a merged pull request](https://github.com/bytebase/example-database-security/pull/81) as an example.
 
 <HintBlock type="info">
 
-The complete code for this tutorial is available at: [database-security-github-actions-example](https://github.com/bytebase/database-security-github-actions-example)
+The complete code for this tutorial is available at: [example-database-security](https://github.com/bytebase/example-database-security)
 
 </HintBlock>
 
