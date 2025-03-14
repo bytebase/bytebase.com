@@ -1,5 +1,5 @@
 ---
-title: How to drop a CONSTRAINT in MySQL
+title: How to DROP CONSTRAINT in MySQL
 updated_at: 2025/03/13 12:00:00
 ---
 

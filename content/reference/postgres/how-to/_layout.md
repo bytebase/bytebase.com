@@ -15,4 +15,4 @@
 
 ## [How to ALTER COLUMN TYPE](/reference/postgres/how-to/how-to-alter-column-type-postgres)
 
-## [How to drop a CONSTRAINT](/reference/postgres/how-to/how-to-drop-constraint-postgres)
+## [How to DROP CONSTRAINT](/reference/postgres/how-to/how-to-drop-constraint-postgres)

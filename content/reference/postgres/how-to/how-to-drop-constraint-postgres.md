@@ -1,5 +1,5 @@
 ---
-title: How to Drop a CONSTRAINT in Postgres
+title: How to DROP CONSTRAINT in Postgres
 updated_at: 2025/03/14 12:00:00
 ---
 
