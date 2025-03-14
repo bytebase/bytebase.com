@@ -7,7 +7,6 @@ tags: Industry
 description: Top open-source Kubernetes dashboard solutions include K9s, Lens, and KubeDashboard.
 ---
 
-
 <HintBlock type="info">
 
 This post is maintained by Bytebase, an open-source database Management Software. We update the post ~2 times per year.
@@ -17,9 +16,6 @@ This post is maintained by Bytebase, an open-source database Management Software
 | Update History | Comment          |
 | -------------- | ---------------- |
 | 2025/03/14     | Initial version. |
-
-
-Kubernetes Dashboard is a general purpose, web-based UI for Kubernetes clusters. It allows users to manage applications running in the cluster and troubleshoot them, as well as manage the cluster itself. This is a list of top open-source Kubernetes dashboard solutions.
 
 ## What are the criteria?
 
@@ -34,7 +30,7 @@ When evaluating free and open-source Kubernetes dashboard solutions, several key
 
 ![k8s-dashboard](/content/blog/top-open-source-kubernetes-dashboard/k8s-dashboard.webp)
 
-Kubernetes Dashboard ([repo](https://github.com/kubernetes/dashboard)) is a general purpose, web-based UI for Kubernetes clusters. It allows users to manage applications running in the cluster and troubleshoot them, as well as manage the cluster itself.
+Kubernetes Dashboard ([repo](https://github.com/kubernetes/dashboard)) is the official web-based UI for Kubernetes clusters. It allows users to manage applications running in the cluster and troubleshoot them, as well as manage the cluster itself.
 
 **Key Features**
 
@@ -69,9 +65,13 @@ Headlamp was created to blend the traditional feature set of other web UIs/dashb
 
 ![lens](/content/blog/top-open-source-kubernetes-dashboard/lens.webp)
 
-Designed for Developers and DevOps Engineers, [Lens](https://k8slens.dev/)([repo](https://github.com/lensapp/lens)) provides an unparalleled experience for managing and troubleshooting Kubernetes workloads through one intuitive context-aware UI. For teams and organizations, Lens has proven to be the most effective way to learn Kubernetes, boost team productivity and reduce tools required for cloud native development.
+Designed for Developers and DevOps Engineers, [Lens](https://k8slens.dev/) ([repo](https://github.com/lensapp/lens)) provides an intuitive context-aware UI.
 
-_Lens Desktop was originally an open-source Kubernetes IDE, but the open-source version has been retired and is no longer actively maintained. The Lens Desktop product is now developed and maintained by Mirantis, and contributions to Lens are now made via the Lens Extension API rather than direct modifications to the core product._
+<HintBlock type="info">
+
+Lens Desktop was originally an open-source Kubernetes IDE, but the open-source version has been retired and is no longer actively maintained. The Lens Desktop product is now developed and maintained by Mirantis, and contributions to Lens are now made via the Lens Extension API rather than direct modifications to the core product.
+
+</HintBlock>
 
 **Key Features**
 
@@ -89,9 +89,13 @@ _Lens Desktop was originally an open-source Kubernetes IDE, but the open-source 
 
 ![rancher](/content/blog/top-open-source-kubernetes-dashboard/rancher.webp)
 
-[Rancher](http://rancher.com/)([repo](https://github.com/rancher/rancher)) is an open source container management platform built for organizations that deploy containers in production. Rancher makes it easy to run Kubernetes everywhere, meet IT requirements, and empower DevOps teams
+[Rancher](http://rancher.com/) ([repo](https://github.com/rancher/rancher)) is an open source container management platform built for organizations that deploy containers in production. Rancher makes it easy to run Kubernetes everywhere, meet IT requirements, and empower DevOps teams
 
-_Rancher was developed by Rancher Labs, founded in 2014, to simplify Kubernetes management. In December 2020, it was acquired by SUSE, which continues to develop and support it as an open-source solution for multi-cluster, cloud-native, and edge Kubernetes management. 🚀_
+<HintBlock type="info">
+
+Rancher was developed by Rancher Labs, founded in 2014, to simplify Kubernetes management. In December 2020, it was acquired by SUSE, which continues to develop and support it as an open-source solution for multi-cluster, cloud-native, and edge Kubernetes management.
+
+</HintBlock>
 
 **Key Features**
 
@@ -108,7 +112,7 @@ _Rancher was developed by Rancher Labs, founded in 2014, to simplify Kubernetes 
 
 ![kubeSphere](/content/blog/top-open-source-kubernetes-dashboard/kubesphere.webp)
 
-[KubeSphere](https://github.com/kubesphere/kubesphere)([repo](https://kubesphere.io/)) is a distributed operating system for cloud-native application management, using Kubernetes as its kernel. It provides a plug-and-play architecture, allowing third-party applications to be seamlessly integrated into its ecosystem. KubeSphere is also a multi-tenant container platform with full-stack automated IT operation and streamlined DevOps workflows.
+[KubeSphere](https://github.com/kubesphere/kubesphere) ([repo](https://kubesphere.io/)) is a distributed operating system for cloud-native application management, using Kubernetes as its kernel. It provides a plug-and-play architecture, allowing third-party applications to be seamlessly integrated into its ecosystem. KubeSphere is also a multi-tenant container platform with full-stack automated IT operation and streamlined DevOps workflows.
 
 **Key Features**
 
@@ -128,7 +132,7 @@ _Rancher was developed by Rancher Labs, founded in 2014, to simplify Kubernetes 
 
 ![k9s](/content/blog/top-open-source-kubernetes-dashboard/k9s.webp)
 
-[K9s](https://k9scli.io/) ([repo](https://github.com/derailed/k9s)) provides a terminal UI to interact with your Kubernetes clusters. The aim of this project is to make it easier to navigate, observe and manage your applications in the wild. K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources.
+[K9s](https://k9scli.io/) ([repo](https://github.com/derailed/k9s)) provides a terminal UI (TUI) to interact with your Kubernetes clusters. The aim of this project is to make it easier to navigate, observe and manage your applications in the wild. K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources.
 
 **Key Features**
 
