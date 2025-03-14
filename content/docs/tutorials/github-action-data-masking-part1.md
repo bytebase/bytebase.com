@@ -31,11 +31,11 @@ In this tutorial, you'll learn how to automate database masking policies using G
 - Manage data masking rules as code
 - Automatically apply masking policies when PRs are merged
 
-Here is [a merged pull request](https://github.com/bytebase/database-security-github-actions-example/pull/81) as an example, for this tutorial, only "Semantic Type and Global Masking Rule" is covered.
+Here is [a merged pull request](https://github.com/bytebase/example-database-security/pull/81) as an example, for this tutorial, only "Semantic Type and Global Masking Rule" is covered.
 
 <HintBlock type="info">
 
-The complete code for this tutorial is available at: [database-security-github-actions-example](https://github.com/bytebase/database-security-github-actions-example)
+The complete code for this tutorial is available at: [example-database-security](https://github.com/bytebase/example-database-security)
 
 </HintBlock>
 
@@ -68,7 +68,7 @@ Before you begin, make sure you have:
 
 ### Step 4 - Configure GitHub Actions
 
-1. Fork [Database Security GitHub Actions Example](https://github.com/bytebase/database-security-github-actions-example).
+1. Fork [Database Security GitHub Actions Example](https://github.com/bytebase/example-database-security).
 
 1. Click **Settings** and then click **Secrets and variables > Actions**. Add the following secrets:
 
@@ -78,7 +78,7 @@ Before you begin, make sure you have:
 
 ### Step 5 - Understanding the GitHub Workflow
 
-Let's dig into the GitHub Actions workflow [code](https://github.com/bytebase/database-security-github-actions-example/blob/main/.github/workflows/1-bb-masking-semantic-type-global.yml):
+Let's dig into the GitHub Actions workflow [code](https://github.com/bytebase/example-database-security/blob/main/.github/workflows/1-bb-masking-semantic-type-global.yml):
 
 1. **Trigger**: Workflow runs when PRs are merged to `main`.
 

@@ -20,7 +20,7 @@ from being exposed to unauthorized users.
 <HintBlock type="info">
 
 This tutorial covers configuration via UI console. You can also codify the masking policies, check
-out [this sample](https://github.com/bytebase/database-security-github-actions-example/tree/main/masking).
+out [this sample](https://github.com/bytebase/example-database-security/tree/main/masking).
 
 </HintBlock>
 
