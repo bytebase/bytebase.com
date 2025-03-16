@@ -22,7 +22,7 @@ This tutorial will focus on fetch and filter audit log in Bytebase, it's OK if y
 
 <HintBlock type="info">
 
-This tutorial code repository is at https://github.com/bytebase/api-example/tree/main/audit-log
+This tutorial code repository is at https://github.com/bytebase/example-api/tree/main/audit-log
 
 </HintBlock>
 
@@ -42,7 +42,7 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
 ## Run Demo
 
 1. Go to [Bytebase API Example
-   repo](https://github.com/bytebase/api-example) and clone it.
+   repo](https://github.com/bytebase/example-api) and clone it.
 
 1. Copy `env-template.local` to `.env.local`.Update the variables.
 
@@ -65,7 +65,7 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
 
 ## Fetch and Filter Audit Log
 
-Let's dig into the [code](https://github.com/bytebase/api-example/tree/main/audit-log/src):
+Let's dig into the [code](https://github.com/bytebase/example-api/tree/main/audit-log/src):
 
 1. In `page.tsx`, we fetch all projects by calling the [/v1/projects](https://api.bytebase.com/#tag/projectservice/GET/v1/projects) API before any project selection.
 

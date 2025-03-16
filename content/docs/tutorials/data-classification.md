@@ -20,7 +20,7 @@ By the end of this tutorial, you will have accomplished the following:
 ## Prerequisites
 
 - Docker installed
-- Download the [api-example repository](https://github.com/bytebase/api-example), you'll only need `data-classification` folder for this tutorial
+- Download the [api-example repository](https://github.com/bytebase/example-api), you'll only need `data-classification` folder for this tutorial
 
 ## Overview
 
@@ -67,7 +67,7 @@ There are two ways to configure the data masking based on the classification lev
 
 #### API
 
-1. Find the [data masking configuration file](https://github.com/bytebase/api-example/blob/main/data-security/masking/global-masking-rule.json) within the `data-security` repository.
+1. Find the [data masking configuration file](https://github.com/bytebase/example-api/blob/main/data-security/masking/global-masking-rule.json) within the `data-security` repository.
 1. Generate the token for the service account user:
 
    ```bash

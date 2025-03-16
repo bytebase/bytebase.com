@@ -23,7 +23,7 @@ By following this guide, you'll learn how to:
 
 <HintBlock type="info">
 
-This tutorial code repository is at https://github.com/bytebase/api-example/tree/main/permission-check
+This tutorial code repository is at https://github.com/bytebase/example-api/tree/main/permission-check
 
 </HintBlock>
 
@@ -43,7 +43,7 @@ This tutorial code repository is at https://github.com/bytebase/api-example/tree
 ## Run Demo
 
 1. Go to [Bytebase API Example
-   repo](https://github.com/bytebase/api-example) and clone it.
+   repo](https://github.com/bytebase/example-api) and clone it.
 
 1. Copy `env-template.local` to `.env.local`.Update the variables.
 

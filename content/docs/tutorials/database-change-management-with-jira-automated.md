@@ -24,7 +24,7 @@ Here is what you will achieve by the end of this tutorial:
 - A Jira workspace
 - A Bytebase instance
 - [Manual Database Change with Jira](/docs/tutorials/database-change-management-with-jira-manual) completed
-- Download the [api-example repository](https://github.com/bytebase/api-example), you'll only need `jira` folder for this tutorial
+- Download the [api-example repository](https://github.com/bytebase/example-api), you'll only need `jira` folder for this tutorial
 
 ## Workflow Overview
 

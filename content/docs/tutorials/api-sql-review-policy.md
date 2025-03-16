@@ -11,7 +11,7 @@ description: 'Learn how to use the Bytebase API to configure SQL review rules in
 
 <IncludeBlock url="/docs/share/tutorials/api-preface"></IncludeBlock>
 
-This tutorial will guide you through configuring SQL review rules using the Bytebase API. This approach allows you to manage SQL review rules as code within your repository, enabling DBAs or platform engineering teams to apply them to Bytebase as needed. The tutorial repository is at https://github.com/bytebase/api-example/tree/main/sql-review.
+This tutorial will guide you through configuring SQL review rules using the Bytebase API. This approach allows you to manage SQL review rules as code within your repository, enabling DBAs or platform engineering teams to apply them to Bytebase as needed. The tutorial repository is at https://github.com/bytebase/example-api/tree/main/sql-review.
 
 This is the 4th part of tutorial series of SQL Review:
 
@@ -36,7 +36,7 @@ This is the 4th part of tutorial series of SQL Review:
 
 ## Obtain the Access Token
 
-1. Go to [Bytebase API Example repo](https://github.com/bytebase/api-example) and clone it.
+1. Go to [Bytebase API Example repo](https://github.com/bytebase/example-api) and clone it.
 
 1. Navigate to the `sql-review` subfolder and follow the instructions in the `README.md` file of the example code repository to execute the scripts.
 1. Replace `bytebase_url`, `bytebase_account`, and `bytebase_password` in the commands below with your own values, then run them to obtain a `bytebase_token` in your terminal.

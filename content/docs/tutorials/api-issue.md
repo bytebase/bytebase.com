@@ -23,7 +23,7 @@ By following the step-by-step instructions provided, you will have the opportuni
 
 <HintBlock type="info">
 
-This tutorial code repository is at https://github.com/bytebase/api-example/issue-creation
+This tutorial code repository is at https://github.com/bytebase/example-api/issue-creation
 
 </HintBlock>
 
@@ -68,7 +68,7 @@ Below is an example app demonstrating the following APIs:
 ---
 
 1. Go to [Bytebase API Example
-   repo](https://github.com/bytebase/api-example) and clone it.
+   repo](https://github.com/bytebase/example-api) and clone it.
 
 1. Copy `env-template.local` to `.env.local`.Update the variables.
 
@@ -102,7 +102,7 @@ Below is an example app demonstrating the following APIs:
 1. Go back to the sample application, and click **Refresh status**. You'll see the status has changed from [OPEN] to [DONE].
    ![sample-done](/content/docs/tutorials/api-issue/sample-done.webp)
 
-1. For additional information about the example application, refer to the README in its corresponding [GitHub repository](https://github.com/bytebase/api-example/).
+1. For additional information about the example application, refer to the README in its corresponding [GitHub repository](https://github.com/bytebase/example-api/).
 
 ## Summary
 

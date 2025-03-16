@@ -25,7 +25,7 @@ By the end of this tutorial, you will have achieved the following:
 
 - A Google Cloud account
 - Docker installed
-- Download the [api-example repository](https://github.com/bytebase/api-example), you'll only need `sql-editor` folder for this tutorial
+- Download the [api-example repository](https://github.com/bytebase/example-api), you'll only need `sql-editor` folder for this tutorial
 
 ## Overview
 

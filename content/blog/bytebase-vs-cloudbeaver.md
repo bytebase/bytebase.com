@@ -152,7 +152,7 @@ On the other hand, the more common way to change the schema is to use **Schema E
 
 - **CloudBeaver**: Support [GraphQL](https://github.com/dbeaver/cloudbeaver/wiki/Server-API-explorer), while the doc is pretty light.
 
-- **Bytebase**: Support gRPC and HTTP/REST. Bytebase provides extensive [docs](/docs/api/overview/), [code samples](https://github.com/bytebase/api-example), and [tutorials](/tutorial/).
+- **Bytebase**: Support gRPC and HTTP/REST. Bytebase provides extensive [docs](/docs/api/overview/), [code samples](https://github.com/bytebase/example-api), and [tutorials](/tutorial/).
 
 ### GitOps
 

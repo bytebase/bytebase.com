@@ -19,7 +19,7 @@ Before you start, you should configure the [SQL Review Policy](/docs/sql-review/
 | Endpoint | [POST /v1/projects/-/releases:check](https://api.bytebase.com/#tag/releaseservice/POST/v1/projects/{project}/releases:check) |
 | Request  | https://api.bytebase.com/#model/checkreleaserequest                                                                          |
 | Response | https://api.bytebase.com/#model/checkreleaseresponse                                                                         |
-| Example  | https://github.com/bytebase/api-example/tree/main/sql-review#batch-api-recommended                                           |
+| Example  | https://github.com/bytebase/example-api/tree/main/sql-review#batch-api-recommended                                           |
 
 Batch API allows you to validate multiple statements across multiple databases in a single API call.
 
@@ -34,6 +34,6 @@ earlier files, the Batch API ensures each subsequent file is validated accuratel
 | Endpoint | [POST /v1/sql/check](https://api.bytebase.com/#tag/sqlservice/POST/v1/sql/check) |
 | Request  | https://api.bytebase.com/#model/checkrequest                                     |
 | Response | https://api.bytebase.com/#model/checkresponse                                    |
-| Example  | https://github.com/bytebase/api-example/tree/main/sql-review#simple-api          |
+| Example  | https://github.com/bytebase/example-api/tree/main/sql-review#simple-api          |
 
 Simple API allows you to validate a single statement against a single database.
