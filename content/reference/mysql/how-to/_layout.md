@@ -11,4 +11,6 @@
 
 ## [How to ALTER TABLE](/reference/mysql/how-to/how-to-alter-table-mysql)
 
+## [How to ALTER COLUMN TYPE](/reference/mysql/how-to/how-to-alter-column-type-mysql)
+
 ## [How to ADD CONSTRAINT](/reference/mysql/how-to/how-to-add-constraint-mysql)
