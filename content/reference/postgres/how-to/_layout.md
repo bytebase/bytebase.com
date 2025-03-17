@@ -9,6 +9,8 @@
 
 ## [How to CREATE INDEX](/reference/postgres/how-to/how-to-create-index-postgres)
 
+## [How to CREATE VIEW](/reference/postgres/how-to/how-to-create-view-postgres)
+
 ## [How to CREATE TABLE](/reference/postgres/how-to/how-to-create-table-postgres)
 
 ## [How to ALTER TABLE](/reference/postgres/how-to/how-to-alter-table-postgres)
