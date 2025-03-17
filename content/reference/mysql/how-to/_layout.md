@@ -11,4 +11,4 @@
 
 ## [How to ALTER TABLE](/reference/mysql/how-to/how-to-alter-table-mysql)
 
-## [How to DROP CONSTRAINT](/reference/mysql/how-to/how-to-drop-constraint-mysql)
+## [How to ADD CONSTRAINT](/reference/mysql/how-to/how-to-add-constraint-mysql)
