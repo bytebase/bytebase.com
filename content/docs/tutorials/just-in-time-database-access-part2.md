@@ -28,7 +28,7 @@ In this tutorial, you'll learn how to approve JIT access via Slack with the help
 
 <HintBlock type="info">
 
-The complete code for this tutorial is available at: [slack-example](https://github.com/bytebase/slack-example)
+The complete code for this tutorial is available at: [example-slack](https://github.com/bytebase/example-slack)
 
 </HintBlock>
 
@@ -62,13 +62,13 @@ The `Request role` feature is supported by **Enterprise Plan** which will be nee
 
 3. Go to `Sample Project`, click **Manage > Members**, and assign the service account as `Project Owner` which can fit the custom approval set in the previous tutorial.
 
-## Step 3 - Download `slack-example` code and run it
+## Step 3 - Download `example-slack` code and run it
 
-1. Download the [slack-example code](https://github.com/bytebase/slack-example).
+1. Download the [example-slack code](https://github.com/bytebase/example-slack).
 1. Go to the `approve-issue` folder and copy the `env-template.local` file to `.env.local`.
 1. Paste the registered service account information into the `.env.local` file.
 1. By using VS Code's [Port forwarding](https://code.visualstudio.com/docs/editor/port-forwarding), you can forward the local server's ports:
-   - `3000` for the `slack-example` app
+   - `3000` for the `example-slack` app
    - `8080` for the Bytebase instance
      ![vscode-ports](/content/docs/tutorials/just-in-time-database-access-part2/vscode-ports.webp)
 1. Copy the 8080 port forwarded address to the `.env.local` file as `BB_HOST`.
