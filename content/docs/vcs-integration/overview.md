@@ -12,7 +12,11 @@ Bytebase GitOps workflow is built upon the [Bytebase API](/docs/api/overview). I
 
 <HintBlock type="info">
 
-To tunnel GitHub Actions from GitHub.com to your self-hosted Bytebase, consider using [Cloudflare Zero Trust](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) with [Cloudflare Warp GitHub Actions](https://github.com/marketplace/actions/setup-cloudflare-warp).
+To reach your self-hosted Bytebase from GitHub Actions, you can choose either options:
+
+1. Tunnel GitHub Actions using [Cloudflare Zero Trust](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) with [Cloudflare Warp GitHub Actions](https://github.com/marketplace/actions/setup-cloudflare-warp).
+
+1. Use [self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
 </HintBlock>
 
