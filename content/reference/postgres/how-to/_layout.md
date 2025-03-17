@@ -3,6 +3,8 @@
 
 ## [Overview](/reference/postgres/how-to/overview)
 
+### [Row Level Security (RLS)](/reference/postgres/how-to/overview/postgres-row-level-security)
+
 ## [How to check Postgres version](/reference/postgres/how-to/how-to-check-postgres-version)
 
 ## [How to enable pg_stat_statements](/reference/postgres/how-to/how-to-enable-pg-stat-statements-postgres)
