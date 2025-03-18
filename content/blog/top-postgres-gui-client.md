@@ -8,6 +8,16 @@ featured: true
 description: Postgres GUI clients makes it safer and easier to manage Postgres databases by providing a provide a visual graphical interface. In this post, we are taking a look at the most common Postgres GUI Clients.
 ---
 
+<HintBlock type="info">
+
+This post is maintained by Bytebase, an open-source database Management Software. We update ~once per year.
+
+</HintBlock>
+
+| Update History | Comment          |
+| -------------- | ---------------- |
+| 2023/07/18     | Initial version. |
+
 Postgres (or PostgreSQL) is one of the most advanced open-source relational databases on the market (alongside [MySQL](/blog/postgres-vs-mysql/)).
 
 It's not a must to use a GUI for managing your Postgres, it can be beneficial if you aren't a veteran at database management or if you simply prefer a graphical interface for database administration tasks.
