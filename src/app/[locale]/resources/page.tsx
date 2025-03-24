@@ -34,6 +34,10 @@ export default function ResourcesPage() {
           <ResourceCard title="🐬 MySQL How-to Guide" link="/reference/mysql/how-to/overview" />
           <ResourceCard title="🐬 MySQL Error Reference" link="/reference/mysql/error/overview" />
           <ResourceCard
+            title="🛢️ SQL Server How-to Guide"
+            link="/reference/sqlserver/how-to/overview"
+          />
+          <ResourceCard
             title="🏠 ClickHouse How-to Guide"
             link="/reference/clickhouse/how-to/overview"
           />
