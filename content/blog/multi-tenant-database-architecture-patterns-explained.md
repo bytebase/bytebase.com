@@ -183,7 +183,7 @@ To tackle this, you should adopt best practices:
 1. **Backward Compatibility**
 
    - Design schema changes to support both old and new application versions
-   - Consider using database views for compatibility layers
+   - Consider using feature flags so the code can easily switch between versions
    - Implement multi-phase migrations for breaking changes
 
 1. **Tenant Metadata Registry**

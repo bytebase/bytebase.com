@@ -4,7 +4,6 @@ author: Mila
 updated_at: 2025/03/18 21:21:21
 feature_image: /content/blog/top-postgres-gui-client/banner.webp
 tags: Industry
-featured: true
 description: Postgres GUI clients makes it safer and easier to manage Postgres databases by providing a provide a visual graphical interface. In this post, we are taking a look at the most common Postgres GUI Clients.
 ---
 
