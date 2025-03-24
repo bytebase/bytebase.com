@@ -56,6 +56,11 @@ Otherwise, you can request the exported data
 
 SQL Editor provides an `Explain Query` action to run EXPLAIN on the selected query. You can access it from right click or use the shortcut key `(⌘ + E)` instead of prepending EXPLAIN manually.
 
+For PostgreSQL database, Bytebase also embeds [PEV2](https://github.com/dalibo/pev2) to visualize the plan.
+
+![visualize-plan](/content/docs/sql-editor/explain-postgres-1.webp)
+![visualize-plan](/content/docs/sql-editor/explain-postgres-2.webp)
+
 ## Autocomplete
 
 ![autocomplete](/content/docs/sql-editor/autocomplete.webp)
