@@ -1,7 +1,7 @@
 import getMetadata from '@/utils/get-metadata';
 import SEO_DATA from '@/lib/seo-data';
 import Link from 'next/link';
-import Image from 'next/image';
+import Route from '@/lib/route';
 
 export const metadata = getMetadata(SEO_DATA.RESOURCES);
 
@@ -42,6 +42,8 @@ export default function ResourcesPage() {
             link="/reference/clickhouse/how-to/overview"
           />
           <ResourceCard title="🔧 Spanner How-to Guide" link="/reference/spanner/how-to/overview" />
+          <ResourceCard title="🔍 SQL Review Guide" link={Route.SQL_REVIEW_GUIDE} />
+          <ResourceCard title="📚 Database Glossary" link={Route.DATABASE_GLOSSARY} />
         </div>
       </section>
     </>

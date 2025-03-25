@@ -13,7 +13,7 @@ const cards: TCard[] = [
   {
     href: Route.DOCS_ROLLBACK_DATA,
     icon: '/images/disk.svg',
-    title: 'Data Rollback',
+    title: '1-Click Rollback',
     description: '1-click data rollback with the automated snapshot.',
   },
   {
