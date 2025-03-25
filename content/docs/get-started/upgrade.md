@@ -48,9 +48,13 @@ Bytebase ties the version number with the underlying database schema progression
    - `MINOR` version is changed when the underlying database schema changes. While the upgrade does not require customer involvement. `MINOR` version change usually happens about once every month.
    - `PATCH` version is changed when the new version does not include underlying database schema changes. `PATCH` version change usually happens bi-weekly following our release schedule.
 
-### Upgrade MINOR and PATCH version
+### Upgrade from 3.3.1
 
 Just replace the version string and restart. Bytebase will self-upgrade automatically.
+
+### Upgrade from 3.0.0 ~ 3.3.0
+
+First upgrade to 3.3.1 and then upgrade to the latest version.
 
 ### Upgrade from 1.x or 2.x
 
