@@ -20,6 +20,14 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 | 2024/09/16     | Added scaling and sharding references. |
 | 2025/02/23     | Added online DDL.                      |
 
+This is a series of articles between MySQL and PostgreSQL:
+
+- MySQL vs. Postgres (this one)
+- [PlanetScale vs. Neon](/blog/planetscale-vs-neon)
+- [TiDB vs. CockroachDB](/blog/tidb-vs-cockroachdb)
+
+---
+
 > For the impatience, jump to the [last section](#postgres-or-mysql) to see the comparison table. The [References](#references) collects many industry best practices.
 
 In 2024, Postgres ranked the 2nd after Snowflake in the [DB-Engines Ranking](https://db-engines.com/en/blog_post/109), one year after it took over Snowflake and [won DBMS of the Year 2023](https://db-engines.com/en/blog_post/106#:~:text=PostgreSQL%20is%20the%20database%20management,DBMS%20of%20the%20Year%202023.).

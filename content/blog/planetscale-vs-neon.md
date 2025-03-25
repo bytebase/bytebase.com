@@ -9,10 +9,11 @@ description: 'An extensive comparison between PlanetScale and Neon on architectu
 scalability, operability, integration, compliance, pricing and more.'
 ---
 
-_A side note: PlanetScale has shifted its website art direction to a simplistic style, marking another drastic difference from Neon._
+This is a series of articles between MySQL and PostgreSQL:
 
-![website-planetscale](/content/blog/planetscale-vs-neon/website-planetscale.webp)
-![website-neon](/content/blog/planetscale-vs-neon/website-neon.webp)
+- [MySQL vs. Postgres](/blog/postgres-vs-mysql)
+- PlanetScale vs. Neon (this one)
+- [TiDB vs. CockroachDB](/blog/tidb-vs-cockroachdb)
 
 ---
 
@@ -229,6 +230,11 @@ PlanetScale and Neon are similar to each other, they are also similar to MongoDB
 - Like Snowflake, Neon brings the novel shared-storage approach to the staggering OLTP architecture, uses Postgres dialect, and also values developer experience.
 
 Both PlanetScale and Neon could become the next MongoDB / Snowflake for modern RDBMS database-as-a-service (DBaaS). We've all been waiting too long for this.
+
+_A side note: PlanetScale has shifted its website art direction to a simplistic style, marking another drastic difference from Neon._
+
+![website-planetscale](/content/blog/planetscale-vs-neon/website-planetscale.webp)
+![website-neon](/content/blog/planetscale-vs-neon/website-neon.webp)
 
 ---
 
