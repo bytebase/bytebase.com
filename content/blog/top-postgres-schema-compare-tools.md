@@ -16,7 +16,7 @@ Database schema comparison tools are essential for PostgreSQL developers and DBA
 
 Key features of pg-schema-diff include:
 
-- Pure TypeScript implementation with zero native dependencies
+- Pure Golang implementation with zero native dependencies
 - Generates SQL migration scripts to transform one schema into another
 - Schema safety mechanisms to prevent data loss
 - Highly customizable through a robust API
