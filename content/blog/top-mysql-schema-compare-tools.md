@@ -16,6 +16,18 @@ Database schema compare tool enables you to identify differences in the object s
 - Deploy database schema changes to production based on application requirements
 - Troubleshoot database problems when the service is down
 
+## mysqldbcompare
+
+[mysqldbcompare](https://github.com/mysql/mysql-utilities/blob/master/scripts/mysqldbcompare.py) is a command-line utility from MySQL Utilities that compares the structure and data of two databases. It identifies differences in tables, views, stored procedures, triggers, and other database objects, and can generate SQL statements to synchronize them. The tool supports comparing databases across different servers or on the same server, with options to control comparison depth, output format, and which server's schema should be considered authoritative.
+
+A typical workflow:
+
+1. Use `mysqldump --no-data --routines --triggers` to create schema-only snapshots
+1. Version control these snapshots
+1. Utilize `mysqldbcompare` to compare schemas and generate diff migration scripts
+1. Organize migration scripts with naming convention (e.g., `V1.0.1__description.sql`)
+1. Deploy migration scripts
+
 ## MySQL Workbench
 
 [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/) is the official GUI for MySQL development from Oracle. It includes schema comparison and synchronization utilities. It enables you to compare and synchronize schema between models, databases and SQL files. These three types can be the destination, source, or both. The following figure shows the source is model and the destination is database.
