@@ -1,4 +1,6 @@
 ---
+# expand_section_list is the list of default expanded sections.
+expand_section_list: ['pg_dump']
 ---
 
 ## [Overview](/reference/postgres/error/overview)
@@ -10,3 +12,7 @@
 ## [42501: must be owner of table](/reference/postgres/error/42501-must-be-owner-of-table-postgres)
 
 ## [42501: permission denied for table](/reference/postgres/error/42501-permission-denied-for-table-postgres)
+
+## pg_dump
+
+### [error: aborting because of server version mismatch](/reference/postgres/error/pgdump-aborting-because-of-server-version-mismatch)
