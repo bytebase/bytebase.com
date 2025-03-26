@@ -13,3 +13,5 @@
 ## [42501: permission denied for table](/reference/postgres/error/42501-permission-denied-for-table-postgres)
 
 ## [pg_dump: error: aborting because of server version mismatch](/reference/postgres/error/pgdump-aborting-because-of-server-version-mismatch)
+
+## [pg_restore: error: input file appears to be a text format dump. please use psql](/reference/postgres/error/pgrestore-input-file-appears-to-be-a-text-format-dump)
