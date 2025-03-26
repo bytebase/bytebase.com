@@ -20,3 +20,5 @@
 ## [How to ALTER COLUMN TYPE](/reference/postgres/how-to/how-to-alter-column-type-postgres)
 
 ## [How to ADD CONSTRAINT](/reference/postgres/how-to/how-to-add-constraint-postgres)
+
+## [How to install pg_dump](/reference/postgres/how-to/how-to-install-pgdump-on-mac-ubuntu-centos-windows)
