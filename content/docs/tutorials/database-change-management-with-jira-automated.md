@@ -17,7 +17,7 @@ Here is what you will achieve by the end of this tutorial:
 
 <iframe width="100%" height="320" src="https://www.youtube.com/embed/t23dFR6ZJl0?si=g_UkL8fTm6WnZihW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="allowFullScreen"></iframe>
 
-![auto-jira](/content/docs/tutorials/database-change-management-with-jira-automated/auto-jira.webp)
+![auto-jira](/content/docs/tutorials/database-change-management-with-jira-automated/jira-bb-poll.webp)
 
 ## Prerequisites
 
@@ -32,7 +32,6 @@ Here is what you will achieve by the end of this tutorial:
 
 1. Configure the environment variables and run the `jira` demo app
 1. Setup Jira Webhook and API
-1. Setup Bytebase Webhook and API
 
 ### Change process
 
@@ -40,9 +39,9 @@ Here is what you will achieve by the end of this tutorial:
 1. (Jira Webhook -> Bytebase API) Once the Jira issue is created, Jira webhook will trigger Bytebase API to create a corresponding issue.
 1. (Bytebase API -> Jira API) Once the Bytebase issue is created, the success response will trigger Jira API to set Jira issue with the Bytebase issue link and change the status to `In Progress`.
 1. (Bytebase) DBA goes to Bytebase to roll out the database change.
-1. (Bytebase Webhook -> Jira API) Once the Bytebase issue rolls out and becomes `Done`, Bytebase Webhook will trigger Jira API to set Jira issue status to `Done`.
+1. (Bytebase Poll Comparison -> Jira API) Once the Bytebase issue rolls out and becomes `Done`, Jira issue status will be set to `Done`.
 
-![auto-jira](/content/docs/tutorials/database-change-management-with-jira-automated/auto-jira.webp)
+![auto-jira](/content/docs/tutorials/database-change-management-with-jira-automated/jira-bb-poll.webp)
 
 ## Setup
 
@@ -51,19 +50,17 @@ Here is what you will achieve by the end of this tutorial:
 1. Go to the `jira` folder of the `api-example` repository, and copy `env-template.local` file as `.env.local`. Replace the placeholders with yours.
 
    ```javascript
-
-   NEXT_PUBLIC_JIRA_BASE_URL=https://xxxxxx.atlassian.net
-   NEXT_PUBLIC_JIRA_EMAIL=xxx@xxxx.com
-   NEXT_PUBLIC_JIRA_API_TOKEN=xxxxxxx
-   NEXT_PUBLIC_BB_HOST=https://xxxxxxx
-   NEXT_PUBLIC_BB_SERVICE_ACCOUNT=xxxx@service.bytebase.com
-   NEXT_PUBLIC_BB_SERVICE_KEY=bbs_xxxxxx
-
+      NEXT_PUBLIC_JIRA_BASE_URL=https://xxxxxx.atlassian.net
+      NEXT_PUBLIC_JIRA_EMAIL=xxx@xxxx.com
+      NEXT_PUBLIC_JIRA_API_TOKEN=xxxxxxx
+      NEXT_PUBLIC_JIRA_PROJECT_KEY=KEY
+      NEXT_PUBLIC_BB_PROJECT_NAME=projects/jira-api
+      NEXT_PUBLIC_BB_HOST=https://xxxxxxx
+      NEXT_PUBLIC_BB_SERVICE_ACCOUNT=xxxx@service.bytebase.com
+      NEXT_PUBLIC_BB_SERVICE_KEY=bbs_xxxxxx
    ```
 
 1. Run `pnpm i` and `pnpm run dev`, you can run the demo app locally with `localhost:xxxx`. However, the app need to listen to webhook from Jira and Bytebase, so you need to make the app network accessible from both. By using [ngrok](https://ngrok.com/) or [vscode ports](https://code.visualstudio.com/docs/editor/port-forwarding), you can acheive this.
-
-   ![wm-empty](/content/docs/tutorials/database-change-management-with-jira-automated/wm-empty.webp)
 
 ### Jira webhook: To trigger when Jira issue is created or updated
 
@@ -94,16 +91,6 @@ Here is what you will achieve by the end of this tutorial:
 1. Go to [Atlassian Account >Security > API tokens](https://id.atlassian.com/manage-profile/security/api-tokens) to generate an API token. Copy the **API Token** to the `.env.local` file.
 
    ![jira-api-tokens](/content/docs/tutorials/database-change-management-with-jira-automated/jira-api-tokens.webp)
-
-### Bytebase Webhook: To trigger when Bytebase issue is set to `Done`
-
-1. Go in to the project, click **Integration > Webhooks** on the left sidebar and click **Add A Webhook**.
-
-   ![bb-add-webhook](/content/docs/tutorials/database-change-management-with-jira-automated/bb-add-webhook.webp)
-
-1. Choose `Custom` as **Destination**, fill in the **Webhook URL**, remember to append `/api/receive-bb-issue-webhook` to your base URL for the demo jira app, select `Issue status change` as **Triggering activities** and click **Create**.
-
-   ![bb-new-webhook](/content/docs/tutorials/database-change-management-with-jira-automated/bb-new-webhook.webp)
 
 ## Change process
 
@@ -144,21 +131,14 @@ It's because the jira webhook trigger Bytebase API to create an issue there. The
          ...
    ```
 
-1. If both are true, via Bytebase API, it will try to match the Jira's `project key` with Bytebase's `project key` to make sure they're the same. then it will try to match the Jira's `database` with the database belonging to that matching Bytebase project.
+1. If both are true, via Bytebase API, it will try to match the Jira's `project key` and Bytebase's `project name` with the ones you configured in the `.env.local`. then it will try to match the Jira's `database` with the database belonging to that Bytebase project.
 
-   <HintBlock type="warning">
-   The Bytebase project `key` is deprecated since 3.4.0, use `ID` instead. You may need to update the code to use `ID` instead of `key`.
-   </HintBlock>
 
    ```javascript
      ...
-      // Find matching Bytebase project
-      const matchingProject = allProjectData.projects.find((project: BytebaseProject) => project.key === projectKey);
-      if (!matchingProject) {
-            return Response.json({ error: 'No matching Bytebase project found' }, { status: 400 });
-      }
       // Fetch databases for the matching project
-      const databasesData = await fetchData(`${process.env.NEXT_PUBLIC_BB_HOST}/v1/${matchingProject.name}/databases`, token);
+      const databasesData = await fetchData(`${process.env.NEXT_PUBLIC_BB_HOST}/v1/${process.env.NEXT_PUBLIC_BB_PROJECT_NAME}/databases`, token);
+
 
       // Find matching database
       const matchingDatabase = databasesData.databases.find((db: BytebaseDatabase) => db.name.split('/').pop() === database);
@@ -171,7 +151,7 @@ It's because the jira webhook trigger Bytebase API to create an issue there. The
 
    ```
 
-1. Only if the project and database are both matched, it will create a Bytebase issue.
+1. Once matched, it will create a Bytebase issue.
 
    ```javascript
    // Create Bytebase issue
@@ -188,7 +168,7 @@ It's because the jira webhook trigger Bytebase API to create an issue there. The
    which internally involves four steps:
 
    ```javascript
-   const sheetData = await createSheet(project, database, SQL);
+   const sheetData = await createSheet(project, SQL);
 
    const planData = await createPlan(project, database, sheetData.name);
 
@@ -265,9 +245,9 @@ The logic is still in `src/api/receive-jira-issue-webhook/route.ts`.
 
    ![bb-diff](/content/docs/tutorials/database-change-management-with-jira-automated/bb-diff.webp)
 
-### Step 5 (Bytebase Webhook -> Jira API) Once the Bytebase issue rolls out and becomes `Done`, Bytebase Webhook will trigger Jira API to set Jira issue status as `Done`.
+### Step 5 (Bytebase Poll Comparison -> Jira API) Once the Bytebase issue rolls out and becomes `Done`, Jira API will set Jira issue status as `Done`.
 
-1. Once the issue has rolled out in Bytebase, the configured webhook will trigger `jira` app demo.
+1. Once the issue has rolled out in Bytebase, the Bytebase poll comparison will run, and if there's any change, it will trigger `jira` app demo.
 
    ![wm-done](/content/docs/tutorials/database-change-management-with-jira-automated/wm-done.webp)
 
@@ -275,22 +255,34 @@ The logic is still in `src/api/receive-jira-issue-webhook/route.ts`.
 
    ![jira-done](/content/docs/tutorials/database-change-management-with-jira-automated/jira-done.webp)
 
-The logic is in `src/app/api/receive-bb-issue-webhook/route.ts`. If it's a issue update, it will parse the Jira issue key from the Bytebase issue name, and then call the Jira API to update the issue status to `Done`.
+The logic is in `src/app/api/poll-bytebase-issue/route.ts`. Bytebase will poll the issue status every 3 seconds, if it's a issue update, it will parse the Jira issue key from the Bytebase issue name, and then call the Jira API to update the issue status to `Done`.
 
 ```javascript
+      for (const issue of issues) {
+            const jiraIssueKeyMatch = issue.title.match(/\[JIRA>([^\]]+)\]/);
+            const jiraIssueKey = jiraIssueKeyMatch ? jiraIssueKeyMatch[1] : null;
 
-   const payload: BytebaseWebhookPayload = await request.json();
+            // Skip if no Jira issue is linked
+            if (!jiraIssueKey) continue;
 
-   if (payload.activity_type === "bb.issue.status.update") {
-      ...
-      const jiraIssueKeyMatch = payload.issue.name.match(/\[JIRA>([^\]]+)\]/);
+            // Skip if we've already processed this issue with the same status
+            const lastStatus = processedIssues.get(issue.name);
+            if (lastStatus === issue.status) continue;
 
-      ...
-      if (payload.issue.status === "DONE") {
-         jiraStatus = "Done";
-      } ...
-      }
-   }
+            // Update the processed issues map
+            processedIssues.set(issue.name, issue.status);
+
+            let jiraStatus;
+            if (issue.status === "DONE") {
+                jiraStatus = "Done";
+            } else if (issue.status === "OPEN") {
+                jiraStatus = "In Progress";
+            }
+
+            if (jiraStatus) {
+               try {
+                    await updateJiraIssueStatus(jiraIssueKey, jiraStatus);
+                    ...
 
 ```
 
