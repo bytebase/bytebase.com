@@ -243,6 +243,12 @@ expand_section_list: ['Self-host']
 
 ### [SQL Review](/docs/api/sql-review)
 
+### [Release](/docs/api/release)
+
+### [Plan](/docs/api/plan)
+
+### [Rollout](/docs/api/rollout)
+
 ### [Issue](/docs/api/issue)
 
 ### [SQL Editor](/docs/api/sql-editor)
