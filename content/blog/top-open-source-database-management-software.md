@@ -12,7 +12,7 @@ Open-source database management tools are critical for organizations handling se
 
 <HintBlock type="info">
 
-This post is maintained by Bytebase, an open-source database Management Software. We update the post ~2 times per year.
+This post is maintained by Bytebase, an open-source database Management Software. We update the post every year.
 
 </HintBlock>
 

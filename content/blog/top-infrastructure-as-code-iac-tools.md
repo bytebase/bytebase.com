@@ -9,7 +9,7 @@ description: Explore the top IaC solutions for 2025 that help DevOps and platfor
 
 <HintBlock type="info">
 
-This post is maintained by Bytebase, an open-source database Management Software. We update the post ~2 times per year.
+This post is maintained by Bytebase, an open-source database Management Software. We update the post every year.
 
 </HintBlock>
 

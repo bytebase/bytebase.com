@@ -9,7 +9,7 @@ description: 'An extensive comparison between Postgres and MongoDB on performanc
 
 <HintBlock type="info">
 
-This post is maintained by Bytebase, an open-source database DevSecOps tool that can manage both Postgres and MongoDB. We update the post ~2 times per year.
+This post is maintained by Bytebase, an open-source database DevSecOps tool that can manage both Postgres and MongoDB. We update the post every year.
 
 </HintBlock>
 

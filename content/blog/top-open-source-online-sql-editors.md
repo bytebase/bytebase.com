@@ -10,7 +10,7 @@ description: In this post, we are taking a look at the open source, online SQL e
 
 <HintBlock type="info">
 
-This post is maintained by Bytebase, an open-source database DevSecOps tools. We update the post ~2 times per year.
+This post is maintained by Bytebase, an open-source database DevSecOps tools. We update the post every year.
 
 </HintBlock>
 

@@ -10,7 +10,7 @@ description: 'While MariaDB was initially a fork of MySQL, the two have evolved 
 
 <HintBlock type="info">
 
-This post is maintained by Bytebase, an open-source database DevSecOps tool that can manage both MySQL and MariaDB. We update the post ~2 times per year.
+This post is maintained by Bytebase, an open-source database DevSecOps tool that can manage both MySQL and MariaDB. We update the post every year.
 
 </HintBlock>
 
