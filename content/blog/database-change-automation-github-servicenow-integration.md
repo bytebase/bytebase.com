@@ -73,7 +73,7 @@ The integrated workflow operates as follows:
 
     a. A GitHub Action or custom App creates a ServiceNow change request, ensuring governance requirements are met.
 
-    b. Simultaneously, [Bytebase SQL Review](https://www.bytebase.com/docs/sql-review/overview/) is triggered to analyze the SQL scripts, providing automated technical validation ([Sample PR](https://github.com/bytebase/release-cicd-workflows-example/pull/4#issuecomment-2667802130)).
+    b. Simultaneously, [Bytebase SQL Review](https://www.bytebase.com/docs/sql-review/overview/) is triggered to analyze the SQL scripts, providing automated technical validation ([Sample PR](https://github.com/bytebase/example-gitops-github-flow/pull/6#issuecomment-2731413296)).
 
     ![bytebase-sql-review](/content/blog/database-change-automation-github-servicenow-integration/bytebase-sql-review.webp)
 

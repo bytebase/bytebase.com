@@ -26,7 +26,7 @@ You can configure different [custom approval flows](/docs/administration/custom-
 
 ### SQL Review
 
-[SQL review](/docs/sql-review/overview/) returns the associated risk level for the checked SQL statement. Bytebase GitHub action can also surface the risk level under a [PR](https://github.com/bytebase/release-cicd-workflows-example/pull/4).
+[SQL review](/docs/sql-review/overview/) returns the associated risk level for the checked SQL statement. Bytebase GitHub action can also surface the risk level under a [PR](https://github.com/bytebase/example-gitops-github-flow/pull/6#issuecomment-2731413296).
 
 ![sql-review](/content/docs/administration/risk-center/github-actions-risk.webp)
 

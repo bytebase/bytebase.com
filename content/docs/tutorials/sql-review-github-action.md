@@ -23,7 +23,7 @@ This tutorial will show you how to integrate SQL Review with GitHub Actions to i
 
 ## Repository
 
-https://github.com/bytebase/release-cicd-workflows-example
+https://github.com/bytebase/example-gitops-github-flow
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Configure ngrok and create service account same as [Database GitOps with GitHub 
 
 ## GitHub Action Workflow
 
-This [bytebase-check-release.yml](https://github.com/bytebase/release-cicd-workflows-example/blob/main/.github/workflows/bytebase-check-release.yml) workflow is the GitHub Action that will be triggered when a PR is created. It will check the SQL files in the PR and review them with Bytebase.
+This [sql-review.yml](https://github.com/bytebase/example-gitops-github-flow/blob/main/.github/workflows/sql-review.yml) workflow is the GitHub Action that will be triggered when a PR is created. It will check the SQL files in the PR and review them with Bytebase.
 
 Configuration snippet:
 
@@ -50,12 +50,9 @@ The deployment target is the database that the SQL files will be applied to. So 
 
 ## Example PR
 
-[Example PR](https://github.com/bytebase/release-cicd-workflows-example/pull/4) contains four sql files in the `migrations` folder:
+[Example PR](https://github.com/bytebase/example-gitops-github-flow/pull/1/files) contains 1 sql file in the `migrations` folder:
 
-- `001__drop_dept_emp.sql`
-- `002__add_employee_phone.sql`
-- `003__update_employee_gender.sql`
-- `004__create_book.sql`
+- `202503071616_create_ticket_table.sql`
 
 Upon PR creation, the GitHub Action triggers SQL Review. A summary, including **affected rows**, **risk level**, and **advices**, is posted as a PR comment. With four files and two stages, there are eight lines of review results.
 
