@@ -1,5 +1,5 @@
 ---
-title: Deploy Schema Migration with Bytebase API
+title: Create Issue with Bytebase API
 author: Adela
 updated_at: 2023/12/21 18:00
 tags: Tutorial
