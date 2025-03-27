@@ -27,7 +27,7 @@ https://github.com/bytebase/release-cicd-workflows-example
 
 ## Prerequisites
 
-Configure ngrok and create service account same as [Database Release CI/CD with GitHub Actions](/docs/tutorials/github-release-cicd-workflow/#step-1-start-bytebase-with-ngrok).
+Configure ngrok and create service account same as [Database GitOps with GitHub Actions](/docs/tutorials/gitops-github-workflow/#step-1-start-bytebase-with-ngrok).
 
 ## GitHub Action Workflow
 

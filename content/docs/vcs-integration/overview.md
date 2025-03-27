@@ -8,7 +8,7 @@ Bytebase GitOps workflow is built upon the [Bytebase API](/docs/api/overview). I
 
 ## GitHub Actions
 
-<TutorialBlock url="/docs/tutorials/github-release-cicd-workflow/" title="Database Release CI/CD with GitHub Actions" />
+<TutorialBlock url="/docs/tutorials/gitops-github-workflow/" title="Database GitOps with GitHub Actions" />
 
 <HintBlock type="info">
 

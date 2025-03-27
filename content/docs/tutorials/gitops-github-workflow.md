@@ -21,7 +21,7 @@ This tutorial shows you how to build an database GitOps workflow using GitHub Ac
 
 <HintBlock type="info">
 
-While we use Postgres with GitHub Actions in this guide, you can apply these concepts to other SQL or NoSQL databases with any CI platforms like GitLab CI, Bitbucket Pipelines, or Azure DevOps using the Bytebase API.
+While we use PostgreSQL with GitHub Actions in this guide, you can apply these concepts to other SQL or NoSQL databases with any CI platforms like GitLab CI, Bitbucket Pipelines, or Azure DevOps using the Bytebase API.
 
 </HintBlock>
 
