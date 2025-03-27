@@ -20,10 +20,10 @@ const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string
           <Link href="/changelog/bytebase-3-5-0/" className="group/link">
             <span className="inline-flex items-center gap-1 rounded-full bg-tones-purple-light p-1 text-12 font-semibold leading-none text-primary-1 transition-colors duration-200 group-hover/link:text-primary-2">
               <span className="rounded-full bg-primary-1 px-2 py-1 text-white transition-colors duration-200 group-hover/link:bg-primary-2">
-                Mar 13th, 2025
+                Mar 27th, 2025
               </span>
               <span className="flex items-center gap-1.5 px-2">
-                🚀 3.5.0: Azure IAM Auth for Cosmos DB & Azure SQL
+                🚀 3.5.1: Added Cosmos DB SQL filtering and projection support in SQL Editor
                 <SmallArrowIcon width={7} height={6} />
               </span>
             </span>
