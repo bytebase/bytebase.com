@@ -1,5 +1,5 @@
 ---
-title: Bytebase 3.5.0
+title: Bytebase 3.5.1
 author: Ayra
 updated_at: 2025/03/27 18:00:00
 feature_image: /content/changelog/3-5-1-banner.webp
