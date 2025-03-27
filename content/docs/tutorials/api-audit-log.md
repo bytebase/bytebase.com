@@ -20,11 +20,9 @@ In our previous tutorials, we demonstrated how to use the Bytebase API to:
 
 This tutorial will focus on fetch and filter audit log in Bytebase, it's OK if you haven't gone through the previous tutorials.
 
-<HintBlock type="info">
+## Repository
 
-This tutorial code repository is at https://github.com/bytebase/example-api/tree/main/audit-log
-
-</HintBlock>
+https://github.com/bytebase/example-api/tree/main/audit-log
 
 ## Prerequisites
 

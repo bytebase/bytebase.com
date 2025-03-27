@@ -21,11 +21,9 @@ This tutorial is part of the SQL Review series:
 
 This tutorial will show you how to integrate SQL Review with GitHub Actions to improve your database schema change process.
 
-<HintBlock type="info">
+## Repository
 
-This tutorial code repository is at https://github.com/bytebase/release-cicd-workflows-example
-
-</HintBlock>
+https://github.com/bytebase/release-cicd-workflows-example
 
 ## Prerequisites
 

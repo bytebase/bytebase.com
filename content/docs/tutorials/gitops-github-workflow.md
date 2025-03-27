@@ -13,19 +13,21 @@ This tutorial shows you how to build an database GitOps workflow using GitHub Ac
 
 1. Create a streamlined database release workflow where you can:
 
-   - Submit SQL migrations through GitHub
+   - Submit schema migrations through GitHub
    - Automatically run SQL reviews on pull requests
    - Auto-create and deploy Bytebase releases when merging to `main`
 
 2. Manually control rollouts by stage
 
-While we use GitHub Actions in this guide, you can apply these concepts to other CI platforms like GitLab CI, Bitbucket Pipelines, or Azure DevOps using the Bytebase API.
-
 <HintBlock type="info">
 
-This tutorial code repository is at [https://github.com/bytebase/example-gitops-github-flow](https://github.com/bytebase/example-gitops-github-flow)
+While we use Postgres with GitHub Actions in this guide, you can apply these concepts to other SQL or NoSQL databases with any CI platforms like GitLab CI, Bitbucket Pipelines, or Azure DevOps using the Bytebase API.
 
 </HintBlock>
+
+## Repository
+
+https://github.com/bytebase/example-gitops-github-flow
 
 ## Prerequisites
 
@@ -120,8 +122,9 @@ To create migration files to trigger release creation, the files have to match t
     CREATE TABLE t1 (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL
-   );  
+   );
    ```
+
    ![gh-sql-review-pass](/content/docs/tutorials/gitops-github-workflow/gh-sql-review-pass.webp)
 
 1. When the SQL review is passed, you can merge the pull request. The `release` workflow will be triggered to create a **release** in Bytebase and then roll out automatically. Go to **Actions** tab, you can see the workflow run and pass.
@@ -137,7 +140,6 @@ To create migration files to trigger release creation, the files have to match t
    ![gh-deploy-to-test-expand](/content/docs/tutorials/gitops-github-workflow/gh-deploy-to-test-expand.webp)
 
    ![bb-rollout](/content/docs/tutorials/gitops-github-workflow/bb-rollout.webp)
-
 
 ### Breakdown of the GitHub Actions Workflow
 

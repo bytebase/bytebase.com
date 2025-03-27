@@ -21,11 +21,9 @@ In this tutorial, you will begin by creating a schema change within the Bytebase
 
 By following the step-by-step instructions provided, you will have the opportunity to explore and experiment with the Bytebase API. This will give you a practical understanding of how to incorporate it into your own application.
 
-<HintBlock type="info">
+## Repository
 
-This tutorial code repository is at https://github.com/bytebase/example-api/issue-creation
-
-</HintBlock>
+https://github.com/bytebase/example-api/tree/main/issue-creation
 
 ## Prerequisites
 

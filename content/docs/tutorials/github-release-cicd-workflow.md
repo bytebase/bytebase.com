@@ -13,19 +13,21 @@ This tutorial shows you how to build an automated database release pipeline usin
 
 1. Create a streamlined database release workflow where you can:
 
-   - Submit SQL migrations through GitHub
+   - Submit schema migrations through GitHub
    - Automatically run SQL reviews on pull requests
    - Auto-create and deploy Bytebase releases when merging to `main`
 
 2. Manually control rollouts by stage (available with Pro/Enterprise plans)
 
-While we use GitHub Actions in this guide, you can apply these concepts to other CI platforms like GitLab CI, Bitbucket Pipelines, or Azure DevOps using the Bytebase API.
-
 <HintBlock type="info">
 
-This tutorial code repository is at [https://github.com/bytebase/release-cicd-workflows-example](https://github.com/bytebase/release-cicd-workflows-example)
+While we use Postgres with GitHub Actions in this guide, you can apply these concepts to other SQL or NoSQL databases with any CI platforms like GitLab CI, Bitbucket Pipelines, or Azure DevOps using the Bytebase API.
 
 </HintBlock>
+
+## Repository
+
+https://github.com/bytebase/release-cicd-workflows-example
 
 ## Prerequisites
 

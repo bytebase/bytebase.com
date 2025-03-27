@@ -21,11 +21,9 @@ By following this guide, you'll learn how to:
 - For a given database, which users have been granted permissions?
 - For a given user, which databases have been granted permissions?
 
-<HintBlock type="info">
+## Repository
 
-This tutorial code repository is at https://github.com/bytebase/example-api/tree/main/permission-check
-
-</HintBlock>
+https://github.com/bytebase/example-api/tree/main/permission-check
 
 ## Prerequisites
 
