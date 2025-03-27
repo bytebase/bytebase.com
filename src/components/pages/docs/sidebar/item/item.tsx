@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import clsx from 'clsx';
 
@@ -37,11 +37,17 @@ const Item = ({
   // Normalize the pathname to remove the trailing slash
   const pathname = (usePathname() ?? '').replace(/\/$/, '');
   const hasActiveChild = isActiveItem(children, pathname);
-  const [isOpen, setIsOpen] = useState(() => {
-    return (
-      url === pathname || hasActiveChild || (title && depth === 1 && expandedList?.includes(title))
-    );
-  });
+  const shouldBeOpen =
+    url === pathname || hasActiveChild || (title && depth === 1 && expandedList?.includes(title));
+
+  const [isOpen, setIsOpen] = useState(shouldBeOpen);
+
+  // Update open state when pathname changes (e.g., when coming from search)
+  useEffect(() => {
+    if (shouldBeOpen && !isOpen) {
+      setIsOpen(true);
+    }
+  }, [pathname, shouldBeOpen, isOpen]);
 
   const toggle = () => {
     if (closeMenu && url) {
