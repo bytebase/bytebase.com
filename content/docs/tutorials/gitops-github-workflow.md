@@ -42,36 +42,11 @@ https://github.com/bytebase/example-gitops-github-flow
 
 ### Step 2 - Create Service Account
 
-<IncludeBlock url="/docs/share/tutorials/create-service-account"></IncludeBlock>
-
-If you have **Enterprise Plan**, you can create a **Custom Role** for the service account which require fewer permissions, and assign this role instead of DBA:
-
-    - plans.create
-    - plans.get
-    - plans.preview
-    - releases.check
-    - releases.create
-    - releases.get
-    - rollouts.create
-    - rollouts.get
-    - rollouts.list
-    - sheets.create
-    - sheets.get
-    - taskRuns.create
-    - planCheckRuns.list
-    - planCheckRuns.run
+<IncludeBlock url="/docs/share/tutorials/create-service-account-gitops"></IncludeBlock>
 
 ### Step 3 - Configure SQL Review in Bytebase
 
-Since you will need to run SQL review on your PRs, you need to configure the SQL review in Bytebase.
-
-1. Go to **CI/CD** > **SQL Review**, click **Create SQL Review**.
-
-1. Select the `Sample Template` and click **Next**.
-   ![bb-sql-review-sample](/content/docs/tutorials/gitops-github-workflow/bb-sql-review-sample.webp)
-
-1. Select `Prod` environment as the attached resources and click **Confirm**. Now the SQL review is enabled for the `Prod` environment.
-   ![bb-sql-review-prod](/content/docs/tutorials/gitops-github-workflow/bb-sql-review-prod.webp)
+<IncludeBlock url="/docs/share/tutorials/config-sql-review"></IncludeBlock>
 
 ### Step 4 - Fork the Example Repository and Configure Variables
 

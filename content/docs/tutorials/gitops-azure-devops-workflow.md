@@ -17,19 +17,17 @@ This is one of our database GitOps series with Bytebase:
 
 ---
 
-This tutorial shows you how to build an database GitOps workflow using Azure DevOps Pipeline and Bytebase API. You'll learn to:
+This tutorial shows you how to build a database GitOps workflow using Azure DevOps Pipeline and Bytebase API. You'll learn to create a streamlined database release workflow where you can:
 
-1. Create a streamlined database release workflow where you can:
-
-   - Submit SQL migrations through Azure DevOps
-   - Automatically run SQL reviews on pull requests
-   - Auto-create and deploy Bytebase releases when merging to `main`
+- Submit SQL migrations through Azure DevOps
+- Automatically run SQL reviews on pull requests
+- Auto-create and deploy Bytebase releases when merging to `main`
 
 While we use Azure DevOps Pipeline in this guide, you can apply these concepts to other CI platforms like [GitHub Actions](/docs/tutorials/gitops-github-workflow), GitLab CI, or Bitbucket Pipelines using the Bytebase API.
 
 <HintBlock type="info">
 
-This tutorial code repository is at [https://dev.azure.com/bytebase-hq/_git/bytebase-example](https://dev.azure.com/bytebase-hq/_git/bytebase-example)
+This tutorial code repository is at [https://dev.azure.com/bytebase-hq/\_git/bytebase-example](https://dev.azure.com/bytebase-hq/_git/bytebase-example)
 
 </HintBlock>
 
@@ -46,40 +44,15 @@ This tutorial code repository is at [https://dev.azure.com/bytebase-hq/_git/byte
 
 ### Step 2 - Create Service Account
 
-<IncludeBlock url="/docs/share/tutorials/create-service-account"></IncludeBlock>
-
-If you have **Enterprise Plan**, you can create a **Custom Role** for the service account which require fewer permissions, and assign this role instead of DBA:
-
-    - plans.create
-    - plans.get
-    - plans.preview
-    - releases.check
-    - releases.create
-    - releases.get
-    - rollouts.create
-    - rollouts.get
-    - rollouts.list
-    - sheets.create
-    - sheets.get
-    - taskRuns.create
-    - planCheckRuns.list
-    - planCheckRuns.run
+<IncludeBlock url="/docs/share/tutorials/create-service-account-gitops"></IncludeBlock>
 
 ### Step 3 - Configure SQL Review in Bytebase
 
-Since you will need to run SQL review on your PRs, you need to configure the SQL review in Bytebase.
-
-1. Go to **CI/CD** > **SQL Review**, click **Create SQL Review**.
-
-1. Select the `Sample Template` and click **Next**.
-   ![bb-sql-review-sample](/content/docs/tutorials/gitops-github-workflow/bb-sql-review-sample.webp)
-
-1. Select `Prod` environment as the attached resources and click **Confirm**. Now the SQL review is enabled for the `Prod` environment.
-   ![bb-sql-review-prod](/content/docs/tutorials/gitops-github-workflow/bb-sql-review-prod.webp)
+<IncludeBlock url="/docs/share/tutorials/config-sql-review"></IncludeBlock>
 
 ### Step 4 - Copy from the Example Repository and Configure Variables
 
-1. Create a new project. Copy `pipelines` folder from [https://dev.azure.com/bytebase-hq/_git/bytebase-example](https://dev.azure.com/bytebase-hq/_git/bytebase-example). There are two workflows in this repository:
+1. Create a new project. Copy `pipelines` folder from [https://dev.azure.com/bytebase-hq/\_git/bytebase-example](https://dev.azure.com/bytebase-hq/_git/bytebase-example). There are two workflows in this repository:
 
    - `pipelines/check-release.yml`: [Lint the SQL](/docs/sql-review/overview/) migration files after the PR is created.
    - `pipelines/rollout-release.yml`: Create a release in Bytebase after the PR is merged to the `main` branch.
@@ -119,7 +92,7 @@ To create migration files to trigger release creation, the files have to match t
 1. Commit to a new branch and create a pull request, the `check-release` workflow will be triggered. There will be a warning in the SQL review result.
 
    ![ad-check-pass](/content/docs/tutorials/gitops-azure-devops-workflow/ad-check-pass.webp)
-   
+
    ![ad-check-warning](/content/docs/tutorials/gitops-azure-devops-workflow/ad-check-warning.webp)
 
 1. According to the SQL review result, you can do some changes to the SQL files and push to the branch. Then you should see the SQL review has passed. There are no warnings in the SQL review result.
@@ -128,7 +101,7 @@ To create migration files to trigger release creation, the files have to match t
     CREATE TABLE t1 (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL
-   );  
+   );
    ```
 
    ![ad-check-no-warning](/content/docs/tutorials/gitops-azure-devops-workflow/ad-check-no-warning.webp)
