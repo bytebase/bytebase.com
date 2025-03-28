@@ -1,7 +1,7 @@
 ---
 title: Database GitOps with Azure DevOps Pipeline
 author: Adela
-updated_at: 2025/03/18 18:00
+updated_at: 2025/03/28 18:00
 tags: Tutorial
 integrations: 'API, Azure DevOps'
 level: Advanced
