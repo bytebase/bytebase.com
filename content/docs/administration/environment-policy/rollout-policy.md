@@ -13,14 +13,13 @@ the issue is approved by the others, you **can** roll out your own issue if qual
 
 `Workspace Admin` or `DBA` can configure the **Rollout policy** for a particular environment from the **Environment** detail page:
 
-![environment-configure](/content/docs/administration/environment-policy/bb-env-rollout-policy.webp)
+![environment-rollout](/content/docs/administration/environment-policy/bb-env-rollout.webp)
 
 This setting will affect projects using either [UI workflow or GitOps workflow](/docs/concepts/database-change-workflow). The rollout policy determines who will rollout the database changes.
 
 ## Automatic rollout
 
-Bytebase will rollout the change automatically if all check have passed. Unpassed checks will block the
-automatic rollout and require manual intervention:
+If `automatic` option is checked, Bytebase will roll out the change automatically if all check have passed. Unpassed checks will block the automatic rollout and require manual intervention:
 
 - [Rollout time](/docs/change-database/change-workflow/#rollout-time)
 - [SQL Review violations](/docs/sql-review/overview)
@@ -29,7 +28,7 @@ automatic rollout and require manual intervention:
 
 <PricingPlanBlock feature_name='ROLLOUT_POLICY' />
 
-Bytebase requires certain roles to roll out the change manually.
+If any roles are specified, Bytebase requires users with those roles to manually roll out the change.
 
 ## Manual rollout with custom approval flow
 
