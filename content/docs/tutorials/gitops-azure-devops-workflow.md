@@ -9,7 +9,7 @@ estimated_time: '40 mins'
 description: 'Learn the new GitOps workflow for database release with Bytebase.'
 ---
 
-This is one of our database GitOps series with Bytebase:
+This is part of our database GitOps series with Bytebase:
 
 - [Database GitOps with GitHub Actions](/docs/tutorials/gitops-github-workflow)
 - Database GitOps with Azure DevOps Pipeline (this one)
@@ -65,7 +65,7 @@ This tutorial code repository is at [https://dev.azure.com/bytebase-hq/\_git/byt
    - **BYTEBASE_TARGETS**: `instances/test-sample-instance/databases/hr_test,instances/prod-sample-instance/databases/hr_prod` (the two default databases in the sample project)
    - **FILE_PATTERN**: `migrations/*.sql` (the pattern of the migration files)
 
-1. Go to branch policy for `main` branch, add `check-release` as a required check.
+1. Go to branch policy for `main` branch, add `check-release` as a required check. You don't need to add `rollout-release` as a required check because it will be triggered automatically when the PR is merged.
 
    ![ad-branch-policy](/content/docs/tutorials/gitops-azure-devops-workflow/ad-branch-policy.webp)
 
@@ -109,12 +109,17 @@ To create migration files to trigger release creation, the files have to match t
 1. When the SQL review is passed, you can merge the pull request. The `rollout-release` workflow will be triggered to create a **release** in Bytebase and then roll out automatically.
 
    ![ad-rollout](/content/docs/tutorials/gitops-azure-devops-workflow/ad-rollout.webp)
+
+1. You need to permit the release to be deployed to the production environment the first time.
+
    ![ad-rollout-permit](/content/docs/tutorials/gitops-azure-devops-workflow/ad-rollout-permit.webp)
    ![ad-rollout-prod](/content/docs/tutorials/gitops-azure-devops-workflow/ad-rollout-prod.webp)
 
 1. If you click the test stage and expand the different sections, you can follow the links to Bytebase.
 
    ![bb-rollout-preview](/content/docs/tutorials/gitops-azure-devops-workflow/bb-rollout-preview.webp)
+
+1. You may customize the workflow file to trigger deployment manually according to your needs.
 
 ## Summary
 

@@ -9,6 +9,14 @@ estimated_time: '40 mins'
 description: 'Learn the new GitOps workflow for database release with Bytebase.'
 ---
 
+This is part of our database GitOps series with Bytebase:
+
+- Database GitOps with GitHub Actions (this one)
+- [Database GitOps with Azure DevOps Pipeline](/docs/tutorials/gitops-azure-devops-workflow)
+- Database GitOps with GitLab CI (TBD)
+
+---
+
 This tutorial shows you how to build an database GitOps workflow using GitHub Actions and Bytebase API. You'll learn to:
 
 1. Create a streamlined database release workflow where you can:
