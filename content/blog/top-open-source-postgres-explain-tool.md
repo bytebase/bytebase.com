@@ -149,7 +149,7 @@ Bytebase offers embedded pev2 visualization for query analysis while enabling te
 
 #### How to Use
 
-Using Bytebase for query analysis is straightforward: connect your PostgreSQL database to the platform, open Bytebase SQL Editor, and write your query. Once ready, right-click the code area and select **Explain Query**.
+[Using Bytebase for query analysis](https://www.bytebase.com/docs/sql-editor/run-queries/#explain-query) is straightforward: connect your PostgreSQL database to the platform, open Bytebase SQL Editor, and write your query. Once ready, right-click the code area and select **Explain Query**.
 
 ![bb-explain-entry](/content/blog/top-open-source-postgres-explain-tool/bb-explain-entry.webp)
 
