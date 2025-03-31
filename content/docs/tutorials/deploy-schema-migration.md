@@ -12,7 +12,7 @@ description: Bytebase offers a powerful GUI for schema migration deployments. Th
 
 Bytebase offers a powerful GUI for schema migration deployments. This tutorial will show you how to use Bytebase to deploy schema migrations with features like SQL Review, custom approval, time scheduling, and more.
 
-![graph-4-steps](/content/docs/tutorials/deploy-schema-migration/graph-4-steps.webp)
+![4-steps-graph](/content/docs/tutorials/deploy-schema-migration/4-steps-graph.webp)
 
 Bytebase offers **Community**, **Pro** and **Enterprise** [Plans](/pricing). Advanced plans
 unlock new capabilities of deploying schema migrations and this tutorial will walk you through them progressively.
@@ -20,7 +20,7 @@ unlock new capabilities of deploying schema migrations and this tutorial will wa
 ### Features covered
 
 - Level 1 - [Automatic SQL Review](/docs/sql-review/overview/) (available in all plans)
-- Level 2 - [Rollout Policy](/docs/administration/environment-policy/rollout-policy/) (available in Pro and Enterprise)
+- Level 2 - [Rollout Policy](/docs/administration/environment-policy/rollout-policy/) (available in all plans)
 - Level 3 - [Custom Approval](/docs/administration/custom-approval/) (available in Enterprise)
 
 ### Preparation
@@ -35,12 +35,12 @@ unlock new capabilities of deploying schema migrations and this tutorial will wa
 
 1. Within Workspace, go to **Environments** > **Test** and **Environments** > **Prod**, you'll see
 
-   - `Rollout policy` is `automatic`. Unless there's warning or error, rollout will be automatically executed after an issue is created.
-   - `SQL Review` is enabled on `Prod` with a sample policy.
+   - Check `automatic` as `Rollout policy`. Unless there's warning or error, rollout will be automatically executed after an issue is created.
+   - `SQL Review` is enabled on `Prod` with a sample policy (with 20 rules).
 
-   ![environment-settings-default](/content/docs/tutorials/deploy-schema-migration/environment-settings-default.webp)
+   ![bb-env-community-test-prod](/content/docs/tutorials/deploy-schema-migration/bb-env-community-test-prod.webp)
 
-1. Click **SQL Review Sample Policy** to enter **SQL Review** under **CI/CD** section, where three rules have been activated. We'll intentionally violate the Column rule `Enforce NOT NULL constraints on columns`.
+1. Click **SQL Review Policy** to enter **SQL Review** under **CI/CD** section, where three rules have been activated. We'll intentionally violate the Column rule `Enforce NOT NULL constraints on columns`.
 
 1. Go to `Sample Project` from top left. Go to **Database** > **Databases**, choose both `hr_prod` and `hr_test` databases to **Edit Schema**. Paste this command into **SQL** block, and **Create** this issue on top right:
 
@@ -64,22 +64,15 @@ unlock new capabilities of deploying schema migrations and this tutorial will wa
 
    ![view-change](/content/docs/tutorials/deploy-schema-migration/view-change.webp)
 
-### Level 2: Manual rollout with dedicated roles and scheduled time (Pro Plan)
+### Level 2: Manual rollout with dedicated roles(Community Plan)
 
-<HintBlock type="info">
+You can specify multiple pre-defined roles to manually roll out the change.
 
-To test the Pro feature, you can [subscribe the Pro plan](/pricing/) for 1 month or [request a Enterprise trial](/contact-us/).
+If you want **Time scheduling** feature, you will need to upgrade to **Pro Plan**.
 
-</HintBlock>
+1. Within Workspace, go to **Environments** > **Prod**. Uncheck `Automatic`. Choose several roles according to your needs and also check `Issue Creator`. Click **Update** on bottom right.
 
-With Pro Plan, you'll get two additional features:
-
-- Manual rollout policy. You can specify multiple pre-defined roles to manually roll out the change.
-- Time scheduling. You can specify a particular time to roll out the change.
-
-1. Within Workspace, go to **Environments** > **Prod**. Choose `Manual rollout by dedicated roles`, check all but the last role. Click **Update** on bottom right.
-
-   ![policy-manual-rollout](/content/docs/tutorials/deploy-schema-migration/policy-manual-rollout.webp)
+   ![bb-env-manual](/content/docs/tutorials/deploy-schema-migration/bb-env-manual.webp)
 
 1. Go to `Sample Project`, enter **Database** > **Databases** to **Edit Schema** for both databases. Paste this command into **SQL** block and **Create**.
 
@@ -91,10 +84,6 @@ With Pro Plan, you'll get two additional features:
 1. **Task checks** runs. SQL runs on `Test` automatically but waits to run on `Prod`. Click **Rollout** to trigger directly.
 
    ![issue-await](/content/docs/tutorials/deploy-schema-migration/issue-await.webp)
-
-   Or set a **Rollout time**.
-
-   ![rollout-time](/content/docs/tutorials/deploy-schema-migration/rollout-time.webp)
 
 ### Level 3: Manual rollout with custom approval (Enterprise Plan)
 
@@ -116,9 +105,9 @@ Within Workspace, go to **Instances** and choose both instances to **Assign Lice
 
    ![risk-center-add-rule](/content/docs/tutorials/deploy-schema-migration/risk-center-add-rule.webp)
 
-3. Click **Settings** (the gear icon) and add a DBA account. Click it in the **Active members** list, and edit its password. You'll need this account later to do the approval.
+3. Click **IAM&Admin > Users&Groups** and add a DBA account. Click it in the **Active members** list, and edit its password. You'll need this account later to do the approval.
 
-4. Within Workspace, go to **Environments** > **Prod**. Now the third option for rollout policy `Manual rollout by the last approver from the custom approval` is unlocked. Choose it.
+4. Within Workspace, go to **Environments** > **Prod**. Choose `Last Issue Approver` as `Rollout policy`.
 
 5. Go to `Sample Project`, choose both databases to **Edit Schema**. Paste this command into **SQL** block and **Create**.
 
