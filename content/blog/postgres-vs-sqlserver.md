@@ -4,7 +4,7 @@ author: Tianzhou
 updated_at: 2025/03/26 12:00
 feature_image: /content/blog/postgres-vs-sqlserver/banner.webp
 tags: Industry
-description: 'An extensive comparison between Postgres and SQL Server on performance, usability, operability, ecosystem and more.'
+description: 'An extensive comparison between Postgres and SQL Server on features, architecture, development workflow, operability, licensing and more.'
 ---
 
 <HintBlock type="info">
