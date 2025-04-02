@@ -1,5 +1,5 @@
 ---
-title: Simple GitOps
+title: Legacy GitOps
 ---
 
 <HintBlock type="warning">

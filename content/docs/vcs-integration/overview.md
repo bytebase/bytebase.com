@@ -22,6 +22,10 @@ To reach your self-hosted Bytebase from GitHub Actions, you can choose either op
 
 Bytebase provides pre-built [GitHub Actions](https://github.com/marketplace?query=bytebase&type=actions) to ease the GitHub integration.
 
+## Azure DevOps Pipeline
+
+<TutorialBlock url="/docs/tutorials/gitops-azure-devops-workflow/" title="Database GitOps with Azure DevOps Pipeline" />
+
 ## API
 
 If the pre-built GitHub Actions do not meet your needs or you want to integrate with other VCSs, you can use the [Bytebase API](/docs/api/overview) to build your own GitOps workflow.
