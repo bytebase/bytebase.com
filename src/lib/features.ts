@@ -8,7 +8,6 @@ export const FEATURES = {
   CHANGE_HISTORY: 'Change history',
   TERRAFORM: 'Terraform integration',
   SCHEDULE_CHANGE: 'Scheduled rollout',
-  ROLLOUT_POLICY: 'Rollout Policy',
   ISSUE_SETTING: 'Issue Setting',
   SYNCHRONIZE_SCHEMA: 'Synchronize schema between databases',
   BATCH_CHANGE: 'Batch change',

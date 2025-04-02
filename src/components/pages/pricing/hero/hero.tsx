@@ -46,7 +46,7 @@ const cards: TCard[] = [
       'Email support',
       'Up to 20 users',
       '10 database instances',
-      'Manual review, scheduled rollout',
+      'Scheduled rollout',
       'Google, GitHub SSO',
     ],
   },

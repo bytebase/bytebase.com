@@ -26,8 +26,6 @@ If `automatic` option is checked, Bytebase will roll out the change automaticall
 
 ## Manual rollout by dedicated roles
 
-<PricingPlanBlock feature_name='ROLLOUT_POLICY' />
-
 If any roles are specified, Bytebase requires users with those roles to manually roll out the change.
 
 ## Manual rollout with custom approval flow

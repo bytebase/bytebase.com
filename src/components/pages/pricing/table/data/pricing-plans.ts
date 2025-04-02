@@ -24,7 +24,6 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       terraform: true,
       schedule: false,
       'online-schema-change': false,
-      'rollout-policy': { value: 'Basic', tooltip: 'Automatic' },
       'issue-setting': { value: 'Basic', tooltip: 'Labels' },
       synchronize: { value: 'Basic', tooltip: 'Sync from the latest schema version' },
       'batch-change': { value: 'Basic', tooltip: 'Multi-environment change' },
@@ -46,10 +45,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     collaboration: {
       ui: true,
       shared: true,
-      gitops: {
-        value: 'Basic',
-        tooltip: 'GitOps CI/CD, SQL Review CI',
-      },
+      gitops: true,
       im: {
         value: 'Basic',
         tooltip: 'IM + Custom Webhook',
@@ -104,7 +100,6 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       terraform: true,
       schedule: true,
       'online-schema-change': true,
-      'rollout-policy': { value: 'Advanced', tooltip: 'Automatic + Manual Review' },
       'issue-setting': {
         value: 'Advanced',
         tooltip: 'Title, label enforcement, auto backup, auto resolve',
@@ -132,10 +127,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     collaboration: {
       ui: true,
       shared: true,
-      gitops: {
-        value: 'Advanced',
-        tooltip: 'Basic + Latest Schema Write-back, SQL Scripts Sync',
-      },
+      gitops: true,
       im: {
         value: 'Basic',
         tooltip: 'IM + Custom Webhook',
@@ -193,7 +185,6 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       terraform: true,
       schedule: true,
       'online-schema-change': true,
-      'rollout-policy': { value: 'Advanced', tooltip: 'Automatic + Manual Review' },
       'issue-setting': {
         value: 'Advanced',
         tooltip: 'Title, label enforcement, auto backup, auto resolve',
@@ -221,10 +212,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     collaboration: {
       ui: true,
       shared: true,
-      gitops: {
-        value: 'Advanced',
-        tooltip: 'Basic + Latest Schema Write-back, SQL Scripts Sync',
-      },
+      gitops: true,
       im: {
         value: 'Advanced',
         tooltip: 'Basic + IM Approval',
@@ -280,7 +268,6 @@ const LABELS = [
       terraform: 'Terraform integration',
       schedule: 'Scheduled rollout',
       'online-schema-change': 'Online schema change',
-      'rollout-policy': 'Rollout policy',
       'issue-setting': 'Issue setting',
       synchronize: 'Synchronize schema between databases',
       'batch-change': 'Batch change',
