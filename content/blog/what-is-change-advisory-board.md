@@ -15,9 +15,10 @@ Key characteristics of a CAB include:
 
 - **Cross-functional representation**: Typically includes IT managers, technical specialists, business stakeholders, and security personnel
 - **Regular meetings**: Usually held weekly or bi-weekly to review pending change requests
-- **Formal evaluation process**: Uses standardized criteria to assess change risk and impact
-- **Decision authority**: Makes recommendations or decisions on change approvals
+- **Formal evaluation process**: Uses standardized criteria to assess change risk and impact and makes recommendations or decisions on change approvals
 - **Documentation**: Maintains records of all change requests and decisions
+
+![cab-characteristics](/content/blog/what-is-change-advisory-board/cab-characteristics.webp)
 
 The CAB plays a crucial role in ITIL (Information Technology Infrastructure Library) change management processes, helping organizations minimize disruption, prevent unintended consequences, and maintain service quality when implementing changes.
 
@@ -40,8 +41,6 @@ Several specialized tools help streamline and automate CAB processes:
 ![sn-change-management](/content/blog/what-is-change-advisory-board/sn-change-management.webp)
 
 ServiceNow offers a comprehensive Change Management module within its [IT Service Management](https://www.servicenow.com/products/itsm.html) platform. It features customizable visual workflows with approval paths based on change type and risk level, alongside automated risk assessment and collision detection capabilities.
-
-![sn-cab-workbench](/content/blog/what-is-change-advisory-board/sn-cab-workbench.webp)
 
 The dedicated [CAB Workbench](https://www.servicenow.com/docs/bundle/yokohama-it-service-management/page/product/change-management/concept/cab-workbench.html) interface streamlines request reviews, while robust integration with CMDB, incident management, and problem management creates a unified change ecosystem. Its calendar views effectively visualize schedules to prevent conflicts, making it ideal for enterprise-scale change management.
 
@@ -79,8 +78,10 @@ Database changes present unique challenges due to their business impact. Here ar
 
 **Schedule strategically**: Coordinate database changes during appropriate maintenance windows with minimal business impact, accounting for data volumes and processing patterns.
 
-**Learn from outcomes**: Track success rates and related incidents, using these metrics to continuously refine your assessment criteria and approval thresholds.
-
 **Balance control with velocity**: Automate approval for routine changes while maintaining strict review for high-impact modifications and establishing clear emergency procedures.
 
-By adapting standard CAB processes to the unique needs of database environments, organizations can maintain data integrity while supporting necessary system evolution.
+<HintBlock type="info">
+
+Bytebase includes the database CAB best practice and it also integrates with external CAB systems like [ServiceNow](/blog/database-change-automation-github-servicenow-integration/) to streamline the database change and permission grant once CAB approves.
+
+</HintBlock>
