@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import clsx from 'clsx';
 
 import { COLORS } from '@/components/pages/pricing/table/data/pricing-plans';
@@ -21,7 +19,6 @@ type CardProps = {
 
 const Card = ({
   planTitle,
-  image,
   price,
   priceDescription,
   description,
@@ -43,7 +40,7 @@ const Card = ({
     >
       <div
         className={clsx(
-          'flex min-h-[548px] w-full flex-col items-center xl:min-h-[588px] lg:min-h-[525px] md:min-h-[462px] sm:min-h-0 sm:items-start',
+          'flex min-h-[308px] w-full flex-col items-center xl:min-h-[348px] lg:min-h-[285px] md:min-h-[122px] sm:min-h-0 sm:items-start',
           additionalDescription ? 'sm:pb-4' : 'sm:pb-6',
         )}
       >
@@ -53,14 +50,6 @@ const Card = ({
         >
           {planTitle}
         </h2>
-        <Image
-          src={image}
-          width={240}
-          height={240}
-          alt=""
-          className="mt-3 lg:w-[220px] md:w-[180px] sm:absolute sm:right-4 sm:top-0 xs:w-[140px]"
-          priority
-        />
         <span
           className={clsx(
             'relative mt-4 font-title text-104 font-semibold leading-none tracking-tighter text-gray-15 lg:text-72 lg:tracking-normal md:mt-3 md:text-56',

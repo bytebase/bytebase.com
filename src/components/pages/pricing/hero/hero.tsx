@@ -7,7 +7,6 @@ import Card from './card';
 import Logos from './logos';
 
 type TCard = {
-  image: string;
   planTitle: keyof typeof COLORS;
   price: string | number;
   description: string;
@@ -21,7 +20,6 @@ type TCard = {
 
 const cards: TCard[] = [
   {
-    image: '/images/page/pricing/free.webp',
     planTitle: 'community',
     price: 'Free',
     description: 'Standardized Procedure',
@@ -36,7 +34,6 @@ const cards: TCard[] = [
     ],
   },
   {
-    image: '/images/page/pricing/team.webp',
     planTitle: 'pro',
     price: 20,
     priceDescription: 'user per month',
@@ -54,7 +51,6 @@ const cards: TCard[] = [
     ],
   },
   {
-    image: '/images/page/pricing/enterprise.webp',
     planTitle: 'enterprise',
     price: 'Custom',
     description: 'Security and Compliance',
