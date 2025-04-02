@@ -61,6 +61,30 @@ To separate from admin connection, you can configure read-only connections used 
 
 ![bb-instance-read-only-connection](/content/docs/get-started/instance/bb-instance-read-only-connection.webp)
 
+## Configuring Extra Connection Parameters  
+
+When connecting to a database instance, you may need to specify additional parameters to customize the connection behavior. Bytebase provides a feature that allows users to define extra parameters for the database connection string directly in the UI.  
+
+### Supported Database Connection Parameters  
+
+Below are links to official documentation for configuring connection parameters:  
+
+- **PostgreSQL**: [Connection Parameters](https://www.postgresql.org/docs/current/libpq-connect.html)  
+- **Oracle (Go-ORA)**: [Go-ORA Connection Options](https://github.com/sijms/go-ora)  
+- **MySQL (Go SQL Driver)**: [Connection Parameters](https://github.com/go-sql-driver/mysql?tab=readme-ov-file#parameters)  
+- **Microsoft SQL Server (Go-MSSQL)**: [Connection Options](https://pkg.go.dev/github.com/microsoft/go-mssqldb#section-readme)  
+
+### Common Connection Parameters  
+
+| Parameter | Description | Example |
+|-----------|-------------|---------|
+| `sslmode` | SSL connection mode (PostgreSQL) | `require` |
+| `connect_timeout` | Timeout for establishing connections | `10` |
+| `readTimeout` | Read timeout for MySQL and MSSQL connections | `30s` |
+| `max_connections` | Maximum number of connections allowed | `100` |
+
+For a full list of supported parameters, refer to the official database documentation links above.  
+
 ## Choose your data source in SQL Editor
 
 You may select data sources between the admin and read-only connection while running SQL queries in SQL Editor.
