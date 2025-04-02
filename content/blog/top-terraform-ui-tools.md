@@ -27,7 +27,7 @@ Terraform Cloud is HashiCorp's official SaaS platform for Terraform, designed to
 - **Version-controlled workflows** with integration to GitHub, GitLab, Bitbucket, and Azure DevOps
 - **Collaborative plan reviews** with commenting functionality
 - **Role-based access control** for enterprise users
-- **Policy as Code** enforcement with Sentinel
+- **Policy as Code** enforcement with Sentinel and OPA
 - **Cost estimation** for planned infrastructure changes
 - **Private module registry** for sharing reusable Terraform modules
 
@@ -131,7 +131,7 @@ Scalr offers both self-hosted and SaaS options:
 | State Management    | Built-in        | External    | External      | Built-in            |
 | VCS Integration     | Comprehensive   | Basic       | Comprehensive | Comprehensive       |
 | Module Registry     | ✅              | ❌          | ❌            | ✅                  |
-| Policy Enforcement  | Sentinel        | Basic       | ❌            | OPA                 |
+| Policy Enforcement  | Sentinel/OPA    | Basic       | ❌            | OPA                 |
 | Cost Estimation     | ✅              | ❌          | ❌            | ✅                  |
 | API Availability    | Full            | Limited     | Limited       | Full                |
 | Team Collaboration  | Advanced        | Basic       | PR-based      | Advanced            |
@@ -144,7 +144,7 @@ When selecting a Terraform UI tool, consider the following factors:
 
 1. **Team Size and Structure**: Larger, distributed teams benefit from the collaboration features in Terraform Cloud or Scalr.
 
-2. **Governance Requirements**: Organizations with strict compliance needs should look to Terraform Cloud's Sentinel policies or Scalr's OPA-based policy engine.
+2. **Governance Requirements**: Organizations with strict compliance needs should look to Terraform Cloud or Scalr's policy engine.
 
 3. **Workflow Integration**: Developer-centric teams may prefer Atlantis for its tight integration with the pull request process.
 
