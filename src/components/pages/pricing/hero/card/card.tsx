@@ -6,7 +6,6 @@ import { EVENTS } from '@/lib/events';
 
 type CardProps = {
   planTitle: keyof typeof COLORS;
-  image: string;
   price: string | number;
   description: string;
   buttonText: string;
