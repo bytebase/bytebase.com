@@ -3,7 +3,7 @@ title: 'MySQL vs. SQL Server: a Complete Comparison in 2025'
 author: Tianzhou
 updated_at: 2025/04/02 12:00
 feature_image: /content/blog/mysql-vs-sqlserver/banner.webp
-tags: Industry
+tags: Industry, Hidden
 description: 'An extensive comparison between MySQL and SQL Server on performance, usability, operability, ecosystem and more.'
 ---
 
