@@ -3,6 +3,8 @@
 
 ## [Overview](/reference/mysql/how-to/overview)
 
+## [How to set up MySQL using Docker](/reference/mysql/how-to/how-to-set-up-mysql-using-docker)
+
 ## [How to enable slow query log](/reference/mysql/how-to/how-to-enable-slow-query-log-mysql)
 
 ## [How to CREATE INDEX](/reference/mysql/how-to/how-to-create-index-mysql)

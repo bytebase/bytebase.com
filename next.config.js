@@ -183,6 +183,11 @@ module.exports = {
         destination: '/reference/mysql/how-to/how-to-enable-slow-query-log-mysql',
         permanent: true,
       },
+      {
+        source: `/blog/how-to-set-up-mysql-using-docker`,
+        destination: '/reference/mysql/how-to/how-to-set-up-mysql-using-docker',
+        permanent: true,
+      },
     ];
   },
   webpack: (config) => {
