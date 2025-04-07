@@ -1,14 +1,6 @@
 ---
-title: How to Configure ClickHouse SSL Connection
-author: Zipeng
-updated_at: 2022/07/20 10:37:00
-feature_image: /content/blog/how-to-configure-clickhouse-ssl-connection/lock.webp
-tags: How-To
-integrations: ClickHouse
-description: Configure ClickHouse SSL connection and test it by using self-signed CA.
+title: How to Configure ClickHouse SSL connection
 ---
-
-## Overview
 
 Follow this tutorial, you can configure the ClickHouse SSL connection and test it by using self-signed CA easily. The general steps are:
 
@@ -29,7 +21,7 @@ This tutorial will show you how to configure the ClickHouse SSL connection using
 
 Follow the [ClickHouse official document](https://clickhouse.com/docs/en/getting-started/install/). If no errors occur, you will see something like below:
 
-![Install ClickHouse successfully](/content/blog/how-to-configure-clickhouse-ssl-connection/install-clickhouse.webp)
+![Install ClickHouse successfully](/content/reference/clickhouse/how-to/how-to-configure-clickhouse-ssl-connection/install-clickhouse.webp)
 
 ### Install OpenSSL
 
@@ -44,7 +36,7 @@ OpenSSL 1.1.1f  31 Mar 2020
 
 We will generate the following certificate chain:
 
-![Certificate chain](/content/blog/how-to-configure-clickhouse-ssl-connection/key-chain.webp)
+![Certificate chain](/content/reference/clickhouse/how-to/how-to-configure-clickhouse-ssl-connection/key-chain.webp)
 
 ### OpenSSL Config
 
@@ -120,7 +112,7 @@ openssl x509 -req -days 36500 -sha256 -extensions v3_req -CA ca.pem -CAkey ca.ke
 
 After completing the above steps, you should have the following files:
 
-![Files](/content/blog/how-to-configure-clickhouse-ssl-connection/files.webp)
+![Files](/content/reference/clickhouse/how-to/how-to-configure-clickhouse-ssl-connection/files.webp)
 
 Those highlighted files will be used in the next section.
 
@@ -268,7 +260,7 @@ Run the following command, and you are expected to get some output like below:
 clickhouse-client –-config=clickhouse-client-ssl.xml
 ```
 
-![_](/content/blog/how-to-configure-clickhouse-ssl-connection/test-through-clickhouse-client.webp)
+![_](/content/reference/clickhouse/how-to/how-to-configure-clickhouse-ssl-connection/test-through-clickhouse-client.webp)
 
 ### Through MySQL Client
 
@@ -280,7 +272,7 @@ mysql -u default -p -h YOUR_SERVER_IP -P 9004 --ssl-ca=/etc/ssl/ca.pem --ssl-cer
 
 **Replace YOUR_SERVER_IP with your real server IP.**
 
-![_](/content/blog/how-to-configure-clickhouse-ssl-connection/test-through-mysql-client.webp)
+![_](/content/reference/clickhouse/how-to/how-to-configure-clickhouse-ssl-connection/test-through-mysql-client.webp)
 
 As expected, the result shows that the connection is over SSL.
 

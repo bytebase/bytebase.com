@@ -209,6 +209,17 @@ module.exports = {
         destination: '/reference/mysql/how-to/top-mysql-commands-with-examples',
         permanent: true,
       },
+      {
+        source: `/blog/how-to-run-clickhouse-with-docker-and-connect-using-mysql-client`,
+        destination:
+          '/reference/clickhouse/how-to/how-to-run-clickhouse-with-docker-and-connect-using-mysql-client',
+        permanent: true,
+      },
+      {
+        source: `/blog/how-to-configure-clickhouse-ssl-connection`,
+        destination: '/reference/clickhouse/how-to/how-to-configure-clickhouse-ssl-connection',
+        permanent: true,
+      },
     ];
   },
   webpack: (config) => {
