@@ -3,7 +3,15 @@
 
 ## [Overview](/reference/postgres/how-to/overview)
 
-## [Row Level Security (RLS)](/reference/postgres/how-to/overview/postgres-row-level-security)
+## [How to install Postgres using docker](/reference/postgres/how-to/how-to-install-postgres-using-docker)
+
+## [How to install Postgres on Your Mac, Ubuntu, CentOS, or Windows](/reference/postgres/how-to/how-to-install-postgres-on-mac-ubuntu-centos-windows)
+
+## [Row Level Security (RLS)](/reference/postgres/how-to/postgres-row-level-security)
+
+## [Top psql commands with examples](/reference/postgres/how-to/top-psql-commands-with-examples)
+
+## [How to manage users and roles](/reference/postgres/how-to/how-to-manage-postgres-users-and-roles)
 
 ## [How to check Postgres version](/reference/postgres/how-to/how-to-check-postgres-version)
 

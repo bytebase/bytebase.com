@@ -105,5 +105,4 @@ There are many tools out there, but at the end of the day, they are all differen
 - [Top 8 Free, Open Source SQL Clients to Make Database Management Easier](/blog/top-open-source-sql-clients/)
 - [Top 5 Postgres GUI Clients](/blog/top-postgres-gui-client/#the-starlet-tableplus)
 - [Top Postgres Extensions to Enhance Postgres 2023](/blog/top-postgres-extension/)
-- [How to Set Up Local Postgres on Your Mac, Ubuntu, CentOS, or Windows](/blog/how-to-install-local-postgres-on-mac-ubuntu-centos-windows/)
 - [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)

@@ -1,11 +1,5 @@
 ---
-title: How to Set Up Postgres Using Docker
-author: Ayra
-updated_at: 2024/09/10 12:00:00
-feature_image: /content/blog/how-to-set-up-postgres-using-docker/banner.webp
-tags: How-To
-featured: true
-description: 'Set up a local Postgres database with Docker.'
+title: How to install Postgres using docker
 ---
 
 <HintBlock type="info">
@@ -30,7 +24,7 @@ docker pull postgres
 
 And wait for the latest version of the PostgreSQL image to be downloaded.
 
-![step1](/content/blog/how-to-set-up-postgres-using-docker/step1.webp)
+![step1](/content/reference/postgres/how-to/how-to-install-postgres-using-docker/step1.webp)
 
 ## Step 2: Create and Run a PostgreSQL Container
 
@@ -48,7 +42,7 @@ Check whether the PostgreSQL container is running with this command:
 docker ps
 ```
 
-![step2](/content/blog/how-to-set-up-postgres-using-docker/step2.webp)
+![step2](/content/reference/postgres/how-to/how-to-install-postgres-using-docker/step2.webp)
 
 ## Step 3: Connect to the PostgreSQL Database and Operate
 
@@ -70,4 +64,4 @@ docker exec -it mypostgres psql -h localhost -U postgres
 
 Then we can operate with SQL command after the "#".
 
-![step3](/content/blog/how-to-set-up-postgres-using-docker/step3.webp)
+![step3](/content/reference/postgres/how-to/how-to-install-postgres-using-docker/step3.webp)

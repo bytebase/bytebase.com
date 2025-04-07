@@ -30,7 +30,7 @@ description: 'Customizable Masking Algorithms and Semantic Types for Data Maskin
 - Case Study: how electronic manufacturing company CVTE [upped up their database change management game](/blog/cvte-case-study/) with Batch Change, a simplified version control workflow AND granulated access control🏗️.
 - Database 101 series is back with [What is Database Version Control?](/blog/database-version-control/)🎯
 - Top [data masking solutions](/blog/postgres-data-masking/) for Postgres🔐.
-- `psql` is the official CLI to command Postgres. Here, we gathered [10 most-used `psql` commands](/blog/top-psql-commands-with-examples/), plus examples to get you started🐘.
+- `psql` is the official CLI to command Postgres. Here, we gathered [10 most-used `psql` commands](/reference/postgres/how-to/top-psql-commands-with-examples/), plus examples to get you started🐘.
 - A [handy guide](/blog/how-to-install-local-mysql-on-mac-ubuntu-centos-windows/) to get started with a local MySQL running on your system🐬.
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

@@ -220,6 +220,27 @@ module.exports = {
         destination: '/reference/clickhouse/how-to/how-to-configure-clickhouse-ssl-connection',
         permanent: true,
       },
+      {
+        source: `/blog/how-to-install-postgres-on-mac-ubuntu-centos-windows`,
+        destination:
+          '/reference/postgres/how-to/how-to-install-postgres-on-mac-ubuntu-centos-windows',
+        permanent: true,
+      },
+      {
+        source: `/blog/how-to-set-up-postgres-using-docker`,
+        destination: '/reference/postgres/how-to/how-to-install-postgres-using-docker',
+        permanent: true,
+      },
+      {
+        source: `/blog/top-psql-commands-with-examples`,
+        destination: '/reference/postgres/how-to/top-psql-commands-with-examples',
+        permanent: true,
+      },
+      {
+        source: `/blog/how-to-manage-postgres-users-and-roles`,
+        destination: '/reference/postgres/how-to/how-to-manage-postgres-users-and-roles',
+        permanent: true,
+      },
     ];
   },
   webpack: (config) => {

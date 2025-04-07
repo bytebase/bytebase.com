@@ -1,13 +1,6 @@
 ---
-title: How to Set Up Local Postgres on Your Mac, Ubuntu, CentOS, or Windows
-author: Mila
-updated_at: 2023/08/03 09:00:00
-feature_image: /content/blog/how-to-install-local-postgres-on-mac-ubuntu-centos-windows/banner.webp
-tags: How-To
-description: Learn how to set up local postgres on mac, ubuntu, centos and windows.
+title: How to install Local Postgres on Your Mac, Ubuntu, CentOS, or Windows
 ---
-
-## Introduction
 
 A local Postgres database is installed and running on your own computer or server, allows developers to work offline without depending on a remote server, and also enables them to quickly iterate on changes without risking data loss or corruption.
 

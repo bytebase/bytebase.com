@@ -1,10 +1,5 @@
 ---
-title: Top psql Commands with Examples
-author: Adela
-updated_at: 2023/11/16 18:00:00
-feature_image: /content/blog/top-psql-commands-with-examples/cover.webp
-tags: How-To
-description: The official psql CLI is still the most widely used PostgreSQL client. Let's learn the most common psql commands by example.
+title: Top psql commands with examples
 ---
 
 PostgreSQL, often simply called Postgres, is a free and open-source relational database management system (RDBMS) known for its reliability, feature robustness, and performance. It has been actively developed for over 35 years and is considered one of the most advanced open-source RDBMSs available.
@@ -200,7 +195,6 @@ Using the `\q` command or the keyboard shortcut `Ctrl+D`(or `Ctrl+Z` on windows)
 
 ## Further Readings
 
-- [How to Set Up Local Postgres on Your Mac, Ubuntu, CentOS, or Windows](/blog/how-to-install-local-postgres-on-mac-ubuntu-centos-windows/)
 - [Top 5 Postgres GUI Clients](/blog/top-postgres-gui-client/)
 - [Top Free, Open Source SQL Clients](/blog/top-open-source-sql-clients)
 - [Top Postgres Extensions](/blog/top-postgres-extension/)
