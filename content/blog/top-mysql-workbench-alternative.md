@@ -86,4 +86,4 @@ There are many tools out there, but at the end of the day, they are all differen
 - [Top MySQL GUI Clients](/blog/top-mysql-gui-client/#the-old-school-phpmyadmin)
 - [Top Database Schema Migration Tools](/blog/top-database-schema-change-tool-evolution/)
 - [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools/)
-- [How to Install MySQL Client on Your Mac, Ubuntu, CentOS, Windows](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows/) (in case you don't feel like using any GUI at all)
+- [How to Install MySQL Client on Your Mac, Ubuntu, CentOS, Windows](/reference/mysql/how-to/how-to-install-mysql-client-on-mac-ubuntu-centos-windows/) (in case you don't feel like using any GUI at all)

@@ -3,7 +3,11 @@
 
 ## [Overview](/reference/mysql/how-to/overview)
 
-## [How to set up MySQL using Docker](/reference/mysql/how-to/how-to-set-up-mysql-using-docker)
+## [How to install MySQL using Docker](/reference/mysql/how-to/how-to-install-mysql-using-docker)
+
+## [How to install MySQL on Mac, Ubuntu, CentOS, Windows](/reference/mysql/how-to/how-to-install-mysql-on-mac-ubuntu-centos-windows)
+
+## [How to install MySQL Shell on Mac](/reference/mysql/how-to/how-to-install-mysql-shell-on-macos)
 
 ## [How to enable slow query log](/reference/mysql/how-to/how-to-enable-slow-query-log-mysql)
 

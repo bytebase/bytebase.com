@@ -1,15 +1,10 @@
 ---
 title: How to Install MySQL Client on Your Mac, Ubuntu, CentOS, Windows
-author: Tianzhou
-updated_at: 2023/07/13 09:00:00
-feature_image: /content/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows/cover.webp
-tags: How-To
-description: Learn how to install the official MySQL client on mac, ubuntu, centos and window.
 ---
 
 <HintBlock type="info">
 
-This article refers to the classic MySQL CLI, if you want to install the advanced [MySQL Shell `mysqlsh`](https://dev.mysql.com/doc/mysql-shell/8.0/en/) introduced in MySQL 8.0, check out [How to install MySQL Shell on Your Mac](/blog/how-to-install-mysql-shell-on-macos).
+This article refers to the classic MySQL CLI, if you want to install the advanced [MySQL Shell `mysqlsh`](https://dev.mysql.com/doc/mysql-shell/8.0/en/) introduced in MySQL 8.0, check out [How to install MySQL Shell on Your Mac](/reference/mysql/how-to/how-to-install-mysql-shell-on-macos).
 
 </HintBlock>
 
@@ -152,8 +147,8 @@ mysql --version
 
 The classic MySQL client is still the most widely used MySQL client. Meanwhile you can also check out following tools
 
-1. [MySQL Shell `mysqlsh`](/blog/how-to-install-mysql-shell-on-macos) introduced in MySQL 8.0 to provide more advanced features over `mysql`.
+1. [MySQL Shell `mysqlsh`](/reference/mysql/how-to/how-to-install-mysql-shell-on-macos) introduced in MySQL 8.0 to provide more advanced features over `mysql`.
 1. [Top MySQL GUI client](/blog/top-mysql-gui-client)
 1. [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools)
 1. [Top Free Open Source SQL Clients](/blog/top-open-source-sql-clients)
-1. [Top mysql Commands with Examples](/blog/top-mysql-commands-with-examples)
+1. [Top mysql Commands with Examples](/reference/mysql/how-to/top-mysql-commands-with-examples)

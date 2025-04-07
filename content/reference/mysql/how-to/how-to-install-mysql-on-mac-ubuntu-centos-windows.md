@@ -1,11 +1,5 @@
 ---
-title: How to Install Local MySQL on Your Mac, Ubuntu, CentOS, Windows
-author: Mila
-updated_at: 2023/11/10 21:21:21
-feature_image: /content/blog/how-to-install-local-mysql-on-mac-ubuntu-centos-windows/banner.webp
-tags: How-To
-featured: true
-description: 'Learn how to set up a local MySQL database on your macOS, Ubuntu, CentOS, or Windows system.'
+title: How to install local MySQL on your Mac, Ubuntu, CentOS, Windows
 ---
 
 ## Introduction
@@ -16,7 +10,7 @@ Below is a tutorial on how to install a local MySQL database server on your Mac,
 
 <HintBlock type="info">
 
-To interact with your local MySQL database, you can [install the classic MySQL CLI](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows/).
+To interact with your local MySQL database, you can [install the classic MySQL CLI](/reference/mysql/how-to/how-to-install-mysql-client-on-mac-ubuntu-centos-windows/).
 
 </HintBlock>
 
@@ -186,9 +180,9 @@ Congratulations! You have successfully installed MySQL locally on your system. Y
 
 And of course, you will need a few tools to better master and interact with MySQL, for example:
 
-1. [MySQL Client `mysql`](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows)
-1. [MySQL Shell `mysqlsh`](/blog/how-to-install-mysql-shell-on-macos) introduced in MySQL 8.0 to provide more advanced features over `mysql`.
+1. [MySQL Client `mysql`](/reference/mysql/how-to/how-to-install-mysql-client-on-mac-ubuntu-centos-windows)
+1. [MySQL Shell `mysqlsh`](/reference/mysql/how-to/how-to-install-mysql-shell-on-macos) introduced in MySQL 8.0 to provide more advanced features over `mysql`.
 1. [Top MySQL GUI client](/blog/top-mysql-gui-client)
 1. [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools)
 1. [Top Free Open Source SQL Clients](/blog/top-open-source-sql-clients)
-1. [Top mysql Commands with Examples](/blog/top-mysql-commands-with-examples)
+1. [Top mysql Commands with Examples](/reference/mysql/how-to/top-mysql-commands-with-examples)

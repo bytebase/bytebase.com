@@ -1,5 +1,5 @@
 ---
-title: How to set up MySQL using Docker
+title: How to install MySQL using Docker
 ---
 
 <HintBlock type="info">
@@ -62,7 +62,7 @@ Alternatively, if you have the MySQL client installed on your host machine:
 
 <HintBlock type="info">
 
-To install MySQL client, you can refer to [this post](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows).
+To install MySQL client, you can refer to [this post](/reference/mysql/how-to/how-to-install-mysql-client-on-mac-ubuntu-centos-windows).
 
 </HintBlock>
 

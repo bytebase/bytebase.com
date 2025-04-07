@@ -1,15 +1,10 @@
 ---
-title: How to install MySQL Shell on Your Mac
-author: Mila
-updated_at: 2022/06/30 17:30:30
-feature_image: /content/blog/how-to-install-mysql-shell-on-macos/mysql-mac.webp
-tags: How-To
-description: Learn how to install MySQL Shell on your macOS.
+title: How to install MySQL Shell on your Mac
 ---
 
 <HintBlock type="info">
 
-This article refers to the advanced MySQL Shell introduced in MySQL 8.0, if you want to install the classic [MySQL client `mysql`](https://dev.mysql.com/doc/refman/8.0/en/mysql.html), check out [How to install MySQL Client on Your Mac, Ubuntu, Debian, Windows](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows).
+This article refers to the advanced MySQL Shell introduced in MySQL 8.0, if you want to install the classic [MySQL client `mysql`](https://dev.mysql.com/doc/refman/8.0/en/mysql.html), check out [How to install MySQL Client on Your Mac, Ubuntu, Debian, Windows](/reference/mysql/how-to/how-to-install-mysql-client-on-mac-ubuntu-centos-windows).
 
 </HintBlock>
 
@@ -25,7 +20,7 @@ brew -v
 
 If you have, the terminal will display something like this:
 
-![_](/content/blog/how-to-install-mysql-shell-on-macos/brew-version.webp)
+![_](/content/reference/mysql/how-to/how-to-install-mysql-shell-on-macos/brew-version.webp)
 
 Otherwise, run the following command to install Homebrew first:
 
@@ -78,15 +73,15 @@ The second way is to download the [MySQL Shell for the macOS package](https://de
 
 Select the corresponding Operating System and OS Version of your Mac, and download the package.
 
-![_](/content/blog/how-to-install-mysql-shell-on-macos/mac-version.webp)
+![_](/content/reference/mysql/how-to/how-to-install-mysql-shell-on-macos/mac-version.webp)
 
 Double-click the downloaded DMG file, a Finder window will show up.
 
-![_](/content/blog/how-to-install-mysql-shell-on-macos/mysql-shell-pkg.webp)
+![_](/content/reference/mysql/how-to/how-to-install-mysql-shell-on-macos/mysql-shell-pkg.webp)
 
 Double-click to extract the .pkg file, and then follow the instructions as shown in the installation wizard.
 
-![_](/content/blog/how-to-install-mysql-shell-on-macos/mysql-install-wizard.webp)
+![_](/content/reference/mysql/how-to/how-to-install-mysql-shell-on-macos/mysql-install-wizard.webp)
 
 When the installer finishes, it means you have successfully installed MySQL Shell for Mac, feel free to eject the DMG and delete the file.
 
@@ -125,7 +120,7 @@ This will start MySQL Shell in JavaScript mode (by default). To connect to a ser
 
 MySQL Shell provides the advanced capabilities. Meanwhile you can also check out following tools:
 
-1. [Classic `mysql`](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows), still the most widely used MySQL client.
+1. [Classic `mysql`](/reference/mysql/how-to/how-to-install-mysql-client-on-mac-ubuntu-centos-windows), still the most widely used MySQL client.
 1. [Top MySQL GUI client](/blog/top-mysql-gui-client).
 1. [Top MySQL Schema Compare Tool to Diff and Sync Database](/blog/top-mysql-schema-compare-tools).
 1. [Top Free Open Source SQL Clients](/blog/top-open-source-sql-clients).

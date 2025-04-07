@@ -29,8 +29,8 @@ description: 'Support GitHub Enterprise for VCS integration; export data as XLSX
 - Extensibility is PostgreSQL's DNA, what are the [top Postgres extensions](/blog/top-postgres-extension/)?
 - 🔥A non-exhaustive list of [DBaaS providers](/blog/database-as-a-service-dbaas-provider/) on the market.
 - Plus some handy tutorials:
-  - Common [mysql commands with examples](/blog/top-mysql-commands-with-examples/).
-  - How to [install MySQL Client](/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows/) on Your Mac, Ubuntu, CentOS, or Windows
+  - Common [mysql commands with examples](/reference/mysql/how-to/top-mysql-commands-with-examples/).
+  - How to [install MySQL Client](/reference/mysql/how-to/how-to-install-mysql-client-on-mac-ubuntu-centos-windows/) on Your Mac, Ubuntu, CentOS, or Windows
   - Snowflake Schema Change [Best Practice](/blog/snowflake-schema-change/).
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

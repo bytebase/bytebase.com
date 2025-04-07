@@ -185,7 +185,28 @@ module.exports = {
       },
       {
         source: `/blog/how-to-set-up-mysql-using-docker`,
-        destination: '/reference/mysql/how-to/how-to-set-up-mysql-using-docker',
+        destination: '/reference/mysql/how-to/how-to-install-mysql-using-docker',
+        permanent: true,
+      },
+      {
+        source: `/blog/how-to-install-local-mysql-on-mac-ubuntu-centos-windows`,
+        destination: '/reference/mysql/how-to/how-to-install-mysql-on-mac-ubuntu-centos-windows',
+        permanent: true,
+      },
+      {
+        source: `/blog/how-to-install-mysql-shell-on-macos`,
+        destination: '/reference/mysql/how-to/how-to-install-mysql-shell-on-macos',
+        permanent: true,
+      },
+      {
+        source: `/blog/how-to-install-mysql-client-on-mac-ubuntu-centos-windows`,
+        destination:
+          '/reference/mysql/how-to/how-to-install-mysql-client-on-mac-ubuntu-centos-windows',
+        permanent: true,
+      },
+      {
+        source: `/blog/top-mysql-commands-with-examples`,
+        destination: '/reference/mysql/how-to/top-mysql-commands-with-examples',
         permanent: true,
       },
     ];
