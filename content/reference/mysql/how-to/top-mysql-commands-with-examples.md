@@ -1,5 +1,5 @@
 ---
-title: Top mysql Commands with Examples
+title: Top mysql commands with examples
 ---
 
 MySQL is the world's most popular open-source relational database management system that uses SQL to manage data.

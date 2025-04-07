@@ -9,6 +9,8 @@
 
 ## [How to install MySQL Shell on Mac](/reference/mysql/how-to/how-to-install-mysql-shell-on-macos)
 
+## [Top mysql commands with examples](/reference/mysql/how-to/top-mysql-commands-with-examples)
+
 ## [How to enable slow query log](/reference/mysql/how-to/how-to-enable-slow-query-log-mysql)
 
 ## [How to CREATE INDEX](/reference/mysql/how-to/how-to-create-index-mysql)
