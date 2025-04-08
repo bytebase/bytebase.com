@@ -13,7 +13,7 @@ This is a series of articles about database version control and database-as-code
 1. [Database Version Control, State-based or Migration-based?](/blog/database-version-control-state-based-vs-migration-based)
 1. [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
 1. [The Database as Code Landscape](/blog/database-as-code-landscape)
-
+1. [Database Version Control Best Practice](/blog/database-version-control-best-practice)
 ---
 
 Database version control is the practice of managing and tracking changes to a database schema and its associated data over time. It involves using version control systems and techniques to keep a history of modifications made to a database, enabling teams to track changes, collaborate effectively, and deploy updates with confidence.

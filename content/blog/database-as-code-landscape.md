@@ -14,6 +14,7 @@ This is a series of articles about database version control and database-as-code
 1. [Database Version Control, State-based or Migration-based?](/blog/database-version-control-state-based-vs-migration-based)
 1. [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
 1. The Database as Code Landscape (this one)
+1. [Database Version Control Best Practice](/blog/database-version-control-best-practice)
 
 ---
 
