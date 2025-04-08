@@ -47,7 +47,7 @@ DevOps and DevSecOps are methodologies aimed at improving software development a
 
 - **DevSecOps Tools** (Layered into the pipeline):
   - **Code Scanning:** SonarQube, Snyk Code, Fortify
-  - **Security Testing:** OWASP ZAP, Burp Suite, Checkov
+  - **Security Testing:** OWASP ZAP, Checkov
   - **Runtime Security:** Wiz, Falco, Aqua Security
   - **Policy & Compliance:** Open Policy Agent (OPA), Drata, Vanta
 
@@ -59,10 +59,10 @@ DevOps and DevSecOps are methodologies aimed at improving software development a
 
 ## Summary
 
-| Dimension         | DevOps                                                   | DevSecOps                                               |
-|------------------|-----------------------------------------------------------|----------------------------------------------------------|
-| **Focus**         | Speed, automation, and collaboration                     | Speed with integrated security throughout the pipeline   |
-| **Security**      | Added late in the cycle (e.g., during final review)       | Embedded in every stage from planning to production      |
-| **Mindset**       | “You build it, you run it”                                | “Security is everyone’s responsibility”                  |
-| **Tools**         | CI/CD, IaC, container orchestration, monitoring           | All DevOps tools + security scanners, audit tools        |
-| **Speed vs Security** | Prioritizes speed, may defer security checks          | Balances speed with continuous security validation       |
+| Dimension             | DevOps                                              | DevSecOps                                              |
+| --------------------- | --------------------------------------------------- | ------------------------------------------------------ |
+| **Focus**             | Speed, automation, and collaboration                | Speed with integrated security throughout the pipeline |
+| **Security**          | Added late in the cycle (e.g., during final review) | Embedded in every stage from planning to production    |
+| **Mindset**           | “You build it, you run it”                          | “Security is everyone’s responsibility”                |
+| **Tools**             | CI/CD, IaC, container orchestration, monitoring     | All DevOps tools + security scanners, audit tools      |
+| **Speed vs Security** | Prioritizes speed, may defer security checks        | Balances speed with continuous security validation     |
