@@ -44,6 +44,7 @@ export default function ResourcesPage() {
           <ResourceCard title="🔧 Spanner How-to Guide" link="/reference/spanner/how-to/overview" />
           <ResourceCard title="🔍 SQL Review Guide" link={Route.SQL_REVIEW_GUIDE} />
           <ResourceCard title="📚 Database Glossary" link={Route.DATABASE_GLOSSARY} />
+          <ResourceCard title="🏗️ Migration Guide" link="/reference/migration/overview" />
         </div>
       </section>
     </>

@@ -88,6 +88,7 @@ const Route = {
   REFERENCE_MYSQL_ERROR: '/reference/mysql/error',
   REFERENCE_MYSQL_HOW_TO: '/reference/mysql/how-to',
   REFERENCE_SPANNER_HOW_TO: '/reference/spanner/how-to',
+  REFERENCE_MIGRATION: '/reference/migration',
 
   // blog
   BLOG_CASE_STUDY: '/blog/category/case-study',
