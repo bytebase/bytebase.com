@@ -6,12 +6,16 @@ tags: Tutorial
 integrations: General
 level: Beginner
 estimated_time: '30 mins'
-description: This tutorial
+description: This tutorial shows you how to configure risk rules in Bytebase to manage changes effectively.
 ---
+
+Database changes are high-stakes operations that can affect data integrity, performance, and business continuity. As teams scale, manually assessing risks becomes impractical.
+
+Bytebase simplifies this with automated risk assessment, allowing you to define risk conditions and enforce security policies. In this tutorial, we'll show you how to configure risk rules in Bytebase to manage changes effectively.
 
 ## Bytebase Risk Identification
 
-Bytebase provides a comprehensive risk assessment feature, enabling developers to automatically identify the risk level of every database change by defining various risk conditions and associating them with different security policies.
+The risk assessment feature Bytebase provides, enables developers to automatically identify the risk level of every database change by defining various risk conditions and associating them with different security policies.
 
 Bytebase allows risk conditions to be customized for different database operations, including **DDL**, **DML**, **data export**, and **query role requests**. The specific risk conditions include:
 
@@ -120,4 +124,6 @@ In addition to the key risk conditions, you can incorporate more risk conditions
    affected_rows > 1000
    ```
 
+## Next Steps
 
+Now you have configured the risk rules in Bytebase. Based on this, next step is to map risk rules to security policies like custom approval policies to enhance the security of your database changes.
