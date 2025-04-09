@@ -19,6 +19,8 @@
 
 ## [How to CREATE TABLE](/reference/mysql/how-to/how-to-create-table-mysql)
 
+## [How to CREATE INDEX on large table](/reference/mysql/how-to/how-to-create-index-on-large-table-mysql)
+
 ## [How to ALTER TABLE](/reference/mysql/how-to/how-to-alter-table-mysql)
 
 ## [How to ALTER COLUMN TYPE](/reference/mysql/how-to/how-to-alter-column-type-mysql)
