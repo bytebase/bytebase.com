@@ -19,7 +19,7 @@ const data: AccordionData[] = [
     image: '/images/page/main/sql-editor/run.webp',
   },
   {
-    title: 'Control data access',
+    title: 'Just-in-time data access',
     description: 'Centralized access control to ensure data security.',
     image: '/images/page/main/sql-editor/access-control.webp',
   },
