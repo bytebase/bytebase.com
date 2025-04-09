@@ -34,6 +34,8 @@ By integrating AI capabilities, DataGrip can provide schema-aware AI chat, text-
 
 ### Outerbase
 
+_Outerbase has been [acquired by Cloudflare](https://blog.cloudflare.com/cloudflare-acquires-outerbase-database-dx/) in 2025_
+
 ![outerbase](/content/blog/database-tool-review-2024/outerbase.webp)
 
 [Outerbase](https://www.outerbase.com/) is an AI-powered database platform that enables users to view, query, visualize, and edit their data through an intuitive interface. Recently, they [open-sourced Outerbase Studio](https://github.com/outerbase/studio) browser-based GUI client for managing databases like SQLite, PostgreSQL, and MySQL.

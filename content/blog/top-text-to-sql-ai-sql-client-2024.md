@@ -42,6 +42,8 @@ SQL Chat supports the following databases and will add more over time:
 
 ## Outerbase
 
+_Outerbase has been [acquired by Cloudflare](https://blog.cloudflare.com/cloudflare-acquires-outerbase-database-dx/) in 2025_
+
 [Outerbase](https://www.outerbase.com/) impresses users at first sight with its strong-sense-of-tech and comics-style interface.
 
 ![](/content/blog/top-text-to-sql-ai-sql-client-2024/outerbase.webp)

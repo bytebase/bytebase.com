@@ -44,6 +44,8 @@ AI Query was launched on Product Hunt just one month after ChatGPT was released 
 
 ## Outerbase
 
+_Outerbase has been [acquired by Cloudflare](https://blog.cloudflare.com/cloudflare-acquires-outerbase-database-dx/) in 2025_
+
 [Outerbase](https://outerbase.com/) was released earlier this year and can be used on top of Postgres, MySQL, and most relational databases. Outerbase has a super modern and minimal interface compared to traditional database management tools. The user experience is similar to that of a spreadsheet. Although it also has AI-enhanced capabilities to assist with writing SQL and gaining insights from the database, it feels more like a SQL client designed for data analysts and business users.
 
 ![](/content/blog/top-sql-ai-tools/outerbase.webp)

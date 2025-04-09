@@ -54,6 +54,8 @@ The database behind OSSInsight is TiDB, and TiDB Cloud recently also launched an
 
 ## Outerbase
 
+_Outerbase has been [acquired by Cloudflare](https://blog.cloudflare.com/cloudflare-acquires-outerbase-database-dx/) in 2025_
+
 [Outerbase](https://outerbase.com/) is a new tool that was officially released on Feb.15, 2023. Compared with traditional database management tools, Outerbase completely conforms to current aesthetics. Its user experience is similar to that of an Excel spreadsheet, and it uses GPT-3 to help users write SQL queries and generate dashboards, making it useful for both developers and data analysts.
 
 ![_](/content/blog/chatgpt-enhanced-database-tools/outerbase.webp)
