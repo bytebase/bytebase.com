@@ -23,6 +23,8 @@
 
 ## [How to CREATE TABLE](/reference/postgres/how-to/how-to-create-table-postgres)
 
+## [How to CREATE INDEX on large table](/reference/postgres/how-to/how-to-create-index-on-large-table-postgres)
+
 ## [How to ALTER TABLE](/reference/postgres/how-to/how-to-alter-table-postgres)
 
 ## [How to ALTER COLUMN TYPE](/reference/postgres/how-to/how-to-alter-column-type-postgres)
