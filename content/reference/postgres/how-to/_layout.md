@@ -11,6 +11,8 @@
 
 ## [Top psql commands with examples](/reference/postgres/how-to/top-psql-commands-with-examples)
 
+## [Postgres Security Best Practices](/reference/postgres/how-to/postgres-security-best-practices)
+
 ## [How to manage users and roles](/reference/postgres/how-to/how-to-manage-postgres-users-and-roles)
 
 ## [How to check Postgres version](/reference/postgres/how-to/how-to-check-postgres-version)
