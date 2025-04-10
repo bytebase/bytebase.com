@@ -8,11 +8,9 @@ enterprise license.
 
 ## Install
 
-- [Docker](/docs/get-started/self-host/#docker)
-- [Kubernetes](/docs/get-started/self-host/#kubernetes)
-
-Check out [System Requirements](/docs/faq/##system-requirements)
-and [Production Setup](/docs/administration/production-setup).
+- [System Requirements](/docs/faq/##system-requirements)
+- [Docker](/docs/get-started/self-host/#docker), [Kubernetes](/docs/get-started/self-host/#kubernetes)
+- [Production Setup](/docs/administration/production-setup)
 
 ## Understand Permission Model
 
