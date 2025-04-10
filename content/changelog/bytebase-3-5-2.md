@@ -1,0 +1,27 @@
+---
+title: Bytebase 3.5.2
+author: Adela
+updated_at: 2025/04/10 18:00:00
+feature_image: /content/changelog/3-5-2-banner.webp
+description: 'Support Cassandra in SQL Editor'
+---
+
+## 🚀 New Features
+
+- Support Cassandra in SQL Editor.
+
+## 🔔 Breaking Changes
+
+- List instance API returns at most 10 instances instead of all by default. The API requires using pagination parameter to fetch more. [Doc](https://api.bytebase.com/#tag/instanceservice/GET/v1/instances)
+
+- The statement field in Release API will be base64-encoded string. 
+
+## 🎄 Enhancements
+
+- Support displaying triggers for Oracle in SQL Editor.
+- Improve Elasticsearch parser accuracy.
+- Binary data in SQL editor now copies in its displayed format instead of the raw value.
+- Support "View Schema Text" for views in SQL Editor.
+- Service account emails now use workspace domain (if set) instead of default `@service.bytebase.com`.
+
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>
