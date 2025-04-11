@@ -31,6 +31,8 @@
 
 ## [How to ALTER TABLE](/reference/postgres/how-to/how-to-alter-table-postgres)
 
+## [How to ALTER large table](/reference/mysql/how-to/how-to-alter-large-table-postgres)
+
 ## [How to ALTER COLUMN TYPE](/reference/postgres/how-to/how-to-alter-column-type-postgres)
 
 ## [How to ADD CONSTRAINT](/reference/postgres/how-to/how-to-add-constraint-postgres)
