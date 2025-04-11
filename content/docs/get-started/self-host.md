@@ -494,3 +494,5 @@ ulimit -n 10240
 - [Deploy to Zeabur](/docs/get-started/install/deploy-to-zeabur/)
 
 - [Deploy to Alibaba Cloud](/docs/get-started/install/deploy-to-alibabacloud/)
+
+- [Deploy to ClawCloud Run](/docs/get-started/install/deploy-to-clawcloudrun/)
