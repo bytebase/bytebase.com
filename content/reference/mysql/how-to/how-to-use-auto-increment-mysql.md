@@ -8,12 +8,6 @@ _Official documentation: [AUTO_INCREMENT Handling in InnoDB](https://dev.mysql.c
 
 AUTO_INCREMENT is a column attribute in MySQL that automatically generates a unique identity for new rows. When you insert a new record without specifying a value for an AUTO_INCREMENT column, MySQL automatically assigns the next sequential value. This feature is commonly used for primary keys to ensure each row has a unique identifier.
 
-<HintBlock type="info">
-
-AUTO_INCREMENT is one of the most fundamental features for database schema design in MySQL. Bytebase's [SQL review](/docs/sql-review/overview/) can help ensure proper usage of AUTO_INCREMENT across your database fleet.
-
-</HintBlock>
-
 ## Creating Tables with AUTO_INCREMENT
 
 ### Basic Usage
@@ -261,12 +255,6 @@ END //
 DELIMITER ;
 ```
 
-<HintBlock type="info">
-
-For teams managing multiple MySQL databases, Bytebase provides [schema change workflows](/docs/change-database/change-workflow/) with safety checks to ensure your AUTO_INCREMENT values remain properly configured during migrations and schema changes.
-
-</HintBlock>
-
 ## MySQL vs Other Databases
 
 ### Comparison to PostgreSQL SERIAL
@@ -296,3 +284,4 @@ When working with both MySQL and PostgreSQL databases, Bytebase's [SQL review po
 - [MySQL Documentation: AUTO_INCREMENT](https://dev.mysql.com/doc/refman/8.0/en/example-auto-increment.html)
 - [InnoDB AUTO_INCREMENT Handling](https://dev.mysql.com/doc/refman/8.0/en/innodb-auto-increment-handling.html)
 - [MySQL AUTO_INCREMENT Lock Modes](https://dev.mysql.com/doc/refman/8.0/en/innodb-auto-increment-lock-modes.html)
+- [How to Choose between UUID and Auto Increment Integer](/blog/choose-primary-key-uuid-or-auto-increment/)

@@ -8,9 +8,7 @@ _Official documentation: [ALTER TABLE](https://dev.mysql.com/doc/refman/8.0/en/a
 
 <HintBlock type="info">
 
-Altering large tables in MySQL can be challenging and potentially disruptive. Without proper planning, ALTER operations on tables with millions of rows can cause extended downtime, lock tables, or consume excessive server resources.
-
-Many organizations require approval for schema changes on large tables. You can enforce [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#alter-table) via Bytebase.
+Altering large tables in MySQL can be challenging and potentially disruptive. Without proper planning, ALTER operations on tables with millions of rows can cause extended downtime, lock tables, or consume excessive server resources. Many organizations require approval for schema changes on large tables. You can enforce [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#alter-table) via Bytebase.
 
 </HintBlock>
 
@@ -195,36 +193,18 @@ ALGORITHM=INPLACE, LOCK=NONE;
 -- Or use pt-online-schema-change/gh-ost
 ```
 
-## Best Practices
+## Techniques
 
-1. **Schedule During Low Traffic Periods**: Even with online methods, perform alterations during off-peak hours.
+### Add Columns with Defaults
 
-2. **Test in Staging First**: Validate the ALTER operation on a copy of the production data to estimate time and resources needed.
+When adding columns, provide DEFAULT values to avoid table scanning.
 
-3. **Backup Before Changes**: Always create a database backup before altering large tables.
-
-4. **Break Down Changes**: Split multiple alterations into separate operations when possible.
-
-5. **Monitor Server Resources**: Watch CPU, memory, disk I/O, and disk space during operations.
-
-6. **Have a Rollback Plan**: Document steps to revert changes if problems occur.
-
-7. **Check Support for Online DDL**: Not all operations can use ALGORITHM=INPLACE. Verify using MySQL documentation.
-
-8. **Consider Row Format**: Using compressed row formats can reduce I/O for large tables.
-
-9. **Add Columns with Defaults**: When adding columns, provide DEFAULT values to avoid table scanning.
-
-   ```sql
-   -- Better approach for large tables
-   ALTER TABLE large_table
-   ADD COLUMN new_col INT DEFAULT 0 NOT NULL,
-   ALGORITHM=INPLACE, LOCK=NONE;
-   ```
-
-10. **Allow Extra Time for Replicas**: Estimate additional time for changes to propagate through replication.
-
-## Advanced Techniques
+    ```sql
+    -- Better approach for large tables
+    ALTER TABLE large_table
+    ADD COLUMN new_col INT DEFAULT 0 NOT NULL,
+    ALGORITHM=INPLACE, LOCK=NONE;
+    ```
 
 ### Altering Tables in Parallel (Multiple Tables)
 
@@ -266,12 +246,6 @@ For critical production systems with 24/7 requirements:
 2. Backfill shadow table during off-peak hours
 3. Verify data consistency between tables
 4. Perform atomic rename during minimal traffic window
-
-<HintBlock type="info">
-
-For teams managing large-scale database environments, Bytebase provides [schema change workflows](/docs/change-database/change-workflow/) with [pre-checks](/docs/sql-review/overview/) and [approval processes](/docs/administration/custom-approval/) to increase safety when altering large tables in production.
-
-</HintBlock>
 
 ## References
 

@@ -5,14 +5,6 @@ updated_at: 2025/03/10 12:00:00
 
 _Official documentation: [CREATE INDEX](https://dev.mysql.com/doc/refman/8.0/en/create-index.html)_
 
-<HintBlock type="info">
-
-When designing indexes, consider the query patterns that will use them. Not every column needs an index, and too many indexes can slow down write operations and increase storage requirements.
-
-Organizations often enforce index standards. You can implement [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#column) via Bytebase.
-
-</HintBlock>
-
 ## Basic Index Creation
 
 The simplest form of index creation uses the `CREATE INDEX` command:
@@ -202,3 +194,9 @@ ANALYZE TABLE your_table;
    - Rebuild fragmented indexes with `OPTIMIZE TABLE`
    - Update statistics with `ANALYZE TABLE`
    - Monitor and remove unused indexes
+
+<HintBlock type="info">
+
+When designing indexes, consider the query patterns that will use them. Not every column needs an index, and too many indexes can slow down write operations and increase storage requirements. Organizations often enforce index standards. You can implement [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#column) via Bytebase.
+
+</HintBlock>

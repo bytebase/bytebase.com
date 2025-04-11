@@ -9,9 +9,7 @@ _Official documentation: [CREATE INDEX](https://dev.mysql.com/doc/refman/8.0/en/
 
 <HintBlock type="info">
 
-Creating indexes on large tables can be resource-intensive and potentially disruptive. Without proper planning, these operations can cause extended downtime, lock tables, or consume excessive server resources.
-
-Many organizations require approval for index operations on large tables. You can enforce [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#index) via Bytebase.
+Creating indexes on large tables can be resource-intensive and potentially disruptive. Without proper planning, these operations can cause extended downtime, lock tables, or consume excessive server resources. Many organizations require approval for index operations on large tables. You can enforce [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#index) via Bytebase.
 
 </HintBlock>
 
@@ -190,37 +188,17 @@ ALGORITHM=INPLACE, LOCK=NONE;
 -- Free up disk space or use external storage
 ```
 
-## Best Practices
+## Techniques
 
-1. **Schedule During Low Traffic Periods**: Perform index creation during off-peak hours.
+### Use Partial Indexes
 
-2. **Monitor Server Resources**: Watch CPU, memory, disk I/O and space during the operation.
+```sql
+-- Index only part of a string column
+CREATE INDEX idx_large_text ON large_table (large_text_column(20));
 
-3. **Test in Staging**: Practice the operation in a similar environment with production-like data.
-
-4. **Backup First**: Always take a backup before major schema changes.
-
-5. **Consider Alternative Approaches**:
-
-   - Create the index on a replica first
-   - Use an intermediate temporary table
-   - Add indexes when initially loading data
-
-6. **Use Partial Indexes** when appropriate:
-
-   ```sql
-   -- Index only part of a string column
-   CREATE INDEX idx_large_text ON large_table (large_text_column(20));
-
-   -- Functional index on subset of data
-   CREATE INDEX idx_partial ON large_table ((CASE WHEN status='active' THEN id END));
-   ```
-
-7. **Monitor Replication**: If using replication, monitor lag on replicas during and after index creation.
-
-8. **Have a Rollback Plan**: Document steps to remove the index if problems occur.
-
-## Advanced Techniques
+-- Functional index on subset of data
+CREATE INDEX idx_partial ON large_table ((CASE WHEN status='active' THEN id END));
+```
 
 ### Staged Index Creation for Extremely Large Tables
 

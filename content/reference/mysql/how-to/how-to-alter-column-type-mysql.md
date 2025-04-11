@@ -5,13 +5,7 @@ updated_at: 2025/03/17 12:00:00
 
 _Official documentation: [ALTER TABLE](https://dev.mysql.com/doc/refman/8.0/en/alter-table.html)_
 
-<HintBlock type="info">
-
-Changing column type should be conducted with caution. Some organizations have strict approval process and even disallow altering column type at all. You can enforce [approval process](/docs/administration/custom-approval/) or [disallowing altering column type](/docs/sql-review/review-rules/#column.disallow-change-type) via Bytebase.
-
-</HintBlock>
-
-## Basic Syntax for Altering Column Type
+## Basic Syntax
 
 MySQL provides two primary methods to change a column's data type:
 
@@ -284,3 +278,9 @@ Not all conversions preserve data integrity. Here's a quick reference:
 6. **Use ALGORITHM and LOCK**: Specify optimal algorithm when possible
 
 7. **Consider Index Impact**: Be aware that indexes may need to be rebuilt
+
+<HintBlock type="info">
+
+Changing column type should be conducted with caution. Some organizations have strict approval process and even disallow altering column type at all. You can enforce [approval process](/docs/administration/custom-approval/) or [disallowing altering column type](/docs/sql-review/review-rules/#column.disallow-change-type) via Bytebase.
+
+</HintBlock>
