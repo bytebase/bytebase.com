@@ -8,6 +8,8 @@ featured: true
 description: Bytebase has obtained SOC 2 Type 1 certification, which is a significant milestone for Bytebase's security and compliance efforts.
 ---
 
+_Update: We have also acquired [SOC 2 Type 2](/blog/soc2-type2)_
+
 We are excited to announce that Bytebase has successfully obtained SOC 2 Type 1 certification. This certification validates our commitment to maintaining the highest standards of security, availability, and confidentiality in our database DevSecOps platform.
 
 To achieve and maintain SOC 2 compliance, we partnered with [Vanta](https://www.vanta.com/) for automated security monitoring and compliance.
