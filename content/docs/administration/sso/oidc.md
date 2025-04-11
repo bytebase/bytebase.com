@@ -28,12 +28,14 @@ Identity provider information:
 - **Issuer**: the issuer of the response (e.g. `https://accounts.google.com`)
 - **Client ID**: the client ID of your application
 - **Client secret**: the client secret of your application
+- **Scopes**: the scopes to request from the identity provider (e.g., `openid`, `profile`, `email`). Some providers also support a groups claim, which can be included by adding the `groups` scope. This is useful if you want to enable [**group syncing**](#group-syncing) as part of the authentication process.
 
 User information field mapping:
 
 - **Email**: the claims field to be used as the Bytebase user email address (e.g. `email`)
 - **Display name**: the claims field to be used as the Bytebase user display name (e.g. `name`, optional)
 - **Phone**: the claims field to be used as the Bytebase user phone number (e.g. `phone`, optional)
+- **Groups**: the claims field to be used as the Bytebase user groups (e.g. `groups`, optional). If this field is set, Bytebase will automatically perform [**group syncing**](#group-syncing) by default.
 
 ### Google
 
@@ -131,6 +133,18 @@ In some GitLab self-hosted setups, the **Issuer** is `http://gitlab.acme.com` (H
    - **Client secret**: the app secret of your application
    - **Email**: `email`
    - **Display name**: `name`
+
+## Group Syncing
+
+Bytebase supports syncing identity provider (IdP) groups with Bytebase user groups for providers that include a `groups` claim in their tokens.
+
+Group syncing is based on a one-to-one match using the **group title**. When a user logs in, Bytebase compares the group names from the IdP with existing Bytebase user group titles. If a match is found, the user is automatically added as a **Member** to the corresponding Bytebase user group.
+
+To ensure security and consistency, Bytebase also **automatically removes the user from any Bytebase groups that are not present in their IdP group claims**.
+
+Group syncing occurs during login, so if group membership changes in your IdP, users must log out and log back in for the changes to take effect.
+
+Some OIDC providers like **Okta** support the `groups` claim, but you’ll need to first **customize the tokens returned from Okta to include the `groups` claim**. For more information, refer to [Customize tokens returned from Okta with a groups claim](https://developer.okta.com/docs/guides/customize-tokens-groups-claim/main/).
 
 ## Troubleshoot
 
