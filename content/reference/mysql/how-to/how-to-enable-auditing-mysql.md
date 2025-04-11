@@ -4,7 +4,7 @@ title: How to enable auditing in MySQL
 
 ## Using General Query Log
 
-### Enable General Query Log
+Enable General Query Log:
 
 ```plain
 [mysqld]
@@ -12,13 +12,13 @@ general_log=ON
 general_log_file=/var/log/mysql/general.log
 ```
 
-### Restart MySQL
+Restart MySQL:
 
 ```bash
 sudo systemctl restart mysql
 ```
 
-### Verify
+Verify:
 
 ```sql
 -- Check general log status
@@ -110,11 +110,24 @@ WHERE PLUGIN_NAME = 'audit_log';
 SHOW VARIABLES LIKE 'audit_log%';
 ```
 
-<HintBlock type="info">
+## MySQL API-Based Auditing
 
-Enabling audit logging at the database level will impact performance. If you only want to audit human-to-database operations, Bytebase provides [centralized schema change workflows](/docs/change-database/change-workflow/) with comprehensive [audit trails](/docs/security/audit-logging/) and [compliance checks](/docs/sql-review/review-policy/).
+You can implement auditing directly using MySQL Connector API to capture all database operations with minimal performance impact:
 
-</HintBlock>
+### Basic Implementation
+
+- Create a custom database cursor class that intercepts SQL operations
+- Capture user, database, query text, and parameters when executed
+- Log this information to a file before allowing normal query execution
+- Extend MySQL Connector's standard cursor class by overriding execute methods
+- Implement logging functionality transparently to applications
+
+### Additional Considerations
+
+- Extend this approach to capture connection events and stored procedure calls
+- Forward audit logs to a central logging system (ELK, Prometheus, etc.)
+- Consider adding application context (user ID, request ID) to enhance traceability
+- Use async logging to minimize performance impact
 
 ## References
 

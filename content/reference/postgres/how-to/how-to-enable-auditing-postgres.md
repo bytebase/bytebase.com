@@ -2,19 +2,9 @@
 title: How to enable auditing in PostgreSQL
 ---
 
-<HintBlock type="info">
-
-PostgreSQL auditing allows you to track and log database activity, including user connections, query execution, and data modifications. Audit logs are crucial for security compliance, troubleshooting, and monitoring user activity in your database environment.
-
-Bytebase provides [centralized audit logging](/docs/security/audit-logging/) and [access control](/docs/security/data-access-control/) features that complement PostgreSQL's native auditing capabilities for enterprise environments.
-
-</HintBlock>
-
 ## PostgreSQL's Built-in Logging
 
-PostgreSQL offers built-in logging capabilities that can be configured for basic auditing:
-
-### Configure Log Settings
+**Configure Log Settings:**
 
 Add the following to your PostgreSQL configuration file (`postgresql.conf`):
 
@@ -34,18 +24,30 @@ log_disconnections = on
 log_duration = on
 ```
 
-- `log_statement`: Controls which SQL statements to log (none, ddl, mod, all)
-- `log_connections`: Log successful connections
-- `log_disconnections`: Log session terminations
-- `log_duration`: Include query execution time
+**Restart PostgreSQL:**
 
-## pg_audit Extension (Recommended)
+```bash
+# For systemd-based systems
+sudo systemctl restart postgresql
+
+# For older systems
+sudo service postgresql restart
+```
+
+**Verify:**
+
+```sql
+-- Check current logging settings
+SHOW log_statement;
+SHOW log_connections;
+SHOW logging_collector;
+```
+
+## pgAudit Extension (Recommended)
 
 For comprehensive auditing capabilities, install the `pgaudit` extension:
 
-### Install pgaudit
-
-For most distributions:
+**Install pgaudit:**
 
 ```bash
 # Debian/Ubuntu
@@ -55,15 +57,7 @@ sudo apt-get install postgresql-[version]-pgaudit
 sudo yum install pgaudit_[version]
 ```
 
-For source installation:
-
-```bash
-git clone https://github.com/pgaudit/pgaudit.git
-cd pgaudit
-make install
-```
-
-### Configure pgaudit
+**Configure pgaudit:**
 
 Add the following to your PostgreSQL configuration file (`postgresql.conf`):
 
@@ -86,77 +80,13 @@ Then enable the extension in your database:
 CREATE EXTENSION pgaudit;
 ```
 
-### Audit Session Logging
-
-For session-level auditing, which audits operations by specific users:
-
-```sql
--- Enable session audit logging for a user
-ALTER USER audited_user SET pgaudit.log = 'read, write';
-```
-
-### Object-level Audit Logging
-
-For more granular auditing of specific objects:
-
-```sql
--- Create audit role
-CREATE ROLE auditor;
-
--- Grant audit privileges on table
-GRANT SELECT ON sensitive_table TO auditor;
-
--- Enable object-level auditing for the table
-ALTER TABLE sensitive_table ENABLE AUDIT;
-```
-
-<HintBlock type="info">
-
-For large databases, selective auditing using `pgaudit.log_relation` can help minimize performance impact by focusing only on important tables.
-
-Bytebase offers [SQL review](/docs/sql-review/overview/) and [data access control](/docs/security/data-access-control/) features that provide audit capabilities with less overhead.
-
-</HintBlock>
-
-## Alternative: WAL-based Auditing
-
-For advanced use cases, you can use write-ahead log (WAL) decoding for auditing:
-
-```plain
-# Enable logical decoding
-wal_level = logical
-max_replication_slots = 10
-```
-
-This approach is more advanced but allows real-time monitoring of all data changes.
-
-## Restart PostgreSQL
-
-After changing the PostgreSQL configuration, restart the service to apply the changes:
+**Restart PostgreSQL:**
 
 ```bash
-# For systemd-based systems
 sudo systemctl restart postgresql
-
-# For older systems
-sudo service postgresql restart
 ```
 
-## Verify Auditing is Enabled
-
-### For Built-in Logging
-
-```sql
--- Check current logging settings
-SHOW log_statement;
-SHOW log_connections;
-SHOW logging_collector;
-
--- View recent logs (if using csvlog format)
-SELECT * FROM pg_logical_slot_peek_changes('audit_slot', NULL, NULL);
-```
-
-### For pgaudit Extension
+**Verify:**
 
 ```sql
 -- Verify the extension is installed
@@ -172,7 +102,65 @@ INSERT INTO test_audit VALUES (1);
 DROP TABLE test_audit;
 ```
 
-After these operations, check your log files for audit entries.
+<HintBlock type="info">
+
+For large databases, selective auditing using `pgaudit.log_relation` can help minimize performance impact by focusing only on important tables.
+
+</HintBlock>
+
+## WAL-based Auditing
+
+For advanced use cases, you can use write-ahead log (WAL) decoding for auditing:
+
+**Configure WAL Settings:**
+
+```plain
+# Enable logical decoding in postgresql.conf
+wal_level = logical
+max_replication_slots = 10
+```
+
+**Create Replication Slot:**
+
+```sql
+-- Create a replication slot for audit purposes
+SELECT * FROM pg_create_logical_replication_slot('audit_slot', 'test_decoding');
+```
+
+**Restart PostgreSQL:**
+
+```bash
+sudo systemctl restart postgresql
+```
+
+**Verify:**
+
+```sql
+-- Check if slot was created
+SELECT * FROM pg_replication_slots WHERE slot_name = 'audit_slot';
+
+-- View recent changes
+SELECT * FROM pg_logical_slot_peek_changes('audit_slot', NULL, NULL);
+```
+
+## PostgreSQL API-Based Auditing
+
+You can implement auditing at the application level using the PostgreSQL client libraries:
+
+**Basic Implementation:**
+
+- Create a custom connection wrapper that intercepts SQL operations
+- Capture user, database, query text, and parameters before execution
+- Record this information to a log file or audit table
+- Extend PostgreSQL's client interface to add auditing transparently
+- Implement hooks that applications can use without modifying existing code
+
+**Additional Considerations:**
+
+- Extend this approach to capture connection events and prepared statements
+- Forward audit logs to a central logging system (ELK, Prometheus, etc.)
+- Consider adding application context (user ID, request ID) to enhance traceability
+- Use async logging to minimize performance impact
 
 <HintBlock type="info">
 
