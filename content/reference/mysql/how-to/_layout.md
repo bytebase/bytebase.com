@@ -30,3 +30,5 @@
 ## [How to ALTER COLUMN TYPE](/reference/mysql/how-to/how-to-alter-column-type-mysql)
 
 ## [How to ADD CONSTRAINT](/reference/mysql/how-to/how-to-add-constraint-mysql)
+
+## [How to use AUTO_INCREMENT](/reference/mysql/how-to/how-to-use-auto-increment-mysql)

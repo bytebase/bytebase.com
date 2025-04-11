@@ -278,4 +278,4 @@ For teams managing large-scale database environments, Bytebase provides [schema 
 - [MySQL Online DDL Operations](https://dev.mysql.com/doc/refman/8.0/en/innodb-online-ddl-operations.html)
 - [Percona Toolkit Documentation](https://docs.percona.com/percona-toolkit/pt-online-schema-change.html)
 - [GitHub's gh-ost Documentation](https://github.com/github/gh-ost)
-- MySQL Error Reference
+- [MySQL Error Reference](/reference/mysql/error/overview/)
