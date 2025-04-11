@@ -18,7 +18,7 @@ PostgreSQL powers critical applications worldwide — but insecure deployments r
     - Disable the `trust` method in `pg_hba.conf`, especially in production.
     - Revoke unnecessary privileges from the `public` schema.
 
-## 2. Authentication Best Practices??? better name?
+## 2. Authentication and User Management
 
 **Role and User Management:**
 
