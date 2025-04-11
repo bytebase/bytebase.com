@@ -379,4 +379,4 @@ For teams managing large-scale database environments, Bytebase provides [schema 
 - [PostgreSQL ALTER TABLE Documentation](https://www.postgresql.org/docs/current/sql-altertable.html)
 - [pg_repack Documentation](https://reorg.github.io/pg_repack/)
 - [PostgreSQL Monitoring Progress](https://www.postgresql.org/docs/current/progress-reporting.html)
-- PostgreSQL Error Reference
+- [PostgreSQL Error Reference](/reference/postgres/error/overview/)
