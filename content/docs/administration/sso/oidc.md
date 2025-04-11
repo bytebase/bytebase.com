@@ -136,7 +136,7 @@ In some GitLab self-hosted setups, the **Issuer** is `http://gitlab.acme.com` (H
 
 ## Group Syncing
 
-Bytebase supports syncing identity provider (IdP) groups with Bytebase user groups for providers that include a `groups` claim in their tokens.
+Bytebase supports syncing identity provider (IdP) groups with [Bytebase user groups](/docs/administration/user-groups/) for providers that include a `groups` claim in their tokens.
 
 Group syncing is based on a one-to-one match using the **group title**. When a user logs in, Bytebase compares the group names from the IdP with existing Bytebase user group titles. If a match is found, the user is automatically added as a **Member** to the corresponding Bytebase user group.
 
