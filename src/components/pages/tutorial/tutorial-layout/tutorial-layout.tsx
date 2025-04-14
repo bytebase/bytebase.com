@@ -18,7 +18,7 @@ const TutorialLayout = ({ posts, children }: TutorialLayoutProps) => {
     <>
       {children}
       <section ref={wrapperRef} className="container lg:pt-12 md:pt-8 sm:pt-6">
-        <div className="gap-x-grid grid grid-cols-12">
+        <div className="w-full">
           <Posts posts={posts} />
         </div>
       </section>
