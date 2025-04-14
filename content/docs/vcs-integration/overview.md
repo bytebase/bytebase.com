@@ -29,13 +29,3 @@ Bytebase provides pre-built [GitHub Actions](https://github.com/marketplace?quer
 ## API
 
 If the pre-built GitHub Actions do not meet your needs or you want to integrate with other VCSs, you can use the [Bytebase API](/docs/api/overview) to build your own GitOps workflow.
-
-## Legacy GitOps
-
-<HintBlock type="warning">
-
-This feature is deprecated since 3.5.0 and we will sunset it in the future release.
-
-</HintBlock>
-
-Besides the API-driven GitOps, Bytebase also provides a [legacy GitOps workflow](/docs/vcs-integration/simple/overview/) based on the VCS webhooks.
