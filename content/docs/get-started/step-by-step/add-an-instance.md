@@ -8,9 +8,13 @@ title: Add an Instance
 
 - **Workspace Admin** or **Workspace DBA** role
 
-- Bytebase provides two embedded sample PostgreSQL instances. You may add your own or [add a local MySQL instance](/docs/tutorials/local-mysql-instance).
-
 ## Add instance
+
+<HintBlock type="info">
+
+Bytebase starts two embedded sample PostgreSQL instances accessible from `/tmp:8083` and `/tmp:8084`, you can turn them off by passing [--disable-sample](/docs/reference/command-line/#disable-sample) upon startup.
+
+</HintBlock>
 
 Go to **Instances** and **Add Instance**.
 
@@ -26,4 +30,4 @@ After instance is added, click **Sync Now** to synchronize the instance schema s
 
 ![bb-instance-sync](/content/docs/get-started/step-by-step/add-an-instance/bb-instance-sync.webp)
 
-By default, Bytebase doesn't automatically sync the instance schema. You can set a **Scan Interval** to ask Bytebase to sync the schema periodically.
+By default, Bytebase doesn't automatically sync the instance schema. You can set a [Scan Interval](/docs/administration/instance/#scan-interval) to ask Bytebase to sync the schema periodically.
