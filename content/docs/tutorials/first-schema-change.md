@@ -6,7 +6,7 @@ updated_at: 2024/10/10 20:00
 integrations: General
 level: Beginner
 estimated_time: '5 mins'
-pinned: true
+featured: true
 description: How to perform your first schema change in 5 minutes via Bytebase.
 ---
 

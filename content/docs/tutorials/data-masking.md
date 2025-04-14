@@ -6,7 +6,7 @@ tags: Tutorial
 integrations: General
 level: Intermediate
 estimated_time: '30 mins'
-pinned: true
+featured: true
 feature_name: DATA_MASKING
 description: This tutorial will teach you how to set up and try out data masking in Bytebase.
 ---

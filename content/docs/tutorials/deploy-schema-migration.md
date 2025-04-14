@@ -6,7 +6,7 @@ tags: Tutorial
 integrations: General
 level: Beginner
 estimated_time: '30 mins'
-pinned: true
+featured: true
 description: Bytebase offers a powerful GUI for schema migration deployments. This tutorial will show you how to use Bytebase to deploy schema migrations with features like SQL Review, custom approval, time scheduling, and more.
 ---
 
