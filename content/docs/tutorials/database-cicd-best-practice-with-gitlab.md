@@ -12,7 +12,7 @@ description: We already have CI/CD for code delivery, why not the database? Imag
 
 _Wanna other VCS providers instead?_ 👉
 
-- [The Database CI/CD Best Practice with GitHub](/docs/tutorials/database-cicd-best-practice-with-github)
+- [The Database CI/CD Best Practice with GitHub](/docs/tutorials/gitops-github-workflow)
 - [The Database CI/CD Best Practice with Azure DevOps](/docs/tutorials/database-cicd-best-practice-with-azure-devops)
 - [The Database CI/CD Best Practice with Bitbucket](/docs/tutorials/database-cicd-best-practice-with-bitbucket)
 
@@ -103,7 +103,7 @@ Now with Bytebase, you have a complete Database CI/CD workflow with GitLab. You 
 ## Further Readings
 
 - [How to integrate SQL Review into Your GitLab or GitHub CI/CD](/docs/tutorials/how-to-integrate-sql-review-into-gitlab-github-ci/)
-- [The Database CI/CD Best Practice with GitHub](/docs/tutorials/database-cicd-best-practice-with-github)
+- [The Database CI/CD Best Practice with GitHub](/docs/tutorials/gitops-github-workflow)
 - [The Database CI/CD Best Practice with Azure DevOps](/docs/tutorials/database-cicd-best-practice-with-azure-devops)
 - [The Database CI/CD Best Practice with Bitbucket](/docs/tutorials/database-cicd-best-practice-with-bitbucket)
 - [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)

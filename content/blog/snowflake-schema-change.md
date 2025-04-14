@@ -104,7 +104,7 @@ On the other hand, Bytebase records the change history in the interactive UI. By
 
 ### SQL Review
 
-Schemachange doesn't include SQL Reviews. In contrast, Bytebase offers predefined rules for Snowflake SQL Review. You can select some of these rules as the environment [SQL Review policy](/docs/sql-review/review-rules). By one click enabling SQL Review CI in the GitOps configuration, GitHub Actions are automatically built. Any PR involving SQL will then be reviewed automatically before it's merged. For a more detailed understanding of SQL Review in Bytebase CI/CD workflow, refer to [this article](/docs/tutorials/database-cicd-best-practice-with-github/).
+Schemachange doesn't include SQL Reviews. In contrast, Bytebase offers predefined rules for Snowflake SQL Review. You can select some of these rules as the environment [SQL Review policy](/docs/sql-review/review-rules). By one click enabling SQL Review CI in the GitOps configuration, GitHub Actions are automatically built. Any PR involving SQL will then be reviewed automatically before it's merged. For a more detailed understanding of SQL Review in Bytebase CI/CD workflow, refer to [this article](/docs/tutorials/gitops-github-workflow/).
 ![complete-cicd-workflow](/content/blog/snowflake-schema-change/complete-cicd-workflow.webp)
 
 ## Summary

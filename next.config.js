@@ -67,6 +67,16 @@ module.exports = {
         permanent: true,
       })),
       {
+        source: '/docs/tutorials/database-cicd-best-practice-with-github',
+        destination: '/docs/tutorials/gitops-github-workflow',
+        permanent: true,
+      },
+      {
+        source: '/docs/tutorials/database-cicd-best-practice-with-azure-devops',
+        destination: '/docs/tutorials/gitops-azure-devops-workflow',
+        permanent: true,
+      },
+      {
         source: '/blog/how-to-handle-database-migration',
         destination: '/blog/how-to-handle-database-schema-change',
         permanent: true,

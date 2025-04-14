@@ -27,4 +27,4 @@ For example, when submitting a change request, if the SQL in your MR violates an
 
 ![landscape](/content/blog/bytebase-gitlab-technology-partner/vcs-sql-review-gitlab.webp)
 
-To learn how to leverage Version Control System like GitHub or GitLab to codify your entire database development workflow, please check out [The Database CI/CD Best Practice](/docs/tutorials/database-cicd-best-practice-with-github/).
+To learn how to leverage Version Control System like GitHub or GitLab to codify your entire database development workflow, please check out [The Database CI/CD Best Practice](/docs/tutorials/gitops-github-workflow/).
