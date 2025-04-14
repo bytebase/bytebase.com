@@ -3,7 +3,7 @@ title: Custom Approval
 feature_name: CUSTOM_APPROVAL
 ---
 
-<TutorialBlock url="/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow" title="Database Change Management with Risk-Adjusted Approval Flow" />
+<TutorialBlock url="/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow" title="Database Change with Risk-Based Approval Flow" />
 
 <iframe width="675" height="380" src="https://www.youtube.com/embed/K_RWlqdplZQ" title="YouTube video player" className="w-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowFullScreen"></iframe>
 

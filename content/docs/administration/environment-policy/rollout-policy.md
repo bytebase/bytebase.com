@@ -2,7 +2,7 @@
 title: Rollout Policy
 ---
 
-<TutorialBlock url="/docs/tutorials/deploy-schema-migration" title="Deploy Schema Migration with Rollout Policy" />
+<TutorialBlock url="/docs/tutorials/deploy-schema-migration" title="Deploy Schema Change with Rollout Policy" />
 
 <HintBlock type="info">
 

@@ -128,6 +128,6 @@ In addition to the key risk conditions, you can incorporate more risk conditions
   affected_rows > 1000
   ```
 
-## Next Steps
+## Step-to-step Tutorial
 
-Now you have configured the risk rules in Bytebase. Based on this, next step is to map risk rules to security policies like custom approval policies to enhance the security of your database changes.
+<TutorialBlock url="/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow" title="Database Change with Risk-Based Approval Flow" />

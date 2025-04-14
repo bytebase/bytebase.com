@@ -1,5 +1,5 @@
 ---
-title: 'Database Change Management with Risk-Adjusted Approval Flow'
+title: 'Database Change with Risk-Based Approval Flow'
 author: Adela
 updated_at: 2023/06/01 16:15
 tags: Tutorial
@@ -98,6 +98,12 @@ CREATE TABLE `t1` (
    ![bb-issue-t1-done-no-af](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-t1-done-no-af.webp)
 
 ## Step 3 Configure a custom approval flow and run a schema change
+
+<HintBlock type="info">
+
+To learn the best practice, check out [Risk Center Best Practice](/docs/tutorials/risk-center-best-practice/).
+
+</HintBlock>
 
 1. Click **Settings** on the top bar, and then click **Security & Policy** > **Custom Approval**. Choose `Project Owner → DBA` for **DDL** > **High Risk** instead of `Skip manual approval` .
    ![bb-settings-custom-approval](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-settings-custom-approval.webp)

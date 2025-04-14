@@ -1,5 +1,5 @@
 ---
-title: Deploy Schema Migration with Rollout Policy
+title: Deploy Schema Change with Rollout Policy
 author: Adela
 updated_at: 2024/10/10 12:00
 tags: Tutorial

@@ -24,6 +24,12 @@ This is Part 1 of our tutorial series on implementing Just-in-Time (JIT) databas
 - Part 1: JIT database access via GUI (this one)
 - Part 2: [JIT database access via Slack](/docs/tutorials/just-in-time-database-access-part2)
 
+<HintBlock type="info">
+
+If you use AWS Aurora/RDS, you can check out [Just-in-time Database Access to Amazon Aurora](/docs/tutorials/just-in-time-database-access-amazon-aurora/) for AWS-specific setup.
+
+</HintBlock>
+
 ## Prerequisites
 
 Before you begin, make sure you have:

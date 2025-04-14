@@ -87,5 +87,8 @@ There are two ways to roll out on **Prod Stage** regarding the SQL review result
 
 ## Next Step
 
-Now you have successfully performed your first schema change, the core workflow in Bytebase. If you
-want to try manual review during rollout, please continue to [Deploy Schema Migration with Rollout Policy](/docs/tutorials/deploy-schema-migration/).
+Now you have successfully performed your first schema change, the core workflow in Bytebase. Next:
+
+- If you want to move changes between environments, follow [How to Move Schema Change from Test to Prod](/docs/tutorials/how-to-move-schema-change-from-test-to-prod/)
+- If you want to rollout manually, follow [Deploy Schema Change with Rollout Policy](/docs/tutorials/deploy-schema-migration/).
+- If you want to assign approvers before the rollout, follow [Database Change with Risk-Based Approval Flow](/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/)

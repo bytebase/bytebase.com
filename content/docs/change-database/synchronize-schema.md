@@ -17,9 +17,9 @@ You can use Schema Synchronization to:
 - Propagate the schema changes from the one database to others.
 - Revert the database schema to an old version.
 
-![workflow](/content/docs/change-database/synchronize-schema/workflow.webp)
-
 The overall workflow:
+
+![workflow](/content/docs/change-database/synchronize-schema/workflow.webp)
 
 1. Compare a source database schema with one or multiple target databases' schema.
 1. Generate the suggested DDL statements (e.g. `ALTER TABLE`) to transit the source database schema state to each of the target database schema.
@@ -28,13 +28,13 @@ The overall workflow:
 
 ## Supported Objects
 
-| Database              | Objects                                                                                                                                         |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| MySQL                 | `Table`, `Index`, `Constraint`, `View`, `Event`, `Trigger`, `Function`, `Procedure`                                                             |
-| PostgreSQL            | `Schema`, `Table`, `Index`, `Constraint`, `View`, `Materialized View`, `Sequence`, `Extension`, `Function`, `Procedure`, `Trigger`, `Enum Type` |
-| TiDB                  | `Table`, `Index`, `Constraint`, `View`                                                                                                          |
-| Oracle                | `Table`, `Index`, `Constraint`                                                                                                                  |
-| Microsoft SQL Server  | `Table`, `Index`, `Constraint`                                                                                                                  |
+| Database             | Objects                                                                                                                                         |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| MySQL                | `Table`, `Index`, `Constraint`, `View`, `Event`, `Trigger`, `Function`, `Procedure`                                                             |
+| PostgreSQL           | `Schema`, `Table`, `Index`, `Constraint`, `View`, `Materialized View`, `Sequence`, `Extension`, `Function`, `Procedure`, `Trigger`, `Enum Type` |
+| TiDB                 | `Table`, `Index`, `Constraint`, `View`                                                                                                          |
+| Oracle               | `Table`, `Index`, `Constraint`                                                                                                                  |
+| Microsoft SQL Server | `Table`, `Index`, `Constraint`                                                                                                                  |
 
 ## How to use
 

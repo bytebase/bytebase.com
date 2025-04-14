@@ -5,7 +5,7 @@ updated_at: 2024/11/07 18:15
 tags: Tutorial
 level: Intermediate
 integrations: API
-category: 'Integration'
+category: 'Data Access Control'
 estimated_time: '25 mins'
 description: This tutorial demonstrates setting up data classification and masking with Bytebase via API.
 ---
