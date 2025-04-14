@@ -1,6 +1,5 @@
 import { BlogPost } from '@/types/blog-post';
 import Link from 'next/link';
-import format from 'date-fns/format';
 
 import AuroraIcon from '@/svgs/aurora.inline.svg';
 import AzureDevOpsIcon from '@/svgs/azure-devops.inline.svg';
@@ -51,57 +50,13 @@ const allIntegrations: { [key: string]: React.FunctionComponent<React.SVGProps<S
 type PostsProps = {
   posts: BlogPost[];
 };
-
 // Define sections
-const sections = ['Database CI/CD', 'Data Access Control', 'GitOps', 'Integration'];
-
-// Helper function to categorize posts
-const categorizePost = (post: BlogPost): string => {
-  // This is a simple categorization strategy
-  // You may need to adjust this based on your actual post data and metadata
-  const title = post.title.toLowerCase();
-  const integrations = post.integrations?.toLowerCase() || '';
-
-  if (
-    title.includes('cicd') ||
-    title.includes('ci/cd') ||
-    integrations.includes('azure devops') ||
-    integrations.includes('bitbucket') ||
-    title.includes('database-cicd')
-  ) {
-    return 'Database CI/CD';
-  } else if (
-    title.includes('data access') ||
-    title.includes('permission') ||
-    title.includes('masking') ||
-    title.includes('security') ||
-    title.includes('just-in-time') ||
-    title.includes('roles')
-  ) {
-    return 'Data Access Control';
-  } else if (
-    title.includes('gitops') ||
-    title.includes('github') ||
-    title.includes('gitlab') ||
-    integrations.includes('github') ||
-    integrations.includes('gitlab')
-  ) {
-    return 'GitOps';
-  } else if (
-    title.includes('jira') ||
-    title.includes('slack') ||
-    integrations.includes('jira') ||
-    integrations.includes('slack') ||
-    integrations.includes('api') ||
-    title.includes('terraform') ||
-    integrations.includes('terraform')
-  ) {
-    return 'Integration';
-  }
-
-  // Default to a section if categorization fails
-  return 'Integration';
-};
+const sections = [
+  'Database CI/CD (GUI)',
+  'Database CI/CD (GitOps)',
+  'Data Access Control',
+  'Integration',
+];
 
 // Define the card component to avoid repetition
 const TutorialCard = ({ post }: { post: BlogPost }) => {
@@ -142,7 +97,7 @@ const TutorialCard = ({ post }: { post: BlogPost }) => {
 };
 
 const Posts = ({ posts }: PostsProps) => {
-  // Group posts by section
+  // Group posts by section based on the category field in frontmatter
   const postsBySection: Record<string, BlogPost[]> = {};
 
   // Initialize sections with empty arrays
@@ -150,10 +105,32 @@ const Posts = ({ posts }: PostsProps) => {
     postsBySection[section] = [];
   });
 
-  // Categorize posts into sections
+  // Categorize posts into sections based on the category field
   posts.forEach((post) => {
-    const section = categorizePost(post);
-    postsBySection[section].push(post);
+    const category = post.category || 'Integration'; // Default to Integration if no category
+    if (sections.includes(category)) {
+      postsBySection[category].push(post);
+    } else {
+      // If category doesn't match any predefined section, put in Integration
+      postsBySection['Integration'].push(post);
+    }
+  });
+
+  // Sort posts in each section to put featured article first
+  sections.forEach((section) => {
+    if (postsBySection[section].length > 0) {
+      // Sort posts to put featured ones first, then by update date
+      postsBySection[section].sort((a, b) => {
+        // If one is featured and the other is not, featured comes first
+        if (a.featured && !b.featured) return -1;
+        if (!a.featured && b.featured) return 1;
+
+        // If both have the same featured status, sort by date
+        const dateA = new Date(a.updated_at || '');
+        const dateB = new Date(b.updated_at || '');
+        return dateB.getTime() - dateA.getTime();
+      });
+    }
   });
 
   return (
@@ -166,7 +143,12 @@ const Posts = ({ posts }: PostsProps) => {
               <h3 className="mb-4 text-24 font-bold">{section}</h3>
               <ul className="grid grid-cols-3 gap-6 sm:grid-cols-2 xs:grid-cols-2 xs:gap-4">
                 {postsBySection[section].map((post) => (
-                  <TutorialCard key={post.slug} post={post} />
+                  <div key={post.slug} className="relative">
+                    {post.featured && (
+                      <span className="text-lg absolute right-2 top-2 z-10">⭐</span>
+                    )}
+                    <TutorialCard post={post} />
+                  </div>
                 ))}
               </ul>
             </section>

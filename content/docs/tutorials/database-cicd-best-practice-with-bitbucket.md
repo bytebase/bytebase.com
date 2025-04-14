@@ -5,6 +5,7 @@ updated_at: 2024/9/14 16:15
 feature_image: /content/docs/tutorials/database-cicd-best-practice-with-bitbucket/cicd-bitbucket.webp
 tags: Tutorial
 integrations: Bitbucket
+category: 'Database CI/CD (GitOps)'
 level: Intermediate
 estimated_time: '30 mins'
 description: We already have CI/CD for code delivery, why not the database? Imagine applying and deploying database changes the same way you would application code.

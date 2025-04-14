@@ -1,9 +1,11 @@
 ---
-title: Manage Database Change with 1-Click Data Rollback
+title: Data Change with 1-Click Rollback
 author: Adela
 updated_at: 2024/09/20 16:15
 tags: Tutorial
 integrations: General
+category: 'Database CI/CD (GUI)'
+featured: true
 level: Beginner
 estimated_time: '30 mins'
 description: This tutorial will guide you on how to use the Data Rollback feature to manage database data changes in Bytebase, including 1-click rollback and auto-enabled settings.

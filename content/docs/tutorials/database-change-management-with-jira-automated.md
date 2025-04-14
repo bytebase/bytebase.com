@@ -5,6 +5,7 @@ updated_at: 2024/10/14 21:15
 tags: Tutorial
 level: Advanced
 integrations: Jira, API
+category: Integration
 estimated_time: '45 mins'
 description: Automate database changes using Jira and Bytebase.
 ---
@@ -132,7 +133,6 @@ It's because the jira webhook trigger Bytebase API to create an issue there. The
    ```
 
 1. If both are true, via Bytebase API, it will try to match the Jira's `project key` and Bytebase's `project name` with the ones you configured in the `.env.local`. then it will try to match the Jira's `database` with the database belonging to that Bytebase project.
-
 
    ```javascript
      ...

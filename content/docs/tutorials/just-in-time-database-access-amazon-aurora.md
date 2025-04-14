@@ -1,9 +1,10 @@
 ---
-title: 'Just-in-time Database Access to Amazon Aurora using Bytebase'
+title: 'Just-in-time Database Access to Amazon Aurora'
 author: Adela
 tags: Tutorial
 updated_at: 2025/01/07 18:15
 integrations: General
+category: 'Data Access Control'
 level: Advanced
 estimated_time: '40 mins'
 description: 'In this tutorial, we will demonstrate how to set up Just-in-Time (JIT) access using the Bytebase GUI connecting to Amazon Aurora.'

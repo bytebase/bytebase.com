@@ -4,7 +4,9 @@ author: Adela
 updated_at: 2025/03/03 18:15
 tags: Tutorial
 integrations: GitHub
+category: 'Database CI/CD (GitOps)'
 level: Intermediate
+featured: true
 estimated_time: '20 mins'
 description: Learn how to use SQL Review via GitHub CI to enhance your database schema change process.
 ---

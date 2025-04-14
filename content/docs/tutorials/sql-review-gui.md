@@ -4,6 +4,7 @@ author: Adela
 updated_at: 2025/02/24 16:15
 tags: Tutorial
 level: Intermediate
+category: 'Database CI/CD (GUI)'
 estimated_time: '20 mins'
 description: This tutorial will walk you through using SQL Review via Bytebase GUI to improve your database schema change process.
 ---

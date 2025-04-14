@@ -4,6 +4,7 @@ author: Adela
 updated_at: 2025/02/24 16:15
 tags: Tutorial
 integrations: API
+category: 'Integration'
 level: Intermediate
 estimated_time: '30 mins'
 description: This tutorial will walk you through using SQL Review via Bytebase API to improve your database schema change process.

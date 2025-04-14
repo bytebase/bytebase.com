@@ -4,6 +4,7 @@ author: Ayra
 tags: Tutorial
 updated_at: 2024/12/27 18:15
 integrations: General
+category: 'Integration'
 level: Intermediate
 estimated_time: '20 mins'
 description: 'In this tutorial, we will demonstrate how to use One API to help deploy Llama3 to Bytebase SQL editor'

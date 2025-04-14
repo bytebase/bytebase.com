@@ -4,6 +4,7 @@ author: Ayra
 updated_at: 2024/09/24 18:00
 tags: Tutorial
 integrations: General
+category: 'Database CI/CD (GUI)'
 level: Beginner
 estimated_time: '5 mins'
 description: 'Learn to move schema change from test to prod.'

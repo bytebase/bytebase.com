@@ -1,9 +1,10 @@
 ---
-title: Inspect User and Database Permissions with Bytebase API
+title: User and Database Permissions with Bytebase API
 author: Adela
 updated_at: 2024/09/12 18:00
 tags: Tutorial
 integrations: API
+category: Integration
 level: Advanced
 estimated_time: '40 mins'
 description: 'Learn how to use the Bytebase API to inspect user and database permissions.'

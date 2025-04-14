@@ -5,6 +5,7 @@ updated_at: 2024/02/29 18:00
 feature_image: /content/docs/tutorials/how-to-synchronize-database-schemas/workflow.webp
 tags: Tutorial
 integrations: General
+category: 'Database CI/CD (GUI)'
 level: Beginner
 estimated_time: '10 mins'
 description: 'This tutorial will walk you through the typical use cases for database schema synchronization** in Bytebase with **pure UI operations'

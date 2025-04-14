@@ -4,6 +4,7 @@ author: Adela
 updated_at: 2024/09/26 20:15
 tags: Tutorial
 integrations: General
+category: 'Data Access Control'
 level: Intermediate
 estimated_time: '20 mins'
 featured: true

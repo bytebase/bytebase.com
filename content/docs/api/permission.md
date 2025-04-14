@@ -2,7 +2,7 @@
 title: Permission
 ---
 
-<TutorialBlock url="/docs/tutorials/api-user-database-permission" title="Inspect User and Database Permissions with Bytebase API" />
+<TutorialBlock url="/docs/tutorials/api-user-database-permission" title="User and Database Permissions with Bytebase API" />
 
 |                       |                                                                                           |
 | --------------------- | ----------------------------------------------------------------------------------------- |

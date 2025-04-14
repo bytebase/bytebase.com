@@ -4,6 +4,7 @@ author: Adela
 updated_at: 2024/09/23 18:00
 tags: Tutorial
 integrations: API
+category: Integration
 level: Advanced
 estimated_time: '40 mins'
 description: 'Learn how to use the Bytebase API to fetch audit log in Bytebase'

@@ -5,6 +5,7 @@ updated_at: 2024/09/30 21:15
 tags: Tutorial
 level: Beginner
 integrations: Jira
+category: Integration
 estimated_time: '30 mins'
 description: Manage database changes using Jira and Bytebase manually.
 ---

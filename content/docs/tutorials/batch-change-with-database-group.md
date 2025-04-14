@@ -4,6 +4,7 @@ author: Adela
 updated_at: 2025/03/17 18:00
 tags: Tutorial
 integrations: General
+category: 'Database CI/CD (GUI)'
 level: Intermediate
 estimated_time: '20 mins'
 description: This article describes configuring environment and database group to batch change databases.
@@ -51,7 +52,7 @@ To demonstrate the batch change, we need to prepare some databases first.
 
 ### Step 3 - Batch change by environment (Community Plan)
 
-1. Go to **Databases > Database** in the project, select `demo-test` and `demo-prod-1`~`demo-prod-6` and click **Edit Schema**. 
+1. Go to **Databases > Database** in the project, select `demo-test` and `demo-prod-1`~`demo-prod-6` and click **Edit Schema**.
 
    ![bb-edit-schema](/content/docs/tutorials/batch-change-with-database-group/bb-edit-schema.webp)
 

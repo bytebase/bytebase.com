@@ -4,6 +4,7 @@ author: Adela
 updated_at: 2025/03/28 18:00
 tags: Tutorial
 integrations: 'API, Azure DevOps'
+category: 'Database CI/CD (GitOps)'
 level: Advanced
 estimated_time: '40 mins'
 description: 'Learn the new GitOps workflow for database release with Bytebase.'

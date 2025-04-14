@@ -4,6 +4,7 @@ author: Adela
 updated_at: 2023/12/21 18:00
 tags: Tutorial
 integrations: API
+category: Integration
 level: Advanced
 estimated_time: '30 mins'
 description: "In this tutorial, you will test a sample application that utilizes the Bytebase API to create a change. By following the instructions, you'll gain hands-on experience in running the application and initiating a change using the Bytebase API."

@@ -5,6 +5,7 @@ updated_at: 2024/10/09 20:00
 feature_image: /content/docs/tutorials/how-to-manage-data-access-for-developers/feature.webp
 tags: Tutorial
 integrations: General
+category: 'Data Access Control'
 level: Intermediate
 featured: true
 estimated_time: '15 mins'

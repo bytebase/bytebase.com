@@ -4,6 +4,7 @@ author: Adela
 updated_at: 2024/10/10 12:00
 tags: Tutorial
 integrations: General
+category: 'Database CI/CD (GUI)'
 level: Beginner
 estimated_time: '30 mins'
 featured: true

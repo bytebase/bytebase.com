@@ -5,6 +5,7 @@ updated_at: 2024/10/31 21:15
 tags: Tutorial
 level: Intermediate
 integrations: API
+category: 'Integration'
 estimated_time: '25 mins'
 description: Embed Bytebase SQL Editor in your own internal web portal.
 ---

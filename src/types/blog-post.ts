@@ -10,7 +10,8 @@ export type BlogPost = {
   slug: string;
   timeToRead: string;
   featured: boolean;
-  integrations?: string;
+  integrations?: string; // only for tutorial
   estimated_time?: string; // only for tutorial
-  feature_name?: string; // only for feature doc
+  category?: string; // only for tutorial
+  feature_name?: string;
 };

@@ -4,6 +4,7 @@ author: Ayra
 updated_at: 2025/01/17 18:00
 tags: Tutorial
 integrations: API, GitHub
+category: 'Data Access Control'
 level: Advanced
 estimated_time: '30 mins'
 description: 'Learn how to use data classification using GitHub Actions and Bytebase API'

@@ -5,6 +5,7 @@ updated_at: 2023/06/01 16:15
 feature_image: /content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/dcm-approval-flow.webp
 tags: Tutorial
 integrations: General
+category: 'Database CI/CD (GUI)'
 level: Intermediate
 estimated_time: '15 mins'
 description: 'Bytebase provides a basic rollout mechanism by default. For more complicated enterprise-level cases, users may need different approval flows to handle database changes according to risk levels.'

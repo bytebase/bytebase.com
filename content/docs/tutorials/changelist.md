@@ -4,6 +4,7 @@ author: Adela
 updated_at: 2024/01/23 18:00
 tags: Tutorial
 integrations: General
+category: 'Database CI/CD (GUI)'
 level: Intermediate
 estimated_time: '15 mins'
 description: This tutorial will instruct you on how to use Bytebase Changelist to generate an issue that compiles all necessary schema changes sequentially.

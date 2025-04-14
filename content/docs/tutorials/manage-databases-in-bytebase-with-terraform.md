@@ -4,6 +4,8 @@ author: Adela
 updated_at: 2023/01/16 21:15
 tags: Tutorial
 integrations: Terraform
+category: 'Integration'
+featured: true
 level: Intermediate
 estimated_time: '30 mins'
 description: This tutorial will guide you to use Terraform Bytebase Provider to manage your databases via Terraform.

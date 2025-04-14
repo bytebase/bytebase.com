@@ -3,9 +3,11 @@ title: Database GitOps with GitHub Actions
 author: Adela
 updated_at: 2025/03/13 18:00
 tags: Tutorial
-integrations: API, GitHub
+integrations: GitHub
+category: 'Database CI/CD (GitOps)'
 level: Advanced
 estimated_time: '40 mins'
+featured: true
 description: 'Learn the new GitOps workflow for database release with Bytebase.'
 ---
 
