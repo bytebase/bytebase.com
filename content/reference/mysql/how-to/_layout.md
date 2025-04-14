@@ -34,3 +34,5 @@
 ## [How to ALTER COLUMN TYPE](/reference/mysql/how-to/how-to-alter-column-type-mysql)
 
 ## [How to ADD CONSTRAINT](/reference/mysql/how-to/how-to-add-constraint-mysql)
+
+## [How to show process list and kill process](/reference/mysql/how-to/how-to-show-mysql-process-list-and-kill-process)
