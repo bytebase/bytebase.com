@@ -129,4 +129,4 @@ You can reveal masked data to a specific user by granting masking exemption.
 ## Related content
 
 - [Docs for Dynamic Data Masking](/docs/security/data-masking/overview/)
-- [How to Manage Data Access for Developers](/docs/tutorials/how-to-manage-data-access-for-developers/)
+- [Just-in-Time Database Access](/docs/tutorials/just-in-time-database-access-part1/)

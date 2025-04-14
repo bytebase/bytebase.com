@@ -3,7 +3,7 @@ title: 'Data Masking with GitHub Actions Part 2 - Column Masking and Masking Exe
 author: Adela
 updated_at: 2025/01/17 18:00
 tags: Tutorial
-integrations: API, GitHub
+integrations: GitHub
 category: 'Data Access Control'
 level: Advanced
 estimated_time: '30 mins'
@@ -21,7 +21,6 @@ This is Part 2 of our tutorial series on implementing automated database masking
 - Part 1: [Semantic Type and Global Masking Rule](/docs/tutorials/github-action-data-masking-part1)
 - Part 2: Column Masking and Masking Exemption (this one)
 - Part 3: [Data Classification](/docs/tutorials/github-action-data-masking-part3)
-- Part 4: Data export with masking (TBD)
 
 ## Overview
 

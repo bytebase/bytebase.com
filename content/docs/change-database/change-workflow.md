@@ -2,7 +2,7 @@
 title: Database Change Workflow
 ---
 
-<TutorialBlock url="/docs/tutorials/first-schema-change" title="Your First Schema Change in 5 Minutes" />
+<TutorialBlock url="/docs/tutorials/first-schema-change" title="First Schema Change in 5 Minutes" />
 
 For a typical change workflow, a developer first submits the SQL statement for DBA to review. After review is approved, the SQL statement will then be applied to the corresponding database. For a single change, this step would normally be repeated for each environment (e.g. integration, staging, prod).
 

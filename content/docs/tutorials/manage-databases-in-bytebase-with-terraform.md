@@ -1,5 +1,5 @@
 ---
-title: Manage Databases in Bytebase with Terraform
+title: Manage Databases with Terraform
 author: Adela
 updated_at: 2023/01/16 21:15
 tags: Tutorial

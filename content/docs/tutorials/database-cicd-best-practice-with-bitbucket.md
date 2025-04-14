@@ -2,7 +2,6 @@
 title: The Database CI/CD Best Practice with Bitbucket
 author: Adela
 updated_at: 2024/9/14 16:15
-feature_image: /content/docs/tutorials/database-cicd-best-practice-with-bitbucket/cicd-bitbucket.webp
 tags: Tutorial
 integrations: Bitbucket
 category: 'Database CI/CD (GitOps)'

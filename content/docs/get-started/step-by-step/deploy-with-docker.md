@@ -2,7 +2,7 @@
 title: Deploy with Docker
 ---
 
-<TutorialBlock url="/docs/tutorials/first-schema-change" title="Your First Schema Change in 5 Minutes" />
+<TutorialBlock url="/docs/tutorials/first-schema-change" title="First Schema Change in 5 Minutes" />
 
 It's recommended to [run Bytebase with Docker](/docs/get-started/self-host/#docker) which is the easiest way to get you started.
 

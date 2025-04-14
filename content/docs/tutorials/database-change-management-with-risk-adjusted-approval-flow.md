@@ -2,7 +2,6 @@
 title: 'Database Change Management with Risk-Adjusted Approval Flow'
 author: Adela
 updated_at: 2023/06/01 16:15
-feature_image: /content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/dcm-approval-flow.webp
 tags: Tutorial
 integrations: General
 category: 'Database CI/CD (GUI)'
@@ -152,4 +151,4 @@ What if there is other roles in the team, for example, a `Tester` . Bytebase has
 
 ## Summary
 
-Now you have tried database change with risk-adjusted custom approval flow, and also create your own custom roles as well. Bytebase provides more enterprise-level features regarding data security and data access control. If you're interested in that, read this article as well [How to Configure Database Access Control and Data Masking for Developer](/docs/tutorials/how-to-manage-data-access-for-developers/).
+Now you have tried database change with risk-adjusted custom approval flow, and also create your own custom roles as well. Bytebase provides more enterprise-level features regarding data security and data access control. If you're interested in that, follow [Just-in-Time Database Access](/docs/tutorials/just-in-time-database-access-part1/).

@@ -1,5 +1,5 @@
 ---
-title: Your First Schema Change in 5 Minutes
+title: First Schema Change in 5 Minutes
 author: Adela
 tags: Tutorial
 updated_at: 2024/10/10 20:00
