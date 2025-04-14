@@ -77,6 +77,16 @@ module.exports = {
         permanent: true,
       },
       {
+        source: '/docs/tutorials/database-cicd-best-practice-with-gitlab',
+        destination: '/docs/vcs-integration/overview',
+        permanent: true,
+      },
+      {
+        source: '/docs/tutorials/database-cicd-best-practice-with-bitbucket',
+        destination: '/docs/vcs-integration/overview',
+        permanent: true,
+      },
+      {
         source: '/blog/how-to-handle-database-migration',
         destination: '/blog/how-to-handle-database-schema-change',
         permanent: true,
