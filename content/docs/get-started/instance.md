@@ -530,37 +530,58 @@ In this mode, Bytebase will manage the schema as a whole.
 
 ## Snowflake
 
-![sf-account-locator](/content/docs/tutorials/database-change-management-with-snowflake/bb-account-locator.webp)
+![sf-account-locator](/content/docs/get-started/instance/snowflake/bytebase-account-locator.webp)
 
 To find the **Account Locator**, go to your Snowflake account, you can find it in the URL, or from the **locator field (but lower case)**.
 
-![sf-locator](/content/docs/tutorials/database-change-management-with-snowflake/sf-account-locator.webp)
+![sf-locator](/content/docs/get-started/instance/snowflake/snowflake-account-locator.webp)
 
 If the account is located in the AWS US West (Oregon) region, then it would be something like `xy12345`, otherwise, the format will be `<<account_locator>>.<<cloud_region_id>>.<<cloud>>` such as `xy12345.us-east-2.aws`. See [official doc](https://docs.snowflake.com/en/user-guide/admin-account-identifier#using-an-account-locator-as-an-identifier).
+
+## MongoDB Atlas
+
+Go to Atlas MongoDB **Security** > **Network Access** and add IP allowing access from `Anywhere`.
+
+Go to Atlas MongoDB **Deployment** > **Database**, and click **Connect**.
+![atlas-connect](/content/docs/get-started/instance/mongodb/atlas-connect.webp)
+
+Click **Connect to your application**.
+
+![atlas-connect-to-cluster](/content/docs/get-started/instance/mongodb/atlas-connect-to-cluster.webp)
+
+Find this string `cluster0.8bxxxbz.mongodb.net`. Go back to Bytebase, put the string into **Host or Socket**, and leave **Port** empty.
+
+Choose `mongodb+srv://` as **Connection String Schema**.
+
+## ClickHouse
+
+If you use ClickHouse Cloud. Go to your ClickHouse Cloud account, and click **View connection string**. Also make sure to whitelist the IP where Bytebase connects from.
+
+![clickhouse](/content/docs/get-started/instance/clickhouse/cloud-view-connection-string.webp)
 
 ## Databricks
 
 In **Environment**, select your database. Then fill **Host or Socket**, **Warehouse ID** and **Token**.
 
-![databricks-0](/content/docs/get-started/instance/databricks-0.webp)
+![databricks-0](/content/docs/get-started/instance/databricks/databricks-0.webp)
 
 - **Host or Socket**. Copy it from the URL of your Databricks account.
 
-![databricks-host-or-socket](/content/docs/get-started/instance/databricks-host-or-socket.webp)
+![databricks-host-or-socket](/content/docs/get-started/instance/databricks/databricks-host-or-socket.webp)
 
 - **Warehouse ID**. Go to **SQL Warehouses** and click your warehouse (that is, your database), copy the ID in **Overview** section.
 
-![databricks-id-1](/content/docs/get-started/instance/databricks-id-1.webp)
+![databricks-id-1](/content/docs/get-started/instance/databricks/databricks-id-1.webp)
 
-![databricks-id-2](/content/docs/get-started/instance/databricks-id-2.webp)
+![databricks-id-2](/content/docs/get-started/instance/databricks/databricks-id-2.webp)
 
 - **Token**. Go to your avatar on the upper-right of Databricks to find **Settings**. Click **Developer** and then **Access tokens**, where you **Generate new token** and copy it to paste under **Token** in Bytebase.
 
-![databricks-token](/content/docs/get-started/instance/databricks-token.webp)
+![databricks-token](/content/docs/get-started/instance/databricks/databricks-token.webp)
 
 Click **Test Connection** to verify.
 
-## Google Cloud Spanner
+## Spanner
 
 For connecting to Google Cloud Spanner, you need to provide the following info:
 
@@ -568,11 +589,11 @@ For connecting to Google Cloud Spanner, you need to provide the following info:
 1. Google cloud Spanner instance ID.
 1. Google cloud service account credentials.
 
-![spanner](/content/docs/get-started/instance/spanner.webp)
+![spanner](/content/docs/get-started/instance/spanner/spanner.webp)
 
 ### Specify Google Cloud Project ID and Spanner Instance ID
 
-![Spanner database detail page](/content/docs/get-started/instance/spanner-url.webp)
+![Spanner database detail page](/content/docs/get-started/instance/spanner/spanner-url.webp)
 
 From the Spanner database detail page, you can get the project ID and the instance ID from the URL.
 
