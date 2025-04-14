@@ -40,3 +40,5 @@
 ## [How to CREATE VIEW](/reference/postgres/how-to/how-to-create-view-postgres)
 
 ## [How to ADD CONSTRAINT](/reference/postgres/how-to/how-to-add-constraint-postgres)
+
+## [How to show and kill running queries](/reference/postgres/how-to/how-to-show-and-kill-postgres-running-queries)
