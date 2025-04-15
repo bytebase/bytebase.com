@@ -1,7 +1,7 @@
 ---
 title: Manage Databases with Terraform
 author: Adela
-updated_at: 2023/01/16 21:15
+updated_at: 2025/04/14 21:15
 tags: Tutorial
 integrations: Terraform
 category: 'Integration'
