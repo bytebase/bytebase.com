@@ -3,7 +3,7 @@ title: Database Version Control Best Practice
 author: Adela
 updated_at: 2025/04/06 16:40:00
 feature_image: /content/blog/database-version-control-best-practice/cover.webp
-tags: Industry
+tags: Explanation
 description: 'Database version control is the practice of managing and tracking changes to a database schema and its associated data over time. Why best practice matters? Mitigate risks, improve collaboration, and ensure data audibility.'
 ---
 
