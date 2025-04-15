@@ -88,38 +88,8 @@ If you want **Time scheduling** feature, you will need to upgrade to **Pro Plan*
 
 ### Level 3: Manual rollout with custom approval (Enterprise Plan)
 
-<HintBlock type="info">
+If you want the approval flow to be more dynamic based on the context like the type of SQL statements, follow this tutorial [Database Change with Risk-Based Approval Flow](/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/).
 
-You can [request a Enterprise trial](/contact-us/).
-
-</HintBlock>
-
-If you want the approval flow to be more dynamic based on the context like the type of SQL statements, the affected rows and etc, configure [custom approval flow](/docs/administration/custom-approval/).
-
-Within Workspace, go to **Instances** and choose both instances to **Assign License**. Without doing this, the enterprise plan required for custom approval wouldn't be enabled on instances.
-
-1. Go to **CI/CD** > **Custom Approval**. Choose `Project Owner -> DBA` as High Risk for DDL.
-
-   ![custom-approval](/content/docs/tutorials/deploy-schema-migration/custom-approval.webp)
-
-2. Click **the related risk rules** beside or **CI/CD** > **Risk Center**. **Add** on top right. Set `High` Risk and `DDL` as `The risk for the production environment is considered to be high.`
-
-   ![risk-center-add-rule](/content/docs/tutorials/deploy-schema-migration/risk-center-add-rule.webp)
-
-3. Click **IAM&Admin > Users&Groups** and add a DBA account. Click it in the **Active members** list, and edit its password. You'll need this account later to do the approval.
-
-4. Within Workspace, go to **Environments** > **Prod**. Choose `Last Issue Approver` as `Rollout policy`.
-
-5. Go to `Sample Project`, choose both databases to **Edit Schema**. Paste this command into **SQL** block and **Create**.
-
-```sql
-ALTER TABLE "public"."employee"
-    ADD COLUMN "district" text NOT NULL DEFAULT '';
-```
-
-5. The approval flow is matched. Since it's in the pipeline, it will be brought forward to the `Test` stage to review earlier. Follow its order to approve. A `DBA` will be the one to do the rollout. If you didn't have a DBA in your Worksapce, you can Logout and register another DBA account, Login as the DBA to experience the entire workflow.
-
-![custom-approval-await](/content/docs/tutorials/deploy-schema-migration/custom-approval-await.webp)
 
 ### Summary
 
