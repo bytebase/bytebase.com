@@ -2,6 +2,8 @@
 title: Manage Bytebase with Terraform
 ---
 
+<TutorialBlock url="/docs/tutorials/manage-databases-in-bytebase-with-terraform" title="Manage Databases in Bytebase with Terraform" />
+
 <HintBlock type="info">
 
 The Bytebase Provider itself is free to use. Some advanced resource operations require Pro or Enterprise Plan.
