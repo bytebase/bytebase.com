@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="800" viewBox="0 0 700 800">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+    <marker id="bidir-arrowhead" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="800" fill="#f8f9fa" rx="10" ry="10" />
+  
+  <!-- Title -->
+  <text x="350" y="30" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" font-weight="bold" fill="#333">SQL Parser Architecture</text>
+  
+  <!-- Client Section -->
+  <rect x="250" y="60" width="200" height="80" rx="5" ry="5" fill="#d1e7dd" stroke="#198754" stroke-width="2" />
+  <text x="350" y="85" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#333">SQL Query</text>
+  <line x1="350" y1="95" x2="350" y2="115" stroke="#333" stroke-width="2" />
+  <text x="350" y="125" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#333">Client Application</text>
+  
+  <!-- Main Pipeline -->
+  <rect x="250" y="180" width="200" height="50" rx="5" ry="5" fill="#cfe2ff" stroke="#0d6efd" stroke-width="2" />
+  <text x="350" y="210" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#333">Lexical Analyzer</text>
+  
+  <rect x="250" y="270" width="200" height="50" rx="5" ry="5" fill="#cfe2ff" stroke="#0d6efd" stroke-width="2" />
+  <text x="350" y="300" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#333">Syntax Analyzer</text>
+  
+  <rect x="250" y="360" width="200" height="50" rx="5" ry="5" fill="#cfe2ff" stroke="#0d6efd" stroke-width="2" />
+  <text x="350" y="390" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#333">Semantic Analyzer</text>
+  
+  <rect x="250" y="450" width="200" height="50" rx="5" ry="5" fill="#cfe2ff" stroke="#0d6efd" stroke-width="2" />
+  <text x="350" y="480" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#333">Query Optimizer</text>
+  
+  <rect x="250" y="540" width="200" height="50" rx="5" ry="5" fill="#cfe2ff" stroke="#0d6efd" stroke-width="2" />
+  <text x="350" y="570" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#333">Execution Plan Generator</text>
+  
+  <rect x="250" y="630" width="200" height="50" rx="5" ry="5" fill="#f8d7da" stroke="#dc3545" stroke-width="2" />
+  <text x="350" y="660" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#333">Query Execution Engine</text>
+  
+  <!-- Database Storage -->
+  <ellipse cx="350" cy="740" rx="80" ry="40" fill="#f8d7da" stroke="#dc3545" stroke-width="2" />
+  <text x="350" y="740" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#333">Database Storage</text>
+  
+  <!-- Metadata/Catalog -->
+  <ellipse cx="120" cy="405" rx="80" ry="40" fill="#f8d7da" stroke="#dc3545" stroke-width="2" />
+  <text x="120" y="405" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#333">Metadata/Catalog</text>
+  
+  <!-- Subprocesses Sections -->
+  <rect x="500" y="170" width="150" height="70" rx="5" ry="5" fill="#f8d7da" stroke="#dc3545" stroke-width="1" opacity="0.8" />
+  <text x="575" y="190" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#333">Lexical Analysis</text>
+  <text x="575" y="210" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">• Token Recognition</text>
+  <text x="575" y="230" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">• Pattern Matching</text>
+  
+  <rect x="500" y="260" width="150" height="70" rx="5" ry="5" fill="#f8d7da" stroke="#dc3545" stroke-width="1" opacity="0.8" />
+  <text x="575" y="280" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#333">Syntax Analysis</text>
+  <text x="575" y="300" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">• Parse Tree</text>
+  <text x="575" y="320" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">• Grammar Rules</text>
+  
+  <rect x="500" y="350" width="150" height="70" rx="5" ry="5" fill="#f8d7da" stroke="#dc3545" stroke-width="1" opacity="0.8" />
+  <text x="575" y="370" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#333">Semantic Analysis</text>
+  <text x="575" y="390" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">• Type Checking</text>
+  <text x="575" y="410" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">• Table Validation</text>
+  
+  <rect x="500" y="440" width="150" height="70" rx="5" ry="5" fill="#f8d7da" stroke="#dc3545" stroke-width="1" opacity="0.8" />
+  <text x="575" y="460" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#333">Query Optimization</text>
+  <text x="575" y="480" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">• Logical Plans</text>
+  <text x="575" y="500" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">• Cost Analysis</text>
+  
+  <!-- Connecting Lines -->
+  <!-- Main Flow -->
+  <line x1="350" y1="140" x2="350" y2="180" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="350" y1="230" x2="350" y2="270" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="350" y1="320" x2="350" y2="360" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="350" y1="410" x2="350" y2="450" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="350" y1="500" x2="350" y2="540" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="350" y1="590" x2="350" y2="630" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- DB Connection -->
+  <line x1="350" y1="680" x2="350" y2="700" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="350" y1="700" x2="350" y2="680" stroke="#333" stroke-width="2" marker-start="url(#arrowhead)" />
+  
+  <!-- Metadata Connection -->
+  <line x1="200" y1="385" x2="250" y2="385" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="250" y1="385" x2="200" y2="385" stroke="#333" stroke-width="2" marker-start="url(#arrowhead)" />
+  
+  <line x1="200" y1="425" x2="250" y2="475" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="250" y1="475" x2="200" y2="425" stroke="#333" stroke-width="2" marker-start="url(#arrowhead)" />
+  
+  <!-- Subprocess Connections -->
+  <line x1="450" y1="205" x2="500" y2="205" stroke="#333" stroke-width="1.5" stroke-dasharray="5,3" />
+  <line x1="450" y1="295" x2="500" y2="295" stroke="#333" stroke-width="1.5" stroke-dasharray="5,3" />
+  <line x1="450" y1="385" x2="500" y2="385" stroke="#333" stroke-width="1.5" stroke-dasharray="5,3" />
+  <line x1="450" y1="475" x2="500" y2="475" stroke="#333" stroke-width="1.5" stroke-dasharray="5,3" />
+</svg>
