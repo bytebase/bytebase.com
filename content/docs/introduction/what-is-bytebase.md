@@ -11,7 +11,7 @@ Bytebase is a **middleware** sitting between you and your database. It can be us
 - **GUI** - Bytebase provides a collaboration workspace for teams to manage database development tasks for all database systems.
 - **API (headless)** - Bytebase can go headless. Teams can leverage [Bytebase API](/docs/api/overview/) as the database operation backend and integrate with their own development workflow.
 
-## 8-in-1
+## 3-in-1
 
 ![venn](/content/docs/what-is-bytebase/venn.webp)
 
