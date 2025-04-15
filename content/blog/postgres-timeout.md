@@ -65,7 +65,7 @@ ALTER ROLE interactive_user SET idle_session_timeout = 600000; -- 10 minutes
 
 ![transaction-timeout-commit](/content/blog/postgres-timeout/transaction-timeout-commit.webp)
 
-The upcoming Postgres 17 release will introduce a new [transaction_timeout](https://www.postgresql.org/docs/devel/runtime-config-client.html#GUC-TRANSACTION-TIMEOUT). From the doc:
+Postgres 17 introduces a new [transaction_timeout](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-TRANSACTION-TIMEOUT). From the doc:
 
 > Terminate any session that spans longer than the specified amount of time in a transaction. The limit applies both to explicit transactions (started with BEGIN) and to an implicitly started transaction corresponding to a single statement.
 
@@ -78,7 +78,7 @@ A typical web service consists of 3 main components:
 To prevent long-running connections, you usually set a connection timeout on both the web server and the application server. It's a waste to process the transaction when web server/application server already terminate the connection. Before the introduction of `transaction_timeout`, there is no reliable way to prevent long-transactions. Even you set both `statement_timeout` and `idle_in_transaction_session_timeout`, the transaction will still
 be open if it consists of short statements and short pauses in between.
 
-You might be wondering why it has taken PostgreSQL so long to introduce a straightforward `transaction_timeout` feature. Well, better late than never! And by the way, MySQL doesn’t have this feature either.
+You might be wondering why it has taken PostgreSQL so long to introduce a straightforward `transaction_timeout` feature. Well, better late than never! And by the way, [MySQL](/blog/mysql-timeout/#transactiontimeout) doesn’t have this feature either.
 
 ## References
 
