@@ -19,10 +19,11 @@ The error indicates that while the user can successfully authenticate with the M
 ## Common Causes
 
 1. **Missing GRANT permissions**: The user hasn't been granted access to the database
-2. **Incorrect hostname**: The user is connecting from an unauthorized host
-3. **Database doesn't exist**: Attempting to access a non-existent database (also shows as an access denied error)
-4. **Case sensitivity issues**: Database name case mismatch in MySQL on case-sensitive file systems
-5. **Authentication plugin conflicts**: Incompatibility between the client and server authentication methods
+1. **Missing WITH GRANT OPTION**: The user hasn't been granted `WITH GRANT OPTION` to grant permissions to other users.
+1. **Incorrect hostname**: The user is connecting from an unauthorized host
+1. **Database doesn't exist**: Attempting to access a non-existent database (also shows as an access denied error)
+1. **Case sensitivity issues**: Database name case mismatch in MySQL on case-sensitive file systems
+1. **Authentication plugin conflicts**: Incompatibility between the client and server authentication methods
 
 ## How to Fix
 
