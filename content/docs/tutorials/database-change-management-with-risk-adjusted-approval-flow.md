@@ -10,94 +10,70 @@ estimated_time: '15 mins'
 description: 'Bytebase provides a basic rollout mechanism by default. For more complicated enterprise-level cases, users may need different approval flows to handle database changes according to risk levels.'
 ---
 
-Bytebase provides a basic yet configurable rollout mechanism by default. This means that manual rollout is skipped for Test environments and required for Prod environments.
+Bytebase provides a basic yet configurable rollout mechanism by default. This means that manual rollout is skipped for **Test** environments and required for **Prod** environments.
 
-However, for more complicated enterprise-level cases, users may need different approval flows to handle database changes according to different potential risks. For example, DDL in Prod environments is considered high risk, while DML in Test environments is low risk. Additionally, users may need to involve roles other than DBA/Developer/Project Leader, such as Testers.
+However, for more complicated enterprise-level cases, users may need different approval flows to handle database changes according to different potential risks. For example, DDL in Prod environments is considered high risk, while DML in Test environments is low risk. Additionally, users may need to involve roles other than **DBA/Developer/Project Leader**, such as **Testers**.
 
 This tutorial will walk you through how to create custom approval flows based on self-defined risk rules and how to add new roles to be involved.
 
 ## Feature included
 
-- Custom approval flow
+- Custom approval
 - Risk center
 - Custom roles
 
 ## Prerequisites
 
-- Have [Docker](https://www.docker.com/) installed.
+- [Docker](https://www.docker.com/) must be installed on your system.
+- This features require an [Enterprise Plan](/pricing).
 
-## Step 1 Prepare the databases and users
+## Step 1 - Start Bytebase and Prepare the Users
 
-1. While the docker is running, run this following command to start a Bytebase instance. Here we name it `bytebase-af` and use `~/.bytebase/data-af` folder to store the meta data.
+1. Make sure your Docker is running, and start the Bytebase Docker container with the following command:
 
    <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
 
-2. Start two MySQL instances by running these two commands:
+1. Open `localhost:8080` in a browser, register as an admin and you will be granted as **Workspace Admin** role and automatically logged in.
 
-- `mysqld-test` , `3307`
-- `mysqld-prod` , `3308`
+1. Click **IAM > Admin** on the left bar. Add one `dba@example.com` as **Worksace DBA**, and one `dev@example.com` as **Project Developer** (which will apply to all projects).
 
-```text
-docker run --name mysqld-test \
-  --publish 3307:3306 \
-  -e MYSQL_ROOT_HOST=172.17.0.1 \
-  -e MYSQL_ROOT_PASSWORD=testpwd1 \
-  mysql/mysql-server:8.0
-```
+   ![bb-users-dba-dev](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-users-dba-dev.webp)
 
-```text
-docker run --name mysqld-prod\
-  --publish 3308:3306 \
-  -e MYSQL_ROOT_HOST=172.17.0.1 \
-  -e MYSQL_ROOT_PASSWORD=testpwd1 \
-  mysql/mysql-server:8.0
-```
+## Step 2 - Upgrade to Enterprise Plan
 
-3. Open `localhost:8080` in a browser, register as an admin and you will be granted as **Workspace Admin** role. Click the avatar on the right top, and click **Settings**. You'll see you have the role `Owner` . Click **Start free trial** on the left bottom to upgrade to Enterprise Plan.
-4. Click **Workspace** > **Members** on the left bar. Add one `dba@x.com` as **DBA**, and one `dev@x.com` as **Developer**. You need click them and give the default password `12345`.
+1. Click **Settings > Subscription** on the left bar. Fill your Enterprise Plan license key and click **Upload License**. Now you have several instance licenses but not assigned to any instance.
 
-![bb-settings-members](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-settings-members.webp)
+   ![bb-subscription-enterprise](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-subscription-enterprise.webp)
 
-5. Click **Instances** on the top bar and then click **Add instance**, choose `MySQL` . Here you need to add two instances:
+1. Click **Instances** on the left bar. Now the existing sample instances are not assigned any license.
 
-   - **Instance Name**: `MySQL Test` / `MySQL Prod`
-   - **Environment**: `Test` / `Prod`
-   - **Host or Socket**: `host.docker.internal`
-   - **Port**: `3307` / `3308`
-   - **Username**: `root`
-   - **Password**: `testpwd1`
+   ![bb-instances-no-license](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-instances-no-license.webp)
 
-6. Click **Projects** on the top bar and then click **New Project**. Name it `Demo AF` , Key `DAP` and click **Create**.
+1. Click **Assign license** on the top bar. Select the instance you want to assign the license to and click **Confirm**. Now the instances are assigned with licenses.
 
-7. Go into the project `Demo AF` , and click **New DB.** Fill in with **New database name**: `test_db` / **Environment**: `Test` / **Instance**: `MySQL Test` and click **Create.** It'll create an issue, by default, there isn't any approval flow and since it's for Test environment, it will rollout automatically.
-   ![bb-issue-create-db-test-done](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-create-db-test-done.webp)
+   ![bb-instances-has-license](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-instances-has-license.webp)
 
-8. Click **New DB** again. Fill in with **New database name**: `test_db` / **Environment**: `Prod` / **Instance**: `MySQL Prod` and click **Create.** It'll create an issue, by default there is no approval flow and since it's for Prod environment, you will need to click **Rollout**.
+## Step 3 - Run Schema Change without Custom Approval Flow
 
-9. Go back to the project, click **Databases**. You'll see there're two databases.
-   ![bb-project-databases](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-project-databases.webp)
+1. Log out and login as **Developer**. Go into the `Sample Project` , click **Database > Databases** on the left bar. Select both existing sample databases `hr_prod` and `hr_test`, and click **Edit Schema**.
 
-## Step 2 Run schema change without custom approval flow
+   ![bb-edit-schema](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-edit-schema.webp)
 
-1. Logout and login as **Developer**. Go into the project `Demo AF` , click **Alter Schema**, select both databases, and click **Next**.
+1. It will redirect to the issue preview, paste the following SQL and click **Create**.
 
-2. Click **Raw SQL**, paste the following SQL and click **Preview issue**.
+   ```sql
+   CREATE TABLE t1 (
+      id INT NOT NULL,
+      name VARCHAR(255) NOT NULL,
+      PRIMARY KEY (id)
+   );
+   ```
 
-```sql
-CREATE TABLE `t1` (
-  `id` INT COMMENT 'ID' NOT NULL,
-  `name` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id`)
-);
-```
+1. The issue is created and waiting for rollout. There's no approval flow for this issue, since we haven't configured any custom approval flow yet.
 
-3. It'll redirect to the issue page. Click **Apply to other tasks**, and click **Create**. By default, there isn't any approval flow and since it's for Test environment, it will rollout automatically. But for Prod environment, you will need to wait for the **Assignee** `Owner` to rollout. You can click **Environments** to see the difference for default configuration.
-   ![bb-issue-t1-waiting-rollout](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-t1-waiting-rollout.webp)
+   ![bb-issue-no-approval-flow](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-no-approval-flow.webp)
 
-4. Logout and login as **Owner**. Go into the project `Demo AF` , find the issue and click **Rollout**. You can click the **View change** to see the difference.
-   ![bb-issue-t1-done-no-af](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-t1-done-no-af.webp)
-
-## Step 3 Configure a custom approval flow and run a schema change
+## Step 4 - Configure a Custom Approval and Run a Schema Change
 
 <HintBlock type="info">
 
@@ -105,55 +81,70 @@ To learn the best practice, check out [Risk Center Best Practice](/docs/tutorial
 
 </HintBlock>
 
-1. Click **Settings** on the top bar, and then click **Security & Policy** > **Custom Approval**. Choose `Project Owner → DBA` for **DDL** > **High Risk** instead of `Skip manual approval` .
-   ![bb-settings-custom-approval](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-settings-custom-approval.webp)
+1. Login as **Admin**. Click **CI/CD > Custom Approval** on the left bar. Choose `Project Owner → DBA` for **DDL** > **High Risk** and `DBA` for **DDL** > **Moderate Risk**.
 
-2. Click the **related risk rules** or **Security & Policy** > **Risk Center**. Click **Add rule** and then click **Load** on the first row in **Templates** section. This rule is assigning `High` risk to all DDL on Prod environment, which will map the corresponding issue to pick the approval flow we just defined under **Custom Approval**. Click **Add**.
-   ![bb-add-rule](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-add-rule.webp)
+   ![bb-custom-approval](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-custom-approval.webp)
 
-3. Logout and login as **Developer**. Go into the project `Demo AF` , click **Alter Schema**, select both databases, and click **Next**.
+1. Either click **the related risk rules** or **CI/CD > Risks** on the left bar. Add two new rules
 
-4. Click **Raw SQL**, paste the following snippet and click **Preview issue**.
+   -  Name: `DDL ALTER`; Risk Level: `High`; Type: `DDL`; Condition: `sql_type == 'ALTER_TABLE'`
+   -  Name: `DDL CREATE`; Risk Level: `Moderate`; Type: `DDL`; Condition: `sql_type == 'CREATE_TABLE'`
 
-```sql
-ALTER TABLE `t1` ADD COLUMN (`age` INT NOT NULL);
-```
+   ![bb-risks](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-risks.webp)
 
-5. It'll redirect to the issue page. Click **Apply to other tasks**, and click **Create**. This time, you can see there is an approval flow which follows `Project Owner → DBA` . Here comes a question: "But it's not on the Prod environment!" The answer is, since we only do approval flow once, when there is a pipeline, we always take the highest risk one.
-   ![bb-issue-waiting-review-project-owner](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-waiting-review-project-owner.webp)
+1. Logout and login as **Developer**. Go into the project, select both databases and click **Edit Schema**. Paste the same SQL as before and click **Create**.
 
-6. Logout and login as **Owner**. Find the issue and click **Approve**.
-   ![bb-issue-waiting-review-dba](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-waiting-review-dba.webp)
+   ```sql
+   CREATE TABLE t1 (
+      id INT NOT NULL,
+      name VARCHAR(255) NOT NULL,
+      PRIMARY KEY (id)
+   );
+   ```
 
-7. Logout and login as **DBA**. Find the issue and click **Approve**. Since **Test** environment will skip manual rollout, after the approval flow, the SQL will execute automatically. It's time for Owner or DBA to click **Rollout** to execute it on **Prod** environment.
-   ![bb-issue-waiting-rollout-dba](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-waiting-rollout-dba.webp)
+1. This time, the issue is detected as **Moderate** risk, so it will be reviewed by **DBA** workflow.
 
-8. After the rollout, this issue is `Done`.
-   ![bb-issue-t1-done-af](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-t1-done-af.webp)
+   ![bb-issue-moderate](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-moderate.webp)
 
-## Step 4 Add custom roles and build your own approval flow
+1. Try another DDL with **ALTER** type.
 
-What if there is other roles in the team, for example, a `Tester` . Bytebase has another feature called **Custom Roles**.
+   ```sql
+   ALTER TABLE employee ADD COLUMN age INT NOT NULL;
+   ```
 
-1. Login as **Owner**. Click **Settings** on the top bar, and then click **Workspace** > **Custom Roles**. Click **Add role** and fill in with `Tester` and `custom tester` .
-   ![bb-settings-add-role-tester](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-settings-add-role-tester.webp)
+1. This time, the issue is detected as **High** risk, so it will be reviewed by **Project Owner -> DBA** workflow.
 
-2. Click **Settings** on the top bar, and then click **Security & Policy** > **Custom Approval**. Click **Approval flows**, and then click **Create**.
-   ![bb-settings-custom-approval-approval-flows](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-settings-custom-approval-approval-flows.webp)
+   ![bb-issue-high](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-high.webp)
 
-3. Fill in the form like this, and click **Create**.
-   ![bb-create-custom-approval-flow](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-create-custom-approval-flow.webp)
+## Step 5 - Build Your Own Approval Flow
 
-4. Choose the approval flow `Tester->Project Owner->DBA` .
-   ![bb-settings-custom-approval-tester-flow](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-settings-custom-approval-tester-flow.webp)
+What if there is other roles in the team, for example, a **Tester** . Bytebase has another feature called **Custom Roles**.
 
-5. Go to **Settings** > **Workspace** > **Members**, add `tester@x.com` as a new **Developer**. Go to project `Demo AF` , choose role `Tester` .
-   ![bb-project-add-tester](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-project-add-tester.webp)
+1. Login as **Admin**. Click **IAM&Admin > Custom Roles** on the left bar. You may also add a new role, e.g. **Tester**, here to make it simple, we can import permissions from **Project Releaser** role.
 
-6. Logout and login as **Developer**. Go into the project `Demo AF` , click **Alter Schema**, select both databases, and click **Next**.
+   ![bb-roles-tester](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-roles-tester.webp)
 
-7. Click **Raw SQL**, paste the following snippet and click **Preview issue**. You'll see the approval flow.
-   ![bb-issue-waiting-review-tester](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-waiting-review-tester.webp)
+1. Click **CI/CD > Custom Approval**, and click **Approval Flows** tab. Click **Create** and fill in the form like this.
+
+   ![bb-new-approval-flow](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-new-approval-flow.webp)
+
+1. Create a new user with the role **Tester**.
+
+1. Go to **CI/CD > Custom Approval**, and select `Tester->DBA` as the Moderate Risk approval flow.
+
+1. Logout and login as **Developer**. Go into the project, select both databases and click **Edit Schema**. Paste the same SQL as before and click **Create**.
+
+   ```sql
+   CREATE TABLE t1 (
+      id INT NOT NULL,
+      name VARCHAR(255) NOT NULL,
+      PRIMARY KEY (id)
+   );
+   ```
+
+1. This time, the issue is detected as **Moderate** risk, so it will be reviewed by **Tester -> DBA** workflow.
+
+   ![bb-issue-tester-dba](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-tester-dba.webp)
 
 ## Summary
 
