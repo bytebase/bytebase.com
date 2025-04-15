@@ -4,7 +4,7 @@ author: Tianzhou
 updated_at: 2025/04/15 12:00
 feature_image: /content/blog/cockroachdb-vs-postgres/cover.webp
 tags: Industry
-description: 'An extensive comparison between CockroachDB and PostgreSQL on performance, features, security, extensibility, usability, architecture, ecosystem, industry best practices.'
+description: 'An extensive comparison between CockroachDB and PostgreSQL on license, architecture, performance, scalability, compatibility, deployment options.'
 ---
 
 <HintBlock type="info">
