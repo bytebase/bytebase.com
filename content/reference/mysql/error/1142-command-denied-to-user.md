@@ -1,5 +1,5 @@
 ---
-title: 'How to fix ERROR 1142 (42000): command denied to user in MySQL'
+title: 'How to fix ERROR 1142 (42000): command denied to user'
 ---
 
 `ERROR 1142 (42000): command denied to user` indicates a permissions issue when a user lacks sufficient privileges for a specific command.
