@@ -2,7 +2,7 @@
 title: 'DynamoDB vs. MongoDB: a Complete Comparison in 2025'
 author: Adela
 updated_at: 2025/04/17 18:00
-feature_image: /content/blog/dynamodb-vs-mongodb/banner.png
+feature_image: /content/blog/dynamodb-vs-mongodb/banner.webp
 tags: Industry
 description: 'An extensive comparison between DynamoDB and MongoDB on performance, usability, operability, ecosystem and more.'
 ---
