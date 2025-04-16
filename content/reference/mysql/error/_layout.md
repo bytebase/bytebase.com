@@ -9,4 +9,6 @@
 
 ## [ERROR 1045 (42000): Access denied for user 'username'@'hostname' (using password: YES)](/reference/mysql/error/1045-access-denied-for-user-using-password)
 
+## [ERROR 1049 (42000): Unknown Database](/reference/mysql/error/1049-unknown-database)
+
 ## [ERROR 1142 (42000): command denied to user](/reference/mysql/error/1142-command-denied-to-user)
