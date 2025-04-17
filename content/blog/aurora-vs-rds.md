@@ -3,8 +3,7 @@ title: "Aurora vs. RDS: engineering guide to choose the right AWS database for 2
 author: Tianzhou
 updated_at: 2024/01/22 09:00
 feature_image: /content/blog/aurora-vs-rds/cover.webp
-tags: Industry
-featured: true
+tags: Comparison
 description: 'An engineering perspective to evaluate Amazon Aurora and RDS, and help you to choose the right AWS
 database for 2024'
 ---

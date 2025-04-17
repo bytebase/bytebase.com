@@ -3,8 +3,7 @@ title: 'Postgres vs. MySQL: a Complete Comparison in 2025'
 author: Tianzhou
 updated_at: 2025/02/23 12:00
 feature_image: /content/blog/postgres-vs-mysql/cover.webp
-tags: Industry
-featured: true
+tags: Comparison
 description: 'An extensive comparison between Postgres and MySQL on performance, features, security, extensibility, usability, architecture, ecosystem, industry best practices.'
 ---
 

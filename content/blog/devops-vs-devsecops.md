@@ -3,7 +3,7 @@ title: "DevOps vs. DevSecOps: What's the Difference"
 author: Adela
 updated_at: 2025/04/02 18:00
 feature_image: /content/blog/devops-vs-devsecops/cover.webp
-tags: Explanation
+tags: Comparison
 description: 'DevOps and DevSecOps are methodologies aimed at improving software development and delivery, but they differ in their focus and integration of security.'
 ---
 

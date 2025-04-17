@@ -3,8 +3,7 @@ title: "PlanetScale vs. Neon: the Continued Saga between MySQL and PostgreSQL"
 author: Tianzhou
 updated_at: 2024/11/27 09:00
 feature_image: /content/blog/planetscale-vs-neon/cover.webp
-tags: Industry
-featured: true
+tags: Comparison
 description: 'An extensive comparison between PlanetScale and Neon on architecture, compatibility, developer workflow,
 scalability, operability, integration, compliance, pricing and more.'
 ---

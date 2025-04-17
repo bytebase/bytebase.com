@@ -3,7 +3,7 @@ title: 'DynamoDB vs. MongoDB: a Complete Comparison in 2025'
 author: Adela
 updated_at: 2025/04/17 18:00
 feature_image: /content/blog/dynamodb-vs-mongodb/banner.webp
-tags: Industry
+tags: Comparison
 description: 'An extensive comparison between DynamoDB and MongoDB on performance, usability, operability, ecosystem and more.'
 ---
 
@@ -33,35 +33,35 @@ MongoDB is a document-oriented NoSQL database that stores data in flexible, JSON
 
 ## Comparison Table
 
-| Feature | Amazon DynamoDB | MongoDB |
-|---------|----------------|---------|
-| **Type** | Fully managed NoSQL database service | Document-oriented NoSQL database |
-| **Deployment** | AWS cloud only | Self-hosted, MongoDB Atlas (cloud), or other cloud providers |
-| **Data Model** | Key-value and document | Document-oriented with BSON format |
-| **Schema** | Schema-flexible with required primary key | Fully schema-flexible |
-| **Document Size Limit** | 400KB per item | 16MB per document |
-| **Query Language** | Limited query expressions with PartiQL support | Rich query language with MongoDB Query API |
-| **Indexing** | Primary key, Local Secondary Indexes (LSI), Global Secondary Indexes (GSI) | Multiple index types (single field, compound, multikey, geospatial, text, hashed) |
-| **Transactions** | ACID transactions across multiple items | ACID transactions across multiple documents |
-| **Consistency** | Configurable: eventual or strong consistency | Configurable consistency levels |
-| **Scaling** | Automatic, unlimited horizontal scaling | Manual or automated sharding |
-| **Global Distribution** | Global Tables for multi-region replication | Global Clusters in Atlas |
-| **Pricing Model** | Pay-per-request or provisioned capacity | Instance-based pricing in Atlas, free Community Edition |
-| **Backup & Recovery** | Continuous backups with point-in-time recovery | Continuous backups in Atlas, manual in Community Edition |
-| **Security** | AWS IAM integration, encryption at rest and in transit | Role-based access control, field-level encryption, TLS/SSL |
-| **Performance** | Single-digit millisecond response times | Performance varies based on configuration |
-| **Monitoring** | CloudWatch integration | MongoDB Atlas monitoring, self-monitoring tools |
-| **Use Cases** | High-scale applications with simple access patterns | Applications requiring complex queries and flexible schema |
-| **Ecosystem Integration** | Deep AWS service integration | Broad language support and third-party integrations |
-| **Vendor Lock-in** | High (AWS-specific) | Lower (portable between environments) |
-| **Learning Curve** | Moderate to steep | Moderate |
-
+| Feature                   | Amazon DynamoDB                                                            | MongoDB                                                                           |
+| ------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| **Type**                  | Fully managed NoSQL database service                                       | Document-oriented NoSQL database                                                  |
+| **Deployment**            | AWS cloud only                                                             | Self-hosted, MongoDB Atlas (cloud), or other cloud providers                      |
+| **Data Model**            | Key-value and document                                                     | Document-oriented with BSON format                                                |
+| **Schema**                | Schema-flexible with required primary key                                  | Fully schema-flexible                                                             |
+| **Document Size Limit**   | 400KB per item                                                             | 16MB per document                                                                 |
+| **Query Language**        | Limited query expressions with PartiQL support                             | Rich query language with MongoDB Query API                                        |
+| **Indexing**              | Primary key, Local Secondary Indexes (LSI), Global Secondary Indexes (GSI) | Multiple index types (single field, compound, multikey, geospatial, text, hashed) |
+| **Transactions**          | ACID transactions across multiple items                                    | ACID transactions across multiple documents                                       |
+| **Consistency**           | Configurable: eventual or strong consistency                               | Configurable consistency levels                                                   |
+| **Scaling**               | Automatic, unlimited horizontal scaling                                    | Manual or automated sharding                                                      |
+| **Global Distribution**   | Global Tables for multi-region replication                                 | Global Clusters in Atlas                                                          |
+| **Pricing Model**         | Pay-per-request or provisioned capacity                                    | Instance-based pricing in Atlas, free Community Edition                           |
+| **Backup & Recovery**     | Continuous backups with point-in-time recovery                             | Continuous backups in Atlas, manual in Community Edition                          |
+| **Security**              | AWS IAM integration, encryption at rest and in transit                     | Role-based access control, field-level encryption, TLS/SSL                        |
+| **Performance**           | Single-digit millisecond response times                                    | Performance varies based on configuration                                         |
+| **Monitoring**            | CloudWatch integration                                                     | MongoDB Atlas monitoring, self-monitoring tools                                   |
+| **Use Cases**             | High-scale applications with simple access patterns                        | Applications requiring complex queries and flexible schema                        |
+| **Ecosystem Integration** | Deep AWS service integration                                               | Broad language support and third-party integrations                               |
+| **Vendor Lock-in**        | High (AWS-specific)                                                        | Lower (portable between environments)                                             |
+| **Learning Curve**        | Moderate to steep                                                          | Moderate                                                                          |
 
 ## Key Comparison Points
 
 ### Data Model and Schema Flexibility
 
 **DynamoDB**:
+
 - Supports key-value and document models
 - Requires defining primary key structure at table creation
 - Flexible schema for non-key attributes
@@ -69,18 +69,19 @@ MongoDB is a document-oriented NoSQL database that stores data in flexible, JSON
 
   ```json
   {
-    "product_id": "P100",  
-    "name": "Wireless Headphones",  
-    "price": 99.99,  
-    "attributes": {  
-      "color": "black",  
-      "weight": "250g"  
-    }  
-    // Cannot efficiently store embedded reviews (400KB limit)  
+    "product_id": "P100",
+    "name": "Wireless Headphones",
+    "price": 99.99,
+    "attributes": {
+      "color": "black",
+      "weight": "250g"
+    }
+    // Cannot efficiently store embedded reviews (400KB limit)
   }
   ```
 
 **MongoDB**:
+
 - Document-oriented with BSON format
 - Fully flexible schema
 - Supports nested documents and arrays
@@ -88,18 +89,19 @@ MongoDB is a document-oriented NoSQL database that stores data in flexible, JSON
 
   ```json
   {
-    "_id": "P100",  
-    "name": "Wireless Headphones",  
-    "price": 99.99,  
-    "attributes": {  
-      "color": "black",  
-      "weight": "250g"  
-    },  
-    "reviews": [  // Nested array  
-      { "user": "Alice", "rating": 5 },  
-      { "user": "Bob", "rating": 4 }  
-    ]  
-    // 16MB max allows complex hierarchies  
+    "_id": "P100",
+    "name": "Wireless Headphones",
+    "price": 99.99,
+    "attributes": {
+      "color": "black",
+      "weight": "250g"
+    },
+    "reviews": [
+      // Nested array
+      { "user": "Alice", "rating": 5 },
+      { "user": "Bob", "rating": 4 }
+    ]
+    // 16MB max allows complex hierarchies
   }
   ```
 
@@ -108,12 +110,14 @@ MongoDB is a document-oriented NoSQL database that stores data in flexible, JSON
 ### Deployment and Management
 
 **DynamoDB**:
+
 - Fully managed AWS service
 - Serverless architecture
 - No infrastructure to manage
 - AWS-only deployment
 
 **MongoDB**:
+
 - Self-hosted option (MongoDB Community Server)
 - Managed service option (MongoDB Atlas)
 - Available on multiple cloud providers
@@ -142,12 +146,14 @@ MongoDB is a document-oriented NoSQL database that stores data in flexible, JSON
 ### Query Capabilities
 
 **DynamoDB**:
+
 - Optimized for **fast key-value lookups** (primary key access)
 - Basic filtering (limited to indexed attributes)
 - Supports PartiQL for simple SQL-like queries
 - Minimal native aggregation support
 
 **MongoDB**:
+
 - **Expressive query language** with support for complex conditions
 - **Full aggregation pipeline**(grouping, joins, transformations)
 - Built-in **text search** and **geospatial queries**
@@ -240,6 +246,7 @@ DynamoDB is particularly well-suited for:
 6. **Variable Workloads**: Applications with unpredictable or highly variable traffic patterns.
 
 **Real-World Examples**:
+
 - Amazon's shopping cart and session management
 - Lyft's ride tracking system
 - Snapchat's messaging infrastructure
@@ -257,6 +264,7 @@ MongoDB is particularly well-suited for:
 6. **Prototyping and Rapid Development**: Projects needing quick iteration and flexibility.
 
 **Real-World Examples**:
+
 - Forbes' content management system
 - Adobe's customer experience platform
 - SEGA's game analytics platform

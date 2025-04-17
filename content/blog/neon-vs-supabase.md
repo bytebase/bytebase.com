@@ -3,8 +3,7 @@ title: 'Neon vs. Supabase: Which One Should I Choose'
 author: Tianzhou
 updated_at: 2024/07/02 09:00
 feature_image: /content/blog/neon-vs-supabase/cover.webp
-tags: Industry
-featured: true
+tags: Comparison
 description: 'Neon and Supabase are the 2 new generation Postgres service providers. This is an extensive comparison between Neon and Supabase on architecture, compatibility, developer workflow, scalability, operability, integration, compliance, pricing and more.'
 ---
 

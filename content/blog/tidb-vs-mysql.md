@@ -3,7 +3,7 @@ title: 'TiDB vs. MySQL: a Complete Comparison in 2025'
 author: Tianzhou
 updated_at: 2025/04/13 12:00
 feature_image: /content/blog/tidb-vs-mysql/cover.webp
-tags: Industry
+tags: Comparison
 description: 'An extensive comparison between TiDB and MySQL on license, architecture, performance, scalability, online ddl, compatibility, deployment options.'
 ---
 

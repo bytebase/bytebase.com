@@ -3,7 +3,7 @@ title: 'Postgres vs. SQL Server: a Complete Comparison in 2025'
 author: Tianzhou
 updated_at: 2025/03/26 12:00
 feature_image: /content/blog/postgres-vs-sqlserver/banner.webp
-tags: Industry
+tags: Comparison
 description: 'An extensive comparison between Postgres and SQL Server on features, architecture, development workflow, operability, licensing and more.'
 ---
 

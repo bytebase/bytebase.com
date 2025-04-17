@@ -3,7 +3,7 @@ title: "GitHub vs. GitLab: a Complete Comparison in 2025"
 author: Tianzhou
 updated_at: 2025/01/03 12:00
 feature_image: /content/blog/github-vs-gitlab/cover.webp
-tags: Industry
+tags: Comparison
 description: 'An extensive comparison between GitHub and GitLab on history, deployment model, tech stack, repository management, code review,
 code search, ci/cd, security, project management, ai, pricing'
 ---

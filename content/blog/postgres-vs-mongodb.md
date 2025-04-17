@@ -3,7 +3,7 @@ title: 'Postgres vs. MongoDB: a Complete Comparison in 2025'
 author: Tianzhou
 updated_at: 2025/02/27 12:00
 feature_image: /content/blog/postgres-vs-mongodb/cover.webp
-tags: Industry
+tags: Comparison
 description: 'An extensive comparison between Postgres and MongoDB on performance, reliability, scalability, usability, operability, ecosystem and more.'
 ---
 

@@ -3,7 +3,7 @@ title: 'Bytebase vs. CloudBeaver: a side-by-side comparison for web-based databa
 author: Adela
 updated_at: 2024/02/27 23:21:21
 feature_image: /content/blog/bytebase-vs-cloudbeaver/bb-vs-cb-banner.webp
-tags: Explanation
+tags: Comparison
 description: 'When a team interacts with a database, collaborative functionalities like access control become essential. A web-based GUI also adds convenience.'
 ---
 

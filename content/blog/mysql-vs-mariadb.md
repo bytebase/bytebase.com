@@ -3,8 +3,7 @@ title: 'MySQL vs. MariaDB: a Complete Comparison in 2025'
 author: Tianzhou
 updated_at: 2025/02/29 08:00
 feature_image: /content/blog/mysql-vs-mariadb/cover.webp
-tags: Industry
-featured: true
+tags: Comparison
 description: 'While MariaDB was initially a fork of MySQL, the two have evolved over time. This post will explore a detailed comparison between MySQL and MariaDB, focusing on key aspects such as performance, licensing, compatibility, and feature set'
 ---
 

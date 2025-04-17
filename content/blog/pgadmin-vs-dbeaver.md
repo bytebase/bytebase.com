@@ -3,7 +3,7 @@ title: 'pgAdmin vs. DBeaver: a Complete Comparison in 2025'
 author: Ayra
 updated_at: 2025/03/25 12:00
 feature_image: /content/blog/pgadmin-vs-dbeaver/banner.webp
-tags: Industry
+tags: Comparison
 description: 'An extensive comparison between pgAdmin and DBeaver on features, user experience, database support, extensibility, performance, and more.'
 ---
 

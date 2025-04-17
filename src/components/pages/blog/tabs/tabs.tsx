@@ -36,13 +36,13 @@ const tabThemes = {
     default: 'border-[#F9E8FF] text-[#8E1B98] hover:bg-[#F9E8FF]',
     active: 'bg-[#8E1B98] border-[#8E1B98]',
   },
+  comparison: {
+    default: 'border-[#E6F0FF] text-[#0A4B94] hover:bg-[#E6F0FF]',
+    active: 'bg-[#0A4B94] border-[#0A4B94]',
+  },
   'case-study': {
     default: 'border-[#CFFAFE] text-[#176782] hover:bg-[#CFFAFE]',
     active: 'bg-[#176782] border-[#176782]',
-  },
-  newsletter: {
-    default: 'border-[#FEF6CD] text-[#8A420F] hover:bg-[#FEF6CD]',
-    active: 'bg-[#8A420F] border-[#8A420F]',
   },
 };
 

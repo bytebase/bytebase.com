@@ -3,7 +3,7 @@ title: 'TiDB vs. CockroachDB: the Distributed Clash between MySQL and PostgreSQL
 author: Tianzhou
 updated_at: 2025/03/25 09:00
 feature_image: /content/blog/tidb-vs-cockroachdb/banner.webp
-tags: Industry
+tags: Comparison
 description: 'An extensive comparison between TiDB and CockroachDB on license, architecture, compatibility, scalability'
 ---
 
