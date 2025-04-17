@@ -8,8 +8,9 @@ featured: true
 description: Introduce the advanced tools for platform engineering. Covering CD, security, workflow orchestration, database development workflow, and internal development portal.
 ---
 
-This is the second of a two-part series exploring the tools that power modern platform engineering teams:
+This is the series of articles about platform engineering:
 
+1. [Platform Engineering vs. DevOps](/blog/platform-engineering-vs-devops/)
 1. [Platform Engineering Tools: Essential Guide](/blog/platform-engineering-tools-essential-guide/)
 1. Platform Engineering Tools: Advanced Guide (this one)
 

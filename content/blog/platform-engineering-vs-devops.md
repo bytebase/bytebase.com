@@ -7,6 +7,12 @@ tags: Industry
 description: 'A Strategic Comparison Between DevOps and Platform Engineering'
 ---
 
+This is the series of articles about platform engineering:
+
+1. Platform Engineering vs. DevOps (this one)
+1. [Platform Engineering Tools: Essential Guide](/blog/platform-engineering-tools-essential-guide/)
+1. [Platform Engineering Tools: Advanced Guide](/blog/platform-engineering-tools-advanced-guide/)
+
 ## Introduction
 
 As technology evolves rapidly, organizations are constantly looking to streamline software development and delivery. Two popular approaches — **DevOps and Platform Engineering** — offer solutions to modern software challenges, but differ in focus.
@@ -20,6 +26,8 @@ This article compares DevOps and Platform Engineering across several dimensions 
 ## A Restaurant Analogy
 
 Let's use restaurant analogy that illustrates their relationship and approaches.
+
+![restaurant](/content/blog/platform-engineering-vs-devops/restaurant-analogy.webp)
 
 **DevOps is like a farm-to-table restaurant.** Each development team runs the entire operation—growing ingredients, cooking, serving, and cleaning. This gives full control and flexibility, ideal for small teams. But as the restaurant scales, chefs (developers) spend too much time on non-cooking tasks, training becomes complex, and consistency suffers.
 

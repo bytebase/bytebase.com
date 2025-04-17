@@ -8,16 +8,17 @@ featured: true
 description: Introduce the essential tools for platform engineering. Covering code hosting, CI/CD, observability, resource provisioning, and secret management.
 ---
 
+Platform engineering adoption has surged in recent years. To better understand the landscape, we interviewed over 100 platform teams about their challenges and the tools they rely on. Drawing from these insights and our own experience, we have curated a list of essential platform engineering tools. This is the series of articles about platform engineering:
+
+1. [Platform Engineering vs. DevOps](/blog/platform-engineering-vs-devops/)
+1. Platform Engineering Tools: Essential Guide (this one)
+1. [Platform Engineering Tools: Advanced Guide](/blog/platform-engineering-tools-advanced-guide/)
+
 <HintBlock type="info">
 
 The post does not cover infrastructure components like Kubernetes, database systems. It also does not cover collaboration tools like Slack, Notion, Jira, Linear.
 
 </HintBlock>
-
-Platform engineering adoption has surged in recent years. To better understand the landscape, we interviewed over 100 platform teams about their challenges and the tools they rely on. Drawing from these insights and our own experience, we have curated a list of essential platform engineering tools. This is the first of a two-part series exploring the tools that power modern platform engineering teams:
-
-1. Platform Engineering Tools: Essential Guide (this one)
-1. [Platform Engineering Tools: Advanced Guide](/blog/platform-engineering-tools-advanced-guide/)
 
 ---
 
