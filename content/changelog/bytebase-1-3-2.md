@@ -8,7 +8,6 @@ description: '- Integrate PostgreSQL Explain Visualizer. - Support in-place back
 ## 🚀 New Features
 
 - Integrate PostgreSQL Explain Visualizer 👀.
-  ![pg-explain-visualizer](/content/changelog/1.3.2/pg-explain-visualizer.gif)
 - Support in-place backup restore for PostgreSQL.
 - Support PITR to a new database for MySQL.
 - Users can mark an environment as "protected", and a shield badge 🛡️ will show up next to its name.

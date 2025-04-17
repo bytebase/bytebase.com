@@ -7,11 +7,9 @@ description: Allow schema review policy configuration for the environment. Add a
 
 - **Enable schema review policy configuration in environment**
 - Users can configure a schema review policy for a particular environment. The schema review policy can be configured through both schema review policy dashboard and environment dashboard
-  ![schema-review-policy](/content/changelog/1.1.1/schema-review-policy.gif)
 - Both rule level and rule configuration can be changed
 - After creating a schema review policy, users can view, edit or delete the policy any time they like
 - Display schema review results in the issue detail page if the schema review policy is configured
-  ![schema-review-policy](/content/changelog/1.1.1/schema-review-policy-usage.gif)
   ![schema-review-policy](/content/changelog/1.1.1/schema-review-policy-check.webp)
 
 ## 🎄 Enhancement
@@ -25,7 +23,6 @@ description: Allow schema review policy configuration for the environment. Add a
 - Improved PostgreSQL schema dump.
 - The owner of newly created PostgreSQL schemas will be the same as the database owner by default.
 - Display applicable conditions for Environment policies.
-  ![applicablecondition](/content/changelog/1.1.1/application-environment-policy-change.gif)
 
 ## 🎠 Community
 

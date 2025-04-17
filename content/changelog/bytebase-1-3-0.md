@@ -14,13 +14,10 @@ description: '- Support SQL review for PostgreSQL. - GitHub.com VCS integration 
   ![git-provider-github](/content/changelog/1.3.0/git-provider-github.webp)
 
 - Restore a database to the time point before the last migration with one click.
-  ![restore-before-migration](/content/changelog/1.3.0/restore-before-migration.gif)
 
 ## 🎄 Enhancements
 
 - Support to set "day of the week" and "backup retention period" for database backup settings.
-  ![backup-retention](/content/changelog/1.3.0/backup-retention.gif)
-
 - When VCS has a new commit, the corresponding issue created by Bytebase will try to display the creator by matching the email account.
 - Allow modifying task SQL statements in tenant mode.
 - Ghost improvement: Display progress for sync task; Fix potential data loss issues; Fix potential long-time table lock.

@@ -13,8 +13,6 @@ description: '- Added support for gh-ost. - Updated the way help tips are displa
 
 - Updated the way help tips are displayed, using a side drawer instead of the pop-up tips.
 
-![side-drawer-help-tip](/content/changelog/1.2.2/side-drawer-help-tip.gif)
-
 - Added length limit for table, column, index, foreign key, unique key names.
 
 ![table-naming-check](/content/changelog/1.2.2/table-naming-check.webp)

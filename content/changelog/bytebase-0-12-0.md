@@ -15,26 +15,13 @@ Say you have many databases that use identical database schemas and need uniform
 - Flexible tenant database deployment such as multi-stage regional deployments.
 - Schema updates are applied to all tenants consistently. Adding a new tenant database will use the same schema from existing tenants.
 
-![_](/content/changelog/0.12.0/tenant-mode.gif)
-
 ### SQL Editor
 
 - Support keeping multiple editors under different tabs.
-
-![_](/content/changelog/0.12.0/sql-editor-tab.gif)
-
 - Seamless transition to the schema change (DDL) / data change (DML) workflow from the SQL Editor.
-
-![_](/content/changelog/0.12.0/sql-editor-workflow.gif)
-
 - Project based permission control.
 - Save Query: support saving the SQL statement, search it with highlight and delete.
-
-![_](/content/changelog/0.12.0/sql-editor-saved-query.gif)
-
 - Query History: record all the executed queries.
-
-![_](/content/changelog/0.12.0/sql-editor-query-history.gif)
 
 ### Signup and login via GitLab EE/CE
 

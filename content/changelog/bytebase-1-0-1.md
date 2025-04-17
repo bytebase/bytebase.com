@@ -8,8 +8,6 @@ description: Support instance read-only connection. Enable Data Change (DML) for
 
 - Support instance read-only connection. Once configured, Bytebase will use this user to query databases in SQL Editor and will use it in all read-only scenarios in the future.
 
-![_](/content/changelog/1.0.1/read-only-connection.gif)
-
 ## 🎄 Enhancements
 
 **Tenant Mode**

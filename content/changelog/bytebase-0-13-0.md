@@ -8,22 +8,11 @@ description: SQL editor supports sheet sharing. Searchable member selector. Data
 
 - SQL editor supports sheet sharing.
 
-![_](/content/changelog/0.13.0/sql-editor-sheet.gif)
-
 ## 🎄 Enhancement
 
 - Searchable member selector.
-
-![_](/content/changelog/0.13.0/member-selector-search.gif)
-
 - Database labels can be managed as normal properties. Database label related features are available for standard mode projects now.
-
-![_](/content/changelog/0.13.0/database-label.gif)
-
 - Show comprehensive schema comparison when schema drift is detected.
-
-![_](/content/changelog/0.13.0/schema-drift.gif)
-
 - Add quickstart for MySQL and Clickhouse.  You can choose to have MySQL or Clickhouse run automatically with Bytebase without additional installation. Thanks @showsmall  for [the suggestion](https://github.com/bytebase/bytebase/issues/403).
 
 ![_](/content/changelog/0.13.0/quickstart.webp)

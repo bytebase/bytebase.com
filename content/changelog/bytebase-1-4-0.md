@@ -9,7 +9,6 @@ description: '- AWS S3 is now supported as a backup storage backend. - Added a n
 
 - AWS S3 is now supported as a backup storage backend.
 - Added a new onboarding guide.
-  ![onboarding-guide](/content/changelog/1.4.0/onboarding-guide.gif)
 
 ## 🎄 Enhancements
 

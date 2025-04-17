@@ -12,8 +12,6 @@ updated_at: 2022/01/06 10:31:49
 - Navigate among different database connections via the left tree panel.
 - Display table schema info on the bottom left side panel.
 
-![_](/content/changelog/0.11.0/sql-editor.gif)
-
 ## 🎄 Enhancement
 
 ### kbar quickstart
@@ -37,8 +35,6 @@ Now every PR will create a unique preview environment. This makes it easy to col
 ![_](/content/changelog/0.11.0/render-preview.webp)
 
 - Bytebase Sticker Collection V1.0 is ready  [https://bytebase.com/brand](https://bytebase.com/brand)
-
-![_](/content/changelog/0.11.0/lgtm.gif)
 
 - Thanks to @Juneezee 's PR [refactor: move from io/ioutil to io and os packages](https://github.com/bytebase/bytebase/pull/264)
 

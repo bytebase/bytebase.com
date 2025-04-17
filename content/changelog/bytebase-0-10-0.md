@@ -27,7 +27,6 @@ We will log any change to the SQL statement now, and send an inbox message to th
 ### Modal showing detailed check status
 
 When the assignee opens the modal to approve an issue, she can now view the detailed check status by opening a stacked modal.
-![_](/content/changelog/0.10.0/detailed-task-check-status.gif)
 
 ## 🐞 Bug Fixes
 

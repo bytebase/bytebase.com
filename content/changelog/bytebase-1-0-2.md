@@ -10,8 +10,6 @@ description: Our official documentation switches from gitbook to bytebase.com/do
 
 - Support branding customization (available in Team/Enterprise Plan)
 
-![_](/content/changelog/1.0.2/branding.gif)
-
 ## 🎄 Enhancements
 
 - [SQL Editor] Highlight the editing SQL query block
