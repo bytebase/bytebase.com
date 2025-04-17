@@ -16,6 +16,7 @@ description: 'Azure IAM Auth for Cosmos DB & Azure SQL'
 - To simplify the deployment process, the custom deployment configuration feature has been removed. Deployments will now follow the straightforward order of your defined environments. For canary deployments, create a separate `canary` environment. Then, point your database environment to this canary environment.
 - Deprecated multitenancy feature.
 - Deprecated [built-in GitOps feature](https://www.bytebase.com/docs/vcs-integration/overview/#legacy-gitops), now you can use [GitOps in a new way](https://www.bytebase.com/docs/tutorials/gitops-github-workflow/).
+- Removed custom project webhook endpoint.
 - API support pagination and filter.
 
   - ListProjects support `page_size` and `page_token`. [Doc](https://api.bytebase.com/#tag/projectservice/GET/v1/projects)

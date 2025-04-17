@@ -94,8 +94,8 @@ The following events support sending direct messages/notifications to related us
 1. Select **Application Development**, click **Create Application**.
 1. Select **Credentials and Basic Information** on the left sidebar. Obtain the **Client ID** and **Client Secret**.
 1. Select **Permission Management**, grant the following permissions:
-    - `qyapi_get_member_by_mobile`
-    - `qyapi_robot_sendmsg`
+   - `qyapi_get_member_by_mobile`
+   - `qyapi_robot_sendmsg`
 1. Select **Add Application Capability**, add the **Robot** capability. Configure the robot, and for **Message receiving mode** select `Stream mode`. In "Robot Configuration", click **Copy RobotCode** to obtain the **Robot Code**. Publish the robot.
 1. Select **Version Management and Release**. Click **Create New Version**. Fill in the relevant information, then **Save** and **Directly Publish**.
 1. Go back to Bytebase and fill **Client ID**, **Client Secret** and **Robot Code** fields under **Integration > IM**.
@@ -146,101 +146,3 @@ WeCom does not provide its own official guide. Please follow this similar [setup
 1. Make sure the user's email in Bytebase is the same as the user's email (not External account) in WeCom.
 1. Go back to Bytebase and fill **Corp Id**, **Agent Id** and **Secret** fields under **Integration > IM**.
 1. Go to **Integration > Webhooks** in a project, add a webhook, check all the events you want to send direct messages, and click **Create**.
-
-### Custom
-
-Custom is used to integrate with your own services via webhook.
-
-<HintBlock type="info">
-
-You need to implement the webhook server yourself, it doesn't work out of the box.
-
-</HintBlock>
-
-**API Definition as follow:**
-
-- **HTTP Method**
-
-  `POST`
-
-- **Request Header**
-
-  | Key            | Value              | Description  |
-  | -------------- | ------------------ | ------------ |
-  | `Content-Type` | `application/json` | JSON content |
-
-- **Request Body**
-
-  | Key             | Type    | Description                                                                                                                                                                                                                                                                                                                                                        |
-  | --------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-  | `level`         | String  | One of: <br/>&nbsp;&nbsp;`INFO`<br/>&nbsp;&nbsp;`SUCCESS`<br/>&nbsp;&nbsp;`WARN`<br/>&nbsp;&nbsp;`ERROR`                                                                                                                                                                                                                                                           |
-  | `activity_type` | String  | One of: <br/>&nbsp;&nbsp;`bb.issue.create`<br/>&nbsp;&nbsp;`bb.issue.comment.create`<br/>&nbsp;&nbsp;`bb.issue.field.update`<br/>&nbsp;&nbsp;`bb.issue.status.update`<br/>&nbsp;&nbsp;`bb.pipeline.task.status.update`                                                                                                                                             |
-  | `title`         | String  | Webhook title                                                                                                                                                                                                                                                                                                                                                      |
-  | `description`   | String  | Webhook description                                                                                                                                                                                                                                                                                                                                                |
-  | `link`          | String  | Webhook link                                                                                                                                                                                                                                                                                                                                                       |
-  | `creator_id`    | Integer | Updater id                                                                                                                                                                                                                                                                                                                                                         |
-  | `creator_name`  | Integer | Updater name                                                                                                                                                                                                                                                                                                                                                       |
-  | `created_ts`    | Integer | Webhook create timestamp                                                                                                                                                                                                                                                                                                                                           |
-  | `issue`         | Object  | Issue Object                                                                                                                                                                                                                                                                                                                                                       |
-  | `- id`          | Integer | Issue ID                                                                                                                                                                                                                                                                                                                                                           |
-  | `- name`        | String  | Issue Name                                                                                                                                                                                                                                                                                                                                                         |
-  | `- status`      | String  | Issue Status, one of: <br/>&nbsp;&nbsp;`OPEN`<br/>&nbsp;&nbsp;`DONE`<br/>&nbsp;&nbsp;`CANCELED`                                                                                                                                                                                                                                                                    |
-  | `- type`        | String  | Issue Type, one of: <br/>&nbsp;&nbsp;`bb.issue.database.create`<br/>&nbsp;&nbsp;`bb.issue.database.grant`<br/>&nbsp;&nbsp;`bb.issue.database.schema.update`<br/>&nbsp;&nbsp;`bb.issue.database.schema.update.ghost`<br/>&nbsp;&nbsp;`bb.issue.database.data.update` <br/>&nbsp;&nbsp;`bb.issue.database.rollback` <br/>&nbsp;&nbsp;`bb.issue.database.data.export` |
-  | `- description` | String  | Issue Description                                                                                                                                                                                                                                                                                                                                                  |
-  | `project`       | Object  | Project Object                                                                                                                                                                                                                                                                                                                                                     |
-  | `- id`          | Integer | Project ID                                                                                                                                                                                                                                                                                                                                                         |
-  | `- name`        | String  | Project Name                                                                                                                                                                                                                                                                                                                                                       |
-
-- **Response Body**
-
-  | Key       | Type   | Description                         |
-  | --------- | ------ | ----------------------------------- |
-  | `code`    | String | Zero if success, non-zero if failed |
-  | `message` | String | Some error message                  |
-
-- **Response StatusCode**
-  - 200, OK
-  - Other, if any error
-
-**Example Request Body**
-
-```json
-{
-  "level": "INFO",
-  "activity_type": "bb.issue.created",
-  "title": "example webhook",
-  "description": "example description",
-  "link": "example link",
-  "creator_id": 1,
-  "creator_name": "Bytebase",
-  "created_ts": 1651212107,
-  "issue": {
-    "id": 1,
-    "name": "example issue",
-    "status": "OPEN",
-    "type": "bb.issue.database.create",
-    "description": "This is a test issue"
-  },
-  "project": {
-    "id": 1,
-    "name": "demo"
-  }
-}
-```
-
-**Example Response Body**
-
-- Success
-  ```json
-  {
-    "code": 0,
-    "message": ""
-  }
-  ```
-- Failed
-  ```json
-  {
-      "code": 400
-      "message": "Ops, some error occured!"
-  }
-  ```
