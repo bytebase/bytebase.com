@@ -21,9 +21,7 @@ NoSQL databases like Amazon DynamoDB and MongoDB overcome the limitations of tra
 
 ## Amazon DynamoDB Overview
 
-DynamoDB, launched by AWS in 2012, evolved from Amazon's 2007 Dynamo paper. It's a fully managed NoSQL service designed for high-scale, high-performance workloads, improving on Dynamo's scalability and ease of use.
-
-DynamoDB is a fully managed, serverless, key-value and document database that delivers single-digit millisecond performance at any scale. As an AWS service, it eliminates the operational burden of managing database infrastructure, allowing developers to focus on application development.
+DynamoDB, launched by AWS in 2012, evolved from [Amazon's 2007 Dynamo paper](https://dl.acm.org/doi/10.1145/1323293.1294281). DynamoDB is a fully managed, serverless, key-value and document database that delivers single-digit millisecond performance at any scale. As an AWS service, it eliminates the operational burden of managing database infrastructure, allowing developers to focus on application development.
 
 ## MongoDB Overview
 
@@ -37,7 +35,7 @@ MongoDB is a document-oriented NoSQL database that stores data in flexible, JSON
 | ------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | **Type**                  | Fully managed NoSQL database service                                       | Document-oriented NoSQL database                                                  |
 | **Deployment**            | AWS cloud only                                                             | Self-hosted, MongoDB Atlas (cloud), or other cloud providers                      |
-| **Data Model**            | Key-value and document                                                     | Document-oriented with BSON format                                                |
+| **Data Model**            | Key-value and document                                                     | Document-oriented                                                                 |
 | **Schema**                | Schema-flexible with required primary key                                  | Fully schema-flexible                                                             |
 | **Document Size Limit**   | 400KB per item                                                             | 16MB per document                                                                 |
 | **Query Language**        | Limited query expressions with PartiQL support                             | Rich query language with MongoDB Query API                                        |
@@ -53,8 +51,7 @@ MongoDB is a document-oriented NoSQL database that stores data in flexible, JSON
 | **Monitoring**            | CloudWatch integration                                                     | MongoDB Atlas monitoring, self-monitoring tools                                   |
 | **Use Cases**             | High-scale applications with simple access patterns                        | Applications requiring complex queries and flexible schema                        |
 | **Ecosystem Integration** | Deep AWS service integration                                               | Broad language support and third-party integrations                               |
-| **Vendor Lock-in**        | High (AWS-specific)                                                        | Lower (portable between environments)                                             |
-| **Learning Curve**        | Moderate to steep                                                          | Moderate                                                                          |
+| **Vendor Lock-in**        | High (AWS-specific)                                                        | Moderate (portable between environments)                                          |
 
 ## Key Comparison Points
 
@@ -82,7 +79,7 @@ MongoDB is a document-oriented NoSQL database that stores data in flexible, JSON
 
 **MongoDB**:
 
-- Document-oriented with BSON format
+- Document-oriented
 - Fully flexible schema
 - Supports nested documents and arrays
 - 16MB maximum document size
@@ -247,8 +244,7 @@ DynamoDB is particularly well-suited for:
 
 **Real-World Examples**:
 
-- Amazon's shopping cart and session management
-- Lyft's ride tracking system
+- [Lyft's ride tracking system](https://aws.amazon.com/solutions/case-studies/lyft/)
 - Snapchat's messaging infrastructure
 - Airbnb's fraud detection system
 
@@ -272,4 +268,4 @@ MongoDB is particularly well-suited for:
 
 ## Conclusion
 
-Both are powerful NoSQL solutions with different superpowers. Many teams use both—DynamoDB for AWS-scale speed, MongoDB for flexible document workflows. Match the database to your specific needs, and you'll build apps that scale.
+DynamoDB excels in AWS environments requiring predictable performance with minimal management overhead and automatic scaling, making it ideal for serverless architectures and applications with straightforward access patterns. MongoDB offers greater flexibility with its rich query capabilities, deployment options, and document model, better serving complex data relationships and queries while avoiding vendor lock-in.
