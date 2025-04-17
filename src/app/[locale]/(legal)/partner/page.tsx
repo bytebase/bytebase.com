@@ -14,8 +14,7 @@ export default function Page() {
       </h1>
       <p className="sm:mt-3">
         Grow your business with the Bytebase Partner Program to advance Database DevSecOps. For more
-        information, please contact us at{' '}
-        <Link href="mailto:support@bytebase.com">support@bytebase.com</Link>.
+        information, please <Link href="/docs/faq/#how-to-reach-us">contact us</Link>.
       </p>
       <h2 id="personal-information">Channel Partner</h2>
       <p>
