@@ -14,12 +14,15 @@ Bytebase is an all-in-one solution for database development lifecycle management
 
 ## SQL Client
 
-Traditional SQL clients such as DBeaver, DataGrip, Navicat, pgAdmin, phpMyAdmin provide a GUI interface.
-Bytebase also provides a web-based [SQL Editor](/sql-editor/). By adopting Bytebase, DBAs no longer
-need to distribute database credentials to the individuals. DBAs configure the database credentials
-in Bytebase once, then grant [database permissions](/docs/security/database-permission/overview/) to individuals conditionally. Furthermore, they can also configure [dynamic data masking](/docs/security/data-masking/overview/).
-
 ![sql-editor-data-masking](/images/page/main/sql-editor/mask.webp)
+
+Traditional SQL clients such as DBeaver, DataGrip, Navicat, pgAdmin, phpMyAdmin provide a GUI interface.
+Bytebase also provides a web-based [SQL Editor](/sql-editor/) providing:
+
+- Centralized database credential management
+- Request and grant [database permissions](/docs/security/database-permission/overview/) workflow and enable Just-in-Time Database Access
+- [Dynamic data masking](/docs/security/data-masking/overview/)
+- Audit logs
 
 ## Schema Migration
 
@@ -29,11 +32,8 @@ for DBAs and developers to collaborate on database changes.
 - [SQL linter](/docs/sql-review/overview/) to detect anti-patterns.
   ![schema-review-table-drop-naming](/content/docs/sql-review/schema-review-table-drop-naming.webp)
 - [Streamline the change](/docs/change-database/batch-change/) across different environments and allow to batch change many databases consistently.
-  ![streamline-change](/images/page/main/batch-change/deployment-config.webp)
-- [Point-and-click integration](/docs/vcs-integration/overview/) with mainstream VCSs to enable GitOps workflow.
-  ![gitops-workflow](/content/docs/vcs-integration/overview/gitops-workflow.webp)
+- [GitOps integration](/docs/vcs-integration/overview/) with mainstream VCSs to enable database-as-code workflow.
 - [Online schema migration for MySQL](/docs/change-database/online-schema-migration-for-mysql/) with gh-ost integration.
-  ![bb-issue-ghost-config](/content/docs/change-database/online-schema-migration-for-mysql/bb-issue-ghost-config.webp)
 
 ## Change Coordination
 
@@ -44,12 +44,12 @@ A typical database change workflow:
 1. DBA runs the change script offline.
 1. DBA updates the ticket status / notify the developer.
 
+![Issue detail interface](/content/docs/change-database/change-workflow/issue-detail.webp)
+
 Bytebase provides a single place to coordinate the database changes. The issue interface provides
 a holistic view of the database change status. Upon approval, changes are rolled out from Bytebase
 directly instead of switching to a different tools. All the activities are recorded and can be further
 configured to post to IM via [webhook](/docs/change-database/webhook).
-
-![Issue detail interface](/content/docs/change-database/change-workflow/issue-detail.webp)
 
 ## Summary
 
