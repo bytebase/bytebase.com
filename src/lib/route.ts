@@ -28,7 +28,6 @@ const Route = {
   TECHLEAD: '/usecase/techlead',
 
   // terms
-  REFUND: '/refund',
   SUB_PROCESSORS: '/subprocessors',
   TERMS: '/terms',
   PARTNER: '/partner',

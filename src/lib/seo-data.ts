@@ -139,12 +139,6 @@ const SEO_DATA = {
       'Schema migration and database security for developer, security, DBA, and platform engineering teams.',
     pathname: `${Route.CONTACTS}/`,
   },
-  REFUND: {
-    title: 'Bytebase Refund',
-    description:
-      'Schema migration and database security for developer, security, DBA, and platform engineering teams.',
-    pathname: `${Route.REFUND}/`,
-  },
   VIEW_LIVE_DEMO: {
     title: 'View Live Demo',
     description:
