@@ -245,8 +245,7 @@ DynamoDB is particularly well-suited for:
 **Real-World Examples**:
 
 - [Lyft's ride tracking system](https://aws.amazon.com/solutions/case-studies/lyft/)
-- Snapchat's messaging infrastructure
-- Airbnb's fraud detection system
+- [Snapchat's messaging infrastructure](https://aws.amazon.com/solutions/case-studies/snap-dynamodb/)
 
 ### When to Choose MongoDB
 
@@ -261,10 +260,8 @@ MongoDB is particularly well-suited for:
 
 **Real-World Examples**:
 
-- Forbes' content management system
-- Adobe's customer experience platform
-- SEGA's game analytics platform
-- Cisco's customer service applications
+- [Forbes' content management system](https://www.mongodb.com/blog/post/forbes-cloud-migration-helps-worlds-biggest-media-brand-continue-standard-digital-innovation)
+- [SEGA's game analytics platform](https://www.mongodb.com/solutions/customer-case-studies/sega)
 
 ## Conclusion
 
