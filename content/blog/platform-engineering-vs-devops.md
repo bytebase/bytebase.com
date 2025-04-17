@@ -3,7 +3,7 @@ title: 'Platform Engineering vs. DevOps: A Strategic Comparison in 2025'
 author: Adela
 updated_at: 2025/04/16 18:00
 feature_image: /content/blog/platform-engineering-vs-devops/banner.webp
-tags: Industry
+tags: Comparison
 description: 'A Strategic Comparison Between DevOps and Platform Engineering'
 ---
 
