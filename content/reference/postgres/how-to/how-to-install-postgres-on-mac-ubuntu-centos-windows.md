@@ -1,5 +1,5 @@
 ---
-title: How to install Local Postgres on Your Mac, Ubuntu, CentOS, or Windows
+title: How to install Local Postgres on Mac, Ubuntu, CentOS, or Windows
 ---
 
 A local Postgres database is installed and running on your own computer or server, allows developers to work offline without depending on a remote server, and also enables them to quickly iterate on changes without risking data loss or corruption.

@@ -1,10 +1,10 @@
 ---
-title: How to Install MySQL Client on Your Mac, Ubuntu, CentOS, Windows
+title: How to Install MySQL Client on Mac, Ubuntu, CentOS, Windows
 ---
 
 <HintBlock type="info">
 
-This article refers to the classic MySQL CLI, if you want to install the advanced [MySQL Shell `mysqlsh`](https://dev.mysql.com/doc/mysql-shell/8.0/en/) introduced in MySQL 8.0, check out [How to install MySQL Shell on Your Mac](/reference/mysql/how-to/how-to-install-mysql-shell-on-macos).
+This article refers to the classic MySQL CLI, if you want to install the advanced [MySQL Shell `mysqlsh`](https://dev.mysql.com/doc/mysql-shell/8.0/en/) introduced in MySQL 8.0, check out [How to install MySQL Shell on Mac](/reference/mysql/how-to/how-to-install-mysql-shell-on-macos).
 
 </HintBlock>
 

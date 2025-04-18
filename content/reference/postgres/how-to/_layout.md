@@ -5,7 +5,7 @@
 
 ## [How to install Postgres using docker](/reference/postgres/how-to/how-to-install-postgres-using-docker)
 
-## [How to install Postgres on Your Mac, Ubuntu, CentOS, or Windows](/reference/postgres/how-to/how-to-install-postgres-on-mac-ubuntu-centos-windows)
+## [How to install Postgres on Mac, Ubuntu, CentOS, or Windows](/reference/postgres/how-to/how-to-install-postgres-on-mac-ubuntu-centos-windows)
 
 ## [How to install pg_dump](/reference/postgres/how-to/how-to-install-pgdump-on-mac-ubuntu-centos-windows)
 

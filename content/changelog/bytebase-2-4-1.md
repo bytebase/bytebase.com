@@ -30,7 +30,7 @@ description: 'Support GitHub Enterprise for VCS integration; export data as XLSX
 - 🔥A non-exhaustive list of [DBaaS providers](/blog/database-as-a-service-dbaas-provider/) on the market.
 - Plus some handy tutorials:
   - Common [mysql commands with examples](/reference/mysql/how-to/top-mysql-commands-with-examples/).
-  - How to [install MySQL Client](/reference/mysql/how-to/how-to-install-mysql-client-on-mac-ubuntu-centos-windows/) on Your Mac, Ubuntu, CentOS, or Windows
+  - How to [install MySQL Client](/reference/mysql/how-to/how-to-install-mysql-client-on-mac-ubuntu-centos-windows/) on Mac, Ubuntu, CentOS, or Windows
   - Snowflake Schema Change [Best Practice](/blog/snowflake-schema-change/).
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>
