@@ -10,7 +10,7 @@ This article refers to the classic MySQL CLI, if you want to install the advance
 
 ## Introduction
 
-The official [MySQL Client `mysql`](https://dev.mysql.com/doc/refman/8.0/en/mysql.html), also known as MySQL CLI is a CLI to interact with your MySQL server. Below describe how to install it on Mac, Ubuntu, Debian and Windows respectively.
+The official [MySQL Client `mysql`](https://dev.mysql.com/doc/refman/8.0/en/mysql.html), also known as MySQL CLI is a CLI to interact with your MySQL server. Below describe how to install it on Mac, Ubuntu, CentOS and Windows respectively.
 
 ## Before You Start
 
