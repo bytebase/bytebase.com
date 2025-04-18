@@ -21,7 +21,7 @@ By default, MySQL sets `connect_timeout` to 10 seconds, which works well for mos
 
 You can configure this setting in the MySQL configuration file:
 
-```toml
+```ini
 [mysqld]
 connect_timeout=20
 ```
@@ -52,7 +52,7 @@ By default, `max_execution_time` is set to 0, which effectively disables the tim
 
 You can set it globally in the configuration file:
 
-```toml
+```ini
 [mysqld]
 max_execution_time=10000
 ```
@@ -83,7 +83,7 @@ You can modify this default behavior by starting the MySQL server with the `--in
 
 The timeout can be configured at the global level:
 
-```toml
+```ini
 [mysqld]
 innodb_lock_wait_timeout=30
 ```
@@ -121,7 +121,7 @@ When a new connection session is established, its effective wait timeout value i
 
 You can configure these settings in the MySQL configuration file:
 
-```toml
+```ini
 [mysqld]
 interactive_timeout=3600
 wait_timeout=1800
