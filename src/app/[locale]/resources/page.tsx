@@ -33,6 +33,7 @@ export default function ResourcesPage() {
           />
           <ResourceCard title="🐬 MySQL How-to Guide" link="/reference/mysql/how-to/overview" />
           <ResourceCard title="🐬 MySQL Error Reference" link="/reference/mysql/error/overview" />
+          <ResourceCard title="🦭 MariaDB How-to Guide" link="/reference/mariadb/how-to/overview" />
           <ResourceCard
             title="🛢️ SQL Server How-to Guide"
             link="/reference/sqlserver/how-to/overview"
