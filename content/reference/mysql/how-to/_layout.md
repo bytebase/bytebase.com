@@ -7,6 +7,8 @@
 
 ## [How to install MySQL on Mac, Ubuntu, CentOS, Windows](/reference/mysql/how-to/how-to-install-mysql-on-mac-ubuntu-centos-windows)
 
+## [How to install MySQL Client on Your Mac, Ubuntu, CentOS, Windows](/reference/mysql/how-to/how-to-install-mysql-client-on-mac-ubuntu-centos-windows)
+
 ## [How to install MySQL Shell on Mac](/reference/mysql/how-to/how-to-install-mysql-shell-on-macos)
 
 ## [MySQL Security Best Practices](/reference/mysql/how-to/mysql-security-best-practices)
