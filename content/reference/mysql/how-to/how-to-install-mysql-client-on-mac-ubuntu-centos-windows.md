@@ -1,5 +1,5 @@
 ---
-title: How to Install MySQL Client on Mac, Ubuntu, CentOS, Windows
+title: How to install MySQL Client on Mac, Ubuntu, CentOS, Windows
 ---
 
 <HintBlock type="info">

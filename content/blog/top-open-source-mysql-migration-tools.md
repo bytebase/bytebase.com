@@ -102,5 +102,5 @@ access control, dynamic data masking and audit logs to control the query path.
 - [Postgres vs. MySQL](/blog/postgres-vs-mysql)
 - [Data Masking for MySQL Databases](/blog/mysql-data-masking/)
 - [Top MySQL GUI Clients](/blog/top-mysql-gui-client/)
-- [How to Install Local MySQL on Mac, Ubuntu, CentOS, Windows](/blog/how-to-install-local-mysql-on-mac-ubuntu-centos-windows/)
+- [How to install local MySQL on Mac, Ubuntu, CentOS, Windows](/blog/how-to-install-local-mysql-on-mac-ubuntu-centos-windows/)
 - [Postgres Migration Tools](/blog/top-open-source-postgres-migration-tools)

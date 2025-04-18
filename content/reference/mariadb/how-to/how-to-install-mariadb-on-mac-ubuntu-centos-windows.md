@@ -34,7 +34,7 @@ This guide covers how to install a local MariaDB on your Mac, Ubuntu, CentOS, or
    sudo mysql.server start
    ```
 
-### Troubleshooting
+### Troubleshooting on macOS
 
 - **Socket error**: If you get a socket error, check if MariaDB is running:
 
@@ -66,7 +66,7 @@ This guide covers how to install a local MariaDB on your Mac, Ubuntu, CentOS, or
 
 ## Ubuntu
 
-### APT
+### apt
 
 1. **Update the package index**:
 
@@ -109,7 +109,7 @@ This guide covers how to install a local MariaDB on your Mac, Ubuntu, CentOS, or
    sudo apt install mariadb-server
    ```
 
-### Troubleshooting
+### Troubleshooting on Ubuntu
 
 - **Service won't start**: Check for errors in the log:
 
@@ -179,7 +179,7 @@ This guide covers how to install a local MariaDB on your Mac, Ubuntu, CentOS, or
    sudo systemctl enable mariadb
    ```
 
-### Troubleshooting
+### Troubleshooting on CentOS
 
 - **Service fails to start**: Check the system logs:
 
@@ -242,7 +242,7 @@ This guide covers how to install a local MariaDB on your Mac, Ubuntu, CentOS, or
 
 1. **Install Chocolatey** (if not already installed):
 
-   ```bash
+   ```powershell
    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
    ```
 
@@ -251,7 +251,7 @@ This guide covers how to install a local MariaDB on your Mac, Ubuntu, CentOS, or
    choco install mariadb
    ```
 
-### Troubleshooting
+### Troubleshooting on Windows
 
 - **Service not starting**: Check Windows Services (services.msc) and ensure MariaDB service is set to Automatic. If it fails to start:
 

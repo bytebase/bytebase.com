@@ -1,5 +1,5 @@
 ---
-title: How to Install MariaDB Client on Mac, Ubuntu, CentOS, Windows
+title: How to install MariaDB Client on Mac, Ubuntu, CentOS, Windows
 ---
 
 The MariaDB client is a command-line tool used to connect to and interact with MariaDB and MySQL database servers. It evolved directly from the MySQL client when MariaDB was created as a fork of MySQL.
@@ -24,7 +24,7 @@ Below describe how to install it on Mac, Ubuntu, CentOS and Windows respectively
 3. **Add to your PATH** (if needed):
    After installation, Homebrew may display a message asking you to add the client to your PATH. Follow the instructions shown in the terminal after installation.
 
-### Troubleshooting
+### Troubleshooting on macOS
 
 - **Command not found**: If the `mariadb` command isn't found after installation:
 
@@ -38,7 +38,7 @@ Below describe how to install it on Mac, Ubuntu, CentOS and Windows respectively
 
 ## Ubuntu
 
-### APT
+### apt
 
 1. **Update the package index**:
 
@@ -74,7 +74,7 @@ Below describe how to install it on Mac, Ubuntu, CentOS and Windows respectively
    sudo apt install mariadb-client
    ```
 
-### Troubleshooting
+### Troubleshooting on Ubuntu
 
 - **Missing dependencies**: If you see dependency errors:
 
@@ -114,7 +114,7 @@ Below describe how to install it on Mac, Ubuntu, CentOS and Windows respectively
    sudo yum install MariaDB-client
    ```
 
-### Troubleshooting
+### Troubleshooting on CentOS
 
 - **Repository issues**: If you have problems with the repository:
 
@@ -145,7 +145,7 @@ Below describe how to install it on Mac, Ubuntu, CentOS and Windows respectively
 
 1. **Install Chocolatey** (if not already installed):
 
-   ```bash
+   ```powershell
    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
    ```
 
@@ -154,7 +154,7 @@ Below describe how to install it on Mac, Ubuntu, CentOS and Windows respectively
    choco install mariadb-cli
    ```
 
-### Troubleshooting
+### Troubleshooting on Windows
 
 - **Path issues**: If the 'mariadb' command isn't recognized:
 

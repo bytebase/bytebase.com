@@ -38,6 +38,7 @@ export default function ResourcesPage() {
             title="🛢️ SQL Server How-to Guide"
             link="/reference/sqlserver/how-to/overview"
           />
+          <ResourceCard title="🥭 MongoDB How-to Guide" link="/reference/mongodb/how-to/overview" />
           <ResourceCard
             title="🏠 ClickHouse How-to Guide"
             link="/reference/clickhouse/how-to/overview"
