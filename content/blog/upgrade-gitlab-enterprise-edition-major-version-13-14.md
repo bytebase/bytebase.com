@@ -1,5 +1,5 @@
 ---
-title: GitLab Upgrade from 13 to 14
+title: How to Upgrade GitLab from 13 to 14
 author: Tianzhou
 updated_at: 2021/12/15 08:29:42
 feature_image: /content/blog/upgrade-gitlab-enterprise-edition-major-version-13-14/gitlab-13-to-14.webp

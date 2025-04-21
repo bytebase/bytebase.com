@@ -3,8 +3,7 @@ title: 'Database Compliance for GDPR: Implications and Best Practices'
 author: Tianzhou
 updated_at: 2024/07/24 09:00:00
 feature_image: /content/blog/database-compliance-for-gdpr/banner.webp
-tags: How-To
-featured: true
+tags: Explanation
 description: A comprehensive overview of the essential practices and principles necessary for achieving GDPR compliance within database operations
 ---
 

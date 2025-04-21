@@ -3,8 +3,7 @@ title: 'Snowflake CI/CD and DevOps Best Practice'
 author: Tianzhou
 updated_at: 2024/03/01 10:00:00
 feature_image: /content/blog/snowflake-ci-cd-devops/cover.webp
-tags: How-To
-featured: true
+tags: Explanation
 description: Describe the current feature gap of Snowflake CI/CD story and present a solution
 ---
 
