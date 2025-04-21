@@ -16,6 +16,7 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 | Update History | Comment          |
 | -------------- | ---------------- |
 | 2025/04/16     | Initial version. |
+| 2025/04/21     | Fix wrong link.  |
 
 SQL (Structured Query Language) remains the dominant language for database interactions, powering everything from traditional relational databases to modern data warehouses and analytics platforms. Behind the scenes, SQL parsers play a crucial role in interpreting, validating, and processing SQL statements.
 
@@ -63,11 +64,11 @@ SQL parsers are used in a wide range of applications, including:
 
 ## Oracle Parsers
 
-- [tsql-parser](https://github.com/bytebase/tsql-parser). Go-based parser based on the [ANTLR Oracle grammar](https://github.com/antlr/grammars-v4/tree/master/sql/plsql).
+- [plsql-parser](https://github.com/bytebase/plsql-parser). Go-based parser based on the [ANTLR Oracle grammar](https://github.com/antlr/grammars-v4/tree/master/sql/plsql).
 
-## SQL Server
+## SQL Server Parsers
 
-- [plsql-parser](https://github.com/bytebase/plsql-parser). Go-based parser based on the [ANTLR T-SQL grammar](https://github.com/antlr/grammars-v4/blob/master/sql/tsql).
+- [tsql-parser](https://github.com/bytebase/tsql-parser). Go-based parser based on the [ANTLR T-SQL grammar](https://github.com/antlr/grammars-v4/blob/master/sql/tsql).
 
 ## General-Purpose Parsers
 
