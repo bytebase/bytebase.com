@@ -87,6 +87,11 @@ module.exports = {
         permanent: true,
       },
       {
+        source: '/docs/vcs-integration/add-gitops-connector',
+        destination: '/docs/vcs-integration/overview',
+        permanent: true,
+      },
+      {
         source: '/blog/how-to-handle-database-migration',
         destination: '/blog/how-to-handle-database-schema-change',
         permanent: true,
