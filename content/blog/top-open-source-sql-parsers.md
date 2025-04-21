@@ -66,7 +66,7 @@ SQL parsers are used in a wide range of applications, including:
 
 - [plsql-parser](https://github.com/bytebase/plsql-parser). Go-based parser based on the [ANTLR Oracle grammar](https://github.com/antlr/grammars-v4/tree/master/sql/plsql).
 
-## SQL Server
+## SQL Server Parsers
 
 - [tsql-parser](https://github.com/bytebase/tsql-parser). Go-based parser based on the [ANTLR T-SQL grammar](https://github.com/antlr/grammars-v4/blob/master/sql/tsql).
 
