@@ -19,10 +19,6 @@ export default function getBlogCardColors(theme: string): {
       tagColors: 'bg-gray-94',
       titleHover: 'hover:text-gray-60',
     },
-    'how-to': {
-      tagColors: 'bg-[#F9E8FF] text-[#8E1B98]',
-      titleHover: 'hover:text-[#8E1B98]',
-    },
     'case-study': {
       tagColors: 'bg-[#CFFAFE] text-[#176782]',
       titleHover: 'hover:text-[#176782]',

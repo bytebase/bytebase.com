@@ -132,7 +132,6 @@ const getTagNameBySlug = (tagSlag: string): string => {
     industry: 'Industry',
     explanation: 'Explanation',
     engineering: 'Engineering',
-    'how-to': 'How-To',
     'case-study': 'Case Study',
     comparison: 'Comparison',
   };

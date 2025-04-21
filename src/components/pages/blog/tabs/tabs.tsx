@@ -32,10 +32,6 @@ const tabThemes = {
     default: 'text-gray-15 border-gray-94 hover:bg-gray-94',
     active: 'bg-gray-15 border-gray-15',
   },
-  'how-to': {
-    default: 'border-[#F9E8FF] text-[#8E1B98] hover:bg-[#F9E8FF]',
-    active: 'bg-[#8E1B98] border-[#8E1B98]',
-  },
   comparison: {
     default: 'border-[#E6F0FF] text-[#0A4B94] hover:bg-[#E6F0FF]',
     active: 'bg-[#0A4B94] border-[#0A4B94]',

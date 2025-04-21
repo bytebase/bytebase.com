@@ -3,7 +3,7 @@ title: 'ServiceNow and GitHub Integration for Database Change Automation'
 author: Tianzhou
 updated_at: 2025/03/07 09:00:00
 feature_image: /content/blog/database-change-automation-github-servicenow-integration/banner.webp
-tags: How-To
+tags: Explanation
 featured: true
 description: How to integrate ServiceNow, GitHub with Bytebase to Automate Database Changes.
 ---
