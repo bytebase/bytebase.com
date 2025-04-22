@@ -7,40 +7,54 @@ feature_name: SCHEMA_EDITOR
 
 **Schema Editor** also supports the use of templates for fields and tables. Templates can be pre-defined at the workspace level and can be used to save time and ensure consistency when creating new schema entities. See [Schema Template](/docs/administration/schema-template) for more details.
 
-## How to use
+## Schema Editor Entry
 
-By clicking on **Alter Schema** in the Quick Action panel and selecting the database, you will see the Schema Editor dialog.
+Select a certain project and go to **Database** -> **Databases** in the left-side menu. Select _one_ of the databases and click **Edit Schema**.
 
-![schema-editor-dialog](/content/docs/change-database/schema-editor/schema-editor-dialog.webp)
+![](/content/docs/change-database/schema-editor/schema-editor-entry.webp)
 
-### Create table
+## Create Table / Schema
 
-To create a new table:
+To create a new table, select a database and click the **New Table** button on top of the Edit Schema page. Enter table name and **Create**.
 
-1. Select a database and click the **New Table** on the top of the table list tab.
-   ![create-table-button](/content/docs/change-database/schema-editor/create-table-button.webp)
-1. Enter the table name.
-1. Add new column by clicking the **Add Column** on the top of column list tab.
-   ![add-column-button](/content/docs/change-database/schema-editor/add-column-button.webp)
-1. Specify the column's attributes: name, data type, default, comment, nullable, primary key and foreign key.
-1. Click **Preview Issue**, then Bytebase will go to the issue creating page with the generated SQL statement.
+![](/content/docs/change-database/schema-editor/create-table.webp)
 
-### Alter table
+You can also create a new table by clicking the `···` button by a schema, then click the **New table** button and enter your Table Name. Click the **Create** button, and you'll have created a table under this schema.
 
-To alter a table:
+![](/content/docs/change-database/schema-editor/new-table-button.webp)
 
-1. Open the table editor tab by clicking the table list.
-1. Rename the table name by clicking the **Rename** dropdown item in table tree node.
-   ![table-rename-button](/content/docs/change-database/schema-editor/table-rename-button.webp)
-1. Add new column by clicking on the **Add Column**.
-1. Specify the new column's attributes: name, data type, default, comment, nullable, primary key and foreign key.
-1. Alter the existing column's attributes, if needed.
-1. Click **Preview Issue**, then Bytebase will go to the issue creating page with the generated SQL statement.
+Similarly, you can click the `···` button on the database row to create a new schema under it.
 
-### Drop table
+By clicking on the `copy` button on the table's row, you can replicate this table.
 
-To drop an existing table:
+![](/content/docs/change-database/schema-editor/copy.webp)
 
-1. Hover to the table and click the **Drop Table** dropdown item, or the **Trash** button for the table row.
-   ![drop-table-button](/content/docs/change-database/schema-editor/drop-table-button.webp)
-1. Click **Preview Issue**, then Bytebase will go to the issue creating page with the generated SQL statement.
+## Drop or Restore Table / Schema
+
+To drop an existing table / schema, click the `···` button on the corresponding row of the database / schema list, and click the **Drop table** / **Drop Schema** button. Then this table / schema will be crossed out.
+
+![](/content/docs/change-database/schema-editor/drop-table.webp)
+
+Click on the `···` button of a table or schema you just dropped, and you can **Restore** it.
+
+## Alter Table
+
+### Add Column
+
+To Add a new column, click on a table and click the **Add Column** button on top of table detail page.
+
+Enter attributes for this column: Name, Type, Default, etc.
+
+![](/content/docs/change-database/schema-editor/add-column.webp)
+
+### Rename new Table
+
+For _newly created_ tables, you can **Rename** in the left-side list.
+
+![](/content/docs/change-database/schema-editor/rename.webp)
+
+### Preview Issue
+
+After your schema editing, Click the **Preview Issue** at bottom right, and you'll be redirected to the issue creating page with generated SQL statement.
+
+![](/content/docs/change-database/schema-editor/edit-schema-issue.webp)
