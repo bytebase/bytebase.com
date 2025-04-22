@@ -19,7 +19,7 @@ const cards: CardProps[] = [
     color: 'red',
     href: Route.DOCS_DATABASE_PERMISSION,
     cover: '/images/page/main/hero/secure-access.webp',
-    title: 'Just-in-Time Access',
+    title: 'Production Access',
     description:
       'Just-in-Time (JIT) IAM-based database permissions with approval flow and audit logging.',
   },
@@ -27,7 +27,7 @@ const cards: CardProps[] = [
     color: 'green',
     href: Route.DOCS_SQL_EDITOR,
     cover: '/images/page/main/hero/query-data.webp',
-    title: 'Dynamic Data Masking',
+    title: 'Data Masking',
     description:
       'Role-based multi-level masking with data classification, custom algorithm, policy-as-code.',
   },
