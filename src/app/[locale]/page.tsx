@@ -7,6 +7,7 @@ import Logos from '@/components/pages/home/logos';
 import PromoSQLEditor from '@/components/pages/home/promo-sql-editor';
 import PromoAutomationChanges from '@/components/pages/home/promo-automation-changes';
 import PromoSecurity from '@/components/pages/home/promo-security';
+import CTA from '@/components/pages/home/cta';
 
 import SEO_DATA from '@/lib/seo-data';
 import { getStaticParams } from '@/locales/server';
@@ -27,6 +28,7 @@ export default function Page() {
       <PromoSQLEditor />
       <PromoSecurity />
       <Features />
+      <CTA />
     </>
   );
 }
