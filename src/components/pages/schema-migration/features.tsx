@@ -26,7 +26,7 @@ const cards: TCard[] = [
     href: Route.DOCS_BATCH_CHANGE,
     icon: '/images/batch-change-streamlined.svg',
     title: 'Batch Change',
-    description: 'Manage geographically isolated databases.',
+    description: 'Manage multi-region, multi-tenant databases.',
   },
 ];
 
