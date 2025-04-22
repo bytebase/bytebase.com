@@ -3,7 +3,6 @@ import Script from 'next/script';
 import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
 import WechatQRCode from '@/components/wechat-qr-code';
-import { Cal } from '@/components/cal';
 
 import I18nProvider from '@/locales/i18nProvider';
 import PlausibleProvider from 'next-plausible';
