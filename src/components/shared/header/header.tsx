@@ -311,7 +311,7 @@ const Header = () => {
                     </button>
                   )}
                   {menus?.length && canShowSubmenu && (
-                    <div className="invisible absolute left-0 top-6 pt-4 opacity-0 transition-[opacity,visibility] duration-200 group-hover:visible group-hover:opacity-100">
+                    <div className="invisible absolute left-0 top-6 z-50 pt-4 opacity-0 transition-[opacity,visibility] duration-200 group-hover:visible group-hover:opacity-100">
                       <div className="relative -left-1/3 flex items-start gap-x-8 rounded-lg border border-gray-80 bg-white p-6 shadow-menu">
                         {menus.map(({ items, title: subtitle }) => (
                           <div
