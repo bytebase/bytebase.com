@@ -20,13 +20,13 @@ const cards: TCard[] = [
     href: Route.DOCS_SCHEMA_SYNC,
     icon: '/images/database.svg',
     title: 'Schema Sync',
-    description: 'Calculate and apply schema diff to make mutiple databases consistent.',
+    description: 'Calculate and apply schema diff to make multiple databases consistent.',
   },
   {
     href: Route.DOCS_DRIFT_DETECTION,
     icon: '/images/attention.svg',
     title: 'Drift Detection',
-    description: 'Proactively detect schema drift caused by unexpected out-of-band change.',
+    description: 'Proactively detect schema drift caused by unexpected change.',
   },
 ];
 
