@@ -250,11 +250,11 @@ const MobileMenu = () => {
               </li>
             </div>
             <div className="sticky bottom-0 z-10 mt-auto hidden flex-col gap-4 pt-4 sm:flex sm:gap-2">
-              <Button href={Route.DOCS_CLOUD} theme="gray-filled" size="md">
+              <Button href={Route.DOCS_SELF_HOST} theme="gray-filled" size="md">
                 Self-host
               </Button>
-              <Button href={Route.HUB} theme="primary-outline" size="md">
-                Cloud
+              <Button href={Route.DEMO} theme="primary-outline" size="md">
+                Demo
               </Button>
             </div>
           </div>

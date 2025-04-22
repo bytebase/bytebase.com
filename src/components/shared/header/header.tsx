@@ -362,8 +362,8 @@ const Header = () => {
           </ul>
           <div className="ml-auto flex items-center gap-2 md:mr-10 sm:hidden">
             <GithubStarCounter />
-            <Button href={Route.DOCS_CLOUD} theme="primary-outline" className="w-[88px]" size="sm">
-              Cloud
+            <Button href={Route.DEMO} theme="primary-outline" className="w-[88px]" size="sm">
+              Demo
             </Button>
             <Button href={Route.DOCS_SELF_HOST} theme="gray-filled" className="w-[116px]" size="sm">
               Self-host

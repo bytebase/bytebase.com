@@ -3,7 +3,6 @@ import getMetadata from '@/utils/get-metadata';
 import Benefits from '@/components/pages/home/benefits';
 import Features from '@/components/pages/home/features/features';
 import Hero from '@/components/pages/home/hero';
-import Demo from '@/components/pages/home/demo';
 import Logos from '@/components/pages/home/logos';
 import PromoSQLEditor from '@/components/pages/home/promo-sql-editor';
 import PromoAutomationChanges from '@/components/pages/home/promo-automation-changes';
@@ -23,7 +22,6 @@ export default function Page() {
     <>
       <Hero />
       <Logos />
-      <Demo />
       <PromoAutomationChanges />
       <Benefits />
       <PromoSQLEditor />

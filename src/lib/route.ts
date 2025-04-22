@@ -9,6 +9,7 @@ const Route = {
   DATA_MASKING: '/data-masking',
   BATCH_CHANGE: '/batch-change',
   SQL_REVIEW_GUIDE: '/sql-review-guide',
+  DEMO: '/demo',
   VIEW_LIVE_DEMO: '/view-live-demo',
   CONFIRM_VIEW_LIVE_DEMO: '/confirm-view-live-demo',
   REQUEST_DEMO: '/request-demo',

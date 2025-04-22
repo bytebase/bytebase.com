@@ -33,7 +33,6 @@ export default function RootLayout({ params: { locale }, children }: Props) {
         />
       </head>
       <body className="flex h-full flex-col">
-        <Cal />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=G-4BZ4JH7449`}
           strategy="afterInteractive"
