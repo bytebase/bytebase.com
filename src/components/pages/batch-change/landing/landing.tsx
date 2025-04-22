@@ -1,4 +1,3 @@
-import Hero from '../hero';
 import Features from '../features';
 import PromoBatchChange from '@/components/pages/home/promo-batch-change';
 import EnterpriseInquiry from '@/components/shared/enterprise-inquiry';
@@ -12,7 +11,6 @@ type RelatedPostsProps = {
 const Landing = ({ posts }: RelatedPostsProps) => {
   return (
     <>
-      <Hero />
       <PromoBatchChange />
       <Features />
       <RelatedPosts posts={posts} module="LANDING" />
