@@ -229,7 +229,7 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       // Get the banner height (or use an approximate value)
-      const bannerHeight = topBanner ? 40 : 0; // Adjust this value based on your banner height
+      const bannerHeight = topBanner ? 40 : 0; // Slightly increased banner height
 
       // Calculate progress between 0 and 1 based on scroll position relative to banner height
       const progress = Math.min(window.scrollY / bannerHeight, 1);
@@ -265,7 +265,7 @@ const Header = () => {
         )}
 
         {/* Placeholder to maintain layout when navbar is fixed */}
-        {scrollProgress === 1 && <div className="h-[66px] md:h-[58px]" />}
+        {scrollProgress === 1 && <div className="h-[64px] md:h-[56px]" />}
 
         <nav
           className={clsx(
