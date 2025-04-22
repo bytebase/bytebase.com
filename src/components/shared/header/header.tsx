@@ -80,12 +80,14 @@ type Header = {
   href?: string;
   menus?: Menu[];
   highlight?: HighlightItem;
+  breakpoint?: 'md' | 'lg'; // New attribute to indicate at which breakpoint the item will be shown
 };
 
 export const HEADER_MENU: Header[] = [
-  { title: '3-in-1', href: Route.DOCS },
+  { title: '3-in-1', href: Route.DOCS, breakpoint: 'md' },
   {
     title: 'Features',
+    breakpoint: 'md',
     menus: [
       {
         items: [
@@ -119,6 +121,7 @@ export const HEADER_MENU: Header[] = [
   },
   {
     title: 'Solutions',
+    breakpoint: 'md',
     menus: [
       {
         title: 'Use Case',
@@ -174,6 +177,7 @@ export const HEADER_MENU: Header[] = [
   },
   {
     title: 'Resources',
+    breakpoint: 'lg',
     menus: [
       {
         items: [
@@ -213,7 +217,7 @@ export const HEADER_MENU: Header[] = [
       iconName: 'tutorial',
     },
   },
-  { title: 'Pricing', href: Route.PRICING },
+  { title: 'Pricing', href: Route.PRICING, breakpoint: 'md' },
 ];
 
 const Header = () => {
@@ -257,9 +261,14 @@ const Header = () => {
             />
           </Link>
           <ul className="ml-8 mt-0.5 flex items-center gap-1 md:hidden">
-            {HEADER_MENU.map(({ title, href = '', menus, highlight }: Header) => {
+            {HEADER_MENU.map(({ title, href = '', menus, highlight, breakpoint }: Header) => {
               return (
-                <li key={title} className="group relative inline-block">
+                <li
+                  key={title}
+                  className={`group relative inline-block ${
+                    breakpoint === 'lg' ? 'lg:hidden' : ''
+                  }`}
+                >
                   {href ? (
                     <Link
                       className="px-3 py-2.5 text-16 font-medium tracking-wider"
