@@ -93,7 +93,7 @@ reb2b.SNIPPET_VERSION = "1.0.1";reb2b.load("9NMMZHPVM0NW");}();
           <I18nProvider locale={locale}>
             <div className="relative flex min-h-screen flex-col">
               <Header />
-              <main className="relative z-20 shrink-0 grow basis-auto pt-[128px] md:pt-[112px]">
+              <main className="relative z-20 shrink-0 grow basis-auto pt-[58px] md:pt-[42px]">
                 {children}
               </main>
               <Footer />
