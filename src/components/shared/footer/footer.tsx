@@ -128,62 +128,53 @@ const Footer = () => {
           </div>
         ))}
       </div>
-      <div className="mt-[76px] grid grid-cols-12 gap-x-4 border-t-4 border-tones-purple-light py-6 lg:mt-[58px] lg:gap-x-6 md:mt-11 md:grid-rows-2 md:gap-x-5 md:gap-y-6 md:py-5 xs:mt-[34px] xs:grid-rows-4 xs:gap-x-0">
-        <div className="col-span-4 flex items-center gap-x-4 xl:col-span-5 lg:col-span-6 md:row-span-2 md:flex-col md:items-start md:justify-center md:gap-x-0 md:gap-y-6 xs:col-span-full xs:row-span-1">
-          <Link className="shrink-0" href="/">
-            <span className="sr-only">Bytebase Logo</span>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              className="h-8 w-[150px] xl:h-7 xl:w-[132px]"
-              src="/images/logo.svg"
-              alt="Bytebase logo"
-              width={150}
-              height={32}
-              loading="lazy"
-            />
-          </Link>
-        </div>
-        <div className="col-span-2 col-start-7 flex items-center gap-x-4 lg:justify-self-end md:col-span-3 md:col-start-10 md:row-span-1 md:row-start-1 xs:col-span-full xs:col-start-1 xs:row-start-2 xs:-mt-1 xs:justify-self-start">
-          {socialLinks.map(({ name, href, icon: Icon }, idx) => (
-            <Link
-              className="flex items-center justify-center rounded-full"
-              key={idx}
-              href={href}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <span className="sr-only">{name}</span>
-              <Icon
-                size={24}
-                className="shrink-0 transition-opacity duration-200 hover:opacity-80"
+      <div className="mt-[76px] grid grid-cols-12 gap-x-4 border-t-4 border-tones-purple-light py-6 lg:mt-[58px] lg:gap-x-6 md:mt-11 md:gap-x-5 md:gap-y-6 md:py-5 xs:mt-[34px] xs:grid-rows-2 xs:gap-x-0">
+        <div className="col-span-8 flex items-center gap-x-8 xl:col-span-7 lg:col-span-8 md:flex-col md:items-start md:justify-center md:gap-x-0 md:gap-y-6 xs:col-span-full">
+          <div className="flex items-center gap-x-4">
+            <Link className="shrink-0" href="/">
+              <span className="sr-only">Bytebase Logo</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="h-8 w-[150px] xl:h-7 xl:w-[132px]"
+                src="/images/logo.svg"
+                alt="Bytebase logo"
+                width={150}
+                height={32}
+                loading="lazy"
               />
             </Link>
-          ))}
+            <div className="flex items-center gap-x-4">
+              {socialLinks.map(({ name, href, icon: Icon }, idx) => (
+                <Link
+                  className="flex items-center justify-center rounded-full"
+                  key={idx}
+                  href={href}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <span className="sr-only">{name}</span>
+                  <Icon
+                    size={24}
+                    className="shrink-0 transition-opacity duration-200 hover:opacity-80"
+                  />
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
-        <div className="col-span-1 col-start-12 flex flex-row items-center justify-end gap-x-4 lg:gap-x-6 md:col-span-3 md:col-start-10 md:row-start-2 md:justify-self-end xs:col-start-1 xs:row-start-3 xs:justify-self-start">
+        <div className="col-span-4 flex items-center justify-end gap-x-4 lg:gap-x-6 md:col-span-full md:justify-start xs:flex-wrap">
+          <p className="whitespace-nowrap text-14 font-medium leading-none tracking-tight text-gray-60">
+            © {new Date().getFullYear()} Bytebase. All Rights Reserved. {registration()}
+          </p>
           <img
-            className="h-16 xl:h-14 md:h-12"
+            className="h-16 w-16 xl:h-14 xl:w-14 md:h-12 md:w-12"
             src="/images/soc2.png"
             alt="SOC2 badge"
             width={64}
             height={64}
             loading="lazy"
           />
-          <p className="whitespace-nowrap text-14 font-medium leading-none tracking-tight text-gray-60 xs:hidden">
-            © {new Date().getFullYear()} Bytebase. All Rights Reserved. {registration()}
-          </p>
         </div>
-        <p className="hidden whitespace-nowrap text-14 font-medium leading-none tracking-tight text-gray-60 xs:col-span-full xs:row-span-1 xs:row-start-4 xs:block">
-          <img
-            className="mb-4 h-12"
-            src="/images/soc2.png"
-            alt="SOC2 badge"
-            width={48}
-            height={48}
-            loading="lazy"
-          />
-          © {new Date().getFullYear()} Bytebase. All Rights Reserved. {registration()}
-        </p>
       </div>
     </footer>
   );
