@@ -22,7 +22,7 @@ const Card = ({
         height={96}
         loading="lazy"
       />
-      <h3 className="mt-5 font-title text-56 font-semibold leading-none 2xl:mt-4 lg:text-44 md:mt-1 md:text-34">
+      <h3 className="mt-5 font-title text-36 font-semibold 2xl:mt-4 xl:text-32 md:mt-1 md:text-30 sm:text-24">
         {title}
       </h3>
       <p className="mt-4 max-w-[449px] text-20 leading-normal 2xl:mt-5 lg:mt-4 lg:text-18 lg:leading-snug md:mt-2 md:text-16 sm:mt-2.5 sm:max-w-xl 2xs:max-w-[296px] ">
