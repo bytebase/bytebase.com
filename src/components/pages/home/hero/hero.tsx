@@ -3,32 +3,17 @@
 import clsx from 'clsx';
 
 import Button from '@/components/shared/button';
-import Link from '@/components/shared/link';
 import { LinkUnderlined } from '@/components/shared/link-underlined';
 
 import Route from '@/lib/route';
 
-import SmallArrowIcon from '@/svgs/small-arrow.inline.svg';
 import DBScheme from './db-scheme';
 import PromoCards from '../promo-cards';
 
-const Hero = ({ latestVersion }: { latestVersion: { number: string; slug: string } | null }) => {
+const Hero = () => {
   return (
     <div className={clsx('container mt-16 flex w-full flex-col md:mt-8 sm:mt-4')}>
       <section className="flex w-full flex-col items-center justify-center">
-        {latestVersion !== null && (
-          <Link href="/changelog/bytebase-3-5-2/" className="group/link">
-            <span className="inline-flex items-center gap-1 rounded-full bg-tones-purple-light p-1 text-12 font-semibold leading-none text-primary-1 transition-colors duration-200 group-hover/link:text-primary-2">
-              <span className="rounded-full bg-primary-1 px-2 py-1 text-white transition-colors duration-200 group-hover/link:bg-primary-2">
-                Apr 10th, 2025
-              </span>
-              <span className="flex items-center gap-1.5 px-2">
-                🚀 3.5.2: Support Cassandra in SQL Editor
-                <SmallArrowIcon width={7} height={6} />
-              </span>
-            </span>
-          </Link>
-        )}
         <header className="relative mt-4 xl:mt-3.5 sm:mt-3">
           <h1 className="mx-auto mt-3 max-w-4xl text-balance text-center font-title text-108 font-semibold leading-none xl:text-80 xl:leading-none md:text-48 md:leading-none sm:text-48 sm:leading-95">
             Database CI/CD and Security{' '}
