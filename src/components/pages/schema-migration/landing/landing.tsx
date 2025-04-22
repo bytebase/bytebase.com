@@ -14,7 +14,9 @@ const Landing = ({ posts, subjects }: RelatedPostsProps) => {
   return (
     <>
       <Hero subjects={subjects} />
-      <PromoAutomationChanges />
+      <div className="mt-20 xl:mt-16 md:mt-12 sm:mt-8">
+        <PromoAutomationChanges />
+      </div>
       <Features />
       <RelatedPosts posts={posts} module="LANDING" />
       <EnterpriseInquiry />
