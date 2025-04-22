@@ -4,7 +4,6 @@ export const FEATURES = {
   MIGRATION_BASED_CHANGE: 'Migration-based change',
   SQL_REVIEW: 'SQL Review',
   CHANGELIST: 'Changelist',
-  BRANCHING: 'Branching',
   CHANGE_HISTORY: 'Change history',
   TERRAFORM: 'Terraform integration',
   SCHEDULE_CHANGE: 'Scheduled rollout',

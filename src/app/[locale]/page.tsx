@@ -8,9 +8,7 @@ import Logos from '@/components/pages/home/logos';
 import PromoSQLEditor from '@/components/pages/home/promo-sql-editor';
 import PromoAutomationChanges from '@/components/pages/home/promo-automation-changes';
 import PromoSecurity from '@/components/pages/home/promo-security';
-import Community from '@/components/shared/community';
 
-import { getLatestChangelogPost } from '@/lib/api-changelog';
 import SEO_DATA from '@/lib/seo-data';
 import { getStaticParams } from '@/locales/server';
 
@@ -21,17 +19,9 @@ export function generateStaticParams() {
 }
 
 export default function Page() {
-  const latestChangelogPost = getLatestChangelogPost();
-  const latestVersion = latestChangelogPost
-    ? {
-        number: latestChangelogPost.title.replace(/^bytebase\s/gi, ''),
-        slug: latestChangelogPost.slug,
-      }
-    : null;
-
   return (
     <>
-      <Hero latestVersion={latestVersion} />
+      <Hero />
       <Logos />
       <Demo />
       <PromoAutomationChanges />
@@ -39,7 +29,6 @@ export default function Page() {
       <PromoSQLEditor />
       <PromoSecurity />
       <Features />
-      <Community />
     </>
   );
 }
