@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation';
 
 import { useEffect, useState } from 'react';
+import PROMO_DATA from '@/lib/promo-data';
 
 import clsx from 'clsx';
 import { AnimatePresence, LazyMotion, domAnimation, m, useAnimation } from 'framer-motion';
@@ -100,6 +101,21 @@ const MobileMenu = () => {
   const [openedDropdown, setOpenedDropdown] = useState(-1);
   const controls = useAnimation();
   const pathname = usePathname();
+  const topBanner = PROMO_DATA.TOP_BANNER;
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Get the banner height
+      const bannerHeight = topBanner ? 40 : 0;
+      const currentPosition = window.scrollY;
+
+      setIsSticky(currentPosition >= bannerHeight);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [topBanner]);
 
   useEffect(() => {
     if (isOpen) {
@@ -122,7 +138,8 @@ const MobileMenu = () => {
       {isDocs && (
         <AlgoliaSearch
           className={clsx(
-            'fixed right-0 top-0 mt-[36px] hidden sm:block',
+            'fixed right-0 top-0 hidden transition-all duration-200 sm:block',
+            isSticky ? '' : topBanner ? 'mt-[40px]' : '',
             isOpen ? 'z-40' : 'z-50',
           )}
         />
@@ -138,7 +155,7 @@ const MobileMenu = () => {
         >
           <div
             className={clsx(
-              'ml-auto flex h-screen w-1/2 flex-col justify-between bg-white px-7 pb-8 pt-[112px] md:px-5 sm:w-full sm:px-4 xs:pb-5',
+              'ml-auto flex h-screen w-1/2 flex-col justify-between bg-white px-7 pb-8 pt-[104px] md:px-5 sm:w-full sm:px-4 xs:pb-5',
             )}
             onClick={(evt) => evt.stopPropagation()}
           >
