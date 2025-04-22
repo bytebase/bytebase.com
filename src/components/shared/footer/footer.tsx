@@ -116,7 +116,7 @@ const Footer = () => {
           </div>
         ))}
       </div>
-      <div className="mt-[76px] grid grid-cols-12 gap-x-4 border-t-4 border-tones-purple-light py-6 lg:mt-[58px] lg:gap-x-6 md:mt-11 md:gap-x-5 md:gap-y-6 md:py-5 xs:mt-[34px] xs:grid-rows-2 xs:gap-x-0">
+      <div className="mt-[76px] grid grid-cols-12 gap-x-4 border-t-2 border-tones-purple-light py-6 lg:mt-[58px] lg:gap-x-6 md:mt-11 md:gap-x-5 md:gap-y-6 md:py-5 xs:mt-[34px] xs:grid-rows-2 xs:gap-x-0">
         <div className="col-span-3 flex items-center xl:col-span-3 lg:col-span-3 md:col-span-full">
           <Link className="shrink-0" href="/">
             <span className="sr-only">Bytebase Logo</span>
