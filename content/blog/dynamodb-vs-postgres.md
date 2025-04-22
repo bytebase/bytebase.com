@@ -4,7 +4,7 @@ author: Adela
 updated_at: 2025/04/22 18:00
 feature_image: /content/blog/dynamodb-vs-postgres/cover.webp
 tags: Comparison
-description: 'DevOps and DevSecOps are methodologies aimed at improving software development and delivery, but they differ in their focus and integration of security.'
+description: 'DynamoDB and PostgreSQL are both popular databases, but they are different. This post compares them based on their key differences, strengths, and ideal use cases.'
 ---
 
 <HintBlock type="info">
