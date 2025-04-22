@@ -95,7 +95,7 @@ const dropdownVariants = {
   },
 };
 
-const MobileMenu = ({ hasBanner }: { hasBanner: boolean }) => {
+const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openedDropdown, setOpenedDropdown] = useState(-1);
   const controls = useAnimation();

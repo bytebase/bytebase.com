@@ -94,7 +94,7 @@ reb2b.SNIPPET_VERSION = "1.0.1";reb2b.load("9NMMZHPVM0NW");}();
         <PlausibleProvider domain="bytebase.com">
           <I18nProvider locale={locale}>
             <div className="relative flex min-h-screen flex-col">
-              <Header hasBanner />
+              <Header />
               <main className="relative z-20 shrink-0 grow basis-auto pt-[128px] md:pt-[112px]">
                 {children}
               </main>

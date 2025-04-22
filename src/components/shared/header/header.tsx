@@ -216,7 +216,7 @@ export const HEADER_MENU: Header[] = [
   { title: 'Pricing', href: Route.PRICING },
 ];
 
-const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
+const Header = () => {
   const topBanner = PROMO_DATA.TOP_BANNER;
   const [canShowSubmenu, setCanShowSubmenu] = useState(true);
   const [showShadow, setShowShadow] = useState(false);
@@ -362,7 +362,7 @@ const Header = ({ hasBanner = false }: { hasBanner?: boolean }) => {
           </div>
         </nav>
       </header>
-      <MobileMenu hasBanner={hasBanner} />
+      <MobileMenu />
     </>
   );
 };
