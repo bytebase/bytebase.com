@@ -32,6 +32,8 @@ the system where end users actually connect to the databases.
 
 ## Bytebase workflow
 
+<TutorialBlock url="/docs/tutorials/just-in-time-database-access-part1/" title="Just-in-Time Database Access via GUI" />
+
 Bytebase provides the similar [self-service request workflow](/docs/security/database-permission/query/#request-project-querier-role) to JIT database access. Additionally, Bytebase provides additional benefits.
 
 ### Fine-grained database permissions

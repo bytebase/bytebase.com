@@ -132,7 +132,7 @@ export const HEADER_MENU: Header[] = [
           },
           {
             name: 'Just-in-Time Database Access',
-            linkUrl: Route.DATABASE_JIT_ACCESS,
+            linkUrl: Route.DOCS_JUST_IN_TIME_DATABASE_ACCESS,
           },
           {
             name: 'Adhoc Database Change',
