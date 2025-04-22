@@ -1,13 +1,12 @@
 'use client';
 
 import Button from '@/components/shared/button';
-import { LinkUnderlined } from '@/components/shared/link-underlined';
 
 import Route from '@/lib/route';
 
 export default function CTA() {
   return (
-    <section className="mt-[90px] bg-primary-1 xl:mt-[53px] md:mt-11 sm:mt-[50px]">
+    <section className="mt-40 bg-primary-1 3xl:mt-36 xl:mt-32 md:mt-24 sm:mt-20">
       <div className="safe-paddings container py-16 xl:py-12 md:py-10 sm:py-6">
         <div className="flex items-center justify-between sm:flex-col sm:items-start sm:gap-6">
           <h2 className="font-title text-52 leading-none text-white 2xl:ml-[22px] 2xl:w-[calc(100%+22px)] xl:col-span-5 xl:col-start-3 xl:w-full xl:text-44 lg:ml-0 md:pl-11 md:text-38 sm:col-span-3 sm:col-start-1 sm:pl-0 sm:text-34">
