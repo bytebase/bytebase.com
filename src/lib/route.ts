@@ -109,34 +109,6 @@ const Route = {
   PLANETSCALE_VS_NEON: '/blog/planetscale-vs-neon',
   DATABASE_JIT_ACCESS: '/blog/just-in-time-database-access',
 
-  // databases
-  DATABASE_MYSQL: '/database/mysql',
-  DATABASE_POSTGRES: '/database/postgres',
-  DATABASE_SNOWFLAKE: '/database/snowflake',
-  DATABASE_ORACLE: '/database/oracle',
-  DATABASE_SQLSERVER: '/database/sqlserver',
-  DATABASE_MONGO: '/database/mongo',
-  DATABASE_REDIS: '/database/redis',
-  DATABASE_REDSHIFT: '/database/redshift',
-  DATABASE_TIDB: '/database/tidb',
-  DATABASE_CLICKHOUSE: '/database/clickhouse',
-  DATABASE_MARIADB: '/database/mariadb',
-  DATABASE_SPANNER: '/database/spanner',
-  DATABASE_OCEANBASE: '/database/oceanbase',
-  DATABASE_DATABRICKS: '/database/databricks',
-
-  // integrations
-  INTEGRATION_GITLAB: '/integration/gitlab',
-  INTEGRATION_GITHUB: '/integration/github',
-  INTEGRATION_BITBUCKET: '/integration/bitbucket',
-  INTEGRATION_AZURE_DEVOPS: '/integration/azure-devops',
-  INTEGRATION_SLACK: '/integration/slack',
-  INTEGRATION_DISCORD: '/integration/discord',
-  INTEGRATION_TEAMS: '/integration/teams',
-  INTEGRATION_DINGTALK: '/integration/dingtalk',
-  INTEGRATION_LARK: '/integration/lark',
-  INTEGRATION_WECOM: '/integration/wecom',
-
   // alternatives
   ALTERNATIVE_DATAGRIP: '/sql-editor/datagrip-alternative',
   ALTERNATIVE_DBEAVER: '/sql-editor/dbeaver-alternative',
