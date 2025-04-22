@@ -224,12 +224,23 @@ const Header = () => {
   const topBanner = PROMO_DATA.TOP_BANNER;
   const [canShowSubmenu, setCanShowSubmenu] = useState(true);
   const [showShadow, setShowShadow] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    document.addEventListener('scroll', () => {
-      setShowShadow(window.scrollY > 0);
-    });
-  }, []);
+    const handleScroll = () => {
+      // Get the banner height (or use an approximate value)
+      const bannerHeight = topBanner ? 40 : 0; // Adjust this value based on your banner height
+
+      // Calculate progress between 0 and 1 based on scroll position relative to banner height
+      const progress = Math.min(window.scrollY / bannerHeight, 1);
+
+      setScrollProgress(progress);
+      setShowShadow(progress > 0.9); // Add shadow when almost completed transition
+    };
+
+    document.addEventListener('scroll', handleScroll);
+    return () => document.removeEventListener('scroll', handleScroll);
+  }, [topBanner]);
 
   const handleSubmenuClick = () => {
     setCanShowSubmenu(false);
@@ -238,16 +249,30 @@ const Header = () => {
 
   return (
     <>
-      <header
-        className={clsx(
-          'safe-paddings fixed left-0 right-0 top-0 z-30 h-auto w-full bg-white sm:z-50',
-          showShadow && 'shadow',
+      <header className="safe-paddings h-auto w-full bg-white">
+        {topBanner && (
+          <div
+            style={{
+              transform: `translateY(-${scrollProgress * 100}%)`,
+              opacity: 1 - scrollProgress,
+              transition: 'transform 0.1s ease-out, opacity 0.1s ease-out',
+              height: scrollProgress === 1 ? '0' : 'auto',
+              overflow: 'hidden',
+            }}
+          >
+            <Banner bannerText={topBanner.title} bannerUrl={topBanner.pathname} />
+          </div>
         )}
-      >
-        {topBanner && <Banner bannerText={topBanner.title} bannerUrl={topBanner.pathname} />}
+
+        {/* Placeholder to maintain layout when navbar is fixed */}
+        {scrollProgress === 1 && <div className="h-[66px] md:h-[58px]" />}
 
         <nav
-          className="mx-auto flex w-full max-w-[1920px] items-center px-10 py-[18px] md:justify-between md:py-[10px] sm:px-4"
+          className={clsx(
+            'mx-auto flex w-full max-w-[1920px] items-center px-10 py-[18px] transition-all duration-200 md:justify-between md:py-[10px] sm:px-4',
+            scrollProgress === 1 && 'fixed left-0 right-0 top-0 z-30 bg-white sm:z-50',
+            showShadow && 'shadow',
+          )}
           aria-label="Global"
         >
           <Link className="shrink-0" href="/">
