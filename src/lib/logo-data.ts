@@ -316,6 +316,8 @@ export const FULL_LOGO_LIST: Logo[] = [
   LayerX,
 ];
 
+export const LANDING_LOGO_LIST: Logo[] = [LINEAR, TENCENT, NOTE, SALLA, TELKOM_INDONESIA, MIHOYO];
+
 export const FINANCIAL_LOGO_LIST: Logo[] = [LONG_BRIDGE, XENDIT, PAYER_MAX];
 
 export const TECHNOLOGY_LOGO_LIST: Logo[] = [LINEAR, ROLLER, SALLA, NOTE];
