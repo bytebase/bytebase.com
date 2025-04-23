@@ -15,7 +15,20 @@
         "groups": [
           {
             "group": "Get Started",
-            "pages": ["introduction/what-is-bytebase", "quickstart", "development"]
+            "pages": [
+              "introduction/what-is-bytebase",
+              {
+                "group": "Install",
+                "pages": [
+                  "get-started/self-host",
+                  "get-started/upgrade",
+                  "get-started/install/external-postgres",
+                  "get-started/install/external-url",
+                  "get-started/cloud"
+                ]
+              },
+              "development"
+            ]
           },
           {
             "group": "Essentials",
@@ -55,6 +68,11 @@
       "x": "https://x.com/bytebase",
       "github": "https://github.com/bytebase/bytebase",
       "linkedin": "https://linkedin.com/company/bytebase"
+    }
+  },
+  "errors": {
+    "404": {
+      "redirect": false
     }
   }
 }
