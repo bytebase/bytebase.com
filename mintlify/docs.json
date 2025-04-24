@@ -8,6 +8,9 @@
     "dark": "#4F46E5"
   },
   "favicon": "/favicon.svg",
+  "icons": {
+    "library": "lucide"
+  },
   "navigation": {
     "tabs": [
       {
@@ -38,7 +41,18 @@
                   "get-started/cloud"
                 ]
               },
-              "development"
+              {
+                "group": "Quickstart",
+                "pages": [
+                  "get-started/step-by-step/deploy-with-docker",
+                  "get-started/step-by-step/register-accounts",
+                  "get-started/step-by-step/set-up-environments",
+                  "get-started/step-by-step/add-an-instance",
+                  "get-started/step-by-step/create-a-project",
+                  "get-started/step-by-step/change-schema",
+                  "get-started/step-by-step/query-data"
+                ]
+              }
             ]
           },
           {
