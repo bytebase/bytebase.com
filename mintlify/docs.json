@@ -14,7 +14,7 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Home",
+        "tab": "Get Started",
         "groups": [
           {
             "group": "Introduction",
@@ -29,33 +29,32 @@
             ]
           },
           {
-            "group": "Get Started",
+            "group": "Install",
             "pages": [
-              {
-                "group": "Install",
-                "pages": [
-                  "get-started/self-host",
-                  "get-started/upgrade",
-                  "get-started/install/external-postgres",
-                  "get-started/install/external-url",
-                  "get-started/cloud"
-                ]
-              },
-              {
-                "group": "Quickstart",
-                "pages": [
-                  "get-started/step-by-step/deploy-with-docker",
-                  "get-started/step-by-step/register-accounts",
-                  "get-started/step-by-step/set-up-environments",
-                  "get-started/step-by-step/add-an-instance",
-                  "get-started/step-by-step/create-a-project",
-                  "get-started/step-by-step/change-schema",
-                  "get-started/step-by-step/query-data"
-                ]
-              },
-              "get-started/instance"
+              "get-started/self-host",
+              "get-started/install/external-postgres",
+              "get-started/install/external-url",
+              "get-started/cloud"
             ]
           },
+          {
+            "group": "Quickstart",
+            "pages": [
+              "get-started/step-by-step/deploy-with-docker",
+              "get-started/step-by-step/register-accounts",
+              "get-started/step-by-step/set-up-environments",
+              "get-started/step-by-step/add-an-instance",
+              "get-started/step-by-step/create-a-project",
+              "get-started/step-by-step/change-schema",
+              "get-started/step-by-step/query-data",
+              "get-started/instance"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "User Guides",
+        "groups": [
           {
             "group": "Database CI/CD",
             "pages": [
@@ -107,6 +106,10 @@
                 "pages": ["change-database/drift-detection"]
               },
               {
+                "group": "GitOps",
+                "pages": ["vcs-integration/overview", "vcs-integration/release"]
+              },
+              {
                 "group": "Settings",
                 "pages": [
                   "change-database/webhook",
@@ -117,10 +120,6 @@
               },
               "change-database/troubleshoot"
             ]
-          },
-          {
-            "group": "GitOps",
-            "pages": ["vcs-integration/overview", "vcs-integration/release"]
           },
           {
             "group": "SQL Editor",
@@ -186,6 +185,7 @@
             "group": "General",
             "pages": [
               "administration/license",
+              "get-started/upgrade",
               "administration/production-setup",
               "administration/back-up-data",
               "administration/mode",
