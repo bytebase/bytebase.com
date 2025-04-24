@@ -53,8 +53,7 @@
                   "get-started/step-by-step/query-data"
                 ]
               },
-              "get-started/instance",
-              "get-started/terraform"
+              "get-started/instance"
             ]
           },
           {
@@ -196,6 +195,38 @@
               "administration/customize-logo",
               "administration/announcement",
               "administration/archive"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Integrations",
+        "groups": [
+          {
+            "group": "API",
+            "pages": [
+              "api/overview",
+              "api/authentication",
+              "api/sql-review",
+              "api/sql-editor",
+              "api/release",
+              "api/plan",
+              "api/rollout",
+              "api/issue",
+              "api/permission",
+              "api/data-classification",
+              "api/audit-log"
+            ]
+          },
+          {
+            "group": "3rd Party",
+            "pages": [
+              "get-started/terraform",
+              "integrations/slack",
+              "integrations/jira",
+              "integrations/supabase",
+              "integrations/render",
+              "integrations/neon"
             ]
           }
         ]

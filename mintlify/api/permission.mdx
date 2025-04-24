@@ -2,15 +2,17 @@
 title: Permission
 ---
 
+<Card title="Tutorial: User and Database Permissions with Bytebase API" icon="graduation-cap" href="/tutorials/api-user-database-permission" horizontal />
+
 <TutorialBlock url="/docs/tutorials/api-user-database-permission" title="User and Database Permissions with Bytebase API" />
 
 |                       |                                                                                           |
 | --------------------- | ----------------------------------------------------------------------------------------- |
-| Workspace IAM Service | https://api.bytebase.com/#tag/workspaceservice/GET/v1/workspaces/{workspace}:getIamPolicy |
-| Project IAM Service   | https://api.bytebase.com/#tag/projectservice/GET/v1/projects/{project}:getIamPolicy       |
-| Role Service          | https://api.bytebase.com/#tag/roleservice/GET/v1/roles                                    |
-| Auth Service          | https://api.bytebase.com/#tag/authservice/GET/v1/users                                    |
-| Group Service         | https://api.bytebase.com/#tag/groupservice/GET/v1/groups                                  |
+| Workspace IAM Endpoint | [GET /v1/workspaces/-:getIamPolicy](/api-reference/workspaceservice/get-v1workspaces-:getIamPolicy) |
+| Project IAM Endpoint   | [GET /v1/projects/-:getIamPolicy](/api-reference/projectservice/get-v1projects-:getIamPolicy)       |
+| Role Endpoint          | [GET /v1/roles](/api-reference/roleservice/get-v1roles)                                 |
+| User Endpoint          | [GET /v1/users](/api-reference/userservice/get-v1users)                                |
+| Group Endpoint         | [GET /v1/groups](/api-reference/groupservice/get-v1groups)                              |
 
 Bytebase employs RBAC and has 2 permission levels: **Workspace Level** and **Project Level**. **Permissions** are granted to **Roles**, and **Roles** are assigned to **Users** and **Groups**. Permission details such as expiration
 time are stored in [CEL (Common Expression Language)](https://cel.dev).

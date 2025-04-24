@@ -2,7 +2,7 @@
 title: Data Classification
 ---
 
-[Data Classification](/docs/security/data-masking/data-classification/) allows you to classify columns
+[Data Classification](/security/data-masking/data-classification/) allows you to classify columns
 and manage masking policy for many columns by controlling only a small number of classifications.
 
 You can call Bytebase API to configure data classification.
@@ -11,9 +11,7 @@ You can call Bytebase API to configure data classification.
 
 |          |                                                                                                                                 |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Endpoint | [PATCH /v1/settings/bb.workspace.data-classification](https://api.bytebase.com/#tag/settingservice/PATCH/v1/settings/{setting}) |
-| Request  | https://api.bytebase.com/v1/#bytebase.v1.UpdateSettingRequest                                                                   |
-| Response | https://api.bytebase.com/v1/#bytebase.v1.Setting                                                                                |
+| Endpoint | [PATCH /v1/settings/bb.workspace.data-classification](/api-reference/settingservice/patch-v1settings) |
 
 ```shell
 curl --request PATCH ${bytebase_url}/v1/settings/bb.workspace.data-classification \

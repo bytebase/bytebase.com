@@ -2,11 +2,11 @@
 title: Issue
 ---
 
-<TutorialBlock url="/docs/tutorials/api-issue" title="Create Issue with Bytebase API" />
+<Card title="Tutorial: Create Issue with Bytebase API" icon="graduation-cap" href="/tutorials/api-issue" horizontal />
 
 |               |                                             |
 | ------------- | ------------------------------------------- |
-| Issue Service | https://api.bytebase.com/#/tag/issueservice |
+| Issue Endpoint | [POST /v1/projects/-/issues](/api-reference/issueservice/post-v1projects-issues) |
 
 `Issue` drives the database operations in Bytebase. The issue contains following info:
 
@@ -33,10 +33,10 @@ issue = await createIssue(plan.name, rollout.name, title, description);
 
 ### Step 1: Create a plan.
 
-See [Plan API](/docs/api/plan).
+See [Plan API](/api/plan).
 
 ### Step 2: Create a rollout for the plan
 
-See [Rollout API](/docs/api/rollout).
+See [Rollout API](/api/rollout).
 
 ### Step 3: Create an issue including both the plan and the rollout
