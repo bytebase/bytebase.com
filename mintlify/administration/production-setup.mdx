@@ -4,26 +4,26 @@ title: Production Setup
 
 This page describes how to setup Bytebase in production environment.
 
-[System Requirements](/docs/faq/##system-requirements)
+[System Requirements](/faq/##system-requirements)
 
 ## Enable HTTPS and WebSocket
 
-You can use [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy) or [Nginx](https://www.nginx.com/). Check out the [configuration example](/docs/get-started/self-host/#configuration).
+You can use [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy) or [Nginx](https://www.nginx.com/). Check out the [configuration example](/get-started/self-host/#configuration).
 
 ## Configure External URL
 
-See [Configure External URL](/docs/get-started/install/external-url).
+See [Configure External URL](/get-started/install/external-url).
 
 ## Store metadata in External PostgreSQL
 
-See [Configure External PostgreSQL](/docs/get-started/install/external-postgres).
+See [Configure External PostgreSQL](/get-started/install/external-postgres).
 
 ## High Availability (HA)
 
 You can only run a single Bytebase instance at any point it time. In another word, you can scale-up the instance but not scale-out the instance to multiple replicas.
 
 Restarting the Bytebase instance usually takes under 10 seconds. To minimize the downtime, you should
-store the metadata in an [external PostgreSQL](/docs/administration/production-setup/#store-metadata-in-external-postgresql) and make sure the PostgreSQL instance is highly available.
+store the metadata in an [external PostgreSQL](/administration/production-setup/#store-metadata-in-external-postgresql) and make sure the PostgreSQL instance is highly available.
 
 ## Kubernetes
 
@@ -45,7 +45,7 @@ If you self-host Bytebase in the cloud provider, below is the recommended stack.
 
 - EC2 + RDS for PostgreSQL.
 - ECS/EKS + RDS for PostgreSQL.
-- [Fargate + RDS for PostgreSQL](/docs/get-started/self-host/#aws-fargate).
+- [Fargate + RDS for PostgreSQL](/get-started/self-host/#aws-fargate).
 
 ### GCP
 

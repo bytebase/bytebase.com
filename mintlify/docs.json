@@ -158,6 +158,26 @@
         ]
       },
       {
+        "tab": "Administration",
+        "groups": [
+          {
+            "group": "General",
+            "pages": [
+              "administration/license",
+              "administration/production-setup",
+              "administration/back-up-data",
+              "administration/mode",
+              "ai-assistant",
+              "administration/instance",
+              "administration/environment-policy/overview",
+              "administration/customize-logo",
+              "administration/announcement",
+              "administration/archive"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "API Reference",
         "openapi": "https://raw.githubusercontent.com/bytebase/bytebase/refs/heads/main/proto/gen/grpc-doc/openapi.yaml"
       }

@@ -4,7 +4,7 @@ title: Back up Data
 
 ## External PostgreSQL Metadata (Recommended)
 
-If [--pg](/docs/reference/command-line#--pg-string) is specified, the metadata will be stored in the specified external PostgreSQL database. Below shows how to back up and restore the Bytebase metadata, let's assume the metadata is stored in `metadb`.
+If [--pg](/reference/command-line#--pg-string) is specified, the metadata will be stored in the specified external PostgreSQL database. Below shows how to back up and restore the Bytebase metadata, let's assume the metadata is stored in `metadb`.
 
 ### Back up the metadata
 
@@ -30,13 +30,13 @@ psql -h <<host>> -p <<port>> -U <<user>> metadb_new < metadb.sql
 
 #### Step 2 - Swap the existing metadata db with the temporary db
 
-<HintBlock type="info">
+<Tip>
 
 You need to first stop Bytebase otherwise its connection to the metadata db will prevent renaming the database.
 
 Also, you can not rename the connecting database so you need to connect to the PostgreSQL instance using a different database like `postgres`.
 
-</HintBlock>
+</Tip>
 
 Rename existing `metadb` to `metadb_old`:
 
@@ -95,14 +95,14 @@ psql -h <<host>> -p <<port>> -U <<user>> postgres -c "DROP DATABASE metadb"
 
 ## Embedded PostgreSQL Metadata
 
-If [External PostgreSQL](/docs/get-started/install/external-postgres/) is not configured, then
-Bytebase will store the metadata under the [--data](/docs/reference/command-line#--data-directory) directory.
+If [External PostgreSQL](/get-started/install/external-postgres/) is not configured, then
+Bytebase will store the metadata under the [--data](/reference/command-line#--data-directory) directory.
 You can back up the `--data` direcotry or the `pgdata` subfolder.
 
-<HintBlock type="info">
+<Note>
 
-You should periodically back up the entire [--data](/docs/reference/command-line#--data-directory) directory if any data is stored there.
+You should periodically back up the entire [--data](/reference/command-line#--data-directory) directory if any data is stored there.
 
-If Bytebase is running and not in the [readonly](/docs/reference/command-line#--readonly) mode, and you want to take the backup, then the underlying data volume must support snapshot feature where the entire directory can take a snapshot at the same time, otherwise it may produce a corrupted backup bundle.
+If Bytebase is running and not in the [readonly](/reference/command-line#--readonly) mode, and you want to take the backup, then the underlying data volume must support snapshot feature where the entire directory can take a snapshot at the same time, otherwise it may produce a corrupted backup bundle.
 
-</HintBlock>
+</Note>

@@ -2,12 +2,12 @@
 title: AI Assistant
 ---
 
-<HintBlock type="warning">
+<Note>
 
 Bytebase sends the database schema to OpenAI or your configured endpoint. Bytebase does not send the table data.
 You can check the [relevant code](https://github.com/bytebase/bytebase/blob/main/frontend/src/plugins/ai/logic/prompt.ts).
 
-</HintBlock>
+</Note>
 
 AI Assistant uses OpenAPI or its compatible service to argument the database development workflow.
 
@@ -22,9 +22,8 @@ Go to Bytebase console, click **Settings > General**. Scroll down to **AI Assist
 
 ## Use self-hosted model
 
-<TutorialBlock url="/docs/tutorials/self-host-llama/" title="Self-host Llama3 for Bytebase AI Assistant" />
+<Card title="Tutorial: Self-host Llama3 for Bytebase AI Assistant" icon="graduation-cap" href="/tutorials/self-host-llama/" horizontal />
 
 ## Features
 
-- [SQL Editor AI Assistant](/docs/sql-editor/ai-assistant)
-- [Index Advisor](/docs/slow-query/index-advisor)
+- [SQL Editor AI Assistant](/sql-editor/ai-assistant)
