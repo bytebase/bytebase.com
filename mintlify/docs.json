@@ -74,5 +74,10 @@
     "404": {
       "redirect": false
     }
+  },
+  "seo": {
+    "metatags": {
+      "robots": "noindex"
+    }
   }
 }
