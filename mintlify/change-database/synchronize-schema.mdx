@@ -2,14 +2,7 @@
 title: Schema Synchronization
 ---
 
-<HintBlock type="info">
-
-For the Free Plan, you can only sync from the latest schema version.
-Syncing from arbitrary schema versions is available in the Pro Plan and Enterprise Plan.
-
-</HintBlock>
-
-<TutorialBlock url="/docs/tutorials/how-to-synchronize-database-schemas" title="How to Synchronize Database Schemas" />
+<Card title="Tutorial: How to Synchronize Database Schemas" icon="graduation-cap" href="/tutorials/how-to-synchronize-database-schemas" horizontal />
 
 Bytebase supports synchronizing a specified schema version of one source database to one or multiple target databases.
 You can use Schema Synchronization to:
@@ -48,11 +41,11 @@ You need to select the project and source database schema version that you want 
 
 ![select-source-schema](/content/docs/change-database/synchronize-schema/select-source-schema.webp)
 
-<HintBlock type="info">
+<Info>
 
-In the Enterprise Plan, you can select an arbitrary schema version from the migration history. In other plans, you can only select the latest schema version.
+In the Enterprise and Pro Plan, you can select an arbitrary schema version from the migration history. In other plans, you can only select the latest schema version.
 
-</HintBlock>
+</Info>
 
 ### Step 3 - Select target databases
 
@@ -66,4 +59,4 @@ After you have selected a target database, Bytebase will show a schema diff betw
 
 ### Step 4 - Preview issue
 
-With the generated DDL statements, you can preview and create an "Alter Schema" issue. This kicks off the [change workflow](/docs/change-database/change-workflow) for the applied database.
+With the generated DDL statements, you can preview and create an "Alter Schema" issue. This kicks off the [change workflow](/change-database/change-workflow) for the applied database.

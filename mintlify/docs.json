@@ -58,14 +58,65 @@
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Database CI/CD",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "change-database/change-workflow",
+              {
+                "group": "Change",
+                "pages": [
+                  "change-database/batch-change",
+                  "change-database/synchronize-schema",
+                  "changelist",
+                  "change-database/stored-procedure",
+                  "change-database/schema-editor",
+                  "change-database/schema-diagram",
+                  "change-database/online-schema-migration-for-mysql",
+                  "change-database/secret"
+                ]
+              },
+              {
+                "group": "Review",
+                "pages": [
+                  "sql-review/overview",
+                  "sql-review/review-policy",
+                  "sql-review/review-rules",
+                  "sql-review/ui",
+                  "sql-review/gitops-ci"
+                ]
+              },
+              {
+                "group": "Approve",
+                "pages": ["administration/custom-approval"]
+              },
+              {
+                "group": "Roll out",
+                "pages": ["administration/environment-policy/rollout-policy"]
+              },
+              {
+                "group": "Roll back",
+                "pages": [
+                  "change-database/rollback-data-changes",
+                  "change-database/rollback-schema-changes"
+                ]
+              },
+              {
+                "group": "Version",
+                "pages": ["change-database/change-history"]
+              },
+              {
+                "group": "Monitor",
+                "pages": ["change-database/drift-detection"]
+              },
+              {
+                "group": "Settings",
+                "pages": [
+                  "change-database/webhook",
+                  "administration/risk-center",
+                  "change-database/issue",
+                  "administration/schema-template"
+                ]
+              },
+              "change-database/troubleshoot"
             ]
           }
         ]

@@ -3,16 +3,16 @@ title: Data Rollback
 feature_name: 'ROLLBACK_DATA_CHANGES'
 ---
 
-<TutorialBlock url="/docs/tutorials/data-rollback" title="Manage Database Change with 1-Click Data Rollback" />
+<Card title="Tutorial: Manage Database Change with 1-Click Data Rollback" icon="graduation-cap" href="/tutorials/data-rollback" horizontal />
 
 Bytebase allows taking **Prior Backup** before a data change is made. Bytebase stores the pre-snapshot of the affected rows, which allows you to revert that data change if needed.
 
-<HintBlock type="info">
+<Info>
 
 The backup data is stored in your own database instance. Bytebase does not purge the backup data automatically.
 You can manually delete the data in `bbdataarchive` database/schema.
 
-</HintBlock>
+</Info>
 
 ## Supported Databases
 

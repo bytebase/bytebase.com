@@ -86,11 +86,11 @@ In this example, my socket file name is `/tmp/gh-ost.112.107.employeenofk.employ
 
 ### Show gh-ost status
 
-<HintBlock type="info">
+<Note>
 
 Replace `taskID`, `databaseID`, `databaseName` and `tableName` accordingly.
 
-</HintBlock>
+</Note>
 
 If Bytebase is running on docker, show gh-ost status with the command below:
 
@@ -110,11 +110,11 @@ echo "status" | nc -U /tmp/gh-ost.taskID.databaseID.databaseName.tableName.sock
 
 ### Kill gh-ost manually
 
-<HintBlock type="info">
+<Note>
 
 Replace `taskID`, `databaseID`, `databaseName` and `tableName` accordingly.
 
-</HintBlock>
+</Note>
 
 Sometimes you want to kill gh-ost. Maybe it’s because gh-ost is so slow, or you find a typo in your sql statement.
 To kill gh-ost, you issue "panic" to the UNIX socket file on which gh-ost listens.

@@ -6,14 +6,14 @@ title: Troubleshoot
 
 This happens if a migration version has already completed successfully and you are trying to apply the same version. Once the migration is successful, its version string is occupied and can't be reused. You can still retry the failed migration.
 
-This error is more common in GitOps flow when you try to modify an existing migration file. Refer to the [GitOps troubleshoot](/docs/vcs-integration/troubleshoot/#duplicate-version)
+This error is more common in GitOps flow when you try to modify an existing migration file. Refer to the [GitOps troubleshoot](/vcs-integration/troubleshoot/#duplicate-version)
 to learn the correct workflow.
 
 ## PostgreSQL
 
 _Also applicable to Redshift and RisingWave_
 
-<HintBlock type="info">
+<Note>
 
 Following permission errors are likely to happen if either conditions meet:
 
@@ -22,11 +22,11 @@ Following permission errors are likely to happen if either conditions meet:
 1. The instance user you configure in Bytebase is different from the database OWNER.
 1. Your database/table has different OWNERs.
 
-</HintBlock>
+</Note>
 
 ### ERROR: permission denied to set role xxx (SQLSTATE 42501)
 
-This could happen if you turn on [Postgres database tenant mode](/docs/change-database/issue/#postgres-database-tenant-mode).
+This could happen if you turn on [Postgres database tenant mode](/change-database/issue/#postgres-database-tenant-mode).
 
 You need to grant the database owner permission to the Bytebase user configured in your PostgreSQL instance.
 
@@ -36,15 +36,15 @@ You need to grant the database owner permission to the Bytebase user configured 
 GRANT <<DATABASE_OWNER>> TO bytebase WITH INHERIT FALSE
 ```
 
-<HintBlock type="warning">
+<Note>
 
 If you use AlloyDB, the database owner must NOT be created via [Cloud IAM](https://cloud.google.com/alloydb/docs/manage-iam-authn).
 
-</HintBlock>
+</Note>
 
 ### ERROR: must be owner of table xxx (SQLSTATE 42501)
 
-This could happen if you turn on [Postgres database tenant mode](/docs/change-database/issue/#postgres-database-tenant-mode).
+This could happen if you turn on [Postgres database tenant mode](/change-database/issue/#postgres-database-tenant-mode).
 
 For some sophisticated setup where database owner and table owner are different, this causes problem.
 Because only table owner can alter that table schema, and if the database owner is not a member of
@@ -76,7 +76,7 @@ GRANT SELECT ON TABLE <<TABLE_NAME>> TO bytebase
 
 ### Ask for support
 
-If you still can't resolve, please check the Bytebase user permission. [Contact us](/docs/faq/#how-to-reach-us)
+If you still can't resolve, please check the Bytebase user permission. [Contact us](/faq/#how-to-reach-us)
 with the query result.
 
 ```sql

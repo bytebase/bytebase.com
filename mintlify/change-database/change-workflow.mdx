@@ -1,8 +1,8 @@
 ---
-title: Database Change Workflow
+title: Overview
 ---
 
-<TutorialBlock url="/docs/tutorials/first-schema-change" title="First Schema Change in 5 Minutes" />
+<Card title="Tutorial: First Schema Change in 5 Minutes" icon="graduation-cap" href="/tutorials/first-schema-change" horizontal />
 
 For a typical change workflow, a developer first submits the SQL statement for DBA to review. After review is approved, the SQL statement will then be applied to the corresponding database. For a single change, this step would normally be repeated for each environment (e.g. integration, staging, prod).
 
@@ -12,11 +12,11 @@ There are 2 typical workflows employed by the team to deal with database schema 
 
 ### Release
 
-<HintBlock type="info">
+<Info>
 
-Release is only used in [Custom GitOps workflow](/docs/gitops/overview/). Like a Docker image, a `release` is immutable after it is created.
+Release is only used in [Custom GitOps workflow](/gitops/overview/). Like a Docker image, a `release` is immutable after it is created.
 
-</HintBlock>
+</Info>
 
 A `release` is a deployable unit that encapsulates a set of SQL statements. You can think of a `release` as a collection of SQL statements layered on top of a scratch Docker image.
 
@@ -26,15 +26,15 @@ To roll out the changes, Bytebase creates a multi-stage rollout pipeline from yo
 
 ### Issue
 
-`Issue` adds the collaboration such as approval, comment, and notification to the database change process. An issue is often created via the UI workflow. On the other hand, an issue may not be created via the GitOps workflow since the GitOps workflow may only need the [rollout](/docs/change-database/change-workflow/#rollout) without further human intervention.
+`Issue` adds the collaboration such as approval, comment, and notification to the database change process. An issue is often created via the UI workflow. On the other hand, an issue may not be created via the GitOps workflow since the GitOps workflow may only need the [rollout](/change-database/change-workflow/#rollout) without further human intervention.
 
 ### Revision
 
-`Revision` records the versioned changes applied to a database. You can get a database from version A to version B by replaying the revisions between A and B. When applying a [release](/docs/change-database/change-workflow/#release) to a database, the changes with a version present in the revision are skipped so that the same changes are not applied twice.
+`Revision` records the versioned changes applied to a database. You can get a database from version A to version B by replaying the revisions between A and B. When applying a [release](/change-database/change-workflow/#release) to a database, the changes with a version present in the revision are skipped so that the same changes are not applied twice.
 
 ### Changelog
 
-`Changelog` records all changes applied to a database, whether they are versioned or not, successfully applied or not. This includes change database [issues](/docs/change-database/change-workflow/#issue) created on Bytebase UI or [rollout](/docs/change-database/change-workflow/#rollout) via Bytebase APIs, but NOT changes from Bytebase SQL Editor or other external database tools. Changelog offers you insights into the database schema evolution.
+`Changelog` records all changes applied to a database, whether they are versioned or not, successfully applied or not. This includes change database [issues](/change-database/change-workflow/#issue) created on Bytebase UI or [rollout](/change-database/change-workflow/#rollout) via Bytebase APIs, but NOT changes from Bytebase SQL Editor or other external database tools. Changelog offers you insights into the database schema evolution.
 
 ## UI workflow
 
@@ -91,11 +91,11 @@ The logs shows how Bytebase runs SQL statements.
 
 ![rollout-detail-log](/content/docs/change-database/change-workflow/rollout-detail-log.webp)
 
-<HintBlock type="info">
+<Tip>
 
 If you initiate the change from `Edit Schema` (DDL), Bytebase will take the schema snapshot before and after the change.
 
-</HintBlock>
+</Tip>
 
 The sessions view shows all active sessions (PostgreSQL only).
 
@@ -115,4 +115,4 @@ Data migration is the migration type for DML statements.
 
 ### Baseline Migration
 
-Baseline migration instructs Bytebase to use the latest live schema as the source of truth. This is normally used when [schema drift](/docs/change-database/drift-detection) occurs and Bytebase needs to re-establish the baseline based on the latest live schema.
+Baseline migration instructs Bytebase to use the latest live schema as the source of truth. This is normally used when [schema drift](/change-database/drift-detection) occurs and Bytebase needs to re-establish the baseline based on the latest live schema.

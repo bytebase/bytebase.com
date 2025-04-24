@@ -3,7 +3,7 @@ title: Risk Center
 feature_name: RISK_CENTER
 ---
 
-In **Settings > Risk Center**, you can define different risk levels for each operation types ([DML, DDL, Create Database](/docs/change-database/change-workflow/), [Request Query](/docs/security/database-permission/query/), [Request Export](/docs/security/database-permission/export/)) with custom rules.
+In **Settings > Risk Center**, you can define different risk levels for each operation types ([DML, DDL, Create Database](/change-database/change-workflow/), [Request Query](/security/database-permission/query/), [Request Export](/security/database-permission/export/)) with custom rules.
 
 Once an operation matches the risk conditions, it will be assigned to the corresponding risk level you've defined.
 If an operation matches more than one risk levels, the highest level will be used.
@@ -12,13 +12,13 @@ If an operation matches more than one risk levels, the highest level will be use
 
 ### Custom Approval
 
-<HintBlock type="info">
+<Tip>
 
-Custom Approval is mostly used by [UI workflow](/docs/change-database/change-workflow/#ui-workflow). If you use [GitOps workflow](/docs/change-database/change-workflow/#gitops-workflow), we recommend you to configure approval in the PR/MR process.
+Custom Approval is mostly used by [UI workflow](/change-database/change-workflow/#ui-workflow). If you use [GitOps workflow](/change-database/change-workflow/#gitops-workflow), we recommend you to configure approval in the PR/MR process.
 
-</HintBlock>
+</Tip>
 
-You can configure different [custom approval flows](/docs/administration/custom-approval) for each operation types and risk levels.
+You can configure different [custom approval flows](/administration/custom-approval) for each operation types and risk levels.
 
 ![ddl-dml](/content/docs/administration/risk-center/ddl-dml.webp)
 
@@ -26,7 +26,7 @@ You can configure different [custom approval flows](/docs/administration/custom-
 
 ### SQL Review
 
-[SQL review](/docs/sql-review/overview/) returns the associated risk level for the checked SQL statement. Bytebase GitHub action can also surface the risk level under a [PR](https://github.com/bytebase/example-gitops-github-flow/pull/6#issuecomment-2731413296).
+[SQL review](/sql-review/overview/) returns the associated risk level for the checked SQL statement. Bytebase GitHub action can also surface the risk level under a [PR](https://github.com/bytebase/example-gitops-github-flow/pull/6#issuecomment-2731413296).
 
 ![sql-review](/content/docs/administration/risk-center/github-actions-risk.webp)
 
