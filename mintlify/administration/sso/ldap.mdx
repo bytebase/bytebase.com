@@ -1,5 +1,5 @@
 ---
-title: Lightweight Directory Access Protocol (LDAP)
+title: LDAP
 feature_name: SSO_ADVANCED
 ---
 
@@ -31,11 +31,11 @@ User information field mapping:
 
 ### JumpCloud
 
-<HintBlock type="info">
+<Note>
 
-- The attribute `uid` is the username (e.g. `system`) not the email (e.g. `system@example.com`) in JumpCloud.
+The attribute `uid` is the username (e.g. `system`) not the email (e.g. `system@example.com`) in JumpCloud.
 
-</HintBlock>
+</Note>
 
 1. Follow the JumpCloud [Use Cloud LDAP](https://jumpcloud.com/support/use-cloud-ldap) to create an LDAP binding user and add Users to the LDAP directory.
 1. In Bytebase, go to **Settings > SSO** to create a new LDAP provider (all values are examples):
@@ -54,11 +54,11 @@ User information field mapping:
 
 ### Okta
 
-<HintBlock type="info">
+<Note>
 
 The attribute `uid` is the username (e.g. `system`) not the email (e.g. `system@example.com`) in Okta.
 
-</HintBlock>
+</Note>
 
 1. Follow the Okta [Enable the LDAP interface](https://help.okta.com/en-us/Content/Topics/Directory/LDAP-interface-enable.htm) to enable LDAP interface for your directory.
 1. In Bytebase, go to **Settings > SSO** to create a new LDAP provider (all values are examples):

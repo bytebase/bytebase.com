@@ -1,18 +1,18 @@
 ---
-title: Single Sign-On (SSO)
+title: Overview
 ---
 
 Single Sign-On (SSO) is an authentication method that enables users to securely authenticate with multiple applications and websites by using just one set of credentials.
 
 Bytebase supports the following standard protocols that provide SSO:
 
-- [OAuth 2.0](/docs/administration/sso/oauth2)
-- [OpenID Connect (OIDC)](/docs/administration/sso/oidc)
-- [Lightweight Directory Access Protocol (LDAP)](/docs/administration/sso/ldap)
+- [OAuth 2.0](/administration/sso/oauth2)
+- [OpenID Connect (OIDC)](/administration/sso/oidc)
+- [Lightweight Directory Access Protocol (LDAP)](/administration/sso/ldap)
 
 ## Prerequisites
 
-Configure [External URL](/docs/get-started/install/external-url).
+Configure [External URL](/get-started/install/external-url).
 
 ## Create SSO provider
 
@@ -29,11 +29,11 @@ As a **Workspace Admin**, you can create a SSO provider following the steps belo
 
 ## Sign in with SSO
 
-<HintBlock type="info">
+<Info>
 
 Bytebase employs JIT (Just-In-Time) user provisioning. It will create the user the first time the user signs in.
 
-</HintBlock>
+</Info>
 
 Once a valid SSO has been created, you can choose to sign in with the configured SSO provider.
 

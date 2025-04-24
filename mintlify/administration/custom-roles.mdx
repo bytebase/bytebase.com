@@ -3,13 +3,13 @@ title: Custom Roles
 feature_name: CUSTOM_ROLES
 ---
 
-<TutorialBlock url="/docs/tutorials/how-to-manage-roles" title="How to Manage Roles" />
+<Card title="Tutorial: How to Manage Roles" icon="graduation-cap" href="/tutorials/how-to-manage-roles" horizontal />
 
 Custom roles allows to group a custom set of permissions and grant them to the users and groups. Custom roles are project roles. Like the built-in project roles:
 
 - Custom roles are defined at the workspace level.
 - Custom roles can be granted at both the workspace level (meaning all projects) and the project level.
-- Custom roles can be used in [Rollback Policy](/docs/administration/environment-policy/rollout-policy/), [Custom Approval](/docs/administration/custom-approval).
+- Custom roles can be used in [Rollback Policy](/administration/environment-policy/rollout-policy/), [Custom Approval](/administration/custom-approval).
 
 ## Create custom roles
 
@@ -19,12 +19,12 @@ To create custom roles, go to **IAM & Admin > Custom Roles**. Click **Add role**
 
 You can choose `Import from role` to build your custom role based on the existing role.
 
-<HintBlock type="info">
+<Tip>
 
 If you want a role to approve and comment the issue. You can create a `Project Approver` custom role
 based on the existing `Project Releaser`.
 
-</HintBlock>
+</Tip>
 
 ## Add to custom approval flow
 

@@ -161,6 +161,29 @@
         "tab": "Administration",
         "groups": [
           {
+            "group": "Security",
+            "pages": [
+              {
+                "group": "Single Sign-On",
+                "pages": [
+                  "administration/sso/overview",
+                  "administration/sso/oauth2",
+                  "administration/sso/oidc",
+                  "administration/sso/ldap"
+                ]
+              },
+              "concepts/roles-and-permissions",
+              "administration/user-groups",
+              "administration/custom-roles",
+              "security/audit-log",
+              "administration/scim/overview",
+              "administration/2fa",
+              "administration/password",
+              "administration/sign-in-restriction",
+              "security/watermark"
+            ]
+          },
+          {
             "group": "General",
             "pages": [
               "administration/license",

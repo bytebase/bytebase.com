@@ -14,11 +14,11 @@ Bytebase implements SCIM 2.0 and provides built-in support for Entra ID (Azure A
 ## Prerequisites
 
 - You must be the **Workspace Admin** to configure SCIM.
-- Configure [External URL](/docs/get-started/install/external-url).
+- Configure [External URL](/get-started/install/external-url).
 
 ## Entra ID
 
-<TutorialBlock url="https://learn.microsoft.com/en-us/entra/identity/app-provisioning/configure-automatic-user-provisioning-portal" title="Managing user account provisioning for enterprise apps in the Microsoft Entra admin center" />
+<Card title="Tutorial: Managing user account provisioning for enterprise apps in Entra" icon="graduation-cap" href="https://learn.microsoft.com/en-us/entra/identity/app-provisioning/configure-automatic-user-provisioning-portal" horizontal />
 
 ### Create enterprise application
 
@@ -50,11 +50,11 @@ Go to your Bytebase console, navigate to **Security & Policy** -> **Users & Grou
 
 Copy the **Endpoint** and **Secret Token**.
 
-<HintBlock type="info">
+<Note>
 
-Bytebase endpoint implements SCIM protocol, please make sure you have configured [External URL](/docs/get-started/install/external-url) and it's network accessible from Entra.
+Bytebase endpoint implements SCIM protocol, please make sure you have configured [External URL](/get-started/install/external-url) and it's network accessible from Entra.
 
-</HintBlock>
+</Note>
 
 ![bytebase-setting](/content/docs/administration/scim/entra/bytebase-setting.webp)
 
@@ -69,12 +69,12 @@ Continue the provision, click **Mappings** and click **Provision Microsoft Entra
 
 ![provision-group](/content/docs/administration/scim/entra/provision-group.webp)
 
-<HintBlock type="info">
+<Note>
 
 Bytebase relies on email to uniquely identify an user. Thus you need to disable the `displayName` mapping and only
 enable the `id` mapping and use `mail` as the source attribute.
 
-</HintBlock>
+</Note>
 
 Click **Edit** button for the `displayName` row.
 

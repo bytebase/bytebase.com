@@ -7,15 +7,15 @@ OpenID Connect (OIDC) is a simple identity layer on top of the OAuth 2.0 protoco
 
 ## Configuration
 
-<HintBlock type="info">
+<Info>
 
-1. Please make sure the [`--external-url`](/docs/get-started/install/external-url) is configured correctly for the Bytebase instance.
+1. Please make sure the [`--external-url`](/get-started/install/external-url) is configured correctly for the Bytebase instance.
 
    If your start Bytebase with `--external-url http://bytebase.example.com`, then your application redirect URL should be `http://bytebase.example.com/oidc/callback`.
 
 2. If you're unsure about the **Issuer** of your IdP, you can always use the [OpenID Connect Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html) endpoint to find the correct value, e.g. `https://acme.okta.com/.well-known/openid-configuration`.
 
-</HintBlock>
+</Info>
 
 Basic information:
 
@@ -66,11 +66,11 @@ User information field mapping:
    - **Email**: `email`
    - **Display name**: `name`
 
-<HintBlock type="info">
+<Note>
 
 In some GitLab self-hosted setups, the **Issuer** is `http://gitlab.acme.com` (HTTP) instead of `https://gitlab.acme.com` (HTTPS) despite the latter being the URL used to access the instance.
 
-</HintBlock>
+</Note>
 
 ### Okta
 
@@ -136,7 +136,7 @@ In some GitLab self-hosted setups, the **Issuer** is `http://gitlab.acme.com` (H
 
 ## Group Syncing
 
-Bytebase supports syncing identity provider (IdP) groups with [Bytebase user groups](/docs/administration/user-groups/) for providers that include a `groups` claim in their tokens.
+Bytebase supports syncing identity provider (IdP) groups with [Bytebase user groups](/administration/user-groups/) for providers that include a `groups` claim in their tokens.
 
 Group syncing is based on a one-to-one match using the **group title**. When a user logs in, Bytebase compares the group names from the IdP with existing Bytebase user group titles. If a match is found, the user is automatically added as a **Member** to the corresponding Bytebase user group.
 
@@ -144,7 +144,7 @@ To ensure security and consistency, Bytebase also **automatically removes the us
 
 Group syncing occurs during login, so if group membership changes in your IdP, users must log out and log back in for the changes to take effect.
 
-Some OIDC providers like **Okta** support the `groups` claim, but you’ll need to first **customize the tokens returned from Okta to include the `groups` claim**. For more information, refer to [Customize tokens returned from Okta with a groups claim](https://developer.okta.com/docs/guides/customize-tokens-groups-claim/main/).
+Some OIDC providers like **Okta** support the `groups` claim, but you’ll need to first **customize the tokens returned from Okta to include the `groups` claim**. For more information, refer to the [Okta documentation](https://developer.okta.com/docs/guides/customize-tokens-groups-claim/main/).
 
 ## Troubleshoot
 
@@ -152,4 +152,4 @@ Some OIDC providers like **Okta** support the `groups` claim, but you’ll need 
 
 If you click the login button and there is no response. It could be you are hitting the CORS error.
 You can verify this by inspecting the [browser network](https://developer.chrome.com/docs/devtools/network).
-Please ask your network admin to whitelist Bytebase host. Alternatively, you can configure [OAuth](/docs/administration/sso/oauth2/).
+Please ask your network admin to whitelist Bytebase host. Alternatively, you can configure [OAuth](/administration/sso/oauth2/).

@@ -2,7 +2,7 @@
 title: Roles and Permissions
 ---
 
-<TutorialBlock url="/docs/tutorials/how-to-manage-roles" title="How to Manage Roles" />
+<Card title="Tutorial: How to Manage Roles" icon="graduation-cap" href="/tutorials/how-to-manage-roles" horizontal />
 
 ## Overview
 
@@ -19,16 +19,16 @@ Users can also be granted `Workspace Admin`, `Workspace DBA`. These 2 roles shou
 **Project Roles**
 
 - Built-in roles: `Project Owner`, `Project Developer`, `Project Releaser`, `SQL Editor User` (previously called `Project Querier`), `Project Exporter`, `Project Viewer`.
-- [Custom roles](/docs/administration/custom-roles/).
+- [Custom roles](/administration/custom-roles/).
 
 In addition to the inherent `Workspace Member` role, most users will be granted project roles. These roles
 allow users to perform specific database operations.
 
-<HintBlock type="info">
+<Tip>
 
 To grant users a project role for all the projects, grant that project role at the workspace level.
 
-</HintBlock>
+</Tip>
 
 ![org-role-mapping](/content/docs/rbac/org-role-mapping.webp)
 
@@ -109,7 +109,7 @@ Bytebase does not define database specific roles. Whether a user can perform cer
 
 ## Sheet permissions
 
-User can save sheets from [SQL Editor](/docs/sql-editor/overview). A sheet always belongs to a project. Sheet has three visibility levels:
+User can save sheets from [SQL Editor](/sql-editor/overview). A sheet always belongs to a project. Sheet has three visibility levels:
 
 - Private
 - Project
@@ -153,4 +153,4 @@ User can save sheets from [SQL Editor](/docs/sql-editor/overview). A sheet alway
 | Subscribe/Unsubscribe     | ✔️       | ✔️      | ✔️              | ✔️               | ✔️                | ✔️            | ✔️            | ✔️              |
 | Add comment               | ✔️       | ✔️      | ✔️              | ✔️               | ✔️                | ✔️            | ✔️            | ✔️              |
 
-\* `Project Owner` can change issue status when the current active [Environment Rollout Policy](/docs/administration/environment-policy/rollout-policy) is set to **Require manual rolling out**.
+\* `Project Owner` can change issue status when the current active [Environment Rollout Policy](/administration/environment-policy/rollout-policy) is set to **Require manual rolling out**.
