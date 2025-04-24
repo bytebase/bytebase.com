@@ -241,6 +241,62 @@
         ]
       },
       {
+        "tab": "Tutorials",
+        "pages": [
+          {
+            "group": "Database CI/CD (GUI)",
+            "pages": [
+              "tutorials/first-schema-change",
+              "tutorials/deploy-schema-migration",
+              "tutorials/data-rollback",
+              "tutorials/risk-center-best-practice",
+              "tutorials/batch-change-with-database-group",
+              "tutorials/sql-review-gui",
+              "tutorials/how-to-move-schema-change-from-test-to-prod",
+              "tutorials/how-to-synchronize-database-schemas",
+              "tutorials/database-change-management-with-risk-adjusted-approval-flow"
+            ]
+          },
+          {
+            "group": "Database CI/CD (GitOps)",
+            "pages": [
+              "tutorials/gitops-github-workflow",
+              "tutorials/sql-review-github-action",
+              "tutorials/gitops-azure-devops-workflow"
+            ]
+          },
+          {
+            "group": "Database Access Control",
+            "pages": [
+              "tutorials/data-masking",
+              "tutorials/how-to-manage-roles",
+              "tutorials/just-in-time-database-access-part1",
+              "tutorials/just-in-time-database-access-part2",
+              "tutorials/github-action-data-masking-part1",
+              "tutorials/github-action-data-masking-part2",
+              "tutorials/github-action-data-masking-part3",
+              "tutorials/just-in-time-database-access-amazon-aurora",
+              "tutorials/data-classification"
+            ]
+          },
+          {
+            "group": "Integration",
+            "pages": [
+              "tutorials/manage-databases-in-bytebase-with-terraform",
+              "tutorials/sql-review-api",
+              "tutorials/self-host-llama",
+              "tutorials/api-sql-review-policy",
+              "tutorials/embed-sql-editor",
+              "tutorials/database-change-management-with-jira-automated",
+              "tutorials/database-change-management-with-jira-manual",
+              "tutorials/api-audit-log",
+              "tutorials/api-user-database-permission",
+              "tutorials/api-issue"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "API Reference",
         "openapi": "https://raw.githubusercontent.com/bytebase/bytebase/refs/heads/main/proto/gen/grpc-doc/openapi.yaml"
       },
