@@ -33,22 +33,21 @@ This comparison examines their architectures, features, performance, licensing m
 |---------|--------|------------|
 | **Architecture** | Complex, enterprise-focused | Simpler, more straightforward |
 | **Licensing** | Commercial, expensive ($47,500+ per core) | Free, open-source (PostgreSQL License) |
-| **Data Types** | Standard with some advanced types | Extensive with better JSON support |
-| **Scalability** | Excellent with RAC for horizontal scaling | Good, relies on third-party solutions for clustering |
-| **Performance (OLTP)** | Superior for very large workloads | Excellent for most common workloads |
-| **Performance (Analytics)** | Excellent with specialized features | Good, improving with recent versions |
-| **Security Features** | Comprehensive enterprise security | Strong basic security, extensible |
-| **High Availability** | Built-in with RAC and Data Guard | Available through third-party tools |
-| **Cloud Offerings** | Oracle Cloud (expensive but feature-rich) | Available on all major cloud platforms (cost-effective) |
-| **SQL Compliance** | Partial with proprietary extensions | Strong standards compliance |
+| **Community Support** | Commercial support | Active open-source community |
 | **Data Types** | Standard with some advanced types | Extensive with better JSON support |
 | **Extensibility** | Limited | Highly extensible |
-| **Community Support** | Commercial support | Active open-source community |
+| **SQL Compliance** | Partial with proprietary extensions | Strong standards compliance |
+| **Scalability** | Excellent with RAC for horizontal scaling | Good, relies on third-party solutions for clustering |
+| **High Availability** | Built-in with RAC and Data Guard | Available through third-party tools |
+| **Security Features** | Comprehensive enterprise security | Strong basic security, extensible |
+| **Performance (OLTP)** | Superior for very large workloads | Excellent for most common workloads |
+| **Performance (Analytics)** | Excellent with specialized features | Good, improving with recent versions |
+| **Admin (Install)** | Complex and resource-intensive | Simple and straightforward |
+| **Admin (Day-to-Day)** | Comprehensive built-in tools | Manual configurations and third-party tools |
+| **Admin (Monitoring)** | Extensive built-in tools | Basic with extensions |
+| **Cloud Offerings** | Oracle Cloud (expensive but feature-rich) | Available on all major cloud platforms (cost-effective) |
 | **Cost (16 cores)** | ~$760,000 + $167,200/year support | $0 (licensing) |
 | **Cloud Cost (2vCPU)** | $400-500/month | $115-150/month |
-| **Install Complexity** | Complex and resource-intensive | Simple and straightforward |
-| **Day-to-Day Administration** | Comprehensive built-in tools | Manual configurations and third-party tools |
-| **Monitoring and Diagnostics** | Extensive built-in tools | Basic with extensions |
 | **Best For** | Mission-critical enterprise applications | Web applications, startups, cost-sensitive deployments |
 
 ## Detailed Comparison
@@ -147,32 +146,6 @@ This comparison examines their architectures, features, performance, licensing m
 
 ### Data Types and Extensibility
 
-**Oracle:**
-
-- Standard SQL data types
-- Object types for complex data
-- XMLType for XML data
-- Spatial types via Oracle Spatial
-- Limited JSON support (improved in recent versions)
-- User-defined types with some limitations
-
-**PostgreSQL:**
-
-- Standard SQL data types
-- Advanced types like `JSONB`, `ARRAY`, `HSTORE`
-- Native XML support
-- Geometric types (`POINT`, `LINE`, `POLYGON`)
-- Network address types (`INET`, `CIDR`)
-- Range types for date and numeric ranges
-- Custom types via `CREATE TYPE`
-- Extensible type system allowing new data types
-
-PostgreSQL provides greater flexibility and better native support for modern and complex data types, especially JSON and custom extensions.
-
-### SQL Compliance and Extensions
-
-### Data Types and Extensibility
-
 | Feature                          | Oracle                                | PostgreSQL                                             |
 |----------------------------------|----------------------------------------|--------------------------------------------------------|
 | Standard SQL types               | ✅                                     | ✅                                                     |
@@ -187,6 +160,20 @@ PostgreSQL provides greater flexibility and better native support for modern and
 | Extensible type system          | ⚠️ Limited                             | ✅ Highly extensible, supports custom data types       |
 
 PostgreSQL stands out for its rich and extensible type system, offering superior support for modern formats and complex data modeling.
+
+### SQL Compliance and Extensions
+
+| Feature                        | Oracle                                            | PostgreSQL                                      |
+|-------------------------------|---------------------------------------------------|-------------------------------------------------|
+| SQL Standard Compliance       | Partial, many proprietary extensions              | Strong compliance                               |
+| Procedural Language           | PL/SQL                                            | PL/pgSQL                                        |
+| Recursive Queries             | `CONNECT BY` (proprietary syntax)                | Standard CTEs with `WITH RECURSIVE`             |
+| Window Functions              | ✅                                               | ✅                                               |
+| Materialized Views            | ✅                                               | ✅                                               |
+| Full-text Search              | ❌                                               | ✅ Built-in support                             |
+| Syntax Style                  | Oracle-specific                                  | Standards-compliant                             |
+
+PostgreSQL is more aligned with SQL standards, while Oracle offers powerful but proprietary features.
 
 ### Indexing Capabilities
 
@@ -256,27 +243,7 @@ Oracle provides more integrated, enterprise-grade HA options like RAC and Applic
 
 Oracle offers more built-in, enterprise-grade performance features for large workloads. PostgreSQL covers most essentials and continues to improve, especially in recent versions.
 
-### Security Features
-
-| Feature                               | Oracle                                               | PostgreSQL                                           |
-|---------------------------------------|------------------------------------------------------|------------------------------------------------------|
-| Row-level security                    | ✅ VPD (Virtual Private Database)                    | ✅ Native policies                                   |
-| Multi-level security                  | ✅ Label Security                                    | ❌                                                   |
-| Separation of duties                  | ✅ Database Vault                                    | ⚠️ Manual role management                           |
-| Data encryption at rest               | ✅ Transparent Data Encryption (TDE)                 | ⚠️ Filesystem-level encryption                      |
-| Column-level data masking             | ✅ Data Redaction                                    | ⚠️ Requires custom implementation or extensions     |
-| Column-level privileges               | ✅                                                  | ✅                                                   |
-| Role-based access control             | ✅                                                  | ✅                                                   |
-| SSL/TLS encryption                    | ✅                                                  | ✅                                                   |
-| External authentication               | ✅ Enterprise User Security (LDAP, Kerberos)         | ✅ LDAP, GSSAPI                                      |
-| Audit logging                         | ✅ Built-in, comprehensive                           | ⚠️ Via extensions like `pgaudit`                    |
-| Privilege analysis                    | ✅                                                  | ❌                                                   |
-
-Oracle delivers more out-of-the-box security tools suited for strict compliance and enterprise use. PostgreSQL meets most core needs, with extensions filling advanced gaps.
-
-## Performance Characteristics
-
-### OLTP Workloads
+### OLTP Workloads (Performance)
 
 | Feature                                | Oracle                                               | PostgreSQL                                           |
 |----------------------------------------|------------------------------------------------------|------------------------------------------------------|
@@ -289,7 +256,7 @@ Oracle delivers more out-of-the-box security tools suited for strict compliance 
 
 Oracle excels in high-volume OLTP; PostgreSQL performs well with tuning and is suitable for most transactional workloads.
 
-### Analytical Workloads
+### Analytical Workloads (Performance)
 
 | Feature                                | Oracle                                               | PostgreSQL                                           |
 |----------------------------------------|------------------------------------------------------|------------------------------------------------------|
@@ -305,7 +272,7 @@ Oracle excels in high-volume OLTP; PostgreSQL performs well with tuning and is s
 
 Oracle leads in large-scale analytics; PostgreSQL is increasingly capable, especially with extensions.
 
-### Benchmark Comparisons
+### Benchmark Comparisons (Performance)
 
 **Oracle Database Appliance X9-2-HA:**
 
@@ -324,9 +291,25 @@ Oracle leads in large-scale analytics; PostgreSQL is increasingly capable, espec
 - Oracle demonstrates superior performance in high-throughput environments, particularly with optimized hardware configurations.
 - PostgreSQL offers solid performance for most workloads, with the added benefit of lower operational costs.
 
-## Administration and Management
+### Security Features
 
-### Installation and Setup
+| Feature                               | Oracle                                               | PostgreSQL                                           |
+|---------------------------------------|------------------------------------------------------|------------------------------------------------------|
+| Row-level security                    | ✅ VPD (Virtual Private Database)                    | ✅ Native policies                                   |
+| Multi-level security                  | ✅ Label Security                                    | ❌                                                   |
+| Separation of duties                  | ✅ Database Vault                                    | ⚠️ Manual role management                           |
+| Data encryption at rest               | ✅ Transparent Data Encryption (TDE)                 | ⚠️ Filesystem-level encryption                      |
+| Column-level data masking             | ✅ Data Redaction                                    | ⚠️ Requires custom implementation or extensions     |
+| Column-level privileges               | ✅                                                  | ✅                                                   |
+| Role-based access control             | ✅                                                  | ✅                                                   |
+| SSL/TLS encryption                    | ✅                                                  | ✅                                                   |
+| External authentication               | ✅ Enterprise User Security (LDAP, Kerberos)         | ✅ LDAP, GSSAPI                                      |
+| Audit logging                         | ✅ Built-in, comprehensive                           | ⚠️ Via extensions like `pgaudit`                    |
+| Privilege analysis                    | ✅                                                  | ❌                                                   |
+
+Oracle delivers more out-of-the-box security tools suited for strict compliance and enterprise use. PostgreSQL meets most core needs, with extensions filling advanced gaps.
+
+### Installation and Setup (Administration)
 
 | Feature                          | Oracle                                                                 | PostgreSQL                                                                 |
 |----------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------------|
@@ -338,7 +321,7 @@ Oracle leads in large-scale analytics; PostgreSQL is increasingly capable, espec
 
 Oracle's installation is more complex and resource-intensive, while PostgreSQL offers a simpler and more straightforward setup process.
 
-### Day-to-Day Administration
+### Day-to-Day Operation (Administration)
 
 | Feature                          | Oracle                                                                 | PostgreSQL                                                                 |
 |----------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------------|
@@ -352,7 +335,7 @@ Oracle's installation is more complex and resource-intensive, while PostgreSQL o
 
 Oracle provides comprehensive built-in tools for administration, while PostgreSQL relies more on manual configurations and third-party tools.
 
-### Monitoring and Diagnostics
+### Monitoring and Diagnostics (Administration)
 
 | Feature                          | Oracle                                                                 | PostgreSQL                                                                 |
 |----------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------------|
@@ -366,9 +349,9 @@ Oracle provides comprehensive built-in tools for administration, while PostgreSQ
 
 Oracle offers extensive built-in monitoring and diagnostic tools, whereas PostgreSQL provides basic capabilities with the option to enhance via extensions and third-party tools.
 
-## Cloud Offerings Comparison
+### Cloud Offerings Comparison
 
-### Oracle Cloud
+#### Oracle Cloud
 
 **Oracle Autonomous Database**
 - Fully managed (self-tuning, patching, scaling)
@@ -379,7 +362,7 @@ Oracle offers extensive built-in monitoring and diagnostic tools, whereas Postgr
 - Manually managed with configurable service levels
 - Estimated cost: **$800–$1,200/month**
 
-### PostgreSQL Managed Services
+#### PostgreSQL Managed Services
 
 **AWS RDS for PostgreSQL**
 
@@ -402,7 +385,7 @@ Oracle offers extensive built-in monitoring and diagnostic tools, whereas Postgr
 **Other Providers**
 - Supabase, Heroku, DigitalOcean, Aiven, Amazon Aurora (PostgreSQL-compatible)
 
-### Cost Comparison (2 vCPU, 8GB RAM, 100GB Storage)
+#### Cost Comparison (2 vCPU, 8GB RAM, 100GB Storage)
 
 | Provider                         | Monthly Cost      | Notes                                  |
 |----------------------------------|-------------------|----------------------------------------|
@@ -439,4 +422,6 @@ Oracle offers rich enterprise features at a premium price. PostgreSQL cloud serv
 
 ## Conclusion
 
-**Oracle** is best for mission-critical, large-scale, enterprise-heavy workloads with high budget. Choose it if you need 24/7 reliability, petabyte-scale, RAC, or tight Oracle integration. **PostgreSQL** is ideal for most apps — cost-effective, flexible, and cloud-friendly. Choose it if you need simplicity, extensibility, JSON/geospatial support, or open-source flexibility
+**Oracle** excels in enterprise environments where budget is not a constraint and maximum reliability is required. It's ideal for mission-critical applications, large-scale data warehousing, and scenarios requiring comprehensive enterprise features out-of-the-box.
+
+**PostgreSQL** shines in modern applications, cost-sensitive deployments, and scenarios requiring flexibility and extensibility. It's perfect for web applications, startups, and projects that benefit from its modern features and active community.
