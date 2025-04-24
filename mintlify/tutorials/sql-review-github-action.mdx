@@ -11,15 +11,15 @@ estimated_time: '20 mins'
 description: Learn how to use SQL Review via GitHub CI to enhance your database schema change process.
 ---
 
-When modifying data in the database, it's crucial to ensure that the changes are both safe and accurate. Bytebase offers a feature called [SQL Review](/docs/sql-review/overview/), which allows you to evaluate your SQL changes before they are applied to the database. SQL Review can be invoked from the Bytebase GUI, API or CI.
+When modifying data in the database, it's crucial to ensure that the changes are both safe and accurate. Bytebase offers a feature called [SQL Review](/sql-review/overview/), which allows you to evaluate your SQL changes before they are applied to the database. SQL Review can be invoked from the Bytebase GUI, API or CI.
 
 This tutorial is part of the SQL Review series:
 
-1.  [SQL Review with Bytebase GUI](/docs/tutorials/sql-review-gui/)
+1.  [SQL Review with Bytebase GUI](/tutorials/sql-review-gui/)
 1.  SQL Review with CI
     - SQL Review with GitHub Actions (this one)
-1.  [SQL Review with Bytebase API](/docs/tutorials/sql-review-api/)
-1.  [Codify SQL Review Policies with Bytebase API](/docs/tutorials/api-sql-review-policy/)
+1.  [SQL Review with Bytebase API](/tutorials/sql-review-api/)
+1.  [Codify SQL Review Policies with Bytebase API](/tutorials/api-sql-review-policy/)
 
 This tutorial will show you how to integrate SQL Review with GitHub Actions to improve your database schema change process.
 
@@ -29,7 +29,7 @@ https://github.com/bytebase/example-gitops-github-flow
 
 ## Prerequisites
 
-Configure ngrok and create service account same as [Database GitOps with GitHub Actions](/docs/tutorials/gitops-github-workflow/#step-1-start-bytebase-with-ngrok).
+Configure ngrok and create service account same as [Database GitOps with GitHub Actions](/tutorials/gitops-github-workflow/#step-1-start-bytebase-with-ngrok).
 
 ## GitHub Action Workflow
 
@@ -68,4 +68,4 @@ You may correct the SQL files and push again. The SQL Review will be triggered a
 
 ## Summary
 
-Now you have learned how to trigger SQL Review in GitHub Actions, you may also refer to the [SQL Review](/docs/sql-review/overview) document for more details.
+Now you have learned how to trigger SQL Review in GitHub Actions, you may also refer to the [SQL Review](/sql-review/overview) document for more details.

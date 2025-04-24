@@ -12,7 +12,7 @@ description: 'Learn how to automate semantic type and global masking rule using 
 
 <IncludeBlock url="/docs/share/tutorials/api-preface"></IncludeBlock>
 
-Bytebase provides database [dynamic data masking](/docs/security/data-masking/overview/) in the **Enterprise Plan**, which can mask sensitive data in the SQL Editor query result based on the context on the fly. It helps organizations to protect sensitive data from being exposed to unauthorized users.
+Bytebase provides database [dynamic data masking](/security/data-masking/overview/) in the **Enterprise Plan**, which can mask sensitive data in the SQL Editor query result based on the context on the fly. It helps organizations to protect sensitive data from being exposed to unauthorized users.
 
 By using GitHub Actions with Bytebase API, you can implement policy-as-code to apply database masking policies via the GitOps workflow. This tutorial will guide you through the process.
 
@@ -20,9 +20,9 @@ By using GitHub Actions with Bytebase API, you can implement policy-as-code to a
 
 This is Part 1 of our tutorial series on implementing automated database masking using GitHub Actions:
 
-- Part 1: [Semantic Type and Global Masking Rule](/docs/tutorials/github-action-data-masking-part1)
-- Part 2: [Column Masking and Masking Exemption](/docs/tutorials/github-action-data-masking-part2)
-- Part 3: [Data Classification](/docs/tutorials/github-action-data-masking-part3)
+- Part 1: [Semantic Type and Global Masking Rule](/tutorials/github-action-data-masking-part1)
+- Part 2: [Column Masking and Masking Exemption](/tutorials/github-action-data-masking-part2)
+- Part 3: [Data Classification](/tutorials/github-action-data-masking-part3)
 
 ## Overview
 
@@ -90,7 +90,7 @@ Let's dig into the GitHub Actions workflow [code](https://github.com/bytebase/ex
 
 ## Semantic Type
 
-Masking algorithm is associated with [Semantic Type](/docs/security/data-masking/semantic-types/). You define semantic types and apply them to global masking rule or table columns. For example, you may define a semantic type `birth_date` with a masking algorithm to mask month and day.
+Masking algorithm is associated with [Semantic Type](/security/data-masking/semantic-types/). You define semantic types and apply them to global masking rule or table columns. For example, you may define a semantic type `birth_date` with a masking algorithm to mask month and day.
 
 ### In Bytebase Console
 
@@ -115,7 +115,7 @@ By changing file `masking/semantic-type.json`, creating a PR and merging, the se
 
 ## Global Masking Rule
 
-[Global Masking Rule](/docs/security/data-masking/global-masking-rule/) is configured by the admin.
+[Global Masking Rule](/security/data-masking/global-masking-rule/) is configured by the admin.
 
 ### In Bytebase Console
 

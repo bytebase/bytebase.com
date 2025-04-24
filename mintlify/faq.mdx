@@ -25,7 +25,7 @@ Bytebase is a single Go binary and is lightweight.
 
 #### CPU and RAM
 
-| Usage                           | Bytebase                  | [External PostgreSQL](/docs/get-started/install/external-postgres/) if used |
+| Usage                           | Bytebase                  | [External PostgreSQL](/get-started/install/external-postgres/) if used |
 | ------------------------------- | ------------------------- | --------------------------------------------------------------------------- |
 | 5 users and 5 instances         | 1 CPU cores and 2 GB RAM  | 1 CPU cores and 2 GB RAM                                                    |
 | 20 users and 20 instances       | 2 CPU cores and 4 GB RAM  | 1 CPU cores and 2 GB RAM                                                    |
@@ -36,7 +36,7 @@ Bytebase is a single Go binary and is lightweight.
 
 Bytebase stores the SQL statements. If your team submits large SQL statements frequently,
 then you need to reserve large disk space. A good starting point is to reserve 100 GB for where
-the Bytebase server runs. And if you use [External PostgreSQL](/docs/get-started/install/external-postgres/),
+the Bytebase server runs. And if you use [External PostgreSQL](/get-started/install/external-postgres/),
 then you need to make sure to reserve enough space there.
 
 ### Docker
@@ -45,7 +45,7 @@ If you use Docker to deploy Bytebase, please use Docker version >= [20.10.24](ht
 
 ### WebSocket
 
-SQL Editor autocomplete requires [enabling WebSocket](/docs/get-started/self-host/#enable-websocket-for-sql-editor) in your gateway if present.
+SQL Editor autocomplete requires [enabling WebSocket](/get-started/self-host/#enable-websocket-for-sql-editor) in your gateway if present.
 
 ## Does Bytebase retain your data
 
@@ -55,32 +55,32 @@ Bytebase does not retain any database row data.
 
 In order to perform database operations on users' behalf, Bytebase needs users to provide the database credentials.
 By default, Bytebase stores the supplied credentials in the obfuscated format. For the Enterprise plan, you can
-instruct Bytebase to [use the external secret manager](/docs/get-started/instance/#use-secret-manager).
+instruct Bytebase to [use the external secret manager](/get-started/instance/#use-secret-manager).
 
 ### Database schema (metadata)
 
-Bytebase syncs and stores the database schema information. If you enable [AI Assistant](/docs/ai-assistant/),
+Bytebase syncs and stores the database schema information. If you enable [AI Assistant](/ai-assistant/),
 Bytebase will also send the schema info to OpenAI or the configured endpoint.
 
 ### Database data (row data)
 
-When you query the database via Bytebase, Bytebase does not store the result data. [Audit log](/docs/security/audit-log/)
+When you query the database via Bytebase, Bytebase does not store the result data. [Audit log](/security/audit-log/)
 only records the query.
 
-If you enable [Data Rollback](/docs/change-database/rollback-data-changes/), Bytebase will store the backup data in your
+If you enable [Data Rollback](/change-database/rollback-data-changes/), Bytebase will store the backup data in your
 own database instance.
 
 ## Production Setup
 
-See [Production Setup](/docs/administration/production-setup/).
+See [Production Setup](/administration/production-setup/).
 
 ## Supported database and versions
 
-See [Supported Databases](/docs/introduction/supported-databases).
+See [Supported Databases](/introduction/supported-databases).
 
 ## Supported version control systems (VCS) and providers
 
-See [Git Provider](/docs/vcs-integration/add-git-provider).
+See [Git Provider](/vcs-integration/add-git-provider).
 
 ## How to enable https
 
@@ -98,7 +98,7 @@ Debug mode emits more detailed logs on the backend as well as returning more ver
 
 ### Enable --debug on startup
 
-You can pass [--debug](/docs/reference/command-line#--debug) when starting Bytebase.
+You can pass [--debug](/reference/command-line#--debug) when starting Bytebase.
 
 ### Toggle debug mode at runtime
 
@@ -110,11 +110,11 @@ If you are an OWNER or DBA, you can also toggle debug mode at runtime. The toggl
 
 ## Does Bytebase support post action after applying a change to the database
 
-You can configure [project webhook](/docs/change-database/webhook/#supported-webhook-endpoints) to observe events.
+You can configure [project webhook](/change-database/webhook/#supported-webhook-endpoints) to observe events.
 
 ## Which data does Bytebase collect?
 
-_To make deployment air-gapped, you can disable the collection by passing [`--disable-metric`](/docs/reference/command-line/#disable-sample) on startup_.
+_To make deployment air-gapped, you can disable the collection by passing [`--disable-metric`](/reference/command-line/#disable-sample) on startup_.
 
 - Anonymous usage data.
 - The registered email and name of the first member in the workspace.

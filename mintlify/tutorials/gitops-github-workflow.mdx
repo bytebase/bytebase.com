@@ -14,7 +14,7 @@ description: 'Learn the new GitOps workflow for database release with Bytebase.'
 This is part of our database GitOps series with Bytebase:
 
 - Database GitOps with GitHub Actions (this one)
-- [Database GitOps with Azure DevOps Pipeline](/docs/tutorials/gitops-azure-devops-workflow)
+- [Database GitOps with Azure DevOps Pipeline](/tutorials/gitops-azure-devops-workflow)
 - Database GitOps with GitLab CI (TBD)
 
 ---
@@ -62,7 +62,7 @@ https://github.com/bytebase/example-gitops-github-flow
 
 1. Fork [https://github.com/bytebase/example-gitops-github-flow](https://github.com/bytebase/example-gitops-github-flow). There are two workflows in this repository:
 
-   - `.github/workflows/sql-review.yml`: [Lint the SQL](/docs/sql-review/overview/) migration files after the PR is created.
+   - `.github/workflows/sql-review.yml`: [Lint the SQL](/sql-review/overview/) migration files after the PR is created.
    - `.github/workflows/release.yml`: Create a release in Bytebase after the PR is merged to the `main` branch.
 
 1. Go into `.github/workflows/release.yml` and `.github/workflows/sql-review.yml`. In the `env` section, replace the variable values with your own and commit the changes.

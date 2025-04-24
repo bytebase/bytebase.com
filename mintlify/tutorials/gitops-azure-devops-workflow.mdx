@@ -12,7 +12,7 @@ description: 'Learn the new GitOps workflow for database release with Bytebase.'
 
 This is part of our database GitOps series with Bytebase:
 
-- [Database GitOps with GitHub Actions](/docs/tutorials/gitops-github-workflow)
+- [Database GitOps with GitHub Actions](/tutorials/gitops-github-workflow)
 - Database GitOps with Azure DevOps Pipeline (this one)
 - Database GitOps with GitLab CI (TBD)
 
@@ -24,7 +24,7 @@ This tutorial shows you how to build a database GitOps workflow using Azure DevO
 - Automatically run SQL reviews on pull requests
 - Auto-create and deploy Bytebase releases when merging to `main`
 
-While we use Azure DevOps Pipeline in this guide, you can apply these concepts to other CI platforms like [GitHub Actions](/docs/tutorials/gitops-github-workflow), GitLab CI, or Bitbucket Pipelines using the Bytebase API.
+While we use Azure DevOps Pipeline in this guide, you can apply these concepts to other CI platforms like [GitHub Actions](/tutorials/gitops-github-workflow), GitLab CI, or Bitbucket Pipelines using the Bytebase API.
 
 <HintBlock type="info">
 
@@ -55,7 +55,7 @@ This tutorial code repository is at [https://dev.azure.com/bytebase-hq/\_git/byt
 
 1. Create a new project. Copy `pipelines` folder from [https://dev.azure.com/bytebase-hq/\_git/bytebase-example](https://dev.azure.com/bytebase-hq/_git/bytebase-example). There are two workflows in this repository:
 
-   - `pipelines/check-release.yml`: [Lint the SQL](/docs/sql-review/overview/) migration files after the PR is created.
+   - `pipelines/check-release.yml`: [Lint the SQL](/sql-review/overview/) migration files after the PR is created.
    - `pipelines/rollout-release.yml`: Create a release in Bytebase after the PR is merged to the `main` branch.
 
 1. Go into `pipelines/check-release.yml` and `pipelines/rollout-release.yml`. In the `env` section, replace the variable values with your own and commit the changes.
@@ -124,4 +124,4 @@ To create migration files to trigger release creation, the files have to match t
 
 ## Summary
 
-Now you have learned how to database GitOps with Azure DevOps Pipeline. If you want to trigger a release creation with other git providers (e.g. GitLab, Bitbucket, [GitHub Actions](/docs/tutorials/gitops-github-workflow)), you may customize the workflow file.
+Now you have learned how to database GitOps with Azure DevOps Pipeline. If you want to trigger a release creation with other git providers (e.g. GitLab, Bitbucket, [GitHub Actions](/tutorials/gitops-github-workflow)), you may customize the workflow file.

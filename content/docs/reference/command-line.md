@@ -75,7 +75,7 @@ default: **[https://www.bytebase.com/docs/get-started/install/external-url](http
 
 The external URL where user visits Bytebase, must start with [http://](http://) or [https://](https://).
 
-See [Configure External URL](/docs/get-started/install/external-url).
+See [Configure External URL](/get-started/install/external-url).
 
 ## --pg &lt;&lt;string&gt;&gt;
 
@@ -83,7 +83,7 @@ default: **""**
 
 Optional external PostgreSQL instance connection url. If specified, Bytebase will store its own metadata there.
 
-See [Configure External PostgreSQL](/docs/get-started/install/external-postgres).
+See [Configure External PostgreSQL](/get-started/install/external-postgres).
 
 <HintBlock type="info">
 
@@ -95,7 +95,7 @@ Alternatively, you can also pass PG_URL environment variable.
 
 default: **8080**
 
-The port where Bytebase is running. Bytebase listens on all network interfaces for the specified port. For production setup, see [Configure External URL](/docs/get-started/install/external-url).
+The port where Bytebase is running. Bytebase listens on all network interfaces for the specified port. For production setup, see [Configure External URL](/get-started/install/external-url).
 
 ## --readonly
 

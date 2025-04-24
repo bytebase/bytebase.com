@@ -4,7 +4,7 @@ title: Configure External PostgreSQL
 
 import TerminalDockerRunExternalUrl from '/snippets/install/terminal-docker-run-external-url.mdx';
 
-By default, Bytebase bundles an embedded PostgreSQL instance for storing its own metadata. The metadata is stored under the [--data](/docs/reference/command-line#--data-directory) directory.
+By default, Bytebase bundles an embedded PostgreSQL instance for storing its own metadata. The metadata is stored under the [--data](/reference/command-line#--data-directory) directory.
 
 **For production setup, you should pass `PG_URL` environment variable to store these metadata in an external PostgreSQL database.**
 
