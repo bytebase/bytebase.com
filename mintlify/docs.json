@@ -52,7 +52,8 @@
                   "get-started/step-by-step/change-schema",
                   "get-started/step-by-step/query-data"
                 ]
-              }
+              },
+              "get-started/instance"
             ]
           },
           {

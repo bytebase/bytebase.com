@@ -2,22 +2,24 @@
 title: Connect Your Database
 ---
 
-<HintBlock type="info">
+import WhitelistBytebaseIp from '/snippets/install/whitelist-bytebase-ip.mdx';
+
+<Note>
 
 Only **Workspace Admin** or **Workspace DBA** role can configure database instance.
 
-</HintBlock>
+</Note>
 
 To allow Bytebase to execute operations on behalf the end user, you need to supply Bytebase with the
 connection info for your database instance.
 
 ## Connect to the instance on the same host
 
-<HintBlock type="info">
+<Note>
 
 If you run Bytebase inside Docker and try to connect to a database instance on the same host, then
 you need to set host as [host.docker.internal](https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host).
-</HintBlock>
+</Note>
 
 ![connect-local-docker](/content/docs/get-started/instance/connect-local-docker.webp)
 
@@ -28,7 +30,7 @@ you need to set host as [host.docker.internal](https://docs.docker.com/desktop/n
 
 ## Connect to the instance from Bytebase Cloud
 
-<IncludeBlock url="/docs/get-started/install/whitelist-bytebase-ip"></IncludeBlock>
+<WhitelistBytebaseIp />
 
 ## Configure SSL
 
@@ -125,16 +127,16 @@ While creating an RDS or Aurora instance, you can choose to enable IAM authentic
 1. Select `connect` permission and `specific` as Resources. Check `Any in this account`.
    ![](/content/docs/get-started/instance/aws-rds-iam/connect-permission.webp)
 
-  <HintBlock type="info">
-    `Any in this account` will mark the resource as
-    `arn:aws:rds-db:*:<<your-db-id>>:dbuser:*/*`, which contains 3 `*`:
-    - 1st *: any regions
-    - 2nd *: any databases
-    - 3rd *: any database users
-    
-    This will allow the RDS connect on behalf of all database users in all databases in your account.
-    If you want to limit the connection to specific databases, please follow [this doc](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html).
-  </HintBlock>
+   <Info>
+      `Any in this account` will mark the resource as
+      `arn:aws:rds-db:*:<<your-db-id>>:dbuser:*/*`, which contains 3 `*`:
+      - 1st *: any regions
+      - 2nd *: any databases
+      - 3rd *: any database users
+      
+      This will allow the RDS connect on behalf of all database users in all databases in your account.
+      If you want to limit the connection to specific databases, please follow [this doc](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html).
+   </Info>
 
 1. Name it `rds-connect` and create this policy.
 
@@ -296,11 +298,11 @@ You can also instruct Bytebase to retrieve the database credential from an exter
 
 ### HashiCorp Vault
 
-<HintBlock type="info">
+<Note>
 
 Bytebase only supports KV v2 engine.
 
-</HintBlock>
+</Note>
 
 Create the secret in Vault like below:
 
@@ -328,11 +330,11 @@ Configure instance to retrieve database password from vault:
 
 #### Create an IAM user to access the Secrets Manager
 
-<HintBlock type="info">
+<Tip>
 
 It's recommended to create a dedicated IAM user for Bytebase to retrieve the secrets. You only need to do this once
 .
-</HintBlock>
+</Tip>
 
 Visit [IAM](https://aws.amazon.com/iam/) to create a new IAM user. Name it `bytebase-external-secret`.
 
@@ -396,11 +398,11 @@ These two correspond to the value you created in the AWS Secrets Manager.
 
 #### Create a service account to access the Secret Manager
 
-<HintBlock type="info">
+<Tip>
 
 It's recommended to create a dedicated service account for Bytebase to retrieve the secrets. You only need to do this once
 .
-</HintBlock>
+</Tip>
 
 Visit [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) to create a new service account.
 
@@ -434,12 +436,12 @@ After creation, note the fully qualified secret name.
 Restart Bytebase by specifying `GOOGLE_APPLICATION_CREDENTIALS`=`private key file` as an environment variable. The
 private key file is the JSON file downloaded before for the service account.
 
-<HintBlock type="info">
+<Tip>
 
 If you run Bytebase in docker, you need to put the JSON file under the mounted directory. Otherwise, Bytebase
 won't be able to access the key file.
 
-</HintBlock>
+</Tip>
 
 ```text
 docker run --init \
@@ -503,11 +505,11 @@ GRANT cloudsqlsuperuser TO bytebase
 
 Besides, you may need to grant Bytebase privileges with `GRANT role_name TO bytebase;` for all existing roles. Otherwise, Bytebase may not access existing databases or tables.
 
-<HintBlock type="info">
+<Tip>
 
 To prevent blocking operations for a long time, consider setting a [lock_timeout](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT) on the Bytebase user.
 
-</HintBlock>
+</Tip>
 
 ## Oracle
 
