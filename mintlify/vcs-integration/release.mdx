@@ -4,12 +4,6 @@ title: Release
 
 A `release` is a deployable unit that encapsulates a set of SQL statements.
 
-You can think of a `release` as a collection of SQL statements layered on top of a scratch Docker image.
+You can think of a `release` as a collection of SQL statements layered on top of a scratch Docker image. Like a Docker image, a `release` is immutable after it is created.
 
 In your CI/CD pipeline, a Docker image is built from the source code and sent to the CD system for deployment. Similarly, your CI pipeline creates a `release` by invoking the Bytebase API. Once built, the `release` can be deployed to the database either via the Bytebase UI or through the Bytebase API.
-
-<HintBlock type="info">
-
-Like a Docker image, a `release` is immutable after it is created.
-
-</HintBlock>

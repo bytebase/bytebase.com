@@ -1,16 +1,16 @@
 ---
-title: GitOps
+title: Overview
 ---
 
 Bytebase offers a database-as-code workflow, enabling you to manage database changes directly through your version control system (VCS).
 
-Bytebase GitOps workflow is built upon the [Bytebase API](/docs/api/overview). It provides the ultimate flexibility to customize the GitOps workflow to integrate with your CI/CD pipeline.
+Bytebase GitOps workflow is built upon the [Bytebase API](/api/overview). It provides the ultimate flexibility to customize the GitOps workflow to integrate with your CI/CD pipeline.
 
 ## GitHub Actions
 
-<TutorialBlock url="/docs/tutorials/gitops-github-workflow/" title="Database GitOps with GitHub Actions" />
+<Card title="Tutorial: Database GitOps with GitHub Actions" icon="graduation-cap" href="/tutorials/gitops-github-workflow/" horizontal />
 
-<HintBlock type="info">
+<Note>
 
 To reach your self-hosted Bytebase from GitHub Actions, you can choose either options:
 
@@ -18,14 +18,14 @@ To reach your self-hosted Bytebase from GitHub Actions, you can choose either op
 
 1. Use [self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
-</HintBlock>
+</Note>
 
 Bytebase provides pre-built [GitHub Actions](https://github.com/marketplace?query=bytebase&type=actions) to ease the GitHub integration.
 
 ## Azure DevOps Pipeline
 
-<TutorialBlock url="/docs/tutorials/gitops-azure-devops-workflow/" title="Database GitOps with Azure DevOps Pipeline" />
+<Card title="Tutorial: Database GitOps with Azure DevOps Pipeline" icon="graduation-cap" href="/tutorials/gitops-azure-devops-workflow/" horizontal />
 
 ## API
 
-If the pre-built GitHub Actions do not meet your needs or you want to integrate with other VCSs, you can use the [Bytebase API](/docs/api/overview) to build your own GitOps workflow.
+If the pre-built GitHub Actions do not meet your needs or you want to integrate with other VCSs, you can use the [Bytebase API](/api/overview) to build your own GitOps workflow.

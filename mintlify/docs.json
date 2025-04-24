@@ -118,6 +118,10 @@
               },
               "change-database/troubleshoot"
             ]
+          },
+          {
+            "group": "GitOps",
+            "pages": ["vcs-integration/overview", "vcs-integration/release"]
           }
         ]
       },
