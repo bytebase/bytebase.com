@@ -1,0 +1,60 @@
+---
+title: Schema Editor
+feature_name: SCHEMA_EDITOR
+---
+
+**Schema Editor** provides a spreadsheet-like editor to view and edit database structure. Users first use the **Schema Editor** to prepare the schema changes, then those changes will be converted into SQL statements and go through the [change workflow](/docs/change-database/change-workflow).
+
+**Schema Editor** also supports the use of templates for fields and tables. Templates can be pre-defined at the workspace level and can be used to save time and ensure consistency when creating new schema entities. See [Schema Template](/docs/administration/schema-template) for more details.
+
+## Schema Editor Entry
+
+Select a certain project and go to **Database** -> **Databases** in the left-side menu. Select _one_ of the databases and click **Edit Schema**.
+
+![](/content/docs/change-database/schema-editor/schema-editor-entry.webp)
+
+## Create Table / Schema
+
+To create a new table, select a database and click the **New Table** button on top of the Edit Schema page. Enter table name and **Create**.
+
+![](/content/docs/change-database/schema-editor/create-table.webp)
+
+You can also create a new table by clicking the `···` button by a schema, then click the **New table** button and enter your Table Name. Click the **Create** button, and you'll have created a table under this schema.
+
+![](/content/docs/change-database/schema-editor/new-table-button.webp)
+
+Similarly, you can click the `···` button on the database row to create a new schema under it.
+
+By clicking on the `copy` button on the table's row, you can replicate this table.
+
+![](/content/docs/change-database/schema-editor/copy.webp)
+
+## Drop or Restore Table / Schema
+
+To drop an existing table / schema, click the `···` button on the corresponding row of the database / schema list, and click the **Drop table** / **Drop Schema** button. Then this table / schema will be crossed out.
+
+![](/content/docs/change-database/schema-editor/drop-table.webp)
+
+Click on the `···` button of a table or schema you just dropped, and you can **Restore** it.
+
+## Alter Table
+
+### Add Column
+
+To Add a new column, click on a table and click the **Add Column** button on top of table detail page.
+
+Enter attributes for this column: Name, Type, Default, etc.
+
+![](/content/docs/change-database/schema-editor/add-column.webp)
+
+### Rename new Table
+
+For _newly created_ tables, you can **Rename** in the left-side list.
+
+![](/content/docs/change-database/schema-editor/rename.webp)
+
+### Preview Issue
+
+After your schema editing, Click the **Preview Issue** at bottom right, and you'll be redirected to the issue creating page with generated SQL statement.
+
+![](/content/docs/change-database/schema-editor/edit-schema-issue.webp)

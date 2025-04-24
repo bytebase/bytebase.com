@@ -15,7 +15,7 @@ the issue is approved by the others, you **can** roll out your own issue if qual
 
 ![environment-rollout](/content/docs/administration/environment-policy/bb-env-rollout.webp)
 
-This setting will affect projects using either [UI workflow or GitOps workflow](/docs/concepts/database-change-workflow). The rollout policy determines who will rollout the database changes.
+This setting will affect projects using either [UI workflow or GitOps workflow](/docs/change-database/change-workflow). The rollout policy determines who will rollout the database changes.
 
 ## Automatic rollout
 

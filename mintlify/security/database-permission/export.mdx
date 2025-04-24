@@ -1,0 +1,75 @@
+---
+title: Data Export
+---
+
+Bytebase users obtain `Project Exporter` role to export data repeatedly or request a one-time export in **Export Center**.
+
+## Assign Project Exporter Role
+
+`Workspace Admin`, `Workspace DBA` or `Project Owner` can manually grant `Project Exporter` role to users/groups.
+
+### Assign at Project level
+
+**Select Project** and go to **Manage > Members**. Then **Grant Access**.
+
+![project-exporter-grant](/content/docs/security/database-permission/export/project-exporter-grant.webp)
+
+Select Users or Groups, assign `Project Exporter` role. You can manually select databases/schemas/tables, alter `Max export rows`, and `Expiration`. Then click **Confirm**.
+
+### Assign at Workspace level
+
+`Workspace Admin` can assign `Project Exporter` role at the workspace level. This will grant export permission to _all databases_ within _all projects_.
+
+From the workspace page, go to **IAM & Admin > Members**, **Grant Access** to select users/groups and assign `Project Exporter`.
+
+![assign-workspace](/content/docs/security/database-permission/export/assign-workspace.webp)
+
+## Request Project Exporter Role
+
+<PricingPlanBlock feature_name='QUERY_EXPORT_APPROVAL_WORKFLOW' />
+
+Users can also apply for `Project Exporter` role by submitting an issue. Approval flow matches the `Request Exporter Role` in [custom approval](/docs/administration/custom-approval/) if configured.
+
+### Request at Project level
+
+**Select Project** and go to **Database > Databases**. Then **Request Exporter Role**.
+
+You can manually select databases/schemas/tables, alter `Max export rows`, and `Expiration`.
+
+![request-exporter-role](/content/docs/security/database-permission/export/request-exporter-role.webp)
+
+## One-time Export Request
+
+Approval flow matches the `Export Data` in [custom approval](/docs/administration/custom-approval/) if configured.
+
+### Request from SQL Editor
+
+Data can be exported directly from the SQL Editor result panel if you have the export permission for the data.
+
+![sql-editor](/content/docs/security/database-permission/export/sql-editor.webp)
+
+Without the export permission, you can request a one-time export via **Request Export**.
+
+![sql-editor-request-export](/content/docs/security/database-permission/export/sql-editor-request-export.webp)
+
+You will be redirected to an issue page. **Create** the issue. After approval, you'll be able to export the data one time.
+
+![sql-editor-export](/content/docs/security/database-permission/export/sql-editor-export.webp)
+
+### Request from Export Center
+
+Enter **Export Center** within a project, where you **Request Export**, select a database and click **Next**.
+
+![export-center](/content/docs/security/database-permission/export/export-center.webp)
+
+You'll be creating an issue. Enable **Encrypt** and set **Password** if needed, fill your query commands in **SQL** block. **Create** the issue.
+
+![export-preview](/content/docs/security/database-permission/export/export-preview.webp)
+
+After approval, you can click **Export** to download the exported file _once_.
+
+![export](/content/docs/security/database-permission/export/export.webp)
+
+The exported issue will be displayed in **Export Center**.
+
+![export-list](/content/docs/security/database-permission/export/export-list.webp)

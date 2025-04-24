@@ -1,0 +1,42 @@
+---
+title: Issue
+---
+
+<TutorialBlock url="/docs/tutorials/api-issue" title="Create Issue with Bytebase API" />
+
+|               |                                             |
+| ------------- | ------------------------------------------- |
+| Issue Service | https://api.bytebase.com/#/tag/issueservice |
+
+`Issue` drives the database operations in Bytebase. The issue contains following info:
+
+- **Issue metadata.** e.g `title` and `description`.
+- **Plan.** Contain one or multiple change statements and dictate how they are grouped and ordered. The plan layouts how to execute the change statements.
+  - **Sheet**. Plan references change statements via the `Sheet` object. Each `Sheet` contains one or more change statements.
+  - **Step**. Plan orchestrates the order via `Step`. Each `Step` specifies one or more changes units. A change unit specifies the SQL statements via `Sheet` and the target database.
+- **Rollout.** The actual execution of the plan.
+
+## How to create an issue
+
+Code sample: https://github.com/bytebase/upsert-issue-action/blob/main/src/main.ts#L86-L92
+
+```go
+// Create plan
+let plan = await createPlan(changes, title, description);
+
+// Create rollout
+let rollout = await createRollout(plan.name)
+
+// Create issue
+issue = await createIssue(plan.name, rollout.name, title, description);
+```
+
+### Step 1: Create a plan.
+
+See [Plan API](/docs/api/plan).
+
+### Step 2: Create a rollout for the plan
+
+See [Rollout API](/docs/api/rollout).
+
+### Step 3: Create an issue including both the plan and the rollout

@@ -15,7 +15,7 @@ English, 简体中文, Español, 日本語
 
 ## Certifications
 
-SOC 2 Type 1 (Type 2 in progress).
+SOC 2 Type II.
 
 ## System requirements
 

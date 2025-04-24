@@ -1,0 +1,195 @@
+---
+title: Supported Databases
+---
+
+Bytebase officially supports the following major versions for each supported database engine. Bytebase usually works fine with older database versions, we just won't support features specific to those older versions. We may add other open source databases in the future.
+
+#### RDBMS
+
+- MySQL, Aurora MySQL - 5.7 and above
+- PostgreSQL, Aurora PostgreSQL, AlloyDB - 12.0 and above
+- Oracle - 11g and above
+- Microsoft SQL Server - 2019 and above
+- MariaDB - 10.7 and above
+- TiDB - 5.0 and above
+- OceanBase - 3.x and above, both MySQL and Oracle modes
+- CockroachDB - 24.1 and above, PostgreSQL compatible syntax supported only
+- Spanner
+
+#### NoSQL
+
+- MongoDB - 4.0 and above
+- Redis - 6.0 and above
+- DocumentDB
+- DynamoDB
+- Cosmos DB
+
+#### Data Warehouse
+
+- Snowflake
+- BigQuery
+- Redshift
+- Hive
+- ClickHouse - 21.0 and above
+- Databricks
+- StarRocks
+
+#### Others
+
+- Elasticsearch
+- RisingWave - 1.x and above
+
+## Feature Matrix
+
+### Change Workflow
+
+| Feature            | [UI Workflow](/change-database/change-workflow/#ui-workflow) | [GitOps Workflow](/change-database/change-workflow/#gitops-workflow) | [Changelist](/changelist) | [Batch Change](/change-database/batch-change) | [SQL Lint](/sql-review/review-policy) | [Data Rollback\*](/change-database/rollback-data-changes) |
+| ------------------ | ------------------------------------------------------------ | -------------------------------------------------------------------- | ------------------------- | --------------------------------------------- | ------------------------------------- | --------------------------------------------------------- |
+| **RDMBS**          |                                                              |                                                                      |                           |                                               |                                       |                                                           |
+| MySQL              | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            | ✔️                                    | ✔️                                                        |
+| PostgreSQL         | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            | ✔️                                    | ✔️                                                        |
+| Oracle             | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            | ✔️                                    | ✔️                                                        |
+| SQL Server         | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            | ✔️                                    | ✔️                                                        |
+| MariaDB            | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            | ✔️                                    |                                                           |
+| TiDB               | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            | ✔️                                    |                                                           |
+| OceanBase          | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            | ✔️                                    |                                                           |
+| CockroachDB        | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            |                                       |                                                           |
+| Spanner            | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            |                                       |                                                           |
+| **NoSQL**          |                                                              |                                                                      |                           |                                               |                                       |                                                           |
+| MongoDB            | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            |                                       |                                                           |
+| Redis              | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            |                                       |                                                           |
+| DocumentDB         | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            |                                       |                                                           |
+| DynamoDB           | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            |                                       |                                                           |
+| Cosmos DB          | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            |                                       |                                                           |
+| **Data Warehouse** |                                                              |                                                                      |                           |                                               |                                       |                                                           |
+| Snowflake          | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            | ✔️                                    |                                                           |
+| BigQuery           | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            |                                       |                                                           |
+| Redshift           | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            |                                       |                                                           |
+| Hive               | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            |                                       |                                                           |
+| ClickHouse         | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            |                                       |                                                           |
+| Databricks         | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            |                                       |                                                           |
+| StarRocks          | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            |                                       |                                                           |
+| **Others**         |                                                              |                                                                      |                           |                                               |                                       |                                                           |
+| Elasticsearch      | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            |                                       |                                                           |
+| RisingWave         | ✔️                                                           | ✔️                                                                   | ✔️                        | ✔️                                            |                                       |                                                           |
+
+<Note>Data Rollback supports `UPDATE` and `DELETE` statements.</Note>
+
+### SQL Editor
+
+| Feature            | [Sheet Management](/sql-editor/manage-sql-scripts) | [Query Mode](/sql-editor/run-queries) | [Admin Mode](/sql-editor/admin-mode) | [Batch Mode](/sql-editor/run-queries/#batch-mode) | [AI Assistant](/sql-editor/ai-assistant) |
+| ------------------ | -------------------------------------------------- | ------------------------------------- | ------------------------------------ | ------------------------------------------------- | ---------------------------------------- |
+| **RDBMS**          |                                                    |                                       |                                      |                                                   |                                          |
+| MySQL              | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| PostgreSQL         | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| Oracle             | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| SQL Server         | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| MariaDB            | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| TiDB               | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| OceanBase          | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| CockroachDB        | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| Spanner            | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| **NoSQL**          |                                                    |                                       |                                      |                                                   |                                          |
+| MongoDB            | ✔️                                                 | ✔️ \*                                 | ✔️                                   | ✔️                                                | ✔️                                       |
+| Redis              | ✔️                                                 | ✔️ \*                                 | ✔️                                   | ✔️                                                | ✔️                                       |
+| DocumentDB         | ✔️                                                 | ✔️ \*                                 | ✔️                                   | ✔️                                                | ✔️                                       |
+| DynamoDB           | ✔️                                                 | ✔️ \*                                 | ✔️                                   | ✔️                                                | ✔️                                       |
+| Cosmos DB          | ✔️                                                 | ✔️ \*                                 | ✔️                                   | ✔️                                                | ✔️                                       |
+| **Data Warehouse** |                                                    |                                       |                                      |                                                   |                                          |
+| Snowflake          | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| BigQuery           | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| Redshift           | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| Hive               | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| ClickHouse         | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| Databricks         | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| StarRocks          | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| **Others**         |                                                    |                                       |                                      |                                                   |                                          |
+| Elasticsearch      | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+| RisingWave         | ✔️                                                 | ✔️                                    | ✔️                                   | ✔️                                                | ✔️                                       |
+
+<Note>
+  Normally, Bytebase will block non-readonly statements in Query Mode. This is not supported NoSQL
+  Databases. You can work around this by configuring a [readonly
+  connection](/get-started/instance/#configure-read-only-connection).
+</Note>
+
+### Data Security & Compliance
+
+| Feature            | [RBAC](/concepts/roles-and-permissions) | [Audit Log](/security/audit-log) | [External Secret Manager](/get-started/instance/#use-secret-manager) | [Query and Export Control](/security/database-permission/query/) | [Data Masking](/security/data-masking/overview) |
+| ------------------ | --------------------------------------- | -------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------- | ----------------------------------------------- |
+| **RDBMS**          |                                         |                                  |                                                                      |                                                                  |                                                 |
+| MySQL              | ✔️                                      | ✔️                               | ✔️                                                                   | ✔️                                                               | ✔️                                              |
+| PostgreSQL         | ✔️                                      | ✔️                               | ✔️                                                                   | ✔️                                                               | ✔️                                              |
+| Oracle             | ✔️                                      | ✔️                               | ✔️                                                                   | ✔️                                                               | ✔️                                              |
+| SQL Server         | ✔️                                      | ✔️                               | ✔️                                                                   | ✔️                                                               | ✔️                                              |
+| MariaDB            | ✔️                                      | ✔️                               | ✔️                                                                   | ✔️                                                               | ✔️                                              |
+| TiDB               | ✔️                                      | ✔️                               | ✔️                                                                   | ✔️                                                               | ✔️                                              |
+| OceanBase          | ✔️                                      | ✔️                               | ✔️                                                                   | ✔️                                                               | ✔️                                              |
+| CockroachDB        | ✔️                                      | ✔️                               | ✔️                                                                   | ✔️                                                               |                                                 |
+| Spanner            | ✔️                                      | ✔️                               | ✔️                                                                   | ✔️                                                               |                                                 |
+| **NoSQL**          |                                         |                                  |                                                                      |                                                                  |                                                 |
+| MongoDB            | ✔️                                      | ✔️                               | ✔️                                                                   |                                                                  |                                                 |
+| Redis              | ✔️                                      | ✔️                               | ✔️                                                                   |                                                                  |                                                 |
+| DocumentDB         | ✔️                                      | ✔️                               | ✔️                                                                   |                                                                  |                                                 |
+| DynamoDB           | ✔️                                      | ✔️                               | ✔️                                                                   |                                                                  |                                                 |
+| Cosmos DB          | ✔️                                      | ✔️                               | ✔️                                                                   |                                                                  | ✔️                                              |
+| **Data Warehouse** |                                         |                                  |                                                                      |                                                                  |                                                 |
+| Snowflake          | ✔️                                      | ✔️                               | ✔️                                                                   | ✔️                                                               |                                                 |
+| BigQuery           | ✔️                                      | ✔️                               | ✔️                                                                   | ✔️                                                               |                                                 |
+| Redshift           | ✔️                                      | ✔️                               | ✔️                                                                   |                                                                  |                                                 |
+| Hive               | ✔️                                      | ✔️                               | ✔️                                                                   |                                                                  |                                                 |
+| ClickHouse         | ✔️                                      | ✔️                               | ✔️                                                                   | ✔️                                                               |                                                 |
+| Databricks         | ✔️                                      | ✔️                               | ✔️                                                                   |                                                                  |                                                 |
+| StarRocks          | ✔️                                      | ✔️                               | ✔️                                                                   |                                                                  |                                                 |
+| **Others**         |                                         |                                  |                                                                      |                                                                  |                                                 |
+| Elasticsearch      | ✔️                                      | ✔️                               | ✔️                                                                   |                                                                  |                                                 |
+| RisingWave         | ✔️                                      | ✔️                               | ✔️                                                                   |                                                                  |                                                 |
+
+### Anomaly Detection
+
+| Feature            | Connection Failure | [Drift Detection](/change-database/drift-detection) |
+| ------------------ | ------------------ | --------------------------------------------------- |
+| **RDBMS**          |                    |                                                     |
+| MySQL              | ✔️                 | ✔️                                                  |
+| PostgreSQL         | ✔️                 | ✔️                                                  |
+| Oracle             | ✔️                 | ✔️                                                  |
+| SQL Server         | ✔️                 | ✔️                                                  |
+| MariaDB            | ✔️                 | ✔️                                                  |
+| TiDB               | ✔️                 | ✔️                                                  |
+| OceanBase          | ✔️                 |                                                     |
+| CockroachDB        | ✔️                 |                                                     |
+| Spanner            | ✔️                 |                                                     |
+| **NoSQL**          |                    |                                                     |
+| MongoDB            | ✔️                 |                                                     |
+| Redis              | ✔️                 |                                                     |
+| DocumentDB         | ✔️                 |                                                     |
+| DynamoDB           | ✔️                 |                                                     |
+| Cosmos DB          | ✔️                 |                                                     |
+| **Data Warehouse** |                    |                                                     |
+| Snowflake          | ✔️                 | ✔️                                                  |
+| BigQuery           | ✔️                 |                                                     |
+| Redshift           | ✔️                 | ✔️                                                  |
+| Hive               | ✔️                 |                                                     |
+| ClickHouse         | ✔️                 | ✔️                                                  |
+| Databricks         | ✔️                 |                                                     |
+| StarRocks          |                    |                                                     |
+| **Others**         |                    |                                                     |
+| Elasticsearch      | ✔️                 |                                                     |
+| RisingWave         | ✔️                 |                                                     |
+
+### Schema Management
+
+<Note>
+  Schema management is only applicable to RDBMS. If you are looking for a feature not supported in
+  your database, please [contact us](/faq/#how-to-reach-us).
+</Note>
+
+| Feature    | [Schema Synchronization](/change-database/synchronize-schema) | [Schema Editor](/change-database/schema-editor) | [Online Schema Change](/change-database/online-schema-migration-for-mysql) |
+| ---------- | ------------------------------------------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------- |
+| **RDBMS**  |                                                               |                                                 |                                                                            |
+| MySQL      | ✔️                                                            | ✔️                                              | ✔️                                                                         |
+| PostgreSQL | ✔️                                                            | ✔️                                              |                                                                            |
+| Oracle     | ✔️                                                            |                                                 |                                                                            |
+| SQL Server | ✔️                                                            |                                                 |                                                                            |
+| MariaDB    |                                                               |                                                 | ✔️                                                                         |
+| TiDB       | ✔️                                                            | ✔️                                              |                                                                            |

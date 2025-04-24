@@ -1,0 +1,44 @@
+---
+title: Audit Log
+feature_name: AUDIT_LOG
+---
+
+**Workspace Admin** or **DBA** can view the audit logs of the workspace.
+
+![overview](/content/docs/security/audit-log/overview.webp)
+
+## Filter audit logs
+
+You can filter the audit logs by different conditions.
+
+![filter](/content/docs/security/audit-log/filter.webp)
+
+You can also specify a time range.
+
+![filter-date](/content/docs/security/audit-log/filter-date.webp)
+
+## Export audit logs
+
+<HintBlock type="info">
+
+If you want to export the audit logs to an external system such as S3, refer [Audit Log API](/docs/api/audit-log/).
+
+</HintBlock>
+
+You can also export the audit logs.
+
+![filter-date](/content/docs/security/audit-log/filter-date.webp)
+
+## Retention
+
+Bytebase does not purge the audit logs. If you want to purge the audit logs, please locate the
+`audit_log` table in the metadata database and delete manually.
+
+![audit-log-table](/content/docs/security/audit-log/audit-log-table.webp)
+
+```sql
+
+DELETE FROM public.audit_log
+WHERE created_ts < EXTRACT(EPOCH FROM NOW() - INTERVAL '3 months');
+
+```

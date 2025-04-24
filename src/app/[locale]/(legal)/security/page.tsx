@@ -115,7 +115,7 @@ export default function Page() {
       </ul>
       <h2 id="faq">FAQ</h2>
       <h3>Which certification does Bytebase have?</h3>
-      <p> SOC 2 Type 1 (Type 2 in progress).</p>
+      <p> SOC 2 Type II.</p>
       <h3>Which data does Bytebase store?</h3>
       Bytebase stores the following data:
       <ul>

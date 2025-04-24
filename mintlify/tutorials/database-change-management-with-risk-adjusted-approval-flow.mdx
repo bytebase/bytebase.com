@@ -1,0 +1,151 @@
+---
+title: 'Database Change with Risk-Based Approval Flow'
+author: Adela
+updated_at: 2023/06/01 16:15
+tags: Tutorial
+integrations: General
+category: 'Database CI/CD (GUI)'
+level: Intermediate
+estimated_time: '15 mins'
+description: 'Bytebase provides a basic rollout mechanism by default. For more complicated enterprise-level cases, users may need different approval flows to handle database changes according to risk levels.'
+---
+
+Bytebase provides a basic yet configurable rollout mechanism by default. This means that manual rollout is skipped for **Test** environments and required for **Prod** environments.
+
+However, for more complicated enterprise-level cases, users may need different approval flows to handle database changes according to different potential risks. For example, DDL in Prod environments is considered high risk, while DML in Test environments is low risk. Additionally, users may need to involve roles other than **DBA/Developer/Project Leader**, such as **Testers**.
+
+This tutorial will walk you through how to create custom approval flows based on self-defined risk rules and how to add new roles to be involved.
+
+## Feature included
+
+- Custom approval
+- Risk center
+- Custom roles
+
+## Prerequisites
+
+- [Docker](https://www.docker.com/) must be installed on your system.
+- This features require an [Enterprise Plan](/pricing).
+
+## Step 1 - Start Bytebase and Prepare the Users
+
+1. Make sure your Docker is running, and start the Bytebase Docker container with the following command:
+
+   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
+
+1. Open `localhost:8080` in a browser, register as an admin and you will be granted as **Workspace Admin** role and automatically logged in.
+
+1. Click **IAM > Admin** on the left bar. Add one `dba@example.com` as **Worksace DBA**, and one `dev@example.com` as **Project Developer** (which will apply to all projects).
+
+   ![bb-users-dba-dev](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-users-dba-dev.webp)
+
+## Step 2 - Upgrade to Enterprise Plan
+
+1. Click **Settings > Subscription** on the left bar. Fill your Enterprise Plan license key and click **Upload License**. Now you have several instance licenses but not assigned to any instance.
+
+   ![bb-subscription-enterprise](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-subscription-enterprise.webp)
+
+1. Click **Instances** on the left bar. Now the existing sample instances are not assigned any license.
+
+   ![bb-instances-no-license](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-instances-no-license.webp)
+
+1. Click **Assign license** on the top bar. Select the instance you want to assign the license to and click **Confirm**. Now the instances are assigned with licenses.
+
+   ![bb-instances-has-license](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-instances-has-license.webp)
+
+## Step 3 - Run Schema Change without Custom Approval Flow
+
+1. Log out and login as **Developer**. Go into the `Sample Project` , click **Database > Databases** on the left bar. Select both existing sample databases `hr_prod` and `hr_test`, and click **Edit Schema**.
+
+   ![bb-edit-schema](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-edit-schema.webp)
+
+1. It will redirect to the issue preview, paste the following SQL and click **Create**.
+
+   ```sql
+   CREATE TABLE t1 (
+      id INT NOT NULL,
+      name VARCHAR(255) NOT NULL,
+      PRIMARY KEY (id)
+   );
+   ```
+
+1. The issue is created and waiting for rollout. There's no approval flow for this issue, since we haven't configured any custom approval flow yet.
+
+   ![bb-issue-no-approval-flow](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-no-approval-flow.webp)
+
+## Step 4 - Configure a Custom Approval and Run a Schema Change
+
+<HintBlock type="info">
+
+To learn the best practice, check out [Risk Center Best Practice](/docs/tutorials/risk-center-best-practice/).
+
+</HintBlock>
+
+1. Login as **Admin**. Click **CI/CD > Custom Approval** on the left bar. Choose `Project Owner → DBA` for **DDL** > **High Risk** and `DBA` for **DDL** > **Moderate Risk**.
+
+   ![bb-custom-approval](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-custom-approval.webp)
+
+1. Either click **the related risk rules** or **CI/CD > Risks** on the left bar. Add two new rules
+
+   -  Name: `DDL ALTER`; Risk Level: `High`; Type: `DDL`; Condition: `sql_type == 'ALTER_TABLE'`
+   -  Name: `DDL CREATE`; Risk Level: `Moderate`; Type: `DDL`; Condition: `sql_type == 'CREATE_TABLE'`
+
+   ![bb-risks](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-risks.webp)
+
+1. Logout and login as **Developer**. Go into the project, select both databases and click **Edit Schema**. Paste the same SQL as before and click **Create**.
+
+   ```sql
+   CREATE TABLE t1 (
+      id INT NOT NULL,
+      name VARCHAR(255) NOT NULL,
+      PRIMARY KEY (id)
+   );
+   ```
+
+1. This time, the issue is detected as **Moderate** risk, so it will be reviewed by **DBA** workflow.
+
+   ![bb-issue-moderate](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-moderate.webp)
+
+1. Try another DDL with **ALTER** type.
+
+   ```sql
+   ALTER TABLE employee ADD COLUMN age INT NOT NULL;
+   ```
+
+1. This time, the issue is detected as **High** risk, so it will be reviewed by **Project Owner -> DBA** workflow.
+
+   ![bb-issue-high](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-high.webp)
+
+## Step 5 - Build Your Own Approval Flow
+
+What if there is other roles in the team, for example, a **Tester** . Bytebase has another feature called **Custom Roles**.
+
+1. Login as **Admin**. Click **IAM&Admin > Custom Roles** on the left bar. You may also add a new role, e.g. **Tester**, here to make it simple, we can import permissions from **Project Releaser** role.
+
+   ![bb-roles-tester](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-roles-tester.webp)
+
+1. Click **CI/CD > Custom Approval**, and click **Approval Flows** tab. Click **Create** and fill in the form like this.
+
+   ![bb-new-approval-flow](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-new-approval-flow.webp)
+
+1. Create a new user with the role **Tester**.
+
+1. Go to **CI/CD > Custom Approval**, and select `Tester->DBA` as the Moderate Risk approval flow.
+
+1. Logout and login as **Developer**. Go into the project, select both databases and click **Edit Schema**. Paste the same SQL as before and click **Create**.
+
+   ```sql
+   CREATE TABLE t1 (
+      id INT NOT NULL,
+      name VARCHAR(255) NOT NULL,
+      PRIMARY KEY (id)
+   );
+   ```
+
+1. This time, the issue is detected as **Moderate** risk, so it will be reviewed by **Tester -> DBA** workflow.
+
+   ![bb-issue-tester-dba](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-tester-dba.webp)
+
+## Summary
+
+Now you have tried database change with risk-adjusted custom approval flow, and also create your own custom roles as well. Bytebase provides more enterprise-level features regarding data security and data access control. If you're interested in that, follow [Just-in-Time Database Access](/docs/tutorials/just-in-time-database-access-part1/).

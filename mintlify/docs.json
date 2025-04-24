@@ -14,9 +14,20 @@
         "tab": "Home",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Introduction",
             "pages": [
               "introduction/what-is-bytebase",
+              "introduction/supported-databases",
+              "introduction/use-cases",
+              "poc",
+              "onboarding",
+              "concepts/data-model",
+              "faq"
+            ]
+          },
+          {
+            "group": "Get Started",
+            "pages": [
               {
                 "group": "Install",
                 "pages": [
