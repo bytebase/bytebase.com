@@ -142,6 +142,18 @@
               "security/database-permission/export",
               "security/database-permission/explain"
             ]
+          },
+          {
+            "group": "Dynamic Data Masking",
+            "pages": [
+              "security/data-masking/overview",
+              "security/data-masking/semantic-types",
+              "security/data-masking/masking-algorithm",
+              "security/data-masking/global-masking-rule",
+              "security/data-masking/data-classification",
+              "security/data-masking/column-masking",
+              "security/data-masking/access-unmasked-data"
+            ]
           }
         ]
       },
