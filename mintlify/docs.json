@@ -122,6 +122,17 @@
           {
             "group": "GitOps",
             "pages": ["vcs-integration/overview", "vcs-integration/release"]
+          },
+          {
+            "group": "SQL Editor",
+            "pages": [
+              "sql-editor/overview",
+              "sql-editor/run-queries",
+              "sql-editor/admin-mode",
+              "sql-editor/mask-data",
+              "sql-editor/manage-sql-scripts",
+              "sql-editor/ai-assistant"
+            ]
           }
         ]
       },
