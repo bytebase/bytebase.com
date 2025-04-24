@@ -1,0 +1,57 @@
+---
+title: Bytebase 3.1.0
+author: Adela
+updated_at: 2024/11/21 17:00:00
+feature_image: /content/changelog/3-1-0-banner.webp
+description: 'Google/GitHub SSO available in Pro Plan'
+---
+
+## 🚀 New Features
+
+- Support PostgreSQL role selection in DDL/DML issues.
+- Add PostgreSQL database tenant mode option in project setting.
+- Display package metadata for ORACLE on database page and SQL Editor.
+- Support setting colors for environments for better visual distinction.
+- Allow workspace admin to disable data export functionality.
+- Add new SQL Review Rules for MySQL:
+  - Prohibit DDL on specific tables for MySQL.
+  - Prohibit DML on specific tables for MySQL.
+
+## 🔔 Breaking Changes
+
+- Redefine SQL Editor related permissions:
+
+  - Permissions
+    - `bb.databases.query` -> `bb.sql.select`
+    - `bb.databases.queryDML` -> `bb.sql.dml`
+    - `bb.databases.queryDDL` -> `bb.sql.ddl`
+    - `bb.databases.queryExplain` -> `bb.sql.explain`
+    - `bb.databases.queryInfo` -> `bb.sql.info`
+    - `bb.databases.export` -> `bb.sql.export`
+    - `bb.instances.adminExecute` -> `bb.sql.admin`
+  - Roles
+    - `roles/projectQuerier` -> `roles/sqlEditorUser`
+
+- API change:
+  - Remove the `database` field of `sheet` in `SheetService`.
+  - Disallow adding service account to a group via API (previously restricted in the UI) .
+  - Deprecate `SQLService.Execute` method.
+- Default PostgreSQL role to run a DDL/DML issue:
+  - Instance connection user (previously database owner)
+  - If PostgreSQL database tenant mode is on for a project, the role remains database owner.
+  - For existing projects: PostgreSQL tenant mode will be automatically enabled if multitenancy is enabled for any database group.
+
+## 🎄 Enhancements
+
+- Expand audit log coverage to include more event types.
+- Upgrade 1-click rollback user experience for MySQL.
+- Upgrade parser to be compatible with PostgreSQL 15 syntax.
+- Add compatibility with Elasticsearch 7.x.
+- Support `DECLARE` and `SET` for SQL Server in SQL Editor.
+
+## 💰 Pricing Adjustments
+
+- Move SSO OAuth2 Google and GitHub from **Enterprise** to **Pro Plan**.
+- Move self-service signup restriction from **Enterprise** to **Pro Plan**.
+
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

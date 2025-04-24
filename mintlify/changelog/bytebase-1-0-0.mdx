@@ -1,0 +1,76 @@
+---
+title: Bytebase 1.0.0
+updated_at: 2022/03/08 09:58:16
+description: Version 1.0.0 and announcing our Team plan
+---
+
+## 🚀 Announce our Team Plan
+
+With over a year of hard work and 3500+ commits, we finally reach the milestone to announce our 1.0.0 version and our **Team Plan**. The **Team Plan** includes:
+
+- Role-Based-Access-Control (RBAC) with Owner, DBA, Developer roles catering to the collaboration during database development.
+- Login using GitLab account.
+- Sync project membership from the linked GitLab project.
+- SQL backward compatibility check and schema drift detection.
+- Per-environment schema review and backup policy.
+
+The price starts at $29 per instance per month. Please visit our [pricing](https://bytebase.com/pricing) page for more details.
+![_](/content/changelog/1.0.0/pricing.webp)
+You can visit [https://hub.bytebase.com/pricing](https://hub.bytebase.com/pricing) to purchase a subscription license and manage your team plan subscription in Settings page.
+![_](/content/changelog/1.0.0/subscription.webp)
+
+## 🎄 Enhancement
+
+### SQL Editor
+
+- Add an EXPLAIN button adjacent to the run button.
+
+![_](/content/changelog/1.0.0/sql-editor-explain.webp)
+
+- Redesign the database connection navigation and connection status.
+
+![_](/content/changelog/1.0.0/sql-editor-navigation.webp)
+
+![_](/content/changelog/1.0.0/sql-editor-conneciton-status.webp)
+
+- Run non-SELECT SQL navigate to the different workflow.
+
+![_](/content/changelog/1.0.0/sql-editor-workflow.webp)
+
+### Sync project members from GitLab
+
+If a project is linked with GitLab repository, one can sync that repository's membership to the project's membership from the linked GitLab repository
+![_](/content/changelog/1.0.0/project-membership-vcs-sync.webp)
+
+![_](/content/changelog/1.0.0/gitlab-role.webp)
+
+### Improved tenant project pipeline UI
+
+We improve the layout for showing the current database schema change progress across all tenants.
+![_](/content/changelog/1.0.0/tenant-matrix.webp)
+
+### Misc
+
+- Switch to use PostgreSQL for storing Bytebase metadata. This enables us to handle more complex scenarios down the road.
+- Add quickstart for preparing an environment including Bytebase, GitLab (macOS Apple Silicon) and ClickHouse Cluster.
+
+## 🐞 Bug fix
+
+**SQL Editor**
+
+- Query result table cover display.
+- Query result table attributes order.
+
+## 🌄 Sunset
+
+**Retire issue rollback feature**
+Previously, Bytebase allows user to specify a rollback SQL for the rollback. And if user chooses to rollback the SQL, Bytebase will use the rollback SQL to create that rollback SQL. This only sounds good in theory, because in reality, it's already a big hurdle to write a good schema change SQL, it would be even challenging to ask the developer to provide a correct rollback SQL at the same time.
+
+Thus, we decide to retire this feature. Meanwhile we already have ideas for a much better solution without requiring developer to write the rollback SQL manually. Please stay tuned.
+
+## 🎠 Community
+
+- Thanks to [@Innei](https://github.com/Innei) for PR [fix(bbmodal): subtitle bg keep out modal container content & add max-height padding](https://github.com/bytebase/bytebase/pull/679).
+- Thanks to [@tisonkun](https://github.com/tisonkun) for PR [refactor: update tidb dependency and remove workaround replacement](https://github.com/bytebase/bytebase/pull/611)
+
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

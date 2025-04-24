@@ -1,0 +1,34 @@
+---
+title: Bytebase 1.4.0
+author: Mila
+updated_at: 2022/9/15 17:20
+description: '- AWS S3 is now supported as a backup storage backend. - Added a new onboarding guide. - Introduced `--external-url` and removed `--host` in the startup option.'
+---
+
+## 🚀 New Features
+
+- AWS S3 is now supported as a backup storage backend.
+- Added a new onboarding guide.
+
+## 🎄 Enhancements
+
+- Introduced `--external-url` and removed `--host` in the startup option. We have consolidated the way to configure the external visible URL. Check out [Configure External URL](/get-started/install/external-url) for details.
+- Added support for DDL/DML aliasing for GitOps name template.
+- Added "view" in MySQL backup.
+- Progress is now displayed for PITR restore tasks.
+- Improved the performance of SQL Editor query result table.
+- Added resizable columns for SQL Editor query result table.
+- Improved the user experience of the SQL Editor tab bar.
+- When making database changes through VCS, click on the database and you'll be directed to VCS according to the configured file path template.
+- Changed statement type check error level to "Warning".
+- The project key can not be empty.
+
+## 🐞 Notable bug fixes
+
+- Fixed the issue when adding a new file in the VCS with the existing migration schema version, the issue seems done but no tasks are executed.
+
+## 🎠 Community
+
+- Added tutorial series for [How to set up Database CI/CD with GitHub](/tutorials/gitops-github-workflow/).
+
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

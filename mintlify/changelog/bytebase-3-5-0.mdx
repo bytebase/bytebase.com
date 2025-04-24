@@ -1,0 +1,46 @@
+---
+title: Bytebase 3.5.0
+author: Adela
+updated_at: 2025/03/13 18:00:00
+feature_image: /content/changelog/3-5-0-banner.webp
+description: 'Azure IAM Auth for Cosmos DB & Azure SQL'
+---
+
+## 💰 Plan Adjustment
+
+- Refine the environment rollout policy by setting manual rollout as the default option, now available in the Community Plan (Free).
+
+## 🔔 Breaking Changes
+
+- Deprecated slow query feature.
+- To simplify the deployment process, the custom deployment configuration feature has been removed. Deployments will now follow the straightforward order of your defined environments. For canary deployments, create a separate `canary` environment. Then, point your database environment to this canary environment.
+- Deprecated multitenancy feature.
+- Deprecated [built-in GitOps feature](https://www.bytebase.com/docs/vcs-integration/overview/#legacy-gitops), now you can use [GitOps in a new way](https://www.bytebase.com/docs/tutorials/gitops-github-workflow/).
+- Removed custom project webhook endpoint.
+- API support pagination and filter.
+
+  - ListProjects support `page_size` and `page_token`. [Doc](https://api.bytebase.com/#tag/projectservice/GET/v1/projects)
+  - SearchProjects support filter by `name` and `resource_id`. [Doc](https://api.bytebase.com/#tag/projectservice/POST/v1/projects:search)
+  - ListDatabases support filter by `environment/project/instance/name/engine/label/exclude_unassigned`. [Doc](https://api.bytebase.com/#tag/databaseservice/GET/v1/instances/{instance}/databases)
+  - ListUsers support filter by `name/email/user_type/state`. [Doc](https://api.bytebase.com/#tag/userservice/GET/v1/users)
+
+  These API changes bring huge UI change and influence many features:
+
+  - Will NOT list all projects anymore, users must fetch projects per page, or search projects by name/resource id. (For the project table & selector)
+  - Will NOT list all databases anymore, users must fetch databases per page, or search databases by filter. (Almost all features are affected as long as it's using the database, for example, issue, release, rollout, database group, masking, SQL editor)
+  - Will NOT list all users anymore, users must fetch users per page, or search users by name/email. (Many features are affected as long as it's using the user, for example, issue, release, group, member/IAM)
+
+## 🚀 New Features
+
+- Support Azure IAM Auth for Cosmos DB & Azure SQL.
+- Sync schema for CockroachDB (PostgreSQL compatible syntax supported only).
+- Support configuring custom maximum query time in SQL Editor (Workspace Settings -> General -> Security -> Maximum query time).
+- Support webhook direct message for DingTalk.
+
+## 🎄 Enhancements
+
+- View affected rows of SQL check result before issue creation.
+- Adjust SQL rule `Disallow setting volatile default value on columns` (PostgreSQL) to apply only to existing tables and the `ALTER TABLE ADD COLUMN` operation.
+- Extend API to allow updating the plan for database group deployment.
+
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

@@ -1,0 +1,37 @@
+---
+title: Bytebase 2.15.0
+author: Adela
+updated_at: 2024/4/11 17:00:00
+feature_image: /content/changelog/2-15-0-banner.webp
+description: 'Brand new GitOps'
+---
+
+## 🔔 Brand New GitOps
+
+_The [new GitOps workflow](/vcs-integration/overview/) is not compatible with the old version, if you need assistance migrating to the new version, please consult us._
+
+- Use access tokens for authentication.
+- Support multiple VCS connectors in a project.
+- Support specifying a database group as the target in the VCS connector, automatically applying to all databases in a project by default.
+- Deprecate database name templates and latest schema write-back.
+
+## 🚀 New Features
+
+- Support [Vault](/get-started/instance/#hashicorp-vault) as an external data source for database secrets.
+- Support Apache Hive.
+- Add one-time data export issue type.
+
+## 🎄 Enhancements
+
+- Improve SQL Editor UI/UX.
+- Add SQL review rules for PostgreSQL：
+  - Detect non-transactional statements.
+  - Require using NOT VALID when creating foreign keys.
+
+## 📰 Fresh Off the Press
+
+- In the realm of database management, PostgreSQL 🐘 stands out for its robustness and flexibility. Yet, as developers 🧑‍💻 tackle the complexities of modern application development, there's room for enhancement to make their processes more efficient. [This article](/blog/features-i-wish-postgres-had/) outlines the most sought-after PostgreSQL features.
+
+- Is it worthwhile to migrate to AlloyDB, ☁️ Google Cloud's fully managed PostgreSQL-compatible database service? 🧐. You may find the answer after reading [Understanding Google Cloud AlloyDB Pricing](/blog/understanding-google-alloydb-pricing/).
+
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

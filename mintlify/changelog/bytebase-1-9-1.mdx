@@ -1,0 +1,35 @@
+---
+title: Bytebase 1.9.1
+author: Mila
+updated_at: 2022/12/15 17:00:00
+description: '- Support data access control. - Schema Editor for MySQL. - Check Mark as done to skip a task. - Mark issue as Needs Attention.'
+---
+
+## 🚀 New Features
+
+- Support [data access control](/security/database-permission/overview).
+- [Schema Editor](/change-database/schema-editor) for MySQL.
+- Check "Mark as done" to skip a task.
+- The issue creator can mark an issue as "Needs attention", which is highlighted in the assignee's view.
+
+## 🎄 Enhancements
+
+- Terraform Bytebase Provider
+  - Manage [instance details](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/instance).
+  - Manage [environment details](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/environment).
+- [Data masking](/security/data-masking/overview) for MySQL databases now supports all query types.
+- [Schema Sync for PostgreSQL](/change-database/synchronize-schema) supports Enum Type, Function, Trigger, and Extension.
+- [Tenant database label](/change-database/batch-change) supports arbitrary values without pre-definition.
+- A fresh look for SQL Editor's [Admin mode](/sql-editor/admin-mode) tabs.
+- Speed up issue creation and execution.
+
+## 📰 Fresh off the press
+
+- We asked ChatGPT how to choose the best database for a new project, and [here's the reply](/blog/how-to-choose-database-by-chatgpt).
+- The [pros and cons](/blog/integrate-sql-review-into-github) of 3 different ways to integrate SQL Review into your GitHub repo.
+- [Integrate SQL review CI](/tutorials/how-to-integrate-sql-review-into-gitlab-github-ci) into your preferred code repo (be it GitHub or GitLab), so that it's triggered automatically to check for violations in your SQL scripts
+- Database Schema Change Series
+  - [What is Database Change Management (DCM)?](/blog/what-is-database-change-management)
+  - [How to Handle Database Schema Change?](/blog/how-to-handle-database-schema-change)
+
+<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>
