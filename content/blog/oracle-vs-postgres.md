@@ -2,7 +2,7 @@
 title: 'Oracle vs. PostgreSQL: a Complete Comparison in 2025'
 author: Adela
 updated_at: 2025/04/25 18:00
-feature_image: /content/blog/oracle-vs-postgres/cover.png
+feature_image: /content/blog/oracle-vs-postgres/cover.webp
 tags: Comparison
 description: 'An extensive comparison between Oracle and PostgreSQL on data model, query language, scalability, performance, and more.'
 ---
@@ -114,7 +114,6 @@ This comparison examines their architectures, features, performance, licensing m
   - Annual support (~22% of license cost)
   - Management packs, engineered systems (e.g., Exadata)
 
-
 **PostgreSQL** uses a simple, open-source license:
 
 - **License:** PostgreSQL License (MIT/BSD-style)
@@ -126,8 +125,6 @@ This comparison examines their architectures, features, performance, licensing m
   - Infrastructure (cloud/on-prem)
   - Optional support or consulting
   - Paid third-party tools
-
-----
 
 **Example: 16-core deployment**
 
