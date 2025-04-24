@@ -1,8 +1,8 @@
 ---
-title: Data Query
+title: Query
 ---
 
-Bytebase users query data from [SQL Editor](/docs/sql-editor/run-queries/). Bytebase can enforce query access control for a particular user at the database, schema or table level.
+Bytebase users query data from [SQL Editor](/sql-editor/run-queries/). Bytebase can enforce query access control for a particular user at the database, schema or table level.
 
 ## Assign SQL Editor User Role
 
@@ -32,9 +32,9 @@ From the workspace page, go to **IAM & Admin > Members**, **Grant Access** to Se
 
 <PricingPlanBlock feature_name='QUERY_EXPORT_APPROVAL_WORKFLOW' />
 
-<TutorialBlock url="/docs/tutorials/just-in-time-part1/" title="Just-in-Time Database Access" />
+<Card title="Tutorial: Just-in-Time Database Access" icon="graduation-cap" href="/tutorials/just-in-time-database-access-part1" horizontal />
 
-Users can also apply for `SQL Editor User` role by submitting an issue. Approval flow matches the `Request Querier Role` in [custom approval](/docs/administration/custom-approval/) if configured.
+Users can also apply for `SQL Editor User` role by submitting an issue. Approval flow matches the `Request Querier Role` in [custom approval](/administration/custom-approval/) if configured.
 
 ### Request at Project level
 
@@ -42,7 +42,7 @@ Within project page, click **Request Query Role**. You can either choose all dat
 
 ![project-request-querier-role](/content/docs/security/database-permission/query/project-request-querier-role.webp)
 
-Click **OK** and the issue will be created. By configuring [custom approval](/docs/administration/custom-approval/), it will match the corresponding approvers.
+Click **OK** and the issue will be created. By configuring [custom approval](/administration/custom-approval/), it will match the corresponding approvers.
 
 ![bb-issue-querier-role](/content/docs/security/database-permission/query/bb-issue-querier-role.webp)
 

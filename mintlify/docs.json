@@ -133,6 +133,15 @@
               "sql-editor/manage-sql-scripts",
               "sql-editor/ai-assistant"
             ]
+          },
+          {
+            "group": "Database Permission",
+            "pages": [
+              "security/database-permission/overview",
+              "security/database-permission/query",
+              "security/database-permission/export",
+              "security/database-permission/explain"
+            ]
           }
         ]
       },
