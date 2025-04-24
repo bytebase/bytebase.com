@@ -258,7 +258,13 @@
       "type": "button",
       "label": "bytebase.com",
       "href": "https://www.bytebase.com"
-    }
+    },
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/bytebase/bytebase"
+      }
+    ]
   },
   "footer": {
     "socials": {
