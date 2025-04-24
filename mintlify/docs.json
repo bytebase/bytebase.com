@@ -53,7 +53,8 @@
                   "get-started/step-by-step/query-data"
                 ]
               },
-              "get-started/instance"
+              "get-started/instance",
+              "get-started/terraform"
             ]
           },
           {
