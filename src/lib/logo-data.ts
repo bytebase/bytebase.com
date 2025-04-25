@@ -145,18 +145,6 @@ const NOTE: Logo = {
   mobileOrderClassName: 'xs:order-1',
 };
 
-const MATRIX_PORT: Logo = {
-  alt: 'Meta',
-  src: '/images/logos/matrix-port.svg',
-  width: 240,
-  height: 64,
-  small: {
-    width: 110,
-    height: 40,
-  },
-  mobileOrderClassName: 'xs:order-11',
-};
-
 const META: Logo = {
   alt: 'Meta',
   src: '/images/logos/meta.svg',
@@ -326,4 +314,4 @@ export const MANUFACTURING_LOGO_LIST: Logo[] = [BYD, LI_AUTO, CVTE, ZEEKR];
 
 export const GAMING_LOGO_LIST: Logo[] = [MIHOYO, TENCENT, CTW];
 
-export const WEB3_LOGO_LIST: Logo[] = [MATRIX_PORT, LUXOR];
+export const WEB3_LOGO_LIST: Logo[] = [LUXOR];
