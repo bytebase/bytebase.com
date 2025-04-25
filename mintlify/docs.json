@@ -407,8 +407,8 @@
     }
   },
   "logo": {
-    "light": "/logo/logo-full.png",
-    "dark": "/logo/logo-full-white.png"
+    "light": "/images/logo/logo-full.png",
+    "dark": "/images/logo/logo-full-white.png"
   },
   "navbar": {
     "primary": {
