@@ -157,6 +157,18 @@ const META: Logo = {
   mobileOrderClassName: 'xs:order-11',
 };
 
+const SMILEGATE: Logo = {
+  alt: 'Smilegate',
+  src: '/images/logos/smilegate.png',
+  width: 179,
+  height: 64,
+  small: {
+    width: 110,
+    height: 40,
+  },
+  mobileOrderClassName: 'xs:order-11',
+};
+
 const MIHOYO: Logo = {
   alt: 'Mihoyo',
   src: '/images/logos/mihoyo.svg',
@@ -312,6 +324,6 @@ export const TECHNOLOGY_LOGO_LIST: Logo[] = [LINEAR, ROLLER, SALLA, NOTE];
 
 export const MANUFACTURING_LOGO_LIST: Logo[] = [BYD, LI_AUTO, CVTE, ZEEKR];
 
-export const GAMING_LOGO_LIST: Logo[] = [MIHOYO, TENCENT, CTW];
+export const GAMING_LOGO_LIST: Logo[] = [MIHOYO, TENCENT, CTW, SMILEGATE];
 
 export const WEB3_LOGO_LIST: Logo[] = [LUXOR];
