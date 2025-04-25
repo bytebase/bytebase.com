@@ -29,26 +29,26 @@ This comparison examines their architectures, features, performance, licensing m
 
 ## Comparison Summary
 
-|  | Oracle | PostgreSQL |
-|---------|--------|------------|
-| **Architecture** | Complex, enterprise-focused | Simpler, more straightforward |
-| **Licensing** | Commercial, expensive ($47,500+ per core) | Free, open-source (PostgreSQL License) |
-| **Community Support** | Commercial support | Active open-source community |
-| **Data Types** | Standard with some advanced types | Extensive with better JSON support |
-| **Extensibility** | Limited | Highly extensible |
-| **SQL Compliance** | Partial with proprietary extensions | Strong standards compliance |
-| **Scalability** | Excellent with RAC for horizontal scaling | Good, relies on third-party solutions for clustering |
-| **High Availability** | Built-in with RAC and Data Guard | Available through third-party tools |
-| **Security Features** | Comprehensive enterprise security | Strong basic security, extensible |
-| **Performance (OLTP)** | Superior for very large workloads | Excellent for most common workloads |
-| **Performance (Analytics)** | Excellent with specialized features | Good, improving with recent versions |
-| **Admin (Install)** | Complex and resource-intensive | Simple and straightforward |
-| **Admin (Day-to-Day)** | Comprehensive built-in tools | Manual configurations and third-party tools |
-| **Admin (Monitoring)** | Extensive built-in tools | Basic with extensions |
-| **Cloud Offerings** | Oracle Cloud (expensive but feature-rich) | Available on all major cloud platforms (cost-effective) |
-| **Cost (16 cores)** | ~$760,000 + $167,200/year support | $0 (licensing) |
-| **Cloud Cost (2vCPU)** | $400-500/month | $115-150/month |
-| **Best For** | Mission-critical enterprise applications | Web applications, startups, cost-sensitive deployments |
+|                             | Oracle                                    | PostgreSQL                                              |
+| --------------------------- | ----------------------------------------- | ------------------------------------------------------- |
+| **Architecture**            | Complex, enterprise-focused               | Simpler, more straightforward                           |
+| **Licensing**               | Commercial, expensive ($47,500+ per core) | Free, open-source (PostgreSQL License)                  |
+| **Community Support**       | Commercial support                        | Active open-source community                            |
+| **Data Types**              | Standard with some advanced types         | Extensive with better JSON support                      |
+| **Extensibility**           | Limited                                   | Highly extensible                                       |
+| **SQL Compliance**          | Partial with proprietary extensions       | Strong standards compliance                             |
+| **Scalability**             | Excellent with RAC for horizontal scaling | Good, relies on third-party solutions for clustering    |
+| **High Availability**       | Built-in with RAC and Data Guard          | Available through third-party tools                     |
+| **Security Features**       | Comprehensive enterprise security         | Strong basic security, extensible                       |
+| **Performance (OLTP)**      | Superior for very large workloads         | Excellent for most common workloads                     |
+| **Performance (Analytics)** | Excellent with specialized features       | Good, improving with recent versions                    |
+| **Admin (Install)**         | Complex and resource-intensive            | Simple and straightforward                              |
+| **Admin (Day-to-Day)**      | Comprehensive built-in tools              | Manual configurations and third-party tools             |
+| **Admin (Monitoring)**      | Extensive built-in tools                  | Basic with extensions                                   |
+| **Cloud Offerings**         | Oracle Cloud (expensive but feature-rich) | Available on all major cloud platforms (cost-effective) |
+| **Cost (16 cores)**         | ~$760,000 + $167,200/year support         | $0 (licensing)                                          |
+| **Cloud Cost (2vCPU)**      | $400-500/month                            | $115-150/month                                          |
+| **Best For**                | Mission-critical enterprise applications  | Web applications, startups, cost-sensitive deployments  |
 
 ## Detailed Comparison
 
@@ -57,15 +57,18 @@ This comparison examines their architectures, features, performance, licensing m
 **Oracle:** Enterprise-grade with many specialized components:
 
 - **Memory:**
+
   - **SGA:** Shared cache and SQL execution
   - **PGA:** Per-process memory
   - Includes buffer cache, shared pool, large pool, etc.
 
 - **Processes:**
-  - **Server processes** handle user queries  
+
+  - **Server processes** handle user queries
   - **Background:** DB Writer, Log Writer, Checkpoint, SMON (recovery), PMON (cleanup), Archiver
 
 - **Storage:**
+
   - Control files, datafiles, redo/archived logs, parameter and log files
 
 - **Logical Structure:**
@@ -74,15 +77,18 @@ This comparison examines their architectures, features, performance, licensing m
 **PostgreSQL:** Simpler, open-source architecture:
 
 - **Processes:**
-  - **Postmaster** manages the server  
-  - One **backend per connection**  
+
+  - **Postmaster** manages the server
+  - One **backend per connection**
   - Background tasks: Writer, Checkpointer, Autovacuum, WAL Writer, Logger
 
 - **Memory:**
+
   - Shared buffers, WAL buffers, work memory, maintenance memory
 
 - **Storage:**
-  - Data directory with `base`, `global`, `pg_wal`  
+
+  - Data directory with `base`, `global`, `pg_wal`
   - Config files: `postgresql.conf`, `pg_hba.conf`
 
 - **Logical Structure:**
@@ -93,20 +99,24 @@ This comparison examines their architectures, features, performance, licensing m
 **Oracle** offers multiple editions with different pricing and licensing models:
 
 - **Enterprise Edition (EE):**
+
   - Full features (security, performance, HA)
   - ~$47,500 per processor core or $950 per named user (min 25 users)
   - Add-ons (e.g., RAC, In-Memory, Data Guard) cost extra
 
 - **Standard Edition 2 (SE2):**
+
   - For smaller setups, limited to 2 sockets
   - ~$17,500 per socket or $350 per named user (min 10 users)
   - No optional features
 
 - **Express Edition (XE):**
+
   - Free, with limitations: 2 CPU threads, 2GB RAM, 12GB data
   - For dev or lightweight apps
 
 - **Personal Edition:**
+
   - For single-user development
   - Priced similar to SE2
 
@@ -128,144 +138,144 @@ This comparison examines their architectures, features, performance, licensing m
 
 **Example: 16-core deployment**
 
-| Platform              | License Cost       | Annual Support | Total (Year 1) |
-|-----------------------|--------------------|----------------|----------------|
-| Oracle EE             | ~$760,000          | ~$167,200      | ~$927,200      |
-| Oracle SE2            | Not suitable       | —              | —              |
-| PostgreSQL            | $0                 | Optional       | ~$0            |
+| Platform   | License Cost | Annual Support | Total (Year 1) |
+| ---------- | ------------ | -------------- | -------------- |
+| Oracle EE  | ~$760,000    | ~$167,200      | ~$927,200      |
+| Oracle SE2 | Not suitable | —              | —              |
+| PostgreSQL | $0           | Optional       | ~$0            |
 
 **Managed Cloud Pricing (2 vCPU, 8 GB RAM, 100 GB storage):**
 
-- **AWS RDS for Oracle EE:** ~$400–500/month  
-- **AWS RDS for PostgreSQL:** ~$141/month  
-- **Azure Database for PostgreSQL:** ~$141/month  
+- **AWS RDS for Oracle EE:** ~$400–500/month
+- **AWS RDS for PostgreSQL:** ~$141/month
+- **Azure Database for PostgreSQL:** ~$141/month
 - **Google Cloud SQL for PostgreSQL:** ~$117/month
 
 ### Data Types and Extensibility
 
-| Feature                          | Oracle                                | PostgreSQL                                             |
-|----------------------------------|----------------------------------------|--------------------------------------------------------|
-| Standard SQL types               | ✅                                     | ✅                                                     |
-| JSON support                     | Limited (improving in recent versions) | ✅ Native `JSON` and `JSONB`                           |
-| XML support                      | ✅ `XMLType`                            | ✅ Native support                                      |
-| Spatial types                    | ✅ Oracle Spatial                      | ✅ Built-in with PostGIS                              |
-| Geometric types                  | ❌                                     | ✅ `POINT`, `LINE`, `POLYGON`                          |
-| Network address types            | ❌                                     | ✅ `INET`, `CIDR`                                      |
-| Array types                      | ❌                                     | ✅ Native `ARRAY` type                                 |
-| Range types (e.g., date/number) | ❌                                     | ✅ Built-in support                                    |
-| Object types / UDTs             | ✅ With limitations                    | ✅ Fully supported with `CREATE TYPE`                  |
-| Extensible type system          | ⚠️ Limited                             | ✅ Highly extensible, supports custom data types       |
+| Feature                         | Oracle                                 | PostgreSQL                                       |
+| ------------------------------- | -------------------------------------- | ------------------------------------------------ |
+| Standard SQL types              | ✅                                     | ✅                                               |
+| JSON support                    | Limited (improving in recent versions) | ✅ Native `JSON` and `JSONB`                     |
+| XML support                     | ✅ `XMLType`                           | ✅ Native support                                |
+| Spatial types                   | ✅ Oracle Spatial                      | ✅ Built-in with PostGIS                         |
+| Geometric types                 | ❌                                     | ✅ `POINT`, `LINE`, `POLYGON`                    |
+| Network address types           | ❌                                     | ✅ `INET`, `CIDR`                                |
+| Array types                     | ❌                                     | ✅ Native `ARRAY` type                           |
+| Range types (e.g., date/number) | ❌                                     | ✅ Built-in support                              |
+| Object types / UDTs             | ✅ With limitations                    | ✅ Fully supported with `CREATE TYPE`            |
+| Extensible type system          | ⚠️ Limited                             | ✅ Highly extensible, supports custom data types |
 
 PostgreSQL stands out for its rich and extensible type system, offering superior support for modern formats and complex data modeling.
 
 ### SQL Compliance and Extensions
 
-| Feature                        | Oracle                                            | PostgreSQL                                      |
-|-------------------------------|---------------------------------------------------|-------------------------------------------------|
-| SQL Standard Compliance       | Partial, many proprietary extensions              | Strong compliance                               |
-| Procedural Language           | PL/SQL                                            | PL/pgSQL                                        |
-| Recursive Queries             | `CONNECT BY` (proprietary syntax)                | Standard CTEs with `WITH RECURSIVE`             |
-| Window Functions              | ✅                                               | ✅                                               |
-| Materialized Views            | ✅                                               | ✅                                               |
-| Full-text Search              | ❌                                               | ✅ Built-in support                             |
-| Syntax Style                  | Oracle-specific                                  | Standards-compliant                             |
+| Feature                 | Oracle                               | PostgreSQL                          |
+| ----------------------- | ------------------------------------ | ----------------------------------- |
+| SQL Standard Compliance | Partial, many proprietary extensions | Strong compliance                   |
+| Procedural Language     | PL/SQL                               | PL/pgSQL                            |
+| Recursive Queries       | `CONNECT BY` (proprietary syntax)    | Standard CTEs with `WITH RECURSIVE` |
+| Window Functions        | ✅                                   | ✅                                  |
+| Materialized Views      | ✅                                   | ✅                                  |
+| Full-text Search        | ❌                                   | ✅ Built-in support                 |
+| Syntax Style            | Oracle-specific                      | Standards-compliant                 |
 
 PostgreSQL is more aligned with SQL standards, while Oracle offers powerful but proprietary features.
 
 ### Indexing Capabilities
 
-| Feature                        | Oracle                                 | PostgreSQL                                               |
-|-------------------------------|----------------------------------------|----------------------------------------------------------|
-| B-tree indexes                | ✅ Default                             | ✅ Default                                               |
-| Bitmap indexes                | ✅                                     | ❌                                                      |
-| Hash indexes                  | ❌                                     | ✅                                                      |
-| Function/Expression indexes   | ✅ Function-based                      | ✅ Expression-based                                      |
-| Partial indexes               | ⚠️ Via function-based indexes          | ✅ Native support                                        |
-| Domain indexes                | ✅ For custom data types               | ⚠️ Limited (via extensions or functional workarounds)    |
-| Full-text indexes             | ✅ Oracle Text                         | ✅ GIN/GiST with `tsvector`                             |
-| GiST indexes                  | ❌                                     | ✅ Generalized Search Tree                               |
-| SP-GiST indexes               | ❌                                     | ✅ Space-partitioned GiST                                |
-| GIN indexes                   | ❌                                     | ✅ Generalized Inverted Index                            |
-| BRIN indexes                  | ❌                                     | ✅ Block Range Index                                     |
-| Custom index types            | ⚠️ Limited                             | ✅ Fully extensible                                      |
+| Feature                     | Oracle                        | PostgreSQL                                            |
+| --------------------------- | ----------------------------- | ----------------------------------------------------- |
+| B-tree indexes              | ✅ Default                    | ✅ Default                                            |
+| Bitmap indexes              | ✅                            | ❌                                                    |
+| Hash indexes                | ❌                            | ✅                                                    |
+| Function/Expression indexes | ✅ Function-based             | ✅ Expression-based                                   |
+| Partial indexes             | ⚠️ Via function-based indexes | ✅ Native support                                     |
+| Domain indexes              | ✅ For custom data types      | ⚠️ Limited (via extensions or functional workarounds) |
+| Full-text indexes           | ✅ Oracle Text                | ✅ GIN/GiST with `tsvector`                           |
+| GiST indexes                | ❌                            | ✅ Generalized Search Tree                            |
+| SP-GiST indexes             | ❌                            | ✅ Space-partitioned GiST                             |
+| GIN indexes                 | ❌                            | ✅ Generalized Inverted Index                         |
+| BRIN indexes                | ❌                            | ✅ Block Range Index                                  |
+| Custom index types          | ⚠️ Limited                    | ✅ Fully extensible                                   |
 
 PostgreSQL provides a richer variety of index types, making it more suitable for advanced and specialized querying scenarios.
 
 ### Concurrency and Transactions
 
-| Feature                             | Oracle                                              | PostgreSQL                                           |
-|-------------------------------------|-----------------------------------------------------|------------------------------------------------------|
-| MVCC (Multi-Version Concurrency)    | ✅                                                  | ✅                                                   |
-| Read consistency level              | Statement-level                                     | Transaction-level                                    |
-| Row-level locking                   | ✅                                                  | ✅                                                   |
-| Isolation levels                    | Read Committed, Serializable                       | Read Committed, Repeatable Read, Serializable       |
-| Distributed transactions            | ✅ Two-phase commit                                 | ✅ Two-phase commit                                  |
-| Autonomous transactions             | ✅                                                  | ❌                                                   |
-| Advisory locks                      | ❌                                                  | ✅ Application-controlled locking                    |
+| Feature                          | Oracle                       | PostgreSQL                                    |
+| -------------------------------- | ---------------------------- | --------------------------------------------- |
+| MVCC (Multi-Version Concurrency) | ✅                           | ✅                                            |
+| Read consistency level           | Statement-level              | Transaction-level                             |
+| Row-level locking                | ✅                           | ✅                                            |
+| Isolation levels                 | Read Committed, Serializable | Read Committed, Repeatable Read, Serializable |
+| Distributed transactions         | ✅ Two-phase commit          | ✅ Two-phase commit                           |
+| Autonomous transactions          | ✅                           | ❌                                            |
+| Advisory locks                   | ❌                           | ✅ Application-controlled locking             |
 
 Both support strong transactional guarantees, but PostgreSQL offers finer control over isolation and application-level locking, while Oracle uniquely supports autonomous transactions.
 
 ### High Availability and Replication
 
-| Feature                          | Oracle                                               | PostgreSQL                                           |
-|----------------------------------|------------------------------------------------------|------------------------------------------------------|
-| Clustering                       | ✅ Real Application Clusters (RAC)                   | ❌ No built-in clustering (use Patroni, Stolon, etc.) |
-| Physical replication             | ✅ Data Guard                                        | ✅ Streaming replication                             |
-| Readable standby                 | ✅ Active Data Guard                                 | ✅ With streaming replication (hot standby)          |
-| Logical replication              | ✅ Golden Gate                                       | ✅ Built-in since v10                                |
-| Synchronous replication          | ✅                                                  | ✅                                                   |
-| Asynchronous replication         | ✅                                                  | ✅                                                   |
-| Point-in-time recovery           | ✅ Flashback Database                                | ✅ Built-in PITR support                             |
-| Transparent failover             | ✅ Application Continuity                            | ⚠️ Requires external tooling                         |
-| Connection pooling               | ⚠️ App-dependent                                    | ✅ Via pgBouncer or Pgpool-II                        |
+| Feature                  | Oracle                             | PostgreSQL                                            |
+| ------------------------ | ---------------------------------- | ----------------------------------------------------- |
+| Clustering               | ✅ Real Application Clusters (RAC) | ❌ No built-in clustering (use Patroni, Stolon, etc.) |
+| Physical replication     | ✅ Data Guard                      | ✅ Streaming replication                              |
+| Readable standby         | ✅ Active Data Guard               | ✅ With streaming replication (hot standby)           |
+| Logical replication      | ✅ Golden Gate                     | ✅ Built-in since v10                                 |
+| Synchronous replication  | ✅                                 | ✅                                                    |
+| Asynchronous replication | ✅                                 | ✅                                                    |
+| Point-in-time recovery   | ✅ Flashback Database              | ✅ Built-in PITR support                              |
+| Transparent failover     | ✅ Application Continuity          | ⚠️ Requires external tooling                          |
+| Connection pooling       | ⚠️ App-dependent                   | ✅ Via pgBouncer or Pgpool-II                         |
 
 Oracle provides more integrated, enterprise-grade HA options like RAC and Application Continuity. PostgreSQL achieves similar goals with flexibility and third-party tooling.
 
 ### Performance Features
 
-| Feature                                | Oracle                                               | PostgreSQL                                           |
-|----------------------------------------|------------------------------------------------------|------------------------------------------------------|
-| Result cache                           | ✅ Query + PL/SQL function result cache              | ❌                                                   |
-| In-Memory Column Store                 | ✅                                                  | ❌ (can use extensions like Citus or TimescaleDB)    |
-| Automatic memory management            | ✅                                                  | ⚠️ Manual tuning required                           |
-| Parallel query execution               | ✅                                                  | ✅ (limited but improving)                          |
-| Partitioning                           | ✅ Range, list, hash, composite                      | ✅ Range, list, hash                                 |
-| Just-in-time (JIT) compilation         | ❌                                                  | ✅                                                   |
-| Table/index statistics                 | ✅                                                  | ✅                                                   |
-| SQL optimization / tuning              | ✅ Auto SQL tuning, SQL Plan Management              | ✅ Cost-based optimizer                              |
-| Query plan visualization               | ✅                                                  | ✅ `EXPLAIN ANALYZE` and visualization tools         |
-| Workload/resource management           | ✅ Resource Manager                                  | ⚠️ Requires manual management or third-party tools  |
-| Connection pooling                     | ⚠️ App-dependent                                    | ✅ Via pgBouncer, Pgpool-II                          |
-| External data access                   | ✅ Oracle Gateway                                    | ✅ Foreign Data Wrappers (FDW)                       |
+| Feature                        | Oracle                                  | PostgreSQL                                         |
+| ------------------------------ | --------------------------------------- | -------------------------------------------------- |
+| Result cache                   | ✅ Query + PL/SQL function result cache | ❌                                                 |
+| In-Memory Column Store         | ✅                                      | ❌ (can use extensions like Citus or TimescaleDB)  |
+| Automatic memory management    | ✅                                      | ⚠️ Manual tuning required                          |
+| Parallel query execution       | ✅                                      | ✅ (limited but improving)                         |
+| Partitioning                   | ✅ Range, list, hash, composite         | ✅ Range, list, hash                               |
+| Just-in-time (JIT) compilation | ❌                                      | ✅                                                 |
+| Table/index statistics         | ✅                                      | ✅                                                 |
+| SQL optimization / tuning      | ✅ Auto SQL tuning, SQL Plan Management | ✅ Cost-based optimizer                            |
+| Query plan visualization       | ✅                                      | ✅ `EXPLAIN ANALYZE` and visualization tools       |
+| Workload/resource management   | ✅ Resource Manager                     | ⚠️ Requires manual management or third-party tools |
+| Connection pooling             | ⚠️ App-dependent                        | ✅ Via pgBouncer, Pgpool-II                        |
+| External data access           | ✅ Oracle Gateway                       | ✅ Foreign Data Wrappers (FDW)                     |
 
 Oracle offers more built-in, enterprise-grade performance features for large workloads. PostgreSQL covers most essentials and continues to improve, especially in recent versions.
 
 ### OLTP Workloads (Performance)
 
-| Feature                                | Oracle                                               | PostgreSQL                                           |
-|----------------------------------------|------------------------------------------------------|------------------------------------------------------|
-| OLTP optimization                      | ✅ High-throughput, low-latency                      | ✅ Good for typical workloads                        |
-| Concurrency handling                   | ✅ Advanced, predictable under load                  | ✅ Efficient MVCC, improving concurrency             |
-| In-memory data support                 | ✅ In-Memory Column Store                            | ❌ (extensions available)                            |
-| Result caching                         | ✅                                                   | ❌                                                   |
-| Query optimization                     | ✅ Sophisticated optimizer                           | ✅ Cost-based, performant for simple queries         |
-| Performance at scale                   | ✅ Excellent                                         | ⚠️ May need tuning for very high volumes            |
+| Feature                | Oracle                              | PostgreSQL                                   |
+| ---------------------- | ----------------------------------- | -------------------------------------------- |
+| OLTP optimization      | ✅ High-throughput, low-latency     | ✅ Good for typical workloads                |
+| Concurrency handling   | ✅ Advanced, predictable under load | ✅ Efficient MVCC, improving concurrency     |
+| In-memory data support | ✅ In-Memory Column Store           | ❌ (extensions available)                    |
+| Result caching         | ✅                                  | ❌                                           |
+| Query optimization     | ✅ Sophisticated optimizer          | ✅ Cost-based, performant for simple queries |
+| Performance at scale   | ✅ Excellent                        | ⚠️ May need tuning for very high volumes     |
 
 Oracle excels in high-volume OLTP; PostgreSQL performs well with tuning and is suitable for most transactional workloads.
 
 ### Analytical Workloads (Performance)
 
-| Feature                                | Oracle                                               | PostgreSQL                                           |
-|----------------------------------------|------------------------------------------------------|------------------------------------------------------|
-| Parallel query execution               | ✅                                                   | ✅                                                   |
-| Bitmap indexes                         | ✅                                                   | ❌                                                   |
-| Star query optimization                | ✅                                                   | ❌                                                   |
-| Materialized views                     | ✅ With query rewrite                                | ✅ Manual refresh                                    |
-| Partitioning                           | ✅ Mature, multiple strategies                       | ✅ Improved in recent versions                      |
-| In-memory analytics                    | ✅ In-Memory Column Store                            | ❌                                                   |
-| Semi-structured data support           | ⚠️ JSON support (limited)                           | ✅ JSONB for analytics                              |
-| External data integration              | ✅ Oracle Gateway                                    | ✅ Foreign Data Wrappers                            |
-| Time-series data support               | ❌                                                   | ✅ With TimescaleDB extension                        |
+| Feature                      | Oracle                         | PostgreSQL                     |
+| ---------------------------- | ------------------------------ | ------------------------------ |
+| Parallel query execution     | ✅                             | ✅                             |
+| Bitmap indexes               | ✅                             | ❌                             |
+| Star query optimization      | ✅                             | ❌                             |
+| Materialized views           | ✅ With query rewrite          | ✅ Manual refresh              |
+| Partitioning                 | ✅ Mature, multiple strategies | ✅ Improved in recent versions |
+| In-memory analytics          | ✅ In-Memory Column Store      | ❌                             |
+| Semi-structured data support | ⚠️ JSON support (limited)      | ✅ JSONB for analytics         |
+| External data integration    | ✅ Oracle Gateway              | ✅ Foreign Data Wrappers       |
+| Time-series data support     | ❌                             | ✅ With TimescaleDB extension  |
 
 Oracle leads in large-scale analytics; PostgreSQL is increasingly capable, especially with extensions.
 
@@ -278,84 +288,98 @@ Oracle leads in large-scale analytics; PostgreSQL is increasingly capable, espec
 
 **PostgreSQL (Managed Cloud Services):**
 
-| Platform                          | Transactions/sec (TPS) | Avg. Latency (ms)        |
-|----------------------------------|------------------------|--------------------------|
-| AWS RDS for PostgreSQL           | ~2,700                 | ~2.88                    |
-| Azure Database for PostgreSQL    | ~2,400                 | ~3.26                    |
-| Google Cloud SQL for PostgreSQL  | ~1,300                 | ~5.74                    |
-| Supabase PostgreSQL              | ~1,600                 | ~5.10                    |
+| Platform                        | Transactions/sec (TPS) | Avg. Latency (ms) |
+| ------------------------------- | ---------------------- | ----------------- |
+| AWS RDS for PostgreSQL          | ~2,700                 | ~2.88             |
+| Azure Database for PostgreSQL   | ~2,400                 | ~3.26             |
+| Google Cloud SQL for PostgreSQL | ~1,300                 | ~5.74             |
+| Supabase PostgreSQL             | ~1,600                 | ~5.10             |
 
 - Oracle demonstrates superior performance in high-throughput environments, particularly with optimized hardware configurations.
 - PostgreSQL offers solid performance for most workloads, with the added benefit of lower operational costs.
 
 ### Security Features
 
-| Feature                               | Oracle                                               | PostgreSQL                                           |
-|---------------------------------------|------------------------------------------------------|------------------------------------------------------|
-| Row-level security                    | ✅ VPD (Virtual Private Database)                    | ✅ Native policies                                   |
-| Multi-level security                  | ✅ Label Security                                    | ❌                                                   |
-| Separation of duties                  | ✅ Database Vault                                    | ⚠️ Manual role management                           |
-| Data encryption at rest               | ✅ Transparent Data Encryption (TDE)                 | ⚠️ Filesystem-level encryption                      |
-| Column-level data masking             | ✅ Data Redaction                                    | ⚠️ Requires custom implementation or extensions     |
-| Column-level privileges               | ✅                                                  | ✅                                                   |
-| Role-based access control             | ✅                                                  | ✅                                                   |
-| SSL/TLS encryption                    | ✅                                                  | ✅                                                   |
-| External authentication               | ✅ Enterprise User Security (LDAP, Kerberos)         | ✅ LDAP, GSSAPI                                      |
-| Audit logging                         | ✅ Built-in, comprehensive                           | ⚠️ Via extensions like `pgaudit`                    |
-| Privilege analysis                    | ✅                                                  | ❌                                                   |
+| Feature                   | Oracle                                       | PostgreSQL                                      |
+| ------------------------- | -------------------------------------------- | ----------------------------------------------- |
+| Row-level security        | ✅ VPD (Virtual Private Database)            | ✅ Native policies                              |
+| Multi-level security      | ✅ Label Security                            | ❌                                              |
+| Separation of duties      | ✅ Database Vault                            | ⚠️ Manual role management                       |
+| Data encryption at rest   | ✅ Transparent Data Encryption (TDE)         | ⚠️ Filesystem-level encryption                  |
+| Column-level data masking | ✅ Data Redaction                            | ⚠️ Requires custom implementation or extensions |
+| Column-level privileges   | ✅                                           | ✅                                              |
+| Role-based access control | ✅                                           | ✅                                              |
+| SSL/TLS encryption        | ✅                                           | ✅                                              |
+| External authentication   | ✅ Enterprise User Security (LDAP, Kerberos) | ✅ LDAP, GSSAPI                                 |
+| Audit logging             | ✅ Built-in, comprehensive                   | ⚠️ Via extensions like `pgaudit`                |
+| Privilege analysis        | ✅                                           | ❌                                              |
 
 Oracle delivers more out-of-the-box security tools suited for strict compliance and enterprise use. PostgreSQL meets most core needs, with extensions filling advanced gaps.
 
+<HintBlock type="info">
+
+Bytebase provides [column-level dynamic data masking](/docs/security/data-masking/overview/) to Postgres.
+
+</HintBlock>
+
 ### Installation and Setup (Administration)
 
-| Feature                          | Oracle                                                                 | PostgreSQL                                                                 |
-|----------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| Installation complexity          | ❌ Complex, multiple components and configurations                      | ✅ Simple, package managers available (apt, yum, etc.)                     |
-| Disk space requirements          | ❌ High (minimum ~6.8 GB)                                               | ✅ Low (varies by platform)                                                |
-| Pre-installation requirements    | ❌ Detailed prerequisites (users, kernel parameters, etc.)              | ✅ Minimal prerequisites                                                   |
-| Installation tools               | ✅ Oracle Universal Installer                                           | ✅ Native installers, Docker containers                                    |
-| Configuration options            | ✅ Extensive                                                            | ⚠️ Fewer initial options, can be configured post-installation             |
+| Feature                       | Oracle                                                     | PostgreSQL                                                    |
+| ----------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------- |
+| Installation complexity       | ❌ Complex, multiple components and configurations         | ✅ Simple, package managers available (apt, yum, etc.)        |
+| Disk space requirements       | ❌ High (minimum ~6.8 GB)                                  | ✅ Low (varies by platform)                                   |
+| Pre-installation requirements | ❌ Detailed prerequisites (users, kernel parameters, etc.) | ✅ Minimal prerequisites                                      |
+| Installation tools            | ✅ Oracle Universal Installer                              | ✅ Native installers, Docker containers                       |
+| Configuration options         | ✅ Extensive                                               | ⚠️ Fewer initial options, can be configured post-installation |
 
 Oracle's installation is more complex and resource-intensive, while PostgreSQL offers a simpler and more straightforward setup process.
 
 ### Day-to-Day Operation (Administration)
 
-| Feature                          | Oracle                                                                 | PostgreSQL                                                                 |
-|----------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| Graphical administration tools   | ✅ Enterprise Manager                                                  | ✅ pgAdmin                                                                 |
-| Command-line tools               | ✅ SQL*Plus, SQLcl                                                     | ✅ psql                                                                   |
-| Memory management                | ✅ Automatic                                                           | ⚠️ Manual tuning required                                                 |
-| Storage management               | ✅ Automatic Storage Management (ASM)                                  | ⚠️ Manual configuration                                                   |
-| Performance monitoring           | ✅ Automatic Workload Repository (AWR)                                 | ⚠️ Extensions like `pg_stat_statements`                                   |
-| Workload management              | ✅ Database Resource Manager                                           | ⚠️ Manual or third-party tools                                            |
-| Backup and recovery              | ⚠️ Complex procedures                                                  | ✅ Simple tools (`pg_dump`, `pg_restore`)                                  |
+| Feature                        | Oracle                                 | PostgreSQL                                |
+| ------------------------------ | -------------------------------------- | ----------------------------------------- |
+| Graphical administration tools | ✅ Enterprise Manager                  | ✅ pgAdmin                                |
+| Command-line tools             | ✅ SQL\*Plus, SQLcl                    | ✅ psql                                   |
+| Memory management              | ✅ Automatic                           | ⚠️ Manual tuning required                 |
+| Storage management             | ✅ Automatic Storage Management (ASM)  | ⚠️ Manual configuration                   |
+| Performance monitoring         | ✅ Automatic Workload Repository (AWR) | ⚠️ Extensions like `pg_stat_statements`   |
+| Workload management            | ✅ Database Resource Manager           | ⚠️ Manual or third-party tools            |
+| Backup and recovery            | ⚠️ Complex procedures                  | ✅ Simple tools (`pg_dump`, `pg_restore`) |
 
 Oracle provides comprehensive built-in tools for administration, while PostgreSQL relies more on manual configurations and third-party tools.
 
 ### Monitoring and Diagnostics (Administration)
 
-| Feature                          | Oracle                                                                 | PostgreSQL                                                                 |
-|----------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| Diagnostic repository            | ✅ Automatic Diagnostic Repository (ADR)                               | ❌ Not available                                                           |
-| Performance data collection      | ✅ Automatic Workload Repository (AWR)                                 | ⚠️ Extensions like `pg_stat_statements`                                   |
-| Session history                  | ✅ Active Session History (ASH)                                        | ❌ Not available                                                           |
-| Query monitoring                 | ✅ SQL Monitoring                                                      | ⚠️ Manual analysis using `EXPLAIN ANALYZE`                                |
-| Graphical dashboards             | ✅ Enterprise Manager                                                  | ⚠️ Third-party tools (e.g., pgAdmin, pganalyze)                           |
-| Log and trace files              | ✅ Alert logs, trace files                                             | ✅ Log files                                                               |
-| Dynamic performance views        | ✅ V$ views                                                            | ✅ `pg_stat_*` views                                                       |
+| Feature                     | Oracle                                   | PostgreSQL                                      |
+| --------------------------- | ---------------------------------------- | ----------------------------------------------- |
+| Diagnostic repository       | ✅ Automatic Diagnostic Repository (ADR) | ❌ Not available                                |
+| Performance data collection | ✅ Automatic Workload Repository (AWR)   | ⚠️ Extensions like `pg_stat_statements`         |
+| Session history             | ✅ Active Session History (ASH)          | ❌ Not available                                |
+| Query monitoring            | ✅ SQL Monitoring                        | ⚠️ Manual analysis using `EXPLAIN ANALYZE`      |
+| Graphical dashboards        | ✅ Enterprise Manager                    | ⚠️ Third-party tools (e.g., pgAdmin, pganalyze) |
+| Log and trace files         | ✅ Alert logs, trace files               | ✅ Log files                                    |
+| Dynamic performance views   | ✅ V$ views                              | ✅ `pg_stat_*` views                            |
 
 Oracle offers extensive built-in monitoring and diagnostic tools, whereas PostgreSQL provides basic capabilities with the option to enhance via extensions and third-party tools.
+
+<HintBlock type="info">
+
+Check out [Top Postgres Monitoring Tools and Best Practices](/blog/top-postgres-monitoring-tools/).
+
+</HintBlock>
 
 ### Cloud Offerings Comparison
 
 #### Oracle Cloud
 
 **Oracle Autonomous Database**
+
 - Fully managed (self-tuning, patching, scaling)
 - Supports OLTP and analytics workloads
 - Estimated cost: **$1,500–$2,000/month** for 2 vCPU, 8GB RAM, 100GB storage
 
 **Oracle Database Cloud Service**
+
 - Manually managed with configurable service levels
 - Estimated cost: **$800–$1,200/month**
 
@@ -380,17 +404,18 @@ Oracle offers extensive built-in monitoring and diagnostic tools, whereas Postgr
 - Cost: **$116.70/month**
 
 **Other Providers**
+
 - Supabase, Heroku, DigitalOcean, Aiven, Amazon Aurora (PostgreSQL-compatible)
 
 #### Cost Comparison (2 vCPU, 8GB RAM, 100GB Storage)
 
-| Provider                         | Monthly Cost      | Notes                                  |
-|----------------------------------|-------------------|----------------------------------------|
-| Oracle Autonomous Database       | $1,500–$2,000     | Advanced features, automation          |
-| Oracle Database Cloud Service    | $800–$1,200       | Manual setup and management            |
-| AWS RDS for PostgreSQL           | $141.44           | High performance, fully managed        |
-| Azure Database for PostgreSQL    | $141.44           | Flexible config, high availability     |
-| Google Cloud SQL for PostgreSQL  | $116.70           | Lower cost, higher latency             |
+| Provider                        | Monthly Cost  | Notes                              |
+| ------------------------------- | ------------- | ---------------------------------- |
+| Oracle Autonomous Database      | $1,500–$2,000 | Advanced features, automation      |
+| Oracle Database Cloud Service   | $800–$1,200   | Manual setup and management        |
+| AWS RDS for PostgreSQL          | $141.44       | High performance, fully managed    |
+| Azure Database for PostgreSQL   | $141.44       | Flexible config, high availability |
+| Google Cloud SQL for PostgreSQL | $116.70       | Lower cost, higher latency         |
 
 _**Note:** Prices are approximate and may vary by region and usage._
 
