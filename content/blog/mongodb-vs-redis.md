@@ -114,17 +114,20 @@ Redis (Remote Dictionary Server) is an open-source, in-memory data structure sto
 | **Memory Usage** | Optimized for datasets larger than available memory | Optimized for datasets that fit in memory |
 | **Consistency** | Strong consistency with replica sets | Eventual consistency with replication |
 | **License** | Server Side Public License (SSPL) | Redis Source Available License (RSALv2) or SSPL |
+| **Cloud Pricing** | Free(512 MB)/Flex/Dedicated(M10) | Free(30 MB)/Flex/Pro |
 | **Use Cases** | Primary database, content management, user profiles, IoT | Caching, session storage, real-time analytics, message broker |
 
 ### Data Model and Storage
 
 **MongoDB**:
+
 - Document-oriented with flexible schema
 - JSON-like BSON format for rich data representation
 - Primarily disk-based with memory caching
 - Supports embedded documents and arrays for complex data structures
 
 **Redis**:
+
 - Key-value store with rich data structures
 - Simple values or complex data structures associated with keys
 - Primarily in-memory with optional persistence
@@ -135,12 +138,14 @@ The fundamental difference in data models influences how you structure your data
 ### Performance Characteristics
 
 **MongoDB Performance**:
+
 - Optimized for **complex queries** across large datasets
 - Efficient for operations requiring **joins and aggregations**
 - Good performance for **write-heavy** workloads with appropriate indexing
 - Handles datasets larger than available memory
 
 **Redis Performance**:
+
 - Exceptional speed for **simple operations** (sub-millisecond latency)
 - Optimized for **high throughput** scenarios
 - Extremely efficient for **read-heavy** workloads
@@ -151,18 +156,44 @@ The fundamental difference in data models influences how you structure your data
 Both databases offer robust solutions for scaling and ensuring high availability, but with different approaches:
 
 **MongoDB**:
+
 - Horizontal scaling through **native sharding**
 - Automatic balancing of data across shards
 - Replica sets for high availability and data redundancy
 - Supports **geographically distributed clusters**
 
 **Redis**:
+
 - Redis Cluster for horizontal scaling through **hash slot-based sharding**
 - Redis Sentinel for monitoring and automatic failover
 - Master-replica architecture for read scalability
 - Cluster mode supports **automatic re-sharding**
 
-MongoDB's sharding is **more mature** and offers more **sophisticated options** for distributing data, while Redis Cluster provides **simpler** but **effective shardin**g for in-memory datasets.
+MongoDB's sharding is **more mature** and offers more **sophisticated options** for distributing data, while Redis Cluster provides **simpler** but **effective sharding** for in-memory datasets.
+
+### Licensing
+
+**MongoDB:** Uses SSPL since 2018 (not OSI-approved). Free to use, but cloud providers must open-source their stack.
+
+**Redis:** Switched to RSALv2 + SSPLv1 in 2024 (also not OSI-approved). RSALv2 blocks managed services. Client libraries stay MIT.
+
+Both are free for app development but restrict managed service providers.
+
+### Cloud Pricing
+
+**MongoDB Atlas**
+
+- Free: 512 MB
+- Flex: From $0.011/hr (~$30/month)
+- Dedicated (M10): From $0.08/hr (~$58/month)
+
+**Redis Cloud**
+
+- Free: 30 MB
+- Flex: From $5/month
+- Pro: From $0.274/hr
+
+Both support AWS, GCP, and Azure. Enterprise plans require sales contact.
 
 ### Use Case Suitability
 
@@ -177,17 +208,6 @@ MongoDB's sharding is **more mature** and offers more **sophisticated options** 
 - **Caching and session** storage
 - **Real-time** analytics and leaderboards
 - Message brokers and task queues
-
-### Feature Comparison
-
-The feature radar chart provides a visual representation of how MongoDB and Redis compare across various dimensions:
-
-- **Query Flexibility**: MongoDB offers more comprehensive query capabilities
-- **Performance**: Redis delivers superior raw performance for simple operations
-- **Data Model Flexibility**: MongoDB provides greater flexibility in data modeling
-- **Durability**: MongoDB has stronger durability guarantees
-- **Memory Efficiency**: MongoDB is more efficient for large datasets
-- **Developer Experience**: Both offer good developer experiences but for different use cases
 
 ## When to Choose MongoDB
 
