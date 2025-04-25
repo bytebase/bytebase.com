@@ -51,9 +51,8 @@ The fundamental differences between MongoDB and MySQL stem from their distinct d
 | **Transactions** | Limited support for multi-document transactions | Full ACID support for multi-row transactions |
 | **Use Cases** | Content management, real-time analytics, IoT, mobile apps | Financial systems, e-commerce, CRM/ERP systems |
 | **Indexing** | Supports various types of indexes (hashed, compound) | Supports various indexes (primary, unique, full-text) |
+| **Pricing & Licensing** | Free Community Edition (SSPL), paid Enterprise Edition, Atlas cloud service | Free Community Edition (GPL), paid Standard/Enterprise/Cluster Editions, cloud options |
 | **Community Support and Ecosystem** | Growing, backed by MongoDB Inc., Atlas cloud | Massive, long-standing community, Oracle support |
-| **Cost** | 	Free core, paid cloud/support, higher infra needs possible | Free core, efficient at scale, lower hiring/infra costs |
-
 ### Data Model Comparison
 
 **MongoDB (Document Model):**
@@ -195,11 +194,25 @@ Choose MQL for JSON data workflows, SQL for relational reporting. Many modern ap
 - Support for different **isolation levels**
 - Mature tooling for transaction monitoring and management
 
-### Cost
+### Pricing and Licensing
 
-**MongoDB** offers a free Community Edition, but advanced features and support come at a price. It may require more memory and specific expertise, impacting infrastructure and staffing costs, especially at scale.
+**MongoDB**
 
-**MySQL** is also free to use via its Community Edition, with optional enterprise features. It’s generally more resource-efficient and has a broad talent pool, which can lower operational and hiring costs.
+- **Community Edition:** Free under Server Side Public License (SSPL)
+- **Enterprise Edition:** Commercial license with pricing requiring sales contact (tens of thousands per year)
+- **Atlas Cloud Service:** Tiered pricing from free tier (512MB) to shared clusters ($9/month) to dedicated clusters ($57-95/month)
+- SSPL is more restrictive than traditional open-source licenses, requiring service providers to release their code
+- Higher resource requirements may increase infrastructure costs
+
+**MySQL**
+
+- **Community Edition:** Free under GNU General Public License (GPL)
+- **Standard Edition:** Commercial license at approximately $2,000-$2,140 per server per year
+- **Enterprise Edition:** Commercial license at approximately $5,000-$5,350 per server per year
+- **Cluster Carrier Grade Edition:** Commercial license at approximately $10,000-$10,700 per server per year
+- Available as managed services on major cloud platforms with pay-as-you-go pricing
+- GPL is widely accepted in open-source communities
+
 
 ### Community Support and Ecosystem
 
