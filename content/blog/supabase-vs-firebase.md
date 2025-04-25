@@ -108,20 +108,13 @@ Supabase Edge Functions are **lightweight, TypeScript-native, and database-aware
 
 ## Pricing Models
 
-**Supabase** offers predictable tiered pricing:
-
-- Free tier with **generous limits**
-- **Pro plan ($25/month)** with clear additional costs
-- Team and Enterprise plans for larger organizations
-
-**Firebase** uses usage-based pricing:
-
-- Free tier with **daily/monthly** quotas
-- **Pay-as-you-go Blaze plan** with charges per operation
-- Can be **cost-effective for small apps** but **potentially expensive** at scale
-- Integrated billing via Google Cloud Platform
-
-Supabase is like a fixed-price buffet (predictable costs), while Firebase is à la carte pricing (pay per operation). Firebase can be cheaper for tiny apps but riskier at scale, while Supabase offers more cost certainty for growing projects.
+|               | **Supabase** (Predictable Tiered Pricing)                          | **Firebase** (Usage-Based, à la Carte Pricing)                        |
+|-----------------------|----------------------------------------------------------------------|------------------------------------------------------------------------|
+| **Free Tier**         | Generous limits                                                     | Daily/monthly quotas                                                  |
+| **Paid Plans**        | Pro plan ($25/month), plus Team and Enterprise options              | Blaze plan (pay-per-operation), integrated with Google Cloud billing  |
+| **Cost Structure**    | Fixed, predictable pricing                                           | Variable, pay-as-you-go per usage                                     |
+| **Scalability**       | Better for growing teams needing cost predictability                | May be cheaper for small apps, but expensive as usage scales          |
+| **Analogy**           | Fixed-price buffet: predictable and straightforward                 | À la carte menu: flexible but potentially unpredictable costs         |
 
 ## Performance and Reliability
 
