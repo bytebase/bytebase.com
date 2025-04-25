@@ -1,5 +1,5 @@
 ---
-title: "DynamoDB vs PostgreSQL: A Concise Comparison"
+title: 'DynamoDB vs PostgreSQL: A Concise Comparison'
 author: Adela
 updated_at: 2025/04/22 18:00
 feature_image: /content/blog/dynamodb-vs-postgres/cover.webp
@@ -13,15 +13,15 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 
 </HintBlock>
 
-| Update History | Comment |
-| --- | --- |
-| 2025/04/22 | Initial version. |
+| Update History | Comment          |
+| -------------- | ---------------- |
+| 2025/04/22     | Initial version. |
 
 This post compares Amazon DynamoDB and PostgreSQL, focusing on their key differences, strengths, and ideal use cases. We position PostgreSQL as the well-known baseline and examine when DynamoDB might be a better alternative.
 
 ## DynamoDB Overview
 
-**Amazon DynamoDB** is a fully managed, serverless NoSQL database service designed for web-scale applications. Launched by AWS in 2012, it overcomes scaling and operational challenges of traditional relational databases.  As a key-value and document database, DynamoDB supports both simple primary key access and more complex document structures without schema constraints.
+**Amazon DynamoDB** is a fully managed, serverless NoSQL database service designed for web-scale applications. Launched by AWS in 2012, it overcomes scaling and operational challenges of traditional relational databases. As a key-value and document database, DynamoDB supports both simple primary key access and more complex document structures without schema constraints.
 
 ### License Model
 
@@ -81,33 +81,33 @@ DynamoDB does not support standard SQL:
 
 DynamoDB is available exclusively as a managed AWS service:
 
-* **Standard Tables**: Single-region deployment with cross-AZ replication
-* **Global Tables**: Multi-region deployment with active-active replication
-* **DynamoDB Accelerator (DAX)**: In-memory caching for DynamoDB
-* **DynamoDB Streams**: Change data capture for event-driven architectures
+- **Standard Tables**: Single-region deployment with cross-AZ replication
+- **Global Tables**: Multi-region deployment with active-active replication
+- **DynamoDB Accelerator (DAX)**: In-memory caching for DynamoDB
+- **DynamoDB Streams**: Change data capture for event-driven architectures
 
 ## DynamoDB vs. PostgreSQL
 
 ### Comparison Table
 
-| Aspect | PostgreSQL | DynamoDB |
-| --- | --- | --- |
-| **License** | Open Source (PostgreSQL License) | Proprietary AWS Service |
-| **Architecture** | Traditional client-server RDBMS | Distributed NoSQL database |
-| **Data Model** | Relational with structured schemas | Key-value and document with flexible schemas |
-| **Query Language** | Full SQL support | Proprietary API with limited PartiQL support |
-| **Horizontal Scaling** | Manual (sharding, read replicas) | Native, automatic |
-| **Vertical Scaling** | Excellent | Not applicable |
-| **Consistency** | ACID compliant | Eventually consistent by default, optional strong consistency |
-| **Transactions** | Full ACID transactions | Limited transactions (max 100 items or 4MB) |
-| **Performance** | Variable, depends on query complexity | Consistent single-digit millisecond latency |
-| **Joins** | Complex joins supported | No native join support |
-| **Indexing** | Multiple index types, unlimited indexes | Limited to 5 LSIs and 20 GSIs per table |
-| **Management** | Self-managed or managed service | Fully managed service only |
-| **Global Distribution** | Possible with additional tools | Built-in with Global Tables |
-| **Cost Model** | Infrastructure-based | Usage-based (throughput and storage) |
-| **Ecosystem** | Rich ecosystem of tools and extensions | Limited to AWS ecosystem |
-| **Best For** | Complex queries, relationships, data integrity | High-scale applications with simple access patterns |
+| Aspect                  | PostgreSQL                                     | DynamoDB                                                      |
+| ----------------------- | ---------------------------------------------- | ------------------------------------------------------------- |
+| **License**             | ✅ Open Source (PostgreSQL License)            | Proprietary AWS Service                                       |
+| **Architecture**        | Traditional client-server RDBMS                | Distributed NoSQL database                                    |
+| **Data Model**          | Relational with structured schemas             | Key-value and document with flexible schemas                  |
+| **Query Language**      | ✅ Full SQL support                            | Proprietary API with limited PartiQL support                  |
+| **Horizontal Scaling**  | Manual (sharding, read replicas)               | ✅ Native, automatic                                          |
+| **Vertical Scaling**    | ✅ Excellent                                   | Not applicable                                                |
+| **Consistency**         | ✅ ACID compliant                              | Eventually consistent by default, optional strong consistency |
+| **Transactions**        | ✅ Full ACID transactions                      | Limited transactions (max 100 items or 4MB)                   |
+| **Performance**         | Variable, depends on query complexity          | ✅ Consistent single-digit millisecond latency                |
+| **Joins**               | ✅ Complex joins supported                     | No native join support                                        |
+| **Indexing**            | ✅ Multiple index types, unlimited indexes     | Limited to 5 LSIs and 20 GSIs per table                       |
+| **Management**          | ✅ Self-managed or managed service             | Fully managed service only                                    |
+| **Global Distribution** | Possible with additional tools                 | ✅ Built-in with Global Tables                                |
+| **Cost Model**          | Infrastructure-based                           | Usage-based (throughput and storage)                          |
+| **Ecosystem**           | ✅ Rich ecosystem of tools and extensions      | Limited to AWS ecosystem                                      |
+| **Best For**            | Complex queries, relationships, data integrity | High-scale applications with simple access patterns           |
 
 ### License and Cost
 
@@ -117,10 +117,8 @@ DynamoDB is available exclusively as a managed AWS service:
 
 The cost implications differ substantially:
 
-- **PostgreSQL** incurs infrastructure and operational costs (compute, storage, administration)
-- **DynamoDB** charges based on usage — read/write throughput and storage
-- **PostgreSQL** offers more predictable costs but requires capacity planning
-- **DynamoDB** can achieve near-zero idle costs with on-demand pricing
+- **PostgreSQL** incurs infrastructure and operational costs (compute, storage, administration), offers more predictable costs but requires capacity planning.
+- **DynamoDB** charges based on usage — read/write throughput and storage, can achieve near-zero idle costs with on-demand pricing.
 
 ### Architecture and Scalability
 
