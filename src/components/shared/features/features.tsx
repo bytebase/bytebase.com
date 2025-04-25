@@ -64,7 +64,7 @@ const Features = ({ className }: { className?: string }) => {
         className,
       )}
     >
-      <h2 className="text-44 font-bold leading-extra-tight xl:text-36 md:text-30">Features</h2>
+      <h2 className="font-title text-44 leading-extra-tight xl:text-36 md:text-30">Features</h2>
       <ul className="mt-11 grid grid-cols-2 gap-10 2xl:gap-9 xl:mt-10 xl:gap-6 md:mt-9 md:gap-5 sm:mt-6 sm:gap-3">
         {ITEMS.map(({ title, url }, index) => {
           return (

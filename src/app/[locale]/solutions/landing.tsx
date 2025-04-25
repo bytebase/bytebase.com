@@ -20,7 +20,7 @@ const Landing = ({ solution }: LandingProps) => {
           {solution.values.map((value, index) => (
             <li
               key={index}
-              className="col-span-full mt-3.5 text-left font-title text-88 font-semibold leading-none xl:text-68 xl:leading-104 md:mt-2 md:text-54 sm:text-48 sm:leading-95"
+              className="col-span-full mt-3.5 text-left font-title text-56 font-semibold leading-none xl:text-44 xl:leading-104 md:mt-2 md:text-36 sm:text-30 sm:leading-95"
             >
               {value}
             </li>
@@ -39,7 +39,7 @@ const Landing = ({ solution }: LandingProps) => {
 
         {solution.caseStudyList.length > 0 && (
           <div className="mt-20 2xl:mt-10 xl:mt-8 sm:mt-6">
-            <h2 className="text-44 font-bold leading-extra-tight xl:text-36 md:text-30">
+            <h2 className="font-title text-44 leading-extra-tight xl:text-36 md:text-30">
               Customer Stories
             </h2>
             <div className="mt-11 xl:mt-10 md:mt-9">
