@@ -209,17 +209,6 @@ Both support AWS, GCP, and Azure. Enterprise plans require sales contact.
 - **Real-time** analytics and leaderboards
 - Message brokers and task queues
 
-### Feature Comparison
-
-The feature radar chart provides a visual representation of how MongoDB and Redis compare across various dimensions:
-
-- **Query Flexibility**: MongoDB offers more comprehensive query capabilities
-- **Performance**: Redis delivers superior raw performance for simple operations
-- **Data Model Flexibility**: MongoDB provides greater flexibility in data modeling
-- **Durability**: MongoDB has stronger durability guarantees
-- **Memory Efficiency**: MongoDB is more efficient for large datasets
-- **Developer Experience**: Both offer good developer experiences but for different use cases
-
 ## When to Choose MongoDB
 
 MongoDB is the better choice when:
