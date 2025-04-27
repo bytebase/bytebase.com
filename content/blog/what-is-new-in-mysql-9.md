@@ -32,7 +32,7 @@ This post provides a comprehensive overview of what's new in the entire MySQL 9.
 
 ### VECTOR Type Support (9.0)
 
-MySQL 9.0 introduced a new `VECTOR` data type, which is a significant addition for applications working with vector data, such as machine learning and AI applications.
+MySQL 9.0 introduced a new `VECTOR` data type, which is a timely addition for applications working with vector data, such as machine learning and AI applications.
 
 **DBA Note:** _First-generation implementation with significant limitations - can't be used as keys and has limited function compatibility. Don't expect performance to match dedicated vector databases yet._
 
@@ -54,7 +54,7 @@ MySQL 9.0 includes several functions for working with vector data:
 
 ### Enhanced Foreign Key Constraints (9.0)
 
-MySQL 9.0 enhances foreign key handling with significant improvements to standards compliance and usability.
+MySQL 9.0 enhances foreign key handling with long-waited improvements to standards compliance and usability.
 
 **DBA Note:** _This fixes long-standing behavior that should have worked correctly years ago. Test carefully when upgrading as applications that relied on the previous broken behavior may now encounter constraint violations._
 
@@ -149,7 +149,7 @@ A critical issue in MySQL 9.0.0 caused the server to fail to restart after creat
 
 **Bug #110402, Bug #35200385 (Fixed in MySQL 9.0.1)**
 
-MySQL 9.0.1 includes improvements to tablespace file scan performance at startup, which can significantly reduce server startup times, especially for installations with many tablespaces.
+MySQL 9.0.1 includes improvements to tablespace file scan performance at startup, which can reduce server startup times, especially for installations with many tablespaces.
 
 **DBA Note:** _Welcome improvement for environments with many tablespaces, but startup times will still be noticeably slower than competing databases with large numbers of tables._
 
@@ -215,7 +215,7 @@ When considering whether to upgrade from MySQL 8.0 to MySQL 9.0, it's valuable t
 - Represented a fundamental architectural shift with the introduction of the data dictionary
 - Completely changed authentication defaults (from mysql_native_password to caching_sha2_password)
 - Added major new features like document store, window functions, CTEs, and JSON enhancements
-- Introduced significant InnoDB improvements including auto-increment persistence and undo tablespaces
+- Introduced InnoDB improvements including auto-increment persistence and undo tablespaces
 - Changed default character set from latin1 to utf8mb4
 
 **MySQL 8.0 to 9.0 Upgrade:**
