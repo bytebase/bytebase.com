@@ -7,8 +7,9 @@ integrations: API
 category: 'Integration'
 level: Intermediate
 estimated_time: '30 mins'
-description: This tutorial will walk you through using SQL Review via Bytebase API to improve your database schema change process.
 ---
+
+import VCSWithNgrok from '/snippets/install/vcs-with-ngrok.mdx';
 
 When modifying data in the database, it's crucial to ensure that the changes are both safe and accurate. Bytebase offers a feature called [SQL Review](/sql-review/overview/), which allows you to evaluate your SQL changes before they are applied to the database. SQL Review can be invoked from the Bytebase GUI, CI or API.
 
@@ -28,7 +29,7 @@ Make sure you have completed the previous tutorial [SQL Review with Bytebase GUI
 
 If you want to test the SQL Review API locally, you may need to configure ngrok.
 
-<IncludeBlock url="/docs/get-started/install/vcs-with-ngrok"></IncludeBlock>
+<VCSWithNgrok />
 
 ## API Examples
 

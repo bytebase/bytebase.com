@@ -6,6 +6,8 @@ feature_image: /content/changelog/3-5-0-banner.webp
 description: 'Azure IAM Auth for Cosmos DB & Azure SQL'
 ---
 
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
 ## 💰 Plan Adjustment
 
 - Refine the environment rollout policy by setting manual rollout as the default option, now available in the Community Plan (Free).
@@ -43,4 +45,4 @@ description: 'Azure IAM Auth for Cosmos DB & Azure SQL'
 - Adjust SQL rule `Disallow setting volatile default value on columns` (PostgreSQL) to apply only to existing tables and the `ALTER TABLE ADD COLUMN` operation.
 - Extend API to allow updating the plan for database group deployment.
 
-<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>
+<InstallUpgrade />

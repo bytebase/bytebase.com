@@ -9,8 +9,10 @@ level: Intermediate
 estimated_time: '30 mins'
 featured: true
 feature_name: DATA_MASKING
-description: This tutorial will teach you how to set up and try out data masking in Bytebase.
 ---
+
+import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
+
 
 Bytebase [Dynamic Data Masking](/security/data-masking/overview/) can mask sensitive data in
 the query result based on the context on the fly. It helps organizations to **protect sensitive data**
@@ -34,7 +36,7 @@ out [this sample](https://github.com/bytebase/example-database-security/tree/mai
 
 1. Make sure your [Docker](https://www.docker.com/) is running, and start the Bytebase Docker container with command:
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
+   <TerminalDockerRunVolume />
 
 1. Having Bytebase successfully running in Docker, visit it via `localhost:8080`. Register an admin account and it will be granted the `workspace admin` role automatically.
 

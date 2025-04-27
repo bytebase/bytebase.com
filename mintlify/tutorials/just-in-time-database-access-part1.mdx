@@ -8,8 +8,10 @@ category: 'Data Access Control'
 level: Beginner
 featured: true
 estimated_time: '30 mins'
-description: 'In this tutorial, we will demonstrate how to set up Just-in-Time (JIT) access using the Bytebase GUI.'
 ---
+
+import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
+import TerminalStartupOutputSuccess from '/snippets/install/terminal-startup-output-success.mdx';
 
 In a production environment, an incident arises that requires a developer to access the production database for troubleshooting. However, the developer does not have the necessary access privileges. To address this, the developer can request Just-in-Time (JIT) access to the production database. Bytebase streamlines this process, allowing developers to efficiently request and obtain temporary access when needed.
 
@@ -40,11 +42,11 @@ Before you begin, make sure you have:
 
 1. Make sure your docker daemon is running, and start the Bytebase docker container by typing the following command in the terminal.
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
+   <TerminalDockerRunVolume />
 
    Bytebase starts successfully if you see following message.
 
-   <IncludeBlock url="/docs/get-started/install/terminal-startup-output-success"></IncludeBlock>
+   <TerminalStartupOutputSuccess />
 
    Now you have Bytebase running in Docker.
 

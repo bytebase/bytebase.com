@@ -7,8 +7,9 @@ integrations: Slack
 category: 'Data Access Control'
 level: Advanced
 estimated_time: '30 mins'
-description: 'In this tutorial, we will demonstrate how to automate JIT access via Slack, utilizing Bytebase webhooks and API'
 ---
+
+import CreateServiceAccount from '/snippets/tutorials/create-service-account.mdx';
 
 In the [previous tutorial](/tutorials/just-in-time-database-access-part1), we demonstrated how to set up JIT access using the Bytebase GUI. In this tutorial, we will cover how to automate JIT access via Slack, utilizing Bytebase webhooks and API.
 
@@ -55,7 +56,7 @@ The `Request role` feature is supported by **Enterprise Plan** which will be nee
 
 ## Step 2 - Register a service account in Bytebase
 
-<IncludeBlock url="/docs/share/tutorials/create-service-account"></IncludeBlock>
+<CreateServiceAccount />
 
 3. Go to `Sample Project`, click **Manage > Members**, and assign the service account as `Project Owner` which can fit the custom approval set in the previous tutorial.
 

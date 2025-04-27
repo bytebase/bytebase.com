@@ -7,8 +7,9 @@ level: Intermediate
 integrations: API
 category: 'Integration'
 estimated_time: '25 mins'
-description: Embed Bytebase SQL Editor in your own internal web portal.
 ---
+
+import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
 
 Bytebase is an open-source database DevSecOps solution for Developer, Security, DBA, and Platform Engineering teams. The GitLab for database DevSecOps.
 
@@ -61,7 +62,7 @@ Demo uses Google OAuth SSO for simplicity, you can choose other [SSO options](/a
 
 1. Start Bytebase via Docker and register an account which will be granted `Workspace Admin` role.
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
+   <TerminalDockerRunVolume />
 
 1. Log in to Bytebase, go to **IAM&Admin > SSO**, click **Create SSO**.
 

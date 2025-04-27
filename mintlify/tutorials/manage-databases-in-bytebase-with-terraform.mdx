@@ -8,8 +8,9 @@ category: 'Integration'
 featured: true
 level: Intermediate
 estimated_time: '30 mins'
-description: This tutorial will guide you to use Terraform Bytebase Provider to manage your databases via Terraform.
 ---
+
+import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
 
 This tutorial will guide you to use [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs) to manage your databases via [Terraform](https://www.hashicorp.com/products/terraform).
 
@@ -51,7 +52,7 @@ Follow [Terraform installation Guide](https://developer.hashicorp.com/terraform/
 
 1. Make sure your docker daemon is running, and then start the Bytebase docker container by typing the following command in the terminal.
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
+   <TerminalDockerRunVolume />
 
 1. Type the following commands one by one in the terminal to start two MySQL instances, and they will be mapped to `Test` and `Prod` environments later.
 

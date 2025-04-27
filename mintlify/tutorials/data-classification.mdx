@@ -7,8 +7,9 @@ level: Intermediate
 integrations: API
 category: 'Data Access Control'
 estimated_time: '25 mins'
-description: This tutorial demonstrates setting up data classification and masking with Bytebase via API.
 ---
+
+import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
 
 Bytebase is an open-source database DevSecOps solution for Developer, Security, DBA, and Platform Engineering teams. The GitLab for database DevSecOps.
 
@@ -39,7 +40,7 @@ This demo app simulates the process of fetching data from databases connected to
 
 1. Start Bytebase via Docker and register an account which will be granted `Workspace Admin` role.
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
+   <TerminalDockerRunVolume />
    You'll need an API service account user too:
 
 1. Go to **IAM&Admin > Users&Groups**, click **+Add User**.

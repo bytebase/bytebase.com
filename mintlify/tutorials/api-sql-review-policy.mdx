@@ -7,10 +7,13 @@ integrations: API
 category: Integration
 level: Advanced
 estimated_time: '40 mins'
-description: 'Learn how to use the Bytebase API to configure SQL review rules in Bytebase'
 ---
 
-<IncludeBlock url="/docs/share/tutorials/api-preface"></IncludeBlock>
+import ApiPreface from '/snippets/tutorials/api-preface.mdx';
+import StartBytebase from '/snippets/tutorials/start-bytebase.mdx';
+import CreateServiceAccount from '/snippets/tutorials/create-service-account.mdx';
+
+<ApiPreface />
 
 This tutorial will guide you through configuring SQL review rules using the Bytebase API. This approach allows you to manage SQL review rules as code within your repository, enabling DBAs or platform engineering teams to apply them to Bytebase as needed. The tutorial repository is at https://github.com/bytebase/example-api/tree/main/sql-review.
 
@@ -29,11 +32,11 @@ This is the 4th part of tutorial series of SQL Review:
 
 ## Start Bytebase
 
-<IncludeBlock url="/docs/share/tutorials/start-bytebase"></IncludeBlock>
+<StartBytebase />
 
 ## Create Service Account
 
-<IncludeBlock url="/docs/share/tutorials/create-service-account"></IncludeBlock>
+<CreateServiceAccount />
 
 ## Obtain the Access Token
 

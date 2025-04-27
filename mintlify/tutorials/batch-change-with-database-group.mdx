@@ -7,8 +7,9 @@ integrations: General
 category: 'Database CI/CD (GUI)'
 level: Intermediate
 estimated_time: '20 mins'
-description: This article describes configuring environment and database group to batch change databases.
 ---
+
+import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
 
 Bytebase offers multiple features to simplify batch change management. In this tutorial, we will guide you on how to configure **Environment** and **Database Group** to batch change databases for various scenarios.
 
@@ -28,7 +29,7 @@ To demonstrate the batch change, we need to prepare some databases first.
 
 1. Copy and paste the commands to start one Bytebase via Docker.
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
+   <TerminalDockerRunVolume />
 
 1. Regsiter an admin account and it will be granted the `workspace admin` role automatically.
 

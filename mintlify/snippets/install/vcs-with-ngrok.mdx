@@ -2,13 +2,15 @@
 title: VCS with ngrok
 ---
 
+import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
+
 [ngrok](https://ngrok.com/) is a reverse proxy tunnel, and in our case, we need it for a public network address to allow VCS to call the Bytebase API. ngrok we used here is for demonstration purposes.
 
     ![ngrok-reverse-proxy](/content/docs/get-started/vcs-with-ngrok/ngrok-reverse-proxy.webp)
 
 1. Run Bytebase in [Docker](https://www.docker.com/) with the following command:
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
+   <TerminalDockerRunVolume />
 
 1. Bytebase is running successfully in Docker, and you can visit it via `localhost:8080`. Register an admin account and it will be granted the `workspace admin` role automatically.
 

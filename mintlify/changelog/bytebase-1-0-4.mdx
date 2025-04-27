@@ -4,6 +4,8 @@ updated_at: 2022/04/28 11:29:05
 description: Support --pg option to boot Bytebase. bb CLI Support --dsn option in CLI. Add installation script of bb CLI. Add dashboard page to manage all SQL sheets. Admin page to view all projects. Added /healthz health check endpoint for supporting serverless platform.
 ---
 
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
 ## Support storing Bytebase metadata in the external PostgreSQL
 
 Use the --pg option to specify the database endpoint upon launching Bytebase.
@@ -52,4 +54,4 @@ The `Default Project` is the special project holding the databases synced from t
 - Thanks to [@sagungargs15](https://github.com/sagungargs15) for the Issue [Docker on AWS Fargate | database "bytebase" does not exist | database "bb" does not exist #1135](https://github.com/bytebase/bytebase/issues/1135)
 - Thanks to [@Austin Ziegler](https://github.com/halostatue) for Issue [No linux/arm64 docker image #1119](https://github.com/bytebase/bytebase/issues/1119)
 
-<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>
+<InstallUpgrade />

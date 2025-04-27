@@ -7,8 +7,10 @@ integrations: General
 category: 'Database CI/CD (GUI)'
 level: Intermediate
 estimated_time: '15 mins'
-description: 'Bytebase provides a basic rollout mechanism by default. For more complicated enterprise-level cases, users may need different approval flows to handle database changes according to risk levels.'
 ---
+
+import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
+
 
 Bytebase provides a basic yet configurable rollout mechanism by default. This means that manual rollout is skipped for **Test** environments and required for **Prod** environments.
 
@@ -31,7 +33,7 @@ This tutorial will walk you through how to create custom approval flows based on
 
 1. Make sure your Docker is running, and start the Bytebase Docker container with the following command:
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
+   <TerminalDockerRunVolume />
 
 1. Open `localhost:8080` in a browser, register as an admin and you will be granted as **Workspace Admin** role and automatically logged in.
 

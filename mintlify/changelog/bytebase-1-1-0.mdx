@@ -5,6 +5,8 @@ updated_at: 2022/5/26 08:10:08
 description: Update CLI docs. Sync your SQL scripts stored in the linked VCS system. Star the sheets to save them in a list. - List database extensions for PostgreSQL. Support creating a Postgres database with an owner. Support changing data for a single database in a tenant project.
 ---
 
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
 - **Update [CLI docs](https://www.bytebase.com/docs/cli/overview)**
 
 bb CLI is the command-line tool of Bytebase, helping developers integrate MySQL and PostgreSQL schema change into the existing CI/CD workflow. By integrating bb with your existing CI/CD system (GitLab CI, GitHub Actions, etc.), you can bring all best practices of CI/CD to the database.
@@ -49,4 +51,4 @@ bb CLI is the command-line tool of Bytebase, helping developers integrate MySQL 
 
 - Thanks to [@tnir](https://github.com/tnir) for the [PR: fix(i18n): migrate i18n YAML to JSON correctly](https://github.com/bytebase/bytebase/pull/1233)
 
-<IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>
+<InstallUpgrade />

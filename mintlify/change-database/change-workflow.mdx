@@ -2,6 +2,8 @@
 title: Overview
 ---
 
+import TaskRunOrder from '/snippets/tutorials/task-run-order.mdx';
+
 <Card title="Tutorial: First Schema Change in 5 Minutes" icon="graduation-cap" href="/tutorials/first-schema-change" horizontal />
 
 For a typical change workflow, a developer first submits the SQL statement for DBA to review. After review is approved, the SQL statement will then be applied to the corresponding database. For a single change, this step would normally be repeated for each environment (e.g. integration, staging, prod).
@@ -79,7 +81,7 @@ one or more SQL statements to be executed.
 
 Tasks run in the following order:
 
-<IncludeBlock url="/docs/share/tutorials/task-run-order"></IncludeBlock>
+<TaskRunOrder />
 
 ### Task Detail
 

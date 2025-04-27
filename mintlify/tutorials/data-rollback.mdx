@@ -8,8 +8,9 @@ category: 'Database CI/CD (GUI)'
 featured: true
 level: Beginner
 estimated_time: '30 mins'
-description: This tutorial will guide you on how to use the Data Rollback feature to manage database data changes in Bytebase, including 1-click rollback and auto-enabled settings.
 ---
+
+import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
 
 When changing data in the database, it's advisable to have a backup of the data you plan to modify in case you need to roll back. Bytebase offers a feature called [**1-Click Data Rollback**](/change-database/rollback-data-changes/) to assist with this. You can also enable auto-backup feature to automatically backup the data when you create a change data issue. This tutorial will guide you through this process.
 
@@ -23,7 +24,7 @@ When changing data in the database, it's advisable to have a backup of the data 
 
 1. Copy and paste the commands to start one Bytebase via Docker.
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
+   <TerminalDockerRunVolume />
 
 1. Regsiter an admin account and it will be granted the `workspace admin` role automatically.
 

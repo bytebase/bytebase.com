@@ -8,8 +8,11 @@ category: 'Database CI/CD (GitOps)'
 level: Advanced
 estimated_time: '40 mins'
 featured: true
-description: 'Learn the new GitOps workflow for database release with Bytebase.'
 ---
+
+import VCSWithNgrok from '/snippets/install/vcs-with-ngrok.mdx';
+import CreateServiceAccountGitOps from '/snippets/tutorials/create-service-account-gitops.mdx';
+import ConfigSQLReview from '/snippets/tutorials/config-sql-review.mdx';
 
 This is part of our database GitOps series with Bytebase:
 
@@ -48,15 +51,15 @@ https://github.com/bytebase/example-gitops-github-flow
 
 ### Step 1 - Start Bytebase with ngrok
 
-<IncludeBlock url="/docs/get-started/install/vcs-with-ngrok"></IncludeBlock>
+<VCSWithNgrok />
 
 ### Step 2 - Create Service Account
 
-<IncludeBlock url="/docs/share/tutorials/create-service-account-gitops"></IncludeBlock>
+<CreateServiceAccountGitOps />
 
 ### Step 3 - Configure SQL Review in Bytebase
 
-<IncludeBlock url="/docs/share/tutorials/config-sql-review"></IncludeBlock>
+<ConfigSQLReview />
 
 ### Step 4 - Fork the Example Repository and Configure Variables
 

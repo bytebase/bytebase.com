@@ -8,8 +8,9 @@ category: 'Database CI/CD (GUI)'
 level: Beginner
 estimated_time: '30 mins'
 featured: true
-description: Bytebase offers a powerful GUI for schema migration deployments. This tutorial will show you how to use Bytebase to deploy schema migrations with features like SQL Review, custom approval, time scheduling, and more.
 ---
+
+import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
 
 Bytebase offers a powerful GUI for schema migration deployments. This tutorial will show you how to use Bytebase to deploy schema migrations with features like SQL Review, custom approval, time scheduling, and more.
 
@@ -28,7 +29,7 @@ unlock new capabilities of deploying schema migrations and this tutorial will wa
 
 1. Make sure your Docker is running, and start the Bytebase Docker container with the following command:
 
-   <IncludeBlock url="/docs/get-started/install/terminal-docker-run-volume"></IncludeBlock>
+   <TerminalDockerRunVolume />
 
 1. Bytebase is running successfully in Docker, and you can visit it via `localhost:8080`. Register an admin account and it will be granted the `workspace admin` role automatically.
 
