@@ -32,7 +32,6 @@ Flags:
   -h, --help                       help for bytebase
       --pg string                  optional external PostgreSQL instance connection url(must provide dbname); for example postgresql://user:secret@masterhost:5432/dbname?sslrootcert=cert
       --port int                   port where Bytebase server runs. Default to 8080 (default 8080)
-      --readonly                   whether to run in read-only mode
 ```
 
 ## --data &lt;&lt;directory&gt;&gt;
@@ -85,28 +84,14 @@ Optional external PostgreSQL instance connection url. If specified, Bytebase wil
 
 See [Configure External PostgreSQL](/get-started/install/external-postgres).
 
-<HintBlock type="info">
+<Tip>
 
 Alternatively, you can also pass PG_URL environment variable.
 
-</HintBlock>
+</Tip>
 
 ## --port &lt;&lt;number&gt;&gt;
 
 default: **8080**
 
 The port where Bytebase is running. Bytebase listens on all network interfaces for the specified port. For production setup, see [Configure External URL](/get-started/install/external-url).
-
-## --readonly
-
-default: **false**
-
-If specified, Bytebase will run in **read-only** mode. This mode is mostly useful when you want to schedule a maintenance window or enforce a deployment freeze.
-
-You can also enable --demo and --readonly together to have a long running demo instance without worrying about the data being changed accidentally (this is how [https://demo.bytebase.com](/view-live-demo) is configured).
-
-<HintBlock type="info">
-
-Whenever you download a new Bytebase version, first time you should always start it **without** --readonly so that Bytebase can apply its own schema upgrade if needed.
-
-</HintBlock>

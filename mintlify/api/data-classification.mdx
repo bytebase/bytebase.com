@@ -2,6 +2,8 @@
 title: Data Classification
 ---
 
+<Card title="Tutorial: Data Masking with Classification Levels" icon="graduation-cap" href="/tutorials/data-classification" horizontal />
+
 [Data Classification](/security/data-masking/data-classification/) allows you to classify columns
 and manage masking policy for many columns by controlling only a small number of classifications.
 
@@ -9,9 +11,9 @@ You can call Bytebase API to configure data classification.
 
 ## Configure Classification
 
-|          |                                                                                                                                 |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Endpoint | [PATCH /v1/settings/bb.workspace.data-classification](/api-reference/settingservice/patch-v1settings) |
+|          |                                                                                                       |
+| -------- | ----------------------------------------------------------------------------------------------------- |
+| Endpoint | [PATCH /v1/v1settings/dataClassificationSettingValue](/api-reference/settingservice/patch-v1settings) |
 
 ```shell
 curl --request PATCH ${bytebase_url}/v1/settings/bb.workspace.data-classification \
@@ -92,18 +94,16 @@ curl --request PATCH ${bytebase_url}/v1/settings/bb.workspace.data-classificatio
 
 ## Classify All Columns and Tables in a Database
 
-|          |                                                                                                                                                                                                                   |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Endpoint | [PATCH /v1/instances/\{instance\}/databases/\{database\}/metadata?update_mask=schema_configs​](https://api.bytebase.com/#tag/databaseservice/PATCH/v1/instances/%7Binstance%7D/databases/%7Bdatabase%7D/metadata) |
-| Request  | https://api.bytebase.com/v1/#bytebase.v1.UpdateDatabaseMetadataRequest                                                                                                                                            |
-| Response | https://api.bytebase.com/v1/#bytebase.v1.DatabaseMetadata                                                                                                                                                         |
+|          |                                                                                               |
+| -------- | --------------------------------------------------------------------------------------------- |
+| Endpoint | [PATCH /v1/v1instances/databases](/api-reference/databaseservice/patch-v1instances-databases) |
 
-<HintBlock type="info">
+<Info>
 
 The API only supports to classify **an entire database at once**. You need to pass the entire schema configs for the target database. The passed schema configs will overwrite
 the existing schema configs.
 
-</HintBlock>
+</Info>
 
 ```shell
 curl --request PATCH ${bytebase_url}/v1/instances/prod-sample-instance/databases/hr_prod/metadata?update_mask=schema_configs \

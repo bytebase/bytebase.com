@@ -139,11 +139,11 @@ Estimated time: **15 minutes**.
 
 ### Deploy to Kubernetes
 
-<HintBlock type="info">
+<Note>
 
 Make sure to set the replicas to **1**, otherwise, it may cause data race issues.
 
-</HintBlock>
+</Note>
 
 Here is a sample Kubernetes YAML file `bb.yaml` describing the minimal components and configuration required to run Bytebase in Kubernetes.
 
@@ -240,11 +240,11 @@ containers:
 
 #### Production Setup External URL
 
-<HintBlock type="info">
+<Note>
 
 For production setup, you should configure a proper [External URL](/get-started/install/external-url).
 
-</HintBlock>
+</Note>
 
 #### Installing the Chart
 
@@ -423,12 +423,12 @@ Please follow the [Persistent volumes and dynamic provisioning](https://cloud.go
 
 ## Build from Source
 
-<HintBlock type="info">
+<Note>
 
 Due to the uncontrolled nature of building from source, we only provide technical assistance to the Enterprise
 customers.
 
-</HintBlock>
+</Note>
 
 **Prerequisites**
 
@@ -446,11 +446,11 @@ customers.
 
 Download [source code](https://github.com/bytebase/bytebase) from GitHub, then go to the source root directory
 
-<HintBlock type="info">
+<Info>
 
 If you want to build from a specific release such as `%%bb_version%%`, then switch to that release tag.
 
-</HintBlock>
+</Info>
 
 ```text
 git checkout tags/%%bb_version%%
