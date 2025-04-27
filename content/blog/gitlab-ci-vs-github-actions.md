@@ -1,7 +1,7 @@
 ---
 title: 'GitLab CI vs. GitHub Actions: a Complete Comparison in 2025'
 author: Adela
-updated_at: 2025/04/26 18:00
+updated_at: 2025/04/27 18:00
 feature_image: /content/blog/gitlab-ci-vs-github-actions/cover.webp
 tags: Comparison
 description: 'An extensive comparison between GitLab CI and GitHub Actions on features, performance, and more.'
@@ -9,13 +9,13 @@ description: 'An extensive comparison between GitLab CI and GitHub Actions on fe
 
 <HintBlock type="info">
 
-This post is maintained by Bytebase, an open-source database DevSecOps tool. We update the post every year.
+This post is maintained by Bytebase, an open-source database DevSecOps tool which can integrate with GitLab CI and GitHub Actions. We update the post every year.
 
 </HintBlock>
 
 | Update History | Comment          |
 | -------------- | ---------------- |
-| 2025/04/26     | Initial version. |
+| 2025/04/27     | Initial version. |
 
 Continuous Integration and Delivery (CI/CD) are key to modern software development, automating build, test, and deployment processes. **GitLab CI** and **GitHub Actions** are two leading tools. This article compares them to help you choose the best fit for your needs.
 
