@@ -37,9 +37,13 @@ Continuous Integration and Delivery (CI/CD) are key to modern software developme
 
 **GitLab CI** uses a single `.gitlab-ci.yml` file placed at the root of your repository. This file defines your entire CI/CD pipeline, including stages, jobs, and scripts to be executed.
 
+![gitlab-ci-config](/content/blog/gitlab-ci-vs-github-actions/gitlab-ci-config.webp)
+
 **GitHub Actions** uses YAML files stored in the `.github/workflows` directory. You can have multiple workflow files, each defining a separate automated process triggered by different events.
 
 Both platforms use YAML for configuration, but GitLab CI centralizes all pipeline definitions in a single file, while GitHub Actions allows for multiple workflow files organized by purpose.
+
+![github-actions-workflows](/content/blog/gitlab-ci-vs-github-actions/github-actions-workflows.webp)
 
 ### Integration with Platform
 
