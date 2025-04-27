@@ -10,9 +10,14 @@ database for 2025'
 
 <HintBlock type="info">
 
-This post is updated regularly. For the impatience, jump to the [Recommended Setup](#recommended-setup) section.
+This post is maintained by Bytebase, an open-source database DevSecOps tool that can manage both Aurora and RDS. We update the post every year.
 
 </HintBlock>
+
+| Update History | Comment            |
+| -------------- | ------------------ |
+| 2024/01/22     | Initial version.   |
+| 2025/04/27     | Added Aurora DSQL. |
 
 ![gartner](/content/blog/aurora-vs-rds/gartner-2024.webp)
 
@@ -175,11 +180,10 @@ to optimize the cost.
 
 For enterprise businesses with global applications requiring the highest levels of availability and consistency, Aurora DSQL provides capabilities that were previously difficult to achieve:
 
-| Enterprise  | Choice |
-| --------------------------------------------- | ------ |
-| Global Applications                      | Aurora DSQL |
-| Financial Applications requiring strong consistency   | Aurora DSQL |
-| Multi-region Applications with high write throughput  | Aurora DSQL |
+| Enterprise                                           | Choice      |
+| ---------------------------------------------------- | ----------- |
+| Global applications                                  | Aurora DSQL |
+| Multi-region applications with high write throughput | Aurora DSQL |
 
 Normally, you should start with RDS and migrate to Aurora when the business takes off, and consider Aurora DSQL when your application requires global distribution with strong consistency. AWS provides [detailed guide](https://aws.amazon.com/getting-started/hands-on/migrate-rdsmysql-to-auroramysql/) on how to migrate from RDS to Aurora with near zero downtime, and similar migration paths are available from Aurora to Aurora DSQL.
 
