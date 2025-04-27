@@ -23,13 +23,13 @@ Continuous Integration and Delivery (CI/CD) are key to modern software developme
 
 | Category | GitLab CI | GitHub Actions |
 |:---|:---|:---|
-| **Configuration and Setup** | Single `.gitlab-ci.yml` file at repo root to define the entire pipeline | Multiple YAML files under `.github/workflows/`, each for a specific workflow |
-| **Integration with Platform** | Fully integrated into GitLab's all-in-one DevOps platform (code, issues, merge requests, CI/CD) | Native integration with GitHub repositories, pull requests, issues, and project boards |
-| **Execution Environment** | Self-hosted or GitLab.com-hosted runners; Linux, Windows, macOS support | GitHub-hosted or self-hosted runners; Linux, Windows, macOS support; free unlimited minutes for public repos |
+| **Configuration and Setup** | Single file to define the entire pipeline | Multiple YAML files for specific workflows |
+| **Integration with Platform** | Fully integrated into GitLab's all-in-one DevOps platform | Native integration with GitHub repository-centric workflow |
+| **Execution Environment** | Self-hosted or GitLab.com-hosted runners | GitHub-hosted or self-hosted runners |
 | **Pricing Model** | Free (400 min), Premium ($29/user/mo for 10,000 min), Ultimate (Contact sales) | Free (2,000 min), Team ($4/user/mo for 3,000 min), Enterprise (from $21/user/mo for 50,000 min) |
 | **Ecosystem and Reusability** | CI/CD catalog, reusable components, share across projects | Huge Marketplace, reusable workflows, strong community-contributed actions |
 | **Advanced Features** | Merge trains, parent-child pipelines, security/compliance tools, canary deployments | Matrix builds, workflow reuse, environment protection, scheduled/manual workflows |
-| **Ease of Use** | More powerful but steeper learning curve; structured, complex setups | Easier to start, especially for GitHub users; event-driven and marketplace-driven workflows |
+| **Ease of Use** | More powerful but steeper learning curve | Easier to start with event-driven and marketplace-driven workflows |
 
 ## Detailed Comparison
 
