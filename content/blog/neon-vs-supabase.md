@@ -1,11 +1,22 @@
 ---
 title: 'Neon vs. Supabase: Which One Should I Choose'
 author: Tianzhou
-updated_at: 2024/07/02 09:00
+updated_at: 2025/04/28 09:00
 feature_image: /content/blog/neon-vs-supabase/cover.webp
 tags: Comparison
 description: 'Neon and Supabase are the 2 new generation Postgres service providers. This is an extensive comparison between Neon and Supabase on architecture, compatibility, developer workflow, scalability, operability, integration, compliance, pricing and more.'
 ---
+
+<HintBlock type="info">
+
+This post is maintained by Bytebase, an open-source database DevSecOps tool that can manage both Neon and Supabase (it's PG after all). We update the post every year.
+
+</HintBlock>
+
+| Update History | Comment                            |
+| -------------- | ---------------------------------- |
+| 2024/07/02     | Initial version.                   |
+| 2025/04/28     | Updated for 2025. Improved pricing |
 
 Besides the typical Postgres service providers like AWS RDS, Google Cloud SQL, DigitalOcean Managed Databases, [Neon](https://neon.tech/) and [Supabase](https://supabase.com/) are the two modern Postgres service providers.
 
@@ -96,21 +107,30 @@ Supabase is one of the most popular repositories on GitHub, while Neon's star gr
 
 ## Pricing
 
-Both Neon and Supabase offer a free tier. Neon also offers auto-scaling. Its auto-scaling unit is
-CU (1vCPU, 4 GB RAM), and can scale from 0.25 to 8 CU.
+Both Neon and Supabase offer a free tier and tiered pricing models that scale with usage. However, their pricing structures differ significantly in how they charge for resources.
+
+Neon uses a compute-hours model with the ability to scale to zero when not in use. Their pricing is based on:
+
+1. **Base subscription fee** (Free, Launch at $19/month, Scale at $69/month, Business at $700/month)
+1. **Compute hours consumed** (each plan includes a set amount)
+1. **Storage used** (regular and archive storage)
+
+The Free plan includes 191.9 compute hours per month (enough to run a 0.25 CU compute 24/7) and 0.5 GB of storage. Paid plans include more compute hours and storage, with the option to purchase additional resources as needed.
+
+Supabase uses a dedicated compute instance model with hourly billing. Their pricing is based on:
+
+1. **Base subscription fee** (Free, Pro at $25/month, Team at $599/month, Enterprise with custom pricing)
+1. **Compute instance size** (from Nano to 16XL)
+1. **Usage-based components** (active users, storage, bandwidth, etc.)
+
+The Free plan includes a Nano compute instance with shared CPU and up to 0.5 GB of memory, 500 MB of database storage, and 50,000 monthly active users. Paid plans include $10/month in compute credits and additional resources.
 
 ## Neon or Supabase
 
 If you want a Postgres database without whistles and bells, Neon is almost the perfect database a developer would desire. It has serverless, branching, auto-scaling.
 
 If you're looking for a dedicated Postgres instance or are looking to build a full-stack application, Supabase has everything
-you need. It has database, auth, APIs, and more.
-
-<HintBlock type="info">
-
-Bytebase can augment Neon and Supabase database with change review process, a data access control and dynamic data masking.
-
-</HintBlock>
+you need. It has database, auth, APIs, and more, with continuous improvements to its dashboard and developer experience.
 
 ## Other Comparisons
 
