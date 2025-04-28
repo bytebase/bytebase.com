@@ -161,21 +161,6 @@ The MySQL hosting market in 2025 offers diverse pricing models catering to diffe
 1. [DigitalOcean Managed Databases Pricing](https://www.digitalocean.com/pricing/managed-databases)
 1. [Aiven MySQL Pricing](https://aiven.io/pricing)
 
-**Data Sovereignty and Compliance Resources**
-
-1. [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/)
-1. [Google Cloud Compliance Resource Center](https://cloud.google.com/security/compliance)
-1. [Azure Compliance Documentation](https://azure.microsoft.com/en-us/overview/trusted-cloud/compliance/)
-1. [DigitalOcean Security & Compliance](https://www.digitalocean.com/trust/certification-reports)
-1. [Aiven Security & Compliance](https://aiven.io/security)
-
-**Performance Benchmarks and Comparisons**
-
-1. [AWS Database Blog: Aurora vs. RDS Performance](https://aws.amazon.com/blogs/database/amazon-aurora-mysql-performance-benchmarking/)
-1. [Google Cloud SQL Performance Best Practices](https://cloud.google.com/sql/docs/mysql/best-practices)
-1. [Azure MySQL Performance Best Practices](https://learn.microsoft.com/en-us/azure/mysql/single-server/concepts-performance-best-practices)
-1. [DigitalOcean MySQL Performance Optimization](https://www.digitalocean.com/community/tutorials/how-to-optimize-mysql-performance-using-mysqltuner)
-
 **Cost Optimization Guides**
 
 1. [AWS RDS Cost Optimization](https://aws.amazon.com/blogs/database/best-practices-for-amazon-rds-cost-optimization/)
