@@ -220,4 +220,3 @@ The right tool for your organization depends on your specific needs, existing to
 - [Top Open Source Kubernetes Dashboard](/blog/top-open-source-kubernetes-dashboard)
 - [Top Open Source GitOps Tools](/blog/top-open-source-gitops-tools)
 - [Top Open Source Database Management Software](/blog/top-open-source-database-management-software)
-- [Running Databases on Kubernetes: Challenges and Solutions](/blog/running-databases-on-kubernetes)
