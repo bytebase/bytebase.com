@@ -98,4 +98,4 @@ This error occurs when you try to connect to a PostgreSQL server that has alread
 
 Increasing `max_connections` requires more memory. Each connection consumes resources, so simply increasing this value without addressing underlying issues can lead to performance problems. Connection pooling is often a better solution.
 
-<HintBlock type="info">
+</HintBlock>
