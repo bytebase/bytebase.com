@@ -1,153 +1,95 @@
 ---
-title: 'How to fix Error Code: 2013. Lost connection to MySQL server during query'
+title: 'ERROR 2013 (HY000): Lost connection to MySQL server during query'
 ---
 
 ## Error Message
-
-When encountering MySQL Error 2013, you'll see a message similar to:
 
 ```sql
 Error Code: 2013. Lost connection to MySQL server during query
 ```
 
-## What It Means
+## Description
 
 This error occurs when an established connection between the client and MySQL server is unexpectedly terminated during query execution. The connection could be lost due to network issues, server timeouts, or the server being overloaded.
 
-## Common Causes
+## Causes
 
-1. **Network instability**: Temporary network disruptions between client and server
-2. **Query timeout**: Long-running queries exceeding timeout settings
-3. **Server-side issues**: MySQL server crash, restart, or resource exhaustion
-4. **Insufficient buffer sizes**: `max_allowed_packet` or other buffer settings too small
-5. **Firewall interruptions**: Firewall or security software terminating idle connections
-6. **Memory limitations**: Server runs out of memory while processing large queries
-7. **Connection timeout**: Client connection idle for too long
+- Temporary network disruptions between client and server
+- Long-running queries exceeding timeout settings
+- MySQL server crash, restart, or resource exhaustion
+- `max_allowed_packet` or other buffer settings too small
+- Firewall or security software terminating idle connections
+- Server runs out of memory while processing large queries
+- Client connection idle for too long
 
-## How to Fix
+## Solutions
 
-### Solution 1: Increase Timeout Settings
+1. **Increase timeout settings**:
 
-Modify the timeout settings in the MySQL configuration:
+   ```sql
+   -- Check current timeout values
+   SHOW VARIABLES LIKE '%timeout%';
+   SHOW VARIABLES LIKE '%wait_timeout%';
 
-```sql
--- Check current timeout values
-SHOW VARIABLES LIKE '%timeout%';
-SHOW VARIABLES LIKE '%wait_timeout%';
-SHOW VARIABLES LIKE '%interactive_timeout%';
+   -- Set longer timeout values
+   SET GLOBAL net_read_timeout = 600;
+   SET GLOBAL net_write_timeout = 600;
+   SET GLOBAL wait_timeout = 28800;
+   ```
 
--- Set longer timeout values (server-side)
-SET GLOBAL net_read_timeout = 600;
-SET GLOBAL net_write_timeout = 600;
-SET GLOBAL wait_timeout = 28800;
-SET GLOBAL interactive_timeout = 28800;
-```
+   Make changes permanent in the MySQL configuration file (my.cnf):
 
-Make these changes permanent in the MySQL configuration file (my.cnf):
+   ```ini
+   [mysqld]
+   net_read_timeout = 600
+   net_write_timeout = 600
+   wait_timeout = 28800
+   ```
 
-```ini
-[mysqld]
-net_read_timeout = 600
-net_write_timeout = 600
-wait_timeout = 28800
-interactive_timeout = 28800
-```
+2. **Increase buffer size**:
 
-### Solution 2: Increase Buffer Size
+   ```sql
+   -- Check current packet size
+   SHOW VARIABLES LIKE 'max_allowed_packet';
 
-Increase the maximum allowed packet size:
+   -- Increase packet size
+   SET GLOBAL max_allowed_packet = 1073741824; -- 1GB
+   ```
 
-```sql
--- Check current packet size
-SHOW VARIABLES LIKE 'max_allowed_packet';
+3. **Optimize long-running queries**:
 
--- Increase packet size
-SET GLOBAL max_allowed_packet = 1073741824; -- 1GB
-```
+   ```sql
+   -- Add proper indexing
+   CREATE INDEX idx_column_name ON table_name(column_name);
 
-Update my.cnf for persistence:
+   -- Break large transactions into smaller ones
+   ```
 
-```ini
-[mysqld]
-max_allowed_packet = 1G
-```
+4. **Implement connection pooling** in your application:
+   - Use connection pooling libraries appropriate for your language
+   - Configure proper retry logic
 
-### Solution 3: Optimize Long-Running Queries
+## Prevention
 
-Identify and optimize problematic queries:
+1. **Configure resilient connections**:
 
-```sql
--- Add proper indexing
-CREATE INDEX idx_column_name ON table_name(column_name);
+   - Set appropriate timeouts
+   - Use keepalive settings
+   - Implement automatic reconnection
 
--- Break large transactions into smaller ones
--- Instead of updating 1 million rows at once, do batches of 10,000
-```
+2. **Monitor long-running queries**:
 
-### Solution 4: Implement Connection Pooling
+   ```sql
+   -- Enable the slow query log
+   SET GLOBAL slow_query_log = 1;
+   SET GLOBAL long_query_time = 10; -- Log queries taking over 10 seconds
+   ```
 
-Use connection pooling in your application to manage connections more efficiently:
+3. **Add indexes to improve query performance**:
 
-- **Java**: HikariCP, C3P0, or DBCP
-- **PHP**: PDO persistent connections
-- **Node.js**: mysql2 with connection pooling
-- **Python**: SQLAlchemy with connection pooling
+   ```sql
+   -- Identify missing indexes
+   EXPLAIN SELECT * FROM large_table WHERE unindexed_column = 'value';
+   ```
 
-### Solution 5: Network Configuration
-
-Check and improve network stability:
-
-```bash
-# Test network stability
-ping mysql-host
-
-# Check for packet loss
-traceroute mysql-host
-
-# Increase TCP keepalive settings on client
-echo 60 > /proc/sys/net/ipv4/tcp_keepalive_time
-```
-
-### Solution 6: Configure Persistent Connections
-
-Add keepalive settings to your MySQL client:
-
-```ini
-[client]
-# For the mysql command-line client
-reconnect = 1
-```
-
-For application code, implement reconnection logic and proper error handling.
-
-### Solution 7: Monitor and Increase Server Resources
-
-If the server is resource-constrained:
-
-```sql
--- Check for high memory usage and running processes
-SHOW PROCESSLIST;
-```
-
-Consider increasing:
-
-- Server RAM allocation
-- CPU resources
-- Swap space
-- InnoDB buffer pool size
-
-## Cloud Vendor Considerations
-
-When using cloud-based MySQL services:
-
-- **AWS RDS**: Check and adjust Parameter Groups for timeout settings
-- **Google Cloud SQL**: Configure database flags for connection parameters
-- **Azure Database for MySQL**: Adjust server parameters in the Azure portal
-- **Amazon Aurora**: Check for cluster failovers that might interrupt connections
-
-For long-running operations in cloud environments, consider:
-
-- Using maintenance windows for large operations
-- Implementing retry logic in applications
-- Taking advantage of vendor-specific proxy services (e.g., Amazon RDS Proxy)
-- Monitoring connection metrics in the cloud provider's dashboard
+4. **Implement proper error handling and retry logic** in your application code

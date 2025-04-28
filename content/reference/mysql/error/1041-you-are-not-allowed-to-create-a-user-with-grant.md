@@ -1,97 +1,79 @@
 ---
-title: 'How to fix ERROR 1041 (42000): You are not allowed to create a user with GRANT'
+title: 'ERROR 1410 (42000): You are not allowed to create a user with GRANT'
 ---
 
 ## Error Message
-
-When encountering MySQL Error 1410, you'll see a message similar to:
 
 ```sql
 ERROR 1410 (42000): You are not allowed to create a user with GRANT
 ```
 
-## What It Means
+## Description
 
-This error occurs when attempting to create a new MySQL user and grant privileges in a single statement using MySQL 8.0 or later versions.
+This error occurs when attempting to create a new MySQL user and grant privileges in a single statement using MySQL 8.0 or later versions. MySQL no longer allows the implicit creation of users through the GRANT statement, which was possible in earlier versions.
 
-The error indicates that MySQL no longer allows the implicit creation of users through the GRANT statement, which was possible in earlier versions.
+## Causes
 
-## Common Causes
+- Using pre-MySQL 8.0 syntax to create users with GRANT
+- Trying to grant privileges to a non-existent user
+- Recently upgraded to MySQL 8.0 without updating scripts
+- Incorrectly specified user causing MySQL to attempt user creation
+- Using deprecated authentication methods
+- Lacking permissions to create users
 
-1. **Using old MySQL syntax**: Attempting to use pre-MySQL 8.0 syntax to create users with GRANT
-2. **Missing CREATE USER statement**: Trying to grant privileges to a non-existent user
-3. **Upgrade-related issues**: Recently upgraded to MySQL 8.0 without updating scripts
-4. **Typos in username or hostname**: Incorrectly specified user causing MySQL to attempt user creation
-5. **Authentication plugin conflicts**: Using deprecated authentication methods
-6. **Insufficient administrative privileges**: Lacking permissions to create users
+## Solutions
 
-## How to Fix
+1. **Use the two-step approach**:
 
-### Solution 1: Use the Two-Step Approach
+   ```sql
+   -- Step 1: Create the user
+   CREATE USER 'username'@'hostname' IDENTIFIED BY 'password';
 
-Create the user first, then grant privileges separately:
+   -- Step 2: Grant privileges
+   GRANT SELECT, INSERT, UPDATE ON database_name.* TO 'username'@'hostname';
 
-```sql
--- Step 1: Create the user
-CREATE USER 'username'@'hostname' IDENTIFIED BY 'password';
+   -- Apply the changes
+   FLUSH PRIVILEGES;
+   ```
 
--- Step 2: Grant privileges
-GRANT SELECT, INSERT, UPDATE ON database_name.* TO 'username'@'hostname';
+2. **Verify user existence before granting**:
 
--- Apply the changes
-FLUSH PRIVILEGES;
-```
+   ```sql
+   -- List all users
+   SELECT user, host FROM mysql.user;
 
-### Solution 2: Verify User Existence
+   -- Create the user only if needed
+   CREATE USER IF NOT EXISTS 'username'@'hostname' IDENTIFIED BY 'password';
+   ```
 
-Check if the user already exists before granting privileges:
+3. **Use compatible authentication plugins** for older clients:
 
-```sql
--- List all users
-SELECT user, host FROM mysql.user;
+   ```sql
+   -- Create user with mysql_native_password authentication
+   CREATE USER 'username'@'hostname' IDENTIFIED WITH mysql_native_password BY 'password';
 
--- Create the user only if needed
-CREATE USER IF NOT EXISTS 'username'@'hostname' IDENTIFIED BY 'password';
-```
+   -- Grant privileges
+   GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'hostname';
+   FLUSH PRIVILEGES;
+   ```
 
-### Solution 3: Check for Host Configuration Issues
+## Prevention
 
-Verify and fix user host settings:
+1. **Update scripts and applications** for MySQL 8.0 compatibility:
 
-```sql
--- Check existing users and their hosts
-SELECT user, host FROM mysql.user WHERE user = 'username';
+   - Always create users explicitly with CREATE USER
+   - Then grant privileges separately
 
--- Create user with correct hostname
-CREATE USER 'username'@'hostname' IDENTIFIED BY 'password';
+2. **Use IF NOT EXISTS clause** to prevent errors:
 
--- Grant privileges to the correct user-host combination
-GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'hostname';
-FLUSH PRIVILEGES;
-```
+   ```sql
+   CREATE USER IF NOT EXISTS 'username'@'hostname' IDENTIFIED BY 'password';
+   ```
 
-### Solution 4: Enable Remote Access
+3. **Check user existence programmatically** before executing statements:
 
-For users connecting from remote hosts:
+   ```sql
+   SELECT EXISTS(SELECT 1 FROM mysql.user WHERE user = 'username' AND host = 'hostname');
+   ```
 
-```sql
--- Create user for remote connections
-CREATE USER 'username'@'%' IDENTIFIED BY 'password';
-
--- Grant privileges for remote access
-GRANT SELECT, INSERT, UPDATE ON database_name.* TO 'username'@'%';
-FLUSH PRIVILEGES;
-```
-
-### Solution 5: Address Authentication Plugin Issues
-
-Use compatible authentication plugins for older clients:
-
-```sql
--- Create user with mysql_native_password authentication
-CREATE USER 'username'@'hostname' IDENTIFIED WITH mysql_native_password BY 'password';
-
--- Grant privileges
-GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'hostname';
-FLUSH PRIVILEGES;
-```
+4. **Use version-specific code paths** in applications that need to support multiple MySQL versions
