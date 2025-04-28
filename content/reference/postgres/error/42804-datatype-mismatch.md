@@ -77,4 +77,4 @@ This error occurs when you try to assign a value of one data type to a column of
 
 PostgreSQL provides many type conversion functions like `to_number()`, `to_char()`, and `to_timestamp()` that can be useful for complex conversions.
 
-<HintBlock type="info">
+</HintBlock>
