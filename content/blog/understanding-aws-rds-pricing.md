@@ -12,8 +12,6 @@ description: Explain the pricing details of AWS RDS
 | -------------- | --------------------------------------------------- |
 | 2024/04/28     | Initial version.                                    |
 
-# Understanding AWS RDS Pricing
-
 Amazon Relational Database Service (RDS) offers a fully managed database solution that simplifies setup, operation, and scaling of relational databases in the cloud. Understanding its pricing structure is essential for optimizing costs and making informed decisions for your database deployments. This article breaks down AWS RDS pricing components with specific examples from the US East (N. Virginia) region to help you better understand and manage your database costs.
 
 ## Introduction to AWS RDS Pricing
