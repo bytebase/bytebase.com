@@ -3,7 +3,7 @@
 
 ## [Overview](/reference/mysql/error/overview)
 
-## Connection Errors
+## Connection
 
 ### [ERROR 1040 (HY000): Too Many Connections](/reference/mysql/error/1040-too-many-connections)
 
@@ -15,7 +15,7 @@
 
 ### [ERROR 2013 (HY000): Lost connection to MySQL server during query](/reference/mysql/error/2013-lost-connection-mysql-server)
 
-## Privilege Errors
+## Privilege
 
 ### [ERROR 1041 (42000): You are not allowed to create a user with GRANT](/reference/mysql/error/1041-you-are-not-allowed-to-create-a-user-with-grant)
 
@@ -29,7 +29,7 @@
 
 ### [ERROR 1396 (HY000): Operation failed for user](/reference/mysql/error/1396-operation-failed-for-user)
 
-## Data Modification Errors
+## Data Modification
 
 ### [ERROR 1062 (23000): Duplicate entry](/reference/mysql/error/1062-duplicate-entry)
 
@@ -39,7 +39,7 @@
 
 ### [ERROR 1213 (40001): Deadlock found when trying to get lock](/reference/mysql/error/1213-deadlock-found)
 
-## Foreign Key Errors
+## Foreign Key
 
 ### [ERROR 1215 (HY000): Cannot add foreign key constraint](/reference/mysql/error/1215-cannot-add-foreign-key)
 
