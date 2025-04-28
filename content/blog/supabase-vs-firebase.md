@@ -38,7 +38,7 @@ Supabase and Firebase are two leading **Backend-as-a-Service (BaaS) platforms** 
 | **Offline Support** | Basic, still evolving | Comprehensive, mature |
 | **Functions** | Edge Functions (Deno) | Cloud Functions (Node.js, Python, Go, etc.) |
 | **Storage** | S3-compatible with RLS | Google Cloud Storage with Security Rules |
-| **AI/ML** | Vector database for embeddings | Firebase ML, Vertex AI integration |
+| **AI/ML** | Vector database for embeddings, OpenAI/Hugging Face integrations, RAG support | Firebase Studio, Genkit, Gemini API integration, Vertex AI |
 | **Pricing Model** | Predictable tiered pricing | Usage-based, pay-as-you-go |
 | **Self-hosting** | Available | Not available |
 | **Best For** | Data-intensive apps, SQL expertise, complex relationships | Mobile apps, real-time features, rapid prototyping |
@@ -105,6 +105,24 @@ Firebase leads in offline resilience and real-time maturity, while Supabase offe
 **Firebase Cloud Functions** support multiple runtimes, including **Node.js, Python, and Go**, and can be triggered by a wide range of events — such as HTTP requests, Firestore updates, authentication events, and Pub/Sub messages. They are deeply integrated with Google Cloud Platform for scalability and flexibility.
 
 Supabase Edge Functions are **lightweight, TypeScript-native, and database-aware**, while Firebase Cloud Functions provide **broad language support, rich trigger options, and tight integration** with the wider Google Cloud ecosystem.
+
+## AI and Machine Learning
+
+**Firebase** offers a comprehensive, cloud-based AI development ecosystem:
+
+- **Firebase Studio**: Cloud development environment for AI apps with Gemini integration.
+- **Genkit**: Open-source framework for building AI features with generative models.
+- **Vertex AI Integration**: Direct access to Google's Gemini models for text, image, video, and audio.
+- **AI-assisted Development**: Gemini assistance for coding and app development.
+
+**Supabase** takes a database-centric approach to AI:
+
+- **Vector Database (pgvector)**: PostgreSQL extension for vector similarity search.
+- **AI Toolkit**: Tools for storing, indexing, and querying vector embeddings.
+- **Semantic Search**: Built-in capabilities for meaning-based search.
+- **AI Integrations**: Support for OpenAI, Hugging Face, LangChain, and other providers.
+
+**Firebase** excels with its fully integrated AI development environment and seamless access to Google's advanced models. **Supabase** shines by offering flexible, database-native AI capabilities built on PostgreSQL, ideal for developers who want tight control over their AI data infrastructure.
 
 ## Pricing Models
 
