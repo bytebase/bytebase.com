@@ -21,6 +21,8 @@
 
 ## [How to enable pg_stat_statements](/reference/postgres/how-to/how-to-enable-pg-stat-statements-postgres)
 
+## [How to show Postgres locks](/reference/postgres/how-to/how-to-show-postgres-locks)
+
 ## [How to enable auditing](/reference/postgres/how-to/how-to-enable-auditing-postgres)
 
 ## [How to use SERIAL](/reference/postgres/how-to/how-to-use-serial-postgres)
