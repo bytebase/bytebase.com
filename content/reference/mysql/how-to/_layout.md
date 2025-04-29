@@ -17,6 +17,8 @@
 
 ## [How to enable slow query log](/reference/mysql/how-to/how-to-enable-slow-query-log-mysql)
 
+## [How to show locks in InnoDB](/reference/mysql/how-to/how-to-show-mysql-locks)
+
 ## [How to enable auditing](/reference/mysql/how-to/how-to-enable-auditing-mysql)
 
 ## [How to use AUTO_INCREMENT](/reference/mysql/how-to/how-to-use-auto-increment-mysql)
