@@ -1,5 +1,5 @@
 ---
-title: MySQL Security Best Practices
+title: MySQL security best practices
 updated_at: 2025/04/10 12:00:00
 ---
 

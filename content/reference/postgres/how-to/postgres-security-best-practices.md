@@ -1,5 +1,5 @@
 ---
-title: Postgres Security Best Practices
+title: Postgres security best practices
 updated_at: 2025/04/09 12:00:00
 ---
 
