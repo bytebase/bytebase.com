@@ -8,9 +8,9 @@ featured: true
 description: Explain the pricing details of AWS RDS
 ---
 
-| Update History | Comment                                             |
-| -------------- | --------------------------------------------------- |
-| 2024/04/28     | Initial version.                                    |
+| Update History | Comment          |
+| -------------- | ---------------- |
+| 2025/04/28     | Initial version. |
 
 Amazon Relational Database Service (RDS) offers a fully managed database solution that simplifies setup, operation, and scaling of relational databases in the cloud. Understanding its pricing structure is essential for optimizing costs and making informed decisions for your database deployments. This article breaks down AWS RDS pricing components with specific examples from the US East (N. Virginia) region to help you better understand and manage your database costs.
 
@@ -44,10 +44,10 @@ Database costs depend on the instance type and size you select. AWS offers diffe
 **Example pricing (US East - N. Virginia):**
 
 | Instance Type | vCPU | RAM (GiB) | On-Demand Price (Hourly) |
-|:--------------|:----:|:---------:|:------------------------:|
-| db.t3.micro   |  1   |     1     |         ~$0.017           |
-| db.m5.large   |  2   |     8     |         ~$0.171           |
-| db.r5.large   |  2   |    16     |         ~$0.226           |
+| :------------ | :--: | :-------: | :----------------------: |
+| db.t3.micro   |  1   |     1     |         ~$0.017          |
+| db.m5.large   |  2   |     8     |         ~$0.171          |
+| db.r5.large   |  2   |    16     |         ~$0.226          |
 
 T-class instances (T3, T4g) use a CPU credit model.  
 If you exceed the baseline, additional CPU credits are billed at **$0.075 per vCPU-Hour**.
@@ -67,11 +67,11 @@ AWS RDS offers three types of storage:
 
 **Example Pricing (US East - N. Virginia):**
 
-| Storage Type                | Price per GB-Month | IOPS/Throughput Details                                   |
-|:-----------------------------|:------------------:|:--------------------------------------------------------:|
-| General Purpose SSD (gp3)    |     ~$0.115         | 3,000 baseline IOPS, 125 MB/s; extra IOPS: ~$0.08/IOPS-month; extra throughput: ~$0.065/MB/s-month |
-| Provisioned IOPS SSD (io1/io2)|     ~$0.125         | Provision 1,000–256,000 IOPS; extra IOPS: ~$0.10/IOPS-month |
-| Magnetic Storage (legacy)    |     ~$0.10          | Legacy option; not recommended for new use               |
+| Storage Type                   | Price per GB-Month |                                      IOPS/Throughput Details                                       |
+| :----------------------------- | :----------------: | :------------------------------------------------------------------------------------------------: |
+| General Purpose SSD (gp3)      |      ~$0.115       | 3,000 baseline IOPS, 125 MB/s; extra IOPS: ~$0.08/IOPS-month; extra throughput: ~$0.065/MB/s-month |
+| Provisioned IOPS SSD (io1/io2) |      ~$0.125       |                    Provision 1,000–256,000 IOPS; extra IOPS: ~$0.10/IOPS-month                     |
+| Magnetic Storage (legacy)      |       ~$0.10       |                             Legacy option; not recommended for new use                             |
 
 - **gp3** storage includes a generous baseline; extra IOPS and throughput cost extra.
 - **Provisioned IOPS** allows fine-tuning performance, but at a higher price.
@@ -97,8 +97,8 @@ Data transfer costs depend on the source and destination:
 
 **Notes:**
 
-- Transfers **within the same AZ** are free, minimizing costs.  
-- **Cross-AZ** transfers outside of Multi-AZ setups can add up if not carefully designed.  
+- Transfers **within the same AZ** are free, minimizing costs.
+- **Cross-AZ** transfers outside of Multi-AZ setups can add up if not carefully designed.
 - Internet outbound traffic is the most expensive part — watch your usage if serving external clients.
 
 ### 5. Zero-ETL Integration Costs
@@ -147,11 +147,11 @@ Reserved Instances (RIs) offer up to **72% savings** over On-Demand pricing in e
 
 **Example (US East - N. Virginia, db.m5.large):**
 
-| Purchase Option      | Effective Price  | Annual/Total Cost | Savings   |
-|:---------------------|:-----------------:|:-----------------:|:---------:|
-| On-Demand             | ~$0.171/hour       | ~$1,498/year       | —         |
-| 1-year RI (No Upfront)| ~$0.109/hour       | ~$955/year         | ~36%      |
-| 3-year RI (All Upfront)| ~$0.048/hour      | ~$1,259 for 3 years| ~72%      |
+| Purchase Option         | Effective Price |  Annual/Total Cost  | Savings |
+| :---------------------- | :-------------: | :-----------------: | :-----: |
+| On-Demand               |  ~$0.171/hour   |    ~$1,498/year     |    —    |
+| 1-year RI (No Upfront)  |  ~$0.109/hour   |     ~$955/year      |  ~36%   |
+| 3-year RI (All Upfront) |  ~$0.048/hour   | ~$1,259 for 3 years |  ~72%   |
 
 ### 3. Storage Optimization
 
@@ -188,12 +188,12 @@ Reserved Instances (RIs) offer up to **72% savings** over On-Demand pricing in e
 
 **Monthly Cost Estimate:**
 
-| Item               | Calculation                     | Cost    |
-|:-------------------|:---------------------------------|:-------:|
-| Instance            | $0.034/hour × 730 hours          | ~$24.82 |
-| Storage             | 20 GB × $0.115/GB                | ~$2.30  |
-| Backup Storage      | Within free tier                 | Free    |
-| **Total**           |                                 | **~$27.12/month** |
+| Item           | Calculation             |       Cost        |
+| :------------- | :---------------------- | :---------------: |
+| Instance       | $0.034/hour × 730 hours |      ~$24.82      |
+| Storage        | 20 GB × $0.115/GB       |      ~$2.30       |
+| Backup Storage | Within free tier        |       Free        |
+| **Total**      |                         | **~$27.12/month** |
 
 ### Medium Workload (Small Production)
 
@@ -205,12 +205,12 @@ Reserved Instances (RIs) offer up to **72% savings** over On-Demand pricing in e
 
 **Monthly Cost Estimate:**
 
-| Item               | Calculation                                     | Cost     |
-|:-------------------|:-------------------------------------------------|:--------:|
-| Instance            | $0.171/hour × 2 × 730 hours                     | ~$249.66 |
-| Storage             | 100 GB × $0.115/GB × 2                          | ~$23.00  |
-| Backup Storage      | Within free tier                                | Free     |
-| **Total**           |                                                 | **~$272.66/month** |
+| Item           | Calculation                 |        Cost        |
+| :------------- | :-------------------------- | :----------------: |
+| Instance       | $0.171/hour × 2 × 730 hours |      ~$249.66      |
+| Storage        | 100 GB × $0.115/GB × 2      |      ~$23.00       |
+| Backup Storage | Within free tier            |        Free        |
+| **Total**      |                             | **~$272.66/month** |
 
 ### Large Workload (Enterprise Production)
 
@@ -222,13 +222,13 @@ Reserved Instances (RIs) offer up to **72% savings** over On-Demand pricing in e
 
 **Monthly Cost Estimate:**
 
-| Item               | Calculation                                         | Cost       |
-|:-------------------|:-----------------------------------------------------|:----------:|
-| Instance            | $0.904/hour × 2 × 730 hours                          | ~$1,319.84 |
-| Storage             | 1,000 GB × $0.125/GB × 2                             | ~$250.00   |
-| Provisioned IOPS    | 5,000 IOPS × $0.10/IOPS-month × 2                    | ~$1,000.00 |
-| Backup Storage      | 500 GB × $0.095/GB (first 1,000 GB free)              | ~$47.50    |
-| **Total**           |                                                     | **~$2,617.34/month** |
+| Item             | Calculation                              |         Cost         |
+| :--------------- | :--------------------------------------- | :------------------: |
+| Instance         | $0.904/hour × 2 × 730 hours              |      ~$1,319.84      |
+| Storage          | 1,000 GB × $0.125/GB × 2                 |       ~$250.00       |
+| Provisioned IOPS | 5,000 IOPS × $0.10/IOPS-month × 2        |      ~$1,000.00      |
+| Backup Storage   | 500 GB × $0.095/GB (first 1,000 GB free) |       ~$47.50        |
+| **Total**        |                                          | **~$2,617.34/month** |
 
 ## Conclusion
 
