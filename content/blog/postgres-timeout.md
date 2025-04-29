@@ -1,15 +1,46 @@
 ---
 title: Postgres Timeout Explained
 author: Tianzhou
-updated_at: 2024/08/10 18:00
+updated_at: 2025/04/29 18:00
 feature_image: /content/blog/postgres-timeout/banner.webp
 tags: Explanation
-featured: true
 description: Explain why Postgres provides a variety of timeout settings.
 ---
 
 PostgreSQL offers various timeout settings to help manage and optimize database operations by controlling the duration of certain processes.
 These timeouts are crucial for ensuring the stability and performance of your system, particularly in environments with high traffic or complex queries. Let's review each of them.
+
+## lock_timeout
+
+[lock_timeout](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT) controls how long a transaction will wait to acquire a lock on a database object before giving up with an error:
+
+```plain
+ERROR:  canceling statement due to lock timeout
+```
+
+**The Lock Queue Problem with DDL Operations**
+
+DDL operations require `ACCESS EXCLUSIVE` locks that conflict with all other lock types, creating a blocking chain:
+
+1. **Lock Acquisition Order**: First transaction holds a basic lock → DDL waits for exclusive access → All subsequent transactions wait behind the DDL
+1. **Cascading Effect**: Without timeout limits, a single blocked DDL can halt all database activity
+
+**Visual Example of a Lock Queue**
+
+```bash
+Transaction 1: Running SELECT (has ROW SHARE lock)
+Transaction 2: Waiting for ALTER TABLE (needs ACCESS EXCLUSIVE lock)
+Transaction 3: Waiting for SELECT (needs ROW SHARE lock)
+Transaction 4: Waiting for INSERT (needs ROW EXCLUSIVE lock)
+```
+
+To mitigate the issue, create a dedicated DDL user with `lock_timeout`:
+
+```sql
+-- Create a dedicated user with appropriate timeout
+CREATE ROLE ddl_user WITH LOGIN PASSWORD 'secure_password';
+ALTER ROLE ddl_user SET lock_timeout = 10000; -- 10 seconds
+```
 
 ## statement_timeout
 
@@ -21,20 +52,6 @@ ERROR:  canceling statement due to statement timeout
 ```
 
 If multiple SQL statements appear in a single simple-Query message, the timeout is applied to each statement separately. `statement_timeout` effectively preventing long-running queries from consuming too many resources or causing performance issues in your database.
-
-## lock_timeout
-
-[lock_timeout](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT) controls how long a transaction will wait to acquire a lock on a database object, such as a table or a row, before giving up and returning an error.
-
-```plain
-ERROR:  canceling statement due to lock timeout
-```
-
-In Postgres, a transaction waiting to acquire a lock on a resource will block incoming transactions that need a conflicting lock on the same resource. For transactions acquring heavyweight locks such as running DDL statements, it's recommnended to set `lock_timeout`. A common practice is to create a separate Postgres user to run the DDL and set a short `lock_timeout` on that user.
-
-```sql
-ALTER ROLE ddl_user SET lock_timeout = 10000; -- 10 seconds
-```
 
 ## idle_in_transaction_session_timeout
 
