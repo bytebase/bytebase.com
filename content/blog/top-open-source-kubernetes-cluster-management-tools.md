@@ -31,7 +31,7 @@ Key evaluation factors for Kubernetes cluster management tools include:
 
 ## Argo CD
 
-![argocd](/content/blog/top-open-source-kubernetes-cluster-management-tools/argocd.gif)
+![argocd](/content/blog/top-open-source-kubernetes-cluster-management-tools/argocd.webp)
 
 [Argo CD](https://github.com/argoproj/argo-cd) is a declarative, GitOps continuous delivery tool for Kubernetes that automates synchronization between application definitions in Git and their deployed state.
 
