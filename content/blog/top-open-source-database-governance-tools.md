@@ -7,15 +7,13 @@ tags: Industry
 description: Database governance tools help organizations manage database changes, enforce policies, and maintain data quality. This post explores the top open-source database governance tools available in 2025.
 ---
 
-## Introduction
-
 As organizations scale their database operations, the need for proper governance becomes critical. Database governance tools help teams manage database changes safely, enforce access control policies, track schema migrations, and maintain compliance.
 
 This article examines the leading open-source database governance solutions to help you select the right tool for your requirements.
 
 ## OpenMetadata
 
-[OpenMetadata](https://open-metadata.org) is an open-source platform for data discovery, observability, and governance built around a central metadata repository.
+[OpenMetadata](https://github.com/open-metadata/OpenMetadata) is an open-source platform for data discovery, observability, and governance built around a central metadata repository.
 
 ![OpenMetadata](/content/blog/top-open-source-database-governance-tools/openmetadata.webp)
 
@@ -25,7 +23,7 @@ The platform provides collaborative workflows for metadata enrichment, detailed 
 
 ## DataHub
 
-[DataHub](https://datahub.com) is an open-source metadata platform for the modern data stack, enabling data discovery, observability, and governance.
+[DataHub](https://github.com/datahub-project/datahub) is an open-source metadata platform for the modern data stack, enabling data discovery, observability, and governance.
 
 ![DataHub](/content/blog/top-open-source-database-governance-tools/datahub.webp)
 
@@ -45,7 +43,7 @@ Key strengths include its robust security integration with Apache Ranger, flexib
 
 ## Amundsen
 
-[Amundsen](https://www.amundsen.io) is an open-source data discovery and metadata platform that improves data accessibility within organizations.
+[Amundsen](https://github.com/amundsen-io/amundsen) is an open-source data discovery and metadata platform that improves data accessibility within organizations.
 
 ![Amundsen](/content/blog/top-open-source-database-governance-tools/amundsen.webp)
 
