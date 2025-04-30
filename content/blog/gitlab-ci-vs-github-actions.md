@@ -21,15 +21,15 @@ Continuous Integration and Delivery (CI/CD) are key to modern software developme
 
 ## Comparison Table
 
-| Category | GitLab CI | GitHub Actions |
-|:---|:---|:---|
-| **Configuration and Setup** | Single file to define the entire pipeline | Multiple YAML files for specific workflows |
-| **Integration with Platform** | Fully integrated into GitLab's all-in-one DevOps platform | Native integration with GitHub repository-centric workflow |
-| **Execution Environment** | Self-hosted or GitLab.com-hosted runners | GitHub-hosted or self-hosted runners |
-| **Pricing Model** | Free (400 min), Premium ($29/user/mo for 10,000 min), Ultimate (Contact sales) | Free (2,000 min), Team ($4/user/mo for 3,000 min), Enterprise (from $21/user/mo for 50,000 min) |
-| **Ecosystem and Reusability** | CI/CD catalog, reusable components, share across projects | Huge Marketplace, reusable workflows, strong community-contributed actions |
-| **Advanced Features** | Merge trains, parent-child pipelines, security/compliance tools, canary deployments | Matrix builds, workflow reuse, environment protection, scheduled/manual workflows |
-| **Ease of Use** | More powerful but steeper learning curve | Easier to start with event-driven and marketplace-driven workflows |
+| Category                      | GitLab CI                                                                           | GitHub Actions                                                                                  |
+| :---------------------------- | :---------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------- |
+| **Configuration and Setup**   | Single file to define the entire pipeline                                           | Multiple YAML files for specific workflows                                                      |
+| **Integration with Platform** | Fully integrated into GitLab's all-in-one DevOps platform                           | Native integration with GitHub repository-centric workflow                                      |
+| **Execution Environment**     | Self-hosted or GitLab.com-hosted runners                                            | GitHub-hosted or self-hosted runners                                                            |
+| **Pricing Model**             | Free (400 min), Premium ($29/user/mo for 10,000 min), Ultimate (Contact sales)      | Free (2,000 min), Team ($4/user/mo for 3,000 min), Enterprise (from $21/user/mo for 50,000 min) |
+| **Ecosystem and Reusability** | CI/CD catalog, reusable components, share across projects                           | Huge Marketplace, reusable workflows, strong community-contributed actions                      |
+| **Advanced Features**         | Merge trains, parent-child pipelines, security/compliance tools, canary deployments | Matrix builds, workflow reuse, environment protection, scheduled/manual workflows               |
+| **Ease of Use**               | More powerful but steeper learning curve                                            | Easier to start with event-driven and marketplace-driven workflows                              |
 
 ## Detailed Comparison
 
@@ -70,11 +70,11 @@ Both platforms offer similar options for running your CI/CD jobs:
 
 ### Pricing Model
 
-| Plan | GitLab CI | GitHub Actions |
-|:---|:---|:---|
-| Free | $0/user/month, 400 minutes | $0/user/month, 2,000 minutes |
-| Team / Premium | $29/user/month (10,000 minutes) | $4/user/month (3,000 minutes) |
-| Enterprise / Ultimate | Contact sales (50,000 minutes) | From $21/user/month (50,000 minutes) |
+| Plan                  | GitLab CI                       | GitHub Actions                       |
+| :-------------------- | :------------------------------ | :----------------------------------- |
+| Free                  | $0/user/month, 400 minutes      | $0/user/month, 2,000 minutes         |
+| Team / Premium        | $29/user/month (10,000 minutes) | $4/user/month (3,000 minutes)        |
+| Enterprise / Ultimate | Contact sales (50,000 minutes)  | From $21/user/month (50,000 minutes) |
 
 **GitHub Actions** is **more affordable** at the **Team** level compared to GitLab's **Premium** pricing, making it attractive for **smaller teams**.
 
@@ -109,10 +109,6 @@ GitHub Actions has a larger marketplace of pre-built components, making it easie
 - **Workflow reuse:** Share and reuse workflows across multiple repositories.
 - **Environment protection:** Set rules to control deployments to sensitive environments.
 - **Scheduled and manual workflows:** Run workflows on a schedule or trigger them manually when needed.
-
-In short:
-- **GitLab CI** offers more advanced tools for complex, enterprise-level setups.
-- **GitHub Actions** focuses on simplicity and covers the most common CI/CD needs very well.
 
 ### Ease of Use
 
