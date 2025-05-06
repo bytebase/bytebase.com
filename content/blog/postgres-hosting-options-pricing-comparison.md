@@ -1,7 +1,7 @@
 ---
 title: 'PostgreSQL Hosting Options in 2025: Pricing Comparison'
 author: Ningjing
-updated_at: 2025/04/30 15:00:00
+updated_at: 2025/05/06 15:00:00
 feature_image: /content/blog/postgres-hosting-options-pricing-comparison/banner.webp
 tags: Industry
 description: Compare the price of the mainstream managed PostgreSQL hosting providers
@@ -15,7 +15,7 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 
 | Update History | Comment          |
 | -------------- | ---------------- |
-| 2025/04/30     | Initial version. |
+| 2025/05/06     | Initial version. |
 
 PostgreSQL remains a top choice for relational databases in 2025 due to its reliability, extensibility, and active open-source community. With many hosting options available, choosing the right provider is key to balancing performance, scalability, and cost.
 
