@@ -9,23 +9,11 @@
 
 ## [How to install pg_dump](/reference/postgres/how-to/how-to-install-pgdump-on-mac-ubuntu-centos-windows)
 
-## [Row Level Security (RLS)](/reference/postgres/how-to/postgres-row-level-security)
-
-## [Top psql commands with examples](/reference/postgres/how-to/top-psql-commands-with-examples)
+## [How to check Postgres version](/reference/postgres/how-to/how-to-check-postgres-version)
 
 ## [Postgres Security Best Practices](/reference/postgres/how-to/postgres-security-best-practices)
 
-## [How to manage users and roles](/reference/postgres/how-to/how-to-manage-postgres-users-and-roles)
-
-## [How to check Postgres version](/reference/postgres/how-to/how-to-check-postgres-version)
-
-## [How to enable pg_stat_statements](/reference/postgres/how-to/how-to-enable-pg-stat-statements-postgres)
-
-## [How to show Postgres locks](/reference/postgres/how-to/how-to-show-postgres-locks)
-
-## [How to enable auditing](/reference/postgres/how-to/how-to-enable-auditing-postgres)
-
-## [How to use SERIAL](/reference/postgres/how-to/how-to-use-serial-postgres)
+## [Row Level Security (RLS)](/reference/postgres/how-to/postgres-row-level-security)
 
 ## [How to CREATE TABLE](/reference/postgres/how-to/how-to-create-table-postgres)
 
@@ -44,3 +32,17 @@
 ## [How to ADD CONSTRAINT](/reference/postgres/how-to/how-to-add-constraint-postgres)
 
 ## [How to show and kill running queries](/reference/postgres/how-to/how-to-show-and-kill-postgres-running-queries)
+
+## [How to list tables](/reference/postgres/how-to/how-to-list-tables-postgres)
+
+## [Top psql commands with examples](/reference/postgres/how-to/top-psql-commands-with-examples)
+
+## [How to enable pg_stat_statements](/reference/postgres/how-to/how-to-enable-pg-stat-statements-postgres)
+
+## [How to enable auditing](/reference/postgres/how-to/how-to-enable-auditing-postgres)
+
+## [How to use SERIAL](/reference/postgres/how-to/how-to-use-serial-postgres)
+
+## [How to manage users and roles](/reference/postgres/how-to/how-to-manage-postgres-users-and-roles)
+
+## [How to show Postgres locks](/reference/postgres/how-to/how-to-show-postgres-locks)
