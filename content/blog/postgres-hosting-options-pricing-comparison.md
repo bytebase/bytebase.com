@@ -1,6 +1,6 @@
 ---
 title: 'PostgreSQL Hosting Options in 2025: Pricing Comparison'
-author: Ningjing
+author: Adela
 updated_at: 2025/05/06 15:00:00
 feature_image: /content/blog/postgres-hosting-options-pricing-comparison/banner.webp
 tags: Industry
@@ -35,19 +35,19 @@ Most providers mix these models, with key cost factors including compute, storag
 
 ## Comparison Table
 
-| Provider             | Entry-Level (Monthly)                         | Mid-Range (Monthly)                            | Enterprise-Level (Monthly)                            | Free Tier Available       |
-|----------------------|-----------------------------------------------|------------------------------------------------|-------------------------------------------------------|----------------------------|
-| **AWS RDS**          | $12.41 (db.t4g.micro: 2 vCPU, 1 GiB)          | $99.28 (db.m6g.large: 2 vCPU, 8 GiB)           | $794.24 (db.m6g.4xlarge: 16 vCPU, 64 GiB)             | Yes (12 months)            |
-| **AWS Aurora**       | $59.86 (db.t4g.medium: 2 vCPU, 4 GiB)         | $211.70 (db.r6g.large: 2 vCPU, 16 GiB)         | $1,693.60 (db.r6g.4xlarge: 16 vCPU, 128 GiB)          | Yes (12 months)            |
-| **Google Cloud SQL** | $11.32 (db-f1-micro: 0.2 vCPU, 0.6 GiB)       | $122.49 (db-n1-standard-2: 2 vCPU, 7.5 GiB)    | $980.03 (db-n1-standard-16: 16 vCPU, 60 GiB)          | Yes ($300/90 days)         |
-| **Google AlloyDB**   | $143.68 (2 vCPU, 16 GiB)                      | $301.44 (4 vCPU, 32 GiB)                       | $1,209.60 (16 vCPU, 128 GiB)                          | No                         |
-| **Azure PostgreSQL** | $14.60 (B1ms: 1 vCPU, 2 GiB)                  | $99.28 (GP_Gen5_4: 4 vCPU, 16 GiB)             | $794.24 (GP_Gen5_32: 32 vCPU, 128 GiB)                | Yes (12 months)            |
-| **DigitalOcean**     | $15.00 (1 vCPU, 1 GiB)                        | $60.00 (2 vCPU, 4 GiB)                         | $244.00 (6 vCPU, 16 GiB)                              | No                         |
-| **Aiven**            | Free (2 vCPU, 1 GiB)                          | $110 (4 vCPU, 8 GiB)                           | $435 (8 vCPU, 16 GiB)                                 | Yes                        |
-| **Neon**             | Free (1 vCPU, 1 GiB)                          | $59 (2 vCPU, 4 GiB)                            | $299 (8 vCPU, 16 GiB)                                 | Yes                        |
-| **Supabase**         | Free (1 vCPU, 0.5 GiB)                        | $25 (2 vCPU, 1 GiB)                            | $99 (4 vCPU, 8 GiB)                                   | Yes                        |
-| **Timescale**        | Free (1 vCPU, 1 GiB)                          | $89 (2 vCPU, 4 GiB)                            | $499 (8 vCPU, 16 GiB)                                 | Yes                        |
-| **Heroku Postgres**  | Free (0.5 vCPU, 512 MiB)                      | $50 (1 vCPU, 1 GiB)                            | $500+ (8 vCPU, 16 GiB)                                | Yes                        |
+| Provider             | Entry-Level (Monthly)                   | Mid-Range (Monthly)                         | Enterprise-Level (Monthly)                   | Free Tier Available |
+| -------------------- | --------------------------------------- | ------------------------------------------- | -------------------------------------------- | ------------------- |
+| **AWS RDS**          | $12.41 (db.t4g.micro: 2 vCPU, 1 GiB)    | $99.28 (db.m6g.large: 2 vCPU, 8 GiB)        | $794.24 (db.m6g.4xlarge: 16 vCPU, 64 GiB)    | Yes (12 months)     |
+| **AWS Aurora**       | $59.86 (db.t4g.medium: 2 vCPU, 4 GiB)   | $211.70 (db.r6g.large: 2 vCPU, 16 GiB)      | $1,693.60 (db.r6g.4xlarge: 16 vCPU, 128 GiB) | Yes (12 months)     |
+| **Google Cloud SQL** | $11.32 (db-f1-micro: 0.2 vCPU, 0.6 GiB) | $122.49 (db-n1-standard-2: 2 vCPU, 7.5 GiB) | $980.03 (db-n1-standard-16: 16 vCPU, 60 GiB) | Yes ($300/90 days)  |
+| **Google AlloyDB**   | $143.68 (2 vCPU, 16 GiB)                | $301.44 (4 vCPU, 32 GiB)                    | $1,209.60 (16 vCPU, 128 GiB)                 | No                  |
+| **Azure PostgreSQL** | $14.60 (B1ms: 1 vCPU, 2 GiB)            | $99.28 (GP_Gen5_4: 4 vCPU, 16 GiB)          | $794.24 (GP_Gen5_32: 32 vCPU, 128 GiB)       | Yes (12 months)     |
+| **DigitalOcean**     | $15.00 (1 vCPU, 1 GiB)                  | $60.00 (2 vCPU, 4 GiB)                      | $244.00 (6 vCPU, 16 GiB)                     | No                  |
+| **Aiven**            | Free (2 vCPU, 1 GiB)                    | $110 (4 vCPU, 8 GiB)                        | $435 (8 vCPU, 16 GiB)                        | Yes                 |
+| **Neon**             | Free (1 vCPU, 1 GiB)                    | $59 (2 vCPU, 4 GiB)                         | $299 (8 vCPU, 16 GiB)                        | Yes                 |
+| **Supabase**         | Free (1 vCPU, 0.5 GiB)                  | $25 (2 vCPU, 1 GiB)                         | $99 (4 vCPU, 8 GiB)                          | Yes                 |
+| **Timescale**        | Free (1 vCPU, 1 GiB)                    | $89 (2 vCPU, 4 GiB)                         | $499 (8 vCPU, 16 GiB)                        | Yes                 |
+| **Heroku Postgres**  | Free (0.5 vCPU, 512 MiB)                | $50 (1 vCPU, 1 GiB)                         | $500+ (8 vCPU, 16 GiB)                       | Yes                 |
 
 ## Major Cloud Providers: The Big Three
 
