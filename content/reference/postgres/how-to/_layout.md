@@ -35,6 +35,8 @@
 
 ## [How to list tables](/reference/postgres/how-to/how-to-list-tables-postgres)
 
+## [Default password](/reference/postgres/how-to/postgres-default-password)
+
 ## [Top psql commands with examples](/reference/postgres/how-to/top-psql-commands-with-examples)
 
 ## [How to enable pg_stat_statements](/reference/postgres/how-to/how-to-enable-pg-stat-statements-postgres)
