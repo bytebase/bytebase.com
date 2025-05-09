@@ -1,11 +1,10 @@
 ---
-title: "Aurora vs. RDS: engineering guide to choose the right AWS database for 2025"
+title: 'Aurora vs. RDS: engineering guide to choose the right AWS database for 2025'
 author: Tianzhou
 updated_at: 2025/04/27 18:00
 feature_image: /content/blog/aurora-vs-rds/cover.webp
 tags: Comparison
-description: 'An engineering perspective to evaluate Amazon Aurora and RDS, and help you to choose the right AWS
-database for 2025'
+description: 'An engineering perspective to evaluate Amazon Aurora and RDS, and help you to choose the right AWS database for 2025'
 ---
 
 <HintBlock type="info">
