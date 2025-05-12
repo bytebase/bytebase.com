@@ -3,7 +3,7 @@ import Script from 'next/script';
 import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
 import WechatQRCode from '@/components/wechat-qr-code';
-
+import { Cal } from '@/components/cal';
 import I18nProvider from '@/locales/i18nProvider';
 import PlausibleProvider from 'next-plausible';
 import { getStaticParams } from '@/locales/server';
@@ -32,6 +32,7 @@ export default function RootLayout({ params: { locale }, children }: Props) {
         />
       </head>
       <body className="flex h-full flex-col">
+        <Cal />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=G-4BZ4JH7449`}
           strategy="afterInteractive"
