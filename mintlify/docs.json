@@ -262,7 +262,8 @@
             "pages": [
               "tutorials/gitops-github-workflow",
               "tutorials/sql-review-github-action",
-              "tutorials/gitops-azure-devops-workflow"
+              "tutorials/gitops-azure-devops-workflow",
+              "tutorials/gitops-gitlab-workflow"
             ]
           },
           {
