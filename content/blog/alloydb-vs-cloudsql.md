@@ -9,7 +9,7 @@ description: 'An engineering perspective to evaluate Google AlloyDB and Cloud SQ
 
 <HintBlock type="info">
 
-This post is maintained by Bytebase, an open-source database DevSecOps tool that can manage both Aurora and RDS. We update the post every year.
+This post is maintained by Bytebase, an open-source database DevSecOps tool that can manage both AlloyDB and Cloud SQL. We update the post every year.
 
 </HintBlock>
 
