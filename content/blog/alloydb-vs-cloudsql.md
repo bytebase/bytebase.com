@@ -24,9 +24,7 @@ Both are fully managed, scalable, and highly available — but serve different n
 - **AlloyDB**: High-performance, built for demanding enterprise workloads.  
 - **Cloud SQL**: Flexible, supports PostgreSQL, MySQL, and SQL Server.  
 
-Let's compare their strengths in detail.
-
-## Comparison Table: AlloyDB vs. Cloud SQL
+## Comparison Table
 
 Here is a summary comparison table to provide an at-a-glance overview of their key differences and strengths.
 
