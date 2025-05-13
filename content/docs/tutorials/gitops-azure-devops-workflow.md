@@ -14,7 +14,7 @@ This is part of our database GitOps series with Bytebase:
 
 - [Database GitOps with GitHub Actions](/docs/tutorials/gitops-github-workflow)
 - Database GitOps with Azure DevOps Pipeline (this one)
-- Database GitOps with GitLab CI (TBD)
+- [Database GitOps with GitLab CI](/docs/tutorials/gitops-gitlab-workflow)
 
 ---
 
@@ -24,7 +24,7 @@ This tutorial shows you how to build a database GitOps workflow using Azure DevO
 - Automatically run SQL reviews on pull requests
 - Auto-create and deploy Bytebase releases when merging to `main`
 
-While we use Azure DevOps Pipeline in this guide, you can apply these concepts to other CI platforms like [GitHub Actions](/docs/tutorials/gitops-github-workflow), GitLab CI, or Bitbucket Pipelines using the Bytebase API.
+While we use Azure DevOps Pipeline in this guide, you can apply these concepts to other CI platforms like GitHub Actions, GitLab CI, or Bitbucket Pipelines using the Bytebase API.
 
 <HintBlock type="info">
 
