@@ -2,6 +2,8 @@
 title: Bitbucket
 ---
 
+<TutorialBlock url="/docs/tutorials/gitops-bitbucket-workflow/" title="Database GitOps with Bitbucket Pipelines" />
+
 Visit [example](https://bitbucket.org/p0nyyy/cicd/src/main/) for a complete example.
 
 ## check
