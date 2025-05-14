@@ -133,9 +133,17 @@ expand_section_list: ['Self-host']
 
 ### [Troubleshoot 🐞](/docs/change-database/troubleshoot)
 
-## GitOps
+## GitOps Integrations
 
 ### [Overview](/docs/vcs-integration/overview)
+
+### [GitHub](/docs/vcs-integration/github)
+
+### [GitLab](/docs/vcs-integration/gitlab)
+
+### [Bitbucket](/docs/vcs-integration/bitbucket)
+
+### [Azure DevOps](/docs/vcs-integration/azure-devops)
 
 ### [Release](/docs/vcs-integration/release)
 
