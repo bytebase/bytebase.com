@@ -16,6 +16,7 @@ This is part of our database GitOps series with Bytebase:
 - [Database GitOps with GitHub Actions](/docs/tutorials/gitops-github-workflow)
 - [Database GitOps with Azure DevOps Pipeline](/docs/tutorials/gitops-azure-devops-workflow)
 - Database GitOps with GitLab CI (this one)
+- [Database GitOps with Bitbucket Pipelines](/docs/tutorials/gitops-bitbucket-workflow)
 
 ---
 
@@ -79,7 +80,7 @@ To create migration files to trigger release creation, the files have to match t
 - A migration file should start with digits, which is also its version. e.g. `202505121650_create_table_t1.sql`.
 - A migration file may end with `ddl` or `dml` to indicate its change type. If it doesn't end with any of the two, its change type is DDL by default.
 
-1. Within your forked repository, create the following migration files under `migration` directory:
+1. Within your repository, create the following migration files under `migration` directory:
 
    - 202505121650_create_table_t1.sql
 

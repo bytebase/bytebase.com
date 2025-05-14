@@ -16,6 +16,7 @@ This is part of our database GitOps series with Bytebase:
 - Database GitOps with GitHub Actions (this one)
 - [Database GitOps with Azure DevOps Pipeline](/docs/tutorials/gitops-azure-devops-workflow)
 - [Database GitOps with GitLab CI](/docs/tutorials/gitops-gitlab-workflow)
+- [Database GitOps with Bitbucket Pipelines](/docs/tutorials/gitops-bitbucket-workflow)
 
 ---
 
