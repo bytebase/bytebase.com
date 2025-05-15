@@ -1,7 +1,7 @@
 ---
 title: Database GitOps with Azure DevOps Pipeline
 author: Adela
-updated_at: 2025/03/28 18:00
+updated_at: 2025/05/15 18:00
 tags: Tutorial
 integrations: 'API, Azure DevOps'
 category: 'Database CI/CD (GitOps)'
@@ -54,20 +54,18 @@ This tutorial code repository is at [https://dev.azure.com/bytebase-hq/\_git/byt
 
 ### Step 4 - Copy from the Example Repository and Configure Variables
 
-1. Create a new project. Copy `pipelines` folder from [https://dev.azure.com/bytebase-hq/\_git/bytebase-example](https://dev.azure.com/bytebase-hq/_git/bytebase-example). There are two workflows in this repository:
+1. Create a new project. Copy the two files under `pipelines` folder from [https://dev.azure.com/bytebase-hq/\_git/bytebase-example](https://dev.azure.com/bytebase-hq/_git/bytebase-example), ignore the rest of the legacy files. There are two workflows in this repository:
 
-   - `pipelines/check-release.yml`: [Lint the SQL](/docs/sql-review/overview/) migration files after the PR is created.
-   - `pipelines/rollout-release.yml`: Create a release in Bytebase after the PR is merged to the `main` branch.
+   - `pipelines/sql-review-v1.yml`: [Lint the SQL](/docs/sql-review/overview/) migration files after the PR is created.
+   - `pipelines/rollout-release-v1.yml`: Create a release in Bytebase after the PR is merged to the `main` branch.
 
-1. Go into `pipelines/check-release.yml` and `pipelines/rollout-release.yml`. In the `env` section, replace the variable values with your own and commit the changes.
+1. Go into `pipelines/sql-review-v1.yml` and `pipelines/rollout-release-v1.yml`. In the `variables` section, replace the variable values with your own and commit the changes.
 
-   - **BYTEBASE_URL**: your ngrok url
-   - **BYTEBASE_SERVICE_ACCOUNT**: `api-example@service.bytebase.com` (the service account you created in the previous step)
-   - **BYTEBASE_PROJECT**: `projects/project-sample` (the sample project in the Bytebase)
-   - **BYTEBASE_TARGETS**: `instances/test-sample-instance/databases/hr_test,instances/prod-sample-instance/databases/hr_prod` (the two default databases in the sample project)
-   - **FILE_PATTERN**: `migrations/*.sql` (the pattern of the migration files)
+   - **bytebaseUrl**: your ngrok url
+   - **bytebaseServiceAccount**: `api-example@service.bytebase.com` (the service account you created in the previous step)
+   - **bytebasePassword**: the password of the service account
 
-1. Go to branch policy for `main` branch, add `check-release` as a required check. You don't need to add `rollout-release` as a required check because it will be triggered automatically when the PR is merged.
+1. Go to branch policy for `main` branch, add `sql-review-v1` as a required check. You don't need to add `rollout-release-v1` as a required check because it will be triggered automatically when the PR is merged.
 
    ![ad-branch-policy](/content/docs/tutorials/gitops-azure-devops-workflow/ad-branch-policy.webp)
 
@@ -91,7 +89,7 @@ To create migration files to trigger release creation, the files have to match t
    );
    ```
 
-1. Commit to a new branch and create a pull request, the `check-release` workflow will be triggered. There will be a warning in the SQL review result.
+1. Commit to a new branch and create a pull request, the `sql-review-v1` workflow will be triggered. There will be a warning in the SQL review result.
 
    ![ad-check-pass](/content/docs/tutorials/gitops-azure-devops-workflow/ad-check-pass.webp)
 
@@ -108,7 +106,7 @@ To create migration files to trigger release creation, the files have to match t
 
    ![ad-check-no-warning](/content/docs/tutorials/gitops-azure-devops-workflow/ad-check-no-warning.webp)
 
-1. When the SQL review is passed, you can merge the pull request. The `rollout-release` workflow will be triggered to create a **release** in Bytebase and then roll out automatically.
+1. When the SQL review is passed, you can merge the pull request. The `rollout-release-v1` workflow will be triggered to create a **release** in Bytebase and then roll out automatically.
 
    ![ad-rollout](/content/docs/tutorials/gitops-azure-devops-workflow/ad-rollout.webp)
 
@@ -125,4 +123,4 @@ To create migration files to trigger release creation, the files have to match t
 
 ## Summary
 
-Now you have learned how to database GitOps with Azure DevOps Pipeline. If you want to trigger a release creation with other git providers (e.g. GitLab, Bitbucket, [GitHub Actions](/docs/tutorials/gitops-github-workflow)), you may customize the workflow file.
+Now you have learned how to database GitOps with Azure DevOps Pipeline. If you want to trigger a release creation with other git providers (e.g. GitLab CI, Bitbucket Pipelines, GitHub Actions), you may customize the workflow file.
