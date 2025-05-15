@@ -147,18 +147,18 @@ The right choice depends on your team’s tools, workflow, and priorities.
 
 **Choose GitHub if:**
 
-* You work on open source or value a large dev community.
-* You want advanced tools like **Copilot** (AI coding) and **Codespaces** (cloud IDE).
-* You need a generous free tier for CI/CD and repo hosting.
-* You prefer a polished UI and strong collaboration features.
-* You want powerful built-in security tools (via GitHub Advanced Security).
+- You work on open source or value a large dev community.
+- You want advanced tools like **Copilot** (AI coding) and **Codespaces** (cloud IDE).
+- You need a generous free tier for CI/CD and repo hosting.
+- You prefer a polished UI and strong collaboration features.
+- You want powerful built-in security tools (via GitHub Advanced Security).
 
 **Choose Bitbucket if:**
 
-* You use **Jira**, **Confluence**, or other Atlassian tools.
-* You’re a small team wanting free private repos with basic CI/CD.
-* You need a self-hosted enterprise solution (Bitbucket Data Center).
-* You want simple pricing and built-in security in Premium plans.
-* You rely on Jira for issue tracking tightly linked to code.
+- You use **Jira**, **Confluence**, or other Atlassian tools.
+- You’re a small team wanting free private repos with basic CI/CD.
+- You need a self-hosted enterprise solution (Bitbucket Data Center).
+- You want simple pricing and built-in security in Premium plans.
+- You rely on Jira for issue tracking tightly linked to code.
 
 All in all, choose **GitHub** for community, AI tooling, and modern dev experience. Choose **Bitbucket** for tighter **Atlassian integration** and enterprise workflows.
