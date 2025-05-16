@@ -17,8 +17,6 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool whic
 | -------------- | ---------------- |
 | 2025/05/16     | Initial version. |
 
-Here is a **refactored, cleaner version** of the article, with duplicated information removed, explanations tightened, and sections logically streamlined for better readability:
-
 **gh-ost** and **pt-online-schema-change (pt-osc)** are two widely used tools for **online schema migrations in MySQL**. This guide compares their core approaches, key features, pros and cons, and recommended use cases.
 
 ## 1. Core Architecture
