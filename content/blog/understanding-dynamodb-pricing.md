@@ -4,7 +4,6 @@ author: Adela
 updated_at: 2025/05/09 18:00:00
 feature_image: /content/blog/understanding-dynamodb-pricing/cover.webp
 tags: Explanation
-featured: true
 description: Explain the pricing details of DynamoDB
 ---
 

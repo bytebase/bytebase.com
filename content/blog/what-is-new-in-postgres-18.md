@@ -4,6 +4,7 @@ author: Tianzhou
 updated_at: 2025/05/23 12:00
 feature_image: /content/blog/what-is-new-in-postgres-18/cover.webp
 tags: Industry
+featured: true
 description: 'Overview of PostgreSQL 18 features with spicy comments'
 ---
 
