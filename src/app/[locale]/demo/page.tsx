@@ -5,13 +5,29 @@ import { Arcade } from '@/components/arcade';
 
 import Route from '@/lib/route';
 import SEO_DATA from '@/lib/seo-data';
+import TabView from '@/components/shared/tab-view';
 
 export const metadata = getMetadata(SEO_DATA.DEMO);
 
 export default function Page() {
+  const tabs = [
+    {
+      title: 'Change Review Workflow',
+      content: <Arcade src="https://demo.arcade.software/hyHeghfbclZ5NvaKTlVF?embed" />,
+    },
+    {
+      title: 'Dynamic Data Masking',
+      content: <Arcade src="https://demo.arcade.software/QyRGnPQdxbn2k7ReOzwi?embed" />,
+    },
+    {
+      title: 'Just-in-Time Access Control',
+      content: <Arcade src="https://demo.arcade.software/QyRGnPQdxbn2k7ReOzwi?embed" />,
+    },
+  ];
+
   return (
     <section className="pt-20 2xl:pt-16 xl:pt-12 md:pt-8 sm:pt-4">
-      <div className="container mb-16 flex w-full flex-col space-y-20 2xl:space-y-16 xl:space-y-12 md:space-y-8 sm:space-y-4">
+      <div className="container mb-16 flex w-full flex-col space-y-12 md:space-y-8 sm:space-y-4">
         <div className="border-gray-200 flex items-center gap-8 border p-8 xl:gap-6 md:flex-col md:items-start md:gap-4">
           <div className="flex-grow">
             <p className="text-24 leading-normal xl:text-20 md:text-18">
@@ -38,8 +54,8 @@ export default function Page() {
             </Button>
           </div>
         </div>
-        <Arcade src="https://demo.arcade.software/hyHeghfbclZ5NvaKTlVF?embed" />
-        <Arcade src="https://demo.arcade.software/QyRGnPQdxbn2k7ReOzwi?embed" />
+
+        <TabView tabs={tabs} />
       </div>
     </section>
   );
