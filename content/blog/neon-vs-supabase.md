@@ -4,7 +4,7 @@ author: Tianzhou
 updated_at: 2025/04/28 09:00
 feature_image: /content/blog/neon-vs-supabase/cover.webp
 tags: Comparison
-description: 'Neon and Supabase are the 2 new generation Postgres service providers. This is an extensive comparison between Neon and Supabase on architecture, compatibility, developer workflow, scalability, operability, integration, compliance, pricing and more.'
+description: 'Neon and Supabase are the 2 new generation Postgres service providers. This is an extensive comparison between Neon and Supabase on architecture, compatibility, agentic workload, developer workflow, scalability, operability, integration, compliance, pricing and more.'
 ---
 
 <HintBlock type="info">
@@ -17,12 +17,19 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 | -------------- | ---------------------------------- |
 | 2024/07/02     | Initial version.                   |
 | 2025/04/28     | Updated for 2025. Improved pricing |
+| 2025/05/19     | Add agentic workload               |
 
 Besides the typical Postgres service providers like AWS RDS, Google Cloud SQL, DigitalOcean Managed Databases, [Neon](https://neon.tech/) and [Supabase](https://supabase.com/) are the two modern Postgres service providers.
 
+<HintBlock type="info">
+
+On May 14, 2025, Databricks has [announced](https://www.databricks.com/blog/databricks-neon) to acquire Neon.
+
+</HintBlock>
+
 On the surface, Neon and Supabase are different products. Neon is a database service. While Supabase is a BaaS (Backend-as-a-Service) and Postgres is one of its included service.
 
-They are comparable because they both offer a **developer-friendly**, **scalable** Postgres service.
+They are comparable because they both offer a **developer-friendly**, **scalable** Postgres service. In the agentic era, each aims to become the de-facto database for agentic workloads.
 
 ![reddit](/content/blog/neon-vs-supabase/reddit.webp)
 
@@ -39,6 +46,7 @@ the following dimensions:
 - [Architecture](#architecture)
 - [Compatibility](#compatibility)
 - [Branching](#branching)
+- [Agentic Workload](#agentic-workload)
 - [Operability](#operability)
 - [Integration](#integration)
 - [Compliance](#compliance)
@@ -77,6 +85,19 @@ Neon purpose-built paging layer has copy-on-write (CoW), which enables database 
 Supabase branching integrates with Git repository. It provisions a new empty database, runs the migration script and initializes the seed data.
 
 Overall, Neon's instant branch cloning is closer to the Git semantics.
+
+## Agentic Workload
+
+Both Neon and Supabase highlight AI agents as a primary use case.
+
+![neon-agent](/content/blog/neon-vs-supabase/neon-ai-agent.webp)
+![supabase-agent](/content/blog/neon-vs-supabase/supabase-ai-agent.webp)
+
+In fact, one of the key reasons Databricks likely acquired Neon is its architecture’s strong alignment with agentic workloads.
+
+![neon-4x-agent-db](/content/blog/neon-vs-supabase/neon-4x-agent-db.webp)
+
+While more AI app builders today—such as [Lovable](https://lovable.dev/) and [bolt](https://bolt.new/)—are adopting Supabase, Neon's instant provisioning and scale-to-zero capabilities make it better suited for agentic applications.
 
 ## Integration
 

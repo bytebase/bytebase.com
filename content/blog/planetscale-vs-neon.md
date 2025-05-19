@@ -16,6 +16,12 @@ This is a series of articles between MySQL and PostgreSQL:
 
 ---
 
+<HintBlock type="info">
+
+On May 14, 2025, Databricks has [announced](https://www.databricks.com/blog/databricks-neon) to acquire Neon.
+
+</HintBlock>
+
 The last 2 years Stack Overflow survey ([2024](https://survey.stackoverflow.co/2024/technology/#1-databases), [2023](https://survey.stackoverflow.co/2023/#most-popular-technologies-database) shows that PostgreSQL has taken
 over the first place spot from MySQL and become the most admired, desired database.
 
