@@ -38,7 +38,8 @@ export default function Page() {
             </Button>
           </div>
         </div>
-        <Arcade />
+        <Arcade src="https://demo.arcade.software/hyHeghfbclZ5NvaKTlVF?embed" />
+        <Arcade src="https://demo.arcade.software/QyRGnPQdxbn2k7ReOzwi?embed" />
       </div>
     </section>
   );
