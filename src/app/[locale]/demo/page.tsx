@@ -20,8 +20,8 @@ export default function Page() {
       content: <Arcade src="https://demo.arcade.software/QyRGnPQdxbn2k7ReOzwi?embed" />,
     },
     {
-      title: 'Just-in-Time Access Control',
-      content: <Arcade src="https://demo.arcade.software/QyRGnPQdxbn2k7ReOzwi?embed" />,
+      title: 'Just-in-Time Data Access',
+      content: <Arcade src="https://demo.arcade.software/LpWZzDV1jffBbAQOnrIL?embed" />,
     },
   ];
 
