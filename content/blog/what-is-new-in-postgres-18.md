@@ -11,7 +11,7 @@ description: 'Overview of PostgreSQL 18 features with spicy comments'
 <HintBlock type="info">
 
 This post is maintained by Bytebase, an open-source database DevSecOps tool that can manage PostgreSQL. We
-will constantly update this post to include the latest MySQL 9.x releases.
+will constantly update this post to include the latest Postgres 18.x releases.
 
 </HintBlock>
 
@@ -57,7 +57,9 @@ PostgreSQL 18 changes how generated columns can be handled, making virtual gener
 
 ## Major version upgrade experience
 
-Upgrading a major PostgreSQL version can be a source of anxiety for many DBAs. PostgreSQL 18 aims to smooth out this process with several notable improvements. While the standard methods of `pg_dumpall` followed by a restore, or using `pg_upgrade`, or logical replication remain the primary paths for migration, there are enhancements to make these less painful. The PostgreSQL 18 Beta 1 announcement highlights a significant improvement: the ability to keep planner statistics through a major version upgrade. This is a big deal, as it means your newly upgraded cluster can reach its expected performance state much faster, without waiting for a potentially lengthy `ANALYZE` run across all your data. Additionally, `pg_upgrade` itself has received performance boosts, including parallel processing of its checks (via the`--jobs` flag) and a new `--swap` flag to swap upgrade directories instead of copying, which can be a massive time saver for large installations.
+Upgrading a major PostgreSQL version can be a source of anxiety for many DBAs. PostgreSQL 18 aims to smooth out this process with several notable improvements. While the standard methods of `pg_dumpall` followed by a restore, or using `pg_upgrade`, or logical replication remain the primary paths for migration, there are enhancements to make these less painful.
+
+The PostgreSQL 18 Beta 1 announcement highlights a significant improvement: the ability to keep planner statistics through a major version upgrade. This is a big deal, as it means your newly upgraded cluster can reach its expected performance state much faster, without waiting for a potentially lengthy `ANALYZE` run across all your data. Additionally, `pg_upgrade` itself has received performance boosts, including parallel processing of its checks (via the`--jobs` flag) and a new `--swap` flag to swap upgrade directories instead of copying, which can be a massive time saver for large installations.
 
 Of course, with any major version, there are compatibility changes to be aware of. The release notes for version 18 list several, including changes to time zone abbreviation handling, the deprecation of MD5 password authentication (finally!), changes to how `VACUUM` and `ANALYZE` handle inheritance, and modifications to `COPY FROM` behavior regarding end-of-file markers. It's crucial to review these incompatibilities thoroughly before planning an upgrade.
 
