@@ -43,6 +43,30 @@ The `EXPLAIN` command is a DBA's best friend (and sometimes worst enemy) when it
 
 **DBA Note:** Maybe, just maybe, more developers will actually look at buffer usage now. The WAL, CPU, and average read stats in VERBOSE are useful for those really deep dives. And another autovacuum metric to obsess over when trying to figure out why autovacuum isn't keeping up.
 
+## NOT NULL Constraints as NOT VALID
+
+PostgreSQL 18 introduces another welcome improvement to schema management with the ability to add `NOT NULL` constraints as `NOT VALID`.
+
+This feature allows users to add `NOT NULL` constraints without immediately scanning the entire table, and then validate them later without holding an `ACCESS EXCLUSIVE` lock. This is particularly valuable for large tables where adding constraints traditionally required significant downtime.
+
+The new syntax requires using a named constraint approach:
+
+```sql
+ALTER TABLE table_name ADD CONSTRAINT constraint_name NOT NULL (column) NOT VALID;
+```
+
+Later, when it's convenient, you can validate the constraint with:
+
+```sql
+ALTER TABLE table_name VALIDATE CONSTRAINT constraint_name;
+```
+
+During validation, PostgreSQL only holds a `ShareUpdateExclusiveLock`, which means normal operations like SELECT, INSERT, UPDATE, and DELETE can continue working while the validation process runs.
+
+Even when a `NOT NULL` constraint is added as `NOT VALID`, it still prevents new `NULL` values from being inserted into the column. This provides immediate data integrity for new rows while allowing time to clean up any existing `NULL` values at your convenience.
+
+**DBA Note:** This is a godsend for those of us managing large production databases where downtime is measured in dollars per second. No more scheduling 3 AM maintenance windows just to add a NOT NULL constraint to that 10TB table. The fact that it still prevents new NULLs while being marked as invalid is the perfect balance – forward data integrity without the immediate validation pain.
+
 ## OLD/NEW values in RETURNING
 
 Previously, RETURNING had limitations: it typically returned new values for INSERT and UPDATE, and old values for DELETE. MERGE operations would return values based on the internal query executed. The new syntax is more flexible, allowing INSERT ON CONFLICT to return old values, UPDATE to return old values (previously only new), and DELETE to potentially return new values if an ON DELETE row assignment would produce them. This is facilitated by changeable relation aliases "old" and "new" to specify which values are desired.
