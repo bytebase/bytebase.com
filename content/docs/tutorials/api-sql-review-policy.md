@@ -14,11 +14,14 @@ description: 'Learn how to use the Bytebase API to configure SQL review rules in
 
 This tutorial will guide you through configuring SQL review rules using the Bytebase API. This approach allows you to manage SQL review rules as code within your repository, enabling DBAs or platform engineering teams to apply them to Bytebase as needed. The tutorial repository is at https://github.com/bytebase/example-api/tree/main/sql-review.
 
-This is the 4th part of tutorial series of SQL Review:
+This is one of the tutorial series of SQL Review:
 
 1.  [SQL Review with Bytebase GUI](/docs/tutorials/sql-review-gui/)
-1.  SQL Review with CI:
-    - [SQL Review with GitHub Actions](/docs/tutorials/sql-review-github-action/)
+1.  SQL Review with CI (integrated with Database GitOps workflow):
+    - [Database GitOps with GitHub Actions](/docs/tutorials/gitops-github-workflow/#step-3-configure-sql-review-in-bytebase)
+    - [Database GitOps with Azure DevOps](/docs/tutorials/gitops-azure-devops-workflow/#step-3-configure-sql-review-in-bytebase)
+    - [Database GitOps with GitLab CI](/docs/tutorials/gitops-gitlab-workflow/#step-3-configure-sql-review-in-bytebase)
+    - [Database GitOps with Bitbucket Pipelines](/docs/tutorials/gitops-bitbucket-workflow/#step-3-configure-sql-review-in-bytebase)
 1.  [SQL Review with Bytebase API](/docs/tutorials/sql-review-api/)
 1.  Codify SQL Review Policies with Bytebase API (this one)
 
