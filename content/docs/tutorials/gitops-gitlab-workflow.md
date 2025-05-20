@@ -7,7 +7,6 @@ integrations: GitLab
 category: 'Database CI/CD (GitOps)'
 level: Advanced
 estimated_time: '40 mins'
-featured: true
 description: 'Learn the new GitOps workflow for database release with Bytebase.'
 ---
 
