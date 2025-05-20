@@ -3,7 +3,7 @@ title: Database GitOps with Azure DevOps Pipeline
 author: Adela
 updated_at: 2025/05/15 18:00
 tags: Tutorial
-integrations: 'API, Azure DevOps'
+integrations: 'Azure DevOps'
 category: 'Database CI/CD (GitOps)'
 level: Advanced
 estimated_time: '40 mins'
