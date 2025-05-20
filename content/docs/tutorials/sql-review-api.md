@@ -12,11 +12,14 @@ description: This tutorial will walk you through using SQL Review via Bytebase A
 
 When modifying data in the database, it's crucial to ensure that the changes are both safe and accurate. Bytebase offers a feature called [SQL Review](/docs/sql-review/overview/), which allows you to evaluate your SQL changes before they are applied to the database. SQL Review can be invoked from the Bytebase GUI, CI or API.
 
-This is the first part of tutorial series of SQL Review:
+This is one of the tutorial series of SQL Review:
 
 1.  [SQL Review with Bytebase GUI](/docs/tutorials/sql-review-gui/)
-1.  SQL Review with CI:
-    - [SQL Review with GitHub Actions](/docs/tutorials/sql-review-github-action/)
+1.  SQL Review with CI (integrated with Database GitOps workflow):
+    - [Database GitOps with GitHub Actions](/docs/tutorials/gitops-github-workflow/#step-3-configure-sql-review-in-bytebase)
+    - [Database GitOps with Azure DevOps](/docs/tutorials/gitops-azure-devops-workflow/#step-3-configure-sql-review-in-bytebase)
+    - [Database GitOps with GitLab CI](/docs/tutorials/gitops-gitlab-workflow/#step-3-configure-sql-review-in-bytebase)
+    - [Database GitOps with Bitbucket Pipelines](/docs/tutorials/gitops-bitbucket-workflow/#step-3-configure-sql-review-in-bytebase)
 1.  SQL Review with Bytebase API (this one)
 1.  [Codify SQL Review Policies with Bytebase API](/docs/tutorials/api-sql-review-policy/)
 
