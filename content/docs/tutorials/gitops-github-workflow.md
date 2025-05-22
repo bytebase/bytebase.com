@@ -1,7 +1,7 @@
 ---
 title: Database GitOps with GitHub Actions
 author: Adela
-updated_at: 2025/03/13 18:00
+updated_at: 2025/05/22 18:00
 tags: Tutorial
 integrations: GitHub
 category: 'Database CI/CD (GitOps)'
@@ -63,16 +63,16 @@ https://github.com/bytebase/example-gitops-github-flow
 
 1. Fork [https://github.com/bytebase/example-gitops-github-flow](https://github.com/bytebase/example-gitops-github-flow). There are two workflows in this repository:
 
-   - `.github/workflows/sql-review.yml`: [Lint the SQL](/docs/sql-review/overview/) migration files after the PR is created.
-   - `.github/workflows/release.yml`: Create a release in Bytebase after the PR is merged to the `main` branch.
+   - `.github/workflows/sql-review-action.yml`: [Lint the SQL](/docs/sql-review/overview/) migration files after the PR is created.
+   - `.github/workflows/release-action.yml`: Create a release in Bytebase after the PR is merged to the `main` branch.
 
-1. Go into `.github/workflows/release.yml` and `.github/workflows/sql-review.yml`. In the `env` section, replace the variable values with your own and commit the changes.
+1. Go into `.github/workflows/release-action.yml` and `.github/workflows/sql-review-action.yml`. In the `env` section, replace the variable values with your own and commit the changes.
 
    - **BYTEBASE_URL**: your ngrok url
    - **BYTEBASE_SERVICE_ACCOUNT**: `api-example@service.bytebase.com` (the service account you created in the previous step)
    - **BYTEBASE_PROJECT**: `projects/project-sample` (the sample project in the Bytebase)
    - **BYTEBASE_TARGETS**: `instances/test-sample-instance/databases/hr_test,instances/prod-sample-instance/databases/hr_prod` (the two default databases in the sample project)
-   - **FILE_PATTERN**: `migrations/*.sql` (the pattern of the migration files)
+   - **FILE_PATTERN**: `migrations-semver/*.sql` (the pattern of the migration files)
 
 1. You may paste the password of the service account you created in the previous step directly after **service-secret** or keep the **service-secret** value as `${{secrets.BYTEBASE_SERVICE_ACCOUNT_SECRET}}`. Go to **Settings > Secrets and Variables > Actions**, click **New repository secret**, and add **BYTEBASE_SERVICE_ACCOUNT_SECRET**.
 
@@ -82,7 +82,7 @@ https://github.com/bytebase/example-gitops-github-flow
 
 To create migration files to trigger release creation, the files have to match the following pattern:
 
-- A migration file should start with digits, which is also its version. e.g. `202503131500_create_table_t1_ddl.sql`.
+- A migration file should start with digits, which is also its version. e.g. `202503131500_create_table_t1_ddl.sql`, you can also use semantic versioning like `1.0.0_create_table_t1_ddl.sql`.
 - A migration file may end with 'ddl' or 'dml' to indicate its change type. If it doesn't end with any of the two, its change type is DDL by default.
 
 1. Within your forked repository, create the following migration files under `migrations` directory:
@@ -96,7 +96,7 @@ To create migration files to trigger release creation, the files have to match t
    );
    ```
 
-1. Commit to a new branch and create a pull request, the `sql-review` workflow will be triggered. There will be a warning in the SQL review result. Go into the **File changes** tab, you can see the warning.
+1. Commit to a new branch and create a pull request, the `sql-review-action` workflow will be triggered. There will be a warning in the SQL review result. Go into the **File changes** tab, you can see the warning.
 
    ![gh-sql-review-warning](/content/docs/tutorials/gitops-github-workflow/gh-sql-review-warning.webp)
 
@@ -113,7 +113,7 @@ To create migration files to trigger release creation, the files have to match t
 
    ![gh-sql-review-pass](/content/docs/tutorials/gitops-github-workflow/gh-sql-review-pass.webp)
 
-1. When the SQL review is passed, you can merge the pull request. The `release` workflow will be triggered to create a **release** in Bytebase and then roll out automatically. Go to **Actions** tab, you can see the workflow run and pass.
+1. When the SQL review is passed, you can merge the pull request. The `release-action` workflow will be triggered to create a **release** in Bytebase and then roll out automatically. Go to **Actions** tab, you can see the workflow run and pass.
 
    ![gh-merge-run](/content/docs/tutorials/gitops-github-workflow/gh-merge-run.webp)
 
@@ -126,77 +126,6 @@ To create migration files to trigger release creation, the files have to match t
    ![gh-deploy-to-test-expand](/content/docs/tutorials/gitops-github-workflow/gh-deploy-to-test-expand.webp)
 
    ![bb-rollout](/content/docs/tutorials/gitops-github-workflow/bb-rollout.webp)
-
-### Breakdown of the GitHub Actions Workflow
-
-1. Check out your repo and log in to Bytebase to gain the access token.
-
-   ```yaml
-   - name: Checkout
-     uses: actions/checkout@v4
-   - name: Login to Bytebase
-     id: login
-     uses: bytebase/login-action@v1
-     with:
-       bytebase-url: ${{ env.BYTEBASE_URL }}
-       service-key: ${{ env.BYTEBASE_SERVICE_ACCOUNT }}
-       service-secret: ${{ secrets.BYTEBASE_SERVICE_ACCOUNT_SECRET} }}
-   ```
-
-1. The **create-release** step scans the files matching the pattern and collects them into a bundle. Note that these files should also obey the naming scheme mentioned above.
-
-   The bundle is first sent for check. Because we set `FAIL_ON_ERROR`, the release will be created in Bytebase only when the check passes.
-
-   ```yaml
-   - name: Create release
-     id: create-release
-     uses: bytebase/create-release-action@v1
-     with:
-       bytebase-url: ${{ env.BYTEBASE_URL }}
-       service-key: ${{ env.BYTEBASE_SERVICE_ACCOUNT }}
-       service-secret: ${{ secrets.BYTEBASE_SERVICE_ACCOUNT_SECRET }}
-       file-pattern: ${{ env.FILE_PATTERN }}
-       check-release: 'FAIL_ON_ERROR'
-       project: ${{ env.BYTEBASE_PROJECT }}
-       targets: ${{ env.BYTEBASE_TARGETS }}
-       validate-only: 'false'
-   ```
-
-1. Create a rollout and wait for completion.
-
-   ```yaml
-   - name: Create plan
-        id: create-plan
-        uses: bytebase/create-plan-from-release-action@v1
-        with:
-          url: ${{ env.BYTEBASE_URL }}
-          token: ${{ steps.login.outputs.token }}
-          project: ${{ env.BYTEBASE_PROJECT }}
-          release: ${{ steps.create-release.outputs.release }}
-          targets: ${{ env.BYTEBASE_TARGETS }}
-          check-plan: "SKIP"
-
-    - name: Rollout
-        id: rollout
-        uses: bytebase/rollout-action@v2
-        if: ${{ steps.create-plan.outputs.deployment-required == 'true' }}
-        with:
-          url: ${{ env.BYTEBASE_URL }}
-          token: ${{ steps.login.outputs.token }}
-          plan: ${{ steps.create-plan.outputs.plan }}
-          target-stage: environments/test # the stage environment.
-
-   - name: Deploy app
-        run: |
-          echo "Deploying app to test environment..."
-          echo "Deploy app to test environment done!"
-   ```
-
-   These are the steps:
-
-   - Create the plan from the release
-   - Create the rollout
-   - Wait for the rollout to complete
 
 ## Manual Rollout by Environment
 
