@@ -8,11 +8,11 @@ description: 'Enhance SQL Editor Experience'
 
 ## 🚀 New Features
 
-- Optimize the interaction performance of SQL Editor.
+- Enhance SQL Editor experience.
 
-    - Support database group in the batch query.
-    - Store the query result history.
-    - Lazy query. Only execute the query request when users click the tab.
+  - Support database group in the batch query.
+  - Store the query result history. The history is only stored in the browser locally.
+  - Lazy query. Only execute the query request on-demand when users click the tab.
 
 - Display SQL Server trigger body in SQL Editor.
 
