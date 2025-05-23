@@ -1,7 +1,7 @@
 ---
-title: Top 6 Postgres GUI Clients to Command Postgres 2025
+title: Top 7 Postgres GUI Clients to Command Postgres 2025
 author: Mila
-updated_at: 2025/03/18 21:21:21
+updated_at: 2025/05/18 21:21:21
 feature_image: /content/blog/top-postgres-gui-client/banner.webp
 tags: Industry
 description: Postgres GUI clients makes it safer and easier to manage Postgres databases by providing a provide a visual graphical interface. In this post, we are taking a look at the most common Postgres GUI Clients.
@@ -9,14 +9,15 @@ description: Postgres GUI clients makes it safer and easier to manage Postgres d
 
 <HintBlock type="info">
 
-This post is maintained by Bytebase, an open-source database Management Software. We update ~once per year.
+This post is maintained by Bytebase, an open-source database DevSecOps tool that can manage PostgreSQL. We update ~once per year.
 
 </HintBlock>
 
-| Update History | Comment          |
-| -------------- | ---------------- |
-| 2023/07/18     | Initial version. |
-| 2025/03/18     | Update for 2025. |
+| Update History | Comment                           |
+| -------------- | --------------------------------- |
+| 2023/07/18     | Initial version.                  |
+| 2025/03/18     | Update for 2025.                  |
+| 2025/05/23     | Add VS Code PostgreSQL extension. |
 
 Postgres (or PostgreSQL) is one of the most advanced open-source relational databases on the market (alongside [MySQL](/blog/postgres-vs-mysql/)).
 
@@ -89,6 +90,12 @@ Other than that, Navicat is a comprehensive database management tool for your da
 ![dbeaver](/content/blog/top-postgres-gui-client/dbeaver.webp)
 
 DBeaver started as a hobby project in 2010 and was open-sourced for use in 2013. In early 2023, they announced their first round of funding - they have gone a long way!
+
+### VS Code
+
+![vs-code](/content/blog/top-postgres-gui-client/vs-code.webp)
+
+Microsoft announced brand-new [PostgreSQL extension](https://techcommunity.microsoft.com/blog/adforpostgresql/announcing-a-new-ide-for-postgresql-in-vs-code-from-microsoft/4414648) for Visual Studio Code (VS Code). It comes with core features like intellisense, schema visualization, database explorer, query history. It also integrates with Copilot and Entra ID to offer a seamless experience.
 
 ## Governance built-in: Bytebase
 
