@@ -13,9 +13,9 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool. We 
 
 </HintBlock>
 
-| Update History | Comment            |
-| -------------- | ------------------ |
-| 2025/05/23    | Initial version.   |
+| Update History | Comment          |
+| -------------- | ---------------- |
+| 2025/05/23     | Initial version. |
 
 ## Prisma ORM
 
