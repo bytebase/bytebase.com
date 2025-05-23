@@ -16,10 +16,6 @@ description: 'Enhance SQL Editor Experience'
 
 - Display SQL Server trigger body in SQL Editor.
 
-## 🔔 Breaking Changes
-
-- Remove deprecated Activity_Type enums in project_service.proto (won't affect users as they were never used).
-
 ## 🎄 Enhancements
 
 - Implement semantic versioning for GitOps.
