@@ -20,4 +20,8 @@ description: 'Enhance SQL Editor Experience'
 
 - Remove deprecated Activity_Type enums in project_service.proto (won't affect users as they were never used).
 
+## 🎄 Enhancements
+
+- Implement semantic versioning for GitOps.
+
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>
