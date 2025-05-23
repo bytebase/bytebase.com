@@ -1,7 +1,7 @@
 ---
 title: 'Flyway (Redgate) vs. Liquibase in 2025'
 author: Cayden
-updated_at: 2025/01/06 19:21:21
+updated_at: 2025/05/23 19:21:21
 feature_image: /content/blog/flyway-vs-liquibase/flyway-vs-liquibase-banner.webp
 tags: Comparison
 description: 'When looking for a database CI/CD and schema migration change tool, Flyway and Liquibase are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.'
@@ -9,9 +9,14 @@ description: 'When looking for a database CI/CD and schema migration change tool
 
 <HintBlock type="info">
 
-As Flyway and Liquibase continue to iterate, we will update this post regularly.
+This post is maintained by Bytebase, an open-source database DevSecOps tool that is a Liquibase/Flyway alternative. We update the post every year.
 
 </HintBlock>
+
+| Update History | Comment          |
+| -------------- | ---------------- |
+| 2023/06/27     | Initial version. |
+| 2025/05/23     | Update for 2025. |
 
 When looking for a database CI/CD and schema migration change tool, Flyway (Redgate) and Liquibase are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.
 
@@ -34,11 +39,11 @@ While both Flyway and Liquibase are tools for database CI/CD, there are some key
 |                                                        | Flyway                          | Liquibase                              |
 | ------------------------------------------------------ | ------------------------------- | -------------------------------------- |
 | [Product position](#product-position)                  | Schema Change & Version Control | Schema Change & Version Control        |
-| [Developer interface](#developer-interface)            | CLI                             | CLI                                    |
-| [Supported databases](#supported-databases)            | 22 Only SQL                     | 50 SQL & NoSQL DB                      |
+| [Developer interface](#developer-interface)            | CLI + Flyway Desktop            | CLI                                    |
+| [Supported databases](#supported-databases)            | 22 Only SQL + MongoDB (preview) | 50 SQL & NoSQL DB                      |
 | [Programming language and installation](#installation) | Java + JVM                      | Java + JVM                             |
 | [Change execution](#change-execution)                  | SQL script + CLI                | Changelog (SQL, XML, JSON, YAML) + CLI |
-| [Change orchestration](#change-orchestration)          | Numbering of SQL files          | Changelog                              |
+| [Change orchestration](#change-orchestration)          | Numbering of SQL files          | Changelog + Flow                       |
 | [Database GitOps](#database-gitops-configuration)      | ✅                              | ✅                                     |
 | [SQL auto check](#sql-auto-check)                      | ✅                              | ✅                                     |
 | [Change history](#change-history)                      | ✅                              | ✅                                     |
@@ -56,28 +61,39 @@ While both Flyway and Liquibase are tools for database CI/CD, there are some key
 
 ### Developer interface
 
-- **Flyway**: A command-line tool. With JVM, it also provides Java API, Maven plugin and Gradle plugin. A simple graphical user interface (GUI) called Flyway Desktop is available for SQL Server, PostgreSQL and MySQL.
+- **Flyway**: A command-line tool with Java API, Maven plugin, and Gradle plugin. Flyway Desktop has been enhanced with full Schema Model view and Git history tracking, available for SQL Server, PostgreSQL, MySQL, and other supported databases.
 
-- **Liquibase**: A command-line tool. A simple graphical user interface (GUI) called Liquibase Hub is available with the Pro Plan, but it has sunset in May 2023.
+- **Liquibase**: Primarily a command-line tool. The Liquibase Hub GUI was sunset in May 2023, with focus shifting to CLI and integration capabilities.
 
 ### Supported databases
 
-- **Flyway**: 22 SQL databases - MySQL, PostgreSQL, IBM DB2, MS SQL Server, Oracle, PostgreSQL, MySQL, Snowflake ...
-- **Liquibase**: 50 SQL and NoSQL databases - IBM DB2, MS SQL Server, Oracle, PostgreSQL, MySQL, Snowflake, MongoDB, Clickhouse ...
+- **Flyway**: 22+ SQL databases with expanded support in 2025 for:
+
+  - MongoDB (preview for NoSQL migration capabilities)
+  - SinglestoreDB
+  - Google Cloud Spanner
+  - EnterpriseDB
+  - TimescaleDB
+  - Full compatibility for all databases in Community version without age restrictions
+
+- **Liquibase**: 50+ SQL and NoSQL databases with enhanced support in 2025 for:
+  - Google BigQuery (including DATABASECHANGELOGHISTORY table support)
+  - Continued MongoDB support
+  - Broader NoSQL database coverage
 
 ### Installation
 
-- **Flyway**: Java-based tool, so you need to install a Java Virtual Machine (JVM) before users can install Flyway.
+- **Flyway**: Java-based tool requiring JVM installation. In 2025, configuration has moved to unified flyway.toml format, deprecating the older JSON format.
 
-- **Liquibase**: Java-based tool, so you need to install a Java Virtual Machine (JVM) before users can install Liquibase.
+- **Liquibase**: Java-based tool requiring JVM installation. In 2025, MacOS .dmg installer was deprecated in favor of Homebrew installation.
 
 ### Change execution
 
-- **Flyway**: CLI or GitOps. Users write SQL files and then run command `flyway migrate`.
+- **Flyway**: CLI or GitOps. Users write SQL files and then run command `flyway migrate`. In 2025, enhanced capabilities for script migrations and callbacks have been added to the Community version.
 
 ![flyway-change](/content/blog/bytebase-vs-flyway/flyway-change.webp)
 
-- **Liquibase**: CLI or GitOps. Users specify the changes by defining a `changelog` and then run a command.
+- **Liquibase**: CLI or GitOps. Users specify the changes by defining a `changelog` and then run a command. In 2025, flow enhancements provide more sophisticated orchestration capabilities.
 
 ![liquibase-changelog](/content/blog/flyway-vs-liquibase/liquibase-changelog.webp)
 ![liquibase-update](/content/blog/flyway-vs-liquibase/liquibase-update.webp)
@@ -85,17 +101,21 @@ While both Flyway and Liquibase are tools for database CI/CD, there are some key
 ### Change orchestration
 
 - **Flyway**: Number the SQL files in the order you want them to be executed.
+
   ![liquibase-change-order](/content/blog/flyway-vs-liquibase/flyway-change-order.webp)
-- **Liquibase**: Specify the order of changes in the changelog file.
+
+- **Liquibase**: Specify the order of changes in the changelog file. In 2025, Flow capabilities have been enhanced with conditionals and more advanced orchestration features.
+
   ![liquibase-change-order](/content/blog/flyway-vs-liquibase/liquibase-change-order.webp)
 
-Liquibase is more flexible as it can specify arbitrary orders. Also Liquibase provides a [flow file](https://docs.liquibase.com/liquibase-pro/flow/home.html) to orchestrate complex steps.
+Liquibase continues to be more flexible as it can specify arbitrary orders, and the enhanced [flow file](https://docs.liquibase.com/liquibase-pro/flow/home.html) capabilities in 2025 make orchestrating complex steps even more powerful.
 
 ### Database GitOps configuration
 
-- **Flyway**: Configure with VCS CI/CD workflow manually.
+- **Flyway**: Configure with VCS CI/CD workflow manually. In 2025, integration with Test Data Manager and Docker for dedicated development databases improves the GitOps workflow.
 
-- **Liquibase**: Configure with VCS CI/CD workflow manually.
+- **Liquibase**: Configure with VCS CI/CD workflow manually. In 2025, enhanced validation and error messaging improve the GitOps experience.
+
   ![flyway-ci-cd](/content/blog/bytebase-vs-flyway/flyway-ci-cd.webp)
   ![liquibase-gitlab-gitops](/content/blog/flyway-vs-liquibase/liquibase-gitlab-gitops.webp)
 
@@ -103,8 +123,8 @@ Liquibase is more flexible as it can specify arbitrary orders. Also Liquibase pr
 
 SQL auto check helps developers write less buggy SQL and save DBAs manual review efforts.
 
-- **Flyway**: Code Analysis
-- **Liquibase**: SQL Quality check
+- **Flyway**: Code Analysis with enhanced drift detection in 2025
+- **Liquibase**: SQL Quality check with improved Policy Checks in 2025
 
 #### Supported plan
 
@@ -113,15 +133,17 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 
 #### Number of rules
 
-- **Flyway**: 10+ general rules or integrate a python app called SQLFluff to get more rules.
-- **Liquibase**: 10 general rules
+- **Flyway**: 10+ general rules or integrate SQLFluff for more rules
+- **Liquibase**: Enhanced policy checks with more comprehensive validation in 2025
 
 #### How to configure
 
-- **Flyway**: Predefined, users may set them active or not.
+- **Flyway**: Predefined, users may set them active or not. In 2025, improved configuration through unified flyway.toml.
+
   ![flyway-code-analysis-rules](/content/blog/bytebase-vs-flyway/flyway-code-analysis-rules.webp)
 
-- **Liquibase**: Predefined, users may set levels while calling.
+- **Liquibase**: Predefined, users may set levels while calling. In 2025, Python-based Custom Policy Checks for Pro users offer more flexibility.
+
   ![liquibase-quality-check](/content/blog/flyway-vs-liquibase/liquibase-quality-check.webp)
 
 #### How to trigger
@@ -135,26 +157,68 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 
 ### Change history
 
-- **Flyway**: Run `flyway info` to show `flyway_schema_history` table.
+- **Flyway**: Run `flyway info` to show `flyway_schema_history` table. In 2025, enhanced info filters provide more granular control.
+
   ![flyway-info](/content/blog/bytebase-vs-flyway/flyway-info.webp)
-- **Liquibase**: Simple Database Change Logs.
+
+- **Liquibase**: Simple Database Change Logs. In 2025, new parameters for the `history` command and improved Operation Reports.
+
   ![liquibase-logs](/content/blog/flyway-vs-liquibase/liquibase-logs.webp)
 
 ### Sync schema
 
-- **Flyway**: Via the flyway desktop, there is a way to generate a migration script to bring the target database schema in sync with the one you already created (usually dev).
+- **Flyway**: Via Flyway Desktop, generate a migration script to bring the target database schema in sync. In 2025, the new backup-based baseline approach allows restoring a backup file instead of creating a database from scratch in the baseline script.
+
   ![flyway-sync-schema](/content/blog/bytebase-vs-flyway/flyway-sync-schema.webp)
-- **Liquibase**: Support `diff-changelog` to compare databases and to create a deployable changelog to sync.
+
+- **Liquibase**: Support `diff-changelog` to compare databases and create a deployable changelog to sync. In 2025, enhanced Drift Report capabilities improve schema synchronization.
 
 ### Rollback
 
-- **Flyway**: Write rollback scripts manually. Supported in Team version.
-- **Liquibase**: Support `rollback-one-changeset` or `rollback`.
+- **Flyway**: Write rollback scripts manually. Supported in Team version. No significant changes in 2025.
+
+- **Liquibase**: Support `rollback-one-changeset` or `rollback`. In 2025, enhanced Rollback Report for Pro users.
 
 ### Schema drift detection
 
-- **Flyway**: Run `flyway check -drift ...` to produce a report indicating difference between target database and the one created by the migrations applied by Flyway.
-- **Liquibase**: Run `liquibase diff --format=json` to produce a report indicating difference between target database and source database.
+- **Flyway**: Run `flyway check -drift ...` to produce a report indicating difference between target database and the one created by the migrations applied by Flyway. Enhanced in 2025 with more comprehensive code analysis.
+
+- **Liquibase**: Run `liquibase diff --format=json` to produce a report indicating difference between target database and source database. In 2025, improved Drift Report capabilities with better visualization.
+
+## Flyway enhancements in 2025
+
+One of the most significant Flyway enhancements in 2025 is the backup-based baseline approach. Instead of using lengthy baseline scripts that can be problematic, Flyway now allows using a backup to represent the baseline for shadow databases.
+
+This approach solves two main problems:
+
+1. Eliminates the need for baseline scripts that can be thousands or millions of lines long
+1. Avoids issues with invalid objects or references to external servers in baseline scripts
+
+This feature is particularly valuable for SQL Server users and is available in Flyway Enterprise.
+
+## Liquibase enhancements in 2025
+
+Liquibase has significantly improved its Flow capabilities in 2025, adding:
+
+- Flow conditionals for more sophisticated migration logic
+- Variable functionality in flow files
+- Better orchestration of complex migration steps
+
+These enhancements make Liquibase even more flexible for complex database migration scenarios, particularly in enterprise environments with multiple databases and dependencies.
+
+## Pricing
+
+Flyway uses a per-user licensing model, while Liquibase uses a per-target (database instance) licensing model.
+
+| Aspect                 | Flyway                               | Liquibase                             |
+| ---------------------- | ------------------------------------ | ------------------------------------- |
+| **Free Tier**          | Community Edition                    | Community Edition                     |
+| **Entry-Level Paid**   | Teams: $3,000/year                   | Pro: $5,000/year (10 targets minimum) |
+| **Enterprise**         | Custom pricing, starting at $10,000+ | Custom pricing based on targets       |
+| **Licensing Model**    | Per-user based                       | Per-target based                      |
+| **Minimum Commitment** | None specified                       | 10 targets for Pro edition            |
+| **Volume Discounts**   | Available based on user count        | Available based on target count       |
+| **Pricing Structure**  | Tiered by edition                    | Target-based with minimum commitment  |
 
 ## Summary
 
