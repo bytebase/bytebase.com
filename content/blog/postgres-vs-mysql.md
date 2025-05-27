@@ -134,6 +134,8 @@ Both databases provide ACID transaction. Overall, Postgres provides a stronger t
 | Postgres         | DML      | Yes                                                                                    |
 | Postgres         | DDL      | Yes                                                                                    |
 
+Check out [Postgres vs. MySQL: DDL Transaction Difference](/blog/postgres-vs-mysql-ddl-transaction) for a detailed analysis
+
 ### Security
 
 Both Postgres and MySQL support RBAC.
