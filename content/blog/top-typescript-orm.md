@@ -3,7 +3,7 @@ title: 'Top TypeScript ORM 2025'
 author: Adela
 updated_at: 2025/05/26 18:00
 feature_image: /content/blog/top-typescript-orm/cover.webp
-tags: Comparison
+tags: Industry
 description: 'Evaluate several TypeScript ORMs, and help you to choose the right one for 2025'
 ---
 
@@ -13,9 +13,9 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool. We 
 
 </HintBlock>
 
-| Update History | Comment            |
-| -------------- | ------------------ |
-| 2025/05/26     | Initial version.   |
+| Update History | Comment          |
+| -------------- | ---------------- |
+| 2025/05/26     | Initial version. |
 
 ## Introduction
 
@@ -40,12 +40,12 @@ In 2025, TypeScript developers have several mature ORM options to choose from, t
 **Code Example:**
 
 ```typescript
-import { pgTable, serial, varchar } from "drizzle-orm/pg-core";
+import { pgTable, serial, varchar } from 'drizzle-orm/pg-core';
 
-export const users = pgTable("users", {
-  id: serial("id").primaryKey(),
-  name: varchar("name", { length: 50 }),
-  email: varchar("email", { length: 100 }),
+export const users = pgTable('users', {
+  id: serial('id').primaryKey(),
+  name: varchar('name', { length: 50 }),
+  email: varchar('email', { length: 100 }),
 });
 ```
 
@@ -80,7 +80,7 @@ model User {
 ```typescript
 // Usage
 const user = await prisma.user.create({
-  data: { name: "Alice", email: "alice@example.com" },
+  data: { name: 'Alice', email: 'alice@example.com' },
 });
 ```
 
@@ -103,7 +103,7 @@ const user = await prisma.user.create({
 **Code Example:**
 
 ```typescript
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
 export class User {
@@ -116,7 +116,6 @@ export class User {
   @Column({ unique: true })
   email: string;
 }
-
 ```
 
 ## Sequelize ORM
@@ -137,16 +136,15 @@ export class User {
 **Code Example:**
 
 ```typescript
-import { Sequelize, DataTypes } from "sequelize";
+import { Sequelize, DataTypes } from 'sequelize';
 
-const sequelize = new Sequelize("sqlite::memory:");
+const sequelize = new Sequelize('sqlite::memory:');
 
-const User = sequelize.define("User", {
+const User = sequelize.define('User', {
   id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
   name: DataTypes.STRING,
   email: { type: DataTypes.STRING, unique: true },
 });
-
 ```
 
 ## MikroORM
@@ -180,27 +178,26 @@ export class User {
   @Property({ unique: true })
   email!: string;
 }
-
 ```
 
 ## Comprehensive Comparison
 
-| Feature | Drizzle | Prisma | TypeORM | Sequelize | MikroORM |
-| --- | --- | --- | --- | --- | --- |
-| **Philosophy** | SQL-first, lightweight | Schema-first, declarative | Flexible, SQL-friendly | Traditional ORM | Data Mapper, Unit of Work |
-| **Type Safety** | Strong via TypeScript inference | Excellent via generated client | Strong via decorators | Moderate, added later | Excellent TypeScript integration |
-| **Schema Definition** | TypeScript code, SQL-like | Prisma Schema Language (.prisma) | TypeScript classes with decorators | Model objects or classes | Decorators or EntitySchema |
-| **Migrations** | Drizzle Kit CLI | Prisma Migrate | Automatic or manual | Migration system | Schema diffing and migration |
-| **Query Building** | SQL-like and relational APIs | Abstracted, object-oriented | SQL-like query builder | Comprehensive query API | Type-safe query builder |
-| **Bundle Size** | Extremely lightweight (~7.4kb) | Larger with Rust engine | Moderate | Larger | Larger, especially with ts-morph |
-| **Serverless** | Optimized for serverless | Requires Prisma Accelerate | Requires configuration | Not optimized | Not specifically optimized |
-| **Tooling** | Drizzle Kit, Studio | Client, Studio, Accelerate, Pulse | CLI and utilities | CLI and plugins | CLI, schema generator, REPL |
-| **Learning Curve** | Low for SQL users | Moderate | Steeper | Steeper | Steeper due to patterns |
-| **Database Support** | PostgreSQL, MySQL, SQLite | PostgreSQL, MySQL, SQLite, MongoDB | Extensive SQL & MongoDB | PostgreSQL, MySQL, SQLite, MSSQL | PostgreSQL, MySQL, SQLite, MongoDB |
-| **Code Generation** | Minimal | Heavy client generation | Minimal | Minimal | Varies by metadata provider |
-| **Community Size** | Growing rapidly | Large and active | Large, established | Very mature, widespread | Growing |
-| **Maturity** | Newer but stable | Mature but evolving | Very mature | Most mature | Mature and stable |
-| **Open Source** | Fully open-source | Most components (Studio is not) | Fully open-source | Fully open-source | Fully open-source |
+| Feature               | Drizzle                         | Prisma                             | TypeORM                            | Sequelize                        | MikroORM                           |
+| --------------------- | ------------------------------- | ---------------------------------- | ---------------------------------- | -------------------------------- | ---------------------------------- |
+| **Philosophy**        | SQL-first, lightweight          | Schema-first, declarative          | Flexible, SQL-friendly             | Traditional ORM                  | Data Mapper, Unit of Work          |
+| **Type Safety**       | Strong via TypeScript inference | Excellent via generated client     | Strong via decorators              | Moderate, added later            | Excellent TypeScript integration   |
+| **Schema Definition** | TypeScript code, SQL-like       | Prisma Schema Language (.prisma)   | TypeScript classes with decorators | Model objects or classes         | Decorators or EntitySchema         |
+| **Migrations**        | Drizzle Kit CLI                 | Prisma Migrate                     | Automatic or manual                | Migration system                 | Schema diffing and migration       |
+| **Query Building**    | SQL-like and relational APIs    | Abstracted, object-oriented        | SQL-like query builder             | Comprehensive query API          | Type-safe query builder            |
+| **Bundle Size**       | Extremely lightweight (~7.4kb)  | Larger with Rust engine            | Moderate                           | Larger                           | Larger, especially with ts-morph   |
+| **Serverless**        | Optimized for serverless        | Requires Prisma Accelerate         | Requires configuration             | Not optimized                    | Not specifically optimized         |
+| **Tooling**           | Drizzle Kit, Studio             | Client, Studio, Accelerate, Pulse  | CLI and utilities                  | CLI and plugins                  | CLI, schema generator, REPL        |
+| **Learning Curve**    | Low for SQL users               | Moderate                           | Steeper                            | Steeper                          | Steeper due to patterns            |
+| **Database Support**  | PostgreSQL, MySQL, SQLite       | PostgreSQL, MySQL, SQLite, MongoDB | Extensive SQL & MongoDB            | PostgreSQL, MySQL, SQLite, MSSQL | PostgreSQL, MySQL, SQLite, MongoDB |
+| **Code Generation**   | Minimal                         | Heavy client generation            | Minimal                            | Minimal                          | Varies by metadata provider        |
+| **Community Size**    | Growing rapidly                 | Large and active                   | Large, established                 | Very mature, widespread          | Growing                            |
+| **Maturity**          | Newer but stable                | Mature but evolving                | Very mature                        | Most mature                      | Mature and stable                  |
+| **Open Source**       | Fully open-source               | Most components (Studio is not)    | Fully open-source                  | Fully open-source                | Fully open-source                  |
 
 ### 💡 Philosophy
 
@@ -252,18 +249,18 @@ export class User {
 
 ## Use Case Comparison
 
-| Use Case / Strength                    | **Drizzle**       | **Prisma**         | **TypeORM**        | **Sequelize**      | **MikroORM**         |
-| -------------------------------------- | ------------------ | ------------------- | ------------------- | ------------------- | --------------------- |
-| **Serverless / Lightweight**           | ✅ Ideal            | ⚠️ Needs Accelerate | ⚠️ Needs tuning     | ❌ Not optimized     | ⚠️ Larger bundle      |
-| **Type Safety (TypeScript)**           | ✅ Strong           | ✅ Excellent         | ✅ Good              | ⚠️ Moderate         | ✅ Excellent           |
-| **Developer Experience**               | ✅ SQL-first        | ✅ Very high         | ⚠️ Traditional      | ⚠️ Verbose          | ✅ High (DDD-friendly) |
-| **Schema-first Design**                | ❌ TS-as-schema     | ✅ PSL schema        | ⚠️ Decorator-based  | ⚠️ Object/Decorator | ✅ Flexible            |
-| **Complex SQL / Raw Queries**          | ✅ Native SQL style | ⚠️ Abstracted       | ✅ Supported         | ✅ Supported         | ✅ Supported           |
-| **Visual Tools**                       | ⚠️ Basic Studio    | ✅ Prisma Studio     | ⚠️ CLI only         | ⚠️ Plugins          | ⚠️ REPL/CLI           |
-| **Flexible Query Building**            | ✅ Dual API         | ✅ Client API        | ✅ Query builder     | ✅ Fluent API        | ✅ Query builder       |
-| **DDD / Clean Architecture**           | ❌ Minimalist       | ⚠️ Not focused      | ⚠️ Optional         | ❌ Not suitable      | ✅ Designed for DDD    |
-| **Validation / Lifecycle Hooks**       | ❌ Not built-in     | ⚠️ Minimal          | ✅ Supported         | ✅ Strong            | ✅ Supported           |
-| **Microservices Architecture**         | ✅ Very suitable    | ⚠️ Heavier client   | ✅ Possible          | ⚠️ Moderate size    | ⚠️ Bigger footprint   |
+| Use Case / Strength              | **Drizzle**         | **Prisma**          | **TypeORM**        | **Sequelize**       | **MikroORM**           |
+| -------------------------------- | ------------------- | ------------------- | ------------------ | ------------------- | ---------------------- |
+| **Serverless / Lightweight**     | ✅ Ideal            | ⚠️ Needs Accelerate | ⚠️ Needs tuning    | ❌ Not optimized    | ⚠️ Larger bundle       |
+| **Type Safety (TypeScript)**     | ✅ Strong           | ✅ Excellent        | ✅ Good            | ⚠️ Moderate         | ✅ Excellent           |
+| **Developer Experience**         | ✅ SQL-first        | ✅ Very high        | ⚠️ Traditional     | ⚠️ Verbose          | ✅ High (DDD-friendly) |
+| **Schema-first Design**          | ❌ TS-as-schema     | ✅ PSL schema       | ⚠️ Decorator-based | ⚠️ Object/Decorator | ✅ Flexible            |
+| **Complex SQL / Raw Queries**    | ✅ Native SQL style | ⚠️ Abstracted       | ✅ Supported       | ✅ Supported        | ✅ Supported           |
+| **Visual Tools**                 | ⚠️ Basic Studio     | ✅ Prisma Studio    | ⚠️ CLI only        | ⚠️ Plugins          | ⚠️ REPL/CLI            |
+| **Flexible Query Building**      | ✅ Dual API         | ✅ Client API       | ✅ Query builder   | ✅ Fluent API       | ✅ Query builder       |
+| **DDD / Clean Architecture**     | ❌ Minimalist       | ⚠️ Not focused      | ⚠️ Optional        | ❌ Not suitable     | ✅ Designed for DDD    |
+| **Validation / Lifecycle Hooks** | ❌ Not built-in     | ⚠️ Minimal          | ✅ Supported       | ✅ Strong           | ✅ Supported           |
+| **Microservices Architecture**   | ✅ Very suitable    | ⚠️ Heavier client   | ✅ Possible        | ⚠️ Moderate size    | ⚠️ Bigger footprint    |
 
 ## Conclusion
 
