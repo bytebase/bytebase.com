@@ -15,7 +15,7 @@
 
 ### [ERROR 2013 (HY000): Lost connection to MySQL server during query](/reference/mysql/error/2013-lost-connection-mysql-server)
 
-## Privilege
+## Authentication & Authorization
 
 ### [ERROR 1041 (42000): You are not allowed to create a user with GRANT](/reference/mysql/error/1041-you-are-not-allowed-to-create-a-user-with-grant)
 
@@ -29,17 +29,19 @@
 
 ### [ERROR 1396 (HY000): Operation failed for user](/reference/mysql/error/1396-operation-failed-for-user)
 
-## Data Modification
+## Query Syntax & Logic
 
-### [ERROR 1062 (23000): Duplicate entry](/reference/mysql/error/1062-duplicate-entry)
+### [ERROR 1055 (42000): SELECT list is not in GROUP BY clause and contains nonaggregated column](/reference/mysql/error/1055-select-list-not-in-group-by)
 
-### [ERROR 1153 (08S01): Got a packet bigger than 'max_allowed_packet'](/reference/mysql/error/1153-packet-bigger-than-max-allowed-packet)
+### [ERROR 1111 (HY000): Invalid use of group function](/reference/mysql/error/1111-invalid-use-of-group-function)
 
 ### [ERROR 1175 (HY000): You are using safe update mode](/reference/mysql/error/1175-using-safe-update-mode)
 
-### [ERROR 1213 (40001): Deadlock found when trying to get lock](/reference/mysql/error/1213-deadlock-found)
+## Data Integrity
 
-## Foreign Key
+### [ERROR 1062 (23000): Duplicate entry](/reference/mysql/error/1062-duplicate-entry)
+
+### [ERROR 1213 (40001): Deadlock found when trying to get lock](/reference/mysql/error/1213-deadlock-found)
 
 ### [ERROR 1215 (HY000): Cannot add foreign key constraint](/reference/mysql/error/1215-cannot-add-foreign-key)
 
@@ -48,3 +50,7 @@
 ### [ERROR 1217 (23000): Cannot delete or update a parent row: a foreign key constraint fails](/reference/mysql/error/1217-cannot-delete-parent-row)
 
 ### [ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails](/reference/mysql/error/1451-cannot-delete-parent-row)
+
+## Resource & Configuration
+
+### [ERROR 1153 (08S01): Got a packet bigger than 'max_allowed_packet'](/reference/mysql/error/1153-packet-bigger-than-max-allowed-packet)
