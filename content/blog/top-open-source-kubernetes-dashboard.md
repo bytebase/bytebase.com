@@ -1,7 +1,7 @@
 ---
 title: Top Free, Open Source Kubernetes Dashboard in 2025
 author: Adela
-updated_at: 2025/3/14 18:00:00
+updated_at: 2025/5/28 18:00:00
 feature_image: /content/blog/top-open-source-kubernetes-dashboard/top-k8s-dashboard.webp
 tags: Industry
 description: Top open-source Kubernetes dashboard solutions include K9s, Lens, and KubeDashboard.
@@ -16,6 +16,7 @@ This post is maintained by Bytebase, an open-source database Management Software
 | Update History | Comment          |
 | -------------- | ---------------- |
 | 2025/03/14     | Initial version. |
+| 2025/05/28     | Add Devtron.     |
 
 ## What are the criteria?
 
@@ -146,3 +147,22 @@ Rancher was developed by Rancher Labs, founded in 2014, to simplify Kubernetes m
 - **RBAC & Security Insights** – Manage user permissions and policies.
 - **Plugin Support** – Extend K9s functionality with custom plugins.
 - **Works with Any Kubernetes Distribution** – Compatible with K3s, AKS, EKS, GKE, and more.
+
+## Devtron
+
+![devtron](/content/blog/top-open-source-kubernetes-dashboard/devtron.webp)
+
+[Devtron](https://devtron.ai/) ([repo](https://github.com/devtron-labs/devtron)) is an open-source, Kubernetes-native DevOps platform that gives teams a complete web dashboard for building, deploying, observing and securing their cloud-native applications. By unifying CI/CD, GitOps, observability and security in a single interface, Devtron removes the operational toil of stitching together disparate tools and lets developers focus on shipping reliable code.
+
+**Key Features**
+
+- **Web-Based Kubernetes Dashboard** – Visual, single-pane interface that replaces complex `kubectl` commands and surfaces cluster state, workloads and health at a glance.
+- **End-to-End CI/CD & GitOps** – Drag-and-drop pipelines with declarative GitOps synchronisation enable automated, auditable releases from commit to production.
+- **Multi-Cluster Visibility** – Manage and deploy workloads across multiple clusters and clouds from one console, with aggregated views of nodes, namespaces and services.
+- **AI-Driven Troubleshooting** – Built-in AI analyses pod and application errors to suggest fixes and cut mean-time-to-resolution.
+- **Progressive Delivery Strategies** – One-click canary, blue-green and rolling updates powered by Flagger and Istio to roll out changes safely.
+- **Integrated DevSecOps** – Automated image, code and manifest scanning with policy gates to stop insecure builds before they ship.
+- **Helm & Chart Hub** – Browse, customise and deploy Helm charts, with version management and diffing directly in the console.
+- **Real-Time Metrics & Logs** – Stream application logs and view CPU, memory and network metrics without leaving the dashboard.
+- **Fine-Grained RBAC & SSO** – Integrates with enterprise identity providers and lets admins define role-based permissions at namespace or resource level.
+- **Extensible Ecosystem** – Hooks and integrations connect Devtron with popular tools across the SDLC for cost insights, tracing, alerting and more.
