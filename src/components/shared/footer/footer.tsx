@@ -19,7 +19,7 @@ const FOOTER_MENU = [
     ],
   },
   {
-    name: 'Product',
+    name: 'PRODUCT',
     items: [
       { name: 'Pricing', linkUrl: Route.PRICING },
       { name: 'Changelog', linkUrl: Route.CHANGELOG },
