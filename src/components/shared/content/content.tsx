@@ -32,9 +32,26 @@ const flattenChildrenToString = (children: ReactNode): string => {
     .join('');
 };
 
+const usedIds = new Set<string>();
+
 const getId = (children: ReactNode): string => {
   const text = flattenChildrenToString(children);
-  return slugifyText(text);
+  const baseId = slugifyText(text);
+
+  if (!usedIds.has(baseId)) {
+    usedIds.add(baseId);
+    return baseId;
+  }
+
+  let counter = 1;
+  let uniqueId = `${baseId}-${counter}`;
+  while (usedIds.has(uniqueId)) {
+    counter++;
+    uniqueId = `${baseId}-${counter}`;
+  }
+
+  usedIds.add(uniqueId);
+  return uniqueId;
 };
 
 const components = {

@@ -165,13 +165,33 @@ const getTableOfContents = (content: string): TableOfContents[] => {
   const arr = headings.map((item) => item.replace(/(#+)\s/, '$1 '));
 
   const toc: TableOfContents[] = [];
+  const usedIds = new Set<string>();
+
+  const getUniqueId = (title: string): string => {
+    const baseId = slugifyText(title);
+
+    if (!usedIds.has(baseId)) {
+      usedIds.add(baseId);
+      return baseId;
+    }
+
+    let counter = 1;
+    let uniqueId = `${baseId}-${counter}`;
+    while (usedIds.has(uniqueId)) {
+      counter++;
+      uniqueId = `${baseId}-${counter}`;
+    }
+
+    usedIds.add(uniqueId);
+    return uniqueId;
+  };
 
   arr.forEach((item) => {
     const [depth, title] = parseLine(item);
     if (title && depth && depth <= 2) {
       toc.push({
         title: title.replace(/[^a-zA-Z0-9+\\/\-~_:,.<>&?!()\s"]/g, ''),
-        id: slugifyText(title),
+        id: getUniqueId(title),
         level: depth + 1,
       });
     }
