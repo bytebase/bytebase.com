@@ -345,3 +345,17 @@ WHERE jt.ram >= 8 AND jt.storage >= 256;
 | **Pretty Printing**          | No built-in function             | Yes (`JSON_PRETTY()`)                   |
 
 PostgreSQL 17 offers broader JSON functionality. If your workloads rely heavily on JSON and demand advanced querying, its `jsonb` type with GIN indexes is often the better fit. MySQL, however, is steadily improving and already provides a growing set of built-in JSON functions.
+
+## References
+
+1. PostgreSQL Documentation. (2024). "JSON Types." Retrieved from https://www.postgresql.org/docs/current/datatype-json.html
+
+1. PostgreSQL Documentation. (2024). "JSON Functions and Operators." Retrieved from https://www.postgresql.org/docs/current/functions-json.html
+
+1. MySQL Documentation. (2024). "The JSON Data Type." Retrieved from https://dev.mysql.com/doc/refman/8.0/en/json.html
+
+1. MySQL Documentation. (2024). "JSON Function Reference." Retrieved from https://dev.mysql.com/doc/refman/8.0/en/json-function-reference.html
+
+1. PostgreSQL Documentation. (2024). "PostgreSQL 17.0 Release Notes." Retrieved from https://www.postgresql.org/docs/release/17.0/
+
+1. Stokes, D. (2023). "JSON Data Improvements in MySQL 8.0." Oracle MySQL Summit 2023. Retrieved from https://downloads.mysql.com/events/mysql-summit-2023/Oracle_MySQL_Summit_2023_JSON.pdf
