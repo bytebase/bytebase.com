@@ -164,43 +164,16 @@ const getTableOfContents = (content: string): TableOfContents[] => {
   const headings = content.match(/(#+)\s(.*)/g) || [];
   const arr = headings.map((item) => item.replace(/(#+)\s/, '$1 '));
 
-  // First pass: collect all titles and generate base IDs
-  const titles: string[] = [];
-  arr.forEach((item) => {
-    const [depth, title] = parseLine(item);
-    if (title && depth && depth <= 2) {
-      titles.push(title);
-    }
-  });
-
-  // Count occurrences of each base ID
-  const baseIdCounts = new Map<string, number>();
-  titles.forEach((title) => {
-    const baseId = slugifyText(title);
-    baseIdCounts.set(baseId, (baseIdCounts.get(baseId) || 0) + 1);
-  });
-
-  // Second pass: generate final IDs
   const toc: TableOfContents[] = [];
-  const usedIds = new Map<string, number>();
 
   arr.forEach((item) => {
     const [depth, title] = parseLine(item);
     if (title && depth && depth <= 2) {
-      const baseId = slugifyText(title);
-      const count = baseIdCounts.get(baseId) || 1;
-
-      let finalId = baseId;
-      if (count > 1) {
-        // Only add suffix if there are duplicates
-        const currentCount = (usedIds.get(baseId) || 0) + 1;
-        usedIds.set(baseId, currentCount);
-        finalId = `${baseId}-${currentCount}`;
-      }
+      const id = slugifyText(title);
 
       toc.push({
         title: title.replace(/[^a-zA-Z0-9+\\/\-~_:,.<>&?!()\s"]/g, ''),
-        id: finalId,
+        id,
         level: depth + 1,
       });
     }
