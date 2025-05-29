@@ -13,13 +13,11 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool whic
 
 </HintBlock>
 
-| Update History | Comment            |
-| -------------- | ------------------ |
-| 2025/05/29     | Initial version.   |
+| Update History | Comment          |
+| -------------- | ---------------- |
+| 2025/05/29     | Initial version. |
 
 ## What is SOC 2?
-
-In today's digital landscape, protecting sensitive data has become a critical priority for organizations of all sizes. As businesses increasingly rely on **cloud services and third-party vendors** to handle their data, customers need assurance that their information is being properly safeguarded. This is where SOC 2 compliance comes into play.
 
 **SOC 2 (System and Organization Controls 2)** is a security framework developed by **the American Institute of Certified Public Accountants (AICPA)** that specifies how organizations should protect customer data from unauthorized access, security incidents, and other vulnerabilities. It was created in 2010 to establish trust between service providers and their customers, particularly for companies that store, process, or transmit customer data in the cloud.
 
@@ -59,12 +57,14 @@ Security is the only mandatory Trust Services Criteria in SOC 2, making it the f
 ### Key Security Requirements
 
 1. **Information Security:** Organizations must implement robust measures to protect data from unauthorized access and use. This includes:
+
    - Implementing **firewalls** and intrusion detection systems
    - Establishing security **monitoring** and alerting
    - Conducting regular **vulnerability assessments and penetration testing**
    - Developing incident response procedures
 
 2. **Logical and Physical Access Controls:** Organizations must manage and restrict both logical (system-based) and physical access to prevent unauthorized use:
+
    - Implementing **multi-factor authentication**
    - Establishing new employee onboarding and offboarding processes
    - Conducting quarterly **user access and permissions reviews**
@@ -73,12 +73,14 @@ Security is the only mandatory Trust Services Criteria in SOC 2, making it the f
    - Monitoring production systems
 
 3. **System Operations:** Organizations must manage system operations to detect and mitigate process deviations:
+
    - Implementing **system monitoring** tools
    - Establishing baseline performance metrics
    - Creating procedures for handling **operational anomalies**
    - Developing incident management protocols
 
 4. **Change Management:** Organizations must implement controlled change management processes to prevent unauthorized changes:
+
    - Establishing formal **change request procedures**
    - Requiring **approval workflows** for system changes
    - **Testing changes** before implementation
@@ -116,16 +118,19 @@ SOC 2 doesn't specify exact retention periods but requires:
 ### Creating a Data Retention Policy
 
 1. **Data Identification and Classification**
+
    - Identify all types of data collected and the various methods of collection
    - **Classify data into categories** based on sensitivity and confidentiality (public, private, protected health information, confidential, restricted, etc.)
    - Document the classification system in the data retention policy
 
 2. **Requirement Identification**
+
    - Identify and understand all relevant laws, regulations, service commitments, and contractual obligations
    - Consider **industry-specific requirements** (HIPAA, GDPR, FLSA, GLBA, SOX, PCI DSS, etc.)
    - Document these requirements and how they apply to different data classifications
 
 3. **Retention Period Definition**
+
    - Set appropriate retention periods for each data category
    - Consider whether a standard retention period is sufficient or if multiple periods are needed
    - Document the retention periods in the data retention policy
