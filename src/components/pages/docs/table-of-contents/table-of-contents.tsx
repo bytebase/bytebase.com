@@ -50,7 +50,7 @@ const TableOfContents = ({ items, hasBackToTop, className }: TableOfContentsProp
     titles.current = items
       .map(({ id }) => document.getElementById(id))
       .filter((anchor): anchor is HTMLElement => anchor !== null);
-  }, []);
+  }, [items]);
 
   const updateCurrentAnchor = useCallback(() => {
     const currentTitleIdx = titles.current.findIndex(
@@ -61,6 +61,7 @@ const TableOfContents = ({ items, hasBackToTop, className }: TableOfContentsProp
       currentTitleIdx === -1 ? titles.current.length - 1 : Math.max(currentTitleIdx - 1, 0);
 
     const currentTitle = titles.current[idx];
+    if (!currentTitle) return;
     setCurrentAnchor(currentTitle.id);
 
     // Scroll to current anchor if it is not visible.
@@ -84,7 +85,7 @@ const TableOfContents = ({ items, hasBackToTop, className }: TableOfContentsProp
     window.addEventListener('scroll', onScroll);
 
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [updateCurrentAnchor, onScroll]);
 
   return (
     <nav ref={containerRef} className={clsx(className, 'table-of-contents lg:hidden')}>
