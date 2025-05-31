@@ -6,14 +6,14 @@ const PROMO_DATA = {
   BLOG_ASIDE: {
     title: 'All-in-One Database Workflows',
     description:
-      'Schema migrations, adhoc changes, just-in-time (JIT) database access, and data masking in one place.',
-    cta: '⚙️ Unify now',
+      'Schema migrations, adhoc changes, just-in-time (JIT) database access, data masking, and audit logging in one place.',
+    cta: '💡 Learn more',
     pathname: `/docs/introduction/what-is-bytebase/?source=blog`,
   },
   DOC_ASIDE: {
     title: ' All-in-One Database Workflows',
     description:
-      'Schema migrations, adhoc changes, just-in-time (JIT) database access, and data masking in one place.',
+      'Schema migrations, adhoc changes, just-in-time (JIT) database access, data masking, and audit logging in one place.',
     cta: '🕹️ Live Demo',
     pathname: `/view-live-demo/?source=blog`,
   },
