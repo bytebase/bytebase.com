@@ -40,37 +40,51 @@ const Item = ({
   const shouldBeOpen =
     url === pathname || hasActiveChild || (title && depth === 1 && expandedList?.includes(title));
 
-  const [isOpen, setIsOpen] = useState(shouldBeOpen);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
   const itemRef = useRef<HTMLLIElement>(null);
   const isActive = url === pathname;
 
+  // Initialize open state after component mounts to avoid hydration issues
+  useEffect(() => {
+    setIsOpen(!!shouldBeOpen);
+    setIsInitialized(true);
+  }, [shouldBeOpen]);
+
   // Update open state when pathname changes (e.g., when coming from search)
   useEffect(() => {
-    if (shouldBeOpen && !isOpen) {
+    if (isInitialized && shouldBeOpen && !isOpen) {
       setIsOpen(true);
     }
-  }, [pathname, shouldBeOpen, isOpen]);
+  }, [pathname, shouldBeOpen, isOpen, isInitialized]);
 
   // Auto-scroll to active item
   useEffect(() => {
-    if (isActive && itemRef.current) {
-      const element = itemRef.current;
-      const sidebar = element.closest('[data-sidebar]') || element.closest('.sidebar');
+    if (isActive && itemRef.current && isInitialized && isOpen) {
+      // Small delay to ensure DOM is fully rendered
+      const timeoutId = setTimeout(() => {
+        const element = itemRef.current;
+        if (!element) return;
 
-      if (sidebar) {
-        const sidebarRect = sidebar.getBoundingClientRect();
-        const elementRect = element.getBoundingClientRect();
+        const sidebar = element.closest('[data-sidebar]') || element.closest('.sidebar');
 
-        // Check if element is not visible in sidebar
-        if (elementRect.top < sidebarRect.top || elementRect.bottom > sidebarRect.bottom) {
-          element.scrollIntoView({
-            behavior: 'instant',
-            block: 'center',
-          });
+        if (sidebar) {
+          const sidebarRect = sidebar.getBoundingClientRect();
+          const elementRect = element.getBoundingClientRect();
+
+          // Check if element is not visible in sidebar
+          if (elementRect.top < sidebarRect.top || elementRect.bottom > sidebarRect.bottom) {
+            element.scrollIntoView({
+              behavior: 'instant',
+              block: 'center',
+            });
+          }
         }
-      }
+      }, 100);
+
+      return () => clearTimeout(timeoutId);
     }
-  }, [isActive, pathname]);
+  }, [isActive, pathname, isInitialized, isOpen]);
 
   const toggle = () => {
     if (closeMenu && url) {
@@ -126,7 +140,12 @@ const Item = ({
           )}
         >
           {children.map((item, index) => (
-            <Item {...item} closeMenu={closeMenu} isParentOpen={isOpen || false} key={index} />
+            <Item
+              {...item}
+              closeMenu={closeMenu}
+              isParentOpen={isOpen || false}
+              key={item.url || item.title || index}
+            />
           ))}
         </ul>
       )}
