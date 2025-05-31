@@ -36,27 +36,40 @@ const Item = ({
 } & SidebarItem) => {
   // Normalize the pathname to remove the trailing slash
   const pathname = (usePathname() ?? '').replace(/\/$/, '');
-  const hasActiveChild = isActiveItem(children, pathname);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Use pathname directly after mount to ensure consistency
+  const currentPath = isMounted ? pathname : '';
+  const hasActiveChild = isActiveItem(children, currentPath);
   const shouldBeOpen =
-    url === pathname || hasActiveChild || (title && depth === 1 && expandedList?.includes(title));
+    url === currentPath ||
+    hasActiveChild ||
+    (title && depth === 1 && expandedList?.includes(title));
 
   const [isOpen, setIsOpen] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
   const itemRef = useRef<HTMLLIElement>(null);
-  const isActive = url === pathname;
+  const isActive = url === currentPath;
+
+  // Set mounted state after hydration
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Initialize open state after component mounts to avoid hydration issues
   useEffect(() => {
-    setIsOpen(!!shouldBeOpen);
-    setIsInitialized(true);
-  }, [shouldBeOpen]);
+    if (isMounted) {
+      setIsOpen(!!shouldBeOpen);
+      setIsInitialized(true);
+    }
+  }, [shouldBeOpen, isMounted]);
 
   // Update open state when pathname changes (e.g., when coming from search)
   useEffect(() => {
     if (isInitialized && shouldBeOpen && !isOpen) {
       setIsOpen(true);
     }
-  }, [pathname, shouldBeOpen, isOpen, isInitialized]);
+  }, [currentPath, shouldBeOpen, isOpen, isInitialized]);
 
   // Auto-scroll to active item
   useEffect(() => {
@@ -84,7 +97,7 @@ const Item = ({
 
       return () => clearTimeout(timeoutId);
     }
-  }, [isActive, pathname, isInitialized, isOpen]);
+  }, [isActive, currentPath, isInitialized, isOpen]);
 
   const toggle = () => {
     if (closeMenu && url) {
@@ -112,9 +125,9 @@ const Item = ({
         className={clsx(
           'relative flex w-full items-center py-2 text-15 text-gray-30 transition-colors duration-200 before:absolute before:-left-[14.5px] before:top-1/2 before:h-4/5 before:w-0.5 before:-translate-y-1/2 before:rounded-sm before:transition-colors before:duration-200 hover:text-gray-60',
           depth === 1 ? 'font-semibold' : 'font-medium',
-          url === pathname && 'text-primary-1',
+          url === currentPath && 'text-primary-1',
           depth === 1 && hasActiveChild && 'text-black',
-          depth >= 2 && url === pathname && 'before:bg-primary-1',
+          depth >= 2 && url === currentPath && 'before:bg-primary-1',
         )}
         href={url ?? ''}
         onClick={toggle}

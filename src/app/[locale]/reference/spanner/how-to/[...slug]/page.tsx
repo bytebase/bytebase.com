@@ -28,6 +28,6 @@ export async function generateMetadata({ params }: { params: { slug: string[] } 
   return generatePostMetadata({
     params,
     dirPath: DIR_PATH,
-    routePath: Route.REFERENCE_POSTGRES_HOW_TO,
+    routePath: Route.REFERENCE_SPANNER_HOW_TO,
   });
 }
