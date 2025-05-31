@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import clsx from 'clsx';
 
@@ -41,6 +41,8 @@ const Item = ({
     url === pathname || hasActiveChild || (title && depth === 1 && expandedList?.includes(title));
 
   const [isOpen, setIsOpen] = useState(shouldBeOpen);
+  const itemRef = useRef<HTMLLIElement>(null);
+  const isActive = url === pathname;
 
   // Update open state when pathname changes (e.g., when coming from search)
   useEffect(() => {
@@ -48,6 +50,27 @@ const Item = ({
       setIsOpen(true);
     }
   }, [pathname, shouldBeOpen, isOpen]);
+
+  // Auto-scroll to active item
+  useEffect(() => {
+    if (isActive && itemRef.current) {
+      const element = itemRef.current;
+      const sidebar = element.closest('[data-sidebar]') || element.closest('.sidebar');
+
+      if (sidebar) {
+        const sidebarRect = sidebar.getBoundingClientRect();
+        const elementRect = element.getBoundingClientRect();
+
+        // Check if element is not visible in sidebar
+        if (elementRect.top < sidebarRect.top || elementRect.bottom > sidebarRect.bottom) {
+          element.scrollIntoView({
+            behavior: 'instant',
+            block: 'center',
+          });
+        }
+      }
+    }
+  }, [isActive, pathname]);
 
   const toggle = () => {
     if (closeMenu && url) {
@@ -68,6 +91,7 @@ const Item = ({
 
   return (
     <li
+      ref={itemRef}
       className={clsx('flex flex-col items-start', depth >= 2 && 'pl-4', !isParentOpen && 'hidden')}
     >
       <Tag
