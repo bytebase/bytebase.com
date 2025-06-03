@@ -106,20 +106,9 @@ Postgres at super scale.
 
 ### Object Hierarchy
 
-MySQL employs a 4 level system:
+MySQL employs a 4 level system: `Instance.Database.Table.Column`
 
-1. Instance
-1. Database
-1. Table
-1. Column
-
-Postgres employs a 5 level system:
-
-1. Instance (also called cluster)
-1. Database
-1. Schema
-1. Table
-1. Column
+Postgres employs a 5 level system: `Instance.Database.Schema.Table.Column` (Instance in Postgres is often called `Cluster`).
 
 ### ACID Transaction
 
