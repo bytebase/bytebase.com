@@ -173,7 +173,7 @@ const getTableOfContents = (content: string): TableOfContents[] => {
       const id = generateHeadingId(title, idContext);
 
       toc.push({
-        title: title.replace(/[^a-zA-Z0-9+\\/\-~_:,.<>&?!()\s"]/g, ''),
+        title: title.replace(/[^a-zA-Z0-9+\\/\-~_:,.<>&?!()\s"=]/g, ''),
         id,
         level: depth + 1,
       });
