@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import { ReactNode } from 'react';
 
-import { generateHeadingId } from '@/utils/generate-heading-id';
+import { generateHeadingId, createHeadingIdContext } from '@/utils/generate-heading-id';
 import clsx from 'clsx';
 import remarkGfm from 'remark-gfm';
 
@@ -18,44 +18,50 @@ import PricingPlanBlock from './pricing-plan-block';
 import IncludeBlock from './include-block';
 import TutorialBlock from './tutorial-block';
 
-const getId = (children: ReactNode): string => {
-  return generateHeadingId(children);
+// Function to create heading components with a shared context
+const createHeadingComponents = (headingIdContext: ReturnType<typeof createHeadingIdContext>) => {
+  const getId = (children: ReactNode): string => {
+    return generateHeadingId(children, headingIdContext);
+  };
+
+  return {
+    h2: ({ children, ...rest }: any) => {
+      const id = getId(children);
+      return (
+        <h2 id={id} className="group" {...rest}>
+          <span>{children}</span>
+          <a className="ml-1 hidden group-hover:inline-block" href={`#${id}`}>
+            <span>#</span>
+          </a>
+        </h2>
+      );
+    },
+    h3: ({ children, ...rest }: any) => {
+      const id = getId(children);
+      return (
+        <h3 id={id} className="group" {...rest}>
+          <span>{children}</span>
+          <a className="ml-1 hidden group-hover:inline-block" href={`#${id}`}>
+            <span>#</span>
+          </a>
+        </h3>
+      );
+    },
+    h4: ({ children, ...rest }: any) => {
+      const id = getId(children);
+      return (
+        <h4 id={id} className="group" {...rest}>
+          <span>{children}</span>
+          <a className="ml-1 hidden group-hover:inline-block" href={`#${id}`}>
+            <span>#</span>
+          </a>
+        </h4>
+      );
+    },
+  };
 };
 
-const components = {
-  h2: ({ children, ...rest }: any) => {
-    const id = getId(children);
-    return (
-      <h2 id={id} className="group" {...rest}>
-        <span>{children}</span>
-        <a className="ml-1 hidden group-hover:inline-block" href={`#${id}`}>
-          <span>#</span>
-        </a>
-      </h2>
-    );
-  },
-  h3: ({ children, ...rest }: any) => {
-    const id = getId(children);
-    return (
-      <h3 id={id} className="group" {...rest}>
-        <span>{children}</span>
-        <a className="ml-1 hidden group-hover:inline-block" href={`#${id}`}>
-          <span>#</span>
-        </a>
-      </h3>
-    );
-  },
-  h4: ({ children, ...rest }: any) => {
-    const id = getId(children);
-    return (
-      <h4 id={id} className="group" {...rest}>
-        <span>{children}</span>
-        <a className="ml-1 hidden group-hover:inline-block" href={`#${id}`}>
-          <span>#</span>
-        </a>
-      </h4>
-    );
-  },
+const staticComponents = {
   table: (props: any) => (
     <figure className="table-wrapper">
       <table {...props} />
@@ -103,6 +109,11 @@ const components = {
 };
 
 const Content = ({ className, content }: { className?: string; content: string }) => {
+  // Create heading ID context for this content and merge with static components
+  const headingIdContext = createHeadingIdContext();
+  const headingComponents = createHeadingComponents(headingIdContext);
+  const components = { ...staticComponents, ...headingComponents };
+
   return (
     <div className={clsx(className, 'content prose prose-lg max-w-none')}>
       <MDXRemote

@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 import { getExcerpt } from '@/utils/get-excerpt';
-import { generateHeadingId } from '@/utils/generate-heading-id';
+import {
+  generateHeadingId,
+  createHeadingIdContext,
+  HeadingIdContext,
+} from '@/utils/generate-heading-id';
 import algoliasearch from 'algoliasearch';
 import crypto from 'crypto';
 
@@ -50,9 +54,10 @@ const generateIndexElement = (
   heading: string,
   lastObject: AlgoliaIndexObject,
   recordId: number,
+  headingIdContext: HeadingIdContext,
 ): AlgoliaIndexObject => {
   const level = heading.split(' ')[0].length || 1;
-  const anchor = level <= 3 ? '#' + generateHeadingId(heading) : '';
+  const anchor = level <= 3 ? '#' + generateHeadingId(heading, headingIdContext) : '';
   const resultUrl = anchor ? url + anchor : lastObject.url;
   const clearContent = getExcerpt({ content });
 
@@ -90,6 +95,7 @@ const getRecords = () => {
     const category = getCategoryName(slug.split('/')[0]);
     const url = `${Route.DOCS}/${slug}/`;
     const cleanTitle = getExcerpt({ content: title });
+    const headingIdContext = createHeadingIdContext();
 
     // update default data object on each new file
     let dataObject: AlgoliaIndexObject = {
@@ -121,7 +127,14 @@ const getRecords = () => {
         } else {
           if (heading != '') {
             recordId++;
-            dataObject = generateIndexElement(url, textContent, heading, dataObject, recordId);
+            dataObject = generateIndexElement(
+              url,
+              textContent,
+              heading,
+              dataObject,
+              recordId,
+              headingIdContext,
+            );
             resultObj.push(dataObject);
           }
           heading = line;
@@ -129,7 +142,14 @@ const getRecords = () => {
         }
       });
     recordId++;
-    dataObject = generateIndexElement(url, textContent, heading, dataObject, recordId);
+    dataObject = generateIndexElement(
+      url,
+      textContent,
+      heading,
+      dataObject,
+      recordId,
+      headingIdContext,
+    );
     resultObj.push(dataObject);
   });
 

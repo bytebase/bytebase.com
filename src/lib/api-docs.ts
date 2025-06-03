@@ -1,5 +1,5 @@
 import { parseLine } from '@/utils/docs';
-import { generateHeadingId } from '@/utils/generate-heading-id';
+import { generateHeadingId, createHeadingIdContext } from '@/utils/generate-heading-id';
 import fs from 'fs';
 import * as glob from 'glob';
 import matter from 'gray-matter';
@@ -165,11 +165,12 @@ const getTableOfContents = (content: string): TableOfContents[] => {
   const arr = headings.map((item) => item.replace(/(#+)\s/, '$1 '));
 
   const toc: TableOfContents[] = [];
+  const idContext = createHeadingIdContext();
 
   arr.forEach((item) => {
     const [depth, title] = parseLine(item);
     if (title && depth && depth <= 2) {
-      const id = generateHeadingId(title);
+      const id = generateHeadingId(title, idContext);
 
       toc.push({
         title: title.replace(/[^a-zA-Z0-9+\\/\-~_:,.<>&?!()\s"]/g, ''),
