@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 import { getExcerpt } from '@/utils/get-excerpt';
-import slugifyText from '@/utils/slugify-text';
+import { generateHeadingId } from '@/utils/generate-heading-id';
 import algoliasearch from 'algoliasearch';
 import crypto from 'crypto';
 
@@ -52,7 +52,7 @@ const generateIndexElement = (
   recordId: number,
 ): AlgoliaIndexObject => {
   const level = heading.split(' ')[0].length || 1;
-  const anchor = level <= 3 ? '#' + slugifyText(heading) : '';
+  const anchor = level <= 3 ? '#' + generateHeadingId(heading) : '';
   const resultUrl = anchor ? url + anchor : lastObject.url;
   const clearContent = getExcerpt({ content });
 

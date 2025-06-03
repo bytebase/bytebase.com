@@ -1,5 +1,5 @@
 import { parseLine } from '@/utils/docs';
-import slugifyText from '@/utils/slugify-text';
+import { generateHeadingId } from '@/utils/generate-heading-id';
 import fs from 'fs';
 import * as glob from 'glob';
 import matter from 'gray-matter';
@@ -169,7 +169,7 @@ const getTableOfContents = (content: string): TableOfContents[] => {
   arr.forEach((item) => {
     const [depth, title] = parseLine(item);
     if (title && depth && depth <= 2) {
-      const id = slugifyText(title);
+      const id = generateHeadingId(title);
 
       toc.push({
         title: title.replace(/[^a-zA-Z0-9+\\/\-~_:,.<>&?!()\s"]/g, ''),

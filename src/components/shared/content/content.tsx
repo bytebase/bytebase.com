@@ -1,9 +1,9 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Image from 'next/image';
 
-import { Children, ReactNode, isValidElement } from 'react';
+import { ReactNode } from 'react';
 
-import slugifyText from '@/utils/slugify-text';
+import { generateHeadingId } from '@/utils/generate-heading-id';
 import clsx from 'clsx';
 import remarkGfm from 'remark-gfm';
 
@@ -18,23 +18,8 @@ import PricingPlanBlock from './pricing-plan-block';
 import IncludeBlock from './include-block';
 import TutorialBlock from './tutorial-block';
 
-const flattenChildrenToString = (children: ReactNode): string => {
-  return Children.toArray(children)
-    .map((child) => {
-      if (typeof child === 'string' || typeof child === 'number' || typeof child === 'boolean') {
-        return child.toString();
-      }
-      if (isValidElement(child)) {
-        return flattenChildrenToString(child.props.children);
-      }
-      return '';
-    })
-    .join('');
-};
-
 const getId = (children: ReactNode): string => {
-  const text = flattenChildrenToString(children);
-  return slugifyText(text);
+  return generateHeadingId(children);
 };
 
 const components = {
