@@ -97,6 +97,8 @@ expand_section_list: ['Self-host']
 
 #### [Rollout Policy](/docs/administration/environment-policy/rollout-policy)
 
+#### [Scheduled Rollout](/docs/change-database/scheduled-rollout)
+
 ### Roll back
 
 #### [Data Rollback](/docs/change-database/rollback-data-changes)
