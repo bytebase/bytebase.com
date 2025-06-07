@@ -13,7 +13,7 @@ const QUESTIONS: Question[] = [
   },
   {
     question: 'Which certifications do you have?',
-    answer: 'We have SOC 2 Type 1 certification. Type 2 is in progress.',
+    answer: 'We have SOC 2 Type 2 certification.',
   },
   {
     question: 'Is there a free trial?',
