@@ -169,11 +169,11 @@ expand_section_list: ['Self-host']
 
 ### [Overview](/docs/security/database-permission/overview)
 
-### [Query](/docs/security/database-permission/query)
+### [Assign a Role](/docs/security/database-permission/assign)
 
-### [Export](/docs/security/database-permission/export)
+### [Request a Role](/docs/security/database-permission/request)
 
-### [EXPLAIN](/docs/security/database-permission/explain)
+### [One-time Export](/docs/security/database-permission/export)
 
 ## Dynamic Data Masking
 
