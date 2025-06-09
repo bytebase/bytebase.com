@@ -21,8 +21,6 @@ SAVEPOINT after_column_add;
 CREATE INDEX idx_users_email_verified ON users(email_verified);
 -- Oops, index creation failed, but we can keep the column
 ROLLBACK TO SAVEPOINT after_column_add;
--- Try a different index approach
-CREATE INDEX CONCURRENTLY idx_users_email_verified ON users(email_verified);
 COMMIT;
 ```
 
