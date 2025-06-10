@@ -122,7 +122,7 @@ Feishu (Lark) allows to specify a list of keywords in the [security setting](htt
 1. Go to [https://open.feishu.cn/app](https://open.feishu.cn/app).
 1. Click **Create Custom App**, fill the form and click **Create**.
 1. Click **Add Features** on the left sidebar, add the **Bot** feature.
-1. Click **Permisions & Scopes** on the left sidebar, find and add the following permissions:
+1. Click **Permissions & Scopes** on the left sidebar, find and add the following permissions:
    - `contact:user.id:readonly`
    - `im:message:send_as_bot`
 1. Click **Create Version**.

@@ -61,7 +61,7 @@ Here is what you will achieve by the end of this tutorial:
       NEXT_PUBLIC_BB_SERVICE_KEY=bbs_xxxxxx
    ```
 
-1. Run `pnpm i` and `pnpm run dev`, you can run the demo app locally with `localhost:xxxx`. However, the app need to listen to webhook from Jira and Bytebase, so you need to make the app network accessible from both. By using [ngrok](https://ngrok.com/) or [vscode ports](https://code.visualstudio.com/docs/editor/port-forwarding), you can acheive this.
+1. Run `pnpm i` and `pnpm run dev`, you can run the demo app locally with `localhost:xxxx`. However, the app need to listen to webhook from Jira and Bytebase, so you need to make the app network accessible from both. By using [ngrok](https://ngrok.com/) or [vscode ports](https://code.visualstudio.com/docs/editor/port-forwarding), you can achieve this.
 
 ### Jira webhook: To trigger when Jira issue is created or updated
 

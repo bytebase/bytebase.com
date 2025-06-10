@@ -97,7 +97,7 @@ psql -h <<host>> -p <<port>> -U <<user>> postgres -c "DROP DATABASE metadb"
 
 If [External PostgreSQL](/docs/get-started/install/external-postgres/) is not configured, then
 Bytebase will store the metadata under the [--data](/docs/reference/command-line#--data-directory) directory.
-You can back up the `--data` direcotry or the `pgdata` subfolder.
+You can back up the `--data` directory or the `pgdata` subfolder.
 
 <HintBlock type="info">
 
