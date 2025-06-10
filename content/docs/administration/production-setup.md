@@ -18,6 +18,10 @@ See [Configure External URL](/docs/get-started/install/external-url).
 
 See [Configure External PostgreSQL](/docs/get-started/install/external-postgres).
 
+## Telemetry
+
+Access telemetry at `/metrics` (e.g. https://demo.bytebase.com/metrics).
+
 ## High Availability (HA)
 
 You can only run a single Bytebase instance at any point it time. In another word, you can scale-up the instance but not scale-out the instance to multiple replicas.
