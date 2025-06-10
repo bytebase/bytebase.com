@@ -12,7 +12,7 @@ updated_at: 2021/08/02 07:50:00
 ## 🎠 Community
 
 - We received our first customer review. Thanks @barretlee for the detailed review!
-- Our GitHub repository has reached 100 stars at the begining of the week. The user name is @binarysort :)
+- Our GitHub repository has reached 100 stars at the beginning of the week. The user name is @binarysort :)
 - We appeared on GitHub Trending during the week and accumulated 500 stars over the week.
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>
