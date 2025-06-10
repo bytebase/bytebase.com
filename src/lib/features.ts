@@ -44,7 +44,7 @@ export const FEATURES = {
   SCIM: 'SCIM',
   '2FA': 'Two-Factor Authentication (2FA)',
   SSH_TUNNEL: 'SSH Tunnel',
-  QUERY_EXPORT_APPROVAL_WORKFLOW: 'Query and export approval workflow',
+  REQUEST_ROLE_APPROVAL_WORKFLOW: 'Request role approval workflow',
   ENVIRONMENT_TIER: 'Environment Tier',
   DATA_MASKING: 'Sensitive data masking',
   DATABASE_PERMISSION: 'Fine-grained database permission',

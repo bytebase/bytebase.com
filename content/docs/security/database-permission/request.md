@@ -1,0 +1,27 @@
+---
+title: Request a Role
+---
+
+## Via Project
+
+Within a project, if you at least have a **Project Viewer** role (or other roles that can access the project), you can request other roles.
+
+1. Go to **Database > Databases** or **Manage > Members** on the left sidebar. You can see the **Request role** button on the top.
+
+    ![bb-project-databases](/content/docs/security/database-permission/request/bb-project-databases.webp)
+
+    ![bb-project-members](/content/docs/security/database-permission/request/bb-project-members.webp)
+
+1. Click **Request role** button, you can see the available roles. Here we request a **SQL Editor** role (which allow the user to access the SQL Editor). You may manually select database and tables.
+
+    ![bb-project-request-sql-editor](/content/docs/security/database-permission/request/bb-project-request-sql-editor.webp)
+
+1. After submitting the request, there's an request issue created matched with the [custom approval](/docs/administration/custom-approval/) you configured. Once the request is approved, the user will have the requested role.
+
+    ![bb-project-request-issue](/content/docs/security/database-permission/request/bb-project-request-issue.webp)
+
+## Via SQL Editor
+
+For **SQL Editor User** role, you can also request it via SQL Editor.
+
+    ![bb-sql-editor-request](/content/docs/security/database-permission/request/bb-sql-editor-request.webp)
