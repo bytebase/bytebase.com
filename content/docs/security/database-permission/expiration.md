@@ -1,7 +1,0 @@
----
-title: Role Expiration Reminder
----
-
-Users assigned a project role with a limited duration will see a persistent reminder starting two days before the role expires, which remains visible until dismissed.
-
-![bb-role-expiration-reminder](/content/docs/security/database-permission/expiration/bb-role-expiration-reminder.webp)
