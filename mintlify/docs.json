@@ -214,17 +214,17 @@
           {
             "group": "API",
             "pages": [
-              "api/overview",
-              "api/authentication",
-              "api/sql-review",
-              "api/sql-editor",
-              "api/release",
-              "api/plan",
-              "api/rollout",
-              "api/issue",
-              "api/permission",
-              "api/data-classification",
-              "api/audit-log"
+              "integrations/api/overview",
+              "integrations/api/authentication",
+              "integrations/api/sql-review",
+              "integrations/api/sql-editor",
+              "integrations/api/release",
+              "integrations/api/plan",
+              "integrations/api/rollout",
+              "integrations/api/issue",
+              "integrations/api/permission",
+              "integrations/api/data-classification",
+              "integrations/api/audit-log"
             ]
           },
           {
