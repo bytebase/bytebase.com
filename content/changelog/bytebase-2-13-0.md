@@ -17,6 +17,6 @@ description: 'Support advanced SQL auto-completion for PostgreSQL, Redshift and 
 
 ## 📰 Fresh Off the Press
 
-- To integrate database DevOps & CI/CD tool into your existing DevOps platform, [Bytebase API](/docs/tutorials/api-issue) is an answer. 🔌
+- To integrate database DevOps & CI/CD tool into your existing DevOps platform, [Bytebase API](https://docs.bytebase.com/tutorials/api-issue) is an answer. 🔌
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

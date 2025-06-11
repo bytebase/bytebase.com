@@ -8,15 +8,15 @@ description: 'Support Azure DevOps for VCS integration; Support setting Sign-in 
 
 ## 🚀 New Features
 
-- Support [Azure DevOps](/docs/vcs-integration/azure-devops/) for VCS integration.
-- Support setting [Sign-in Frequency](/docs/administration/sign-in-restriction/#sign-in-frequency).
+- Support [Azure DevOps](https://docs.bytebase.com/vcs-integration/azure-devops/) for VCS integration.
+- Support setting [Sign-in Frequency](https://docs.bytebase.com/administration/sign-in-restriction/#sign-in-frequency).
 - Support export changes from database change history.
 - Schema Designer for MySQL.
 - Support defining column template.
 
 ## 🎄 Enhancements
 
-- Support more [SQL Review Rules](/docs/sql-review/review-rules/) for SQL Server.
+- Support more [SQL Review Rules](https://docs.bytebase.com/sql-review/review-rules/) for SQL Server.
 - Optimized detail view for MongoDB query results in SQL Editor.
 - Optimized SQL Editor layout.
 - Support batch retry failed tasks on issue detail page.

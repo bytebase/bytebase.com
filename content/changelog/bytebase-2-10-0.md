@@ -34,6 +34,6 @@ description: 'More flexible options to appoint releaser to rollout changes. Set 
 
 - DORA released its annual State of DevOps 2023 report a few days ago. There were some interesting conclusions made. Check out [our hot take](/blog/dora-state-of-devops-2023/) 🔥.
 - How the Saudi-based E-commerce platform Salla [consolidates database change & access management with Bytebase](/blog/salla-case-study/) 🛍️.
-- A [Handy Tutorial](/docs/tutorials/gitops-azure-devops-workflow/) to Database CI/CD Best Practice with Azure DevOps.
+- A [Handy Tutorial](https://docs.bytebase.com/tutorials/gitops-azure-devops-workflow/) to Database CI/CD Best Practice with Azure DevOps.
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

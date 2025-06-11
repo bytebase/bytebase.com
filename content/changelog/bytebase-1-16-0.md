@@ -8,8 +8,8 @@ description: 'Customize Approval Workflow based on risk levels. Support database
 
 ## 🚀 New Features
 
-- Customize your [Approval Flow](/docs/administration/custom-approval#approval-flows) based on risk levels.
-- Support [databases](/docs/introduction/supported-databases): Oracle, MSSQL & MariaDB.
+- Customize your [Approval Flow](https://docs.bytebase.com/administration/custom-approval#approval-flows) based on risk levels.
+- Support [databases](https://docs.bytebase.com/introduction/supported-databases): Oracle, MSSQL & MariaDB.
 - Require two-factor authentication (2FA) for all users.
 
 ## 🎄 Enhancements

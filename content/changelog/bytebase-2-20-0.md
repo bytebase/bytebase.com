@@ -10,7 +10,7 @@ description: 'Support Databricks'
 
 - Support Databricks.
 - Support TLS/SSL connection for SQL Server.
-- Support [Lark direct notifications for issue activities](/docs/change-database/webhook/#supported-events).
+- Support [Lark direct notifications for issue activities](https://docs.bytebase.com/change-database/webhook/#supported-events).
 - Support email domain restriction for user sign-up.
 
 ## 🔔 Breaking Changes

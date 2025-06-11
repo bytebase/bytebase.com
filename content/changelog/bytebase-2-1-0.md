@@ -8,9 +8,9 @@ description: 'Data Query and Data Export approval flow; SQL Review for Oracle; S
 
 ## 🚀 New Features
 
-- Support [**Data Query**](/docs/security/database-permission/query) and [**Data Export**](/docs/security/database-permission/export/) approval flow.
+- Support [**Data Query**](https://docs.bytebase.com/security/database-permission/query) and [**Data Export**](https://docs.bytebase.com/security/database-permission/export/) approval flow.
 - Support SSH tunneling for PostgreSQL and Redis.
-- Support [SQL Review for Oracle](/docs/sql-review/review-rules/).
+- Support [SQL Review for Oracle](https://docs.bytebase.com/sql-review/review-rules/).
 
 ## 🎄 Enhancements
 
@@ -21,6 +21,6 @@ description: 'Data Query and Data Export approval flow; SQL Review for Oracle; S
 ## 📰 Fresh off the press
 
 - How do you handle your database migrations? Learn more about [schema migration best practices](/blog/how-to-handle-database-schema-change/).
-- Tutorial: 🔧 Set up [Database Change Management for Spanner](/docs/tutorials/database-change-management-with-spanner/) in Bytebase.
+- Tutorial: 🔧 Set up [Database Change Management for Spanner](https://docs.bytebase.com/tutorials/database-change-management-with-spanner/) in Bytebase.
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

@@ -8,7 +8,7 @@ description: 'One-click rollback for PostgreSQL DML change'
 
 ## 🚀 New Features
 
-- [One-click rollback](/docs/change-database/rollback-data-changes/#1-click-rollback) for PostgreSQL DML change.
+- [One-click rollback](https://docs.bytebase.com/change-database/rollback-data-changes/#1-click-rollback) for PostgreSQL DML change.
 
 ## 🎄 Enhancements
 

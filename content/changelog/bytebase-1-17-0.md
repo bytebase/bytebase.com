@@ -8,10 +8,10 @@ description: 'OB support'
 
 ## 🚀 New Features
 
-- [Display](/docs/slow-query/overview) slow queries for MySQL and PostgreSQL.
+- [Display](https://docs.bytebase.com/slow-query/overview) slow queries for MySQL and PostgreSQL.
   - Send weekly slow query summary Emails.
-- Sync schema to [multiple target databases](/docs/change-database/synchronize-schema).
-- [Configure](/docs/administration/custom-roles) custom roles for projects.
+- Sync schema to [multiple target databases](https://docs.bytebase.com/change-database/synchronize-schema).
+- [Configure](https://docs.bytebase.com/administration/custom-roles) custom roles for projects.
 - Support OceanBase & Redshift.
 - New language option: Spanish 🇪🇸.
 

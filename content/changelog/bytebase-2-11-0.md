@@ -9,7 +9,7 @@ description: 'Support setting parameters for MySQL online schema change.'
 ## 🚀 New Features
 
 - Support setting parameters for MySQL online schema change.
-- Add **database viewer** role to **Project**. (Check [Roles and Permissions](/docs/concepts/roles-and-permissions/))
+- Add **database viewer** role to **Project**. (Check [Roles and Permissions](https://docs.bytebase.com/concepts/roles-and-permissions/))
 - Support OceanBase in Oracle Mode.
 
 ## 🎄 Enhancements
@@ -33,7 +33,7 @@ description: 'Support setting parameters for MySQL online schema change.'
 ## 📰 Fresh off the press
 
 - Data masking is a crucial technique for safeguarding sensitive information. [This article](/blog/mysql-data-masking/) compares three methods to do it for MySQL 🐬.
-- [This tutorial](/docs/tutorials/deploy-schema-migration/) shows you how to use Bytebase to deploy schema migrations with features like SQL Review, custom approval, time scheduling, and more 👓.
-- Treat databases the same way we treat applications. It's time for [Bitbucket](/docs/tutorials/database-cicd-best-practice-with-bitbucket/) 🪣!
+- [This tutorial](https://docs.bytebase.com/tutorials/deploy-schema-migration/) shows you how to use Bytebase to deploy schema migrations with features like SQL Review, custom approval, time scheduling, and more 👓.
+- Treat databases the same way we treat applications. It's time for [Bitbucket](https://docs.bytebase.com/tutorials/database-cicd-best-practice-with-bitbucket/) 🪣!
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

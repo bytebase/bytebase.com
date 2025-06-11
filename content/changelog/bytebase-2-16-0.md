@@ -10,7 +10,7 @@ description: 'Support DML change pre-backup for Oracle and SQL Server'
 
 - Support DML change pre-backup for Oracle and SQL Server.
 - Support display for procedures and functions in SQL Editor.
-- Support storing database passwords in [AWS Secrets Manager](/docs/get-started/instance/#aws-secrets-manager) and GCP Secret Manager.
+- Support storing database passwords in [AWS Secrets Manager](https://docs.bytebase.com/get-started/instance/#aws-secrets-manager) and GCP Secret Manager.
 - Support IAM-based connections to Google Cloud SQL for MySQL and PostgreSQL.
 - Support editing table partitions in schema editor for MySQL and TiDB.
 

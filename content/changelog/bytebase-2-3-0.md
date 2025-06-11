@@ -8,13 +8,13 @@ description: 'SQL Review for Snowflake. Mask data for Oracle. Export Center for 
 
 ## 🚀 New Features
 
-- [SQL Review](/docs/sql-review/review-rules/) for Snowflake.
-- [Mask data](/docs/security/data-masking/overview/) for Oracle.
-- Introduced [Export Center](/docs/security/database-permission/export/#download-in-export-center) for data exports.
+- [SQL Review](https://docs.bytebase.com/sql-review/review-rules/) for Snowflake.
+- [Mask data](https://docs.bytebase.com/security/data-masking/overview/) for Oracle.
+- Introduced [Export Center](https://docs.bytebase.com/security/database-permission/export/#download-in-export-center) for data exports.
 
 ## 🎄 Enhancements
 
-- Configure [External Approval Nodes](/docs/administration/custom-approval/#external-approval) and apply to custom approval flows.
+- Configure [External Approval Nodes](https://docs.bytebase.com/administration/custom-approval/#external-approval) and apply to custom approval flows.
 - Introduced **Send back** action for Approval Flows.
 - Renamed Project's **Tenant Mode** to **Batch Mode**.
 - Improved SQL Query and Export request flow experience.

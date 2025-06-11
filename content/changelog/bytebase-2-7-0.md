@@ -10,13 +10,13 @@ description: 'Git-like Branching for database schema migration. Search all Issue
 
 - Support Git-like Branching for database schema migration.
 - Support searching all Issue histories.
-- Support exporting [Audit Logs](/docs/security/audit-log/).
+- Support exporting [Audit Logs](https://docs.bytebase.com/security/audit-log/).
 
 ## 🎄 Enhancements
 
 - Revamped UI for database change issue.
 - SQL Review: support configuring separate settings for different database engines.
-- Provide [arm64 Docker image](/docs/get-started/self-host/).
+- Provide [arm64 Docker image](https://docs.bytebase.com/get-started/self-host/).
 
 ## 🎠 Community
 

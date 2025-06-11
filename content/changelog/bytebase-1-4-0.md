@@ -12,7 +12,7 @@ description: '- AWS S3 is now supported as a backup storage backend. - Added a n
 
 ## 🎄 Enhancements
 
-- Introduced `--external-url` and removed `--host` in the startup option. We have consolidated the way to configure the external visible URL. Check out [Configure External URL](/docs/get-started/install/external-url) for details.
+- Introduced `--external-url` and removed `--host` in the startup option. We have consolidated the way to configure the external visible URL. Check out [Configure External URL](https://docs.bytebase.com/get-started/install/external-url) for details.
 - Added support for DDL/DML aliasing for GitOps name template.
 - Added "view" in MySQL backup.
 - Progress is now displayed for PITR restore tasks.
@@ -29,6 +29,6 @@ description: '- AWS S3 is now supported as a backup storage backend. - Added a n
 
 ## 🎠 Community
 
-- Added tutorial series for [How to set up Database CI/CD with GitHub](/docs/tutorials/gitops-github-workflow/).
+- Added tutorial series for [How to set up Database CI/CD with GitHub](https://docs.bytebase.com/tutorials/gitops-github-workflow/).
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>
