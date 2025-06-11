@@ -445,8 +445,9 @@
     }
   },
   "seo": {
-    "metatags": {
-      "robots": "noindex"
-    }
+    "metatags": {}
+  },
+  "contextual": {
+    "options": ["copy", "view", "chatgpt", "claude"]
   }
 }
