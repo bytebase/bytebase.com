@@ -27,6 +27,9 @@ import ChevronIcon from '@/svgs/chevron-menu-docs.inline.svg';
 import MaskIcon from '@/svgs/mask-menu-docs.inline.svg';
 import BatchIcon from '@/svgs/batch-menu-docs.inline.svg';
 import BranchIcon from '@/svgs/branch-menu-docs.inline.svg';
+import ContactIcon from '@/svgs/contact.inline.svg';
+import LockIcon from '@/svgs/lock.inline.svg';
+import SLAIcon from '@/svgs/sla.inline.svg';
 
 import PROMO_DATA from '@/lib/promo-data';
 import GithubStarCounter from './github-star-counter';
@@ -43,6 +46,7 @@ const icons: {
   changelog: ChangelogIcon,
   rocket: RocketIcon,
   concept: ConceptIcon,
+  contact: ContactIcon,
   usecase: UseCaseIcon,
   intro: IntroIcon,
   db: DbIcon,
@@ -53,6 +57,8 @@ const icons: {
   batch: BatchIcon,
   branch: BranchIcon,
   tutorial: TutorialsIcon,
+  lock: LockIcon,
+  sla: SLAIcon,
 };
 
 type Menu = {
@@ -84,7 +90,6 @@ type Header = {
 };
 
 export const HEADER_MENU: Header[] = [
-  { title: '3-in-1', href: Route.DOCS, breakpoint: 'md' },
   {
     title: 'Features',
     breakpoint: 'md',
@@ -175,34 +180,36 @@ export const HEADER_MENU: Header[] = [
       },
     ],
   },
+  { title: 'Docs', href: Route.DOCS, breakpoint: 'md' },
+  { title: 'Pricing', href: Route.PRICING, breakpoint: 'md' },
   {
-    title: 'Resources',
+    title: 'Company',
     breakpoint: 'lg',
     menus: [
       {
         items: [
-          {
-            name: 'Docs',
-            linkUrl: Route.DOCS,
-            iconName: 'intro',
-          },
-          {
-            name: 'Supported Databases',
-            linkUrl: Route.DOCS_DB,
-            iconName: 'db',
-          },
           {
             name: 'Case Study',
             linkUrl: Route.BLOG_CASE_STUDY,
             iconName: 'casestudy',
           },
           {
-            name: 'Blog',
-            linkUrl: Route.BLOG,
-            iconName: 'blog',
+            name: 'Security',
+            linkUrl: Route.SECURITY,
+            iconName: 'lock',
           },
           {
-            name: 'Company',
+            name: 'SLA',
+            linkUrl: Route.SLA,
+            iconName: 'sla',
+          },
+          {
+            name: 'Contact',
+            linkUrl: Route.CONTACTS,
+            iconName: 'contact',
+          },
+          {
+            name: 'About Us',
             linkUrl: Route.ABOUT,
             iconName: 'about',
           },
@@ -210,14 +217,13 @@ export const HEADER_MENU: Header[] = [
       },
     ],
     highlight: {
-      name: 'Tutorial',
-      description: 'Step-by-step guide through common features.',
-      linkUrl: Route.TUTORIAL,
+      name: 'Blog',
+      description: 'Product updates and database insight',
+      linkUrl: Route.BLOG,
       cta: 'Start Learning',
-      iconName: 'tutorial',
+      iconName: 'blog',
     },
   },
-  { title: 'Pricing', href: Route.PRICING, breakpoint: 'md' },
 ];
 
 const Header = () => {

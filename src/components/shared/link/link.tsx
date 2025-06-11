@@ -70,7 +70,7 @@ const Link = ({
   }
 
   return (
-    <a className={linkClassName} href={href} {...props}>
+    <a className={linkClassName} href={href} target="_blank" rel="noopener noreferrer" {...props}>
       {content}
     </a>
   );
