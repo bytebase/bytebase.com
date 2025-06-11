@@ -2,8 +2,41 @@
 title: Release
 ---
 
-A `release` is a deployable unit that encapsulates a set of SQL statements.
+A release is an immutable, deployable artifact that contains database changes. It serves as the database equivalent of a Docker image in modern CI/CD pipelines.
 
-You can think of a `release` as a collection of SQL statements layered on top of a scratch Docker image. Like a Docker image, a `release` is immutable after it is created.
+## Overview
 
-In your CI/CD pipeline, a Docker image is built from the source code and sent to the CD system for deployment. Similarly, your CI pipeline creates a `release` by invoking the Bytebase API. Once built, the `release` can be deployed to the database either via the Bytebase UI or through the Bytebase API.
+In Bytebase's GitOps workflow, a release is automatically created when changes are merged to your main branch. It packages all SQL migration files into a single deployable unit that can be progressively rolled out across your database environments.
+
+## Key Characteristics
+
+- **Immutable** - Once created, a release cannot be modified, ensuring deployment consistency
+- **Version-controlled** - Each release is tied to a specific VCS commit for full traceability
+- **Environment-agnostic** - The same release can be deployed across test, staging, and production
+- **Auditable** - Complete history of creation, deployment, and rollback operations
+- **Idempotent** - Bytebase automatically detects and skips already applied migrations, preventing duplicate executions
+
+## Benefits
+
+### Consistency
+
+The same release deployed to test is exactly what gets deployed to production - no manual SQL copying or modification.
+
+### Idempotent Deployment
+
+Bytebase tracks which migrations have been applied to each database. When deploying a release:
+
+- Already applied migrations are automatically skipped
+- Only new migrations are executed
+- Safe to re-deploy the same release multiple times
+- No risk of duplicate schema changes or data corruption
+
+### Compliance
+
+- Every change is reviewed before release creation
+- Deployment requires appropriate approvals
+- Full audit trail for regulatory requirements
+
+### Integration
+
+Releases integrate seamlessly with existing CI/CD tools, treating database changes with the same rigor as application deployments.
