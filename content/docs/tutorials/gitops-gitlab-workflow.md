@@ -64,13 +64,15 @@ _Note: Usually we enable SQL review for `Prod` environment as above. In this dem
 
    - `.gitlab-ci.yml`: The CI pipeline for the repository which includes the SQL review and release creation.
    - `bytebase-review.yml`: [Lint the SQL](/docs/sql-review/overview/) migration files after the MR is created.
-   - `bytebase-release.yml`: Create a release in Bytebase after the MR is merged to the `main` branch.
+   - `bytebase-rollout.yml`: Create a release in Bytebase after the MR is merged to the `main` branch.
 
-1. Go into `bytebase-review.yml` and `bytebase-release.yml`. In the `env` section, replace the variable values with your own and commit the changes.
+1. Go into `bytebase-review.yml` and `bytebase-rollout.yml`. In the `env` section, replace the variable values with your own and commit the changes.
 
    - **BYTEBASE_URL**: your ngrok url
    - **BYTEBASE_SERVICE_ACCOUNT**: `api-example@service.bytebase.com` (the service account you created in the previous step)
    - **BYTEBASE_SERVICE_ACCOUNT_SECRET**: the password of the service account
+
+_In `bytebase-rollout.yml`, pay attention to `BYTEBASE_TARGETS` in `deploy-to-test` stage. You should put all the databases including both `Test` and `Prod` environments. NOT ONLY the `Test` database._
 
 ### Step 5 - Create the migration files
 

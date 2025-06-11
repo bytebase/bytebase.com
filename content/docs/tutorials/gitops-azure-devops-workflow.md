@@ -71,6 +71,8 @@ This tutorial code repository is at [https://dev.azure.com/bytebase-hq/\_git/byt
 
    ![ad-policy-build](/content/docs/tutorials/gitops-azure-devops-workflow/ad-policy-build.webp)
 
+_In `pipelines/rollout-release-v1.yml`, pay attention to `BYTEBASE_TARGETS` in `deploy-to-test` stage. You should put all the databases including both `Test` and `Prod` environments. NOT ONLY the `Test` database._
+
 ### Step 5 - Create the migration files
 
 To create migration files to trigger release creation, the files have to match the following pattern:
