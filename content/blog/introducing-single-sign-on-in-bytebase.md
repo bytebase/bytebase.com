@@ -31,7 +31,7 @@ Bytebase integrates the following identity providers supporting OAuth 2.0:
 - Google
 - Custom
 
-For details information on how to configure SSO using OAuth 2.0, you can refer to the user doc [OAuth 2.0](/docs/administration/sso/oauth2).
+For details information on how to configure SSO using OAuth 2.0, you can refer to the user doc [OAuth 2.0](https://docs.bytebase.com/administration/sso/oauth2).
 
 ### OpenID Connect (OIDC)
 
@@ -45,10 +45,10 @@ Like OAuth 2.0, OIDC relies on identity providers to authenticate users. These i
 - Keycloak
 - Authing
 
-To learn details about how to configure SSO using OIDC, you can refer to the user doc [OpenID Connect (OIDC)](/docs/administration/sso/oidc).
+To learn details about how to configure SSO using OIDC, you can refer to the user doc [OpenID Connect (OIDC)](https://docs.bytebase.com/administration/sso/oidc).
 
 ## Conclusion
 
-SSO is available in the Enterprise plan, which enables users to authenticate once and then seamlessly access all authorized resources without re-entering their credentials. Bytebase supports using OAuth 2.0 and OIDC for configuring SSO. To get started, you can refer to the doc [Single Sign-On (SSO)](/docs/administration/sso/overview) and try it out by yourself.
+SSO is available in the Enterprise plan, which enables users to authenticate once and then seamlessly access all authorized resources without re-entering their credentials. Bytebase supports using OAuth 2.0 and OIDC for configuring SSO. To get started, you can refer to the doc [Single Sign-On (SSO)](https://docs.bytebase.com/administration/sso/overview) and try it out by yourself.
 
 If you have any comments or questions, don’t hesitate to let us know. You can join our [discord](https://discord.gg/huyw7gRsyA) to learn more about Bytebase.

@@ -36,6 +36,6 @@ This post is updated regularly. For the impatience, jump to the [Recommended Set
 
 ## Fine-grained database permissions in Bytebase
 
-You can configure [Bytebase database permissions](/docs/security/database-permission/overview/) to provide fine-grained control over database operations.
+You can configure [Bytebase database permissions](https://docs.bytebase.com/security/database-permission/overview/) to provide fine-grained control over database operations.
 
 <IncludeBlock url="/docs/share/database-permission-table"></IncludeBlock>

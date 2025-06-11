@@ -38,6 +38,6 @@ all the time.
 ---
 
 While keeping an eye on the Snowflake cost, you may also want to improve the Snowflake change management
-process. Please check out Bytebase, it brings the [code like CI/CD workflow to Snowflake](/docs/tutorials/database-change-management-with-snowflake-and-github).
+process. Please check out Bytebase, it brings the [code like CI/CD workflow to Snowflake](https://docs.bytebase.com/tutorials/database-change-management-with-snowflake-and-github).
 
 ![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)

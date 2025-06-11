@@ -9,7 +9,7 @@ description: SQL clients makes it safer and easier to manage databases. In this 
 
 <HintBlock type="info">
 
-This post is maintained by Bytebase, an open-source database DevSecOps tool that can manage all mainstream databases, we have built various database-specific parsers to support features like [SQL Review](/docs/sql-review/overview/). We update the post every year.
+This post is maintained by Bytebase, an open-source database DevSecOps tool that can manage all mainstream databases, we have built various database-specific parsers to support features like [SQL Review](https://docs.bytebase.com/sql-review/overview/). We update the post every year.
 
 </HintBlock>
 

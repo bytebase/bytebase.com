@@ -225,7 +225,7 @@ During implementation, we also identified several areas for improvement in the A
 We’ve been working on SQL Editor autocomplete for about two years, and we’re still refining it. You don't need to go through this again and can just adopt Bytebase SQL Editor directly:
 
 - Let your developers visit the Bytebase console and interact with the database from SQL Editor.
-- [Embed SQL Editor](/docs/tutorials/embed-sql-editor/) into your own internal web portal.
+- [Embed SQL Editor](https://docs.bytebase.com/tutorials/embed-sql-editor/) into your own internal web portal.
 
 <HintBlock type="info">
 

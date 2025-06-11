@@ -64,7 +64,7 @@ The bare minimum is to cover the change process. This can be achieved by adoptin
 
 This leverages VCS to request, review, and version the SQL statements. However, VCS even with the built-in CI like GitHub Actions, GitLab CI still rely on an external CD system to deploy the database change. Besides, apart from the change task, another common database task is to query the database. VCS does not have the interactive interface to allow users to issue a SQL statement and get the result back.
 
-A real consolidated database workspace like [Bytebase](/docs/introduction/what-is-bytebase/) should cover both write (change database) and read (query database) paths. It must provide a workflow to request, review, and deploy the database changes as well as an interactive SQL interface to query the database.
+A real consolidated database workspace like [Bytebase](https://docs.bytebase.com/introduction/what-is-bytebase/) should cover both write (change database) and read (query database) paths. It must provide a workflow to request, review, and deploy the database changes as well as an interactive SQL interface to query the database.
 
 ### Automation Points
 
@@ -78,7 +78,7 @@ Automation can be applied in several places:
 
 <HintBlock type="info">
 
-Bytebase automates database tasks via [GitOps](/docs/vcs-integration/overview/), [SQL Review](/docs/sql-review/overview/), [built-in rollback](/docs/change-database/rollback-data-changes/), [Webhook Integration](/docs/change-database/webhook/), and [API](/docs/api/overview/).
+Bytebase automates database tasks via [GitOps](https://docs.bytebase.com/vcs-integration/overview/), [SQL Review](https://docs.bytebase.com/sql-review/overview/), [built-in rollback](https://docs.bytebase.com/change-database/rollback-data-changes/), [Webhook Integration](https://docs.bytebase.com/change-database/webhook/), and [API](https://docs.bytebase.com/api/overview/).
 
 </HintBlock>
 

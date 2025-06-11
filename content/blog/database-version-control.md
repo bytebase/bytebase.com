@@ -14,6 +14,7 @@ This is a series of articles about database version control and database-as-code
 1. [Database as Code - the Good, the Bad and the Ugly](/blog/database-as-code)
 1. [The Database as Code Landscape](/blog/database-as-code-landscape)
 1. [Database Version Control Best Practice](/blog/database-version-control-best-practice)
+
 ---
 
 Database version control is the practice of managing and tracking changes to a database schema and its associated data over time. It involves using version control systems and techniques to keep a history of modifications made to a database, enabling teams to track changes, collaborate effectively, and deploy updates with confidence.
@@ -28,7 +29,7 @@ Version control facilitates collaboration among team members by providing a cent
 
 ## Change Tracking and History
 
-Version control systems store the history of changes made to the database schema and associated scripts. This history includes details like who made the change, when it was made, and why. In Bytebase, every [change history](/docs/change-database/change-workflow/#migration-history) is captured.
+Version control systems store the history of changes made to the database schema and associated scripts. This history includes details like who made the change, when it was made, and why. In Bytebase, every [change history](https://docs.bytebase.com/change-database/change-workflow/#migration-history) is captured.
 
 ![change-history](/content/blog/database-version-control/change-history.webp)
 
@@ -36,7 +37,7 @@ Version control systems store the history of changes made to the database schema
 
 ## Migration Scripts
 
-Database version control often relies on migration scripts, which are code files that define the necessary changes to the database schema. These scripts typically contain SQL statements or other database-specific commands to create, modify, or delete database objects. In Bytebase, one can use [Changelist](/docs/changelist/) to compose the migration scripts.
+Database version control often relies on migration scripts, which are code files that define the necessary changes to the database schema. These scripts typically contain SQL statements or other database-specific commands to create, modify, or delete database objects. In Bytebase, one can use [Changelist](https://docs.bytebase.com/changelist/) to compose the migration scripts.
 
 ![change-list](/content/blog/database-version-control/changelist.webp)
 

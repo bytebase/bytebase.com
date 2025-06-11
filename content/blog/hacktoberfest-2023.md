@@ -34,7 +34,7 @@ In addition, we invite you to participate in the special activities here at the 
 
 - The **Explorer** Badge - Run Bytebase (locally or Cloud) and complete a schema change
 - The **LGTM** Badge - [Claim an issue](https://github.com/bytebase/bytebase/issues?q=is%3Aissue+is%3Aopen+label%3Ahacktoberfest) with the Hacktoberfest label in the Bytebase GitHub repo and have it merged
-- The **Conqueror** Badge - Two options: PostgreSQL/MySQL. Publish a tutorial on the topic of "Database GitOps with Bytebase for PostgreSQL or MySQL". FYI, here's [an example](/docs/tutorials/gitops-github-workflow/).
+- The **Conqueror** Badge - Two options: PostgreSQL/MySQL. Publish a tutorial on the topic of "Database GitOps with Bytebase for PostgreSQL or MySQL". FYI, here's [an example](https://docs.bytebase.com/tutorials/gitops-github-workflow/).
 
 Once you complete any of the above tasks between October 1 and 31, please send a screenshot or a link, along with your GitHub ID to [support@bytebase.com](mailto:support@bytebase.com), Subject: Hacktoberfest Badge Claim.
 

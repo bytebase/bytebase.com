@@ -101,7 +101,7 @@ When making DDL changes, try to use non-blocking statements. e.g. add index with
 
 <HintBlock type="info">
 
-You can configure [SQL Review](/docs/sql-review/overview/) in Bytebase and detect such anti-patterns.
+You can configure [SQL Review](https://docs.bytebase.com/sql-review/overview/) in Bytebase and detect such anti-patterns.
 
 </HintBlock>
 

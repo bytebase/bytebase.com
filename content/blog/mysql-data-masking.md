@@ -44,7 +44,7 @@ However, Percona Data Masking only works with Percona Server for MySQL. If you u
 
 ![_](/content/blog/mysql-data-masking/bytebase-masking.webp)
 
-[Bytebase Dynamic Data Masking](/docs/security/data-masking/overview/) doesn't depend on the underlying MySQL views and users.
+[Bytebase Dynamic Data Masking](https://docs.bytebase.com/security/data-masking/overview/) doesn't depend on the underlying MySQL views and users.
 It manages the masking policies and grants inside Bytebase. Masking policy is applied when user queries from the SQL Editor.
 
 ![_](/content/blog/mysql-data-masking/bytebase-sql-editor.webp)
@@ -63,7 +63,7 @@ Bytebase Dynamic Data Masking consists of the following components:
 
 ![_](/content/blog/mysql-data-masking/bytebase-masking-grant-access.webp)
 
-_`Workspace Admin` and `DBA` here are [roles](/docs/concepts/roles-and-permissions/) in Bytebase._
+_`Workspace Admin` and `DBA` here are [roles](https://docs.bytebase.com/concepts/roles-and-permissions/) in Bytebase._
 
 ## Comparison Table
 
@@ -83,4 +83,4 @@ is a perfect choice.
 
 ---
 
-You can try Bytebase Dynamic Data Masking following [this tutorial](/docs/tutorials/data-masking/). If you encounter any issues, or need a helping hand, feel free to join our [Discord](https://discord.com/invite/huyw7gRsyA) channel!
+You can try Bytebase Dynamic Data Masking following [this tutorial](https://docs.bytebase.com/tutorials/data-masking/). If you encounter any issues, or need a helping hand, feel free to join our [Discord](https://discord.com/invite/huyw7gRsyA) channel!

@@ -34,7 +34,7 @@ the system where end users actually connect to the databases.
 
 <TutorialBlock url="/docs/tutorials/just-in-time-database-access-part1/" title="Just-in-Time Database Access via GUI" />
 
-Bytebase provides the similar [self-service request workflow](/docs/security/database-permission/query/#request-project-querier-role) to JIT database access. Additionally, Bytebase provides additional benefits.
+Bytebase provides the similar [self-service request workflow](https://docs.bytebase.com/security/database-permission/query/#request-project-querier-role) to JIT database access. Additionally, Bytebase provides additional benefits.
 
 ### Fine-grained database permissions
 
@@ -46,11 +46,11 @@ Bytebase enables fine-grained database permissions, allowing you to grant develo
 
 ![sql-editor](/images/sql-editor.webp)
 
-Bytebase has a [built-in SQL Editor](/docs/sql-editor/overview/) so users don't need to jump to a separate SQL client to inspect the databases. Besides, Bytebase can restrict SQL statements and apply [dynamic data masking](/docs/security/data-masking/overview/).
+Bytebase has a [built-in SQL Editor](https://docs.bytebase.com/sql-editor/overview/) so users don't need to jump to a separate SQL client to inspect the databases. Besides, Bytebase can restrict SQL statements and apply [dynamic data masking](https://docs.bytebase.com/security/data-masking/overview/).
 
 ### API-first
 
-Bytebase can be integrated into the existing Internal Developer Portal (IDP) via [API](/docs/api/overview/). Below tutorial
+Bytebase can be integrated into the existing Internal Developer Portal (IDP) via [API](https://docs.bytebase.com/api/overview/). Below tutorial
 shows how to embed SQL Editor and configure the database permissions via API.
 
 <TutorialBlock url="/docs/tutorials/embed-sql-editor/" title="Embed SQL Editor in Your Internal Web Portal" />

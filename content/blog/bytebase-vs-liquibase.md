@@ -56,7 +56,7 @@ for developers and DBAs to collaborate.
 ### Developer interface
 
 - **Liquibase**: A command-line tool. A simple graphical user interface (GUI) called Liquibase Hub is available with the Pro Plan, but it has sunset in May 2023.
-- **Bytebase**: A web-based GUI tool. It also provides [application programming interface (API)](/docs/api/overview/), [Terraform Provider](/docs/get-started/terraform/), and [GitHub App](/docs/sql-review/github-app).
+- **Bytebase**: A web-based GUI tool. It also provides [application programming interface (API)](https://docs.bytebase.com/api/overview/), [Terraform Provider](https://docs.bytebase.com/get-started/terraform/), and [GitHub App](https://docs.bytebase.com/sql-review/github-app).
 
 ### Supported databases
 
@@ -66,7 +66,7 @@ for developers and DBAs to collaborate.
 ### Installation
 
 - **Liquibase**: Java-based tool, so you need to install a Java Virtual Machine (JVM) before users can install Liquibase.
-- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](/docs/get-started/self-host/#docker/) and [Kubernetes](/docs/get-started/self-host/#kubernetes/) deployment.
+- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](https://docs.bytebase.com/get-started/self-host/#docker/) and [Kubernetes](https://docs.bytebase.com/get-started/self-host/#kubernetes/) deployment.
 
 ### Change execution
 
@@ -75,7 +75,7 @@ for developers and DBAs to collaborate.
 ![liquibase-changelog](/content/blog/bytebase-vs-liquibase/liquibase-changelog.webp)
 ![liquibase-update](/content/blog/bytebase-vs-liquibase/liquibase-update.webp)
 
-- **Bytebase**: Web-based GUI or GitOps. Users create issues with SQL which could be approved. An issue may include SQL running against one database, or batch change against multiple databases span across different [development environments](/docs/change-database/batch-change/#change-databases-from-multiple-environments) and [different tenants](/docs/change-database/batch-change/#change-databases-from-multiple-tenants).
+- **Bytebase**: Web-based GUI or GitOps. Users create issues with SQL which could be approved. An issue may include SQL running against one database, or batch change against multiple databases span across different [development environments](https://docs.bytebase.com/change-database/batch-change/#change-databases-from-multiple-environments) and [different tenants](https://docs.bytebase.com/change-database/batch-change/#change-databases-from-multiple-tenants).
   ![bytebase-issue](/content/blog/bytebase-vs-liquibase/bytebase-issue.webp)
 
   Users can create tenant project to facilitate batch change. In tenant mode, users can do advanced canary release.
@@ -104,7 +104,7 @@ for developers and DBAs to collaborate.
 SQL auto check helps developers write less buggy SQL and save DBAs manual review efforts.
 
 - **Liquibase**: SQL Quality check
-- **Bytebase**: [SQL Review](/docs/sql-review/overview/)
+- **Bytebase**: [SQL Review](https://docs.bytebase.com/sql-review/overview/)
 
 #### Supported Plan
 
@@ -142,7 +142,7 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 ### Approval flow
 
 - **Liquibase**: Not supported.
-- **Bytebase**: Basic rollout and [risk-based custom approval flow](/docs/administration/custom-approval/).
+- **Bytebase**: Basic rollout and [risk-based custom approval flow](https://docs.bytebase.com/administration/custom-approval/).
   ![bytebase-rollout-policy](/content/blog/bytebase-vs-liquibase/bytebase-rollout-policy.webp)
   ![bytebase-custom-approval-flow](/content/blog/bytebase-vs-liquibase/bytebase-custom-approval-flow.webp)
   ![bytebase-risk-center](/content/blog/bytebase-vs-liquibase/bytebase-risk-center.webp)
@@ -166,7 +166,7 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 ### Rollback
 
 - **Liquibase**: Support `rollback-one-changeset` or `rollback`.
-- **Bytebase**: By using sync schema, users may revert to a specific version. Also support [auto rollback](/docs/change-database/rollback-data-changes/).
+- **Bytebase**: By using sync schema, users may revert to a specific version. Also support [auto rollback](https://docs.bytebase.com/change-database/rollback-data-changes/).
 
 ### Schema drift detection
 
@@ -184,17 +184,17 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 
 - **Liquibase**: Not supported.
 
-- **Bytebase**: With centralized [SQL Editor](/docs/sql-editor/overview/), data access is [controlled](/docs/security/database-permission/overview/), [reviewed](/docs/security/database-permission/query/), [audit-logged](/docs/security/audit-log/). Also provide [data masking](/docs/sql-editor/mask-data/), [watermark](/docs/security/watermark/).
+- **Bytebase**: With centralized [SQL Editor](https://docs.bytebase.com/sql-editor/overview/), data access is [controlled](https://docs.bytebase.com/security/database-permission/overview/), [reviewed](https://docs.bytebase.com/security/database-permission/query/), [audit-logged](https://docs.bytebase.com/security/audit-log/). Also provide [data masking](https://docs.bytebase.com/sql-editor/mask-data/), [watermark](https://docs.bytebase.com/security/watermark/).
 
   ![bytebase-sql-editor](/content/blog/bytebase-vs-liquibase/bytebase-sql-editor.webp)
 
-  Bytebase supports [RBAC](/docs/concepts/roles-and-permissions/), e.g. developers need to require permission to access or export databases via SQL Editor.
+  Bytebase supports [RBAC](https://docs.bytebase.com/concepts/roles-and-permissions/), e.g. developers need to require permission to access or export databases via SQL Editor.
   ![bytebase-request-query-export](/content/blog/bytebase-vs-liquibase/bytebase-request-query-export.webp)
 
   Everything that happened within Bytebase will be recorded for audit purposes.
   ![bytebase-audit](/content/blog/bytebase-vs-liquibase/bytebase-audit.webp)
 
-  Bytebase also supports [SSO](/docs/administration/sso/overview/), [IM webhook](/docs/change-database/webhook/) and etc.
+  Bytebase also supports [SSO](https://docs.bytebase.com/administration/sso/overview/), [IM webhook](https://docs.bytebase.com/change-database/webhook/) and etc.
 
 ## Summary
 

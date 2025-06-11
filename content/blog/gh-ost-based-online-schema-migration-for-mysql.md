@@ -70,6 +70,6 @@ Here is the result of gh-ost. It says that the database performs gh-ost successf
 
 ## Learn More
 
-Bytebase supports online schema migration for large tables based on gh-ost, a triggerless online schema migration solution that can reduce the application downtime from hours to seconds. It offers a step-by-step interface with continuous progress update to oversee the entire migration process. You can check out the [documentation](/docs/change-database/online-schema-migration-for-mysql) to learn more.
+Bytebase supports online schema migration for large tables based on gh-ost, a triggerless online schema migration solution that can reduce the application downtime from hours to seconds. It offers a step-by-step interface with continuous progress update to oversee the entire migration process. You can check out the [documentation](https://docs.bytebase.com/change-database/online-schema-migration-for-mysql) to learn more.
 
 If you have any feedback, we’d love to hear from you. You can find us on our [GitHub issue board](https://github.com/bytebase/bytebase/issues).

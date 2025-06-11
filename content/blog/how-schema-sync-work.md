@@ -70,4 +70,4 @@ Finally, we get the processed ASTs, we convert them back to SQLs.
 
 ## Learn more
 
-You can follow [docs](/docs/change-database/synchronize-schema) to learn more about using synchronizing schema.
+You can follow [docs](https://docs.bytebase.com/change-database/synchronize-schema) to learn more about using synchronizing schema.

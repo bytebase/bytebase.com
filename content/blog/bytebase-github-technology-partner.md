@@ -25,7 +25,7 @@ Once configured, if a SQL statement in your PR violates the review rule, you wil
 
 ![sql-review-github](/content/blog/bytebase-github-technology-partner/sql-review-github.webp)
 
-In addition, you can take database management one step further by configuring the [GitOps workflow](/docs/vcs-integration/overview), which can be defined as "Database-as-code". This enables an integrated CI/CD process from code changes to database changes. The database change scripts you submit to your GitHub repo will automatically trigger Bytebase's SQL review and deployment pipeline. This enables an integrated CI/CD process from code changes to database changes.
+In addition, you can take database management one step further by configuring the [GitOps workflow](https://docs.bytebase.com/vcs-integration/overview), which can be defined as "Database-as-code". This enables an integrated CI/CD process from code changes to database changes. The database change scripts you submit to your GitHub repo will automatically trigger Bytebase's SQL review and deployment pipeline. This enables an integrated CI/CD process from code changes to database changes.
 
 ![gitops-bytebase](/content/blog/bytebase-github-technology-partner/gitops-bytebase.webp)
 

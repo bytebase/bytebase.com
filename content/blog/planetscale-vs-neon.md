@@ -243,7 +243,7 @@ _A side note: PlanetScale has shifted its website art direction to a simplistic 
 
 ---
 
-BTW, if you still stick with vanilla MySQL/Postgres and want PlanetScale's database change workflow or Neon's visual SQL Editor, please check out [Bytebase](/). Bytebase is a database tool for all mainstream databases, covering database change, query, security and governance all-in-one. It provides more customizable [change workflow](/docs/change-database/change-workflow/) and visual [SQL Editor](/docs/sql-editor/overview/) integrated with [access control](/docs/security/database-permission/overview/) and [data masking](/docs/security/data-masking/overview/).
+BTW, if you still stick with vanilla MySQL/Postgres and want PlanetScale's database change workflow or Neon's visual SQL Editor, please check out [Bytebase](/). Bytebase is a database tool for all mainstream databases, covering database change, query, security and governance all-in-one. It provides more customizable [change workflow](https://docs.bytebase.com/change-database/change-workflow/) and visual [SQL Editor](https://docs.bytebase.com/sql-editor/overview/) integrated with [access control](https://docs.bytebase.com/security/database-permission/overview/) and [data masking](https://docs.bytebase.com/security/data-masking/overview/).
 
 ![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
 

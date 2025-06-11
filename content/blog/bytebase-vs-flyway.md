@@ -56,7 +56,7 @@ for developers and DBAs to collaborate.
 ### Developer interface
 
 - **Flyway**: A command-line tool. With JVM, it also provides Java API, Maven plugin and Gradle plugin. A simple graphical user interface (GUI) called Flyway Desktop is available for SQL Server, PostgreSQL and MySQL.
-- **Bytebase**: A web-based GUI tool. It also provides [application programming interface (API)](/docs/api/overview/), [Terraform Provider](/docs/get-started/terraform/), and [GitHub App](/docs/sql-review/github-app).
+- **Bytebase**: A web-based GUI tool. It also provides [application programming interface (API)](https://docs.bytebase.com/api/overview/), [Terraform Provider](https://docs.bytebase.com/get-started/terraform/), and [GitHub App](https://docs.bytebase.com/sql-review/github-app).
 
 ### Supported databases
 
@@ -66,7 +66,7 @@ for developers and DBAs to collaborate.
 ### Installation
 
 - **Flyway**: Java-based tool, so you need to install a Java Virtual Machine (JVM) before users can install Flyway.
-- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](/docs/get-started/self-host/#docker/) and [Kubernetes](/docs/get-started/self-host/#kubernetes/) deployment.
+- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](https://docs.bytebase.com/get-started/self-host/#docker/) and [Kubernetes](https://docs.bytebase.com/get-started/self-host/#kubernetes/) deployment.
 
 ### Change execution
 
@@ -74,7 +74,7 @@ for developers and DBAs to collaborate.
 
 ![flyway-change](/content/blog/bytebase-vs-flyway/flyway-change.webp)
 
-- **Bytebase**: Web-based GUI or GitOps. Users create issues with SQL which could be approved. An issue may include SQL running against one database, or batch change against multiple databases span across different [development environments](/docs/change-database/batch-change/#change-databases-from-multiple-environments) and [different tenants](/docs/change-database/batch-change/#change-databases-from-multiple-tenants).
+- **Bytebase**: Web-based GUI or GitOps. Users create issues with SQL which could be approved. An issue may include SQL running against one database, or batch change against multiple databases span across different [development environments](https://docs.bytebase.com/change-database/batch-change/#change-databases-from-multiple-environments) and [different tenants](https://docs.bytebase.com/change-database/batch-change/#change-databases-from-multiple-tenants).
   ![bytebase-issue](/content/blog/bytebase-vs-flyway/bytebase-issue.webp)
 
   Users can create tenant project to facilitate batch change. In tenant mode, users can do advanced canary release.
@@ -121,7 +121,7 @@ for developers and DBAs to collaborate.
 SQL auto check helps developers write less buggy SQL and save DBAs manual review efforts.
 
 - **Flyway**: Code Analysis
-- **Bytebase**: [SQL Review](/docs/sql-review/overview/)
+- **Bytebase**: [SQL Review](https://docs.bytebase.com/sql-review/overview/)
 
 #### Supported Plan
 
@@ -160,7 +160,7 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 ### Rollback
 
 - **Flyway**: Write rollback scripts manually. Supported in Team version or above.
-- **Bytebase**: By using sync schema, users may revert to a specific version. Also support [auto rollback](/docs/change-database/rollback-data-changes/). For Free version, users can revert to the latest version, while for Pro version or above, users can choose any version.
+- **Bytebase**: By using sync schema, users may revert to a specific version. Also support [auto rollback](https://docs.bytebase.com/change-database/rollback-data-changes/). For Free version, users can revert to the latest version, while for Pro version or above, users can choose any version.
 
 ### Schema drift detection
 
@@ -171,7 +171,7 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 ### Approval flow
 
 - **Flyway**: Not supported.
-- **Bytebase**: Basic rollout and [risk-based custom approval flow](/docs/administration/custom-approval/).
+- **Bytebase**: Basic rollout and [risk-based custom approval flow](https://docs.bytebase.com/administration/custom-approval/).
   ![bytebase-rollout-policy](/content/blog/bytebase-vs-flyway/bytebase-rollout-policy.webp)
   ![bytebase-custom-approval-flow](/content/blog/bytebase-vs-flyway/bytebase-custom-approval-flow.webp)
   ![bytebase-risk-center](/content/blog/bytebase-vs-flyway/bytebase-risk-center.webp)
@@ -186,23 +186,23 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 
 - **Flyway**: Not supported.
 
-- **Bytebase**: With centralized [SQL Editor](/docs/sql-editor/overview/), data access is [controlled](/docs/security/database-permission/overview/), [reviewed](/docs/security/database-permission/query/), [audit-logged](/docs/security/audit-log/). Also provide [data masking](/docs/sql-editor/mask-data/), [watermark](/docs/security/watermark/).
+- **Bytebase**: With centralized [SQL Editor](https://docs.bytebase.com/sql-editor/overview/), data access is [controlled](https://docs.bytebase.com/security/database-permission/overview/), [reviewed](https://docs.bytebase.com/security/database-permission/query/), [audit-logged](https://docs.bytebase.com/security/audit-log/). Also provide [data masking](https://docs.bytebase.com/sql-editor/mask-data/), [watermark](https://docs.bytebase.com/security/watermark/).
 
   ![bytebase-sql-editor](/content/blog/bytebase-vs-flyway/bytebase-sql-editor.webp)
 
-  Bytebase supports [RBAC](/docs/concepts/roles-and-permissions/), e.g. developers need to require permission to access or export databases via SQL Editor.
+  Bytebase supports [RBAC](https://docs.bytebase.com/concepts/roles-and-permissions/), e.g. developers need to require permission to access or export databases via SQL Editor.
   ![bytebase-request-query-export](/content/blog/bytebase-vs-flyway/bytebase-request-query-export.webp)
 
   Everything that happened within Bytebase will be recorded for audit purposes.
   ![bytebase-audit](/content/blog/bytebase-vs-flyway/bytebase-audit.webp)
 
-  Bytebase also supports [SSO](/docs/administration/sso/overview/).
+  Bytebase also supports [SSO](https://docs.bytebase.com/administration/sso/overview/).
 
 ### Webhook
 
 - **Flyway**: Not supported.
 
-- **Bytebase**: [IM webhook](/docs/change-database/webhook/).
+- **Bytebase**: [IM webhook](https://docs.bytebase.com/change-database/webhook/).
 
 ## Summary
 

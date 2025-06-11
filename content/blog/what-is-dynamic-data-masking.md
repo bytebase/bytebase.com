@@ -87,6 +87,6 @@ an entire organization is still a big challenge.
 
 <HintBlock type="info">
 
-Bytebase provides an UI interface as well as API to [configure Dynamic Data Masking](/docs/security/data-masking/overview/). In particular, Bytebase supports MySQL and PostgreSQL.
+Bytebase provides an UI interface as well as API to [configure Dynamic Data Masking](https://docs.bytebase.com/security/data-masking/overview/). In particular, Bytebase supports MySQL and PostgreSQL.
 
 </HintBlock>

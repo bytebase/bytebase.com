@@ -159,12 +159,12 @@ Database change workflow via Bytebase:
 1. Review & Approval by Change Advisory Board (CAB)
 
    - Bytebase enforces role-based approvals before execution.
-   - The CAB reviews [SQL linting results](/docs/sql-review/overview/).
+   - The CAB reviews [SQL linting results](https://docs.bytebase.com/sql-review/overview/).
    - Once approved, Bytebase automatically schedules the change or requires manual execution approval.
 
 1. Credential Management via PAM (Optional)
 
-   - Bytebase supports [IAM authentication](/docs/get-started/instance/#use-iam-auth) and [secrets management integration](/docs/get-started/instance/#use-external-secret-manager) to eliminate credential exposure.
+   - Bytebase supports [IAM authentication](https://docs.bytebase.com/get-started/instance/#use-iam-auth) and [secrets management integration](https://docs.bytebase.com/get-started/instance/#use-external-secret-manager) to eliminate credential exposure.
 
 1. Automated Change Execution
 
@@ -173,7 +173,7 @@ Database change workflow via Bytebase:
 
 1. Rollback (If Necessary)
 
-   - If an issue arises, Bytebase provides [1-click rollback](/docs/change-database/rollback-data-changes).
+   - If an issue arises, Bytebase provides [1-click rollback](https://docs.bytebase.com/change-database/rollback-data-changes).
 
 ## **Comparison of Approaches**
 

@@ -47,7 +47,7 @@ modifications are applied uniformly across environments.
 
 <HintBlock type="info">
 
-Bytebase provides [built-in GitOps integration](/docs/vcs-integration/overview/) and [SQL Review](/docs/sql-review/overview/) to detect erroneous SQLs automatically.
+Bytebase provides [built-in GitOps integration](https://docs.bytebase.com/vcs-integration/overview/) and [SQL Review](https://docs.bytebase.com/sql-review/overview/) to detect erroneous SQLs automatically.
 
 </HintBlock>
 
@@ -60,7 +60,7 @@ While teams may use ticketing systems like Jira to manage these requests, the ma
 
 <HintBlock type="info">
 
-Bytebase streamlines request, review, deploy in a single place and offers [1-click automatic rollback](/docs/change-database/rollback-data-changes/).
+Bytebase streamlines request, review, deploy in a single place and offers [1-click automatic rollback](https://docs.bytebase.com/change-database/rollback-data-changes/).
 
 </HintBlock>
 
@@ -75,7 +75,7 @@ efficient querying for authorized users.
 
 <HintBlock type="info">
 
-Unlike client-side solutions, Bytebase is a server-side solution providing [access control](/docs/security/database-permission/overview/), [dynamic data masking](/docs/security/data-masking/overview/), [audit logging](/docs/security/audit-log/). You can also [codify these data security policies (Policy-as-Code)](https://github.com/bytebase/example-database-security).
+Unlike client-side solutions, Bytebase is a server-side solution providing [access control](https://docs.bytebase.com/security/database-permission/overview/), [dynamic data masking](https://docs.bytebase.com/security/data-masking/overview/), [audit logging](https://docs.bytebase.com/security/audit-log/). You can also [codify these data security policies (Policy-as-Code)](https://github.com/bytebase/example-database-security).
 
 </HintBlock>
 

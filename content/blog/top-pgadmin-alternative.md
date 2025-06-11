@@ -80,7 +80,7 @@ The person behind Postico also built [postgres.app](/blog/free-tools-to-start-lo
 
 The best-fit tool depends greatly on your level of familiarity with PostgreSQL, and what you need to accomplish in the tool/GUI.
 
-If you have multiple different databases at your organization and are looking for a universal tool that can handle them all while covering database change, query, security, and governance all in one, please check out [Bytebase](/). Aside from the visual [SQL Editor](/docs/sql-editor/overview/) integrated with [access control](/docs/security/database-permission/overview/) and [data masking](/docs/security/data-masking/overview/), it also provides a customizable [change workflow](/docs/change-database/change-workflow/) to fit your data/database change requirements.
+If you have multiple different databases at your organization and are looking for a universal tool that can handle them all while covering database change, query, security, and governance all in one, please check out [Bytebase](/). Aside from the visual [SQL Editor](https://docs.bytebase.com/sql-editor/overview/) integrated with [access control](https://docs.bytebase.com/security/database-permission/overview/) and [data masking](https://docs.bytebase.com/security/data-masking/overview/), it also provides a customizable [change workflow](https://docs.bytebase.com/change-database/change-workflow/) to fit your data/database change requirements.
 
 ![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
 

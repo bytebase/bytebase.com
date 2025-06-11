@@ -31,27 +31,27 @@ Bytebase v1.9.1 releases a new SQL Editor with the following highlights:
 
 ### Admin Mode
 
-When users want to connect to databases to run admin commands, they can do it in SQL Editor Admin mode with a DBA account like the screenshot below. You can take a look at the document [Admin Mode](/docs/sql-editor/admin-mode) to learn more details.
+When users want to connect to databases to run admin commands, they can do it in SQL Editor Admin mode with a DBA account like the screenshot below. You can take a look at the document [Admin Mode](https://docs.bytebase.com/sql-editor/admin-mode) to learn more details.
 ![admin-mode](/content/blog/the-sql-editor-for-developers-and-dbas/admin-mode.webp)
 
 ### Database-based Access Control
 
-When users want to allow developers to access some databases in the production environment, they can mark the production environment as a protected environment and configure an allowlist. You can get more details from the document [Data Access Control](/docs/security/database-permission/overview).
+When users want to allow developers to access some databases in the production environment, they can mark the production environment as a protected environment and configure an allowlist. You can get more details from the document [Data Access Control](https://docs.bytebase.com/security/database-permission/overview).
 ![access-control](/content/blog/the-sql-editor-for-developers-and-dbas/access-control.webp)
 
 ### Data Masking
 
-When developers query tables containing sensitive columns in SQL Editor, the result of these columns will display as "**\*\***". You can learn the configuration details from the document [Data Masking](/docs/security/data-masking/overview).
+When developers query tables containing sensitive columns in SQL Editor, the result of these columns will display as "**\*\***". You can learn the configuration details from the document [Data Masking](https://docs.bytebase.com/security/data-masking/overview).
 ![mask-data](/content/blog/the-sql-editor-for-developers-and-dbas/mask-data.webp)
 
 ### Audit Logs
 
-DBAs can browse all queries executed in SQL Editor with the audit logs. You can check out the document [Audit Log](/docs/security/audit-log) to get more details.
+DBAs can browse all queries executed in SQL Editor with the audit logs. You can check out the document [Audit Log](https://docs.bytebase.com/security/audit-log) to get more details.
 ![audit-log](/content/blog/the-sql-editor-for-developers-and-dbas/audit-log.webp)
 
 ### Collaborative Sheets
 
-For commonly-used SQL statements, you can save them as sheets and set up a public SQL script library in your team. For large SQL scripts (up to 100M), you can use them in issues after uploading them as sheets (see the screenshot below). You can explore the document [Manage SQL Scripts with Sheet](/docs/sql-editor/manage-sql-scripts) to get additional details.
+For commonly-used SQL statements, you can save them as sheets and set up a public SQL script library in your team. For large SQL scripts (up to 100M), you can use them in issues after uploading them as sheets (see the screenshot below). You can explore the document [Manage SQL Scripts with Sheet](https://docs.bytebase.com/sql-editor/manage-sql-scripts) to get additional details.
 ![large-script](/content/blog/the-sql-editor-for-developers-and-dbas/large-script.webp)
 
 ## Try it Out

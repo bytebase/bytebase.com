@@ -61,14 +61,14 @@ While both Bytebase and StrongDM are tools that can solve database Just-in-time 
 
   ![strongdm-installation](/content/blog/bytebase-vs-strongdm/strongdm-installation.webp)
 
-- **Bytebase**: [Docker](/docs/get-started/self-host/#docker/) is the recommended installation method (one command to install and start). Also supports [Kubernetes](/docs/get-started/self-host/#kubernetes/) deployment and standalone binary installation. Only admin needs to do the setup, client can visit the web-based GUI directly in the browser.
+- **Bytebase**: [Docker](https://docs.bytebase.com/get-started/self-host/#docker/) is the recommended installation method (one command to install and start). Also supports [Kubernetes](https://docs.bytebase.com/get-started/self-host/#kubernetes/) deployment and standalone binary installation. Only admin needs to do the setup, client can visit the web-based GUI directly in the browser.
 
   ![bytebase-installation](/content/blog/bytebase-vs-strongdm/bytebase-installation.webp)
 
 ### Developer interface
 
 - **StrongDM**: A web-based GUI and a command-line tool. It also offers Application Programming Interface (API) and Terraform Provider.
-- **Bytebase**: A web-based GUI tool. It also provides [API](/docs/api/overview/) and [Terraform Provider](/docs/get-started/terraform/).
+- **Bytebase**: A web-based GUI tool. It also provides [API](https://docs.bytebase.com/api/overview/) and [Terraform Provider](https://docs.bytebase.com/get-started/terraform/).
 
 ### Supported databases
 

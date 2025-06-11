@@ -27,7 +27,7 @@ Hello October! Only a few more months before the new year rings in, let's take a
 
 Bytebase keeps up with the bi-weekly release cadence and released 7 versions.
 
-### [Database Integration](/docs/introduction/supported-databases/)
+### [Database Integration](https://docs.bytebase.com/introduction/supported-databases/)
 
 - Snowflake: support Task, Stream objects, and data access control.
 - Redshift: support datashare query, data access control, and data masking.
@@ -37,12 +37,12 @@ Bytebase keeps up with the bi-weekly release cadence and released 7 versions.
 
 ### GitOps Integration
 
-- Support [GitHub Enterprise](/docs/vcs-integration/github-enterprise/).
-- Support [Azure DevOps](/docs/vcs-integration/azure-devops/).
+- Support [GitHub Enterprise](https://docs.bytebase.com/vcs-integration/github-enterprise/).
+- Support [Azure DevOps](https://docs.bytebase.com/vcs-integration/azure-devops/).
 
 ### Database Change Management
 
-- Visual [Schema Editor](/docs/change-database/schema-editor/) for MySQL.
+- Visual [Schema Editor](https://docs.bytebase.com/change-database/schema-editor/) for MySQL.
 - Git-like database Branching for MySQL.
 - Run SQL Review checks without requiring a rollout.
 - Search the entire Issue history by title/description/instance/database/issue type/date range/creator/assignee/subscriber.
@@ -56,11 +56,11 @@ Bytebase keeps up with the bi-weekly release cadence and released 7 versions.
 
 ### Data Security
 
-- [Data access control](/docs/security/database-permission/overview/) for query, export, and copy data.
-- Dynamic [Data Masking](/docs/sql-editor/mask-data/) for MySQL, Postgres, TiDB, Oracle, SQL Server, MariaDB, and OceanBase.
-- Enforce [sign-in frequency](/docs/administration/sign-in-restriction/#sign-in-frequency).
-- [LDAP](/docs/administration/sso/ldap/) for SSO.
-- Export [Audit Logs](/docs/security/audit-log/).
+- [Data access control](https://docs.bytebase.com/security/database-permission/overview/) for query, export, and copy data.
+- Dynamic [Data Masking](https://docs.bytebase.com/sql-editor/mask-data/) for MySQL, Postgres, TiDB, Oracle, SQL Server, MariaDB, and OceanBase.
+- Enforce [sign-in frequency](https://docs.bytebase.com/administration/sign-in-restriction/#sign-in-frequency).
+- [LDAP](https://docs.bytebase.com/administration/sso/ldap/) for SSO.
+- Export [Audit Logs](https://docs.bytebase.com/security/audit-log/).
 
 ### Data Governance
 
@@ -68,7 +68,7 @@ Bytebase keeps up with the bi-weekly release cadence and released 7 versions.
 
 ### General
 
-- More granular [Instance-level license](/docs/administration/license/). Users can import all instances into Bytebase to manage, meanwhile, they can just purchase fewer instance licenses and assign them to a subset of instances requiring advanced features.
+- More granular [Instance-level license](https://docs.bytebase.com/administration/license/). Users can import all instances into Bytebase to manage, meanwhile, they can just purchase fewer instance licenses and assign them to a subset of instances requiring advanced features.
 - Set up workspace-wide custom announcement banner.
 
 ---

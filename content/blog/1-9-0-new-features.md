@@ -29,7 +29,7 @@ A few more iterations, and we will have a killer solution.🔥
 
 ## Schema Sync for PostgreSQL
 
-After introducing [schema sync for MySQL](/blog/how-schema-sync-work) library table synchronization some time ago, we now bring you [schema sync for PostgreSQL](/docs/change-database/synchronize-schema).
+After introducing [schema sync for MySQL](/blog/how-schema-sync-work) library table synchronization some time ago, we now bring you [schema sync for PostgreSQL](https://docs.bytebase.com/change-database/synchronize-schema).
 
 We are confident that Bytebase's schema sync for PostgreSQL solution is the best in the industry because we have the best PG Parser on the market (and is also a constant WIP to perfect it).
 
@@ -39,7 +39,7 @@ There is a lot more that a good parser can do. We have invested a lot of R&D wor
 
 ## Data Masking
 
-Previously, Bytebase was focused on database change management (DCM). And another critical piece is data security. This release is our first footstep into this territory, with the ability to [mask database fields by tagging them](/docs/security/data-masking/overview).
+Previously, Bytebase was focused on database change management (DCM). And another critical piece is data security. This release is our first footstep into this territory, with the ability to [mask database fields by tagging them](https://docs.bytebase.com/security/data-masking/overview).
 
 There's not much to say about the feature alone, after all, many of our friends have them too. The difference is that Bytebase is only here now because we have just laid the groundwork for the system.
 
@@ -55,7 +55,7 @@ Auditors, wait for it.
 
 ## SQL Editor Admin Mode
 
-For the finale, we present [SQL Editor Admin mode](/docs/sql-editor/admin-mode) with a completely fresh look.
+For the finale, we present [SQL Editor Admin mode](https://docs.bytebase.com/sql-editor/admin-mode) with a completely fresh look.
 
 The last release introduced Admin mode, which allows DBAs to execute admin commands. After two weeks of iteration, we have upgraded the Admin mode, to a more command line-like user experience.
 

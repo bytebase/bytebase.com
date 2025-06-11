@@ -20,8 +20,8 @@ Traditional SQL clients such as DBeaver, DataGrip, Navicat, pgAdmin, phpMyAdmin 
 Bytebase also provides a web-based [SQL Editor](/sql-editor/) providing:
 
 - Centralized database credential management
-- Request and grant [database permissions](/docs/security/database-permission/overview/) workflow and enable Just-in-Time Database Access
-- [Dynamic data masking](/docs/security/data-masking/overview/)
+- Request and grant [database permissions](https://docs.bytebase.com/security/database-permission/overview/) workflow and enable Just-in-Time Database Access
+- [Dynamic data masking](https://docs.bytebase.com/security/data-masking/overview/)
 - Audit logs
 
 ## Schema Migration
@@ -29,11 +29,11 @@ Bytebase also provides a web-based [SQL Editor](/sql-editor/) providing:
 Liquibase, Flyway, Sqitch are CLI based. On the other hand, Bytebase provides a collaboration workspace
 for DBAs and developers to collaborate on database changes.
 
-- [SQL linter](/docs/sql-review/overview/) to detect anti-patterns.
+- [SQL linter](https://docs.bytebase.com/sql-review/overview/) to detect anti-patterns.
   ![schema-review-table-drop-naming](/content/docs/sql-review/schema-review-table-drop-naming.webp)
-- [Streamline the change](/docs/change-database/batch-change/) across different environments and allow to batch change many databases consistently.
-- [GitOps integration](/docs/vcs-integration/overview/) with mainstream VCSs to enable database-as-code workflow.
-- [Online schema migration for MySQL](/docs/change-database/online-schema-migration-for-mysql/) with gh-ost integration.
+- [Streamline the change](https://docs.bytebase.com/change-database/batch-change/) across different environments and allow to batch change many databases consistently.
+- [GitOps integration](https://docs.bytebase.com/vcs-integration/overview/) with mainstream VCSs to enable database-as-code workflow.
+- [Online schema migration for MySQL](https://docs.bytebase.com/change-database/online-schema-migration-for-mysql/) with gh-ost integration.
 
 ## Change Coordination
 
@@ -49,7 +49,7 @@ A typical database change workflow:
 Bytebase provides a single place to coordinate the database changes. The issue interface provides
 a holistic view of the database change status. Upon approval, changes are rolled out from Bytebase
 directly instead of switching to a different tools. All the activities are recorded and can be further
-configured to post to IM via [webhook](/docs/change-database/webhook).
+configured to post to IM via [webhook](https://docs.bytebase.com/change-database/webhook).
 
 ## Summary
 

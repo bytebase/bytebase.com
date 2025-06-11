@@ -33,7 +33,7 @@ Introduce Bytebase, an open-source database DevOps tool, which offers a web-base
 
 ### Manage SQL scripts and initiate change requests directly through code repos
 
-SQL [is also code](/blog/database-as-code) and should be orderly and consistent. With Bytebase, they are able to [integrate SQL scripts into their code repository (GitLab)](/docs/vcs-integration/overview/): all SQL scripts will automatically trigger issues when merged into the specified branch. Devs can complete all their tasks within their familiar tool, greatly improving efficiency while reducing the chances of careless mistakes caused by copying and pasting back and forth.
+SQL [is also code](/blog/database-as-code) and should be orderly and consistent. With Bytebase, they are able to [integrate SQL scripts into their code repository (GitLab)](https://docs.bytebase.com/vcs-integration/overview/): all SQL scripts will automatically trigger issues when merged into the specified branch. Devs can complete all their tasks within their familiar tool, greatly improving efficiency while reducing the chances of careless mistakes caused by copying and pasting back and forth.
 
 ### Notification on IM apps
 
@@ -41,7 +41,7 @@ The change script pushed from GitLab will generate an issue in Bytebase. At the 
 
 ### Automated SQL Review
 
-By utilizing Bytebase's built-in [SQL Review](/docs/sql-review/overview/) capabilities, the team defined various SQL Review policies and achieved a fully automated workflow for reviewing issues. Syntax errors and performance risks can be detected before execution. At the same time, the developer team receives real-time feedback on the results, reducing communication costs.
+By utilizing Bytebase's built-in [SQL Review](https://docs.bytebase.com/sql-review/overview/) capabilities, the team defined various SQL Review policies and achieved a fully automated workflow for reviewing issues. Syntax errors and performance risks can be detected before execution. At the same time, the developer team receives real-time feedback on the results, reducing communication costs.
 
 ### Automatic deployment
 
@@ -69,7 +69,7 @@ Guided by the concept of DevOps, the team emphasizes involving the developers in
 
 ### Organize databases by business lines
 
-To involve the developer teams in change management, from submitting issues to participating in review processes, precise permissions are necessary. It is time to move away from traditional centralized models, and instead, organize databases based on product lines and [projects](/docs/concepts/data-model/#project). This ensures that each developer can only participate in their own project's database change process.
+To involve the developer teams in change management, from submitting issues to participating in review processes, precise permissions are necessary. It is time to move away from traditional centralized models, and instead, organize databases based on product lines and [projects](https://docs.bytebase.com/concepts/data-model/#project). This ensures that each developer can only participate in their own project's database change process.
 
 ### Arrange your code repo’s directory
 
@@ -81,4 +81,4 @@ The ultimate goal is to improve collaboration, rather than enforce strict contro
 
 ## To Wrap Up
 
-Currently, the EV manufacturer is still continuously optimizing their database management process and exploring more Bytebase capabilities such as [optimizing slow queries](/docs/slow-query/overview/) and [anonymizing data](/docs/security/data-masking/overview/) to further empower the developer team. Stay tuned for a follow-up.
+Currently, the EV manufacturer is still continuously optimizing their database management process and exploring more Bytebase capabilities such as [optimizing slow queries](https://docs.bytebase.com/slow-query/overview/) and [anonymizing data](https://docs.bytebase.com/security/data-masking/overview/) to further empower the developer team. Stay tuned for a follow-up.

@@ -64,4 +64,4 @@ Inline Check in [GitHub PR](https://github.com/bytebase/ci-example/pull/4/files)
 
 ## Summary
 
-Bytebase brings the DevOps methodology and GitHub/GitLab-like experience to the Snowflake world. To learn more, check out the [step-by-step tutorial](/docs/tutorials/database-change-management-with-snowflake/).
+Bytebase brings the DevOps methodology and GitHub/GitLab-like experience to the Snowflake world. To learn more, check out the [step-by-step tutorial](https://docs.bytebase.com/tutorials/database-change-management-with-snowflake/).

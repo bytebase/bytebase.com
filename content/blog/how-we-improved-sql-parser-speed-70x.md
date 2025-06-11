@@ -15,7 +15,7 @@ This is a series of articles about SQL parsers
 
 ## Background
 
-Bytebase provides [SQL Review](/docs/sql-review/overview/) to detect anti-SQL patterns for all mainstream
+Bytebase provides [SQL Review](https://docs.bytebase.com/sql-review/overview/) to detect anti-SQL patterns for all mainstream
 relational databases. Our customers integrate it into their code review CI pipeline:
 
 ![sql-review-ci](/content/blog/how-we-improved-sql-parser-speed-70x/sql-review-ci.webp)

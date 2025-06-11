@@ -108,11 +108,11 @@ The integrated workflow operates as follows:
 The benefit of this integrated approach is that each system handles what it does best. Bytebase, as a dedicated database change management tool, excels at database-specific tasks that neither GitHub nor ServiceNow can natively provide:
 
 1. Automatically lint SQL scripts during PR.
-1. Advanced change capabilities tailored specifically for databases, such as [batch change](/docs/change-database/batch-change/), [schema drift detection](/docs/change-database/drift-detection/), [rollback](/docs/change-database/rollback-data-changes/).
+1. Advanced change capabilities tailored specifically for databases, such as [batch change](https://docs.bytebase.com/change-database/batch-change/), [schema drift detection](https://docs.bytebase.com/change-database/drift-detection/), [rollback](https://docs.bytebase.com/change-database/rollback-data-changes/).
 1. Maintain database-specific change history and audit trails, creating a specialized record of all schema and data modifications that complements ServiceNow's broader change management documentation.
 
 The combined approach gives database administrators and engineers deep visibility into database evolution while still maintaining the governance requirements through ServiceNow and the developer-friendly workflow in GitHub.
 
 ## Beyond Database Change Automation
 
-Besides complementing ServiceNow and GitHub for database change automation, Bytebase also provides a [web-based SQL Editor](/docs/sql-editor/overview/) that facilitates Just-in-Time database access control and applies dynamic data masking on the fly when querying the database. Thus, you can standardize database change and query process in a single place.
+Besides complementing ServiceNow and GitHub for database change automation, Bytebase also provides a [web-based SQL Editor](https://docs.bytebase.com/sql-editor/overview/) that facilitates Just-in-Time database access control and applies dynamic data masking on the fly when querying the database. Thus, you can standardize database change and query process in a single place.

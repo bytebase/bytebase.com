@@ -40,7 +40,7 @@ After trial and evaluation, CVTE landed on Bytebase as its database change manag
 Bytebase enables a one-stop change management process, forming a complete lifecycle of change merging > reviewing > release > notification > recording. At the same time, Bytebase's integration with up- and downstream tools through various means further unifies the previously fragmented actions.
 
 - **Merge**. Changes can be merged in various ways: through the Bytebase UI, code repos, APIs, catering to the needs of different development teams.
-- **Review**. Powerful automatic [SQL Review](/docs/sql-review/overview/).
+- **Review**. Powerful automatic [SQL Review](https://docs.bytebase.com/sql-review/overview/).
 - **Release**. Issues can be released to the target database with just one click, avoiding inefficient and error-prone manual execution.
 - **Notification**. Integration with mainstream IMs allows for automated notification.
 - **Record**. Unlike audit platforms that only record the final executed statements, Bytebase records the workflow of issues as well as snapshots of database schema before and after changes, allowing for a more comprehensive change history management.
@@ -51,9 +51,9 @@ Bytebase enables a one-stop change management process, forming a complete lifecy
 
 Besides emphasizing control throughout the release process, Bytebase provides various capabilities to help development teams improve their release efficiency, some of which effectively solve the problems faced by CVTE.
 
-- **Batch changes**. Bytebase supports multiple ways to release changes, among which [Batch Change](/docs/change-database/batch-change/) can group and release changes to a large number of databases simultaneously, avoiding execution by database, and can flexibly handle the issue of cross-grouping, which simply can not be addressed by customizing batch change scripts.
+- **Batch changes**. Bytebase supports multiple ways to release changes, among which [Batch Change](https://docs.bytebase.com/change-database/batch-change/) can group and release changes to a large number of databases simultaneously, avoiding execution by database, and can flexibly handle the issue of cross-grouping, which simply can not be addressed by customizing batch change scripts.
 - **Script validation**. Bytebase can help write better SQL statements, by incorporating syntax checking and object name verification. For certain operations, such as modifying schema referenced by VIEWs (in Postgres, the VIEW needs to be deleted to modify table schema), Bytebase can automatically provide VIEW definitions for easy rewriting of scripts.
-- **Simplified version control**. Before Bytebase, change scripts in their test environments needed to be manually recorded and arranged using tools like spreadsheets, before being individually released into production environments. This process was cumbersome and prone to errors. With [Changelist](/docs/changelist/), they are now able to import changes from change history or external files and release them with one click, significantly improving the experience.
+- **Simplified version control**. Before Bytebase, change scripts in their test environments needed to be manually recorded and arranged using tools like spreadsheets, before being individually released into production environments. This process was cumbersome and prone to errors. With [Changelist](https://docs.bytebase.com/changelist/), they are now able to import changes from change history or external files and release them with one click, significantly improving the experience.
 
 ### Integrating Compliance
 
@@ -71,6 +71,6 @@ To ensure the implementation works well, the management team made sure to commun
 
 - **Gradual promotion**. They prioritized the departments with more dire needs, such as the manufacturing department's need for Batch Changes.
 - **Step-by-step implementation**. For a sales department that has frequent changes and complex scenarios, there is no rush to promote it comprehensively. Instead, different strategies are formulated based on release cadence, fixes, etc. Temporary and error-prone data changes are prioritized. This ensures that the R&D team can slowly adapt to the new process.
-- **Evolve functionally in stages**. They started with an easy-to-use [UI change workflow](/docs/change-database/change-workflow/#ui-workflow) and gradually incorporated the [GitOps workflow](/docs/change-database/change-workflow/#gitops-workflow) in some departments for a more seamless change experience.
+- **Evolve functionally in stages**. They started with an easy-to-use [UI change workflow](https://docs.bytebase.com/change-database/change-workflow/#ui-workflow) and gradually incorporated the [GitOps workflow](https://docs.bytebase.com/change-database/change-workflow/#gitops-workflow) in some departments for a more seamless change experience.
 
 In the road ahead, Bytebase will continue to work with CVTE to build a new generation of database change management processes. Stay tuned for more⛽️.

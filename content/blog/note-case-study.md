@@ -45,13 +45,13 @@ Bytebase provides various capabilities to enable more secure and efficient datab
 
 ### Web-based SQL Editor
 
-Bytebase offers a [web-based SQL Editor](/docs/sql-editor/overview/) that consolidates all permissions management and data access operations into a single tool. This eliminates the need for the in-house tool, SSH proxy server, and local database clients, allowing developers to submit permission requests and access the database in one place, greatly improving convenience.
+Bytebase offers a [web-based SQL Editor](https://docs.bytebase.com/sql-editor/overview/) that consolidates all permissions management and data access operations into a single tool. This eliminates the need for the in-house tool, SSH proxy server, and local database clients, allowing developers to submit permission requests and access the database in one place, greatly improving convenience.
 
 ![sql-editor](/content/blog/note-case-study/sql-editor.webp)
 
 ### Dynamic Data Masking
 
-Bytebase offers column-level [dynamic data masking](/docs/security/data-masking/overview/) for our Aurora MySQL databases. When granting access permissions to developers for specific tables, sensitive columns can be dynamically masked based on the user's identity during data queries.
+Bytebase offers column-level [dynamic data masking](https://docs.bytebase.com/security/data-masking/overview/) for our Aurora MySQL databases. When granting access permissions to developers for specific tables, sensitive columns can be dynamically masked based on the user's identity during data queries.
 
 ![ddm](/content/blog/note-case-study/ddm.webp)
 
@@ -87,10 +87,10 @@ Access request notifications will be pushed to Slack.
 
 After implementing Bytebase's database access control, the following issues have become apparent. In response, note is considering further leveraging Bytebase's capabilities to address these challenges:
 
-- [CI/CD for DML and DDL changes](/docs/change-database/change-workflow/)
+- [CI/CD for DML and DDL changes](https://docs.bytebase.com/change-database/change-workflow/)
 
   At present, only read queries are utilized; the aim is to enable modifications for both DML and DDL directly on Bytebase.
 
-- [GitOps workflow with GitHub](/docs/vcs-integration/overview/)
+- [GitOps workflow with GitHub](https://docs.bytebase.com/vcs-integration/overview/)
 
   Given that SQL is currently managed through GitHub Issues in the existing business process, the introduction of GitOps is expected to enhance operational efficiency.

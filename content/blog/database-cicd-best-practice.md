@@ -19,7 +19,7 @@ Database change has long been the most critical step in a release. If you do it 
 
 They may not sound so bad if you only need to manage one or two databases, but when you face as few as a dozen to 1,000+ instances, this will be torture. We have a platform to manage code, a variety of issue trackers, and multiple SQL review tools, but why is this process still such a pain in the ass?
 
-All inefficient collaboration can be backtracked to fragmented processes and unshared information, if we can develop [a complete Database CI/CD workflow](/docs/tutorials/gitops-github-workflow), and break the wall between developers and DBAs, will it improve efficiency?
+All inefficient collaboration can be backtracked to fragmented processes and unshared information, if we can develop [a complete Database CI/CD workflow](https://docs.bytebase.com/tutorials/gitops-github-workflow), and break the wall between developers and DBAs, will it improve efficiency?
 
 ![](/content/blog/database-cicd-best-practice/complete-cicd-workflow.webp)
 
@@ -84,11 +84,11 @@ To avoid complex SQL blocking your release, the shift-left approach should be in
 - Field rules: such as restricting the type, length, default value of fields, etc.
 - Query restrictions: such as query must have filter conditions, etc.
 
-Bytebase has ~100 standard built-in SQL Lint and supports configuring review rules that incorporate your business needs. You can choose one of the following [rule level](/docs/sql-review/review-policy#change-rule-level)s: `Error`, `Warning` or `Disabled`. When the rule is `Disabled`, it will not take effect. To better implement the rules, it is highly recommended that the DBA and the dev teams agree on the SQL review rules, and rule levels and decide which rules should be enabled at which stage. In prod, an application often includes multiple environments: from dev, testing, staging to prod. To balance efficiency and security, different review policies should be used at different stages. Still, it is recommended that SQL scripts should be included in VCS management from the testing environment. An example of a strategy:
+Bytebase has ~100 standard built-in SQL Lint and supports configuring review rules that incorporate your business needs. You can choose one of the following [rule level](https://docs.bytebase.com/sql-review/review-policy#change-rule-level)s: `Error`, `Warning` or `Disabled`. When the rule is `Disabled`, it will not take effect. To better implement the rules, it is highly recommended that the DBA and the dev teams agree on the SQL review rules, and rule levels and decide which rules should be enabled at which stage. In prod, an application often includes multiple environments: from dev, testing, staging to prod. To balance efficiency and security, different review policies should be used at different stages. Still, it is recommended that SQL scripts should be included in VCS management from the testing environment. An example of a strategy:
 
 ![](/content/blog/database-cicd-best-practice/strategy.webp)
 
-- When creating your scripts, the SQL statements are pre-checked by Bytebase's [VCS-integrated review capabilities](/docs/sql-review/gitops-ci) to help identify violations.
+- When creating your scripts, the SQL statements are pre-checked by Bytebase's [VCS-integrated review capabilities](https://docs.bytebase.com/sql-review/gitops-ci) to help identify violations.
 - During the execution phase, Bytebase will initiate a secondary check. The closer you get to prod, the tougher the rules.
 
 ## Defining an automated deployment workflow
@@ -121,16 +121,16 @@ The last thing we need to do is to implement the above in Bytebase.
 
 This process can be divided into three main tasks:
 
-1. **[Create a Project](/docs/get-started/step-by-step/create-a-project).** Divide the databases into groups according to defined database management boundaries, and assigning them to different projects, with the development team's management boundaries defined by the project and the DBA/Ops/Platform teams having global access.
+1. **[Create a Project](https://docs.bytebase.com/get-started/step-by-step/create-a-project).** Divide the databases into groups according to defined database management boundaries, and assigning them to different projects, with the development team's management boundaries defined by the project and the DBA/Ops/Platform teams having global access.
 
    ![](/content/blog/database-cicd-best-practice/create-project.webp)
 
-2. **[Create Schema review policy](/docs/sql-review/review-policy/#create-schema-review-policy).** Set up review policy for each environment, taking into account the specific policy and rule levels agreed upon with the development teams.
+2. **[Create Schema review policy](https://docs.bytebase.com/sql-review/review-policy/#create-schema-review-policy).** Set up review policy for each environment, taking into account the specific policy and rule levels agreed upon with the development teams.
 
    ![](/content/blog/database-cicd-best-practice/schema-review.webp)
 
-3. **[Set up GitOps](/docs/vcs-integration/overview)**. Configure the GitOps workflow in a given project to monitor changes in the VCS and automatically kick start the review process.
+3. **[Set up GitOps](https://docs.bytebase.com/vcs-integration/overview)**. Configure the GitOps workflow in a given project to monitor changes in the VCS and automatically kick start the review process.
 
    ![](/content/blog/database-cicd-best-practice/gitops.webp)
 
-For a more detailed implementation, please refer to [How to Setup Database CI/CD with GitHub](/docs/tutorials/gitops-github-workflow).
+For a more detailed implementation, please refer to [How to Setup Database CI/CD with GitHub](https://docs.bytebase.com/tutorials/gitops-github-workflow).

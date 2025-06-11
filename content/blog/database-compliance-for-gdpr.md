@@ -24,7 +24,7 @@ Provisioning separate databases satisfies the GDPR compliance, however it adds t
 
 <HintBlock type="info">
 
-Bytebase provides [Batch Mode](/docs/change-database/batch-change/) to consistently change databases from all locations.
+Bytebase provides [Batch Mode](https://docs.bytebase.com/change-database/batch-change/) to consistently change databases from all locations.
 
 </HintBlock>
 
@@ -71,7 +71,7 @@ To ensure GDPR compliance for these database operations, organizations must rest
 
 <HintBlock type="info">
 
-Bytebase is a single place to provide [access control](/docs/security/database-permission/overview/), [review workflow](/docs/change-database/change-workflow/), [data masking](/docs/security/data-masking/overview/), [audit logging](/docs/security/audit-log/) for all database development operations for all database systems.
+Bytebase is a single place to provide [access control](https://docs.bytebase.com/security/database-permission/overview/), [review workflow](https://docs.bytebase.com/change-database/change-workflow/), [data masking](https://docs.bytebase.com/security/data-masking/overview/), [audit logging](https://docs.bytebase.com/security/audit-log/) for all database development operations for all database systems.
 
 </HintBlock>
 

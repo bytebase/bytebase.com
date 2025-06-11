@@ -11,7 +11,7 @@ The penultimate release of 2022 brings Bytebase from 1.9.0 to [1.9.1](/changelog
 
 ## Schema Editor
 
-First up is the [Schema editor](/docs/change-database/schema-editor).
+First up is the [Schema editor](https://docs.bytebase.com/change-database/schema-editor).
 
 For most developers, handwriting SQL is troublesome and error-prone. So, we made a visual Schema Editor that can generate SQL statements with just a few clicks.
 
@@ -23,7 +23,7 @@ We included the support for MySQL and TiDB first, and PostgreSQL will be availab
 
 Next ups is a small yet sweet feature.
 
-The issue creator might want to remind the reviewer during the review process. We added the **[Need Attention](/docs/change-database/change-workflow/#issue-need-attention)** feature, which adds a reminder bell to the Review interface. The corresponding issue title will become bold in the reviewer interface when you click it.
+The issue creator might want to remind the reviewer during the review process. We added the **[Need Attention](https://docs.bytebase.com/change-database/change-workflow/#issue-need-attention)** feature, which adds a reminder bell to the Review interface. The corresponding issue title will become bold in the reviewer interface when you click it.
 
 ![_](/content/blog/1-9-1-new-features/need-attention-bell.webp)
 
@@ -37,7 +37,7 @@ Regarding how to nudge people, some collaborative tools choose to ping others, o
 
 Now, let’s chat about Bytebase’s security capabilities.
 
-We introduced [Data Access Control](/docs/security/database-permission/overview) with this release, leveraging Access Control Policy and Environment Tier.
+We introduced [Data Access Control](https://docs.bytebase.com/security/database-permission/overview) with this release, leveraging Access Control Policy and Environment Tier.
 
 Some users suggested that they don’t want developers to access all databases in the production environment by default. This can be achieved by the DBA setting the `Environment Tier` to `Protected`. But at the same time, the user wants to open access to some databases in this environment, which is possible by whitelisting those databases.
 
@@ -45,7 +45,7 @@ Some users suggested that they don’t want developers to access all databases i
 
 ![_](/content/blog/1-9-1-new-features/accesss-control-env.webp)
 
-The overall Bytebase design follows the same security practice of default blacklisting. This is yet another feature focusing on data security after [Data Masking](/docs/security/data-masking/overview).
+The overall Bytebase design follows the same security practice of default blacklisting. This is yet another feature focusing on data security after [Data Masking](https://docs.bytebase.com/security/data-masking/overview).
 
 ## Data Masking
 

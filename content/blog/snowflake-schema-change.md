@@ -56,7 +56,7 @@ The tutorial I followed can be found [here](https://quickstarts.snowflake.com/gu
 
 ## Bytebase
 
-The tutorial I followed can be found [here](/docs/tutorials/database-change-management-with-snowflake-and-github/). For the sake of presentation, I have summarized the key steps below. If you wish to give it a try, please follow the tutorial.
+The tutorial I followed can be found [here](https://docs.bytebase.com/tutorials/database-change-management-with-snowflake-and-github/). For the sake of presentation, I have summarized the key steps below. If you wish to give it a try, please follow the tutorial.
 
 ### Preparation
 
@@ -104,7 +104,7 @@ On the other hand, Bytebase records the change history in the interactive UI. By
 
 ### SQL Review
 
-Schemachange doesn't include SQL Reviews. In contrast, Bytebase offers predefined rules for Snowflake SQL Review. You can select some of these rules as the environment [SQL Review policy](/docs/sql-review/review-rules). By one click enabling SQL Review CI in the GitOps configuration, GitHub Actions are automatically built. Any PR involving SQL will then be reviewed automatically before it's merged. For a more detailed understanding of SQL Review in Bytebase CI/CD workflow, refer to [this article](/docs/tutorials/gitops-github-workflow/).
+Schemachange doesn't include SQL Reviews. In contrast, Bytebase offers predefined rules for Snowflake SQL Review. You can select some of these rules as the environment [SQL Review policy](https://docs.bytebase.com/sql-review/review-rules). By one click enabling SQL Review CI in the GitOps configuration, GitHub Actions are automatically built. Any PR involving SQL will then be reviewed automatically before it's merged. For a more detailed understanding of SQL Review in Bytebase CI/CD workflow, refer to [this article](https://docs.bytebase.com/tutorials/gitops-github-workflow/).
 ![complete-cicd-workflow](/content/blog/snowflake-schema-change/complete-cicd-workflow.webp)
 
 ## Summary

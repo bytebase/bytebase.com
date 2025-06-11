@@ -318,7 +318,7 @@ Oracle delivers more out-of-the-box security tools suited for strict compliance 
 
 <HintBlock type="info">
 
-Bytebase provides [column-level dynamic data masking](/docs/security/data-masking/overview/) to Postgres.
+Bytebase provides [column-level dynamic data masking](https://docs.bytebase.com/security/data-masking/overview/) to Postgres.
 
 </HintBlock>
 

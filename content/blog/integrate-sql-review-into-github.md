@@ -56,7 +56,7 @@ into the `.github` directory to integrate SQL Review rules into the CI process.
    rule to a YAML file with one click, and point the override-file-path parameter in the Action
    workflow file to that file to make the custom rule take effect.
 
-   The detailed configuration process can be found in the [GitHub Action document](/docs/sql-review/github-action).
+   The detailed configuration process can be found in the [GitHub Action document](https://docs.bytebase.com/sql-review/github-action).
 
 ### Result
 

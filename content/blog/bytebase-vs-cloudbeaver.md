@@ -60,7 +60,7 @@ Bytebase focuses on team collaboration, offering tailored features like access c
 
 - **CloudBeaver**: Java-based tool, requires the Java Virtual Machine (JVM) for execution, or it can be run using Docker.
 
-- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](/docs/get-started/self-host/#docker) and [Kubernetes](/docs/get-started/self-host/#kubernetes) deployment.
+- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](https://docs.bytebase.com/get-started/self-host/#docker) and [Kubernetes](https://docs.bytebase.com/get-started/self-host/#kubernetes) deployment.
 
 ### Supported databases
 
@@ -152,7 +152,7 @@ On the other hand, the more common way to change the schema is to use **Schema E
 
 - **CloudBeaver**: Support [GraphQL](https://github.com/dbeaver/cloudbeaver/wiki/Server-API-explorer), while the doc is pretty light.
 
-- **Bytebase**: Support gRPC and HTTP/REST. Bytebase provides extensive [docs](/docs/api/overview/), [code samples](https://github.com/bytebase/example-api), and [tutorials](/tutorial/).
+- **Bytebase**: Support gRPC and HTTP/REST. Bytebase provides extensive [docs](https://docs.bytebase.com/api/overview/), [code samples](https://github.com/bytebase/example-api), and [tutorials](/tutorial/).
 
 ### GitOps
 

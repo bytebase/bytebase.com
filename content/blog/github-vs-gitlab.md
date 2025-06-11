@@ -85,7 +85,7 @@ GitLab is fully open-source. However, while GitHub is the go-to platform for hos
 
 <HintBlock type="info">
 
-Bytebase has integrated [gh-ost](/docs/change-database/online-schema-migration-for-mysql/), offering a more user-friendly interface with the built-in approval workflow.
+Bytebase has integrated [gh-ost](https://docs.bytebase.com/change-database/online-schema-migration-for-mysql/), offering a more user-friendly interface with the built-in approval workflow.
 
 </HintBlock>
 

@@ -18,11 +18,11 @@ Developers can execute `bb` commands to manage MySQL and PostgreSQL database (ch
 
 The following is a list of commands provided by Bytebase CLI `bb` that can manage a database. More is coming soon:
 
-- [migrate](/docs/cli/overview#migrate): apply schema migration to the database.
-- [dump](/docs/cli/overview#dump): dump a database schema and data.
-- [restore](/docs/cli/overview#restore): restore a database schema and data from a dump file.
+- [migrate](https://docs.bytebase.com/cli/overview#migrate): apply schema migration to the database.
+- [dump](https://docs.bytebase.com/cli/overview#dump): dump a database schema and data.
+- [restore](https://docs.bytebase.com/cli/overview#restore): restore a database schema and data from a dump file.
 
-This blog post gives an overview of how to install Bytebase CLI `bb` and how to execute `bb` commands. For integrating Bytebase CLI `bb` into the CI/CD system, see [Integrating with GitLab CI](/docs/cli/integrate-with-gitlab).
+This blog post gives an overview of how to install Bytebase CLI `bb` and how to execute `bb` commands. For integrating Bytebase CLI `bb` into the CI/CD system, see [Integrating with GitLab CI](https://docs.bytebase.com/cli/integrate-with-gitlab).
 
 ## Installing `bb`
 
@@ -46,7 +46,7 @@ Then you should see help output:
 
 ## Running `bb`
 
-To execute `bb` commands, we need a database, see [Getting Started](/docs/cli/overview#start-a-local-mysql-server-via-docker).
+To execute `bb` commands, we need a database, see [Getting Started](https://docs.bytebase.com/cli/overview#start-a-local-mysql-server-via-docker).
 
 Let's take database schema change as an example.
 
@@ -76,4 +76,4 @@ bb dump --dsn mysql://root:passwd@localhost:3306/bytebase_test_todo --schema-onl
 
 ![The schema of the table is changed](/content/blog/introducing-bb-bytebase-cli-to-manage-database-operations/bb-after-change.webp)
 
-Please try it out, head over to [the documentation](/docs/cli/overview) to learn more, let us know how we can [improve it](https://github.com/bytebase/bytebase/issues).
+Please try it out, head over to [the documentation](https://docs.bytebase.com/cli/overview) to learn more, let us know how we can [improve it](https://github.com/bytebase/bytebase/issues).

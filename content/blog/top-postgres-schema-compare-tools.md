@@ -48,7 +48,7 @@ pgAdmin is ideal for database administrators who want a quick visual way to comp
 
 ## Bytebase (All-in-one Platform)
 
-[Bytebase](https://www.bytebase.com/) is a database DevSecOps platform that offers [schema synchronization](/docs/change-database/synchronize-schema/) as part of its broader database change management capabilities.
+[Bytebase](https://www.bytebase.com/) is a database DevSecOps platform that offers [schema synchronization](https://docs.bytebase.com/change-database/synchronize-schema/) as part of its broader database change management capabilities.
 
 ![bytebase](/content/blog/top-postgres-schema-compare-tools/bytebase.webp)
 

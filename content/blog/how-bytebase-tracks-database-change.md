@@ -22,7 +22,7 @@ to a single database as well as changes to hundreds of databases spanning multip
 ![_](/content/blog/how-bytebase-tracks-database-change/issue-detail-who.webp)
 
 1. Issue Creator
-1. Reviewers according to the [Rollout Policy](/docs/administration/environment-policy/rollout-policy/)
+1. Reviewers according to the [Rollout Policy](https://docs.bytebase.com/administration/environment-policy/rollout-policy/)
 1. Subscribers interested in the progress.
 1. Other participants can comment.
 
@@ -55,7 +55,7 @@ You can specify when to roll out the issue (e.g. 2:00 midnight during non-busine
 1. The database change process is organized into multiple stages.
 1. The change is identified as high risk change and requires two approvers.
 1. Checks
-   - [SQL Review](/docs/sql-review/overview/) checks various anti-SQL patterns.
+   - [SQL Review](https://docs.bytebase.com/sql-review/overview/) checks various anti-SQL patterns.
      ![_](/content/blog/how-bytebase-tracks-database-change/issue-detail-how-sql-review.webp)
    - Summary report shows the estimated impact.
      ![_](/content/blog/how-bytebase-tracks-database-change/issue-detail-how-summary.webp)

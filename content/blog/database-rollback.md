@@ -74,7 +74,7 @@ For data rollback, it offers a handy 1-click data rollback from automatic backup
 
     ![bb-prior-bk-rollback](/content/blog/database-rollback/bb-prior-bk-rollback.webp)
 
-You can also trigger the Bytebase rollback via [API](/docs/api/issue/) and build a GitOps workflow to combine the reliability of GitOps workflows with the convenience of visual management tools.
+You can also trigger the Bytebase rollback via [API](https://docs.bytebase.com/api/issue/) and build a GitOps workflow to combine the reliability of GitOps workflows with the convenience of visual management tools.
 
 ## Conclusion
 

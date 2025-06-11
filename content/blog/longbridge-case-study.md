@@ -44,7 +44,7 @@ New tenants are usually created by the business side. For most SaaS companies, t
 
 ## The Solution: Bytebase
 
-As a financial SaaS provider, Longbridge Whale manage their database in [batch mode](/docs/change-database/batch-change). With the growth of their business, the number of databases increased rapidly and schema management issues have become prominent.
+As a financial SaaS provider, Longbridge Whale manage their database in [batch mode](https://docs.bytebase.com/change-database/batch-change). With the growth of their business, the number of databases increased rapidly and schema management issues have become prominent.
 
 Similar to many other tech startups, Longbridge Whale have established a basic database review and release platform based on open-source solutions. However, such platforms generally lack schema change management capabilities and can't cope with the current challenges faced by Longbridge Whale. In order to fundamentally solve these problems, Longbridge Whale turned to Bytebase.
 
@@ -52,7 +52,7 @@ Similar to many other tech startups, Longbridge Whale have established a basic d
 
 ![_](/content/blog/longbridge-case-study/sync-schema.webp)
 
-Their business has been running for a while, and there are already some schema differences in existing tenant databases. It is impossible for the naked eye to locate all the differeces. Most schema comparison tools can only compare between two databases or several tables, which doesn't quite meet the large-scale comparison needs. Bytebase's [Sync Schema](/docs/change-database/synchronize-schema/) can compare all databases against a specified baseline database. Issues are then generated to quickly eliminate schema differences in existing databases.
+Their business has been running for a while, and there are already some schema differences in existing tenant databases. It is impossible for the naked eye to locate all the differeces. Most schema comparison tools can only compare between two databases or several tables, which doesn't quite meet the large-scale comparison needs. Bytebase's [Sync Schema](https://docs.bytebase.com/change-database/synchronize-schema/) can compare all databases against a specified baseline database. Issues are then generated to quickly eliminate schema differences in existing databases.
 
 ## Prevent Future Schema Differences
 
@@ -62,7 +62,7 @@ Now that legacy issues are resolved, we need to ensure that no new differences a
 
 ![_](/content/blog/longbridge-case-study/publish-changes.webp)
 
-Bytebase organize databases by [**Project**](/docs/concepts/data-model/#project). All homogeneous tenant databases are grouped in the same project and changes are completed by the application development teams.
+Bytebase organize databases by [**Project**](https://docs.bytebase.com/concepts/data-model/#project). All homogeneous tenant databases are grouped in the same project and changes are completed by the application development teams.
 
 In principle, each change are applied to all databases under the project in tenant mode. Once the change is successfully executed against any target database, no further modifications are allowed for scripts within this change. Of course, real business scenarios are far more complex and may vary. Some changes only need to be released to some databases, such as temporary business data fix on the backend or initialization of configuration data. Therefore, it is still possible to select and publish the changes to some databases under tenant mode.
 
@@ -70,7 +70,7 @@ In principle, each change are applied to all databases under the project in tena
 
 ![_](/content/blog/longbridge-case-study/drift-detection.webp)
 
-In production environments, it is still difficult to avoid drifts. For example, access permissions are not fully revoked, and one of the app developers makes changes through other clients; or in some emergency situations, certain scripts are released directly to the database. Once a drift occurs, it is often difficult to discover in time. When this drift triggers an error at some point in the future, it will not be easy to trace back and find the cause, making it that much harder to be fixed. Bytebase has automatic [Drift Detection](/docs/change-database/drift-detection/) that scans the database schema regularly so as to detect unaudited changes and issue alerts promptly.
+In production environments, it is still difficult to avoid drifts. For example, access permissions are not fully revoked, and one of the app developers makes changes through other clients; or in some emergency situations, certain scripts are released directly to the database. Once a drift occurs, it is often difficult to discover in time. When this drift triggers an error at some point in the future, it will not be easy to trace back and find the cause, making it that much harder to be fixed. Bytebase has automatic [Drift Detection](https://docs.bytebase.com/change-database/drift-detection/) that scans the database schema regularly so as to detect unaudited changes and issue alerts promptly.
 
 ### Recover: Reconcile the Schema Diff
 

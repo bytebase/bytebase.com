@@ -28,7 +28,7 @@ Bytebase provides a collaboration workspace for developers, DBAs, and security e
 1. One-off, ad-hoc change.
 1. Data query.
 
-In addition to centralizing database operations, Bytebase offers features such as [SQL Review for linting SQL statements](/docs/sql-review/overview/), [one-click rollbacks](/docs/change-database/rollback-data-changes/), [data access control](/docs/security/database-permission/overview/), and [dynamic data masking](/docs/security/data-masking/overview/). To deliver these capabilities, Bytebase must comprehend the SQL dialects of various target database systems, which is why we build custom parsers [for](https://github.com/bytebase/mysql-parser) [each](https://github.com/bytebase/postgresql-parser) [of](https://github.com/bytebase/plsql-parser) [them](https://github.com/bytebase/tsql-parser).
+In addition to centralizing database operations, Bytebase offers features such as [SQL Review for linting SQL statements](https://docs.bytebase.com/sql-review/overview/), [one-click rollbacks](https://docs.bytebase.com/change-database/rollback-data-changes/), [data access control](https://docs.bytebase.com/security/database-permission/overview/), and [dynamic data masking](https://docs.bytebase.com/security/data-masking/overview/). To deliver these capabilities, Bytebase must comprehend the SQL dialects of various target database systems, which is why we build custom parsers [for](https://github.com/bytebase/mysql-parser) [each](https://github.com/bytebase/postgresql-parser) [of](https://github.com/bytebase/plsql-parser) [them](https://github.com/bytebase/tsql-parser).
 
 ## AI Assistant
 
@@ -64,4 +64,4 @@ It has been downloaded over 4 million times worldwide, reaching users from [a sm
 
 _You can obtain Bytebase directly or through the [AWS](https://aws.amazon.com/marketplace/seller-profile?id=seller-mqp4ph2m6bzzc) and [GCP](https://console.cloud.google.com/marketplace/product/bytebase-public/bytebase) marketplaces. To learn more, [schedule a demo](/request-demo/) with us._
 
-_Upgrading to version 3.0 is designed to be straightforward—just increase the version number and restart (but don’t forget to back up your data as a precaution), please refer to the [upgrade guide](/docs/get-started/upgrade/)._
+_Upgrading to version 3.0 is designed to be straightforward—just increase the version number and restart (but don’t forget to back up your data as a precaution), please refer to the [upgrade guide](https://docs.bytebase.com/get-started/upgrade/)._

@@ -135,7 +135,7 @@ To better accommodate the working habits of developers, Bytebase has integrated 
 
 **Team Collaboration & Management**
 
-You can define different [roles](/docs/concepts/roles-and-permissions/) for members at two levels: Workspace and Project. You can assign different roles to your team members, so that they have different permissions for different projects; or configure approval workflows for each project, such as specifying specific DBAs or QA responsible for this specific project.
+You can define different [roles](https://docs.bytebase.com/concepts/roles-and-permissions/) for members at two levels: Workspace and Project. You can assign different roles to your team members, so that they have different permissions for different projects; or configure approval workflows for each project, such as specifying specific DBAs or QA responsible for this specific project.
 
 ![_](/content/blog/top-database-schema-change-tool-evolution/bytebase-roles.webp)
 
@@ -156,7 +156,7 @@ The difference between Prisma and Bytebase lies in the target audience. Prisma i
 
 If you are operating the database as an individual, the classic CLI or GUI SQL clients like Navicat will suffice. If you prefer integration with code repos, there are solutions like Liquibase and Flyway. However, for a GUI and project collaboration capabilities similar to Jira or GitLab, your options are Prisma and Bytebase. And Bytebase is the only tool that offers organization-wide management capabilities to ensure data security and governance, in addition to making database changes more efficient and safer.
 
-This wraps our database schema change series. Here at Bytebase, we are trying to deliver a schema change experience as close as to the code change experience, from both the individual perspective and the organization perspective. To give it a try, [start locally with a single command](/docs/get-started/self-host/#docker/).
+This wraps our database schema change series. Here at Bytebase, we are trying to deliver a schema change experience as close as to the code change experience, from both the individual perspective and the organization perspective. To give it a try, [start locally with a single command](https://docs.bytebase.com/get-started/self-host/#docker/).
 
 ## Further Readings
 
