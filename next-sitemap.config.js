@@ -6,7 +6,7 @@ module.exports = {
   generateRobotsTxt: true,
   sitemapSize: 500,
   // Do not index duplicated zh content for now
-  exclude: ['/zh', '/zh/*'],
+  exclude: ['/zh', '/zh/*', '/changelog/*', '/docs/*', '/tutorial/*'],
   robotsTxtOptions: {
     additionalSitemaps: [],
     policies: [
