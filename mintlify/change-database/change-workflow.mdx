@@ -12,23 +12,17 @@ There are 2 typical workflows employed by the team to deal with database schema 
 
 ## Core Concepts
 
+### Issue
+
+`Issue` adds the collaboration such as approval, comment, and notification to the database change process. An issue is often created via the UI workflow. On the other hand, an issue may not be created via the GitOps workflow since the GitOps workflow may only need the [rollout](/change-database/change-workflow/#rollout) without further human intervention.
+
 ### Release
 
-<Info>
-
-Release is only used in [Custom GitOps workflow](/gitops/overview/). Like a Docker image, a `release` is immutable after it is created.
-
-</Info>
-
-A `release` is a deployable unit that encapsulates a set of SQL statements. You can think of a `release` as a collection of SQL statements layered on top of a scratch Docker image.
+A `release` is a deployable unit that encapsulates a set of SQL statements.
 
 ### Rollout
 
 To roll out the changes, Bytebase creates a multi-stage rollout pipeline from you project deployment config setting. The changes are pushed to databases stage by stage.
-
-### Issue
-
-`Issue` adds the collaboration such as approval, comment, and notification to the database change process. An issue is often created via the UI workflow. On the other hand, an issue may not be created via the GitOps workflow since the GitOps workflow may only need the [rollout](/change-database/change-workflow/#rollout) without further human intervention.
 
 ### Revision
 

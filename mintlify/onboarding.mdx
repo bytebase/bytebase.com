@@ -1,12 +1,10 @@
 ---
-title: Best Practices
+title: Onboarding Guide
 ---
-
-## Onboarding Phases
 
 <Note>
 
-For Enterprise customers, **we guarantee 100% implementation success in 90 days**. [Contact us](/contact-us/)
+For Enterprise customers, **we guarantee 100% implementation success in 90 days**. [Contact us](https://www.bytebase.com/contact-us/)
 to discuss your specific requirements.
 
 </Note>
@@ -52,7 +50,7 @@ Related features:
 
 - [SQL Editor](/sql-editor/overview/)
 - [Database Permission](/security/database-permission/overview/)
-- [Request Query](/security/database-permission/query/) and [Export](/security/database-permission/export/) access flow
+- [Request Query](/security/database-permission/request/) and [Export](/security/database-permission/export/) access flow
 - [Dynamic Data Masking](/security/data-masking/overview/)
 
 ### Phase 3 - Integrate SQL review into CI
@@ -68,8 +66,8 @@ SQL Review check into the CI.
 Related features:
 
 - [SQL Review](/sql-review/overview/)
-- [SQL Review API](/api/sql-review/)
-- [Service Account](/api/authentication/#service-account)
+- [SQL Review API](/integrations/api/sql-review/)
+- [Service Account](/integrations/api/authentication/#service-account)
 
 ### Phase 4 - Manage schema migration
 
@@ -126,7 +124,7 @@ Bytebase provides settings at the workspace, environment, project levels. Below 
 |                                                                                                   | Allow running data-modifying DML in SQL Editor                       | ✅          | ❌              | ❌                         |
 | Database CI/CD                                                                                    | [Approval Policy](/administration/custom-approval/)                  | No approver | Single approver | Multiple approvers         |
 |                                                                                                   | [Rollout Policy](/administration/environment-policy/rollout-policy/) | Automatic   | Manual          | Manual                     |
-| Database Permission                                                                               | [EXPLAIN](/security/database-permission/explain/)                    | ✅          | ✅              | ✅                         |
-|                                                                                                   | [Query](/security/database-permission/query/)                        | ✅          | ✅              | Approval at db/table level |
-|                                                                                                   | [Export](/security/database-permission/export/)                      | ✅          | ✅              | Approval at db/table level |
+| [Database Permission](/security/database-permission/overview/)                                    | EXPLAIN                  | ✅          | ✅              | ✅                         |
+|                                                                                                   | Query                    | ✅          | ✅              | Approval at db/table level |
+|                                                                                                   | Export                   | ✅          | ✅              | Approval at db/table level |
 | [Data masking](/security/data-masking/global-masking-rule/)                                       |                                                                      | ❌          | ❌              | ✅                         |
