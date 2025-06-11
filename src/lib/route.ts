@@ -40,9 +40,9 @@ const Route = {
   JOBS: '/about#crew',
   CONTACTS: '/contact-us',
 
+  CHANGELOG: `${DOCS_ROOT}/changelog`,
+  TUTORIAL: `${DOCS_ROOT}/tutorials`,
   DATABASE_GLOSSARY: '/database-glossary',
-  CHANGELOG: '/changelog',
-  TUTORIAL: '/tutorial',
   BLOG: '/blog',
   BLOG_CATEGORY: '/blog/category',
 
