@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "node ./src/scripts/fetch-sql-review.mjs && PORT=3001 next dev",
-    "build": "NODE_ENV=production node ./src/scripts/fetch-sql-review.mjs && next build",
+    "dev": "PORT=3001 next dev",
+    "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
     "type-check": "tsc",
@@ -42,7 +42,6 @@
     "next-mdx-remote": "^4.4.1",
     "next-plausible": "^3.12.2",
     "next-sitemap": "^4.2.3",
-    "node-fetch": "^3.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.1",
