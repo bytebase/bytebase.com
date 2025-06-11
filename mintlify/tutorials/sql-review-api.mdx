@@ -13,11 +13,14 @@ import VCSWithNgrok from '/snippets/install/vcs-with-ngrok.mdx';
 
 When modifying data in the database, it's crucial to ensure that the changes are both safe and accurate. Bytebase offers a feature called [SQL Review](/sql-review/overview/), which allows you to evaluate your SQL changes before they are applied to the database. SQL Review can be invoked from the Bytebase GUI, CI or API.
 
-This is the first part of tutorial series of SQL Review:
+This is one of the tutorial series of SQL Review:
 
 1.  [SQL Review with Bytebase GUI](/tutorials/sql-review-gui/)
-1.  SQL Review with CI:
-    - [SQL Review with GitHub Actions](/tutorials/sql-review-github-action/)
+1.  SQL Review with CI (integrated with Database GitOps workflow):
+    - [Database GitOps with GitHub Actions](/tutorials/gitops-github-workflow/#step-3-configure-sql-review-in-bytebase)
+    - [Database GitOps with Azure DevOps](/tutorials/gitops-azure-devops-workflow/#step-3-configure-sql-review-in-bytebase)
+    - [Database GitOps with GitLab CI](/tutorials/gitops-gitlab-workflow/#step-3-configure-sql-review-in-bytebase)
+    - [Database GitOps with Bitbucket Pipelines](/tutorials/gitops-bitbucket-workflow/#step-3-configure-sql-review-in-bytebase)
 1.  SQL Review with Bytebase API (this one)
 1.  [Codify SQL Review Policies with Bytebase API](/tutorials/api-sql-review-policy/)
 
@@ -39,7 +42,10 @@ You may call [Bytebase API](/api/sql-review/) in your internal portal or GitHub 
 
 You can also call the API to configure SQL Review policies.
 
-<TutorialBlock url="/docs/tutorials/api-sql-review-policy/" title="Codify SQL Review Policies with Bytebase API" />
+<TutorialBlock
+  url="/docs/tutorials/api-sql-review-policy/"
+  title="Codify SQL Review Policies with Bytebase API"
+/>
 
 ## Summary
 
