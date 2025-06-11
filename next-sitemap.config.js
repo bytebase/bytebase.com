@@ -7,6 +7,15 @@ module.exports = {
   sitemapSize: 500,
   // Do not index duplicated zh content for now
   exclude: ['/zh', '/zh/*'],
+  robotsTxtOptions: {
+    additionalSitemaps: [],
+    policies: [
+      {
+        userAgent: '*',
+        disallow: ['/changelog/', '/docs/', '/tutorial/'],
+      },
+    ],
+  },
   // Custom the i18n path. Remove the prefix `en` for matched path.
   // Reference: https://next-sitemap.iamvishnusankar.com/docs/documentation/custom-transformation
   transform: (config, path) => {
