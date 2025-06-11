@@ -11,7 +11,6 @@ const Route = {
   SQL_EDITOR: '/sql-editor',
   DATA_MASKING: '/data-masking',
   BATCH_CHANGE: '/batch-change',
-  SQL_REVIEW_GUIDE: '/sql-review-guide',
   DEMO: '/demo',
   VIEW_LIVE_DEMO: '/view-live-demo',
   CONFIRM_VIEW_LIVE_DEMO: '/confirm-view-live-demo',
@@ -55,10 +54,7 @@ const Route = {
   DOCS_CONCEPT: `${DOCS_ROOT}/concepts/data-model`,
   DOCS_CONCEPT_DB_INSTANCE: `${DOCS_ROOT}/concepts/data-model/#database-instance`,
   DOCS_DB: `${DOCS_ROOT}/introduction/supported-databases`,
-  DOCS_API: `${DOCS_ROOT}/api/overview`,
-  DOCS_CLI: `${DOCS_ROOT}/cli/overview`,
-  DOCS_HOW_TO: `${DOCS_ROOT}/how-to/sql-review/postgres-sql-review-guide`,
-  SQL_GITHUB_APP: `${DOCS_ROOT}/sql-review/github-app`,
+  DOCS_API: `${DOCS_ROOT}/integrations/api/overview`,
   DOCS_SQL_REVIEW: `${DOCS_ROOT}/sql-review/overview`,
   DOCS_CHANGE_DATABASE: `${DOCS_ROOT}/change-database/change-workflow`,
   DOCS_ROLLBACK_DATA: `${DOCS_ROOT}/change-database/rollback-data-changes`,
@@ -81,7 +77,6 @@ const Route = {
   DOCS_JUST_IN_TIME_DATABASE_ACCESS: `${DOCS_ROOT}/tutorials/just-in-time-database-access-part1`,
   DOCS_DATABASE_ADHOC_CHANGE: `${DOCS_ROOT}/tutorials/data-rollback`,
   DOCS_MULTI_TENANCY_DEPLOYMENT: `${DOCS_ROOT}/tutorials/batch-change-with-database-group`,
-  DOCS_API_OVERVIEW: `${DOCS_ROOT}/api/overview`,
 
   // reference
   REFERENCE_POSTGRES_ERROR: '/reference/postgres/error',

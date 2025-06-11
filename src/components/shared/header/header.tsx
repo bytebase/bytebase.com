@@ -149,7 +149,7 @@ export const HEADER_MENU: Header[] = [
           },
           {
             name: 'Headless Database Backend',
-            linkUrl: Route.DOCS_API_OVERVIEW,
+            linkUrl: Route.DOCS_API,
           },
         ],
       },
