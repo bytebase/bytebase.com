@@ -139,9 +139,10 @@
             "group": "Database Permission",
             "pages": [
               "security/database-permission/overview",
-              "security/database-permission/query",
-              "security/database-permission/export",
-              "security/database-permission/explain"
+              "security/database-permission/grant",
+              "security/database-permission/request",
+              "security/database-permission/expiration",
+              "security/database-permission/export"
             ]
           },
           {
