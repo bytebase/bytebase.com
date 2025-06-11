@@ -88,7 +88,10 @@
               },
               {
                 "group": "Roll out",
-                "pages": ["administration/environment-policy/rollout-policy"]
+                "pages": [
+                  "administration/environment-policy/rollout-policy",
+                  "change-database/scheduled-rollout"
+                ]
               },
               {
                 "group": "Roll back",
