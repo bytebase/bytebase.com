@@ -90,7 +90,7 @@
                 "group": "Roll out",
                 "pages": [
                   "administration/environment-policy/rollout-policy",
-                  "/change-database/scheduled-rollout"
+                  "change-database/scheduled-rollout"
                 ]
               },
               {
