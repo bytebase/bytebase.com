@@ -8,15 +8,15 @@ description: 'Support GitHub Enterprise for VCS integration; export data as XLSX
 
 ## 🚀 New Features
 
-- Support [GitHub Enterprise](/docs/vcs-integration/github-enterprise/) for VCS integration.
+- Support [GitHub Enterprise](https://docs.bytebase.com/vcs-integration/github-enterprise/) for VCS integration.
 - Support Export Data as XLSX.
-- Manage Oracle instance [based on schema](/docs/get-started/instance/#oracle).
+- Manage Oracle instance [based on schema](https://docs.bytebase.com/get-started/instance/#oracle).
 
 ## 🎄 Enhancements
 
 - Support masking sensitive data for CTE in Oracle.
-- Support more [SQL Review Rules](/docs/sql-review/review-rules/) for Snowflake.
-- [DAC](/docs/security/database-permission/overview/) (Data Access Control) now supports more types of Snowflake SQL statements.
+- Support more [SQL Review Rules](https://docs.bytebase.com/sql-review/review-rules/) for Snowflake.
+- [DAC](https://docs.bytebase.com/security/database-permission/overview/) (Data Access Control) now supports more types of Snowflake SQL statements.
 - Improved the file format of data export as JSON.
 - Disable copying data via SQL Editor by configuring Environment Policy.
 - Prepared one test and prod instance each, for onboarding purposes.

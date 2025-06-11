@@ -8,9 +8,9 @@ description: 'Entra (Azure AD) directory sync and CockroachDB support'
 
 ## 🚀 New Features
 
-- Support [synchronizing users and groups from Entra ID (former Azure AD)](/docs/administration/scim/overview/).
+- Support [synchronizing users and groups from Entra ID (former Azure AD)](https://docs.bytebase.com/administration/scim/overview/).
 - Support CockroachDB.
-- Support [project-level backup settings](/docs/change-database/rollback-data-changes/#project-backup-settings) with auto-enable and skip error options.
+- Support [project-level backup settings](https://docs.bytebase.com/change-database/rollback-data-changes/#project-backup-settings) with auto-enable and skip error options.
 - Real-time syntax checking in the SQL Editor.
 - Support configuring password restriction.
 

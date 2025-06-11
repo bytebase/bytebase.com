@@ -164,7 +164,7 @@ You can implement auditing at the application level using the PostgreSQL client 
 
 <HintBlock type="info">
 
-For enterprise environments managing multiple PostgreSQL instances, Bytebase provides [centralized schema change workflows](/docs/change-database/change-workflow/) with comprehensive [audit trails](/docs/security/audit-logging/) and [compliance checks](/docs/sql-review/review-policy/). This approach allows you to enforce consistent auditing policies across your database fleet.
+For enterprise environments managing multiple PostgreSQL instances, Bytebase provides [centralized schema change workflows](https://docs.bytebase.com/change-database/change-workflow/) with comprehensive [audit trails](https://docs.bytebase.com/security/audit-logging/) and [compliance checks](https://docs.bytebase.com/sql-review/review-policy/). This approach allows you to enforce consistent auditing policies across your database fleet.
 
 </HintBlock>
 

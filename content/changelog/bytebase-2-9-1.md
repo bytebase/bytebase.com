@@ -9,8 +9,8 @@ description: 'Group changes into a changelist and apply them in one issue or exp
 ## 🚀 New Features
 
 - Group changes into a changelist and apply them in one issue or export.
-- [Batch query](/docs/sql-editor/run-queries/#batch-mode) on multiple databases with selected labels in SQL Editor.
-- Support integrating [external secret manager](/docs/get-started/instance/#use-secret-manager) to store database credentials.
+- [Batch query](https://docs.bytebase.com/sql-editor/run-queries/#batch-mode) on multiple databases with selected labels in SQL Editor.
+- Support integrating [external secret manager](https://docs.bytebase.com/get-started/instance/#use-secret-manager) to store database credentials.
 - Support Branching for PostgreSQL and TiDB.
 
 ## 🎄 Enhancements
@@ -29,6 +29,6 @@ description: 'Group changes into a changelist and apply them in one issue or exp
 
 - Bytebase Q3 2023 was a busy quarter, with new releases, popular posts, and product updates. We're excited to share a sneak peek at what we accomplished in [our retrospective](/blog/2023-q3-retrospect).
 
-- Data Masking can helps organizations to protect sensitive data from being exposed to unauthorized users. Learn how with this tutorial: [Step-by-Step Guide to Data Masking](/docs/tutorials/data-masking/).
+- Data Masking can helps organizations to protect sensitive data from being exposed to unauthorized users. Learn how with this tutorial: [Step-by-Step Guide to Data Masking](https://docs.bytebase.com/tutorials/data-masking/).
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

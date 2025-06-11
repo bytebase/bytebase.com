@@ -11,7 +11,7 @@ _Official documentation: [CREATE VIEW](https://www.postgresql.org/docs/current/s
 
 Views provide logical abstractions of data but can impact performance when used improperly. PostgreSQL offers materialized views for complex queries that are run frequently.
 
-Organizations often enforce standards for view creation. You can implement [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#view) via Bytebase.
+Organizations often enforce standards for view creation. You can implement [approval processes](https://docs.bytebase.com/administration/custom-approval/) or [automated schema reviews](https://docs.bytebase.com/sql-review/review-rules/#view) via Bytebase.
 
 </HintBlock>
 

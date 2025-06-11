@@ -11,7 +11,7 @@ _Official documentation: [ALTER TABLE](https://www.postgresql.org/docs/current/s
 
 Alter table should be conducted with care as many operations will lock the table for a long time and cause service outage.
 
-Some organizations have strict approval process. You can enforce [approval process](/docs/administration/custom-approval/) or [automated review](/docs/sql-review/review-rules/#column) via Bytebase.
+Some organizations have strict approval process. You can enforce [approval process](https://docs.bytebase.com/administration/custom-approval/) or [automated review](https://docs.bytebase.com/sql-review/review-rules/#column) via Bytebase.
 
 </HintBlock>
 

@@ -14,7 +14,7 @@ SERIAL is a notational convenience for creating unique identifier columns in Pos
 
 <HintBlock type="info">
 
-While SERIAL is widely used, PostgreSQL 10+ offers the IDENTITY column syntax which follows the SQL standard. Bytebase [SQL review](/docs/sql-review/overview/) can help enforce consistent practices across your team when choosing between SERIAL and IDENTITY columns.
+While SERIAL is widely used, PostgreSQL 10+ offers the IDENTITY column syntax which follows the SQL standard. Bytebase [SQL review](https://docs.bytebase.com/sql-review/overview/) can help enforce consistent practices across your team when choosing between SERIAL and IDENTITY columns.
 
 </HintBlock>
 
@@ -193,7 +193,7 @@ ALTER TABLE products_new RENAME TO products;
 
 <HintBlock type="info">
 
-When performing schema migrations involving SERIAL columns, Bytebase provides [schema change workflows](/docs/change-database/change-workflow/) with safety checks to ensure your sequences remain properly aligned with your data.
+When performing schema migrations involving SERIAL columns, Bytebase provides [schema change workflows](https://docs.bytebase.com/change-database/change-workflow/) with safety checks to ensure your sequences remain properly aligned with your data.
 
 </HintBlock>
 
@@ -216,7 +216,7 @@ When performing schema migrations involving SERIAL columns, Bytebase provides [s
 
 <HintBlock type="info">
 
-For teams managing multiple PostgreSQL databases across different versions, Bytebase's [SQL review policies](/docs/sql-review/review-policy/) can help enforce consistent primary key strategies, whether using SERIAL or IDENTITY columns.
+For teams managing multiple PostgreSQL databases across different versions, Bytebase's [SQL review policies](https://docs.bytebase.com/sql-review/review-policy/) can help enforce consistent primary key strategies, whether using SERIAL or IDENTITY columns.
 
 </HintBlock>
 

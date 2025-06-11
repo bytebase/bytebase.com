@@ -9,7 +9,7 @@ description: 'Allow assigning roles to groups at the workspace level'
 ## 🚀 New Features
 
 - Allow assigning roles to groups at the workspace level.
-- Support disallowing sign-in with email and password, [allowing only SSO](/docs/administration/sso/overview/#enforce-sso-sign-in).
+- Support disallowing sign-in with email and password, [allowing only SSO](https://docs.bytebase.com/administration/sso/overview/#enforce-sso-sign-in).
 - Add a PostgreSQL SQL review rule: `Disallow setting volatile default values on columns`.
 
 ## 🔔 Breaking Changes

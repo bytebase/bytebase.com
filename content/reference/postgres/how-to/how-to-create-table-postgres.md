@@ -21,7 +21,7 @@ CREATE TABLE [IF NOT EXISTS] table_name (
 
 When designing tables, consider future growth and query patterns. Poor table design can lead to performance issues that are difficult to fix later.
 
-Organizations often enforce schema standards. You can implement [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#column) via Bytebase.
+Organizations often enforce schema standards. You can implement [approval processes](https://docs.bytebase.com/administration/custom-approval/) or [automated schema reviews](https://docs.bytebase.com/sql-review/review-rules/#column) via Bytebase.
 
 </HintBlock>
 

@@ -10,7 +10,7 @@ _Official documentation: [ALTER TABLE](https://www.postgresql.org/docs/current/s
 
 Altering large tables in PostgreSQL can be challenging despite the database's transactional DDL. Without proper planning, ALTER operations on tables with millions of rows can cause extended blocking, consume excessive server resources, or create significant bloat.
 
-Many organizations require approval for schema changes on large tables. You can enforce [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#alter-table) via Bytebase.
+Many organizations require approval for schema changes on large tables. You can enforce [approval processes](https://docs.bytebase.com/administration/custom-approval/) or [automated schema reviews](https://docs.bytebase.com/sql-review/review-rules/#alter-table) via Bytebase.
 
 </HintBlock>
 
@@ -370,7 +370,7 @@ PostgreSQL 10+ supports logical replication, which can be used for large-scale s
 
 <HintBlock type="info">
 
-For teams managing large-scale database environments, Bytebase provides [schema change workflows](/docs/change-database/change-workflow/) with [pre-checks](/docs/sql-review/overview/) and [approval processes](/docs/administration/custom-approval/) to increase safety when altering large tables in production.
+For teams managing large-scale database environments, Bytebase provides [schema change workflows](https://docs.bytebase.com/change-database/change-workflow/) with [pre-checks](https://docs.bytebase.com/sql-review/overview/) and [approval processes](https://docs.bytebase.com/administration/custom-approval/) to increase safety when altering large tables in production.
 
 </HintBlock>
 

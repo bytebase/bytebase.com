@@ -115,7 +115,7 @@ chmod +x monitor_queries.sh
 
 <HintBlock type="info">
 
-For enterprise PostgreSQL management, Bytebase provides [built-in monitoring dashboards](/docs/introduction/features/) with automatic detection of problematic queries and drill-down capabilities for deep inspection.
+For enterprise PostgreSQL management, Bytebase provides [built-in monitoring dashboards](https://docs.bytebase.com/introduction/features/) with automatic detection of problematic queries and drill-down capabilities for deep inspection.
 
 </HintBlock>
 

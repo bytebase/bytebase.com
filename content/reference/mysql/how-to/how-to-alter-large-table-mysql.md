@@ -8,7 +8,7 @@ _Official documentation: [ALTER TABLE](https://dev.mysql.com/doc/refman/8.0/en/a
 
 <HintBlock type="info">
 
-Altering large tables in MySQL can be challenging and potentially disruptive. Without proper planning, ALTER operations on tables with millions of rows can cause extended downtime, lock tables, or consume excessive server resources. Many organizations require approval for schema changes on large tables. You can enforce [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#alter-table) via Bytebase.
+Altering large tables in MySQL can be challenging and potentially disruptive. Without proper planning, ALTER operations on tables with millions of rows can cause extended downtime, lock tables, or consume excessive server resources. Many organizations require approval for schema changes on large tables. You can enforce [approval processes](https://docs.bytebase.com/administration/custom-approval/) or [automated schema reviews](https://docs.bytebase.com/sql-review/review-rules/#alter-table) via Bytebase.
 
 </HintBlock>
 

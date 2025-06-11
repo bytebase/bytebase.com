@@ -10,7 +10,7 @@ description: '- SaaS version - GitOps supports Bitbucket Cloud - SQL Chat'
 
 - Bytebase now offers a Cloud version [https://hub.bytebase.com/](https://hub.bytebase.com/).
 
-- GitOps supports Bitbucket Cloud ([bitbucket.org](https://bitbucket.org)) as the Git provider. [https://www.bytebase.com/docs/vcs-integration/bitbucket-org](/docs/vcs-integration/bitbucket-org)
+- GitOps supports Bitbucket Cloud ([bitbucket.org](https://bitbucket.org)) as the Git provider. [https://www.bytebase.com/docs/vcs-integration/bitbucket-org](https://docs.bytebase.com/vcs-integration/bitbucket-org)
 
 ## 🎄 Enhancements
 

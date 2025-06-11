@@ -11,7 +11,7 @@ _Official documentation: [ALTER TABLE](https://dev.mysql.com/doc/refman/8.0/en/a
 
 Adding constraints may affect query performance and application behavior. Ensure you understand the implications before proceeding.
 
-Some organizations have strict approval processes. You can enforce [approval process](/docs/administration/custom-approval/) or [automated review](/docs/sql-review/review-rules/#column) via Bytebase.
+Some organizations have strict approval processes. You can enforce [approval process](https://docs.bytebase.com/administration/custom-approval/) or [automated review](https://docs.bytebase.com/sql-review/review-rules/#column) via Bytebase.
 
 </HintBlock>
 

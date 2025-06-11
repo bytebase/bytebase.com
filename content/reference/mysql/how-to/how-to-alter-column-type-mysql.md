@@ -281,6 +281,6 @@ Not all conversions preserve data integrity. Here's a quick reference:
 
 <HintBlock type="info">
 
-Changing column type should be conducted with caution. Some organizations have strict approval process and even disallow altering column type at all. You can enforce [approval process](/docs/administration/custom-approval/) or [disallowing altering column type](/docs/sql-review/review-rules/#column.disallow-change-type) via Bytebase.
+Changing column type should be conducted with caution. Some organizations have strict approval process and even disallow altering column type at all. You can enforce [approval process](https://docs.bytebase.com/administration/custom-approval/) or [disallowing altering column type](https://docs.bytebase.com/sql-review/review-rules/#column.disallow-change-type) via Bytebase.
 
 </HintBlock>

@@ -101,7 +101,7 @@ Managing indexes in production environments requires careful planning and monito
 
 <HintBlock type="info">
 
-You can enforce `CONCURRENTLY` in [Bytebase SQL Review rules](<(/docs/sql-review/review-rules/#index.create-concurrently)>).
+You can enforce `CONCURRENTLY` in [Bytebase SQL Review rules](<(https://docs.bytebase.com/sql-review/review-rules/#index.create-concurrently)>).
 
 </HintBlock>
 

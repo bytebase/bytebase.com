@@ -11,7 +11,7 @@ _Official documentation: [CREATE INDEX](https://www.postgresql.org/docs/current/
 
 Creating indexes on large tables can be resource-intensive and potentially disruptive. Without proper planning, these operations can cause extended query delays, blocking issues, or consume excessive server resources.
 
-Many organizations require approval for index operations on large tables. You can enforce [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#index) via Bytebase.
+Many organizations require approval for index operations on large tables. You can enforce [approval processes](https://docs.bytebase.com/administration/custom-approval/) or [automated schema reviews](https://docs.bytebase.com/sql-review/review-rules/#index) via Bytebase.
 
 </HintBlock>
 

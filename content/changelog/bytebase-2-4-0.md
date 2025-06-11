@@ -8,7 +8,7 @@ description: 'Support data access control for query and export at workspace leve
 
 ## 🚀 New Features
 
-- Support [data access control for query and export at workspace level](/docs/security/database-permission/overview/) with custom approval integration.
+- Support [data access control for query and export at workspace level](https://docs.bytebase.com/security/database-permission/overview/) with custom approval integration.
 - Support Snowflake Task, Stream objects and data access control.
 - Support Redshift datashare query, data access control, and data masking.
 - Support data export as `INSERT` DML script.
@@ -24,7 +24,7 @@ description: 'Support data access control for query and export at workspace leve
 
 ## 💰 Pricing
 
-- Support granular binding between instance and paid features. Users can import all instances into Bytebase to manage, meanwhile, they can just purchase fewer instance licenses and assign them to a subset of instances requiring advanced features. [https://www.bytebase.com/docs/administration/license/](/docs/administration/license/)
+- Support granular binding between instance and paid features. Users can import all instances into Bytebase to manage, meanwhile, they can just purchase fewer instance licenses and assign them to a subset of instances requiring advanced features. [https://www.bytebase.com/docs/administration/license/](https://docs.bytebase.com/administration/license/)
 
 - Change Free Plan to allow up to 20 users.
 

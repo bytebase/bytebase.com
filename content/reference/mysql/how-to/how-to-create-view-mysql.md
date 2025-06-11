@@ -11,7 +11,7 @@ _Official documentation: [CREATE VIEW](https://dev.mysql.com/doc/refman/8.0/en/c
 
 Views provide logical abstractions of data but can impact performance when used improperly. Consider materialized views for complex queries that are run frequently.
 
-Organizations often enforce standards for view creation. You can implement [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#view) via Bytebase.
+Organizations often enforce standards for view creation. You can implement [approval processes](https://docs.bytebase.com/administration/custom-approval/) or [automated schema reviews](https://docs.bytebase.com/sql-review/review-rules/#view) via Bytebase.
 
 </HintBlock>
 

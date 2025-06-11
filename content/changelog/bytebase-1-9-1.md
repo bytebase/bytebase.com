@@ -7,8 +7,8 @@ description: '- Support data access control. - Schema Editor for MySQL. - Check 
 
 ## 🚀 New Features
 
-- Support [data access control](/docs/security/database-permission/overview).
-- [Schema Editor](/docs/change-database/schema-editor) for MySQL.
+- Support [data access control](https://docs.bytebase.com/security/database-permission/overview).
+- [Schema Editor](https://docs.bytebase.com/change-database/schema-editor) for MySQL.
 - Check "Mark as done" to skip a task.
 - The issue creator can mark an issue as "Needs attention", which is highlighted in the assignee's view.
 
@@ -17,17 +17,17 @@ description: '- Support data access control. - Schema Editor for MySQL. - Check 
 - Terraform Bytebase Provider
   - Manage [instance details](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/instance).
   - Manage [environment details](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/environment).
-- [Data masking](/docs/security/data-masking/overview) for MySQL databases now supports all query types.
-- [Schema Sync for PostgreSQL](/docs/change-database/synchronize-schema) supports Enum Type, Function, Trigger, and Extension.
-- [Tenant database label](/docs/change-database/batch-change) supports arbitrary values without pre-definition.
-- A fresh look for SQL Editor's [Admin mode](/docs/sql-editor/admin-mode) tabs.
+- [Data masking](https://docs.bytebase.com/security/data-masking/overview) for MySQL databases now supports all query types.
+- [Schema Sync for PostgreSQL](https://docs.bytebase.com/change-database/synchronize-schema) supports Enum Type, Function, Trigger, and Extension.
+- [Tenant database label](https://docs.bytebase.com/change-database/batch-change) supports arbitrary values without pre-definition.
+- A fresh look for SQL Editor's [Admin mode](https://docs.bytebase.com/sql-editor/admin-mode) tabs.
 - Speed up issue creation and execution.
 
 ## 📰 Fresh off the press
 
 - We asked ChatGPT how to choose the best database for a new project, and [here's the reply](/blog/how-to-choose-database-by-chatgpt).
 - The [pros and cons](/blog/integrate-sql-review-into-github) of 3 different ways to integrate SQL Review into your GitHub repo.
-- [Integrate SQL review CI](/docs/tutorials/how-to-integrate-sql-review-into-gitlab-github-ci) into your preferred code repo (be it GitHub or GitLab), so that it's triggered automatically to check for violations in your SQL scripts
+- [Integrate SQL review CI](https://docs.bytebase.com/tutorials/how-to-integrate-sql-review-into-gitlab-github-ci) into your preferred code repo (be it GitHub or GitLab), so that it's triggered automatically to check for violations in your SQL scripts
 - Database Schema Change Series
   - [What is Database Change Management (DCM)?](/blog/what-is-database-change-management)
   - [How to Handle Database Schema Change?](/blog/how-to-handle-database-schema-change)

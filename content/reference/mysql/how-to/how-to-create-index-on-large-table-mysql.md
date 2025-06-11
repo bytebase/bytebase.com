@@ -9,7 +9,7 @@ _Official documentation: [CREATE INDEX](https://dev.mysql.com/doc/refman/8.0/en/
 
 <HintBlock type="info">
 
-Creating indexes on large tables can be resource-intensive and potentially disruptive. Without proper planning, these operations can cause extended downtime, lock tables, or consume excessive server resources. Many organizations require approval for index operations on large tables. You can enforce [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#index) via Bytebase.
+Creating indexes on large tables can be resource-intensive and potentially disruptive. Without proper planning, these operations can cause extended downtime, lock tables, or consume excessive server resources. Many organizations require approval for index operations on large tables. You can enforce [approval processes](https://docs.bytebase.com/administration/custom-approval/) or [automated schema reviews](https://docs.bytebase.com/sql-review/review-rules/#index) via Bytebase.
 
 </HintBlock>
 

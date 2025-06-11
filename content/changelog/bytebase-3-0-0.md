@@ -10,7 +10,7 @@ Check out our official 3.0 announcement - [Bytebase 3.0 - DevSecOps for Database
 
 ## 🚀 New Features
 
-- [AI Assistant for SQL Editor](/docs/sql-editor/ai-assistant/): Convert natural language into SQL, explain SQL queries and identifies potential problems.
+- [AI Assistant for SQL Editor](https://docs.bytebase.com/sql-editor/ai-assistant/): Convert natural language into SQL, explain SQL queries and identifies potential problems.
 - Support 1-click rollback for SQL Server DML change.
 - Support gh-ost online schema change for MariaDB.
 - Add new SQL Review Rules:

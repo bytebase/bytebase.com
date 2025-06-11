@@ -8,9 +8,9 @@ description: '- Support OAuth 2.0 for Single Sign-On (SSO). - Support change and
 
 ## 🚀 New Features
 
-- Support OAuth 2.0 for Single Sign-On (SSO) [www.bytebase.com/docs/administration/sso/oauth2](/docs/administration/sso/oauth2).
-- Support change and query for Spanner [www.bytebase.com/docs/introduction/supported-databases](/docs/introduction/supported-databases).
-- Support watermark [www.bytebase.com/docs/security/watermark](/docs/security/watermark).
+- Support OAuth 2.0 for Single Sign-On (SSO) [www.bytebase.com/docs/administration/sso/oauth2](https://docs.bytebase.com/administration/sso/oauth2).
+- Support change and query for Spanner [www.bytebase.com/docs/introduction/supported-databases](https://docs.bytebase.com/introduction/supported-databases).
+- Support watermark [www.bytebase.com/docs/security/watermark](https://docs.bytebase.com/security/watermark).
 - Terraform Bytebase provider supports MySQL role CRUD.
 - Mask sensitive fields for PostgreSQL.
 
@@ -21,8 +21,8 @@ description: '- Support OAuth 2.0 for Single Sign-On (SSO). - Support change and
 - Improved onboarding flow.
 - Start a 14-day trial of the Enterprise Plan by default.
 - Improved Schema Editor's UX.
-- Improved Schema Diagram: filtering, navigation, focusing and export PNG files. [www.bytebase.com/docs/change-database/schema-diagram](/docs/change-database/schema-diagram)
-- Rename "Protected environment" to "Production environment". [www.bytebase.com/docs/administration/environment-policy/tier](/docs/administration/environment-policy/tier)
+- Improved Schema Diagram: filtering, navigation, focusing and export PNG files. [www.bytebase.com/docs/change-database/schema-diagram](https://docs.bytebase.com/change-database/schema-diagram)
+- Rename "Protected environment" to "Production environment". [www.bytebase.com/docs/administration/environment-policy/tier](https://docs.bytebase.com/administration/environment-policy/tier)
 - Improved schema viewing and editing experience in SQL Editor.
 - Add an icon to identify sensitive data columns in the query result of SQL Editor.
 
@@ -41,7 +41,7 @@ description: '- Support OAuth 2.0 for Single Sign-On (SSO). - Support change and
   - Partnership with PingCAP, the company building TiDB, which provides scaling database infrastructure solutions via an open-source platform. [Streamline Database Change Management for TiDB Cloud with Bytebase](/blog/streamline-database-change-management-for-tidb-cloud-with-bytebase)
 - We officially announced [Terraform Bytebase Provider](/blog/introducing-terraform-bytebase-provider), which will allow you to codify the database configuration and consolidate your workflow.
 - Ready to bring your MySQL schema change to the next level? The Database Change Management tutorial series continues!
-  - Step 1 - [Database CI/CD and Schema Migration with MySQL](/docs/tutorials/database-change-management-with-mysql)
-  - Step 2 - [Database CI/CD and Schema Migration with MySQL and GitHub](/docs/tutorials/database-change-management-with-mysql-and-github)
+  - Step 1 - [Database CI/CD and Schema Migration with MySQL](https://docs.bytebase.com/tutorials/database-change-management-with-mysql)
+  - Step 2 - [Database CI/CD and Schema Migration with MySQL and GitHub](https://docs.bytebase.com/tutorials/database-change-management-with-mysql-and-github)
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

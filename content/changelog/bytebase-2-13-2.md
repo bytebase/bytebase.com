@@ -24,7 +24,7 @@ description: 'Support Japanese and Vietnamese.'
 
 - As a leading cloud solution provider, AWS presents a tough choice between its two primary database offerings, RDS and Aurora.🤯 [Our comprehensive blog post](/blog/aurora-vs-rds/) delves into the details of Amazon RDS and Aurora, comparing them across key aspects to provide an in-depth, engineer-focused analysis.🤩
 
-- Follow [this tutorial](/docs/tutorials/database-change-management-with-oracle/) and begin formalizing your Oracle database change processes with Bytebase. Get started by exploring its web-based interface along with entry-level features like SQL Lint and Change History Tracking 👋.
+- Follow [this tutorial](https://docs.bytebase.com/tutorials/database-change-management-with-oracle/) and begin formalizing your Oracle database change processes with Bytebase. Get started by exploring its web-based interface along with entry-level features like SQL Lint and Change History Tracking 👋.
 
 - Nowadays, data holds value comparable to that of oil, safeguarding this vital resource is imperative for all organizations. [This article](/blog/top-database-security-tools/) explores leading database security tools designed to shield your data from varied risks 🛡️👹.
 

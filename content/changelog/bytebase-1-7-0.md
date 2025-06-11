@@ -7,7 +7,7 @@ description: '- Added 31 review rules for MySQL. - Support DDL validation in SQL
 
 ## 🚀 Features
 
-- Added 31 [review rules](/docs/sql-review/review-policy) for MySQL.
+- Added 31 [review rules](https://docs.bytebase.com/sql-review/review-policy) for MySQL.
 - Support DDL validation in SQL review.
 - Support canceling gh-ost sync tasks.
 

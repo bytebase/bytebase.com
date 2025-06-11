@@ -197,6 +197,6 @@ ANALYZE TABLE your_table;
 
 <HintBlock type="info">
 
-When designing indexes, consider the query patterns that will use them. Not every column needs an index, and too many indexes can slow down write operations and increase storage requirements. Organizations often enforce index standards. You can implement [approval processes](/docs/administration/custom-approval/) or [automated schema reviews](/docs/sql-review/review-rules/#column) via Bytebase.
+When designing indexes, consider the query patterns that will use them. Not every column needs an index, and too many indexes can slow down write operations and increase storage requirements. Organizations often enforce index standards. You can implement [approval processes](https://docs.bytebase.com/administration/custom-approval/) or [automated schema reviews](https://docs.bytebase.com/sql-review/review-rules/#column) via Bytebase.
 
 </HintBlock>

@@ -7,7 +7,7 @@ description: '- Support managing with environment and instance via Terraform pro
 
 ## 🚀 New Features
 
-- Support managing environment and instance via Terraform provider: [https://bytebase.com/docs/get-started/terraform](/docs/get-started/terraform)
+- Support managing environment and instance via Terraform provider: [https://bytebase.com/docs/get-started/terraform](https://docs.bytebase.com/get-started/terraform)
 - Support synchronizing schema for PostgreSQL🐘 Currently in beta, we support Schema, Table, Index, Constraint, and Sequence so far.
 - Support masking column-level sensitive data for MySQL🐬.
 - New UI for Admin mode of SQL Editor.
@@ -26,13 +26,13 @@ description: '- Support managing with environment and instance via Terraform pro
 
 ## 🎠 Community
 
-- Support managing with Supabase databases: [https://bytebase.com/docs/how-to/integrations/supabase](/docs/how-to/integrations/supabase)
+- Support managing with Supabase databases: [https://bytebase.com/docs/how-to/integrations/supabase](https://docs.bytebase.com/how-to/integrations/supabase)
 
 ## 📰 Fresh Off the Press
 
 - [How to Manage Database Access Control](/blog/how-to-manage-database-access-control)
 - [MotherDuck, from SQLite to the Docker for Data](/blog/motherduck-from-sqlite-to-the-docker-for-data)
-- [How to Synchronize Database Schemas](/docs/tutorials/how-to-synchronize-database-schemas)
+- [How to Synchronize Database Schemas](https://docs.bytebase.com/tutorials/how-to-synchronize-database-schemas)
 - [How Schema Sync Works in Bytebase](/blog/how-schema-sync-work)
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

@@ -9,7 +9,7 @@ description: 'Support applying changelists to database groups'
 ## 🚀 New Features
 
 - Support applying changelists to database groups.
-- Add a SQL Review rule for MySQL: Enforce classification in [table](/docs/sql-review/review-rules/#table.comment)/[column](/docs/sql-review/review-rules/#column-comment-convention) comment.
+- Add a SQL Review rule for MySQL: Enforce classification in [table](https://docs.bytebase.com/sql-review/review-rules/#table.comment)/[column](https://docs.bytebase.com/sql-review/review-rules/#column-comment-convention) comment.
 
 ## 🎄 Enhancements
 

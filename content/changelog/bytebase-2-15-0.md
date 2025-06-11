@@ -8,7 +8,7 @@ description: 'Brand new GitOps'
 
 ## 🔔 Brand New GitOps
 
-_The [new GitOps workflow](/docs/vcs-integration/overview/) is not compatible with the old version, if you need assistance migrating to the new version, please consult us._
+_The [new GitOps workflow](https://docs.bytebase.com/vcs-integration/overview/) is not compatible with the old version, if you need assistance migrating to the new version, please consult us._
 
 - Use access tokens for authentication.
 - Support multiple VCS connectors in a project.
@@ -17,7 +17,7 @@ _The [new GitOps workflow](/docs/vcs-integration/overview/) is not compatible wi
 
 ## 🚀 New Features
 
-- Support [Vault](/docs/get-started/instance/#hashicorp-vault) as an external data source for database secrets.
+- Support [Vault](https://docs.bytebase.com/get-started/instance/#hashicorp-vault) as an external data source for database secrets.
 - Support Apache Hive.
 - Add one-time data export issue type.
 

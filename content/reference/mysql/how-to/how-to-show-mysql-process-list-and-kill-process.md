@@ -118,7 +118,7 @@ chmod +x monitor_mysql.sh
 
 <HintBlock type="info">
 
-For enterprise MySQL management, Bytebase provides [built-in monitoring dashboards](/docs/introduction/features/) with automatic detection of problematic queries.
+For enterprise MySQL management, Bytebase provides [built-in monitoring dashboards](https://docs.bytebase.com/introduction/features/) with automatic detection of problematic queries.
 
 </HintBlock>
 

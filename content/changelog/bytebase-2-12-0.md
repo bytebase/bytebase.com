@@ -35,7 +35,7 @@ description: 'Improve auto-completion and overall layout navigation.'
 
 ## 📰 Fresh Off the Press
 
-- We have recently updated our [The Database CI/CD Best Practice with GitHub](/docs/tutorials/gitops-github-workflow) to align with the current workflow, making easier than before! 🎉
+- We have recently updated our [The Database CI/CD Best Practice with GitHub](https://docs.bytebase.com/tutorials/gitops-github-workflow) to align with the current workflow, making easier than before! 🎉
 - Bytebase [partnered with Vettabase](/blog/bytebase-vettabase/), a top-notch open source #database services company with expertise in #automation. 🤝
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

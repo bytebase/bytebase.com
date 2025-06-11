@@ -9,8 +9,8 @@ description: '- Text2SQL: convert natural language to SQL, credit to OpenAI. - S
 ## 🚀 New Features
 
 - Text2SQL: Use natural language and have it converted to SQL by Bytebase. Powered by OpenAI ⚡️.
-- Support [Two-Factor Authentication](/docs/administration/2fa) (2FA) for login.
-- Added support for [Redis](/docs/introduction/supported-databases) ❤️.
+- Support [Two-Factor Authentication](https://docs.bytebase.com/administration/2fa) (2FA) for login.
+- Added support for [Redis](https://docs.bytebase.com/introduction/supported-databases) ❤️.
 
 ## 🎄 Enhancements
 

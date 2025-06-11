@@ -12,8 +12,8 @@ description: '- Configure policy via Terraform Bytebase Provider. - 21 new SQL R
 
 ## 🎄 Enhancements
 
-- Added [21 SQL Review rules](/docs/sql-review/review-rules) for PostgreSQL.
-- [SQL Editor](/docs/sql-editor/overview) Enhancements.
+- Added [21 SQL Review rules](https://docs.bytebase.com/sql-review/review-rules) for PostgreSQL.
+- [SQL Editor](https://docs.bytebase.com/sql-editor/overview) Enhancements.
   - Press cmd (Mac) / ctrl (Windows) + PageUp / PageDown to navigate through history statements in Admin Mode.
   - Clear screen output in Admin Mode.
 - Quickly locate the statement where the SQL Review failed.
@@ -48,6 +48,6 @@ Visit [our pricing page](/pricing) to learn more.
 
 - We introduced the MongoDB support in the last release. This is a milestone for us as it's also the first NoSQL database supported by Bytebase, [learn more](/blog/introducing-mongodb-support-in-bytebase)!
 - When Navicat is [no longer](/blog/stop-using-navicat) your best bet.
-- A step-by-step guide to [managing databases](/docs/tutorials/manage-databases-in-bytebase-with-terraform) in Bytebase with Terraform.
+- A step-by-step guide to [managing databases](https://docs.bytebase.com/tutorials/manage-databases-in-bytebase-with-terraform) in Bytebase with Terraform.
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

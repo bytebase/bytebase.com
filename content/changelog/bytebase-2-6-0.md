@@ -8,7 +8,7 @@ description: 'Support using LDAP for configuring SSO. Support adding multiple re
 
 ## 🚀 New Features
 
-- Support using [LDAP](/docs/administration/sso/ldap/) for configuring SSO.
+- Support using [LDAP](https://docs.bytebase.com/administration/sso/ldap/) for configuring SSO.
 - Support adding multiple read-only data sources.
 - Schema Template supports column type restriction.
 - Support RisingWave.

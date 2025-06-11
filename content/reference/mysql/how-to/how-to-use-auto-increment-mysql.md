@@ -275,7 +275,7 @@ While similar in purpose, MySQL's AUTO_INCREMENT and PostgreSQL's SERIAL have ke
 
 <HintBlock type="info">
 
-When working with both MySQL and PostgreSQL databases, Bytebase's [SQL review policies](/docs/sql-review/review-policy/) can help enforce consistent auto-incrementing column conventions across different database engines.
+When working with both MySQL and PostgreSQL databases, Bytebase's [SQL review policies](https://docs.bytebase.com/sql-review/review-policy/) can help enforce consistent auto-incrementing column conventions across different database engines.
 
 </HintBlock>
 

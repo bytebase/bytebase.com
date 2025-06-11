@@ -13,7 +13,7 @@ Row Level Security (RLS) is a PostgreSQL feature that allows database administra
 
 Row Level Security provides an additional security layer independent of client applications. Organizations can enforce data access controls consistently across all applications connecting to the database.
 
-You can use [Bytebase's approval workflows](/docs/administration/custom-approval/) to manage policy changes systematically across environments.
+You can use [Bytebase's approval workflows](https://docs.bytebase.com/administration/custom-approval/) to manage policy changes systematically across environments.
 
 </HintBlock>
 

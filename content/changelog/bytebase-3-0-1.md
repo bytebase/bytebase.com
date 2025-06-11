@@ -10,7 +10,7 @@ description: 'Configurable DDL/DML Execution in SQL Editor'
 
 - Add an environment policy to allow executing DDL/DML statements directly in SQL Editor.
 - Support data masking for BigQuery.
-- Support [rollback to a specific version in the change history](/docs/change-database/change-history/) on the database page.
+- Support [rollback to a specific version in the change history](https://docs.bytebase.com/change-database/change-history/) on the database page.
 - Add data access control and masking page under each project.
 
 ## 🔔 Breaking Changes

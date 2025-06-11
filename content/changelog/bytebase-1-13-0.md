@@ -8,9 +8,9 @@ description: '- Generate SQL statements to rollback DML for MySQL. - Support Sin
 
 ## 🚀 New Features
 
-- Generate SQL statements to rollback DML for MySQL. [www.bytebase.com/docs/change-database/rollback-data-changes](/docs/change-database/rollback-data-changes)
-- Support Single Sign-On (SSO) with OIDC. [www.bytebase.com/docs/administration/sso/oidc](/docs/administration/sso/oidc)
-- GitOps workflow now supports GitLab.com as a VCS provider. Now Bytebase supports GitLab.com, GitHub.com and GitLab self-hosted. [www.bytebase.com/docs/vcs-integration/gitlab-com](/docs/vcs-integration/gitlab-com)
+- Generate SQL statements to rollback DML for MySQL. [www.bytebase.com/docs/change-database/rollback-data-changes](https://docs.bytebase.com/change-database/rollback-data-changes)
+- Support Single Sign-On (SSO) with OIDC. [www.bytebase.com/docs/administration/sso/oidc](https://docs.bytebase.com/administration/sso/oidc)
+- GitOps workflow now supports GitLab.com as a VCS provider. Now Bytebase supports GitLab.com, GitHub.com and GitLab self-hosted. [www.bytebase.com/docs/vcs-integration/gitlab-com](https://docs.bytebase.com/vcs-integration/gitlab-com)
 
 ## 🎄 Enhancements
 

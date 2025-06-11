@@ -27,6 +27,6 @@ description: 'Support backing up data before DML is performed for MySQL.'
 ## 📰 Fresh Off the Press
 
 - Dive into how Bytebase is revolutionizing the way developers, DBAs, and platform engineers work by [replacing a multitude of traditional database tools](/blog/all-database-tools-bytebase-replaces/). Say goodbye to juggling multiple tools and hello to streamlined efficiency. Read now to transform your database management strategy! 🍭
-- Streamline your Microsoft SQL Server schema migration with Bytebase's intuitive [UI workflow](/docs/tutorials/database-change-management-with-sql-server/) or seamlessly integrate with GitHub for [a GitOps workflow](/docs/tutorials/database-change-management-with-sql-server-and-github/), making database management effortless and efficient! 🚚
+- Streamline your Microsoft SQL Server schema migration with Bytebase's intuitive [UI workflow](https://docs.bytebase.com/tutorials/database-change-management-with-sql-server/) or seamlessly integrate with GitHub for [a GitOps workflow](https://docs.bytebase.com/tutorials/database-change-management-with-sql-server-and-github/), making database management effortless and efficient! 🚚
 
 <IncludeBlock url="/docs/get-started/install/install-upgrade"></IncludeBlock>

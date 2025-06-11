@@ -11,7 +11,7 @@ _Official documentation: [ALTER TABLE](https://dev.mysql.com/doc/refman/8.0/en/a
 
 ALTER TABLE operations should be conducted with care as many operations will rebuild the entire table and may lock it for a long time, causing service outage.
 
-Some organizations have strict approval processes. You can enforce [approval process](/docs/administration/custom-approval/) or [automated review](/docs/sql-review/review-rules/#column) via Bytebase.
+Some organizations have strict approval processes. You can enforce [approval process](https://docs.bytebase.com/administration/custom-approval/) or [automated review](https://docs.bytebase.com/sql-review/review-rules/#column) via Bytebase.
 
 </HintBlock>
 
