@@ -169,7 +169,7 @@ While creating an RDS or Aurora instance, you can choose to enable IAM authentic
      -e AWS_REGION=<<your-aws-region>> \
      --name bytebase \
      --publish 8080:8080 --pull always \
-     bytebase/bytebase:%%bb_version%%
+     bytebase/bytebase:3.7.0
    ```
 
 1. Go to RDS instance detail page, you'll find the **endpoint** and **port**.
@@ -232,7 +232,7 @@ While creating an RDS or Aurora instance, you can choose to enable IAM authentic
      --name bytebase \
      --publish 8080:8080 --pull always \
      --volume ~/.bytebase/data:/var/opt/bytebase \
-     bytebase/bytebase:%%bb_version%%
+     bytebase/bytebase:3.7.0
    ```
 
 1. Go to SQL overview page, you'll find the **Connection name**, use it as the host. Choose `Google Cloud SQL IAM` along with your user `bytebase` to connect to the database.  
@@ -256,7 +256,7 @@ For more information about the credential chain in default Azure credential, ple
      --name bytebase \
      --pull always \
      --volume ~/.bytebase/data:/var/opt/bytebase \
-     bytebase/bytebase:%%bb_version%%
+     bytebase/bytebase:3.7.0
    ```
 
 #### Enable Microsoft Entra Authentication in Azure SQL

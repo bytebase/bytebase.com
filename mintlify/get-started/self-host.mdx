@@ -5,7 +5,7 @@ title: Self-host
 import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
 import TerminalStartupOutputSuccess from '/snippets/install/terminal-startup-output-success.mdx';
 
-**Latest release version:** [**%%bb_version%%**](https://github.com/bytebase/bytebase/releases/latest)
+**Latest release version:** [**3.7.0**](https://github.com/bytebase/bytebase/releases/latest)
 
 Self-host is for business with security/compliance requirements. Bytebase offers an air-gapped deployment with a single Go binary.
 
@@ -24,7 +24,7 @@ Estimated time: **5 minutes**.
 - Docker version must be at least [20.10.24](https://docs.docker.com/engine/release-notes/20.10/#201024)
   or pass `--security-opt seccomp=unconfined` to `docker run`, otherwise, you will get `pthread_create failed` error.
 
-- If accessing from China, pull image `registry.cn-shanghai.aliyuncs.com/bytebase/bytebase:%%bb_version%%`.
+- If accessing from China, pull image `registry.cn-shanghai.aliyuncs.com/bytebase/bytebase:3.7.0`.
 
 </Note>
 
@@ -127,7 +127,7 @@ docker run --init \
   --name bytebase \
   --restart always \
   --publish 80:8080 \
-  --volume ~/.bytebase/data:/var/opt/bytebase bytebase/bytebase:%%bb_version%% \
+  --volume ~/.bytebase/data:/var/opt/bytebase bytebase/bytebase:3.7.0 \
   --data /var/opt/bytebase \
   --external-url http://bytebase.example.com \
   --port 8080
@@ -166,7 +166,7 @@ spec:
     spec:
       containers:
         - name: bytebase
-          image: bytebase/bytebase:%%bb_version%%
+          image: bytebase/bytebase:3.7.0
           imagePullPolicy: Always
           env:
             - name: PG_URL
@@ -233,7 +233,7 @@ When a new Bytebase release is published, you can change the image version in th
 ```yaml
 containers:
   - name: bytebase
-    image: bytebase/bytebase:%%bb_version%%
+    image: bytebase/bytebase:3.7.0
 ```
 
 ### Use Helm Chart
@@ -414,7 +414,7 @@ Please follow the [Persistent volumes and dynamic provisioning](https://cloud.go
 
 **Access Bytebase**
 
-1. Go to the service you just created and click **Logs** tab to see the logs. If you see something like `Version %%bb_version%%(f5891735834ea82fd67bf8181597f86a7f5dab58) has started on port 8080 🚀`, it means Bytebase is running.
+1. Go to the service you just created and click **Logs** tab to see the logs. If you see something like `Version 3.7.0(f5891735834ea82fd67bf8181597f86a7f5dab58) has started on port 8080 🚀`, it means Bytebase is running.
 1. Click **Tasks** tab to see the task list. Click the task name to see the task details.
 1. Under **Cointainer details for bytebase**, click **Network bindings** tab to find the **External link**.
 1. Click **Open address** to access Bytebase.
@@ -448,12 +448,12 @@ Download [source code](https://github.com/bytebase/bytebase) from GitHub, then g
 
 <Info>
 
-If you want to build from a specific release such as `%%bb_version%%`, then switch to that release tag.
+If you want to build from a specific release such as `3.7.0`, then switch to that release tag.
 
 </Info>
 
 ```text
-git checkout tags/%%bb_version%%
+git checkout tags/3.7.0
 ```
 
 Build the source
