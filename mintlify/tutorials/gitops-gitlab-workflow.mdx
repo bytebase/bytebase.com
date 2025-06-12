@@ -123,7 +123,7 @@ To create migration files to trigger release creation, the files have to match t
 
 ## Self-hosted GitLab Considerations
 
-### Use `bytebase/bytebase-action:latest` in an Offline GitLab Runner
+### Use `bytebase-action` in an Offline GitLab Runner
 
 If you are self-hosting GitLab in an internal network that has no access to the public internet, your CI/CD jobs may fail with the following error: `Job failed: failed to pull image "bytebase/bytebase-action:latest"`. Since the image cannot be pulled directly from Docker Hub, you’ll need to download it from an external machine, then transfer and load it into your internal environment manually.
 
