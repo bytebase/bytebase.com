@@ -35,13 +35,13 @@ Developers create SQL migration files in their feature branches:
 - Schema changes (DDL): `202501150900_add_user_table.sql`
 - Data changes (DML): `202501150901_seed_initial_data_dml.sql`
 
-### 1. Review Phase (Pull Request)
+### 2. Review Phase (Pull Request)
 
 - SQL review runs automatically on the PR
 - Validates changes against configured policies
 - No release created yet - only validation
 
-### 1. Release Creation (Merge)
+### 3. Release Creation (Merge)
 
 When the PR is merged to main:
 
@@ -50,7 +50,7 @@ When the PR is merged to main:
 - Release is assigned a unique identifier
 - Linked to the merge commit for traceability
 
-### 1. Progressive Deployment
+### 4. Progressive Deployment
 
 The release follows your configured deployment pipeline:
 
@@ -63,7 +63,12 @@ The release follows your configured deployment pipeline:
 
 ## GitHub Actions
 
-<Card title="Tutorial: Database GitOps with GitHub Actions" icon="graduation-cap" href="/tutorials/gitops-github-workflow/" horizontal />
+<Card
+  title="Tutorial: Database GitOps with GitHub Actions"
+  icon="graduation-cap"
+  href="/tutorials/gitops-github-workflow/"
+  horizontal
+/>
 
 <Note>
 
@@ -79,15 +84,40 @@ Bytebase provides pre-built [GitHub Actions](https://github.com/marketplace?quer
 
 ## Azure DevOps Pipeline
 
-<Card title="Tutorial: Database GitOps with Azure DevOps Pipeline" icon="graduation-cap" href="/tutorials/gitops-azure-devops-workflow/" horizontal />
+<Card
+  title="Tutorial: Database GitOps with Azure DevOps Pipeline"
+  icon="graduation-cap"
+  href="/tutorials/gitops-azure-devops-workflow/"
+  horizontal
+/>
 
 ## GitLab CI
 
-<Card title="Tutorial: Database GitOps with GitLab CI" icon="graduation-cap" href="/tutorials/gitops-gitlab-workflow/" horizontal />
+<Card
+  title="Tutorial: Database GitOps with GitLab CI"
+  icon="graduation-cap"
+  href="/tutorials/gitops-gitlab-workflow/"
+  horizontal
+/>
+
+<Note>
+
+If you're using **self-hosted GitLab** in an internal network:
+
+1. You’ll need to [manually load the `bytebase/bytebase-action` image](/tutorials/gitops-gitlab-workflow#use-bytebase-action-in-an-offline-gitlab-runner) into your internal Docker registry.
+
+1. Set the [`clone_url` in GitLab Runner](/tutorials/gitops-gitlab-workflow#resolve-gitlab-clone-redirect-in-internal-network) to avoid redirection to external addresses.
+
+</Note>
 
 ## Bitbucket Pipelines
 
-<Card title="Tutorial: Database GitOps with Bitbucket Pipelines" icon="graduation-cap" href="/tutorials/gitops-bitbucket-workflow/" horizontal />
+<Card
+  title="Tutorial: Database GitOps with Bitbucket Pipelines"
+  icon="graduation-cap"
+  href="/tutorials/gitops-bitbucket-workflow/"
+  horizontal
+/>
 
 ## API
 
