@@ -53,23 +53,11 @@ const SEO_DATA = {
       'Schema migration and database security for developer, security, DBA, and platform engineering teams.',
     pathname: `${Route.RESOURCES}/`,
   },
-  CHANGELOG: {
-    title: 'Changelog',
-    description:
-      'Schema migration and database security for developer, security, DBA, and platform engineering teams.',
-    pathname: `${Route.CHANGELOG}/`,
-  },
   BLOG: {
     title: 'Blog',
     description:
       'Schema migration and database security for developer, security, DBA, and platform engineering teams.',
     pathname: `${Route.BLOG}/`,
-  },
-  TUTORIAL: {
-    title: 'Bytebase Tutorial',
-    description:
-      'Schema migration and database security for developer, security, DBA, and platform engineering teams.',
-    pathname: `${Route.TUTORIAL}/`,
   },
   DATABASE_GLOSSARY: {
     title: 'Database Glossary',
