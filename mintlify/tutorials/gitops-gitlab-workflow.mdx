@@ -46,7 +46,7 @@ https://gitlab.com/bytebase-sample/gitops-example
 - [Docker](https://www.docker.com/) installed
 - An [ngrok](https://ngrok.com/) account
 
-## Automatic Rollout across environments
+## Enable Automatic Rollout Across Environments
 
 ### Step 1 - Start Bytebase with ngrok
 
@@ -120,6 +120,49 @@ To create migration files to trigger release creation, the files have to match t
 1. If you click the `deploy-to-test` and expand the logs, you can follow the links to Bytebase.
 
    ![bb-rollout](/content/docs/tutorials/gitops-gitlab-workflow/bb-rollout.webp)
+
+## Self-hosted GitLab Considerations
+
+### Use `bytebase/bytebase-action:latest` in an Offline GitLab Runner
+
+If you are self-hosting GitLab in an internal network that has no access to the public internet, your CI/CD jobs may fail with the following error: `Job failed: failed to pull image "bytebase/bytebase-action:latest"`. Since the image cannot be pulled directly from Docker Hub, you’ll need to download it from an external machine, then transfer and load it into your internal environment manually.
+
+1. On an external (internet-accessible) machine:
+
+   ```bash
+   docker pull bytebase/bytebase-action:latest
+   docker save -o bytebase-action.tar bytebase/bytebase-action:latest
+   ```
+
+1. Transfer the `bytebase-action.tar` file to your internal server.
+   Use `scp`, USB drive, or any method suitable for your setup.
+1. On your internal (offline) machine:
+
+   ```bash
+   docker load -i bytebase-action.tar
+   docker tag bytebase/bytebase-action:latest bytebase/bytebase-action:latest
+   ```
+
+   _Note: docker tag step is only needed if the loaded image doesn’t already have the correct tag._
+
+### Resolve GitLab Clone Redirect in Internal Network
+
+If your GitLab instance uses an external URL but is hosted in an internal network, `bytebase-action` may fail with:
+
+```
+fatal: unable to update url base from redirection
+```
+
+This happens because GitLab redirects to the external URL, which isn't accessible internally.
+
+To resolve this, set the `clone_url` in your GitLab Runner configuration to point to the internal GitLab address:
+
+```toml
+[[runners]]
+  clone_url = "http://your.internal.gitlab"
+```
+
+This forces the runner to clone from the internal URL and avoids redirection errors.
 
 ## Summary
 
