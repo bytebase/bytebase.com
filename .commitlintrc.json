@@ -17,7 +17,7 @@
       ]
     ],
     "type-enum": [
-      2, 
+      2,
       "always",
       [
         "build",
@@ -31,7 +31,8 @@
         "revert",
         "style",
         "test",
-        "blogs"
+        "blog",
+        "landing"
       ]
     ]
   }
