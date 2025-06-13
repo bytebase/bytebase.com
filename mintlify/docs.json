@@ -450,5 +450,10 @@
   },
   "contextual": {
     "options": ["copy", "view", "chatgpt", "claude"]
+  },
+  "integrations": {
+    "plausible": {
+      "domain": "docs.bytebase.com"
+    }
   }
 }
