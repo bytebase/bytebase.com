@@ -266,7 +266,6 @@
             "group": "Database CI/CD (GitOps)",
             "pages": [
               "tutorials/gitops-github-workflow",
-              "tutorials/sql-review-github-action",
               "tutorials/gitops-azure-devops-workflow",
               "tutorials/gitops-gitlab-workflow",
               "tutorials/gitops-bitbucket-workflow"
