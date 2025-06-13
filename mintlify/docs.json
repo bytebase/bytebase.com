@@ -32,6 +32,7 @@
             "group": "Install",
             "pages": [
               "get-started/self-host",
+              "get-started/upgrade",
               "get-started/install/external-postgres",
               "get-started/install/external-url",
               "get-started/cloud"
