@@ -14,10 +14,6 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     buttonText: 'Deploy in 5 Minutes',
     buttonTheme: 'primary-outline',
     buttonUrl: '/docs/get-started/self-host/#docker',
-    usageLimits: {
-      users: '20',
-      'database-instances': '10',
-    },
     databaseChangeManagement: {
       'database-change': true,
       'git-based-schema-version-control': true,
@@ -105,10 +101,6 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     buttonTheme: 'primary-outline',
     buttonUrl: Route.PRO_PAYMENT,
     additionalDescription: 'Monthly subscription, cancel anytime',
-    usageLimits: {
-      users: '20',
-      'database-instances': '10',
-    },
     databaseChangeManagement: {
       'database-change': true,
       'git-based-schema-version-control': true,
@@ -196,10 +188,6 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     buttonTheme: 'primary-filled',
     buttonUrl: '/contact-us',
     additionalDescription: 'Free trial for 14 days',
-    usageLimits: {
-      users: 'Custom',
-      'database-instances': 'Custom',
-    },
     databaseChangeManagement: {
       'database-change': true,
       'git-based-schema-version-control': true,
@@ -283,13 +271,6 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
 };
 
 const LABELS = [
-  {
-    title: 'Usage Limits',
-    items: {
-      users: 'Users',
-      'database-instances': 'Database Instances',
-    },
-  },
   {
     title: 'Database Change Management',
     items: {

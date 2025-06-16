@@ -128,11 +128,6 @@ const Table = () => {
                     >
                       <FeatureList
                         title={currentPlan.title}
-                        features={currentPlan.usageLimits}
-                        currentRow={currentRow}
-                      />
-                      <FeatureList
-                        title={currentPlan.title}
                         features={currentPlan.databaseChangeManagement}
                         currentRow={currentRow}
                       />
