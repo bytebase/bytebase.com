@@ -7,12 +7,10 @@ export type Plan = {
   buttonText: string;
   buttonUrl: string;
   buttonTheme: 'primary-filled' | 'primary-outline';
-  changeManagement: PricingTableItem;
-  sql: PricingTableItem;
-  security: PricingTableItem;
-  bespoke: PricingTableItem;
-  aiAssistant: PricingTableItem;
-  collaboration: PricingTableItem;
+  databaseChangeManagement: PricingTableItem;
+  sqlEditorDevelopment: PricingTableItem;
+  securityCompliance: PricingTableItem;
+  administrationSupport: PricingTableItem;
 };
 
 export type PricingTableItem = Record<
