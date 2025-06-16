@@ -8,13 +8,16 @@ Be really careful when using Admin Mode, since you are taking full control of yo
 
 </Warning>
 
+If you are a `Workspace Admin` or `Workspace DBA` or granted a [custom role](/administration/custom-roles) having the `bb.admin.sql` permission, you can
+break the glass and execute arbitrary statements.
+
 ## Run query in Admin Mode
 
 Click **Admin Mode** button to open a separate Admin Mode tab. Note that this is only available for DBAs and Workspace Admins.
 
 ![Admin Mode Button](/content/docs/sql-editor/admin-mode-button.webp)
 
-In Admin Mode, you are not limited to run SELECT, DDL and DML change queries, but also allowed to run database administration SQL statements such as SHOW, SET, GRANT, etc.
+In Admin Mode, you are not limited to run SELECT, DDL and DML change queries subject to the [statement execution policy](/administration/environment-policy/overview#statement-execution-mode), but also allowed to run database administration SQL statements such as SHOW, SET, GRANT, etc.
 
 ![Admin Mode](/content/docs/sql-editor/admin-mode.webp)
 
