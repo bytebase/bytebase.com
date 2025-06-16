@@ -30,7 +30,7 @@ const cards: TCard[] = [
       'Community support',
       'Up to 20 users',
       '10 database instances',
-      'SQL lint, GitOps, API, AI assistant',
+      'Database change management',
     ],
   },
   {
@@ -46,8 +46,8 @@ const cards: TCard[] = [
       'Email support',
       'Up to 20 users',
       '10 database instances',
-      'Scheduled rollout',
       'Google, GitHub SSO',
+      'Groups',
     ],
   },
   {
