@@ -1,5 +1,5 @@
-import { Plan } from '@/types/pricing';
 import Route from '@/lib/route';
+import { Plan } from '@/types/pricing';
 
 const COLORS = {
   community: '#172136',
@@ -28,7 +28,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'scheduled-rollout-time': true,
       'database-changelog': true,
       'schema-drift-detection': true,
-      changelist: true,
+      'changelist': true,
       'schema-template': true,
       'rollout-policy': true,
     },
@@ -51,7 +51,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'restrict-copying-data': false,
     },
     securityCompliance: {
-      iam: true,
+      'iam': true,
       'instance-ssl-connection': true,
       'instance-connection-over-ssh-tunnel': true,
       'instance-connection-iam-authentication': true,
@@ -70,7 +70,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'disallow-password-sign-in': false,
       'sign-in-frequency-control': false,
       'user-email-domain-restriction': false,
-      scim: false,
+      'scim': false,
       'directory-sync': false,
       'custom-roles': false,
       'request-role-workflow': false,
@@ -87,11 +87,11 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'environment-tiers': false,
       'dashboard-announcement-banner': false,
       'custom-logo': false,
-      watermark: false,
+      'watermark': false,
       'api-integration-guidance': false,
       'roadmap-prioritization': false,
       'custom-msa': false,
-      support: 'Community',
+      'support': 'Community',
     },
   },
   pro: {
@@ -115,7 +115,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'scheduled-rollout-time': true,
       'database-changelog': true,
       'schema-drift-detection': true,
-      changelist: true,
+      'changelist': true,
       'schema-template': true,
       'rollout-policy': true,
     },
@@ -138,7 +138,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'restrict-copying-data': false,
     },
     securityCompliance: {
-      iam: true,
+      'iam': true,
       'instance-ssl-connection': true,
       'instance-connection-over-ssh-tunnel': true,
       'instance-connection-iam-authentication': true,
@@ -157,7 +157,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'disallow-password-sign-in': false,
       'sign-in-frequency-control': false,
       'user-email-domain-restriction': false,
-      scim: false,
+      'scim': false,
       'directory-sync': false,
       'custom-roles': false,
       'request-role-workflow': false,
@@ -174,7 +174,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'environment-tiers': false,
       'dashboard-announcement-banner': false,
       'custom-logo': false,
-      watermark: false,
+      'watermark': false,
       'api-integration-guidance': false,
       'roadmap-prioritization': false,
       'custom-msa': false,
@@ -202,7 +202,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'scheduled-rollout-time': true,
       'database-changelog': true,
       'schema-drift-detection': true,
-      changelist: true,
+      'changelist': true,
       'schema-template': true,
       'rollout-policy': true,
     },
@@ -244,7 +244,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'disallow-password-sign-in': true,
       'sign-in-frequency-control': true,
       'user-email-domain-restriction': true,
-      scim: true,
+      'scim': true,
       'directory-sync': true,
       'custom-roles': true,
       'request-role-workflow': true,
@@ -261,11 +261,11 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
       'environment-tiers': true,
       'dashboard-announcement-banner': true,
       'custom-logo': true,
-      watermark: true,
+      'watermark': true,
       'api-integration-guidance': true,
       'roadmap-prioritization': true,
       'custom-msa': true,
-      support: 'Dedicated Line with SLA',
+      'support': 'Dedicated Line with SLA',
     },
   },
 };
@@ -287,7 +287,7 @@ const LABELS = [
       'scheduled-rollout-time': 'Scheduled Rollout Time',
       'database-changelog': 'Database Changelog',
       'schema-drift-detection': 'Schema Drift Detection',
-      changelist: 'Changelist',
+      'changelist': 'Changelist',
       'schema-template': 'Schema Template',
       'rollout-policy': 'Rollout Policy',
     },
@@ -316,7 +316,7 @@ const LABELS = [
   {
     title: 'Security & Compliance',
     items: {
-      iam: 'IAM (Identity and Access Management)',
+      'iam': 'IAM (Identity and Access Management)',
       'instance-ssl-connection': 'Instance SSL Connection',
       'instance-connection-over-ssh-tunnel': 'Instance Connection over SSH Tunnel',
       'instance-connection-iam-authentication': 'Instance Connection IAM Authentication',
@@ -335,7 +335,7 @@ const LABELS = [
       'disallow-password-sign-in': 'Disallow Password Sign-in',
       'sign-in-frequency-control': 'Sign-in Frequency Control',
       'user-email-domain-restriction': 'User Email Domain Restriction',
-      scim: 'SCIM (User Provisioning)',
+      'scim': 'SCIM (User Provisioning)',
       'directory-sync': 'Directory Sync from Entra, AD, Okta',
       'custom-roles': 'Custom Roles',
       'request-role-workflow': 'Request Role Workflow',
@@ -355,13 +355,14 @@ const LABELS = [
       'environment-tiers': 'Environment Tiers',
       'dashboard-announcement-banner': 'Dashboard Announcement Banner',
       'custom-logo': 'Custom Logo',
-      watermark: 'Watermark',
+      'watermark': 'Watermark',
       'api-integration-guidance': 'API Integration Guidance',
       'roadmap-prioritization': 'Roadmap Prioritization',
       'custom-msa': 'Custom MSA',
-      support: 'Support',
+      'support': 'Support',
     },
   },
 ];
 
-export { PLANS, LABELS, COLORS };
+export { COLORS, LABELS, PLANS };
+
