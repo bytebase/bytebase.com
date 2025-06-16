@@ -70,9 +70,9 @@ const MobileSidebar = ({
     }
   }, []);
 
-  // 122px is the height of header + button Documentation menu
+  // 74px is the height of header + button Documentation menu
   useEffect(() => {
-    setContainerHeight(`${height - 122 - bannerSize}px`);
+    setContainerHeight(`${height - 74 - bannerSize}px`);
   }, [height, bannerSize]);
 
   useEffect(() => {
@@ -110,7 +110,7 @@ const MobileSidebar = ({
           initial="from"
           animate={controls}
           variants={variants}
-          style={{ maxHeight: containerHeight, top: `${122 + bannerSize}px` }}
+          style={{ maxHeight: containerHeight, top: `${74 + bannerSize}px` }}
         >
           {data.map((item, index) => (
             <Item {...item} closeMenu={toggleMenu} expandedList={expandedList} key={index} />
