@@ -113,34 +113,28 @@ const Table = () => {
                     >
                       <FeatureList
                         title={currentPlan.title}
-                        features={currentPlan.changeManagement}
+                        features={currentPlan.usageLimits}
                         currentRow={currentRow}
                       />
                       <FeatureList
                         title={currentPlan.title}
-                        features={currentPlan.sql}
+                        features={currentPlan.databaseChangeManagement}
                         currentRow={currentRow}
                       />
                       <FeatureList
                         title={currentPlan.title}
-                        features={currentPlan.collaboration}
+                        features={currentPlan.sqlEditorDevelopment}
                         currentRow={currentRow}
                       />
                       <FeatureList
                         title={currentPlan.title}
-                        features={currentPlan.security}
+                        features={currentPlan.securityCompliance}
                         currentRow={currentRow}
                         withLongTitle
                       />
                       <FeatureList
                         title={currentPlan.title}
-                        features={currentPlan.aiAssistant}
-                        currentRow={currentRow}
-                        isLastSection
-                      />
-                      <FeatureList
-                        title={currentPlan.title}
-                        features={currentPlan.bespoke}
+                        features={currentPlan.administrationSupport}
                         currentRow={currentRow}
                         isLastSection
                       />
