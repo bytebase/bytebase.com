@@ -9,6 +9,7 @@ import clsx from 'clsx';
 import { LABELS, PLANS } from '@/components/pages/pricing/table/data/pricing-plans';
 import PlanCard from '@/components/pages/pricing/table/plan-card';
 import Link from '@/components/shared/link';
+import Tooltip from '@/components/shared/tooltip';
 
 import { calculateCellHeight } from './data/calculate-cell-height';
 import FeatureList from './plan-card/feature-list';
@@ -77,7 +78,21 @@ const Table = () => {
                         data-row-id={`${item}-${rowIdx}`}
                         key={`${item}_${rowIdx}`}
                       >
-                        {items[item as keyof typeof items]}
+                        <span className="flex items-center">
+                          {items[item as keyof typeof items]}
+                          {(items[item as keyof typeof items] as string).includes('*') && (
+                            <Tooltip
+                              className="ml-1"
+                              text="Ensure an instance is linked to your license."
+                            />
+                          )}
+                          {item === 'query-policy' && (
+                            <Tooltip
+                              className="ml-1"
+                              text="Max Latency, Result Size, Datasource Restriction, DDL/DML Restriction."
+                            />
+                          )}
+                        </span>
                       </li>
                     );
                   })}
