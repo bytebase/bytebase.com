@@ -83,7 +83,7 @@ const Table = () => {
                           {(items[item as keyof typeof items] as string).includes('*') && (
                             <Tooltip
                               className="ml-1"
-                              text="Ensure an instance is linked to your license."
+                              text="Require license assigned to the instance."
                             />
                           )}
                           {item === 'query-policy' && (
