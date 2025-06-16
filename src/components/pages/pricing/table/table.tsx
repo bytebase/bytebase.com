@@ -111,7 +111,7 @@ const Table = () => {
                   <div className="w-1/3 shrink grow" key={`${currentPlan.title}_${idx}`}>
                     <div
                       className={clsx(
-                        'sticky top-[122px] z-30 md:static',
+                        'sticky top-[74px] z-30 md:static',
                         'h-[272px] md:h-[245px] sm:h-[260px]',
                         {
                           'border-r border-tones-purple-dark': currentPlan.title === 'enterprise',
