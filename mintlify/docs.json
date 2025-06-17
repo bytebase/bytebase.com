@@ -35,26 +35,31 @@
               "get-started/upgrade",
               "get-started/install/external-postgres",
               "get-started/install/external-url",
+              "get-started/instance",
               "get-started/cloud"
             ]
           },
           {
-            "group": "Quickstart",
+            "group": "Guides",
             "pages": [
-              "get-started/step-by-step/deploy-with-docker",
-              "get-started/step-by-step/register-accounts",
-              "get-started/step-by-step/set-up-environments",
-              "get-started/step-by-step/add-an-instance",
-              "get-started/step-by-step/create-a-project",
-              "get-started/step-by-step/change-schema",
-              "get-started/step-by-step/query-data",
-              "get-started/instance"
+              {
+                "group": "Making Your First Change",
+                "pages": [
+                  "get-started/step-by-step/deploy-with-docker",
+                  "get-started/step-by-step/register-accounts",
+                  "get-started/step-by-step/set-up-environments",
+                  "get-started/step-by-step/add-an-instance",
+                  "get-started/step-by-step/create-a-project",
+                  "get-started/step-by-step/change-schema",
+                  "get-started/step-by-step/query-data"
+                ]
+              }
             ]
           }
         ]
       },
       {
-        "tab": "Feature Guides",
+        "tab": "Features",
         "groups": [
           {
             "group": "Database CI/CD",
