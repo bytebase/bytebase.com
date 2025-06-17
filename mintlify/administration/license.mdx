@@ -2,49 +2,95 @@
 title: Manage License
 ---
 
-Bytebase offers [3 pricing plans](https://www.bytebase.com/pricing): `Free`, `Pro`, `Enterprise`. Both `Pro` and `Enterprise` plans require purchasing license. You can [contact us](https://www.bytebase.com/contact-us/) to require a 2-week free trial.
+## License Overview
 
-## Configure license
+Bytebase offers [3 pricing plans](https://www.bytebase.com/pricing): `Free`, `Pro`, `Enterprise`. Both `Pro` and `Enterprise` plans require purchasing license. You can [contact us](https://www.bytebase.com/contact-us/) to request a 2-week free trial.
 
-Navigate to the **Subscription** page, paste your license into the input box, and click the **Upload license** button.
+### Workspace vs Instance Licenses
 
-![license](/content/docs/administration/license/license.webp)
+Bytebase uses a two-tier licensing model:
 
-## Configure instance license
+**Workspace License**
 
-The license includes a number of database instance quota.
+- Applied to your entire Bytebase workspace
+- Unlocks plan-level features (Pro or Enterprise)
+- Must be configured first before assigning instance licenses
 
-- For Pro plan, you need to purchase a Pro license with a minimum 1 instance quota.
-- For Enterprise plan, you need to purchase an Enterprise license with a minimum 5 instance quota.
+**Instance Licenses**
 
-Features like [SSO](/administration/sso/overview/), [Watermark](/security/watermark/) are Enterprise features and not specific to a particular instance. Thus as long as you have the Enterprise license, you can use those features.
+- Applied to individual database instances to activate instance-specific features
+- Allocated from your workspace license quota
+- Can be assigned/unassigned as needed to optimize costs
 
-On the other hand, there are instance specific features like [custom approval](/administration/custom-approval), [sensitive data masking](/security/data-masking/overview). To activate those features on the instance, you need to assign the quota to the instance.
+<Note>
+  You must first upload a workspace license, then assign portions of its quota to specific instances
+  that need advanced features.
+</Note>
+
+### License Quota
+
+A license includes an **instance quota**, which defines:
+
+- The number of **active database instances** (with assigned instance-level licenses)
+- The **total number of instances** allowed under the plan
+
+### Plan Details
+
+- Under the **Pro** plan, purchasing **1 to 20 user seats** includes **10 active database instances at no additional cost**.
+
+- Under the **Enterprise** plan, you must purchase a license with a minimum quota of **5 active instances**.
+
+### Feature Availability
+
+- **Enterprise-wide features**, such as [SSO](/administration/sso/overview/) and [Watermark](/security/watermark/) are **not instance-specific** and are available as long as you hold an Enterprise license.
+
+- **Instance-specific features**, including [Custom Approval](/administration/custom-approval) and [Sensitive Data Masking](/security/data-masking/overview), **require assigning quota** to individual instances to be activated.
+  For full details, see our [pricing page](https://www.bytebase.com/pricing/).
 
 <Tip>
 
-The price is based on the Plan and the purchased user and instance quota. To save budget, you can just purchase the instance quota covering a subset of your instances (e.g. only production instances).
+To reduce costs, you can license only a subset of your instances (e.g., production instances only).
 
 </Tip>
 
-![instance-license](/content/docs/administration/license/instance-license.webp)
+    ![instance-license](/content/docs/administration/license/instance-license.webp)
 
-![license-drawer](/content/docs/administration/license/license-drawer.webp)
+## Configure Workspace License
 
-You can assign or unassign your license to instances in following ways:
+Navigate to the **Settings > Subscription**, paste your license and click **Upload License**.
 
-- Go to the **Subscription** page, click the instance area or the **edit icon** button, the license configuration drawer will appear.
+    ![subscription](/content/docs/administration/license/bb-subscription.webp)
 
-![license-1](/content/docs/administration/license/license-1.webp)
+## Configure Instance License
 
-- On the **Instances** details page, tick the instances you want to assign license to, and click the **Assign License** button.
+### Assign License from the Instance Page
 
-![license-2](/content/docs/administration/license/license-2.webp)
+You can assign and unassign license to an instance on its instance page.
 
-- You can also assign instance license when coming across a gated feature. To assign for a table particularly so that you can operate on sensitive data, go to **Databases** to click the database this table belongs to, where you can find the row representing your table. Click the row and then the pencil icon by certain column's masking level. Then you'll see the **Assign License** button.
+![instance-assign](/content/docs/administration/license/bb-instance-assign.webp)
 
-![license-3](/content/docs/administration/license/license-3.webp)
+### Assign License from the Subscription Page
 
-![license-4](/content/docs/administration/license/license-4.webp)
+You can assign your license to instances in the following ways:
 
-![license-5](/content/docs/administration/license/license-5.webp)
+1. Go to the **Settings > Subscription**, click the instance area or the **edit icon** button, the license configuration drawer will appear.
+
+   ![edit-assign](/content/docs/administration/license/bb-edit-assign.webp)
+
+1. On the **Manage instance License** drawer, tick the instances you want to assign license to, and click **Confirm**.
+
+   ![assign-licenses](/content/docs/administration/license/bb-assign-licenses.webp)
+
+### Assign License via Gated Features
+
+You can also assign instance license when coming across a gated feature. To assign for a table particularly so that you can operate on sensitive data:
+
+1. Go to **Database > Databases** to choose the database this table belongs to.
+
+1. Find the row representing your table, and click the `Classification` field you want to apply data masking.
+
+   ![database-license](/content/docs/administration/license/bb-database-license.webp)
+
+1. On the table detail drawer, click the edit icon. There will be a popup containing **Assign License** button.
+
+   ![license-data-masking](/content/docs/administration/license/bb-license-data-masking.webp)
