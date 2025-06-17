@@ -6,12 +6,32 @@ title: Manage License
 
 Bytebase offers [3 pricing plans](https://www.bytebase.com/pricing): `Free`, `Pro`, `Enterprise`. Both `Pro` and `Enterprise` plans require purchasing license. You can [contact us](https://www.bytebase.com/contact-us/) to request a 2-week free trial.
 
-## What a License Covers
+### Workspace vs Instance Licenses
+
+Bytebase uses a two-tier licensing model:
+
+**Workspace License**
+
+- Applied to your entire Bytebase workspace
+- Unlocks plan-level features (Pro or Enterprise)
+- Must be configured first before assigning instance licenses
+
+**Instance Licenses**
+
+- Applied to individual database instances to activate instance-specific features
+- Allocated from your workspace license quota
+- Can be assigned/unassigned as needed to optimize costs
+
+<Note>
+  You must first upload a workspace license, then assign portions of its quota to specific instances
+  that need advanced features.
+</Note>
+
+### License Quota
 
 A license includes an **instance quota**, which defines:
 
 - The number of **active database instances** (with assigned instance-level licenses)
-
 - The **total number of instances** allowed under the plan
 
 ### Plan Details
@@ -22,7 +42,7 @@ A license includes an **instance quota**, which defines:
 
 ### Feature Availability
 
-- **Enterprise-wide features**, such as [SSO](/administration/sso/overview/) and [Watermark](/security/watermark/) are **not instace-specific** and are available as long as you hold an Enterprise license.
+- **Enterprise-wide features**, such as [SSO](/administration/sso/overview/) and [Watermark](/security/watermark/) are **not instance-specific** and are available as long as you hold an Enterprise license.
 
 - **Instance-specific features**, including [Custom Approval](/administration/custom-approval) and [Sensitive Data Masking](/security/data-masking/overview), **require assigning quota** to individual instances to be activated.
   For full details, see our [pricing page](https://www.bytebase.com/pricing/).
