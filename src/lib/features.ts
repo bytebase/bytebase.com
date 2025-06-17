@@ -63,5 +63,5 @@ export const FEATURES = {
 
   //Not in the pricing page
   CUSTOM_ROLES: 'Custom Roles',
-  ANNOUNCEMENT: 'Set an Announcement',
+  ANNOUNCEMENT: 'Announcement Banner',
 };
