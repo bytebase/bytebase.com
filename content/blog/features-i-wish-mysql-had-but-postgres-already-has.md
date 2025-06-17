@@ -7,7 +7,7 @@ tags: Industry
 description: 'Areas where PostgreSQL shines and MySQL falls short.'
 ---
 
-At Bytebase, we work extensively with PostgreSQL and MySQL. Both databases have pros and cons. In this post, we’ll highlight where PostgreSQL shines and MySQL falls short.
+At Bytebase, we work extensively with PostgreSQL and MySQL. Both databases have pros and cons. In this post, we’ll highlight where PostgreSQL shines and MySQL falls short. We also write a [follow-up post on where MySQL excels](/blog/features-i-wish-postgres-had-but-mysql-already-has).
 
 ## Transactional DDL
 
