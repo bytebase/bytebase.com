@@ -43,7 +43,7 @@
               "onboarding/plan",
               "onboarding/poc",
               {
-                "group": "Making Your First Change",
+                "group": "Your First Change and Query",
                 "pages": [
                   "get-started/step-by-step/deploy-with-docker",
                   "get-started/step-by-step/register-accounts",
