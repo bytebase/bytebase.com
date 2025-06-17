@@ -22,8 +22,6 @@
               "introduction/what-is-bytebase",
               "introduction/supported-databases",
               "introduction/use-cases",
-              "poc",
-              "onboarding",
               "concepts/data-model",
               "faq"
             ]
@@ -42,6 +40,8 @@
           {
             "group": "Onboarding Guides",
             "pages": [
+              "onboarding/plan",
+              "onboarding/poc",
               {
                 "group": "Making Your First Change",
                 "pages": [
@@ -53,7 +53,9 @@
                   "get-started/step-by-step/change-schema",
                   "get-started/step-by-step/query-data"
                 ]
-              }
+              },
+              "onboarding/sql-editor-data-access-control",
+              "onboarding/organize-projects"
             ]
           }
         ]
