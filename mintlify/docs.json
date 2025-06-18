@@ -30,11 +30,23 @@
             "group": "Install",
             "pages": [
               "get-started/self-host",
+              "get-started/instance",
               "get-started/upgrade",
               "get-started/install/external-postgres",
               "get-started/install/external-url",
-              "get-started/instance",
               "get-started/cloud"
+            ]
+          },
+          {
+            "group": "Quick Start",
+            "pages": [
+              "get-started/step-by-step/deploy-with-docker",
+              "get-started/step-by-step/register-accounts",
+              "get-started/step-by-step/set-up-environments",
+              "get-started/step-by-step/add-an-instance",
+              "get-started/step-by-step/create-a-project",
+              "get-started/step-by-step/change-schema",
+              "get-started/step-by-step/query-data"
             ]
           },
           {
@@ -42,18 +54,6 @@
             "pages": [
               "onboarding/plan",
               "onboarding/poc",
-              {
-                "group": "Your First Change and Query",
-                "pages": [
-                  "get-started/step-by-step/deploy-with-docker",
-                  "get-started/step-by-step/register-accounts",
-                  "get-started/step-by-step/set-up-environments",
-                  "get-started/step-by-step/add-an-instance",
-                  "get-started/step-by-step/create-a-project",
-                  "get-started/step-by-step/change-schema",
-                  "get-started/step-by-step/query-data"
-                ]
-              },
               "onboarding/sql-editor-data-access-control",
               "onboarding/organize-projects"
             ]
