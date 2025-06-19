@@ -20,7 +20,16 @@ Only **Workspace Admin** or **Workspace DBA** role can configure database instan
 To allow Bytebase to execute operations on behalf the end user, you need to supply Bytebase with the
 connection info for your database instance.
 
-## Connect to the instance on the same host
+<Columns cols={4}>
+  <Card title="General" href="#general" icon="settings" />
+  <Card title="AWS" href="#aws" icon="aws" />
+  <Card title="GCP" href="#gcp" icon="google" />
+  <Card title="Azure" href="#azure" icon="microsoft" />
+</Columns>
+
+## General
+
+### Connect to the instance on the same host
 
 <Note>
 
@@ -35,15 +44,11 @@ you need to set host as [host.docker.internal](https://docs.docker.com/desktop/n
 
 ![connect-local-no-docker](/content/docs/get-started/instance/connect-local-no-docker.webp)
 
-## Connect to the instance from Bytebase Cloud
+### Connect to the instance from Bytebase Cloud
 
 <WhitelistBytebaseIp />
 
-## Configure SSL
-
-SSL connection configuration only supports PostgreSQL, MySQL, TiDB and ClickHouse for now.
-
-## Configure SSH tunnel
+### SSH tunnel
 
 <PricingPlanBlock feature_name='SSH_TUNNEL' />
 
@@ -56,7 +61,7 @@ To protect their databases, some hosting providers block direct remote access. H
    ![ssh tunnelling](/content/docs/get-started/instance/bb-instance-ssh-connection.webp)
 3. Click **Test Connection**. If the connection is successful, click **Create** to create this instance.
 
-## Configure Extra Connection Parameters
+### Extra Connection Parameters
 
 When connecting to a database instance, you may need to specify additional parameters to customize the connection behavior. Bytebase provides a feature that allows users to define extra parameters for the database connection string directly in the UI.
 
@@ -80,16 +85,81 @@ Below are links to official documentation for configuring connection parameters:
 
 For a full list of supported parameters, refer to the official database documentation links above.
 
-## Use IAM Auth
+### External Secret Manager
 
 <PricingPlanBlock feature_name='EXTERNAL_SECRET_MANAGER' />
 
-You can use Cloud providers' IAM user to connect to their databases.
+By default, Bytebase stores the database credentials in an obfuscated format in its own meta store.
+You can also instruct Bytebase to retrieve the database credential from an external secret manager.
 
-### AWS RDS/Aurora
+![external-secret-manager-flow](/content/docs/get-started/instance/external-secret-manager-flow.webp)
+
+1. User tries to access database from Bytebase.
+1. Bytebase calls the external secret manager to exchange the configured key for the database password.
+1. Bytebase retrieves the password and connect the database.
+
+#### HashiCorp Vault
+
+<Note>
+
+Bytebase only supports KV v2 engine.
+
+</Note>
+
+Create the secret in Vault like below:
+
+- Secret engine name: `secret`
+- Secret path: `bytebase`
+- Secret key: `DB_PASSWORD`
+- Secret: `<<YOUR_PASSOWRD>>`
+
+  ![create-secret](/content/docs/get-started/instance/vault/create-secret.webp)
+
+Configure instance to retrieve database password from vault:
+
+- Specify the Vault URL.
+
+- Specify the Vault auth method.
+
+  - For [Token](https://developer.hashicorp.com/vault/docs/auth/token), specify the token.
+  - For [AppRole](https://developer.hashicorp.com/vault/docs/auth/approle), specify the auth role id and secret id.
+
+- Specify the secret engine name`secret`, secret path `bytebase` and secret key `DB_PASSWORD`.
+
+  ![vault-auth](/content/docs/get-started/instance/vault/auth.webp)
+
+#### Custom endpoint
+
+![external-secret-manager-config](/content/docs/get-started/instance/external-secret-manager-config.webp)
+
+If you have a custom external secret manager, you can supply its API endpoint by enclosing it with the mustache `{{` `}}`, e.g `{{http://example.com/secrets/mydbkey}}`
+
+**Sample request**
+
+Usually `mydbkey` is unique for each database and used for exchanging the password for that database.
+
+```text
+curl "http://example.com/secrets/mydbkey"
+```
+
+**Expected response**
+
+Bytebase expects the following JSON response from the external secret manager. The `payload.data` is the
+base64-encoded contents of the database password.
+
+```json
+{
+  "payload": {
+    "data": "xxx"
+  }
+}
+```
+## AWS
 
 While creating an RDS or Aurora instance, you can choose to enable IAM authentication.
 ![](/content/docs/get-started/instance/aws-rds-iam/db-password-iam.webp)
+
+### IAM Authentication
 
 #### Create IAM policy
 
@@ -165,143 +235,7 @@ While creating an RDS or Aurora instance, you can choose to enable IAM authentic
 
 1. Use the instance endpoint, port and the username `bytebase` to connect the instance.
 
-### Google Cloud SQL
-
-#### Create a service account
-
-1. Visit [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) to create a new service account `bytebase`.
-
-1. Grant `Cloud SQL Admin` permission to the service account.
-   ![](/content/docs/get-started/instance/gcp-iam/grant-cloud-sql-admin.webp)
-
-1. After the service account is created, you may view the email for the service account `bytebase@<<you-project-name>>.iam.gserviceaccount.com`. Go to **KEYS**.
-   ![](/content/docs/get-started/instance/gcp-iam/service-account-keys.webp)
-
-1. Click **ADD KEY** and then **Create new key**.
-   ![](/content/docs/get-started/instance/gcp-secret-manager/create-key-file.webp)
-
-1. Choose `JSON` as the key type and click **CREATE**. Keep the downloaded private key file. This will be passed
-   as environment variables when starting Bytebase.
-   ![](/content/docs/get-started/instance/gcp-iam/create-pk.webp)
-
-1. Go to Cloud SQL database instance detail page, and make sure `cloudsql_iam_authentication` is enabled.
-   ![](/content/docs/get-started/instance/gcp-iam/cloudsql-iam-auth-on.webp)
-
-1. Go to **Users** tab, and click **ADD USER ACCOUNT**.
-   ![](/content/docs/get-started/instance/gcp-iam/sql-users.webp)
-
-1. Select `Cloud IAM` and copy/paste the service account email `bytebase@<<your-project-name>>.iam.gserviceaccount.com`.
-   ![](/content/docs/get-started/instance/gcp-iam/user-account-type.webp)
-
-1. Then you can get the Cloud SQL IAM user: `bytebase`.
-   ![](/content/docs/get-started/instance/gcp-iam/user-added-bytebase.webp)
-
-#### Use IAM Auth in Bytebase
-
-1. Start Bytebase with Google IAM credentials by passing `GOOGLE_APPLICATION_CREDENTIALS` as an environment variable:
-
-   ```bash
-     docker run --init \
-     -e GOOGLE_APPLICATION_CREDENTIALS=<<your-json-file>> \
-     --name bytebase \
-     --publish 8080:8080 --pull always \
-     --volume ~/.bytebase/data:/var/opt/bytebase \
-     bytebase/bytebase:3.7.0
-   ```
-
-1. Go to SQL overview page, you'll find the **Connection name**, use it as the host. Choose `Google Cloud SQL IAM` along with your user `bytebase` to connect to the database.  
-   ![](/content/docs/get-started/instance/gcp-iam/connection-name.webp)
-
-### Azure SQL
-
-Bytebase supports connect to Azure SQL through Azure IAM by using default Azure credential and client secret credential. This section introduces how to use [system-assigned managed identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview#managed-identity-types) to connect to Azure SQL.
-For more information about the credential chain in default Azure credential, please refer to [default azure credential overview](https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#how-a-chained-credential-works).
-
-#### Create a VM with enabled system-assigned managed identity
-
-1. Enable system assigned managed identity while creating a VM.
-   ![](/content/docs/get-started/instance/azure-iam/enable-system-assigned-managed-identity-while-creating-vm.webp)
-
-2. Deploy the Bytebase on the VM in Docker:
-
-   ```bash
-     docker run --init \
-     --network=host \
-     --name bytebase \
-     --pull always \
-     --volume ~/.bytebase/data:/var/opt/bytebase \
-     bytebase/bytebase:3.7.0
-   ```
-
-#### Enable Microsoft Entra Authentication in Azure SQL
-
-1. Go to the Azure SQL panel, and set the Microsoft Entra Admin for Azure SQL managed instance, don't forget to click Save button. Once you set the Microsoft Entra Admin, the Microsoft Entra authentication is enabled. Check the [Microsoft guide](https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm?view=azuresql&tabs=azure-portal) if you use Azure SQL on VM.
-
-   ![](/content/docs/get-started/instance/azure-iam/set-microsoft-entra-admin-in-azure-sql-panel.webp)
-
-#### Create a contained database user
-
-1. Connect to the Azure SQL database using the Microsoft Entra Admin account.
-
-2. For each databases desired to be managed by Bytebase, running the following SQL command inside the database to a contained database user:
-
-   ```sql
-      CREATE USER [<Microsoft_Entra_principal_name>] FROM EXTERNAL PROVIDER;
-      ALTER ROLE db_owner ADD MEMBER [<Microsoft_Entra_principal_name>];
-   ```
-
-#### Connect to Azure SQL Database in Bytebase
-
-1. Using Azure IAM default credential to connect to Azure SQL database:
-
-   ![](/content/docs/get-started/instance/azure-iam/connect-to-azure-sql-using-azure-iam-frontend-form.webp)
-
-In this way, Bytebase can only connect to one specific Azure SQL database. To manage multiple Azure SQL databases in one instance inside Bytebase, considering set the VM principal as the Azure SQL Managed Instance Microsoft Entra Admin.
-
-## Use external secret manager
-
-<PricingPlanBlock feature_name='EXTERNAL_SECRET_MANAGER' />
-
-By default, Bytebase stores the database credentials in an obfuscated format in its own meta store.
-You can also instruct Bytebase to retrieve the database credential from an external secret manager.
-
-![external-secret-manager-flow](/content/docs/get-started/instance/external-secret-manager-flow.webp)
-
-1. User tries to access database from Bytebase.
-1. Bytebase calls the external secret manager to exchange the configured key for the database password.
-1. Bytebase retrieves the password and connect the database.
-
-### HashiCorp Vault
-
-<Note>
-
-Bytebase only supports KV v2 engine.
-
-</Note>
-
-Create the secret in Vault like below:
-
-- Secret engine name: `secret`
-- Secret path: `bytebase`
-- Secret key: `DB_PASSWORD`
-- Secret: `<<YOUR_PASSOWRD>>`
-
-  ![create-secret](/content/docs/get-started/instance/vault/create-secret.webp)
-
-Configure instance to retrieve database password from vault:
-
-- Specify the Vault URL.
-
-- Specify the Vault auth method.
-
-  - For [Token](https://developer.hashicorp.com/vault/docs/auth/token), specify the token.
-  - For [AppRole](https://developer.hashicorp.com/vault/docs/auth/approle), specify the auth role id and secret id.
-
-- Specify the secret engine name`secret`, secret path `bytebase` and secret key `DB_PASSWORD`.
-
-  ![vault-auth](/content/docs/get-started/instance/vault/auth.webp)
-
-### AWS Secrets Manager
+### Secrets Manager
 
 #### Create an IAM user to access the Secrets Manager
 
@@ -369,7 +303,56 @@ These two correspond to the value you created in the AWS Secrets Manager.
 
 ![](/content/docs/get-started/instance/aws-secrets-manager/auth.webp)
 
-### GCP Secret Manager
+## GCP
+
+### IAM Authentication
+
+#### Create a service account
+
+1. Visit [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) to create a new service account `bytebase`.
+
+1. Grant `Cloud SQL Admin` permission to the service account.
+   ![](/content/docs/get-started/instance/gcp-iam/grant-cloud-sql-admin.webp)
+
+1. After the service account is created, you may view the email for the service account `bytebase@<<you-project-name>>.iam.gserviceaccount.com`. Go to **KEYS**.
+   ![](/content/docs/get-started/instance/gcp-iam/service-account-keys.webp)
+
+1. Click **ADD KEY** and then **Create new key**.
+   ![](/content/docs/get-started/instance/gcp-secret-manager/create-key-file.webp)
+
+1. Choose `JSON` as the key type and click **CREATE**. Keep the downloaded private key file. This will be passed
+   as environment variables when starting Bytebase.
+   ![](/content/docs/get-started/instance/gcp-iam/create-pk.webp)
+
+1. Go to Cloud SQL database instance detail page, and make sure `cloudsql_iam_authentication` is enabled.
+   ![](/content/docs/get-started/instance/gcp-iam/cloudsql-iam-auth-on.webp)
+
+1. Go to **Users** tab, and click **ADD USER ACCOUNT**.
+   ![](/content/docs/get-started/instance/gcp-iam/sql-users.webp)
+
+1. Select `Cloud IAM` and copy/paste the service account email `bytebase@<<your-project-name>>.iam.gserviceaccount.com`.
+   ![](/content/docs/get-started/instance/gcp-iam/user-account-type.webp)
+
+1. Then you can get the Cloud SQL IAM user: `bytebase`.
+   ![](/content/docs/get-started/instance/gcp-iam/user-added-bytebase.webp)
+
+#### Use IAM Auth in Bytebase
+
+1. Start Bytebase with Google IAM credentials by passing `GOOGLE_APPLICATION_CREDENTIALS` as an environment variable:
+
+   ```bash
+     docker run --init \
+     -e GOOGLE_APPLICATION_CREDENTIALS=<<your-json-file>> \
+     --name bytebase \
+     --publish 8080:8080 --pull always \
+     --volume ~/.bytebase/data:/var/opt/bytebase \
+     bytebase/bytebase:3.7.0
+   ```
+
+1. Go to SQL overview page, you'll find the **Connection name**, use it as the host. Choose `Google Cloud SQL IAM` along with your user `bytebase` to connect to the database.  
+   ![](/content/docs/get-started/instance/gcp-iam/connection-name.webp)
+
+### Secret Manager
 
 #### Create a service account to access the Secret Manager
 
@@ -431,32 +414,53 @@ as the Secret full name.
 
 ![](/content/docs/get-started/instance/gcp-secret-manager/auth.webp)
 
-### Custom endpoint
+## Azure
 
-![external-secret-manager-config](/content/docs/get-started/instance/external-secret-manager-config.webp)
+### Entra Managed Identity
 
-If you have a custom external secret manager, you can supply its API endpoint by enclosing it with the mustache `{{` `}}`, e.g `{{http://example.com/secrets/mydbkey}}`
+Bytebase supports connect to Azure SQL through Azure IAM by using default Azure credential and client secret credential. This section introduces how to use [system-assigned managed identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview#managed-identity-types) to connect to Azure SQL.
+For more information about the credential chain in default Azure credential, please refer to [default azure credential overview](https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#how-a-chained-credential-works).
 
-**Sample request**
+#### Create a VM with enabled system-assigned managed identity
 
-Usually `mydbkey` is unique for each database and used for exchanging the password for that database.
+1. Enable system assigned managed identity while creating a VM.
+   ![](/content/docs/get-started/instance/azure-iam/enable-system-assigned-managed-identity-while-creating-vm.webp)
 
-```text
-curl "http://example.com/secrets/mydbkey"
-```
+2. Deploy the Bytebase on the VM in Docker:
 
-**Expected response**
+   ```bash
+     docker run --init \
+     --network=host \
+     --name bytebase \
+     --pull always \
+     --volume ~/.bytebase/data:/var/opt/bytebase \
+     bytebase/bytebase:3.7.0
+   ```
 
-Bytebase expects the following JSON response from the external secret manager. The `payload.data` is the
-base64-encoded contents of the database password.
+#### Enable Microsoft Entra Authentication in Azure SQL
 
-```json
-{
-  "payload": {
-    "data": "xxx"
-  }
-}
-```
+1. Go to the Azure SQL panel, and set the Microsoft Entra Admin for Azure SQL managed instance, don't forget to click Save button. Once you set the Microsoft Entra Admin, the Microsoft Entra authentication is enabled. Check the [Microsoft guide](https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm?view=azuresql&tabs=azure-portal) if you use Azure SQL on VM.
+
+   ![](/content/docs/get-started/instance/azure-iam/set-microsoft-entra-admin-in-azure-sql-panel.webp)
+
+#### Create a contained database user
+
+1. Connect to the Azure SQL database using the Microsoft Entra Admin account.
+
+2. For each databases desired to be managed by Bytebase, running the following SQL command inside the database to a contained database user:
+
+   ```sql
+      CREATE USER [<Microsoft_Entra_principal_name>] FROM EXTERNAL PROVIDER;
+      ALTER ROLE db_owner ADD MEMBER [<Microsoft_Entra_principal_name>];
+   ```
+
+#### Connect to Azure SQL Database in Bytebase
+
+1. Using Azure IAM default credential to connect to Azure SQL database:
+
+   ![](/content/docs/get-started/instance/azure-iam/connect-to-azure-sql-using-azure-iam-frontend-form.webp)
+
+In this way, Bytebase can only connect to one specific Azure SQL database. To manage multiple Azure SQL databases in one instance inside Bytebase, considering set the VM principal as the Azure SQL Managed Instance Microsoft Entra Admin.
 
 ## Database-Specific Configuration
 
