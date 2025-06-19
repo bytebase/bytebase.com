@@ -43,6 +43,21 @@ Once you see the Bytebase logo, you can access the console at http://localhost:8
 
 <TerminalStartupOutputSuccess />
 
+If you need to transfer images to a completely air-gapped environment:
+
+```bash
+# Save the image to a tar file
+docker save bytebase/bytebase:3.7.1 > bytebase-3.7.1.tar
+
+# Transfer the tar file to your target environment
+# Then load it on the target system
+docker load < bytebase-3.7.1.tar
+
+# Tag and push as described above
+docker tag bytebase/bytebase:3.7.1 your-registry.acme.com/library/bytebase:3.7.1
+docker push your-registry.acme.com/library/bytebase:3.7.1
+```
+
 ### Configuration
 
 #### Use external PostgreSQL to store metadata
