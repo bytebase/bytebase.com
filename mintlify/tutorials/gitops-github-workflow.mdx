@@ -78,6 +78,8 @@ https://github.com/bytebase/example-gitops-github-flow
 
 1. You may paste the password of the service account you created in the previous step directly after **service-secret** or keep the **service-secret** value as `${{secrets.BYTEBASE_SERVICE_ACCOUNT_SECRET}}`. Go to **Settings > Secrets and Variables > Actions**, click **New repository secret**, and add **BYTEBASE_SERVICE_ACCOUNT_SECRET**.
 
+1. In `.github/workflows/sql-review-action.yml`, the **`GITHUB_TOKEN`** (`${{ secrets.GITHUB_TOKEN }}`) is included to allow the workflow to comment on pull requests with the `Check release` results. You don’t need to configure it manually — GitHub provides it automatically during workflow execution.
+
 1. Go to **Actions** tab, enable actions workflow run.
 
 ### Step 5 - Create the migration files
