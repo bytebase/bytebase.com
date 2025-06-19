@@ -3,6 +3,13 @@ title: Connect Your Database
 ---
 
 import WhitelistBytebaseIp from '/snippets/install/whitelist-bytebase-ip.mdx';
+import PostgreSQLConfig from '/snippets/get-started/instance/postgresql.mdx';
+import OracleConfig from '/snippets/get-started/instance/oracle.mdx';
+import SnowflakeConfig from '/snippets/get-started/instance/snowflake.mdx';
+import MongoDBConfig from '/snippets/get-started/instance/mongodb.mdx';
+import ClickHouseConfig from '/snippets/get-started/instance/clickhouse.mdx';
+import DatabricksConfig from '/snippets/get-started/instance/databricks.mdx';
+import SpannerConfig from '/snippets/get-started/instance/spanner.mdx';
 
 <Note>
 
@@ -451,135 +458,28 @@ base64-encoded contents of the database password.
 }
 ```
 
-## PostgreSQL
+## Database-Specific Configuration
 
-If the connecting instance is managed by the cloud provider, then SUPERUSER is not available and you should create the role via that provider's admin console. The created role will have provider specific restricted semi-SUPERUSER privileges:
-
-- In [AWS RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.Roles.html#Appendix.PostgreSQL.CommonDBATasks.Roles.rds_superuser), the roll is `rds_superuser`.
-
-- In [Google Cloud SQL](https://cloud.google.com/sql/docs/postgres/users), the role is `cloudsqlsuperuser`.
-
-You should grant Bytebase privileges with that semi-SUPERUSER role, e.g.:
-
-```sql
--- For AWS RDS
-GRANT rds_superuser TO bytebase
-```
-
-```sql
--- For Google Cloud SQL
-GRANT cloudsqlsuperuser TO bytebase
-```
-
-Besides, you may need to grant Bytebase privileges with `GRANT role_name TO bytebase;` for all existing roles. Otherwise, Bytebase may not access existing databases or tables.
-
-<Tip>
-
-To prevent blocking operations for a long time, consider setting a [lock_timeout](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT) on the Bytebase user.
-
-</Tip>
-
-## Oracle
-
-For managing Oracle database, Bytebase provides two manage modes: **Manage based on database** and **Manage based on schema**.
-You can choose the manage mode when adding an instance or in the instance detail page.
-
-### Manage based on database
-
-In this mode, Bytebase will manage the database as a whole.
-
-- For normal Oracle instance, we treat the Oracle database as a Bytebase database.
-- For CDB instance, we treat the CDB and all PDBs as Bytebase databases.
-- For PDB instance, we treat the PDB as a Bytebase database.
-
-### Manage based on schema
-
-In this mode, Bytebase will manage the schema as a whole.
-
-- For any Oracle database, we treat the Oracle schema as a Bytebase database.
-
-## Snowflake
-
-![sf-account-locator](/content/docs/get-started/instance/snowflake/bytebase-account-locator.webp)
-
-To find the **Account Locator**, go to your Snowflake account, you can find it in the URL, or from the **locator field (but lower case)**.
-
-![sf-locator](/content/docs/get-started/instance/snowflake/snowflake-account-locator.webp)
-
-If the account is located in the AWS US West (Oregon) region, then it would be something like `xy12345`, otherwise, the format will be `<<account_locator>>.<<cloud_region_id>>.<<cloud>>` such as `xy12345.us-east-2.aws`. See [official doc](https://docs.snowflake.com/en/user-guide/admin-account-identifier#using-an-account-locator-as-an-identifier).
-
-## MongoDB Atlas
-
-Go to Atlas MongoDB **Security** > **Network Access** and add IP allowing access from `Anywhere`.
-
-Go to Atlas MongoDB **Deployment** > **Database**, and click **Connect**.
-![atlas-connect](/content/docs/get-started/instance/mongodb/atlas-connect.webp)
-
-Click **Connect to your application**.
-
-![atlas-connect-to-cluster](/content/docs/get-started/instance/mongodb/atlas-connect-to-cluster.webp)
-
-Find this string `cluster0.8bxxxbz.mongodb.net`. Go back to Bytebase, put the string into **Host or Socket**, and leave **Port** empty.
-
-Choose `mongodb+srv://` as **Connection String Schema**.
-
-## ClickHouse
-
-If you use ClickHouse Cloud. Go to your ClickHouse Cloud account, and click **View connection string**. Also make sure to whitelist the IP where Bytebase connects from.
-
-![clickhouse](/content/docs/get-started/instance/clickhouse/cloud-view-connection-string.webp)
-
-## Databricks
-
-In **Environment**, select your database. Then fill **Host or Socket**, **Warehouse ID** and **Token**.
-
-![databricks-0](/content/docs/get-started/instance/databricks/databricks-0.webp)
-
-- **Host or Socket**. Copy it from the URL of your Databricks account.
-
-![databricks-host-or-socket](/content/docs/get-started/instance/databricks/databricks-host-or-socket.webp)
-
-- **Warehouse ID**. Go to **SQL Warehouses** and click your warehouse (that is, your database), copy the ID in **Overview** section.
-
-![databricks-id-1](/content/docs/get-started/instance/databricks/databricks-id-1.webp)
-
-![databricks-id-2](/content/docs/get-started/instance/databricks/databricks-id-2.webp)
-
-- **Token**. Go to your avatar on the upper-right of Databricks to find **Settings**. Click **Developer** and then **Access tokens**, where you **Generate new token** and copy it to paste under **Token** in Bytebase.
-
-![databricks-token](/content/docs/get-started/instance/databricks/databricks-token.webp)
-
-Click **Test Connection** to verify.
-
-## Spanner
-
-For connecting to Google Cloud Spanner, you need to provide the following info:
-
-1. Google cloud project ID.
-1. Google cloud Spanner instance ID.
-1. Google cloud service account credentials.
-
-![spanner](/content/docs/get-started/instance/spanner/spanner.webp)
-
-### Specify Google Cloud Project ID and Spanner Instance ID
-
-![Spanner database detail page](/content/docs/get-started/instance/spanner/spanner-url.webp)
-
-From the Spanner database detail page, you can get the project ID and the instance ID from the URL.
-
-For example, the project ID and instance ID are `spanner-test-3717002` and `spanner-bb1` respectively for the above database.
-
-### Create a Google Cloud Service Account as the Credential
-
-1. Go to [Google Cloud console](https://console.cloud.google.com/).
-1. Click **APIs & Services** and then **Credentials**. You might have to click **Menu** on the top left first.
-1. Click **Create Credentials** and then **Service account**.
-1. For **Service account name**, enter a name for the service account.
-1. Click **Create and Continue**.
-1. For **Select a role**, select **Cloud Spanner Database Admin** for the service account.
-1. Click **Done**.
-1. Click the created service account.
-1. At the top, click **Keys** and then **Add Key** and then **Create new key**. Make sure the key type is set to **JSON** and click **Create**.
-1. You'll get a message that the service account's private key JSON file was downloaded to your computer. Make a note of the file name and where your browser saves it. You'll need it later.
-
-Upload the JSON file to the `Credentials` input.
+<Tabs>
+  <Tab title="Postgres">
+    <PostgreSQLConfig />
+  </Tab>
+  <Tab title="Oracle">
+    <OracleConfig />
+  </Tab>
+   <Tab title="MongoDB">
+    <MongoDBConfig />
+  </Tab>
+  <Tab title="Snowflake">
+    <SnowflakeConfig />
+  </Tab>
+  <Tab title="ClickHouse">
+    <ClickHouseConfig />
+  </Tab>
+  <Tab title="Databricks">
+    <DatabricksConfig />
+  </Tab>
+  <Tab title="Spanner">
+    <SpannerConfig />
+  </Tab>
+</Tabs>
