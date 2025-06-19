@@ -2,11 +2,19 @@
 title: Organize Projects
 ---
 
-Bytebase has a `Project` concept to group logically related `Databases`, `Issues` and `Users` together. This
-is similar to the project concept in other tools such as Jira, GitLab.
+Bytebase has a `Project` concept to group logically related `Databases`, `Issues`, and `Users` together. This is similar to the project concept in other tools such as Jira or GitLab.
 
-We recommend you to put databases sharing the same schema structure into the same project. For example,
-if you have a multi-tenant SaaS application, you can put all the tenant databases into the same project.
+There are several ways to organize projects:
 
-If you have a single team managing databases with different schema structure, you can create a project for each
-schema structure, and create a [user group](/administration/user-groups/) for the team. You then grant the project role to the user group.
+* **Organize by team boundary** — Since `Project` is a logical concept, a natural approach is to organize by team boundary.
+* **Organize by application** — If a team manages multiple applications, or an application is co-owned by multiple teams, you can organize by application. A typical scenario is when there is a shared component used by multiple teams.
+* **Organize by database schema** — If you have a multi-tenant SaaS application, you can group all tenant databases into the same project, allowing you to manage changes together.
+* **Organize by environment** — Although Bytebase already has an `Environment` concept, you can further fine-tune settings by creating environment-specific projects.
+
+For large organizations, it’s not uncommon to combine multiple approaches. For example, you might first organize projects by application, and then further organize them by environment.
+
+<Tip>
+
+To manage project roles at scale, you can create a [user group](/administration/user-groups/) for the team and grant the project role to that group. You can also integrate a [directory service](/administration/scim/overview) to sync group membership with Bytebase.
+
+</Tip>
