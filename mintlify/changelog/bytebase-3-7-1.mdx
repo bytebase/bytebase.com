@@ -1,0 +1,30 @@
+---
+title: Bytebase 3.7.1
+author: Adela
+updated_at: 2025/06/19 18:00:00
+description: 'All database change features are now FREE in Community Plan'
+---
+
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
+## 🔔 Breaking Changes
+
+- All database change features are now **FREE** in **Community Plan**! See full details in [our updated pricing](https://www.bytebase.com/pricing).
+
+## 🎄 Enhancements
+
+- Overhaul [docs site](https://docs.bytebase.com/) with improved navigation, search, and Ask AI.
+- SQL Editor now highlights the statement under the cursor.
+- Renovate Review Center with a refreshed UI and better user experience. Review Center routes have changed from `/review-center` to `/plans`.
+- Streamline SSO creation flow for easier configuration.
+- **Terraform** - Add support for applying SSL certificates to database connections via the new `use_ssl` field.
+
+## 🐛 Bug Fixes
+
+- Database Access Control now properly handles case-sensitive object names.
+- **MySQL** - Fix an issue when creating procedures via Schema Editor.
+- **OceanBase** - Fix 2 SQL Review rules:
+  - Enforce maximum number of updated or deleted rows
+  - Enforce maximum number of inserted rows
+
+<InstallUpgrade />
