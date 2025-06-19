@@ -140,7 +140,14 @@
               "sql-editor/admin-mode",
               "sql-editor/mask-data",
               "sql-editor/manage-sql-scripts",
-              "sql-editor/ai-assistant"
+              "sql-editor/ai-assistant",
+              {
+                "group": "Settings",
+                "pages": [
+                  "sql-editor/settings/read-only-connection",
+                  "sql-editor/settings/data-source-restriction"
+                ]
+              }
             ]
           },
           {

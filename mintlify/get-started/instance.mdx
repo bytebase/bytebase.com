@@ -49,21 +49,7 @@ To protect their databases, some hosting providers block direct remote access. H
    ![ssh tunnelling](/content/docs/get-started/instance/bb-instance-ssh-connection.webp)
 3. Click **Test Connection**. If the connection is successful, click **Create** to create this instance.
 
-## Configure read-only connection
-
-<PricingPlanBlock feature_name='READONLY_CONNECTION' />
-
-To separate from admin connection, you can configure read-only connections used by SQL Editor once an instance is added. This separation can be configured at the database user/role access control level or replication instance level.
-
-1. Create a new role with read-only access or a read-replica instance.
-1. Click **Create** or **+** on **Connection info**.
-1. Enter read-only connection info. If this is a read-replica instance, you need to enter its host and port information.
-1. Click **Update** to finish the configuration.
-1. Click **+** to add more, or click trash icon to delete.
-
-![bb-instance-read-only-connection](/content/docs/get-started/instance/bb-instance-read-only-connection.webp)
-
-## Configuring Extra Connection Parameters
+## Configure Extra Connection Parameters
 
 When connecting to a database instance, you may need to specify additional parameters to customize the connection behavior. Bytebase provides a feature that allows users to define extra parameters for the database connection string directly in the UI.
 
@@ -86,24 +72,6 @@ Below are links to official documentation for configuring connection parameters:
 | `max_connections` | Maximum number of connections allowed        | `100`     |
 
 For a full list of supported parameters, refer to the official database documentation links above.
-
-## Choose your data source in SQL Editor
-
-You may select data sources between the admin and read-only connection while running SQL queries in SQL Editor.
-
-![bb-sql-editor-data-source](/content/docs/get-started/instance/bb-sql-editor-data-source.webp)
-
-The **Admin Data Source Query Restrictions** could be set either by environment or project level.
-
-![bb-data-source-env](/content/docs/get-started/instance/bb-data-source-env.webp)
-
-![bb-data-source-project](/content/docs/get-started/instance/bb-data-source-project.webp)
-
-If both are set, the higher restriction will be applied. The order of restriction level from high to low is as follows:
-
-1. ON - Disallow querying data from the admin data source
-1. ON - Fallback to the admin data source if no read-only data source is available
-1. Off
 
 ## Use IAM Auth
 

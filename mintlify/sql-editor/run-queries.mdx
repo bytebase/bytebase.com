@@ -15,6 +15,30 @@ The read-only mode is not available for MongoDB, but you also can execute the st
 
 </Info>
 
+## IntelliSense
+
+![autocomplete](/content/docs/sql-editor/autocomplete.webp)
+
+IntelliSense depends on WebSocket. If you access Bytebase via a gateway, you need to enable WebSocket there. Here is a NGINX configuration:
+
+```nginx
+
+http {
+    server {
+        ...
+
+       location ~ ^/(v1:adminExecute|lsp) {
+            proxy_pass http://bytebase.example.com;
+            proxy_http_version 1.1;
+            # Enables WebSocket which is required for SQL Editor autocomplete
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection $connection_upgrade;
+        }
+        ...
+    }
+}
+```
+
 ## Run query
 
 Click the `Run` button or use the shortcut key `(⌘ + Enter)` to run your queries in the SQL Editor.
@@ -61,30 +85,6 @@ For PostgreSQL database, Bytebase also embeds [PEV2](https://github.com/dalibo/p
 ![visualize-plan](/content/docs/sql-editor/explain-postgres-1.webp)
 ![visualize-plan](/content/docs/sql-editor/explain-postgres-2.webp)
 
-## Autocomplete
-
-![autocomplete](/content/docs/sql-editor/autocomplete.webp)
-
-Autocomplete depends on WebSocket. If you access Bytebase via a gateway, you need to enable WebSocket there. Here is a NGINX configuration:
-
-```nginx
-
-http {
-    server {
-        ...
-
-       location ~ ^/(v1:adminExecute|lsp) {
-            proxy_pass http://bytebase.example.com;
-            proxy_http_version 1.1;
-            # Enables WebSocket which is required for SQL Editor autocomplete
-            proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header Connection $connection_upgrade;
-        }
-        ...
-    }
-}
-```
-
 ## Batch mode
 
 <PricingPlanBlock feature_name='BATCH_QUERY' />
@@ -98,9 +98,3 @@ For each database, the query result will show up in its own tab:
 ![batch-query-result1](/content/docs/sql-editor/batch-query-result1.webp)
 
 ![batch-query-result2](/content/docs/sql-editor/batch-query-result2.webp)
-
-## Search result
-
-You can retrieve anything you want from query results quickly.
-
-![Search Result](/content/docs/sql-editor/search-result.webp)
