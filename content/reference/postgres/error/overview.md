@@ -160,4 +160,14 @@ These errors occur when using PostgreSQL backup and restore utilities like pg_du
   pg_restore: error: input file appears to be a text format dump. Please use psql.
   ```
 
+## Replication Errors
+
+These errors occur when using PostgreSQL logical replication features, including publication/subscription setup and maintenance.
+
+- [**ERROR: logical replication target relation is missing some replicated columns**](/reference/postgres/error/logical-replication-target-relation-missing-replicated-columns): Target table missing columns that exist in source table
+
+  ```sql
+  ERROR: logical replication target relation "public.t" is missing some replicated columns
+  ```
+
 ---

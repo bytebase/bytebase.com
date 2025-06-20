@@ -52,3 +52,7 @@
 ### [pg_dump: error: aborting because of server version mismatch](/reference/postgres/error/pgdump-aborting-because-of-server-version-mismatch)
 
 ### [pg_restore: error: input file appears to be a text format dump](/reference/postgres/error/pgrestore-input-file-appears-to-be-a-text-format-dump)
+
+## Replication
+
+### [ERROR: logical replication target relation is missing some replicated columns](/reference/postgres/error/logical-replication-target-relation-missing-replicated-columns)
