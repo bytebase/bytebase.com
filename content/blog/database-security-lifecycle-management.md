@@ -99,4 +99,5 @@ With Bytebase and DSLM, you can:
 - Align your database with modern DevSecOps practices
 
 **Ready to secure your database lifecycle?**
-Start with the [Community Plan](/pricing) or [get in touch](contact) to see DSLM in action for your team.
+
+Start with the [Community Plan](/pricing) or [get in touch](/contact) to see DSLM in action for your team.
