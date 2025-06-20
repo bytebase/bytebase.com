@@ -8,7 +8,7 @@ featured: true
 description: Learn how Bytebase enables organizations to implement comprehensive Database Security Lifecycle Management, unifying security and operations from development to production.
 ---
 
-In today’s software-driven world, teams are moving faster than ever. **Infrastructure** is codified (Terraform, Pulumi, etc.), **secrets** are rotated (AWS Secrets Manager, GCP Secret Manager, etc.), and **CI/CD** pipelines push changes every hour (GitHub, GitLab, etc.).
+In today’s software-driven world, teams are moving faster than ever. **Infrastructure** is codified (Terraform, Pulumi, etc.), **Secrets** are rotated (AWS Secrets Manager, GCP Secret Manager, etc.), and **CI/CD** pipelines push changes every hour (GitHub, GitLab, etc.).
 
 But the **database**? It's often the last part of the stack to catch up.
 
