@@ -170,4 +170,11 @@ These errors occur when using PostgreSQL logical replication features, including
   ERROR: logical replication target relation "public.t" is missing some replicated columns
   ```
 
+- [**ERROR: cannot delete from table because it does not have a replica identity and publishes deletes**](/reference/postgres/error/cannot-delete-from-table-no-replica-identity): Table lacks proper row identification for DELETE/UPDATE replication
+
+  ```sql
+  ERROR: cannot delete from table "nopk" because it does not have a replica identity and publishes deletes
+  HINT: To enable deleting from
+  ```
+
 ---

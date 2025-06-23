@@ -56,3 +56,5 @@
 ## Replication
 
 ### [ERROR: logical replication target relation is missing some replicated columns](/reference/postgres/error/logical-replication-target-relation-missing-replicated-columns)
+
+### [ERROR: cannot delete from table because it does not have a replica identity and publishes deletes](/reference/postgres/error/cannot-delete-from-table-no-replica-identity)
