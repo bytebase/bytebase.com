@@ -7,98 +7,129 @@ tags: Comparison
 description: 'We compare Supabase vs AWS (RDS and Aurora) across free, entry-level, and production tiers'
 ---
 
-When choosing a PostgreSQL database platform, whether for a side project or a production app, you need to look beyond features and assess the **real cost of running your database**. This includes **compute, storage, backups, and bandwidth**.
+When choosing a PostgreSQL database platform, whether for a side project or a production app, you need to look beyond features and assess the **total cost of ownership** — including compute, storage, backups, and bandwidth.
 
 In this guide, we compare **Supabase vs AWS (RDS and Aurora)** across **free, entry-level, and production tiers**. We focus strictly on database-related costs and explain **on-demand vs reserved pricing** where applicable.
 
 ## 0. Free Plans: What Do You Get for \$0?
 
-Both platforms offer free options, but they differ in **duration**, **compute power**, and **included storage**.
+Both platforms offer free tiers, but they differ significantly in **duration**, **compute power**, and **resource isolation**.
 
-| Feature      | Supabase Free Tier     | AWS Free Tier (12 months)  |
-| ------------ | ---------------------- | -------------------------- |
-| Duration     | Forever                | 12 months from signup      |
-| Compute      | Shared CPU (500MB RAM) | 750 hrs/month on t4g.micro |
-| Storage (DB) | 500MB                  | 20GB gp2                   |
-| Backup       | 7-day snapshot         | 20GB snapshot              |
-| Bandwidth    | 5GB                    | 15GB outbound              |
+| Feature          | Supabase Free Tier           | AWS Free Tier (12 months)                              |
+| ---------------- | ---------------------------- | ------------------------------------------------------ |
+| Duration         | Forever                      | 12 months from signup                                  |
+| Compute          | Shared CPU / 500MB RAM       | 2 vCPU (burstable) / 1GB RAM (t4g.micro, 750 hrs/mo)\* |
+| Compute Type     | Shared container environment | Dedicated EC2 instance (Graviton2, burstable)          |
+| CPU Architecture | x86                          | ARM (AWS Graviton2)                                    |
+| Storage (DB)     | 500MB                        | 20GB gp2\*                                             |
+| Backup           | 7-day snapshot               | 20GB snapshot                                          |
+| Bandwidth        | 5GB outbound                 | 15GB outbound                                          |
+| OS / Isolation   | Serverless (no OS access)    | Full OS-level isolation                                |
 
-- **Supabase Free** is a generous forever-free plan suited for hobby apps, portfolios, and dev testing.
-- **AWS Free Tier** is more powerful but limited to 12 months, ideal if you're testing AWS or already in that ecosystem.
+- **Supabase Free** is ideal for hobby projects, quick MVPs, or internal tools with light traffic. It requires no setup and stays free forever.
+- **AWS Free Tier** gives you significantly more power and isolation but is limited to the first 12 months after signup.
 
-## 1. Entry-Level (Always Free or Low Cost)
+## 1. Entry-Level (Low Cost)
 
-Once you outgrow the free plan but don't need heavy production power, both platforms offer entry-level options. AWS RDS adds an interesting twist: you can **reserve instances** to get a big discount for long-term use.
+When you outgrow the free tier but don’t need production-grade resources, these plans offer low-cost paths. Supabase simplifies everything with a flat rate. AWS offers more control and deeper savings through reserved pricing.
 
-| Feature             | Supabase Pro Tier            | AWS RDS t4g.micro (On-Demand)       | AWS RDS t4g.micro (1yr Reserved) |
-| ------------------- | ---------------------------- | ----------------------------------- | -------------------------------- |
-| Monthly Price       | \$25 (includes \$10 compute) | \$11.68                             | \$6.69                           |
-| Compute             | 1GB RAM                      | 1 vCPU / 1GB RAM                    | 1 vCPU / 1GB RAM                             |
-| DB Storage Included | 8GB                          | 20GB                                | 20GB                             |
-| Extra Storage       | \$0.125/GB                   | \$0.115/GB                          | \$0.115/GB                       |
-| Backups             | 7 days included              | Free up to DB size, then \$0.095/GB | Free up to DB size, then \$0.095/GB                             |
-| Bandwidth           | 250GB included               | \$0.09/GB outbound                  | \$0.09/GB outbound               |
+| Feature          | Supabase Pro Tier              | RDS t4g.micro (On-Demand)             | RDS t4g.micro (1yr Reserved)        | RDS t4g.micro (3yr Reserved)        |
+| ---------------- | ------------------------------ | ------------------------------------- | ----------------------------------- | ----------------------------------- |
+| Monthly Price    | \$25 (includes \$10 compute)\* | \$11.68                               | \$6.69                              | \$4.76                         |
+| Compute          | 1 vCPU (shared) / 1GB RAM      | 2 vCPU (burstable) / 1GB RAM          | 2 vCPU (burstable) / 1GB RAM        | 2 vCPU (burstable) / 1GB RAM        |
+| Compute Type     | Shared container environment   | Dedicated ARM instance (Graviton2)    | Dedicated ARM instance (Graviton2)  | Dedicated ARM instance (Graviton2)  |
+| OS Access        | No                             | Yes                                   | Yes                                 | Yes                                 |
+| Storage Included | 8GB                            | 20GB gp2                              | 20GB gp2                            | 20GB gp2                            |
+| Extra Storage    | \$0.125/GB                     | \$0.115/GB                            | \$0.115/GB                          | \$0.115/GB                          |
+| Backups          | 7-day snapshot                 | Free up to DB size, then \$0.095/GB\* | Free up to DB size, then \$0.095/GB | Free up to DB size, then \$0.095/GB |
+| Bandwidth        | 250GB outbound included                 | \$0.09/GB outbound                    | \$0.09/GB outbound                  | \$0.09/GB outbound                  |
 
-- Supabase is **simpler and predictable**, good for developers who don’t want to fiddle with AWS details.
-- **RDS Reserved** makes AWS cheaper long-term but **requires upfront planning** and commitment.
+- **Supabase Pro** is great if you want simple, predictable pricing without dealing with EC2, storage classes, or IOPS tuning.
+- **RDS On-Demand** offers low-cost dedicated compute with more configurability.
+- **Reserved instances** (1yr and 3yr) reduce costs dramatically, but require long-term commitment.
 
-## 2. Mid-Tier Production: 100GB Storage + Moderate Usage
+## 2. Mid-Tier Production (100GB Storage + Moderate Usage)
 
-For applications in active use, say 100GB storage and regular traffic, you start to see **meaningful differences** in how pricing stacks up.
+For established applications with real user traffic and non-trivial data volumes, cost differences and platform flexibility become more significant.
 
-| Feature           | Supabase (Large) | RDS m5.large (On-Demand) | RDS m5.large (1yr Reserved) | Aurora r5.large |
-| ----------------- | ---------------- | ------------------------ | --------------------------- | --------------- |
-| Compute           | \$110            | \$130                    | \$81                        | \$211           |
-| 100GB Storage     | \$12.50          | \$11.50                  | \$11.50                     | \$10            |
-| Backups           | Included         | Free (up to DB size)     | Free (up to DB size)                        | \$0.021/GB      |
-| Bandwidth (500GB) | \$22.50          | \$45                     | \$45                        | \$45            |
-| **Total/Month**   | **\$145**        | **\$186**                | **\$138**                   | **\$266**       |
+| Feature           | Supabase (Large)             | RDS m5.large (On-Demand) | RDS m5.large (1yr Reserved) | RDS m5.large (3yr Reserved) | Aurora r5.large (On-Demand)      | Aurora r5.large (1yr Reserved) | Aurora r5.large (3yr Reserved) |
+| ----------------- | ---------------------------- | ------------------------ | --------------------------- | --------------------------- | -------------------------------- | ------------------------------ | ------------------------------ |
+| Monthly Price     | \$110 (flat)\*               | \$130                    | \$81                        | \$56                    | \$211                            | \$138                          | \$96                       |
+| Compute           | 2 vCPU (shared) / 8GB RAM    | 2 vCPU / 8GB RAM         | 2 vCPU / 8GB RAM            | 2 vCPU / 8GB RAM            | 2 vCPU / 16GB RAM                | 2 vCPU / 16GB RAM              | 2 vCPU / 16GB RAM              |
+| Compute Type      | Shared container environment | Dedicated EC2 (x86)      | Dedicated EC2 (x86)         | Dedicated EC2 (x86)         | Aurora cluster (I/O-Optimized)\* | Aurora cluster (I/O-Optimized) | Aurora cluster (I/O-Optimized) |
+| OS Access         | No                           | Yes                      | Yes                         | Yes                         | Yes                              | Yes                            | Yes                            |
+| Storage (100GB)   | Included                     | \$11.50 (gp2)            | \$11.50 (gp2)               | \$11.50 (gp2)               | \$10 (I/O-Optimized)             | \$10 (I/O-Optimized)           | \$10 (I/O-Optimized)           |
+| Backup            | Included                     | Free up to DB size\*     | Free up to DB size          | Free up to DB size          | \$0.021/GB\*                     | \$0.021/GB                     | \$0.021/GB                     |
+| Bandwidth (500GB) | \$22.50 (included)           | \$45 (\$0.09/GB)         | \$45 (\$0.09/GB)            | \$45 (\$0.09/GB)            | \$45 (\$0.09/GB)                 | \$45 (\$0.09/GB)               | \$45 (\$0.09/GB)               |
+| **Total/Month**   | **\$145**                    | **\$186**                | **\$138**                   | **\$112.50**                | **\$266**                        | **\$193**                      | **\$161**                      |
 
-- Supabase bundles more services into a flat monthly fee, good for predictable budgeting.
-- RDS reserved instances save **\~25-30%**, making it a great option for apps with stable, long-term workloads.
-- Aurora is for apps needing **extremely high performance**, though at a cost.
+- **Supabase (Large)** bundles all costs and removes infrastructure complexity — ideal for fast-moving teams.
+- **RDS Reserved** (especially 3-year) cuts monthly bills by over 50%.
+- **Aurora Reserved** costs more, but adds built-in high availability, multi-AZ replication, and better scaling.
 
-## 3. Scaling Up: 500GB+ Storage, Heavy Compute
+## 3. Heavy Workload (500GB+ Storage, High Throughput)
 
-Now let’s model **serious workloads**: a database with large storage, high uptime, and frequent read/write operations.
+For mission-critical workloads with large storage, high concurrency, and peak traffic, this tier shows how pricing stacks up across platforms.
 
-| Feature              | Supabase 2XL | RDS r5.xlarge (On-Demand) | RDS r5.xlarge (1yr Reserved) | Aurora I/O-Optimized |
-| -------------------- | ------------ | ------------------------- | ---------------------------- | -------------------- |
-| Compute              | \$410        | \$422                     | \$246                        | \$422                |
-| 500GB Storage        | \$62.50      | \$57.50                   | \$57.50                      | \$50                 |
-| IOPS / Throughput    | Included     | \$100+ (io1 est.)         | \$100+                       | Included             |
-| Backup (500GB extra) | Included     | \$47.50                   | \$47.50                      | \$10.50              |
-| Bandwidth (1TB)      | \$67.50      | \$90                      | \$90                         | \$90                 |
-| **Total/Month**      | **\$540**    | **\$717**                 | **\$541**                    | **\$572**            |
+| Feature              | Supabase 2XL               | RDS r5.xlarge (On-Demand) | RDS r5.xlarge (1yr Reserved) | RDS r5.xlarge (3yr Reserved) | Aurora r5.xlarge (On-Demand)     | Aurora r5.xlarge (1yr Reserved) | Aurora r5.xlarge (3yr Reserved) |
+| -------------------- | -------------------------- | ------------------------- | ---------------------------- | ---------------------------- | -------------------------------- | ------------------------------- | ------------------------------- |
+| Monthly Price        | \$410 (flat)\*             | \$422                     | \$246                        | \$170                    | \$422                            | \$287                           | \$210                       |
+| Compute              | 4 vCPU (shared) / 16GB RAM | 4 vCPU / 32GB RAM         | 4 vCPU / 32GB RAM            | 4 vCPU / 32GB RAM            | 4 vCPU / 32GB RAM                | 4 vCPU / 32GB RAM               | 4 vCPU / 32GB RAM               |
+| Compute Type         | Shared container           | Dedicated EC2 (x86)       | Dedicated EC2 (x86)          | Dedicated EC2 (x86)          | Aurora cluster (I/O-Optimized)\* | Aurora cluster (I/O-Optimized)  | Aurora cluster (I/O-Optimized)  |
+| OS Access            | No                         | Yes                       | Yes                          | Yes                          | Yes                              | Yes                             | Yes                             |
+| Storage (500GB)      | Included                   | \$57.50 (gp2)             | \$57.50 (gp2)                | \$57.50 (gp2)                | \$50 (I/O-Optimized)             | \$50 (I/O-Optimized)            | \$50 (I/O-Optimized)            |
+| IOPS / Throughput    | Included (abstracted)\*    | \$100+ (io1 estimated)\*  | \$100+ (io1 estimated)       | \$100+ (io1 estimated)       | Included                         | Included                        | Included                        |
+| Backup (500GB extra) | Included                   | \$47.50\*                 | \$47.50                      | \$47.50                      | \$10.50                          | \$10.50                         | \$10.50                         |
+| Bandwidth (1TB)      | Included                   | \$90 (\$0.09/GB)          | \$90 (\$0.09/GB)             | \$90 (\$0.09/GB)             | \$90 (\$0.09/GB)                 | \$90 (\$0.09/GB)                | \$90 (\$0.09/GB)                |
+| **Total/Month**      | **\$410**                  | **\$717**                 | **\$541**                    | **\$465**                    | **\$572**                        | **\$437**                       | **\$361**                       |
 
-- At scale, **RDS Reserved and Supabase 2XL are neck-and-neck** on cost.
-- Supabase remains simpler; RDS offers more control over tuning IOPS, backups, and encryption.
-- Aurora shines for **mission-critical apps** needing fast failover, multi-region, or high concurrency.
+- **Supabase 2XL** is an all-inclusive bundle that scales without requiring DBAs or infra tuning.
+- **RDS Reserved** (3yr) delivers maximum cost-efficiency if your workload is stable.
+- **Aurora Reserved** is ideal for high-volume, multi-region, or high-availability requirements.
 
 ## Cost Reference for Storage & Compute
 
-| Metric        | Supabase     | AWS RDS (On-Demand) | AWS RDS (Reserved) | Aurora                |
-| ------------- | ------------ | ------------------- | ------------------ | --------------------- |
-| Storage       | \$0.125/GB   | \$0.115/GB          |  \$0.115/GB               | \$0.10–\$0.225/GB     |
-| Backup        | Included     | \$0.095/GB          | \$0.095/GB              | \$0.021/GB (snapshot) |
-| Bandwidth     | 250GB incl.  | \$0.09/GB outbound  | \$0.09/GB outbound             | \$0.09/GB outbound                |
-| Compute Range | \$10–\$3,730 | \$11–\$1,688        | \$6–\$1,080        | \$67–\$3,376          |
+| Metric        | Supabase            | AWS RDS (On-Demand) | AWS RDS (Reserved)\* | Aurora (I/O-Optimized)\* |
+| ------------- | ------------------- | ------------------- | -------------------- | ------------------------ |
+| **Storage**   | \$0.125/GB          | \$0.115/GB (gp2)\*  | \$0.115/GB (gp2)   | \$0.10–\$0.225/GB\*      |
+| **Backup**    | Included            | \$0.095/GB\*        | \$0.095/GB         | \$0.021/GB (snapshot)\*  |
+| **Bandwidth** | 250GB  outbound included    | \$0.09/GB outbound  | \$0.09/GB outbound   | \$0.09/GB outbound       |
+| **Compute**   | \$10–\$3,730 (flat) | \$11–\$1,688        | \$6–\$1,080          | \$67–\$3,376             |
 
 - **Reserved pricing** can reduce compute cost by 30–60%, especially for year-long or 3-year commitments.
 - Aurora charges **by I/O operations**, unless you're on their newer I/O-optimized pricing model.
 
+## 🧠 Explanatory Notes for \*-Marked Items
+
+- **t4g.micro (burstable)**: AWS uses burstable instances like `t4g.micro` for its Free and entry-level RDS tiers. These provide 2 ARM-based vCPUs with a CPU credit system — ideal for low-to-moderate workloads with occasional spikes.
+
+- **gp2 Storage (AWS)**: gp2 volumes offer 3 IOPS per GB, with a **minimum baseline of 100 IOPS** at 20GB. They also include **burst capacity**, giving better performance than basic shared storage.
+
+- **Supabase Flat Pricing**: Supabase’s pricing includes compute, storage, backups, and bandwidth in a **single monthly rate** — simplifying cost tracking and reducing surprise bills.
+
+- **Backup Costs (AWS)**: RDS provides **free backup storage up to the size of your DB**. Additional snapshot storage is charged at:
+
+  - \$0.095/GB for RDS
+  - \$0.021/GB for Aurora
+
+- **Aurora I/O-Optimized**: This newer Aurora pricing tier eliminates per-I/O charges and instead bills a flat rate per GB stored. Ideal for write-heavy or high-throughput workloads with unpredictable I/O.
+
+- **IOPS Costs (RDS)**: For high-performance needs, RDS users may upgrade to `io1` or `gp3` storage with provisioned IOPS — typically adding \$100+ per month for workloads requiring consistent low-latency throughput.
+
+- **Reserved Pricing (AWS)**: RDS and Aurora support **1-year and 3-year reservations**, reducing monthly compute costs by 30–60%. These are billed upfront or monthly and require workload stability.
+
 ## Final Recommendations
 
-| Use Case                           | Best Choice      | Why                                               |
-| ---------------------------------- | ---------------- | ------------------------------------------------- |
-| Free hobby project                 | Supabase Free    | No time limit, zero config                        |
-| Low-cost dev/test DB               | Supabase Pro     | Simple, includes bandwidth                        |
-| AWS trial or AWS-focused team      | AWS Free Tier    | Best compute/storage combo for 1 year             |
-| Cost-sensitive production workload | **RDS Reserved** | Big savings if long-term stable usage             |
-| Simple mid-sized app               | Supabase or RDS  | Depends on whether you want simplicity or control |
-| High write/read throughput         | Aurora           | Built for performance at scale                    |
-| Multi-region / enterprise scale    | Aurora or RDS    | Multi-AZ, replication, fine-grained tuning        |
-| No-ops, no-config DB experience    | Supabase         | Just works, no DBA needed                          |
+| Use Case                           | Best Choice      | Price Range (Monthly) | Why                                                                 |
+| ---------------------------------- | ---------------- | --------------------- | ------------------------------------------------------------------- |
+| Free hobby project                 | Supabase Free    | \$0                   | No time limit, zero config                                          |
+| Low-cost dev/test DB               | Supabase Pro     | \$25                  | Simple flat rate, includes compute, storage, and bandwidth          |
+| AWS trial or AWS-focused team      | AWS Free Tier    | \$0 (12 mo)           | Best value compute & storage for teams already using AWS            |
+| Cost-sensitive production workload | RDS Reserved | \$4.76–\$96        | Long-term commitment cuts RDS compute cost by up to 60%             |
+| Simple mid-sized app               | Supabase or RDS  | \$110–\$186           | Supabase for ease, RDS for control & cost tuning                    |
+| High write/read throughput         | Aurora Reserved  | \$96–\$437         | Built-in performance, replication, and I/O-optimized pricing        |
+| Multi-region / enterprise scale    | Aurora or RDS    | \$161–\$717           | Supports replication, multi-AZ, and enterprise-grade configurations |
+| No-ops, no-config DB experience    | Supabase         | \$25–\$410            | Fully managed, scales without touching infra                        |
 
 ## Conclusion
 
