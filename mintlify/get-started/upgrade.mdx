@@ -36,6 +36,14 @@ Take Docker as an example:
 
    <TerminalDockerRunVolume />
 
+   <Note>
+
+   Sometimes, we cherrypick the changes to the existing version. So when Bytebase starts next time, it will self-upgrade.
+   If you want to disable this, you could use the digest to pin the exact commit. For example,
+   [bytebase/bytebase:3.7.0@sha256:00b436855b08739aad02fd52e41b5d74c03db9c70c49ce5de42376347cd1403c](https://hub.docker.com/repository/docker/bytebase/bytebase/tags/3.7.0/sha256-29be3c651d4fc93c6aab37046b41128015a9be5d6f02b2490353962c469c5110).
+
+   </Note>
+
 ## Version Management
 
 Bytebase adopts [Semantic Versioning](https://semver.org/) using the MAJOR.MINOR.PATCH format.
