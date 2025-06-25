@@ -68,7 +68,7 @@ While both Bytebase and StrongDM are tools that can solve database Just-in-time 
 ### Developer interface
 
 - **StrongDM**: A web-based GUI and a command-line tool. It also offers Application Programming Interface (API) and Terraform Provider.
-- **Bytebase**: A web-based GUI tool. It also provides [API](https://docs.bytebase.com/api/overview/) and [Terraform Provider](https://docs.bytebase.com/get-started/terraform/).
+- **Bytebase**: A web-based GUI tool. It also provides [API](https://docs.bytebase.com/api/overview/) and [Terraform Provider](https://docs.bytebase.com/integrations/terraform/overview/).
 
 ### Supported databases
 

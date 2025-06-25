@@ -249,7 +249,10 @@
           {
             "group": "3rd Party",
             "pages": [
-              "get-started/terraform",
+              {
+                "group": "Terraform",
+                "pages": ["integrations/terraform/overview", "integrations/terraform/troubleshoot"]
+              },
               "integrations/slack",
               "integrations/jira",
               "integrations/supabase",

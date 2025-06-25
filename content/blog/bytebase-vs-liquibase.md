@@ -56,7 +56,7 @@ for developers and DBAs to collaborate.
 ### Developer interface
 
 - **Liquibase**: A command-line tool. A simple graphical user interface (GUI) called Liquibase Hub is available with the Pro Plan, but it has sunset in May 2023.
-- **Bytebase**: A web-based GUI tool. It also provides [application programming interface (API)](https://docs.bytebase.com/api/overview/), [Terraform Provider](https://docs.bytebase.com/get-started/terraform/), and [GitHub App](https://docs.bytebase.com/sql-review/github-app).
+- **Bytebase**: A web-based GUI tool. It also provides [application programming interface (API)](https://docs.bytebase.com/api/overview/), [Terraform Provider](https://docs.bytebase.com/integrations/terraform/overview/), and [GitHub App](https://docs.bytebase.com/sql-review/github-app).
 
 ### Supported databases
 

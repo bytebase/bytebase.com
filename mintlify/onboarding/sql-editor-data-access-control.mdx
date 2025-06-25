@@ -6,12 +6,12 @@ title: SQL Editor Data Access Control
 
 Traditional local SQL clients like DBeaver and Navicat carries security limitations that Bytebase's centralized approach solves:
 
-| Traditional SQL Clients | Bytebase Solution |
-|-------------------------|-------------------|
+| Traditional SQL Clients                                                                       | Bytebase Solution                                                                                         |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | **Distributed Credentials**: Stored locally in plain text, manual revocation, multiple copies | **Centralized Credentials**: Never leave platform, SSO authentication, directory sync, instant revocation |
-| **No Fine-Grained Access**: All-or-nothing database access, no table/column restrictions | **Granular Control**: Database, schema, table-level restrictions with column masking |
-| **Missing Audit Trails**: Zero visibility, no centralized logging, compliance violations | **Complete Auditing**: Every query, change, and admin action logged with full context |
-| **Time-Based Access Gaps**: No temporary access, permanent until revoked | **Just-in-Time Access**: Request-based temporary access with approval workflows |
+| **No Fine-Grained Access**: All-or-nothing database access, no table/column restrictions      | **Granular Control**: Database, schema, table-level restrictions with column masking                      |
+| **Missing Audit Trails**: Zero visibility, no centralized logging, compliance violations      | **Complete Auditing**: Every query, change, and admin action logged with full context                     |
+| **Time-Based Access Gaps**: No temporary access, permanent until revoked                      | **Just-in-Time Access**: Request-based temporary access with approval workflows                           |
 
 ## Test vs Production Setup
 
@@ -22,11 +22,10 @@ Below we demonstrate a two environment setup, one for test and one for productio
 [Statement execution mode](/administration/environment-policy/overview/#statement-execution-mode) controls
 whether users can run DDL and DML directly in the SQL Editor at the environment level.
 
-|  | Test | Prod |
-|--|------|------|
-| Allow running DDL | ✅ | ❌ |
-| Allow running data-modifying DML | ✅ | ❌ |
-
+|                                  | Test | Prod |
+| -------------------------------- | ---- | ---- |
+| Allow running DDL                | ✅   | ❌   |
+| Allow running data-modifying DML | ✅   | ❌   |
 
 For the production environment, we disable both DDL and DML execution and require all changes to go through the [approval workflow](/change-database/change-workflow).
 
@@ -69,7 +68,6 @@ For data privacy reasons, Bytebase does not log the actual data in the query res
 Every query is [audit logged](/administration/audit-log). From the audit logging view, you can see the actor, the database, the SQL statement, and the result.
 and the returned columns.
 
-
 <Tabs>
   <Tab title="Dashboard">
     ![grant](/content/docs/onboarding/sql-editor-data-access-control/audit-log-dashboard.webp)
@@ -86,24 +84,16 @@ and the returned columns.
 
 Below is a summary of the access control settings for the test and production environments.
 
-|  | Test | Prod |
-|--|------|------|
-| Allow running DDL | ✅ | ❌ |
-| Allow running data-modifying DML | ✅ | ❌ |
-| Fine-grained EXPLAIN, Query, Export | ✅ | ✅ |
-| Just-in-Time Access | ✅ | ✅  |
-| Audit Logging | ✅ | ✅ |
+|                                     | Test | Prod |
+| ----------------------------------- | ---- | ---- |
+| Allow running DDL                   | ✅   | ❌   |
+| Allow running data-modifying DML    | ✅   | ❌   |
+| Fine-grained EXPLAIN, Query, Export | ✅   | ✅   |
+| Just-in-Time Access                 | ✅   | ✅   |
+| Audit Logging                       | ✅   | ✅   |
 
 You can extend the solution by exploring the following features:
 
 - Create [user groups](/administration/user-groups) and enable [directory sync](/administration/scim/overview) to automate the role assignment.
 - Configure [data masking](/security/data-masking/overview) to mask sensitive data.
-- Use [Terraform](/get-started/terraform) to codify all the settings.
-
-
-
-
-
-
-
-
+- Use [Terraform](/integrations/terraform/overview) to codify all the settings.

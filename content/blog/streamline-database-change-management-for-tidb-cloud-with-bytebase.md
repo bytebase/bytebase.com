@@ -61,7 +61,7 @@ provider "tidbcloud" {
 }
 ```
 
-1. Integrate TiDB Instances into the Bytebase change management process with the Bytebase Terraform provider. For more details, see [Manage Bytebase with Terraform](https://docs.bytebase.com/get-started/terraform#configure-bytebase-terraform-provider).
+1. Integrate TiDB Instances into the Bytebase change management process with the Bytebase Terraform provider. For more details, see [Manage Bytebase with Terraform](https://docs.bytebase.com/integrations/terraform/overview#configure-bytebase-terraform-provider).
 
 For example, the following code adds the specified TiDB Cloud instance into Bytebase:
 
