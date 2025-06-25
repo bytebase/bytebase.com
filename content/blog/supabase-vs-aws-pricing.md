@@ -155,8 +155,8 @@ AWS has generous limits — but database and storage expire after 12 months.
 #### AWS
 
 - On-Demand – **\$75.00/month**
-- 1-Year RI Estimate: **~\$68.43/month**
-- 3-Year RI Estimate: **~\$61.47/month**
+- 1-Year RI Estimate: **~\$67.73/month**
+- 3-Year RI Estimate: **~\$59.47/month**
 
 | Service            | Cost (On-Demand) | 1-Year RI (est. -30%) | 3-Year RI (est. -60%) | Notes                 |
 | ------------------ | ---------------- | --------------------- | --------------------- | --------------------- |
@@ -188,8 +188,8 @@ AWS has generous limits — but database and storage expire after 12 months.
 #### AWS
 
 - On-Demand – **\$2,325.59/month**
-- 1-Year RI Estimate: **~\$2,083.09/month**
-- 3-Year RI Estimate: **~\$1,764.19/month**
+- 1-Year RI Estimate: **~\$2,000.69/month**
+- 3-Year RI Estimate: **~\$1,675.79/month**
 
 | Service                    | Cost (On-Demand) | 1-Year RI (est. -30%) | 3-Year RI (est. -60%) | Notes              |
 | -------------------------- | ---------------- | --------------------- | --------------------- | ------------------ |
@@ -225,8 +225,8 @@ AWS has generous limits — but database and storage expire after 12 months.
 #### AWS
 
 - On-Demand – **\$73,122.81/month**
-- 1-Year RI Estimate: **~\$64,309.12/month**
-- 3-Year RI Estimate: **~\$56,121.01/month**
+- 1-Year RI Estimate: **~\$62,330.91/month**
+- 3-Year RI Estimate: **~\$51,539.00/month**
 
 | Service                   | Cost (On-Demand) | 1-Year RI (est. -30%) | 3-Year RI (est. -60%) | Notes                            |
 | ------------------------- | ---------------- | --------------------- | --------------------- | -------------------------------- |
@@ -262,8 +262,8 @@ AWS has generous limits — but database and storage expire after 12 months.
 #### AWS
 
 - On-Demand – **\$246,392.81/month**
-- 1-Year RI Estimate: **\~\$219,400.00/month**
-- 3-Year RI Estimate: **\~\$191,800.00/month**
+- 1-Year RI Estimate: **~\$222,726.14/month**
+- 3-Year RI Estimate: **~\$199,059.47/month**
 
 | Service                    | On-Demand    | 1-Year RI (est. -30%) | 3-Year RI (est. -60%) | Notes                        |
 | -------------------------- | ------------ | --------------------- | --------------------- | ---------------------------- |
