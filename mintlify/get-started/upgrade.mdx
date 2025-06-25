@@ -36,14 +36,6 @@ Take Docker as an example:
 
    <TerminalDockerRunVolume />
 
-   <Note>
-
-   Sometimes, we cherrypick the changes to the existing version. So when Bytebase starts next time, it will self-upgrade.
-   If you want to disable this, you could use the digest to pin the exact commit. For example,
-   [bytebase/bytebase:3.7.0@sha256:00b436855b08739aad02fd52e41b5d74c03db9c70c49ce5de42376347cd1403c](https://hub.docker.com/repository/docker/bytebase/bytebase/tags/3.7.0/sha256-29be3c651d4fc93c6aab37046b41128015a9be5d6f02b2490353962c469c5110).
-
-   </Note>
-
 ## Version Management
 
 Bytebase adopts [Semantic Versioning](https://semver.org/) using the MAJOR.MINOR.PATCH format.
@@ -57,6 +49,35 @@ Bytebase ties the version number with the underlying database schema progression
      try to avoid that if possible.
    - `MINOR` version is changed when the underlying database schema changes. While the upgrade does not require customer involvement. `MINOR` version change usually happens about once every month.
    - `PATCH` version is changed when the new version does not include underlying database schema changes. `PATCH` version change usually happens bi-weekly following our release schedule.
+
+## Docker Image Version
+
+Certain changes maybe cherry-picked into the existing version. So when Bytebase starts next time, it will self-upgrade.
+If you don't want this behavior, you could use the image digest to pin the exact commit. For example,
+
+```bash
+# https://hub.docker.com/repository/docker/bytebase/bytebase/tags/3.7.0/sha256-29be3c651d4fc93c6aab37046b41128015a9be5d6f02b2490353962c469c5110
+docker pull bytebase/bytebase:3.7.0@sha256:00b436855b08739aad02fd52e41b5d74c03db9c70c49ce5de42376347cd1403c
+```
+
+The docker image is built with [OpenContainers Annotations](https://specs.opencontainers.org/image-spec/annotations/):
+
+```bash
+docker inspect bytebase/bytebase:3.7.0 | jq -r '.[0].Config.Labels'
+{
+  "org.opencontainers.image.revision": "fb430b0626c33d3431e750dc0cc446f3c8a434a8",
+  "org.opencontainers.image.version": "3.7.0"
+}
+```
+
+- `org.opencontainers.image.revision` is the git commit hash, in the example, it corresponds to the [particular git commit](https://github.com/bytebase/bytebase/commit/fb430b0626c33d3431e750dc0cc446f3c8a434a8)
+- `org.opencontainers.image.version` is the release version, in the example, it corresponds to the [3.7.0 release branch](https://github.com/bytebase/bytebase/commits/release/3.7.0).
+
+If you want to check the commit history for the image, the best way is to visit the release branch page and locate the commit:
+
+![release-commit](/content/docs/get-started/upgrade/release-commit.webp)
+
+## Upgrade from Old Version
 
 ### Upgrade from 3.3.1
 
