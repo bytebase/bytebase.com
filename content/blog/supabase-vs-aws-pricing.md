@@ -242,6 +242,43 @@ AWS has generous limits — but database and storage expire after 12 months.
 
 ⚠️ **Enterprise-grade everything — but costs are 3–4x higher.**
 
+### 🧠 4. Hyperscale (10M MAUs, 10TB DB, 200TB Storage, 500TB Bandwidth)
+
+#### Supabase – **\$98,914.90/month**
+
+| Service              | Cost        | Notes                                 |
+| -------------------- | ----------- | ------------------------------------- |
+| Enterprise Plan      | \$1,999.00  | Premium support, SLA, dedicated infra |
+| DB Storage (9.99TB)  | \$1,248.75  | \$0.125/GB beyond base                |
+| Compute (Max Tier)   | \$4,000.00  | Dedicated instances, 64-core          |
+| Auth (9.9M MAUs)     | \$32,175.00 | \$0.00325/MAU over 100K               |
+| Storage (199.9TB)    | \$4,197.90  | \$0.021/GB beyond base                |
+| Bandwidth (499.75TB) | \$44,977.50 | \$0.09/GB over included 250GB         |
+| Edge Functions       | \$5,000.00  | Custom tier for heavy edge workloads  |
+| Messaging            | \$5,317.75  | Estimated at \$0.001/1K events        |
+
+✅ **Transparent, single-vendor solution. Pricing scales linearly.**
+
+#### AWS
+
+- On-Demand – **\$246,392.81/month**
+- 1-Year RI Estimate: **\~\$219,400.00/month**
+- 3-Year RI Estimate: **\~\$191,800.00/month**
+
+| Service                    | On-Demand    | 1-Year RI (est. -30%) | 3-Year RI (est. -60%) | Notes                        |
+| -------------------------- | ------------ | --------------------- | --------------------- | ---------------------------- |
+| RDS (r6i.8xlarge Multi-AZ) | \$10,560.00  | \$7,392.00            | \$4,224.00            | 32 vCPU, 256GB RAM x2        |
+| RDS Storage (10TB IOPS)    | \$12,500.00  | —                     | —                     | High IOPS SSD                |
+| Cognito (9.9M MAUs)        | \$148,500.00 | —                     | —                     | \$0.015 per MAU              |
+| Lambda (10B execs)         | \$33,333.33  | \$23,333.33           | \$13,333.33           | 2GB, 1s exec duration        |
+| S3 (200TB)                 | \$4,000.00   | —                     | —                     | Tiered pricing               |
+| Bandwidth (500TB)          | \$35,000.00  | —                     | —                     | Tiered egress                |
+| API Gateway (10B reqs)     | \$6,000.00   | —                     | —                     | \$3.50/million HTTP requests |
+| CloudWatch                 | \$1,000.00   | —                     | —                     | Extended logs and metrics    |
+| SQS (1B messages)          | \$499.48     | —                     | —                     | \$0.40 per million messages  |
+
+⚠️ **AWS offers fine-grained scaling — but total cost is 2–3x Supabase.** Reserved pricing helps but long-term commitment required.
+
 ---
 
 ## Final Thoughts
