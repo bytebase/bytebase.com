@@ -68,6 +68,13 @@ docker inspect bytebase/bytebase:3.7.0 | jq -r '.[0].Config.Labels'
   "org.opencontainers.image.revision": "fb430b0626c33d3431e750dc0cc446f3c8a434a8",
   "org.opencontainers.image.version": "3.7.0"
 }
+
+# Digest also works
+docker inspect bytebase/bytebase:3.7.0@sha256:00b436855b08739aad02fd52e41b5d74c03db9c70c49ce5de42376347cd1403c | jq -r '.[0].Config.Labels'
+{
+  "org.opencontainers.image.revision": "ec5d81d554287258095377c076528d8ab6664fa0",
+  "org.opencontainers.image.version": "3.7.0"
+}
 ```
 
 - `org.opencontainers.image.revision` is the git commit hash, in the example, it corresponds to the [particular git commit](https://github.com/bytebase/bytebase/commit/fb430b0626c33d3431e750dc0cc446f3c8a434a8)
