@@ -117,11 +117,6 @@ module.exports = {
         permanent: true,
       },
       {
-        source: `/docs/get-started/install/build-from-source-code`,
-        destination: '/docs/get-started/self-host/#build-from-source',
-        permanent: true,
-      },
-      {
         source: `/docs/security/mask-data`,
         destination: '/docs/security/data-masking/overview',
         permanent: true,

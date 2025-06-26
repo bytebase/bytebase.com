@@ -15,11 +15,10 @@ Self-host is for business with security/compliance requirements. Bytebase offers
 - Check [External PostgreSQL Prerequisites](/get-started/install/external-postgres/) if you configure it.
 - If you use gateway such as Nginx, enable [WebSocket](/get-started/self-host/#enable-websocket-for-sql-editor) for SQL Editor autocomplete to work.
 
-<Columns cols={4}>
+<Columns cols={3}>
   <Card title="Docker" href="#docker" icon="container" />
   <Card title="Kubernetes" href="#kubernetes" icon="ship-wheel" />
   <Card title="AWS Fargate" href="#aws-fargate" icon="aws" />
-  <Card title="From Source" href="#build-from-source" icon="code" />
 </Columns>
 
 ## Docker
@@ -442,71 +441,6 @@ Please follow the [Persistent volumes and dynamic provisioning](https://cloud.go
 1. Click **Open address** to access Bytebase.
 
 ![aws-task-network-bindings](/content/docs/get-started/install/aws-task-network-bindings.webp)
-
-## Build from Source
-
-<Note>
-
-Due to the uncontrolled nature of building from source, we only provide technical assistance to the Enterprise
-customers.
-
-</Note>
-
-**Prerequisites**
-
-1. Install [pnpm](https://pnpm.io/installation), Bytebase requires Node.js >=17.0.
-1. Install [Go](https://golang.org/dl/), Bytebase requires Go >= 1.16
-1. It's recommended to run Bytebase application as non-root user for security reason. If you don't have other non-root users on the system, you can follow the following steps to create one, e.g. user `bytebase`.
-
-   ```text
-   groupadd bytebase && useradd -g bb bytebase
-   ```
-
-   ```text
-   sudo su bytebase
-   ```
-
-Download [source code](https://github.com/bytebase/bytebase) from GitHub, then go to the source root directory
-
-<Info>
-
-If you want to build from a specific release such as `3.7.1`, then switch to that release tag.
-
-</Info>
-
-```text
-git checkout tags/3.7.1
-```
-
-Build the source
-
-```text
-scripts/build_bytebase.sh [<<out_directory>>]
-```
-
-If `out_directory`is not specified, the default directory is `./bytebase-build`
-
-Suppose you run `scripts/build_bytebase.sh foo` After build completes, run:
-
-```text
-foo/bytebase --port 8080
-```
-
-(check [Server Startup Options](/reference/command-line) for other startup options)
-
-You should see something like this in the console:
-
-<TerminalStartupOutputSuccess />
-
-### Troubleshoot
-
-#### error: too many open files
-
-Change the open file limit:
-
-```text
-ulimit -n 10240
-```
 
 ## Deploy to PaaS
 
