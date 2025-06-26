@@ -95,6 +95,14 @@ These errors relate to creating, dropping, or modifying database objects and the
   HINT: You can drop constraint "orders_user_id_fkey" on table "orders" instead.
   ```
 
+- [**ERROR**](/reference/postgres/error/cannot-change-return-type-of-existing-function): Cannot change return type of existing function
+
+  ```sql
+  ERROR: cannot change return type of existing function
+  DETAIL: Row type defined by OUT parameters is different.
+  HINT: Use DROP FUNCTION first.
+  ```
+
 ## Permission & Authentication Errors
 
 These errors relate to user permissions, ownership, and access control issues.

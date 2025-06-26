@@ -31,6 +31,8 @@
 
 ### [ERROR 2BP01: cannot drop constraint used by foreign key constraint](/reference/postgres/error/2bp01-cannot-drop-constraint-used-by-foreign-key-constraint-postgres)
 
+### [ERROR: cannot change return type of existing function](/reference/postgres/error/cannot-change-return-type-of-existing-function)
+
 ## Permission & Authentication
 
 ### [ERROR 42501: permission denied for table](/reference/postgres/error/42501-permission-denied-for-table-postgres)
