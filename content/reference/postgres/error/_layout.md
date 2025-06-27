@@ -33,6 +33,8 @@
 
 ### [ERROR: cannot change return type of existing function](/reference/postgres/error/cannot-change-return-type-of-existing-function)
 
+### [ERROR: cannot change name of input parameter](/reference/postgres/error/cannot-change-name-of-input-parameter)
+
 ## Permission & Authentication
 
 ### [ERROR 42501: permission denied for table](/reference/postgres/error/42501-permission-denied-for-table-postgres)

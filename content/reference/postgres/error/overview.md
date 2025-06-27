@@ -103,6 +103,14 @@ These errors relate to creating, dropping, or modifying database objects and the
   HINT: Use DROP FUNCTION first.
   ```
 
+- [**ERROR**](/reference/postgres/error/cannot-change-name-of-input-parameter): Cannot change name of input parameter
+
+  ```sql
+  ERROR: cannot change name of input parameter
+  DETAIL: Input parameter "old_name" would be renamed to "new_name".
+  HINT: Use DROP FUNCTION first.
+  ```
+
 ## Permission & Authentication Errors
 
 These errors relate to user permissions, ownership, and access control issues.
