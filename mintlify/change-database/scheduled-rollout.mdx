@@ -47,9 +47,24 @@ After clicking **Cancel**, you may edit the SQL and restart the rollout process 
 
 ## Workflow Summary
 
-1. **Issue Creation**: Developer creates issue with migration script and timing requirements
-2. **Review & Approval**: Approver reviews the issue and timing constraints
-3. **Schedule Decision**: Approver/Releaser determines optimal rollout time
-4. **Execution**: Scheduled rollout runs automatically at the designated time
+1. **Issue Creation**:
 
-This workflow ensures proper separation of responsibilities while maintaining clear communication about rollout timing requirements.
+   - Developer creates issue with complete migration script
+   - Optionally specifies timing requirements in title, description, or labels
+   - If timing is critical, provides justification for specific timing needs (e.g., maintenance window, low traffic period)
+
+2. **Review & Approval**:
+
+   - Approver reviews the migration script for correctness and safety
+   - Validates timing constraints and business impact
+   - Approves the issue once technical and timing requirements are satisfied
+
+3. **Task Execution**:
+   - Releaser receives approved issue and reviews any timing requirements
+   - By default, executes task immediately upon action
+   - Releaser can choose to schedule the task for a specific time based on:
+     - Issue creator's timing requirements
+     - Operational constraints (maintenance windows, traffic patterns)
+     - Business impact considerations
+
+This workflow ensures proper separation of responsibilities: developers focus on creating quality migration scripts and communicating timing needs, while experienced operators handle the critical scheduling and execution decisions for production rollouts.
