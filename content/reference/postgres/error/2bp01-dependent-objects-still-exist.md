@@ -36,7 +36,6 @@ This error occurs when you try to drop a schema that still contains database obj
    -- Drop tables first
    DROP TABLE public.users;
    DROP TABLE public.orders;
-   -- Drop other objects...
 
    -- Then drop the schema
    DROP SCHEMA public;
@@ -56,15 +55,14 @@ This error occurs when you try to drop a schema that still contains database obj
    ```
 
 4. **List dependent objects** to handle them systematically:
+
    ```sql
    SELECT n.nspname as schema,
           c.relname as name,
           CASE c.relkind WHEN 'r' THEN 'table'
                          WHEN 'v' THEN 'view'
                          WHEN 'm' THEN 'materialized view'
-                         WHEN 'i' THEN 'index'
                          WHEN 'S' THEN 'sequence'
-                         WHEN 's' THEN 'special'
                          WHEN 'f' THEN 'foreign table' END as type
    FROM pg_catalog.pg_class c
    JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
@@ -78,8 +76,8 @@ This error occurs when you try to drop a schema that still contains database obj
 - Create dedicated schemas for different application components
 - Document schema dependencies and ownership
 
-<HintBlock type="info">
+<HintBlock type="warning">
 
-While using DROP SCHEMA ... CASCADE is the quickest solution, it's potentially destructive. Always back up your database before performing this operation in production environments.
+Using CASCADE will permanently delete all objects in the schema. Always create a backup before using this option in production environments.
 
 </HintBlock>

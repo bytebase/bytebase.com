@@ -2,10 +2,6 @@
 title: 'ERROR 42P07: Relation already exists in Postgres'
 ---
 
-| Code    | Name              | Class                                            |
-| ------- | ----------------- | ------------------------------------------------ |
-| `42P07` | `duplicate_table` | Syntax Error or Access Rule Violation (Class 42) |
-
 ## Error Message
 
 ```sql
@@ -78,9 +74,3 @@ CREATE TABLE my_schema.your_table_name (
 3. Use schema version tracking
 4. Follow consistent naming conventions
 5. Wrap related DDL statements in transactions
-
-<HintBlock type="info">
-
-This error applies to all relations (tables, views, indexes), not just tables. The same prevention techniques apply to all these objects.
-
-</HintBlock>

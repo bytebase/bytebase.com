@@ -2,32 +2,49 @@
 title: 'How to fix pg_restore "input file appears to be a text format dump. please use psql"'
 ---
 
-This error occurs because you're trying to use `pg_restore` on a plain text SQL dump file, but `pg_restore` only works with binary or directory format dumps.
-
-### Option 1: Use psql instead
+## Error Message
 
 ```bash
-psql -U username -d database_name -f dump_file.sql
+pg_restore: error: input file appears to be a text format dump. Please use psql.
 ```
 
-### Option 2: Check if your dump is compressed
+## Description
 
-If your file has a .gz extension:
+This error occurs because you're trying to use `pg_restore` on a plain text SQL dump file, but `pg_restore` only works with binary or directory format dumps created with specific pg_dump flags.
 
-```bash
-gunzip -c dump_file.sql.gz | psql -U username -d database_name
-```
+## Dump Format Compatibility
 
-### Option 3: Create a custom/binary format dump
+- **Text format** (`.sql`): Use `psql` to restore
+- **Custom format** (`-Fc`): Use `pg_restore` to restore
+- **Directory format** (`-Fd`): Use `pg_restore` to restore
+- **Tar format** (`-Ft`): Use `pg_restore` to restore
 
-When creating dumps in the future, use the `-Fc` flag with pg_dump:
+## Solutions
 
-```bash
-pg_dump -Fc -d source_database > backup.dump
-```
+1. **Use psql instead of pg_restore**:
 
-Then you can use pg_restore with this file:
+   ```bash
+   psql -U username -d database_name -f dump_file.sql
+   ```
 
-```bash
-pg_restore -d target_database backup.dump
-```
+2. **For compressed dumps**, decompress and pipe to psql:
+
+   ```bash
+   gunzip -c dump_file.sql.gz | psql -U username -d database_name
+   ```
+
+3. **Create future dumps in custom format** for pg_restore compatibility:
+
+   ```bash
+   # Create dump in custom format
+   pg_dump -Fc -d source_database > backup.dump
+
+   # Restore using pg_restore
+   pg_restore -d target_database backup.dump
+   ```
+
+## Prevention
+
+- Use `pg_dump -Fc` for dumps that need pg_restore functionality
+- Use consistent naming conventions (`.sql` for text, `.dump` for custom format)
+- Document backup format requirements in your procedures

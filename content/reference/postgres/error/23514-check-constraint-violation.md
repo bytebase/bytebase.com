@@ -15,8 +15,7 @@ This error occurs when you try to insert or update a row with values that violat
 
 ## Causes
 
-- Inserting data that doesn't meet the condition specified in the CHECK constraint
-- Updating rows with values that violate the constraint
+- Inserting or updating data that doesn't meet the condition specified in the CHECK constraint
 - Constraint conditions that reference other columns or complex expressions
 - Misunderstanding the logic of the constraint
 
@@ -40,9 +39,7 @@ This error occurs when you try to insert or update a row with values that violat
    WHERE conname = 'check_age_positive';
    ```
 
-3. **For bulk operations**:
-
-   - Filter out non-compliant data before importing:
+3. **For bulk operations**, filter out non-compliant data before importing:
 
    ```sql
    INSERT INTO users (id, name, age)
@@ -62,9 +59,3 @@ This error occurs when you try to insert or update a row with values that violat
 - Document CHECK constraints for developers to understand data requirements
 - Use appropriate default values when possible
 - Consider using triggers for more complex validation logic
-
-<HintBlock type="info">
-
-The error message usually includes the name of the constraint ("check_age_positive" in this example) and the failing row data, which helps identify what violated the constraint.
-
-</HintBlock>

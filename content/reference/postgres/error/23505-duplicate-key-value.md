@@ -22,9 +22,7 @@ This error occurs when you attempt to insert or update a record with a value tha
 
 ## Solutions
 
-1. **For INSERT operations**:
-
-   - Use `INSERT ... ON CONFLICT` to handle duplicate entries gracefully:
+1. **Use `INSERT ... ON CONFLICT`** to handle duplicate entries gracefully:
 
    ```sql
    INSERT INTO users (id, name)
@@ -37,31 +35,17 @@ This error occurs when you attempt to insert or update a record with a value tha
    ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name;
    ```
 
-2. **For application code**:
-
-   - Check for existence before inserting:
+2. **Check for existence before inserting**:
 
    ```sql
    SELECT EXISTS(SELECT 1 FROM users WHERE id = 1);
    ```
 
-3. **For migrating data**:
-
-   - Remove duplicates from the source data before import
-   - Use a temporary table to identify and handle duplicates
-
-4. **For batch operations**:
-   - Use a unique temporary identifier if you need to temporarily violate constraints
+3. **For bulk operations**, remove duplicates from source data before import or use temporary tables to identify duplicates.
 
 ## Prevention
 
-- Use database-generated values (like serial or identity columns) for primary keys
+- Use database-generated values (serial or identity columns) for primary keys
 - Add validation in your application layer
 - Use transactions to verify data before committing changes
 - Consider using natural keys only when uniqueness is guaranteed
-
-<HintBlock type="info">
-
-The exact constraint name in the error message (e.g., "table_pkey") can help you identify which table and column has the conflict.
-
-</HintBlock>

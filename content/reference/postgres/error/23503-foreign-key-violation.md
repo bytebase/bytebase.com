@@ -9,14 +9,15 @@ ERROR: insert or update on table "child_table" violates foreign key constraint "
 DETAIL: Key (parent_id)=(100) is not present in table "parent_table".
 ```
 
+// ...existing code...
+
 ## Description
 
-This error occurs when you try to insert or update a row in a table with a foreign key reference, but the referenced value doesn't exist in the parent table. Foreign key constraints ensure referential integrity between tables.
+This error occurs when you try to insert or update a row with a foreign key reference, but the referenced value doesn't exist in the parent table. Foreign key constraints ensure referential integrity between tables.
 
 ## Causes
 
-- Inserting a row with a foreign key value that doesn't exist in the referenced table
-- Updating a foreign key column to a value that doesn't exist in the referenced table
+- Inserting or updating with a foreign key value that doesn't exist in the referenced table
 - Missing parent records in data import operations
 - Incorrect order of operations when inserting related data
 
@@ -64,9 +65,3 @@ This error occurs when you try to insert or update a row in a table with a forei
 - Use appropriate cascade options when defining foreign keys
 - Validate data before attempting inserts or updates
 - Consider using application-level validation for complex relationships
-
-<HintBlock type="info">
-
-The error message includes details about which foreign key constraint was violated and what value caused the problem, making it easier to troubleshoot.
-
-</HintBlock>
