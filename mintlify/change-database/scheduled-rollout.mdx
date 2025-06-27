@@ -11,7 +11,7 @@ When rolling out a change in Bytebase, you can choose to run it immediately or s
 **Developers/Issue Creators:**
 
 - Create issues with migration scripts but do not handle rollouts directly
-- Clearly specify rollout timing requirements in:
+- If timing requirements exist, specify them in one or more of these locations:
   - Issue title (e.g., "DB Migration - Deploy during maintenance window")
   - Issue description with detailed timing constraints
   - Labels (e.g., `rollout:night`, `rollout:maintenance-window`)
