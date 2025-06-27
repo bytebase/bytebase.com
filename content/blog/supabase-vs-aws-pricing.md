@@ -27,7 +27,7 @@ We’ll go **feature by feature**, then compare **total costs at different usage
 
 **Supabase:** Built-in PostgreSQL with real-time, REST API, and simple pricing.
 
-**AWS RDS:** Fully managed PostgreSQL with high configurability, performance tuning, and multi-AZ support.
+**AWS RDS/Aurora:** Fully managed PostgreSQL with high configurability, performance tuning, and multi-AZ support.
 
 🧬 Supabase is easier and more predictable. RDS gives more control and is better for compliance-heavy or complex workloads.
 
@@ -36,7 +36,7 @@ See our full comparison here: [Supabase vs AWS Database Pricing (2025)](/blog/su
 - Supabase bundles compute, storage, backup, and bandwidth into flat tiers.
 - AWS RDS offers cheaper options if you commit to Reserved Instances, but requires piecing together compute, storage, backup, and bandwidth costs.
 
-➡️ If you want predictable cost and fast setup, choose Supabase. If you need performance tuning or compliance, go with RDS.
+➡️ If you want more predictable cost and fast setup, choose Supabase. If you need performance tuning or compliance, go with RDS.
 
 ### 🔐 Auth: Supabase Auth vs AWS Cognito
 
@@ -46,19 +46,19 @@ See our full comparison here: [Supabase vs AWS Database Pricing (2025)](/blog/su
 
 🧬 **Supabase Auth is simpler and developer-friendly**, great for fast setup and apps with straightforward auth needs. **Cognito is better for enterprises** that require SSO, security compliance, and deep AWS integration.
 
-| Feature         | Supabase Auth          | AWS Cognito              |
-| --------------- | ---------------------- | ------------------------ |
-| Free Tier       | 50,000 MAUs            | 50,000 MAUs              |
-| Paid Pricing    | \$0.0015/MAU | \$0.0055/MAU             |
-| SSO Support     | Enterprise plan only   | Included (OIDC, SAML)    |
-| MFA / Passwords | Included               | Included                 |
-| Rate Limits     | Generous               | Strict (especially SAML) |
+| Feature         | Supabase Auth        | AWS Cognito              |
+| --------------- | -------------------- | ------------------------ |
+| Free Tier       | 50,000 MAUs          | 50,000 MAUs              |
+| Paid Pricing    | \$0.0015/MAU         | \$0.0055/MAU             |
+| SSO Support     | Enterprise plan only | Included (OIDC, SAML)    |
+| MFA / Passwords | Included             | Included                 |
+| Rate Limits     | Generous             | Strict (especially SAML) |
 
-➡️ **Choose Supabase if you want fast, simple auth for apps. Choose Cognito if SSO and federation matter.**
+➡️ Choose Supabase if you want fast, simple auth for your apps. However, as your business grows, your team will likely need a more sophisticated auth solution. Cognito is one option, but many teams also consider Okta, Azure Entra, or WorkOS.
 
 ### 📦 Storage: Supabase Storage vs AWS S3
 
-**Supabase:** App-friendly storage with built-in access control, REST API, and CDN.
+**Supabase:** S3-compatible storage with built-in access control, REST API, and CDN.
 
 **AWS S3:** Scalable object store with advanced features and global durability.
 
@@ -72,7 +72,7 @@ See our full comparison here: [Supabase vs AWS Database Pricing (2025)](/blog/su
 | Permissions  | Built-in (row-level) | IAM Policies          |
 | CDN          | Included             | Optional (CloudFront) |
 
-➡️ **Use Supabase for media, uploads, and frontend-friendly usage. Use S3 for scalable, secure, production storage.**
+➡️ It seems that Supabase Storage is built on top of AWS S3, providing an easy-to-use interface and lower pricing—likely due to volume discounts they can secure. The tradeoff is reduced flexibility in managing the underlying S3 buckets directly.
 
 ### ⚙️ Edge Functions: Supabase vs AWS Lambda
 
@@ -90,7 +90,7 @@ See our full comparison here: [Supabase vs AWS Database Pricing (2025)](/blog/su
 | Region         | Global edge             | Region-based          |
 | Pricing (Paid) | \$2/million calls       | \$0.20/million + GB-s |
 
-➡️ **Pick Supabase for fast global APIs. Use Lambda for language flexibility and deep AWS integrations.**
+➡️ Supabase Edge charges only an invocation fee, while AWS Lambda has separate charges for invocations and compute time, measured in GB-seconds. Additionally, AWS Lambda supports a wider range of runtimes.
 
 ### 📡 Realtime: Supabase Messages vs AWS SQS/SNS
 
@@ -108,33 +108,34 @@ See our full comparison here: [Supabase vs AWS Database Pricing (2025)](/blog/su
 | Integration | PostgreSQL triggers | Broad (Lambda, etc.) |
 | Pricing     | Simple flat overage | Per-request pricing  |
 
-➡️ **Use Supabase if you need simple pub/sub from your DB. Choose AWS for large-scale event systems.**
+➡️ Use Supabase if you need simple pub/sub from your DB. Choose AWS for large-scale event systems.
 
 ---
 
 ## 💰 Pricing Comparison by Tier
 
 ### 💡 About AWS Reserved Pricing
- The AWS prices shown below are based on **on-demand usage**, which is flexible but more expensive.
- If you commit to **1-year or 3-year Reserved Instances** (RIs), you can cut costs by **30–70%** — especially for RDS and Lambda.
 
- For example:
+The AWS prices shown below are based on **on-demand usage**, which is flexible but more expensive.
+If you commit to **1-year or 3-year Reserved Instances** (RIs), you can cut costs by **30–70%** — especially for RDS and Lambda.
 
- - **RDS db.m5.large (Multi-AZ)** drops from **\$250+/mo** to **\~\$145/mo** (1-year RI, no upfront)
- - **Lambda and compute** costs can be reduced via **Compute Savings Plans**
+For example:
 
- ✅ Use on-demand for flexibility.
- 🔐 Use Reserved pricing for long-term, cost-optimized workloads — but it comes with lock-in.
+- **RDS db.m5.large (Multi-AZ)** drops from **\$250+/mo** to **\~\$145/mo** (1-year RI, no upfront)
+- **Lambda and compute** costs can be reduced via **Compute Savings Plans**
+
+✅ Use on-demand for flexibility.
+🔐 Use Reserved pricing for long-term, cost-optimized workloads — but it comes with lock-in.
 
 ### 🧪 0. Free Tier
 
-| Feature   | Supabase                 | AWS                             |
-| --------- | ------------------------ | ------------------------------- |
-| Database  | ✅ Shared CPU /500MB PostgreSQL       | ⚠️ 2 vCPU (burstable) / 1GB RAM for t4g.micro (12 months)    |
-| Auth      | ✅ 50K MAUs               | ✅ 50K MAUs (Cognito)            |
-| Storage   | ✅ 1GB w/ CDN             | ⚠️ 5GB (12 months, no CDN) |
-| Functions | ✅ 500K Edge calls        | ✅ 1M Lambda calls               |
-| Messaging | ✅ 500K Realtime messages | ✅ 1M SQS/SNS messages           |
+| Feature   | Supabase                        | AWS                                                       |
+| --------- | ------------------------------- | --------------------------------------------------------- |
+| Database  | ✅ Shared CPU /500MB PostgreSQL | ⚠️ 2 vCPU (burstable) / 1GB RAM for t4g.micro (12 months) |
+| Auth      | ✅ 50K MAUs                     | ✅ 50K MAUs (Cognito)                                     |
+| Storage   | ✅ 1GB w/ CDN                   | ⚠️ 5GB (12 months, no CDN)                                |
+| Functions | ✅ 500K Edge calls              | ✅ 1M Lambda calls                                        |
+| Messaging | ✅ 500K Realtime messages       | ✅ 1M SQS/SNS messages                                    |
 
 🔍 **Supabase offers a complete full-stack platform for free, with no expiration.**
 AWS has generous limits — but database and storage expire after 12 months.
@@ -209,16 +210,16 @@ AWS has generous limits — but database and storage expire after 12 months.
 
 #### Supabase – **\$19,383.40/month**
 
-| Service             | Cost       | Notes                                  |
-| ------------------- | ---------- | -------------------------------------- |
-| Team Plan           | \$599.00   | Enterprise features + support          |
-| DB Storage (1.99TB) | \$249.00   | Extra beyond base plan                 |
-| Compute (4XL)       | \$960.00   | 16-core, 32GB RAM                      |
-| Auth (1.4M MAUs)    | \$4,550.00 | \$0.00325 per MAU beyond 100K included |
-| Storage (49.9TB)    | \$1,047.90 | \$0.021/GB beyond 100GB                |
-| Bandwidth (99.75TB) | \$8,977.50 | \$0.09/GB beyond 250GB                 |
-| Edge Functions      | \$2,000.00 | Custom pricing                         |
-| Messaging           | \$1,000.00 | Custom pricing                         |
+| Service           | Cost       | Notes                                  |
+| ----------------- | ---------- | -------------------------------------- |
+| Team Plan         | \$599.00   | Enterprise features + support          |
+| DB Storage (2TB)  | \$249.00   | Extra beyond base plan                 |
+| Compute (4XL)     | \$960.00   | 16-core, 32GB RAM                      |
+| Auth (1.5M MAUs)  | \$4,550.00 | \$0.00325 per MAU beyond 100K included |
+| Storage (50TB)    | \$1,047.90 | \$0.021/GB beyond 100GB                |
+| Bandwidth (100TB) | \$8,977.50 | \$0.09/GB beyond 250GB                 |
+| Edge Functions    | \$2,000.00 | Custom pricing                         |
+| Messaging         | \$1,000.00 | Custom pricing                         |
 
 ✅ **Predictable, transparent billing; all services built-in.**
 
@@ -232,7 +233,7 @@ AWS has generous limits — but database and storage expire after 12 months.
 | ------------------------- | ---------------- | --------------------- | --------------------- | -------------------------------- |
 | RDS (r5.4xlarge Multi-AZ) | \$2,639.68       | \$1,847.78            | \$1,055.87            | 16 vCPU, 128GB RAM               |
 | RDS Storage (2TB IOPS)    | \$2,500.00       | —                     | —                     | High-performance SSD             |
-| Cognito (1.49M MAUs)      | \$22,350.00      | —                     | —                     | \$0.015 per MAU (Essential plan) |
+| Cognito (1.5M MAUs)       | \$22,350.00      | —                     | —                     | \$0.015 per MAU (Essential plan) |
 | Lambda (1B execs)         | \$33,333.33      | \$23,333.33           | \$13,333.33           | 2GB RAM, 1s duration             |
 | S3 (50TB)                 | \$1,100.00       | —                     | —                     | Tiered pricing                   |
 | Bandwidth (100TB)         | \$7,000.00       | —                     | —                     | Tiered egress                    |
@@ -246,16 +247,16 @@ AWS has generous limits — but database and storage expire after 12 months.
 
 #### Supabase – **\$98,914.90/month**
 
-| Service              | Cost        | Notes                                 |
-| -------------------- | ----------- | ------------------------------------- |
-| Enterprise Plan      | \$1,999.00  | Premium support, SLA, dedicated infra |
-| DB Storage (9.99TB)  | \$1,248.75  | \$0.125/GB beyond base                |
-| Compute (Max Tier)   | \$4,000.00  | Dedicated instances, 64-core          |
-| Auth (9.9M MAUs)     | \$32,175.00 | \$0.00325/MAU over 100K               |
-| Storage (199.9TB)    | \$4,197.90  | \$0.021/GB beyond base                |
-| Bandwidth (499.75TB) | \$44,977.50 | \$0.09/GB over included 250GB         |
-| Edge Functions       | \$5,000.00  | Custom tier for heavy edge workloads  |
-| Messaging            | \$5,317.75  | Estimated at \$0.001/1K events        |
+| Service            | Cost        | Notes                                 |
+| ------------------ | ----------- | ------------------------------------- |
+| Enterprise Plan    | \$1,999.00  | Premium support, SLA, dedicated infra |
+| DB Storage (10TB)  | \$1,248.75  | \$0.125/GB beyond base                |
+| Compute (Max Tier) | \$4,000.00  | Dedicated instances, 64-core          |
+| Auth (10M MAUs)    | \$32,175.00 | \$0.00325/MAU over 100K               |
+| Storage (200TB)    | \$4,197.90  | \$0.021/GB beyond base                |
+| Bandwidth (500TB)  | \$44,977.50 | \$0.09/GB over included 250GB         |
+| Edge Functions     | \$5,000.00  | Custom tier for heavy edge workloads  |
+| Messaging          | \$5,317.75  | Estimated at \$0.001/1K events        |
 
 ✅ **Transparent, single-vendor solution. Pricing scales linearly.**
 
