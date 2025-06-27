@@ -2,7 +2,34 @@
 title: Scheduled Rollout
 ---
 
-When rolling out a change in Bytebase, you can choose to run it immediately or schedule it to a later time.Add commentMore actions
+When rolling out a change in Bytebase, you can choose to run it immediately or schedule it to a later time.
+
+## Best Practices
+
+### Role Responsibilities
+
+**Developers/Issue Creators:**
+
+- Create issues with migration scripts but do not handle rollouts directly
+- Clearly specify rollout timing requirements in:
+  - Issue title (e.g., "DB Migration - Deploy during maintenance window")
+  - Issue description with detailed timing constraints
+  - Labels (e.g., `rollout:night`, `rollout:maintenance-window`)
+  - Comments explaining why specific timing is needed
+
+**Approvers/Releasers:**
+
+- Review rollout timing requirements provided by issue creators
+- Determine the actual rollout schedule based on:
+  - Business impact assessment
+  - System maintenance windows
+  - Traffic patterns and downtime considerations
+  - Dependencies on other deployments
+- Execute the scheduled rollout at the determined time
+
+This separation of concerns ensures that developers focus on creating quality migration scripts while experienced operators handle the critical timing decisions for production rollouts.
+
+## Scheduling a Rollout
 
 ![rollout-schedule](/content/docs/change-database/scheduled-rollout/bb-rollout.webp)
 
@@ -15,6 +42,14 @@ After you schedule the rollout, it will be in the pending state. You can't manua
 ![pending-rollout](/content/docs/change-database/scheduled-rollout/bb-pending-rollout.webp)
 
 After clicking **Cancel**, you may edit the SQL and restart the rollout process either immediately or schedule it to a later time.
-Add commentMore actions
 
 ![rollout-cancel-restart](/content/docs/change-database/scheduled-rollout/bb-rollout-cancel-restart.webp)
+
+## Workflow Summary
+
+1. **Issue Creation**: Developer creates issue with migration script and timing requirements
+2. **Review & Approval**: Approver reviews the issue and timing constraints
+3. **Schedule Decision**: Approver/Releaser determines optimal rollout time
+4. **Execution**: Scheduled rollout runs automatically at the designated time
+
+This workflow ensures proper separation of responsibilities while maintaining clear communication about rollout timing requirements.
