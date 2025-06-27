@@ -28,7 +28,7 @@ This error occurs when two or more transactions are waiting for each other to re
 1. **Retry the failed transaction**:
 
    ```sql
-   -- PostgreSQL automatically rolls back the transaction that received the error
+   -- PostgreSQL automatically rolls back the transaction
    -- Simply retry the transaction:
    BEGIN;
    -- Your queries here
@@ -38,7 +38,7 @@ This error occurs when two or more transactions are waiting for each other to re
 2. **Implement retry logic in your application**:
 
    ```python
-   # Example in Python
+   # Example with exponential backoff
    for attempt in range(3):
        try:
            # Transaction code
@@ -46,49 +46,49 @@ This error occurs when two or more transactions are waiting for each other to re
            break
        except psycopg2.errors.DeadlockDetected:
            connection.rollback()
-           time.sleep(random.uniform(0.1, 0.5))  # Random backoff
+           time.sleep(random.uniform(0.1, 0.5))
    ```
 
-3. **Check the PostgreSQL logs** for detailed information:
+3. **Check PostgreSQL logs** for detailed deadlock information:
 
    ```bash
    tail -f /var/log/postgresql/postgresql-14-main.log
    ```
 
-4. **Adjust lock timeout** for transactions that might deadlock:
+4. **Adjust lock timeout** to prevent long waits:
+
    ```sql
-   -- Set a timeout for acquiring locks
    SET lock_timeout = '5s';
    ```
 
 ## Prevention
 
-1. **Access tables in a consistent order** in all transactions:
+1. **Access tables in consistent order** across all transactions:
 
    ```sql
-   -- Always access tables in alphabetical or some other consistent order
+   -- Always use the same order (e.g., alphabetical)
    UPDATE accounts SET balance = balance - 100 WHERE id = 1;
    UPDATE users SET last_active = NOW() WHERE id = 5;
    ```
 
-2. **Use shorter transactions** to reduce lock contention:
+2. **Keep transactions short** to reduce lock contention:
 
    ```sql
    BEGIN;
-   -- Keep transactions focused and quick
+   -- Focused, quick operations only
    COMMIT;
    ```
 
-3. **Consider higher isolation levels** like SERIALIZABLE for critical operations
+3. **Use higher isolation levels** like SERIALIZABLE for critical operations.
 
-4. **Use advisory locks** for application-level locking:
+4. **Use advisory locks** for application-level coordination:
+
    ```sql
-   -- Use advisory locks to control access patterns
    SELECT pg_advisory_xact_lock(id) FROM users WHERE username = 'alice';
    ```
 
 <HintBlock type="info">
 
-Deadlocks are a normal part of concurrent database systems and cannot be completely eliminated. Design your application to handle deadlocks gracefully through retries.
+PostgreSQL's deadlock detector runs every `deadlock_timeout` (default 1 second). When a deadlock is detected, the transaction with the smallest amount of CPU time is terminated.
 
 </HintBlock>

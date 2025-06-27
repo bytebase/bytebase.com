@@ -2,10 +2,6 @@
 title: 'ERROR 42501: Permission denied for table in Postgres'
 ---
 
-| Code    | Name                     | Class                                            |
-| ------- | ------------------------ | ------------------------------------------------ |
-| `42501` | `insufficient_privilege` | Syntax Error or Access Rule Violation (Class 42) |
-
 ## Error Message
 
 ```sql
@@ -26,51 +22,40 @@ This error occurs when a user attempts to perform an operation on a table withou
 
 ## Solutions
 
-### 1. Grant appropriate permissions
+1. **Grant appropriate permissions**:
 
-```sql
--- Grant specific permission
-GRANT SELECT ON table_name TO user_name;
+   ```sql
+   -- Grant specific permission
+   GRANT SELECT ON table_name TO user_name;
 
--- Grant multiple permissions
-GRANT SELECT, INSERT, UPDATE ON table_name TO user_name;
-```
+   -- Grant multiple permissions
+   GRANT SELECT, INSERT, UPDATE ON table_name TO user_name;
+   ```
 
-### 2. Grant schema permissions
+2. **Grant schema permissions**:
 
-```sql
-GRANT USAGE ON SCHEMA schema_name TO user_name;
-```
+   ```sql
+   GRANT USAGE ON SCHEMA schema_name TO user_name;
+   ```
 
-### 3. Check current permissions
+3. **Check current permissions**:
 
-```sql
--- For tables
-SELECT grantee, privilege_type
-FROM information_schema.role_table_grants
-WHERE table_name = 'mytable';
+   ```sql
+   -- For tables
+   SELECT grantee, privilege_type
+   FROM information_schema.role_table_grants
+   WHERE table_name = 'mytable';
+   ```
 
--- For schemas
-SELECT * FROM information_schema.role_usage_grants
-WHERE object_name = 'myschema';
-```
+4. **Add user to role**:
 
-### 4. Add user to role
+   ```sql
+   GRANT role_name TO user_name;
+   ```
 
-```sql
-GRANT role_name TO user_name;
-```
+## Prevention
 
-### 5. Change object ownership
-
-```sql
-ALTER TABLE mytable OWNER TO newowner;
-```
-
-<HintBlock type="info">
-
-Cloud database providers typically don't allow superuser privileges. Check with your provider about their specific permission model.
-
-For more details on Postgres permission management, see [How to Manage Postgres Users and Roles](/blog/how-to-manage-postgres-users-and-roles).
-
-</HintBlock>
+- Plan permission structure before creating objects
+- Use role-based access control instead of individual user permissions
+- Document permission requirements in your database schema
+- Test permissions in development environments

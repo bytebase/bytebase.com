@@ -32,10 +32,10 @@ This error occurs when you attempt to drop a role (user or group) that still own
    DROP ROLE admin;
    ```
 
-2. **Drop all objects owned by the role**:
+2. **Drop all objects owned by the role** (use with caution):
 
    ```sql
-   -- Use with caution - this deletes all objects owned by the role
+   -- This deletes all objects owned by the role
    DROP OWNED BY admin;
 
    -- Then drop the role
@@ -53,16 +53,15 @@ This error occurs when you attempt to drop a role (user or group) that still own
                          WHEN 'm' THEN 'materialized view'
                          WHEN 'i' THEN 'index'
                          WHEN 'S' THEN 'sequence'
-                         WHEN 's' THEN 'special'
                          WHEN 'f' THEN 'foreign table' END as type
    FROM pg_catalog.pg_class c
    JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
    WHERE pg_catalog.pg_get_userbyid(c.relowner) = 'admin';
    ```
 
-4. **For permissions**, revoke all privileges granted to the role:
+4. **Revoke privileges granted to the role**:
+
    ```sql
-   -- You may need to do this for multiple objects
    REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM admin;
    REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public FROM admin;
    REVOKE ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public FROM admin;
@@ -70,13 +69,7 @@ This error occurs when you attempt to drop a role (user or group) that still own
 
 ## Prevention
 
-- Use role inheritance to organize permissions
+- Use role inheritance to organize permissions effectively
 - Have dedicated owner roles for different application components
-- Implement a decommissioning process for users that includes transferring ownership
-- Document role ownership and dependencies
-
-<HintBlock type="info">
-
-You can use the `\du` command in psql to see role memberships and the `\dp` command to see privileges.
-
-</HintBlock>
+- Implement a decommissioning process that includes transferring ownership
+- Document role ownership and dependencies for future reference
