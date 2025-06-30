@@ -86,9 +86,9 @@ terraform -help
    ```
 
 3. **Set up Bytebase admin account**:
-   
+
    Navigate to Bytebase (usually `http://localhost:8080`) and register an admin account with `Workspace Admin` role.
-   
+
    ![register-admin](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/register-admin.webp)
 
 ### Initial Bytebase Setup (GUI)
@@ -96,12 +96,14 @@ terraform -help
 Before automating with Terraform, let's set up a basic instance through the GUI to understand the manual process:
 
 1. **Add a database instance**:
+
    - Login as admin, click **Instances** on the left sidebar, click **+ Add Instance**
    - Configure for `Test` environment with credentials `root`/`testpwd1`
 
    ![bb-add-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-instance.webp)
 
 2. **Create a project and database**:
+
    - Click **Projects** on the left sidebar, click **+ New Project**, create project `Test`
    - Navigate to project, click **Database > Databases** on the left sidebar, click **+ New DB**
    - Create database `demo`
@@ -125,9 +127,9 @@ You’ve added an instance for the `Test` environment in Bytebase by clicking. W
 
    ```hcl
    provider "bytebase" {
-   service_account = "<Your Bytebase service account email>"
-   service_key     = "<Your Bytebase service account key>"
-   url             = "<Your Bytebase external URL>"
+      service_account = "<Your Bytebase service account email>"
+      service_key     = "<Your Bytebase service account key>"
+      url             = "<Your Bytebase external URL>"
    }
    ```
 
@@ -145,92 +147,92 @@ You’ve added an instance for the `Test` environment in Bytebase by clicking. W
 
 1. Paste the following queries after the **provider** block and save the file. What it does is to list all existing environments and instances and print those out in the terminal.
 
-   ```other
+   ```hcl
    # List all environments using settings
    data "bytebase_setting" "environments" {
-   name = "settings/ENVIRONMENT"
+      name = "settings/ENVIRONMENT"
    }
    output "all_environments" {
-   value = data.bytebase_setting.environments
+      value = data.bytebase_setting.environments
    }
 
    # List all instances
    data "bytebase_instance_list" "all" {}
    output "all_instances" {
-   value = data.bytebase_instance_list.all
+      value = data.bytebase_instance_list.all
    }
    ```
 
 1. Run `terraform init`, `terraform plan` and `terraform apply` one by one in the terminal. You’ll see the output like this:
 
-   ```other
-      all_environments = {
+   ```hcl
+   all_environments = {
       "approval_flow" = tolist(null) /* of object */
       "classification" = tolist(null) /* of object */
       "environment_setting" = tolist([
-         {
+        {
             "environment" = tolist([
             {
-               "color" = ""
-               "id" = "test"
-               "name" = "environments/test"
-               "protected" = true
-               "title" = "Test"
+              "color" = ""
+              "id" = "test"
+              "name" = "environments/test"
+              "protected" = true
+              "title" = "Test"
             },
             {
-               "color" = ""
-               "id" = "prod"
-               "name" = "environments/prod"
-               "protected" = true
-               "title" = "Prod"
+              "color" = ""
+              "id" = "prod"
+              "name" = "environments/prod"
+              "protected" = true
+              "title" = "Prod"
             },
             ])
-         },
+        },
       ])
       "id" = "settings/ENVIRONMENT"
       "name" = "settings/ENVIRONMENT"
       "semantic_types" = toset([])
       "workspace_profile" = tolist(null) /* of object */
-      }
+   }
    ```
 
    As we have two default environments in our Bytebase. Pay attention to `resource_id`, they are `test` and `prod` .
    ![bb-environments](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-environments.webp)
 
-   ```other
+   ```hcl
    all_instances = {
-   "id" = "1744624330"
-   "instances" = tolist([
-      {
-         "activation" = false
-         "data_sources" = toset([
-         {
-            "database" = ""
-            "external_secret" = tolist([])
-            "host" = "host.docker.internal"
-            "id" = "bb67b4b8-40c6-4ac6-a170-5f673183c759"
-            "password" = ""
-            "port" = "3307"
-            "ssl_ca" = ""
-            "ssl_cert" = ""
-            "ssl_key" = ""
-            "type" = "ADMIN"
-            "username" = "root"
-         },
-         ])
-         "engine" = "MYSQL"
-         "engine_version" = "8.0.36"
-         "environment" = "environments/test"
-         "external_link" = ""
-         "maximum_connections" = 0
-         "name" = "instances/mysql-test"
-         "resource_id" = "mysql-test"
-         "sync_interval" = 0
-         "title" = "MySQL test"
-      },
-      ...
-   ])
-   "show_deleted" = false
+      "id" = "1744624330"
+      "instances" = tolist([
+          {
+            "activation" = false
+            "data_sources" = toset([
+            {
+                "database" = ""
+                "external_secret" = tolist([])
+                "host" = "host.docker.internal"
+                "id" = "bb67b4b8-40c6-4ac6-a170-5f673183c759"
+                "password" = ""
+                "port" = "3307"
+                "ssl_ca" = ""
+                "ssl_cert" = ""
+                "ssl_key" = ""
+                "type" = "ADMIN"
+                "username" = "root"
+            },
+            ])
+            "engine" = "MYSQL"
+            "engine_version" = "8.0.36"
+            "environment" = "environments/test"
+            "external_link" = ""
+            "maximum_connections" = 0
+            "name" = "instances/mysql-test"
+            "resource_id" = "mysql-test"
+            "sync_interval" = 0
+            "title" = "MySQL test"
+          },
+          ...
+      ])
+      "show_deleted" = false
    }
    ```
 
@@ -248,29 +250,29 @@ This approach uses environment settings and is usually sufficient for most use c
 
 1. Remove the `#List all environment` and `#List all instances` blocks, and add the following environment configuration:
 
-   ```other
+   ```hcl
    # Define local variables for environment IDs
    locals {
-     environment_id_test = "test"
-     environment_id_prod = "prod"
+      environment_id_test = "test"
+      environment_id_prod = "prod"
    }
 
    # Configure environment settings
    resource "bytebase_setting" "environments" {
-     name = "settings/ENVIRONMENT"
+      name = "settings/ENVIRONMENT"
 
-     environment_setting {
-       environment {
-         id        = local.environment_id_test
-         title     = "Test"
-         protected = false
-       }
+      environment_setting {
+        environment {
+          id        = local.environment_id_test
+          title     = "Test"
+          protected = false
+        }
 
-       environment {
-         id        = local.environment_id_prod
-         title     = "Prod"
-         protected = true
-       }
+        environment {
+          id        = local.environment_id_prod
+          title     = "Prod"
+          protected = true
+        }
      }
    }
    ```
@@ -283,7 +285,7 @@ Alternatively, you can create environments using individual `bytebase_environmen
 
 1. Add the following environment resources after the settings configuration:
 
-   ```other
+   ```hcl
    # Create Test environment
    resource "bytebase_environment" "test" {
      resource_id             = local.environment_id_test
@@ -310,7 +312,7 @@ Finally, let's add the database instances that will be associated with our envir
 
 #### If you used Step 4a (Environment Settings)
 
-```other
+```hcl
 resource "bytebase_instance" "test" {
   depends_on = [
     bytebase_setting.environments
@@ -354,7 +356,7 @@ resource "bytebase_instance" "prod" {
 
 #### If you used Step 4b (Individual Environment Resources)
 
-```other
+```hcl
 resource "bytebase_instance" "test" {
   depends_on = [
     bytebase_environment.test
