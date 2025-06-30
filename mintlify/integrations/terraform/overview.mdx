@@ -2,6 +2,12 @@
 title: Overview
 ---
 
+<Note>
+
+The Bytebase Provider itself is free to use. Some advanced resource operations require Pro or Enterprise Plan.
+
+</Note>
+
 <Card
   title="Tutorial: Manage Databases in Bytebase with Terraform"
   icon="graduation-cap"
@@ -9,11 +15,18 @@ title: Overview
   horizontal
 />
 
-<Note>
+```plain
+Terraform Provider → Bytebase Configuration
+                      ├── Instances, Projects & Environments
+                      ├── Access Policies
+                      └── Settings such as Approval Workflows
 
-The Bytebase Provider itself is free to use. Some advanced resource operations require Pro or Enterprise Plan.
-
-</Note>
+Bytebase UI/API → Database Operations
+                   ├── Database Creation
+                   ├── Schema Migrations (DDL)
+                   ├── Data Changes (DML)
+                   └── Query
+```
 
 Bytebase provides the [Terraform Provider](https://registry.terraform.io/providers/bytebase/bytebase) to let you manage your Bytebase resources via Terraform.
 

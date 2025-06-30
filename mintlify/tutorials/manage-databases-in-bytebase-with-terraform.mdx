@@ -32,6 +32,13 @@ While Bytebase provides an intuitive GUI for database management, Terraform brin
 - **Version Control**: Track and review all infrastructure changes through Git workflows
 - **Consistency**: Ensure identical configurations across environments
 
+<Note>
+
+Bytebase Terraform Provider handles control plane configuration such as settings, policies, access controls. It does not
+handle data plane operations such as database creation, schema migrations, DML execution, query.
+
+</Note>
+
 ## Complete Example
 
 You can find the complete Terraform configuration examples on [GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples).
@@ -413,13 +420,6 @@ resource "bytebase_instance" "prod" {
    ![bb-instances-2-added](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-instances-2-added.webp)
 
 1. Click into one instance, scroll down and click **Test Connection**. It should be successful.
-
-## Things to Pay Attention To
-
-Operations in Bytebase that rely on issues are not supported by Terraform. This includes:
-
-- Create a database
-- Executing DDL/DML statements
 
 ## Summary and Next
 
