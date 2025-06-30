@@ -55,10 +55,10 @@ This tutorial code repository is at [https://dev.azure.com/bytebase-hq/\_git/byt
 
 1. Create a new project. Copy `pipelines` folder from [https://dev.azure.com/bytebase-hq/\_git/bytebase-example](https://dev.azure.com/bytebase-hq/_git/bytebase-example). There are two workflows in this repository:
 
-   - `pipelines/check-release.yml`: [Lint the SQL](/sql-review/overview/) migration files after the PR is created.
+   - `pipelines/sql-review.yml`: [Lint the SQL](/sql-review/overview/) migration files after the PR is created.
    - `pipelines/rollout-release.yml`: Create a release in Bytebase after the PR is merged to the `main` branch.
 
-1. Go into `pipelines/check-release.yml` and `pipelines/rollout-release.yml`. In the `env` section, replace the variable values with your own and commit the changes.
+1. Go into `pipelines/sql-review.yml` and `pipelines/rollout-release.yml`. In the `env` section, replace the variable values with your own and commit the changes.
 
    - **BYTEBASE_URL**: your ngrok url
    - **BYTEBASE_SERVICE_ACCOUNT**: `api-example@service.bytebase.com` (the service account you created in the previous step)
@@ -72,7 +72,7 @@ This tutorial code repository is at [https://dev.azure.com/bytebase-hq/\_git/byt
 
    ![ad-policy-build](/content/docs/tutorials/gitops-azure-devops-workflow/ad-policy-build.webp)
 
-_In `pipelines/rollout-release-v1.yml`, pay attention to `BYTEBASE_TARGETS` in `deploy-to-test` stage. You should put all the databases including both `Test` and `Prod` environments. NOT ONLY the `Test` database._
+_In `pipelines/rollout-release.yml`, pay attention to `BYTEBASE_TARGETS` in `deploy-to-test` stage. You should put all the databases including both `Test` and `Prod` environments. NOT ONLY the `Test` database._
 
 ### Step 5 - Create the migration files
 
