@@ -21,13 +21,13 @@ The overall workflow:
 
 ## Supported Objects
 
-| Database             | Objects                                                                                                                                         |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| MySQL                | `Table`, `Index`, `Constraint`, `View`, `Event`, `Trigger`, `Function`, `Procedure`                                                             |
-| PostgreSQL           | `Schema`, `Table`, `Index`, `Constraint`, `View`, `Materialized View`, `Sequence`, `Extension`, `Function`, `Procedure`, `Trigger`, `Enum Type` |
-| TiDB                 | `Table`, `Index`, `Constraint`, `View`                                                                                                          |
-| Oracle               | `Table`, `Index`, `Constraint`                                                                                                                  |
-| Microsoft SQL Server | `Table`, `Index`, `Constraint`                                                                                                                  |
+| Database | Objects |
+| -------- | ------- |
+| **MySQL** | `Table`, `Column`, `Primary Key`, `Foreign Key`, `Index` (Regular, Unique, Fulltext, Spatial), `Check Constraint` (8.0+), `Generated Column` (STORED/VIRTUAL), `Partitioning` (KEY, HASH, RANGE, LIST), `View`, `Trigger`, `Function`, `Procedure`, `Comments` |
+| **PostgreSQL** | `Schema`, `Table`, `Column`, `Primary Key`, `Foreign Key`, `Index` (including Expression & Partial), `Check Constraint`, `Generated Column` (STORED), `View`, `Materialized View`, `Sequence`, `Extension`, `Function`, `Procedure`, `Trigger`, `Custom Type`, `Enum Type`, `Array Type` |
+| **TiDB** | `Table`, `Column`, `Primary Key`, `Foreign Key`, `Index`, `Check Constraint`, `Generated Column`, `Partitioning`, `View`, `AUTO_RANDOM`, `Clustered Index`, `Comments` |
+| **Oracle** | `Schema`, `Table`, `Column`, `Primary Key`, `Foreign Key`, `Index` (Regular, Unique, Bitmap, Function-based), `Check Constraint`, `Virtual Column`, `Identity Column` (12c+), `Partitioning` (RANGE, LIST, HASH, COMPOSITE), `View`, `Materialized View`, `Function`, `Procedure`, `Package`, `Trigger`, `Sequence`, `Synonym`, `Type` |
+| **Microsoft SQL Server** | `Schema`, `Table`, `Column`, `Primary Key`, `Foreign Key`, `Index` (Clustered, Non-clustered), `Check Constraint`, `Computed Column`, `Identity Column`, `View`, `Function`, `Procedure`, `Trigger`, `Default Constraint`, `User-Defined Type` |
 
 ## How to use
 
