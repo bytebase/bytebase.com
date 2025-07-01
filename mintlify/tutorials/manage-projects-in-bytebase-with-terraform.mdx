@@ -111,7 +111,7 @@ This project resource:
 - Depends on the test instance being created first
 - Moves the database from the `Test` project to this new project
 
-### Adding More Databases to Your Project
+### Adding More Databases to Your Project (Optional)
 
 To add more databases to `another-project`:
 
@@ -135,7 +135,7 @@ resource "bytebase_project" "another-project" {
 }
 ```
 
-### Creating Additional Projects
+### Creating Additional Projects (Optional)
 
 You can add more projects alongside the existing one:
 
@@ -160,7 +160,7 @@ resource "bytebase_project" "new-project" {
 }
 ```
 
-### Using All Databases from an Instance
+### Using All Databases from an Instance (Optional)
 
 You can also assign all databases from an instance:
 
@@ -177,19 +177,19 @@ resource "bytebase_project" "test-apps" {
 }
 ```
 
-## Step 4 - Deploy and Verify
+### Deploy and Verify
 
-1. **Apply the changes**:
+Run `terraform apply` to create your project(s):
 
-   ```bash
-   terraform plan
-   terraform apply
-   ```
+```bash
+terraform plan
+terraform apply
+```
 
-2. **Verify in Bytebase**:
-   - Go to **Projects** in the sidebar
-   - You should see `Another project` listed
-   - Click into the project to see the `demo` database is assigned to it
+**Verify in Bytebase**:
+- Go to **Projects** in the sidebar
+- You should see `Another project` listed
+- Click into the project to see the `demo` database is assigned to it
 
 ## Best Practices
 
