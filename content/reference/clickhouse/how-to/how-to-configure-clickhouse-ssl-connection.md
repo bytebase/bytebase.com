@@ -281,17 +281,23 @@ As expected, the result shows that the connection is over SSL.
 Congratulations, you have now successfully connected to your ClickHouse server using SSL. Let’s go over the steps again:
 
 1. Install ClickHouse and OpenSSL
+
 2. Generate SSL related file
+
    a. Set up OpenSSL config  
    b. Root CA key and certificate  
    c. Server key and certificate  
    d. Client key and certificate
-3. Configure ClickHouse  
+
+3. Configure ClickHouse
+
    a. Generate dhparams  
    b. Set up SSL related files path in ClickHouse Server config  
    c. Enable SSL related port listened by ClickHouse  
    d. Enable remote login on ClickHouse
-4. Test SSL Connection from Client  
+
+4. Test SSL Connection from Client
+
    a. Copy SSL files to the Client  
    b. Set-up ClickHouse Client config  
    c. Use ClickHouse Client to connect to ClickHouse Server  

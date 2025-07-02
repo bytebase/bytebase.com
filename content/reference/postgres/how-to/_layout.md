@@ -17,6 +17,8 @@
 
 ### [Postgres Security Best Practices](/reference/postgres/how-to/postgres-security-best-practices)
 
+### [How to Configure PostgreSQL SSL Connection](/reference/postgres/how-to/how-to-configure-postgres-ssl-connection)
+
 ### [Row Level Security (RLS)](/reference/postgres/how-to/postgres-row-level-security)
 
 ### [Default password](/reference/postgres/how-to/postgres-default-password)
