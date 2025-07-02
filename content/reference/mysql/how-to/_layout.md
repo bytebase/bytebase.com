@@ -13,6 +13,8 @@
 
 ## [MySQL Security Best Practices](/reference/mysql/how-to/mysql-security-best-practices)
 
+## [How to Configure MySQL SSL Connection](/reference/mysql/how-to/how-to-configure-mysql-ssl-connection)
+
 ## [Top mysql commands with examples](/reference/mysql/how-to/top-mysql-commands-with-examples)
 
 ## [How to enable slow query log](/reference/mysql/how-to/how-to-enable-slow-query-log-mysql)
