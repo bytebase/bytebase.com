@@ -2,7 +2,12 @@
 title: Schema Synchronization
 ---
 
-<Card title="Tutorial: How to Synchronize Database Schemas" icon="graduation-cap" href="/tutorials/how-to-synchronize-database-schemas" horizontal />
+<Card
+  title="Tutorial: How to Synchronize Database Schemas"
+  icon="graduation-cap"
+  href="/tutorials/how-to-synchronize-database-schemas"
+  horizontal
+/>
 
 Bytebase supports synchronizing a specified schema version of one source database to one or multiple target databases.
 You can use Schema Synchronization to:
@@ -21,46 +26,40 @@ The overall workflow:
 
 ## Supported Objects
 
-| Object | MySQL | PostgreSQL | TiDB | Oracle | SQL Server |
-| ------ | ----- | ---------- | ---- | ------ | ---------- |
-| **Schema** | — | ✅ | — | ✅ | ✅ |
-| **Table** | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Column** | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Primary Key** | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Foreign Key** | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Index** | ✅ Regular, Unique, Fulltext, Spatial | ✅ Including Expression & Partial | ✅ | ✅ Regular, Unique, Bitmap, Function-based | ✅ Clustered, Non-clustered |
-| **Check Constraint** | ✅ (8.0+) | ✅ | ❌ (metadata sync limitation) | ✅ | ✅ |
-| **View** | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Materialized View** | — | ✅ | — | ✅ | ❌ |
-| **Generated/Computed Column** | ✅ STORED/VIRTUAL | ✅ STORED | ✅ | ✅ Virtual | ✅ Computed |
-| **Identity/Auto Column** | ✅ AUTO_INCREMENT | ✅ SERIAL/IDENTITY | ✅ AUTO_RANDOM | ✅ IDENTITY (12c+) | ✅ IDENTITY |
-| **Partitioning** | ✅ KEY, HASH, RANGE, LIST | ✅ | ✅ | ✅ RANGE, LIST, HASH, COMPOSITE | ❌ |
-| **Sequence** | — | ✅ | — | ✅ | ✅ |
-| **Trigger** | ✅ | ✅ | — | ✅ | ✅ |
-| **Function** | ✅ | ✅ | — | ✅ | ✅ |
-| **Procedure** | ✅ | ✅ | — | ✅ | ✅ |
-| **Package** | — | — | — | ✅ | — |
-| **Custom Type** | — | ✅ Enum only | — | ✅ | ✅ |
-| **Extension** | — | ✅ | — | — | — |
-| **Comments** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Object                        | MySQL                                 | PostgreSQL                        | TiDB                          | Oracle                                     | SQL Server                  |
+| ----------------------------- | ------------------------------------- | --------------------------------- | ----------------------------- | ------------------------------------------ | --------------------------- |
+| **Schema**                    | —                                     | ✅                                | —                             | ✅                                         | ✅                          |
+| **Table**                     | ✅                                    | ✅                                | ✅                            | ✅                                         | ✅                          |
+| **Column**                    | ✅                                    | ✅                                | ✅                            | ✅                                         | ✅                          |
+| **Primary Key**               | ✅                                    | ✅                                | ✅                            | ✅                                         | ✅                          |
+| **Foreign Key**               | ✅                                    | ✅                                | ✅                            | ✅                                         | ✅                          |
+| **Index**                     | ✅ Regular, Unique, Fulltext, Spatial | ✅ Including Expression & Partial | ✅                            | ✅ Regular, Unique, Bitmap, Function-based | ✅ Clustered, Non-clustered |
+| **Check Constraint**          | ✅ (8.0+)                             | ✅                                | ❌ (metadata sync limitation) | ✅                                         | ✅                          |
+| **View**                      | ✅                                    | ✅                                | ✅                            | ✅                                         | ✅                          |
+| **Materialized View**         | —                                     | ✅                                | —                             | ✅                                         | ❌                          |
+| **Generated/Computed Column** | ✅ STORED/VIRTUAL                     | ✅ STORED                         | ✅                            | ✅ Virtual                                 | ✅ Computed                 |
+| **Identity/Auto Column**      | ✅ AUTO_INCREMENT                     | ✅ SERIAL/IDENTITY                | ✅ AUTO_RANDOM                | ✅ IDENTITY (12c+)                         | ✅ IDENTITY                 |
+| **Partitioning**              | ✅ KEY, HASH, RANGE, LIST             | ✅                                | ✅                            | ✅ RANGE, LIST, HASH, COMPOSITE            | ❌                          |
+| **Sequence**                  | —                                     | ✅                                | —                             | ✅                                         | ✅                          |
+| **Trigger**                   | ✅                                    | ✅                                | —                             | ✅                                         | ✅                          |
+| **Function**                  | ✅                                    | ✅                                | —                             | ✅                                         | ✅                          |
+| **Procedure**                 | ✅                                    | ✅                                | —                             | ✅                                         | ✅                          |
+| **Package**                   | —                                     | —                                 | —                             | ✅                                         | —                           |
+| **Custom Type**               | —                                     | ✅ Enum only                      | —                             | ✅                                         | ✅                          |
+| **Extension**                 | —                                     | ✅                                | —                             | —                                          | —                           |
+| **Comments**                  | ✅                                    | ✅                                | ✅                            | ✅                                         | ✅                          |
 
 ## How to use
 
-### Step 1 - Go to the "Sync schema" page
+### Step 1 - Go to the **Sync Schema** page
 
-Click the "Sync schema" button in the left navigation bar.
+Click the **Database > Sync Schema** button in the left navigation bar.
 
 ### Step 2 - Select source schema
 
 You need to select the project and source database schema version that you want to synchronize.
 
 ![select-source-schema](/content/docs/change-database/synchronize-schema/select-source-schema.webp)
-
-<Info>
-
-In the Enterprise and Pro Plan, you can select an arbitrary schema version from the migration history. In other plans, you can only select the latest schema version.
-
-</Info>
 
 ### Step 3 - Select target databases
 
@@ -74,4 +73,4 @@ After you have selected a target database, Bytebase will show a schema diff betw
 
 ### Step 4 - Preview issue
 
-With the generated DDL statements, you can preview and create an "Alter Schema" issue. This kicks off the [change workflow](/change-database/change-workflow) for the applied database.
+With the generated DDL statements, you can preview and create an **Edit Schema** issue. This kicks off the [change workflow](/change-database/change-workflow) for the applied database.
