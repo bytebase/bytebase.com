@@ -31,7 +31,7 @@ The overall workflow:
 | **Index** | ✅ Regular, Unique, Fulltext, Spatial | ✅ Including Expression & Partial | ✅ | ✅ Regular, Unique, Bitmap, Function-based | ✅ Clustered, Non-clustered |
 | **Check Constraint** | ✅ (8.0+) | ✅ | ❌ (metadata sync limitation) | ✅ | ✅ |
 | **View** | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Materialized View** | ❌ | ✅ | ❌ | ✅ | ❌ |
+| **Materialized View** | — | ✅ | — | ✅ | ❌ |
 | **Generated/Computed Column** | ✅ STORED/VIRTUAL | ✅ STORED | ✅ | ✅ Virtual | ✅ Computed |
 | **Identity/Auto Column** | ✅ AUTO_INCREMENT | ✅ SERIAL/IDENTITY | ✅ AUTO_RANDOM | ✅ IDENTITY (12c+) | ✅ IDENTITY |
 | **Partitioning** | ✅ KEY, HASH, RANGE, LIST | ✅ | ✅ | ✅ RANGE, LIST, HASH, COMPOSITE | ❌ |
