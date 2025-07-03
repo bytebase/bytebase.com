@@ -1,0 +1,33 @@
+---
+title: SQL Editor Limits
+---
+
+To ensure stable performance and efficient resource usage, Bytebase allows you to configure execution limits for SQL queries in the workspace.
+
+## How to Configure
+
+In the workspace, go to **Settings** > **General**, then scroll to the **Security** section. You can set the following limits:
+
+### Maximum SQL Result Size
+
+Sets the maximum size of query results returned in the SQL Editor.
+
+- **Unit:** MB
+- Helps prevent memory issues caused by large result sets.
+- _Example: 100 MB_
+
+### Maximum SQL Result Rows
+
+Limits the number of rows returned by a single query.
+
+- A value of `0` or below means **no row limit**.
+- Helps avoid performance degradation due to excessive row counts.
+- _Example: 1 row_
+
+### Maximum Query Time
+
+Defines the maximum time (in seconds) a SQL query is allowed to run.
+
+- A value of `0` means **no time limit**.
+- Queries exceeding this time will be automatically terminated.
+- _Example: 60 seconds_
