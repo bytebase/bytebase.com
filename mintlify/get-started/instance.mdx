@@ -35,6 +35,7 @@ connection info for your database instance.
 
 If you run Bytebase inside Docker and try to connect to a database instance on the same host, then
 you need to set host as [host.docker.internal](https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host).
+
 </Note>
 
 ![connect-local-docker](/content/docs/get-started/instance/connect-local-docker.webp)
@@ -50,7 +51,7 @@ you need to set host as [host.docker.internal](https://docs.docker.com/desktop/n
 
 ### SSH tunnel
 
-<PricingPlanBlock feature_name='SSH_TUNNEL' />
+<PricingPlanBlock feature_name="SSH_TUNNEL" />
 
 To protect their databases, some hosting providers block direct remote access. However, they often enable SSH, which allows users to connect to their servers remotely using an SSH client. If you want to connect to a database on one of these servers from Bytebase, you will need to create an SSH tunnel. This will allow you to connect to the database without compromising security.
 
@@ -87,7 +88,7 @@ For a full list of supported parameters, refer to the official database document
 
 ### External Secret Manager
 
-<PricingPlanBlock feature_name='EXTERNAL_SECRET_MANAGER' />
+<PricingPlanBlock feature_name="EXTERNAL_SECRET_MANAGER" />
 
 By default, Bytebase stores the database credentials in an obfuscated format in its own meta store.
 You can also instruct Bytebase to retrieve the database credential from an external secret manager.
@@ -154,6 +155,7 @@ base64-encoded contents of the database password.
   }
 }
 ```
+
 ## AWS
 
 While creating an RDS or Aurora instance, you can choose to enable IAM authentication.
@@ -163,27 +165,30 @@ While creating an RDS or Aurora instance, you can choose to enable IAM authentic
 
 #### Create IAM policy
 
-1. Go to **IAM > Policies** and click **Create policy**.
-   ![](/content/docs/get-started/instance/aws-rds-iam/create-policy.webp)
+1.  Go to **IAM > Policies** and click **Create policy**.
+    ![](/content/docs/get-started/instance/aws-rds-iam/create-policy.webp)
 
-1. Select `RDS IAM Authentication` for service.
-   ![](/content/docs/get-started/instance/aws-rds-iam/rds-iam-auth.webp)
+1.  Select `RDS IAM Authentication` for service.
+    ![](/content/docs/get-started/instance/aws-rds-iam/rds-iam-auth.webp)
 
-1. Select `connect` permission and `specific` as Resources. Check `Any in this account`.
-   ![](/content/docs/get-started/instance/aws-rds-iam/connect-permission.webp)
+1.  Select `connect` permission and `specific` as Resources. Check `Any in this account`.
+    ![](/content/docs/get-started/instance/aws-rds-iam/connect-permission.webp)
 
-   <Info>
-      `Any in this account` will mark the resource as
-      `arn:aws:rds-db:*:<<your-db-id>>:dbuser:*/*`, which contains 3 `*`:
-      - 1st *: any regions
-      - 2nd *: any databases
-      - 3rd *: any database users
-      
-      This will allow the RDS connect on behalf of all database users in all databases in your account.
-      If you want to limit the connection to specific databases, please follow [this doc](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html).
-   </Info>
+          <Info>
 
-1. Name it `rds-connect` and create this policy.
+    `Any in this account` will mark the resource as
+    `arn:aws:rds-db:*:<<your-db-id>>:dbuser:*/*`, which contains 3 `*`:
+
+    - 1st \*: any regions
+    - 2nd \*: any databases
+    - 3rd \*: any database users
+
+    This will allow the RDS connect on behalf of all database users in all databases in your account.
+    If you want to limit the connection to specific databases, please follow [this doc](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html).
+
+    </Info>
+
+1.  Name it `rds-connect` and create this policy.
 
 #### Create IAM user
 
@@ -213,7 +218,7 @@ While creating an RDS or Aurora instance, you can choose to enable IAM authentic
      -e AWS_REGION=<<your-aws-region>> \
      --name bytebase \
      --publish 8080:8080 --pull always \
-     bytebase/bytebase:3.7.1
+     bytebase/bytebase:3.8.0
    ```
 
 1. Go to RDS instance detail page, you'll find the **endpoint** and **port**.
@@ -243,6 +248,7 @@ While creating an RDS or Aurora instance, you can choose to enable IAM authentic
 
 It's recommended to create a dedicated IAM user for Bytebase to retrieve the secrets. You only need to do this once
 .
+
 </Tip>
 
 Visit [IAM](https://aws.amazon.com/iam/) to create a new IAM user. Name it `bytebase-external-secret`.
@@ -346,7 +352,7 @@ These two correspond to the value you created in the AWS Secrets Manager.
      --name bytebase \
      --publish 8080:8080 --pull always \
      --volume ~/.bytebase/data:/var/opt/bytebase \
-     bytebase/bytebase:3.7.0
+     bytebase/bytebase:3.8.0
    ```
 
 1. Go to SQL overview page, you'll find the **Connection name**, use it as the host. Choose `Google Cloud SQL IAM` along with your user `bytebase` to connect to the database.  
@@ -360,6 +366,7 @@ These two correspond to the value you created in the AWS Secrets Manager.
 
 It's recommended to create a dedicated service account for Bytebase to retrieve the secrets. You only need to do this once
 .
+
 </Tip>
 
 Visit [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) to create a new service account.
@@ -434,7 +441,7 @@ For more information about the credential chain in default Azure credential, ple
      --name bytebase \
      --pull always \
      --volume ~/.bytebase/data:/var/opt/bytebase \
-     bytebase/bytebase:3.7.0
+     bytebase/bytebase:3.8.0
    ```
 
 #### Enable Microsoft Entra Authentication in Azure SQL
@@ -471,7 +478,7 @@ In this way, Bytebase can only connect to one specific Azure SQL database. To ma
   <Tab title="Oracle">
     <OracleConfig />
   </Tab>
-   <Tab title="MongoDB">
+  <Tab title="MongoDB">
     <MongoDBConfig />
   </Tab>
   <Tab title="Snowflake">
