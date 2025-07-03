@@ -4,11 +4,9 @@ title: Sign-in Restriction
 
 ## Sign-in Frequency
 
-<PricingPlanBlock feature_name='SIGNIN_FREQUENCY' />
-
 **Sign-in Frequency** specifies the period that users are required to sign in again.
 
-In Bytebase Workspace, Go to **Settings** -> **General** and scroll down to **Account** section.
+In Bytebase Workspace, Go to **Settings** > **General** and scroll down to **Account** section.
 
 ![sign-in-frequency](/content/docs/administration/sign-in-restriction/sign-in-frequency.webp)
 
@@ -16,20 +14,20 @@ You need to restart Bytebase to make the change take effect.
 
 ## Disallow Sign-in with Email & Password
 
-<PricingPlanBlock feature_name='DISALLOW_SIGNIN_WITH_EMAIL_PASSWORD' />
+<PricingPlanBlock feature_name="DISALLOW_SIGNIN_WITH_EMAIL_PASSWORD" />
 
 Once [SSO](/administration/sso/overview) is configured, you can [enforce SSO sign-in](/administration/sso/overview/#enforce-sso-sign-in) for all users.
 
 ## Sign-in from Email Domains
 
-Go to **Settings** -> **General**, scroll down to **Security** section. Fill in `Workspace Domain` tab with the email domain for your Workspace members. Then tick the `Members restriction` box.
+Go to **Settings** > **General**, scroll down to **Security** section. For **Workspace Domain**, you can configure allowed email domains for your workspace members. Click **Add domain** to add multiple domains as needed. After adding your domains, enable the **Members restriction** checkbox to enforce the restriction.
 
-![set-domain](/content/docs/administration/sign-in-restriction/set-domain.webp)
+![set-domain](/content/docs/administration/sign-in-restriction/bb-security-domains.webp)
 
 Domain restriction applies to:
 
-- Sign-in page. (Note that the new restriction only applies to the accounts registered after the `Workspace Domain` was updated)
+- Sign-in page. (Note that the new restriction only applies to the accounts registered after the **Workspace Domain** was updated)
   ![sign-in-domain-restriction](/content/docs/administration/sign-in-restriction/sign-in-domain-restriction.webp)
 
-- **Add User** in **IAM & Admin** -> **Users & Groups**. Users' email must be of the domain you set.
+- **Add User** in **IAM & Admin** > **Users & Groups**. Users' email must be of the domain you set.
   ![add-user-domain-restriction](/content/docs/administration/sign-in-restriction/add-user-domain-restriction.webp)
