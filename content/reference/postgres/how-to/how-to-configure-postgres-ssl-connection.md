@@ -106,7 +106,7 @@ sudo chmod 644 /usr/local/var/postgresql@14/ssl/ca-cert.pem /usr/local/var/postg
 
 Or change the paths to match your PostgreSQL version if different. Check the version with:
 
-```
+```bash
 brew list --versions postgresql
 ls -la /opt/homebrew/var/ | grep postgresql
 ```
@@ -123,7 +123,7 @@ sudo chmod 644 /etc/postgresql/ssl/*.pem
 
 2. Edit PostgreSQL configuration file:
 
-   **For Apple Silicon Macs (Homebrew):**
+**For Apple Silicon Macs (Homebrew):**
 
 ```bash
 sudo nano /opt/homebrew/var/postgresql@14/postgresql.conf
@@ -176,7 +176,7 @@ listen_addresses = '*'
 
 3. Edit authentication configuration:
 
-   **For macOS (Homebrew):**
+**For macOS (Homebrew):**
 
 ```bash
 # For Apple Silicon Macs
@@ -213,7 +213,7 @@ This configuration requires SSL for all connections, using `md5` authentication.
 
 4. Restart PostgreSQL:
 
-   **For macOS (Homebrew):**
+**For macOS (Homebrew):**
 
 ```bash
 brew services restart postgresql
