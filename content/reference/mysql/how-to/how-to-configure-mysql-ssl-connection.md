@@ -26,7 +26,7 @@ Ensure you have [MySQL](https://dev.mysql.com/downloads/) and [OpenSSL](https://
 
 Set up the configuration file:
 
-```text
+```bash
 cat >req.conf <<EOF
 [ req ]
 distinguished_name = req_distinguished_name
