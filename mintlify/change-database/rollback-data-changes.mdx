@@ -3,7 +3,12 @@ title: Data Rollback
 feature_name: 'ROLLBACK_DATA_CHANGES'
 ---
 
-<Card title="Tutorial: Manage Database Change with 1-Click Data Rollback" icon="graduation-cap" href="/tutorials/data-rollback" horizontal />
+<Card
+  title="Tutorial: Manage Database Change with 1-Click Data Rollback"
+  icon="graduation-cap"
+  href="/tutorials/data-rollback"
+  horizontal
+/>
 
 Bytebase allows taking **Prior Backup** before a data change is made. Bytebase stores the pre-snapshot of the affected rows, which allows you to revert that data change if needed.
 
@@ -20,7 +25,7 @@ You can manually delete the data in `bbdataarchive` database/schema.
 | ---------- | ------------------------------------------------------------------------------------- | ------------ | ---------------- |
 | MySQL      | Create a `bbdataarchive` **database** on the instance where your database is located. | ✅           | ✅               |
 | PostgreSQL | Create a `bbdataarchive` **schema** on the database.                                  | ✅           | ✅               |
-| Oracle     | Create a `bbdataarchive` **schema** on the database. | ✅           | ✅               |
+| Oracle     | Create a `bbdataarchive` **schema** on the database.                                  | ✅           | ✅               |
 | SQL Server | Create a `bbdataarchive` **database** on the instance where your database is located. | ✅           | ✅               |
 
 ## Supported Operations
@@ -47,6 +52,8 @@ You can toggle **Prior Backup** switch before or after creating the issue.
 
 ![bb-prior-bk-on](/content/docs/change-database/rollback-data-changes/bb-prior-bk-on.webp)
 
+<Note>If the switch is disabled, go to the database page and click **Sync instance** first.</Note>
+
 ## 1-click rollback
 
 1. Once the change has been rolled out. You can click the **Rollback** button to create the rollback issue.
@@ -72,7 +79,7 @@ If the DML change contains more than 5 statements, then all statements will be b
 
 ## Project backup settings
 
-<PricingPlanBlock feature_name='ISSUE_SETTING' />
+<PricingPlanBlock feature_name="ISSUE_SETTING" />
 
 - You can enable **Prior Backup** by default.
 - You can control whether you want to skip backup errors and continue changing the data.
