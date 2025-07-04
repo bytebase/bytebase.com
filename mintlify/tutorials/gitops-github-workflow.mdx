@@ -130,8 +130,6 @@ To create migration files to trigger release creation, the files have to match t
 
    ![bb-rollout](/content/docs/tutorials/gitops-github-workflow/bb-rollout.webp)
 
-_In `.github/workflows/release-action.yml`, pay attention to `BYTEBASE_TARGETS` in `deploy-to-test` stage. You should put all the databases including both `Test` and `Prod` environments. NOT ONLY the `Test` database._
-
 ## Manual Rollout by Environment
 
 In the previous section, once the PR is merged, we create a release and roll out it to both test and prod environments automatically.
