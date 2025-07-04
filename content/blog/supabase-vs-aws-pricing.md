@@ -257,26 +257,22 @@ AWS has generous limits — but database and storage expire after 12 months.
 
 ### 🧠 4. Hyperscale (10M MAUs, 10TB DB, 200TB Storage, 500TB Bandwidth)
 
-#### Supabase – **\$98,914.90/month**
+At this scale, you're operating at a level that most platforms — including Supabase — aren't built to serve out of the box.
 
-| Service            | Cost        | Notes                                 |
-| ------------------ | ----------- | ------------------------------------- |
-| Enterprise Plan    | \$1,999.00  | Premium support, SLA, dedicated infra |
-| DB Storage (10TB)  | \$1,248.75  | \$0.125/GB beyond base                |
-| Compute (Max Tier) | \$4,000.00  | Dedicated instances, 64-core          |
-| Auth (10M MAUs)    | \$32,175.00 | \$0.00325/MAU over 100K               |
-| Storage (200TB)    | \$4,197.90  | \$0.021/GB beyond base                |
-| Bandwidth (500TB)  | \$44,977.50 | \$0.09/GB over included 250GB         |
-| Edge Functions     | \$5,000.00  | Custom tier for heavy edge workloads  |
-| Messaging          | \$5,317.75  | Estimated at \$0.001/1K events        |
+#### Supabase – ❌ Not Recommended at This Scale
 
-✅ **Transparent, single-vendor solution. Pricing scales linearly.**
+Supabase’s architecture is optimized for small to mid-sized applications. While enterprise plans exist, the platform:
 
-#### AWS
+- Does not offer **horizontal scalability** for PostgreSQL (no native sharding or clustering).
+- Becomes **cost-prohibitive** with 10M+ MAUs due to flat per-user pricing.
+- Lacks fine-grained controls over **networking, observability, and infrastructure**.
+- May require **custom support contracts** and offloading core services (e.g., auth to WorkOS, storage to S3) to be viable.
 
-- On-Demand – **\$246,392.81/month**
-- 1-Year RI Estimate: **~\$222,726.14/month**
-- 3-Year RI Estimate: **~\$199,059.47/month**
+> ⚠️ Supabase is a great tool for rapid product development, but **most teams at this scale migrate to cloud-native stacks** like AWS, GCP, or Azure for performance, reliability, and cost control.
+
+✅ If you're approaching hyperscale, you can still **start with Supabase** — but architect with portability in mind.
+
+#### AWS – **\$246,392.81/month (on-demand)**
 
 | Service                    | On-Demand    | 1-Year RI (est. -30%) | 3-Year RI (est. -60%) | Notes                        |
 | -------------------------- | ------------ | --------------------- | --------------------- | ---------------------------- |
@@ -290,13 +286,31 @@ AWS has generous limits — but database and storage expire after 12 months.
 | CloudWatch                 | \$1,000.00   | —                     | —                     | Extended logs and metrics    |
 | SQS (1B messages)          | \$499.48     | —                     | —                     | \$0.40 per million messages  |
 
-⚠️ **AWS offers fine-grained scaling — but total cost is 2–3x Supabase.** Reserved pricing helps but long-term commitment required.
+✅ **AWS is built for hyperscale**: global infra, granular optimization, and predictable cost control through Reserved Instances and architectural tuning.
 
 ---
 
-## Final Thoughts
+## 🧠 Final Thoughts
 
-- Choose **Supabase** for simplicity, bundled pricing, and developer-friendly APIs.
-- Choose **AWS** for scale, fine-tuned cost optimization, and enterprise controls.
+**Supabase is a fantastic platform for startups and growing teams** — offering a unified experience, generous free tier, and simple pricing across auth, database, storage, edge functions, and realtime.
+
+It’s ideal for:
+
+- Prototypes and MVPs
+- Small-to-mid-scale production apps
+- Teams that want to move fast without managing infrastructure
+
+But as your product reaches **hyperscale — millions of users, terabytes of data, and high-throughput compute** — **Supabase starts to hit architectural and economic limits**:
+
+- PostgreSQL isn’t horizontally scalable in their setup
+- Auth and bandwidth costs grow steeply
+- Fine-grained performance tuning and compliance become difficult
+
+### 🛣️ Scale Path
+
+➡️ Many teams **start with Supabase** to move quickly, then gradually **offload services** (auth, compute, storage) to cloud-native infrastructure like **AWS, GCP, or Azure** as scale and complexity grow.
+
+✅ **Choose Supabase** if you want a fast, simple way to build and scale to your first million users.
+✅ **Choose AWS** if you need performance at scale, deep customization, or global enterprise-grade infrastructure.
 
 👉 For a deep dive into database-specific pricing, see: [Supabase vs AWS Database Pricing](https://www.bytebase.com/blog/supabase-vs-aws-database-pricing/)
