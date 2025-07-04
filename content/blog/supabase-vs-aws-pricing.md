@@ -82,35 +82,46 @@ See our full comparison here: [Supabase vs AWS Database Pricing (2025)](/blog/su
 
 🧬 Supabase is simpler for edge APIs. Lambda is better for complex logic, language flexibility, and AWS ecosystem workflows.
 
-| Feature        | Supabase Edge Functions | AWS Lambda            |
-| -------------- | ----------------------- | --------------------- |
-| Free Tier      | 500,000 invocations     | 1 million/month       |
-| Runtime        | Deno                    | Node.js, Python, etc. |
-| Cold Starts    | Minimal                 | Varies by region      |
-| Region         | Global edge             | Region-based          |
-| Pricing (Paid) | \$2/million calls       | \$0.20/million + GB-s |
+
+| Feature          | Supabase Edge Functions                | AWS Lambda                             |
+| ---------------- | -------------------------------------- | -------------------------------------- |
+| **Free Tier**    | 500,000 invocations                    | 1 million requests/month               |
+| **Runtime**      | Deno                                   | Node.js, Python, etc.                  |
+| **Cold Starts**  | Minimal                                | Varies by region                       |
+| **Region**       | Global edge                            | Region-based                           |
+| **Request Cost** | **\$2 per million** (includes compute) | **\$0.20 per million** (requests only) |
+| **Compute Cost** | Included in flat price                 | **Additional**: \$0.00001667 per GB-s  |
+
+- **Supabase** charges a flat fee per call — **simpler but may appear higher** at first glance.
+- **AWS Lambda** splits billing into two parts:
+  - **Requests** (cheap)
+  - **Compute** (based on memory x execution time), which can add up.
 
 ➡️ Supabase Edge charges only an invocation fee, while AWS Lambda has separate charges for invocations and compute time, measured in GB-seconds. Additionally, AWS Lambda supports a wider range of runtimes.
 
 ### 📡 Realtime: Supabase Messages vs AWS SQS/SNS
 
-**Supabase:** WebSocket-based realtime updates from DB triggers for simple pub/sub.
+**Supabase:** WebSocket-based realtime updates triggered by PostgreSQL changes. Great for simple in-app messaging and live UIs.
 
-**AWS SQS/SNS:** Robust messaging services for queueing and event-driven systems.
+**AWS SQS/SNS:** Scalable, fully managed messaging services. Ideal for decoupled, event-driven architectures and backend pipelines.
 
-🧬 Supabase is great for simple real-time features. AWS is better for event-driven architecture and high-scale messaging.
+🧬 Supabase is great for realtime UX. AWS is better for complex, distributed systems.
 
-| Feature     | Supabase Realtime   | AWS SQS / SNS        |
-| ----------- | ------------------- | -------------------- |
-| Free Tier   | 500,000 messages    | 1M requests/month    |
-| Pub/Sub     | Built-in            | SNS only             |
-| Queue       | Limited queue model | SQS (queueing)       |
-| Integration | PostgreSQL triggers | Broad (Lambda, etc.) |
-| Pricing     | Simple flat overage | Per-request pricing  |
+| Feature         | Supabase Realtime                   | AWS SQS / SNS                                                           |
+| --------------- | ----------------------------------- | ----------------------------------------------------------------------- |
+| **Free Tier**   | 500,000 messages/month              | 1 million requests/month                                                |
+| **Pub/Sub**     | Built-in                            | SNS only                                                                |
+| **Queueing**    | Limited                             | SQS provides advanced queueing                                          |
+| **Integration** | PostgreSQL triggers                 | Broad: Lambda, S3, EC2, etc.                                            |
+| **Pricing**     | **\$2 per million messages** (flat) | **\$0.40–\$0.50 per million requests** + delivery & data transfer costs |
 
-➡️ Use Supabase if you need simple pub/sub from your DB. Choose AWS for large-scale event systems.
+- **Supabase** charges a flat fee per message, making pricing simple and predictable.
+- **AWS SQS/SNS** charges separately for requests, message delivery, and data transfer, offering greater flexibility and scalability for complex event-driven systems.
+  - **SQS Standard**: \~\$0.40 per million requests
+  - **SNS**: \~\$0.50 per million publishes
+  - Additional charges: Message delivery (e.g., to Lambda, HTTP endpoints, or SQS) and **Data transfer** if messages cross regions
 
----
+➡️ **Supabase Realtime charges a flat fee per message**, making pricing simple and predictable. **AWS SQS/SNS charges separately for requests, message delivery, and data transfer**, offering greater flexibility and scalability for complex event-driven systems.
 
 ## 💰 Pricing Comparison by Tier
 
@@ -167,6 +178,7 @@ AWS has generous limits — but database and storage expire after 12 months.
 | S3 (50GB)          | \$1.15           | —                     | —                     | \$0.023/GB            |
 | Bandwidth (500GB)  | \$45.00          | —                     | —                     | \$0.09/GB             |
 | Lambda (1M execs)  | \$2.73           | \$1.91                | \$1.09                | 512MB, 200ms duration |
+| SQS (1M requests)  | \$0.50           | —                     | —                     | SNS publish cost      |
 
 ⚠️ **Most cost comes from bandwidth.** Setup involves configuring 5+ services.
 
