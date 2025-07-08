@@ -3,11 +3,14 @@ title: How LayerX Achieves “Painless” Governance and Security in the Cloud
 author: Tianzhou
 updated_at: 2025/07/08 12:00:00
 feature_image: /content/blog/layerx-case-study/banner.webp
+featured: true
 tags: Case Study
 description: 'How LayerX Achieves “Painless” Governance and Security in the Cloud'
 ---
 
-At [CloudNative Days Summer 2025](https://event.cloudnativedays.jp/cnds2025), Hokuto Hoshi—CISO and Head of SRE/Corporate Engineering at LayerX—shared how the company has built a cloud-native governance framework that balances compliance, security, and developer agility. The presentation, titled “_Realizing ‘Painless’ Governance and Security in the Cloud_”, resonated with platform teams facing growing audit requirements without wanting to slow down development.
+![presentation](/content/blog/layerx-case-study/presentation.webp)
+
+At CloudNative Days Summer 2025, Hokuto Hoshi—CISO and Head of SRE/Corporate Engineering at LayerX—shared how the company has built a cloud-native governance framework that balances compliance, security, and developer agility. The presentation, titled [Realizing "Painless" Governance and Security in the Cloud](https://speakerdeck.com/kanny/effortless-governance-and-security-enabled-by-the-cloud), resonated with platform teams facing growing audit requirements without wanting to slow down development.
 
 ## About LayerX
 
@@ -53,7 +56,7 @@ To handle temporary elevated permissions, LayerX leverages [Entra PIM](https://l
 
 ### Change Management in GitHub
 
-Application and infrastructure changes are governed by pull request approvals using GitHub's [`CODEOWNERS`](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners). Even emergency changes are logged and traceable, and deployments are automated via tools like [ecspresso](https://github.com/kayac/ecspresso) and [Terraform](https://www.terraform.io/) within a monorepo setup.
+Application and infrastructure changes are governed by pull request approvals using [GitHub's CODEOWNERS](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners). Even emergency changes are logged and traceable, and deployments are automated via tools like [ecspresso](https://github.com/kayac/ecspresso) and [Terraform](https://www.terraform.io/) within a monorepo setup.
 
 ### Database Governance with Bytebase
 
@@ -87,7 +90,7 @@ What LayerX has accomplished is a pragmatic example of how modern engineering pr
 | ------------------------------------ | ------------------- | -------------------------------------------------------- |
 | Microsoft Entra ID                   | Microsoft           | SSO, identity provider, group and access control         |
 | SmartHR                              | SmartHR             | HR system for managing employee roles and attributes     |
-| Terraform (HCL)                      | HashiCorp           | Infrastructure-as-code, role syncing with IdP            |
+| Terraform                            | HashiCorp           | Infrastructure-as-code, role syncing with IdP            |
 | Entra PIM (Privileged Identity Mgmt) | Microsoft           | Time-limited elevated access with approvals              |
 | GitHub + CODEOWNERS                  | Microsoft (GitHub)  | Pull request approval workflow for app and infra changes |
 | ecspresso                            | KAYAC               | ECS deployment tool integrated with GitHub and Terraform |
