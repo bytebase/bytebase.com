@@ -35,6 +35,8 @@ Developers create SQL migration files in their feature branches:
 - Schema changes (DDL): `202501150900_add_user_table.sql`
 - Data changes (DML): `202501150901_seed_initial_data_dml.sql`
 
+<Note>Filenames must conform to the [versioning format](#requirements).</Note>
+
 ### 2. Review Phase (Pull Request)
 
 - SQL review runs automatically on the PR
@@ -60,6 +62,47 @@ The release follows your configured deployment pipeline:
 - Each deployment is tracked with timing and status
 
 **Important**: When deploying a release, Bytebase automatically detects which migrations have already been applied to the target database and skips them. This ensures safe re-deployment and allows the same release to be deployed multiple times without errors.
+
+## Requirements
+
+## Filename Requirements
+
+To ensure proper version control and execution, your SQL migration filenames must follow a specific structure. Each filename consists of three main parts: a **Version**, a **Description**, and an optional **Change Type Suffix**.
+
+`<Version>_<Description>_<Suffix>.sql`
+
+### Versioning Format
+
+Bytebase supports both semantic versioning and simple timestamp-based versions. The version number is crucial for ordering migrations correctly.
+
+The version must begin with a number. A `v` or `V` prefix is optional.
+
+**Valid Version Examples:**
+
+- `202501150900_add_user_table.sql`
+- `v1.2.3_description.sql`
+- `V2_add_users_table.sql`
+- `1.0_initial_schema.sql`
+
+### Change Type Suffixes
+
+You can add a suffix to the filename to specify the change type. **If the suffix is omitted, the file will be treated as the default `DDL` type.** The suffix is added to the end of the filename, just before the `.sql` extension.
+
+- **DDL (Default)**
+
+  - Used for standard schema changes (Data Definition Language). This is the default type used when no suffix is present.
+  - **Example**: `v1.0_create_table.sql`
+
+- **DML**
+
+  - Used for data manipulations (Data Manipulation Language).
+  - Add the `_dml` suffix.
+  - **Example**: `v1.0_insert_data_dml.sql`
+
+- **Ghost**
+  - Used for schema changes performed using the `gh-ost` tool.
+  - Add the `_ghost` suffix.
+  - **Example**: `v1.0_alter_table_ghost.sql`
 
 ## GitHub Actions
 
