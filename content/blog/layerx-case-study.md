@@ -7,19 +7,19 @@ tags: Case Study
 description: 'How LayerX Achieves “Painless” Governance and Security in the Cloud'
 ---
 
-At **CloudNative Days Summer 2025**, Hokuto Hoshi—CISO and Head of SRE/Corporate Engineering at LayerX—shared how the company has built a cloud-native governance framework that balances compliance, security, and developer agility. The presentation, titled _Realizing ‘Painless’ Governance and Security in the Cloud_, resonated with platform teams facing growing audit requirements without wanting to slow down development.
+At [CloudNative Days Summer 2025](https://event.cloudnativedays.jp/cnds2025), Hokuto Hoshi—CISO and Head of SRE/Corporate Engineering at LayerX—shared how the company has built a cloud-native governance framework that balances compliance, security, and developer agility. The presentation, titled “_Realizing ‘Painless’ Governance and Security in the Cloud_”, resonated with platform teams facing growing audit requirements without wanting to slow down development.
 
 ## About LayerX
 
 ![about-layerx](/content/blog/layerx-case-study/about-layerx.webp)
 
-LayerX is a Tokyo-based technology company with a mission to enable digitalization across all economic activities. The company operates across several domains, including:
+[LayerX](https://layerx.co.jp/) is a Tokyo-based technology company with a mission to enable digitalization across all economic activities. The company operates across several domains, including:
 
-- **Bakuraku**: A suite of AI-powered SaaS tools streamlining core enterprise workflows such as expense management, invoice processing, and approval flows.
+- [Bakuraku](https://bakuraku.jp/): A suite of AI-powered SaaS tools streamlining core enterprise workflows such as expense management, invoice processing, and approval flows.
 
-- **Fintech**: Asset management and securities solutions delivered through a joint venture model.
+- [Fintech](https://corp.mitsui-x.com/): Asset management and securities solutions delivered through a joint venture model.
 
-- **AI/LLM**: An internal platform that transforms organizational knowledge into structured, retrievable data using large language models.
+- [AI/LLM](https://getaiworkforce.com/): An internal platform that transforms organizational knowledge into structured, retrievable data using large language models.
 
 LayerX builds its products with a strong emphasis on automation, auditability, and developer experience—making it a prime example of a cloud-native enterprise balancing innovation with compliance.
 
@@ -41,23 +41,23 @@ Their implementation spans the entire stack—from user account management to in
 
 ### SSO as a Security Backbone
 
-LayerX uses **Microsoft Entra ID** to unify identity across systems. Employee onboarding and offboarding are fully automated via HR data and Notion, with Slack-integrated workflows for approvals. Access is consistently enforced through SSO across all internal tools.
+LayerX uses [Microsoft Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) to unify identity across systems. Employee onboarding and offboarding are fully automated via HR data and Notion, with Slack-integrated workflows for approvals. Access is consistently enforced through SSO across all internal tools.
 
 ### Group-Based Permissioning
 
-User groups are defined via **SmartHR** and translated to **Terraform HCL**, then synced to Entra ID. This bridges HR systems with access control, enabling scalable role-based access patterns.
+User groups are defined via [SmartHR](https://smarthr.jp/) and translated to [Terraform HCL](https://developer.hashicorp.com/terraform/language), then synced to Entra ID. This bridges HR systems with access control, enabling scalable role-based access patterns.
 
 ### Time-Bound Privilege Escalation
 
-To handle temporary elevated permissions, LayerX leverages **Entra PIM**, allowing just-in-time access with automatic expiration—a modern answer to long-standing privilege management issues.
+To handle temporary elevated permissions, LayerX leverages [Entra PIM](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure), allowing just-in-time access with automatic expiration—a modern answer to long-standing privilege management issues.
 
 ### Change Management in GitHub
 
-Application and infrastructure changes are governed by pull request approvals using GitHub's `CODEOWNERS`. Even emergency changes are logged and traceable, and deployments are automated via tools like **ecspresso** and **Terraform** within a monorepo setup.
+Application and infrastructure changes are governed by pull request approvals using GitHub's [`CODEOWNERS`](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners). Even emergency changes are logged and traceable, and deployments are automated via tools like [ecspresso](https://github.com/kayac/ecspresso) and [Terraform](https://www.terraform.io/) within a monorepo setup.
 
 ### Database Governance with Bytebase
 
-Traditionally, database operations are disconnected from CI/CD and governance workflows. LayerX addressed this gap by adopting **Bytebase** to introduce structured, auditable change management for their databases.
+Traditionally, database operations are disconnected from CI/CD and governance workflows. LayerX addressed this gap by adopting [Bytebase](/) to introduce structured, auditable change management for their databases.
 
 With Bytebase, LayerX can:
 
@@ -71,7 +71,7 @@ This brings the same rigor to database operations that exist for code and infras
 
 ## Unified Logging and Simplified Audits
 
-Logs from **AWS CloudTrail**, **Entra ID**, **Datadog**, and **Amazon Athena** are aggregated and searchable via APIs and CLI commands. LayerX stores logs in **Snowflake**, making it easy to visualize and retrieve audit evidence. Log extraction is automated—no more ad hoc queries or manual exports.
+Logs from [AWS CloudTrail](https://aws.amazon.com/cloudtrail/), Entra ID, [Datadog](https://www.datadoghq.com/), and [Amazon Athena](https://aws.amazon.com/athena/) are aggregated and searchable via APIs and CLI commands. LayerX stores logs in [Snowflake](https://www.snowflake.com/), making it easy to visualize and retrieve audit evidence. Log extraction is automated—no more ad hoc queries or manual exports.
 
 ## A Model for Modern Platform Teams
 
@@ -87,7 +87,7 @@ What LayerX has accomplished is a pragmatic example of how modern engineering pr
 | ------------------------------------ | ------------------- | -------------------------------------------------------- |
 | Microsoft Entra ID                   | Microsoft           | SSO, identity provider, group and access control         |
 | SmartHR                              | SmartHR             | HR system for managing employee roles and attributes     |
-| Terraform                            | HashiCorp           | Infrastructure-as-code, role syncing with IdP            |
+| Terraform (HCL)                      | HashiCorp           | Infrastructure-as-code, role syncing with IdP            |
 | Entra PIM (Privileged Identity Mgmt) | Microsoft           | Time-limited elevated access with approvals              |
 | GitHub + CODEOWNERS                  | Microsoft (GitHub)  | Pull request approval workflow for app and infra changes |
 | ecspresso                            | KAYAC               | ECS deployment tool integrated with GitHub and Terraform |
