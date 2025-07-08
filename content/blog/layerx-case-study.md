@@ -1,13 +1,13 @@
 ---
 title: How LayerX Achieves “Painless” Governance and Security in the Cloud
-author: Cayden
+author: Tianzhou
 updated_at: 2025/07/08 12:00:00
 feature_image: /content/blog/layerx-case-study/banner.webp
 tags: Case Study
 description: 'How LayerX Achieves “Painless” Governance and Security in the Cloud'
 ---
 
-At **CloudNative Days Summer 2025**, Hokuto Hoshi—CISO and Head of SRE/Corporate Engineering at LayerX—shared how the company has built a cloud-native governance framework that balances compliance, security, and developer agility. The presentation, titled “Realizing ‘Painless’ Governance and Security in the Cloud,” resonated with platform teams facing growing audit requirements without wanting to slow down development.
+At **CloudNative Days Summer 2025**, Hokuto Hoshi—CISO and Head of SRE/Corporate Engineering at LayerX—shared how the company has built a cloud-native governance framework that balances compliance, security, and developer agility. The presentation, titled _Realizing ‘Painless’ Governance and Security in the Cloud_, resonated with platform teams facing growing audit requirements without wanting to slow down development.
 
 ## About LayerX
 
