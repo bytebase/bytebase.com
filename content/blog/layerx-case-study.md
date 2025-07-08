@@ -87,7 +87,7 @@ What LayerX has accomplished is a pragmatic example of how modern engineering pr
 | ------------------------------------ | ------------------- | -------------------------------------------------------- |
 | Microsoft Entra ID                   | Microsoft           | SSO, identity provider, group and access control         |
 | SmartHR                              | SmartHR             | HR system for managing employee roles and attributes     |
-| Terraform (HCL)                      | HashiCorp           | Infrastructure-as-code, role syncing with IdP            |
+| Terraform                            | HashiCorp           | Infrastructure-as-code, role syncing with IdP            |
 | Entra PIM (Privileged Identity Mgmt) | Microsoft           | Time-limited elevated access with approvals              |
 | GitHub + CODEOWNERS                  | Microsoft (GitHub)  | Pull request approval workflow for app and infra changes |
 | ecspresso                            | KAYAC               | ECS deployment tool integrated with GitHub and Terraform |
