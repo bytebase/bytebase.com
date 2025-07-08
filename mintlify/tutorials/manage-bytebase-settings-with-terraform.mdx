@@ -15,6 +15,7 @@ This tutorial is part of the **Manage Bytebase with Terraform** series:
 - Part 1: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Set up instances and environments
 - Part 2: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
 - Part 3: Manage Bytebase Settings with Terraform (This one) - Configure workspace settings, approval flows, and risk management
+- Part 4: Configure Database Access with Terraform (Coming next) - Set up access controls and permissions
 
 📚 **Complete examples**: [GitHub - Bytebase Terraform Provider](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
 
@@ -210,46 +211,6 @@ These risk policies:
 - **Level Alignment**: Risk levels (200=MODERATE, 300=HIGH) align with approval flow conditions
 - **Automatic Triggering**: Policies automatically assess operations and trigger appropriate approval flows
 
-## Step 4 - Implement Dependencies and Apply Configuration
-
-To ensure proper order of operations, set up dependencies between your settings:
-
-```hcl
-# Ensure workspace profile is configured first
-resource "bytebase_setting" "workspace_profile" {
-  name = "settings/WORKSPACE_PROFILE"
-
-  workspace_profile {
-    external_url = "https://your-bytebase-instance.com"
-  }
-}
-
-# Configure approval flow after workspace profile
-resource "bytebase_setting" "approval_flow" {
-  depends_on = [
-    bytebase_setting.workspace_profile
-  ]
-
-  name = "settings/WORKSPACE_APPROVAL"
-
-  approval_flow {
-    # ... approval flow configuration
-  }
-}
-
-# Configure risk policies after approval flow
-resource "bytebase_risk" "prod_ddl_risk" {
-  depends_on = [
-    bytebase_setting.approval_flow
-  ]
-
-  name        = "Production DDL Risk"
-  risk_level  = "HIGH"
-
-  # ... risk policy configuration
-}
-```
-
 ### Deploy Your Configuration
 
 Run the Terraform commands to apply your settings:
@@ -302,37 +263,12 @@ Create a database change in production to verify that:
   operations.
 </Note>
 
-## Best Practices
-
-1. **Risk Level Alignment**: Ensure your risk policies align with your approval flow requirements
-2. **Environment-Based Policies**: Create stricter policies for production environments
-3. **Gradual Implementation**: Start with basic policies and gradually add more specific rules
-4. **Regular Review**: Periodically review and update your risk policies based on operational experience
-
 ## Summary
 
-You've successfully configured Bytebase's core governance settings using Terraform. You've:
-
-- **Configured workspace profile** settings for team collaboration
-- **Set up approval flows** that automatically trigger based on risk levels
-- **Defined risk management policies** that assess database operations
-- **Implemented proper dependencies** to ensure correct configuration order
-
-These settings provide a foundation for database governance that automatically enforces your organization's policies and procedures.
+You've successfully configured Bytebase workspace settings, approval flows, and risk policies using Terraform. Your database operations now have automated governance and approval workflows in place.
 
 ## Next Steps
 
-With your Bytebase workspace fully configured, you can now:
-
-- **Monitor Operations**: Use the Risk Center to track high-risk operations
-- **Customize Policies**: Adjust risk policies based on your team's operational patterns
-- **Extend Governance**: Add more specific rules for special cases or compliance requirements
-- **Integrate with CI/CD**: Incorporate these governance controls into your deployment pipelines
-
-You can also explore:
-
-- [Data masking policies](https://www.bytebase.com/docs/security/data-masking) for sensitive data protection
-- [Database branching](https://www.bytebase.com/docs/change-database/branch) for safer development workflows
-- [Custom roles and permissions](https://www.bytebase.com/docs/administration/custom-roles) for fine-grained access control
+In the next tutorial, you'll learn how to use Terraform to configure database access controls and permissions, completing your infrastructure-as-code setup for Bytebase.
 
 For more advanced configurations, check the [Terraform Provider examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples) on GitHub.
