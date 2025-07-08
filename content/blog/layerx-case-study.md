@@ -58,7 +58,11 @@ To handle temporary elevated permissions, LayerX leverages [Entra PIM](https://l
 
 Application and infrastructure changes are governed by pull request approvals using [GitHub's CODEOWNERS](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners). Even emergency changes are logged and traceable, and deployments are automated via tools like [ecspresso](https://github.com/kayac/ecspresso) and [Terraform](https://www.terraform.io/) within a monorepo setup.
 
-### Database Governance with Bytebase
+### Unified Logging and Simplified Audits
+
+Logs from [AWS CloudTrail](https://aws.amazon.com/cloudtrail/), Entra ID, [Datadog](https://www.datadoghq.com/), and [Amazon Athena](https://aws.amazon.com/athena/) are aggregated and searchable via APIs and CLI commands. LayerX stores logs in [Snowflake](https://www.snowflake.com/), making it easy to visualize and retrieve audit evidence. Log extraction is automated—no more ad hoc queries or manual exports.
+
+## Database Governance with Bytebase
 
 Traditionally, database operations are disconnected from CI/CD and governance workflows. LayerX addressed this gap by adopting [Bytebase](/) to introduce structured, auditable change management for their databases.
 
@@ -71,10 +75,6 @@ With Bytebase, LayerX can:
 - Eliminate the need for bastion hosts by shifting to a secure, review-based model
 
 This brings the same rigor to database operations that exist for code and infrastructure—an essential step for aligning security, reliability, and developer velocity.
-
-## Unified Logging and Simplified Audits
-
-Logs from [AWS CloudTrail](https://aws.amazon.com/cloudtrail/), Entra ID, [Datadog](https://www.datadoghq.com/), and [Amazon Athena](https://aws.amazon.com/athena/) are aggregated and searchable via APIs and CLI commands. LayerX stores logs in [Snowflake](https://www.snowflake.com/), making it easy to visualize and retrieve audit evidence. Log extraction is automated—no more ad hoc queries or manual exports.
 
 ## A Model for Modern Platform Teams
 
