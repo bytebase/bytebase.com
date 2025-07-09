@@ -5,8 +5,10 @@ title: Upgrade
 import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
 
 <Warning>
+BEFORE YOU UPGRADE
 
-Make sure to back up the metadata before upgrading. You need the old version metadata to downgrade if needed.
+- Back up your metadata before upgrading. You’ll need it if you ever downgrade.
+- Never run multiple containers on the same data directory. Stop and remove the old one first to avoid corruption.
 
 </Warning>
 
