@@ -34,6 +34,7 @@
               "get-started/upgrade",
               "get-started/install/external-postgres",
               "get-started/install/external-url",
+              "integrations/terraform/overview",
               "get-started/cloud"
             ]
           },
@@ -250,10 +251,6 @@
           {
             "group": "3rd Party",
             "pages": [
-              {
-                "group": "Terraform",
-                "pages": ["integrations/terraform/overview", "integrations/terraform/troubleshoot"]
-              },
               "integrations/slack",
               "integrations/jira",
               "integrations/supabase",
@@ -304,11 +301,16 @@
             ]
           },
           {
-            "group": "Integration",
+            "group": "Terraform",
             "pages": [
               "tutorials/manage-databases-in-bytebase-with-terraform",
               "tutorials/manage-projects-in-bytebase-with-terraform",
-              "tutorials/manage-bytebase-settings-with-terraform",
+              "tutorials/manage-bytebase-settings-with-terraform"
+            ]
+          },
+          {
+            "group": "Integration",
+            "pages": [
               "tutorials/sql-review-api",
               "tutorials/self-host-llama",
               "tutorials/api-sql-review-policy",
