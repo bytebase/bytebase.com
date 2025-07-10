@@ -1,7 +1,7 @@
 ---
 title: Manage Bytebase Settings with Terraform
 author: Adela
-updated_at: 2025/07/08 18:15
+updated_at: 2025/07/10 21:15
 tags: Tutorial
 integrations: Terraform
 category: 'Integration'
@@ -15,260 +15,167 @@ This tutorial is part of the **Manage Bytebase with Terraform** series:
 - Part 1: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Set up instances and environments
 - Part 2: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
 - Part 3: Manage Bytebase Settings with Terraform (This one) - Configure workspace settings, approval flows, and risk management
-- Part 4: Configure Database Access with Terraform (Coming next) - Set up access controls and permissions
+- Part 4: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Set up access controls and permissions
 
-📚 **Complete examples**: [GitHub - Bytebase Terraform Provider](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
+📚 [Complete tutorial terraform files on GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
 
-In the previous tutorials, you learned how to manage database instances and projects with Terraform. Now let's configure Bytebase's core settings for workspace management, approval workflows, and risk policies to establish proper governance for your database operations.
+Learn how to configure workspace settings, approval flows, and risk policies using Terraform and the [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs).
+
+<Note>
+
+Bytebase Terraform Provider handles control plane configuration such as settings, policies, access controls. It does not
+handle data plane operations such as database creation, schema migrations, DML execution, query.
+
+</Note>
 
 ## What You'll Learn
 
-Building on the previous tutorials, you'll learn how to:
-
-- Configure **workspace profile** settings for team collaboration
-- Set up **approval flows** for database change management (also applies to queries and exports)
-- Define **risk management** policies for operational safety
-- Implement governance controls using **infrastructure as code**
+- **Configure** workspace profile settings including signup controls and external URL
+- **Set up** multi-step approval flows for database changes
+- **Define** risk policies to trigger appropriate approval workflows
 
 ## Prerequisites
 
-Before starting, ensure you have completed the previous tutorials and have:
+Before starting this tutorial, ensure you have:
 
-- Bytebase running with service account configured
-- Terraform provider set up and working
-- Your existing `main.tf` file with the Terraform provider configured
+- Completed [Part 2: Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform)
+- Bytebase running with ngrok and service account configured
+- Your `main.tf` file from the previous tutorials
 
-## Understanding Bytebase Settings
+## Setup
 
-Bytebase provides several workspace-level settings that control how your team collaborates and manages database changes:
+From the previous tutorials, you should have:
 
-- **Workspace Profile**: Basic workspace configuration including name, logo, and branding
-- **Approval Flow**: Custom approval workflows for database changes, data queries, and exports
-- **Risk Management**: Policies that assess and control risky database operations
+- Bytebase instances and projects configured
+- Service account with Workspace Admin role
+- Your `main.tf` file ready for additional configurations
 
-<Note>
-  **Important**: These settings control the governance and workflow behavior of your entire Bytebase
-  workspace. Changes to these settings affect all users and projects in your organization.
-</Note>
+## Configure Bytebase Settings
 
-## Step 1 - Configure Workspace Profile Settings
+### Step 1 - Workspace Profile Configuration
 
-The workspace profile contains basic information about your Bytebase workspace that affects branding and team collaboration.
-
-### Query Current Workspace Profile
-
-First, let's see what workspace profile settings currently exist:
+Add the workspace profile settings to your `main.tf`:
 
 ```hcl
-# Query current workspace profile settings
-data "bytebase_setting" "workspace_profile" {
-  name = "settings/WORKSPACE_PROFILE"
-}
-
-output "current_workspace_profile" {
-  value = data.bytebase_setting.workspace_profile
-}
-```
-
-Add this to your `main.tf` and run `terraform apply` to see the current configuration.
-
-### Configure Workspace Profile
-
-Now let's configure the workspace profile settings:
-
-```hcl
-# Configure workspace profile
+# Step 1: Workspace profile configuration
 resource "bytebase_setting" "workspace_profile" {
   name = "settings/WORKSPACE_PROFILE"
 
   workspace_profile {
-    # Security settings
-    disallow_signup = true
-    domains         = ["example.com"]
-    enforce_identity_domain = true
-
-    # External URL configuration
-    external_url = "https://your-bytebase-instance.com"
-
-    # Optional: Disable password signin to enforce SSO
-    # disallow_password_signin = false
+    disallow_signup          = true
+    domains                  = ["example.com"]
+    enforce_identity_domain  = false
+    external_url             = "https://xxx.ngrok-free.app"
   }
 }
 ```
 
 This configuration:
 
-- **Security**: Disables public signup and enforces domain restrictions
-- **Domain Control**: Only allows users from specified domains (example.com)
-- **Identity Management**: Enforces identity domain matching for user access
-- **External URL**: Sets the workspace's external URL for integrations and notifications
+- Disables public signup for security
+- Restricts users to specific email domains
+- Sets your ngrok URL as the external URL
 
-## Step 2 - Set Up Approval Flows
+### Step 2 - Approval Flow Settings
 
-Approval flows control how database changes are reviewed and approved before execution. These flows also apply to data queries and exports for comprehensive governance.
-
-### Query Current Approval Flow Settings
+Add approval flow configuration that requires multiple approvals for risky operations:
 
 ```hcl
-# Query current approval flow settings
-data "bytebase_setting" "approval_flow" {
-  name = "settings/WORKSPACE_APPROVAL"
-}
-
-output "current_approval_flow" {
-  value = data.bytebase_setting.approval_flow
-}
-```
-
-### Configure Custom Approval Flow
-
-```hcl
-# Approval Flow Configuration
+# Step 2: Approval flow settings
 resource "bytebase_setting" "approval_flow" {
   name = "settings/WORKSPACE_APPROVAL"
 
   approval_flow {
     rules {
       flow {
-        title = "Project Owner -> DBA -> Admin"
+        title       = "Project Owner → DBA → Admin"
         description = "Need DBA and workspace admin approval"
 
-        steps {
-          role = "roles/projectOwner"
-        }
-
-        steps {
-          role = "roles/workspaceDBA"
-        }
-
-        steps {
-          role = "roles/workspaceAdmin"
-        }
+        steps { role = "roles/projectOwner" }
+        steps { role = "roles/workspaceDBA" }
+        steps { role = "roles/workspaceAdmin" }
       }
-
       conditions {
         source = "DML"
-        level = "MODERATE"
+        level  = "MODERATE"
       }
-
       conditions {
         source = "DDL"
-        level = "HIGH"
+        level  = "HIGH"
       }
     }
   }
 }
 ```
 
-This approval flow configuration:
+This creates a three-step approval flow that triggers for:
 
-- **Multi-step Flow**: Requires sequential approvals from Project Owner → DBA → Admin
-- **Operation-Based Triggering**: Activates for moderate-risk DML and high-risk DDL operations
-- **Role-Based Approvals**: Uses Bytebase's built-in role system for approval authority
-- **Comprehensive Coverage**: Also applies to queries and exports for complete governance
+- DML operations with MODERATE risk level
+- DDL operations with HIGH risk level
 
-## Step 3 - Configure Risk Management Policies
+### Step 3 - Risk Management Policies
 
-Risk management policies automatically assess database operations and assign risk levels based on your organization's policies.
-
-### Query Current Risk Policies
+Define risk policies that determine when approval flows are triggered:
 
 ```hcl
-# Query existing risk policies
-data "bytebase_risk_list" "all" {}
-
-output "current_risks" {
-  value = data.bytebase_risk_list.all
-}
-```
-
-### Define Risk Management Policies
-
-```hcl
-# Risk Configuration - Aligned with Approval Flow
-resource "bytebase_risk" "dml_moderate_risk" {
+# Step 3: Risk management policies
+resource "bytebase_risk" "dml_moderate" {
   title     = "DML Moderate Risk"
   source    = "DML"
-  level     = 200  # MODERATE level
+  level     = 200
   active    = true
   condition = "environment_id == \"prod\" && affected_rows >= 100"
 }
 
-resource "bytebase_risk" "ddl_high_risk" {
+resource "bytebase_risk" "ddl_high" {
   title     = "DDL High Risk"
   source    = "DDL"
-  level     = 300  # HIGH level
+  level     = 300
   active    = true
   condition = "environment_id == \"prod\""
 }
 ```
 
-These risk policies:
+Risk levels:
 
-- **DML Moderate Risk**: Triggers for production DML operations affecting 100+ rows
-- **DDL High Risk**: Activates for all DDL operations in production environment
-- **Condition-Based**: Uses flexible condition expressions for precise risk assessment
-- **Level Alignment**: Risk levels (200=MODERATE, 300=HIGH) align with approval flow conditions
-- **Automatic Triggering**: Policies automatically assess operations and trigger appropriate approval flows
+- **200 (MODERATE)**: DML operations in production affecting 100+ rows
+- **300 (HIGH)**: All DDL operations in production
 
-### Deploy Your Configuration
-
-Run the Terraform commands to apply your settings:
+### Step 4 - Apply Configuration
 
 ```bash
 terraform plan
 terraform apply
 ```
 
-## Verification and Testing
+### Step 5 - Verify in Bytebase
 
-After applying your Terraform configuration, verify that the settings are properly configured in Bytebase:
+1. Go to **Settings > General** to verify workspace profile settings.
+1. Go to **CI/CD > Custom Approval** to see the approval flow.
 
-### 1. Verify Workspace Profile Settings
+   ![custom-approval](/content/docs/tutorials/manage-bytebase-settings-with-terraform/bb-custom-approval.png)
 
-1. In Bytebase workspace, click **Settings** > **General** on the left side bar
-2. Review the workspace profile settings
-3. Confirm these settings match your Terraform configuration:
-   - External URL is set correctly
-   - Domain restrictions are enforced
-   - Sign-up controls are configured as expected
+1. Go to **CI/CD > Risk Center** to view risk policies.
 
-### 2. Verify Approval Flow Configuration
+   ![risks](/content/docs/tutorials/manage-bytebase-settings-with-terraform/bb-risks.png)
 
-1. In Bytebase workspace, click **CI/CD** > **Custom Approval** on the left side bar
-2. Verify the "Project Owner → DBA → Admin" flow is listed
-3. Confirm the flow triggers for:
-   - DML operations with MODERATE level
-   - DDL operations with HIGH level
+1. Go into `Project Two`, click **Database > Databases** on the left sidebar. Check `hr_prod`, click **Edit Schema**, add a new table `t0`. After creating the issue, corresponding risk `DDL high` and approval flow `Project Owner → DBA → Admin` will be matched.
 
-### 3. Verify Risk Policies
+   ![issue-risk-high](/content/docs/tutorials/manage-bytebase-settings-with-terraform/bb-issue-risk-high.png)
 
-1. In Bytebase workspace, click **CI/CD** > **Risks** on the left side bar
-2. Verify your risk policies are listed and active:
-   - **DML Moderate Risk**: For production DML with 100+ affected rows
-   - **DDL High Risk**: For all production DDL operations
-3. Ensure the condition expressions are correctly configured
+## Key Points
 
-### 4. Test the Workflow
-
-Create a database change in production to verify that:
-
-- Risk policies correctly evaluate the operation
-- Approval flows are triggered based on risk level
-- The complete approval process works as expected
-
-<Note>
-  **Query and Export Operations**: The same approval flows automatically apply to data queries and
-  exports based on their risk assessment, providing comprehensive governance across all database
-  operations.
-</Note>
-
-## Summary
-
-You've successfully configured Bytebase workspace settings, approval flows, and risk policies using Terraform. Your database operations now have automated governance and approval workflows in place.
+- **Workspace Profile**: Controls signup, domain restrictions, and external URL
+- **Approval Flows**: Define multi-step approval processes for risky operations
+- **Risk Policies**: Automatically assess operations and trigger appropriate workflows
+- You can configure additional [settings](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/setting) such as classification and semantic_types. These will be covered in upcoming tutorials
 
 ## Next Steps
 
-In the next tutorial, you'll learn how to use Terraform to configure database access controls and permissions, completing your infrastructure-as-code setup for Bytebase.
+**Continue the series:** [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - set up access controls and permissions.
 
-For more advanced configurations, check the [Terraform Provider examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples) on GitHub.
+**Resources:**
+
+- [Tutorial files](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
+- [Advanced examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
+- [Discord community](https://discord.gg/huyw7gRsyA)
