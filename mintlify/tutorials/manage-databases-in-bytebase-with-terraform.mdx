@@ -11,7 +11,7 @@ estimated_time: '30 mins'
 ---
 
 import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
-import VCSWithNgrok from '/snippets/install/vcs-with-ngrok.mdx';
+import VCSWithNgrok from '/snippets/install/start-with-ngrok.mdx';
 
 This tutorial is part of the **Manage Bytebase with Terraform** series:
 
@@ -76,45 +76,33 @@ terraform -help
 
 **For other platforms:** Follow the [official Terraform installation guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
 
-### Start Services with Ngrok
+### Start Bytebase with Ngrok
 
 <VCSWithNgrok />
 
-1. **Start Bytebase**:
+### Prepare some data
 
-   <TerminalDockerRunVolume />
+1. Visit Bytebase and register an admin account with `Workspace Admin` role.
 
-1. **Set up Bytebase admin account**:
+   ![register-admin](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-register-admin.png)
 
-   Navigate to Bytebase (usually `http://localhost:8080`) and register an admin account with `Workspace Admin` role.
+1. Follow the guide to configure, you'll need the **built-in sample** data for this tutorial.
 
-   ![register-admin](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/register-admin.webp)
+   ![built-in-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-use-built-in-sample.png)
 
-1. **Use Built-in database instance**:
+### Check Bytebase Setup (GUI)
 
-After registration, follow the guide to configure, you'll need the built-in sample instances.
+1. After you log into the Bytebase, click **Instances** on the left sidebar, you will see there are two PostgreSQL instances: `Prod Sample Instance` and `Test Sample Instance`. You may click **+ Add Instance** to add new instances.
 
-![built-in-instance](/content/docs/tutorials/manage-bytebase-with-terraform/bb-use-built-in-sample.png)
+   ![add-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-instance.png)
 
-### Initial Bytebase Setup (GUI)
+1. Click **Projects** on the left sidebar, you will see there is a `Sample Project`, click it or go from the `Select Project` dropdown on the top bar.
 
-1. **Add a database instance**:
+1. Within the project, click **Database > Databases** on the left sidebar, you will see there are two databases: `hr_prod`(on `Prod Sample Instance`) and `test_prod`(on `Prod Sample Instance`). You may click **+ New DB** to create new databases.
 
-   - Login as admin, click **Instances** on the left sidebar, click **+ Add Instance**
-   - Configure for `Test` environment with credentials `root`/`testpwd1`
+   ![add-db](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-db.png)
 
-   ![bb-add-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-instance.webp)
-
-2. **Create a project and database**:
-
-   - Click **Projects** on the left sidebar, click **+ New Project**, create project `Test`
-   - Navigate to project, click **Database > Databases** on the left sidebar, click **+ New DB**
-   - Create database `demo`
-
-   ![bb-create-db-demo](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-create-db-demo.webp)
-   ![bb-db-issue-demo-done](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-db-issue-demo-done.webp)
-
-This manual process works fine for a few instances, but imagine doing this for dozens or hundreds of database instances across multiple environments!
+Manual processes works fine for a few instances/databases, but imagine doing it for dozens or hundreds of instances/databases across multiple environments/projects!
 
 ## Add Instances via Terraform
 
