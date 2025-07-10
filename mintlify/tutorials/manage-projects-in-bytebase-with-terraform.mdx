@@ -1,7 +1,7 @@
 ---
 title: Manage Projects with Terraform
 author: Adela
-updated_at: 2025/06/30 21:15
+updated_at: 2025/04/14 21:15
 tags: Tutorial
 integrations: Terraform
 category: 'Integration'
@@ -15,211 +15,114 @@ This tutorial is part of the **Manage Bytebase with Terraform** series:
 - Part 1: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Set up instances and environments
 - Part 2: Manage Projects with Terraform (This one) - Organize databases into projects
 - Part 3: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace settings, approval flows, and risk management
-- Part 4: Configure Database Access with Terraform (Coming next) - Set up access controls and permissions
+- Part 4: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Set up access controls and permissions
 
-📚 **Complete examples**: [GitHub - Bytebase Terraform Provider](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
+📚 [Complete tutorial terraform files on GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
 
-In the [previous tutorial](/tutorials/manage-databases-in-bytebase-with-terraform), you learned how to manage database instances and environments with Terraform. Now let's organize those databases into projects for better management.
+Learn how to organize your databases into projects using Terraform and the [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs).
+
+<Note>
+
+Bytebase Terraform Provider handles control plane configuration such as settings, policies, access controls. It does not
+handle data plane operations such as database creation, schema migrations, DML execution, query.
+
+</Note>
 
 ## What You'll Learn
 
-Building on the previous tutorial, you'll learn how to:
-
-- Create and manage projects to organize your databases
-- Assign databases from instances to specific projects
-- Use different patterns for database assignment
-- Scale your project structure as your organization grows
+- **Create** projects to organize your databases logically
+- **Assign** existing databases to projects using Terraform
+- **Apply** different patterns for database organization
+- **Scale** your project structure efficiently
 
 ## Prerequisites
 
-Before starting, ensure you have completed the [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) tutorial and have:
+Before starting this tutorial, ensure you have:
 
-- Bytebase running with service account configured
-- MySQL instances for Test and Prod environments
-- Your existing `main.tf` file with the Terraform provider configured
+- Completed [Part 1: Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform)
+- Bytebase running with ngrok and service account configured
+- Database instances configured via Terraform
+- Your `main.tf` file from the previous tutorial
 
-## Understanding Projects in Bytebase
+## Setup
 
-Projects in Bytebase help you organize databases logically.
+From Part 1, you should have:
 
-<Note>
-**Important**: You cannot create databases directly via Terraform because database creation requires an issue workflow in Bytebase. Terraform can only assign existing databases to projects. All database creation must be done through the Bytebase UI or API first.
-</Note>
+- Two instances: `test-sample-instance` and `prod-sample-instance`
+- Sample databases: `hr_test` and `hr_prod` created by Bytebase's built-in sample data
 
-## Step 1 - Verify Your Database (Optional)
+## Create Projects with Terraform
 
-If you completed the previous tutorial, you should already have:
+### Step 1 - Add Project Resources
 
-- A project called **Test**
-- A database named `demo` on your `mysql-test` instance within this project
-
-If you haven't created the `Test` project and `demo` database yet, create them via the Bytebase UI:
-
-1. Login to Bytebase and click **Projects** on the left sidebar
-1. Click **+ New Project** to create a project called `Test`
-1. Navigate into the `Test` project you just created
-1. Go to **Databases** and click **+ New DB**
-1. Select your `mysql-test` instance and create a database named `demo`
-1. **Complete the issue workflow** to create the database
-
-You should have a database at `instances/mysql-test/databases/demo`.
-
-## Step 2 - Query Current State (Optional)
-
-You can add these lines to your `main.tf` to see all existing databases:
+Add these project resources to your `main.tf` file:
 
 ```hcl
-# List all existing databases
-data "bytebase_database_list" "all" {
-  parent = "workspaces/-"
-}
-
-output "current_databases" {
-  value = data.bytebase_database_list.all.databases
-}
-```
-
-Run `terraform apply` to see your current databases and their projects.
-
-## Step 3 - Create and Manage Projects
-
-Now let's add the main feature of this tutorial - creating projects to organize your databases.
-
-### Basic Project Creation
-
-Add this new resource to your `main.tf` file:
-
-```hcl
-resource "bytebase_project" "another-project" {
+# Project One - Assign all test databases
+resource "bytebase_project" "project-one" {
   depends_on = [
     bytebase_instance.test
   ]
-  resource_id = "another-project"
-  title       = "Another project"
-  
-  # Assign specific databases from your instances
-  databases = [
-    # From test instance
-    "instances/mysql-test/databases/demo"
-  ]
-}
-```
+  resource_id = "project-one"
+  title       = "Project One"
 
-This project resource:
-
-- Creates a new project named `Another project` with ID `another-project`
-- Assigns the `demo` database from your test instance to this project
-- Depends on the test instance being created first
-- Moves the database from the `Test` project to this new project
-
-### Adding More Databases to Your Project (Optional)
-
-To add more databases to `another-project`:
-
-1. Create additional databases via Bytebase UI in your instances
-2. Update the project's databases list:
-
-```hcl
-resource "bytebase_project" "another-project" {
-  depends_on = [
-    bytebase_instance.test,
-    bytebase_instance.prod
-  ]
-  resource_id = "another-project"
-  title       = "Another project"
-  
-  databases = [
-    "instances/mysql-test/databases/demo",
-    "instances/mysql-test/databases/app_staging",
-    "instances/mysql-prod/databases/app_prod"
-  ]
-}
-```
-
-### Creating Additional Projects (Optional)
-
-You can add more projects alongside the existing one:
-
-```hcl
-# Keep the existing project
-resource "bytebase_project" "another-project" {
-  # ... existing configuration
-}
-
-# Add a new project
-resource "bytebase_project" "new-project" {
-  depends_on = [
-    bytebase_instance.prod
-  ]
-  resource_id = "new-project"
-  title       = "New project"
-  
-  databases = [
-    # Add production databases after creating them via UI
-    # "instances/mysql-prod/databases/app_prod"
-  ]
-}
-```
-
-### Using All Databases from an Instance (Optional)
-
-You can also assign all databases from an instance:
-
-```hcl
-resource "bytebase_project" "test-apps" {
-  depends_on = [
-    bytebase_instance.test
-  ]
-  resource_id = "test-applications"
-  title       = "Test Applications"
-  
-  # Assign all databases from the test instance
   databases = bytebase_instance.test.databases
 }
+
+# Project Two - Assign specific production database
+resource "bytebase_project" "project-two" {
+  depends_on = [
+    bytebase_instance.prod
+  ]
+  resource_id = "project-two"
+  title       = "Project Two"
+
+  databases = [
+    "instances/prod-sample-instance/databases/hr_prod"
+  ]
+}
 ```
 
-### Deploy and Verify
+### Step 2 - Apply Configuration
 
-Run `terraform apply` to create your project(s):
+Run Terraform to create the project:
 
 ```bash
 terraform plan
 terraform apply
 ```
 
-**Verify in Bytebase**:
-- Go to **Projects** in the sidebar
-- You should see `Another project` listed
-- Click into the project to see the `demo` database is assigned to it
+### Step 3 - Verify in Bytebase
 
-## Best Practices
+1. Go to **Projects** in Bytebase, you should see **Project One** and **Project Two** listed.
+1. **Project One** contains all databases from the test instance
 
-1. **Logical Organization**: Group databases by application, team, or business domain
-2. **Environment Separation**: Consider separate projects for different environments if needed
-3. **Access Control**: Use least privilege principle - grant minimal necessary permissions
-4. **Naming Conventions**: Use consistent naming for projects and databases
-5. **Documentation**: Keep project purposes and access patterns documented
+   ![project-1](/content/docs/tutorials/manage-projects-in-bytebase-with-terraform/bb-project-1.png)
 
-## Summary
+1. **Project Two** contains the `hr_prod` database from the production instance
 
-You've learned how to manage projects in Bytebase using Terraform. Starting from the existing configuration, you've:
+   ![project-2](/content/docs/tutorials/manage-projects-in-bytebase-with-terraform/bb-project-2.png)
 
-- **Created a project** that organizes your `demo` database
-- **Learned different patterns** for assigning databases to projects
-- **Understood how to expand** by adding more databases and creating additional projects
+## Pattern Explanation
+
+The example demonstrates two common patterns:
+
+1. **Dynamic Assignment** (`Project One`): Uses `bytebase_instance.test.databases` to automatically include all databases from an instance. This is useful when you want all databases in an environment to belong to the same project.
+
+2. **Explicit Assignment** (`Project Two`): Lists specific database paths like `"instances/prod-sample-instance/databases/hr_prod"`. This gives you precise control over which databases belong to a project.
+
+## Key Points
+
+- **Built-in Databases**: This tutorial uses the sample databases (`hr_test`, `hr_prod`) from Part 1
+- **Database Assignment**: Projects can use dynamic assignment (all databases) or explicit paths
+- **Dependencies**: Always depend on instance resources to ensure proper ordering
 
 ## Next Steps
 
-In the next tutorial, you'll learn how to:
+**Continue the series:** [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - configure workspace settings and policies.
 
-- Configure project access controls with IAM bindings
-- Set up role-based permissions for team members
-- Implement security best practices
+**Resources:**
 
-You can also explore:
-
-- [Custom approval workflows](https://www.bytebase.com/docs/administration/custom-approval) for sensitive changes
-- [Data masking policies](https://www.bytebase.com/docs/security/data-masking) for production data
-- [Database branching](https://www.bytebase.com/docs/change-database/branch) for safer development
-
-For more advanced configurations, check the [Terraform Provider examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples) on GitHub.
+- [Tutorial files](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
+- [Advanced examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
+- [Discord community](https://discord.gg/huyw7gRsyA)
