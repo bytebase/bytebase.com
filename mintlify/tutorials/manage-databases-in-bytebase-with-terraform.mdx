@@ -11,15 +11,16 @@ estimated_time: '30 mins'
 ---
 
 import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
+import VCSWithNgrok from '/snippets/install/vcs-with-ngrok.mdx';
 
 This tutorial is part of the **Manage Bytebase with Terraform** series:
 
 - Part 1: Manage Databases with Terraform (This one) - Set up instances and environments
 - Part 2: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
 - Part 3: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace settings, approval flows, and risk management
-- Part 4: Configure Database Access with Terraform (Coming next) - Set up access controls and permissions
+- Part 4: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Set up access controls and permissions
 
-📚 **Complete examples**: [GitHub - Bytebase Terraform Provider](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
+📚 **Complete examples**: [GitHub - Bytebase Terraform Provider](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
 
 Learn how to automate database infrastructure management by combining [Bytebase](https://www.bytebase.com) with [Terraform](https://www.hashicorp.com/products/terraform) using the [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs).
 
@@ -54,7 +55,6 @@ Before starting this tutorial, ensure you have:
 
 - **Docker**: [Install Docker](https://www.docker.com/) to run Bytebase and MySQL instances
 - **Terraform**: We'll install this in the next section
-- **Basic CLI Knowledge**: Familiarity with terminal/command line operations
 
 ## Setup
 
@@ -75,37 +75,27 @@ terraform -help
 
 **For other platforms:** Follow the [official Terraform installation guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
 
-### Start Services
+### Start Services with Ngrok
+
+<VCSWithNgrok />
 
 1. **Start Bytebase**:
 
    <TerminalDockerRunVolume />
 
-2. **Start MySQL instances** for Test and Prod environments:
-
-   ```bash
-   # Test environment MySQL (port 3307)
-   docker run --name mysqldtest \
-     -p 3307:3306 \
-     -e MYSQL_ROOT_PASSWORD=testpwd1 \
-     -d mysql:8.0
-
-   # Production environment MySQL (port 3308)
-   docker run --name mysqldprod \
-     -p 3308:3306 \
-     -e MYSQL_ROOT_PASSWORD=testpwd1 \
-     -d mysql:8.0
-   ```
-
-3. **Set up Bytebase admin account**:
+1. **Set up Bytebase admin account**:
 
    Navigate to Bytebase (usually `http://localhost:8080`) and register an admin account with `Workspace Admin` role.
 
    ![register-admin](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/register-admin.webp)
 
-### Initial Bytebase Setup (GUI)
+1. **Use Built-in database instance**:
 
-Before automating with Terraform, let's set up a basic instance through the GUI to understand the manual process:
+After registration, follow the guide to configure, you'll need the built-in sample instances.
+
+![built-in-instance](/content/docs/tutorials/manage-bytebase-with-terraform/bb-use-built-in-sample.png)
+
+### Initial Bytebase Setup (GUI)
 
 1. **Add a database instance**:
 
@@ -132,14 +122,24 @@ You’ve added an instance for the `Test` environment in Bytebase by clicking. W
 ### Step 1 - Create a Terraform file
 
 1. Create a new folder `learn-terraform-bytebase` and create a blank file `main.tf` in it.
-1. Go to [https://registry.terraform.io/providers/bytebase/bytebase/latest/docs](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs). Click **Use Provider**, copy and paste the whole code block in the gray box into `main.tf`. Pay attention to the **version**.
-   ![tf-use-provider](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/tf-use-provider.webp)
+1. Go to [https://registry.terraform.io/providers/bytebase/bytebase/latest/docs](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs). Click **Use Provider**, copy and paste the whole code block in the gray box into `main.tf`:
+
+   ```hcl
+   terraform {
+     required_providers {
+       bytebase = {
+         source  = "registry.terraform.io/bytebase/bytebase"
+         version = "3.8.0"  # Use the latest stable version
+       }
+     }
+   }
+   ```
 
 1. Copy the following provider part and paste it in `main.tf`.
 
    ```hcl
    provider "bytebase" {
-      service_account = "<Your Bytebase service account email>"
+     service_account = "tf@service.bytebase.com"
       service_key     = "<Your Bytebase service account key>"
       url             = "<Your Bytebase external URL>"
    }
@@ -428,7 +428,7 @@ resource "bytebase_instance" "prod" {
 
 ## Summary and Next
 
-Now you have learned how to use Terraform to manage your MySQL database environments and instances in Bytebase, for PostgreSQL, you can futher declare database roles. Please check more [example usage in GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples).
+Now you have learned how to use Terraform to manage your MySQL database environments and instances in Bytebase, for PostgreSQL, you can futher declare database roles. Please check more [advanced examples in GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples).
 
 ### Next in the Series
 

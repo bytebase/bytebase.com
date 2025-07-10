@@ -305,7 +305,8 @@
             "pages": [
               "tutorials/manage-databases-in-bytebase-with-terraform",
               "tutorials/manage-projects-in-bytebase-with-terraform",
-              "tutorials/manage-bytebase-settings-with-terraform"
+              "tutorials/manage-bytebase-settings-with-terraform",
+              "tutorials/manage-database-access-control-with-terraform"
             ]
           },
           {
