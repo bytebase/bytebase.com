@@ -114,6 +114,20 @@ resource "bytebase_user" "qa2" {
 }
 ```
 
+#### Apply and Verify Users
+
+```bash
+terraform plan
+terraform apply
+```
+
+Verify in Bytebase:
+
+1. Go to **IAM & Admin > Users & Groups**
+1. You should see all 9 users created
+
+![users](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-users.png)
+
 ### Step 2 - Create Groups
 
 Organize users into logical groups:
@@ -157,6 +171,21 @@ resource "bytebase_group" "qa" {
   }
 }
 ```
+
+#### Apply and Verify Groups
+
+```bash
+terraform plan
+terraform apply
+```
+
+Verify in Bytebase:
+
+1. Go to **IAM & Admin > Users & Groups** > **Groups** tab
+1. Click on **Developer Team** to see 3 members (dev1 as owner, dev2 and dev3 as members)
+1. Click on **QA Team** to see 2 members (qa1 as owner, qa2 as member)
+
+![groups](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-groups.png)
 
 ### Step 3 - Configure Workspace IAM Policy
 
@@ -214,6 +243,25 @@ resource "bytebase_iam_policy" "workspace_iam" {
 }
 ```
 
+#### Apply and Verify Workspace IAM
+
+```bash
+terraform plan
+terraform apply
+```
+
+Verify in Bytebase:
+
+1. Go to **IAM & Admin > Members**
+2. Check user roles:
+   - **admin@example.com**: Workspace Admin
+   - **tf@service.bytebase.com**: Workspace Admin
+   - **dba@example.com**, **dba2@example.com**: Workspace DBA
+   - **dev1-3@example.com**, **qa1-2@example.com**: Workspace Member
+3. Note that QA Team group has Project Viewer role for ALL projects
+
+![members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-members.png)
+
 ### Step 4 - Configure Project IAM Policy
 
 Set up project-specific permissions for `Project Two`. These roles only apply to this specific project, however, the project roles defined in workspace level will show in both `Project One` and `Project Two`:
@@ -263,51 +311,60 @@ resource "bytebase_iam_policy" "project_iam" {
 }
 ```
 
-### Step 5 - Apply Configuration
+#### Apply and Verify Project IAM
 
 ```bash
 terraform plan
 terraform apply
 ```
 
-### Step 6 - Verify in Bytebase
+Verify in Bytebase:
 
-1. Go to **IAM & Admin > Users & Groups** to see all created users and groups.
+1. Go to **Project One** > **Manage > Members**:
 
-   ![users](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-users.png)
-
-   ![groups](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-groups.png)
-
-1. Go to **Project One**, then click **Manage > Members** on the left sidebar to see project-level permissions.
-
-   - Group `QA Team` is assigned to each project as `Project Viewer` at workspace level.
-   - The project is created by terraform service account, so by default, it's the `Project Owner`.
+   - QA Team: Project Viewer (inherited from workspace)
+   - Terraform Service Account: Project Owner (as creator)
 
    ![project-1-members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-1-members.png)
 
-1. Go to **Project Two**, then click **Manage > Members** on the left sidebar to see project-level permissions.
+1. Go to **Project Two** > **Manage > Members**:
 
-   - Group `QA Team` is assigned to each project as `Project Viewer` at workspace level.
-   - `allUsers` and Group `Developer Team` are assigned to this project as `Project Developer`.
-   - `Database Administrator 1` and `Database Administrator 2` are assigned to this project as `Project Owner`.
+   - QA Team: Project Viewer (inherited from workspace)
+   - DBA users: Project Owner
+   - All users + Developer Team: Project Developer
+   - Developer Team: SQL Editor User (click edit to see table restrictions)
 
    ![project-2-members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-2-members.png)
 
-   - Click the pen icon on the `Developer Team`, you will see there is also a `SQL Editor User` role limited to `public.employee`and `public.department` tables to this group.
-
    ![project-2-sql-editor-user](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-2-sql-editor-user.png)
 
-1. Click **IAM & Admin > Users & Groups**, find `Developer 1`, click on it and edit its password.
+### Step 5 - Test Access Control
+
+Test the access control configuration:
+
+1. **Set a password for Developer 1**:
+
+   - Go to **IAM & Admin > Users & Groups**
+   - Find and click on **Developer 1**
+   - Click **Edit** and set a password
 
    ![dev1-pw](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-dev1-pw.png)
 
-1. Log in Bytebase as `Developer 1`, you can only see `Project Two`. Click **SQL Editor** on the top right. Connect to `Prod > Prod Sample Instance > hr_prod`.
+1. **Log in as Developer 1** in a new browser/incognito window:
 
-   - Double click `employee` table on the left.
-     ![sql-editor-employee](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-sql-editor-employee.png)
+   - You should only see **Project Two** (not Project One)
+   - Navigate to **SQL Editor**
 
-   - Double click `salary` table on the left.
-     ![sql-editor-salary](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-sql-editor-salary.png)
+1. **Test SQL Editor restrictions**:
+
+   - Connect to `Prod > Prod Sample Instance > hr_prod`
+   - Try querying `employee` table - ✅ Should work
+   - Try querying `department` table - ✅ Should work
+   - Try querying `salary` table - ❌ Should fail with permission error
+
+   ![sql-editor-employee](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-sql-editor-employee.png)
+
+   ![sql-editor-salary](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-sql-editor-salary.png)
 
 ## Access Control Patterns
 
