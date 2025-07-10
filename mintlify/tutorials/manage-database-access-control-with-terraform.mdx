@@ -1,0 +1,324 @@
+---
+title: Manage Database Access Control with Terraform
+author: Adela
+updated_at: 2025/07/09 18:15
+tags: Tutorial
+integrations: Terraform
+category: 'Integration'
+featured: true
+level: Intermediate
+estimated_time: '20 mins'
+---
+
+This tutorial is part of the **Manage Bytebase with Terraform** series:
+
+- Part 1: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Set up instances and environments
+- Part 2: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
+- Part 3: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace settings, approval flows, and risk management
+- Part 4: Manage Database Access Control with Terraform (This one) - Set up access controls and permissions
+
+📚 **Complete examples**: [GitHub - Bytebase Terraform Provider](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
+
+In the previous tutorials, you learned how to manage database infrastructure, projects, and governance settings with Terraform. Now let's configure database access controls and permissions to complete your infrastructure-as-code setup for Bytebase.
+
+## What You'll Learn
+
+Building on the previous tutorials, you'll learn how to:
+
+- Configure **user roles and permissions** for team collaboration
+- Set up **project-level access controls** for database security
+- Define **database-specific permissions** for fine-grained access
+- Implement **role-based access control (RBAC)** using infrastructure as code
+
+## Prerequisites
+
+Before starting, ensure you have completed the previous tutorials and have:
+
+- Bytebase running with service account configured
+- Terraform provider set up and working
+- Database instances and projects created from previous tutorials
+- Workspace settings and approval flows configured
+
+## Understanding Bytebase Access Control
+
+Bytebase provides a comprehensive access control system based on:
+
+- **Workspace Roles**: Admin, DBA, Developer with workspace-level permissions
+- **Project Roles**: Owner, Developer, Viewer with project-specific access
+- **Database Permissions**: Fine-grained access to specific databases and operations
+
+<Note>
+**Important**: Access control changes affect user permissions immediately. Always test configurations in a non-production environment first.
+</Note>
+
+## Complete Configuration Example
+
+Here's a complete working example of managing database access control with Terraform:
+
+```hcl
+terraform {
+  required_providers {
+    bytebase = {
+      version = "3.7.2"
+      source = "registry.terraform.io/bytebase/bytebase"
+    }
+  }
+}
+
+provider "bytebase" {
+  service_account = "tf@service.example.com"
+  service_key     = "bbs_xxxxxxxxxxxxxxxxxxxxxxxx"
+  url = "https://your-bytebase-instance.com"
+}
+
+# See detailed sections below for full configuration
+```
+
+Let's break down each component in detail:
+
+## Step 1 - Configure Users and Groups
+
+First, let's set up users and groups for organized access management.
+
+### Query Current Users
+
+```hcl
+# Query existing users
+data "bytebase_user_list" "all" {}
+
+output "current_users" {
+  value = data.bytebase_user_list.all
+}
+```
+
+### Create Users
+
+```hcl
+# Create database developers
+resource "bytebase_user" "developer" {
+  email = "developer@example.com"
+  title = "Database Developer"
+  type  = "USER"
+}
+
+# Create database administrators
+resource "bytebase_user" "dba" {
+  email = "dba@example.com"
+  title = "Database Administrator"
+  type  = "USER"
+}
+
+# Create project owners
+resource "bytebase_user" "project_owner" {
+  email = "owner@example.com"
+  title = "Project Owner"
+  type  = "USER"
+}
+```
+
+### Assign Workspace Roles
+
+```hcl
+# Grant workspace roles to users
+resource "bytebase_workspace_iam_binding" "dba_role" {
+  role = "roles/workspaceDBA"
+  members = [
+    "user:dba@example.com"
+  ]
+}
+
+resource "bytebase_workspace_iam_binding" "developer_role" {
+  role = "roles/workspaceDeveloper"
+  members = [
+    "user:developer@example.com",
+    "user:owner@example.com"
+  ]
+}
+```
+
+This configuration:
+
+- **Creates different user types** for various roles and responsibilities
+- **Assigns workspace-level roles** using IAM bindings
+- **Uses consistent naming** for easy identification and management
+
+## Step 2 - Set Up Project Access Control
+
+Configure project-level permissions to control who can access specific projects and databases.
+
+### Query Current Project IAM
+
+```hcl
+# Query current project permissions
+data "bytebase_project" "current" {
+  resource_id = "your-project-id"
+}
+
+output "current_project" {
+  value = data.bytebase_project.current
+}
+```
+
+### Configure Project IAM Policy
+
+```hcl
+# Configure project access control
+resource "bytebase_project_iam_binding" "project_owners" {
+  project = "projects/your-project-id"
+  role    = "roles/projectOwner"
+  members = [
+    "user:owner@example.com",
+    "user:dba@example.com"
+  ]
+}
+
+resource "bytebase_project_iam_binding" "project_developers" {
+  project = "projects/your-project-id"
+  role    = "roles/projectDeveloper"
+  members = [
+    "user:developer@example.com"
+  ]
+}
+
+resource "bytebase_project_iam_binding" "project_viewers" {
+  project = "projects/your-project-id"
+  role    = "roles/projectViewer"
+  members = [
+    "user:analyst@example.com"
+  ]
+}
+```
+
+This IAM policy configuration:
+
+- **Project Owners**: Can manage project settings, databases, and access controls
+- **Project Developers**: Can create issues, modify schemas, and query databases
+- **Project Viewers**: Can view project information and query databases (read-only)
+
+## Step 3 - Configure Groups and Instance-Level Access
+
+Set up groups for easier management and configure instance-level permissions.
+
+### Create Groups
+
+```hcl
+# Create a group for backend developers
+resource "bytebase_group" "backend_developers" {
+  email = "backend-devs@example.com"
+  title = "Backend Developers"
+  
+  members {
+    member = "user:developer@example.com"
+  }
+  
+  members {
+    member = "user:qa@example.com"
+  }
+}
+
+# Create a group for data team
+resource "bytebase_group" "data_team" {
+  email = "data-team@example.com"
+  title = "Data Team"
+  
+  members {
+    member = "user:analyst@example.com"
+  }
+}
+```
+
+### Instance-Level Permissions
+
+```hcl
+# Grant instance-level permissions
+resource "bytebase_instance_iam_binding" "prod_instance_querier" {
+  instance = "instances/mysql-prod"
+  role     = "roles/querier"
+  members = [
+    "user:analyst@example.com"
+  ]
+}
+
+resource "bytebase_instance_iam_binding" "test_instance_exporter" {
+  instance = "instances/mysql-test"
+  role     = "roles/exporter"
+  members = [
+    "user:developer@example.com",
+    "user:qa@example.com"
+  ]
+}
+```
+
+These configurations:
+
+- **Groups**: Simplify user management by organizing users into logical groups
+- **Instance Permissions**: Control who can query and export data at the instance level
+- **Role-Based Access**: Different permission levels for different environments
+
+### Deploy Your Configuration
+
+Run the Terraform commands to apply your access control settings:
+
+```bash
+terraform plan
+terraform apply
+```
+
+## Verification and Testing
+
+After applying your Terraform configuration, verify that the access controls are properly configured in Bytebase:
+
+### 1. Verify Users and Roles
+
+1. In Bytebase workspace, click **Settings** > **Members** on the left side bar
+2. Review the user list and their assigned workspace roles
+3. Confirm users are created with correct email addresses and role assignments
+
+### 2. Verify Project Access Control
+
+1. In Bytebase workspace, navigate to your project
+2. Click **Settings** > **Members** within the project
+3. Verify project role assignments match your Terraform configuration:
+   - Project owners have owner role
+   - Developers have developer role
+   - Viewers have viewer role
+
+### 3. Verify Instance Permissions
+
+1. Navigate to **Instances** in your workspace
+2. Click on a specific instance
+3. Check **Settings** > **Members** for instance-specific permissions
+4. Confirm access levels match your IAM binding configuration
+
+### 4. Test Access Controls
+
+Test the access controls by:
+- **Login as different users** to verify they see appropriate resources
+- **Attempt database operations** to confirm permission boundaries
+- **Check query access** for different user roles
+- **Verify project visibility** matches the configured access levels
+
+<Note>
+**Testing Tip**: Use different browser sessions or incognito windows to test multiple user accounts simultaneously.
+</Note>
+
+## Best Practices
+
+1. **Principle of Least Privilege**: Grant minimum necessary permissions for each role
+2. **Environment Separation**: Use stricter controls for production databases
+3. **Regular Reviews**: Periodically audit user access and remove unused accounts
+4. **Group Management**: Use consistent patterns for role assignments across projects
+
+## Summary
+
+You've successfully configured database access controls using Terraform. Your Bytebase workspace now has structured user management, project-level access controls, and database-specific permissions managed through infrastructure as code.
+
+## Next Steps
+
+With your complete Bytebase infrastructure managed through Terraform, you can now:
+
+- Monitor user activity and access patterns
+- Scale access controls as your team grows
+- Implement additional security policies as needed
+
+For more advanced configurations, check the [Terraform Provider examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples) on GitHub.
