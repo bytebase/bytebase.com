@@ -11,35 +11,18 @@ estimated_time: '30 mins'
 ---
 
 import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
+import VCSWithNgrok from '/snippets/install/start-with-ngrok.mdx';
 
 This tutorial is part of the **Manage Bytebase with Terraform** series:
 
 - Part 1: Manage Databases with Terraform (This one) - Set up instances and environments
 - Part 2: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
 - Part 3: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace settings, approval flows, and risk management
-- Part 4: Configure Database Access with Terraform (Coming next) - Set up access controls and permissions
+- Part 4: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Set up access controls and permissions
 
-📚 **Complete examples**: [GitHub - Bytebase Terraform Provider](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
+📚 [Complete tutorial terraform files on GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
 
 Learn how to automate database infrastructure management by combining [Bytebase](https://www.bytebase.com) with [Terraform](https://www.hashicorp.com/products/terraform) using the [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs).
-
-## What You'll Learn
-
-In this tutorial, you'll discover how to:
-
-- Set up Bytebase and Terraform for database infrastructure management
-- Configure environments using two different approaches (settings vs. individual resources)
-- Create and manage database instances across multiple environments
-- Implement proper dependency management for reliable deployments
-
-## Why Use Terraform with Bytebase?
-
-While Bytebase provides an intuitive GUI for database management, Terraform brings several key advantages for larger deployments:
-
-- **Scale Efficiently**: Manage hundreds of database instances without repetitive manual work
-- **Reduce Errors**: Infrastructure as code eliminates human mistakes in configuration
-- **Version Control**: Track and review all infrastructure changes through Git workflows
-- **Consistency**: Ensure identical configurations across environments
 
 <Note>
 
@@ -48,13 +31,24 @@ handle data plane operations such as database creation, schema migrations, DML e
 
 </Note>
 
+## What You'll Learn
+
+- **Set up** Bytebase with Terraform for automated database management
+- **Configure** environments using settings or individual resources
+- **Create** database instances across test and production environments
+
+## Why Use Terraform with Bytebase?
+
+Terraform enables you to manage hundreds of database instances as code, eliminating manual configuration errors and ensuring consistency across all environments.
+
 ## Prerequisites
 
 Before starting this tutorial, ensure you have:
 
-- **Docker**: [Install Docker](https://www.docker.com/) to run Bytebase and MySQL instances
-- **Terraform**: We'll install this in the next section
-- **Basic CLI Knowledge**: Familiarity with terminal/command line operations
+- **Docker**: [Install Docker](https://www.docker.com/) to run Bytebase
+- **Ngrok**: [Sign up for ngrok](https://ngrok.com/) to expose your local Bytebase instance to the internet
+- **Terraform**: [Install Terraform](https://www.terraform.io/downloads) for infrastructure as code
+- **Bytebase Enterprise Plan** (optional) – Some features may require the Enterprise Plan. You can still follow this tutorial with the Community Plan by making a few adjustments.
 
 ## Setup
 
@@ -75,71 +69,63 @@ terraform -help
 
 **For other platforms:** Follow the [official Terraform installation guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
 
-### Start Services
+### Start Bytebase with Ngrok
 
-1. **Start Bytebase**:
+<VCSWithNgrok />
 
-   <TerminalDockerRunVolume />
+### Prepare some data
 
-2. **Start MySQL instances** for Test and Prod environments:
+1. Visit Bytebase and register an admin account with `Workspace Admin` role.
 
-   ```bash
-   # Test environment MySQL (port 3307)
-   docker run --name mysqldtest \
-     -p 3307:3306 \
-     -e MYSQL_ROOT_PASSWORD=testpwd1 \
-     -d mysql:8.0
+   ![register-admin](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-register-admin.png)
 
-   # Production environment MySQL (port 3308)
-   docker run --name mysqldprod \
-     -p 3308:3306 \
-     -e MYSQL_ROOT_PASSWORD=testpwd1 \
-     -d mysql:8.0
-   ```
+1. Follow the guide to configure, you'll need the **built-in sample** data for this tutorial.
 
-3. **Set up Bytebase admin account**:
+   ![built-in-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-use-built-in-sample.png)
 
-   Navigate to Bytebase (usually `http://localhost:8080`) and register an admin account with `Workspace Admin` role.
+1. (Optional) After you log into Bytebase, click **Settings > Subscription** on the left sidebar, paste your Enterprise Plan licence and click **Upload License**. _Some features may require the Enterprise Plan. You can still follow this tutorial with the Community Plan by making a few adjustments._
 
-   ![register-admin](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/register-admin.webp)
+   ![subscription](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-subscription.png)
 
-### Initial Bytebase Setup (GUI)
+### Check Bytebase Setup (GUI)
 
-Before automating with Terraform, let's set up a basic instance through the GUI to understand the manual process:
+1. Click **Instances** on the left sidebar, you will see there are two PostgreSQL instances: `Prod Sample Instance` and `Test Sample Instance`. You may click **+ Add Instance** to add new instances.
 
-1. **Add a database instance**:
+   ![add-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-instance.png)
 
-   - Login as admin, click **Instances** on the left sidebar, click **+ Add Instance**
-   - Configure for `Test` environment with credentials `root`/`testpwd1`
+1. Click **Projects** on the left sidebar, you will see there is a `Sample Project`, click it or go from the `Select Project` dropdown on the top bar.
 
-   ![bb-add-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-instance.webp)
+1. Within the project, click **Database > Databases** on the left sidebar, you will see there are two databases: `hr_prod`(on `Prod Sample Instance`) and `test_prod`(on `Prod Sample Instance`). You may click **+ New DB** to create new databases.
 
-2. **Create a project and database**:
+   ![add-db](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-db.png)
 
-   - Click **Projects** on the left sidebar, click **+ New Project**, create project `Test`
-   - Navigate to project, click **Database > Databases** on the left sidebar, click **+ New DB**
-   - Create database `demo`
+Manual processes works fine for a few instances/databases, but imagine doing it for dozens or hundreds of instances/databases across multiple environments/projects!
 
-   ![bb-create-db-demo](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-create-db-demo.webp)
-   ![bb-db-issue-demo-done](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-db-issue-demo-done.webp)
+## Configure Instances via Terraform
 
-This manual process works fine for a few instances, but imagine doing this for dozens or hundreds of database instances across multiple environments!
-
-## Add Instances via Terraform
-
-You’ve added an instance for the `Test` environment in Bytebase by clicking. What if you need to add hundreds of instances. In this section, you’ll witness the process simplification Terraform brings.
+In this section, you’ll witness the process simplification Terraform brings.
 
 ### Step 1 - Create a Terraform file
 
 1. Create a new folder `learn-terraform-bytebase` and create a blank file `main.tf` in it.
-1. Go to [https://registry.terraform.io/providers/bytebase/bytebase/latest/docs](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs). Click **Use Provider**, copy and paste the whole code block in the gray box into `main.tf`. Pay attention to the **version**.
-   ![tf-use-provider](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/tf-use-provider.webp)
+1. Go to [https://registry.terraform.io/providers/bytebase/bytebase/latest/docs](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs). Click **Use Provider**, copy and paste the whole code block in the gray box into `main.tf`:
+
+   ```hcl
+   terraform {
+     required_providers {
+       bytebase = {
+         source  = "registry.terraform.io/bytebase/bytebase"
+         version = "3.8.0"  # Use the latest stable version
+       }
+     }
+   }
+   ```
 
 1. Copy the following provider part and paste it in `main.tf`.
 
    ```hcl
    provider "bytebase" {
-      service_account = "<Your Bytebase service account email>"
+     service_account = "tf@service.bytebase.com"
       service_key     = "<Your Bytebase service account key>"
       url             = "<Your Bytebase external URL>"
    }
@@ -147,9 +133,9 @@ You’ve added an instance for the `Test` environment in Bytebase by clicking. W
 
 ### Step 2 - Add a Terraform account
 
-1. Go to **IAM & Admin > Users & Groups**, click **+ Add User**.
+1. Click **IAM & Admin > Users & Groups** on the left sidebar, click **+ Add User**.
 
-1. Choose `Service Account` as the **Type**, fill in the **Email** with `tf@service.bytebase.com`, choose `Workspace DBA` as **Roles**, and click **Confirm**.
+1. Choose `Service Account` as the **Type**, fill in the **Email** with `tf@service.bytebase.com`, choose `Workspace Admin` as **Roles**, and click **Confirm**.
 
 1. Copy the **Service Key** for later use.
 
@@ -175,119 +161,42 @@ You’ve added an instance for the `Test` environment in Bytebase by clicking. W
    }
    ```
 
-1. Run `terraform init`, `terraform plan` and `terraform apply` one by one in the terminal. You’ll see the output like this:
+1. Run `terraform init`, `terraform plan` and `terraform apply` one by one in the terminal. You’ll see:
 
-   ```hcl
-   all_environments = {
-      "approval_flow" = tolist(null) /* of object */
-      "classification" = tolist(null) /* of object */
-      "environment_setting" = tolist([
-        {
-            "environment" = tolist([
-            {
-              "color" = ""
-              "id" = "test"
-              "name" = "environments/test"
-              "protected" = true
-              "title" = "Test"
-            },
-            {
-              "color" = ""
-              "id" = "prod"
-              "name" = "environments/prod"
-              "protected" = true
-              "title" = "Prod"
-            },
-            ])
-        },
-      ])
-      "id" = "settings/ENVIRONMENT"
-      "name" = "settings/ENVIRONMENT"
-      "semantic_types" = toset([])
-      "workspace_profile" = tolist(null) /* of object */
-   }
-   ```
-
-   As we have two default environments in our Bytebase. Pay attention to `resource_id`, they are `test` and `prod` .
-   ![bb-environments](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-environments.webp)
-
-   ```hcl
-   all_instances = {
-      "id" = "1744624330"
-      "instances" = tolist([
-          {
-            "activation" = false
-            "data_sources" = toset([
-            {
-                "database" = ""
-                "external_secret" = tolist([])
-                "host" = "host.docker.internal"
-                "id" = "bb67b4b8-40c6-4ac6-a170-5f673183c759"
-                "password" = ""
-                "port" = "3307"
-                "ssl_ca" = ""
-                "ssl_cert" = ""
-                "ssl_key" = ""
-                "type" = "ADMIN"
-                "username" = "root"
-            },
-            ])
-            "engine" = "MYSQL"
-            "engine_version" = "8.0.36"
-            "environment" = "environments/test"
-            "external_link" = ""
-            "maximum_connections" = 0
-            "name" = "instances/mysql-test"
-            "resource_id" = "mysql-test"
-            "sync_interval" = 0
-            "title" = "MySQL test"
-          },
-          ...
-      ])
-      "show_deleted" = false
-   }
-   ```
-
-   As we can see, it’s the instance we just added. Follow `"title" = "MySQL test"`, you'll find `"resource_id" = "mysql-test"`.
-
-   ![bb-instances](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-instances.webp)
+   - two environments: `test` and `prod`.
+   - two instances: `prod-sample-instance` with `hr_prod` database and `test-sample-instance` with `hr_test` database.
 
 ### Step 4 - Configure Environments
 
-Before creating instances, let's properly configure the environments. There are two approaches to achieve this - you typically only need one of them.
+Before configuring instances, let's properly configure the environments. There are two approaches to achieve this - you typically only need one of them. Firstly, within Bytebase, click **Environments** on the left sidebar. You will see there are two default envrionments.
+
+    ![env-default](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-env-default.png)
 
 #### Step 4a - Configure Environment Settings (Recommended)
 
 This approach uses environment settings and is usually sufficient for most use cases.
 
-1. Remove the `#List all environment` and `#List all instances` blocks, and add the following environment configuration:
+Add the following environment configuration:
 
-   ```hcl
-   # Define local variables for environment IDs
-   locals {
-      environment_id_test = "test"
-      environment_id_prod = "prod"
-   }
-
-   # Configure environment settings
-   resource "bytebase_setting" "environments" {
+    ```hcl
+    # Environment Settings
+    resource "bytebase_setting" "environments" {
       name = "settings/ENVIRONMENT"
 
       environment_setting {
         environment {
-          id        = local.environment_id_test
+          id        = "test"
           title     = "Test"
           protected = false
         }
-
         environment {
-          id        = local.environment_id_prod
+          id        = "prod"
           title     = "Prod"
           protected = true
         }
-     }
-   }
-   ```
+      }
+    }
+    ```
 
 #### Step 4b - Create Environments via Individual Resources (Alternative)
 
@@ -295,28 +204,28 @@ Alternatively, you can create environments using individual `bytebase_environmen
 
 **Important**: When using multiple `bytebase_environment` resources, you must use `depends_on` between environments. This ensures Terraform updates them in the correct order, as the Bytebase API only supports updating one environment list at a time.
 
-1. Add the following environment resources after the settings configuration:
+Add the following environment resources after the settings configuration:
 
-   ```hcl
-   # Create Test environment
-   resource "bytebase_environment" "test" {
-     resource_id             = local.environment_id_test
-     title                   = "Test"
-     order                   = 0
-     protected               = false
-   }
+    ```hcl
+    # Create Test environment
+    resource "bytebase_environment" "test" {
+      resource_id             = "test"
+      title                   = "Test"
+      order                   = 0
+      protected               = false
+    }
 
-   # Create Production environment
-   # depends_on ensures environments are created in sequence
-   # This prevents API conflicts when updating the environment list
-   resource "bytebase_environment" "prod" {
-     depends_on              = [bytebase_environment.test]
-     resource_id             = local.environment_id_prod
-     title                   = "Prod"
-     order                   = 1
-     protected               = true
-   }
-   ```
+    # Create Production environment
+    # depends_on ensures environments are created in sequence
+    # This prevents API conflicts when updating the environment list
+    resource "bytebase_environment" "prod" {
+      depends_on              = [bytebase_environment.test]
+      resource_id             = "prod"
+      title                   = "Prod"
+      order                   = 1
+      protected               = true
+    }
+    ```
 
 ### Step 5 - Add Database Instances
 
@@ -325,43 +234,41 @@ Finally, let's add the database instances that will be associated with our envir
 #### If you used Step 4a (Environment Settings)
 
 ```hcl
+# Built-in Test Instance
 resource "bytebase_instance" "test" {
-  depends_on = [
-    bytebase_setting.environments
-  ]
-  resource_id = "mysql-test"
-  environment = "environments/${local.environment_id_test}"
-  title       = "MySQL test"
-  engine      = "MYSQL"
-  activation  = false
+  depends_on  = [bytebase_setting.environments]
+  resource_id = "test-sample-instance"
+  environment = "environments/test"
+  title       = "Test Sample Instance"
+  engine      = "POSTGRES"
+  activation  = true
 
   data_sources {
-    id       = "admin data source mysql-test"
+    id       = "admin data source test-sample-instance"
     type     = "ADMIN"
-    host     = "host.docker.internal"
-    port     = "3307"
-    username = "root"
-    password = "testpwd1"
+    host     = "/tmp"
+    port     = "8083"
+    username = "bbsample"
+    password = ""
   }
 }
 
+# Built-in Prod Instance
 resource "bytebase_instance" "prod" {
-  depends_on = [
-    bytebase_setting.environments
-  ]
-  resource_id = "mysql-prod"
-  environment = "environments/${local.environment_id_prod}"
-  title       = "MySQL prod"
-  engine      = "MYSQL"
-  activation  = false
+  depends_on  = [bytebase_setting.environments]
+  resource_id = "prod-sample-instance"
+  environment = "environments/prod"
+  title       = "Prod Sample Instance"
+  engine      = "POSTGRES"
+  activation  = true
 
   data_sources {
-    id       = "admin data source mysql-prod"
+    id       = "admin data source prod-sample-instance"
     type     = "ADMIN"
-    host     = "host.docker.internal"
-    port     = "3308"
-    username = "root"
-    password = "testpwd1"
+    host     = "/tmp"
+    port     = "8084"
+    username = "bbsample"
+    password = ""
   }
 }
 ```
@@ -369,69 +276,49 @@ resource "bytebase_instance" "prod" {
 #### If you used Step 4b (Individual Environment Resources)
 
 ```hcl
-resource "bytebase_instance" "test" {
-  depends_on = [
-    bytebase_environment.test
-  ]
-  resource_id = "mysql-test"
-  environment = bytebase_environment.test.name
-  title       = "MySQL test"
-  engine      = "MYSQL"
-  activation  = false
+  # Built-in Test Instance
+  resource "bytebase_instance" "test" {
+    depends_on  = [bytebase_environment.test]
+    resource_id = "test-sample-instance"
+    environment = bytebase_environment.test.name
+    ...
 
-  data_sources {
-    id       = "admin data source mysql-test"
-    type     = "ADMIN"
-    host     = "host.docker.internal"
-    port     = "3307"
-    username = "root"
-    password = "testpwd1"
+    data_sources {
+      ...
+    }
   }
-}
 
-resource "bytebase_instance" "prod" {
-  depends_on = [
-    bytebase_environment.prod
-  ]
-  resource_id = "mysql-prod"
-  environment = bytebase_environment.prod.name
-  title       = "MySQL prod"
-  engine      = "MYSQL"
-  activation  = false
+  # Built-in Prod Instance
+  resource "bytebase_instance" "prod" {
+    depends_on  = [bytebase_environment.prod]
+    resource_id = "prod-sample-instance"
+    environment = bytebase_environment.prod.name
+    ...
 
-  data_sources {
-    id       = "admin data source mysql-prod"
-    type     = "ADMIN"
-    host     = "host.docker.internal"
-    port     = "3308"
-    username = "root"
-    password = "testpwd1"
+    data_sources {
+      ...
+    }
   }
-}
 ```
 
 **Key Points**:
 
-- **Step 4a approach**: Instances depend on `bytebase_setting.environments` and use environment references like `"environments/${local.environment_id_test}"`
+- **Step 4a approach**: Instances depend on `bytebase_setting.environments` and use environment references like `"test"`
 - **Step 4b approach**: Instances depend on individual environment resources and use direct references like `bytebase_environment.test.name`
 - Both approaches create the same end result - database instances properly linked to their environments
 
-1. Run `terraform plan` and `terraform apply` one by one in the terminal. You will see this in the terminal.
+1. Run `terraform plan` and `terraform apply` one by one in the terminal.
 
-1. Go back to Bytebase, and click **Environments**. There is nothing changed with these two environments.
+1. Go back to Bytebase, and click **Environments**. The `Prod` will be set as protected with the shield icon.
 
-1. Click **Instances** on the left sidebar, and you will see the two instances we just added.
+1. Click **Instances** on the left sidebar, and you will see the two instances now activated with `Y` under License. You may change the instance name and then run terraform again.
 
-   ![bb-instances-2-added](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-instances-2-added.webp)
+## Next Steps
 
-1. Click into one instance, scroll down and click **Test Connection**. It should be successful.
+Continue the series [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - organize your databases into projects.
 
-## Summary and Next
+**Resources:**
 
-Now you have learned how to use Terraform to manage your MySQL database environments and instances in Bytebase, for PostgreSQL, you can futher declare database roles. Please check more [example usage in GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples).
-
-### Next in the Series
-
-Continue to the next tutorial: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) where you'll learn how to organize your databases into projects for better management.
-
-If you encounter any problems while trying, welcome to our [discord](https://discord.gg/huyw7gRsyA) channel.
+- [Tutorial files](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
+- [Advanced examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
+- [Discord community](https://discord.gg/huyw7gRsyA)
