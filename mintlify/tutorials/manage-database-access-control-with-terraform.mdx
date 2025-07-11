@@ -15,7 +15,9 @@ This tutorial is part of the **Manage Bytebase with Terraform** series:
 - Part 1: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Set up instances and environments
 - Part 2: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
 - Part 3: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace settings, approval flows, and risk management
-- Part 4: Manage Database Access Control with Terraform (This one) - Set up access controls and permissions
+- Part 4: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Set up SQL review policies
+- Part 5: Manage Database Access Control with Terraform (This one) - Set up access controls and permissions
+- Part 6: [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - Configure data masking policies
 
 📚 [Complete tutorial terraform files on GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
 
@@ -39,7 +41,7 @@ handle data plane operations such as database creation, schema migrations, DML e
 
 Before starting this tutorial, ensure you have:
 
-- Completed [Part 3: Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform)
+- Completed [Part 4: Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform)
 - Bytebase running with ngrok and service account configured
 - Your `main.tf` file from the previous tutorials
 
@@ -386,12 +388,7 @@ The example demonstrates several key patterns:
 
 ## Next Steps
 
-You've completed the Bytebase Terraform tutorial series! You now have a fully configured Bytebase instance with:
-
-- Database instances and environments
-- Organized projects
-- Approval workflows and risk policies
-- User access controls
+**Continue the series:** [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - configure data masking policies to protect sensitive data.
 
 **Resources:**
 
