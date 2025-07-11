@@ -1,8 +1,8 @@
 ---
-title: How to Store Time in PostgreSQL - Using TIMESTAMPTZ
+title: How to store time in PostgreSQL - using TIMESTAMPTZ
 ---
 
-This guide explains why you should use `timestamptz` instead of `timestamp` for storing time data in PostgreSQL to prevent timezone-related data integrity issues.
+[Official PostgreSQL documentation](https://www.postgresql.org/docs/current/datatype-datetime.html#DATATYPE-TIMEZONES) recommends using `timestamptz` (timestamp with time zone) for storing time data. This guide explains why you should use `timestamptz` instead of `timestamp`, how to implement it, and best practices for working with time data in PostgreSQL.
 
 ## Why TIMESTAMPTZ Matters
 

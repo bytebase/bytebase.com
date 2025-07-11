@@ -59,10 +59,12 @@
 
 ### [How to list tables](/reference/postgres/how-to/how-to-list-tables-postgres)
 
-### [How to Store Time](/reference/postgres/how-to/how-to-store-time-postgres)
+### [How to store time](/reference/postgres/how-to/how-to-store-time-postgres)
 
 ### [How to COALESCE](/reference/postgres/how-to/how-to-coalesce-postgres)
 
 ### [How to use SERIAL](/reference/postgres/how-to/how-to-use-serial-postgres)
+
+### [How to use IDENTITY columns](/reference/postgres/how-to/how-to-use-identity-column-postgres)
 
 ### [Top psql commands with examples](/reference/postgres/how-to/top-psql-commands-with-examples)
