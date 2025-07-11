@@ -17,7 +17,7 @@ This tutorial is part of the **Manage Bytebase with Terraform** series:
 
 - Part 1: Manage Databases with Terraform (This one) - Set up instances and environments
 - Part 2: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
-- Part 3: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace settings, approval flows, and risk management
+- Part 3: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace settings, environment policies, approval flows, and risk management
 - Part 4: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Set up SQL review policies
 - Part 5: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Set up access controls and permissions
 - Part 6: [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - Configure data masking policies
@@ -238,7 +238,7 @@ Finally, let's add the database instances that will be associated with our envir
 
 #### If you used Step 4a (Environment Settings)
 
-Create `1-instances.tf` with the following configuration:
+Create `1-2-instances.tf` with the following configuration:
 
 ```hcl
 # Built-in Test Instance
@@ -282,7 +282,7 @@ resource "bytebase_instance" "prod" {
 
 #### If you used Step 4b (Individual Environment Resources)
 
-Create `1-instances-alt.tf` with the following configuration (alternative approach):
+Create `1-2-instances-alt.tf` with the following configuration (alternative approach):
 
 ```hcl
   # Built-in Test Instance

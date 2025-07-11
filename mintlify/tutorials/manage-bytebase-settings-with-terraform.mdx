@@ -14,7 +14,7 @@ This tutorial is part of the **Manage Bytebase with Terraform** series:
 
 - Part 1: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Set up instances and environments
 - Part 2: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
-- Part 3: Manage Bytebase Settings with Terraform (This one) - Configure workspace settings, approval flows, and risk management
+- Part 3: Manage Bytebase Settings with Terraform (This one) - Configure workspace settings, environment policies, approval flows, and risk management
 - Part 4: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Set up SQL review policies
 - Part 5: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Set up access controls and permissions
 - Part 6: [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - Configure data masking policies
@@ -35,7 +35,8 @@ handle data plane operations such as database creation, schema migrations, DML e
 ## What You'll Learn
 
 - **Configure** workspace profile settings including signup controls and external URL
-- **Set up** multi-step approval flows for database changes
+- **Set up** environment-specific policies for test and production
+- **Create** multi-step approval flows for database changes
 - **Define** risk policies to trigger appropriate approval workflows
 
 ## Prerequisites
@@ -80,7 +81,103 @@ This configuration:
 - Restricts users to specific email domains
 - Sets your ngrok URL as the external URL
 
-### Step 2 - Approval Flow Settings
+### Step 2 - Environment Policies
+
+Create `3-2-env-setting.tf` to configure different policies for test and production environments:
+
+```hcl
+# Environment-specific policies
+resource "bytebase_policy" "rollout_test" {
+  depends_on = [
+    bytebase_setting.environments
+  ]
+
+  parent              = "environments/test"
+  type                = "ROLLOUT"
+  enforce             = true
+  inherit_from_parent = true
+
+  rollout_policy {
+    automatic = true
+    workspace_roles = [
+      "roles/workspaceAdmin",
+      "roles/workspaceDBA",
+      "roles/projectOwner",
+      "roles/LAST_APPROVER",
+      "roles/CREATOR"
+    ]
+    project_roles = [
+      "roles/projectOwner",
+      "roles/projectReleaser"
+    ]
+  }
+}
+
+resource "bytebase_policy" "rollout_prod" {
+  depends_on = [
+    bytebase_setting.environments
+  ]
+
+  parent              = "environments/prod"
+  type                = "ROLLOUT"
+  enforce             = true
+  inherit_from_parent = true
+
+  rollout_policy {
+    automatic = false
+    workspace_roles = [
+      "roles/workspaceAdmin",
+      "roles/workspaceDBA",
+      "roles/projectOwner",
+      "roles/LAST_APPROVER",
+      "roles/CREATOR"
+    ]
+    project_roles = [
+      "roles/projectOwner",
+      "roles/projectReleaser"
+    ]
+  }
+}
+
+resource "bytebase_policy" "disable_copy_data_prod" {
+  depends_on = [
+    bytebase_setting.environments
+  ]
+
+  parent              = "environments/prod"
+  type                = "DISABLE_COPY_DATA"
+  enforce             = true
+  inherit_from_parent = true
+
+  disable_copy_data_policy {
+    active = true
+  }
+}
+
+resource "bytebase_policy" "data_source_query_prod" {
+  depends_on = [
+    bytebase_setting.environments
+  ]
+
+  parent              = "environments/prod"
+  type                = "DATA_SOURCE_QUERY"
+  enforce             = true
+  inherit_from_parent = true
+
+  data_source_query_policy {
+    admin_data_source_restriction = "RESTRICTION_UNSPECIFIED"
+  }
+}
+```
+
+This configuration sets up:
+
+- **Test Environment**: Automatic rollout enabled for faster development cycles
+- **Production Environment**: Manual rollout for controlled releases
+- **Copy Data Disabled**: Prevents copying production data for security
+- **Data Source Query Restrictions**: Controls admin-level database queries
+
+### Step 3 - Approval Flow Settings
 
 Create `3-4-approval-flow.tf` with approval flow configuration that requires multiple approvals for risky operations:
 
@@ -117,7 +214,7 @@ This creates a three-step approval flow that triggers for:
 - DML operations with MODERATE risk level
 - DDL operations with HIGH risk level
 
-### Step 3 - Risk Management Policies
+### Step 4 - Risk Management Policies
 
 Create `3-3-risk.tf` with risk policies that determine when approval flows are triggered:
 
@@ -145,14 +242,14 @@ Risk levels:
 - **200 (MODERATE)**: DML operations in production affecting 100+ rows
 - **300 (HIGH)**: All DDL operations in production
 
-### Step 4 - Apply Configuration
+### Step 5 - Apply Configuration
 
 ```bash
 terraform plan
 terraform apply
 ```
 
-### Step 5 - Verify in Bytebase
+### Step 6 - Verify in Bytebase
 
 1. Go to **Settings > General** to verify workspace profile settings.
 1. Go to **CI/CD > Custom Approval** to see the approval flow.
@@ -170,6 +267,7 @@ terraform apply
 ## Key Points
 
 - **Workspace Profile**: Controls signup, domain restrictions, and external URL
+- **Environment Policies**: Configure different rollout, data copy, and query policies for test vs production
 - **Approval Flows**: Define multi-step approval processes for risky operations
 - **Risk Policies**: Automatically assess operations and trigger appropriate workflows
 - You can configure additional [settings](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/setting) such as classification and semantic_types. These will be covered in upcoming tutorials
