@@ -59,6 +59,8 @@
 
 ### [How to list tables](/reference/postgres/how-to/how-to-list-tables-postgres)
 
+### [How to Store Time](/reference/postgres/how-to/how-to-store-time-postgres)
+
 ### [How to COALESCE](/reference/postgres/how-to/how-to-coalesce-postgres)
 
 ### [How to use SERIAL](/reference/postgres/how-to/how-to-use-serial-postgres)
