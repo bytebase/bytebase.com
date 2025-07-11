@@ -305,7 +305,10 @@
             "pages": [
               "tutorials/manage-databases-in-bytebase-with-terraform",
               "tutorials/manage-projects-in-bytebase-with-terraform",
-              "tutorials/manage-bytebase-settings-with-terraform"
+              "tutorials/manage-bytebase-settings-with-terraform",
+              "tutorials/manage-sql-review-rules-with-terraform",
+              "tutorials/manage-database-access-control-with-terraform",
+              "tutorials/manage-data-masking-with-terraform"
             ]
           },
           {

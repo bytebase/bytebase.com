@@ -1,0 +1,399 @@
+---
+title: Manage Database Access Control with Terraform
+author: Adela
+updated_at: 2025/07/10 21:15
+tags: Tutorial
+integrations: Terraform
+category: 'Integration'
+featured: true
+level: Intermediate
+estimated_time: '30 mins'
+---
+
+This tutorial is part of the **Manage Bytebase with Terraform** series:
+
+- Part 1: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Set up instances and environments
+- Part 2: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
+- Part 3: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace settings, environment policies, approval flows, and risk management
+- Part 4: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Set up SQL review policies
+- Part 5: Manage Database Access Control with Terraform (This one) - Set up access controls and permissions
+- Part 6: [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - Configure data masking policies
+
+📚 [Complete tutorial terraform files on GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
+
+**File Structure**: This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part (e.g., `1-instances.tf` for Part 1, `2-projects.tf` for Part 2, etc.). Terraform automatically handles dependencies between files.
+
+Learn how to manage users, groups, and access control policies using Terraform and the [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs).
+
+<Note>
+
+Bytebase Terraform Provider handles control plane configuration such as settings, policies, access controls. It does not
+handle data plane operations such as database creation, schema migrations, DML execution, query.
+
+</Note>
+
+## What You'll Learn
+
+- **Create** users and service accounts for team members
+- **Organize** users into groups for easier management
+- **Configure** workspace-level IAM policies for role assignments
+- **Set up** project-level permissions with granular database access
+
+## Prerequisites
+
+Before starting this tutorial, ensure you have:
+
+- Completed [Part 4: Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform)
+- Bytebase running with ngrok and service account configured
+- Your Terraform files from the previous tutorials
+
+## Setup
+
+From the previous tutorials, you should have:
+
+- Bytebase instances and projects configured
+- Workspace settings and approval flows set up
+- Service account with Workspace Admin role
+
+## Configure Access Control
+
+### Step 1 - Create Users
+
+Create `5-user-iam.tf` with user resources:
+
+```hcl
+# Create users and service accounts
+resource "bytebase_user" "workspace_admin" {
+  email = "admin@example.com"
+  title = "Workspace Admin"
+  type  = "USER"
+}
+
+resource "bytebase_user" "tf_service_account" {
+  email = "tf@service.bytebase.com"
+  title = "Terraform Service Account"
+  type  = "SERVICE_ACCOUNT"
+}
+
+resource "bytebase_user" "workspace_dba1" {
+  email = "dba@example.com"
+  title = "Database Administrator 1"
+  type  = "USER"
+}
+
+resource "bytebase_user" "workspace_dba2" {
+  email = "dba2@example.com"
+  title = "Database Administrator 2"
+  type  = "USER"
+}
+
+resource "bytebase_user" "dev1" {
+  email = "dev1@example.com"
+  title = "Developer 1"
+  type  = "USER"
+}
+
+resource "bytebase_user" "dev2" {
+  email = "dev2@example.com"
+  title = "Developer 2"
+  type  = "USER"
+}
+
+resource "bytebase_user" "dev3" {
+  email = "dev3@example.com"
+  title = "Developer 3"
+  type  = "USER"
+}
+
+resource "bytebase_user" "qa1" {
+  email = "qa1@example.com"
+  title = "QA Tester 1"
+  type  = "USER"
+}
+
+resource "bytebase_user" "qa2" {
+  email = "qa2@example.com"
+  title = "QA Tester 2"
+  type  = "USER"
+}
+```
+
+#### Apply and Verify Users
+
+```bash
+terraform plan
+terraform apply
+```
+
+Verify in Bytebase:
+
+1. Go to **IAM & Admin > Users & Groups**
+1. You should see all 9 users created
+
+![users](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-users.png)
+
+### Step 2 - Create Groups
+
+Add the following groups to your `5-user-iam.tf` file:
+
+```hcl
+# Create groups
+resource "bytebase_group" "developers" {
+  email       = "developers@example.com"
+  title       = "Developer Team"
+  description = "Group for all developers"
+
+  members {
+    member = "users/${bytebase_user.dev1.email}"
+    role   = "OWNER"
+  }
+
+  members {
+    member = "users/${bytebase_user.dev2.email}"
+    role   = "MEMBER"
+  }
+
+  members {
+    member = "users/${bytebase_user.dev3.email}"
+    role   = "MEMBER"
+  }
+}
+
+resource "bytebase_group" "qa" {
+  email       = "qa@example.com"
+  title       = "QA Team"
+  description = "Group for all QA testers"
+
+  members {
+    member = "users/${bytebase_user.qa1.email}"
+    role   = "OWNER"
+  }
+
+  members {
+    member = "users/${bytebase_user.qa2.email}"
+    role   = "MEMBER"
+  }
+}
+```
+
+#### Apply and Verify Groups
+
+```bash
+terraform plan
+terraform apply
+```
+
+Verify in Bytebase:
+
+1. Go to **IAM & Admin > Users & Groups** > **Groups** tab
+1. Click on **Developer Team** to see 3 members (dev1 as owner, dev2 and dev3 as members)
+1. Click on **QA Team** to see 2 members (qa1 as owner, qa2 as member)
+
+![groups](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-groups.png)
+
+### Step 3 - Configure Workspace IAM Policy
+
+Add the following workspace IAM policy to your `5-user-iam.tf` file. Note that project roles assigned at workspace level apply to ALL projects:
+
+```hcl
+resource "bytebase_iam_policy" "workspace_iam" {
+  depends_on = [
+    bytebase_user.workspace_admin,
+    bytebase_user.tf_service_account,
+    bytebase_user.workspace_dba1,
+    bytebase_user.workspace_dba2,
+    bytebase_group.qa
+  ]
+
+  parent = "workspaces/-"
+
+  iam_policy {
+
+    binding {
+      role = "roles/workspaceAdmin"
+      members = [
+        format("user:%s", bytebase_user.workspace_admin.email),
+        format("user:%s", bytebase_user.tf_service_account.email),
+      ]
+    }
+
+    binding {
+      role = "roles/workspaceDBA"
+      members = [
+        format("user:%s", bytebase_user.workspace_dba1.email),
+        format("user:%s", bytebase_user.workspace_dba2.email)
+      ]
+    }
+
+    binding {
+      role = "roles/workspaceMember"
+      members = [
+        format("user:%s", bytebase_user.dev1.email),
+        format("user:%s", bytebase_user.dev2.email),
+        format("user:%s", bytebase_user.dev3.email),
+        format("user:%s", bytebase_user.qa1.email),
+        format("user:%s", bytebase_user.qa2.email)
+      ]
+    }
+
+    binding {
+      role = "roles/projectViewer"
+      members = [
+        format("group:%s", bytebase_group.qa.email),
+      ]
+      # Note: This grants projectViewer role to ALL projects in the workspace
+    }
+  }
+}
+```
+
+#### Apply and Verify Workspace IAM
+
+```bash
+terraform plan
+terraform apply
+```
+
+Verify in Bytebase:
+
+1. Go to **IAM & Admin > Members**
+2. Check user roles:
+   - **admin@example.com**: Workspace Admin
+   - **tf@service.bytebase.com**: Workspace Admin
+   - **dba@example.com**, **dba2@example.com**: Workspace DBA
+   - **dev1-3@example.com**, **qa1-2@example.com**: Workspace Member
+3. Note that QA Team group has Project Viewer role for ALL projects
+
+![members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-members.png)
+
+### Step 4 - Configure Project IAM Policy
+
+Add the following project IAM policy to your `5-user-iam.tf` file. These roles only apply to `Project Two`, however, the project roles defined in workspace level will show in both `Project One` and `Project Two`:
+
+```hcl
+resource "bytebase_iam_policy" "project_iam" {
+  depends_on = [
+    bytebase_group.developers,
+    bytebase_user.workspace_dba1,
+    bytebase_user.workspace_dba2
+  ]
+
+  parent = bytebase_project.project-two.name
+
+  iam_policy {
+
+    binding {
+      role = "roles/projectOwner"
+      members = [
+        format("user:%s", bytebase_user.workspace_dba1.email),
+        format("user:%s", bytebase_user.workspace_dba2.email)
+      ]
+    }
+
+    binding {
+      role = "roles/projectDeveloper"
+      members = [
+        "allUsers",
+        format("group:%s", bytebase_group.developers.email)
+      ]
+    }
+
+    binding {
+      role = "roles/sqlEditorUser"
+      members = [
+        format("group:%s", bytebase_group.developers.email)
+      ]
+      condition {
+        database         = "instances/prod-sample-instance/databases/hr_prod"
+        schema           = "public"
+        tables           = ["employee", "department"]
+        expire_timestamp = "2027-07-10T16:17:49Z"
+      }
+    }
+
+  }
+}
+```
+
+#### Apply and Verify Project IAM
+
+```bash
+terraform plan
+terraform apply
+```
+
+Verify in Bytebase:
+
+1. Go to **Project One** > **Manage > Members**:
+
+   - QA Team: Project Viewer (inherited from workspace)
+   - Terraform Service Account: Project Owner (as creator)
+
+   ![project-1-members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-1-members.png)
+
+1. Go to **Project Two** > **Manage > Members**:
+
+   - QA Team: Project Viewer (inherited from workspace)
+   - DBA users: Project Owner
+   - All users + Developer Team: Project Developer
+   - Developer Team: SQL Editor User (click edit to see table restrictions)
+
+   ![project-2-members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-2-members.png)
+
+   ![project-2-sql-editor-user](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-2-sql-editor-user.png)
+
+### Step 5 - Test Access Control
+
+Test the access control configuration:
+
+1. **Set a password for Developer 1**:
+
+   - Go to **IAM & Admin > Users & Groups**
+   - Find and click on **Developer 1**
+   - Click **Edit** and set a password
+
+   ![dev1-pw](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-dev1-pw.png)
+
+1. **Log in as Developer 1** in a new browser/incognito window:
+
+   - You should only see **Project Two** (not Project One)
+   - Navigate to **SQL Editor**
+
+1. **Test SQL Editor restrictions**:
+
+   - Connect to `Prod > Prod Sample Instance > hr_prod`
+   - Try querying `employee` table - ✅ Should work
+   - Try querying `department` table - ✅ Should work
+   - Try querying `salary` table - ❌ Should fail with permission error
+
+   ![sql-editor-employee](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-sql-editor-employee.png)
+
+   ![sql-editor-salary](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-sql-editor-salary.png)
+
+## Access Control Patterns
+
+The example demonstrates several key patterns:
+
+1. **User Types**: Regular users (`USER`) and service accounts (`SERVICE_ACCOUNT`)
+2. **Group Management**: Groups with owners and members for team organization
+3. **Workspace Roles**: Admin, DBA, and Member roles at workspace level
+4. **Project Roles**: Owner and Developer roles at project level
+5. **Conditional Access**: Time-limited, table-specific SQL Editor permissions
+
+## Key Points
+
+- **IAM Hierarchy**: Workspace policies apply globally, project policies are scoped to specific projects
+- **Project Roles at Workspace Level**: When assigned in workspace IAM, project roles (like `projectViewer`) apply to ALL projects
+- **Group Benefits**: Manage permissions for teams rather than individuals
+- **Conditional Bindings**: Fine-grained access control down to table level with expiration
+- **Role Inheritance**: Higher roles include permissions of lower roles
+
+## Next Steps
+
+**Continue the series:** [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - configure data masking policies to protect sensitive data.
+
+**Resources:**
+
+- [Tutorial files](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
+- [Advanced examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
+- [Discord community](https://discord.gg/huyw7gRsyA)

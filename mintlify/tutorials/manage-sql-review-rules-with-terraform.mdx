@@ -1,0 +1,235 @@
+---
+title: Manage SQL Review Rules with Terraform
+author: Adela
+updated_at: 2025/07/10 21:15
+tags: Tutorial
+integrations: Terraform
+category: 'Integration'
+featured: true
+level: Intermediate
+estimated_time: '20 mins'
+---
+
+This tutorial is part of the **Manage Bytebase with Terraform** series:
+
+- Part 1: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Set up instances and environments
+- Part 2: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
+- Part 3: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace settings, environment policies, approval flows, and risk management
+- Part 4: Manage SQL Review Rules with Terraform (This one) - Set up SQL review policies
+- Part 5: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Set up access controls and permissions
+- Part 6: [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - Configure data masking policies
+
+📚 [Complete tutorial terraform files on GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
+
+**File Structure**: This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part (e.g., `1-instances.tf` for Part 1, `2-projects.tf` for Part 2, etc.). Terraform automatically handles dependencies between files.
+
+Learn how to configure SQL review rules to enforce database schema standards using Terraform and the [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs).
+
+<Note>
+
+Bytebase Terraform Provider handles control plane configuration such as settings, policies, access controls. It does not
+handle data plane operations such as database creation, schema migrations, DML execution, query.
+
+</Note>
+
+## What You'll Learn
+
+- **Configure** SQL review rules for schema standards
+- **Enforce** naming conventions and structural requirements
+- **Apply** different severity levels (ERROR, WARNING)
+- **Target** specific environments with review policies
+
+## Prerequisites
+
+Before starting this tutorial, ensure you have:
+
+- Completed [Part 3: Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform)
+- Bytebase running with ngrok and service account configured
+- Your Terraform files from the previous tutorials
+
+## Setup
+
+From the previous tutorials, you should have:
+- Bytebase instances and projects configured
+- Environments (test and prod) set up
+- Workspace settings and approval flows configured
+
+## Configure SQL Review Rules
+
+### Step 1 - Create Review Configuration
+
+Create `4-sql-review.tf` with the SQL review configuration:
+
+```hcl
+resource "bytebase_review_config" "sample" {
+  depends_on = [
+    bytebase_setting.environments
+  ]
+
+  resource_id = "review-config-sample"
+  title       = "Sample SQL Review Config"
+  enabled     = true
+  resources = toset([
+    bytebase_setting.environments.environment_setting[0].environment[1].name
+  ])
+  
+  # Rule 1: Warn about nullable columns
+  rules {
+    type   = "column.no-null"
+    engine = "POSTGRES"
+    level  = "WARNING"
+  }
+  
+  # Rule 2: Require specific columns
+  rules {
+    type    = "column.required"
+    engine  = "POSTGRES"
+    level   = "ERROR"
+    payload = "{\"list\":[\"id\",\"created_ts\",\"updated_ts\",\"creator_id\",\"updater_id\"]}"
+  }
+  
+  # Rule 3: Tables must have primary key
+  rules {
+    type   = "table.require-pk"
+    engine = "POSTGRES"
+    level  = "ERROR"
+  }
+  
+  # Rule 4: Column naming convention
+  rules {
+    type    = "naming.column"
+    engine  = "POSTGRES"
+    level   = "ERROR"
+    payload = "{\"format\":\"^[a-z]+(_[a-z]+)*$\",\"maxLength\":64}"
+  }
+  
+  # Rule 5: Limit maximum rows in SELECT
+  rules {
+    type    = "statement.maximum-limit-value"
+    engine  = "POSTGRES"
+    level   = "ERROR"
+    payload = "{\"number\":1000}"
+  }
+}
+```
+
+### Step 2 - Apply Configuration
+
+```bash
+terraform plan
+terraform apply
+```
+
+### Step 3 - Verify in Bytebase
+
+1. Go to **CI/CD > SQL Review** in the left sidebar
+2. You should see **Sample SQL Review Config** listed
+3. Click on it to view the configured rules
+4. Note that it's applied to the production environment
+
+## Rule Types Explained
+
+The example demonstrates key SQL review rule categories:
+
+### 1. Column Rules
+- **column.no-null**: Warns about nullable columns
+- **column.required**: Enforces required columns (id, timestamps, audit fields)
+
+### 2. Table Rules
+- **table.require-pk**: Every table must have a primary key
+
+### 3. Naming Rules
+- **naming.column**: Enforces lowercase snake_case column names
+
+### 4. Statement Rules
+- **statement.maximum-limit-value**: Prevents SELECT queries without proper limits
+
+### Step 4 - Test SQL Review
+
+Create a test SQL statement to see the review in action:
+
+1. Go to **Project Two** > **Database** > **hr_prod**
+2. Click **Edit Schema**
+3. Try creating a table that violates the rules:
+
+```sql
+-- This will trigger multiple violations
+CREATE TABLE BadExample (
+    FirstName VARCHAR(50),  -- Violates naming convention
+    LastName VARCHAR(50)    -- Missing required columns, no primary key
+);
+```
+
+Expected violations:
+- ❌ Column naming convention (should be first_name)
+- ❌ Missing required columns (id, created_ts, etc.)
+- ❌ No primary key defined
+
+4. Try a compliant table:
+
+```sql
+-- This follows all rules
+CREATE TABLE good_example (
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    created_ts TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_ts TIMESTAMP NOT NULL DEFAULT NOW(),
+    creator_id INTEGER NOT NULL,
+    updater_id INTEGER NOT NULL
+);
+```
+
+Expected result:
+- ⚠️ Warning about nullable columns (if any)
+- ✅ All required rules pass
+
+## Advanced Configuration
+
+### Targeting Multiple Environments
+
+To apply rules to multiple environments:
+
+```hcl
+resources = toset([
+  "environments/test",
+  "environments/prod"
+])
+```
+
+### Engine-Specific Rules
+
+Different rules for different database engines:
+
+```hcl
+# MySQL-specific rule
+rules {
+  type   = "table.require-pk"
+  engine = "MYSQL"
+  level  = "ERROR"
+}
+
+# PostgreSQL-specific rule
+rules {
+  type   = "table.require-pk"
+  engine = "POSTGRES"
+  level  = "ERROR"
+}
+```
+
+## Key Points
+
+- **Rule Levels**: ERROR blocks changes, WARNING allows but notifies
+- **Engine Specific**: Rules can target specific database engines
+- **Environment Scoped**: Apply different rules to different environments
+- **Payload Format**: Complex rules use JSON payloads for configuration
+
+## Next Steps
+
+**Continue the series:** [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - set up access controls and permissions.
+
+**Resources:**
+- [SQL Review Rules Documentation](https://www.bytebase.com/docs/sql-review/review-rules)
+- [Tutorial files](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
+- [Advanced examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
+- [Discord community](https://discord.gg/huyw7gRsyA)
