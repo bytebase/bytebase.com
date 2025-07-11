@@ -54,9 +54,13 @@ From the previous tutorials, you should have:
 - Users and access controls set up
 - Production database `hr_prod` with employee data
 
-## Configure Data Masking
+## Define Masking Methods
 
-### Step 1 - Define Semantic Types
+You can define masking methods using semantic types, or classification levels with semantic types. These definitions determine how data will be masked when policies are applied. 
+
+**Important Relationship**: Classifications define sensitivity levels, but require mapping to semantic types for actual masking. Semantic types define the masking algorithms that perform the actual data protection.
+
+### Option A - Define Semantic Types
 
 Semantic types define how data should be masked. Add these to your `main.tf`:
 
@@ -114,9 +118,9 @@ Verify in Bytebase: Click **Data Access > Semantic Types** on the left sidebar. 
 
 ![semantic-types](/content/docs/tutorials/manage-data-masking-with-terraform/bb-semantic-types.png)
 
-### Step 2 - Set Up Data Classification
+### Option B - Set Up Data Classification
 
-Create a classification hierarchy for sensitive data:
+Alternatively or additionally, create a classification hierarchy for sensitive data:
 
 ```hcl
 resource "bytebase_setting" "classification" {
@@ -177,9 +181,15 @@ Verify in Bytebase: Click **Data Access > Data Classification** on the left side
 
 ![classification](/content/docs/tutorials/manage-data-masking-with-terraform/bb-classification.png)
 
-### Step 3 - Create Global Masking Policy
+## Apply Masking Policies
 
-Define workspace-wide masking rules:
+Once you've defined your masking methods (semantic types and/or classification), you can apply them using global policies, column-specific configuration, or both.
+
+**Important**: Classification levels must be mapped to semantic types to perform actual masking. Classification defines the sensitivity level, while semantic types define the masking algorithm.
+
+### Option 1 - Apply Global Masking Policy
+
+Define workspace-wide masking rules that automatically apply based on column names or classification levels. Notice how classification levels are mapped to semantic types:
 
 ```hcl
 resource "bytebase_policy" "global_masking_policy" {
@@ -210,7 +220,7 @@ resource "bytebase_policy" "global_masking_policy" {
     rules {
       condition     = "classification_level in [\"2\"]"
       id            = "classification-level-2"
-      semantic_type = "full-mask"
+      semantic_type = "full-mask"  # Maps Level 2 classification to full-mask semantic type
     }
   }
 }
@@ -233,9 +243,9 @@ Log in as Developer 1 (dev1@example.com), then go to **SQL Editor** to access `h
 
 ![dev1-employee](/content/docs/tutorials/manage-data-masking-with-terraform/bb-dev1-employee.png)
 
-### Step 4 - Configure Column Classification
+### Option 2 - Apply Column-Specific Masking
 
-To apply classification to specific database columns, you would update the column metadata in Bytebase:
+Apply semantic types or classifications directly to specific database columns:
 
 - column `from_date` is assigned the semantic type `date-year-mask`
 - column `amount` is assigned the classification `2-1`(Employment info)
@@ -292,7 +302,7 @@ Verify in Bytebase:
 
    ![dev1-salary](/content/docs/tutorials/manage-data-masking-with-terraform/bb-dev1-salary.png)
 
-### Step 5 - Grant Masking Exceptions
+## Grant Masking Exceptions (Optional)
 
 Allow specific users to bypass masking for certain operations:
 
@@ -366,10 +376,25 @@ Verify in Bytebase:
 
 ## Key Points
 
+**🔑 Critical Relationship - Classifications MUST Map to Semantic Types:**
+
+- **Classifications** define sensitivity levels (Level 1, Level 2, etc.) but **cannot mask data by themselves**
+- **Semantic Types** define the actual masking algorithms (full-mask, range-mask, etc.)
+- **You must map classifications to semantic types** for masking to occur (e.g., Level 2 → full-mask)
+- **Direct semantic type assignment** can bypass classification entirely
+
+**Define Phase (choose one or both):**
+
 - **Semantic Types**: Define reusable masking algorithms
-- **Classification**: Organize data by sensitivity levels
-- **Global Policies**: Apply masking rules workspace-wide
-- **Column-Level Control**: Override with specific semantic types
+- **Classification**: Organize data by sensitivity levels (must be mapped to semantic types for masking)
+
+**Apply Phase (choose one or both):**
+
+- **Global Policies**: Apply masking rules workspace-wide based on conditions
+- **Column-Level Masking**: Apply semantic types or classifications to specific columns
+
+**Additional Control:**
+
 - **Exceptions**: Grant bypass permissions for specific users and actions
 
 ## Next Steps
