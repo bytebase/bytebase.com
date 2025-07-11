@@ -21,6 +21,8 @@ This tutorial is part of the **Manage Bytebase with Terraform** series:
 
 📚 [Complete tutorial terraform files on GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
 
+**File Structure**: This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part (e.g., `1-instances.tf` for Part 1, `2-projects.tf` for Part 2, etc.). Terraform automatically handles dependencies between files.
+
 Learn how to protect sensitive data with masking policies using Terraform and the [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs).
 
 <Note>
@@ -44,7 +46,7 @@ Before starting this tutorial, ensure you have:
 
 - Completed [Part 5: Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform)
 - Bytebase running with ngrok and service account configured
-- Your `main.tf` file from the previous tutorials
+- Your Terraform files from the previous tutorials
 
 ## Setup
 
@@ -62,7 +64,7 @@ You can define masking methods using semantic types, or classification levels wi
 
 ### Option A - Define Semantic Types
 
-Semantic types define how data should be masked. Add these to your `main.tf`:
+Create `6-1-semantic-types.tf` with semantic types that define how data should be masked:
 
 ```hcl
 resource "bytebase_setting" "semantic_types" {
@@ -120,7 +122,7 @@ Verify in Bytebase: Click **Data Access > Semantic Types** on the left sidebar. 
 
 ### Option B - Set Up Data Classification
 
-Alternatively or additionally, create a classification hierarchy for sensitive data:
+Create `6-2-classification.tf` with a classification hierarchy for sensitive data:
 
 ```hcl
 resource "bytebase_setting" "classification" {
@@ -189,7 +191,7 @@ Once you've defined your masking methods (semantic types and/or classification),
 
 ### Option 1 - Apply Global Masking Policy
 
-Define workspace-wide masking rules that automatically apply based on column names or classification levels. Notice how classification levels are mapped to semantic types:
+Create `6-3-global-data-masking.tf` with workspace-wide masking rules that automatically apply based on column names or classification levels. Notice how classification levels are mapped to semantic types:
 
 ```hcl
 resource "bytebase_policy" "global_masking_policy" {
@@ -245,7 +247,7 @@ Log in as Developer 1 (dev1@example.com), then go to **SQL Editor** to access `h
 
 ### Option 2 - Apply Column-Specific Masking
 
-Apply semantic types or classifications directly to specific database columns:
+Create `6-4-database-masking.tf` to apply semantic types or classifications directly to specific database columns:
 
 - column `from_date` is assigned the semantic type `date-year-mask`
 - column `amount` is assigned the classification `2-1`(Employment info)
@@ -304,7 +306,7 @@ Verify in Bytebase:
 
 ## Grant Masking Exceptions (Optional)
 
-Allow specific users to bypass masking for certain operations:
+Create `6-5-masking-exception.tf` to allow specific users to bypass masking for certain operations:
 
 - Workspace Admin (admin@example.com) has Masking Exemptions for `birth_date` in table `employee` for Query
 - Workspace Admin (admin@example.com) has Masking Exemptions for `last_name` in table `employee` for Export

@@ -21,6 +21,8 @@ This tutorial is part of the **Manage Bytebase with Terraform** series:
 
 📚 [Complete tutorial terraform files on GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
 
+**File Structure**: This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part (e.g., `1-instances.tf` for Part 1, `2-projects.tf` for Part 2, etc.). Terraform automatically handles dependencies between files.
+
 Learn how to manage users, groups, and access control policies using Terraform and the [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs).
 
 <Note>
@@ -43,7 +45,7 @@ Before starting this tutorial, ensure you have:
 
 - Completed [Part 4: Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform)
 - Bytebase running with ngrok and service account configured
-- Your `main.tf` file from the previous tutorials
+- Your Terraform files from the previous tutorials
 
 ## Setup
 
@@ -57,7 +59,7 @@ From the previous tutorials, you should have:
 
 ### Step 1 - Create Users
 
-Add user resources to your `main.tf`:
+Create `5-user-iam.tf` with user resources:
 
 ```hcl
 # Create users and service accounts
@@ -132,7 +134,7 @@ Verify in Bytebase:
 
 ### Step 2 - Create Groups
 
-Organize users into logical groups:
+Add the following groups to your `5-user-iam.tf` file:
 
 ```hcl
 # Create groups
@@ -191,7 +193,7 @@ Verify in Bytebase:
 
 ### Step 3 - Configure Workspace IAM Policy
 
-Set up workspace-level roles. Note that project roles assigned at workspace level apply to ALL projects:
+Add the following workspace IAM policy to your `5-user-iam.tf` file. Note that project roles assigned at workspace level apply to ALL projects:
 
 ```hcl
 resource "bytebase_iam_policy" "workspace_iam" {
@@ -266,7 +268,7 @@ Verify in Bytebase:
 
 ### Step 4 - Configure Project IAM Policy
 
-Set up project-specific permissions for `Project Two`. These roles only apply to this specific project, however, the project roles defined in workspace level will show in both `Project One` and `Project Two`:
+Add the following project IAM policy to your `5-user-iam.tf` file. These roles only apply to `Project Two`, however, the project roles defined in workspace level will show in both `Project One` and `Project Two`:
 
 ```hcl
 resource "bytebase_iam_policy" "project_iam" {

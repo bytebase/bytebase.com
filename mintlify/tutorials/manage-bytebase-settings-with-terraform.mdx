@@ -21,6 +21,8 @@ This tutorial is part of the **Manage Bytebase with Terraform** series:
 
 📚 [Complete tutorial terraform files on GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
 
+**File Structure**: This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part (e.g., `1-instances.tf` for Part 1, `2-projects.tf` for Part 2, etc.). Terraform automatically handles dependencies between files.
+
 Learn how to configure workspace settings, approval flows, and risk policies using Terraform and the [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs).
 
 <Note>
@@ -42,7 +44,7 @@ Before starting this tutorial, ensure you have:
 
 - Completed [Part 2: Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform)
 - Bytebase running with ngrok and service account configured
-- Your `main.tf` file from the previous tutorials
+- Your Terraform files from the previous tutorials
 
 ## Setup
 
@@ -50,13 +52,13 @@ From the previous tutorials, you should have:
 
 - Bytebase instances and projects configured
 - Service account with Workspace Admin role
-- Your `main.tf` file ready for additional configurations
+- Your Terraform files ready for additional configurations
 
 ## Configure Bytebase Settings
 
 ### Step 1 - Workspace Profile Configuration
 
-Add the workspace profile settings to your `main.tf`:
+Create `3-1-workspace-profile.tf` with the workspace profile settings:
 
 ```hcl
 # Step 1: Workspace profile configuration
@@ -80,7 +82,7 @@ This configuration:
 
 ### Step 2 - Approval Flow Settings
 
-Add approval flow configuration that requires multiple approvals for risky operations:
+Create `3-4-approval-flow.tf` with approval flow configuration that requires multiple approvals for risky operations:
 
 ```hcl
 # Step 2: Approval flow settings
@@ -117,7 +119,7 @@ This creates a three-step approval flow that triggers for:
 
 ### Step 3 - Risk Management Policies
 
-Define risk policies that determine when approval flows are triggered:
+Create `3-3-risk.tf` with risk policies that determine when approval flows are triggered:
 
 ```hcl
 # Step 3: Risk management policies

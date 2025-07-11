@@ -24,6 +24,8 @@ This tutorial is part of the **Manage Bytebase with Terraform** series:
 
 📚 [Complete tutorial terraform files on GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
 
+**File Structure**: This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part (e.g., `1-instances.tf` for Part 1, `2-projects.tf` for Part 2, etc.). Terraform automatically handles dependencies between files.
+
 Learn how to automate database infrastructure management by combining [Bytebase](https://www.bytebase.com) with [Terraform](https://www.hashicorp.com/products/terraform) using the [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs).
 
 <Note>
@@ -107,10 +109,11 @@ Manual processes works fine for a few instances/databases, but imagine doing it 
 
 In this section, you’ll witness the process simplification Terraform brings.
 
-### Step 1 - Create a Terraform file
+### Step 1 - Create Terraform Files
 
-1. Create a new folder `learn-terraform-bytebase` and create a blank file `main.tf` in it.
-1. Go to [https://registry.terraform.io/providers/bytebase/bytebase/latest/docs](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs). Click **Use Provider**, copy and paste the whole code block in the gray box into `main.tf`:
+1. Create a new folder `learn-terraform-bytebase` and create the following files in it.
+
+1. Create `0-provider.tf` for the provider configuration:
 
    ```hcl
    terraform {
@@ -133,7 +136,7 @@ In this section, you’ll witness the process simplification Terraform brings.
    }
    ```
 
-### Step 2 - Add a Terraform account
+### Step 2 - Add a Terraform Service Account
 
 1. Click **IAM & Admin > Users & Groups** on the left sidebar, click **+ Add User**.
 
@@ -143,9 +146,9 @@ In this section, you’ll witness the process simplification Terraform brings.
 
 ### Step 3 - Query to list all resources
 
-1. Paste the **Service Key**, **Service Account Email**, and **URL** into `main.tf`.
+1. Paste the **Service Key**, **Service Account Email**, and **URL** into `0-provider.tf`.
 
-1. Paste the following queries after the **provider** block and save the file. What it does is to list all existing environments and instances and print those out in the terminal.
+1. Create `1-0-list-env-instance.tf` to list all existing environments and instances:
 
    ```hcl
    # List all environments using settings
@@ -178,7 +181,7 @@ Before configuring instances, let's properly configure the environments. There a
 
 This approach uses environment settings and is usually sufficient for most use cases.
 
-Add the following environment configuration:
+Create `1-1-env.tf` with the following environment configuration:
 
     ```hcl
     # Environment Settings
@@ -206,7 +209,7 @@ Alternatively, you can create environments using individual `bytebase_environmen
 
 **Important**: When using multiple `bytebase_environment` resources, you must use `depends_on` between environments. This ensures Terraform updates them in the correct order, as the Bytebase API only supports updating one environment list at a time.
 
-Add the following environment resources after the settings configuration:
+Create `1-1-env-alt.tf` with the following environment resources (alternative approach):
 
     ```hcl
     # Create Test environment
@@ -234,6 +237,8 @@ Add the following environment resources after the settings configuration:
 Finally, let's add the database instances that will be associated with our environments. The configuration depends on which approach you chose in Step 4:
 
 #### If you used Step 4a (Environment Settings)
+
+Create `1-instances.tf` with the following configuration:
 
 ```hcl
 # Built-in Test Instance
@@ -276,6 +281,8 @@ resource "bytebase_instance" "prod" {
 ```
 
 #### If you used Step 4b (Individual Environment Resources)
+
+Create `1-instances-alt.tf` with the following configuration (alternative approach):
 
 ```hcl
   # Built-in Test Instance

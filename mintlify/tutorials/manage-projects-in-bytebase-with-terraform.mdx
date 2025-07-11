@@ -21,6 +21,8 @@ This tutorial is part of the **Manage Bytebase with Terraform** series:
 
 📚 [Complete tutorial terraform files on GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
 
+**File Structure**: This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part (e.g., `1-instances.tf` for Part 1, `2-projects.tf` for Part 2, etc.). Terraform automatically handles dependencies between files.
+
 Learn how to organize your databases into projects using Terraform and the [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs).
 
 <Note>
@@ -44,7 +46,7 @@ Before starting this tutorial, ensure you have:
 - Completed [Part 1: Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform)
 - Bytebase running with ngrok and service account configured
 - Database instances configured via Terraform
-- Your `main.tf` file from the previous tutorial
+- Your Terraform files from the previous tutorial
 
 ## Setup
 
@@ -57,7 +59,7 @@ From Part 1, you should have:
 
 ### Step 1 - Add Project Resources
 
-Add these project resources to your `main.tf` file:
+Create `2-projects.tf` with the following project resources:
 
 ```hcl
 # Project One - Assign all test databases
