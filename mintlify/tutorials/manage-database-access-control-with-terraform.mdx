@@ -306,7 +306,7 @@ resource "bytebase_iam_policy" "project_iam" {
       condition {
         database         = "instances/prod-sample-instance/databases/hr_prod"
         schema           = "public"
-        tables           = ["employee", "department"]
+        tables           = ["employee", "salary"]
         expire_timestamp = "2027-07-10T16:17:49Z"
       }
     }
@@ -363,12 +363,12 @@ Test the access control configuration:
 
    - Connect to `Prod > Prod Sample Instance > hr_prod`
    - Try querying `employee` table - ✅ Should work
-   - Try querying `department` table - ✅ Should work
-   - Try querying `salary` table - ❌ Should fail with permission error
+   - Try querying `salary` table - ✅ Should work
+   - Try querying `department` table - ❌ Should fail with permission error
 
    ![sql-editor-employee](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-sql-editor-employee.png)
 
-   ![sql-editor-salary](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-sql-editor-salary.png)
+   ![sql-editor-department](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-sql-editor-department.png)
 
 ## Access Control Patterns
 
