@@ -50,9 +50,9 @@ Terraform enables you to manage hundreds of database instances as code, eliminat
 Before starting this tutorial, ensure you have:
 
 - **Docker**: [Install Docker](https://www.docker.com/) to run Bytebase
-- **ngrok**: [Sign up for ngrok](https://ngrok.com/) (or something similar)to expose your local Bytebase instance to the internet
+- **ngrok**: [Sign up for ngrok](https://ngrok.com/) (or similar) to expose your local Bytebase instance to the internet
 - **Terraform**: [Install Terraform](https://www.terraform.io/downloads) for infrastructure as code
-- **Bytebase Enterprise Plan** (optional) – Some features may require the Enterprise Plan. You can still follow this tutorial with the Community Plan by making a few adjustments.
+- **Bytebase Enterprise Plan** (optional) – Some features require the Enterprise Plan. You can follow this tutorial with the Community Plan by adjusting the configuration.
 
 ## Setup
 
@@ -87,31 +87,31 @@ terraform -help
 
    ![built-in-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-use-built-in-sample.webp)
 
-1. (Optional) After you log into Bytebase, click **Settings > Subscription** on the left sidebar, paste your Enterprise Plan licence and click **Upload License**. _Some features may require the Enterprise Plan. You can still follow this tutorial with the Community Plan by making a few adjustments._
+1. (Optional) After logging into Bytebase, click **Settings > Subscription** on the left sidebar, paste your Enterprise Plan license and click **Upload License**. _Some features require the Enterprise Plan. You can follow this tutorial with the Community Plan by adjusting the configuration._
 
    ![subscription](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-subscription.webp)
 
-### Check Bytebase Setup (GUI)
+### Verify Bytebase Setup
 
-1. Click **Instances** on the left sidebar, you will see there are two PostgreSQL instances: `Prod Sample Instance` and `Test Sample Instance`. You may click **+ Add Instance** to add new instances.
+1. Click **Instances** on the left sidebar to see two PostgreSQL instances: `Prod Sample Instance` and `Test Sample Instance`.
 
    ![add-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-instance.webp)
 
-1. Click **Projects** on the left sidebar, you will see there is a `Sample Project`, click it or go from the `Select Project` dropdown on the top bar.
+1. Click **Projects** on the left sidebar to see the `Sample Project`, then click it or select it from the `Select Project` dropdown.
 
-1. Within the project, click **Database > Databases** on the left sidebar, you will see there are two databases: `hr_prod`(on `Prod Sample Instance`) and `test_prod`(on `Prod Sample Instance`). You may click **+ New DB** to create new databases.
+1. Within the project, click **Database > Databases** to see two databases: `hr_prod` (on `Prod Sample Instance`) and `hr_test` (on `Test Sample Instance`).
 
    ![add-db](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-db.webp)
 
-Manual processes works fine for a few instances/databases, but imagine doing it for dozens or hundreds of instances/databases across multiple environments/projects!
+Manual processes work fine for a few instances, but Terraform enables you to manage hundreds of instances consistently across multiple environments.
 
 ## Configure Instances via Terraform
 
 In this section, you’ll witness the process simplification Terraform brings.
 
-### Step 1 - Create Terraform Files
+### Step 1 - Create Terraform Configuration
 
-1. Create a new folder `learn-terraform-bytebase` and create the following files in it.
+1. Create a new folder `learn-terraform-bytebase` and navigate to it.
 
 1. Create `0-provider.tf` for the provider configuration, visit [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs), click **USE PROVIDER** and copy the configuration.
 
@@ -136,19 +136,19 @@ In this section, you’ll witness the process simplification Terraform brings.
    }
    ```
 
-### Step 2 - Add a Terraform Service Account
+### Step 2 - Create Service Account
 
-1. Within Bytebase, click **IAM & Admin > Users & Groups** on the left sidebar, click **+ Add User**.
+1. In Bytebase, click **IAM & Admin > Users & Groups** on the left sidebar, then click **+ Add User**.
 
-1. Choose `Service Account` as the **Type**, fill in the **Email** with `tf@service.bytebase.com`, choose `Workspace Admin` as **Roles**, and click **Confirm**.
+1. Select `Service Account` as the **Type**, enter `tf@service.bytebase.com` as the **Email**, select `Workspace Admin` as **Roles**, and click **Confirm**.
 
-1. Copy the **Service Key** for later use.
+1. Copy the **Service Key** for the next step.
 
-### Step 3 - List Existing Resources
+### Step 3 - Initialize and Inspect Resources
 
-1. Paste the **Service Key**, **Service Account Email**, and **URL** into `0-provider.tf`.
+1. Update `0-provider.tf` with your **Service Key** and **URL**.
 
-1. Create `1-0-list-env-instance.tf` to list all existing environments and instances:
+1. Create `1-0-list-env-instance.tf` to inspect existing resources:
 
    ```hcl
    # List all environments using settings
