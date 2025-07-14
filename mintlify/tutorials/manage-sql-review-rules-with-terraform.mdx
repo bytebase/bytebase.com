@@ -50,6 +50,7 @@ Before starting this tutorial, ensure you have:
 ## Setup
 
 From the previous tutorials, you should have:
+
 - Bytebase instances and projects configured
 - Environments (test and prod) set up
 - Workspace settings and approval flows configured
@@ -72,14 +73,14 @@ resource "bytebase_review_config" "sample" {
   resources = toset([
     bytebase_setting.environments.environment_setting[0].environment[1].name
   ])
-  
+
   # Rule 1: Warn about nullable columns
   rules {
     type   = "column.no-null"
     engine = "POSTGRES"
     level  = "WARNING"
   }
-  
+
   # Rule 2: Require specific columns
   rules {
     type    = "column.required"
@@ -87,14 +88,14 @@ resource "bytebase_review_config" "sample" {
     level   = "ERROR"
     payload = "{\"list\":[\"id\",\"created_ts\",\"updated_ts\",\"creator_id\",\"updater_id\"]}"
   }
-  
+
   # Rule 3: Tables must have primary key
   rules {
     type   = "table.require-pk"
     engine = "POSTGRES"
     level  = "ERROR"
   }
-  
+
   # Rule 4: Column naming convention
   rules {
     type    = "naming.column"
@@ -102,7 +103,7 @@ resource "bytebase_review_config" "sample" {
     level   = "ERROR"
     payload = "{\"format\":\"^[a-z]+(_[a-z]+)*$\",\"maxLength\":64}"
   }
-  
+
   # Rule 5: Limit maximum rows in SELECT
   rules {
     type    = "statement.maximum-limit-value"
@@ -122,67 +123,83 @@ terraform apply
 
 ### Step 3 - Verify in Bytebase
 
-1. Go to **CI/CD > SQL Review** in the left sidebar.
-2. You should see **Sample SQL Review Config** listed.
-3. Click on it to view the configured rules.
-4. Note that it's applied to the production environment.
+1. Go to **CI/CD > SQL Review** in the left sidebar, you should see **Sample SQL Review Config** listed.
 
-## Rule Types Explained
+   ![sql-review-list](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-sql-review-list.webp)
+
+1. Click on it to view the configured rules. Note that it's applied to the production environment.
+
+   ![sql-review-pg](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-sql-review-pg.webp)
+
+### Rule Types Explained
 
 The example demonstrates key SQL review rule categories:
 
-### 1. Column Rules
+#### 1. Column Rules
+
 - **column.no-null**: Warns about nullable columns
 - **column.required**: Enforces required columns (id, timestamps, audit fields)
 
-### 2. Table Rules
+#### 2. Table Rules
+
 - **table.require-pk**: Every table must have a primary key
 
-### 3. Naming Rules
+#### 3. Naming Rules
+
 - **naming.column**: Enforces lowercase snake_case column names
 
-### 4. Statement Rules
+#### 4. Statement Rules
+
 - **statement.maximum-limit-value**: Prevents SELECT queries without proper limits
 
 ### Step 4 - Test SQL Review
 
 Create a test SQL statement to see the review in action:
 
-1. Go to **Project Two** > **Database** > **hr_prod**
-2. Click **Edit Schema**
-3. Try creating a table that violates the rules:
+1.  Go to **Project Two**, and click **Database > Databases** on the left sidebar.
+1.  Check `hr_prod` and click **Edit Schema**.
+1.  Try creating a table that violates the rules:
 
-```sql
--- This will trigger multiple violations
-CREATE TABLE BadExample (
-    FirstName VARCHAR(50),  -- Violates naming convention
-    LastName VARCHAR(50)    -- Missing required columns, no primary key
-);
-```
+    ```sql
+    -- This will trigger multiple violations
+    CREATE TABLE BadExample (
+        FirstName VARCHAR(50),  -- Violates naming convention
+        LastName VARCHAR(50)    -- Missing required columns, no primary key
+    );
+    ```
 
-Expected violations:
-- ❌ Column naming convention (should be first_name)
-- ❌ Missing required columns (id, created_ts, etc.)
-- ❌ No primary key defined
+    Expected violations:
 
-4. Try a compliant table:
+         - ❌ Column naming convention (should be first_name)
+         - ❌ Missing required columns (id, created_ts, etc.)
+         - ❌ No primary key defined
 
-```sql
--- This follows all rules
-CREATE TABLE good_example (
-    id SERIAL PRIMARY KEY,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    created_ts TIMESTAMP NOT NULL DEFAULT NOW(),
-    updated_ts TIMESTAMP NOT NULL DEFAULT NOW(),
-    creator_id INTEGER NOT NULL,
-    updater_id INTEGER NOT NULL
-);
-```
+    ![sql-review-violations](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-sql-review-violations.webp)
 
-Expected result:
-- ⚠️ Warning about nullable columns (if any)
-- ✅ All required rules pass
+1.  Even if you continue to create an issue, it will still show red SQL Review.
+
+    ![issue-sql-review-errors](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-issue-sql-review-errors.webp)
+
+1.  Try a compliant table:
+
+    ```sql
+    -- This follows all rules
+    CREATE TABLE good_example (
+        id SERIAL PRIMARY KEY,
+        first_name VARCHAR(50) NOT NULL,
+        last_name VARCHAR(50) NOT NULL,
+        created_ts TIMESTAMP NOT NULL DEFAULT NOW(),
+        updated_ts TIMESTAMP NOT NULL DEFAULT NOW(),
+        creator_id INTEGER NOT NULL,
+        updater_id INTEGER NOT NULL
+    );
+    ```
+
+    Expected result:
+
+    - ✅ All required rules pass
+
+    ![issue-sql-review-pass](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-issue-sql-review-pass.webp)
 
 ## Advanced Configuration
 
@@ -190,32 +207,34 @@ Expected result:
 
 To apply rules to multiple environments:
 
-```hcl
-resources = toset([
-  "environments/test",
-  "environments/prod"
-])
-```
+    ```hcl
+    resources = toset([
+      "environments/test",
+      "environments/prod"
+    ])
+    ```
 
 ### Engine-Specific Rules
 
 Different rules for different database engines:
 
-```hcl
-# MySQL-specific rule
-rules {
-  type   = "table.require-pk"
-  engine = "MYSQL"
-  level  = "ERROR"
-}
+    ```hcl
+    # MySQL-specific rule
+    rules {
+      type   = "table.require-pk"
+      engine = "MYSQL"
+      level  = "ERROR"
+    }
 
-# PostgreSQL-specific rule
-rules {
-  type   = "table.require-pk"
-  engine = "POSTGRES"
-  level  = "ERROR"
-}
-```
+    # PostgreSQL-specific rule
+
+    rules {
+    type = "table.require-pk"
+    engine = "POSTGRES"
+    level = "ERROR"
+    }
+
+    ```
 
 ## Key Points
 
@@ -229,6 +248,7 @@ rules {
 **Continue the series:** [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - set up access controls and permissions.
 
 **Resources:**
+
 - [SQL Review Rules Documentation](https://www.bytebase.com/docs/sql-review/review-rules)
 - [Tutorial files](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
 - [Advanced examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
