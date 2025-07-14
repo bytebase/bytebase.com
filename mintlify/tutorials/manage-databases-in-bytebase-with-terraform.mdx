@@ -81,27 +81,27 @@ terraform -help
 
 1. Visit Bytebase and register an admin account with `Workspace Admin` role.
 
-   ![register-admin](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-register-admin.png)
+   ![register-admin](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-register-admin.webp)
 
 1. Follow the guide to configure, you'll need the **built-in sample** data for this tutorial.
 
-   ![built-in-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-use-built-in-sample.png)
+   ![built-in-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-use-built-in-sample.webp)
 
 1. (Optional) After you log into Bytebase, click **Settings > Subscription** on the left sidebar, paste your Enterprise Plan licence and click **Upload License**. _Some features may require the Enterprise Plan. You can still follow this tutorial with the Community Plan by making a few adjustments._
 
-   ![subscription](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-subscription.png)
+   ![subscription](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-subscription.webp)
 
 ### Check Bytebase Setup (GUI)
 
 1. Click **Instances** on the left sidebar, you will see there are two PostgreSQL instances: `Prod Sample Instance` and `Test Sample Instance`. You may click **+ Add Instance** to add new instances.
 
-   ![add-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-instance.png)
+   ![add-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-instance.webp)
 
 1. Click **Projects** on the left sidebar, you will see there is a `Sample Project`, click it or go from the `Select Project` dropdown on the top bar.
 
 1. Within the project, click **Database > Databases** on the left sidebar, you will see there are two databases: `hr_prod`(on `Prod Sample Instance`) and `test_prod`(on `Prod Sample Instance`). You may click **+ New DB** to create new databases.
 
-   ![add-db](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-db.png)
+   ![add-db](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-db.webp)
 
 Manual processes works fine for a few instances/databases, but imagine doing it for dozens or hundreds of instances/databases across multiple environments/projects!
 
@@ -175,7 +175,7 @@ In this section, you’ll witness the process simplification Terraform brings.
 
 Before configuring instances, let's properly configure the environments. There are two approaches to achieve this - you typically only need one of them. Firstly, within Bytebase, click **Environments** on the left sidebar. You will see there are two default envrionments.
 
-    ![env-default](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-env-default.png)
+    ![env-default](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-env-default.webp)
 
 #### Step 4a - Configure Environment Settings (Recommended)
 
