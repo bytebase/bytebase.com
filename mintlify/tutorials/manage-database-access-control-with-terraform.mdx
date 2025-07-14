@@ -130,7 +130,7 @@ Verify in Bytebase:
 1. Go to **IAM & Admin > Users & Groups**
 1. You should see all 9 users created
 
-![users](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-users.png)
+![users](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-users.webp)
 
 ### Step 2 - Create Groups
 
@@ -189,7 +189,7 @@ Verify in Bytebase:
 1. Click on **Developer Team** to see 3 members (dev1 as owner, dev2 and dev3 as members)
 1. Click on **QA Team** to see 2 members (qa1 as owner, qa2 as member)
 
-![groups](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-groups.png)
+![groups](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-groups.webp)
 
 ### Step 3 - Configure Workspace IAM Policy
 
@@ -264,7 +264,7 @@ Verify in Bytebase:
    - **dev1-3@example.com**, **qa1-2@example.com**: Workspace Member
 3. Note that QA Team group has Project Viewer role for ALL projects
 
-![members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-members.png)
+![members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-members.webp)
 
 ### Step 4 - Configure Project IAM Policy
 
@@ -306,7 +306,7 @@ resource "bytebase_iam_policy" "project_iam" {
       condition {
         database         = "instances/prod-sample-instance/databases/hr_prod"
         schema           = "public"
-        tables           = ["employee", "department"]
+        tables           = ["employee", "salary"]
         expire_timestamp = "2027-07-10T16:17:49Z"
       }
     }
@@ -329,7 +329,7 @@ Verify in Bytebase:
    - QA Team: Project Viewer (inherited from workspace)
    - Terraform Service Account: Project Owner (as creator)
 
-   ![project-1-members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-1-members.png)
+   ![project-1-members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-1-members.webp)
 
 1. Go to **Project Two** > **Manage > Members**:
 
@@ -338,9 +338,9 @@ Verify in Bytebase:
    - All users + Developer Team: Project Developer
    - Developer Team: SQL Editor User (click edit to see table restrictions)
 
-   ![project-2-members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-2-members.png)
+   ![project-2-members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-2-members.webp)
 
-   ![project-2-sql-editor-user](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-2-sql-editor-user.png)
+   ![project-2-sql-editor-user](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-2-sql-editor-user.webp)
 
 ### Step 5 - Test Access Control
 
@@ -352,7 +352,7 @@ Test the access control configuration:
    - Find and click on **Developer 1**
    - Click **Edit** and set a password
 
-   ![dev1-pw](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-dev1-pw.png)
+   ![dev1-pw](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-dev1-pw.webp)
 
 1. **Log in as Developer 1** in a new browser/incognito window:
 
@@ -363,12 +363,12 @@ Test the access control configuration:
 
    - Connect to `Prod > Prod Sample Instance > hr_prod`
    - Try querying `employee` table - ✅ Should work
-   - Try querying `department` table - ✅ Should work
-   - Try querying `salary` table - ❌ Should fail with permission error
+   - Try querying `salary` table - ✅ Should work
+   - Try querying `department` table - ❌ Should fail with permission error
 
-   ![sql-editor-employee](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-sql-editor-employee.png)
+   ![sql-editor-employee](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-sql-editor-employee.webp)
 
-   ![sql-editor-salary](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-sql-editor-salary.png)
+   ![sql-editor-department](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-sql-editor-department.webp)
 
 ## Access Control Patterns
 

@@ -58,7 +58,7 @@ From the previous tutorials, you should have:
 
 ## Define Masking Methods
 
-You can define masking methods using semantic types, or classification levels with semantic types. These definitions determine how data will be masked when policies are applied. 
+You can define masking methods using semantic types, or classification levels with semantic types. These definitions determine how data will be masked when policies are applied.
 
 **Important Relationship**: Classifications define sensitivity levels, but require mapping to semantic types for actual masking. Semantic types define the masking algorithms that perform the actual data protection.
 
@@ -118,7 +118,7 @@ terraform apply
 
 Verify in Bytebase: Click **Data Access > Semantic Types** on the left sidebar. You should see three masking types configured.
 
-![semantic-types](/content/docs/tutorials/manage-data-masking-with-terraform/bb-semantic-types.png)
+![semantic-types](/content/docs/tutorials/manage-data-masking-with-terraform/bb-semantic-types.webp)
 
 ### Option B - Set Up Data Classification
 
@@ -181,7 +181,7 @@ terraform apply
 
 Verify in Bytebase: Click **Data Access > Data Classification** on the left sidebar. You should see the classification hierarchy with two levels. Note that Level 2 is marked as more sensitive.
 
-![classification](/content/docs/tutorials/manage-data-masking-with-terraform/bb-classification.png)
+![classification](/content/docs/tutorials/manage-data-masking-with-terraform/bb-classification.webp)
 
 ## Apply Masking Policies
 
@@ -239,11 +239,11 @@ Verify in Bytebase:
 
 Click **Data Access > Global Masking**. You should see the global policy with three conditions with corresponding semantic types.
 
-![global-masking](/content/docs/tutorials/manage-data-masking-with-terraform/bb-global-masking.png)
+![global-masking](/content/docs/tutorials/manage-data-masking-with-terraform/bb-global-masking.webp)
 
 Log in as Developer 1 (dev1@example.com), then go to **SQL Editor** to access `hr_prod`. double click `employee` table on the left. `birth_date` has `Date year mask` semantic type, and `last_name` has `Name first letter only`.
 
-![dev1-employee](/content/docs/tutorials/manage-data-masking-with-terraform/bb-dev1-employee.png)
+![dev1-employee](/content/docs/tutorials/manage-data-masking-with-terraform/bb-dev1-employee.webp)
 
 ### Option 2 - Apply Column-Specific Masking
 
@@ -298,11 +298,11 @@ Verify in Bytebase:
    - `amount` is assigned as `Employment info` (Level 2) **classification**
    - `from_date` is assigned as `date-year-mask` **semantic type**
 
-   ![table-detail-salary](/content/docs/tutorials/manage-data-masking-with-terraform/bb-table-detail-salary.png)
+   ![table-detail-salary](/content/docs/tutorials/manage-data-masking-with-terraform/bb-table-detail-salary.webp)
 
 1. Log in as Developer 1 (dev1@example.com), then go to **SQL Editor** to access `hr_prod`. double click `salary` table on the left. `from_date` has `Date year mask` semantic type, and `ammount` has `L2` classification which leads to `Full masking` semantic type.
 
-   ![dev1-salary](/content/docs/tutorials/manage-data-masking-with-terraform/bb-dev1-salary.png)
+   ![dev1-salary](/content/docs/tutorials/manage-data-masking-with-terraform/bb-dev1-salary.webp)
 
 ## Grant Masking Exceptions (Optional)
 
@@ -353,11 +353,11 @@ Verify in Bytebase:
 
 1. Log in as Workspace Admin (admin@example.com), then go to **SQL Editor** to access `hr_prod`, double click `employee` table on the left. You may notice the `birth_date` is not masked any longer.
 
-   ![admin-employee-query](/content/docs/tutorials/manage-data-masking-with-terraform/bb-admin-employee-query.png)
+   ![admin-employee-query](/content/docs/tutorials/manage-data-masking-with-terraform/bb-admin-employee-query.webp)
 
 1. Click **Export**, and then open the file. You should notice the `birth_date` is still masked while `last_name` is no longer masked.
 
-   ![admin-employee-export](/content/docs/tutorials/manage-data-masking-with-terraform/bb-admin-employee-export.png)
+   ![admin-employee-export](/content/docs/tutorials/manage-data-masking-with-terraform/bb-admin-employee-export.webp)
 
 ## Explanation of Used Masking Algorithms
 
