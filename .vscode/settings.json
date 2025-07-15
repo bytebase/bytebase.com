@@ -40,5 +40,8 @@
     "/blog/postgresql-vs-mysql/",
     "/blog/database-as-code/"
   ],
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "files.associations": {
+    "*.mdx": "markdown"
+  }
 }
