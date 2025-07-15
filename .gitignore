@@ -43,6 +43,7 @@ next-env.d.ts
 .env
 
 .vscode/snipsnap.code-snippets
+.vscode/settings.json
 
 # sitemaps
 public/robots.txt
