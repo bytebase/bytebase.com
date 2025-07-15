@@ -49,13 +49,15 @@ Before starting this tutorial, ensure you have:
 
 Follow the [official Terraform installation guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
 
-### Start Bytebase with ngrok
+### Start Bytebase and Prepare Some Data
 
-<StartWithNgrok />
+1. Run Bytebase in [Docker](https://www.docker.com/) with the following command:
 
-### Prepare Some Data
+   <TerminalDockerRunVolume />
 
-1. Visit Bytebase and register an admin account with `Workspace Admin` role.
+1. Once Bytebase is running in Docker, you can access it at `localhost:8080`.
+
+1. Register an admin account with `Workspace Admin` role.
 
    ![register-admin](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-register-admin.webp)
 
@@ -69,13 +71,13 @@ Follow the [official Terraform installation guide](https://developer.hashicorp.c
 
 ### Verify Bytebase Setup
 
-1. Click **Instances** on the left sidebar to see two PostgreSQL instances: `Prod Sample Instance` and `Test Sample Instance`.
+1. Click **Instances** on the left sidebar to see two PostgreSQL instances: `Prod Sample Instance` and `Test Sample Instance`. Click **+Add Instance**, you may add more database instances.
 
    ![add-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-instance.webp)
 
 1. Click **Projects** on the left sidebar to see the `Sample Project`, then click it or select it from the `Select Project` dropdown.
 
-1. Within the project, click **Database > Databases** to see two databases: `hr_prod` (on `Prod Sample Instance`) and `hr_test` (on `Test Sample Instance`).
+1. Within the project, click **Database > Databases** to see two databases: `hr_prod` (on `Prod Sample Instance`) and `hr_test` (on `Test Sample Instance`). Click **+ New DB**, you may create more databases on the existing instances.
 
    ![add-db](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-db.webp)
 
