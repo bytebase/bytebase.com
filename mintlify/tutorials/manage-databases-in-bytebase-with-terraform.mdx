@@ -7,7 +7,7 @@ integrations: Terraform
 category: 'Integration'
 featured: true
 level: Intermediate
-estimated_time: '30 mins'
+estimated_time: '20 mins'
 ---
 
 import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
@@ -32,192 +32,45 @@ This tutorial series uses separate Terraform files for better organization. File
 
 ## What You'll Learn
 
-- **Set up** Bytebase with Terraform for automated database management
-- **Configure** environments using settings or individual resources
-- **Create** database instances across test and production environments
+Register database instances in Bytebase using Terraform.
 
 ## Prerequisites
 
 Before starting this tutorial, ensure you have:
 
-- **Docker**: [Install Docker](https://www.docker.com/) to run Bytebase
-- **ngrok**: [Sign up for ngrok](https://ngrok.com/) (or similar) to expose your local Bytebase instance to the internet
-- **Terraform**: [Install Terraform](https://www.terraform.io/downloads) for infrastructure as code
-- **Bytebase Enterprise Plan** (optional) – Some features require the Enterprise Plan
+- **Completed [Part 1](/tutorials/manage-environments-in-bytebase-with-terraform)**: Environments configured
+- **Bytebase running**: With built-in sample data
+- **Service account**: Already created from Part 1
+- **Terraform initialized**: From Part 1
 
-## Setup
+## Step 1 - Explore Built-in Instances
 
-### Install Terraform
+Due to the built-in sample data configuration from Part 1, Bytebase comes with two sample PostgreSQL instances. Let's explore them:
 
-Follow the [official Terraform installation guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
+1. In Bytebase, click **Instances** on the left sidebar. You'll see two PostgreSQL instances:
 
-### Start Bytebase and Prepare Some Data
+   - **Test Sample Instance** (port 8083)
+   - **Prod Sample Instance** (port 8084)
 
-1. Run Bytebase in [Docker](https://www.docker.com/) with the following command:
-
-   <TerminalDockerRunVolume />
-
-1. Once Bytebase is running in Docker, you can access it at `localhost:8080`.
-
-1. Register an admin account with `Workspace Admin` role.
-
-   ![register-admin](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-register-admin.webp)
-
-1. Follow the guide to configure, you'll need the **built-in sample** data for this tutorial.
-
-   ![built-in-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-use-built-in-sample.webp)
-
-1. (Optional) After logging into Bytebase, [activate official or trial license](/administration/license#configure-workspace-license). _Some features require the Enterprise Plan._
-
-   ![subscription](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-subscription.webp)
-
-### Verify Bytebase Setup
-
-1. Click **Instances** on the left sidebar to see two PostgreSQL instances: `Prod Sample Instance` and `Test Sample Instance`. Click **+Add Instance**, you may add more database instances.
+2. Click **+Add Instance**, you may add more database instances.
 
    ![add-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-instance.webp)
 
-1. Click **Projects** on the left sidebar to see the `Sample Project`, then click it or select it from the `Select Project` dropdown.
+3. Click **Projects** on the left sidebar to see the `Sample Project`, then click it. You'll see:
 
-1. Within the project, click **Database > Databases** to see two databases: `hr_prod` (on `Prod Sample Instance`) and `hr_test` (on `Test Sample Instance`). Click **+ New DB**, you may create more databases on the existing instances.
+   - `hr_test` database on Test instance
+   - `hr_prod` database on Prod instance
+
+4. Click **+ New DB**, you may create more databases on the existing instances.
 
    ![add-db](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-db.webp)
 
-## Configure Instances via Terraform
+## Step 2 - Register Instances with Terraform
 
-### Step 1 - Create Terraform Configuration
-
-1. Create a new folder `learn-terraform-bytebase` and navigate to it.
-
-1. Create `0-provider.tf` for the provider configuration, visit [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs), click **USE PROVIDER** and copy the configuration.
-
-   ```hcl
-   terraform {
-     required_providers {
-       bytebase = {
-         source  = "registry.terraform.io/bytebase/bytebase"
-         version = "3.8.0"  # Use the latest stable version
-       }
-     }
-   }
-   ```
-
-1. Copy the following provider part and paste it in `0-provider.tf`.
-
-   ```hcl
-   provider "bytebase" {
-     service_account = "tf@service.bytebase.com"
-      service_key     = "<Your Bytebase service account key>"
-      url             = "<Your Bytebase external URL>"
-   }
-   ```
-
-### Step 2 - Create Service Account
-
-1. In Bytebase, click **IAM & Admin > Users & Groups** on the left sidebar, then click **+ Add User**.
-
-1. Select `Service Account` as the **Type**, enter `tf@service.bytebase.com` as the **Email**, select `Workspace Admin` as **Roles**, and click **Confirm**.
-
-1. Copy the **Service Key** for the next step.
-
-### Step 3 - Initialize and Inspect Resources
-
-1. Update `0-provider.tf` with your **Service Key** and **URL**.
-
-1. Create `1-0-list-env-instance.tf` to inspect existing resources:
-
-   ```hcl
-   # List all environments using settings
-   data "bytebase_setting" "environments" {
-      name = "settings/ENVIRONMENT"
-   }
-   output "all_environments" {
-      value = data.bytebase_setting.environments
-   }
-
-   # List all instances
-   data "bytebase_instance_list" "all" {}
-   output "all_instances" {
-      value = data.bytebase_instance_list.all
-   }
-   ```
-
-1. Run `terraform init`, `terraform plan` and `terraform apply` one by one in the terminal. You’ll see:
-
-   - Two environments: `test` and `prod`.
-   - Two instances: `prod-sample-instance` with `hr_prod` database and `test-sample-instance` with `hr_test` database.
-
-### Step 4 - Configure Environments
-
-Before configuring instances, let's properly configure the environments. There are two approaches to achieve this - you typically only need one of them. Firstly, within Bytebase, click **Environments** on the left sidebar. You will see there are two default envrionments.
-
-    ![env-default](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-env-default.webp)
-
-#### Step 4a - Configure Environment Settings (Recommended)
-
-This approach uses environment settings and is usually sufficient for most use cases.
-
-Create `1-1-env.tf` with the following environment configuration:
-
-    ```hcl
-    # Environment Settings
-    resource "bytebase_setting" "environments" {
-      name = "settings/ENVIRONMENT"
-
-      environment_setting {
-        environment {
-          id        = "test"
-          title     = "Test"
-          protected = false
-        }
-        environment {
-          id        = "prod"
-          title     = "Prod"
-          protected = true
-        }
-      }
-    }
-    ```
-
-#### Step 4b - Create Environments via Individual Resources (Alternative)
-
-Alternatively, you can create environments using individual `bytebase_environment` resources. This approach provides more granular control but requires careful dependency management.
-
-**Important**: When using multiple `bytebase_environment` resources, you must use `depends_on` between environments. This ensures Terraform updates them in the correct order, as the Bytebase API only supports updating one environment list at a time.
-
-Create `1-1-env-alt.tf` with the following environment resources (alternative approach):
-
-    ```hcl
-    # Create Test environment
-    resource "bytebase_environment" "test" {
-      resource_id             = "test"
-      title                   = "Test"
-      order                   = 0
-      protected               = false
-    }
-
-    # Create Production environment
-    # depends_on ensures environments are created in sequence
-    # This prevents API conflicts when updating the environment list
-    resource "bytebase_environment" "prod" {
-      depends_on              = [bytebase_environment.test]
-      resource_id             = "prod"
-      title                   = "Prod"
-      order                   = 1
-      protected               = true
-    }
-    ```
-
-### Step 5 - Add Database Instances
-
-Finally, let's add the database instances that will be associated with our environments. The configuration depends on which approach you chose in Step 4:
-
-#### If you used Step 4a (Environment Settings)
-
-Create `1-2-instances.tf` with the following configuration:
+Now let's import these instances into Terraform management. Create `2-instances.tf` with the following configuration:
 
 ```hcl
-# Built-in Test Instance
+# Test Sample Instance - PostgreSQL on port 8083
 resource "bytebase_instance" "test" {
   depends_on  = [bytebase_setting.environments]
   resource_id = "test-sample-instance"
@@ -226,17 +79,18 @@ resource "bytebase_instance" "test" {
   engine      = "POSTGRES"
   activation  = true
 
+  # Connection settings for the built-in test database
   data_sources {
-    id       = "admin data source test-sample-instance"
+    id       = "admin-test"
     type     = "ADMIN"
-    host     = "/tmp"
+    host     = "/tmp"      # Unix socket for local connection
     port     = "8083"
     username = "bbsample"
-    password = ""
+    password = ""          # Empty for local auth
   }
 }
 
-# Built-in Prod Instance
+# Production Sample Instance - PostgreSQL on port 8084
 resource "bytebase_instance" "prod" {
   depends_on  = [bytebase_setting.environments]
   resource_id = "prod-sample-instance"
@@ -246,7 +100,7 @@ resource "bytebase_instance" "prod" {
   activation  = true
 
   data_sources {
-    id       = "admin data source prod-sample-instance"
+    id       = "admin-prod"
     type     = "ADMIN"
     host     = "/tmp"
     port     = "8084"
@@ -256,51 +110,47 @@ resource "bytebase_instance" "prod" {
 }
 ```
 
-#### If you used Step 4b (Individual Environment Resources)
+### Understanding the Configuration
 
-Create `1-2-instances-alt.tf` with the following configuration (alternative approach):
+- **depends_on**: Ensures environments from Part 1 exist first
+- **resource_id**: Must match the existing instance ID
+- **environment**: Links instance to Test or Prod environment
+- **data_sources**: Connection details for the database
 
-```hcl
-  # Built-in Test Instance
-  resource "bytebase_instance" "test" {
-    depends_on  = [bytebase_environment.test]
-    resource_id = "test-sample-instance"
-    environment = bytebase_environment.test.name
-    ...
+## Step 3 - Apply Configuration
 
-    data_sources {
-      ...
-    }
-  }
+Now apply the configuration:
 
-  # Built-in Prod Instance
-  resource "bytebase_instance" "prod" {
-    depends_on  = [bytebase_environment.prod]
-    resource_id = "prod-sample-instance"
-    environment = bytebase_environment.prod.name
-    ...
-
-    data_sources {
-      ...
-    }
-  }
+```bash
+terraform plan
+terraform apply
 ```
 
-**Key Points**:
+## Step 4 - Verify Setup
 
-- **Step 4a approach**: Instances depend on `bytebase_setting.environments` and use environment references like `"test"`
-- **Step 4b approach**: Instances depend on individual environment resources and use direct references like `bytebase_environment.test.name`
-- Both approaches create the same end result - database instances properly linked to their environments
+1. Go to **Instances** in Bytebase.
+2. Verify both instances show:
+   - Correct environment assignment
+   - "Y" under License column (if using Enterprise)
 
-1. Run `terraform plan` and `terraform apply` one by one in the terminal.
+You can now modify instance properties through Terraform. For example, to rename an instance:
 
-1. Go back to Bytebase, and click **Environments**. The `Prod` will be set as protected with the shield icon.
+```hcl
+resource "bytebase_instance" "test" {
+  # ... other config ...
+  title = "Development Database"  # Changed title
+}
+```
 
-1. Click **Instances** on the left sidebar, and you will see the two instances now activated with `Y` under **License** (If you don't have Enterprise License, you may adjust the terraform file accordingly). You may change the instance name and then run terraform again.
+## Summary and Next Steps
 
-## Next Steps
+You've successfully registered database instances with Terraform! You now have:
 
-Continue the series [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - organize your databases into projects.
+- **Test and Prod instances** managed as code
+- **Connection settings** configured
+- **Infrastructure as Code** for your database instances
+
+Continue with [Part 3: Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) to organize your databases into projects.
 
 **Resources:**
 
