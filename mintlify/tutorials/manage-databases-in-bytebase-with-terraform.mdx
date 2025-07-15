@@ -10,13 +10,6 @@ level: Intermediate
 estimated_time: '30 mins'
 ---
 
-<Note>
-
-Bytebase Terraform Provider handles control plane configuration such as settings, policies, access controls. It does not
-handle data plane operations such as database creation, schema migrations, DML execution, query.
-
-</Note>
-
 import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
 import StartWithNgrok from '/snippets/install/start-with-ngrok.mdx';
 
@@ -29,7 +22,7 @@ This tutorial is part of the **Bytebase Terraform Provider** series:
 - Part 5: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Set up access controls and permissions
 - Part 6: [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - Configure data masking policies
 
-<Card icon="code" title="Sample code repo" href="https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials">
+<Card icon="code-xml" cta="View sample code" href="https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials">
 
 This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part and sub-step (e.g., `1-1-env.tf`, `1-2-instances.tf` for Part 1, `2-projects.tf` for Part 2, etc.). Terraform automatically handles dependencies between files.
 

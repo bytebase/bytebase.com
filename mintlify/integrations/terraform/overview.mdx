@@ -6,14 +6,10 @@ title: Terraform Provider
 
 The Bytebase Provider itself is free to use. Some advanced resource operations require Pro or Enterprise Plan.
 
-</Note>
+Bytebase Terraform Provider handles control plane configuration such as settings, policies, access controls.
+It does not handle data plane operations such as database creation, schema migrations, DML execution, query.
 
-<Card
-  title="Tutorial: Manage Databases in Bytebase with Terraform"
-  icon="graduation-cap"
-  href="/tutorials/manage-databases-in-bytebase-with-terraform"
-  horizontal
-/>
+</Note>
 
 Bytebase provides the [Terraform Provider](https://registry.terraform.io/providers/bytebase/bytebase) to let you manage your Bytebase resources via Terraform.
 
@@ -30,15 +26,68 @@ Bytebase UI/API → Database Operations
                    └── Query
 ```
 
-## Setup
+## Create Service Account
 
-1. Create [service account](/integrations/api/authentication/#service-account). After creation, you can copy the service key as `service_key` and the email as `service_account` to initialize the Terraform provider in the next step.
+The Terraform Provider uses [service account](/integrations/api/authentication/#service-account) to call the Bytebase API to manage the resources and settings.
 
-   ![service-account](/content/docs/get-started/work-with-terraform/service-account.webp)
+After creating the service account, you can copy the service key as `service_key` and the email as `service_account` to initialize the Terraform provider in the next step.
 
-1. Configure Bytebase Terraform Provider
-   - [Provider docs](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs)
-   - [Usage examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
+![service-account](/content/docs/get-started/work-with-terraform/service-account.webp)
+
+## Tutorials
+
+### Resources
+
+<Columns cols={3}>
+  <Card
+    horizontal
+    icon="database"
+    title="Database"
+    href="/tutorials/manage-databases-in-bytebase-with-terraform"
+  ></Card>
+  <Card
+    horizontal
+    icon="folder"
+    title="Project"
+    href="/tutorials/manage-projects-in-bytebase-with-terraform"
+  ></Card>
+  <Card horizontal icon="earth" title="Environment (Coming soon)"></Card>
+</Columns>
+
+### Access Control
+
+<Columns cols={3}>
+  <Card
+    horizontal
+    icon="lock"
+    title="IAM Policy"
+    href="/tutorials/manage-database-access-control-with-terraform"
+  ></Card>
+  <Card
+    horizontal
+    icon="eye-off"
+    title="Data Masking"
+    href="/tutorials/manage-database-access-control-with-terraform"
+  ></Card>
+  <Card horizontal icon="users" title="User & Group (Coming soon)"></Card>
+</Columns>
+
+### Workspace Settings
+
+<Columns cols={2}>
+  <Card
+    horizontal
+    icon="settings"
+    title="General & Approval Flow"
+    href="/tutorials/manage-bytebase-settings-with-terraform"
+  ></Card>
+  <Card
+    horizontal
+    icon="stamp"
+    title="SQL Review Rules"
+    href="/tutorials/manage-sql-review-rules-with-terraform"
+  ></Card>
+</Columns>
 
 ## Troubleshoot
 
