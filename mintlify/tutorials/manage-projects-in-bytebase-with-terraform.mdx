@@ -7,116 +7,117 @@ integrations: Terraform
 category: 'Integration'
 featured: true
 level: Intermediate
-estimated_time: '20 mins'
+estimated_time: '15 mins'
 ---
 
 This tutorial is part of the **Bytebase Terraform Provider** series:
 
-- Part 1: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Set up instances and environments
-- 👉 Part 2: Manage Projects with Terraform - Organize databases into projects
-- Part 3: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace settings, environment policies, approval flows, and risk management
-- Part 4: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Set up SQL review policies
-- Part 5: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Set up access controls and permissions
-- Part 6: [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - Configure data masking policies
+- Part 1: [Manage Environments with Terraform](/tutorials/manage-environments-in-bytebase-with-terraform) - Set up environments with policies
+- Part 2: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Register database instances
+- 👉 Part 3: Manage Projects with Terraform - Organize databases into projects
+- Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace profile and approval policies
+- Part 5: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Define SQL review policies
+- Part 6: [Manage Users and Groups with Terraform](/tutorials/manage-users-and-groups-with-terraform) - Set up dummy users and groups
+- Part 7: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Define permissions
+- Part 8: [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - Protect sensitive data
 
 <Card icon="code-xml" cta="View sample code" href="https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials">
 
-This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part and sub-step (e.g., `1-1-env.tf`, `1-2-instances.tf` for Part 1, `2-projects.tf` for Part 2, etc.). Terraform automatically handles dependencies between files.
+This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part and sub-step (e.g., `1-1-env-setting.tf`, `1-2-env-policy-rollout.tf` for Part 1, `2-instances.tf` for Part 2, etc.). Terraform automatically handles dependencies between files.
 
 </Card>
 
 ## What You'll Learn
 
-- **Create** projects to organize your databases logically
-- **Assign** existing databases to projects using Terraform
-- **Apply** different patterns for database organization
-- **Scale** your project structure efficiently
+Create projects to organize your databases into logical groups.
 
 ## Prerequisites
 
 Before starting this tutorial, ensure you have:
 
-- Completed [Part 1: Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform)
-- Bytebase running with ngrok and service account configured
-- Database instances configured via Terraform
-- Your Terraform files from the previous tutorial
+- **Completed Parts 1 & 2**: Environments and instances configured
+- **Built-in instances**: `Test Sample Instance` and `Prod Sample Instance` from sample data
+- **Terraform workspace**: From previous tutorials
 
-## Setup
+## Step 1 - Understand Current Setup
 
-From Part 1, you should have:
+From previous tutorials, you have:
 
-- Two instances: `test-sample-instance` and `prod-sample-instance`
-- Sample databases: `hr_test` and `hr_prod` created by Bytebase's built-in sample data
+- **Test instance** with `hr_test` and `postgres` databases
+- **Prod instance** with `hr_prod` and `postgres` databases
 
-## Create Projects with Terraform
+Currently, these `hr_test` and `hr_prod` databases are in the default `Sample Project`, while `postgres` databases are unassigned. You may view some in Bytebase by clicking **Databases** on the left sidebar. Let's organize them into new projects.
 
-### Step 1 - Add Project Resources
+## Step 2 - Create Projects
 
-Create `2-projects.tf` with the following project resources:
+Create `3-projects.tf`:
 
 ```hcl
-# Project One - Assign all test databases
-resource "bytebase_project" "project-one" {
-  depends_on = [
-    bytebase_instance.test
-  ]
+# Project One - All test databases
+resource "bytebase_project" "project_one" {
+  depends_on  = [bytebase_instance.test]
   resource_id = "project-one"
   title       = "Project One"
-
+  
+  # Automatically include all databases from test instance
   databases = bytebase_instance.test.databases
 }
 
-# Project Two - Assign specific production database
-resource "bytebase_project" "project-two" {
-  depends_on = [
-    bytebase_instance.prod
-  ]
+# Project Two - Specific production database
+resource "bytebase_project" "project_two" {
+  depends_on  = [bytebase_instance.prod]
   resource_id = "project-two"
   title       = "Project Two"
-
+  
+  # Explicitly specify which database to include
   databases = [
     "instances/prod-sample-instance/databases/hr_prod"
   ]
 }
 ```
 
-### Step 2 - Apply Configuration
+### Two Assignment Patterns
 
-Run Terraform to create the project:
+1. **Dynamic**: `databases = bytebase_instance.test.databases`
+   - Automatically includes all databases from an instance
+   - Good for development/test environments
+
+2. **Explicit**: `databases = ["instances/.../databases/..."]`
+   - Manually specify each database
+   - Better control for production
+
+## Step 3 - Apply Configuration
 
 ```bash
 terraform plan
 terraform apply
 ```
 
-### Step 3 - Verify in Bytebase
+## Step 4 - Verify Projects
 
-1. Go to **Projects** in Bytebase, you should see **Project One** and **Project Two** listed.
-1. **Project One** contains all databases from the test instance.
+1. Go to **Projects** in Bytebase.
 
-   ![project-1](/content/docs/tutorials/manage-projects-in-bytebase-with-terraform/bb-project-1.webp)
+2. You'll see three projects:
 
-1. **Project Two** contains the `hr_prod` database from the production instance.
+   - **Sample Project** (original, now empty)
 
-   ![project-2](/content/docs/tutorials/manage-projects-in-bytebase-with-terraform/bb-project-2.webp)
+   - **Project One** (contains `hr_test` and `postgres` which are both from `Test Sample Instance`)
 
-## Pattern Explanation
+    ![project-1](/content/docs/tutorials/manage-projects-in-bytebase-with-terraform/bb-project-1.webp)
+  
+   - **Project Two** (contains `hr_prod` which is from `Prod Sample Instance`)
+  
+    ![project-2](/content/docs/tutorials/manage-projects-in-bytebase-with-terraform/bb-project-2.webp)
 
-The example demonstrates two common patterns:
+## Summary and Next Steps
 
-1. **Dynamic Assignment** (`Project One`): Uses `bytebase_instance.test.databases` to automatically include all databases from an instance. This is useful when you want all databases in an environment to belong to the same project.
+You've successfully organized databases into projects! Key takeaways:
 
-2. **Explicit Assignment** (`Project Two`): Lists specific database paths like `"instances/prod-sample-instance/databases/hr_prod"`. This gives you precise control over which databases belong to a project.
+- **Projects group related databases** for better organization
+- **Two assignment patterns**: dynamic (all databases) or explicit (specific databases)
+- **Projects span environments**: can include both test and prod databases
 
-## Key Points
-
-- **Built-in Databases**: This tutorial uses the sample databases (`hr_test`, `hr_prod`) from Part 1
-- **Database Assignment**: Projects can use dynamic assignment (all databases) or explicit paths
-- **Dependencies**: Always depend on instance resources to ensure proper ordering
-
-## Next Steps
-
-**Continue the series:** [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - configure workspace settings and policies.
+Continue with [Part 4: Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) to configure workspace-level settings.
 
 **Resources:**
 
