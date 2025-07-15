@@ -10,27 +10,18 @@ level: Intermediate
 estimated_time: '20 mins'
 ---
 
-This tutorial is part of the **Manage Bytebase with Terraform** series:
+This tutorial is part of the **Bytebase Terraform Provider** series:
 
 - Part 1: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Set up instances and environments
 - Part 2: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
 - Part 3: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace settings, environment policies, approval flows, and risk management
-- Part 4: Manage SQL Review Rules with Terraform (This one) - Set up SQL review policies
+- 👉 Part 4: Manage SQL Review Rules with Terraform - Set up SQL review policies
 - Part 5: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Set up access controls and permissions
 - Part 6: [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - Configure data masking policies
 
 📚 [Complete tutorial terraform files on GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
 
 **File Structure**: This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part and sub-step (e.g., `1-1-env.tf`, `1-2-instances.tf` for Part 1, `2-projects.tf` for Part 2, etc.). Terraform automatically handles dependencies between files.
-
-Learn how to configure SQL review rules to enforce database schema standards using Terraform and the [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs).
-
-<Note>
-
-Bytebase Terraform Provider handles control plane configuration such as settings, policies, access controls. It does not
-handle data plane operations such as database creation, schema migrations, DML execution, query.
-
-</Note>
 
 ## What You'll Learn
 

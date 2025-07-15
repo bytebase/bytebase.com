@@ -10,24 +10,6 @@ level: Intermediate
 estimated_time: '30 mins'
 ---
 
-import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
-import StartWithNgrok from '/snippets/install/start-with-ngrok.mdx';
-
-This tutorial is part of the **Manage Bytebase with Terraform** series:
-
-- Part 1: Manage Databases with Terraform (This one) - Set up instances and environments
-- Part 2: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
-- Part 3: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace settings, environment policies, approval flows, and risk management
-- Part 4: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Set up SQL review policies
-- Part 5: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Set up access controls and permissions
-- Part 6: [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - Configure data masking policies
-
-📚 [Complete tutorial terraform files on GitHub](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
-
-**File Structure**: This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part and sub-step (e.g., `1-1-env.tf`, `1-2-instances.tf` for Part 1, `2-projects.tf` for Part 2, etc.). Terraform automatically handles dependencies between files.
-
-Learn how to automate database infrastructure management using [Terraform](https://www.hashicorp.com/products/terraform) and the [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs).
-
 <Note>
 
 Bytebase Terraform Provider handles control plane configuration such as settings, policies, access controls. It does not
@@ -35,15 +17,29 @@ handle data plane operations such as database creation, schema migrations, DML e
 
 </Note>
 
+import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
+import StartWithNgrok from '/snippets/install/start-with-ngrok.mdx';
+
+This tutorial is part of the **Bytebase Terraform Provider** series:
+
+- 👉 Part 1: Manage Databases with Terraform - Set up instances and environments
+- Part 2: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
+- Part 3: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace settings, environment policies, approval flows, and risk management
+- Part 4: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Set up SQL review policies
+- Part 5: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Set up access controls and permissions
+- Part 6: [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - Configure data masking policies
+
+<Card icon="code" title="Sample code repo" href="https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials">
+
+This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part and sub-step (e.g., `1-1-env.tf`, `1-2-instances.tf` for Part 1, `2-projects.tf` for Part 2, etc.). Terraform automatically handles dependencies between files.
+
+</Card>
+
 ## What You'll Learn
 
 - **Set up** Bytebase with Terraform for automated database management
 - **Configure** environments using settings or individual resources
 - **Create** database instances across test and production environments
-
-## Why Use Terraform with Bytebase?
-
-Terraform enables you to manage hundreds of database instances as code, eliminating manual configuration errors and ensuring consistency across all environments.
 
 ## Prerequisites
 
@@ -52,26 +48,13 @@ Before starting this tutorial, ensure you have:
 - **Docker**: [Install Docker](https://www.docker.com/) to run Bytebase
 - **ngrok**: [Sign up for ngrok](https://ngrok.com/) (or similar) to expose your local Bytebase instance to the internet
 - **Terraform**: [Install Terraform](https://www.terraform.io/downloads) for infrastructure as code
-- **Bytebase Enterprise Plan** (optional) – Some features require the Enterprise Plan. You can follow this tutorial with the Community Plan by adjusting the configuration.
+- **Bytebase Enterprise Plan** (optional) – Some features require the Enterprise Plan
 
 ## Setup
 
 ### Install Terraform
 
-**For macOS (using Homebrew):**
-
-```bash
-# Install HashiCorp tap
-brew tap hashicorp/tap
-
-# Install Terraform
-brew install hashicorp/tap/terraform
-
-# Verify installation
-terraform -help
-```
-
-**For other platforms:** Follow the [official Terraform installation guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
+Follow the [official Terraform installation guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
 
 ### Start Bytebase with ngrok
 
@@ -87,7 +70,7 @@ terraform -help
 
    ![built-in-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-use-built-in-sample.webp)
 
-1. (Optional) After logging into Bytebase, click **Settings > Subscription** on the left sidebar, paste your Enterprise Plan license and click **Upload License**. _Some features require the Enterprise Plan. You can follow this tutorial with the Community Plan by adjusting the configuration._
+1. (Optional) After logging into Bytebase, [activate official or trial license](/administration/license#configure-workspace-license). _Some features require the Enterprise Plan._
 
    ![subscription](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-subscription.webp)
 
@@ -103,11 +86,7 @@ terraform -help
 
    ![add-db](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-db.webp)
 
-Manual processes work fine for a few instances, but Terraform enables you to manage hundreds of instances consistently across multiple environments.
-
 ## Configure Instances via Terraform
-
-In this section, you’ll witness the process simplification Terraform brings.
 
 ### Step 1 - Create Terraform Configuration
 
@@ -168,8 +147,8 @@ In this section, you’ll witness the process simplification Terraform brings.
 
 1. Run `terraform init`, `terraform plan` and `terraform apply` one by one in the terminal. You’ll see:
 
-   - two environments: `test` and `prod`.
-   - two instances: `prod-sample-instance` with `hr_prod` database and `test-sample-instance` with `hr_test` database.
+   - Two environments: `test` and `prod`.
+   - Two instances: `prod-sample-instance` with `hr_prod` database and `test-sample-instance` with `hr_test` database.
 
 ### Step 4 - Configure Environments
 
