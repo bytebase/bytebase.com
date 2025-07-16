@@ -50,11 +50,11 @@ From the previous tutorials, you should have:
 
 ## Understanding User Management in Bytebase
 
-<Info>
-  Bytebase uses an Identity and Access Management (IAM) system with: - **Users**: Individual
-  accounts for team members - **Service Accounts**: Automated accounts for API/Terraform access -
-  **Groups**: Collections of users for easier permission management
-</Info>
+Bytebase adopts Identity and Access Management (IAM) system with:
+
+- **Users**: Individual accounts for team members
+- **Service Accounts**: Automated accounts for API/Terraform access
+- **Groups**: Collections of users for easier permission management
 
 ## Configure Users and Groups
 
@@ -206,14 +206,7 @@ terraform apply
 - **User Types**: Regular users (`USER`) for team members, service accounts (`SERVICE_ACCOUNT`) for API/automation
 - **Group Roles**: Each group has owners (manage membership) and members (inherit permissions)
 - **Organization**: Groups simplify permission management - assign roles to groups instead of individual users
-- **Next Tutorial**: These users and groups will be assigned specific database permissions in Part 7
 
 ## Next Steps
 
-**Continue the series:** [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - define permissions and access policies.
-
-**Resources:**
-
-- [Tutorial files](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
-- [Advanced examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
-- [Discord community](https://discord.gg/huyw7gRsyA)
+[Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - define permissions and access policies.
