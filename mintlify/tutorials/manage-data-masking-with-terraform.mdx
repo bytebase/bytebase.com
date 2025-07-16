@@ -1,7 +1,7 @@
 ---
 title: Manage Data Masking with Terraform
 author: Adela
-updated_at: 2025/07/10 21:15
+updated_at: 2025/07/16 21:15
 tags: Tutorial
 integrations: Terraform
 category: 'Integration'
@@ -39,8 +39,8 @@ This tutorial series uses separate Terraform files for better organization. File
 
 Before starting this tutorial, ensure you have:
 
-- Completed [Part 5: Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform)
-- Bytebase running with ngrok and service account configured
+- Completed [Part 7: Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform)
+- Bytebase running with service account configured
 - Your Terraform files from the previous tutorials
 
 ## Setup
@@ -51,15 +51,28 @@ From the previous tutorials, you should have:
 - Users and access controls set up
 - Production database `hr_prod` with employee data
 
-## Define Masking Methods
+## Understanding Data Masking in Bytebase
 
-You can define masking methods using semantic types, or classification levels with semantic types. These definitions determine how data will be masked when policies are applied.
+<Info>
+Bytebase uses two concepts for data masking:
 
-**Important Relationship**: Classifications define sensitivity levels, but require mapping to semantic types for actual masking. Semantic types define the masking algorithms that perform the actual data protection.
+- **Semantic Types**: Define masking algorithms (e.g., full mask, partial mask)
+- **Classifications**: Group data by sensitivity levels (e.g., Level 1, Level 2)
 
-### Option A - Define Semantic Types
+You can apply masking in two ways:
 
-Create `6-1-semantic-types.tf` with semantic types that define how data should be masked:
+1. **Global masking rules**: Define workspace-wide rules that map to semantic types
+   - Match by column names or patterns → semantic type
+   - Match by classification levels → semantic type
+
+1. **Column-level masking**: Apply directly to specific columns
+   - Assign semantic types directly to columns
+   - Assign classifications to columns (which then use semantic types via global rules)
+</Info>
+
+## Step 1: Define Semantic Types
+
+Create `8-1-semantic-types.tf` to define masking algorithms:
 
 ```hcl
 resource "bytebase_setting" "semantic_types" {
@@ -104,20 +117,9 @@ resource "bytebase_setting" "semantic_types" {
 }
 ```
 
-#### Apply and Verify Semantic Types
+## Step 2: Define Data Classification
 
-```bash
-terraform plan
-terraform apply
-```
-
-Verify in Bytebase: Click **Data Access > Semantic Types** on the left sidebar. You should see three masking types configured.
-
-![semantic-types](/content/docs/tutorials/manage-data-masking-with-terraform/bb-semantic-types.webp)
-
-### Option B - Set Up Data Classification
-
-Create `6-2-classification.tf` with a classification hierarchy for sensitive data:
+Create `8-2-classification.tf` to organize data by sensitivity levels:
 
 ```hcl
 resource "bytebase_setting" "classification" {
@@ -167,26 +169,34 @@ resource "bytebase_setting" "classification" {
 }
 ```
 
-#### Apply and Verify Classification
+## Step 3: Apply Basic Configuration
+
+Apply the semantic types and classification configuration:
 
 ```bash
 terraform plan
 terraform apply
 ```
 
-Verify in Bytebase: Click **Data Access > Data Classification** on the left sidebar. You should see the classification hierarchy with two levels. Note that Level 2 is marked as more sensitive.
+Verify in Bytebase:
 
-![classification](/content/docs/tutorials/manage-data-masking-with-terraform/bb-classification.webp)
+1. Click **Data Access > Semantic Types** on the left sidebar. You should see three masking types configured.
 
-## Apply Masking Policies
+   ![semantic-types](/content/docs/tutorials/manage-data-masking-with-terraform/bb-semantic-types.webp)
 
-Once you've defined your masking methods (semantic types and/or classification), you can apply them using global policies, column-specific configuration, or both.
+1. Click **Data Access > Data Classification** on the left sidebar. You should see the classification hierarchy with two levels. Note that Level 2 is marked as more sensitive.
 
-**Important**: Classification levels must be mapped to semantic types to perform actual masking. Classification defines the sensitivity level, while semantic types define the masking algorithm.
+   ![classification](/content/docs/tutorials/manage-data-masking-with-terraform/bb-classification.webp)
 
-### Option 1 - Apply Global Masking Policy
+## Step 4: Apply Global Masking Policy
 
-Create `6-3-global-data-masking.tf` with workspace-wide masking rules that automatically apply based on column names or classification levels. Notice how classification levels are mapped to semantic types:
+Now that you've defined your masking methods, apply them workspace-wide using a global policy.
+
+<Info>
+Classification levels must be mapped to semantic types to perform actual masking. Classification defines the sensitivity level, while semantic types define the masking algorithm.
+</Info>
+
+Create `8-3-global-masking.tf` to apply workspace-wide masking rules:
 
 ```hcl
 resource "bytebase_policy" "global_masking_policy" {
@@ -223,7 +233,7 @@ resource "bytebase_policy" "global_masking_policy" {
 }
 ```
 
-#### Apply and Verify Global Policy
+Apply the global policy:
 
 ```bash
 terraform plan
@@ -232,20 +242,20 @@ terraform apply
 
 Verify in Bytebase:
 
-Click **Data Access > Global Masking**. You should see the global policy with three conditions with corresponding semantic types.
+1. Click **Data Access > Global Masking**. You should see the global policy with three conditions with corresponding semantic types.
 
-![global-masking](/content/docs/tutorials/manage-data-masking-with-terraform/bb-global-masking.webp)
+   ![global-masking](/content/docs/tutorials/manage-data-masking-with-terraform/bb-global-masking.webp)
 
-Log in as Developer 1 (dev1@example.com), then go to **SQL Editor** to access `hr_prod`. double click `employee` table on the left. `birth_date` has `Date year mask` semantic type, and `last_name` has `Name first letter only`.
+1. Log in as Developer 1 (`dev1@example.com`), then go to **SQL Editor** to access `hr_prod`. Double-click `employee` table on the left. `birth_date` has `Date year mask` semantic type, and `last_name` has `Name first letter only`.
 
-![dev1-employee](/content/docs/tutorials/manage-data-masking-with-terraform/bb-dev1-employee.webp)
+   ![dev1-employee](/content/docs/tutorials/manage-data-masking-with-terraform/bb-dev1-employee.webp)
 
-### Option 2 - Apply Column-Specific Masking
+## Step 5: Apply Column-Specific Masking
 
-Create `6-4-database-masking.tf` to apply semantic types or classifications directly to specific database columns:
+Create `8-4-column-masking.tf` to apply masking to specific columns:
 
-- column `from_date` is assigned the semantic type `date-year-mask`
-- column `amount` is assigned the classification `2-1`(Employment info)
+- Column `from_date` is assigned the semantic type `date-year-mask`
+- Column `amount` is assigned the classification `2-1` (Employment info)
 
 ```hcl
 resource "bytebase_database" "database" {
@@ -278,7 +288,7 @@ resource "bytebase_database" "database" {
 }
 ```
 
-#### Apply and Verify Global Policy
+Apply the column-specific masking:
 
 ```bash
 terraform plan
@@ -289,22 +299,21 @@ Verify in Bytebase:
 
 1. Go into **Project Two**, then click **Database > Databases** and click **hr_prod**.
 1. Scroll down to find `salary` table, click it. You should see:
-
    - `amount` is assigned as `Employment info` (Level 2) **classification**
    - `from_date` is assigned as `date-year-mask` **semantic type**
 
    ![table-detail-salary](/content/docs/tutorials/manage-data-masking-with-terraform/bb-table-detail-salary.webp)
 
-1. Log in as Developer 1 (dev1@example.com), then go to **SQL Editor** to access `hr_prod`. double click `salary` table on the left. `from_date` has `Date year mask` semantic type, and `ammount` has `L2` classification which leads to `Full masking` semantic type.
+1. Log in as Developer 1 (`dev1@example.com`), then go to **SQL Editor** to access `hr_prod`. Double-click `salary` table on the left. `from_date` has `Date year mask` semantic type, and `amount` has `L2` classification which leads to `Full masking` semantic type.
 
    ![dev1-salary](/content/docs/tutorials/manage-data-masking-with-terraform/bb-dev1-salary.webp)
 
-## Grant Masking Exceptions (Optional)
+## Step 6: Grant Masking Exceptions
 
-Create `6-5-masking-exception.tf` to allow specific users to bypass masking for certain operations:
+Create `8-5-masking-exceptions.tf` to grant bypass permissions:
 
-- Workspace Admin (admin@example.com) has Masking Exemptions for `birth_date` in table `employee` for Query
-- Workspace Admin (admin@example.com) has Masking Exemptions for `last_name` in table `employee` for Export
+- Workspace Admin (`admin@example.com`) has Masking Exemptions for `birth_date` in table `employee` for Query
+- Workspace Admin (`admin@example.com`) has Masking Exemptions for `last_name` in table `employee` for Export
 
 ```hcl
 resource "bytebase_policy" "masking_exception_policy" {
@@ -337,16 +346,18 @@ resource "bytebase_policy" "masking_exception_policy" {
 }
 ```
 
-#### Apply Masking Exceptions
+## Step 7: Apply Final Configuration and Test
+
+Apply the masking exceptions and test everything:
 
 ```bash
 terraform plan
 terraform apply
 ```
 
-Verify in Bytebase:
+Verify the masking exceptions are working:
 
-1. Log in as Workspace Admin (admin@example.com), then go to **SQL Editor** to access `hr_prod`, double click `employee` table on the left. You may notice the `birth_date` is not masked any longer.
+1. Log in as Workspace Admin (`admin@example.com`), then go to **SQL Editor** to access `hr_prod`, double-click `employee` table on the left. You may notice the `birth_date` is not masked any longer.
 
    ![admin-employee-query](/content/docs/tutorials/manage-data-masking-with-terraform/bb-admin-employee-query.webp)
 
@@ -354,38 +365,42 @@ Verify in Bytebase:
 
    ![admin-employee-export](/content/docs/tutorials/manage-data-masking-with-terraform/bb-admin-employee-export.webp)
 
-## Explanation of Used Masking Algorithms
+## Masking Algorithms Explained
 
-### 1. Full Mask
+### Full Mask
 
 - Replaces entire value with substitution string
 - Example: "John Doe" → "\*\*\*"
 
-### 2. Range Mask
+### Range Mask
 
 - Masks specific character ranges
 - Example: "2024-03-15" → "\*\*\*\*-03-15"
 
-### 3. Inner/Outer Mask
+### Inner/Outer Mask
 
 - Preserves prefix/suffix while masking the middle
 - Example: "Johnson" → "J**\*\***"
 
-## Key Points
+## Summary
 
-**🔑 Critical Relationship - Classifications MUST Map to Semantic Types:**
+This tutorial demonstrated how to implement comprehensive data masking in Bytebase using Terraform. Here are the key concepts:
 
-- **Classifications** define sensitivity levels (Level 1, Level 2, etc.) but **cannot mask data by themselves**
-- **Semantic Types** define the actual masking algorithms (full-mask, range-mask, etc.)
-- **You must map classifications to semantic types** for masking to occur (e.g., Level 2 → full-mask)
-- **Direct semantic type assignment** can bypass classification entirely
+<Info>
+**Critical Relationship**: Classifications MUST be mapped to semantic types for masking to work.
+- Classifications define sensitivity levels (Level 1, Level 2, etc.) but cannot mask data by themselves
+- Semantic types define the actual masking algorithms (full-mask, range-mask, etc.)
+- You must map classifications to semantic types for masking to occur (e.g., Level 2 → full-mask)
+</Info>
 
-**Define Phase (choose one or both):**
+### Configuration Options
+
+**Define Phase:**
 
 - **Semantic Types**: Define reusable masking algorithms
-- **Classification**: Organize data by sensitivity levels (must be mapped to semantic types for masking)
+- **Classification**: Organize data by sensitivity levels (requires mapping to semantic types)
 
-**Apply Phase (choose one or both):**
+**Apply Phase:**
 
 - **Global Policies**: Apply masking rules workspace-wide based on conditions
 - **Column-Level Masking**: Apply semantic types or classifications to specific columns

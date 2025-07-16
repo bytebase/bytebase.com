@@ -1,7 +1,7 @@
 ---
 title: Manage SQL Review Rules with Terraform
 author: Adela
-updated_at: 2025/07/10 21:15
+updated_at: 2025/07/16 21:15
 tags: Tutorial
 integrations: Terraform
 category: 'Integration'
@@ -31,15 +31,15 @@ This tutorial series uses separate Terraform files for better organization. File
 
 - **Configure** SQL review rules for schema standards
 - **Enforce** naming conventions and structural requirements
-- **Apply** different severity levels (ERROR, WARNING)
+- **Apply** different severity levels (`ERROR`, `WARNING`)
 - **Target** specific environments with review policies
 
 ## Prerequisites
 
 Before starting this tutorial, ensure you have:
 
-- Completed [Part 3: Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform)
-- Bytebase running with ngrok and service account configured
+- Completed [Part 4: Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform)
+- Bytebase running with service account configured
 - Your Terraform files from the previous tutorials
 
 ## Setup
@@ -47,16 +47,21 @@ Before starting this tutorial, ensure you have:
 From the previous tutorials, you should have:
 
 - Bytebase instances and projects configured
-- Environments (test and prod) set up
+- Environments (`Test` and `Prod`) set up
 - Workspace settings and approval flows configured
 
 ## Configure SQL Review Rules
 
+<Info>
+SQL Review rules automatically validate SQL statements against predefined standards, ensuring code quality and schema consistency before changes enter the approval workflow.
+</Info>
+
 ### Step 1 - Create Review Configuration
 
-Create `4-sql-review.tf` with the SQL review configuration:
+Create `5-sql-review.tf` with the SQL review configuration:
 
 ```hcl
+# SQL review configuration for production environment
 resource "bytebase_review_config" "sample" {
   depends_on = [
     bytebase_setting.environments
@@ -65,6 +70,8 @@ resource "bytebase_review_config" "sample" {
   resource_id = "review-config-sample"
   title       = "Sample SQL Review Config"
   enabled     = true
+  
+  # Apply to production environment only
   resources = toset([
     bytebase_setting.environments.environment_setting[0].environment[1].name
   ])
@@ -118,42 +125,42 @@ terraform apply
 
 ### Step 3 - Verify in Bytebase
 
-1. Go to **CI/CD > SQL Review** in the left sidebar, you should see **Sample SQL Review Config** listed.
+1. Go to **CI/CD > SQL Review** on the left sidebar, you should see `Sample SQL Review Config` listed. Note that it's applied to the `Prod` environment.
 
    ![sql-review-list](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-sql-review-list.webp)
 
-1. Click on it to view the configured rules. Note that it's applied to the production environment.
+1. Click on it to view the configured rules.
 
    ![sql-review-pg](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-sql-review-pg.webp)
 
-### Rule Types Explained
+### Understanding SQL Review Rules
 
-The example demonstrates key SQL review rule categories:
+SQL Review rules are categorized by what they validate:
 
 #### 1. Column Rules
 
-- **column.no-null**: Warns about nullable columns
-- **column.required**: Enforces required columns (id, timestamps, audit fields)
+- **column.no-null**: Warns about nullable columns to encourage data integrity
+- **column.required**: Enforces required columns (id, timestamps, audit fields) for consistency
 
 #### 2. Table Rules
 
-- **table.require-pk**: Every table must have a primary key
+- **table.require-pk**: Ensures every table has a primary key for data integrity and performance
 
 #### 3. Naming Rules
 
-- **naming.column**: Enforces lowercase snake_case column names
+- **naming.column**: Enforces lowercase snake_case column names for consistency across your schema
 
 #### 4. Statement Rules
 
-- **statement.maximum-limit-value**: Prevents SELECT queries without proper limits
+- **statement.maximum-limit-value**: Prevents SELECT queries without proper limits to avoid performance issues
 
 ### Step 4 - Test SQL Review
 
 Create a test SQL statement to see the review in action:
 
-1.  Go to **Project Two**, and click **Database > Databases** on the left sidebar.
-1.  Check `hr_prod` and click **Edit Schema**.
-1.  Try creating a table that violates the rules:
+1. Go to **Project Two**, and click **Database > Databases** on the left sidebar.
+1. Check `hr_prod` and click **Edit Schema**.
+1. Try creating a table that violates the rules:
 
     ```sql
     -- This will trigger multiple violations
@@ -165,17 +172,17 @@ Create a test SQL statement to see the review in action:
 
     Expected violations:
 
-         - ❌ Column naming convention (should be first_name)
-         - ❌ Missing required columns (id, created_ts, etc.)
-         - ❌ No primary key defined
+    - ❌ Column naming convention (should be first_name)
+    - ❌ Missing required columns (id, created_ts, etc.)
+    - ❌ No primary key defined
 
     ![sql-review-violations](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-sql-review-violations.webp)
 
-1.  Even if you continue to create an issue, it will still show red SQL Review.
+1. Even if you continue to create an issue, it will still show red SQL Review.
 
     ![issue-sql-review-errors](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-issue-sql-review-errors.webp)
 
-1.  Try a compliant table:
+1. Try a compliant table:
 
     ```sql
     -- This follows all rules
@@ -202,45 +209,46 @@ Create a test SQL statement to see the review in action:
 
 To apply rules to multiple environments:
 
-    ```hcl
-    resources = toset([
-      "environments/test",
-      "environments/prod"
-    ])
-    ```
+```hcl
+resources = toset([
+  bytebase_setting.environments.environment_setting[0].environment[0].name,
+  bytebase_setting.environments.environment_setting[0].environment[1].name
+])
+```
 
 ### Engine-Specific Rules
 
 Different rules for different database engines:
 
-    ```hcl
-    # MySQL-specific rule
-    rules {
-      type   = "table.require-pk"
-      engine = "MYSQL"
-      level  = "ERROR"
-    }
+```hcl
+# MySQL-specific rule
+rules {
+  type   = "table.require-pk"
+  engine = "MYSQL"
+  level  = "ERROR"
+}
 
-    # PostgreSQL-specific rule
-
-    rules {
-    type = "table.require-pk"
-    engine = "POSTGRES"
-    level = "ERROR"
-    }
-
-    ```
+# PostgreSQL-specific rule
+rules {
+  type   = "table.require-pk"
+  engine = "POSTGRES"
+  level  = "ERROR"
+}
+```
 
 ## Key Points
 
-- **Rule Levels**: ERROR blocks changes, WARNING allows but notifies
-- **Engine Specific**: Rules can target specific database engines
-- **Environment Scoped**: Apply different rules to different environments
-- **Payload Format**: Complex rules use JSON payloads for configuration
+- **Rule Levels**: 
+  - `ERROR`: Blocks the SQL statement from being executed
+  - `WARNING`: Allows execution but notifies users of potential issues
+- **Engine Specific**: Rules can target specific database engines (PostgreSQL, MySQL, etc.)
+- **Environment Scoped**: Apply different rules to test vs. production environments
+- **Payload Format**: Complex rules use JSON payloads for configuration (e.g., regex patterns, lists)
+- **Best Practice**: Start with WARNING level rules and gradually move to ERROR as teams adapt
 
 ## Next Steps
 
-**Continue the series:** [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - set up access controls and permissions.
+**Continue the series:** [Manage Users and Groups with Terraform](/tutorials/manage-users-and-groups-with-terraform) - set up dummy users and groups for access control.
 
 **Resources:**
 
