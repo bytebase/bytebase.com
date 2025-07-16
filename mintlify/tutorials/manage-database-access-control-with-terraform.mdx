@@ -49,15 +49,13 @@ From the previous tutorials, you should have:
 - Users and groups created from Part 6
 - Service account with `Workspace Admin` role
 
-## Configure Access Control
-
 ## Understanding IAM in Bytebase
 
-<Info>
-  Bytebase has a hierarchical IAM system: - **Workspace Level**: Permissions apply to the entire
-  workspace - **Project Level**: Permissions apply to specific projects only - **Conditional
-  Access**: Fine-grained permissions for specific databases, schemas, and tables
-</Info>
+Bytebase has a hierarchical IAM system:
+
+- **Workspace Level**: Permissions apply to the entire workspace
+- **Project Level**: Permissions apply to specific projects only
+- **Conditional Access**: Fine-grained permissions for specific databases, schemas, and tables
 
 ## Configure Access Control
 
@@ -124,7 +122,7 @@ terraform plan
 terraform apply
 ```
 
-#### Verify Workspace Roles
+**Verify Workspace Roles**
 
 1. Go to **IAM & Admin > Members**
 1. Check user roles:
@@ -135,7 +133,7 @@ terraform apply
    - `qa1@example.com`, `qa2@example.com`: Workspace Member
 1. Note that `QA Team` group has `Project Viewer` role for ALL projects
 
-![members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-members.webp)
+   ![members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-members.webp)
 
 ### Step 3 - Configure Project IAM Policy
 
@@ -195,29 +193,32 @@ terraform apply
 
 ### Step 5 - Verify Project Permissions
 
-#### Project One Members
+<Tabs>
+  <Tab title="Project One Members">
+    Go to **Project One** > **Manage > Members**:
 
-1. Go to **Project One** > **Manage > Members**:
+        - `QA Team`: `Project Viewer` (inherited from workspace)
+        - `Terraform Service Account`: `Project Owner` (as creator)
 
-   - `QA Team`: `Project Viewer` (inherited from workspace)
-   - Te`rraform Service Account`: `Project Owner` (as creator)
+        ![project-1-members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-1-members.webp)
 
-   ![project-1-members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-1-members.webp)
+  </Tab>
+  <Tab title="Project Two Members">
+    1. Go to **Project Two** > **Manage > Members**:
 
-#### Project Two Members
+        - `QA Team`: `Project Viewer`(inherited from workspace)
+        - `DBA users`: `Project Owner`
+        - `All users` + `Developer Team`: `Project Developer`
+        - `Developer Team`: `SQL Editor User` with table restrictions
 
-1. Go to **Project Two** > **Manage > Members**:
+        ![project-2-members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-2-members.webp)
 
-   - `QA Team`: `Project Viewer`(inherited from workspace)
-   - `DBA users`: `Project Owner`
-   - `All users` + `Developer Team`: `Project Developer`
-   - `Developer Team`: `SQL Editor User` with table restrictions
+    1. Click **Edit** (pen icon) on `Developer Team`'s `SQL Editor User` role to see table-level restrictions:
 
-   ![project-2-members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-2-members.webp)
+        ![project-2-sql-editor-user](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-2-sql-editor-user.webp)
 
-1. Click **Edit** (pen icon) on `Developer Team`'s `SQL Editor User` role to see table-level restrictions:
-
-   ![project-2-sql-editor-user](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-project-2-sql-editor-user.webp)
+  </Tab>
+</Tabs>
 
 ### Step 6 - Test Access Control
 
@@ -226,23 +227,23 @@ Test the access control configuration by logging in as different users:
 #### Set Up Test User
 
 1. Go to **IAM & Admin > Users & Groups**.
-2. Find and click on `Developer 1`.
-3. Click **Edit** and set a password.
+1. Find and click on `Developer 1`.
+1. Click **Edit** and set a password.
 
    ![dev1-pw](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-dev1-pw.webp)
 
 #### Test Developer Access
 
 1. Log in as `dev1@example.com` in a new browser/incognito window.
-2. Verify project visibility:
+1. Verify project visibility:
    - ✅ Can see **Project Two**
    - ❌ Cannot see **Project One**
 
 #### Test SQL Editor Restrictions
 
 1. Navigate to **SQL Editor**.
-2. Connect to `Prod > Prod Sample Instance > hr_prod`.
-3. Test table access:
+1. Connect to `Prod > Prod Sample Instance > hr_prod`.
+1. Test table access:
 
    - ✅ Query `employee` table - Should work
    - ✅ Query `salary` table - Should work
@@ -272,10 +273,4 @@ This tutorial demonstrates several best practices:
 
 ## Next Steps
 
-**Continue the series:** [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - configure data masking policies to protect sensitive data.
-
-**Resources:**
-
-- [Tutorial files](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
-- [Advanced examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
-- [Discord community](https://discord.gg/huyw7gRsyA)
+Continue with [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - configure data masking policies to protect sensitive data.
