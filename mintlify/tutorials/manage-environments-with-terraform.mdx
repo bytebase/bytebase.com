@@ -14,18 +14,18 @@ import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volum
 
 This tutorial is part of the **Bytebase Terraform Provider** series:
 
-- 👉 Part 1: Manage Environments with Terraform - Set up environments with policies
+- Part 1: Manage Environments with Terraform 👈
 - Part 2: [Manage Databases with Terraform](/tutorials/manage-databases-with-terraform) - Register database instances
 - Part 3: [Manage Projects with Terraform](/tutorials/manage-projects-with-terraform) - Organize databases into projects
 - Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-general-settings-with-terraform) - Configure workspace profile and approval policies
 - Part 5: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Define SQL review policies
-- Part 6: [Manage Users and Groups with Terraform](/tutorials/manage-users-and-groups-with-terraform) - Set up dummy users and groups
-- Part 7: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Define permissions
+- Part 6: [Manage Users and Groups with Terraform](/tutorials/manage-users-and-groups-with-terraform) - Configure users and groups
+- Part 7: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Grant database permissions
 - Part 8: [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - Protect sensitive data
 
 <Card icon="code-xml" cta="View sample code" href="https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials">
 
-This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part and sub-step (e.g., `1-1-env-setting.tf`, `1-2-env-policy-rollout.tf` for Part 1, `2-instances.tf` for Part 2, etc.). Terraform automatically handles dependencies between files.
+This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part and sub-step (e.g., [1-1-env-setting.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/1-1-env-setting.tf), [1-2-env-policy-rollout.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/1-2-env-policy-rollout.tf) for Part 1, [2-instances.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/2-instances.tf) for Part 2, etc.). Terraform automatically handles dependencies between files.
 
 </Card>
 
@@ -44,7 +44,6 @@ Before starting this tutorial, ensure you have:
 
 - **Docker**: [Install Docker](https://www.docker.com/) to run Bytebase
 - **Terraform**: [Install Terraform](https://www.terraform.io/downloads) (version 1.0+)
-- **Basic understanding of Terraform**: Familiarity with HCL syntax helps
 - **Bytebase Enterprise Plan** (optional): For advanced features
 
 ## Step 1 - Setup Environment
@@ -63,23 +62,21 @@ Follow the [official Terraform installation guide](https://developer.hashicorp.c
 
 1. Register an admin account with `Workspace Admin` role.
 
-   ![register-admin](/content/docs/tutorials/manage-environments-in-bytebase-with-terraform/bb-register-admin.webp)
+   ![register-admin](/content/docs/tutorials/manage-environments-with-terraform/bb-register-admin.webp)
 
 1. Follow the guide to configure, you'll need the **built-in sample** data for this tutorial.
 
-   ![use-built-in-sample](/content/docs/tutorials/manage-environments-in-bytebase-with-terraform/bb-use-built-in-sample.webp)
+   ![use-built-in-sample](/content/docs/tutorials/manage-environments-with-terraform/bb-use-built-in-sample.webp)
 
 1. (Optional) After logging into Bytebase, [activate official or trial license](/administration/license#configure-workspace-license). _Some features require the Enterprise Plan._
 
-   ![subscription](/content/docs/tutorials/manage-environments-in-bytebase-with-terraform/bb-subscription.webp)
+   ![subscription](/content/docs/tutorials/manage-environments-with-terraform/bb-subscription.webp)
 
 ### Explore Current Environments
 
-Navigate to **Environments** in Bytebase. You'll see two default environments (`Test` and `Prod`) with basic configurations:
+Navigate to **Environments** in Bytebase. You'll see two default environments `Test` and `Prod`. We’ll manage these environments using Terraform next.
 
-![env-default](/content/docs/tutorials/manage-environments-in-bytebase-with-terraform/bb-env-default.webp)
-
-We'll manage these environments using Terraform instead of the GUI.
+![env-default](/content/docs/tutorials/manage-environments-with-terraform/bb-env-default.webp)
 
 ## Step 2 - Configure Terraform Provider
 
@@ -89,37 +86,37 @@ We'll manage these environments using Terraform instead of the GUI.
 
 1. Create `0-provider.tf`, visit [Terraform Bytebase Provider](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs), click **USE PROVIDER** and copy the configuration.
 
-   ![tf-use-provider](/content/docs/tutorials/manage-environments-in-bytebase-with-terraform/tf-use-provider.webp)
+   ![tf-use-provider](/content/docs/tutorials/manage-environments-with-terraform/tf-use-provider.webp)
 
    ```hcl
    terraform {
-   required_providers {
-      bytebase = {
-         source  = "registry.terraform.io/bytebase/bytebase"
-         version = "3.8.2"  # Check for latest version
+      required_providers {
+         bytebase = {
+            source  = "registry.terraform.io/bytebase/bytebase"
+            version = "3.8.2"  # Check for latest version
+         }
       }
-   }
    }
 
    provider "bytebase" {
-   service_account = "tf@service.bytebase.com"
-   service_key     = "<Your service key>"      # We'll get this next
-   url             = "http://localhost:8080"    # Your Bytebase URL
+      service_account = "tf@service.bytebase.com"
+      service_key     = "<Your service key>"      # We'll get this next
+      url             = "http://localhost:8080"    # Your Bytebase URL
    }
    ```
 
 ### Create Service Account
 
 1. In Bytebase, go to **IAM & Admin > Users & Groups**.
-2. Click **+ Add User** and create a service account:
+1. Click **+ Add User** and create a service account:
    - Type: `Service Account`
    - Email: `tf@service.bytebase.com`
    - Roles: `Workspace Admin`
-3. Copy the generated **Service Key**.
+1. Copy the generated **Service Key**.
 
 ### Initialize Terraform
 
-1. Update `0-provider.tf` with your service key.
+1. Update `0-provider.tf` with your service account key.
 2. Initialize Terraform:
 
 ```bash
@@ -137,12 +134,12 @@ Create `1-0-list-env.tf`:
 ```hcl
 # Read current environment settings from Bytebase
 data "bytebase_setting" "environments" {
-name = "settings/ENVIRONMENT"
+   name = "settings/ENVIRONMENT"
 }
 
 # Display all environments
 output "all_environments" {
-value = data.bytebase_setting.environments
+   value = data.bytebase_setting.environments
 }
 ```
 
@@ -164,31 +161,30 @@ Create `1-1-env-setting.tf`:
 ```hcl
 # Define environments as Infrastructure as Code
 resource "bytebase_setting" "environments" {
-name = "settings/ENVIRONMENT"
+   name = "settings/ENVIRONMENT"
 
-environment_setting {
-   # Test environment - for development
-   environment {
-      id        = "test"
-      title     = "Test"
-      protected = false
-   }
+   environment_setting {
+      # Test environment - for development
+      environment {
+         id        = "test"
+         title     = "Test"
+         protected = false
+      }
 
-   # Production environment - needs protection
-   environment {
-      id        = "prod"
-      title     = "Prod"
-      protected = true
+      # Production environment - needs protection
+      environment {
+         id        = "prod"
+         title     = "Prod"
+         ## Bytebase will attach a shield icon 🛡️ besides the environment name.
+         protected = true
+      }
    }
-}
 }
 ```
 
-- Once you mark an environment as `protected`, Bytebase will attach a shield icon 🛡️ besides the environment name.
-
 ## Step 5 - Configure Environment Policies
 
-Let's add deployment and data protection policies, you may find more details in [Environment Settings](/administration/environment-policy/overview).
+Let's add rollout and data protection policies, you may find more details in [Environment Settings](/administration/environment-policy/overview).
 
 ### Rollout Policy
 
@@ -197,74 +193,74 @@ Create `1-2-policy-rollout.tf`:
 ```hcl
 # Test environment - automatic deployment
 resource "bytebase_policy" "rollout_policy_test" {
-depends_on = [bytebase_setting.environments]
-parent     = bytebase_setting.environments.environment_setting[0].environment[0].name
-type       = "ROLLOUT_POLICY"
+   depends_on = [bytebase_setting.environments]
+   parent     = bytebase_setting.environments.environment_setting[0].environment[0].name
+   type       = "ROLLOUT_POLICY"
 
-rollout_policy {
-   automatic = true  # Deploy changes automatically
-   roles = [
-      "roles/workspaceAdmin",
-      "roles/projectOwner",
-      "roles/LAST_APPROVER",
-      "roles/CREATOR"
-   ]
-}
+   rollout_policy {
+      automatic = true  # Deploy changes automatically
+      roles = [
+         "roles/workspaceAdmin",
+         "roles/projectOwner",
+         "roles/LAST_APPROVER",
+         "roles/CREATOR"
+      ]
+   }
 }
 
 # Production - manual deployment required
 resource "bytebase_policy" "rollout_policy_prod" {
-depends_on = [bytebase_setting.environments]
-parent     = bytebase_setting.environments.environment_setting[0].environment[1].name
-type       = "ROLLOUT_POLICY"
+   depends_on = [bytebase_setting.environments]
+   parent     = bytebase_setting.environments.environment_setting[0].environment[1].name
+   type       = "ROLLOUT_POLICY"
 
-rollout_policy {
-   automatic = false  # Require manual deployment
-   roles = [
-      "roles/workspaceAdmin",
-      "roles/projectOwner",
-      "roles/LAST_APPROVER",
-      "roles/CREATOR"
-   ]
-}
+   rollout_policy {
+      automatic = false  # Require manual deployment
+      roles = [
+         "roles/workspaceAdmin",
+         "roles/projectOwner",
+         "roles/LAST_APPROVER",
+         "roles/CREATOR"
+      ]
+   }
 }
 ```
 
-- `roles` is the list of roles that are allowed to click **Roll out** the changes to the environment. Even automatic rollout is enabled, manual approval is still needed while there is any automatic check failure.
+- `roles` is the list of roles that are allowed to click the button to roll out the changes manually. Even automatic rollout is enabled, manual approval is still needed while there is any automatic check failure.
 
 ### Data Protection Policy
 
 Create `1-3-policy-data.tf`:
 
 ```hcl
-# Prevent data export from production
+# Prevent copying data in SQL Editor from production
 resource "bytebase_policy" "disable_copy_data_policy_prod" {
-depends_on = [bytebase_setting.environments]
-parent     = bytebase_setting.environments.environment_setting[0].environment[1].name
-type       = "DISABLE_COPY_DATA"
+   depends_on = [bytebase_setting.environments]
+   parent     = bytebase_setting.environments.environment_setting[0].environment[1].name
+   type       = "DISABLE_COPY_DATA"
 
-disable_copy_data_policy {
-   enable = true  # Block data exports
-}
+   disable_copy_data_policy {
+      enable = true  # Block data copy
+   }
 }
 
-# Restrict SQL queries in production
+# Restrict SQL execution in SQL Editor from production
 resource "bytebase_policy" "data_source_query_policy_prod" {
-depends_on = [bytebase_setting.environments]
-parent     = bytebase_setting.environments.environment_setting[0].environment[1].name
-type       = "DATA_SOURCE_QUERY"
+   depends_on = [bytebase_setting.environments]
+   parent     = bytebase_setting.environments.environment_setting[0].environment[1].name
+   type       = "DATA_SOURCE_QUERY"
 
-data_source_query_policy {
-   restriction  = "RESTRICTION_UNSPECIFIED"
-   disallow_ddl = true  # No schema changes via SQL Editor
-   disallow_dml = true  # No data changes via SQL Editor
-}
+   data_source_query_policy {
+      restriction  = "RESTRICTION_UNSPECIFIED"
+      disallow_ddl = true  # No schema changes via SQL Editor
+      disallow_dml = true  # No data changes via SQL Editor
+   }
 }
 ```
 
 - Here data protection policy is only applied to the `Prod` environment. Which means in `Test` environment, by default, users may execute DDL and DML statements or copy data directly in SQL Editor.
 
-- `restriction` controls access to the admin data source (which has read/write permissions):
+- `restriction` controls [access to the data source](/sql-editor/settings/data-source-restriction):
 
   - `RESTRICTION_UNSPECIFIED`: Admin data source is allowed.
   - `DISALLOW`: Admin data source is completely disallowed.
@@ -293,9 +289,3 @@ You've successfully configured Bytebase environments using Terraform! Your setup
 - **Prod environment**: Protected with manual deployment and data restrictions for safety
 
 Continue with [Part 2: Manage Databases with Terraform](/tutorials/manage-databases-with-terraform) to connect and manage your database instances.
-
-**Resources:**
-
-- [Tutorial files](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
-- [Advanced examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
-- [Discord community](https://discord.gg/huyw7gRsyA)
