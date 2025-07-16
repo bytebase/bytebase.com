@@ -65,7 +65,7 @@ You can apply masking in two ways:
    - Match by column names or patterns → semantic type
    - Match by classification levels → semantic type
 
-2. **Column-level masking**: Apply directly to specific columns
+1. **Column-level masking**: Apply directly to specific columns
    - Assign semantic types directly to columns
    - Assign classifications to columns (which then use semantic types via global rules)
 </Info>
@@ -116,19 +116,6 @@ resource "bytebase_setting" "semantic_types" {
   }
 }
 ```
-
-Apply the configuration:
-
-```bash
-terraform plan
-terraform apply
-```
-
-Verify in Bytebase:
-
-Click **Data Access > Semantic Types** on the left sidebar. You should see three masking types configured.
-
-![semantic-types](/content/docs/tutorials/manage-data-masking-with-terraform/bb-semantic-types.webp)
 
 ## Step 2: Define Data Classification
 
@@ -182,9 +169,9 @@ resource "bytebase_setting" "classification" {
 }
 ```
 
-## Step 3: Apply Configuration
+## Step 3: Apply Basic Configuration
 
-Apply both semantic types and classification:
+Apply the semantic types and classification configuration:
 
 ```bash
 terraform plan
@@ -193,13 +180,15 @@ terraform apply
 
 Verify in Bytebase:
 
-1. Click **Data Access > Data Classification** on the left sidebar.
-1. You should see the classification hierarchy with two levels.
-1. Note that Level 2 is marked as more sensitive.
+1. Click **Data Access > Semantic Types** on the left sidebar. You should see three masking types configured.
 
-![classification](/content/docs/tutorials/manage-data-masking-with-terraform/bb-classification.webp)
+   ![semantic-types](/content/docs/tutorials/manage-data-masking-with-terraform/bb-semantic-types.webp)
 
-## Step 4: Create Global Masking Policy
+1. Click **Data Access > Data Classification** on the left sidebar. You should see the classification hierarchy with two levels. Note that Level 2 is marked as more sensitive.
+
+   ![classification](/content/docs/tutorials/manage-data-masking-with-terraform/bb-classification.webp)
+
+## Step 4: Apply Global Masking Policy
 
 Now that you've defined your masking methods, apply them workspace-wide using a global policy.
 
@@ -357,14 +346,14 @@ resource "bytebase_policy" "masking_exception_policy" {
 }
 ```
 
-Apply the masking exceptions:
+## Step 7: Apply Final Configuration and Test
+
+Apply the masking exceptions and test everything:
 
 ```bash
 terraform plan
 terraform apply
 ```
-
-## Step 7: Test Everything
 
 Verify the masking exceptions are working:
 
@@ -372,7 +361,7 @@ Verify the masking exceptions are working:
 
    ![admin-employee-query](/content/docs/tutorials/manage-data-masking-with-terraform/bb-admin-employee-query.webp)
 
-2. Click **Export**, and then open the file. You should notice the `birth_date` is still masked while `last_name` is no longer masked.
+1. Click **Export**, and then open the file. You should notice the `birth_date` is still masked while `last_name` is no longer masked.
 
    ![admin-employee-export](/content/docs/tutorials/manage-data-masking-with-terraform/bb-admin-employee-export.webp)
 
