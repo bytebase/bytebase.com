@@ -11,11 +11,12 @@ estimated_time: '20 mins'
 ---
 
 import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
+import TerraformGitHubSample from '/snippets/tutorials/terraform-github-sample.mdx';
 
 This tutorial is part of the **Bytebase Terraform Provider** series:
 
 - Part 1: [Manage Environments with Terraform](/tutorials/manage-environments-with-terraform) - Set up environments with policies
-- 👉 Part 2: Manage Databases with Terraform - Register database instances
+- Part 2: Manage Databases with Terraform 👈
 - Part 3: [Manage Projects with Terraform](/tutorials/manage-projects-with-terraform) - Organize databases into projects
 - Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-general-settings-with-terraform) - Configure workspace profile and approval policies
 - Part 5: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Define SQL review policies
@@ -23,11 +24,7 @@ This tutorial is part of the **Bytebase Terraform Provider** series:
 - Part 7: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Grant database permissions
 - Part 8: [Manage Data Masking with Terraform](/tutorials/manage-data-masking-with-terraform) - Protect sensitive data
 
-<Card icon="code-xml" cta="View sample code" href="https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials">
-
-This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part and sub-step (e.g., `1-1-env-setting.tf`, `1-2-env-policy-rollout.tf` for Part 1, `2-instances.tf` for Part 2, etc.). Terraform automatically handles dependencies between files.
-
-</Card>
+<TerraformGitHubSample />
 
 ## What You'll Learn
 
