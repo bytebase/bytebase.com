@@ -57,7 +57,7 @@ quality and schema consistency before changes enter the approval workflow.
 
 Create `5-sql-review.tf` with the SQL review configuration:
 
-```hcl
+```hcl 5-sql-review.tf
 # SQL review configuration for production environment
 resource "bytebase_review_config" "sample" {
   depends_on = [

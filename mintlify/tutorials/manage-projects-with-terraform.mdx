@@ -50,7 +50,7 @@ Currently, these `hr_test` and `hr_prod` databases are in the default `Sample Pr
 
 Create `3-projects.tf`:
 
-```hcl
+```hcl 3-projects.tf
 # Project One - All test databases
 resource "bytebase_project" "project_one" {
   depends_on  = [bytebase_instance.test]

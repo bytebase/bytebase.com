@@ -85,7 +85,7 @@ Navigate to **Environments** in Bytebase. You'll see two default environments `T
 
    ![tf-use-provider](/content/docs/tutorials/manage-environments-with-terraform/tf-use-provider.webp)
 
-   ```hcl
+   ```hcl 0-provider.tf
    terraform {
       required_providers {
          bytebase = {
@@ -128,7 +128,7 @@ Before making changes, let's see what environments exist.
 
 Create `1-0-list-env.tf`:
 
-```hcl
+```hcl 1-0-list-env.tf
 # Read current environment settings from Bytebase
 data "bytebase_setting" "environments" {
    name = "settings/ENVIRONMENT"
@@ -151,11 +151,9 @@ You'll see the existing `test` and `prod` environments.
 
 ## Step 4 - Define Environment Configuration
 
-Now let's define our environments as code.
-
 Create `1-1-env-setting.tf`:
 
-```hcl
+```hcl 1-1-env-setting.tf
 # Define environments as Infrastructure as Code
 resource "bytebase_setting" "environments" {
    name = "settings/ENVIRONMENT"
@@ -187,7 +185,7 @@ Let's add rollout and data protection policies, you may find more details in [En
 
 Create `1-2-policy-rollout.tf`:
 
-```hcl
+```hcl 1-2-policy-rollout.tf
 # Test environment - automatic deployment
 resource "bytebase_policy" "rollout_policy_test" {
    depends_on = [bytebase_setting.environments]
@@ -229,7 +227,7 @@ resource "bytebase_policy" "rollout_policy_prod" {
 
 Create `1-3-policy-data.tf`:
 
-```hcl
+```hcl 1-3-policy-data.tf
 # Prevent copying data in SQL Editor from production
 resource "bytebase_policy" "disable_copy_data_policy_prod" {
    depends_on = [bytebase_setting.environments]

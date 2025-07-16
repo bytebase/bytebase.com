@@ -78,7 +78,7 @@ You can apply masking in two ways:
 
 Create `8-1-semantic-types.tf` to define masking algorithms:
 
-```hcl
+```hcl 8-1-semantic-types.tf
 resource "bytebase_setting" "semantic_types" {
   name = "settings/SEMANTIC_TYPES"
 
@@ -125,7 +125,7 @@ resource "bytebase_setting" "semantic_types" {
 
 Create `8-2-classification.tf` to organize data by sensitivity levels:
 
-```hcl
+```hcl 8-2-classification.tf
 resource "bytebase_setting" "classification" {
   name = "settings/DATA_CLASSIFICATION"
 
@@ -203,7 +203,7 @@ Now that you've defined your masking methods, apply them workspace-wide using a 
 
 Create `8-3-global-masking.tf` to apply workspace-wide masking rules:
 
-```hcl
+```hcl 8-3-global-masking.tf
 resource "bytebase_policy" "global_masking_policy" {
   depends_on = [
     bytebase_instance.prod,
@@ -262,7 +262,7 @@ Create `8-4-column-masking.tf` to apply masking to specific columns:
 - Column `from_date` is assigned the semantic type `date-year-mask`
 - Column `amount` is assigned the classification `2-1` (Employment info)
 
-```hcl
+```hcl 8-4-column-masking.tf
 resource "bytebase_database" "database" {
   depends_on = [
     bytebase_instance.prod,
@@ -321,7 +321,7 @@ Create `8-5-masking-exceptions.tf` to grant bypass permissions:
 - Workspace Admin (`admin@example.com`) has Masking Exemptions for `birth_date` in table `employee` for Query
 - Workspace Admin (`admin@example.com`) has Masking Exemptions for `last_name` in table `employee` for Export
 
-```hcl
+```hcl 8-5-masking-exceptions.tf
 resource "bytebase_policy" "masking_exception_policy" {
   depends_on = [
     bytebase_project.project-two,

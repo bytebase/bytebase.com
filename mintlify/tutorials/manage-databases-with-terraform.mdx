@@ -66,7 +66,7 @@ Bytebase sample data includes two sample PostgreSQL instances. Let's explore the
 
 Now let's import these instances into Terraform management. Create `2-instances.tf` with the following configuration:
 
-```hcl
+```hcl 2-instances.tf
 # Test Sample Instance - PostgreSQL on port 8083
 resource "bytebase_instance" "test" {
   depends_on  = [bytebase_setting.environments]

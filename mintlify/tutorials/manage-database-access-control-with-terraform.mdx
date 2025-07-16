@@ -63,7 +63,7 @@ Bytebase has a hierarchical IAM system:
 
 Create `7-1-workspace-iam.tf` with workspace-level permissions:
 
-```hcl
+```hcl 7-1-workspace-iam.tf
 resource "bytebase_iam_policy" "workspace_iam" {
   depends_on = [
     bytebase_user.workspace_admin,
@@ -139,7 +139,7 @@ terraform apply
 
 Create `7-2-project-iam.tf` for project-specific permissions:
 
-```hcl
+```hcl 7-2-project-iam.tf
 resource "bytebase_iam_policy" "project_iam" {
   depends_on = [
     bytebase_group.developers,

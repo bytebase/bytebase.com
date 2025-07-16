@@ -58,7 +58,7 @@ From the previous tutorials, you should have:
 
 Create `4-1-workspace-profile.tf` with the workspace profile settings:
 
-```hcl
+```hcl 4-1-workspace-profile.tf
 # Workspace profile configuration
 resource "bytebase_setting" "workspace_profile" {
   name = "settings/WORKSPACE_PROFILE"
@@ -82,7 +82,7 @@ This configuration:
 
 Create `4-2-risk.tf` with risk policies to assess the database operations' risk level:
 
-```hcl
+```hcl 4-2-risk.tf
 # Risk management policies
 resource "bytebase_risk" "dml_moderate" {
   title     = "DML Moderate Risk"
@@ -111,7 +111,7 @@ Risk levels:
 
 Create `4-3-approval-flow.tf` with approval flow configuration that requires multiple approvals for risky operations:
 
-```hcl
+```hcl 4-3-approval-flow.tf
 # Approval flow settings
 resource "bytebase_setting" "approval_flow" {
   name = "settings/WORKSPACE_APPROVAL"

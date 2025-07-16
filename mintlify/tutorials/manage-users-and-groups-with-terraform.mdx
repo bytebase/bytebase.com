@@ -62,7 +62,7 @@ Bytebase adopts Identity and Access Management (IAM) system with:
 
 Create `6-1-users.tf` to define your team structure:
 
-```hcl
+```hcl 6-1-users.tf
 # Workspace administrators
 resource "bytebase_user" "workspace_admin" {
   email = "admin@example.com"
@@ -141,7 +141,7 @@ Groups simplify permission management by allowing you to assign roles to multipl
 
 Add the following groups to your `6-2-groups.tf` file:
 
-```hcl
+```hcl 6-2-groups.tf
 # Create groups
 resource "bytebase_group" "developers" {
   email       = "developers@example.com"
