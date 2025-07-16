@@ -38,8 +38,6 @@ Bytebase provides the similar [self-service request workflow](https://docs.byteb
 
 ### Fine-grained database permissions
 
-<IncludeBlock url="/docs/share/database-permission-table"></IncludeBlock>
-
 Bytebase enables fine-grained database permissions, allowing you to grant developers only the `EXPLAIN` permission by default. In the event of an incident, developers can temporarily obtain elevated database permissions, which should be revoked promptly once the issue is resolved. This approach ensures **Zero Standing Privileges (ZSP)**, eliminating persistent access rights within the organization’s IT environment.
 
 ### Integrated SQL Editor
