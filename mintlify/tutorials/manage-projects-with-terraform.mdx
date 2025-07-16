@@ -44,7 +44,7 @@ From previous tutorials, you have:
 - **Test instance** with `hr_test` and `postgres` databases
 - **Prod instance** with `hr_prod` and `postgres` databases
 
-Currently, these `hr_test` and `hr_prod` databases are in the default `Sample Project`, while `postgres` databases are unassigned. You may view some in Bytebase by clicking **Databases** on the left sidebar. Let's organize them into new projects.
+Currently, these `hr_test` and `hr_prod` databases are in the default `Sample Project`, while `postgres` databases are unassigned. You can view them in Bytebase by clicking **Databases** on the left sidebar. Let's organize them into new projects.
 
 ## Step 2 - Create Projects
 
@@ -81,7 +81,7 @@ resource "bytebase_project" "project_two" {
    - Automatically includes all databases from an instance
    - Good for development/test environments
 
-2. **Explicit**: `databases = ["instances/.../databases/..."]`
+1. **Explicit**: `databases = ["instances/.../databases/..."]`
    - Manually specify each database
    - Better control for production
 
@@ -96,17 +96,17 @@ terraform apply
 
 1. Go to **Projects** in Bytebase.
 
-2. You'll see three projects:
+1. You'll see three projects:
 
    - **Sample Project** (original, now empty)
 
    - **Project One** (contains `hr_test` and `postgres` which are both from `Test Sample Instance`)
 
-   ![project-1](/content/docs/tutorials/manage-projects-with-terraform/bb-project-1.webp)
+     ![project-1](/content/docs/tutorials/manage-projects-with-terraform/bb-project-1.webp)
 
    - **Project Two** (contains `hr_prod` which is from `Prod Sample Instance`)
 
-   ![project-2](/content/docs/tutorials/manage-projects-with-terraform/bb-project-2.webp)
+     ![project-2](/content/docs/tutorials/manage-projects-with-terraform/bb-project-2.webp)
 
 ## Summary and Next Steps
 
@@ -117,9 +117,3 @@ You've successfully organized databases into projects! Key takeaways:
 - **Projects span environments**: can include both test and prod databases
 
 Continue with [Part 4: Manage Bytebase Settings with Terraform](/tutorials/manage-general-settings-with-terraform) to configure workspace-level settings.
-
-**Resources:**
-
-- [Tutorial files](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
-- [Advanced examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
-- [Discord community](https://discord.gg/huyw7gRsyA)
