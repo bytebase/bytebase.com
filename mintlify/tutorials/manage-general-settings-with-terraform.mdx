@@ -1,5 +1,5 @@
 ---
-title: Manage Bytebase Settings with Terraform
+title: Manage General Settings with Terraform
 author: Adela
 updated_at: 2025/07/10 21:15
 tags: Tutorial
@@ -25,19 +25,16 @@ This tutorial is part of the **Bytebase Terraform Provider** series:
 
 <TerraformGitHubSample />
 
+<Note>
+  This tutorial configures workspace-level settings that apply to all projects and environments in
+  your Bytebase instance.
+</Note>
+
 ## What You'll Learn
 
 - **Configure** workspace profile settings including signup controls and external URL
 - **Define** risk policies to automatically assess database operations
 - **Create** multi-step and risk-based approval flows for database changes
-
-## Prerequisites
-
-Before starting this tutorial, ensure you have:
-
-- Completed [Part 3: Manage Projects with Terraform](/tutorials/manage-projects-with-terraform)
-- Bytebase running with service account configured
-- Your Terraform files from the previous tutorials
 
 ## Setup
 
@@ -47,12 +44,7 @@ From the previous tutorials, you should have:
 - Service account with Workspace Admin role
 - Your Terraform files ready for additional configurations
 
-<Info>
-  This tutorial configures workspace-level settings that apply to all projects and environments in
-  your Bytebase instance.
-</Info>
-
-## Configure Bytebase Settings
+## Configure General Settings
 
 ### Step 1 - Workspace Profile Configuration
 
@@ -80,7 +72,7 @@ This configuration:
 
 ### Step 2 - Risk Management Policies
 
-Create `4-2-risk.tf` with risk policies that determine when approval flows are triggered:
+Create `4-2-risk.tf` with risk policies to assess the database operations' risk level:
 
 ```hcl
 # Risk management policies
@@ -103,6 +95,7 @@ resource "bytebase_risk" "ddl_high" {
 
 Risk levels:
 
+- **100 (LOW)**.
 - **200 (MODERATE)**: DML operations in production affecting 100+ rows
 - **300 (HIGH)**: All DDL operations in production
 
@@ -164,7 +157,7 @@ terraform apply
 
    ![risks](/content/docs/tutorials/manage-general-settings-with-terraform/bb-risks.webp)
 
-2. You should see both "DML Moderate Risk" and "DDL High Risk" policies active.
+1. You should see both "DML Moderate Risk" and "DDL High Risk" policies active.
 
 #### Approval Flows
 
@@ -172,13 +165,13 @@ terraform apply
 
    ![custom-approval](/content/docs/tutorials/manage-general-settings-with-terraform/bb-custom-approval.webp)
 
-2. Verify the `Project Owner → DBA → Admin` flow is configured.
+1. Verify the `Project Owner → DBA → Admin` flow is configured.
 
 #### Test the Flow
 
 1. Go to `Project Two`, click **Database > Databases** on the left sidebar.
-2. Check `hr_prod`, click **Edit Schema**, add a new table `t0`.
-3. After creating the issue, you should see:
+1. Check `hr_prod`, click **Edit Schema**, add a new table `t0`.
+1. After creating the issue, you should see:
 
    - Risk level: `DDL High`
    - Approval flow: `Project Owner → DBA → Admin`
@@ -200,10 +193,4 @@ terraform apply
 
 ## Next Steps
 
-**Continue the series:** [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - set up SQL review policies.
-
-**Resources:**
-
-- [Tutorial files](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
-- [Advanced examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
-- [Discord community](https://discord.gg/huyw7gRsyA)
+Let's continue with [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - set up SQL review policies.
