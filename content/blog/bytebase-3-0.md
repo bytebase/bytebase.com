@@ -22,7 +22,7 @@ Security is fundamental to database operations. Unfortunately, many standard sol
 
 ![trolley-problem](/content/blog/bytebase-3-0/trolley-problem.webp)
 
-Bytebase provides a collaboration workspace for developers, DBAs, and security engineers to handle human-to-db database operations:
+Bytebase provides a point-and-click collaboration workspace for developers, DBAs, and security engineers to handle human-to-db database operations:
 
 1. Schema migration.
 1. One-off, ad-hoc change.
