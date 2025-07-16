@@ -12,10 +12,10 @@ estimated_time: '30 mins'
 
 This tutorial is part of the **Bytebase Terraform Provider** series:
 
-- Part 1: [Manage Environments with Terraform](/tutorials/manage-environments-in-bytebase-with-terraform) - Set up environments with policies
-- Part 2: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Register database instances
-- Part 3: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
-- Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace profile and approval policies
+- Part 1: [Manage Environments with Terraform](/tutorials/manage-environments-with-terraform) - Set up environments with policies
+- Part 2: [Manage Databases with Terraform](/tutorials/manage-databases-with-terraform) - Register database instances
+- Part 3: [Manage Projects with Terraform](/tutorials/manage-projects-with-terraform) - Organize databases into projects
+- Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-general-settings-with-terraform) - Configure workspace profile and approval policies
 - Part 5: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Define SQL review policies
 - Part 6: [Manage Users and Groups with Terraform](/tutorials/manage-users-and-groups-with-terraform) - Set up dummy users and groups
 - 👉 Part 7: Manage Database Access Control with Terraform - Define permissions
@@ -56,10 +56,9 @@ From the previous tutorials, you should have:
 ## Understanding IAM in Bytebase
 
 <Info>
-Bytebase has a hierarchical IAM system:
-- **Workspace Level**: Permissions apply to the entire workspace
-- **Project Level**: Permissions apply to specific projects only
-- **Conditional Access**: Fine-grained permissions for specific databases, schemas, and tables
+  Bytebase has a hierarchical IAM system: - **Workspace Level**: Permissions apply to the entire
+  workspace - **Project Level**: Permissions apply to specific projects only - **Conditional
+  Access**: Fine-grained permissions for specific databases, schemas, and tables
 </Info>
 
 ## Configure Access Control
@@ -201,6 +200,7 @@ terraform apply
 #### Project One Members
 
 1. Go to **Project One** > **Manage > Members**:
+
    - `QA Team`: `Project Viewer` (inherited from workspace)
    - Te`rraform Service Account`: `Project Owner` (as creator)
 
@@ -209,6 +209,7 @@ terraform apply
 #### Project Two Members
 
 1. Go to **Project Two** > **Manage > Members**:
+
    - `QA Team`: `Project Viewer`(inherited from workspace)
    - `DBA users`: `Project Owner`
    - `All users` + `Developer Team`: `Project Developer`
@@ -244,6 +245,7 @@ Test the access control configuration by logging in as different users:
 1. Navigate to **SQL Editor**.
 2. Connect to `Prod > Prod Sample Instance > hr_prod`.
 3. Test table access:
+
    - ✅ Query `employee` table - Should work
    - ✅ Query `salary` table - Should work
    - ❌ Query `department` table - Should fail with permission error

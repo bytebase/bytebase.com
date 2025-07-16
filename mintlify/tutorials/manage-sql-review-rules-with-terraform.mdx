@@ -12,10 +12,10 @@ estimated_time: '20 mins'
 
 This tutorial is part of the **Bytebase Terraform Provider** series:
 
-- Part 1: [Manage Environments with Terraform](/tutorials/manage-environments-in-bytebase-with-terraform) - Set up environments with policies
-- Part 2: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Register database instances
-- Part 3: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
-- Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace profile and approval policies
+- Part 1: [Manage Environments with Terraform](/tutorials/manage-environments-with-terraform) - Set up environments with policies
+- Part 2: [Manage Databases with Terraform](/tutorials/manage-databases-with-terraform) - Register database instances
+- Part 3: [Manage Projects with Terraform](/tutorials/manage-projects-with-terraform) - Organize databases into projects
+- Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-general-settings-with-terraform) - Configure workspace profile and approval policies
 - 👉 Part 5: Manage SQL Review Rules with Terraform - Define SQL review policies
 - Part 6: [Manage Users and Groups with Terraform](/tutorials/manage-users-and-groups-with-terraform) - Set up dummy users and groups
 - Part 7: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Define permissions
@@ -38,7 +38,7 @@ This tutorial series uses separate Terraform files for better organization. File
 
 Before starting this tutorial, ensure you have:
 
-- Completed [Part 4: Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform)
+- Completed [Part 4: Manage Bytebase Settings with Terraform](/tutorials/manage-general-settings-with-terraform)
 - Bytebase running with service account configured
 - Your Terraform files from the previous tutorials
 
@@ -53,7 +53,8 @@ From the previous tutorials, you should have:
 ## Configure SQL Review Rules
 
 <Info>
-SQL Review rules automatically validate SQL statements against predefined standards, ensuring code quality and schema consistency before changes enter the approval workflow.
+  SQL Review rules automatically validate SQL statements against predefined standards, ensuring code
+  quality and schema consistency before changes enter the approval workflow.
 </Info>
 
 ### Step 1 - Create Review Configuration
@@ -70,7 +71,7 @@ resource "bytebase_review_config" "sample" {
   resource_id = "review-config-sample"
   title       = "Sample SQL Review Config"
   enabled     = true
-  
+
   # Apply to production environment only
   resources = toset([
     bytebase_setting.environments.environment_setting[0].environment[1].name
@@ -162,46 +163,46 @@ Create a test SQL statement to see the review in action:
 1. Check `hr_prod` and click **Edit Schema**.
 1. Try creating a table that violates the rules:
 
-    ```sql
-    -- This will trigger multiple violations
-    CREATE TABLE BadExample (
-        FirstName VARCHAR(50),  -- Violates naming convention
-        LastName VARCHAR(50)    -- Missing required columns, no primary key
-    );
-    ```
+   ```sql
+   -- This will trigger multiple violations
+   CREATE TABLE BadExample (
+       FirstName VARCHAR(50),  -- Violates naming convention
+       LastName VARCHAR(50)    -- Missing required columns, no primary key
+   );
+   ```
 
-    Expected violations:
+   Expected violations:
 
-    - ❌ Column naming convention (should be first_name)
-    - ❌ Missing required columns (id, created_ts, etc.)
-    - ❌ No primary key defined
+   - ❌ Column naming convention (should be first_name)
+   - ❌ Missing required columns (id, created_ts, etc.)
+   - ❌ No primary key defined
 
-    ![sql-review-violations](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-sql-review-violations.webp)
+   ![sql-review-violations](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-sql-review-violations.webp)
 
 1. Even if you continue to create an issue, it will still show red SQL Review.
 
-    ![issue-sql-review-errors](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-issue-sql-review-errors.webp)
+   ![issue-sql-review-errors](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-issue-sql-review-errors.webp)
 
 1. Try a compliant table:
 
-    ```sql
-    -- This follows all rules
-    CREATE TABLE good_example (
-        id SERIAL PRIMARY KEY,
-        first_name VARCHAR(50) NOT NULL,
-        last_name VARCHAR(50) NOT NULL,
-        created_ts TIMESTAMP NOT NULL DEFAULT NOW(),
-        updated_ts TIMESTAMP NOT NULL DEFAULT NOW(),
-        creator_id INTEGER NOT NULL,
-        updater_id INTEGER NOT NULL
-    );
-    ```
+   ```sql
+   -- This follows all rules
+   CREATE TABLE good_example (
+       id SERIAL PRIMARY KEY,
+       first_name VARCHAR(50) NOT NULL,
+       last_name VARCHAR(50) NOT NULL,
+       created_ts TIMESTAMP NOT NULL DEFAULT NOW(),
+       updated_ts TIMESTAMP NOT NULL DEFAULT NOW(),
+       creator_id INTEGER NOT NULL,
+       updater_id INTEGER NOT NULL
+   );
+   ```
 
-    Expected result:
+   Expected result:
 
-    - ✅ All required rules pass
+   - ✅ All required rules pass
 
-    ![issue-sql-review-pass](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-issue-sql-review-pass.webp)
+   ![issue-sql-review-pass](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-issue-sql-review-pass.webp)
 
 ## Advanced Configuration
 
@@ -238,7 +239,7 @@ rules {
 
 ## Key Points
 
-- **Rule Levels**: 
+- **Rule Levels**:
   - `ERROR`: Blocks the SQL statement from being executed
   - `WARNING`: Allows execution but notifies users of potential issues
 - **Engine Specific**: Rules can target specific database engines (PostgreSQL, MySQL, etc.)

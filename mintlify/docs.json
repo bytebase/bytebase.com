@@ -303,10 +303,10 @@
           {
             "group": "Terraform",
             "pages": [
-              "tutorials/manage-environments-in-bytebase-with-terraform",
-              "tutorials/manage-databases-in-bytebase-with-terraform",
-              "tutorials/manage-projects-in-bytebase-with-terraform",
-              "tutorials/manage-bytebase-settings-with-terraform",
+              "tutorials/manage-environments-with-terraform",
+              "tutorials/manage-databases-with-terraform",
+              "tutorials/manage-projects-with-terraform",
+              "tutorials/manage-general-settings-with-terraform",
               "tutorials/manage-sql-review-rules-with-terraform",
               "tutorials/manage-users-and-groups-with-terraform",
               "tutorials/manage-database-access-control-with-terraform",

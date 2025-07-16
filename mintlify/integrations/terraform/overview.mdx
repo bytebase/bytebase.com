@@ -41,17 +41,22 @@ After creating the service account, you can copy the service key as `service_key
 <Columns cols={3}>
   <Card
     horizontal
+    icon="earth"
+    title="Environment"
+    href="/tutorials/manage-environments-with-terraform"
+  ></Card>
+  <Card
+    horizontal
     icon="database"
     title="Database"
-    href="/tutorials/manage-databases-in-bytebase-with-terraform"
+    href="/tutorials/manage-databases-with-terraform"
   ></Card>
   <Card
     horizontal
     icon="folder"
     title="Project"
-    href="/tutorials/manage-projects-in-bytebase-with-terraform"
+    href="/tutorials/manage-projects-with-terraform"
   ></Card>
-  <Card horizontal icon="earth" title="Environment (Coming soon)"></Card>
 </Columns>
 
 ### Access Control
@@ -59,8 +64,14 @@ After creating the service account, you can copy the service key as `service_key
 <Columns cols={3}>
   <Card
     horizontal
+    icon="users"
+    title="User & Group"
+    href="/tutorials/manage-users-and-groups-with-terraform"
+  ></Card>
+  <Card
+    horizontal
     icon="lock"
-    title="IAM Policy"
+    title="IAM Policy 👈"
     href="/tutorials/manage-database-access-control-with-terraform"
   ></Card>
   <Card
@@ -69,7 +80,6 @@ After creating the service account, you can copy the service key as `service_key
     title="Data Masking"
     href="/tutorials/manage-database-access-control-with-terraform"
   ></Card>
-  <Card horizontal icon="users" title="User & Group (Coming soon)"></Card>
 </Columns>
 
 ### Workspace Settings
@@ -79,7 +89,7 @@ After creating the service account, you can copy the service key as `service_key
     horizontal
     icon="settings"
     title="General & Approval Flow"
-    href="/tutorials/manage-bytebase-settings-with-terraform"
+    href="/tutorials/manage-general-settings-with-terraform"
   ></Card>
   <Card
     horizontal

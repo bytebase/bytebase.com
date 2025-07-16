@@ -14,10 +14,10 @@ import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volum
 
 This tutorial is part of the **Bytebase Terraform Provider** series:
 
-- Part 1: [Manage Environments with Terraform](/tutorials/manage-environments-in-bytebase-with-terraform) - Set up environments with policies
+- Part 1: [Manage Environments with Terraform](/tutorials/manage-environments-with-terraform) - Set up environments with policies
 - 👉 Part 2: Manage Databases with Terraform - Register database instances
-- Part 3: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
-- Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace profile and approval policies
+- Part 3: [Manage Projects with Terraform](/tutorials/manage-projects-with-terraform) - Organize databases into projects
+- Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-general-settings-with-terraform) - Configure workspace profile and approval policies
 - Part 5: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Define SQL review policies
 - Part 6: [Manage Users and Groups with Terraform](/tutorials/manage-users-and-groups-with-terraform) - Set up dummy users and groups
 - Part 7: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Define permissions
@@ -37,7 +37,7 @@ Register database instances in Bytebase using Terraform.
 
 Before starting this tutorial, ensure you have:
 
-- **Completed [Part 1](/tutorials/manage-environments-in-bytebase-with-terraform)**: Environments configured
+- **Completed [Part 1](/tutorials/manage-environments-with-terraform)**: Environments configured
 - **Bytebase running**: With built-in sample data
 - **Service account**: Already created from Part 1
 - **Terraform initialized**: From Part 1
@@ -53,7 +53,7 @@ Due to the built-in sample data configuration from Part 1, Bytebase comes with t
 
 2. Click **+Add Instance**, you may add more database instances.
 
-   ![add-instance](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-instance.webp)
+   ![add-instance](/content/docs/tutorials/manage-databases-with-terraform/bb-add-instance.webp)
 
 3. Click **Projects** on the left sidebar to see the `Sample Project`, then click it. You'll see:
 
@@ -62,7 +62,7 @@ Due to the built-in sample data configuration from Part 1, Bytebase comes with t
 
 4. Click **+ New DB**, you may create more databases on the existing instances.
 
-   ![add-db](/content/docs/tutorials/manage-databases-in-bytebase-with-terraform/bb-add-db.webp)
+   ![add-db](/content/docs/tutorials/manage-databases-with-terraform/bb-add-db.webp)
 
 ## Step 2 - Register Instances with Terraform
 
@@ -149,7 +149,7 @@ You've successfully registered database instances with Terraform! You now have:
 - **Connection settings** configured
 - **Infrastructure as Code** for your database instances
 
-Continue with [Part 3: Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) to organize your databases into projects.
+Continue with [Part 3: Manage Projects with Terraform](/tutorials/manage-projects-with-terraform) to organize your databases into projects.
 
 **Resources:**
 

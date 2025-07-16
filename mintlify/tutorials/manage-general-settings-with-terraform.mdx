@@ -12,9 +12,9 @@ estimated_time: '25 mins'
 
 This tutorial is part of the **Bytebase Terraform Provider** series:
 
-- Part 1: [Manage Environments with Terraform](/tutorials/manage-environments-in-bytebase-with-terraform) - Set up environments with policies
-- Part 2: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Register database instances
-- Part 3: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
+- Part 1: [Manage Environments with Terraform](/tutorials/manage-environments-with-terraform) - Set up environments with policies
+- Part 2: [Manage Databases with Terraform](/tutorials/manage-databases-with-terraform) - Register database instances
+- Part 3: [Manage Projects with Terraform](/tutorials/manage-projects-with-terraform) - Organize databases into projects
 - 👉 Part 4: Manage Bytebase Settings with Terraform - Configure workspace profile and approval policies
 - Part 5: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Define SQL review policies
 - Part 6: [Manage Users and Groups with Terraform](/tutorials/manage-users-and-groups-with-terraform) - Set up dummy users and groups
@@ -37,7 +37,7 @@ This tutorial series uses separate Terraform files for better organization. File
 
 Before starting this tutorial, ensure you have:
 
-- Completed [Part 3: Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform)
+- Completed [Part 3: Manage Projects with Terraform](/tutorials/manage-projects-with-terraform)
 - Bytebase running with service account configured
 - Your Terraform files from the previous tutorials
 
@@ -50,7 +50,8 @@ From the previous tutorials, you should have:
 - Your Terraform files ready for additional configurations
 
 <Info>
-This tutorial configures workspace-level settings that apply to all projects and environments in your Bytebase instance.
+  This tutorial configures workspace-level settings that apply to all projects and environments in
+  your Bytebase instance.
 </Info>
 
 ## Configure Bytebase Settings
@@ -163,7 +164,7 @@ terraform apply
 
 1. Go to **CI/CD > Risk Center** to view risk policies.
 
-   ![risks](/content/docs/tutorials/manage-bytebase-settings-with-terraform/bb-risks.webp)
+   ![risks](/content/docs/tutorials/manage-general-settings-with-terraform/bb-risks.webp)
 
 2. You should see both "DML Moderate Risk" and "DDL High Risk" policies active.
 
@@ -171,7 +172,7 @@ terraform apply
 
 1. Go to **CI/CD > Custom Approval** to see the approval flow.
 
-   ![custom-approval](/content/docs/tutorials/manage-bytebase-settings-with-terraform/bb-custom-approval.webp)
+   ![custom-approval](/content/docs/tutorials/manage-general-settings-with-terraform/bb-custom-approval.webp)
 
 2. Verify the `Project Owner → DBA → Admin` flow is configured.
 
@@ -180,10 +181,11 @@ terraform apply
 1. Go to `Project Two`, click **Database > Databases** on the left sidebar.
 2. Check `hr_prod`, click **Edit Schema**, add a new table `t0`.
 3. After creating the issue, you should see:
+
    - Risk level: `DDL High`
    - Approval flow: `Project Owner → DBA → Admin`
 
-   ![issue-risk-high](/content/docs/tutorials/manage-bytebase-settings-with-terraform/bb-issue-risk-high.webp)
+   ![issue-risk-high](/content/docs/tutorials/manage-general-settings-with-terraform/bb-issue-risk-high.webp)
 
 ## Key Points
 
@@ -193,7 +195,9 @@ terraform apply
 - **Integration**: Risk policies and approval flows work together to ensure proper governance for database changes
 
 <Tip>
-You can configure additional [settings](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/setting) such as classification and semantic_types. These will be covered in upcoming tutorials.
+  You can configure additional
+  [settings](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/setting)
+  such as classification and semantic_types. These will be covered in upcoming tutorials.
 </Tip>
 
 ## Next Steps

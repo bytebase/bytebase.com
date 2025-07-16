@@ -16,7 +16,6 @@ const tutorialRedirects = [
   'database-cicd-best-practice-with-github',
   'database-cicd-best-practice-with-gitlab',
   'how-to-integrate-sql-review-into-gitlab-github-ci',
-  'manage-databases-in-bytebase-with-terraform',
 ];
 
 module.exports = {

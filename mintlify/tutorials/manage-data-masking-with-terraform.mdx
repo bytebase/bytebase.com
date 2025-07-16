@@ -12,10 +12,10 @@ estimated_time: '30 mins'
 
 This tutorial is part of the **Bytebase Terraform Provider** series:
 
-- Part 1: [Manage Environments with Terraform](/tutorials/manage-environments-in-bytebase-with-terraform) - Set up environments with policies
-- Part 2: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Register database instances
-- Part 3: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
-- Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace profile and approval policies
+- Part 1: [Manage Environments with Terraform](/tutorials/manage-environments-with-terraform) - Set up environments with policies
+- Part 2: [Manage Databases with Terraform](/tutorials/manage-databases-with-terraform) - Register database instances
+- Part 3: [Manage Projects with Terraform](/tutorials/manage-projects-with-terraform) - Organize databases into projects
+- Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-general-settings-with-terraform) - Configure workspace profile and approval policies
 - Part 5: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Define SQL review policies
 - Part 6: [Manage Users and Groups with Terraform](/tutorials/manage-users-and-groups-with-terraform) - Set up dummy users and groups
 - Part 7: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Define permissions
@@ -62,13 +62,14 @@ Bytebase uses two concepts for data masking:
 You can apply masking in two ways:
 
 1. **Global masking rules**: Define workspace-wide rules that map to semantic types
+
    - Match by column names or patterns → semantic type
    - Match by classification levels → semantic type
 
 1. **Column-level masking**: Apply directly to specific columns
    - Assign semantic types directly to columns
    - Assign classifications to columns (which then use semantic types via global rules)
-</Info>
+     </Info>
 
 ## Step 1: Define Semantic Types
 
@@ -193,7 +194,8 @@ Verify in Bytebase:
 Now that you've defined your masking methods, apply them workspace-wide using a global policy.
 
 <Info>
-Classification levels must be mapped to semantic types to perform actual masking. Classification defines the sensitivity level, while semantic types define the masking algorithm.
+  Classification levels must be mapped to semantic types to perform actual masking. Classification
+  defines the sensitivity level, while semantic types define the masking algorithm.
 </Info>
 
 Create `8-3-global-masking.tf` to apply workspace-wide masking rules:
@@ -299,6 +301,7 @@ Verify in Bytebase:
 
 1. Go into **Project Two**, then click **Database > Databases** and click **hr_prod**.
 1. Scroll down to find `salary` table, click it. You should see:
+
    - `amount` is assigned as `Employment info` (Level 2) **classification**
    - `from_date` is assigned as `date-year-mask` **semantic type**
 
@@ -387,10 +390,10 @@ Verify the masking exceptions are working:
 This tutorial demonstrated how to implement comprehensive data masking in Bytebase using Terraform. Here are the key concepts:
 
 <Info>
-**Critical Relationship**: Classifications MUST be mapped to semantic types for masking to work.
-- Classifications define sensitivity levels (Level 1, Level 2, etc.) but cannot mask data by themselves
-- Semantic types define the actual masking algorithms (full-mask, range-mask, etc.)
-- You must map classifications to semantic types for masking to occur (e.g., Level 2 → full-mask)
+  **Critical Relationship**: Classifications MUST be mapped to semantic types for masking to work. -
+  Classifications define sensitivity levels (Level 1, Level 2, etc.) but cannot mask data by
+  themselves - Semantic types define the actual masking algorithms (full-mask, range-mask, etc.) -
+  You must map classifications to semantic types for masking to occur (e.g., Level 2 → full-mask)
 </Info>
 
 ### Configuration Options

@@ -12,10 +12,10 @@ estimated_time: '30 mins'
 
 This tutorial is part of the **Bytebase Terraform Provider** series:
 
-- Part 1: [Manage Environments with Terraform](/tutorials/manage-environments-in-bytebase-with-terraform) - Set up environments with policies
-- Part 2: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Register database instances
-- Part 3: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
-- Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace profile and approval policies
+- Part 1: [Manage Environments with Terraform](/tutorials/manage-environments-with-terraform) - Set up environments with policies
+- Part 2: [Manage Databases with Terraform](/tutorials/manage-databases-with-terraform) - Register database instances
+- Part 3: [Manage Projects with Terraform](/tutorials/manage-projects-with-terraform) - Organize databases into projects
+- Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-general-settings-with-terraform) - Configure workspace profile and approval policies
 - Part 5: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Define SQL review policies
 - 👉 Part 6: Manage Users and Groups with Terraform - Set up dummy users and groups
 - Part 7: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Define permissions
@@ -53,10 +53,9 @@ From the previous tutorials, you should have:
 ## Understanding User Management in Bytebase
 
 <Info>
-Bytebase uses an Identity and Access Management (IAM) system with:
-- **Users**: Individual accounts for team members
-- **Service Accounts**: Automated accounts for API/Terraform access
-- **Groups**: Collections of users for easier permission management
+  Bytebase uses an Identity and Access Management (IAM) system with: - **Users**: Individual
+  accounts for team members - **Service Accounts**: Automated accounts for API/Terraform access -
+  **Groups**: Collections of users for easier permission management
 </Info>
 
 ## Configure Users and Groups
@@ -138,7 +137,8 @@ terraform apply
 Groups simplify permission management by allowing you to assign roles to multiple users at once.
 
 <Tip>
-Each group has an owner who can manage group membership. Regular members inherit permissions assigned to the group.
+  Each group has an owner who can manage group membership. Regular members inherit permissions
+  assigned to the group.
 </Tip>
 
 Add the following groups to your `6-2-groups.tf` file:
@@ -197,6 +197,7 @@ terraform apply
    ![users](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-users.webp)
 
 2. Click the **Groups** tab to verify groups:
+
    - **Developer Team**: 3 members (dev1 as owner, dev2 and dev3 as members)
    - **QA Team**: 2 members (qa1 as owner, qa2 as member)
 

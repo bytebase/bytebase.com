@@ -12,10 +12,10 @@ estimated_time: '15 mins'
 
 This tutorial is part of the **Bytebase Terraform Provider** series:
 
-- Part 1: [Manage Environments with Terraform](/tutorials/manage-environments-in-bytebase-with-terraform) - Set up environments with policies
-- Part 2: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Register database instances
+- Part 1: [Manage Environments with Terraform](/tutorials/manage-environments-with-terraform) - Set up environments with policies
+- Part 2: [Manage Databases with Terraform](/tutorials/manage-databases-with-terraform) - Register database instances
 - 👉 Part 3: Manage Projects with Terraform - Organize databases into projects
-- Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace profile and approval policies
+- Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-general-settings-with-terraform) - Configure workspace profile and approval policies
 - Part 5: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Define SQL review policies
 - Part 6: [Manage Users and Groups with Terraform](/tutorials/manage-users-and-groups-with-terraform) - Set up dummy users and groups
 - Part 7: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Define permissions
@@ -58,7 +58,7 @@ resource "bytebase_project" "project_one" {
   depends_on  = [bytebase_instance.test]
   resource_id = "project-one"
   title       = "Project One"
-  
+
   # Automatically include all databases from test instance
   databases = bytebase_instance.test.databases
 }
@@ -68,7 +68,7 @@ resource "bytebase_project" "project_two" {
   depends_on  = [bytebase_instance.prod]
   resource_id = "project-two"
   title       = "Project Two"
-  
+
   # Explicitly specify which database to include
   databases = [
     "instances/prod-sample-instance/databases/hr_prod"
@@ -79,6 +79,7 @@ resource "bytebase_project" "project_two" {
 ### Two Assignment Patterns
 
 1. **Dynamic**: `databases = bytebase_instance.test.databases`
+
    - Automatically includes all databases from an instance
    - Good for development/test environments
 
@@ -103,11 +104,11 @@ terraform apply
 
    - **Project One** (contains `hr_test` and `postgres` which are both from `Test Sample Instance`)
 
-    ![project-1](/content/docs/tutorials/manage-projects-in-bytebase-with-terraform/bb-project-1.webp)
-  
+   ![project-1](/content/docs/tutorials/manage-projects-with-terraform/bb-project-1.webp)
+
    - **Project Two** (contains `hr_prod` which is from `Prod Sample Instance`)
-  
-    ![project-2](/content/docs/tutorials/manage-projects-in-bytebase-with-terraform/bb-project-2.webp)
+
+   ![project-2](/content/docs/tutorials/manage-projects-with-terraform/bb-project-2.webp)
 
 ## Summary and Next Steps
 
@@ -117,7 +118,7 @@ You've successfully organized databases into projects! Key takeaways:
 - **Two assignment patterns**: dynamic (all databases) or explicit (specific databases)
 - **Projects span environments**: can include both test and prod databases
 
-Continue with [Part 4: Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) to configure workspace-level settings.
+Continue with [Part 4: Manage Bytebase Settings with Terraform](/tutorials/manage-general-settings-with-terraform) to configure workspace-level settings.
 
 **Resources:**
 

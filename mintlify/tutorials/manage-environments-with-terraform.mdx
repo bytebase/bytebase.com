@@ -15,9 +15,9 @@ import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volum
 This tutorial is part of the **Bytebase Terraform Provider** series:
 
 - 👉 Part 1: Manage Environments with Terraform - Set up environments with policies
-- Part 2: [Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) - Register database instances
-- Part 3: [Manage Projects with Terraform](/tutorials/manage-projects-in-bytebase-with-terraform) - Organize databases into projects
-- Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-bytebase-settings-with-terraform) - Configure workspace profile and approval policies
+- Part 2: [Manage Databases with Terraform](/tutorials/manage-databases-with-terraform) - Register database instances
+- Part 3: [Manage Projects with Terraform](/tutorials/manage-projects-with-terraform) - Organize databases into projects
+- Part 4: [Manage Bytebase Settings with Terraform](/tutorials/manage-general-settings-with-terraform) - Configure workspace profile and approval policies
 - Part 5: [Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform) - Define SQL review policies
 - Part 6: [Manage Users and Groups with Terraform](/tutorials/manage-users-and-groups-with-terraform) - Set up dummy users and groups
 - Part 7: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Define permissions
@@ -134,24 +134,24 @@ Before making changes, let's see what environments exist.
 
 Create `1-0-list-env.tf`:
 
-   ```hcl
-   # Read current environment settings from Bytebase
-   data "bytebase_setting" "environments" {
-   name = "settings/ENVIRONMENT"
-   }
+```hcl
+# Read current environment settings from Bytebase
+data "bytebase_setting" "environments" {
+name = "settings/ENVIRONMENT"
+}
 
-   # Display all environments
-   output "all_environments" {
-   value = data.bytebase_setting.environments
-   }
-   ```
+# Display all environments
+output "all_environments" {
+value = data.bytebase_setting.environments
+}
+```
 
 Run these commands:
 
-   ```bash
-   terraform plan
-   terraform apply
-   ```
+```bash
+terraform plan
+terraform apply
+```
 
 You'll see the existing `test` and `prod` environments.
 
@@ -161,28 +161,28 @@ Now let's define our environments as code.
 
 Create `1-1-env-setting.tf`:
 
-   ```hcl
-   # Define environments as Infrastructure as Code
-   resource "bytebase_setting" "environments" {
-   name = "settings/ENVIRONMENT"
+```hcl
+# Define environments as Infrastructure as Code
+resource "bytebase_setting" "environments" {
+name = "settings/ENVIRONMENT"
 
-   environment_setting {
-      # Test environment - for development
-      environment {
-         id        = "test"
-         title     = "Test"
-         protected = false  
-      }
-      
-      # Production environment - needs protection
-      environment {
-         id        = "prod"
-         title     = "Prod"
-         protected = true   
-      }
+environment_setting {
+   # Test environment - for development
+   environment {
+      id        = "test"
+      title     = "Test"
+      protected = false
    }
+
+   # Production environment - needs protection
+   environment {
+      id        = "prod"
+      title     = "Prod"
+      protected = true
    }
-   ```
+}
+}
+```
 
 - Once you mark an environment as `protected`, Bytebase will attach a shield icon 🛡️ besides the environment name.
 
@@ -194,41 +194,41 @@ Let's add deployment and data protection policies, you may find more details in 
 
 Create `1-2-policy-rollout.tf`:
 
-   ```hcl
-   # Test environment - automatic deployment
-   resource "bytebase_policy" "rollout_policy_test" {
-   depends_on = [bytebase_setting.environments]
-   parent     = bytebase_setting.environments.environment_setting[0].environment[0].name
-   type       = "ROLLOUT_POLICY"
+```hcl
+# Test environment - automatic deployment
+resource "bytebase_policy" "rollout_policy_test" {
+depends_on = [bytebase_setting.environments]
+parent     = bytebase_setting.environments.environment_setting[0].environment[0].name
+type       = "ROLLOUT_POLICY"
 
-   rollout_policy {
-      automatic = true  # Deploy changes automatically
-      roles = [
-         "roles/workspaceAdmin",
-         "roles/projectOwner",
-         "roles/LAST_APPROVER",
-         "roles/CREATOR"
-      ]
-   }
-   }
+rollout_policy {
+   automatic = true  # Deploy changes automatically
+   roles = [
+      "roles/workspaceAdmin",
+      "roles/projectOwner",
+      "roles/LAST_APPROVER",
+      "roles/CREATOR"
+   ]
+}
+}
 
-   # Production - manual deployment required
-   resource "bytebase_policy" "rollout_policy_prod" {
-   depends_on = [bytebase_setting.environments]
-   parent     = bytebase_setting.environments.environment_setting[0].environment[1].name
-   type       = "ROLLOUT_POLICY"
+# Production - manual deployment required
+resource "bytebase_policy" "rollout_policy_prod" {
+depends_on = [bytebase_setting.environments]
+parent     = bytebase_setting.environments.environment_setting[0].environment[1].name
+type       = "ROLLOUT_POLICY"
 
-   rollout_policy {
-      automatic = false  # Require manual deployment
-      roles = [
-         "roles/workspaceAdmin",
-         "roles/projectOwner",
-         "roles/LAST_APPROVER",
-         "roles/CREATOR"
-      ]
-   }
-   }
-   ```
+rollout_policy {
+   automatic = false  # Require manual deployment
+   roles = [
+      "roles/workspaceAdmin",
+      "roles/projectOwner",
+      "roles/LAST_APPROVER",
+      "roles/CREATOR"
+   ]
+}
+}
+```
 
 - `roles` is the list of roles that are allowed to click **Roll out** the changes to the environment. Even automatic rollout is enabled, manual approval is still needed while there is any automatic check failure.
 
@@ -236,31 +236,31 @@ Create `1-2-policy-rollout.tf`:
 
 Create `1-3-policy-data.tf`:
 
-   ```hcl
-   # Prevent data export from production
-   resource "bytebase_policy" "disable_copy_data_policy_prod" {
-   depends_on = [bytebase_setting.environments]
-   parent     = bytebase_setting.environments.environment_setting[0].environment[1].name
-   type       = "DISABLE_COPY_DATA"
+```hcl
+# Prevent data export from production
+resource "bytebase_policy" "disable_copy_data_policy_prod" {
+depends_on = [bytebase_setting.environments]
+parent     = bytebase_setting.environments.environment_setting[0].environment[1].name
+type       = "DISABLE_COPY_DATA"
 
-   disable_copy_data_policy {
-      enable = true  # Block data exports
-   }
-   }
+disable_copy_data_policy {
+   enable = true  # Block data exports
+}
+}
 
-   # Restrict SQL queries in production
-   resource "bytebase_policy" "data_source_query_policy_prod" {
-   depends_on = [bytebase_setting.environments]
-   parent     = bytebase_setting.environments.environment_setting[0].environment[1].name
-   type       = "DATA_SOURCE_QUERY"
+# Restrict SQL queries in production
+resource "bytebase_policy" "data_source_query_policy_prod" {
+depends_on = [bytebase_setting.environments]
+parent     = bytebase_setting.environments.environment_setting[0].environment[1].name
+type       = "DATA_SOURCE_QUERY"
 
-   data_source_query_policy {
-      restriction  = "RESTRICTION_UNSPECIFIED" 
-      disallow_ddl = true  # No schema changes via SQL Editor
-      disallow_dml = true  # No data changes via SQL Editor
-   }
-   }
-   ```
+data_source_query_policy {
+   restriction  = "RESTRICTION_UNSPECIFIED"
+   disallow_ddl = true  # No schema changes via SQL Editor
+   disallow_dml = true  # No data changes via SQL Editor
+}
+}
+```
 
 - Here data protection policy is only applied to the `Prod` environment. Which means in `Test` environment, by default, users may execute DDL and DML statements or copy data directly in SQL Editor.
 
@@ -274,10 +274,10 @@ Create `1-3-policy-data.tf`:
 
 Apply all configurations:
 
-   ```bash
-   terraform plan
-   terraform apply
-   ```
+```bash
+terraform plan
+terraform apply
+```
 
 Verify in Bytebase:
 
@@ -292,7 +292,7 @@ You've successfully configured Bytebase environments using Terraform! Your setup
 - **Test environment**: Unprotected with automatic deployment for fast development
 - **Prod environment**: Protected with manual deployment and data restrictions for safety
 
-Continue with [Part 2: Manage Databases with Terraform](/tutorials/manage-databases-in-bytebase-with-terraform) to connect and manage your database instances.
+Continue with [Part 2: Manage Databases with Terraform](/tutorials/manage-databases-with-terraform) to connect and manage your database instances.
 
 **Resources:**
 
