@@ -34,14 +34,15 @@ Register database instances in Bytebase using Terraform.
 
 Before starting this tutorial, ensure you have:
 
-- **Completed [Part 1](/tutorials/manage-environments-with-terraform)**: Environments configured
-- **Bytebase running**: With built-in sample data
-- **Service account**: Already created from Part 1
-- **Terraform initialized**: From Part 1
+- **Completed [Part 1](/tutorials/manage-environments-with-terraform)**:
+  - Bytebase running with built-in sample data
+  - Service account created1
+  - Terraform initialized
+  - Environments configured
 
 ## Step 1 - Explore Built-in Instances
 
-Due to the built-in sample data configuration from Part 1, Bytebase comes with two sample PostgreSQL instances. Let's explore them:
+Bytebase sample data includes two sample PostgreSQL instances. Let's explore them:
 
 1. In Bytebase, click **Instances** on the left sidebar. You'll see two PostgreSQL instances:
 
@@ -73,6 +74,7 @@ resource "bytebase_instance" "test" {
   environment = "environments/test"
   title       = "Test Sample Instance"
   engine      = "POSTGRES"
+  # Assign instance license
   activation  = true
 
   # Connection settings for the built-in test database
@@ -127,7 +129,7 @@ terraform apply
 1. Go to **Instances** in Bytebase.
 2. Verify both instances show:
    - Correct environment assignment
-   - "Y" under License column (if using Enterprise)
+   - `Y` under License column (if using Enterprise)
 
 You can now modify instance properties through Terraform. For example, to rename an instance:
 
@@ -140,16 +142,6 @@ resource "bytebase_instance" "test" {
 
 ## Summary and Next Steps
 
-You've successfully registered database instances with Terraform! You now have:
-
-- **Test and Prod instances** managed as code
-- **Connection settings** configured
-- **Infrastructure as Code** for your database instances
+You've successfully registered database instances with Terraform!
 
 Continue with [Part 3: Manage Projects with Terraform](/tutorials/manage-projects-with-terraform) to organize your databases into projects.
-
-**Resources:**
-
-- [Tutorial files](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
-- [Advanced examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
-- [Discord community](https://discord.gg/huyw7gRsyA)
