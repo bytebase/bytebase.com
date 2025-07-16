@@ -23,11 +23,7 @@ This tutorial is part of the **Bytebase Terraform Provider** series:
 - Part 7: [Manage Database Access Control with Terraform](/tutorials/manage-database-access-control-with-terraform) - Grant database permissions
 - Part 8: Manage Data Masking with Terraform 👈
 
-<Card icon="code-xml" cta="View sample code" href="https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials">
-
-This tutorial series uses separate Terraform files for better organization. Files are numbered by tutorial part and sub-step (e.g., `1-1-env-setting.tf`, `1-2-env-policy-rollout.tf` for Part 1, `2-instances.tf` for Part 2, etc.). Terraform automatically handles dependencies between files.
-
-</Card>
+<TerraformGitHubSample />
 
 ## What You'll Learn
 
@@ -55,11 +51,17 @@ From the previous tutorials, you should have:
 
 ## Understanding Data Masking in Bytebase
 
-<Info>
-Bytebase uses two concepts for data masking:
+Bytebase employs two concepts for [data masking](/security/data-masking/overview):
 
 - **Semantic Types**: Define masking algorithms (e.g., full mask, partial mask)
 - **Classifications**: Group data by sensitivity levels (e.g., Level 1, Level 2)
+
+**Classifications MUST be mapped to semantic types for masking to work:**
+
+- Classifications define sensitivity levels (Level 1, Level 2, etc.) but cannot mask data by themselves
+- Semantic types define the actual masking algorithms (full-mask, range-mask, etc.)
+
+You must map classifications to semantic types for masking to occur (e.g., Level 2 → full-mask)
 
 You can apply masking in two ways:
 
@@ -71,7 +73,6 @@ You can apply masking in two ways:
 1. **Column-level masking**: Apply directly to specific columns
    - Assign semantic types directly to columns
    - Assign classifications to columns (which then use semantic types via global rules)
-     </Info>
 
 ## Step 1: Define Semantic Types
 
@@ -370,35 +371,9 @@ Verify the masking exceptions are working:
 
    ![admin-employee-export](/content/docs/tutorials/manage-data-masking-with-terraform/bb-admin-employee-export.webp)
 
-## Masking Algorithms Explained
-
-### Full Mask
-
-- Replaces entire value with substitution string
-- Example: "John Doe" → "\*\*\*"
-
-### Range Mask
-
-- Masks specific character ranges
-- Example: "2024-03-15" → "\*\*\*\*-03-15"
-
-### Inner/Outer Mask
-
-- Preserves prefix/suffix while masking the middle
-- Example: "Johnson" → "J**\*\***"
-
 ## Summary
 
-This tutorial demonstrated how to implement comprehensive data masking in Bytebase using Terraform. Here are the key concepts:
-
-<Info>
-  **Critical Relationship**: Classifications MUST be mapped to semantic types for masking to work. -
-  Classifications define sensitivity levels (Level 1, Level 2, etc.) but cannot mask data by
-  themselves - Semantic types define the actual masking algorithms (full-mask, range-mask, etc.) -
-  You must map classifications to semantic types for masking to occur (e.g., Level 2 → full-mask)
-</Info>
-
-### Configuration Options
+This tutorial demonstrated how to implement data masking in Bytebase using Terraform. Here are the key concepts:
 
 **Define Phase:**
 
@@ -412,7 +387,7 @@ This tutorial demonstrated how to implement comprehensive data masking in Byteba
 
 **Additional Control:**
 
-- **Exceptions**: Grant bypass permissions for specific users and actions
+- **Masking Exemption**: Grant bypass permissions for specific users to query/export unmasked data
 
 ## Next Steps
 
@@ -420,14 +395,7 @@ Congratulations! You've completed the Bytebase Terraform tutorial series. You no
 
 - Database instances and environments
 - Organized projects
-- Approval workflows and risk policies
+- Risk policies and approval workflows
 - SQL review rules for schema standards
-- User access controls
+- Database access control
 - Data masking for sensitive information
-
-**Resources:**
-
-- [Data Masking Documentation](https://www.bytebase.com/docs/security/data-masking/overview)
-- [Tutorial files](https://github.com/bytebase/terraform-provider-bytebase/tree/main/tutorials)
-- [Advanced examples](https://github.com/bytebase/terraform-provider-bytebase/tree/main/examples)
-- [Discord community](https://discord.gg/huyw7gRsyA)
