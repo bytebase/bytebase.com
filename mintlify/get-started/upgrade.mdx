@@ -9,6 +9,7 @@ import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volum
 
 - Never run multiple containers on the same data directory. Stop and remove the old one first to avoid corruption.
 - Back up your metadata before upgrading. You’ll need it if you ever downgrade.
+- Verify the upgrade in a test environment first.
 
 </Warning>
 
@@ -102,3 +103,28 @@ First upgrade to 3.3.1 and then follow the next section.
 ### Upgrade from 3.3.1
 
 Replace the version string with the latest version and restart.
+
+## Downgrade
+
+<Warning>
+  Downgrade is as dangerous as upgrade, we highly recommend you verify the downgrade in a test
+  environment first.
+</Warning>
+
+### Downgrade PATCH Version
+
+Downgrades carry the same risks as upgrades, so validate any downgrade in a test environment before proceeding.
+
+### Downgrade MINOR Version
+
+Minor version upgrade/downgrade involves metadata schema change, so we must restore the metadata database to the old version first.
+Thus the metadata backup for the old version must be available.
+
+1. Stop Bytebase
+1. Restore the metadata database with the metadata backup
+1. Replace the version with the old version.
+1. Start Bytebase
+
+### Downgrade MAJOR Version
+
+Not supported
