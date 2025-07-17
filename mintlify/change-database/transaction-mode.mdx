@@ -1,0 +1,14 @@
+---
+title: Transaction Mode
+---
+
+Bytebase wraps all SQL statements in a transaction by default. To disable this behavior, use the directive `-- txn-mode=off`.
+
+```sql
+-- txn-mode=off
+ALTER TABLE t ALTER COLUMN a TYPE VARCHAR(255);
+```
+
+## Supported databases
+
+- Redshift
