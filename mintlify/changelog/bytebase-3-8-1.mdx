@@ -1,0 +1,31 @@
+---
+title: Bytebase 3.8.1
+author: Ayra
+updated_at: 2025/07/17 18:00:00
+description: 'New Database CI/CD Experience Preview '
+---
+
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
+## 🔔 Notable Changes
+
+- **New database CI/CD experience** is available in preview. Enable it from the profile dropdown.
+- `default_expression`, `default_string`, and `default_null` fields in `ColumnMetadata` are removed from the API. Use the unified `default` field instead. This affects APIs such as `GetDatabaseMetadata` and `GetChangelog`.
+
+## 🚀 New Features
+
+- In **SQL Editor** and **audit log**, show masking reason for sensitive data.
+
+## 🎄 Enhancements
+
+- Data export download is only available for 24 hours.
+- **SQL Server** -  Support Spatial Index in schema rollback and synchronization.
+- **Redshift** - Support turning off transaction wrapping using the `-- txn-mode=off` directive before the SQL statement.
+- **Terraform** - Support more policies:
+  - rollout policy (for environments)
+  - copy data policy (for environments and projects)
+  - data source query policy (for environments and projects)
+  - See [example configurations](https://github.com/bytebase/terraform-provider-bytebase/blob/main/examples/setup/environment.tf#L41).
+- Introduce a new 8-part series of [Terraform Provider Tutorials](/integrations/terraform/overview#tutorials).
+
+<InstallUpgrade />
