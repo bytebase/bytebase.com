@@ -61,6 +61,11 @@ Bytebase has a hierarchical IAM system:
 
 ### Step 1 - Configure Workspace IAM Policy
 
+|                       |                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource    | [bytebase_iam_policy](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/iam_policy)     |
+| Sample file           | [7-1-workspace-iam.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/7-1-workspace-iam.tf) |
+
 Create `7-1-workspace-iam.tf` with workspace-level permissions:
 
 ```hcl 7-1-workspace-iam.tf
@@ -136,6 +141,11 @@ terraform apply
    ![members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-members.webp)
 
 ### Step 3 - Configure Project IAM Policy
+
+|                       |                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource    | [bytebase_iam_policy](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/iam_policy)     |
+| Sample file           | [7-2-project-iam.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/7-2-project-iam.tf)  |
 
 Create `7-2-project-iam.tf` for project-specific permissions:
 
