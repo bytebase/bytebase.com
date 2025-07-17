@@ -64,7 +64,14 @@ Bytebase sample data includes two sample PostgreSQL instances. Let's explore the
 
 ## Step 2 - Register Instances with Terraform
 
-Now let's import these instances into Terraform management. Create `2-instances.tf` with the following configuration:
+Now let's import these instances into Terraform management.
+
+|                       |                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource    | [bytebase_instance](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/instance)         |
+| Sample file           | [2-instances.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/2-instances.tf)          |
+
+Create `2-instances.tf` with the following configuration:
 
 ```hcl 2-instances.tf
 # Test Sample Instance - PostgreSQL on port 8083

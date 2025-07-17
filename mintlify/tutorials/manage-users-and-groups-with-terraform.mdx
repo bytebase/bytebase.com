@@ -60,6 +60,11 @@ Bytebase adopts Identity and Access Management (IAM) system with:
 
 ### Step 1 - Create Users and Service Accounts
 
+|                       |                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource    | [bytebase_user](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/user)                 |
+| Sample file           | [6-1-users.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/6-1-users.tf)              |
+
 Create `6-1-users.tf` to define your team structure:
 
 ```hcl 6-1-users.tf
@@ -138,6 +143,11 @@ Groups simplify permission management by allowing you to assign roles to multipl
   Each group has an owner who can manage group membership. Regular members inherit permissions
   assigned to the group.
 </Tip>
+
+|                       |                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource    | [bytebase_group](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/group)               |
+| Sample file           | [6-2-groups.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/6-2-groups.tf)            |
 
 Add the following groups to your `6-2-groups.tf` file:
 

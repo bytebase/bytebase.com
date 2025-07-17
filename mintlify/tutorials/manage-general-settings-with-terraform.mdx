@@ -56,6 +56,11 @@ From the previous tutorials, you should have:
 
 ### Step 1 - Workspace Profile Configuration
 
+|                       |                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource    | [bytebase_setting](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/setting)           |
+| Sample file           | [4-1-workspace-profile.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/4-1-workspace-profile.tf) |
+
 Create `4-1-workspace-profile.tf` with the workspace profile settings:
 
 ```hcl 4-1-workspace-profile.tf
@@ -79,6 +84,11 @@ This configuration:
 - Sets your Bytebase instance's external URL
 
 ### Step 2 - Risk Management Policies
+
+|                       |                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource    | [bytebase_risk](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/risk)                 |
+| Sample file           | [4-2-risk.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/4-2-risk.tf)                |
 
 Create `4-2-risk.tf` with risk policies to assess the database operations' risk level:
 
@@ -108,6 +118,11 @@ Risk levels:
 - **300 (HIGH)**: All DDL operations in production
 
 ### Step 3 - Approval Flow Settings
+
+|                       |                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource    | [bytebase_setting](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/setting)           |
+| Sample file           | [4-3-approval-flow.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/4-3-approval-flow.tf) |
 
 Create `4-3-approval-flow.tf` with approval flow configuration that requires multiple approvals for risky operations:
 

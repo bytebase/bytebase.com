@@ -74,7 +74,14 @@ You can apply masking in two ways:
    - Assign semantic types directly to columns
    - Assign classifications to columns (which then use semantic types via global rules)
 
+## Configure Data Masking
+
 ## Step 1: Define Semantic Types
+
+|                       |                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource    | [bytebase_setting](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/setting)           |
+| Sample file           | [8-1-semantic-types.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/8-1-semantic-types.tf) |
 
 Create `8-1-semantic-types.tf` to define masking algorithms:
 
@@ -122,6 +129,11 @@ resource "bytebase_setting" "semantic_types" {
 ```
 
 ## Step 2: Define Data Classification
+
+|                       |                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource    | [bytebase_setting](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/setting)           |
+| Sample file           | [8-2-classification.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/8-2-classification.tf) |
 
 Create `8-2-classification.tf` to organize data by sensitivity levels:
 
@@ -201,9 +213,14 @@ Now that you've defined your masking methods, apply them workspace-wide using a 
   defines the sensitivity level, while semantic types define the masking algorithm.
 </Info>
 
-Create `8-3-global-masking.tf` to apply workspace-wide masking rules:
+|                       |                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource    | [bytebase_policy](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/policy)             |
+| Sample file           | [8-3-global-data-masking.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/8-3-global-data-masking.tf) |
 
-```hcl 8-3-global-masking.tf
+Create `8-3-global-data-masking.tf` to apply workspace-wide masking rules:
+
+```hcl 8-3-global-data-masking.tf
 resource "bytebase_policy" "global_masking_policy" {
   depends_on = [
     bytebase_instance.prod,
@@ -257,12 +274,17 @@ Verify in Bytebase:
 
 ## Step 5: Apply Column-Specific Masking
 
-Create `8-4-column-masking.tf` to apply masking to specific columns:
+|                       |                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource    | [bytebase_database](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/database)             |
+| Sample file           | [8-4-database-masking.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/8-4-database-masking.tf) |
+
+Create `8-4-database-masking.tf` to apply masking to specific columns:
 
 - Column `from_date` is assigned the semantic type `date-year-mask`
 - Column `amount` is assigned the classification `2-1` (Employment info)
 
-```hcl 8-4-column-masking.tf
+```hcl 8-4-database-masking.tf
 resource "bytebase_database" "database" {
   depends_on = [
     bytebase_instance.prod,
@@ -316,12 +338,17 @@ Verify in Bytebase:
 
 ## Step 6: Grant Masking Exceptions
 
-Create `8-5-masking-exceptions.tf` to grant bypass permissions:
+|                       |                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource    | [bytebase_policy](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/policy)             |
+| Sample file           | [8-5-masking-exception.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/8-5-masking-exception.tf) |
+
+Create `8-5-masking-exception.tf` to grant bypass permissions:
 
 - Workspace Admin (`admin@example.com`) has Masking Exemptions for `birth_date` in table `employee` for Query
 - Workspace Admin (`admin@example.com`) has Masking Exemptions for `last_name` in table `employee` for Export
 
-```hcl 8-5-masking-exceptions.tf
+```hcl 8-5-masking-exception.tf
 resource "bytebase_policy" "masking_exception_policy" {
   depends_on = [
     bytebase_project.project-two,
