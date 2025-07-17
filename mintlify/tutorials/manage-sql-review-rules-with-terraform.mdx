@@ -57,6 +57,10 @@ quality and schema consistency before changes enter the approval workflow.
 
 Create `5-sql-review.tf` with the SQL review configuration:
 
+<Tip>
+  The examples below show some SQL Review rules. For a complete list of available rules and their configurations, see the [Terraform provider documentation](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/review_config#nestedblock--rules).
+</Tip>
+
 ```hcl 5-sql-review.tf
 # SQL review configuration for production environment
 resource "bytebase_review_config" "sample" {
