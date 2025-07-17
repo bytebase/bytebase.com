@@ -127,6 +127,7 @@
                   "change-database/webhook",
                   "administration/risk-center",
                   "change-database/issue",
+                  "change-database/transaction-mode",
                   "administration/schema-template"
                 ]
               },
