@@ -77,8 +77,7 @@
                   "change-database/stored-procedure",
                   "change-database/schema-editor",
                   "change-database/schema-diagram",
-                  "change-database/online-schema-migration-for-mysql",
-                  "change-database/secret"
+                  "change-database/online-schema-migration-for-mysql"
                 ]
               },
               {
