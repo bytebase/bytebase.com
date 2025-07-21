@@ -49,6 +49,27 @@ you need to set host as [host.docker.internal](https://docs.docker.com/desktop/n
 
 <WhitelistBytebaseIp />
 
+### Read-Only Connection
+
+<Note>
+
+Read-only connection is used in:
+
+1. Restrict SQL Editor to query and export from [read-only data source](/sql-editor/settings/data-source-restriction).
+1. [Export from Export Center](/security/database-permission/export#request-from-export-center)
+
+</Note>
+
+To separate from admin connection, you can configure read-only connections once an instance is added.
+
+1. Create a new role with read-only access or a read-replica instance.
+1. Click **Create** or **+** on **Connection info**.
+1. Enter read-only connection info. If this is a read-replica instance, you need to enter its host and port information.
+1. Click **Update** to finish the configuration.
+1. Click **+** to add more, or click trash icon to delete.
+
+![bb-instance-read-only-connection](/content/docs/get-started/instance/bb-instance-read-only-connection.webp)
+
 ### SSH tunnel
 
 <PricingPlanBlock feature_name="SSH_TUNNEL" />

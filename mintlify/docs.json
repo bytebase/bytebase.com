@@ -146,7 +146,6 @@
               {
                 "group": "Settings",
                 "pages": [
-                  "sql-editor/settings/read-only-connection",
                   "sql-editor/settings/data-source-restriction",
                   "sql-editor/settings/limit"
                 ]
