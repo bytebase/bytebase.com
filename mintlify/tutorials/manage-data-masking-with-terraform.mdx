@@ -367,6 +367,8 @@ resource "bytebase_policy" "masking_exception_policy" {
       column   = "birth_date"
       member   = "user:admin@example.com"
       action   = "QUERY"
+      expire_timestamp = "2027-07-30T16:11:49Z"
+
     }
     exceptions {
       database = "instances/prod-sample-instance/databases/hr_prod"
@@ -374,10 +376,16 @@ resource "bytebase_policy" "masking_exception_policy" {
       column   = "last_name"
       member   = "user:admin@example.com"
       action   = "EXPORT"
+      expire_timestamp = "2027-07-30T16:11:49Z"
     }
   }
 }
 ```
+
+<Note>
+`2027-07-30T16:11:49Z` is an ISO 8601 UTC timestamp.
+Our system uses PostgreSQL to store metadata, where this value is stored as a `timestamptz`.
+</Note>
 
 ## Step 7: Apply Final Configuration and Test
 
@@ -397,6 +405,8 @@ Verify the masking exceptions are working:
 1. Click **Export**, and then open the file. You should notice the `birth_date` is still masked while `last_name` is no longer masked.
 
    ![admin-employee-export](/content/docs/tutorials/manage-data-masking-with-terraform/bb-admin-employee-export.webp)
+
+1. After the expiration time, the masking exceptions will be removed.
 
 ## Summary
 

@@ -194,6 +194,11 @@ resource "bytebase_iam_policy" "project_iam" {
 }
 ```
 
+<Note>
+`2027-07-10T16:17:49Z` is an ISO 8601 UTC timestamp.
+Our system uses PostgreSQL to store metadata, where this value is stored as a `timestamptz`.
+</Note>
+
 ### Step 4 - Apply Complete IAM Configuration
 
 ```bash
