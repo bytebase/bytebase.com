@@ -238,18 +238,21 @@ resource "bytebase_policy" "global_masking_policy" {
       condition     = "column_name == \"birth_date\""
       id            = "birth-date-mask"
       semantic_type = "date-year-mask"
+      title = "Mask Birth Date"
     }
 
     rules {
       condition     = "column_name == \"last_name\""
       id            = "last-name-first-letter-only"
       semantic_type = "name-first-letter-only"
+      title = "Last Name Only Show First Letter"
     }
 
     rules {
       condition     = "classification_level in [\"2\"]"
       id            = "classification-level-2"
       semantic_type = "full-mask"  # Maps Level 2 classification to full-mask semantic type
+      title = "Full Mask for Classification Level 2"
     }
   }
 }
@@ -268,7 +271,7 @@ Verify in Bytebase:
 
    ![global-masking](/content/docs/tutorials/manage-data-masking-with-terraform/bb-global-masking.webp)
 
-1. Log in as Developer 1 (`dev1@example.com`), then go to **SQL Editor** to access `hr_prod`. Double-click `employee` table on the left. `birth_date` has `Date year mask` semantic type, and `last_name` has `Name first letter only`.
+1. Log in as Developer 1 (`dev1@example.com`), then go to **SQL Editor** to access `hr_prod`. Double-click `employee` table on the left. `birth_date` has `Date year mask` semantic type, and `last_name` has `Last Name Only Show First Letter`. Hovering the eye icon will show the masking reason.
 
    ![dev1-employee](/content/docs/tutorials/manage-data-masking-with-terraform/bb-dev1-employee.webp)
 
