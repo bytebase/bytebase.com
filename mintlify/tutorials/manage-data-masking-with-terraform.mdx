@@ -238,7 +238,7 @@ resource "bytebase_policy" "global_masking_policy" {
       condition     = "column_name == \"birth_date\""
       id            = "birth-date-mask"
       semantic_type = "date-year-mask"
-      title = "Mask Birth Date"
+      title = "Mask Birth Date Year"
     }
 
     rules {
@@ -271,7 +271,7 @@ Verify in Bytebase:
 
    ![global-masking](/content/docs/tutorials/manage-data-masking-with-terraform/bb-global-masking.webp)
 
-1. Log in as Developer 1 (`dev1@example.com`), then go to **SQL Editor** to access `hr_prod`. Double-click `employee` table on the left. `birth_date` has `Date year mask` semantic type, and `last_name` has `Last Name Only Show First Letter`. Hovering the eye icon will show the masking reason.
+1. Log in as Developer 1 (`dev1@example.com`), then go to **SQL Editor** to access `hr_prod`. Double-click `employee` table on the left. `birth_date` has `Mask Birth Date Year` semantic type, and `last_name` has `Last Name Only Show First Letter`. Hovering the eye icon will show the masking reason.
 
    ![dev1-employee](/content/docs/tutorials/manage-data-masking-with-terraform/bb-dev1-employee.webp)
 
