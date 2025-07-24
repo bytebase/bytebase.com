@@ -365,6 +365,7 @@ resource "bytebase_policy" "masking_exception_policy" {
 
   masking_exception_policy {
     exceptions {
+      reason = "Business requirement"
       database = "instances/prod-sample-instance/databases/hr_prod"
       table    = "employee"
       column   = "birth_date"
@@ -374,6 +375,7 @@ resource "bytebase_policy" "masking_exception_policy" {
 
     }
     exceptions {
+      reason = "Export data for analysis"
       database = "instances/prod-sample-instance/databases/hr_prod"
       table    = "employee"
       column   = "last_name"
@@ -409,7 +411,9 @@ Verify the masking exceptions are working:
 
    ![admin-employee-export](/content/docs/tutorials/manage-data-masking-with-terraform/bb-admin-employee-export.webp)
 
-1. After the expiration time, the masking exceptions will be removed.
+1. You may go to **Manage > Masking Exemptions** to view current exemptions. They will expire automatically after the expiration time.
+
+   ![masking-exceptions](/content/docs/tutorials/manage-data-masking-with-terraform/bb-masking-exceptions.webp)
 
 ## Summary
 
