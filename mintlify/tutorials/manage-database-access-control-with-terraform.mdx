@@ -101,11 +101,8 @@ resource "bytebase_iam_policy" "workspace_iam" {
     binding {
       role = "roles/workspaceMember"
       members = [
-        format("user:%s", bytebase_user.dev1.email),
-        format("user:%s", bytebase_user.dev2.email),
-        format("user:%s", bytebase_user.dev3.email),
-        format("user:%s", bytebase_user.qa1.email),
-        format("user:%s", bytebase_user.qa2.email)
+        "allUsers"
+        # Note: a special member representing everyone in the workspace
       ]
     }
 
@@ -119,6 +116,10 @@ resource "bytebase_iam_policy" "workspace_iam" {
   }
 }
 ```
+
+<Note>
+`allUsers` is a special member representing everyone in the workspace. Without it, users may be unable to access the workspace.
+</Note>
 
 ### Step 2 - Apply Workspace IAM Configuration
 
@@ -134,8 +135,7 @@ terraform apply
    - `admin@example.com`: Workspace Admin
    - `tf@service.bytebase.com`: Workspace Admin
    - `dba@example.com`, `dba2@example.com`: Workspace DBA
-   - `dev1@example.com`, `dev2@example.com`, `dev3@example.com`: Workspace Member
-   - `qa1@example.com`, `qa2@example.com`: Workspace Member
+   - `allUsers`: Workspace Member
 1. Note that `QA Team` group has `Project Viewer` role for ALL projects
 
    ![members](/content/docs/tutorials/manage-database-access-control-with-terraform/bb-members.webp)
