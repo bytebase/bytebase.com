@@ -17,23 +17,15 @@ than the internal one.
 
 For testing purpose, you can get an endpoint online with [ngrok](https://dashboard.ngrok.com/get-started/setup/macos) as external URL.
 
-When running Bytebase in production, you should not make the node that's running the Bytebase server directly accessible to the client. Instead, you should set up an gateway such as Nginx or Caddy to forward requests to Bytebase.
+When running Bytebase in production, you should not make the node that's running the Bytebase server directly accessible to the client. Instead, you should set up a gateway such as Nginx or Caddy to forward requests to Bytebase.
 
-Logically, you need to configure 2 endpoints, the external URL that users use to access the Bytebase console, and the GitOps Webhook URL that the VCS pushes the webhook event for GitOps workflow. The former usually is accessed from
-the internal network, while the latter may come from the external network if using GitHub.com / GitLab.com.
-If they both can be accessed via the same endpoint, then you only need to configure the external URL:
+The gateway will expose an external endpoint that lets end users access the Bytebase console and allows external systems—such as VCS providers (GitHub or GitLab)—to call the Bytebase API.
 
 ![external-url-flow](/content/docs/get-started/install/external-url-flow.webp)
 
-## GitOps Webhook URL
-
-If internal network access is different than external (e.g. `bytebase.example.dev` vs `bytebase.example.com`), you need to configure a separate GitOps Webhook URL:
-
-![gitops-webhook-url-flow](/content/docs/get-started/install/gitops-webhook-url-flow.webp)
-
 <Note>
 
-If the exposed port is not 80 or 443, please include the port number in External URL / GitOps Webhook URL as well. e.g. Use http://bytebase.example.com:8080 instead of http://bytebase.example.com.
+If the exposed port is not 80 or 443, please include the port number in External URL. e.g. Use http://bytebase.example.com:8080 instead of http://bytebase.example.com.
 
 </Note>
 
