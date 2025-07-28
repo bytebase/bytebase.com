@@ -29,13 +29,19 @@
           {
             "group": "Install",
             "pages": [
-              "get-started/self-host",
+              "get-started/self-host-vs-cloud",
+              {
+                "group": "Self-Host",
+                "pages": [
+                  "get-started/self-host",
+                  "get-started/install/external-postgres",
+                  "get-started/install/external-url",
+                  "get-started/upgrade"
+                ]
+              },
+              "get-started/cloud",
               "get-started/instance",
-              "get-started/upgrade",
-              "get-started/install/external-postgres",
-              "get-started/install/external-url",
-              "integrations/terraform/overview",
-              "get-started/cloud"
+              "integrations/terraform/overview"
             ]
           },
           {
@@ -205,7 +211,6 @@
             "group": "General",
             "pages": [
               "administration/license",
-              "get-started/upgrade",
               "administration/production-setup",
               "administration/back-up-data",
               "administration/mode",
