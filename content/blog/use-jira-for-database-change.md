@@ -33,7 +33,7 @@ The similar workflow can also be applied to other database tasks such as request
 
 1. After several back-and-forth communications, the DBA approves the issue and changes the issue status to `Pending Rollout`.
 
-1. The DBA pastes the SQL from the Jira ticket into her favorite SQL client and execute.
+1. The DBA pastes the SQL from the Jira ticket into their favorite SQL client and execute.
 
 1. The DBA updates the issue status to `Completed`.
 
