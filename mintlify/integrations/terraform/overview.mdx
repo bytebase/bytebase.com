@@ -30,9 +30,31 @@ Bytebase UI/API → Database Operations
 
 The Terraform Provider uses [service account](/integrations/api/authentication/#service-account) to call the Bytebase API to manage the resources and settings.
 
-After creating the service account, you can copy the service key as `service_key` and the email as `service_account` to initialize the Terraform provider in the next step.
+After creating the service account with the `Workspace Admin` role, you can copy the service key as `service_key` and the email as `service_account` to initialize the Terraform provider in the next step.
 
 ![service-account](/content/docs/get-started/work-with-terraform/service-account.webp)
+
+### Optional: Separate Accounts for Plan and Apply
+
+If you prefer to use different service accounts for `terraform plan` and `terraform apply`, you can:
+
+- **For `terraform apply`**:
+  Assign the `Workspace Admin` role.
+
+- **For `terraform plan`**:
+  Create a **custom role** with only read permissions under **IAM & Admin > Custom Roles**, then assign it to the plan-only service account.
+
+The read-only role should include the following permissions:
+
+- All `.list` and `.get` permissions
+- `bb.databases.export`
+- `bb.databases.query`
+- `bb.databases.getSchema`
+- `bb.databases.getSecrets`
+- `bb.auditLogs.export`
+- `bb.auditLogs.search`
+- `bb.issues.subscribe`
+- `bb.projects.getIamPolicy`
 
 ## Tutorials
 
