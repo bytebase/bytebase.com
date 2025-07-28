@@ -1,0 +1,169 @@
+---
+title: Self-Host vs Cloud
+description: Compare Bytebase deployment options to choose the right one for your needs
+---
+
+Bytebase offers two deployment options: **Self-Host** and **Cloud**. This guide helps you choose the right option for your organization.
+
+## Quick Comparison
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHeaderItem>Feature</TableHeaderItem>
+      <TableHeaderItem>Self-Host</TableHeaderItem>
+      <TableHeaderItem>Cloud</TableHeaderItem>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableItem>**Best For**</TableItem>
+      <TableItem>Teams with security/compliance requirements</TableItem>
+      <TableItem>Teams wanting instant setup</TableItem>
+    </TableRow>
+    <TableRow>
+      <TableItem>**Deployment**</TableItem>
+      <TableItem>Air-gapped, single Go binary</TableItem>
+      <TableItem>Hosted on Google Cloud (US-Central)</TableItem>
+    </TableRow>
+    <TableRow>
+      <TableItem>**Setup Time**</TableItem>
+      <TableItem>~5 minutes</TableItem>
+      <TableItem>Instant provisioning</TableItem>
+    </TableRow>
+    <TableRow>
+      <TableItem>**Data Location**</TableItem>
+      <TableItem>Your infrastructure</TableItem>
+      <TableItem>Google Cloud US-Central</TableItem>
+    </TableRow>
+    <TableRow>
+      <TableItem>**Network Access**</TableItem>
+      <TableItem>Full control</TableItem>
+      <TableItem>Requires IP whitelisting</TableItem>
+    </TableRow>
+    <TableRow>
+      <TableItem>**Maintenance**</TableItem>
+      <TableItem>Self-managed updates</TableItem>
+      <TableItem>Automatic updates</TableItem>
+    </TableRow>
+    <TableRow>
+      <TableItem>**External PostgreSQL**</TableItem>
+      <TableItem>✅ Supported</TableItem>
+      <TableItem>❌ Not supported</TableItem>
+    </TableRow>
+    <TableRow>
+      <TableItem>**Custom URL**</TableItem>
+      <TableItem>✅ Configurable</TableItem>
+      <TableItem>❌ Fixed subdomain</TableItem>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Choose Self-Host If You Need
+
+<CardGroup cols={2}>
+  <Card title="Security & Compliance" icon="shield">
+    - Air-gapped deployment
+    - Data sovereignty requirements
+    - Strict network policies
+    - Custom security controls
+  </Card>
+  
+  <Card title="Customization" icon="wrench">
+    - External PostgreSQL database
+    - Custom domain/URL
+    - Advanced configurations
+    - Platform-specific deployments
+  </Card>
+  
+  <Card title="Infrastructure Control" icon="server">
+    - On-premises deployment
+    - Private cloud deployment
+    - Specific region requirements
+    - Network isolation
+  </Card>
+  
+  <Card title="Scale & Performance" icon="chart-line">
+    - Large-scale deployments
+    - Performance optimization
+    - Resource allocation control
+    - Custom backup strategies
+  </Card>
+</CardGroup>
+
+## Choose Cloud If You Want
+
+<CardGroup cols={2}>
+  <Card title="Quick Start" icon="rocket">
+    - Instant provisioning
+    - No infrastructure setup
+    - Automatic updates
+    - Zero maintenance
+  </Card>
+  
+  <Card title="Managed Service" icon="cloud">
+    - Automatic backups
+    - Built-in monitoring
+    - Managed security patches
+    - SLA guarantees
+  </Card>
+  
+  <Card title="Cost Efficiency" icon="coins">
+    - No infrastructure costs
+    - Pay-as-you-go pricing
+    - No DevOps overhead
+    - Predictable billing
+  </Card>
+  
+  <Card title="Always Latest" icon="sparkles">
+    - Automatic updates
+    - Latest features immediately
+    - No upgrade planning
+    - Continuous improvements
+  </Card>
+</CardGroup>
+
+## Deployment Options
+
+### Self-Host Options
+
+- **Docker**: Recommended for most deployments (~5 minutes)
+- **Kubernetes**: For container orchestration environments
+- **AWS Fargate**: For serverless container deployments
+- **Binary**: Direct binary installation for maximum control
+
+### Cloud Setup
+
+1. Visit [Bytebase Cloud Hub](https://hub.bytebase.com/)
+2. Sign up with email/Google/GitHub/Microsoft
+3. Create workspace (one per account)
+4. Receive login credentials via email
+
+## Migration Between Options
+
+<Note>
+You can migrate between Self-Host and Cloud deployments. Contact support for assistance with data migration.
+</Note>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Deploy Self-Host" href="/get-started/self-host" icon="server">
+    Get started with self-hosted Bytebase
+  </Card>
+  
+  <Card title="Start with Cloud" href="/get-started/cloud" icon="cloud">
+    Set up Bytebase Cloud instantly
+  </Card>
+</CardGroup>
+
+## Still Unsure?
+
+Consider starting with Bytebase Cloud for evaluation, then migrate to Self-Host if needed. The Cloud option provides:
+- Instant setup for proof-of-concepts
+- Full feature access for testing
+- Easy migration path to Self-Host later
+
+<Tip>
+Don't be scared of Self-Host - it's just a single binary and deployment is straightforward!
+</Tip>
