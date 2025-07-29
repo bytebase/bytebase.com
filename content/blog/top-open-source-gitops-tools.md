@@ -1,10 +1,9 @@
 ---
-title: Top Open Source GitOps Tools in 2024
+title: Top Open Source GitOps Tools in 2025
 author: Adela
-updated_at: 2024/03/12 19:00:00
+updated_at: 2025/07/30 12:00:00
 feature_image: /content/blog/top-open-source-gitops-tools/banner.webp
 tags: Industry
-featured: true
 description: 'In this post, we are reviewing several open-source GitOps tools.'
 ---
 
@@ -17,8 +16,10 @@ In this post, we are reviewing several open-source GitOps tools:
 - [ArgoCD](#argocd)
 - [Bruno](#bruno)
 - [Bytebase](#bytebase)
+- [OPA](#opa)
+- [mdx](#mdx)
 
-[![star-history](/content/blog/top-open-source-gitops-tools/star-history-2024312.webp)](https://star-history.com/#bytebase/bytebase&pulumi/pulumi&hashicorp/terraform&argoproj/argo-cd&usebruno/bruno&Timeline)
+[![star-history](/content/blog/top-open-source-gitops-tools/star.webp)](https://www.star-history.com/#hashicorp/terraform&pulumi/pulumi&argoproj/argo-cd&usebruno/bruno&open-policy-agent/opa&mdx-js/mdx&bytebase/bytebase&Date)
 
 ## Terraform
 
@@ -65,9 +66,25 @@ Regarding GitOps, you can use git or any version control of your choice to colla
 
 ![bruno-gitops](/content/blog/top-open-source-gitops-tools/bruno-gitops.webp)
 
+## OPA
+
+[OPA](https://github.com/open-policy-agent/opa) (Open Policy Agent) is an open-source policy engine that enables you to enforce policies across your stack. OPA can be integrated with various systems, including Kubernetes, to provide fine-grained access control and compliance checks.
+
+![opa](/content/blog/top-open-source-gitops-tools/opa.webp)
+
+In a GitOps workflow, OPA can be used to validate changes to your infrastructure and applications by enforcing policies defined in code. This ensures that all changes are compliant with your organization's policies before they are applied.
+
+## mdx
+
+[mdx](https://github.com/mdx-js/mdx) allows you to write JSX in Markdown documents. It enables you to create interactive and dynamic content using React components within your Markdown files.
+
+![mdx](/content/blog/top-open-source-gitops-tools/mdx.webp)
+
+In a GitOps workflow, MDX can be used to manage and version control your documentation alongside your code. This ensures that your documentation is always up-to-date with the latest changes to your infrastructure and applications.
+
 ## Bytebase
 
-[Bytebase](https://github.com/bytebase/bytebase) is an all-in-one database DevOps and CI/CD solution. It's like GitHub/GitLab that provides a GUI workspace for developers and DBAs to collaborate on database changes.
+[Bytebase](https://github.com/bytebase/bytebase) is an all-in-one database DevSecOps and CI/CD solution. It's like GitHub/GitLab that provides a GUI workspace for developers and DBAs to collaborate on database changes.
 
 ![bb](/content/blog/top-open-source-gitops-tools/bb.webp)
 
