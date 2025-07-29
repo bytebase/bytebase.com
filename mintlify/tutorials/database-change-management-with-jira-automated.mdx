@@ -39,7 +39,7 @@ Here is what you will achieve by the end of this tutorial:
 1. (Jira) Developer creates a Jira `Database Change` issue filling the **summary**, **SQL**, **database**, and **description** fields, the status is `Todo`.
 1. (Jira Webhook -> Bytebase API) Once the Jira issue is created, Jira webhook will trigger Bytebase API to create a corresponding issue.
 1. (Bytebase API -> Jira API) Once the Bytebase issue is created, the success response will trigger Jira API to set Jira issue with the Bytebase issue link and change the status to `In Progress`.
-1. (Bytebase) DBA goes to Bytebase to roll out the database change.
+1. (Bytebase) DBA goes to Bytebase to deploy the database change.
 1. (Bytebase Poll Comparison -> Jira API) Once the Bytebase issue rolls out and becomes `Done`, Jira issue status will be set to `Done`.
 
 ![auto-jira](/content/docs/tutorials/database-change-management-with-jira-automated/jira-bb-poll.webp)
@@ -231,9 +231,9 @@ The logic is still in `src/api/receive-jira-issue-webhook/route.ts`.
    - `/rest/api/3/issue/${issueKey}` to update Bytebase Link
    - `/rest/api/3/issue/${issueKey}/transitions` to change the status
 
-### Step 4 (Bytebase) DBA goes to Bytebase to roll out the database change.
+### Step 4 (Bytebase) DBA goes to Bytebase to deploy the database change.
 
-1. You now act as DBA, go to Bytebase to roll out the database change.
+1. You now act as DBA, go to Bytebase to deploy the database change.
 
    ![bb-done](/content/docs/tutorials/database-change-management-with-jira-automated/bb-done.webp)
 
@@ -294,4 +294,4 @@ We eliminate most of the manual process in the last tutorial.
 1. Bytebase issue is automatically created. And the created issue link is set automatically in the Jira issue.
 1. Once Bytebase rolls out the SQL, the Jira issue status is updated automatically.
 
-If you want to automate further, you can also call Bytebase API to approve and roll out the SQL.
+If you want to automate further, you can also call Bytebase API to approve and deploy the SQL.

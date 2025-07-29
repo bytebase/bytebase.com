@@ -37,7 +37,7 @@ to a single database as well as changes to hundreds of databases spanning multip
 
 ![_](/content/blog/how-bytebase-tracks-database-change/issue-detail-when.webp)
 
-You can specify when to roll out the issue (e.g. 2:00 midnight during non-business hours).
+You can specify when to deploy the issue (e.g. 2:00 midnight during non-business hours).
 
 ## Why
 

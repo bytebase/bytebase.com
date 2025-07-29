@@ -58,7 +58,7 @@ As technology continues to evolve, there are a few primary trends in database mi
 
 ### Continuous Integration and Delivery (CI/CD)
 
-There is a growing trend towards incorporating database schema migrations into the CI/CD workflow, enabling more frequent and seamless deployment of changes to production environments. With the CI/CD tools and platforms, DBA can easily roll out schema scripts to multiple databases with just a few clicks. This not only speeds up the migration process but also reduces the risk of human error and minimizes service downtime during migrations.
+There is a growing trend towards incorporating database schema migrations into the CI/CD workflow, enabling more frequent and seamless deployment of changes to production environments. With the CI/CD tools and platforms, DBA can easily deploy schema scripts to multiple databases with just a few clicks. This not only speeds up the migration process but also reduces the risk of human error and minimizes service downtime during migrations.
 
 ### Team Collaboration
 

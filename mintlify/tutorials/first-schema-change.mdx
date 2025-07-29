@@ -41,7 +41,7 @@ In this tutorial, you'll use the default sample databases to get familiar with t
 1. Click **My Issues** on the left sidebar, and click the issue `SAM-101` which is created by default.
    ![issue](/content/docs/tutorials/first-schema-change/issue.webp)
 
-1. The issue is `waiting to rollout`. There's a pipeline consisting of two stages:
+1. The issue is `waiting for rollout`. There's a pipeline consisting of two stages:
 
    1. **Test Stage**: apply to database `hr_test` on `Test Sample instance`
    2. **Prod Stage**: apply to database `hr_prod` on `Prod Sample instance`
@@ -57,7 +57,7 @@ In this tutorial, you'll use the default sample databases to get familiar with t
 
    ![sql-review-not-null](/content/docs/tutorials/first-schema-change/sql-review-not-null.webp)
 
-## Step 3 - Roll out on Test Stage
+## Step 3 - Deploy on Test Stage
 
 1. Switch back to **Test Stage** and click **Rollout**. Click **Rollout** on the confirmation dialog.
 
@@ -66,9 +66,9 @@ In this tutorial, you'll use the default sample databases to get familiar with t
 
    ![issue-snapshot-diff](/content/docs/tutorials/first-schema-change/issue-snapshot-diff.webp)
 
-## Step 4 - Roll out on Prod Stage
+## Step 4 - Deploy on Prod Stage
 
-There are two ways to roll out on **Prod Stage** regarding the SQL review result.
+There are two ways to deploy on **Prod Stage** regarding the SQL review result.
 
 1. If you are confident with the SQL, you can click **Rollout** directly. Tick **Rollout anyway**, and click **Rollout** on the confirmation dialog.
    ![prod-anyway](/content/docs/tutorials/first-schema-change/prod-anyway.webp)
@@ -79,7 +79,7 @@ There are two ways to roll out on **Prod Stage** regarding the SQL review result
    ALTER TABLE employee ADD COLUMN IF NOT EXISTS email TEXT NOT NULL DEFAULT '';
    ```
 
-   Click **Save**, the checks will be run again. This time the SQL review will pass. The issue will roll out and become `Done`.
+   Click **Save**, the checks will be run again. This time the SQL review will pass. The issue will deploy and become `Done`.
 
    ![issue-done](/content/docs/tutorials/first-schema-change/issue-done.webp)
 

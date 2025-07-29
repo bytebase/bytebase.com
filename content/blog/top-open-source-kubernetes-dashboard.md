@@ -160,7 +160,7 @@ Rancher was developed by Rancher Labs, founded in 2014, to simplify Kubernetes m
 - **End-to-End CI/CD & GitOps** – Drag-and-drop pipelines with declarative GitOps synchronisation enable automated, auditable releases from commit to production.
 - **Multi-Cluster Visibility** – Manage and deploy workloads across multiple clusters and clouds from one console, with aggregated views of nodes, namespaces and services.
 - **AI-Driven Troubleshooting** – Built-in AI analyses pod and application errors to suggest fixes and cut mean-time-to-resolution.
-- **Progressive Delivery Strategies** – One-click canary, blue-green and rolling updates powered by Flagger and Istio to roll out changes safely.
+- **Progressive Delivery Strategies** – One-click canary, blue-green and rolling updates powered by Flagger and Istio to deploy changes safely.
 - **Integrated DevSecOps** – Automated image, code and manifest scanning with policy gates to stop insecure builds before they ship.
 - **Helm & Chart Hub** – Browse, customise and deploy Helm charts, with version management and diffing directly in the console.
 - **Real-Time Metrics & Logs** – Stream application logs and view CPU, memory and network metrics without leaving the dashboard.
