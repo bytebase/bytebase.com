@@ -68,11 +68,11 @@ Regarding GitOps, you can use git or any version control of your choice to colla
 
 ## OPA
 
-[OPA](https://github.com/open-policy-agent/opa) (Open Policy Agent) is an open-source policy engine that enables you to enforce policies across your stack. OPA can be integrated with various systems, including Kubernetes, to provide fine-grained access control and compliance checks.
+[OPA](https://github.com/open-policy-agent/opa) (Open Policy Agent) is an open-source policy engine designed to enforce policies across your stack. While OPA is not a GitOps tool itself, it can complement GitOps workflows by providing policy enforcement and compliance checks.
 
 ![opa](/content/blog/top-open-source-gitops-tools/opa.webp)
 
-In a GitOps workflow, OPA can be used to validate changes to your infrastructure and applications by enforcing policies defined in code. This ensures that all changes are compliant with your organization's policies before they are applied.
+In the context of GitOps, OPA can be integrated into your CI/CD pipelines or Kubernetes admission controllers to validate changes to your infrastructure and applications. By enforcing policies defined in code, OPA ensures that all changes comply with your organization's standards before they are applied, enhancing the security and reliability of your GitOps processes.
 
 ## mdx
 
