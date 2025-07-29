@@ -74,13 +74,13 @@ Regarding GitOps, you can use git or any version control of your choice to colla
 
 In the context of GitOps, OPA can be integrated into your CI/CD pipelines or Kubernetes admission controllers to validate changes to your infrastructure and applications. By enforcing policies defined in code, OPA ensures that all changes comply with your organization's standards before they are applied, enhancing the security and reliability of your GitOps processes.
 
-## mdx
+## MDX
 
-[mdx](https://github.com/mdx-js/mdx) allows you to write JSX in Markdown documents. It enables you to create interactive and dynamic content using React components within your Markdown files.
+[MDX](https://github.com/mdx-js/mdx) is a tool that allows you to write JSX in Markdown documents, enabling the creation of interactive and dynamic content using React components within your Markdown files.
 
 ![mdx](/content/blog/top-open-source-gitops-tools/mdx.webp)
 
-In a GitOps workflow, MDX can be used to manage and version control your documentation alongside your code. This ensures that your documentation is always up-to-date with the latest changes to your infrastructure and applications.
+While MDX is not a traditional GitOps tool, it can complement GitOps workflows by enabling version-controlled documentation. This ensures that your documentation evolves alongside your code and infrastructure, maintaining alignment with the latest changes.
 
 ## Bytebase
 
