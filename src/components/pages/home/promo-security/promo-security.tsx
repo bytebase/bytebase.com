@@ -57,7 +57,7 @@ const PromoSecurity = () => {
             <mark className="bg-transparent text-secondary-3">Secure</mark> by&nbsp;design
           </h2>
           <p className="mr-12 mt-8 text-20 leading-normal 3xl:-mr-9 xl:mr-0 xl:mt-5 xl:text-18 xl:leading-snug md:mt-3 md:max-w-xl md:text-16">
-            Air-gapped deployment to protect your data with database permission, dynamic data
+            On-premise deployment to protect your data with database permission, dynamic data
             masking, audit log, watermarking and more.
           </p>
           <LinkUnderlined
