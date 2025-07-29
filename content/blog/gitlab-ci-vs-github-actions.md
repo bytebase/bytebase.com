@@ -101,7 +101,7 @@ GitHub Actions has a larger marketplace of pre-built components, making it easie
 - **Merge trains:** Keep the main branch stable by merging changes in a controlled order.
 - **Parent-child pipelines:** Break complex workflows into smaller, manageable parts.
 - **Security and compliance:** Built-in tools for security scanning and regulatory compliance.
-- **Progressive delivery:** Support for canary deployments to safely roll out updates.
+- **Progressive delivery:** Support for canary deployments to safely deploy updates.
 
 **GitHub Actions** shines with:
 

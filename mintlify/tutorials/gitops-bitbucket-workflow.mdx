@@ -116,7 +116,7 @@ To create migration files to trigger release creation, the files have to match t
    );
    ```
 
-1. When the SQL review is passed, you can merge the pull request. The `release` pipeline will be triggered to create a **release** in Bytebase and then roll out automatically on test but waiting for approval on prod.
+1. When the SQL review is passed, you can merge the pull request. The `release` pipeline will be triggered to create a **release** in Bytebase and then deploy automatically on test but waiting for approval on prod.
 
 1. Click into the pipelines and choose the merge pipeline, you can see release is created in test environment but waiting for approval on prod.
 

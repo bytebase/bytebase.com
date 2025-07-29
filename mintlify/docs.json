@@ -101,7 +101,7 @@
                 "pages": ["administration/custom-approval"]
               },
               {
-                "group": "Roll out",
+                "group": "Rollout",
                 "pages": [
                   "administration/environment-policy/rollout-policy",
                   "change-database/scheduled-rollout"

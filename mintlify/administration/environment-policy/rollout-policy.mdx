@@ -7,7 +7,7 @@ title: Rollout Policy
 <Note>
 
 While you **can not** [self-approve](/administration/custom-approval/) your own created issue, once
-the issue is approved by the others, you **can** roll out your own issue if qualified.
+the issue is approved by the others, you **can** deploy your own issue if qualified.
 
 </Note>
 
@@ -19,17 +19,17 @@ This setting will affect projects using either [UI workflow or GitOps workflow](
 
 ## Automatic rollout
 
-If `automatic` option is checked, Bytebase will roll out the change automatically if all check have passed. Unpassed checks will block the automatic rollout and require manual intervention:
+If `automatic` option is checked, Bytebase will deploy the change automatically if all check have passed. Unpassed checks will block the automatic rollout and require manual intervention:
 
 - [Rollout time](/change-database/change-workflow/#rollout-time)
 - [SQL Review violations](/sql-review/overview)
 
 ## Manual rollout by dedicated roles
 
-If any roles are specified, Bytebase requires users with those roles to manually roll out the change.
+If any roles are specified, Bytebase requires users with those roles to manually deploy the change.
 
 ## Manual rollout with custom approval flow
 
 <PricingPlanBlock feature_name="CUSTOM_APPROVAL" />
 
-Bytebase requires the last approver from the activated [custom approval flow](/administration/custom-approval/) to roll out the change manually.
+Bytebase requires the last approver from the activated [custom approval flow](/administration/custom-approval/) to deploy the change manually.

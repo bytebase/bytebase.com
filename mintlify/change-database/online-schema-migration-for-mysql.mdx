@@ -41,9 +41,9 @@ The online migration mode has two tasks:
 
 3. Click **Sync data** and you'll find your SQL in the editor. After verifying that, click **Create**.
 
-### Step 2 - Rollout the sync data task
+### Step 2 - Deploy the sync data task
 
-After creating the issue, the **Sync data** task is `waiting for approval` (if custom approval flow is configured) or `waiting for rollout`. Follow the order to roll out the task.
+After creating the issue, the **Sync data** task is `waiting for approval` (if custom approval flow is configured) or `waiting for rollout`. Follow the order to deploy the task.
 
 The **Sync data** task reads rows on the original table and writes them to the ghost table, meanwhile propagating changes in the original table to the ghost table so that the ghost table can catch up with the original table.
 
@@ -54,13 +54,13 @@ Behind the scenes, gh-ost will create two tables:
 
 If anything goes wrong, manually drop these two tables: `~yourtablename_{timestamp}_gho` and `~yourtablename_{timestamp}_ghc`, then retry.
 
-### Step 3 - Rollout the switch tables task
+### Step 3 - Deploy the switch tables task
 
 Depending on your table size, the **Sync data** task could take some time to process. When the difference between the ghost table and the original table is small enough, the task automatically completes.
 
 The **Switch tables** task automatically renames `yourtablename`, `~yourtablename_{timestamp}_gho` to `~yourtablename_{timestamp}_del`, `yourtablename` respectively to switch the original table and the ghost table.
 
-After the **Sync data** task completes, the **Switch tables** task is `waiting for approval` (if custom approval flow is configured) or `waiting for rollout`. Follow the order to roll out the task.
+After the **Sync data** task completes, the **Switch tables** task is `waiting for approval` (if custom approval flow is configured) or `waiting for rollout`. Follow the order to deploy the task.
 
 ### Step 4 - Delete `~yourtablename_{timestamp}_del` after migration
 

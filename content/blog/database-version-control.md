@@ -57,7 +57,7 @@ You can configure CI in the VCS to check SQL lint with Bytebase. Below are examp
 ![github](/content/blog/database-version-control/github-action.webp)
 ![gitlab](/content/blog/database-version-control/gitlab-ci.webp)
 
-Moreover, you can configure a Bytebase project to link to a VCS repository to observe code changes. Developers still manage the migration scripts in VCS, and when a new migration script is committed, Bytebase will catch the event and create an issue to roll out that migration script.
+Moreover, you can configure a Bytebase project to link to a VCS repository to observe code changes. Developers still manage the migration scripts in VCS, and when a new migration script is committed, Bytebase will catch the event and create an issue to deploy that migration script.
 
 ![git](/content/blog/database-version-control/git-commit.webp)
 ![issue](/content/blog/database-version-control/git-commit-triggered-issue.webp)
