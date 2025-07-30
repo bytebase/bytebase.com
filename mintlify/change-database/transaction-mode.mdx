@@ -2,9 +2,11 @@
 title: Transaction Mode
 ---
 
-## Supported databases
+<Note>
 
-- Redshift
+Transaction mode is supported in MySQL, PostgreSQL, Oracle, SQL Server, TiDB, Redshift.
+
+</Note>
 
 Bytebase wraps all SQL statements in a transaction by default. This ensures that changes are atomic and can be rolled back if an error occurs, providing a safeguard for database integrity.
 
