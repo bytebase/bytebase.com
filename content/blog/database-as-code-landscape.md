@@ -212,8 +212,8 @@ Bytebase is an open source project that started in Jan 2021. It also shares some
 
 Bytebase is a jack-of-all-trades and the master of team collaboration:
 
-- A standalone developer team can host a Bytebase instance to manage database development activities.
-- A DBA or platform team can also host a Bytebase instance to be used by all the product teams in the entire organization.
+- A standalone developer team can host a Bytebase workspace to manage database development activities.
+- A DBA or platform team can also host a Bytebase workspace to be used by all the product teams in the entire organization.
 - It has native VCS integration to streamline the code and database development together.
   Bytebase has concepts Project, Issue because it resembles systems like Jira, GitLab / GitHub.
 

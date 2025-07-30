@@ -24,9 +24,9 @@ Access telemetry at `/metrics` (e.g. https://demo.bytebase.com/metrics).
 
 ## High Availability (HA)
 
-You can only run a single Bytebase instance at a time. In other words, you can scale up the instance but cannot scale it out to multiple replicas.
+You can only run a single Bytebase workspace at a time. In other words, you can scale up the workspace but cannot scale it out to multiple replicas.
 
-Restarting the Bytebase instance usually takes under 10 seconds. To minimize the downtime, you should
+Restarting the Bytebase workspace usually takes under 10 seconds. To minimize the downtime, you should
 store the metadata in an [external PostgreSQL](/administration/production-setup/#store-metadata-in-external-postgresql) and make sure the PostgreSQL instance is highly available.
 
 ## Kubernetes

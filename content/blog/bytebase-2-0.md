@@ -29,7 +29,7 @@ Bytebase initially supported MySQL. Bytebase 2.0 now supports twelve:
 - NewSQL: Google Cloud Spanner, TiDB, OceanBase
 - NoSQL: MongoDB, Redis
 
-You can now deploy a single Bytebase instance to manage the heterogeneous database systems. Stay
+You can now deploy a single Bytebase workspace to manage the heterogeneous database systems. Stay
 tuned for more.
 
 ## New Cloud Offering

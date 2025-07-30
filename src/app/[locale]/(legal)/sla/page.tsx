@@ -23,7 +23,7 @@ export default function Page() {
           <th>Premium</th>
         </tr>
         <tr>
-          <td>Urgent (Your Bytebase instance is completely unusable)</td>
+          <td>Urgent (Your Bytebase workspace is completely unusable)</td>
           <td>2h (24x5 Monday - Friday)</td>
           <td>1h (24x5 Monday - Friday)</td>
         </tr>
