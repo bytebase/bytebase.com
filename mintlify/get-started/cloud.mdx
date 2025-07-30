@@ -1,44 +1,94 @@
 ---
 title: Cloud
+description: Get started with Bytebase Cloud - a fully managed Database DevOps platform
 ---
 
-import WhitelistBytebaseIp from '/snippets/install/whitelist-bytebase-ip.mdx';
+[Bytebase Cloud](https://hub.bytebase.com/) is a fully managed Database DevOps platform. Get started instantly without installing or managing any infrastructure.
 
-[Bytebase Cloud](https://hub.bytebase.com/) is hosted on Google Cloud GKE us-central region and provides instant provisioning of Bytebase workspaces.
+## Key Features
 
-## Whitelist the Bytebase Cloud IP
+- **Instant Setup**: Ready in seconds
+- **Fully Managed**: We handle updates, backups, and monitoring
+- **Enterprise Ready**: SOC 2 compliant with built-in security
+- **Reliable Infrastructure**: Hosted on Google Cloud
 
-<WhitelistBytebaseIp />
+## Prerequisites
 
-## Provision a Bytebase workspace
+To connect your databases to Bytebase Cloud, add this IP address to your database firewall:
 
-1. Visit [Bytebase Cloud Hub](https://hub.bytebase.com/).
-2. Sign up or Log in to Bytebase Hub via your email / Google / GitHub / Microsoft account.
+<Warning>
+**Required IP address:** `34.27.113.218`
+</Warning>
 
-![login-hub](/content/docs/get-started/saas/login-hub.webp)
+![topology](/content/docs/get-started/saas/topology.webp)
 
-3. You'll be redirected to the hub workspace page, click **Create workspace** to provision a Bytebase workspace. Note that only one workspace is allowed per account.
-   ![hub-workspace](/content/docs/get-started/saas/hub-workspace.webp)
+## Create Your Workspace
 
-4. Wait several minutes for the workspace to be provisioned, and then **check your email** for the login link, email, and password.
+### Step 1: Sign In
 
-![login-email](/content/docs/get-started/saas/login-email.webp)
+Go to [hub.bytebase.com](https://hub.bytebase.com/) and sign in with Google, Microsoft, GitHub, Email.
 
-## Log in to the workspace
+### Step 2: Create Workspace
 
-1. Click the **Login to your workspace** link in the email, you'll be redirected to the Bytebase console login page.
+Click **Create workspace**. You get one workspace per account.
 
-![bb-login](/content/docs/get-started/saas/login.webp)
+### Step 3: Access Your Workspace
 
-2. Fill in the **Email** and **Password**, and click **Sign in**.
-3. A sample PostgreSQL instance is already available.
+Your workspace is usually ready in seconds. You'll be redirected automatically.
 
-## Add additional member
+If it takes longer, check your email for:
+- Workspace URL
+- Login credentials
 
-Because Bytebase Cloud disables self-signup, so the `Workspace Admin` needs to add new members manually.
+## Add Your Team
 
-![add-member](/content/docs/get-started/saas/add-member.webp)
+### Add Members
 
-Then set a temporary password and tell the user offline to let them sign-in.
+Only admins can add new members:
 
-![set-password](/content/docs/get-started/saas/set-password.webp)
+1. Go to **Settings** → **Members**
+2. Click **Add Member**
+3. Enter their email and choose a role
+
+### Set Up Passwords
+
+After adding someone:
+1. Click their name
+2. Click **Set Password**
+3. Create a temporary password
+4. Send it to them securely
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Connect Database" icon="database" href="/get-started/instance">
+    Add database instance
+  </Card>
+  <Card title="Create Project" icon="folder" href="/concepts/project">
+    Organize databases
+  </Card>
+  <Card title="Set Permissions" icon="shield" href="/administration/rbac">
+    Configure access control
+  </Card>
+  <Card title="Enable GitOps" icon="git-branch" href="/vcs-integration/overview">
+    Connect VCS (GitHub, GitLab)
+  </Card>
+</CardGroup>
+
+## Need Help?
+
+<AccordionGroup>
+  <Accordion title="Can't access workspace">
+    - Check your workspace URL is correct
+    - Clear browser cache
+    - Try incognito mode
+  </Accordion>
+  
+  <Accordion title="Forgot password">
+    Reset it at [hub.bytebase.com](https://hub.bytebase.com)
+  </Accordion>
+  
+  <Accordion title="Database won't connect">
+    Make sure you added IP `34.27.113.218` to your database firewall
+  </Accordion>
+</AccordionGroup>
