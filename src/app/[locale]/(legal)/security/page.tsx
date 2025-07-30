@@ -60,7 +60,7 @@ export default function Page() {
           through Terraform.
         </li>
         <li>
-          Each customer Bytebase workspace is running inside a separate container managed by Google
+          Each customer Bytebase instance is running inside a separate container managed by Google
           Container Engine (GKE).
         </li>
         <li>
@@ -77,7 +77,7 @@ export default function Page() {
           request in our Enterprise plan.
         </li>
         <li>
-          The customer Bytebase workspace will be deactivated automatically if there is no traffic in
+          The customer Bytebase instance will be deactivated automatically if there is no traffic in
           48 hours. The data will be purged in 60 days after deactivation.
         </li>
       </ul>
@@ -107,7 +107,7 @@ export default function Page() {
         </li>
         <li>
           User/password authentication is enabled by default.{' '}
-          <Link href="/docs/administration/sso/overview/">SSO </Link>with the Bytebase workspace is
+          <Link href="/docs/administration/sso/overview/">SSO </Link>with the Bytebase instance is
           configurable via OAuth, OIDC, or LDAP. <Link href="/docs/administration/2fa/">2FA</Link>{' '}
           and <Link href="/docs/administration/sign-in-restriction/">Sign-in restriction</Link> can
           be further enforced in the Enterprise plan.

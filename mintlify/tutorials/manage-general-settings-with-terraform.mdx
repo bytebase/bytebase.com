@@ -27,7 +27,7 @@ This tutorial is part of the **Bytebase Terraform Provider** series:
 
 <Note>
   This tutorial configures workspace-level settings that apply to all projects and environments in
-  your Bytebase workspace.
+  your Bytebase instance.
 </Note>
 
 ## What You'll Learn
@@ -48,7 +48,7 @@ Before starting this tutorial, ensure you have:
 
 From the previous tutorials, you should have:
 
-- Bytebase workspaces and projects configured
+- Bytebase instances and projects configured
 - Service account with Workspace Admin role
 - Your Terraform files ready for additional configurations
 
@@ -81,7 +81,7 @@ This configuration:
 
 - Disables public signup for security
 - Restricts users to specific email domains
-- Sets your Bytebase workspace's external URL
+- Sets your Bytebase instance's external URL
 
 ### Step 2 - Risk Management Policies
 
@@ -203,7 +203,7 @@ terraform apply
 
 ## Key Points
 
-- **Workspace Profile**: Controls signup, domain restrictions, and external URL for your entire Bytebase workspace
+- **Workspace Profile**: Controls signup, domain restrictions, and external URL for your entire Bytebase instance
 - **Risk Policies**: Automatically assess database operations based on conditions like environment and affected rows
 - **Approval Flows**: Define multi-step approval processes that trigger based on risk levels
 - **Integration**: Risk policies and approval flows work together to ensure proper governance for database changes

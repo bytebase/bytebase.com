@@ -50,7 +50,7 @@ Another option would require clicking to go to bytebase to approve the request, 
 
 ## Step 1 - Finished the previous tutorial
 
-Make sure you finished the [previous tutorial](/tutorials/just-in-time-database-access-part1) and have the Bytebase workspace running. Particularly, pay attention to **Step 4**, which is to request JIT access via Bytebase GUI.
+Make sure you finished the [previous tutorial](/tutorials/just-in-time-database-access-part1) and have the Bytebase instance running. Particularly, pay attention to **Step 4**, which is to request JIT access via Bytebase GUI.
 
 The `Request role` feature is supported by **Enterprise Plan** which will be needed for this tutorial, other plans only allow the `Assign role` feature which is not enough. You may request a trial from [here](https://www.bytebase.com/contact-us/).
 
@@ -67,7 +67,7 @@ The `Request role` feature is supported by **Enterprise Plan** which will be nee
 1. Paste the registered service account information into the `.env.local` file.
 1. By using VS Code's [Port forwarding](https://code.visualstudio.com/docs/editor/port-forwarding), you can forward the local server's ports:
    - `3000` for the `example-slack` app
-   - `8080` for the Bytebase workspace
+   - `8080` for the Bytebase instance
      ![vscode-ports](/content/docs/tutorials/just-in-time-database-access-part2/vscode-ports.webp)
 1. Copy the 8080 port forwarded address to the `.env.local` file as `BB_HOST`.
 1. Also, go to Bytebase, click **Settings > General** to set the address as **External URL**.
