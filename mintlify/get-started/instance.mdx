@@ -2,7 +2,6 @@
 title: Connect Your Database
 ---
 
-import WhitelistBytebaseIp from '/snippets/install/whitelist-bytebase-ip.mdx';
 import PostgreSQLConfig from '/snippets/get-started/instance/postgresql.mdx';
 import OracleConfig from '/snippets/get-started/instance/oracle.mdx';
 import SnowflakeConfig from '/snippets/get-started/instance/snowflake.mdx';
@@ -47,7 +46,9 @@ you need to set host as [host.docker.internal](https://docs.docker.com/desktop/n
 
 ### Connect to the instance from Bytebase Cloud
 
-<WhitelistBytebaseIp />
+<Note>
+If you're using Bytebase Cloud, make sure you've whitelisted the required IP address. See the [Prerequisites section](/get-started/cloud#prerequisites) in the Cloud documentation.
+</Note>
 
 ### Read-Only Connection
 
