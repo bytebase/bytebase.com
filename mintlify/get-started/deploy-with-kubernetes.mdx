@@ -2,8 +2,6 @@
 title: Deploy with Kubernetes
 ---
 
-**Latest release version:** [**3.8.1**](https://github.com/bytebase/bytebase/releases/latest)
-
 ## Prerequisites
 
 - Check [System Requirements](/faq##system-requirements).
@@ -41,7 +39,7 @@ spec:
     spec:
       containers:
         - name: bytebase
-          image: bytebase/bytebase:3.8.1
+          image: bytebase/bytebase:latest
           imagePullPolicy: Always
           # Configure external PostgreSQL following the guide:
           # https://www.bytebase.com/docs/get-started/install/external-postgres
@@ -110,7 +108,7 @@ When a new Bytebase release is published, you can change the image version in th
 ```yaml
 containers:
   - name: bytebase
-    image: bytebase/bytebase:3.8.1
+    image: bytebase/bytebase:latest
 ```
 
 ## Use Helm Chart
@@ -141,7 +139,7 @@ helm -n bytebase \
 --set "bytebase.option.port"=443 \
 --set "bytebase.option.external-url"="http://bytebase.example.com" \
 --set "bytebase.option.externalPg.url"="postgresql://user:secret@foo.ap-east-1.rds.amazonaws.com/postgres" \
---set "bytebase.version"=3.8.1 \
+--set "bytebase.version"=latest \
 install bytebase-release bytebase-repo/bytebase
 ```
 

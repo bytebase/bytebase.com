@@ -39,6 +39,12 @@ Make sure to set the replicas to **1**, otherwise, it may cause data race issues
 
 Bytebase is now stateless and does not require persistent volumes. All metadata should be stored in an [external PostgreSQL database](/get-started/install/external-postgres).
 
+## Docker Image Versioning
+
+For production deployments, we recommend pinning to a specific stable release version instead of using the `latest` tag. While our deployment guides use `latest` for simplicity, production environments can specify an explicit version (e.g., `bytebase/bytebase:3.8.1`) to ensure consistency and prevent unexpected updates.
+
+You can find the latest stable version on our [releases page](https://github.com/bytebase/bytebase/releases/latest).
+
 ## Cloud vendor stack
 
 If you self-host Bytebase in the cloud provider, below is the recommended stack.
