@@ -101,25 +101,11 @@ spec:
 
 3. Open a browser and visit [http://localhost](http://localhost), you should see Bytebase.
 
-### Upgrade
+## Production Deployment
 
-When a new Bytebase release is published, you can change the image version in the yaml file
-
-```yaml
-containers:
-  - name: bytebase
-    image: bytebase/bytebase:latest
-```
+For production deployments, see our [Production Setup Guide](/administration/production-setup).
 
 ## Use Helm Chart
-
-### Production Setup External URL
-
-<Note>
-
-For production setup, you should configure a proper [External URL](/get-started/install/external-url).
-
-</Note>
 
 ### Installing the Chart
 

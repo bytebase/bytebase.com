@@ -2,7 +2,7 @@
 title: Production Setup
 ---
 
-This page describes how to setup Bytebase in production environment.
+This page describes how to set up Bytebase in production environment.
 
 [System Requirements](/faq/##system-requirements)
 
@@ -27,7 +27,7 @@ Access telemetry at `/metrics` (e.g. https://demo.bytebase.com/metrics).
 You can only run a single Bytebase workspace at a time. In other words, you can scale up the workspace but cannot scale it out to multiple replicas.
 
 Restarting the Bytebase workspace usually takes under 10 seconds. To minimize the downtime, you should
-store the metadata in an [external PostgreSQL](/administration/production-setup/#store-metadata-in-external-postgresql) and make sure the PostgreSQL instance is highly available.
+store the metadata in an [external PostgreSQL database](/administration/production-setup/#store-metadata-in-external-postgresql) and make sure the PostgreSQL instance is highly available.
 
 ## Kubernetes
 
@@ -41,9 +41,9 @@ Bytebase is now stateless and does not require persistent volumes. All metadata 
 
 ## Docker Image Versioning
 
-For production deployments, we recommend pinning to a specific stable release version instead of using the `latest` tag. While our deployment guides use `latest` for simplicity, production environments can specify an explicit version (e.g., `bytebase/bytebase:3.8.1`) to ensure consistency and prevent unexpected updates.
+For production deployments, pin to a specific version (e.g., `bytebase/bytebase:3.8.1`) instead of using `latest` to prevent unexpected updates.
 
-You can find the latest stable version on our [releases page](https://github.com/bytebase/bytebase/releases/latest).
+See the latest versions in our [changelog](https://docs.bytebase.com/changelog).
 
 ## Cloud vendor stack
 
