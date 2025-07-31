@@ -39,6 +39,7 @@
                   "get-started/install/external-postgres",
                   "get-started/external-access",
                   "get-started/install/external-url",
+                  "get-started/production-setup",
                   "get-started/upgrade"
                 ]
               },
@@ -214,8 +215,6 @@
             "group": "General",
             "pages": [
               "administration/license",
-              "administration/production-setup",
-              "administration/back-up-data",
               "administration/mode",
               "ai-assistant",
               "administration/instance",
