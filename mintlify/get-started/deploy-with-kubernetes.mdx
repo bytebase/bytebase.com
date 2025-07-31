@@ -1,0 +1,210 @@
+---
+title: Deploy with Kubernetes
+---
+
+**Latest release version:** [**3.8.1**](https://github.com/bytebase/bytebase/releases/latest)
+
+## Prerequisites
+
+- Check [System Requirements](/faq##system-requirements).
+- Check [External PostgreSQL Prerequisites](/get-started/install/external-postgres/) if you configure it.
+- If you use gateway such as Nginx, enable [WebSocket](/get-started/external-access#enable-websocket-for-sql-editor) for SQL Editor autocomplete to work.
+
+## Deploy to Kubernetes
+
+Estimated time: **15 minutes**.
+
+<Note>
+
+Make sure to set the replicas to **1**, otherwise, it may cause data race issues.
+
+</Note>
+
+Here is a sample Kubernetes YAML file `bb.yaml` describing the minimal components and configuration required to run Bytebase in Kubernetes.
+
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: bytebase
+  namespace: default
+spec:
+  # To prevent data races, only request one replica.
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bytebase
+  template:
+    metadata:
+      labels:
+        app: bytebase
+    spec:
+      containers:
+        - name: bytebase
+          image: bytebase/bytebase:3.8.1
+          imagePullPolicy: Always
+          # Configure external PostgreSQL following the guide:
+          # https://www.bytebase.com/docs/get-started/install/external-postgres
+          env:
+            - name: PG_URL
+              value: 'postgresql://<<user>>:<<secret>>@<<host>>:<<port>>/<<dbname>>'
+          args:
+            [
+              '--data',
+              '/var/opt/bytebase',
+              '--external-url',
+              'http://bytebase.example.com',
+              '--port',
+              '8080',
+            ]
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 300
+            periodSeconds: 300
+            timeoutSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bytebase-entrypoint
+  namespace: default
+spec:
+  # Optional
+  type: ClusterIP
+  selector:
+    app: bytebase
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+```
+
+1. Start Bytebase with the following command:
+
+   ```text
+   kubectl apply -f bb.yaml
+   ```
+
+2. Make sure everything worked by listing your deployments:
+
+   ```text
+   kubectl get statefulsets
+   ```
+
+   Do the same check for your services:
+
+   ```text
+   kubectl get services
+   ```
+
+3. Open a browser and visit [http://localhost](http://localhost), you should see Bytebase.
+
+### Upgrade
+
+When a new Bytebase release is published, you can change the image version in the yaml file
+
+```yaml
+containers:
+  - name: bytebase
+    image: bytebase/bytebase:3.8.1
+```
+
+## Use Helm Chart
+
+### Production Setup External URL
+
+<Note>
+
+For production setup, you should configure a proper [External URL](/get-started/install/external-url).
+
+</Note>
+
+### Installing the Chart
+
+```text
+helm -n <YOUR_NAMESPACE> \
+--set "bytebase.option.port"={PORT} \
+--set "bytebase.option.external-url"={EXTERNAL_URL} \
+--set "bytebase.option.externalPg.url"={PGDSN} \
+--set "bytebase.version"={VERSION} \
+install <RELEASE_NAME> bytebase-repo/bytebase
+```
+
+For example:
+
+```text
+helm -n bytebase \
+--set "bytebase.option.port"=443 \
+--set "bytebase.option.external-url"="http://bytebase.example.com" \
+--set "bytebase.option.externalPg.url"="postgresql://user:secret@foo.ap-east-1.rds.amazonaws.com/postgres" \
+--set "bytebase.version"=3.8.1 \
+install bytebase-release bytebase-repo/bytebase
+```
+
+### Uninstalling the Chart
+
+```text
+helm delete --namespace <YOUR_NAMESPACE> <RELEASE_NAME>
+```
+
+### Upgrade Bytebase Version/Configuration
+
+Use `helm upgrade` command to upgrade the bytebase version or configuration.
+
+```text
+helm -n <YOUR_NAMESPACE> \
+--set "bytebase.option.port"={NEW_PORT} \
+--set "bytebase.option.external-url"={NEW_EXTERNAL_URL} \
+--set "bytebase.option.externalPg.url"={NEW_PGDSN} \
+--set "bytebase.version"={NEW_VERSION} \
+upgrade bytebase-release bytebase-repo/bytebase
+```
+
+## Persistent Volume
+
+We don't recommend this. However, if you do not configure [External PostgreSQL](/get-started/install/external-postgres),
+then to persist data, you need to use the [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#types-of-persistent-volumes) in the cluster. Each cloud provider has its own solution.
+
+### For Amazon Elastic Kubernetes Service(EKS)
+
+In AWS EKS, you can use the [Amazon EBS CSI driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) for persistent volumes. Follow the [managing EBS CSI](https://docs.aws.amazon.com/eks/latest/userguide/managing-ebs-csi.html) to add it as an Amazon EKS add-on.
+
+Here is a simple example to use an EBS volume:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: bytebase-ebs-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: bytebase-resize-sc
+  resources:
+    requests:
+      storage: 4Gi
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: bytebase-resize-sc
+provisioner: ebs.csi.aws.com
+allowVolumeExpansion: true
+```
+
+**Note** Also need to update the statefulset spec of bytebase to replace the emptyDir volume with persistentVolumeClaim:
+
+```yaml
+volumes:
+  - name: bytebase-volume
+    persistentVolumeClaim:
+      claimName: bytebase-ebs-claim
+```
+
+### For Google Kubernetes Engine(GKE)
+
+Please follow the [Persistent volumes and dynamic provisioning](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes).

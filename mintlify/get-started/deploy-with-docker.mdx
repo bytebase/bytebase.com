@@ -1,0 +1,86 @@
+---
+title: Deploy with Docker
+---
+
+import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
+import TerminalStartupOutputSuccess from '/snippets/install/terminal-startup-output-success.mdx';
+
+**Latest release version:** [**3.8.1**](https://github.com/bytebase/bytebase/releases/latest)
+
+## Prerequisites
+
+- Check [System Requirements](/faq##system-requirements).
+- Check [External PostgreSQL Prerequisites](/get-started/install/external-postgres/) if you configure it.
+- If you use gateway such as Nginx, enable [WebSocket](/get-started/external-access#enable-websocket-for-sql-editor) for SQL Editor autocomplete to work.
+
+<Note>
+
+- Docker version must be at least [20.10.24](https://docs.docker.com/engine/release-notes/20.10/#201024)
+  or pass `--security-opt seccomp=unconfined` to `docker run`, otherwise, you will get `pthread_create failed` error.
+
+- If accessing from China, pull image `registry.cn-shanghai.aliyuncs.com/bytebase/bytebase:3.8.1`.
+
+</Note>
+
+## Installation
+
+Estimated time: **5 minutes**.
+
+<TerminalDockerRunVolume />
+
+Once you see the Bytebase logo, you can access the console at http://localhost:8080.
+
+<TerminalStartupOutputSuccess />
+
+If you need to transfer images to a completely air-gapped environment:
+
+```bash
+# Save the image to a tar file
+docker save bytebase/bytebase:3.8.1 > bytebase-3.8.1.tar
+
+# Transfer the tar file to your target environment
+# Then load it on the target system
+docker load < bytebase-3.8.1.tar
+
+# Tag and push as described above
+docker tag bytebase/bytebase:3.8.1 your-registry.acme.com/library/bytebase:3.8.1
+docker push your-registry.acme.com/library/bytebase:3.8.1
+```
+
+If you need more control over the server configuration, check other [Server Startup Options](/reference/command-line).
+
+## Troubleshooting
+
+### bind: address already in use
+
+If you see `bind: address already in use` error, it means the port 8080 is already in use on your host. You need to either stop the existing process using the port or configure Bytebase to use a different port via `--publish <<YOUR_PORT>>:8080`.
+
+### Connect database instance on the same host
+
+- If you **run Bytebase inside Docker on Linux**, then you need to supply the additional `--network host` flags in `docker run` command. This allows Bytebase to connect to database instance running on the same host with `localhost`.
+- If you **run Bytebase inside Docker Desktop on Mac** , then you need to use `host.docker.internal` to connect to database instance running on the same host.
+
+### Manifest not found
+
+There may be a few reasons the manifest file is not found:
+
+- The docker image only supports `linux/amd64` and `linux/arm64` arch. If it doesn't match your OS arch, you may supply
+  `--platform linux/amd64` as a best effort.
+- Your Docker version is too old and doesn't support manifest list. Please [install the latest Docker version](https://docs.docker.com/engine/install/).
+
+### Unable to start using Colima
+
+Due to the vm mechanism of [Colima](https://github.com/abiosoft/colima), try to use the `--mount` option when starting colima as shown below:
+
+```text
+mkdir ~/volumes
+colima start --mount ~/volumes:w
+docker run --init \
+  --name bytebase \
+  --restart always \
+  --publish 80:8080 \
+  --volume ~/.bytebase/data:/var/opt/bytebase bytebase/bytebase:3.8.1 \
+  --data /var/opt/bytebase \
+  --external-url http://bytebase.example.com \
+  --port 8080
+```

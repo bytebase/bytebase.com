@@ -33,7 +33,9 @@
               {
                 "group": "Self-Host",
                 "pages": [
-                  "get-started/self-host",
+                  "get-started/deploy-with-docker",
+                  "get-started/deploy-with-kubernetes",
+                  "get-started/deploy-with-aws-fargate",
                   "get-started/install/external-postgres",
                   "get-started/external-access",
                   "get-started/install/external-url",
