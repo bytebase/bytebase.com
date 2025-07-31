@@ -5,8 +5,6 @@ title: Deploy with Docker
 import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
 import TerminalStartupOutputSuccess from '/snippets/install/terminal-startup-output-success.mdx';
 
-**Latest release version:** [**3.8.1**](https://github.com/bytebase/bytebase/releases/latest)
-
 ## Prerequisites
 
 - Check [System Requirements](/faq#system-requirements).
@@ -18,7 +16,7 @@ import TerminalStartupOutputSuccess from '/snippets/install/terminal-startup-out
 - Docker version must be at least [20.10.24](https://docs.docker.com/engine/release-notes/20.10/#201024)
   or pass `--security-opt seccomp=unconfined` to `docker run`, otherwise, you will get `pthread_create failed` error.
 
-- If accessing from China, pull image `registry.cn-shanghai.aliyuncs.com/bytebase/bytebase:3.8.1`.
+- If accessing from China, pull image `registry.cn-shanghai.aliyuncs.com/bytebase/bytebase:latest`.
 
 </Note>
 
@@ -36,15 +34,15 @@ If you need to transfer images to a completely air-gapped environment:
 
 ```bash
 # Save the image to a tar file
-docker save bytebase/bytebase:3.8.1 > bytebase-3.8.1.tar
+docker save bytebase/bytebase:latest > bytebase-latest.tar
 
 # Transfer the tar file to your target environment
 # Then load it on the target system
-docker load < bytebase-3.8.1.tar
+docker load < bytebase-latest.tar
 
 # Tag and push as described above
-docker tag bytebase/bytebase:3.8.1 your-registry.acme.com/library/bytebase:3.8.1
-docker push your-registry.acme.com/library/bytebase:3.8.1
+docker tag bytebase/bytebase:latest your-registry.acme.com/library/bytebase:latest
+docker push your-registry.acme.com/library/bytebase:latest
 ```
 
 If you need more control over the server configuration, check other [Server Startup Options](/reference/command-line).
@@ -78,8 +76,8 @@ colima start --mount ~/volumes:w
 docker run --init \
   --name bytebase \
   --restart always \
-  --publish 80:8080 \
-  --volume ~/.bytebase/data:/var/opt/bytebase bytebase/bytebase:3.8.1 \
+  --publish 80:8080 --pull always \
+  --volume ~/.bytebase/data:/var/opt/bytebase bytebase/bytebase:latest \
   --data /var/opt/bytebase \
   --external-url http://bytebase.example.com \
   --port 8080

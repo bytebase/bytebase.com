@@ -2,8 +2,6 @@
 title: Deploy with AWS Fargate
 ---
 
-**Latest release version:** [**3.8.1**](https://github.com/bytebase/bytebase/releases/latest)
-
 ## Prerequisites
 
 - Check [System Requirements](/faq#system-requirements).
@@ -21,7 +19,7 @@ title: Deploy with AWS Fargate
 
 1. Click **Task Definitions** on the left menu and then click **Create new task definition**.
 1. Choose **AWS Fargate** as the launch type under **Infrastructure requirements**.
-1. Add a **Container**, fill in **Image URL** with `bytebase/bytebase:3.8.1` and **Container port** `8080`.
+1. Add a **Container**, fill in **Image URL** with `bytebase/bytebase:latest` and **Container port** `8080`.
 1. Click **Create**.
 
 ## Run the Task
@@ -33,7 +31,7 @@ title: Deploy with AWS Fargate
 
 ## Access Bytebase
 
-1. Go to the service you just created and click **Logs** tab to see the logs. If you see something like `Version 3.8.1 has started on port 8080 🚀`, it means Bytebase is running.
+1. Go to the service you just created and click **Logs** tab to see the logs. If you see something like `Version has started on port 8080 🚀`, it means Bytebase is running.
 1. Click **Tasks** tab to see the task list. Click the task name to see the task details.
 1. Under **Container details for bytebase**, click **Network bindings** tab to find the **External link**.
 1. Click **Open address** to access Bytebase.

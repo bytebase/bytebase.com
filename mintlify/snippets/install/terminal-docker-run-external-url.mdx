@@ -12,7 +12,7 @@ Use [host.docker.internal](https://docs.docker.com/desktop/networking/#i-want-to
 docker run --rm --init \
   -e PG_URL=postgresql://user:secret@host:port/dbname \
   --name bytebase \
-  --publish 8080:8080 \
+  --publish 8080:8080 --pull always \
   --volume ~/.bytebase/data:/var/opt/bytebase \
-  bytebase/bytebase:3.8.1
+  bytebase/bytebase:latest
 ```
