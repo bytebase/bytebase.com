@@ -62,6 +62,39 @@ This bash script demonstrates how to add an external PostgreSQL database as the 
 
 <TerminalDockerRunExternalUrl />
 
+## Kubernetes Configuration
+
+### Using Connection String in YAML
+
+You can specify the PostgreSQL connection string directly in your Kubernetes YAML file:
+
+```yaml
+env:
+  - name: PG_URL
+    value: 'postgresql://<<user>>:<<secret>>@<<host>>:<<port>>/<<dbname>>'
+```
+
+### Using Kubernetes Secrets
+
+Instead of specifying PostgreSQL connection string directly in helm or Kubernetes yaml file, you can use Kubernetes secrets resources:
+
+#### Kubernetes
+
+Use the following yaml section to replace the `spec.templates.spec.containers.env` section:
+
+```yaml
+env:
+  - name: PG_URL
+    valueFrom:
+      secretKeyRef:
+        name: secret_name
+        key: secrete_key
+```
+
+#### Helm
+
+Use `--set bytebase.option.existingPgURLSecret` and `--set bytebase.option.existingPgURLSecretKey` to specify the secret key and secret name instead of `--set "bytebase.option.external-url"={NEW_EXTERNAL_URL}`. See more details in [Bytebase - Artifact Hub](https://artifacthub.io/packages/helm/bytebase/bytebase).
+
 ## Troubleshoot
 
 ### Cannot new server ERROR: syntax error at or near xxx
