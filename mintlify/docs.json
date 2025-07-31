@@ -35,6 +35,7 @@
                 "pages": [
                   "get-started/self-host",
                   "get-started/install/external-postgres",
+                  "get-started/external-access",
                   "get-started/install/external-url",
                   "get-started/upgrade"
                 ]
