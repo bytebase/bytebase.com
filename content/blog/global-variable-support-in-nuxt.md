@@ -9,7 +9,7 @@ description: We recently introduced a global version variable in our Nuxt docs t
 
 ## Background
 
-On our doc site, we have a few pages with instructions on installing Bytebase, like this one: [Deploy Bytebase in Docker within 5 seconds](https://docs.bytebase.com/get-started/self-host/#docker). On these pages, we teach users how to install the latest version of Bytebase by showing command snippets.
+On our doc site, we have a few pages with instructions on installing Bytebase, like this one: [Deploy Bytebase in Docker within 5 seconds](https://docs.bytebase.com/get-started/self-host/#docker). On these pages, we teach users how to install the %%bb_version%% version of Bytebase by showing command snippets.
 
 ```text
 docker run --init \
@@ -21,23 +21,23 @@ docker run --init \
   --health-interval 5m \
   --health-timeout 5m \
   --volume ~/.bytebase/data:/var/opt/bytebase \
-  bytebase/bytebase:latest \
+  bytebase/bytebase:%%bb_version%% \
   --data /var/opt/bytebase \
   --host http://localhost \
   --port 8080
 ```
 
-But at Bytebase, we release a new version biweekly, which means we need to update the latest version here (currently latest) every two weeks.
+But at Bytebase, we release a new version biweekly, which means we need to update the %%bb_version%% version here (currently %%bb_version%%) every two weeks.
 
 ![_](/content/blog/global-variable-support-in-nuxt/upgrade-in-the-old-way.webp)
 
-This is painful and error-prone to change every version string during the upgrade. Ideally, we only need to change the latest version in one place, and let other files read and use it just like a global variable. Let's improve this procedure and say goodbye to the cumbersome manual operations!
+This is painful and error-prone to change every version string during the upgrade. Ideally, we only need to change the %%bb_version%% version in one place, and let other files read and use it just like a global variable. Let's improve this procedure and say goodbye to the cumbersome manual operations!
 
 ## 1st Attempt - A version component
 
 After some investigation, I sadly found out that there is no out-of-box global variable support in Nuxt Content currently: [nuxt/content#997 (comment)](https://github.com/nuxt/content/issues/997#issuecomment-1005507397).
 
-Our website is built with Nuxt Content v1, so I then looked through its documentation, and the title [Vue components](https://content.nuxtjs.org/v1/getting-started/writing#vue-components) just caught my eye. When we use components, we expect them to solve the problem of functional reuse, which coincides with the purpose of a version variable. We can write a component with the latest version number as its content, and use this component everywhere we need.
+Our website is built with Nuxt Content v1, so I then looked through its documentation, and the title [Vue components](https://content.nuxtjs.org/v1/getting-started/writing#vue-components) just caught my eye. When we use components, we expect them to solve the problem of functional reuse, which coincides with the purpose of a version variable. We can write a component with the %%bb_version%% version number as its content, and use this component everywhere we need.
 
 So following Nuxt Content's [instruction](https://content.nuxtjs.org/v1/getting-started/writing/#global-components), we create a global component named Version.vue,
 
@@ -45,8 +45,8 @@ So following Nuxt Content's [instruction](https://content.nuxtjs.org/v1/getting-
 // Version.vue
 
 <template>
-  <!-- change the latest version below after every publish -->
-  <span>latest</span>
+  <!-- change the %%bb_version%% version below after every publish -->
+  <span>%%bb_version%%</span>
 </template>
 ```
 
@@ -87,10 +87,10 @@ docker run --init \
 
 Usually, our Developer Marketing team updates the version number on every new release, thus it's beneficial to reduce the required coding work. So it would definitely be better if the version number is in a standalone file like [what we did in the Bytebase repo](https://github.com/bytebase/bytebase/blob/main/scripts/VERSION).
 
-To achieve this, we create a file named `VERSION` and put it under the root directory. This file only contains one line of the exact latest version number:
+To achieve this, we create a file named `VERSION` and put it under the root directory. This file only contains one line of the exact %%bb_version%% version number:
 
 ```text
-latest
+%%bb_version%%
 ```
 
 Then we should make some changes to the version component to let it read the version info from this plain file. Before that, we need to install `raw-loader` as a `devDependency` so that we can parse plain text files as raw strings.
@@ -137,10 +137,10 @@ However, the solution of using a version component has some limitations:
 https://github.com/bytebase/bytebase/releases/tag/<version></version>
 ```
 
-We actually used a tricky workaround to achieve it here, which will redirect visitors to the latest release page (For now, it's latest).
+We actually used a tricky workaround to achieve it here, which will redirect visitors to the %%bb_version%% release page (For now, it's %%bb_version%%).
 
 ```markdown
-https://github.com/bytebase/bytebase/releases/latest
+https://github.com/bytebase/bytebase/releases/%%bb_version%%
 ```
 
 ## Refined solution - Inject version number before content parse
@@ -157,11 +157,11 @@ hooks: {
 }
 ```
 
-In this example, the author uses this hook to convert all occurrences of the word `react` into `vue`. It inspired me that we could use a similar technique and convert all occurrences of the placeholder `$$bb_version$$` into the latest version value (`latest`).
+In this example, the author uses this hook to convert all occurrences of the word `react` into `vue`. It inspired me that we could use a similar technique and convert all occurrences of the placeholder `$$bb_version$$` into the %%bb_version%% version value (`%%bb_version%%`).
 
 Let's enhance this.
 
-Remove the former version component part, and add a few lines in the file `nuxt.config.js`. Before parsing, we will look for markdown files under directory `/docs`, and use a regex to replace placeholders with the latest version number read from the file `VERSION`.
+Remove the former version component part, and add a few lines in the file `nuxt.config.js`. Before parsing, we will look for markdown files under directory `/docs`, and use a regex to replace placeholders with the %%bb_version%% version number read from the file `VERSION`.
 
 ```javascript
 // nuxt.config.js
