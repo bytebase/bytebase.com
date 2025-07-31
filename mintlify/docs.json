@@ -488,6 +488,9 @@
   "integrations": {
     "plausible": {
       "domain": "docs.bytebase.com"
+    },
+    "gtm": {
+      "tagId": "GTM-MMG29QS6"
     }
   }
 }
