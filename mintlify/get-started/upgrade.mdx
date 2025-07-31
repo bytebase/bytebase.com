@@ -35,7 +35,7 @@ Create a new db `metadb_new`:
 psql -h <<host>> -p <<port>> -U <<user>> metadb -c "CREATE DATABASE metadb_new"
 ```
 
-Restore metdata to the new db:
+Restore metadata to the new db:
 
 ```text
 psql -h <<host>> -p <<port>> -U <<user>> metadb_new < metadb.sql
