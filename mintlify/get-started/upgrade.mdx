@@ -92,7 +92,7 @@ Create a new db `metadb2`:
 psql -h <<host>> -p <<port>> -U <<user>> metadb -c "CREATE DATABASE metadb2"
 ```
 
-Restore metdata to the new db:
+Restore metadata to the new db:
 
 ```text
 psql -h <<host>> -p <<port>> -U <<user>> metadb2 < metadb.sql
