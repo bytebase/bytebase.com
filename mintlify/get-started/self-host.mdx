@@ -187,6 +187,8 @@ spec:
         - name: bytebase
           image: bytebase/bytebase:3.8.1
           imagePullPolicy: Always
+          # Configure external PostgreSQL following the guide:
+          # https://www.bytebase.com/docs/get-started/install/external-postgres
           env:
             - name: PG_URL
               value: 'postgresql://<<user>>:<<secret>>@<<host>>:<<port>>/<<dbname>>'
@@ -342,30 +344,10 @@ spec:
 
 **Note** If you use ingress, make sure to use https to access bytebase;
 
-### External PostgreSQL
-
-Instead of specify PostgreSQL connection string in helm or Kubernetes yaml file, we allows users to using Kubernetes secrets resources.
-
-#### Kubernetes
-
-Using the following yaml section to replace the `spec.templates.spec.containers.env` section:
-
-```yaml
-env:
-  - name: PG_URL
-    valueFrom:
-      secretKeyRef:
-        name: secret_name
-        key: secrete_key
-```
-
-#### Helm
-
-Using `--set bytebase.option.existingPgURLSecret` and `--set bytebase.option.existingPgURLSecretKey` to specify the secret key and secret name instead of `--set "bytebase.option.external-url"={NEW_EXTERNAL_URL}`. See more details in [Bytebase - Artifact Hub](https://artifacthub.io/packages/helm/bytebase/bytebase).
 
 ### Persistent Volume
 
-We don't recommend this. However, if you do not configure [External PostgreSQL](#external-postgresql),
+We don't recommend this. However, if you do not configure [External PostgreSQL](/get-started/install/external-postgres),
 then to persist data, you need to use the [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#types-of-persistent-volumes) in the cluster. Each cloud provider has its own solution.
 
 #### For Amazon Elastic Kubernetes Service(EKS)
