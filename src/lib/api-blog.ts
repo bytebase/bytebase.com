@@ -56,7 +56,6 @@ const getBlogPostBySlug = (slug: string): BlogPost | null => {
 
 const getPostBySlug = (dir: string, slug: string): BlogPost | null => {
   try {
-    const VERSION = fs.readFileSync('VERSION').toString();
     const API_ENDPOINT = 'http://bytebase.example.com';
     const filePath = path.join(dir, `${slug}.md`);
     const markdownWithMeta = fs.readFileSync(filePath, 'utf-8');
@@ -65,11 +64,9 @@ const getPostBySlug = (dir: string, slug: string): BlogPost | null => {
     if (!data || !content) return null;
 
     const contentWithReplacements = content.replace(
-      /%%bb_version%%|%%bb_api_endpoint%%/g,
+      /%%bb_api_endpoint%%/g,
       (match) => {
-        if (match === '%%bb_version%%') {
-          return VERSION;
-        } else if (match === '%%bb_api_endpoint%%') {
+        if (match === '%%bb_api_endpoint%%') {
           return API_ENDPOINT;
         }
         return match; // Just in case there's a match that doesn't fit any case

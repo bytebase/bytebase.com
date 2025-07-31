@@ -21,13 +21,13 @@ docker run --init \
   --health-interval 5m \
   --health-timeout 5m \
   --volume ~/.bytebase/data:/var/opt/bytebase \
-  bytebase/bytebase:%%bb_version%% \
+  bytebase/bytebase:latest \
   --data /var/opt/bytebase \
   --host http://localhost \
   --port 8080
 ```
 
-But at Bytebase, we release a new version biweekly, which means we need to update the latest version here (currently %%bb_version%%) every two weeks.
+But at Bytebase, we release a new version biweekly, which means we need to update the latest version here (currently latest) every two weeks.
 
 ![_](/content/blog/global-variable-support-in-nuxt/upgrade-in-the-old-way.webp)
 
@@ -46,7 +46,7 @@ So following Nuxt Content's [instruction](https://content.nuxtjs.org/v1/getting-
 
 <template>
   <!-- change the latest version below after every publish -->
-  <span>%%bb_version%%</span>
+  <span>latest</span>
 </template>
 ```
 
@@ -90,7 +90,7 @@ Usually, our Developer Marketing team updates the version number on every new re
 To achieve this, we create a file named `VERSION` and put it under the root directory. This file only contains one line of the exact latest version number:
 
 ```text
-%%bb_version%%
+latest
 ```
 
 Then we should make some changes to the version component to let it read the version info from this plain file. Before that, we need to install `raw-loader` as a `devDependency` so that we can parse plain text files as raw strings.
@@ -137,7 +137,7 @@ However, the solution of using a version component has some limitations:
 https://github.com/bytebase/bytebase/releases/tag/<version></version>
 ```
 
-We actually used a tricky workaround to achieve it here, which will redirect visitors to the latest release page (For now, it's %%bb_version%%).
+We actually used a tricky workaround to achieve it here, which will redirect visitors to the latest release page (For now, it's latest).
 
 ```markdown
 https://github.com/bytebase/bytebase/releases/latest
@@ -157,7 +157,7 @@ hooks: {
 }
 ```
 
-In this example, the author uses this hook to convert all occurrences of the word `react` into `vue`. It inspired me that we could use a similar technique and convert all occurrences of the placeholder `$$bb_version$$` into the latest version value (`%%bb_version%%`).
+In this example, the author uses this hook to convert all occurrences of the word `react` into `vue`. It inspired me that we could use a similar technique and convert all occurrences of the placeholder `$$bb_version$$` into the latest version value (`latest`).
 
 Let's enhance this.
 

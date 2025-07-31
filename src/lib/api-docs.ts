@@ -20,17 +20,14 @@ const getPostBySlug = (
   slug: string,
 ): { data: Record<string, any>; content: string } | null => {
   try {
-    const VERSION = fs.readFileSync(`${process.cwd()}/VERSION`).toString();
     const API_ENDPOINT = 'http://bytebase.example.com';
     const source = fs.readFileSync(`${docsPath}/${slug}.md`);
     const { data, content } = matter(source);
 
     const contentWithReplacements = content.replace(
-      /%%bb_version%%|%%bb_api_endpoint%%/g,
+      /%%bb_api_endpoint%%/g,
       (match) => {
-        if (match === '%%bb_version%%') {
-          return VERSION;
-        } else if (match === '%%bb_api_endpoint%%') {
+        if (match === '%%bb_api_endpoint%%') {
           return API_ENDPOINT;
         }
         return match; // Just in case there's a match that doesn't fit any case
