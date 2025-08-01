@@ -52,7 +52,7 @@ The detailed drift👇
 
 Database schema drift is one of the most frequent root causes of the database related outages. Recording the desired database schema state in the version control system like GitLab is the first stepping stone to tackle it. Bytebase takes the extra mile to present an easy-to-use UI for users to adopt this practice and surfaces detailed schema drift info once detected.
 
-If this interests you, please do check out our [demo](/view-live-demo) or use 1 liner to [deploy yourself](https://docs.bytebase.com/get-started/self-host/#docker).
+If this interests you, please do check out our [demo](/view-live-demo) or use 1 liner to [deploy yourself](https://docs.bytebase.com/get-started/deploy-with-docker).
 
 ![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
 

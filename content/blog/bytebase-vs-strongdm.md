@@ -61,7 +61,7 @@ While both Bytebase and StrongDM are tools that can solve database Just-in-time 
 
   ![strongdm-installation](/content/blog/bytebase-vs-strongdm/strongdm-installation.webp)
 
-- **Bytebase**: [Docker](https://docs.bytebase.com/get-started/self-host/#docker/) is the recommended installation method (one command to install and start). Also supports [Kubernetes](https://docs.bytebase.com/get-started/self-host/#kubernetes/) deployment and standalone binary installation. Only admin needs to do the setup, client can visit the web-based GUI directly in the browser.
+- **Bytebase**: [Docker](https://docs.bytebase.com/get-started/deploy-with-docker/) is the recommended installation method (one command to install and start). Also supports [Kubernetes](https://docs.bytebase.com/get-started/deploy-with-kubernetes/) deployment and standalone binary installation. Only admin needs to do the setup, client can visit the web-based GUI directly in the browser.
 
   ![bytebase-installation](/content/blog/bytebase-vs-strongdm/bytebase-installation.webp)
 

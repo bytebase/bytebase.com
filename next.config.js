@@ -102,17 +102,17 @@ module.exports = {
       },
       {
         source: `/docs/get-started/install/overview`,
-        destination: '/docs/get-started/self-host/',
+        destination: '/docs/get-started/deploy-with-docker-vs-cloud',
         permanent: true,
       },
       {
         source: `/docs/get-started/install/deploy-with-docker`,
-        destination: '/docs/get-started/self-host/#docker',
+        destination: '/docs/get-started/deploy-with-docker',
         permanent: true,
       },
       {
         source: `/docs/get-started/install/deploy-to-kubernetes`,
-        destination: '/docs/get-started/self-host/#kubernetes',
+        destination: '/docs/get-started/deploy-with-kubernetes',
         permanent: true,
       },
       {

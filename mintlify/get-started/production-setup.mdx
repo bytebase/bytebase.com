@@ -8,7 +8,7 @@ This page describes how to set up Bytebase in production environment.
 
 ## Enable HTTPS and WebSocket
 
-You can use [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy) or [Nginx](https://www.nginx.com/). Check out the [configuration example](/get-started/self-host/#configuration).
+You can use [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy) or [Nginx](https://www.nginx.com/). Check out the [configuration example](/get-started/deploy-with-docker/#configuration).
 
 ## Configure External URL
 
@@ -27,7 +27,7 @@ Access telemetry at `/metrics` (e.g. https://demo.bytebase.com/metrics).
 You can only run a single Bytebase workspace at a time. In other words, you can scale up the workspace but cannot scale it out to multiple replicas.
 
 Restarting the Bytebase workspace usually takes under 10 seconds. To minimize the downtime, you should
-store the metadata in an [external PostgreSQL database](/administration/production-setup/#store-metadata-in-external-postgresql) and make sure the PostgreSQL instance is highly available.
+store the metadata in an [external PostgreSQL database](/get-started/production-setup/#store-metadata-in-external-postgresql) and make sure the PostgreSQL instance is highly available.
 
 ## Kubernetes
 
@@ -53,7 +53,7 @@ If you self-host Bytebase in the cloud provider, below is the recommended stack.
 
 - EC2 + RDS for PostgreSQL.
 - ECS/EKS + RDS for PostgreSQL.
-- [Fargate + RDS for PostgreSQL](/get-started/self-host/#aws-fargate).
+- [Fargate + RDS for PostgreSQL](/get-started/deploy-with-docker/#aws-fargate).
 
 ### GCP
 

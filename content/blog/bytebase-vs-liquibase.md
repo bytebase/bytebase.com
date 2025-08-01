@@ -66,7 +66,7 @@ for developers and DBAs to collaborate.
 ### Installation
 
 - **Liquibase**: Java-based tool, so you need to install a Java Virtual Machine (JVM) before users can install Liquibase.
-- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](https://docs.bytebase.com/get-started/self-host/#docker/) and [Kubernetes](https://docs.bytebase.com/get-started/self-host/#kubernetes/) deployment.
+- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](https://docs.bytebase.com/get-started/deploy-with-docker/) and [Kubernetes](https://docs.bytebase.com/get-started/deploy-with-kubernetes/) deployment.
 
 ### Change execution
 

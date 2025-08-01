@@ -26,11 +26,11 @@ Bytebase is a single Go binary and is lightweight.
 #### CPU and RAM
 
 | Usage                           | Bytebase                  | [External PostgreSQL](/get-started/install/external-postgres/) if used |
-| ------------------------------- | ------------------------- | --------------------------------------------------------------------------- |
-| 5 users and 5 instances         | 1 CPU cores and 2 GB RAM  | 1 CPU cores and 2 GB RAM                                                    |
-| 20 users and 20 instances       | 2 CPU cores and 4 GB RAM  | 1 CPU cores and 2 GB RAM                                                    |
-| 50 users and 50 instances       | 4 CPU cores and 8 GB RAM  | 2 CPU cores and 4 GB RAM                                                    |
-| Above 250 users or 50 instances | 8 CPU cores and 16 GB RAM | 2 CPU cores and 4 GB RAM                                                    |
+| ------------------------------- | ------------------------- | ---------------------------------------------------------------------- |
+| 5 users and 5 instances         | 1 CPU cores and 2 GB RAM  | 1 CPU cores and 2 GB RAM                                               |
+| 20 users and 20 instances       | 2 CPU cores and 4 GB RAM  | 1 CPU cores and 2 GB RAM                                               |
+| 50 users and 50 instances       | 4 CPU cores and 8 GB RAM  | 2 CPU cores and 4 GB RAM                                               |
+| Above 250 users or 50 instances | 8 CPU cores and 16 GB RAM | 2 CPU cores and 4 GB RAM                                               |
 
 #### Storage
 
@@ -45,7 +45,7 @@ If you use Docker to deploy Bytebase, please use Docker version >= [20.10.24](ht
 
 ### WebSocket
 
-SQL Editor autocomplete requires [enabling WebSocket](/get-started/self-host/#enable-websocket-for-sql-editor) in your gateway if present.
+SQL Editor autocomplete requires [enabling WebSocket](/get-started/deploy-with-docker/#enable-websocket-for-sql-editor) in your gateway if present.
 
 ## Does Bytebase retain your data
 
@@ -72,7 +72,7 @@ own database instance.
 
 ## Production Setup
 
-See [Production Setup](/administration/production-setup/).
+See [Production Setup](/get-started/production-setup/).
 
 ## Supported database and versions
 

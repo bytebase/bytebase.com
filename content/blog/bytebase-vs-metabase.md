@@ -51,7 +51,7 @@ Bytebase is designed for developers, DBAs, and platform teams to manage database
 
 - **Metabase**: A standalone executable JAR file and also offers Docker deployment options.
 
-- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](https://docs.bytebase.com/get-started/self-host/#docker) and [Kubernetes](https://docs.bytebase.com/get-started/self-host/#kubernetes) deployment.
+- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](https://docs.bytebase.com/get-started/deploy-with-docker) and [Kubernetes](https://docs.bytebase.com/get-started/deploy-with-kubernetes) deployment.
 
 ### Supported databases
 

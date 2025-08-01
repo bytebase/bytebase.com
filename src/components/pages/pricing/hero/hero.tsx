@@ -25,7 +25,7 @@ const cards: TCard[] = [
     description: 'Standardized Procedure',
     buttonText: 'Deploy in 5 Minutes',
     buttonTheme: 'primary-outline',
-    buttonLink: '/docs/get-started/self-host/#docker',
+    buttonLink: '/docs/get-started/deploy-with-docker',
     planConditions: [
       'Community support',
       'Up to 20 users',

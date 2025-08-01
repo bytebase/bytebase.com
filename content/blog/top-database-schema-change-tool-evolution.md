@@ -156,7 +156,7 @@ The difference between Prisma and Bytebase lies in the target audience. Prisma i
 
 If you are operating the database as an individual, the classic CLI or GUI SQL clients like Navicat will suffice. If you prefer integration with code repos, there are solutions like Liquibase and Flyway. However, for a GUI and project collaboration capabilities similar to Jira or GitLab, your options are Prisma and Bytebase. And Bytebase is the only tool that offers organization-wide management capabilities to ensure data security and governance, in addition to making database changes more efficient and safer.
 
-This wraps our database schema change series. Here at Bytebase, we are trying to deliver a schema change experience as close as to the code change experience, from both the individual perspective and the organization perspective. To give it a try, [start locally with a single command](https://docs.bytebase.com/get-started/self-host/#docker/).
+This wraps our database schema change series. Here at Bytebase, we are trying to deliver a schema change experience as close as to the code change experience, from both the individual perspective and the organization perspective. To give it a try, [start locally with a single command](https://docs.bytebase.com/get-started/deploy-with-docker/).
 
 ## Further Readings
 

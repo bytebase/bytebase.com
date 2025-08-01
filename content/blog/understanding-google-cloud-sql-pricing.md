@@ -172,6 +172,6 @@ As mentioned above, one of the biggest concerns raised by reddit discussions is 
 
 Google Cloud SQL is a great choice for organizations that need a full-managed relational database service. In order to get the best value for your money, it is essential to understand the pricing structure of Google Cloud SQL.
 
-Besides optimizing cloud database cost, teams also want to make better use of the purchased databases. To achieve that, you can check out our open source project Bytebase. Bytebase supports 10+ OLTP, OLAP, NoSQL databases including all three Google Cloud SQL databases, MySQL, PostgreSQL, and SQL Server. It's an all-in-one platform for developers, DBAs, and platform engineers to manage the database development lifecycle efficiently and reliably. Go [self hosting](https://docs.bytebase.com/get-started/self-host/) with a single command to try it out.
+Besides optimizing cloud database cost, teams also want to make better use of the purchased databases. To achieve that, you can check out our open source project Bytebase. Bytebase supports 10+ OLTP, OLAP, NoSQL databases including all three Google Cloud SQL databases, MySQL, PostgreSQL, and SQL Server. It's an all-in-one platform for developers, DBAs, and platform engineers to manage the database development lifecycle efficiently and reliably. Go [self hosting](https://docs.bytebase.com/get-started/deploy-with-docker) with a single command to try it out.
 
 ![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)

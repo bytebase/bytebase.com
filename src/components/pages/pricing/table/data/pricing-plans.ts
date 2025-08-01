@@ -13,7 +13,7 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
     description: `Standardized Procedure`,
     buttonText: 'Deploy in 5 Minutes',
     buttonTheme: 'primary-outline',
-    buttonUrl: '/docs/get-started/self-host/#docker',
+    buttonUrl: '/docs/get-started/deploy-with-docker',
     databaseChangeManagement: {
       'database-change': true,
       'git-based-schema-version-control': true,

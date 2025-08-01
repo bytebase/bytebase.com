@@ -9,7 +9,7 @@ description: We recently introduced a global version variable in our Nuxt docs t
 
 ## Background
 
-On our doc site, we have a few pages with instructions on installing Bytebase, like this one: [Deploy Bytebase in Docker within 5 seconds](https://docs.bytebase.com/get-started/self-host/#docker). On these pages, we teach users how to install the latest version of Bytebase by showing command snippets.
+On our doc site, we have a few pages with instructions on installing Bytebase, like this one: [Deploy Bytebase in Docker within 5 seconds](https://docs.bytebase.com/get-started/deploy-with-docker). On these pages, we teach users how to install the latest version of Bytebase by showing command snippets.
 
 ```text
 docker run --init \

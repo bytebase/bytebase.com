@@ -33,4 +33,4 @@ With [Bytebase 1.11.0](https://www.bytebase.com/changelog/bytebase-1-11-0), you 
 
 ## Try MongoDB Yourself
 
-Bytebase supports MongoDB 4.0, 5.0, and 6.0. Please follow [installation guide](https://docs.bytebase.com/get-started/self-host) to try it out. You can also join our [discord](https://discord.gg/huyw7gRsyA) to discuss all things Bytebase, share your feedback, and get help from the community.
+Bytebase supports MongoDB 4.0, 5.0, and 6.0. Please follow [installation guide](https://docs.bytebase.com/get-started/deploy-with-docker) to try it out. You can also join our [discord](https://discord.gg/huyw7gRsyA) to discuss all things Bytebase, share your feedback, and get help from the community.

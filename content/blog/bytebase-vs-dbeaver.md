@@ -56,7 +56,7 @@ data masking and audit logging. On the other hand, DBeaver is client-side built 
 
 - **DBeaver**: You can download it from the official website. To run the **team version**, Linux or macOS is required to deploy a host.
 
-- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](https://docs.bytebase.com/get-started/self-host/#docker) and [Kubernetes](https://docs.bytebase.com/get-started/self-host/#kubernetes) deployment.
+- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](https://docs.bytebase.com/get-started/deploy-with-docker) and [Kubernetes](https://docs.bytebase.com/get-started/deploy-with-kubernetes) deployment.
 
 ### Supported databases
 

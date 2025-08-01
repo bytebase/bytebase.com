@@ -60,7 +60,7 @@ Bytebase focuses on team collaboration, offering tailored features like access c
 
 - **CloudBeaver**: Java-based tool, requires the Java Virtual Machine (JVM) for execution, or it can be run using Docker.
 
-- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](https://docs.bytebase.com/get-started/self-host/#docker) and [Kubernetes](https://docs.bytebase.com/get-started/self-host/#kubernetes) deployment.
+- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](https://docs.bytebase.com/get-started/deploy-with-docker) and [Kubernetes](https://docs.bytebase.com/get-started/deploy-with-kubernetes) deployment.
 
 ### Supported databases
 

@@ -61,10 +61,10 @@ Bytebase has a hierarchical IAM system:
 
 ### Step 1 - Configure Workspace IAM Policy
 
-|                       |                                                                                                                        |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Terraform resource    | [bytebase_iam_policy](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/iam_policy)     |
-| Sample file           | [7-1-workspace-iam.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/7-1-workspace-iam.tf) |
+|                    |                                                                                                                          |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| Terraform resource | [bytebase_iam_policy](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/iam_policy)        |
+| Sample file        | [7-1-workspace-iam.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/7-1-workspace-iam.tf) |
 
 Create `7-1-workspace-iam.tf` with workspace-level permissions:
 
@@ -118,7 +118,8 @@ resource "bytebase_iam_policy" "workspace_iam" {
 ```
 
 <Note>
-`allUsers` is a special member representing everyone in the workspace. Without it, users may be unable to access the workspace.
+  `allUsers` is a special member representing everyone in the workspace. Without it, users may be
+  unable to access the workspace.
 </Note>
 
 ### Step 2 - Apply Workspace IAM Configuration
@@ -142,10 +143,10 @@ terraform apply
 
 ### Step 3 - Configure Project IAM Policy
 
-|                       |                                                                                                                        |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Terraform resource    | [bytebase_iam_policy](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/iam_policy)     |
-| Sample file           | [7-2-project-iam.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/7-2-project-iam.tf)  |
+|                    |                                                                                                                      |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource | [bytebase_iam_policy](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/iam_policy)    |
+| Sample file        | [7-2-project-iam.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/7-2-project-iam.tf) |
 
 Create `7-2-project-iam.tf` for project-specific permissions:
 
@@ -195,8 +196,8 @@ resource "bytebase_iam_policy" "project_iam" {
 ```
 
 <Note>
-`2027-07-10T16:17:49Z` is an ISO 8601 UTC timestamp.
-Our system uses PostgreSQL to store metadata, where this value is stored as a `timestamptz`.
+  `2027-07-10T16:17:49Z` is an ISO 8601 UTC timestamp. Our system uses PostgreSQL to store metadata,
+  where this value is stored as a `timestamptz`.
 </Note>
 
 ### Step 4 - Apply Complete IAM Configuration
@@ -289,6 +290,6 @@ This tutorial demonstrates several best practices:
 <Card
   title="Part 8: Manage Data Masking with Terraform"
   icon="arrow-right"
-  href="/tutorials/manage-data-masking-with-terrafor"
+  href="/tutorials/manage-data-masking-with-terraform"
   horizontal
 ></Card>

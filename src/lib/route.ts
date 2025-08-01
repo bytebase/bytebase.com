@@ -48,7 +48,7 @@ const Route = {
   // docs
   DOCS: DOCS_ROOT,
   DOCS_DATA_COLLECTION: `${DOCS_ROOT}/faq/#which-data-does-bytebase-collect`,
-  DOCS_SELF_HOST: `${DOCS_ROOT}/get-started/self-host`,
+  DOCS_SELF_HOST: `${DOCS_ROOT}/get-started/deploy-with-docker`,
   DOCS_CLOUD: `${DOCS_ROOT}/get-started/cloud`,
   DOCS_USE_CASE: `${DOCS_ROOT}/introduction/use-cases/`,
   DOCS_CONCEPT: `${DOCS_ROOT}/concepts/data-model`,
