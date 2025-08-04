@@ -22,6 +22,7 @@ will constantly update this post to include the latest Postgres 18.x releases.
 ## Release Timeline
 
 - **PostgreSQL 18 Beta 1**: May 8, 2025
+- **PostgreSQL 18 Beta 2**: July 17, 2025
 
 PostgreSQL just announced [18 beta 1](https://www.postgresql.org/about/news/postgresql-18-beta-1-released-3070/). While some features may still be dropped, it's worth taking a look.
 
