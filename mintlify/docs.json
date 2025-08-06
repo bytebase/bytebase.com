@@ -81,6 +81,7 @@
               {
                 "group": "Change",
                 "pages": [
+                  "change-database/plan",
                   "change-database/batch-change",
                   "change-database/synchronize-schema",
                   "changelist",
