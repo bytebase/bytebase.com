@@ -4,6 +4,10 @@ title: Configure External URL
 
 The external URL determines how users access your Bytebase instance. This configuration is essential for features like [SSO](/administration/sso/overview) and [SCIM](/administration/scim/overview).
 
+<Note>
+A Fully Qualified Domain Name (FQDN) is preferred over an IP address.
+</Note>
+
 ## Configuration Methods
 
 ### Option 1: Command Line
@@ -13,10 +17,6 @@ Pass the `--external-url` flag when starting Bytebase:
 ```bash
 ./bytebase --external-url "https://bytebase.example.com"
 ```
-
-<Note>
-A Fully Qualified Domain Name (FQDN) is preferred over an IP address.
-</Note>
 
 ### Option 2: Web UI
 
