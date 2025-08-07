@@ -84,7 +84,6 @@
                   "change-database/plan",
                   "change-database/batch-change",
                   "change-database/synchronize-schema",
-                  "changelist",
                   "change-database/stored-procedure",
                   "change-database/schema-editor",
                   "change-database/schema-diagram",
