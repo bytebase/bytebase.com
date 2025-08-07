@@ -2,7 +2,7 @@
 title: Configure External URL
 ---
 
-The external URL determines how users access your Bytebase instance. This configuration is essential for features like [GitOps](/vcs-integration/overview), [SSO](/administration/sso/overview), and [SCIM](/administration/scim/overview).
+The external URL determines how users access your Bytebase instance. This configuration is essential for features like [SSO](/administration/sso/overview) and [SCIM](/administration/scim/overview).
 
 ## Configuration Methods
 
@@ -31,8 +31,6 @@ A Fully Qualified Domain Name (FQDN) is preferred over an IP address.
 - The setting persists after initial configuration
 - For production, use a reverse proxy (Nginx, Caddy) instead of exposing Bytebase directly
 
-## Additional Configuration
+## Testing
 
-**GitOps Webhook URL**: If your public endpoint differs from the internal one, configure this separately via the UI. It defaults to the External URL if not set.
-
-**Testing**: For local testing, you can use [ngrok](https://ngrok.com) to create a temporary external URL.
+For local testing, you can use [ngrok](https://ngrok.com) to create a temporary external URL.
