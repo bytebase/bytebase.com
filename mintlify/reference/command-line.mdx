@@ -23,7 +23,7 @@ Available Commands:
   version     Print the version of Bytebase
 
 Flags:
-      --data string                directory where Bytebase stores metadata if --pg is not specified. If relative path is supplied, then the path is relative to the directory where Bytebase is under (default ".")
+      --data string                directory where Bytebase stores metadata if `--pg` is not specified. If relative path is supplied, then the path is relative to the directory where Bytebase is under (default ".")
       --debug                      whether to enable debug level logging
       --demo string                name of the demo to use. If specified, Bytebase will run in demo mode
       --disable-metric             disable the metric collector
@@ -34,41 +34,41 @@ Flags:
       --port int                   port where Bytebase server runs. Default to 8080 (default 8080)
 ```
 
-## --data &lt;&lt;directory&gt;&gt;
+## `--data` &lt;&lt;directory&gt;&gt;
 
 default: **.**
 
-The directory where Bytebase stores its own data if [--pg](#pg-string) is not specified. The directory must exist beforehand, otherwise Bytebase will fail to start. If &lt;&lt;directory&gt;&gt; is a relative path, then it's relative to the directory where the bytebase binary runs.
+The directory where Bytebase stores its own data if [`--pg`](#pg-string) is not specified. The directory must exist beforehand, otherwise Bytebase will fail to start. If &lt;&lt;directory&gt;&gt; is a relative path, then it's relative to the directory where the bytebase binary runs.
 
-## --debug
+## `--debug`
 
 default: **false**
 
 If specified, Bytebase will emit more logs, this is only used when troubleshooting Bytebase issues.
 
-## --disable-metric
+## `--disable-metric`
 
 default: **false**
 
 If specified, Bytebase will not collect usage metric.
 
-## --disable-sample
+## `--disable-sample`
 
 default: **false**
 
 If specified, Bytebase will not start sample Postgres instance.
 
-## --demo &lt;&lt;string&gt;&gt;
+## `--demo` &lt;&lt;string&gt;&gt;
 
 default: **""**
 
-The demo name. If specified, Bytebase will load the demo data instead of the real data. The data is the same used by [the demo](https://www.bytebase.com/view-live-demo). This is a quick way to test the product yourself or demonstrate it to your peers. When Bytebase is started with --demo, it stores the data in a separate location, which means the demo data and real data never interferes with each other.
+The demo name. If specified, Bytebase will load the demo data instead of the real data. The data is the same used by [the demo](https://www.bytebase.com/view-live-demo). This is a quick way to test the product yourself or demonstrate it to your peers. When Bytebase is started with `--demo`, it stores the data in a separate location, which means the demo data and real data never interferes with each other.
 
 The current available demo names are:
 
 - default
 
-## --external-url &lt;&lt;string&gt;&gt;
+## `--external-url` &lt;&lt;string&gt;&gt;
 
 default: **[/get-started/install/external-url](https://www.bytebase.com/docs/get-started/install/external-url)**
 
@@ -76,7 +76,7 @@ The external URL where user visits Bytebase, must start with `http://` or `https
 
 See [Configure External URL](/get-started/install/external-url).
 
-## --pg &lt;&lt;string&gt;&gt;
+## `--pg` &lt;&lt;string&gt;&gt;
 
 default: **""**
 
@@ -90,7 +90,7 @@ Alternatively, you can also pass PG_URL environment variable.
 
 </Tip>
 
-## --port &lt;&lt;number&gt;&gt;
+## `--port` &lt;&lt;number&gt;&gt;
 
 default: **8080**
 
