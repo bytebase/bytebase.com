@@ -2,48 +2,41 @@
 title: Configure External URL
 ---
 
-<Warning>
+The external URL determines how users access your Bytebase instance. This configuration is essential for features like [GitOps](/vcs-integration/overview), [SSO](/administration/sso/overview), and [SCIM](/administration/scim/overview).
 
-You must configure the correct External URL otherwise following features won't work:
+## Configuration Methods
 
-    - [GitOps](/vcs-integration/overview)
-    - [SSO](/administration/sso/overview)
-    - [SCIM](/administration/scim/overview)
+### Option 1: Command Line
 
-You may also need to configure the additional GitOps Webhook URL if the public endpoint is different
-than the internal one.
+Pass the `--external-url` flag when starting Bytebase:
 
-</Warning>
-
-For testing purpose, you can get an endpoint online with [ngrok](https://dashboard.ngrok.com/get-started/setup/macos) as external URL.
-
-When running Bytebase in production, you should not make the node that's running the Bytebase server directly accessible to the client. Instead, you should set up a gateway such as Nginx or Caddy to forward requests to Bytebase.
-
-The gateway will expose an external endpoint that lets end users access the Bytebase console and allows external systems—such as VCS providers (GitHub or GitLab)—to call the Bytebase API.
-
-![external-url-flow](/content/docs/get-started/install/external-url-flow.webp)
+```bash
+./bytebase --external-url "https://bytebase.example.com"
+```
 
 <Note>
-
-If the exposed port is not 80 or 443, please include the port number in External URL. e.g. Use http://bytebase.example.com:8080 instead of http://bytebase.example.com.
-
+A Fully Qualified Domain Name (FQDN) is preferred over an IP address.
 </Note>
 
-## Configure via UI
+### Option 2: Web UI
 
-1. Click **Settings** on the top bar.
-1. Click **General** under **Workspace**, fill in the desired External URL and click **Update**.
-1. GitOps Webhook URL can only be configured via UI. If not set, it will default to the same value as External URL.
+1. Navigate to **Settings** → **General** under **Workspace**
+2. Enter your External URL (e.g., `https://bytebase.example.com`)
+3. Click **Update**
 
 ![external-url](/content/docs/get-started/install/external-url.webp)
 
-## Pass `--external-url` when starting Bytebase
+## Important Notes
 
-[`--external-url`](/reference/command-line#--external-url-string) can be passed when starting Bytebase.
+- Include the port number if not using standard ports (80/443)
+  - Example: `http://bytebase.example.com:8080`
+- The setting persists after initial configuration
+- For production, use a reverse proxy (Nginx, Caddy) instead of exposing Bytebase directly
 
-<Note>
+## Additional Configuration
 
-This will persist the External URL setting. Thus if Bytebase starts without specifying `--external-url`
-next time, the previously passed External URL value will still be there.
+**GitOps Webhook URL**: If your public endpoint differs from the internal one, configure this separately via the UI. It defaults to the External URL if not set.
 
-</Note>
+**Testing**: For local testing, you can use [ngrok](https://ngrok.com) to create a temporary external URL.
+
+![external-url-flow](/content/docs/get-started/install/external-url-flow.webp)
