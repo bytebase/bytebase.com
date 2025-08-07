@@ -3,11 +3,19 @@ title: External Access Configuration
 description: Configure external access, WebSocket, and ingress for your Bytebase deployment
 ---
 
-This guide covers how to configure external access for your Bytebase deployment, including WebSocket support for SQL Editor and Kubernetes ingress configuration.
+This guide covers how to configure external access for your Bytebase deployment across different deployment methods.
 
-## Enable WebSocket for SQL Editor
+<Note>
+Bytebase service itself does not provide native HTTPS support. We recommend using a reverse proxy (Nginx, Caddy) on the same VM for Docker deployments, or ingress/gateway for Kubernetes deployments.
+</Note>
 
-SQL Editor autocomplete requires WebSocket. If you access Bytebase via a gateway, you need to enable WebSocket there. Here is a sample NGINX configuration (including the optional HTTPS mentioned below):
+## Docker Deployment with Reverse Proxy
+
+When deploying Bytebase with Docker on a VM, use a reverse proxy for external access and HTTPS termination.
+
+### Nginx Configuration
+
+For Docker deployments using Nginx as a reverse proxy:
 
 ```nginx
 
@@ -47,50 +55,153 @@ http {
 }
 ```
 
-## Enable HTTPS
+### Caddy Configuration
 
-Bytebase does not support enabling HTTPS in server configuration. We suggest use [NGINX](https://nginx.org/) or [Caddy](https://caddyserver.com/) as a reverse proxy in front of Bytebase to enable HTTPS.
+For Docker deployments using Caddy (automatic HTTPS with Let's Encrypt):
 
-## Kubernetes Ingress Configuration
+```caddy
+bytebase.example.com {
+    # Automatic HTTPS with Let's Encrypt
+    
+    # Reverse proxy to Bytebase
+    reverse_proxy localhost:8080 {
+        # Timeouts for long-running operations
+        transport http {
+            read_timeout 3600s
+            write_timeout 3600s
+        }
+    }
+}
+```
 
-### Deploy with Ingress
+To use this Caddy configuration:
+1. Install Caddy on your VM
+2. Save the configuration to `/etc/caddy/Caddyfile`
+3. Run: `caddy reload`
 
-We use [Ingress-Nginx Controller](https://kubernetes.github.io/ingress-nginx/deploy/) as ingress controller. You need to config `Ingress-Nginx Controller` according to your environment.
+## Kubernetes Deployment
+
+For Kubernetes deployments, use ingress controllers or gateways to configure external access with HTTPS support.
+
+### Nginx Ingress Controller
+
+Deploy Bytebase with [Nginx Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/):
 
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
-    # https://kubernetes.github.io/ingress-nginx/user-guide/miscellaneous/#websockets
-    nginx.ingress.kubernetes.io/proxy-read-timeout: '3600'
-    nginx.ingress.kubernetes.io/proxy-send-timeout: '3600'
   name: bytebase-ingress
   namespace: default
+  annotations:
+    # Enable HTTPS redirect
+    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+    
+    # WebSocket support for SQL Editor
+    nginx.ingress.kubernetes.io/proxy-read-timeout: '3600'
+    nginx.ingress.kubernetes.io/proxy-send-timeout: '3600'
 spec:
   ingressClassName: nginx
-  rules:
-    - host: example.com
-      http:
-        paths:
-          - backend:
-              service:
-                name: bytebase-entrypoint
-                port:
-                  number: 80
-            path: /
-            pathType: ImplementationSpecific
   tls:
     - hosts:
-        - example.com
-      secretName: tls-secret
+        - bytebase.example.com
+      secretName: bytebase-tls-secret
+  rules:
+    - host: bytebase.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: bytebase-service
+                port:
+                  number: 8080
 ```
 
-<Note>
-If you use ingress, make sure to use https to access bytebase.
-</Note>
+### Kubernetes Gateway API
 
-## Configure External URL
+For modern Kubernetes deployments using Gateway API:
 
-For production usage, you should configure a proper External URL. Check [Configure External URL](/get-started/install/external-url) for details.
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: bytebase-route
+  namespace: default
+spec:
+  parentRefs:
+    - name: gateway
+      namespace: default
+  hostnames:
+    - bytebase.example.com
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: bytebase-service
+          port: 8080
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: gateway
+  namespace: default
+spec:
+  gatewayClassName: nginx
+  listeners:
+    - name: https
+      protocol: HTTPS
+      port: 443
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: bytebase-tls-secret
+    - name: http
+      protocol: HTTP
+      port: 80
+      # Redirect HTTP to HTTPS
+      allowedRoutes:
+        namespaces:
+          from: Same
+```
+
+### Service Configuration
+
+Ensure your Bytebase service is configured correctly:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: bytebase-service
+  namespace: default
+spec:
+  selector:
+    app: bytebase
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
+```
+
+## Additional Configuration
+
+### Configure External URL
+
+For production usage, configure the External URL to match your domain. See [Configure External URL](/get-started/install/external-url) for details.
+
+### WebSocket Support
+
+SQL Editor autocomplete requires WebSocket support. All configurations above include the necessary WebSocket settings. Key endpoints that require WebSocket:
+- `/v1:adminExecute` - For SQL execution
+- `/lsp` - For Language Server Protocol (autocomplete)
+
+### Troubleshooting
+
+- **WebSocket issues**: Verify proxy/ingress WebSocket configuration
+- **502 errors**: Check Bytebase service status
+- **Timeout errors**: Increase proxy timeout settings (see examples above)
