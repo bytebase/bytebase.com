@@ -1,19 +1,19 @@
 ---
 title: Bytebase 1.0.4
 updated_at: 2022/04/28 11:29:05
-description: Support --pg option to boot Bytebase. bb CLI Support --dsn option in CLI. Add installation script of bb CLI. Add dashboard page to manage all SQL sheets. Admin page to view all projects. Added /healthz health check endpoint for supporting serverless platform.
+description: Support `--pg` option to boot Bytebase. bb CLI Support `--dsn` option in CLI. Add installation script of bb CLI. Add dashboard page to manage all SQL sheets. Admin page to view all projects. Added /healthz health check endpoint for supporting serverless platform.
 ---
 
 import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
 ## Support storing Bytebase metadata in the external PostgreSQL
 
-Use the --pg option to specify the database endpoint upon launching Bytebase.
+Use the `--pg` option to specify the database endpoint upon launching Bytebase.
 ![_](/content/changelog/1.0.4/pg-flag.webp)
 
 ## 🚀  Features
 
-### bb CLI Support --dsn option in CLI
+### bb CLI Support `--dsn` option in CLI
 
 Support data source name (DSN) formats to connect databases in CLI, e.g. `--dsn mysql://user:passwd@host:port/dbname?opt1=val1&opt2=val2`
 
