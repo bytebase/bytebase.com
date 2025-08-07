@@ -33,14 +33,14 @@
               {
                 "group": "Self-Host",
                 "pages": [
-                  "get-started/deploy-with-docker",
-                  "get-started/deploy-with-kubernetes",
-                  "get-started/deploy-with-aws-fargate",
-                  "get-started/install/external-postgres",
-                  "get-started/external-access",
-                  "get-started/install/external-url",
-                  "get-started/production-setup",
-                  "get-started/upgrade"
+                  "get-started/self-host/deploy-with-docker",
+                  "get-started/self-host/deploy-with-kubernetes",
+                  "get-started/self-host/deploy-with-aws-fargate",
+                  "get-started/self-host/external-postgres",
+                  "get-started/self-host/external-access",
+                  "get-started/self-host/external-url",
+                  "get-started/self-host/production-setup",
+                  "get-started/self-host/upgrade"
                 ]
               },
               "get-started/cloud",
