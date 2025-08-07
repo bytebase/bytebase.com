@@ -35,7 +35,6 @@
                 "pages": [
                   "get-started/install/deploy-with-docker",
                   "get-started/install/deploy-with-kubernetes",
-                  "get-started/install/deploy-with-aws-fargate",
                   "get-started/install/external-postgres",
                   "get-started/install/external-access",
                   "get-started/install/external-url",
