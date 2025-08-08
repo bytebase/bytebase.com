@@ -28,7 +28,7 @@ Flags:
       --demo string                name of the demo to use. If specified, Bytebase will run in demo mode
       --disable-metric             disable the metric collector
       --disable-sample             disable the sample instance
-      --external-url string        the external URL where user visits Bytebase, must start with http:// or https:// (default "https://www.bytebase.com/docs/get-started/install/external-url")
+      --external-url string        the external URL where user visits Bytebase, must start with http:// or https:// (default "https://www.bytebase.com/docs/get-started/self-host/external-url")
   -h, --help                       help for bytebase
       --pg string                  optional external PostgreSQL instance connection url(must provide dbname); for example postgresql://user:secret@masterhost:5432/dbname?sslrootcert=cert
       --port int                   port where Bytebase server runs. Default to 8080 (default 8080)
@@ -70,11 +70,11 @@ The current available demo names are:
 
 ## `--external-url` &lt;&lt;string&gt;&gt;
 
-default: **[/get-started/install/external-url](https://www.bytebase.com/docs/get-started/install/external-url)**
+default: **[/get-started/self-host/external-url](https://www.bytebase.com/docs/get-started/self-host/external-url)**
 
 The external URL where user visits Bytebase, must start with `http://` or `https://`.
 
-See [Configure External URL](/get-started/install/external-url).
+See [Configure External URL](/get-started/self-host/external-url).
 
 ## `--pg` &lt;&lt;string&gt;&gt;
 
@@ -82,7 +82,7 @@ default: **""**
 
 Optional external PostgreSQL instance connection url. If specified, Bytebase will store its own metadata there.
 
-See [Configure External PostgreSQL](/get-started/install/external-postgres).
+See [Configure External PostgreSQL](/get-started/self-host/external-postgres).
 
 <Tip>
 
@@ -94,4 +94,4 @@ Alternatively, you can also pass PG_URL environment variable.
 
 default: **8080**
 
-The port where Bytebase is running. Bytebase listens on all network interfaces for the specified port. For production setup, see [Configure External URL](/get-started/install/external-url).
+The port where Bytebase is running. Bytebase listens on all network interfaces for the specified port. For production setup, see [Configure External URL](/get-started/self-host/external-url).

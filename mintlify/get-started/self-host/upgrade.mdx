@@ -108,7 +108,7 @@ psql -h <<host>> -p <<port>> -U <<user>> postgres -c "DROP DATABASE metadb"
 
 ### Embedded PostgreSQL Metadata
 
-If [External PostgreSQL](/get-started/install/external-postgres/) is not configured, then
+If [External PostgreSQL](/get-started/self-host/external-postgres/) is not configured, then
 Bytebase will store the metadata under the [`--data`](/reference/command-line#--data-directory) directory.
 You can back up the `--data` directory or the `pgdata` subfolder.
 
@@ -138,7 +138,7 @@ Take Docker as an example (**follow the below steps exactly**):
    ```
 
    Above example backs up the metadata stored in the embedded database.
-   If you store metadata in the [external PostgreSQL](/get-started/install/external-postgres/), you should
+   If you store metadata in the [external PostgreSQL](/get-started/self-host/external-postgres/), you should
    back up that database using the instructions in the "Back up Data" section above.
 
 1. Change version string to 3.9.0

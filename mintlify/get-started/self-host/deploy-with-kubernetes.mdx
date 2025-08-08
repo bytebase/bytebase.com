@@ -5,7 +5,7 @@ title: Deploy with Kubernetes
 ## Prerequisites
 
 1. Review [System Requirements](/faq#system-requirements) to ensure adequate resources.
-2. Configure [External PostgreSQL](/get-started/install/external-postgres/) for production deployments.
+2. Configure [External PostgreSQL](/get-started/self-host/external-postgres/) for production deployments.
 3. Configure [External Access](/get-started/external-access) in your gateway or ingress for secure connections.
 4. See the complete [Production Setup Guide](/get-started/production-setup/) for additional recommendations.
 
@@ -41,7 +41,7 @@ spec:
           image: bytebase/bytebase:latest
           imagePullPolicy: Always
           # Configure external PostgreSQL following the guide:
-          # https://www.bytebase.com/docs/get-started/install/external-postgres
+          # https://www.bytebase.com/docs/get-started/self-host/external-postgres
           env:
             - name: PG_URL
               value: 'postgresql://<<user>>:<<secret>>@<<host>>:<<port>>/<<dbname>>'
