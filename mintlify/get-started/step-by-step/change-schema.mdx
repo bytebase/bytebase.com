@@ -1,48 +1,71 @@
 ---
-title: 'Step 6: Change Schema '
+title: 'Step 6: Change Schema'
 ---
 
-**Issue** drives the database change workflow such as `Schema Change (DDL)`, `Data Change (DML)`, and `Database Creation`. It's similar to the issue concept in other issue management tools.
+**Issue** serves as the starting point for managing database changes, including `Schema Change (DDL)` and `Data Change (DML)`. These changes follow a structured workflow: **Plan**, **Review**, **Approve**, and **Rollout**. For actions like `Database Creation`, the workflow might be simpler, omitting some steps.
 
-## Create issue
+## Initiate an Issue with a Plan
 
-Go to your project page, choose one or several databases to **Edit Schema**.
+1. Navigate to **CI/CD** > **Plans** in your project menu and click **+ New Plan**.
 
-![edit-schema](/content/docs/get-started/step-by-step/change-schema/edit-schema.webp)
+    ![new-plan](/content/docs/change-database/plan/bb-new-plan.webp)
 
-You may use the **Schema Editor** to visually design the schema.
+1. Choose either **Schema Migration (DDL)** or **Data Migration (DML)**. In this example, we select **Schema Migration (DDL)**. After adding the first change, you can continue to add more changes within the same plan.
 
-![schema-editor](/content/docs/get-started/step-by-step/change-schema/schema-editor.webp)
+    ![plan-change-type](/content/docs/change-database/plan/bb-plan-change-type.webp)
 
-Alternatively, you can switch to the **Raw SQL** mode. You can sync the raw SQL from the schema editor or supply your own
-SQL statements.
+1. Select one or more databases where the changes will be applied. Click **Confirm** to proceed.
 
-![raw-sql](/content/docs/get-started/step-by-step/change-schema/raw-sql.webp)
+    ![plan-targets](/content/docs/change-database/plan/bb-plan-targets.webp)
 
-Once you finish writing the SQL, click **Preview issue**.
+1. If only **one** database is selected, you can use the **Schema Editor** to visually design the schema.
 
-![preview-issue](/content/docs/get-started/step-by-step/change-schema/preview-issue.webp)
+    ![new-plan-schema-editor](/content/docs/change-database/schema-editor/bb-new-plan-schema-editor.webp)
 
-By default, Bytebase will create a **Rollout issue**. You can check **SQL Review Only** to create a review-only plan.
+## Review the Issue
 
-## Review issue
+1. After clicking **Confirm**, you will be directed to the **Plan** page. Before clicking **Create**, you may choose to **Run checks** to execute the [configured SQL review](/sql-review/overview).
 
-![review-issue](/content/docs/get-started/step-by-step/change-schema/review-issue.webp)
+    ![plan-before-create-warning](/content/docs/get-started/step-by-step/change-schema/bb-plan-before-create-warning.webp)
 
-If there's a [SQL review](/sql-review/overview) warning, you may need to fix it first.
+1. Once you click **Create**, the plan will enter `Draft` status. You may still encounter warnings. Address these warnings first.
 
-An issue may also require one or multiple manual approvals.
+    ![plan-draft-warning](/content/docs/get-started/step-by-step/change-schema/bb-plan-draft-warning.webp)
 
-## Deploy issue
+    ![plan-draft-passed](/content/docs/get-started/step-by-step/change-schema/bb-plan-draft-passed.webp)
 
-Once all approvals are granted, the issue can be deployed.
+1. Click **Ready for Review** and then click **Confirm**.
 
-![roll-out-issue](/content/docs/get-started/step-by-step/change-schema/roll-out-issue.webp)
+    ![plan-ready-for-review](/content/docs/get-started/step-by-step/change-schema/bb-plan-ready-for-review.webp)
+
+## Approve the Issue
+
+1. The issue will await approval. The approval process is automatically matched by the [custom approval](/administration/custom-approval).
+
+    ![issue-to-approve](/content/docs/get-started/step-by-step/change-schema/bb-issue-to-approve.webp)
+
+1. Click **Approve** to authorize the plan by the designated approvers.
+
+## Deploy the Issue
+
+1. Once all approvals are secured, the rollout is ready to be executed.
+
+    ![issue-to-rollout](/content/docs/get-started/step-by-step/change-schema/bb-issue-to-rollout.webp)
+
+1. Click **Run** to deploy the issue.
+
+    ![rollout-to-run](/content/docs/get-started/step-by-step/change-schema/bb-rollout-to-run.webp)
+
+    ![run-rollout](/content/docs/get-started/step-by-step/change-schema/bb-run-rollout.webp)
+
+1. When all rollouts are successfully executed, the issue will be marked as `Done`.
+
+    ![issue-done](/content/docs/get-started/step-by-step/change-schema/bb-issue-done.webp)
 
 ## Summary
 
-An issue lifecycle: Create -> Review -> Approve -> Deploy.
+An issue lifecycle: Plan -> Review -> Approve -> Rollout.
 
 ![issue-lifecycle](/content/docs/get-started/step-by-step/change-schema/issue-lifecycle.webp)
 
-Check [Database Change Workflow](/change-database/change-workflow/) for further details.
+Refer to [Database Change Workflow](/change-database/change-workflow/) for more details.
