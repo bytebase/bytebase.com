@@ -33,13 +33,13 @@
               {
                 "group": "Self-Host",
                 "pages": [
-                  "get-started/install/deploy-with-docker",
-                  "get-started/install/deploy-with-kubernetes",
-                  "get-started/install/external-postgres",
-                  "get-started/install/external-access",
-                  "get-started/install/external-url",
-                  "get-started/install/production-setup",
-                  "get-started/install/upgrade"
+                  "get-started/self-host/deploy-with-docker",
+                  "get-started/self-host/deploy-with-kubernetes",
+                  "get-started/self-host/external-postgres",
+                  "get-started/self-host/external-access",
+                  "get-started/self-host/external-url",
+                  "get-started/self-host/production-setup",
+                  "get-started/self-host/upgrade"
                 ]
               },
               "get-started/cloud",
@@ -489,6 +489,30 @@
     {
       "source": "/get-started/deploy-with-docker",
       "destination": "/get-started/self-host-vs-cloud"
+    },
+    {
+      "source": "/get-started/install/deploy-with-docker",
+      "destination": "/get-started/self-host/deploy-with-docker"
+    },
+    {
+      "source": "/get-started/install/deploy-with-kubernetes",
+      "destination": "/get-started/self-host/deploy-with-kubernetes"
+    },
+    {
+      "source": "/get-started/install/external-postgres",
+      "destination": "/get-started/self-host/external-postgres"
+    },
+    {
+      "source": "/get-started/install/external-url",
+      "destination": "/get-started/self-host/external-url"
+    },
+    {
+      "source": "/get-started/install/production-setup",
+      "destination": "/get-started/self-host/production-setup"
+    },
+    {
+      "source": "/get-started/install/upgrade",
+      "destination": "/get-started/self-host/upgrade"
     }
   ],
   "seo": {
