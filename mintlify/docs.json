@@ -481,6 +481,12 @@
       "redirect": false
     }
   },
+  "redirects": [
+    {
+      "source": "/get-started/self-host",
+      "destination": "/get-started/self-host-vs-cloud"
+    }
+  ],
   "seo": {
     "metatags": {}
   },
