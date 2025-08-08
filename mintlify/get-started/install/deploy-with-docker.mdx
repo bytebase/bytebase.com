@@ -3,7 +3,12 @@ title: Deploy with Docker
 ---
 
 import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
-import TerminalStartupOutputSuccess from '/snippets/install/terminal-startup-output-success.mdx';
+
+## Installation
+
+<TerminalDockerRunVolume />
+
+Bytebase is now accessible at http://localhost:8080.
 
 ## Prerequisites
 
@@ -19,16 +24,6 @@ import TerminalStartupOutputSuccess from '/snippets/install/terminal-startup-out
 - If accessing from China, pull image `registry.cn-shanghai.aliyuncs.com/bytebase/bytebase:latest`.
 
 </Note>
-
-## Installation
-
-Estimated time: **5 minutes**.
-
-<TerminalDockerRunVolume />
-
-Once you see the Bytebase logo, you can access the console at http://localhost:8080.
-
-<TerminalStartupOutputSuccess />
 
 If you need to transfer images to a completely air-gapped environment:
 
