@@ -485,6 +485,10 @@
     {
       "source": "/get-started/self-host",
       "destination": "/get-started/self-host-vs-cloud"
+    },
+    {
+      "source": "/get-started/deploy-with-docker",
+      "destination": "/get-started/self-host-vs-cloud"
     }
   ],
   "seo": {
