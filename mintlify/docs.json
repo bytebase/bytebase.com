@@ -43,8 +43,7 @@
                 ]
               },
               "get-started/cloud",
-              "get-started/instance",
-              "integrations/terraform/overview"
+              "get-started/instance"
             ]
           },
           {
@@ -251,6 +250,12 @@
               "integrations/api/permission",
               "integrations/api/data-classification",
               "integrations/api/audit-log"
+            ]
+          },
+          {
+            "group": "Infrastructure as Code",
+            "pages": [
+              "integrations/terraform/overview"
             ]
           },
           {
