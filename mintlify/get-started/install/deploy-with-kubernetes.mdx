@@ -4,13 +4,12 @@ title: Deploy with Kubernetes
 
 ## Prerequisites
 
-- Check [System Requirements](/faq##system-requirements).
-- Check [External PostgreSQL Prerequisites](/get-started/install/external-postgres/) if you configure it.
-- If you use gateway such as Nginx, enable [WebSocket](/get-started/external-access#enable-websocket-for-sql-editor) for SQL Editor autocomplete to work.
+1. Review [System Requirements](/faq#system-requirements) to ensure adequate resources.
+2. Configure [External PostgreSQL](/get-started/install/external-postgres/) for production deployments.
+3. Configure [External Access](/get-started/external-access) in your gateway or ingress for secure connections.
+4. See the complete [Production Setup Guide](/get-started/production-setup/) for additional recommendations.
 
 ## Deploy to Kubernetes
-
-Estimated time: **15 minutes**.
 
 <Note>
 
@@ -18,7 +17,7 @@ Make sure to set the replicas to **1**, otherwise, it may cause data race issues
 
 </Note>
 
-Here is a sample Kubernetes YAML file `bb.yaml` describing the minimal components and configuration required to run Bytebase in Kubernetes.
+Here is a sample Kubernetes YAML file `bytebase.yaml` describing the minimal components and configuration required to run Bytebase in Kubernetes.
 
 ```yaml
 apiVersion: apps/v1
@@ -50,8 +49,6 @@ spec:
             [
               '--data',
               '/var/opt/bytebase',
-              '--external-url',
-              'http://bytebase.example.com',
               '--port',
               '8080',
             ]
@@ -84,7 +81,7 @@ spec:
 1. Start Bytebase with the following command:
 
    ```text
-   kubectl apply -f bb.yaml
+   kubectl apply -f bytebase.yaml
    ```
 
 2. Make sure everything worked by listing your deployments:
@@ -98,12 +95,6 @@ spec:
    ```text
    kubectl get services
    ```
-
-3. Open a browser and visit [http://localhost](http://localhost), you should see Bytebase.
-
-## Production Deployment
-
-For production deployments, see our [Production Setup Guide](/get-started/production-setup).
 
 ## Use Helm Chart
 
