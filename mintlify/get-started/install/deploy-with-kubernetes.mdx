@@ -47,10 +47,9 @@ spec:
               value: 'postgresql://<<user>>:<<secret>>@<<host>>:<<port>>/<<dbname>>'
           args:
             [
-              '--data',
-              '/var/opt/bytebase',
               '--port',
               '8080',
+              '--disable-sample',
             ]
           ports:
             - containerPort: 8080
