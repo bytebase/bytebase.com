@@ -23,7 +23,8 @@ For production deployments:
 
 ### Docker Version Requirements
 
-Docker version must be at least [20.10.24](https://docs.docker.com/engine/release-notes/20.10/#201024). If you're using an older version, pass `--security-opt seccomp=unconfined` to `docker run` to avoid `pthread_create failed` error.
+Docker version must be at least [20.10.24](https://docs.docker.com/engine/release-notes/20.10/#201024).
+For older versions, pass `--security-opt seccomp=unconfined` to `docker run` to avoid the `pthread_create failed` error.
 
 ### Air-gapped Environment
 
