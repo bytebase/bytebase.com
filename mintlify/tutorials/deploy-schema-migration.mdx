@@ -1,7 +1,7 @@
 ---
 title: Deploy Schema Change with Rollout Policy
 author: Adela
-updated_at: 2024/10/10 12:00
+updated_at: 2025/08/08 12:00
 tags: Tutorial
 integrations: General
 category: 'Database CI/CD (GUI)'
@@ -33,59 +33,79 @@ unlock new capabilities of deploying schema migrations and this tutorial will wa
 
 1. Bytebase is running successfully in Docker, and you can visit it via `localhost:8080`. Register an admin account and it will be granted the `workspace admin` role automatically.
 
-### Level 1: Automatic rollout with SQL review (Community Plan)
+1. While setting up the workspace, choose built-in sample data.
 
-1. Within Workspace, go to **Environments** > **Test** and **Environments** > **Prod**, you'll see
+   ![setup-built-in-sample-data](/content/docs/tutorials/deploy-schema-migration/bb-setup-built-in-sample.webp)
 
-   - Check `automatic` as `Rollout policy`. Unless there's warning or error, rollout will be automatically executed after an issue is created.
-   - `SQL Review` is enabled on `Prod` with a sample policy (with 20 rules).
+### Level 1: Automatic rollout on Test environment (Community Plan)
 
-   ![bb-env-community-test-prod](/content/docs/tutorials/deploy-schema-migration/bb-env-community-test-prod.webp)
+1. Within Workspace, go to **Environments** > **Test**, and set the rollout policy to `Automatic`.
 
-1. Click **SQL Review Policy** to enter **SQL Review** under **CI/CD** section, where three rules have been activated. We'll intentionally violate the Column rule `Enforce NOT NULL constraints on columns`.
+   ![env-test-auto](/content/docs/tutorials/deploy-schema-migration/bb-env-test-auto.webp)
 
-1. Go to `Sample Project` from top left. Go to **Database** > **Databases**, choose both `hr_prod` and `hr_test` databases to **Edit Schema**. Paste this command into **SQL** block, and **Create** this issue on top right:
+1. Go to `Sample Project` from top left. Click **Plan** under **CI/CD** section. Click **+ New Plan** to create a new plan. Choose `Schema Migration (DDL)` as the change type and then select `hr_test` database.
 
-   ```sql
-   ALTER TABLE "public"."employee"
-       ADD COLUMN "country" text;
-   ```
+   ![plan-db-test](/content/docs/tutorials/deploy-schema-migration/bb-plan-db-test.webp)
 
-1. SQL Review will run automatically along with some other checks. You'll see a warning for the task on `Prod`. Click `Prod Stage` of the pipe above for details.
+1. Via the **Schema Editor**, add a new column `nickname` to the `employee` table and click **Confirm**.
 
-   ![prod-warning-detail](/content/docs/tutorials/deploy-schema-migration/prod-warning-detail.webp)
+   ![plan-schema-editor-nickname](/content/docs/tutorials/deploy-schema-migration/bb-plan-schema-editor-nickname.webp)
 
-1. Edit the SQL statement with this:
+1. Click **Create** and then **Ready for Review**.
 
-   ```sql
-   ALTER TABLE "public"."employee"
-   ADD COLUMN "country" text NOT NULL DEFAULT '';
-   ```
+   ![plan-test-to-create](/content/docs/tutorials/deploy-schema-migration/bb-plan-test-to-create.webp)
+   ![plan-test-to-review](/content/docs/tutorials/deploy-schema-migration/bb-plan-test-to-review.webp)
 
-1. Now you'll see the warning disappear and the issue rolls out automatically. Click **View change** to see the diff.
+1. The rollout will be automatically executed to `Test` environment. The issue will be marked as `Done`.
 
-   ![view-change](/content/docs/tutorials/deploy-schema-migration/view-change.webp)
+   ![plan-test-auto-rollout-done](/content/docs/tutorials/deploy-schema-migration/bb-plan-test-auto-rollout-done.webp)
 
-### Level 2: Manual rollout with dedicated roles(Community Plan)
+### Level 2: Manual rollout with SQL Review (Community Plan)
 
-You can specify multiple pre-defined roles to manually deploy the change.
+1. Within Workspace, go to **Environments** > **Prod**. Left the rollout policy unchanged, the default setting is `Manual`. But we'll add a SQL Review policy to the `Prod` environment.
 
-If you want **Time scheduling** feature, you will need to upgrade to **Pro Plan**.
+   ![env-prod-sql-review](/content/docs/tutorials/deploy-schema-migration/bb-env-prod-sql-review.webp)
 
-1. Within Workspace, go to **Environments** > **Prod**. Uncheck `Automatic`. Choose several roles according to your needs and also check `Issue Creator`. Click **Update** on bottom right.
+1. Click **SQL Review Policy** to enter **SQL Review** under **CI/CD** section, where we will choose the `Sample Template` which has 20 enabled rules.
 
-   ![bb-env-manual](/content/docs/tutorials/deploy-schema-migration/bb-env-manual.webp)
+   ![sql-review-sample](/content/docs/tutorials/deploy-schema-migration/bb-sql-review-sample.webp)
 
-1. Go to `Sample Project`, enter **Database** > **Databases** to **Edit Schema** for both databases. Paste this command into **SQL** block and **Create**.
+1. Click **Confirm** to add the SQL Review policy to the `Prod` environment.
 
-   ```sql
-   ALTER TABLE "public"."employee"
-       ADD COLUMN "city" text NOT NULL DEFAULT '';
-   ```
+   ![sql-review-prod](/content/docs/tutorials/deploy-schema-migration/bb-sql-review-prod.webp)
 
-1. **Task checks** runs. SQL runs on `Test` automatically but waits to run on `Prod`. Click **Rollout** to trigger directly.
+1. Go to `Sample Project` from top left. Click **Plan** under **CI/CD** section. Click **+ New Plan** to create a new plan. Choose `Schema Migration (DDL)` as the change type and then select `hr_prod` database.
 
-   ![issue-await](/content/docs/tutorials/deploy-schema-migration/issue-await.webp)
+   ![plan-db-prod](/content/docs/tutorials/deploy-schema-migration/bb-plan-db-prod.webp)
+
+1. Via the **Schema Editor**, add a new column `nickname` to the `employee` table and click **Confirm**.
+
+   ![plan-schema-editor-nickname](/content/docs/tutorials/deploy-schema-migration/bb-plan-schema-editor-nickname.webp)
+
+1. This time, we'll intentionally violate the `NOT NULL` rule. Click **Create** and then the SQL Review will run automatically. There's a warning for the task on `Prod`.
+
+   ![plan-to-review-warning](/content/docs/tutorials/deploy-schema-migration/bb-plan-to-review-warning.webp)
+
+1. Click the warning to see the details.
+
+   ![plan-to-review-warning-detail](/content/docs/tutorials/deploy-schema-migration/bb-plan-to-review-warning-detail.webp)
+
+1. Fix the SQL statement by adding `NOT NULL` constraint. Click **Save** to update the plan. The SQL Review checks will run again and should now pass. Click **Ready for Review** and then **Confirm** to submit the plan for approval.
+
+   ![plan-to-review-pass](/content/docs/tutorials/deploy-schema-migration/bb-plan-to-review-pass.webp)
+
+1. Now the rollout is ready for you to execute manually.
+
+   ![plan-prod-to-rollout](/content/docs/tutorials/deploy-schema-migration/bb-plan-prod-to-rollout.webp)
+
+1. Click **Rollout** and then click **Run**.
+
+   ![rollout-prod-to-run](/content/docs/tutorials/deploy-schema-migration/bb-rollout-prod-to-run.webp)
+   ![rollout-prod-to-run-detail](/content/docs/tutorials/deploy-schema-migration/bb-rollout-prod-to-run-detail.webp)
+
+1. After the rollout is executed, the issue will be marked as `Done`.
+
+   ![plan-prod-manual-rollout-done](/content/docs/tutorials/deploy-schema-migration/bb-plan-prod-manual-rollout-done.webp)
 
 ### Level 3: Manual rollout with custom approval (Enterprise Plan)
 
