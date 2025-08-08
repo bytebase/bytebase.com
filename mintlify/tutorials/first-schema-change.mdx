@@ -26,59 +26,62 @@ In this tutorial, you'll use the default sample databases to get familiar with t
 1. Open Bytebase in [localhost:8080](http://localhost:8080/), fill in the fields and click **Create admin account**. You'll be redirected to Workspace.
    ![account](/content/docs/tutorials/first-schema-change/account.webp)
 
-1. You can click your avatar on top right and **Quickstart** from the dropdown menu.
-   ![quickstart](/content/docs/tutorials/first-schema-change/quickstart.webp)
+## Step 2 - Configure the SQL Review
 
-## Step 2 - One Issue with Two Stages
+1. Navigate to **CI/CD** > **SQL Review** in the left menu. Click **+ New SQL Review** to create a new SQL review.
 
-1. Click **My Issues** on the left sidebar, and click the issue `SAM-101` which is created by default.
-   ![issue](/content/docs/tutorials/first-schema-change/issue.webp)
+1. Choose `Sample Template` which has 20 enabled rules and click **Confirm and add**. Attach the SQL review to Environment `Prod` and click **Confirm**.
 
-1. The issue is `waiting for rollout`. There's a pipeline consisting of two stages:
+1. You'll see the SQL review is created.
+   ![sql-review-configured](/content/docs/tutorials/first-schema-change/bb-sql-review-configured.webp)
 
-   1. **Test Stage**: apply to database `hr_test` on `Test Sample instance`
-   2. **Prod Stage**: apply to database `hr_prod` on `Prod Sample instance`
+## Step 3 - Create a Plan
 
-   `Test` stage is `active` by default.
+1. Navigate to **CI/CD** > **Plans** in the left menu and click **+ New Plan**.
+   ![new-plan](/content/docs/change-database/plan/bb-new-plan.webp)
 
-   ![issue-test](/content/docs/tutorials/first-schema-change/issue-test.webp)
+1. Select **Schema Migration (DDL)** as the change type.
+   ![plan-change-type](/content/docs/change-database/plan/bb-plan-change-type.webp)
 
-1. Click **Prod Stage** to switch to it, and you will see the two stages share the same SQL but to different databases. You may also notice there's a warning sign for SQL review on the `Prod` stage. That's because when the issue is created, Bytebase will run task checks automatically.
-   ![issue-prod](/content/docs/tutorials/first-schema-change/issue-prod.webp)
+1. Select the databases where changes will be applied:
+   - `hr_test` on `Test Sample instance` 
+   - `hr_prod` on `Prod Sample instance`
+   
+   Click **Confirm** to proceed.
+   ![plan-targets](/content/docs/change-database/plan/bb-plan-targets.webp)
 
-1. Click the warning sign to see the details. If you wonder why only `Prod` stage has the warning sign, it's because by default SQL Review is only configured for `Prod` environment.
-
-   ![sql-review-not-null](/content/docs/tutorials/first-schema-change/sql-review-not-null.webp)
-
-## Step 3 - Deploy on Test Stage
-
-1. Switch back to **Test Stage** and click **Rollout**. Click **Rollout** on the confirmation dialog.
-
-1. When the SQL is applied, there will be a checkmark on the **Test Stage**. Click **View change** and you'll see the change history diff.
-   ![view-change-test](/content/docs/tutorials/first-schema-change/view-change-test.webp)
-
-   ![issue-snapshot-diff](/content/docs/tutorials/first-schema-change/issue-snapshot-diff.webp)
-
-## Step 4 - Deploy on Prod Stage
-
-There are two ways to deploy on **Prod Stage** regarding the SQL review result.
-
-1. If you are confident with the SQL, you can click **Rollout** directly. Tick **Rollout anyway**, and click **Rollout** on the confirmation dialog.
-   ![prod-anyway](/content/docs/tutorials/first-schema-change/prod-anyway.webp)
-
-1. Another way is to edit SQL. Click **Edit** on top of SQL block, add `NOT NULL`. It will be like:
-
+1. Add the SQL statement:
    ```sql
-   ALTER TABLE employee ADD COLUMN IF NOT EXISTS email TEXT NOT NULL DEFAULT '';
+   ALTER TABLE public.employee ADD COLUMN IF NOT EXISTS nickname TEXT;
    ```
+   
+   Click **Create** to create the plan.
 
-   Click **Save**, the checks will be run again. This time the SQL review will pass. The issue will deploy and become `Done`.
+1. The plan will be in `Draft` status. You may see SQL review warnings, especially for the production environment. This is because Bytebase automatically runs configured checks.
+   ![plan-draft-2-targets-warning](/content/docs/tutorials/first-schema-change/bb-plan-draft-2-targets-warning.webp)
 
-   ![issue-done](/content/docs/tutorials/first-schema-change/issue-done.webp)
+## Step 4 - Review and Approve
 
-   You may go to **Environments** to alter whether it rolls out automatically.
+1. To fix the SQL review warning, edit the SQL to add `NOT NULL DEFAULT ''`:
+   ```sql
+   ALTER TABLE public.employee ADD COLUMN IF NOT EXISTS nickname TEXT NOT NULL DEFAULT '';
+   ```
+   
+   Click **Save** to update the plan. The checks will run again and should pass.
 
-   ![bb-env-automatic](/content/docs/tutorials/first-schema-change/bb-env-automatic.webp)
+1. Click **Ready for Review** and then **Confirm** to submit the plan for approval.
+
+1. The plan has no approval required.
+   ![issue-2-targets-no-approval](/content/docs/tutorials/first-schema-change/bb-issue-2-targets-no-approval.webp)
+
+## Step 4 - Deploy the Changes
+
+1. Navigate to the **Rollout** section. You'll see the deployment is ready for both Test and Prod environments.
+   ![issue-2-targets-to-rollout](/content/docs/tutorials/first-schema-change/bb-issue-2-targets-to-rollout.webp)
+
+1. Click **Run** for the Test stage first and then if it's successful, click **Run** for the Prod stage.
+
+1. When all rollouts are successfully executed, the issue will be marked as `Done`.
 
 ## Next Step
 
