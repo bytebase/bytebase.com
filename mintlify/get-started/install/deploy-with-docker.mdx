@@ -21,10 +21,13 @@ For production deployments:
 
 ## Troubleshooting
 
-### Docker Version Requirements
+### Docker Compatibility
 
-Docker version must be at least [20.10.24](https://docs.docker.com/engine/release-notes/20.10/#201024).
-For older versions, pass `--security-opt seccomp=unconfined` to `docker run` to avoid the `pthread_create failed` error.
+Docker version must be at least 20.10.24. We recommend using the [latest Docker version](https://docs.docker.com/engine/install/). If you cannot upgrade Docker, pass `--security-opt seccomp=unconfined` to `docker run` as a best effort to avoid the `pthread_create failed` error.
+
+If you encounter a "manifest not found" error, this may be due to:
+- **Architecture mismatch**: The docker image only supports `linux/amd64` and `linux/arm64` architectures. If it doesn't match your OS architecture, you may supply `--platform linux/amd64` as a best effort.
+- **Outdated Docker version**: Your Docker version is too old and doesn't support manifest lists.
 
 ### Air-gapped Environment
 
@@ -51,14 +54,6 @@ If you see `bind: address already in use` error, it means the port 8080 is alrea
 
 - If you **run Bytebase inside Docker on Linux**, then you need to supply the additional `--network host` flags in `docker run` command. This allows Bytebase to connect to database instance running on the same host with `localhost`.
 - If you **run Bytebase inside Docker Desktop on Mac** , then you need to use `host.docker.internal` to connect to database instance running on the same host.
-
-### Manifest Not Found
-
-There may be a few reasons the manifest file is not found:
-
-- The docker image only supports `linux/amd64` and `linux/arm64` arch. If it doesn't match your OS arch, you may supply
-  `--platform linux/amd64` as a best effort.
-- Your Docker version is too old and doesn't support manifest list. Please [install the latest Docker version](https://docs.docker.com/engine/install/).
 
 ### Colima Support
 
