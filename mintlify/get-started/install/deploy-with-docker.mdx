@@ -10,20 +10,23 @@ import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volum
 
 Bytebase is now accessible at http://localhost:8080.
 
-## Prerequisites
+## Production Setup
 
-- Check [System Requirements](/faq#system-requirements).
-- Check [External PostgreSQL Prerequisites](/get-started/install/external-postgres/) if you configure it.
-- If you use gateway such as Nginx, enable [WebSocket](/get-started/external-access#enable-websocket-for-sql-editor) for SQL Editor autocomplete to work.
+For production deployments:
 
-<Note>
+1. Review [System Requirements](/faq#system-requirements) to ensure adequate resources.
+2. Configure [External PostgreSQL](/get-started/install/external-postgres/) for production deployments.
+3. Configure [HTTPS and WebSocket](/get-started/external-access) in your gateway (e.g., Nginx) for secure connections.
+4. See the complete [Production Setup Guide](/get-started/production-setup/) for additional recommendations.
 
-- Docker version must be at least [20.10.24](https://docs.docker.com/engine/release-notes/20.10/#201024)
-  or pass `--security-opt seccomp=unconfined` to `docker run`, otherwise, you will get `pthread_create failed` error.
+## Troubleshooting
 
-- If accessing from China, pull image `registry.cn-shanghai.aliyuncs.com/bytebase/bytebase:latest`.
+### Docker Version Requirements
 
-</Note>
+Docker version must be at least [20.10.24](https://docs.docker.com/engine/release-notes/20.10/#201024).
+For older versions, pass `--security-opt seccomp=unconfined` to `docker run` to avoid the `pthread_create failed` error.
+
+### Air-gapped Environment
 
 If you need to transfer images to a completely air-gapped environment:
 
@@ -40,22 +43,16 @@ docker tag bytebase/bytebase:latest your-registry.acme.com/library/bytebase:late
 docker push your-registry.acme.com/library/bytebase:latest
 ```
 
-If you need more control over the server configuration, check other [Server Startup Options](/reference/command-line).
-
-For production deployments, see our [Production Setup Guide](/get-started/production-setup).
-
-## Troubleshooting
-
-### bind: address already in use
+### Port Conflicts
 
 If you see `bind: address already in use` error, it means the port 8080 is already in use on your host. You need to either stop the existing process using the port or configure Bytebase to use a different port via `--publish <<YOUR_PORT>>:8080`.
 
-### Connect database instance on the same host
+### Connect to Database on Same Host
 
 - If you **run Bytebase inside Docker on Linux**, then you need to supply the additional `--network host` flags in `docker run` command. This allows Bytebase to connect to database instance running on the same host with `localhost`.
 - If you **run Bytebase inside Docker Desktop on Mac** , then you need to use `host.docker.internal` to connect to database instance running on the same host.
 
-### Manifest not found
+### Manifest Not Found
 
 There may be a few reasons the manifest file is not found:
 
@@ -63,7 +60,7 @@ There may be a few reasons the manifest file is not found:
   `--platform linux/amd64` as a best effort.
 - Your Docker version is too old and doesn't support manifest list. Please [install the latest Docker version](https://docs.docker.com/engine/install/).
 
-### Unable to start using Colima
+### Colima Support
 
 Due to the vm mechanism of [Colima](https://github.com/abiosoft/colima), try to use the `--mount` option when starting colima as shown below:
 
@@ -78,4 +75,20 @@ docker run --init \
   --data /var/opt/bytebase \
   --external-url http://bytebase.example.com \
   --port 8080
+```
+
+### Advanced Options
+
+For more control over the server configuration, see [Server Startup Options](/reference/command-line).
+
+### China Access
+
+If accessing from China, use the mirror image:
+
+```bash
+docker run --rm --init \
+  --name bytebase \
+  --publish 8080:8080 --pull always \
+  --volume ~/.bytebase/data:/var/opt/bytebase \
+  registry.cn-shanghai.aliyuncs.com/bytebase/bytebase:latest
 ```
