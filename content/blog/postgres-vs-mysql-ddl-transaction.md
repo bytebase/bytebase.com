@@ -158,6 +158,13 @@ Let's examine the key differences between PostgreSQL 17 and MySQL 8 in how they 
 
 PostgreSQL's transactional DDL provides a higher level of safety for complex schema migrations. By wrapping multiple related changes in a transaction, administrators can ensure that the database remains in a consistent state, even if something goes wrong during the migration process. In contrast, MySQL 8 introduces atomic DDL at the statement level, meaning each individual DDL statement is executed as an all-or-nothing operation. While this is a notable improvement over earlier versions of MySQL, it still does not support multi-statement DDL transactions.
 
+## Postgres vs MySQL Comparison Series
+
+- [Overall comparison](/blog/postgres-vs-mysql)
+- [Indexing Options](/blog/postgres-vs-mysql-indexing-options)
+- [JSON Support](/blog/postgres-vs-mysql-json-support)
+- [Online Index Creation](/blog/postgres-vs-mysql-online-index-creation)
+
 ## References
 
 1. PostgreSQL Wiki: [Transactional DDL in PostgreSQL: A Competitive Analysis](https://wiki.postgresql.org/wiki/Transactional_DDL_in_PostgreSQL:_A_Competitive_Analysis)

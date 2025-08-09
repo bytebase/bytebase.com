@@ -407,6 +407,13 @@ For most general-purpose applications, either system can provide excellent perfo
 
 Remember that indexes come with maintenance overhead and storage costs, so it's important to balance the benefits of faster queries against these costs. Regularly monitor index usage and performance to ensure your indexing strategy remains optimal as your application evolves.
 
+## Postgres vs MySQL Comparison Series
+
+- [Overall comparison](/blog/postgres-vs-mysql)
+- [DDL Transaction Difference](/blog/postgres-vs-mysql-ddl-transaction)
+- [JSON Support](/blog/postgres-vs-mysql-json-support)
+- [Online Index Creation](/blog/postgres-vs-mysql-online-index-creation)
+
 ## References
 
 **PostgreSQL Documentation**

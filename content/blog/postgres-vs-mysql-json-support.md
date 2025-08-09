@@ -346,6 +346,13 @@ WHERE jt.ram >= 8 AND jt.storage >= 256;
 
 PostgreSQL 17 offers broader JSON functionality. If your workloads rely heavily on JSON and demand advanced querying, its `jsonb` type with GIN indexes is often the better fit. MySQL, however, is steadily improving and already provides a growing set of built-in JSON functions.
 
+## Postgres vs MySQL Comparison Series
+
+- [Overall comparison](/blog/postgres-vs-mysql)
+- [DDL Transaction Difference](/blog/postgres-vs-mysql-ddl-transaction)
+- [Indexing Options](/blog/postgres-vs-mysql-indexing-options)
+- [Online Index Creation](/blog/postgres-vs-mysql-online-index-creation)
+
 ## References
 
 1. PostgreSQL Documentation. (2024). "JSON Types." Retrieved from https://www.postgresql.org/docs/current/datatype-json.html

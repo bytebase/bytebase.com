@@ -262,6 +262,13 @@ lifecycle for both of them, please check out [Bytebase](/).
 
 ![change-query-secure-govern-database-all-in-one](/images/db-scheme-lg.png)
 
+## Postgres vs MySQL Comparison Series
+
+- [DDL Transaction Difference](/blog/postgres-vs-mysql-ddl-transaction)
+- [Indexing Options](/blog/postgres-vs-mysql-indexing-options)
+- [JSON Support](/blog/postgres-vs-mysql-json-support)
+- [Online Index Creation](/blog/postgres-vs-mysql-online-index-creation)
+
 ## References
 
 ### Scaling and Sharding

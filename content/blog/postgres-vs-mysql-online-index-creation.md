@@ -175,6 +175,13 @@ CREATE INDEX idx_email ON users (email)
 ALGORITHM=INPLACE, LOCK=SHARED;
 ```
 
+## Postgres vs MySQL Comparison Series
+
+- [Overall comparison](/blog/postgres-vs-mysql)
+- [DDL Transaction Difference](/blog/postgres-vs-mysql-ddl-transaction)
+- [Indexing Options](/blog/postgres-vs-mysql-indexing-options)
+- [JSON Support](/blog/postgres-vs-mysql-json-support)
+
 ## References
 
 1. **PostgreSQL 17 Documentation - Building Indexes Concurrently**  
