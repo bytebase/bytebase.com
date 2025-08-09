@@ -1,0 +1,98 @@
+name: Check Broken Links in MDX Files
+
+on:
+  pull_request:
+    paths:
+      - 'mintlify/**/*.mdx'
+      - '.github/workflows/broken-links.yml'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  check-broken-links:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Install Mintlify CLI
+        run: npm install -g mintlify
+        
+      - name: Run broken links check
+        id: broken-links
+        working-directory: mintlify
+        run: |
+          echo "Running mint broken-links in mintlify directory..."
+          
+          # Run broken links check and capture both stdout and stderr
+          set +e  # Don't exit on error
+          mint broken-links &> broken-links-output.txt
+          mint_exit_code=$?
+          set -e  # Re-enable exit on error
+          
+          echo "mint_exit_code=$mint_exit_code" >> $GITHUB_OUTPUT
+          
+          # Show original output for debugging
+          echo "Original mint output:"
+          cat broken-links-output.txt
+          
+          # Always report success and pass through the raw output
+          echo "has_broken_links=false" >> $GITHUB_OUTPUT
+          echo "RAW_OUTPUT<<EOF" >> $GITHUB_OUTPUT
+          cat broken-links-output.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const rawOutput = `${{ steps.broken-links.outputs.RAW_OUTPUT }}`;
+            
+            const body = `## 📝 Broken Links Check Report
+            
+            > **Note**: Entries under \`/api-reference/\` are likely false positives and can be ignored.
+            
+            The following is the output from the broken links check:
+            
+            \`\`\`
+            ${rawOutput}
+            \`\`\`
+            `;
+            
+            // Find existing comment
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            
+            const existingComment = comments.data.find(comment => 
+              comment.user.login === 'github-actions[bot]' && 
+              comment.body.includes('Broken Links Check')
+            );
+            
+            if (existingComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existingComment.id,
+                body: body
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: body
+              });
+            }
