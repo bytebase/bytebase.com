@@ -4,122 +4,80 @@ title: Upgrade
 
 ## Upgrade Process
 
-The following example demonstrates upgrading Bytebase using Docker. **Follow these steps in the exact order to ensure a safe upgrade:**
+This guide walks through upgrading Bytebase with Docker. **Complete each step sequentially to ensure a smooth and safe upgrade:**
 
-### Step 1: Stop and Remove the Current Container
+### Step 1: Back Up Your Metadata
 
-To prevent database corruption, ensure only one Bytebase instance accesses the metadata at a time:
+🚨 **Critical:** Before proceeding, create a complete backup of your metadata. This backup serves as your safety net for rolling back if needed. Refer to the "Back up and Restore" section below for comprehensive backup procedures.
 
-   ```text
-   docker stop bytebase
-   docker rm bytebase
-   ```
+### Step 2: Stop and Remove the Existing Container
 
-### Step 2: Create a Metadata Backup
+First, gracefully stop and remove your current Bytebase container. This prevents data corruption by ensuring no concurrent access to the metadata.
 
-🚨 **Critical:** Always create a backup of your metadata before upgrading. This backup is essential if you need to rollback to a previous version. See the "Back up Data" section below for detailed instructions.
+### Step 3: Launch the Updated Version
 
-### Step 3: Deploy the New Version
-
-Launch Bytebase with the updated version using the appropriate Docker run command for your setup.
+Start Bytebase with the new version using your existing Docker run command, updating only the image tag to the desired version.
 
 <Warning>
-**Best Practice:** Always test the upgrade process in a staging environment before applying it to production.
+**Production Safety:** Validate your upgrade procedure in a staging environment before executing it in production.
 </Warning>
 
-## Back up Data
+## Back up and Restore
 
-### External PostgreSQL Metadata (Recommended)
+### External PostgreSQL (Recommended)
 
-If [`--pg`](/reference/command-line#--pg-string) is specified, the metadata will be stored in the specified external PostgreSQL database. Below shows how to back up and restore the Bytebase metadata, let's assume the metadata is stored in `metadb`.
+#### Creating a Backup
 
-#### Back up the metadata
-
-```text
-pg_dump -h <<host>> -p <<port>> -U <<user>> -d metadb > metadb.sql
-```
-
-#### Restore Option 1 - Restore to the same `metadb`
-
-##### Step 1 - Restore metadata to a temporary db
-
-Create a new db `metadb_new`:
+Execute the following command to create a complete database clone:
 
 ```text
-psql -h <<host>> -p <<port>> -U <<user>> metadb -c "CREATE DATABASE metadb_new"
+   psql -h <<host>> -p <<port>> -U <<user>> metadb -c "CREATE DATABASE metadb_backup WITH TEMPLATE metadb;"
 ```
 
-Restore metadata to the new db:
+#### Restoring from Backup
+
+1. Stop your Bytebase instance completely.
+
+2. Preserve the current database by renaming it:
+   
+   ```text
+   psql -h <<host>> -p <<port>> -U <<user>> postgres -c "ALTER DATABASE metadb RENAME TO metadb_old"
+   ```
+
+3. Restore from your backup:
+   
+   ```text
+   psql -h <<host>> -p <<port>> -U <<user>> postgres -c "CREATE DATABASE metadb WITH TEMPLATE metadb_backup;"
+   ```
+
+4. Start Bytebase with the previous version (the version you were running before the failed upgrade).
+
+5. After confirming successful restoration, remove temporary databases:
+   
+   ```text
+   psql -h <<host>> -p <<port>> -U <<user>> postgres -c "DROP DATABASE metadb_old"
+   psql -h <<host>> -p <<port>> -U <<user>> postgres -c "DROP DATABASE metadb_backup"
+   ```
+
+### Embedded PostgreSQL
+
+#### Creating a Backup
+
+Archive your entire data directory to preserve the embedded database:
 
 ```text
-psql -h <<host>> -p <<port>> -U <<user>> metadb_new < metadb.sql
+tar -czf bytebase-backup.tar.gz /path/to/data
 ```
 
-##### Step 2 - Swap the existing metadata db with the temporary db
+#### Restoring from Backup
 
-<Tip>
+Follow these steps to restore your embedded PostgreSQL data:
 
-You need to first stop Bytebase otherwise its connection to the metadata db will prevent renaming the database.
-
-Also, you can not rename the connecting database so you need to connect to the PostgreSQL instance using a different database like `postgres`.
-
-</Tip>
-
-Rename existing `metadb` to `metadb_old`:
+1. Stop your Bytebase instance completely
+2. Extract and replace the data directory from your backup:
 
 ```text
-psql -h <<host>> -p <<port>> -U <<user>> postgres -c "ALTER DATABASE metadb RENAME TO metadb_old"
+tar -xzf bytebase-backup.tar.gz -C /
 ```
 
-Rename `metadb_new` to the `metadb`, which will serve as the new metadata db:
-
-```text
-psql -h <<host>> -p <<port>> -U <<user>> postgres -c "ALTER DATABASE metadb_new RENAME TO metadb"
-```
-
-##### Step 3 - Drop the old metadata db
-
-Restart Bytebase and verify the metadata is restored properly. Afterwards, you can drop the old database:
-
-```text
-psql -h <<host>> -p <<port>> -U <<user>> postgres -c "DROP DATABASE metadb_old"
-```
-
-#### Restore Option 2 - Restore to a different database `metadb2`
-
-
-##### Step 1 - Restore metadata to `metadb2`
-
-Create a new db `metadb2`:
-
-```text
-psql -h <<host>> -p <<port>> -U <<user>> metadb -c "CREATE DATABASE metadb2"
-```
-
-Restore metadata to the new db:
-
-```text
-psql -h <<host>> -p <<port>> -U <<user>> metadb2 < metadb.sql
-```
-
-##### Step 2 - Drop the old metadata db
-
-Restart Bytebase and verify the metadata is restored properly. Afterwards, you can drop the old database:
-
-```text
-psql -h <<host>> -p <<port>> -U <<user>> postgres -c "DROP DATABASE metadb"
-```
-
-### Embedded PostgreSQL Metadata
-
-If [External PostgreSQL](/get-started/self-host/external-postgres/) is not configured, then
-Bytebase will store the metadata under the [`--data`](/reference/command-line#--data-directory) directory.
-You can back up the `--data` directory or the `pgdata` subfolder.
-
-<Note>
-
-You should periodically back up the entire [`--data`](/reference/command-line#--data-directory) directory if any data is stored there.
-
-If Bytebase is running and not in the [`--readonly`](/reference/command-line#--readonly) mode, and you want to take the backup, then the underlying data volume must support snapshot feature where the entire directory can take a snapshot at the same time, otherwise it may produce a corrupted backup bundle.
-
-</Note>
+3. Start Bytebase with the previous version using the restored data directory
