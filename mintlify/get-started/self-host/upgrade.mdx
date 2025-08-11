@@ -63,7 +63,7 @@ Rename `metadb_new` to the `metadb`, which will serve as the new metadata db:
 psql -h <<host>> -p <<port>> -U <<user>> postgres -c "ALTER DATABASE metadb_new RENAME TO metadb"
 ```
 
-##### Step 2 - Drop the old metadata db
+##### Step 3 - Drop the old metadata db
 
 Restart Bytebase and verify the metadata is restored properly. Afterwards, you can drop the old database:
 
