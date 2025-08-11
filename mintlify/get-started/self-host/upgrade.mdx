@@ -2,15 +2,29 @@
 title: Upgrade
 ---
 
-import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
+## Upgrade Process
+
+The following example demonstrates upgrading Bytebase using Docker. **Follow these steps in the exact order to ensure a safe upgrade:**
+
+### Step 1: Stop and Remove the Current Container
+
+To prevent database corruption, ensure only one Bytebase instance accesses the metadata at a time:
+
+   ```text
+   docker stop bytebase
+   docker rm bytebase
+   ```
+
+### Step 2: Create a Metadata Backup
+
+🚨 **Critical:** Always create a backup of your metadata before upgrading. This backup is essential if you need to rollback to a previous version. See the "Back up Data" section below for detailed instructions.
+
+### Step 3: Deploy the New Version
+
+Launch Bytebase with the updated version using the appropriate Docker run command for your setup.
 
 <Warning>
-**BEFORE YOU UPGRADE**
-
-- Never run multiple containers on the same data directory. Stop and remove the old one first to avoid corruption.
-- Back up your metadata before upgrading. You’ll need it if you ever downgrade.
-- Verify the upgrade in a test environment first.
-
+**Best Practice:** Always test the upgrade process in a staging environment before applying it to production.
 </Warning>
 
 ## Back up Data
@@ -109,31 +123,3 @@ You should periodically back up the entire [`--data`](/reference/command-line#--
 If Bytebase is running and not in the [`--readonly`](/reference/command-line#--readonly) mode, and you want to take the backup, then the underlying data volume must support snapshot feature where the entire directory can take a snapshot at the same time, otherwise it may produce a corrupted backup bundle.
 
 </Note>
-
-## Upgrade Process
-
-Take Docker as an example (**follow the below steps exactly**):
-
-1. Stop Bytebase
-
-   ```text
-   docker stop bytebase
-   docker rm bytebase
-   ```
-
-1. 🚨 Back up the Bytebase metadata
-
-   ```bash
-   cp -rp ~/.bytebase/data ~/.bytebase/data.bak
-   ```
-
-   Above example backs up the metadata stored in the embedded database.
-   If you store metadata in the [external PostgreSQL](/get-started/self-host/external-postgres/), you should
-   back up that database using the instructions in the "Back up Data" section above.
-
-1. Change version string to 3.9.0
-
-1. Start Bytebase
-
-   <TerminalDockerRunVolume />
-
