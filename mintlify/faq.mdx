@@ -44,24 +44,6 @@ then you need to make sure to reserve enough space there.
 
 Bytebase does not retain any database row data.
 
-### Database credentials
-
-In order to perform database operations on users' behalf, Bytebase needs users to provide the database credentials.
-By default, Bytebase stores the supplied credentials in the obfuscated format. For the Enterprise plan, you can
-instruct Bytebase to [use the external secret manager](/get-started/instance/#use-secret-manager).
-
-### Database schema (metadata)
-
-Bytebase syncs and stores the database schema information. If you enable [AI Assistant](/ai-assistant/),
-Bytebase will also send the schema info to OpenAI or the configured endpoint.
-
-### Database data (row data)
-
-When you query the database via Bytebase, Bytebase does not store the result data. [Audit log](/security/audit-log/)
-only records the query.
-
-If you enable [Data Rollback](/change-database/rollback-data-changes/), Bytebase will store the backup data in your
-own database instance.
 
 
 ## How to enable debug mode
