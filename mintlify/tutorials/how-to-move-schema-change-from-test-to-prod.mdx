@@ -10,35 +10,65 @@ estimated_time: '5 mins'
 description: 'Learn to move schema change from test to prod.'
 ---
 
-We're demonstrating this process using our sample [demo](https://demo.bytebase.com/) data in the Basic Project. **Select Project** on the upper-left where you choose `Basic Project`. Now you can operate within the project.
+Moving schema changes from test to production is a critical part of the database development lifecycle. Bytebase provides two primary methods to safely promote your changes across environments.
 
-You have three options to move schema change from `test` to `prod` as follows.
+This tutorial uses the sample data in our [demo environment](https://demo.bytebase.com/). Select **Basic Project** from the project selector in the upper-left to begin.
 
-## Option 1: Streamlined rollout
+## Option 1: Streamlined rollout (Recommended)
 
-Go to **CI/CD > Plans** in the left menu. Click **+ New Plan**, select **Schema Migration**. Select both databases to **Edit Schema**, where you type in raw SQL code in the code block and click **Create** then click **Ready for Review**. Checks will automatically run and then you can go to **Rollout** tab to **Run**.
+Deploy changes to multiple environments in a single workflow:
 
-## Option 2: Schema Synchronization
+1. Navigate to **CI/CD > Plans** and click **+ New Plan**.
+2. Select **Schema Migration** as the change type.
+3. Choose both `test` and `prod` databases as targets.
+4. Enter your SQL changes in the editor.
+5. Click **Create**, then **Ready for Review**.
+6. After checks pass, go to the **Rollout** tab.
+7. Click **Run** for each environment in sequence (test first, then prod).
 
-Also within **Database** -> **Databases** section on the left-side bar in `Basic Project` interface, select only `test` database to **Edit Schema**. Create, Approve and Rollout like we did to the two databases in Option 1.
+This method ensures consistent changes across environments and maintains a clear audit trail.
 
-Then enter [**Sync Schema**](/change-database/synchronize-schema/) on the left-side bar. Select `test` in **Database** to refer to, and choose a **Schema version**. Click **Next**.
+## Option 2: Schema synchronization
+
+Use this method when changes already exist in test and need to be replicated to production:
+
+1. First, apply changes to the test database:
+   - Navigate to **CI/CD > Plans** and click **+ New Plan**.
+   - Select **Schema Migration** and choose only the `test` database.
+   - Enter your SQL changes and click **Create**.
+   - Click **Ready for Review**, then rollout the changes.
+
+2. Synchronize test schema to production:
+   - Navigate to **Sync Schema** in the left sidebar.
+   - Select `test` as the source database.
+   - Choose the desired schema version and click **Next**.
 
 ![select-source-schema](/content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/select-source-schema.webp)
 
-Select `prod` as target database.
+3. Select `prod` as the target database:
 
-![select-target-databases-1](/content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/select-target-databases-1.webp)
+   ![select-target-databases-1](/content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/select-target-databases-1.webp)
 
-You can see how Bytebase shows the diff between the test database (source) and the prod database (target). **Preview issue** to deploy the difference
+4. Review the schema differences:
+   - Bytebase displays a detailed diff between test (source) and prod (target).
+   - Verify the changes match your expectations.
+   - Click **Preview issue** to proceed.
 
-![select-target-databases-2](/content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/select-target-databases-2.webp)
+   ![select-target-databases-2](/content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/select-target-databases-2.webp)
 
-**Create** this issue and then **Ready for Review**. Checks will automatically run and then you can go to **Rollout** tab to **Run**.
+5. Deploy the changes:
+   - Click **Create** to generate the synchronization issue.
+   - Click **Ready for Review** to trigger automated checks.
+   - Navigate to the **Rollout** tab and click **Run**.
 
-Thus we have successfully propagate the change from `test` to `prod`.
+The schema changes are now synchronized from test to production.
 
-## Related docs
+## Which method to choose?
 
-- [Streamlined Rollout](/change-database/batch-change/#change-databases-from-multiple-environments)
-- [Schema Synchronization](/change-database/synchronize-schema)
+- **Streamlined rollout**: Best for new changes that need to be deployed to multiple environments.
+- **Schema synchronization**: Ideal when test already has changes that need to be replicated to production.
+
+## Related documentation
+
+- [Batch Changes Across Environments](/change-database/batch-change/#change-databases-from-multiple-environments)
+- [Schema Synchronization Guide](/change-database/synchronize-schema)
