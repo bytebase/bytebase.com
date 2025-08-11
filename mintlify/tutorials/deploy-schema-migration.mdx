@@ -10,7 +10,7 @@ estimated_time: '30 mins'
 featured: true
 ---
 
-import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
+import PreparationWithSampleData from '/snippets/tutorials/preparation-with-sample-data.mdx';
 
 Bytebase provides a powerful GUI for deploying schema migrations. This tutorial walks you through deploying schema changes with features such as SQL Review, rollout policies, custom approval, time scheduling, and more.
 
@@ -26,15 +26,7 @@ Bytebase offers **Community**, **Pro**, and **Enterprise** [plans](https://www.b
 
 ### Preparation
 
-1. Ensure Docker is running, then start the Bytebase container:
-
-   <TerminalDockerRunVolume />
-
-1. After Bytebase starts, visit `localhost:8080`. Register an admin account, and it will be granted the `workspace admin` role automatically.
-
-1. During workspace setup, choose the built-in sample data.
-
-   ![setup-built-in-sample-data](/content/docs/tutorials/deploy-schema-migration/bb-setup-built-in-sample.webp)
+<PreparationWithSampleData />
 
 ### Level 1: Automatic rollout in the Test environment (All plans)
 
