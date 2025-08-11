@@ -26,13 +26,20 @@ Teams that frequently work with large SQL files may need more.
 
 ## Production Setup Checklist
 
-### Prerequisites
+### Essential Configuration
 
 - Review system requirements (see above)
 - [Configure External PostgreSQL](/get-started/self-host/external-postgres/)
 - [Configure External Access](/get-started/self-host/external-access)
 - [Configure External URL](/get-started/self-host/external-url)
 - Pin Docker image to specific version instead of `latest` ([changelog](https://docs.bytebase.com/changelog))
+  
+  While version tags like `3.7.0` are better than `latest`, Bytebase may still add patches to existing versions. For a truly fixed version, use the SHA256 digest from [Docker Hub](https://hub.docker.com/r/bytebase/bytebase/tags).
+  
+  ```bash
+  # Pin to exact image using digest (prevents any updates)
+  docker pull bytebase/bytebase:3.7.0@sha256:00b436855b08739aad02fd52e41b5d74c03db9c70c49ce5de42376347cd1403c
+  ```
 
 ### Monitoring
 
