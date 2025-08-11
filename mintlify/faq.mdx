@@ -39,13 +39,6 @@ then you need to reserve large disk space. A good starting point is to reserve 1
 the Bytebase server runs. And if you use [External PostgreSQL](/get-started/self-host/external-postgres/),
 then you need to make sure to reserve enough space there.
 
-### Docker
-
-If you use Docker to deploy Bytebase, please use Docker version >= [20.10.24](https://docs.docker.com/engine/release-notes/20.10/).
-
-### WebSocket
-
-SQL Editor autocomplete requires [enabling WebSocket](/get-started/self-host/external-access#websocket-support) in your gateway if present.
 
 ## Does Bytebase retain your data
 
@@ -70,21 +63,6 @@ only records the query.
 If you enable [Data Rollback](/change-database/rollback-data-changes/), Bytebase will store the backup data in your
 own database instance.
 
-## Production Setup
-
-See [Production Setup](/get-started/self-host/production-setup/).
-
-## Supported database and versions
-
-See [Supported Databases](/introduction/supported-databases).
-
-## Supported version control systems (VCS) and providers
-
-See [GitOps](/vcs-integration/overview).
-
-## How to enable https
-
-You can use [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy) or [Nginx](https://www.nginx.com/).
 
 ## How to enable debug mode
 
@@ -108,9 +86,6 @@ If you are an OWNER or DBA, you can also toggle debug mode at runtime. The toggl
   <img src="/content/docs/FAQ/troubleshoot-debug-mode.webp" width="50%" />
 </p>
 
-## Does Bytebase support post action after applying a change to the database
-
-You can configure [project webhook](/change-database/webhook/#supported-webhook-endpoints) to observe events.
 
 ## Which data does Bytebase collect?
 
