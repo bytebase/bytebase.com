@@ -1,7 +1,7 @@
 ---
 title: How to Move Schema Change from Test to Prod
 author: Ayra
-updated_at: 2024/09/24 18:00
+updated_at: 2025/08/11 18:00
 tags: Tutorial
 integrations: General
 category: 'Database CI/CD (GUI)'
@@ -12,15 +12,11 @@ description: 'Learn to move schema change from test to prod.'
 
 We're demonstrating this process using our sample [demo](https://demo.bytebase.com/) data in the Basic Project. **Select Project** on the upper-left where you choose `Basic Project`. Now you can operate within the project.
 
-![basic-project](/content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/basic-project.webp)
-
 You have three options to move schema change from `test` to `prod` as follows.
 
 ## Option 1: Streamlined rollout
 
-Go to **Database** -> **Databases** section on the left-side bar. Select both databases to **Edit Schema**, where you type in raw SQL code in the code block and click **Create**. Checks will automatically run and then you can **Approve** the change and **Rollout**.
-
-![streamlined-rollout](/content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/streamlined-rollout.webp)
+Go to **CI/CD > Plans** in the left menu. Click **+ New Plan**, select **Schema Migration**. Select both databases to **Edit Schema**, where you type in raw SQL code in the code block and click **Create** then click **Ready for Review**. Checks will automatically run and then you can go to **Rollout** tab to **Run**.
 
 ## Option 2: Schema Synchronization
 
@@ -38,9 +34,7 @@ You can see how Bytebase shows the diff between the test database (source) and t
 
 ![select-target-databases-2](/content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/select-target-databases-2.webp)
 
-**Create** this issue, approve and deploy as we did before.
-
-![select-target-databases-3](/content/docs/tutorials/how-to-move-schema-change-from-test-to-prod/select-target-databases-3.webp)
+**Create** this issue and then **Ready for Review**. Checks will automatically run and then you can go to **Rollout** tab to **Run**.
 
 Thus we have successfully propagate the change from `test` to `prod`.
 
