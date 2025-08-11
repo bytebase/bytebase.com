@@ -2,18 +2,18 @@
 title: Production Setup
 ---
 
-This page describes how to set up Bytebase in production environment.
+This page provides a comprehensive checklist for setting up Bytebase in a production environment.
 
 ## System Requirements
 
 ### CPU and RAM
 
-| Usage                           | Bytebase                  | [External PostgreSQL](/get-started/self-host/external-postgres/) if used |
-| ------------------------------- | ------------------------- | ---------------------------------------------------------------------- |
-| 5 users and 5 instances         | 1 CPU cores and 2 GB RAM  | 1 CPU cores and 2 GB RAM                                               |
-| 20 users and 20 instances       | 2 CPU cores and 4 GB RAM  | 1 CPU cores and 2 GB RAM                                               |
-| 50 users and 50 instances       | 4 CPU cores and 8 GB RAM  | 2 CPU cores and 4 GB RAM                                               |
-| Above 250 users or 50 instances | 8 CPU cores and 16 GB RAM | 2 CPU cores and 4 GB RAM                                               |
+| Users & Instances | Bytebase | [External PostgreSQL](/get-started/self-host/external-postgres/) |
+|-------------------|----------|-------------------|
+| Up to 5 users / 5 instances | 1 CPU / 2 GB RAM | 1 CPU / 2 GB RAM |
+| Up to 20 users / 20 instances | 2 CPU / 4 GB RAM | 1 CPU / 2 GB RAM |
+| Up to 50 users / 50 instances | 4 CPU / 8 GB RAM | 2 CPU / 4 GB RAM |
+| 250+ users or 50+ instances | 8 CPU / 16 GB RAM | 2 CPU / 4 GB RAM |
 
 ### Storage
 
@@ -24,55 +24,32 @@ Bytebase uses a PostgreSQL database to store SQL statements and other metadata.
 
 Teams that frequently work with large SQL files may need more.
 
-## Enable HTTPS and WebSocket
+## Production Setup Checklist
 
-You can use [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy) or [Nginx](https://www.nginx.com/). Check out the [configuration example](/get-started/self-host/external-access).
+### Prerequisites
 
-## Configure External URL
+- Review system requirements (see above)
+- [Configure External PostgreSQL](/get-started/self-host/external-postgres/)
+- [Configure External Access](/get-started/self-host/external-access)
+- [Configure External URL](/get-started/self-host/external-url)
+- Pin Docker image to specific version instead of `latest` ([changelog](https://docs.bytebase.com/changelog))
 
-See [Configure External URL](/get-started/self-host/external-url).
+### Monitoring
 
-## Store metadata in External PostgreSQL
+- Telemetry metrics available at `/metrics` endpoint
 
-See [Configure External PostgreSQL](/get-started/self-host/external-postgres).
+### Cloud Provider Recommendations
 
-## Telemetry
+If deploying on a cloud provider, use the recommended stack:
 
-Access telemetry at `/metrics` (e.g. https://demo.bytebase.com/metrics).
+#### AWS
+- **Compute**: EC2 or ECS/EKS
+- **Database**: RDS for PostgreSQL
 
-## High Availability (HA)
+#### GCP
+- **Compute**: GCE or GKE
+- **Database**: Cloud SQL for PostgreSQL
 
-You can only run a single Bytebase workspace at a time. In other words, you can scale up the workspace but cannot scale it out to multiple replicas.
-
-Restarting the Bytebase workspace usually takes under 10 seconds. To minimize the downtime, you should
-store the metadata in an [external PostgreSQL database](#store-metadata-in-external-postgresql) and make sure the PostgreSQL instance is highly available.
-
-## Kubernetes
-
-### Set `replicas: 1`
-
-Make sure to set the replicas to **1**, otherwise, it may cause data race issues.
-
-### Stateless Architecture
-
-Bytebase is now stateless and does not require persistent volumes. All metadata should be stored in an [external PostgreSQL database](/get-started/self-host/external-postgres).
-
-## Docker Image Versioning
-
-For production deployments, pin to a specific version (e.g., `bytebase/bytebase:3.9.0`) instead of using `latest` to prevent unexpected updates.
-
-See the latest versions in our [changelog](https://docs.bytebase.com/changelog).
-
-## Cloud vendor stack
-
-If you self-host Bytebase in the cloud provider, below is the recommended stack.
-
-### AWS
-
-- EC2 + RDS for PostgreSQL.
-- ECS/EKS + RDS for PostgreSQL.
-
-### GCP
-
-- GCE + Cloud SQL for PostgreSQL.
-- GKE + Cloud SQL for PostgreSQL.
+#### Azure
+- **Compute**: Virtual Machines or AKS
+- **Database**: Azure Database for PostgreSQL
