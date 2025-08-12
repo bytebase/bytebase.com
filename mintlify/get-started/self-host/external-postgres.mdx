@@ -95,8 +95,3 @@ env:
 
 Use `--set bytebase.option.existingPgURLSecret` and `--set bytebase.option.existingPgURLSecretKey` to specify the secret key and secret name instead of `--set "bytebase.option.external-url"={NEW_EXTERNAL_URL}`. See more details in [Bytebase - Artifact Hub](https://artifacthub.io/packages/helm/bytebase/bytebase).
 
-## Troubleshoot
-
-### Cannot new server ERROR: syntax error at or near xxx
-
-Make sure that the connecting user is either superuser or is the owner of the connecting database. See [User](#user) and [GitHub Issue](https://github.com/bytebase/bytebase/discussions/14041).
