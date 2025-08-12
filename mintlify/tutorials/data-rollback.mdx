@@ -1,7 +1,7 @@
 ---
 title: Data Change with 1-Click Rollback
 author: Adela
-updated_at: 2024/09/20 16:15
+updated_at: 2025/08/11 16:15
 tags: Tutorial
 integrations: General
 category: 'Database CI/CD (GUI)'
@@ -10,116 +10,78 @@ level: Beginner
 estimated_time: '30 mins'
 ---
 
-import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
+import PreparationWithSampleData from '/snippets/tutorials/preparation-with-sample-data.mdx';
 
-When changing data in the database, it's advisable to have a backup of the data you plan to modify in case you need to roll back. Bytebase offers a feature called [**1-Click Data Rollback**](/change-database/rollback-data-changes/) to assist with this. You can also enable auto-backup feature to automatically backup the data when you create a change data issue. This tutorial will guide you through this process.
+When modifying data in production databases, having a backup is crucial for quick recovery from mistakes. Bytebase's [**1-Click Data Rollback**](/change-database/rollback-data-changes/) feature automatically creates backups before data changes and allows instant rollback when needed. This tutorial demonstrates how to use this feature and configure automatic backups.
 
 ![rollback-graph](/content/docs/tutorials/data-rollback/rollback-graph.webp)
 
-## Preparation
+## Step 1 - Start Bytebase with sample data
 
-1. Make sure you have [Docker](https://www.docker.com/) installed, and if you don’t have important existing Bytebase data locally, you can start over from scratch by `rm -rf ~/.bytebase/data`.
+<PreparationWithSampleData />
 
-## Step 1 - Start Bytebase
+## Step 2 - Verify backup schema
 
-1. Copy and paste the commands to start one Bytebase via Docker.
+Bytebase stores backup data in a dedicated `bbdataarchive` schema (for PostgreSQL) that's automatically created with our sample databases.
 
-   <TerminalDockerRunVolume />
+1. Navigate to `Sample Project` > **Database > Databases**.
+1. Select `hr_test` to see the `bbdataarchive` schema already in place.
 
-1. Regsiter an admin account and it will be granted the `workspace admin` role automatically.
+   ![hr_test-bbdataarchive](/content/docs/tutorials/data-rollback/bb-hr_test-bbdataarchive.webp)
 
-## Step 2 - Prepare schema `bbdataarchive`
+## Step 3 - Execute data change with backup
 
-Bytebase stores the backup data in a dedicated place. For Postgres, it's stored under the `bbdataarchive`
-schema for the changing database.
+1. Open **SQL Editor**, select `hr_test`, and double-click the `employee` table to view current data. Note that employee 10001's first name is `Georgi`.
 
-1. Go to `Sample Project`, click **Database > Databases** on the left side, choose `hr_test`, and then click **Edit Schema**.
+   ![bb-sql-editor-before-change](/content/docs/tutorials/data-rollback/bb-sql-editor-before-change.webp)
 
-1. In the **Schema Editor**, click `...` and then click **Create Schema**. Fill it with the name `bbdataarchive` and click **Create**.
+1. Navigate to `Sample Project` > **CI/CD > Plans**. Click **+New Plan**, select **Data Change**, choose the `hr_test` database, then click **Confirm**.
 
-   ![bb-schema-editor-create-schema](/content/docs/tutorials/data-rollback/bb-schema-editor-create-schema.webp)
-
-1. You can now see the `bbdataarchive` schema in green color. Click **Preview issue**. Create the issue and wait till it rolls out automatically. Now the `bbdataarchive` schema is created.
-
-   ![bb-issue-done-bbdata](/content/docs/tutorials/data-rollback/bb-issue-done-bbdata.webp)
-
-## Step 3 - Change Data with Backup
-
-1. Before the change, go to **SQL Editor**, choose `hr_test` and double click `employee` table, and you'll see the current data. We'll try to change the `first_name` for `Georgi`.
-
-   ![bb-sql-editor-query](/content/docs/tutorials/data-rollback/bb-sql-editor-query.webp)
-
-1. Go to `Sample Project` and **Database > Databases** again, choose `hr_test`, and then click **Change Data**.
-
-1. Turn on **Prior Backup** on the right, input the SQL into the field, and then click **Create**.
+1. Enable **Prior Backup** at the bottom of the form. Enter the following SQL:
 
    ```sql
    UPDATE employee SET first_name = 'Adela' WHERE emp_no = 10001;
    ```
 
-   ![bb-issue-bk-on-create](/content/docs/tutorials/data-rollback/bb-issue-bk-on-create.webp)
+   Click **Create**, then **Ready for review**.
 
-   If you haven't created the `bbdataarchive` schema, you'll see the error message.
+1. Go to the **Rollout** tab and click **Run** to execute the change.
 
-   ![bb-issue-no-bbdata](/content/docs/tutorials/data-rollback/bb-issue-no-bbdata.webp)
+   ![bb-to-rollout](/content/docs/tutorials/data-rollback/bb-to-rollout.webp)
 
-1. After the issue is created and then rolled out, you can see there is an activity saying the data is backed up to a new table under the previously created `bbdataarchive` schema.
+1. After execution, check the **Overview** tab to see the backup confirmation message.
 
-   ![bb-issue-done-update](/content/docs/tutorials/data-rollback/bb-issue-done-update.webp)
-
-1. Go to **Database > Databases** again, and click `hr_test`. You'll be redirected to the database page.
-
-1. Choose `bbdataarchive` schema, and you can see the backup table.
-
-   ![bb-db-schema](/content/docs/tutorials/data-rollback/bb-db-schema.webp)
-
-1. To verify, go to **SQL Editor**. Choose `employee` table in `hr_test` under `public` schema, input the following SQL script and click **Run**, and you'll see the data is changed.
+1. To verify the change, return to **SQL Editor** and run:
 
    ```sql
       SELECT * FROM "public"."employee" ORDER BY emp_no LIMIT 50;
    ```
 
-   ![bb-sql-editor-query-after](/content/docs/tutorials/data-rollback/bb-sql-editor-query-after.webp)
+   ![sql-editor-after-change](/content/docs/tutorials/data-rollback/bb-sql-editor-after-change.webp)
 
-1. Choose `bbdataarchive` schema, and double-click the table below. You'll see the backup data in the query result.
+1. To view the backup, switch to the `bbdataarchive` schema and double-click the backup table to see the original data preserved.
 
-   ![bb-sql-editor-schema-archieve](/content/docs/tutorials/data-rollback/bb-sql-editor-schema-archieve.webp)
+## Step 4 - Perform 1-Click rollback
 
-## Step 4 - 1-Click Rollback Data
+1. In the **Rollout** tab, click the **Rollback** button next to the completed change.
 
-1. Go back to the issue page, click the **Rollback** button.
+   ![rollback-available](/content/docs/tutorials/data-rollback/bb-rollback-available.webp)
 
-   ![bb-issue-1-click](/content/docs/tutorials/data-rollback/bb-issue-1-click.webp)
+1. Review the generated rollback SQL, click **Confirm**, then **Ready for Review**, and finally **Rollout** to execute.
 
-1. You'll be redirected to a new issue creation page. Click **Create** to execute the rollback.
+1. Return to **SQL Editor** to verify the data has been restored to its original state.
 
-   ![bb-issue-rollback](/content/docs/tutorials/data-rollback/bb-issue-rollback.webp)
+## Step 5 - Configure automatic backups
 
-1. To verify, go to SQL Editor, you can see `Georgi` is back.
+1. Navigate to project **Settings** to find these backup options under **Issue related**:
 
-## Step 5 - Upgrade and Enable Auto-Backup
+   - **Auto enable backup**: Automatically backs up data for all data changes
+   - **Skip backup errors**: Continues with changes even if backup fails
 
-1. Go to **Setting** in the Project, there're two options under Issue related:
+   Enable these options to avoid manually selecting backup for each data change.
 
-   - Auto enable backup
-   - Skip backup errors
+## Database-specific considerations
 
-   If you don't want to turn on the backup feature every time you create a change data issue. You can upgrade to **Pro or Enterprise plan** to enable the auto-backup feature.
-
-   ![bb-project-setting-bk](/content/docs/tutorials/data-rollback/bb-project-setting-bk.webp)
-
-1. You can [contact us](https://www.bytebase.com/contact-us) to request a trial license key.
-
-1. After you get a license, click the **Setting icon** on the top right, and then click **Workspace > Subscription** to upload the license.
-
-1. Click the pen icon, select the instances you want to enable Enterprise features, and click **Confirm**.
-
-   ![bb-subscription](/content/docs/tutorials/data-rollback/bb-subscription.webp)
-
-1. Go back to the setting page, now you can enable those two options.
-
-## Noteworthy Difference
-
-If you want to use MySQL/SQL Server/Oracle, instead of creating a `bbdataarchive` schema, you should create a `bbdataarchive` **database** instead of **schema** to store the backup data. Check the doc for more details.
+For MySQL, SQL Server, and Oracle, Bytebase uses a separate `bbdataarchive` **database** rather than a schema to store backups. See the documentation below for details.
 
 <Card title="Data Rollback Doc" icon="book" href="/change-database/rollback-data-changes/" horizontal />
