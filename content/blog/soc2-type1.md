@@ -17,4 +17,4 @@ The audit is conducted by an [independent third party auditor](https://www.assur
 
 The SOC 2 Type 1 report verifies that we have implemented comprehensive security controls and practices to protect customer data. This is just the beginning of our compliance journey as we work towards SOC 2 Type 2 certification.
 
-For more information about our security practices or to request our SOC 2 Type 1 report, please email support@bytebase.com.
+For more information about our security practices or to request our SOC 2 Type 1 report, please [email us](mailto:support-3fc2156a2150@intake.linear.app).
