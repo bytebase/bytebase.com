@@ -1,0 +1,18 @@
+---
+title: Docker Run with PG_URL
+---
+
+<Note>
+
+When connecting to a PostgreSQL instance running on the same host machine, use [host.docker.internal](https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host) as the hostname.
+
+</Note>
+
+```bash
+docker run --rm --init \
+  -e PG_URL=postgresql://user:secret@host:port/dbname \
+  --name bytebase \
+  --publish 8080:8080 --pull always \
+  --volume ~/.bytebase/data:/var/opt/bytebase \
+  bytebase/bytebase:latest
+```
