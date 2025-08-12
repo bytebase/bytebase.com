@@ -4,23 +4,9 @@ title: Configure External PostgreSQL
 
 import TerminalDockerRunPgUrl from '/snippets/install/terminal-docker-run-pg-url.mdx';
 
-By default, Bytebase bundles an embedded PostgreSQL instance for storing its own metadata. The metadata is stored under the data directory.
-
-**For production setup, you should pass `PG_URL` environment variable to store these metadata in an external PostgreSQL database.**
-
-## Postgres version
+## PostgreSQL Setup
 
 PostgreSQL 14 or above.
-
-## Connection string format for PG_URL
-
-**Supported format:**
-
-_postgresql://\<\<user>>:\<\<secret>>@\<\<host>>:\<\<port>>/\<\<database>\>_
-
-**Example:**
-
-_postgresql://bytebase:z\*3kd2@example.com:5432/meta_
 
 ### Database
 
@@ -52,17 +38,23 @@ The connecting `user` must have all the following database privileges:
 - EXECUTE
 - USAGE
 
-### Host
+### PG_URL String Format
 
-If you **run Bytebase inside Docker** and want to connect the pg instance on the same host, then you need to use `host.docker.internal`.
+**Supported format:**
 
-## Docker example
+_postgresql://\<\<user>>:\<\<secret>>@\<\<host>>:\<\<port>>/\<\<database>\>_
+
+**Example:**
+
+_postgresql://bytebase:z\*3kd2@example.com:5432/meta_
+
+## Running with Docker
 
 This bash script demonstrates how to add an external PostgreSQL database as the metadata store when running the bytebase container.
 
 <TerminalDockerRunPgUrl />
 
-## Kubernetes Configuration
+## Running with Kubernetes
 
 ### Using Connection String in YAML
 
@@ -95,8 +87,3 @@ env:
 
 Use `--set bytebase.option.existingPgURLSecret` and `--set bytebase.option.existingPgURLSecretKey` to specify the secret key and secret name instead of `--set "bytebase.option.external-url"={NEW_EXTERNAL_URL}`. See more details in [Bytebase - Artifact Hub](https://artifacthub.io/packages/helm/bytebase/bytebase).
 
-## Troubleshoot
-
-### Cannot new server ERROR: syntax error at or near xxx
-
-Make sure that the connecting user is either superuser or is the owner of the connecting database. See [User](#user) and [GitHub Issue](https://github.com/bytebase/bytebase/discussions/14041).
