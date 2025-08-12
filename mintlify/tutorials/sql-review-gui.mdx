@@ -8,7 +8,7 @@ category: 'Database CI/CD (GUI)'
 estimated_time: '20 mins'
 ---
 
-import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
+import PreparationWithSampleData from '/snippets/tutorials/preparation-with-sample-data.mdx';
 
 When modifying data in the database, it's crucial to ensure that the changes are both safe and accurate. Bytebase offers a feature called [SQL Review](/sql-review/overview/), which allows you to evaluate your SQL changes before they are applied to the database. SQL Review can be invoked from the Bytebase GUI, CI or API.
 
@@ -27,10 +27,11 @@ This tutorial will walk you through using SQL Review in Bytebase with Bytebase G
 
 ## Prerequisites
 
-1. Make sure you have [Docker](https://www.docker.com/) installed, and if you don’t have important existing Bytebase data locally, you can start over from scratch by `rm -rf ~/.bytebase/data`.
-1. Copy and paste the commands to start one Bytebase via Docker.
+Make sure you have [Docker](https://www.docker.com/) installed, and if you don’t have important existing Bytebase data locally, you can start over from scratch by `rm -rf ~/.bytebase/data`.
 
-   <TerminalDockerRunVolume />
+## Start Bytebase with sample data
+
+<PreparationWithSampleData />
 
 ## Configure SQL Review Policies
 
