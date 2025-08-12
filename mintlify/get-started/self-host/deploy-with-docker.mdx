@@ -58,12 +58,4 @@ colima start --mount ~/volumes:w
 
 ### China Access
 
-If accessing from China, use the mirror image:
-
-```bash
-docker run --rm --init \
-  --name bytebase \
-  --publish 8080:8080 --pull always \
-  --volume ~/.bytebase/data:/var/opt/bytebase \
-  registry.cn-shanghai.aliyuncs.com/bytebase/bytebase:latest
-```
+If accessing from China, use the mirror image: `registry.cn-shanghai.aliyuncs.com/bytebase/bytebase:latest`
