@@ -225,7 +225,6 @@
           {
             "group": "Reference",
             "pages": [
-              "reference/command-line",
               "reference/error-code/core",
               "reference/error-code/advisor",
               "reference/schema-definition-language"

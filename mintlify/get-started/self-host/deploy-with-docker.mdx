@@ -54,19 +54,7 @@ Due to the vm mechanism of [Colima](https://github.com/abiosoft/colima), try to 
 ```text
 mkdir ~/volumes
 colima start --mount ~/volumes:w
-docker run --init \
-  --name bytebase \
-  --restart always \
-  --publish 80:8080 --pull always \
-  --volume ~/.bytebase/data:/var/opt/bytebase bytebase/bytebase:latest \
-  --data /var/opt/bytebase \
-  --external-url http://bytebase.example.com \
-  --port 8080
 ```
-
-### Advanced Options
-
-For more control over the server configuration, see [Server Startup Options](/reference/command-line).
 
 ### China Access
 
