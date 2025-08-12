@@ -2,7 +2,7 @@
 title: Configure External PostgreSQL
 ---
 
-import TerminalDockerRunExternalUrl from '/snippets/install/terminal-docker-run-external-url.mdx';
+import TerminalDockerRunPgUrl from '/snippets/install/terminal-docker-run-pg-url.mdx';
 
 By default, Bytebase bundles an embedded PostgreSQL instance for storing its own metadata. The metadata is stored under the data directory.
 
@@ -60,7 +60,7 @@ If you **run Bytebase inside Docker** and want to connect the pg instance on the
 
 This bash script demonstrates how to add an external PostgreSQL database as the metadata store when running the bytebase container.
 
-<TerminalDockerRunExternalUrl />
+<TerminalDockerRunPgUrl />
 
 ## Kubernetes Configuration
 
