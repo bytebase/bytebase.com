@@ -43,8 +43,7 @@ export default function Page() {
           .
         </li>
         <li>
-          One can specify <Link href="/docs/get-started/install/external-postgres/">--pg</Link> to
-          store the metadata in an external PostgreSQL instance instead of the embedded one.
+          One can store the metadata in an external PostgreSQL instance instead of the embedded one.
         </li>
       </ul>
       <h2 id="cloud">Bytebase Cloud</h2>
@@ -94,8 +93,7 @@ export default function Page() {
           bare-metal.
         </li>
         <li>
-          Anonymous usage metrics are collected and sent to Segment. Collection can be disabled by
-          passing <Link href="/docs/reference/command-line/#disable-sample">--disable-sample</Link>.
+          Anonymous usage metrics are collected and sent to Segment. Collection can be disabled in the workspace settings.
         </li>
       </ul>
       <h2>Shared practices between Bytebase Cloud and self-hosted</h2>

@@ -2,96 +2,37 @@
 title: Server Startup Options
 ---
 
-The "help" command prints all applicable options
+The help command prints all applicable options:
 
-```text
+```bash
 ./bytebase help
 ```
 
-And the output will look like this:
+## Available Flags
 
-```plain
-Bytebase is a database schema change and version control tool
+### `--data <directory>`
 
-Usage:
-  bytebase [flags]
-  bytebase [command]
+**Default:** `.` (current directory)
 
-Available Commands:
-  completion  Generate the autocompletion script for the specified shell
-  help        Help about any command
-  version     Print the version of Bytebase
+Specifies the directory where Bytebase stores its metadata. The directory must exist beforehand, otherwise Bytebase will fail to start. 
 
-Flags:
-      --data string                directory where Bytebase stores metadata if `--pg` is not specified. If relative path is supplied, then the path is relative to the directory where Bytebase is under (default ".")
-      --debug                      whether to enable debug level logging
-      --demo string                name of the demo to use. If specified, Bytebase will run in demo mode
-      --disable-metric             disable the metric collector
-      --disable-sample             disable the sample instance
-      --external-url string        the external URL where user visits Bytebase, must start with http:// or https:// (default "https://www.bytebase.com/docs/get-started/self-host/external-url")
-  -h, --help                       help for bytebase
-      --pg string                  optional external PostgreSQL instance connection url(must provide dbname); for example postgresql://user:secret@masterhost:5432/dbname?sslrootcert=cert
-      --port int                   port where Bytebase server runs. Default to 8080 (default 8080)
-```
+- If a relative path is supplied, it's relative to the directory where the bytebase binary runs
+- Ensure the directory has appropriate read/write permissions
 
-## `--data` &lt;&lt;directory&gt;&gt;
+### `--debug`
 
-default: **.**
+**Default:** `false`
 
-The directory where Bytebase stores its own data if [`--pg`](#pg-string) is not specified. The directory must exist beforehand, otherwise Bytebase will fail to start. If &lt;&lt;directory&gt;&gt; is a relative path, then it's relative to the directory where the bytebase binary runs.
+Enables debug level logging for troubleshooting Bytebase issues. This flag produces verbose output that can help diagnose problems.
 
-## `--debug`
+### `--external-url <string>`
 
-default: **false**
+**Default:** See [Configure External URL](/get-started/self-host/external-url)
 
-If specified, Bytebase will emit more logs, this is only used when troubleshooting Bytebase issues.
+The external URL where users access Bytebase. Must start with `http://` or `https://`.
 
-## `--disable-metric`
+### `--port <number>`
 
-default: **false**
+**Default:** `8080`
 
-If specified, Bytebase will not collect usage metric.
-
-## `--disable-sample`
-
-default: **false**
-
-If specified, Bytebase will not start sample Postgres instance.
-
-## `--demo` &lt;&lt;string&gt;&gt;
-
-default: **""**
-
-The demo name. If specified, Bytebase will load the demo data instead of the real data. The data is the same used by [the demo](https://www.bytebase.com/view-live-demo). This is a quick way to test the product yourself or demonstrate it to your peers. When Bytebase is started with `--demo`, it stores the data in a separate location, which means the demo data and real data never interferes with each other.
-
-The current available demo names are:
-
-- default
-
-## `--external-url` &lt;&lt;string&gt;&gt;
-
-default: **[/get-started/self-host/external-url](https://www.bytebase.com/docs/get-started/self-host/external-url)**
-
-The external URL where user visits Bytebase, must start with `http://` or `https://`.
-
-See [Configure External URL](/get-started/self-host/external-url).
-
-## `--pg` &lt;&lt;string&gt;&gt;
-
-default: **""**
-
-Optional external PostgreSQL instance connection url. If specified, Bytebase will store its own metadata there.
-
-See [Configure External PostgreSQL](/get-started/self-host/external-postgres).
-
-<Tip>
-
-Alternatively, you can also pass PG_URL environment variable.
-
-</Tip>
-
-## `--port` &lt;&lt;number&gt;&gt;
-
-default: **8080**
-
-The port where Bytebase is running. Bytebase listens on all network interfaces for the specified port. For production setup, see [Configure External URL](/get-started/self-host/external-url).
+The port where Bytebase server runs. Bytebase listens on all network interfaces for the specified port.
