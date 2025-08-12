@@ -9,68 +9,62 @@ level: Intermediate
 estimated_time: '20 mins'
 ---
 
-import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
+import PreparationWithSampleData from '/snippets/tutorials/preparation-with-sample-data.mdx';
 
-Bytebase offers multiple features to simplify batch change management. In this tutorial, we will guide you on how to configure **Environment** and **Database Group** to batch change databases for various scenarios.
+Bytebase simplifies deploying changes across multiple databases simultaneously. This tutorial demonstrates how to use **Environments** and **Database Groups** to efficiently manage batch changes across your database fleet.
 
 ![database-group-banner](/content/docs/tutorials/batch-change-with-database-group/database-group-banner.webp)
 
-## Preparation
+## Prerequisites
 
-1. Make sure you have [Docker](https://www.docker.com/) installed, and if you don’t have important existing Bytebase data locally, you can start over from scratch by `rm -rf ~/.bytebase/data`.
-
-1. **Environment** is a **Community Plan** feature and **Database group** is an **Pro Plan** feature, you need to have a valid license to enable it. You can request a trial license key from [here](https://www.bytebase.com/pricing).
+- **Environment**: Available in all plans
+- **Database Groups**: Requires Pro Plan or higher ([request trial](https://www.bytebase.com/pricing))
 
 ## Procedure
 
-### Step 1 - Start Bytebase and prepare the environments
+## Step 1 - Start Bytebase with sample data
 
-To demonstrate the batch change, we need to prepare some databases first.
+<PreparationWithSampleData />
 
-1. Copy and paste the commands to start one Bytebase via Docker.
+## Step 2 - Set up environments and databases
 
-   <TerminalDockerRunVolume />
-
-1. Regsiter an admin account and it will be granted the `workspace admin` role automatically.
-
-1. Go to **Environments**, update the existing `Prod` environment to `ProdAsia` and then create two new environments `ProdEU` and `ProdNA`.
+1. Navigate to **Environments**. Rename `Prod` to `ProdAsia`, then create two new environments: `ProdEU` and `ProdNA`.
 
    ![bb-env-3prod](/content/docs/tutorials/batch-change-with-database-group/bb-env-3prod.webp)
 
-### Step 2 - Create databases
+1. Click **Select Project** in the top bar, then **New Project**. Name it `Batch Change Project` and click **Create**.
 
-1. Bytebase provides two sample PostgreSQL instances. Click `Select Project` on the top bar, and click **New Project** on the popup. Fill it with a name `batch project` and create **Create**.
+1. In the new project, navigate to **Database > Databases** and click **+ New DB**. Create `demo-test` on the Test instance. Click **Rollout** when the issue appears.
 
-1. Go into project `batch change`, click **Database > Databases** on the left side bar. There is no databases belonging to this project yet. Click **New DB**. To mimic the real-world scenario, firstly, create `demo-test` which should be created on sample test instance. An issue will be created automatically, click **Rollout**. After the issue is done, the database is created.
-
-   ![bb-new-project](/content/docs/tutorials/batch-change-with-database-group/bb-new-db-test.webp)
-
-   ![bb-issue-test-done](/content/docs/tutorials/batch-change-with-database-group/bb-issue-test-done.webp)
-
-1. In the same way, create `demo-prod-1` and `demo-prod-2` which should be created on `ProdAsia` environment. `demo-prod-3` and `demo-prod-4` should be created on `ProdEU` environment. `demo-prod-5` and `demo-prod-6` should be created on `ProdNA` environment.
+1. Similarly, create the following databases:
+   - `demo-prod-1` and `demo-prod-2` on `ProdAsia`
+   - `demo-prod-3` and `demo-prod-4` on `ProdEU`
+   - `demo-prod-5` and `demo-prod-6` on `ProdNA`
 
    ![bb-prod-db](/content/docs/tutorials/batch-change-with-database-group/bb-prod-db.webp)
 
-### Step 3 - Batch change by environment (Community Plan)
+## Step 3 - Execute batch changes by environment (All plans)
 
-1. Go to **Databases > Database** in the project, select `demo-test` and `demo-prod-1`~`demo-prod-6` and click **Edit Schema**.
+1. Navigate to **CI/CD > Plans**, click **+ New Plan**, and select **Schema Change**.
 
-   ![bb-edit-schema](/content/docs/tutorials/batch-change-with-database-group/bb-edit-schema.webp)
+1. Select all databases and click **Confirm**.
 
-1. Fill in a SQL and click **Create**. You can see the pipeline has four stages - Test, ProdAsia, ProdEU, and ProdNA. You may select the stage and choose either rollout change to the current database or the current stage.
+1. Enter the following SQL, then click **Create** and **Ready for review**:
 
    ```SQL
       CREATE TABLE t2("id" INTEGER NOT NULL);
    ```
 
-   ![bb-to-rollout](/content/docs/tutorials/batch-change-with-database-group/bb-to-rollout.webp)
-   ![bb-half-rollout](/content/docs/tutorials/batch-change-with-database-group/bb-half-rollout.webp)
+1. The **Overview** and **Rollout** tabs display four stages: Test, ProdAsia, ProdEU, and ProdNA. You can deploy changes to individual databases or entire stages.
 
-1. After all the databases are rolled out, you can see the issue is done.
+   ![overview-4-stages](/content/docs/tutorials/batch-change-with-database-group/bb-overview-4-stages.webp)
+   ![rollout-4-stages](/content/docs/tutorials/batch-change-with-database-group/bb-rollout-4-stages.webp)
 
-   ![bb-complete-rollout](/content/docs/tutorials/batch-change-with-database-group/bb-complete-rollout.webp)
+1. Go to the **Rollout** tab and click **Run** in the Test stage to execute.
 
-### Step 4 - Database group (Pro/Enterprise Plan)
+   ![rollout-half-complete](/content/docs/tutorials/batch-change-with-database-group/bb-rollout-half-complete.webp)
+
+## Step 4 - Use database groups (Pro/Enterprise)
 
 We need first to upgrade to Pro/Enterprise Plan to use Database Group.
 
@@ -80,25 +74,30 @@ We need first to upgrade to Pro/Enterprise Plan to use Database Group.
 
    ![bb-subscription](/content/docs/tutorials/batch-change-with-database-group/bb-subscription.webp)
 
-1. Go to **Database > Groups** in the project, click **New database group**, fill the fields as follows, when you scroll down, you will see there's an option **Multitennancy**, keep it unchecked for now and click **Save**.
+1. Navigate to **Database > Groups** in your project. Click **+ New database group** and configure:
 
    - **Name:** `demo-prod-all`
    - **Condition:** `resource.database_name startsWith demo-prod`
 
    ![bb-groups](/content/docs/tutorials/batch-change-with-database-group/bb-groups.webp)
 
-1. Go to **Database > Groups** in the project, click **Change > Edit Schema**.
+1. Go to **CI/CD > Plans**, click **+ New Plan**, select **Schema Migration**. Switch to the **Database Group** tab, select `demo-prod-all`, and click **Confirm**.
 
-   ![bb-group-change](/content/docs/tutorials/batch-change-with-database-group/bb-group-change.webp)
-
-1. You many see the six databases in three stages. Fill in the SQLs and click **Create**.
+1. Enter the following SQL, then click **Create** and **Ready for review**:
 
    ```SQL
       CREATE TABLE t3("id" INTEGER NOT NULL);
    ```
 
-   ![bb-issue-group-to-rollout](/content/docs/tutorials/batch-change-with-database-group/bb-issue-group-to-rollout.webp)
+1. The **Overview** and **Rollout** tabs now show 3 production stages. Click **Run** in the ProdAsia stage to execute.
+  
+   ![bb-overview-3-stages](/content/docs/tutorials/batch-change-with-database-group/bb-overview-3-stages.webp)
+   ![bb-rollout-3-stages](/content/docs/tutorials/batch-change-with-database-group/bb-rollout-3-stages.webp)
 
 ## Summary
 
-Now you have learned how to configure environment and database group to run batch changes in Bytebase.
+  You've learned how to:
+  
+  - Group databases by environment for staged rollouts
+  - Use Database Groups to target databases matching specific criteria
+  - Execute batch changes across multiple databases efficiently
