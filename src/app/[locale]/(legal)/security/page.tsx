@@ -93,7 +93,7 @@ export default function Page() {
           bare-metal.
         </li>
         <li>
-          Anonymous usage metrics are collected and sent to Segment. Collection can be disabled in the workspace setting.
+          Anonymous usage metrics are collected and sent to Segment. Collection can be disabled in the workspace settings.
         </li>
       </ul>
       <h2>Shared practices between Bytebase Cloud and self-hosted</h2>
