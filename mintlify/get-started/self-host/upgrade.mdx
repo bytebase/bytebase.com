@@ -22,11 +22,9 @@ Start Bytebase with the new version using your existing Docker run command, upda
 **Production Safety:** Validate your upgrade procedure in a staging environment before executing it in production.
 </Warning>
 
-## Back up and Restore
+## Back up and Restore (External PostgreSQL)
 
-### External PostgreSQL (Recommended)
-
-#### Creating a Backup
+### Creating a Backup
 
 Execute the following command to create a complete database clone:
 
@@ -34,7 +32,7 @@ Execute the following command to create a complete database clone:
    psql -h <<host>> -p <<port>> -U <<user>> metadb -c "CREATE DATABASE metadb_backup WITH TEMPLATE metadb;"
 ```
 
-#### Restoring from Backup
+### Restoring from Backup
 
 1. Stop your Bytebase instance completely.
 
@@ -59,25 +57,3 @@ Execute the following command to create a complete database clone:
    psql -h <<host>> -p <<port>> -U <<user>> postgres -c "DROP DATABASE metadb_backup"
    ```
 
-### Embedded PostgreSQL
-
-#### Creating a Backup
-
-Archive your entire data directory to preserve the embedded database:
-
-```text
-tar -czf bytebase-backup.tar.gz /path/to/data
-```
-
-#### Restoring from Backup
-
-Follow these steps to restore your embedded PostgreSQL data:
-
-1. Stop your Bytebase instance completely
-2. Extract and replace the data directory from your backup:
-
-```text
-tar -xzf bytebase-backup.tar.gz -C /
-```
-
-3. Start Bytebase with the previous version using the restored data directory
