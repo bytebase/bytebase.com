@@ -28,8 +28,8 @@ Start Bytebase with the new version using your existing Docker run command, upda
 
 Execute the following command to create a complete database clone:
 
-```bash
-psql -h <<host>> -p <<port>> -U <<user>> metadb -c "CREATE DATABASE metadb_backup WITH TEMPLATE metadb;"
+```sql
+CREATE DATABASE metadb_backup WITH TEMPLATE metadb;
 ```
 
 ### Restoring from Backup
@@ -38,22 +38,22 @@ psql -h <<host>> -p <<port>> -U <<user>> metadb -c "CREATE DATABASE metadb_backu
 
 2. Preserve the current database by renaming it:
    
-   ```bash
-   psql -h <<host>> -p <<port>> -U <<user>> postgres -c "ALTER DATABASE metadb RENAME TO metadb_old"
+   ```sql
+   ALTER DATABASE metadb RENAME TO metadb_old;
    ```
 
 3. Restore from your backup:
    
-   ```bash
-   psql -h <<host>> -p <<port>> -U <<user>> postgres -c "CREATE DATABASE metadb WITH TEMPLATE metadb_backup;"
+   ```sql
+   CREATE DATABASE metadb WITH TEMPLATE metadb_backup;
    ```
 
 4. Start Bytebase with the previous version (the version you were running before the failed upgrade).
 
 5. After confirming successful restoration, remove temporary databases:
    
-   ```bash
-   psql -h <<host>> -p <<port>> -U <<user>> postgres -c "DROP DATABASE metadb_old"
-   psql -h <<host>> -p <<port>> -U <<user>> postgres -c "DROP DATABASE metadb_backup"
+   ```sql
+   DROP DATABASE metadb_old;
+   DROP DATABASE metadb_backup;
    ```
 
