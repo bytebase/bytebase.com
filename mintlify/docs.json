@@ -198,9 +198,8 @@
                   "administration/sso/ldap"
                 ]
               },
-              "concepts/roles-and-permissions",
               "administration/user-groups",
-              "administration/custom-roles",
+              "administration/roles",
               "security/audit-log",
               "administration/scim/overview",
               "administration/2fa",
@@ -517,6 +516,18 @@
     {
       "source": "/get-started/install/upgrade",
       "destination": "/get-started/self-host/upgrade"
+    },
+    {
+      "source": "/administration/custom-roles",
+      "destination": "/administration/roles"
+    },
+    {
+      "source": "/concepts/roles-and-permissions",
+      "destination": "/administration/roles"
+    },
+    {
+      "source": "/administration/roles-and-permissions",
+      "destination": "/administration/roles"
     }
   ],
   "seo": {
