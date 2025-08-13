@@ -74,9 +74,9 @@ This bash script demonstrates how to add an external PostgreSQL database as the 
 
 ## Running with Kubernetes
 
-### Using Connection String in YAML
+### Direct Configuration
 
-You can specify the PostgreSQL connection string directly in your Kubernetes YAML file:
+Configure the PostgreSQL connection directly in your deployment manifest:
 
 ```yaml
 env:
@@ -84,13 +84,13 @@ env:
     value: 'postgresql://<<user>>:<<secret>>@<<host>>:<<port>>/<<dbname>>'
 ```
 
-### Using Kubernetes Secrets
+### Secret-Based Configuration
 
-Instead of specifying PostgreSQL connection string directly in Helm or Kubernetes yaml file, you can use Kubernetes secrets resources:
+For enhanced security, store your PostgreSQL connection string in a Kubernetes Secret:
 
-#### Kubernetes
+#### Using Secret as Environment Variable
 
-Use the following yaml section to replace the `spec.templates.spec.containers.env` section:
+Add the following environment variable configuration to your deployment's `spec.templates.spec.containers.env` section:
 
 ```yaml
 env:
@@ -100,4 +100,32 @@ env:
         name: secret_name
         key: secret_key
 ```
+
+#### Using Secret as File Mount
+
+Mount the secret as a file and point `PG_URL` to the file path. This approach supports automatic secret rotation - when the Kubernetes Secret is updated, the mounted file content is automatically refreshed, and Bytebase will pick up the new connection string without requiring a restart:
+
+```yaml
+spec:
+  containers:
+    - name: bytebase
+      env:
+        - name: PG_URL
+          value: "/var/secrets/pg-connection/url"
+      volumeMounts:
+        - name: pg-secret
+          mountPath: "/var/secrets/pg-connection"
+          readOnly: true
+  volumes:
+    - name: pg-secret
+      secret:
+        secretName: bytebase-pg-secret
+        items:
+          - key: connection-string
+            path: url
+```
+
+<Note>
+When using file-based secrets, Kubernetes automatically updates the mounted file content when the Secret is updated (typically within a minute). Bytebase monitors the file for changes and automatically reloads the connection string, enabling seamless secret rotation without downtime.
+</Note>
 
