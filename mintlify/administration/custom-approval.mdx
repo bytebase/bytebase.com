@@ -76,15 +76,3 @@ When an issue matches a configured risk level:
 3. Each approval node must be approved in sequence
 4. After all approvals, the issue proceeds based on rollout policy
 5. Changes are deployed automatically or manually as configured
-
-## Common Configurations
-
-### Development Environment
-- **Low Risk**: Skip manual approval
-- **Medium Risk**: Single approval from Project Developer
-- **High Risk**: Approval from Project Owner
-
-### Production Environment
-- **Low Risk**: Single approval from Project Developer
-- **Medium Risk**: Sequential approvals from Developer → DBA
-- **High Risk**: Sequential approvals from Developer → DBA → Project Owner
