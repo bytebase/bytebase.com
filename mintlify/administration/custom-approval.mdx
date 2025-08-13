@@ -9,39 +9,82 @@ feature_name: CUSTOM_APPROVAL
 
 <iframe width="675" height="380" src="https://www.youtube.com/embed/K_RWlqdplZQ" title="YouTube video player" className="w-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowFullScreen"></iframe>
 
+## Overview
+
+Custom Approval allows you to create multi-stage approval workflows based on change risk levels. Each database change can require approvals from specific roles before proceeding to rollout.
+
 <Tip>
-
-- Custom Approval is mostly used by [UI workflow](/change-database/change-workflow/#ui-workflow). If you use [GitOps workflow](/change-database/change-workflow/#gitops-workflow), we recommend you to configure approval in the PR/MR process.
-- By default, you **can not** self-approve your own created issue even if you are a qualified approver. You
-  can [toggle](/change-database/issue/#self-approval) this behavior under project settings.
-
+**Best Practices:**
+- Custom Approval works best with [UI workflow](/change-database/change-workflow/#ui-workflow). For [GitOps workflow](/change-database/change-workflow/#gitops-workflow), configure approvals in your PR/MR process instead.
+- By default, users cannot self-approve their own issues. You can [change this setting](/change-database/issue/#self-approval) in project settings if needed.
 </Tip>
 
-In **Settings > Custom Approval**, you can choose which approval flow to use for a [risk level](/administration/risk-center) and define approval flows.
+## How It Works
 
-An approval flow can contain one or multiple approval nodes. Each approval node specifies a role. Any member
-of the role can approve that node. An issue will enter the rollout stage once all nodes have been approved.
-Note, depending on how the [rollout policy](/administration/environment-policy/rollout-policy/) is configured,
-it may still require another step to deploy the change manually.
+### Approval Flow Structure
+
+An approval flow consists of one or more **approval nodes** arranged in sequence:
+- Each node specifies a role (e.g., `Project Owner`, `DBA`, or custom role)
+- Any member with that role can approve the node
+- All nodes must be approved before the issue proceeds to rollout
+
+<Note>
+After approval, the actual deployment may still require manual action depending on your [rollout policy](/administration/environment-policy/rollout-policy/) configuration.
+</Note>
 
 ![Approval Flow](/content/docs/administration/custom-approval/edit-approval-flow.webp)
 
-To create or update approval flows, click the **Approval Flows** tab.
+## Setting Up Custom Approval
 
-## Rules
+### Step 1: Create Approval Flows
 
-To choose the approval flow for a risk level, click the **Rules** tab.
-Choose the preset "Skip manual approval" approval flow for a risk if you don't want an approval flow at all.
+1. Navigate to **Settings > Custom Approval**
+2. Click the **Approval Flows** tab
+3. Create or edit an approval flow
+4. Add approval nodes with required roles
 
-## Using Custom Roles
+### Step 2: Assign Flows to Risk Levels
 
-Sometimes, the predefined project roles might not fit your needs. e.g. You require tester to approve.
-In that case, you can use [custom roles](/administration/roles).
+1. Click the **Rules** tab
+2. Select an approval flow for each [risk level](/administration/risk-center)
+3. Choose "Skip manual approval" if no approval is needed for a specific risk level
+
+## Working with Custom Roles
+
+When built-in roles don't match your approval requirements, you can create [custom roles](/administration/roles) with specific permissions.
+
+**Example use cases:**
+- Create a `Tester` role for QA approval
+- Define a `Compliance Officer` role for regulatory review
+- Set up a `Release Manager` role for deployment coordination
 
 ### Adding Custom Roles to Approval Flows
 
-1. Navigate to **CI/CD > Custom Approval**
-2. Select the **Approval Flows** tab
-3. Choose an approval flow and add your custom role
+1. First, [create the custom role](/administration/roles#creating-custom-roles)
+2. Navigate to **CI/CD > Custom Approval**
+3. Select the **Approval Flows** tab
+4. Edit your approval flow and add the custom role as an approval node
 
 ![add-to-custom-approval-flow](/content/docs/administration/custom-approval/add-to-custom-approval-flow.webp)
+
+## Approval Process
+
+When an issue matches a configured risk level:
+
+1. The issue enters the approval stage
+2. Designated approvers receive notifications
+3. Each approval node must be approved in sequence
+4. After all approvals, the issue proceeds based on rollout policy
+5. Changes are deployed automatically or manually as configured
+
+## Common Configurations
+
+### Development Environment
+- **Low Risk**: Skip manual approval
+- **Medium Risk**: Single approval from Project Developer
+- **High Risk**: Approval from Project Owner
+
+### Production Environment
+- **Low Risk**: Single approval from Project Developer
+- **Medium Risk**: Sequential approvals from Developer → DBA
+- **High Risk**: Sequential approvals from Developer → DBA → Project Owner
