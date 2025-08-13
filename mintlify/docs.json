@@ -198,8 +198,8 @@
                   "administration/sso/ldap"
                 ]
               },
-              "concepts/roles-and-permissions",
               "administration/user-groups",
+              "concepts/roles-and-permissions",
               "administration/custom-roles",
               "security/audit-log",
               "administration/scim/overview",

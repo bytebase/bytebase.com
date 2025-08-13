@@ -25,23 +25,13 @@ A `Database Instance` represents a database server or cluster that you connect t
 
 A `Database` is an individual database within a database instance. Each database belongs to a single project. Project developers primarily work with databases.
 
-## User
-
-A `User` represents anyone who can access and perform operations in Bytebase. Users include both human team members and service accounts.
-
-## User Group
-
-A `User Group` organizes multiple users together for easier permission management. Workspace admins create groups and add users, then assign these groups to roles within projects.
-
-For security reasons, service accounts cannot be part of user groups. This restriction exists because service accounts are typically intended for automated processes, and including them in user groups could unintentionally grant them broad or inappropriate permissions, increasing the risk of privilege escalation or unauthorized access. Keeping service accounts separate helps maintain strict access control and reduces potential security vulnerabilities.
-
-## Role
-
-See [Roles and Permissions](/concepts/roles-and-permissions).
-
 ## Database Group
 
 A `Database Group` contains multiple databases with similar schema structures, such as per-tenant or partitioned databases. Bytebase can apply [batch changes](/change-database/batch-change) consistently across all databases in a group.
+
+## IAM
+
+See [Users and Groups](/administration/user-groups) and [Roles and Permissions](/concepts/roles-and-permissions).
 
 ## Environment
 

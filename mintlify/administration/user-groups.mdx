@@ -1,15 +1,24 @@
 ---
-title: User Groups
+title: Users and Groups
 feature_name: USER_GROUPS
 ---
 
-`User Group` or simply `Group` contains a set of users. `Group` simplifies access management as you can grant
-roles to a `Group` instead of granting to the individual users one by one.
+## User
 
-## Constraints
+A `User` represents anyone who can access and perform operations in Bytebase. Users include both human team members and service accounts.
 
-- Bytebase does not support nested group. A group can only contain users, it can't contain another group.
-- You can only add normal user account to the group and can not add service account. Service account within a group is an [anti-pattern](https://cloud.google.com/iam/docs/best-practices-service-accounts#groups).
+## Service Account
+
+Service accounts are special users designed for automated processes and applications.
+
+## User Group
+
+A `User Group` organizes multiple users together for easier permission management. Workspace admins create groups and add users, then assign these groups to roles within projects.
+
+<Note>
+- Bytebase does not support nested groups. A group can only contain users, it can't contain another group.
+- Service accounts cannot be part of user groups. Since service accounts are for automated processes with specific access needs, including them in groups could grant unintended permissions. This is considered an [anti-pattern](https://cloud.google.com/iam/docs/best-practices-service-accounts#groups).
+</Note>
 
 ## Add group
 
@@ -48,9 +57,3 @@ Now you can see the `Contractor Group` under **View by members** page as well as
 ![project-members-or-roles](/content/docs/administration/user-groups/project-members-or-roles.webp)
 
 All members within this group now share permission to the project.
-
-## Service account
-
-You can only add normal user account to the group and can not add service account.
-
-Service accounts are designed for application use, with each application typically having unique access needs. Since applications rarely perform identical functions, their required resource access tends to differ, making shared or identical permissions uncommon.
