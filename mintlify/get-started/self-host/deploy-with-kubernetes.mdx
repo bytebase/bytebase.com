@@ -88,45 +88,25 @@ spec:
    kubectl get services
    ```
 
-## Use Helm Chart
+## Deploy with Helm
 
-### Installing the Chart
+Bytebase provides an official Helm chart for simplified Kubernetes deployments. For comprehensive configuration options and advanced settings, visit the [Bytebase Helm Chart on Artifact Hub](https://artifacthub.io/packages/helm/bytebase/bytebase).
+
+### Installation
+
+Deploy Bytebase using Helm with your external PostgreSQL database:
 
 ```text
 helm -n <YOUR_NAMESPACE> \
---set "bytebase.option.port"={PORT} \
---set "bytebase.option.external-url"={EXTERNAL_URL} \
 --set "bytebase.option.externalPg.url"={PGDSN} \
 --set "bytebase.version"={VERSION} \
 install <RELEASE_NAME> bytebase-repo/bytebase
 ```
 
-For example:
+### Uninstallation
 
-```text
-helm -n bytebase \
---set "bytebase.option.port"=443 \
---set "bytebase.option.external-url"="http://bytebase.example.com" \
---set "bytebase.option.externalPg.url"="postgresql://user:secret@foo.ap-east-1.rds.amazonaws.com/postgres" \
---set "bytebase.version"=latest \
-install bytebase-release bytebase-repo/bytebase
-```
-
-### Uninstalling the Chart
+To remove the Bytebase deployment:
 
 ```text
 helm delete --namespace <YOUR_NAMESPACE> <RELEASE_NAME>
-```
-
-### Upgrade Bytebase Version/Configuration
-
-Use `helm upgrade` command to upgrade the bytebase version or configuration.
-
-```text
-helm -n <YOUR_NAMESPACE> \
---set "bytebase.option.port"={NEW_PORT} \
---set "bytebase.option.external-url"={NEW_EXTERNAL_URL} \
---set "bytebase.option.externalPg.url"={NEW_PGDSN} \
---set "bytebase.version"={NEW_VERSION} \
-upgrade bytebase-release bytebase-repo/bytebase
 ```
