@@ -10,43 +10,41 @@ PostgreSQL 14 or above.
 
 ### Database
 
-The connecting `database` must be created in advance. **The database should use UTF-8 for encoding. UTF-8 encoding is mandatory across the entire system**.
+Create a database named `bytebase` with UTF-8 encoding. UTF-8 encoding is required for proper system operation.
 
 ### User
 
+Create a user `bytebase` with one of the following privilege levels:
+
+#### Option 1: Superuser
 <Note>
-
-For Cloud Database such as AWS RDS, GCP Cloud SQL, ensure that the `user` either owns the schema (`public`) and `database`, or has the necessary privileges to access them.
-
-- `ALTER DATABASE database OWNER TO bytebase;`
-- `ALTER SCHEMA public OWNER TO bytebase;`
-
+This option is not available on managed database services like AWS RDS or Google Cloud SQL.
 </Note>
 
-The connecting `user` must have all the following database privileges:
+Grant PostgreSQL superuser privileges:
+```sql
+ALTER ROLE bytebase SUPERUSER;
+```
 
-- SELECT
-- INSERT
-- UPDATE
-- DELETE
-- TRUNCATE
-- REFERENCES
-- TRIGGER
-- CREATE
-- CONNECT
-- TEMPORARY
-- EXECUTE
-- USAGE
+#### Option 2: Database Owner
+Make the user own the database:
+```sql
+ALTER DATABASE bytebase OWNER TO bytebase;
+```
+
+#### Option 3: Schema Create Privilege
+Grant CREATE privilege on the public schema:
+```sql
+GRANT CREATE ON SCHEMA public TO bytebase;
+```
 
 ### PG_URL String Format
 
-**Supported format:**
-
-_postgresql://\<\<user>>:\<\<secret>>@\<\<host>>:\<\<port>>/\<\<database>\>_
+Bytebase uses the standard PostgreSQL connection URI format. See the [official PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING-URIS) for complete details.
 
 **Example:**
 
-_postgresql://bytebase:z\*3kd2@example.com:5432/meta_
+_postgresql://bytebase:your_password@example.com/bytebase_
 
 ## Running with Docker
 
