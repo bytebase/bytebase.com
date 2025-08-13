@@ -1,5 +1,5 @@
 ---
-title: Connect Your Database
+title: Add Database Instance
 ---
 
 import PostgreSQLConfig from '/snippets/get-started/instance/postgresql.mdx';
@@ -28,27 +28,11 @@ connection info for your database instance.
 
 ## General
 
-### Connect to the instance on the same host
+### Database Connectivity
 
-<Note>
-
-If you run Bytebase inside Docker and try to connect to a database instance on the same host, then
-you need to set host as [host.docker.internal](https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host).
-
-</Note>
-
-![connect-local-docker](/content/docs/get-started/instance/connect-local-docker.webp)
-
-- If you run Bytebase without Docker and try to connect to a database instance on the same host, then
-  you need to set host as `127.0.0.1`
-
-![connect-local-no-docker](/content/docs/get-started/instance/connect-local-no-docker.webp)
-
-### Connect to the instance from Bytebase Cloud
-
-<Note>
-If you're using Bytebase Cloud, make sure you've whitelisted the required IP address. See the [Prerequisites section](/get-started/cloud#prerequisites) in the Cloud documentation.
-</Note>
+- **Docker (standard mode)**: Use `host.docker.internal` for localhost databases. [Learn more](https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host)
+- **Docker (--network host)**: Use `127.0.0.1` for localhost databases
+- **Bytebase Cloud**: Whitelist required IP addresses first. See [Cloud Prerequisites](/get-started/cloud#prerequisites)
 
 ### Read-Only Connection
 
