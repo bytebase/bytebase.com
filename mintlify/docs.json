@@ -195,6 +195,7 @@
                   "administration/sso/overview",
                   "administration/sso/oauth2",
                   "administration/sso/oidc",
+                  "administration/sso/oidc-entra-id",
                   "administration/sso/ldap"
                 ]
               },
