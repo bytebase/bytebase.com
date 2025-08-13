@@ -199,7 +199,7 @@
                 ]
               },
               "administration/user-groups",
-              "concepts/roles-and-permissions",
+              "administration/roles-and-permissions",
               "administration/roles",
               "security/audit-log",
               "administration/scim/overview",
@@ -521,6 +521,10 @@
     {
       "source": "/administration/custom-roles",
       "destination": "/administration/roles"
+    },
+    {
+      "source": "/concepts/roles-and-permissions",
+      "destination": "/administration/roles-and-permissions"
     }
   ],
   "seo": {
