@@ -1,0 +1,164 @@
+---
+title: Microsoft Entra ID (Azure AD) OIDC
+feature_name: SSO_ADVANCED
+---
+
+Microsoft Entra ID (formerly Azure Active Directory) can be configured as an OpenID Connect (OIDC) identity provider for Bytebase, providing secure Single Sign-On with group synchronization support.
+
+<Info>
+
+Please make sure the [`--external-url`](/get-started/self-host/external-url) is configured correctly for the Bytebase workspace.
+
+If you start Bytebase with `--external-url http://bytebase.example.com`, then your application redirect URL should be `http://bytebase.example.com/oidc/callback`.
+
+</Info>
+
+## Step 1: Create App Registration
+
+1. Navigate to [Azure Portal](https://portal.azure.com)
+2. Go to **Microsoft Entra ID** (formerly **Azure Active Directory**) → **App registrations**
+3. Click **New registration**
+4. Configure the application:
+   - **Name**: `Bytebase SSO` (or your preferred name)
+   - **Supported account types**: Choose based on your requirements (single or multi-tenant)
+   - **Redirect URI**:
+     - Platform: `Web`
+     - URI: `https://your-bytebase-domain.com/oidc/callback`
+5. Click **Register**
+
+## Step 2: Configure Authentication
+
+1. In your app registration, go to **Authentication**
+2. Verify your redirect URI under **Platform configurations**
+3. Under **Implicit grant and hybrid flows**:
+   - Check **ID tokens** (used for implicit and hybrid flows)
+4. Click **Save**
+
+## Step 3: Configure API Permissions
+
+1. Go to **API permissions**
+2. Click **Add a permission** → **Microsoft Graph** → **Delegated permissions**
+3. Add the following permissions:
+
+   - `openid` (Sign users in)
+   - `profile` (View users' basic profile)
+   - `email` (View users' email address)
+   - `offline_access` (Maintain access to data)
+   - `User.Read` (Sign in and read user profile)
+   - `GroupMember.Read.All` (Read group memberships) - **Required for group syncing**
+
+4. Click **Add permissions**
+5. If required by your organization, click **Grant admin consent**
+
+## Step 4: Configure Group Claims
+
+For group synchronization to work, configure group claims:
+
+1. Go to **Token configuration**
+2. Click **Add groups claim**
+3. Configure the groups claim:
+
+   - **Select group types**: Choose **Security groups**
+   - **Customize token properties**:
+     - For **ID**: Select `Group ID` (returns GUIDs) or `Cloud-only group display names` (returns readable names)
+   - For better control, select **Groups assigned to the application**
+
+4. Click **Add**
+
+## Step 5: Create Client Secret
+
+1. Go to **Certificates & secrets**
+2. Click **New client secret**
+3. Add description: `Bytebase OIDC`
+4. Select expiration period (recommend 24 months)
+5. Click **Add**
+6. **Important**: Copy the secret value immediately (it won't be shown again)
+
+## Step 6: Gather Configuration Information
+
+From the **Overview** page, collect:
+
+- **Application (client) ID**: Your client ID
+- **Directory (tenant) ID**: Your tenant ID
+
+Construct the issuer URL:
+
+```text
+https://login.microsoftonline.com/{tenant-id}/v2.0
+```
+
+## Step 7: Configure Bytebase OIDC
+
+1. Log into Bytebase as an admin
+2. Navigate to **Settings** → **SSO** → **Create**
+3. Select **OIDC** as the provider type
+4. Configure with the following settings:
+
+**Basic Information:**
+
+- **Name**: `Entra ID`
+- **Identity Provider ID**: `entra-id`
+- **Domain**: Your organization domain (optional)
+
+**Identity Provider Information:**
+
+- **Issuer**: `https://login.microsoftonline.com/{your-tenant-id}/v2.0`
+- **Client ID**: Your application client ID
+- **Client Secret**: Your client secret
+- **Scopes**: `openid profile email offline_access`
+
+**User Information Field Mapping:**
+
+- **Email**: `email`
+- **Display Name**: `name`
+- **Groups**: `groups` (Important for group syncing)
+
+5. Click **Create**
+
+## Step 8: Test the Configuration
+
+1. Click **Test Connection** in Bytebase
+2. You should be redirected to Microsoft login
+3. After successful authentication, verify:
+   - User information is correctly mapped
+   - Groups are being returned (if configured)
+
+## Group Synchronization
+
+If you configured group claims, Bytebase will automatically sync user groups:
+
+1. Go to **Settings** → **Groups** in Bytebase
+2. Create groups that match your Entra ID groups:
+   - If using Group IDs, create groups with GUID names
+   - If using display names, create groups with matching names
+3. Assign appropriate roles to these groups
+
+Users will be automatically added to matching Bytebase groups upon login.
+
+## Example Group Synchronization Flow
+
+1. User logs in via Entra ID
+2. ID token includes groups claim: `["c80adaad-11c0-4ad9-aa31-7ef37029aa2a", "6525b949-f790-4807-bf85-707fa6ec4cb4"]`
+3. Bytebase receives and processes groups
+4. User is automatically added to matching Bytebase groups
+5. User receives permissions based on group membership
+
+## Troubleshooting
+
+### Groups Not Appearing
+
+1. **Check Token Configuration**: Ensure groups claim is added for ID tokens
+2. **Verify Permissions**: Ensure `GroupMember.Read.All` permission is granted
+3. **Check Group Types**: Verify users are members of security groups
+4. **Enable Debug Logging**: Run Bytebase with `--debug` flag to see claim details
+
+### Common Issues
+
+1. **Groups showing as GUIDs**: This is normal when using Group ID format
+2. **Missing groups**: Ensure groups are assigned to the application if using that filter
+3. **Token size limitations**: Consider using "Groups assigned to the application" for users with many groups
+
+## Reference
+
+- [Microsoft identity platform and OpenID Connect protocol](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-protocols-oidc)
+- [Configure group claims for applications](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims)
