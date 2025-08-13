@@ -44,9 +44,23 @@ Grant the db_owner role to the user:
 GRANT db_owner TO bytebase;
 ```
 
-### PG_URL String Format
+### PG_URL Environment Variable
 
-Bytebase uses the standard PostgreSQL connection URI format. See the [official PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING-URIS) for complete details.
+The `PG_URL` environment variable configures the PostgreSQL connection for Bytebase. You can set it in two ways:
+
+#### Direct Connection String
+Set `PG_URL` directly to a PostgreSQL connection URI:
+```bash
+PG_URL="postgresql://bytebase:your_password@example.com:5432/bytebase"
+```
+
+#### File Path (Kubernetes & Secret Management)
+For Kubernetes deployments and secret manager integration, set `PG_URL` to a file path containing the connection string. Bytebase automatically picks up the updated connection string when the file content changes, enabling seamless secret rotation.
+```bash
+PG_URL="/path/to/connection/file"
+```
+
+The connection string must follow the standard PostgreSQL URI format. See the [official PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING-URIS) for complete syntax details.
 
 **Example:**
 
