@@ -7,47 +7,57 @@ feature_name: CUSTOM_ROLES
 
 ## Overview
 
-Bytebase employs RBAC (Role-Based-Access-Control). Permissions are assigned to roles and roles are granted to users and groups.
+Bytebase uses RBAC (Role-Based Access Control) to manage permissions. A **role** is a collection of permissions that can be granted to users and user groups.
 
-### Workspace Roles
+### Permission Scope
 
-Built-in roles: `Workspace Admin`, `Workspace DBA`, `Workspace Member`.
+Permissions in Bytebase apply to two levels of resources:
 
-The workspace role maps to the roles at the organization level. Every Bytebase user has `Workspace Member` role. Users can also be granted `Workspace Admin`, `Workspace DBA`. These 2 roles should be granted judiciously though.
+- **Workspace-level resources**: Settings, instances, environments, and overall workspace management
+- **Project-level resources**: Project settings, databases, issues, and project-specific operations
 
-### Project Roles
+### Role Types
 
-**Built-in roles:** `Project Owner`, `Project Developer`, `Project Releaser`, `SQL Editor User` (previously called `Project Querier`), `Project Exporter`, `Project Viewer`.
+Bytebase provides two types of roles:
 
-In addition to the inherent `Workspace Member` role, most users will be granted project roles. These roles allow users to perform specific database operations.
+#### Built-in Roles
+
+**Workspace roles:**
+- `Workspace Admin` - Full administrative control
+- `Workspace DBA` - Database administration across all projects
+- `Workspace Member` - Basic access (automatically assigned to all users)
+
+**Project roles:**
+- `Project Owner` - Full control over project resources
+- `Project Developer` - Create and manage database changes
+- `Project Releaser` - Approve and release changes
+- `SQL Editor User` - Query databases (formerly `Project Querier`)
+- `Project Exporter` - Export data
+- `Project Viewer` - Read-only access
+
+#### Custom Roles
+
+Organizations can create custom roles with specific permission sets tailored to their needs. Custom roles are defined at the workspace level and can be granted at both workspace and project levels.
+
+### Granting Roles
+
+Roles are granted through IAM policies at two levels:
+
+1. **Workspace IAM Policy** (Workspace > Members page)
+   - Grant roles that apply across all projects
+   - Manage workspace-level permissions
+
+2. **Project IAM Policy** (Project > Members page)
+   - Grant roles for specific project resources
+   - Inherits roles granted at the workspace level
 
 <Tip>
-To grant users a project role for all the projects, grant that project role at the workspace level.
+**Inheritance:** Project IAM policies automatically inherit roles granted at the workspace level. For example, if a user is granted `Project Developer` at the workspace level, they have that role in all projects.
 </Tip>
 
 ![org-role-mapping](/content/docs/rbac/org-role-mapping.webp)
 
-Above diagram describes the mapping between an engineering org and the corresponding roles in the Bytebase workspace. Note, a particular user can be assigned multiple roles as well:
-
-- A user can only be assigned multiple workspace roles.
-- In a particular project, a user can be assigned multiple project roles. A user can also be assigned different project roles in the different projects.
-
-Real-world scenarios:
-
-- Organizations may not establish a dedicated DBA or platform engineering group. In such case, usually the application engineering group head and the tech leads will wear those hats. Say a user named Alice can be a `Workspace DBA` and a `Project Owner` for Project Apollo at the same time.
-
-- An application developer could be involved in multiple projects. In such case, that engineer would also be assigned project roles in different projects respectively. Say a user named Bob can be a `Workspace Member`, a `Project Owner` for Project Apollo and a `Project Developer` for Project Mars at the same time.
-
-## Custom Roles
-
-In addition to built-in roles, you can create custom roles with specific sets of permissions tailored to your organization's needs. Custom roles provide fine-grained access control for users and groups.
-
-**Key characteristics:**
-- Defined at the workspace level for consistent management
-- Can be granted at both workspace level (applies to all projects) and individual project level
-- Integrate with [Rollout Policy](/administration/environment-policy/rollout-policy/) and [Custom Approval](/administration/custom-approval) workflows
-
-### Creating Custom Roles
+## Creating Custom Roles
 
 1. Navigate to **IAM & Admin > Custom Roles**
 2. Click **Add role**
@@ -55,13 +65,13 @@ In addition to built-in roles, you can create custom roles with specific sets of
 
 ![add-custom-role](/content/docs/administration/roles/add-custom-role.webp)
 
-You can use **Import from role** to start with an existing role's permissions and modify them as needed.
+Use **Import from role** to start with an existing role's permissions and modify them as needed.
 
 <Tip>
 **Example:** To create a role that can approve and comment on issues but not execute them, create a `Project Approver` role by importing from `Project Releaser` and removing execution permissions.
 </Tip>
 
-### Using Custom Roles in Approval Workflows
+## Using Custom Roles in Approval Workflows
 
 1. Navigate to **CI/CD > Custom Approval**
 2. Select the **Approval Flows** tab
@@ -69,9 +79,9 @@ You can use **Import from role** to start with an existing role's permissions an
 
 ![add-to-custom-approval-flow](/content/docs/administration/roles/add-to-custom-approval-flow.webp)
 
-### Granting Custom Roles
+## Granting Custom Roles
 
-To assign a custom role to users or groups:
+To assign custom roles to users or groups:
 
 1. Navigate to the project's **Members** page
 2. Grant the custom role to the desired users or groups
