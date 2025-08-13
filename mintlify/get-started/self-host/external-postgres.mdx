@@ -38,6 +38,12 @@ Grant CREATE privilege on the public schema:
 GRANT CREATE ON SCHEMA public TO bytebase;
 ```
 
+#### Option 4: Database Owner Role
+Grant the db_owner role to the user:
+```sql
+GRANT db_owner TO bytebase;
+```
+
 ### PG_URL String Format
 
 Bytebase uses the standard PostgreSQL connection URI format. See the [official PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING-URIS) for complete details.
