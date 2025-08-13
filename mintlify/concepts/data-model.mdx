@@ -31,7 +31,9 @@ A `User` represents anyone who can access and perform operations in Bytebase. Us
 
 ## User Group
 
-A `User Group` organizes multiple users together for easier permission management. Workspace admins create groups and add users, then assign these groups to roles within projects. For security reasons, service accounts cannot be part of user groups. This restriction exists because service accounts are typically intended for automated processes, and including them in user groups could unintentionally grant them broad or inappropriate permissions, increasing the risk of privilege escalation or unauthorized access. Keeping service accounts separate helps maintain strict access control and reduces potential security vulnerabilities.
+A `User Group` organizes multiple users together for easier permission management. Workspace admins create groups and add users, then assign these groups to roles within projects.
+
+For security reasons, service accounts cannot be part of user groups. This restriction exists because service accounts are typically intended for automated processes, and including them in user groups could unintentionally grant them broad or inappropriate permissions, increasing the risk of privilege escalation or unauthorized access. Keeping service accounts separate helps maintain strict access control and reduces potential security vulnerabilities.
 
 ## Role
 
