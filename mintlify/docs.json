@@ -517,6 +517,10 @@
     {
       "source": "/get-started/install/upgrade",
       "destination": "/get-started/self-host/upgrade"
+    },
+    {
+      "source": "/administration/custom-roles",
+      "destination": "/administration/roles"
     }
   ],
   "seo": {
