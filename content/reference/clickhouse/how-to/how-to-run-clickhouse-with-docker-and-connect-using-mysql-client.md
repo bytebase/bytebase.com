@@ -14,7 +14,7 @@ Install [docker](https://docs.docker.com/get-docker/) before you continue.
 
 Run the following command to start a ClickHouse server in a docker container.
 
-```text
+```bash
 docker run -d --name tutorial-clickhouse-server --ulimit nofile=262144:262144 --volume=$HOME/tutorial_clickhouse_database:/var/lib/clickhouse yandex/clickhouse-server
 ```
 
@@ -22,7 +22,7 @@ docker run -d --name tutorial-clickhouse-server --ulimit nofile=262144:262144 --
 
 Run the following command to connect to ClickHouse server with the default user.
 
-```text
+```bash
 docker run -it --rm --link tutorial-clickhouse-server:clickhouse-server yandex/clickhouse-client --host clickhouse-server
 ```
 
@@ -34,7 +34,7 @@ By default, the ClickHouse server provides the default user account which is not
 
 Run
 
-```text
+```bash
 docker cp <container>:/etc/clickhouse-server/users.xml .
 ```
 
@@ -56,7 +56,7 @@ After the change, the file structure should be something like
 
 And then run
 
-```text
+```bash
 docker cp users.xml <container>:/etc/clickhouse-server/users.xml
 ```
 
@@ -88,7 +88,7 @@ GRANT ALL PRIVILEGES ON db1.* TO user1
 
 Now we can connect to the server with the created user.
 
-```text
+```bash
 docker run -it --rm --link tutorial-clickhouse-server:clickhouse-server yandex/clickhouse-client --host clickhouse-server -u user1 --password pass1
 ```
 
@@ -170,7 +170,7 @@ By default, it should be`<mysql_port>9004</mysql_port>`.
 
 We start a ClickHouse server with the following command, notice that port 9004 is exposed this time.
 
-```text
+```bash
 docker run -d --name tutorial-clickhouse-server -p 9004:9004 --ulimit nofile=262144:262144 --volume=$HOME/tutorial_clickhouse_database:/var/lib/clickhouse yandex/clickhouse-server
 ```
 
@@ -178,7 +178,7 @@ docker run -d --name tutorial-clickhouse-server -p 9004:9004 --ulimit nofile=262
 
 Example of connecting using command-line tool `mysql`:
 
-```text
+```bash
 mysql --protocol tcp -u default -P 9004
 ```
 

@@ -72,19 +72,19 @@ spec:
 
 1. Start Bytebase with the following command:
 
-   ```text
+   ```bash
    kubectl apply -f bytebase.yaml
    ```
 
 2. Make sure everything worked by listing your deployments:
 
-   ```text
+   ```bash
    kubectl get statefulsets
    ```
 
    Do the same check for your services:
 
-   ```text
+   ```bash
    kubectl get services
    ```
 
@@ -96,7 +96,7 @@ Bytebase provides an official Helm chart for simplified Kubernetes deployments. 
 
 Deploy Bytebase using Helm with your external PostgreSQL database:
 
-```text
+```bash
 helm -n <YOUR_NAMESPACE> \
 --set "bytebase.option.externalPg.url"={PGDSN} \
 --set "bytebase.version"={VERSION} \
@@ -107,6 +107,6 @@ install <RELEASE_NAME> bytebase-repo/bytebase
 
 To remove the Bytebase deployment:
 
-```text
+```bash
 helm delete --namespace <YOUR_NAMESPACE> <RELEASE_NAME>
 ```

@@ -161,7 +161,7 @@ If you have a custom external secret manager, you can supply its API endpoint by
 
 Usually `mydbkey` is unique for each database and used for exchanging the password for that database.
 
-```text
+```bash
 curl "http://example.com/secrets/mydbkey"
 ```
 
@@ -315,11 +315,11 @@ Restart Bytebase with the following environment variables
 - `AWS_REGION`=`us-east-1`
 - `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are the ones you previously created on the IAM user:
 
-```text
+```bash
 AWS_REGION=us-east-1 AWS_ACCESS_KEY_ID=xxx AWS_SECRET_ACCESS_KEY=yyy ./bytebase <<other options>>
 ```
 
-```text
+```bash
 docker run --init \
   -e AWS_REGION=us-east-1 AWS_ACCESS_KEY_ID=xxx AWS_SECRET_ACCESS_KEY=yyy \
   --name bytebase \
@@ -430,7 +430,7 @@ won't be able to access the key file.
 
 </Tip>
 
-```text
+```bash
 docker run --init \
   -e GOOGLE_APPLICATION_CREDENTIALS=/var/opt/bytebase/key.json \
   --name bytebase \

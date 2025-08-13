@@ -26,7 +26,7 @@ Ensure you have [MongoDB](https://docs.mongodb.com/manual/installation/) and [Op
 
 Set up the configuration file:
 
-```text
+```bash
 cat >req.conf <<EOF
 [ req ]
 distinguished_name = req_distinguished_name
