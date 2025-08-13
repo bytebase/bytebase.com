@@ -200,7 +200,7 @@
               },
               "administration/user-groups",
               "concepts/roles-and-permissions",
-              "administration/custom-roles",
+              "administration/roles",
               "security/audit-log",
               "administration/scim/overview",
               "administration/2fa",
