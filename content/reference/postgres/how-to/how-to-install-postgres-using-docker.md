@@ -16,7 +16,7 @@ If you are using Mac, you can use following tools which include Postgres docker 
 
 We need to pull the official PostgreSQL image from Docker Hub. Open your terminal or command prompt and run:
 
-```text
+```bash
 docker pull postgres
 # -- Instead, for a certain version of postgres, e.g. 14.5, run:
 # docker pull postgres:14.5
@@ -30,7 +30,7 @@ And wait for the latest version of the PostgreSQL image to be downloaded.
 
 Now that we've downloaded the image, we can create and run a PostgreSQL container:
 
-```text
+```bash
 docker run -d --name mypostgres -p 5432:5432 -e POSTGRES_PASSWORD=yourpassword postgres
 ```
 
@@ -38,7 +38,7 @@ This command runs the container in **detached mode** in the background, assigns 
 
 Check whether the PostgreSQL container is running with this command:
 
-```text
+```bash
 docker ps
 ```
 
@@ -50,7 +50,7 @@ docker ps
 
 You can use the psql cammand to connect to your database.
 
-```text
+```bash
 psql -h localhost -U postgres
 ```
 
@@ -58,7 +58,7 @@ psql -h localhost -U postgres
 
 Or open an interactive terminal inside the container and connect to the PostgreSQL database with the postgres user.
 
-```text
+```bash
 docker exec -it mypostgres psql -h localhost -U postgres
 ```
 

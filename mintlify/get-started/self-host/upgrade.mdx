@@ -28,8 +28,8 @@ Start Bytebase with the new version using your existing Docker run command, upda
 
 Execute the following command to create a complete database clone:
 
-```text
-   psql -h <<host>> -p <<port>> -U <<user>> metadb -c "CREATE DATABASE metadb_backup WITH TEMPLATE metadb;"
+```bash
+psql -h <<host>> -p <<port>> -U <<user>> metadb -c "CREATE DATABASE metadb_backup WITH TEMPLATE metadb;"
 ```
 
 ### Restoring from Backup
@@ -38,13 +38,13 @@ Execute the following command to create a complete database clone:
 
 2. Preserve the current database by renaming it:
    
-   ```text
+   ```bash
    psql -h <<host>> -p <<port>> -U <<user>> postgres -c "ALTER DATABASE metadb RENAME TO metadb_old"
    ```
 
 3. Restore from your backup:
    
-   ```text
+   ```bash
    psql -h <<host>> -p <<port>> -U <<user>> postgres -c "CREATE DATABASE metadb WITH TEMPLATE metadb_backup;"
    ```
 
@@ -52,7 +52,7 @@ Execute the following command to create a complete database clone:
 
 5. After confirming successful restoration, remove temporary databases:
    
-   ```text
+   ```bash
    psql -h <<host>> -p <<port>> -U <<user>> postgres -c "DROP DATABASE metadb_old"
    psql -h <<host>> -p <<port>> -U <<user>> postgres -c "DROP DATABASE metadb_backup"
    ```

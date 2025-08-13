@@ -25,7 +25,7 @@ You can only copy the key right after creating the service account. The key will
 
 You need to obtain the exchange token before calling the API.
 
-```text
+```bash
 export bytebase_url=%%bb_api_endpoint%%
 export bytebase_account=<<your_service_account>>@service.bytebase.com
 export bytebase_password=<<your_service_key>>
@@ -37,7 +37,7 @@ bytebase_token=$(curl -v ${bytebase_url}/v1/auth/login \
 
 ## Test API
 
-```text
+```bash
 # List projects
 curl --request GET ${bytebase_url}/v1/projects \
   --header 'Authorization: Bearer '${bytebase_token}

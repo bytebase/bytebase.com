@@ -39,7 +39,7 @@ Terraform is an Infrastructure-as-Code tool that defines and configures infra re
 
 For example, the following code creates a TiDB Cloud Serverless resource:
 
-```text
+```hcl
 terraform {
   required_providers {
     tidbcloud = {
@@ -65,7 +65,7 @@ provider "tidbcloud" {
 
 For example, the following code adds the specified TiDB Cloud instance into Bytebase:
 
-```text
+```hcl
 # Configure the Bytebase Provider
 terraform {
   required_providers {

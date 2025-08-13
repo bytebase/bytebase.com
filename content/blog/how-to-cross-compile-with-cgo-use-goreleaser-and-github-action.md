@@ -77,7 +77,7 @@ For the Linux platform
 - Compiling from x64 to x64 requires a gcc/g++ toolchain, which we usually use.
 - Compiling from x64 to arm64 requires a well-maintained toolchain, "aarch64-linux-gnu-gcc". You can get it directly from the Ubuntu package manager:
 
-```text
+```bash
 sudo apt-get -y install gcc-aarch64-linux-gnu
 ```
 

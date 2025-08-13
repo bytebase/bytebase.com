@@ -24,31 +24,31 @@ Check out [DBngin](https://dbngin.com/) or [StackBricks](https://stackbricks.app
 
 If you don't have Homebrew installed, you can install it by running the following command in your terminal:
 
-```text
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 Once you have Homebrew installed, you can install MySQL by running the command
 
-```text
+```bash
 brew install mysql
 ```
 
 After the installation is complete, you can start the MySQL server by running the following command:
 
-```text
+```bash
 brew services start mysql
 ```
 
 By default, Homebrew installs the MySQL server without a root password. To secure your installation, you should run the MySQL secure installation script. Run the following command and follow the prompts to set a root password and remove insecure defaults:
 
-```text
+```bash
 mysql_secure_installation
 ```
 
 You can now access MySQL by running the following command:
 
-```text
+```bash
 mysql -u root -p
 ```
 
@@ -60,7 +60,7 @@ mysql -u root -p
 
 3. Start MySQL Server: Once the installation is complete, you can close the installation window, and the MySQL server should already be up and running. If it doesn't, you can start the MySQL server by running the following command in the Terminal application on your Mac:
 
-```text
+```bash
 mysql -u root -p
 ```
 
@@ -72,13 +72,13 @@ To install MySQL locally on Ubuntu, you need to:
 
 1. Update Package Lists: Open a terminal on your Ubuntu system and run the following command to update the package lists:
 
-   ```text
+   ```bash
    sudo apt update
    ```
 
 2. Install MySQL Server: Run the following command to install the MySQL Server package:
 
-   ```text
+   ```bash
    sudo apt install mysql-server
    ```
 
@@ -86,13 +86,13 @@ To install MySQL locally on Ubuntu, you need to:
 
 4. Start MySQL Service: After the installation is complete, MySQL should start automatically. If it doesn't, you can start the MySQL service by running the following command:
 
-   ```text
+   ```bash
    sudo service mysql start
    ```
 
 5. Verify MySQL Installation: To verify if the MySQL server is running correctly, run:
 
-   ```text
+   ```bash
    sudo service mysql status
    ```
 
@@ -100,7 +100,7 @@ To install MySQL locally on Ubuntu, you need to:
 
 6. Secure MySQL Installation (Optional): It is recommended to run the MySQL secure installation script to improve the security of your MySQL installation. You can run the following command to start the script:
 
-   ```text
+   ```bash
    sudo mysql_secure_installation
    ```
 
@@ -112,25 +112,25 @@ To install MySQL locally on CentOS, follow these steps:
 
 1. Update Package Lists: Open a terminal on your CentOS system and run the following command to update the package lists.
 
-   ```text
+   ```bash
    sudo yum update
    ```
 
 2. Install MySQL Server: Run the following command to install the MySQL Server package:
 
-   ```text
+   ```bash
    sudo yum install mysql-server
    ```
 
 3. Start MySQL Service: After the installation is complete, start the MySQL service by running the following command:
 
-   ```text
+   ```bash
    sudo systemctl start mysqld
    ```
 
 4. Configure MySQL Server: The first time you start the MySQL service, it generates a temporary root password. You can retrieve this password by running the following command:
 
-   ```text
+   ```bash
    sudo grep 'temporary password' /var/log/mysqld.log
    ```
 
@@ -138,7 +138,7 @@ To install MySQL locally on CentOS, follow these steps:
 
 6. Run MySQL Secure Installation: To secure your MySQL installation, run the following command and follow the prompts:
 
-   ```text
+   ```bash
    sudo mysql_secure_installation
    ```
 
@@ -146,13 +146,13 @@ To install MySQL locally on CentOS, follow these steps:
 
 8. Start MySQL Service on Boot: To ensure that MySQL starts automatically on system boot, run the following command:
 
-   ```text
+   ```bash
    sudo systemctl enable mysqld
    ```
 
 9. Verify MySQL Installation: To verify if the MySQL server is running correctly, you can run the following command:
 
-   ```text
+   ```bash
    sudo systemctl status mysqld
    ```
 

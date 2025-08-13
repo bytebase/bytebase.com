@@ -12,31 +12,31 @@ Below list the 10 most commonly used `psql` commands with examples.
 
 If you are using the default PostgreSQL username `postgres` and have not set a password, you can connect to the database using the following command. You will be prompted to enter the password for the `postgres` user.
 
-```text
+```bash
 psql
 ```
 
 If you are using a different username or have set a password for the `postgres` user, you can connect to the database using the following command. You will be prompted to enter the password for the specified user.
 
-```text
+```bash
 psql -U your_username
 ```
 
 If the PostgreSQL server is running on a different port than the default (5432), you can connect to the database using the following command. You will be prompted to enter the password for the specified user.
 
-```text
+```bash
 psql -p 5433
 ```
 
 If the PostgreSQL server is running on a remote host, you can connect to the database using the following command. You will be prompted to enter the password for the specified user.
 
-```text
+```bash
 psql -h remote_host -p 5432
 ```
 
 In all of these examples, you can also specify the name of the database you want to connect to using the `-d` option. For example, to connect to the database named `my_database`, you would use the following command:
 
-```text
+```bash
 psql -d my_database
 ```
 
@@ -44,7 +44,7 @@ psql -d my_database
 
 To run a single command in PostgreSQL using the `psql` command-line interface, you can use the `-c` option followed by the SQL command you want to execute.
 
-```text
+```bash
 psql -d my_database -c "SELECT * FROM my_table;"
 ```
 
@@ -52,7 +52,7 @@ psql -d my_database -c "SELECT * FROM my_table;"
 
 This command will all of the databases that are currently available on the server. This can be useful for getting an overview of the databases that are available to you.
 
-```text
+```bash
 postgres-# \l
 
    Name    |  Owner   | Encoding | Locale Provider |  Collate   |   Ctype    | ICU Locale | ICU Rules |   Access privileges
@@ -69,7 +69,7 @@ postgres-# \l
 
 The `\c` command switches to the specified database. This is useful for working with a specific database after you have listed the available databases.
 
-```text
+```bash
 postgres-# \c postgres
 
 psql (16.0, server 16.1 (Debian 16.1-1.pgdg120+1))
@@ -80,7 +80,7 @@ You are now connected to database "postgres" as user "postgres".
 
 The `\dt` command lists all of the tables that are currently available in the current database. This can be useful for getting an overview of the tables that are available to you in the current database.
 
-```text
+```bash
 postgres-# \dt
 
 List of relations
@@ -95,7 +95,7 @@ public | orders | table | postgres
 
 The `\d` command describes the specified table. This provides information about the table's columns, data types, and constraints.
 
-```text
+```bash
 postgres-# \d my_table
 
 Table: my_table
@@ -111,7 +111,7 @@ email | VARCHAR(100) | UNIQUE
 
 The `\du` command lists all of the users that exist in the current database.
 
-```text
+```bash
 postgres-# \du
 
 List of roles
@@ -123,7 +123,7 @@ myuser | CREATEDB
 
 The `\du username` command is used to list the roles (users) in the current database that have the specified username.
 
-```text
+```bash
 postgres-# \du myuser
 
 List of roles
@@ -135,7 +135,7 @@ myuser | CREATEDB
 
 If the specified username does not match any roles in the current database, the output will be an empty table.
 
-```text
+```bash
 postgres-# \du youruser
 
 List of roles
@@ -148,7 +148,7 @@ Role name | Attributes
 
 To list all active connections, execute the following SQL query.
 
-```text
+```sql
 postgres-# SELECT * FROM pg_stat_activity;
 
 pid | datname | username | client_addr | client_port | backend_start | query_start | query | state
@@ -161,13 +161,13 @@ pid | datname | username | client_addr | client_port | backend_start | query_sta
 
 You can also filter the results to specific connections based on criteria such as username, database name, or state. For example, to list only active connections to the database mydb, use the following query:
 
-```text
+```sql
 postgres-# SELECT * FROM pg_stat_activity WHERE datname = 'mydb' AND state = 'active';
 ```
 
 Similarly, to list connections currently executing queries, use the following query:
 
-```text
+```sql
 postgres-# SELECT * FROM pg_stat_activity WHERE state IN ('active', 'idle in transaction');
 ```
 
@@ -175,13 +175,13 @@ postgres-# SELECT * FROM pg_stat_activity WHERE state IN ('active', 'idle in tra
 
 Once you have identified the PID of the connection you want to kill, you can use the `pg_terminate_backend()` function to terminate it. For example, the following command will kill the connection with PID 1234:
 
-```text
+```sql
 postgres-# SELECT pg_terminate_backend(1234);
 ```
 
 Using the kill command is a less common method for killing PostgreSQL connections, as it can be more dangerous and less reliable than using the pg_terminate_backend() function. However, it may be necessary in certain situations, such as when the connection is unresponsive or the pg_terminate_backend() function fails.
 
-```text
+```bash
 kill -9 1234
 ```
 
@@ -189,7 +189,7 @@ kill -9 1234
 
 Using the `\q` command or the keyboard shortcut `Ctrl+D`(or `Ctrl+Z` on windows). This will immediately exit the psql command-line interface.
 
-```text
+```bash
 \q
 ```
 

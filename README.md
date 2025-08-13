@@ -16,19 +16,19 @@ We are hiring. Please check out our [about page](https://www.bytebase.com/about)
 
 1. Clone this repository
 
-```text
+```bash
 git clone git@github.com:bytebase/bytebase.com.git
 ```
 
 1. Install dependencies
 
-```text
+```bash
 pnpm install
 ```
 
 1. Run website locally
 
-```text
+```bash
 pnpm run dev
 ```
 
@@ -93,13 +93,13 @@ Use animated recording judicious. Sometimes you have to use animation to showcas
 
 Additional commands:
 
-```text
+```bash
 pnpm run lint
 ```
 
 Run it to check the current status of eslint issues across project.
 
-```text
+```bash
 pnpm run lint:fix
 ```
 
@@ -111,7 +111,7 @@ Run it to fix all possible issues.
 
 Additional commands:
 
-```text
+```bash
 pnpm run format
 ```
 
