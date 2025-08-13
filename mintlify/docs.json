@@ -226,8 +226,7 @@
             "group": "Reference",
             "pages": [
               "reference/error-code/core",
-              "reference/error-code/advisor",
-              "reference/schema-definition-language"
+              "reference/error-code/advisor"
             ]
           }
         ]
