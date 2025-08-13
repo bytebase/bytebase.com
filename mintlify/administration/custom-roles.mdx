@@ -5,36 +5,43 @@ feature_name: CUSTOM_ROLES
 
 <Card title="Tutorial: How to Manage Roles" icon="graduation-cap" href="/tutorials/how-to-manage-roles" horizontal />
 
-Custom roles allows to group a custom set of permissions and grant them to the users and groups. Like the built-in roles:
+In addition to built-in roles, you can create custom roles with specific sets of permissions tailored to your organization's needs. Custom roles provide fine-grained access control for users and groups.
 
-- Custom roles are defined at the workspace level.
-- Custom roles can be granted at both the workspace level (meaning all projects) and the project level.
-- Custom roles can be used in [Rollback Policy](/administration/environment-policy/rollout-policy/), [Custom Approval](/administration/custom-approval).
+**Key characteristics:**
+- Defined at the workspace level for consistent management
+- Can be granted at both workspace level (applies to all projects) and individual project level
+- Integrate with [Rollout Policy](/administration/environment-policy/rollout-policy/) and [Custom Approval](/administration/custom-approval) workflows
 
-## Create custom roles
+## Creating Custom Roles
 
-To create custom roles, go to **IAM & Admin > Custom Roles**. Click **Add role** to create a new role.
+1. Navigate to **IAM & Admin > Custom Roles**
+2. Click **Add role**
+3. Configure permissions for your new role
 
 ![add-custom-role](/content/docs/administration/custom-roles/add-custom-role.webp)
 
-You can choose `Import from role` to build your custom role based on the existing role.
+You can use **Import from role** to start with an existing role's permissions and modify them as needed.
 
 <Tip>
 
-If you want a role to approve and comment the issue. You can create a `Project Approver` custom role
-based on the existing `Project Releaser`.
+**Example:** To create a role that can approve and comment on issues but not execute them, create a `Project Approver` role by importing from `Project Releaser` and removing execution permissions.
 
 </Tip>
 
-## Add to custom approval flow
+## Using Custom Roles in Approval Workflows
 
-Go to **CI/CD > Custom Approval**. From **Approval Flows** tab, choose an approval flow to add.
+1. Navigate to **CI/CD > Custom Approval**
+2. Select the **Approval Flows** tab
+3. Choose an approval flow and add your custom role
 
 ![add-to-custom-approval-flow](/content/docs/administration/custom-roles/add-to-custom-approval-flow.webp)
 
-## Grant custom role in project
+## Granting Custom Roles
 
-Go to the project member page and grant the role. The granted user will be on the configured
-custom approval flow.
+To assign a custom role to users or groups:
+
+1. Navigate to the project's **Members** page
+2. Grant the custom role to the desired users or groups
+3. Users with this role will automatically be included in any configured approval workflows
 
 ![grant-project-member](/content/docs/administration/custom-roles/grant-project-member.webp)
