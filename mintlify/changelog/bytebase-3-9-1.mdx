@@ -1,0 +1,36 @@
+---
+title: Bytebase 3.9.1
+author: Adela
+updated_at: 2025/08/14 18:00:00
+description: 'Support importing database revisions from releases or local files'
+---
+
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
+## 🚀 New Features
+
+- Support importing database revisions from releases or local files.
+- Support reading `PG_URL` from a file with hot-reload.
+- Support IAM authentication for AWS OpenSearch.
+
+## 🔔 Notable Changes
+
+- Service accounts will no longer be able to log in via the Bytebase GUI.
+
+## 🪦 Sunset
+
+- Remove the deprecated `--pg` command-line flag. Use the `PG_URL` environment variable for external PostgreSQL connections instead.
+
+- Replace the `--disable-metric` flag with a Workspace setting.
+
+- Remove the `--disable-sample` flag.
+
+## 🎄 Enhancements
+
+- Bytebase GitHub Actions will now try to reuse existing releases before creating new ones. If two releases have the same filenames and file contents, they are considered identical, reducing redundant releases when retrying.
+
+- Terraform — Add support to configure masking exceptions for all databases by skipping database, table, and column, applying the exception across the entire project.
+
+- Terraform — Add support for the `sync_databases` attribute in the instance resource, allowing you to specify which databases to sync (e.g., `["db1", "db2"]`).
+
+<InstallUpgrade />
