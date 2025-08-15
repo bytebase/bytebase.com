@@ -120,49 +120,35 @@ The choice between DataGrip and Bytebase often comes down to the specific goals 
 
 ## Real-World Use Case Studies
 
-Understanding how these tools perform in actual scenarios helps illustrate their practical differences.
+### Use Case 1: E-commerce Data Analysis
 
-### Use Case 1: E-commerce Platform Data Analysis
+**Scenario**: Data analyst analyzing customer behavior across PostgreSQL, MongoDB, and ClickHouse databases.
 
-**Scenario**: A data analyst at an e-commerce company needs to analyze customer behavior patterns across multiple databases (PostgreSQL for transactions, MongoDB for user profiles, ClickHouse for analytics).
+**DataGrip**: Direct multi-database connections, AI-assisted query development, local query organization, fast iteration.
+*Result: High individual productivity and excellent user experience.*
 
-**DataGrip Approach**:
-The analyst connects directly to all three databases using DataGrip's comprehensive database support. They leverage the AI Assistant to generate complex analytical queries, use the intelligent code completion to navigate unfamiliar schemas, and take advantage of the responsive interface to iterate quickly on analysis. The analyst can save and organize queries locally, export results in multiple formats, and work efficiently across all database types in a single interface.
+**Bytebase**: Centralized access with data masking, shared query library, team collaboration, web-based setup.
+*Result: Secure access with excellent team collaboration, though less sophisticated query development.*
 
-**Outcome**: High individual productivity, fast iteration on analysis, excellent user experience.
+### Use Case 2: Fintech Schema Migration
 
-**Bytebase Approach**:
-The analyst requests access through Bytebase's centralized system, which can be set up quickly through the web interface without any software installation. A DBA grants read-only access to specific schemas with data masking applied to sensitive customer information. While the web-based SQL editor may not have all of DataGrip's advanced features, the analyst can still write and execute queries effectively. The key advantage comes in collaboration: the analyst can easily save and share useful queries with team members, build a shared library of analytical queries, and benefit from the centralized query history. Other team members can quickly access and build upon the analyst's work without needing to set up complex database connections.
+**Scenario**: Critical schema change deployment across environments with regulatory compliance requirements.
 
-**Outcome**: Secure, compliant access with excellent team collaboration and knowledge sharing, though individual query development may be less sophisticated than DataGrip.
+**DataGrip**: Local development and testing, but requires external coordination tools, manual consistency checks, separate audit systems.
+*Result: Great development experience but challenging governance and coordination.*
 
-### Use Case 2: Multi-Team Database Schema Migration
+**Bytebase**: Automated review workflows, approval processes, orchestrated deployments, GitOps integration, comprehensive audit trails.
+*Result: Secure, auditable deployment with full governance, though less fluid individual development.*
 
-**Scenario**: A fintech company needs to deploy a critical schema change across development, staging, and production environments, involving multiple teams and requiring regulatory compliance.
+### Use Case 3: Startup Development
 
-**DataGrip Approach**:
-Each developer uses DataGrip to develop and test schema changes locally. However, coordinating the deployment requires external tools and processes. Developers must manually ensure consistency across environments, and there's no built-in approval process. The DBA team needs to implement separate tools for change tracking, approval workflows, and audit logging. Risk of inconsistent deployments or unauthorized changes remains high.
+**Scenario**: 5-developer startup needing rapid schema iteration with basic organization.
 
-**Outcome**: Excellent development experience but challenging coordination and governance.
+**DataGrip**: Excellent UX, rapid development, shared credentials, informal coordination suitable for small teams.
+*Result: Maximum development velocity with manageable coordination overhead.*
 
-**Bytebase Approach**:
-The team creates a database change issue in Bytebase containing the schema migration SQL. The change goes through an automated review process, checking against SQL policies and requiring approval from senior developers and DBAs. Once approved, Bytebase orchestrates the deployment across environments, maintaining detailed logs of who approved what and when changes were applied. The GitOps integration ensures the schema changes are version-controlled alongside application code.
-
-**Outcome**: Secure, auditable, coordinated deployment with full governance, though individual development may be less fluid.
-
-### Use Case 3: Startup Rapid Development
-
-**Scenario**: A small startup with 5 developers needs to iterate quickly on their database schema while maintaining some level of organization.
-
-**DataGrip Approach**:
-Each developer uses DataGrip for database development, benefiting from the excellent user experience and rapid query development capabilities. The team shares database credentials and relies on communication tools for coordination. Schema changes are made directly by developers, enabling fast iteration. The small team size makes informal coordination manageable.
-
-**Outcome**: Maximum development velocity with acceptable coordination overhead for small team size.
-
-**Bytebase Approach**:
-The startup implements Bytebase, which is quick to set up since it's web-based and doesn't require installing software on each developer's machine. Developers can immediately start collaborating through shared queries and centralized database access. Even with a small team, they benefit from query sharing, change tracking, and basic approval workflows. The web-based interface makes it easy for new team members to get started without complex setup. As the team grows, these collaborative processes scale naturally without requiring major tooling changes. Developers appreciate the easy access and ability to learn from each other's queries.
-
-**Outcome**: Good development velocity with excellent collaboration foundation that scales as the team grows, plus easier onboarding for new developers.
+**Bytebase**: Quick web-based setup, shared queries, centralized access, collaborative workflows that scale with team growth.
+*Result: Good velocity with collaboration foundation that scales, plus easier onboarding.*
 
 ## What DataGrip and Bytebase Have in Common
 
