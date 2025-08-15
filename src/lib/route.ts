@@ -97,6 +97,7 @@ const Route = {
   VS_LIQUIBASE: '/blog/bytebase-vs-liquibase',
   VS_FLYWAY: '/blog/bytebase-vs-flyway',
   VS_DBEAVER: '/blog/bytebase-vs-dbeaver',
+  VS_DATAGRIP: '/blog/bytebase-vs-datagrip',
   VS_NAVICAT: '/blog/stop-using-navicat',
   VS_METABASE: '/blog/bytebase-vs-metabase',
   VS_CLOUDBEAVER: '/blog/bytebase-vs-cloudbeaver',
