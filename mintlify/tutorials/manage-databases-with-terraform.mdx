@@ -115,6 +115,13 @@ resource "bytebase_instance" "prod" {
 }
 ```
 
+<Note>
+`sync_databases` is a list of database names to sync. By default, all databases are synced.
+
+If you don't want to sync all databases, you can set something like `sync_databases = ["db1", "db2"]`.
+</Note>
+
+
 **Understanding the Configuration**
 
 - **depends_on**: Ensures environments from Part 1 exist first

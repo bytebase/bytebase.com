@@ -388,9 +388,16 @@ resource "bytebase_policy" "masking_exception_policy" {
 ```
 
 <Note>
+If there is no `expire_timestamp` specified, the exemption will never expire.
+
 `2027-07-30T16:11:49Z` is an ISO 8601 UTC timestamp.
 Our system uses PostgreSQL to store metadata, where this value is stored as a `timestamptz`.
 </Note>
+
+<Note>
+If you want to apply the exemption to all databases, you can skip the `database`, `table`, and `column` fields.
+</Note>
+
 
 ## Step 7: Apply Final Configuration and Test
 
