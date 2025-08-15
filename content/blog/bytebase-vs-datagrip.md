@@ -66,45 +66,26 @@ Bytebase supports **22 carefully selected database engines** focusing on enterpr
 
 ## Target Roles and Responsibilities
 
-Understanding which roles benefit most from each tool helps organizations make informed decisions about tool adoption and licensing. Both tools serve developers, but in different ways and contexts.
+### DataGrip: Individual Specialists and Power Users
 
-### DataGrip: Power Users and Individual Specialists
+**Best suited for:**
+- **Database Developers & Data Analysts**: Complex SQL development, advanced query features, AI assistance
+- **Data Scientists & Backend Developers**: Powerful query capabilities, desktop IDE integration
+- **Database Consultants**: Comprehensive database support across client environments
+- **BI Developers & Senior DBAs**: Advanced tools for optimization and complex development
 
-**Primary Roles:**
-- **Database Developers**: Professionals who spend significant time writing complex SQL queries, stored procedures, and database functions, benefiting from advanced IDE features
-- **Data Analysts**: Individuals performing ad-hoc analysis, creating reports, and exploring datasets who need sophisticated query development tools
-- **Data Scientists**: Researchers who need powerful query capabilities for data exploration and feature engineering, leveraging AI assistance and advanced analytics features
-- **Backend Developers**: Application developers who frequently interact with databases during development and prefer desktop IDE integration
-- **Database Consultants**: External specialists working across multiple client environments who need comprehensive database support
+### Bytebase: Team-Oriented Roles and Coordinators
 
-**Secondary Roles:**
-- **QA Engineers**: Testing database functionality and data integrity with advanced debugging capabilities
-- **Business Intelligence Developers**: Creating and maintaining BI solutions requiring complex query development
-- **Senior Database Administrators**: Individual DBAs who need advanced tools for database development and optimization
+**Best suited for:**
+- **Team-Based Developers**: Collaborative environments, query sharing, web-based access
+- **Database Administrators**: Production governance, team coordination, organizational policies
+- **DevOps/Platform Engineers**: CI/CD integration, automated deployments, standardized operations
+- **Engineering Managers & Security Engineers**: Change coordination, governance, access controls
 
-### Bytebase: Team-Oriented Developers and Coordinators
+### Key Difference
 
-**Primary Roles:**
-- **Team-Based Developers**: Developers working in collaborative environments who benefit from query sharing, easy web-based access, and standardized workflows
-- **Database Administrators**: DBAs responsible for production database governance, team coordination, and implementing organizational policies
-- **DevOps Engineers**: Professionals integrating database operations into CI/CD pipelines and managing automated deployments
-- **Platform Engineers**: Teams building internal developer platforms and standardizing database operations across organizations
-- **Junior to Mid-Level Developers**: Developers who benefit from the easy setup, web-based access, and guided workflows without needing advanced IDE features
-
-**Secondary Roles:**
-- **Engineering Managers**: Leaders coordinating database changes across multiple teams and ensuring governance
-- **Security Engineers**: Professionals implementing database access controls and compliance measures
-- **Site Reliability Engineers**: Ensuring database reliability and managing change processes
-- **Technical Leads**: Coordinating database architecture decisions across projects
-
-### Key Insight: Different Developer Needs
-
-The important distinction isn't that one tool serves developers and the other doesn't—both serve developers, but different types of developers with different needs:
-
-- **DataGrip excels for developers who**: Need advanced query development features, work independently or in small teams, require comprehensive database support, and prioritize individual productivity
-- **Bytebase excels for developers who**: Work in team environments, benefit from easy setup and web-based access, need to share queries and collaborate, and work within structured change management processes
-
-Bytebase's web-based nature makes it particularly appealing for developers who want to get started quickly without installing desktop software, share queries easily with teammates, and work within established team workflows. The collaborative features like query sharing and centralized script management can significantly benefit developer productivity in team settings.
+- **DataGrip**: Individual productivity, advanced features, comprehensive database support
+- **Bytebase**: Team collaboration, governance, structured change management processes
 
 ## Goals and Objectives Each Tool Achieves
 
