@@ -44,37 +44,25 @@ Bytebase, on the other hand, emerged from the recognition that modern developmen
 
 ## Database Engine Support Comparison
 
-Understanding the breadth of database support is crucial when choosing between these tools, as it directly impacts your ability to work with diverse data infrastructure.
-
 ### DataGrip: Extensive Multi-Database Coverage (35+ Engines)
 
-DataGrip provides the most comprehensive database support in the market, with **complete support for 28 major database systems** and **basic support for an additional 10+ engines**, totaling over 35 database types. This extensive coverage includes:
+DataGrip provides comprehensive database support with **complete support for 28 major database systems** and **basic support for 10+ additional engines**. This includes:
 
-**Complete Support (Advanced Features Available):**
-- **Relational Databases**: MySQL, PostgreSQL, Oracle, Microsoft SQL Server, MariaDB, SQLite, IBM Db2 LUW, Sybase ASE
-- **Cloud Databases**: Amazon Redshift, Azure SQL Database, Google BigQuery, Snowflake
-- **NoSQL Systems**: MongoDB, Apache Cassandra, Redis, DocumentDB, DynamoDB, Couchbase Query
-- **Analytics Platforms**: ClickHouse, Apache Hive, Greenplum, Vertica, Exasol
-- **Development Databases**: H2, HSQLDB, Apache Derby
+- **Core Systems**: MySQL, PostgreSQL, Oracle, SQL Server, MariaDB, SQLite
+- **Cloud & Analytics**: BigQuery, Snowflake, Redshift, ClickHouse, Databricks
+- **NoSQL**: MongoDB, Cassandra, Redis, DynamoDB
+- **Specialized**: Apache Spark, Elasticsearch, Google Cloud Spanner
 
-**Basic Support (Core Functionality):**
-- **Big Data Platforms**: Apache Spark, Databricks, Apache Ignite
-- **Search Engines**: Elasticsearch
-- **Specialized Systems**: DuckDB, Firebird, Google Cloud Spanner, AWS Athena, Denodo
+### Bytebase: Enterprise-Focused Support (22 Engines)
 
-### Bytebase: Focused Enterprise Database Support (22 Engines)
+Bytebase supports **22 carefully selected database engines** focusing on enterprise environments:
 
-Bytebase supports **22 carefully selected database engines**, focusing on the most commonly used systems in enterprise environments:
-
-**Production-Ready Support:**
-- **Core Relational**: MySQL, PostgreSQL, Oracle, Microsoft SQL Server, MariaDB, SQLite
-- **Cloud Data Warehouses**: Snowflake, Amazon Redshift, Google BigQuery, Databricks
+- **Core Relational**: MySQL, PostgreSQL, Oracle, SQL Server, MariaDB, SQLite
+- **Cloud Warehouses**: Snowflake, Redshift, BigQuery, Databricks
 - **Modern Analytics**: ClickHouse, StarRocks, RisingWave
-- **NoSQL Systems**: MongoDB, Redis, Cassandra, Elasticsearch
-- **Emerging Databases**: TiDB, OceanBase, DM (Dameng)
-- **Specialized**: Google Cloud Spanner, Apache Hive
+- **NoSQL & Emerging**: MongoDB, Redis, TiDB, OceanBase
 
-The key difference lies in approach: DataGrip maximizes compatibility across the entire database ecosystem, while Bytebase focuses on deep integration with enterprise-critical systems.
+**Key Difference**: DataGrip maximizes compatibility across the database ecosystem, while Bytebase focuses on deep integration with enterprise-critical systems.
 
 ## Target Roles and Responsibilities
 
