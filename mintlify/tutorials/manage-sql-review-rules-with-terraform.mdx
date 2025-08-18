@@ -27,10 +27,12 @@ This tutorial is part of the **Bytebase Terraform Provider** series:
 
 ## What You'll Learn
 
-- **Configure** SQL review rules for schema standards
-- **Enforce** naming conventions and structural requirements
-- **Apply** different severity levels (`ERROR`, `WARNING`)
-- **Target** specific environments with review policies
+In this tutorial, you'll learn how to:
+
+- **Set up** automated SQL review rules to maintain schema standards
+- **Implement** naming conventions and structural requirements across your databases
+- **Configure** severity levels (`ERROR`, `WARNING`) to control validation strictness
+- **Apply** review policies to specific environments for targeted governance
 
 ## Prerequisites
 
@@ -60,9 +62,9 @@ quality and schema consistency before changes enter the approval workflow.
 
 ### Step 1 - Create Review Configuration
 
-<Tip>
-  The examples below show some SQL Review rules. For a complete list of available rules and their configurations, see the above terraform provider resource documentation.
-</Tip>
+<Note>
+  The examples below demonstrate some SQL Review rules. For a comprehensive list of available rules and their configuration options, refer to the Terraform provider resource documentation linked above.
+</Note>
 
 Create `5-sql-review.tf` with the SQL review configuration:
 
@@ -77,19 +79,19 @@ resource "bytebase_review_config" "sample" {
   title       = "Sample SQL Review Config"
   enabled     = true
 
-  # Apply to production environment only
+  # Apply rules to production environment only
   resources = toset([
     bytebase_setting.environments.environment_setting[0].environment[1].name
   ])
 
-  # Rule 1: Warn about nullable columns
+  # Rule 1: Column nullability - warn about nullable columns to improve data integrity
   rules {
     type   = "column.no-null"
     engine = "POSTGRES"
     level  = "WARNING"
   }
 
-  # Rule 2: Require specific columns
+  # Rule 2: Required audit columns - enforce standard tracking fields
   rules {
     type    = "column.required"
     engine  = "POSTGRES"
@@ -97,14 +99,14 @@ resource "bytebase_review_config" "sample" {
     payload = "{\"list\":[\"id\",\"created_ts\",\"updated_ts\",\"creator_id\",\"updater_id\"]}"
   }
 
-  # Rule 3: Tables must have primary key
+  # Rule 3: Primary key requirement - ensure all tables have primary keys
   rules {
     type   = "table.require-pk"
     engine = "POSTGRES"
     level  = "ERROR"
   }
 
-  # Rule 4: Column naming convention
+  # Rule 4: Column naming standards - enforce snake_case naming convention
   rules {
     type    = "naming.column"
     engine  = "POSTGRES"
@@ -112,7 +114,7 @@ resource "bytebase_review_config" "sample" {
     payload = "{\"format\":\"^[a-z]+(_[a-z]+)*$\",\"maxLength\":64}"
   }
 
-  # Rule 5: Limit maximum rows in SELECT
+  # Rule 5: Query performance protection - limit maximum rows in SELECT statements
   rules {
     type    = "statement.maximum-limit-value"
     engine  = "POSTGRES"
@@ -122,7 +124,9 @@ resource "bytebase_review_config" "sample" {
 }
 ```
 
-Above are SQL Review rules that you set for the `Prod` environment. You may set for a project instead of an environment using something like `bytebase_project.sample_project.name`.
+<Note>
+  The configuration above applies SQL Review rules specifically to the `Prod` environment. Alternatively, you can scope rules to a specific project by using `bytebase_project.sample_project.name` in the `resources` attribute.
+</Note>
 
 ### Step 2 - Apply Configuration
 
@@ -133,81 +137,81 @@ terraform apply
 
 ### Step 3 - Verify in Bytebase
 
-1. Go to **CI/CD > SQL Review** on the left sidebar, you should see `Sample SQL Review Config` listed. Note that it's applied to the `Prod` environment.
+1. Navigate to **CI/CD > SQL Review** in the left sidebar. You should see `Sample SQL Review Config` listed, showing that it's applied to the `Prod` environment.
 
    ![sql-review-list](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-sql-review-list.webp)
 
-1. Click on it to view the configured rules.
+1. Click on the configuration to examine the rules you've defined.
 
    ![sql-review-pg](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-sql-review-pg.webp)
 
 ### Understanding SQL Review Rules
 
-SQL Review rules are categorized by what they validate:
+SQL Review rules are organized into categories based on what they validate:
 
 #### 1. Column Rules
 
-- **column.no-null**: Warns about nullable columns to encourage data integrity
-- **column.required**: Enforces required columns (id, timestamps, audit fields) for consistency
+- **column.no-null**: Issues warnings about nullable columns to promote data integrity and prevent null-related errors
+- **column.required**: Mandates the presence of essential columns (ID, timestamps, audit fields) to ensure consistent table structure
 
 #### 2. Table Rules
 
-- **table.require-pk**: Ensures every table has a primary key for data integrity and performance
+- **table.require-pk**: Guarantees that every table includes a primary key, which is crucial for data integrity, replication, and query performance
 
 #### 3. Naming Rules
 
-- **naming.column**: Enforces lowercase snake_case column names for consistency across your schema
+- **naming.column**: Enforces consistent lowercase snake_case naming conventions across your database schema, improving readability and maintainability
 
 #### 4. Statement Rules
 
-- **statement.maximum-limit-value**: Prevents SELECT queries without proper limits to avoid performance issues
+- **statement.maximum-limit-value**: Prevents potentially harmful SELECT queries by requiring appropriate LIMIT clauses, protecting against performance degradation
 
 ### Step 4 - Test SQL Review
 
-Create a test SQL statement to see the review in action:
+Let's validate that your SQL Review rules are working by testing them with some sample SQL:
 
-1. Go to **Project Two**, and click **Database > Databases** on the left sidebar.
-1. Check `hr_prod` and click **Edit Schema**.
-1. Try creating a table that violates the rules:
+1. Navigate to **Project Two**, then click **Database > Databases** in the left sidebar.
+1. Select the `hr_prod` database and click **Edit Schema**.
+1. Create a table that intentionally violates multiple rules:
 
    ```sql
-   -- This will trigger multiple violations
+   -- This table intentionally violates multiple SQL review rules
    CREATE TABLE BadExample (
-       FirstName VARCHAR(50),  -- Violates naming convention
-       LastName VARCHAR(50)    -- Missing required columns, no primary key
+       FirstName VARCHAR(50),  -- Violates snake_case naming convention
+       LastName VARCHAR(50)    -- Missing required audit columns and primary key
    );
    ```
 
    Expected violations:
 
-   - ❌ Column naming convention (should be first_name)
-   - ❌ Missing required columns (id, created_ts, etc.)
+   - ❌ Column naming convention violation (should be `first_name`, `last_name`)
+   - ❌ Missing required audit columns (`id`, `created_ts`, `updated_ts`, `creator_id`, `updater_id`)
    - ❌ No primary key defined
 
    ![sql-review-violations](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-sql-review-violations.webp)
 
-1. Even if you continue to create an issue, it will still show red SQL Review.
+1. Even if you proceed to create an issue, the SQL Review violations will be prominently displayed with error indicators.
 
    ![issue-sql-review-errors](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-issue-sql-review-errors.webp)
 
-1. Try a compliant table:
+1. Now try creating a compliant table that follows all your rules:
 
    ```sql
-   -- This follows all rules
+   -- This table complies with all SQL review rules
    CREATE TABLE good_example (
-       id SERIAL PRIMARY KEY,
-       first_name VARCHAR(50) NOT NULL,
-       last_name VARCHAR(50) NOT NULL,
-       created_ts TIMESTAMP NOT NULL DEFAULT NOW(),
-       updated_ts TIMESTAMP NOT NULL DEFAULT NOW(),
-       creator_id INTEGER NOT NULL,
-       updater_id INTEGER NOT NULL
+       id SERIAL PRIMARY KEY,                        -- Required primary key
+       first_name VARCHAR(50) NOT NULL,              -- Snake_case naming, not null
+       last_name VARCHAR(50) NOT NULL,               -- Snake_case naming, not null
+       created_ts TIMESTAMP NOT NULL DEFAULT NOW(),  -- Required audit column
+       updated_ts TIMESTAMP NOT NULL DEFAULT NOW(),  -- Required audit column
+       creator_id INTEGER NOT NULL,                  -- Required audit column
+       updater_id INTEGER NOT NULL                   -- Required audit column
    );
    ```
 
    Expected result:
 
-   - ✅ All required rules pass
+   - ✅ All SQL review rules pass successfully
 
    ![issue-sql-review-pass](/content/docs/tutorials/manage-sql-review-rules-with-terraform/bb-issue-sql-review-pass.webp)
 
@@ -247,12 +251,12 @@ rules {
 ## Key Points
 
 - **Rule Levels**:
-  - `ERROR`: Blocks the SQL statement from being executed
-  - `WARNING`: Allows execution but notifies users of potential issues
-- **Engine Specific**: Rules can target specific database engines (PostgreSQL, MySQL, etc.)
-- **Environment Scoped**: Apply different rules to test vs. production environments
-- **Payload Format**: Complex rules use JSON payloads for configuration (e.g., regex patterns, lists)
-- **Best Practice**: Start with WARNING level rules and gradually move to ERROR as teams adapt
+  - `ERROR`: Blocks SQL statement execution, preventing non-compliant changes from proceeding
+  - `WARNING`: Permits execution while alerting users to potential issues, useful for gradual policy adoption
+- **Engine Specificity**: Rules can be tailored to specific database engines (PostgreSQL, MySQL, Oracle, etc.) to accommodate platform differences
+- **Environment Scoping**: Apply stricter rules to production while allowing more flexibility in development and testing environments
+- **Payload Configuration**: Complex rules utilize JSON payloads for detailed configuration (regex patterns, value lists, thresholds)
+- **Implementation Strategy**: Begin with `WARNING` level rules to familiarize teams with standards, then gradually transition to `ERROR` level for enforcement
 
 <Card
   title="Part 6: Manage Users and Groups with Terraform"
