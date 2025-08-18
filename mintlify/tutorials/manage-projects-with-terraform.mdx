@@ -62,8 +62,24 @@ resource "bytebase_project" "project_one" {
   resource_id = "project-one"
   title       = "Project One"
 
+  # Some configurations
+  allow_modify_statement = true
+  auto_resolve_issue     = false
+  auto_enable_backup     = false  
+
   # Automatically include all databases from test instance
   databases = bytebase_instance.test.databases
+
+  webhooks {
+    title = "Sample webhook 1"
+    type  = "SLACK"
+    url   = "https://webhook.site/91fcd52a-39f1-4e7b-a43a-ddf72796d6b1"
+    notification_types = [
+      "NOTIFY_ISSUE_APPROVED",
+      "NOTIFY_PIPELINE_ROLLOUT",
+      "ISSUE_CREATE",
+    ]
+  }
 }
 
 # Project Two - Specific production database
@@ -78,6 +94,10 @@ resource "bytebase_project" "project_two" {
   ]
 }
 ```
+
+Above are some configurations including webhooks that you can set for a project. You can find the whole list of configurations [here](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/data-sources/project).
+
+You may also config SQL review policies for a project. You can find the tutorial [here](/tutorials/manage-sql-review-rules-with-terraform).
 
 **Two Assignment Patterns**
 
@@ -112,6 +132,10 @@ terraform apply
    - **Project Two** (contains `hr_prod` which is from `Prod Sample Instance`)
 
      ![project-2](/content/docs/tutorials/manage-projects-with-terraform/bb-project-2.webp)
+
+1. Go to `Project One` and click **Settings**. You'll see the configurations you set.
+
+1. Click **Webhooks** and you'll see the webhook you set.
 
 ## Summary and Next Steps
 
