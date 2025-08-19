@@ -31,20 +31,17 @@ Backup data is stored within your own database instance in a dedicated `bbdataar
 
 Bytebase continues to expand backup and rollback support for additional SQL statement types.
 
-### Prerequisites for Prior Backup
+### Feasibility Conditions
 
-Prior backup functionality requires **all** of the following conditions to be met:
+Prior backup is feasible when meeting **all** of the following conditions:
 
-- **Statement size**: SQL statement must be smaller than 2MB
-- **Single operation type**: Cannot mix `UPDATE` and `DELETE` operations on the same table
-- **DML only**: Cannot combine DDL (Data Definition Language) and DML (Data Manipulation Language) statements
+- The SQL statement size is less than 2M.
+- No mixed `UPDATE`/`DELETE` on the same table.
+- No mixed DDL/DML.
 
-### Prerequisites for 1-Click Rollback
+1-click rollback is feasible when meeting **all** of the following conditions:
 
-1-click rollback capability requires **all** of the following conditions:
-
-- **Primary key requirement**: For `UPDATE` operations, the target table must have a primary key
-- **Primary key integrity**: Primary key columns cannot be modified during the update operation
+- For `UPDATE`, the changed table has primary key and primary key columns are not updated.
 
 ## Enable Prior Backup
 
@@ -56,7 +53,7 @@ You can enable the **Prior Backup** option either before or after creating a dat
 If the Prior Backup switch appears disabled, navigate to the database page and click **Sync instance** to refresh the database metadata.
 </Note>
 
-## Perform 1-Click Rollback
+## Perform 1-Click and Multi-Task Rollback
 
 1. After your database change has been successfully deployed, click the **Rollback available** link to initiate the rollback process.
 
