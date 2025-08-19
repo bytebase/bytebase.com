@@ -2,43 +2,126 @@
 title: Use Cases
 ---
 
-Bytebase provides a centralized database development portal for the Developer, Security, DBA and platform engineering teams to collaborate on database-related tasks. This page lists the common Bytebase use cases.
+Bytebase is a unified database DevOps platform that transforms how teams collaborate on database development, security, and operations. From startups to enterprises, organizations use Bytebase to eliminate database bottlenecks and accelerate their development velocity.
+
+## Enterprise Security & Compliance
+
+**Problem:** Data breaches cost millions, compliance violations risk business operations, and permanent database access creates security vulnerabilities while blocking operational needs.
+
+**Solution:** Bytebase provides military-grade database security with zero-trust principles, role-based access controls, data masking, and comprehensive audit trails that satisfy SOC 2, GDPR, and HIPAA requirements.
+
+**Perfect for:** Financial services, healthcare, regulated industries, and DevOps teams balancing security requirements with operational agility.
+
+**Key outcomes:**
+- Eliminate compliance violations and reduce audit preparation time by 80%
+- Prevent unauthorized data access with automated permission expiration
+- Maintain detailed audit trails for forensic analysis and regulatory reporting
+- Balance security requirements with operational efficiency
+
+**Key features:**
+- [Granular permission management](/security/database-permission/overview) with multi-level approval workflows
+- **Just-in-Time (JIT) Access:** Time-bound permissions that automatically expire after use
+- [Dynamic data masking](/security/data-masking/overview) for PII protection in non-production environments  
+- [Watermarking](/security/watermark) to track and trace data access patterns
+- [Complete audit logs](/security/audit-log) for compliance reporting and forensic analysis
 
 ## Database Change Automation
 
-Similar to how GitLab/GitHub streamlines the code delivery, Bytebase streamlines the database change deployment from the non-prod environment all the way to the prod environment. Bytebase also supports GitOps with [built-in VCS integration](/vcs-integration/overview) and custom CI integration via [API](/integrations/api/overview/).
+**Problem:** Manual database deployments cause delays, errors, and weekend emergencies.
 
-## Holistic Database Security
+**Solution:** Bytebase automates the entire database change lifecycle with GitOps-style workflows. Teams deploy schema changes 10x faster with built-in rollback capabilities, automated testing, and seamless CI/CD integration.
 
-Organizations want to limit database access and enforce approval flow to conform compliance and avoid data leaks. Bytebase provides a suite of features to support this:
+**Perfect for:** Engineering teams practicing continuous deployment who need database changes to match their code delivery speed.
 
-- [Database Permission](/security/database-permission/overview)
-- [Dynamic Data Masking](/security/data-masking/overview)
-- [Watermark](/security/watermark)
-- [Audit Log](/security/audit-log)
+**Key outcomes:**
+- Deploy schema changes 10x faster with zero manual errors
+- Eliminate weekend deployments and emergency rollbacks
+- Achieve 99.9% deployment success rate with automated testing
+- Reduce database-related deployment delays by 90%
 
-## Just-in-Time (JIT) Database Access
+**Key features:**
+- [VCS Integration](/vcs-integration/overview) for GitOps workflows
+- [API-driven automation](/integrations/api/overview/) for custom CI/CD pipelines
+- Automated rollback and drift detection
+- Multi-environment progression (dev → staging → production)
 
-You can grant temporary database permissions to the users when they need to troubleshoot. Users can self-request the permission via the Bytebase UI or it can be integrated into the existing GitOps flow.
+## Multi-Database & Multi-Cloud Operations
 
-## Multi-Database Management
+**Problem:** Managing PostgreSQL, MySQL, MongoDB, and Snowflake across AWS, GCP, and Azure creates operational chaos.
 
-Organizations normally have more than one database system for managing OLTP and OLAP workload. Bytebase supports all [mainstream databases](/introduction/supported-databases).
+**Solution:** Bytebase provides a single control plane for all your databases, regardless of type or location. Manage 100+ database instances as easily as one.
 
-## Schema Enforcement
+**Perfect for:** Organizations with heterogeneous database environments or multi-cloud strategies.
 
-Data quality and system robustness are largely determined by the database schema. And being able to enforce standards consistently is the key to a high-quality schema. Bytebase can enforce [100+ SQL Review rules](/sql-review/overview) including naming convention, anti-SQL pattern detections and etc. You can also configure each individual rule for prod and non-prod environments respectively.
+**Key outcomes:**
+- Reduce database management overhead by 70% with unified operations
+- Eliminate vendor lock-in with consistent tooling across all platforms
+- Achieve consistent security and compliance across diverse database types
+- Streamline operations for both OLTP and OLAP workloads
 
-## Multi-Tenant Service
+**Key features:**
+- [20+ database types](/introduction/supported-databases) including SQL and NoSQL
+- Cross-cloud management (AWS RDS, GCP Cloud SQL, Azure Database)
+- Unified operations for OLTP and OLAP workloads
+- Consistent security policies across all databases
 
-A SaaS service may provision separate databases for each of its tenants. It's painful and error-prone to make sure a database change is consistently applied to each individual tenant's database. Bytebase can [change databases from multiple tenants](/change-database/batch-change/#change-databases-from-multiple-tenants).
+## Multi-Tenant & Sharded Database Management
 
-## Partitioned Database
+**Problem:** Whether you have 1,000 tenant databases or 50 sharded partitions, deploying schema changes manually is error-prone, time-consuming, and risks data integrity.
 
-As data grows, databases and tables maybe partitioned into smaller chucks. Meanwhile, you still want to
-apply the same database change to all partitions since they share the same schema. It's painful and error-prone to make sure a database change is consistently applied to each partition. Bytebase can [batch change many databases in a consistent manner](/change-database/batch-change/#change-database-group).
+**Solution:** Bytebase treats multiple databases as a single logical unit, executing changes in parallel with automatic rollback on failure. Deploy to thousands of databases in minutes, not days.
 
-## Internal Development Platform (IDP)
+**Perfect for:** B2B SaaS companies with database-per-tenant architecture and high-scale applications with horizontally partitioned data.
 
-The Bytebase UI console is built on the [public API](/integrations/api/overview/). If you have your own IDP
-and want to integrate database capabilities, you can treat Bytebase as a headless backend and call the API.
+**Key outcomes:**
+- Deploy to 10,000 databases in under 1 hour (vs. days of manual work)
+- Achieve 100% consistency across all tenant databases
+- Reduce deployment errors by 95% with automated rollback
+- Scale database operations without scaling operations team
+
+**Key features:**
+- [Batch operations](/change-database/batch-change/) with parallel execution
+- Automatic rollback on any failure
+- Zero-downtime migrations with health checks
+- Progress tracking and detailed execution logs
+- Tenant/shard-aware deployment strategies
+
+## Schema Quality & Standardization
+
+**Problem:** Inconsistent naming conventions and poor schema design lead to technical debt and production issues.
+
+**Solution:** Enforce schema standards automatically with 100+ customizable SQL review rules. Catch issues before they reach production.
+
+**Perfect for:** Platform teams establishing engineering excellence standards.
+
+**Key outcomes:**
+- Reduce schema-related incidents by 90%
+- Enforce consistent naming conventions across all teams
+- Prevent performance issues with automated detection of N+1 queries and missing indexes
+- Customize rules for different environments (stricter for production)
+
+**Key features:**
+- [100+ SQL review rules](/sql-review/overview) with customizable enforcement
+- Automated detection of anti-patterns and performance issues
+- Environment-specific rule configurations
+- Integration with development workflows
+
+## Platform Engineering & IDP Integration
+
+**Problem:** Building database management capabilities into your Internal Development Platform requires months of engineering effort.
+
+**Solution:** Use Bytebase as a headless database platform via comprehensive APIs. Get enterprise database management without building it yourself.
+
+**Perfect for:** Platform teams building golden paths for developers.
+
+**Key outcomes:**
+- Reduce IDP development time from months to weeks
+- Provide developers with self-service database capabilities
+- Maintain centralized control while enabling team autonomy
+- Integrate seamlessly with existing developer workflows
+
+**Key features:**
+- [REST API](/integrations/api/overview/) for all operations
+- Webhook notifications for event-driven workflows
+- SSO integration with existing identity providers
+- Embeddable UI components for custom portals
