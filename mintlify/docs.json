@@ -201,23 +201,23 @@
               },
               "administration/user-groups",
               "administration/roles",
-              "security/audit-log",
               "administration/scim/overview",
               "administration/2fa",
               "administration/password",
-              "administration/sign-in-restriction",
-              "security/watermark"
+              "administration/sign-in-restriction"
             ]
           },
           {
             "group": "General",
             "pages": [
+              "security/audit-log",
               "administration/license",
               "administration/mode",
               "ai-assistant",
               "administration/instance",
               "administration/environment-policy/overview",
               "administration/customize-logo",
+              "security/watermark",
               "administration/announcement",
               "administration/archive"
             ]
