@@ -10,12 +10,11 @@ feature_name: 'ROLLBACK_DATA_CHANGES'
   horizontal
 />
 
-Bytebase allows taking **Prior Backup** before a data change is made. Bytebase stores the pre-snapshot of the affected rows, which allows you to revert that data change if needed.
+Bytebase provides **Prior Backup** functionality that captures a snapshot of data before changes are applied. This safety mechanism stores the original state of affected rows, enabling you to revert data changes with a single click when necessary. You can perform **multi-task rollbacks** to efficiently revert multiple related changes across databases in one operation.
 
 <Info>
 
-The backup data is stored in your own database instance. Bytebase does not purge the backup data automatically.
-You can manually delete the data in `bbdataarchive` database/schema.
+Backup data is stored within your own database instance in a dedicated `bbdataarchive` location. Bytebase does not automatically purge this backup data, so you can manually clean up the `bbdataarchive` database or schema as needed.
 
 </Info>
 
@@ -30,79 +29,88 @@ You can manually delete the data in `bbdataarchive` database/schema.
 
 ## Supported Operations
 
-We are working on enabling backup and 1-click rollback for more SQL statements.
+Bytebase continues to expand backup and rollback support for additional SQL statement types.
 
-### Feasibility Conditions
+### Prerequisites for Prior Backup
 
-Prior backup is feasible when meeting **all** of the following conditions:
+Prior backup functionality requires **all** of the following conditions to be met:
 
-- The SQL statement size is less than 2M.
+- **Statement size**: SQL statement must be smaller than 2MB
+- **Single operation type**: Cannot mix `UPDATE` and `DELETE` operations on the same table
+- **DML only**: Cannot combine DDL (Data Definition Language) and DML (Data Manipulation Language) statements
 
-- No mixed `UPDATE`/`DELETE` on the same table.
+### Prerequisites for 1-Click Rollback
 
-- No mixed DDL/DML.
+1-click rollback capability requires **all** of the following conditions:
 
-1-click rollback is feasible when meeting **all** of the following conditions:
+- **Primary key requirement**: For `UPDATE` operations, the target table must have a primary key
+- **Primary key integrity**: Primary key columns cannot be modified during the update operation
 
-- For `UPDATE`, the changed table has primary key and primary key columns are not updated.
+## Enable Prior Backup
 
-## Create backup
-
-You can toggle **Prior Backup** switch before or after creating the issue.
+You can enable the **Prior Backup** option either before or after creating a database change issue.
 
    ![bb-issue-backup-on](/content/docs/change-database/rollback-data-changes/bb-issue-backup-on.webp)
 
-<Note>If the switch is disabled, go to the database page and click **Sync instance** first.</Note>
+<Note>
+If the Prior Backup switch appears disabled, navigate to the database page and click **Sync instance** to refresh the database metadata.
+</Note>
 
-## 1-click rollback
+## Perform 1-Click Rollback
 
-1. Once the change has been rolled out. You can click the **Rollback available** link to create the rollback plan.
+1. After your database change has been successfully deployed, click the **Rollback available** link to initiate the rollback process.
 
    ![bb-issue-done-1](/content/docs/change-database/rollback-data-changes/bb-issue-done-1.webp)
 
-1. There might be more than one rollbackable changes.
+1. You may see multiple rollbackable changes available, depending on your deployment scenario.
 
-   <Note>It might be one change to multiple databases or multiple changes to one database or both.</Note>
+   <Note>
+   This could include a single change applied to multiple databases, multiple changes to one database, or a combination of both scenarios.
+   </Note>
 
    ![bb-issue-done-2](/content/docs/change-database/rollback-data-changes/bb-issue-done-2.webp)
 
-1. You can choose to rollback one or all of them.
+1. Select which changes you want to rollback - you can choose individual changes or rollback all of them at once. This **multi-task rollback** capability allows you to efficiently revert multiple related changes in a single operation.
 
    ![bb-rollback-select](/content/docs/change-database/rollback-data-changes/bb-rollback-select.webp)
 
-1. The rollback plan automatically populates the rollback statements.
+1. Bytebase automatically generates the appropriate rollback SQL statements based on the backup data.
 
    ![bb-rollback-issue-1](/content/docs/change-database/rollback-data-changes/bb-rollback-issue-1.webp)
 
    ![bb-rollback-issue-2](/content/docs/change-database/rollback-data-changes/bb-rollback-issue-2.webp)
 
-## Inspect the backup data
+## Inspect Backup Data
 
-You can go to SQL Editor to inspect the backup data.
+You can examine the stored backup data using Bytebase's SQL Editor to verify what information has been preserved.
 
    ![bb-sql-editor-test](/content/docs/change-database/rollback-data-changes/bb-sql-editor-test.webp)
    ![bb-sql-editor-prod](/content/docs/change-database/rollback-data-changes/bb-sql-editor-prod.webp)
 
-## Project backup settings
+## Project Backup Settings
 
-- You can enable **Prior Backup** by default.
-- You can control whether you want to skip backup errors and continue changing the data.
+Configure backup behavior at the project level for consistent data protection:
+
+- **Default backup**: Enable **Prior Backup** by default for all changes in the project
+- **Error handling**: Control whether to skip backup errors and proceed with data changes
 
    ![prior-backup-default](/content/docs/change-database/rollback-data-changes/bb-prior-backup-default.webp)
 
 ## Appendix: Setting Up `bbdataarchive`
 
+Before using Prior Backup functionality, you must create the `bbdataarchive` storage location in your database instance. Follow the instructions for your specific database engine:
+
 ### MySQL
 
-1. Create the `bbdataarchive` Database:
+1. **Create the backup database:**
 
    ```sql
    CREATE DATABASE bbdataarchive;
    ```
 
-1. Grant Necessary Privileges:
+1. **Grant necessary privileges:**
 
-   Replace `your_user` with the actual username.
+   Replace `your_user` with the actual username that Bytebase uses to connect to your database.
 
    ```sql
    GRANT ALL PRIVILEGES ON bbdataarchive.* TO 'your_user'@'%';
@@ -111,15 +119,15 @@ You can go to SQL Editor to inspect the backup data.
 
 ### PostgreSQL
 
-1. Create the `bbdataarchive` Schema:
+1. **Create the backup schema:**
 
    ```sql
    CREATE SCHEMA bbdataarchive;
    ```
 
-1. Grant Necessary Privileges:
+1. **Grant necessary privileges:**
 
-   Replace `your_user` with the actual username.
+   Replace `your_user` with the actual username that Bytebase uses to connect to your database.
 
    ```sql
    GRANT ALL PRIVILEGES ON SCHEMA bbdataarchive TO your_user;
@@ -128,29 +136,29 @@ You can go to SQL Editor to inspect the backup data.
 
 ### Oracle
 
-1. Create the `bbdataarchive` User:
+1. **Create the backup user:**
 
    ```sql
    CREATE USER bbdataarchive IDENTIFIED BY password;
    ```
 
-1. Grant Connection Privileges:
+1. **Grant connection privileges:**
 
    ```sql
    GRANT CREATE SESSION TO bbdataarchive;
    ```
 
-1. Grant unlimited space quota to the `bbdataarchive` user on the specified `tablespace`:
+1. **Grant unlimited space quota:**
 
-   Replace `tablespace_name` with the actual tablespace name.
+   Replace `tablespace_name` with your actual tablespace name.
 
    ```sql
    GRANT QUOTA UNLIMITED ON tablespace_name TO bbdataarchive;
    ```
 
-1. Grant Privileges to the Instance Administrator:
+1. **Grant privileges to the instance administrator:**
 
-   Replace `admin_user` with the actual username of the instance administrator.
+   Replace `admin_user` with the actual username that Bytebase uses as the instance administrator.
 
    ```sql
    GRANT CREATE ANY TABLE TO admin_user;
@@ -159,15 +167,15 @@ You can go to SQL Editor to inspect the backup data.
 
 ### SQL Server
 
-1. Create the `bbdataarchive` Database:
+1. **Create the backup database:**
 
    ```sql
    CREATE DATABASE bbdataarchive;
    ```
 
-1. Grant Necessary Privileges:
+1. **Grant necessary privileges:**
 
-   Replace `your_user` with the actual username.
+   Replace `your_user` with the actual username that Bytebase uses to connect to your database.
 
    ```sql
    USE bbdataarchive;
