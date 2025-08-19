@@ -27,24 +27,29 @@ This tutorial is part of the **Bytebase Terraform Provider** series:
 
 ## What You'll Learn
 
-Create projects to organize your databases into logical groups.
+In this tutorial, you'll learn how to:
+
+- **Organize** databases into logical project groups for better management
+- **Configure** project-specific settings and policies
+- **Set up** webhooks for project notifications
+- **Choose** between dynamic and explicit database assignment patterns
 
 ## Prerequisites
 
 Before starting this tutorial, ensure you have:
 
-- **Completed Parts 1 & 2**: Environments and instances configured
-- **Built-in instances**: `Test Sample Instance` and `Prod Sample Instance` from sample data
-- **Terraform workspace**: From previous tutorials
+- Completed [Part 1: Manage Environments with Terraform](/tutorials/manage-environments-with-terraform) and [Part 2: Manage Databases with Terraform](/tutorials/manage-databases-with-terraform)
+- Access to the built-in `Test Sample Instance` and `Prod Sample Instance` from Bytebase sample data
+- Your Terraform workspace from the previous tutorials
 
 ## Step 1 - Understand Current Setup
 
-From previous tutorials, you have:
+From the previous tutorials, your Bytebase workspace contains:
 
-- **Test instance** with `hr_test` and `postgres` databases
-- **Prod instance** with `hr_prod` and `postgres` databases
+- **Test instance**: Contains `hr_test` and `postgres` databases
+- **Prod instance**: Contains `hr_prod` and `postgres` databases
 
-Currently, these `hr_test` and `hr_prod` databases are in the default `Sample Project`, while `postgres` databases are unassigned. You can view them in Bytebase by clicking **Databases** on the left sidebar. Let's organize them into new projects.
+Currently, the `hr_test` and `hr_prod` databases are assigned to the default `Sample Project`, while the `postgres` databases remain unassigned. You can verify this by navigating to **Databases** in the left sidebar. We'll now organize these databases into dedicated projects for better management.
 
 ## Step 2 - Create Projects
 
@@ -56,39 +61,77 @@ Currently, these `hr_test` and `hr_prod` databases are in the default `Sample Pr
 Create `3-projects.tf`:
 
 ```hcl 3-projects.tf
-# Project One - All test databases
+# Project One - Development/Test Environment
+# Uses dynamic assignment to automatically include all test databases
 resource "bytebase_project" "project_one" {
   depends_on  = [bytebase_instance.test]
   resource_id = "project-one"
   title       = "Project One"
 
-  # Automatically include all databases from test instance
+  # Project-level configurations for development workflow
+  allow_modify_statement = true   # Allow direct SQL modifications
+  auto_resolve_issue     = false  # Manual issue resolution for review
+  auto_enable_backup     = false  # Disable automatic backups for test data
+
+  # Dynamically include all databases from the test instance
   databases = bytebase_instance.test.databases
+
+  # Configure Slack notifications for team collaboration
+  webhooks {
+    title = "Sample webhook 1"
+    type  = "SLACK"
+    url   = "https://webhook.site/91fcd52a-39f1-4e7b-a43a-ddf72796d6b1"
+    notification_types = [
+      "NOTIFY_ISSUE_APPROVED",
+      "NOTIFY_PIPELINE_ROLLOUT",
+      "ISSUE_CREATE",
+    ]
+  }
 }
 
-# Project Two - Specific production database
+# Project Two - Production Environment  
+# Uses explicit assignment for precise control over production databases
 resource "bytebase_project" "project_two" {
   depends_on  = [bytebase_instance.prod]
   resource_id = "project-two"
   title       = "Project Two"
 
-  # Explicitly specify which database to include
+  # Explicitly specify which production databases to include
   databases = [
     "instances/prod-sample-instance/databases/hr_prod"
   ]
 }
 ```
 
-**Two Assignment Patterns**
+<Note>
+The configuration above demonstrates project-level settings including webhook notifications. For a complete list of available project configurations, refer to the [Terraform provider documentation](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/data-sources/project).
 
-1. **Dynamic**: `databases = bytebase_instance.test.databases`
+  You can also configure SQL review policies at the project level. Learn more in [Part 5: Manage SQL Review Rules with Terraform](/tutorials/manage-sql-review-rules-with-terraform).
+</Note>
 
-   - Automatically includes all databases from an instance
-   - Good for development/test environments
+### Database Assignment Patterns
 
-1. **Explicit**: `databases = ["instances/.../databases/..."]`
-   - Manually specify each database
-   - Better control for production
+Choose the appropriate pattern based on your project's needs:
+
+#### Dynamic Assignment
+
+```hcl
+databases = bytebase_instance.test.databases
+```
+
+- **Automatically includes** all databases from a specified instance
+- **Best for**: Development and testing environments where databases change frequently
+- **Benefit**: Self-maintaining as new databases are automatically included
+
+#### Explicit Assignment
+
+```hcl
+databases = ["instances/prod-sample-instance/databases/hr_prod"]
+```
+
+- **Manually specify** each database by its full path
+- **Best for**: Production environments requiring precise control
+- **Benefit**: Granular control over which databases belong to the project
 
 ## Step 3 - Apply Configuration
 
@@ -99,27 +142,33 @@ terraform apply
 
 ## Step 4 - Verify Projects
 
-1. Go to **Projects** in Bytebase.
+1. Navigate to **Projects** in the Bytebase GUI.
 
-1. You'll see three projects:
+1. You should now see three projects organized as follows:
 
-   - **Sample Project** (original, now empty)
+   - **Sample Project** (original default project, now empty after database migration)
 
-   - **Project One** (contains `hr_test` and `postgres` which are both from `Test Sample Instance`)
+   - **Project One** (contains both `hr_test` and `postgres` databases from `Test Sample Instance`)
 
      ![project-1](/content/docs/tutorials/manage-projects-with-terraform/bb-project-1.webp)
 
-   - **Project Two** (contains `hr_prod` which is from `Prod Sample Instance`)
+   - **Project Two** (contains the `hr_prod` database from `Prod Sample Instance`)
 
      ![project-2](/content/docs/tutorials/manage-projects-with-terraform/bb-project-2.webp)
 
+1. Click on **Project One** and navigate to **Settings** to review the configurations you've applied.
+
+1. Click **Webhooks** and you'll see the webhook you set.
+
 ## Summary and Next Steps
 
-You've successfully organized databases into projects! Key takeaways:
+Congratulations! You've successfully organized your databases into logical projects. Here are the key concepts you've learned:
 
-- **Projects group related databases** for better organization
-- **Two assignment patterns**: dynamic (all databases) or explicit (specific databases)
-- **Projects span environments**: can include both test and prod databases
+- **Project Organization**: Projects serve as logical containers that group related databases for improved management and governance
+- **Assignment Flexibility**: Choose between dynamic assignment (automatic inclusion) for development environments or explicit assignment (manual control) for production
+- **Cross-Environment Projects**: Projects can span multiple environments, though it's often better to separate test and production databases into different projects
+- **Project Configuration**: Customize project behavior with settings like statement modification permissions, automatic issue resolution, and backup policies
+- **Notification Integration**: Set up webhooks to keep your team informed about project activities through Slack or other channels
 
 <Card
   title="Part 5: Manage General Settings with Terraform"
