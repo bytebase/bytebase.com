@@ -10,207 +10,206 @@ import ClickHouseConfig from '/snippets/get-started/instance/clickhouse.mdx';
 import DatabricksConfig from '/snippets/get-started/instance/databricks.mdx';
 import SpannerConfig from '/snippets/get-started/instance/spanner.mdx';
 
-<Note>
+Learn how to connect Bytebase to your database instances, configure authentication, and set up advanced security options.
 
-Only **Workspace Admin** or **Workspace DBA** role can configure database instance.
+## Quick Start
 
-</Note>
-
-To allow Bytebase to execute operations on behalf the end user, you need to supply Bytebase with the
-connection info for your database instance.
+Navigate to the configuration section for your cloud provider, or start with general configuration options that apply to all databases:
 
 <Columns cols={4}>
-  <Card title="General" href="#general" icon="settings" />
-  <Card title="AWS" href="#aws" icon="aws" />
-  <Card title="GCP" href="#gcp" icon="google" />
-  <Card title="Azure" href="#azure" icon="microsoft" />
+  <Card title="General Setup" href="#general-configuration" icon="settings" />
+  <Card title="AWS" href="#aws-configuration" icon="aws" />
+  <Card title="Google Cloud" href="#gcp-configuration" icon="google" />
+  <Card title="Azure" href="#azure-configuration" icon="microsoft" />
 </Columns>
 
-## General
+## General Configuration
 
-### Database Connectivity
+### Basic Connection
 
-- **Docker (standard mode)**: Use `host.docker.internal` for localhost databases. [Learn more](https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host)
-- **Docker (--network host)**: Use `127.0.0.1` for localhost databases
-- **Bytebase Cloud**: Whitelist required IP addresses first. See [Cloud Prerequisites](/get-started/cloud#prerequisites)
+Before configuring connection parameters, ensure network connectivity:
 
-### Read-Only Connection
+**Network Requirements:**
+- Verify network routing between Bytebase and your database instance (e.g., VPN, private networks)
+- Configure firewall rules to allow Bytebase to connect to your database port
+- For cloud databases, add Bytebase to security groups or IP allowlists
+- Bytebase Cloud users: [Whitelist required IPs](/get-started/cloud#prerequisites)
+
+**Connection Parameters:**
+
+1. **Host**: Database server address
+   - Docker (standard): Use `host.docker.internal` for localhost databases
+   - Docker (--network host): Use `127.0.0.1` for localhost databases
+
+2. **Port**: Database port number (e.g., 5432 for PostgreSQL, 3306 for MySQL)
+
+3. **Username & Password**: Database credentials with appropriate permissions
+
+Additional parameters vary by database type - see [Database-Specific Guides](#database-specific-guides) for your database's requirements.
+
+### Advanced Options
+
+#### Read-Only Connections
+
+Configure separate read-only connections for enhanced security and performance:
 
 <Note>
-
-Read-only connection is used in:
-
-1. Restrict SQL Editor to query and export from [read-only data source](/sql-editor/settings/data-source-restriction).
-1. [Export from Export Center](/security/database-permission/export#request-from-export-center)
-
+Read-only connections are used for:
+- SQL Editor queries with [data source restrictions](/sql-editor/settings/data-source-restriction)
+- [Export Center operations](/security/database-permission/export#request-from-export-center)
 </Note>
 
-To separate from admin connection, you can configure read-only connections once an instance is added.
+**Setup Steps:**
+1. Create a read-only database user or configure a read-replica
+2. Click **Create** or **+** on **Connection info**
+3. Enter the read-only connection details
+4. Click **Update** to save
 
-1. Create a new role with read-only access or a read-replica instance.
-1. Click **Create** or **+** on **Connection info**.
-1. Enter read-only connection info. If this is a read-replica instance, you need to enter its host and port information.
-1. Click **Update** to finish the configuration.
-1. Click **+** to add more, or click trash icon to delete.
+![Read-only connection configuration](/content/docs/get-started/instance/bb-instance-read-only-connection.webp)
 
-![bb-instance-read-only-connection](/content/docs/get-started/instance/bb-instance-read-only-connection.webp)
-
-### SSH tunnel
+#### SSH Tunnel
 
 <PricingPlanBlock feature_name="SSH_TUNNEL" />
 
-To protect their databases, some hosting providers block direct remote access. However, they often enable SSH, which allows users to connect to their servers remotely using an SSH client. If you want to connect to a database on one of these servers from Bytebase, you will need to create an SSH tunnel. This will allow you to connect to the database without compromising security.
+Connect to databases behind firewalls using SSH tunneling:
 
-![ssh explain](/content/docs/get-started/instance/ssh-explain.webp)
+![SSH tunnel architecture](/content/docs/get-started/instance/ssh-explain.webp)
 
-1. After filling in the standard database connection information, click **SSH Connection** > **Tunnel + Private Key**.
-2. Fill in the SSH connection information. The **Private Key** is used to authenticate the SSH connection. You can also use a password instead.
-   ![ssh tunnelling](/content/docs/get-started/instance/bb-instance-ssh-connection.webp)
-3. Click **Test Connection**. If the connection is successful, click **Create** to create this instance.
+**Configuration:**
+1. Fill in standard database connection details
+2. Select **SSH Connection** > **Tunnel + Private Key**
+3. Provide SSH connection information:
+   - SSH Host & Port
+   - SSH Username
+   - Private Key or Password
+4. Test connection and click **Create**
 
-### Extra Connection Parameters
+![SSH tunnel setup](/content/docs/get-started/instance/bb-instance-ssh-connection.webp)
 
-When connecting to a database instance, you may need to specify additional parameters to customize the connection behavior. Bytebase provides a feature that allows users to define extra parameters for the database connection string directly in the UI.
+#### Connection Parameters
 
-**Supported Database Connection Parameters**
+Customize connection behavior with database-specific parameters:
 
-Below are links to official documentation for configuring connection parameters:
+**Common Parameters:**
 
-- **PostgreSQL**: [Connection Parameters](https://www.postgresql.org/docs/current/libpq-connect.html)
-- **Oracle (Go-ORA)**: [Go-ORA Connection Options](https://github.com/sijms/go-ora)
-- **MySQL (Go SQL Driver)**: [Connection Parameters](https://github.com/go-sql-driver/mysql?tab=readme-ov-file#parameters)
-- **Microsoft SQL Server (Go-MSSQL)**: [Connection Options](https://pkg.go.dev/github.com/microsoft/go-mssqldb#section-readme)
+| Parameter | Description | Example | Databases |
+|-----------|------------|---------|-----------|
+| `sslmode` | SSL connection mode | `require` | PostgreSQL |
+| `connect_timeout` | Connection timeout | `10` | PostgreSQL, MySQL |
+| `readTimeout` | Read operation timeout | `30s` | MySQL, SQL Server |
+| `max_connections` | Maximum connections | `100` | All |
 
-**Common Connection Parameters**
+**Database Documentation:**
+- [PostgreSQL Parameters](https://www.postgresql.org/docs/current/libpq-connect.html)
+- [MySQL Parameters](https://github.com/go-sql-driver/mysql#parameters)
+- [SQL Server Parameters](https://pkg.go.dev/github.com/microsoft/go-mssqldb#section-readme)
+- [Oracle Parameters](https://github.com/sijms/go-ora)
 
-| Parameter         | Description                                  | Example   |
-| ----------------- | -------------------------------------------- | --------- |
-| `sslmode`         | SSL connection mode (PostgreSQL)             | `require` |
-| `connect_timeout` | Timeout for establishing connections         | `10`      |
-| `readTimeout`     | Read timeout for MySQL and MSSQL connections | `30s`     |
-| `max_connections` | Maximum number of connections allowed        | `100`     |
+### Security Features
 
-For a full list of supported parameters, refer to the official database documentation links above.
-
-### External Secret Manager
+#### Secret Manager
 
 <PricingPlanBlock feature_name="EXTERNAL_SECRET_MANAGER" />
 
-By default, Bytebase stores the database credentials in an obfuscated format in its own meta store.
-You can also instruct Bytebase to retrieve the database credential from an external secret manager.
+Store database credentials securely in secret managers instead of Bytebase's internal storage.
 
-![external-secret-manager-flow](/content/docs/get-started/instance/external-secret-manager-flow.webp)
+![External secret manager flow](/content/docs/get-started/instance/external-secret-manager-flow.webp)
 
-1. User tries to access database from Bytebase.
-1. Bytebase calls the external secret manager to exchange the configured key for the database password.
-1. Bytebase retrieves the password and connect the database.
+**Supported Providers:**
+- **HashiCorp Vault** - Configure below
+- **[AWS Secrets Manager](#aws-secrets-manager)** - See AWS configuration section
+- **[GCP Secret Manager](#gcp-secret-manager)** - See GCP configuration section
+- **Custom API Endpoint** - Configure below
 
-#### HashiCorp Vault
+##### HashiCorp Vault
 
 <Note>
-
-Bytebase only supports KV v2 engine.
-
+Requires Vault KV v2 engine
 </Note>
 
-Create the secret in Vault like below:
+**Vault Setup:**
+1. Create secret in Vault:
+   - Engine: `secret`
+   - Path: `bytebase`
+   - Key: `DB_PASSWORD`
+   - Value: Your password
 
-- Secret engine name: `secret`
-- Secret path: `bytebase`
-- Secret key: `DB_PASSWORD`
-- Secret: `<<YOUR_PASSOWRD>>`
+![Vault secret creation](/content/docs/get-started/instance/vault/create-secret.webp)
 
-  ![create-secret](/content/docs/get-started/instance/vault/create-secret.webp)
+**Bytebase Configuration:**
+1. Enter Vault URL
+2. Choose authentication method:
+   - **[Token](https://developer.hashicorp.com/vault/docs/auth/token)**: Provide access token
+   - **[AppRole](https://developer.hashicorp.com/vault/docs/auth/approle)**: Provide role ID and secret ID
+3. Specify secret location (engine/path/key)
 
-Configure instance to retrieve database password from vault:
+![Vault authentication](/content/docs/get-started/instance/vault/auth.webp)
 
-- Specify the Vault URL.
+##### Custom API Endpoint
 
-- Specify the Vault auth method.
+Integrate with custom secret managers using your API:
 
-  - For [Token](https://developer.hashicorp.com/vault/docs/auth/token), specify the token.
-  - For [AppRole](https://developer.hashicorp.com/vault/docs/auth/approle), specify the auth role id and secret id.
+**Endpoint Format:** `{{http://example.com/secrets/mydbkey}}`
 
-- Specify the secret engine name`secret`, secret path `bytebase` and secret key `DB_PASSWORD`.
-
-  ![vault-auth](/content/docs/get-started/instance/vault/auth.webp)
-
-#### Custom endpoint
-
-![external-secret-manager-config](/content/docs/get-started/instance/external-secret-manager-config.webp)
-
-If you have a custom external secret manager, you can supply its API endpoint by enclosing it with the mustache `{{` `}}`, e.g `{{http://example.com/secrets/mydbkey}}`
-
-**Sample request**
-
-Usually `mydbkey` is unique for each database and used for exchanging the password for that database.
-
-```bash
-curl "http://example.com/secrets/mydbkey"
-```
-
-**Expected response**
-
-Bytebase expects the following JSON response from the external secret manager. The `payload.data` is the
-base64-encoded contents of the database password.
-
+**Expected Response:**
 ```json
 {
   "payload": {
-    "data": "xxx"
+    "data": "base64_encoded_password"
   }
 }
 ```
 
-## AWS
+## AWS Configuration
 
-While creating an RDS or Aurora instance, you can choose to enable IAM authentication.
-![](/content/docs/get-started/instance/aws-rds-iam/db-password-iam.webp)
+### RDS/Aurora with IAM Authentication
 
-### IAM Authentication
+Connect to AWS databases using IAM credentials instead of passwords.
 
-#### Create IAM policy
+#### Prerequisites
 
-1.  Go to **IAM > Policies** and click **Create policy**.
-    ![](/content/docs/get-started/instance/aws-rds-iam/create-policy.webp)
+Enable IAM authentication when creating your RDS/Aurora instance:
 
-1.  Select `RDS IAM Authentication` for service.
-    ![](/content/docs/get-started/instance/aws-rds-iam/rds-iam-auth.webp)
+![IAM authentication option](/content/docs/get-started/instance/aws-rds-iam/db-password-iam.webp)
 
-1.  Select `connect` permission and `specific` as Resources. Check `Any in this account`.
-    ![](/content/docs/get-started/instance/aws-rds-iam/connect-permission.webp)
+#### Setup IAM Policy
 
-          <Info>
+1. Go to **IAM > Policies** and click **Create policy**
+   ![](/content/docs/get-started/instance/aws-rds-iam/create-policy.webp)
 
-    `Any in this account` will mark the resource as
-    `arn:aws:rds-db:*:<<your-db-id>>:dbuser:*/*`, which contains 3 `*`:
+2. Select `RDS IAM Authentication` for service
+   ![](/content/docs/get-started/instance/aws-rds-iam/rds-iam-auth.webp)
 
-    - 1st \*: any regions
-    - 2nd \*: any databases
-    - 3rd \*: any database users
+3. Select `connect` permission and `specific` as Resources. Check `Any in this account`
+   ![](/content/docs/get-started/instance/aws-rds-iam/connect-permission.webp)
 
-    This will allow the RDS connect on behalf of all database users in all databases in your account.
-    If you want to limit the connection to specific databases, please follow [this doc](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html).
+   <Info>
+   `Any in this account` will mark the resource as `arn:aws:rds-db:*:<<your-db-id>>:dbuser:*/*`, which contains 3 `*`:
+   - 1st *: any regions
+   - 2nd *: any databases  
+   - 3rd *: any database users
 
-    </Info>
+   This will allow RDS connect on behalf of all database users in all databases in your account.
+   If you want to limit the connection to specific databases, please follow [this doc](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html).
+   </Info>
 
-1.  Name it `rds-connect` and create this policy.
+4. Name it `rds-connect` and create this policy
 
-#### Create IAM user
+#### Create IAM User
 
-1. Go to **IAM > Users** can click **Create user**. Name it `rds-connector`.
+1. Go to **IAM > Users** and click **Create user**. Name it `rds-connector`
    ![](/content/docs/get-started/instance/aws-rds-iam/create-user.webp)
 
-1. Choose Attach policy directly and select the `rds-connect` policy. Click **Next** and then click **Create user**.
+2. Choose **Attach policy directly** and select the `rds-connect` policy. Click **Next** and then click **Create user**
    ![](/content/docs/get-started/instance/aws-rds-iam/attach-policy.webp)
 
-1. On the user detail page, click **Create access key**.
+3. On the user detail page, click **Create access key**
    ![](/content/docs/get-started/instance/aws-rds-iam/access-key.webp)
 
-1. Choose `Application running outside AWS` and click **Next**.
+4. Choose `Application running outside AWS` and click **Next**
    ![](/content/docs/get-started/instance/aws-rds-iam/app-outside-aws.webp)
 
-1. Then you get the **access key** and the **secret access key**.
+5. Then you get the **access key** and the **secret access key**
    ![](/content/docs/get-started/instance/aws-rds-iam/retrieve-access-keys.webp)
 
 #### Use IAM Auth in Bytebase
@@ -218,43 +217,32 @@ While creating an RDS or Aurora instance, you can choose to enable IAM authentic
 1. Start Bytebase with AWS IAM credentials by passing the AWS environment variables:
 
    ```bash
-     docker run --init \
+   docker run --init \
      -e AWS_ACCESS_KEY_ID=<<your-access-key>> \
      -e AWS_SECRET_ACCESS_KEY=<<your-secret-access-key>> \
      -e AWS_REGION=<<your-aws-region>> \
-     --name bytebase \
-     --publish 8080:8080 --pull always \
-     bytebase/bytebase:latest
+     ...
    ```
 
-1. Go to RDS instance detail page, you'll find the **endpoint** and **port**.
+2. Go to RDS instance detail page, you'll find the **endpoint** and **port**
    ![](/content/docs/get-started/instance/aws-rds-iam/mysql-connection.webp)
 
-1. Configure instance connection using `AWS RDS IAM`, create the `bytebase` user with `AWSAuthenticationPlugin` and grant permission.
+3. Configure instance connection using `AWS RDS IAM`, create the `bytebase` user with `AWSAuthenticationPlugin` and grant permissions:
 
    ```sql
-       CREATE USER bytebase@'%' IDENTIFIED WITH AWSAuthenticationPlugin AS 'RDS';
-
-       ALTER USER 'bytebase'@'%' REQUIRE SSL;
-
-       GRANT ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE VIEW,
-       DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, PROCESS, REFERENCES,
-       SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE, USAGE,
-       RELOAD, LOCK TABLES, REPLICATION CLIENT, REPLICATION SLAVE
-       /*!80000 , SET_USER_ID */ON *.* to bytebase@'%';
+   -- For MySQL/Aurora MySQL
+   CREATE USER bytebase@'%' IDENTIFIED WITH AWSAuthenticationPlugin AS 'RDS';
+   ALTER USER 'bytebase'@'%' REQUIRE SSL;
    ```
 
-1. Use the instance endpoint, port and the username `bytebase` to connect the instance.
+4. Use the instance endpoint, port and the username `bytebase` to connect the instance
 
-### Secrets Manager
+### AWS Secrets Manager
 
 #### Create an IAM user to access the Secrets Manager
 
 <Tip>
-
-It's recommended to create a dedicated IAM user for Bytebase to retrieve the secrets. You only need to do this once
-.
-
+It's recommended to create a dedicated IAM user for Bytebase to retrieve the secrets. You only need to do this once.
 </Tip>
 
 Visit [IAM](https://aws.amazon.com/iam/) to create a new IAM user. Name it `bytebase-external-secret`.
@@ -273,16 +261,13 @@ Select `Third-party service` as the use case.
 
 ![](/content/docs/get-started/instance/aws-secrets-manager/iam-access-key-use-case.webp)
 
-Optionally set the description tag and in the `Retrieve access keys` screen, record `Access key` and
-`Secret access key`. They will be passed as environment variables when starting Bytebase.
+Optionally set the description tag and in the `Retrieve access keys` screen, record `Access key` and `Secret access key`. They will be passed as environment variables when starting Bytebase.
 
 ![](/content/docs/get-started/instance/aws-secrets-manager/iam-access-key-info.webp)
 
 #### Create secret
 
-Visit [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) to store a new secret. Select
-`Other type of secret`, and add a key/value pair. The key is `DB_PASSWORD` and the value is your
-database user password.
+Visit [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) to store a new secret. Select `Other type of secret`, and add a key/value pair. The key is `DB_PASSWORD` and the value is your database user password.
 
 ![](/content/docs/get-started/instance/aws-secrets-manager/secret-type.webp)
 
@@ -294,58 +279,50 @@ Skip rotation, review and create the secret.
 
 #### Use secret in Bytebase
 
-Restart Bytebase with the following environment variables
-
-- `AWS_REGION`=`us-east-1`
-- `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are the ones you previously created on the IAM user:
-
-```bash
-AWS_REGION=us-east-1 AWS_ACCESS_KEY_ID=xxx AWS_SECRET_ACCESS_KEY=yyy ./bytebase <<other options>>
-```
+Restart Bytebase with the following environment variables:
 
 ```bash
 docker run --init \
-  -e AWS_REGION=us-east-1 AWS_ACCESS_KEY_ID=xxx AWS_SECRET_ACCESS_KEY=yyy \
-  --name bytebase \
-  <<other options>>
+  -e AWS_REGION=us-east-1 \
+  -e AWS_ACCESS_KEY_ID=xxx \
+  -e AWS_SECRET_ACCESS_KEY=yyy \
+  ...
 ```
 
-Go to instance setting, specify `bytebase` as the Secret name and `DB_PASSWORD` as the Secret key.
-These two correspond to the value you created in the AWS Secrets Manager.
+Go to instance setting, specify `bytebase` as the Secret name and `DB_PASSWORD` as the Secret key. These two correspond to the value you created in the AWS Secrets Manager.
 
 ![](/content/docs/get-started/instance/aws-secrets-manager/auth.webp)
 
-## GCP
+## GCP Configuration
 
-### IAM Authentication
+### Cloud SQL with IAM Authentication
 
 #### Create a service account
 
 1. Visit [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) to create a new service account `bytebase`.
 
-1. Grant `Cloud SQL Admin` permission to the service account.
+2. Grant `Cloud SQL Admin` permission to the service account.
    ![](/content/docs/get-started/instance/gcp-iam/grant-cloud-sql-admin.webp)
 
-1. After the service account is created, you may view the email for the service account `bytebase@<<you-project-name>>.iam.gserviceaccount.com`. Go to **KEYS**.
+3. After the service account is created, you may view the email for the service account `bytebase@<<your-project-name>>.iam.gserviceaccount.com`. Go to **KEYS**.
    ![](/content/docs/get-started/instance/gcp-iam/service-account-keys.webp)
 
-1. Click **ADD KEY** and then **Create new key**.
+4. Click **ADD KEY** and then **Create new key**.
    ![](/content/docs/get-started/instance/gcp-secret-manager/create-key-file.webp)
 
-1. Choose `JSON` as the key type and click **CREATE**. Keep the downloaded private key file. This will be passed
-   as environment variables when starting Bytebase.
+5. Choose `JSON` as the key type and click **CREATE**. Keep the downloaded private key file. This will be passed as environment variables when starting Bytebase.
    ![](/content/docs/get-started/instance/gcp-iam/create-pk.webp)
 
-1. Go to Cloud SQL database instance detail page, and make sure `cloudsql_iam_authentication` is enabled.
+6. Go to Cloud SQL database instance detail page, and make sure `cloudsql_iam_authentication` is enabled.
    ![](/content/docs/get-started/instance/gcp-iam/cloudsql-iam-auth-on.webp)
 
-1. Go to **Users** tab, and click **ADD USER ACCOUNT**.
+7. Go to **Users** tab, and click **ADD USER ACCOUNT**.
    ![](/content/docs/get-started/instance/gcp-iam/sql-users.webp)
 
-1. Select `Cloud IAM` and copy/paste the service account email `bytebase@<<your-project-name>>.iam.gserviceaccount.com`.
+8. Select `Cloud IAM` and copy/paste the service account email `bytebase@<<your-project-name>>.iam.gserviceaccount.com`.
    ![](/content/docs/get-started/instance/gcp-iam/user-account-type.webp)
 
-1. Then you can get the Cloud SQL IAM user: `bytebase`.
+9. Then you can get the Cloud SQL IAM user: `bytebase`.
    ![](/content/docs/get-started/instance/gcp-iam/user-added-bytebase.webp)
 
 #### Use IAM Auth in Bytebase
@@ -353,26 +330,20 @@ These two correspond to the value you created in the AWS Secrets Manager.
 1. Start Bytebase with Google IAM credentials by passing `GOOGLE_APPLICATION_CREDENTIALS` as an environment variable:
 
    ```bash
-     docker run --init \
+   docker run --init \
      -e GOOGLE_APPLICATION_CREDENTIALS=<<your-json-file>> \
-     --name bytebase \
-     --publish 8080:8080 --pull always \
-     --volume ~/.bytebase/data:/var/opt/bytebase \
-     bytebase/bytebase:latest
+     ...
    ```
 
-1. Go to SQL overview page, you'll find the **Connection name**, use it as the host. Choose `Google Cloud SQL IAM` along with your user `bytebase` to connect to the database.  
+2. Go to SQL overview page, you'll find the **Connection name**, use it as the host. Choose `Google Cloud SQL IAM` along with your user `bytebase` to connect to the database.
    ![](/content/docs/get-started/instance/gcp-iam/connection-name.webp)
 
-### Secret Manager
+### GCP Secret Manager
 
 #### Create a service account to access the Secret Manager
 
 <Tip>
-
-It's recommended to create a dedicated service account for Bytebase to retrieve the secrets. You only need to do this once
-.
-
+It's recommended to create a dedicated service account for Bytebase to retrieve the secrets. You only need to do this once.
 </Tip>
 
 Visit [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) to create a new service account.
@@ -387,8 +358,7 @@ After the service account is created, visit its `KEYS` page and add a new key.
 
 ![](/content/docs/get-started/instance/gcp-secret-manager/create-key-file.webp)
 
-Choose `JSON` as the key type and create. Keep the downloaded private key file. This will be passed
-as environment variables when starting Bytebase.
+Choose `JSON` as the key type and create. Keep the downloaded private key file. This will be passed as environment variables when starting Bytebase.
 
 ![](/content/docs/get-started/instance/gcp-secret-manager/create-key-file2.webp)
 
@@ -404,30 +374,23 @@ After creation, note the fully qualified secret name.
 
 #### Use secret in Bytebase
 
-Restart Bytebase by specifying `GOOGLE_APPLICATION_CREDENTIALS`=`private key file` as an environment variable. The
-private key file is the JSON file downloaded before for the service account.
+Restart Bytebase by specifying `GOOGLE_APPLICATION_CREDENTIALS`=`private key file` as an environment variable. The private key file is the JSON file downloaded before for the service account.
 
 <Tip>
-
-If you run Bytebase in docker, you need to put the JSON file under the mounted directory. Otherwise, Bytebase
-won't be able to access the key file.
-
+If you run Bytebase in docker, you need to put the JSON file under the mounted directory. Otherwise, Bytebase won't be able to access the key file.
 </Tip>
 
 ```bash
 docker run --init \
   -e GOOGLE_APPLICATION_CREDENTIALS=/var/opt/bytebase/key.json \
-  --name bytebase \
-  --volume ~/.bytebase/data:/var/opt/bytebase \
-  <<other options>>
+  ...
 ```
 
-Go to instance setting, specify the fully qualified name such as `projects/228712144016/secrets/DB_PASSWORD`
-as the Secret full name.
+Go to instance setting, specify the fully qualified name such as `projects/228712144016/secrets/DB_PASSWORD` as the Secret full name.
 
 ![](/content/docs/get-started/instance/gcp-secret-manager/auth.webp)
 
-## Azure
+## Azure Configuration
 
 ### Entra Managed Identity
 
@@ -439,16 +402,7 @@ For more information about the credential chain in default Azure credential, ple
 1. Enable system assigned managed identity while creating a VM.
    ![](/content/docs/get-started/instance/azure-iam/enable-system-assigned-managed-identity-while-creating-vm.webp)
 
-2. Deploy the Bytebase on the VM in Docker:
-
-   ```bash
-     docker run --init \
-     --network=host \
-     --name bytebase \
-     --pull always \
-     --volume ~/.bytebase/data:/var/opt/bytebase \
-     bytebase/bytebase:latest
-   ```
+2. Deploy the Bytebase on the VM in Docker.
 
 #### Enable Microsoft Entra Authentication in Azure SQL
 
@@ -460,11 +414,11 @@ For more information about the credential chain in default Azure credential, ple
 
 1. Connect to the Azure SQL database using the Microsoft Entra Admin account.
 
-2. For each databases desired to be managed by Bytebase, running the following SQL command inside the database to a contained database user:
+2. For each databases desired to be managed by Bytebase, running the following SQL command inside the database to create a contained database user:
 
    ```sql
-      CREATE USER [<Microsoft_Entra_principal_name>] FROM EXTERNAL PROVIDER;
-      ALTER ROLE db_owner ADD MEMBER [<Microsoft_Entra_principal_name>];
+   CREATE USER [<Microsoft_Entra_principal_name>] FROM EXTERNAL PROVIDER;
+   ALTER ROLE db_owner ADD MEMBER [<Microsoft_Entra_principal_name>];
    ```
 
 #### Connect to Azure SQL Database in Bytebase
@@ -475,10 +429,12 @@ For more information about the credential chain in default Azure credential, ple
 
 In this way, Bytebase can only connect to one specific Azure SQL database. To manage multiple Azure SQL databases in one instance inside Bytebase, considering set the VM principal as the Azure SQL Managed Instance Microsoft Entra Admin.
 
-## Database-Specific Configuration
+## Database-Specific Guides
+
+Configure connection settings for specific database types:
 
 <Tabs>
-  <Tab title="Postgres">
+  <Tab title="PostgreSQL">
     <PostgreSQLConfig />
   </Tab>
   <Tab title="Oracle">
@@ -500,3 +456,4 @@ In this way, Bytebase can only connect to one specific Azure SQL database. To ma
     <SpannerConfig />
   </Tab>
 </Tabs>
+
