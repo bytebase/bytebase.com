@@ -448,42 +448,106 @@ Go to instance setting, specify the fully qualified name such as `projects/22871
 
 ## Azure Configuration
 
-### Entra Managed Identity
+### Azure SQL with Managed Identity Authentication
 
-Bytebase supports connect to Azure SQL through Azure IAM by using default Azure credential and client secret credential. This section introduces how to use [system-assigned managed identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview#managed-identity-types) to connect to Azure SQL.
-For more information about the credential chain in default Azure credential, please refer to [default azure credential overview](https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#how-a-chained-credential-works).
+This guide demonstrates the most secure method for connecting to Azure SQL Database and Azure SQL Managed Instance using VM-attached managed identities, eliminating the need to manage credentials or connection strings.
 
-#### Create a VM with enabled system-assigned managed identity
+For alternative authentication methods and detailed configuration options, refer to:
+- [Azure SQL authentication methods overview](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-overview)
+- [Managed identities for Azure resources](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)
+- [Configure Azure AD authentication for SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure)
+- [Connect to Azure SQL with managed identity](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity)
 
-1. Enable system assigned managed identity while creating a VM.
-   ![](/content/docs/get-started/instance/azure-iam/enable-system-assigned-managed-identity-while-creating-vm.webp)
+#### Step 1: Create Azure VM with System-Assigned Managed Identity
 
-2. Deploy the Bytebase on the VM in Docker.
+1. **Create VM with Managed Identity**
+   - Go to [Azure Portal → Virtual Machines](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2FVirtualMachines)
+   - Click **Create** → **Azure virtual machine**
+   - Configure VM settings as needed
+   - Under **Management** tab:
+     - Enable **System assigned managed identity**: Set to **On**
+   - Complete VM creation
+   
+   > **Security Best Practice:** System-assigned managed identities are automatically managed by Azure and tied to the VM lifecycle. This eliminates credential management and reduces security risks. Learn more: [Managed identity best practices](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations)
 
-#### Enable Microsoft Entra Authentication in Azure SQL
+2. **Deploy Bytebase on the VM**
+   
+   Deploy Bytebase on your Azure VM. The VM's managed identity is automatically available - no credential configuration needed.
 
-1. Go to the Azure SQL panel, and set the Microsoft Entra Admin for Azure SQL managed instance, don't forget to click Save button. Once you set the Microsoft Entra Admin, the Microsoft Entra authentication is enabled. Check the [Microsoft guide](https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm?view=azuresql&tabs=azure-portal) if you use Azure SQL on VM.
+#### Step 2: Configure Azure SQL Database
 
-   ![](/content/docs/get-started/instance/azure-iam/set-microsoft-entra-admin-in-azure-sql-panel.webp)
+1. **Enable Microsoft Entra Authentication**
+   - Navigate to your Azure SQL Server in [Azure Portal](https://portal.azure.com)
+   - Go to **Settings** → **Microsoft Entra ID**
+   - Click **Set admin** and select an Entra admin account
+   - Click **Save** to enable Entra authentication
+   
+   Reference: [Configure Entra authentication for Azure SQL](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure)
 
-#### Create a contained database user
-
-1. Connect to the Azure SQL database using the Microsoft Entra Admin account.
-
-2. For each databases desired to be managed by Bytebase, running the following SQL command inside the database to create a contained database user:
+2. **Grant Database Access to Managed Identity**
+   - Note your VM's managed identity name (same as VM name)
+   - Connect to Azure SQL using the Entra admin account
+   - Run the following for each database:
 
    ```sql
-   CREATE USER [<Microsoft_Entra_principal_name>] FROM EXTERNAL PROVIDER;
-   ALTER ROLE db_owner ADD MEMBER [<Microsoft_Entra_principal_name>];
+   -- Create user for the VM's managed identity
+   CREATE USER [your-vm-name] FROM EXTERNAL PROVIDER;
+   
+   -- Grant appropriate permissions (adjust as needed)
+   ALTER ROLE db_datareader ADD MEMBER [your-vm-name];
+   ALTER ROLE db_datawriter ADD MEMBER [your-vm-name];
+   ALTER ROLE db_ddladmin ADD MEMBER [your-vm-name];
+   
+   -- For full database management in Bytebase:
+   ALTER ROLE db_owner ADD MEMBER [your-vm-name];
+   ```
+   
+   > **Production Best Practice:** Follow the principle of least privilege. Grant only the minimum permissions required for your use case. See [Azure SQL Database permissions](https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage).
+
+#### Step 3: Connect from Bytebase
+
+1. Access Bytebase on your VM (typically `http://localhost:5678`)
+2. Click **New Instance**
+3. Configure the connection:
+   - **Host:** Your Azure SQL server name (e.g., `yourserver.database.windows.net`)
+   - **Port:** 1433
+   - **Database:** Target database name
+   - **Authentication:** Select `Azure Default Credential`
+4. Test and save the connection
+
+Bytebase automatically uses the VM's managed identity through Azure's Instance Metadata Service (IMDS) for authentication.
+
+<Tip>
+**Advantages of this approach:**
+- No passwords or connection strings to manage
+- Automatic credential rotation handled by Azure
+- Enhanced security through Azure RBAC
+- Simplified compliance and auditing
+
+For troubleshooting, see [Troubleshoot managed identity authentication](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity#troubleshooting).
+</Tip>
+
+#### Alternative: User-Assigned Managed Identity
+
+For more granular control or cross-resource scenarios:
+
+1. **Create User-Assigned Managed Identity**
+   - Go to [Managed Identities](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ManagedIdentity%2FuserAssignedIdentities)
+   - Create a new identity with a descriptive name
+   - Assign it to your VM under **Settings** → **Identity** → **User assigned**
+
+2. **Configure Database Access**
+   ```sql
+   CREATE USER [managed-identity-name] FROM EXTERNAL PROVIDER;
+   ALTER ROLE db_owner ADD MEMBER [managed-identity-name];
    ```
 
-#### Connect to Azure SQL Database in Bytebase
+3. **Set Environment Variable** (if using multiple identities)
+   ```bash
+   export AZURE_CLIENT_ID=<managed-identity-client-id>
+   ```
 
-1. Using Azure IAM default credential to connect to Azure SQL database:
-
-   ![](/content/docs/get-started/instance/azure-iam/connect-to-azure-sql-using-azure-iam-frontend-form.webp)
-
-In this way, Bytebase can only connect to one specific Azure SQL database. To manage multiple Azure SQL databases in one instance inside Bytebase, considering set the VM principal as the Azure SQL Managed Instance Microsoft Entra Admin.
+Reference: [User-assigned managed identities](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities)
 
 ## Database-Specific Guides
 
