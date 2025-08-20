@@ -301,150 +301,127 @@ Go to instance setting, specify `bytebase` as the Secret name and `DB_PASSWORD` 
 
 ## GCP Configuration
 
+### Prerequisites: Service Account Setup
+
+Use attached service accounts for secure, key-free authentication on:
+- **GCE** - VMs with attached service accounts
+- **GKE** - Pods with Workload Identity
+
+References: [Service accounts](https://cloud.google.com/iam/docs/service-account-overview) | [Best practices](https://cloud.google.com/iam/docs/best-practices-for-managing-service-account-keys) | [ADC](https://cloud.google.com/docs/authentication/application-default-credentials)
+
+#### Create Service Account
+
+1. Go to [IAM & Admin → Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts)
+2. Create service account named `bytebase`
+3. Grant roles as needed:
+   - `Cloud SQL Client` and `Cloud SQL Instance User` - for Cloud SQL
+   - `Secret Manager Secret Accessor` - for Secret Manager
+4. Note the email: `bytebase@PROJECT_ID.iam.gserviceaccount.com`
+
+#### Attach Service Account
+
+**Option A: GCE VM**
+1. Create VM in [Compute Engine](https://console.cloud.google.com/compute/instances)
+2. Set service account: `bytebase@PROJECT_ID.iam.gserviceaccount.com`
+3. Set access scopes: "Allow full access to all Cloud APIs"
+
+**Option B: GKE with Workload Identity**
+```bash
+# Create Kubernetes service account
+kubectl create serviceaccount bytebase-ksa
+
+# Bind to Google service account
+kubectl annotate serviceaccount bytebase-ksa \
+  iam.gke.io/gcp-service-account=bytebase@PROJECT_ID.iam.gserviceaccount.com
+
+# Allow impersonation
+gcloud iam service-accounts add-iam-policy-binding bytebase@PROJECT_ID.iam.gserviceaccount.com \
+  --role roles/iam.workloadIdentityUser \
+  --member "serviceAccount:PROJECT_ID.svc.id.goog[NAMESPACE/bytebase-ksa]"
+```
+
+Reference: [Workload Identity](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity)
+
+Deploy Bytebase on your resource - credentials are provided automatically.
+
+#### Alternative: Service Account Keys
+
+<Warning>
+Use only when running Bytebase outside GCP. See [why to avoid service account keys](https://cloud.google.com/iam/docs/best-practices-for-managing-service-account-keys#avoid).
+</Warning>
+
+1. Create a service account with required roles
+2. Download the JSON key file
+3. Set environment variable:
+   ```bash
+   -e GOOGLE_APPLICATION_CREDENTIALS=/path/to/key.json
+   ```
+
+Reference: [Service account keys authentication](https://cloud.google.com/docs/authentication/provide-credentials-adc#local-key)
+
 ### Cloud SQL with IAM Authentication
 
-This guide demonstrates the most secure method for IAM authentication using GCE VM service accounts, which eliminates the need to manage service account keys.
+<Note>
+Prerequisites: [Service account](#prerequisites-service-account-setup) with Cloud SQL roles.
+</Note>
 
-For alternative authentication methods, refer to the official Google Cloud documentation:
-- [Cloud SQL IAM database authentication overview](https://cloud.google.com/sql/docs/mysql/iam-authentication)
-- [Using automatic IAM database authentication](https://cloud.google.com/sql/docs/mysql/iam-authentication#automatic)
-- [Configuring instances for IAM database authentication](https://cloud.google.com/sql/docs/mysql/create-edit-iam-instances)
-- [Managing users with IAM database authentication](https://cloud.google.com/sql/docs/mysql/iam-users)
+References: [IAM authentication](https://cloud.google.com/sql/docs/mysql/iam-authentication) | [Configure instances](https://cloud.google.com/sql/docs/mysql/create-edit-iam-instances)
 
-#### Step 1: Create and Configure GCE VM with Service Account
+#### Step 1: Configure Cloud SQL Instance
 
-1. **Create a Service Account**
-   - Go to [IAM & Admin → Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts)
-   - Click **Create Service Account**
-   - Name: `bytebase-cloudsql` 
-   - Description: "Service account for Bytebase to connect to Cloud SQL"
-   - Click **Create and Continue**
+1. In [Cloud SQL](https://console.cloud.google.com/sql/instances), edit your instance
+2. Add flag: `cloudsql_iam_authentication` = `on`
+3. Save (SSL is enabled by default)
 
-2. **Grant Required Permissions**
-   - Add these roles to the service account:
-     - `Cloud SQL Client` (for database connections)
-     - `Cloud SQL Instance User` (for IAM authentication)
-   - Click **Continue** and then **Done**
-   - Note the service account email: `bytebase-cloudsql@PROJECT_ID.iam.gserviceaccount.com`
+#### Step 2: Add Service Account User
 
-3. **Create GCE VM with Service Account**
-   - Go to [Compute Engine → VM instances](https://console.cloud.google.com/compute/instances)
-   - Click **Create Instance**
-   - Under **Identity and API access**:
-     - Service account: Select `bytebase-cloudsql@PROJECT_ID.iam.gserviceaccount.com`
-     - Access scopes: Select "Allow full access to all Cloud APIs" or manually select Cloud SQL scopes
-   - Configure other VM settings as needed
-   - Click **Create**
-
-   > **Security Best Practice:** The VM automatically receives credentials through the metadata service. No service account keys are needed, reducing security risks. Learn more: [Service account impersonation](https://cloud.google.com/iam/docs/service-account-impersonation)
-
-#### Step 2: Configure Cloud SQL Instance
-
-1. **Enable IAM Authentication**
-   - Go to [Cloud SQL Instances](https://console.cloud.google.com/sql/instances)
-   - Select your instance or create a new one
-   - Click **Edit**
-   - Under **Customize your instance** → **Flags**:
-     - Add flag: `cloudsql_iam_authentication` = `on`
-   - Click **Save**
-   
-   Reference: [Configuring instances for IAM authentication](https://cloud.google.com/sql/docs/mysql/create-edit-iam-instances)
-
-2. **Verify SSL/TLS Configuration**
-   - SSL is required for IAM authentication
-   - Cloud SQL enables SSL by default - no additional configuration needed
-   - Reference: [Configuring SSL/TLS](https://cloud.google.com/sql/docs/mysql/configure-ssl-instance)
-
-#### Step 3: Create Database Users
-
-Connect to your Cloud SQL instance using the root user or an admin account:
-
-**Cloud SQL for MySQL:**
-```sql
-CREATE USER 'bytebase-cloudsql'@'%' IDENTIFIED WITH 'cloudsql_iam_user';
+**Using gcloud:**
+```bash
+gcloud sql users create bytebase@PROJECT_ID.iam.gserviceaccount.com \
+  --instance=INSTANCE_NAME \
+  --type=cloud_iam_service_account
 ```
 
-**Cloud SQL for PostgreSQL:**
-```sql
-CREATE USER "bytebase-cloudsql@PROJECT_ID.iam" WITH LOGIN;
-GRANT cloudsqliamuser TO "bytebase-cloudsql@PROJECT_ID.iam";
-```
+**Using Console:**
+Instance → Users → Add User Account → Cloud IAM → Enter service account email
 
-Reference: [MySQL IAM users](https://cloud.google.com/sql/docs/mysql/iam-users) | [PostgreSQL IAM users](https://cloud.google.com/sql/docs/postgres/iam-users)
+References: [MySQL](https://cloud.google.com/sql/docs/mysql/add-manage-iam-users) | [PostgreSQL](https://cloud.google.com/sql/docs/postgres/add-manage-iam-users)
 
-#### Step 4: Deploy Bytebase on GCE VM
+#### Step 3: Connect from Bytebase
 
-Deploy Bytebase on your GCE VM instance. The VM's attached service account credentials are automatically available to Bytebase through the metadata service - no GOOGLE_APPLICATION_CREDENTIALS configuration needed.
-
-#### Step 5: Connect from Bytebase
-
-1. Access Bytebase at `http://VM_EXTERNAL_IP:5678`
-2. Click **New Instance**
-3. Configure the connection:
-   - **Host:** Your Cloud SQL connection name (format: `PROJECT_ID:REGION:INSTANCE_ID`)
-     - Find this in Cloud SQL console → Instance details → Connection name
+1. Click **New Instance** in Bytebase
+2. Configure connection details:
+   - **Host:** Your Cloud SQL connection name (`PROJECT_ID:REGION:INSTANCE_ID`)
+     - Find this in Cloud SQL console → Instance details
    - **Port:** 3306 (MySQL) or 5432 (PostgreSQL)
    - **Username:** 
-     - MySQL: `bytebase-cloudsql`
-     - PostgreSQL: `bytebase-cloudsql@PROJECT_ID.iam`
+     - MySQL: `bytebase` (service account name only)
+     - PostgreSQL: `bytebase@PROJECT_ID.iam` (with project ID)
    - **Authentication:** Select `Google Cloud SQL IAM`
-4. Test and save the connection
-
-<Tip>
-The GCE VM approach eliminates service account key management - credentials are automatically handled through the metadata service. Learn more: [Application Default Credentials](https://cloud.google.com/docs/authentication/application-default-credentials) | [Troubleshooting IAM authentication](https://cloud.google.com/sql/docs/mysql/iam-authentication#troubleshooting)
-</Tip>
+3. Click **Test Connection** then **Create**
 
 ### GCP Secret Manager
 
-#### Create a service account to access the Secret Manager
+Store database passwords securely in Google Cloud Secret Manager instead of Bytebase.
 
-<Tip>
-It's recommended to create a dedicated service account for Bytebase to retrieve the secrets. You only need to do this once.
-</Tip>
+<Note>
+Prerequisites: [Service account](#prerequisites-service-account-setup) with `Secret Manager Secret Accessor` role.
+</Note>
 
-Visit [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) to create a new service account.
+#### Step 1: Create Secret
 
-![](/content/docs/get-started/instance/gcp-secret-manager/create-service-account-name.webp)
+1. Go to [Secret Manager Console](https://console.cloud.google.com/security/secret-manager)
+2. Click **Create Secret**
+3. Enter secret name (e.g., `db-password`) and your database password as value
+4. Click **Create** and note the resource name: `projects/PROJECT_ID/secrets/SECRET_NAME`
 
-Grant `Secret Manager Secret Accessor` permission to the service account.
+#### Step 2: Configure in Bytebase
 
-![](/content/docs/get-started/instance/gcp-secret-manager/create-service-account-permission.webp)
-
-After the service account is created, visit its `KEYS` page and add a new key.
-
-![](/content/docs/get-started/instance/gcp-secret-manager/create-key-file.webp)
-
-Choose `JSON` as the key type and create. Keep the downloaded private key file. This will be passed as environment variables when starting Bytebase.
-
-![](/content/docs/get-started/instance/gcp-secret-manager/create-key-file2.webp)
-
-#### Create secret
-
-Visit [GCP Secret Manager](https://console.cloud.google.com/security/secret-manager/create) to create a new secret.
-
-![](/content/docs/get-started/instance/gcp-secret-manager/create-secret.webp)
-
-After creation, note the fully qualified secret name.
-
-![](/content/docs/get-started/instance/gcp-secret-manager/secret-full-name.webp)
-
-#### Use secret in Bytebase
-
-Restart Bytebase by specifying `GOOGLE_APPLICATION_CREDENTIALS`=`private key file` as an environment variable. The private key file is the JSON file downloaded before for the service account.
-
-<Tip>
-If you run Bytebase in docker, you need to put the JSON file under the mounted directory. Otherwise, Bytebase won't be able to access the key file.
-</Tip>
-
-```bash
-docker run --init \
-  -e GOOGLE_APPLICATION_CREDENTIALS=/var/opt/bytebase/key.json \
-  ...
-```
-
-Go to instance setting, specify the fully qualified name such as `projects/228712144016/secrets/DB_PASSWORD` as the Secret full name.
-
-![](/content/docs/get-started/instance/gcp-secret-manager/auth.webp)
+1. In your database instance settings, find the password field
+2. Click the key icon to use external secret
+3. Select **GCP Secret Manager** 
+4. Enter the secret resource name from Step 1
+5. Test connection and save
 
 ## Azure Configuration
 
