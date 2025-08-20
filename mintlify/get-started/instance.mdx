@@ -47,46 +47,35 @@ Before configuring connection parameters, ensure network connectivity:
 
 Additional parameters vary by database type - see [Database-Specific Guides](#database-specific-guides) for your database's requirements.
 
-### Advanced Options
+### Read-Only Connections
 
-#### Read-Only Connections
-
-Configure separate read-only connections for enhanced security and performance:
-
-<Note>
-Read-only connections are used for:
+Configure separate read-only connections for enhanced security and performance. Read-only connections are used for:
 - SQL Editor queries with [data source restrictions](/sql-editor/settings/data-source-restriction)
 - [Export Center operations](/security/database-permission/export#request-from-export-center)
-</Note>
 
-**Setup Steps:**
+**Setup:**
 1. Create a read-only database user or configure a read-replica
-2. Click **Create** or **+** on **Connection info**
+2. In Bytebase, click **+** next to **Connection Info**
 3. Enter the read-only connection details
-4. Click **Update** to save
+4. Save the configuration
 
-![Read-only connection configuration](/content/docs/get-started/instance/bb-instance-read-only-connection.webp)
-
-#### SSH Tunnel
+### SSH Tunnel
 
 <PricingPlanBlock feature_name="SSH_TUNNEL" />
 
-Connect to databases behind firewalls using SSH tunneling:
+Use SSH tunneling to connect through a bastion host or jump server when your database is behind a firewall, in a private network, or requires specific security policies for access. This is common for databases in different VPCs or restricted network segments.
 
-![SSH tunnel architecture](/content/docs/get-started/instance/ssh-explain.webp)
+**Setup:**
+1. Enter your database connection details as usual
+2. Enable **SSH Connection** and select **Tunnel + Private Key**
+3. Configure SSH tunnel settings:
+   - **SSH Host**: Bastion host or jump server address
+   - **SSH Port**: SSH port (typically 22)
+   - **SSH User**: Username for SSH authentication
+   - **Private Key** or **Password**: SSH authentication credentials
+4. Test the connection and save
 
-**Configuration:**
-1. Fill in standard database connection details
-2. Select **SSH Connection** > **Tunnel + Private Key**
-3. Provide SSH connection information:
-   - SSH Host & Port
-   - SSH Username
-   - Private Key or Password
-4. Test connection and click **Create**
-
-![SSH tunnel setup](/content/docs/get-started/instance/bb-instance-ssh-connection.webp)
-
-#### Connection Parameters
+### Connection Parameters
 
 Customize connection behavior with database-specific parameters:
 
@@ -105,15 +94,11 @@ Customize connection behavior with database-specific parameters:
 - [SQL Server Parameters](https://pkg.go.dev/github.com/microsoft/go-mssqldb#section-readme)
 - [Oracle Parameters](https://github.com/sijms/go-ora)
 
-### Security Features
-
-#### Secret Manager
+### Secret Manager
 
 <PricingPlanBlock feature_name="EXTERNAL_SECRET_MANAGER" />
 
-Store database credentials securely in secret managers instead of Bytebase's internal storage.
-
-![External secret manager flow](/content/docs/get-started/instance/external-secret-manager-flow.webp)
+Integrate with external secret managers for centralized credential management. Use this for corporate compliance, automatic password rotation, or when you prefer not to store credentials directly in Bytebase.
 
 **Supported Providers:**
 - **HashiCorp Vault** - Configure below
@@ -121,7 +106,7 @@ Store database credentials securely in secret managers instead of Bytebase's int
 - **[GCP Secret Manager](#gcp-secret-manager)** - See GCP configuration section
 - **Custom API Endpoint** - Configure below
 
-##### HashiCorp Vault
+#### HashiCorp Vault
 
 <Note>
 Requires Vault KV v2 engine
@@ -134,8 +119,6 @@ Requires Vault KV v2 engine
    - Key: `DB_PASSWORD`
    - Value: Your password
 
-![Vault secret creation](/content/docs/get-started/instance/vault/create-secret.webp)
-
 **Bytebase Configuration:**
 1. Enter Vault URL
 2. Choose authentication method:
@@ -143,9 +126,7 @@ Requires Vault KV v2 engine
    - **[AppRole](https://developer.hashicorp.com/vault/docs/auth/approle)**: Provide role ID and secret ID
 3. Specify secret location (engine/path/key)
 
-![Vault authentication](/content/docs/get-started/instance/vault/auth.webp)
-
-##### Custom API Endpoint
+#### Custom API Endpoint
 
 Integrate with custom secret managers using your API:
 
