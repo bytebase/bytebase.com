@@ -23,11 +23,3 @@ Go to **Instances** and **Add Instance**.
 ![bb-instances-2](/content/docs/get-started/step-by-step/add-an-instance/bb-instances-2.webp)
 
 For **Host or socket**, the screenshot assumes you run Bytebase inside Docker and try to connect to a database instance on the same host, thus it uses `host.docker.internal`. Check out [Instance Connection Configuration](/get-started/instance) for the detailed guide.
-
-## Sync instance schema
-
-After instance is added, click **Sync Now** to synchronize the instance schema such as its containing databases to Bytebase.
-
-![bb-instance-sync](/content/docs/get-started/step-by-step/add-an-instance/bb-instance-sync.webp)
-
-By default, Bytebase doesn't automatically sync the instance schema. You can set a [Scan Interval](/administration/instance/#scan-interval) to ask Bytebase to sync the schema periodically.
