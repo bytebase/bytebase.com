@@ -143,70 +143,89 @@ Integrate with custom secret managers using your API:
 
 ## AWS Configuration
 
+### Prerequisites: IAM Role Setup
+
+Use attached IAM roles for secure, key-free authentication on EC2 instances. This eliminates the need to manage access keys.
+
+References: [IAM roles for EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) | [IAM best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) | [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html)
+
+#### Create IAM Role
+
+1. Go to [IAM Console → Roles](https://console.aws.amazon.com/iam/home#/roles)
+2. Click **Create role**
+3. Select trusted entity type: **AWS service** → **EC2**
+4. Attach policies as needed:
+   - For RDS IAM authentication - see [RDS/Aurora section](#rdsaurora-with-iam-authentication)
+   - For Secrets Manager access - see [AWS Secrets Manager section](#aws-secrets-manager)
+5. Name the role: `bytebase-role`
+
+#### Attach IAM Role to EC2
+
+**New EC2 Instance:**
+1. Launch instance in [EC2 Console](https://console.aws.amazon.com/ec2/)
+2. In **Advanced details** → **IAM instance profile**: Select `bytebase-role`
+
+**Existing EC2 Instance:**
+1. Select instance → **Actions** → **Security** → **Modify IAM role**
+2. Select `bytebase-role` → **Update IAM role**
+
+Deploy Bytebase on your EC2 instance - credentials are provided automatically through the instance metadata service.
+
+#### Alternative: IAM User with Access Keys
+
+<Warning>
+Use only when running Bytebase outside AWS. See [why to use IAM roles instead of access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#access-keys-alternatives).
+</Warning>
+
+1. Create an IAM user with required policies
+2. Generate access keys
+3. Set environment variables:
+   ```bash
+   -e AWS_ACCESS_KEY_ID=xxx
+   -e AWS_SECRET_ACCESS_KEY=yyy
+   -e AWS_REGION=us-east-1
+   ```
+
+Reference: [Managing access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
+
 ### RDS/Aurora with IAM Authentication
 
-This guide demonstrates the most secure method for IAM authentication using EC2 instance profiles, which eliminates the need to manage access keys. 
+<Note>
+Prerequisites: [IAM role](#prerequisites-iam-role-setup) with RDS connect permissions.
+</Note>
 
-For alternative authentication methods such as IAM users with access keys or cross-account access, refer to:
-- [AWS RDS IAM Database Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html)
-- [Connecting using IAM authentication from the command line](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Connecting.html)
-- [IAM authentication for cross-account access](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.CrossAccount.html)
+References: [IAM database authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html) | [Connecting with IAM](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Connecting.html)
 
 #### Step 1: Configure RDS/Aurora Instance
 
-Enable IAM authentication on your database instance:
+1. In [RDS Console](https://console.aws.amazon.com/rds/), modify your instance
+2. Enable **IAM database authentication** under Database authentication options
+3. Save changes (SSL is enabled by default)
 
-1. **Enable IAM Database Authentication**
-   - For existing instances: Modify instance → Database authentication → IAM database authentication
-   - For new instances: Enable "Password and IAM database authentication" during creation
-   - Reference: [Enabling IAM authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Enabling.html)
+Reference: [Enabling IAM authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Enabling.html)
 
-2. **Verify SSL/TLS** 
-   - SSL is enabled by default on RDS (required for IAM auth)
-   - No additional configuration needed
+#### Step 2: Grant Database Connect Permission
 
-#### Step 2: Create IAM Role for EC2
+Add this policy to your IAM role to allow RDS IAM authentication:
 
-1. **Create IAM Policy**
-   - Go to IAM → Policies → Create policy
-   - Choose JSON and paste:
-   ```json
-   {
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Effect": "Allow",
-         "Action": "rds-db:connect",
-         "Resource": "arn:aws:rds-db:REGION:ACCOUNT_ID:dbuser:DB_INSTANCE_ID/DB_USER"
-       }
-     ]
-   }
-   ```
-   - Replace `REGION`, `ACCOUNT_ID`, `DB_INSTANCE_ID`, and `DB_USER` with your values
-   - Or use wildcards (*) for broader access
-   - Name the policy: `rds-iam-auth-policy`
-   
-   > **Production Best Practice:** Use specific ARNs instead of wildcards. See [AWS IAM Policy examples](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html).
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "rds-db:connect",
+      "Resource": "arn:aws:rds-db:REGION:ACCOUNT_ID:dbuser:DB_RESOURCE_ID/bytebase"
+    }
+  ]
+}
+```
 
-2. **Create IAM Role**
-   - Go to IAM → Roles → Create role
-   - Select trusted entity: `AWS service` → `EC2`
-   - Attach the `rds-iam-auth-policy` created above
-   - Name: `bytebase-rds-role`
+Replace `REGION`, `ACCOUNT_ID`, and `DB_RESOURCE_ID` with your values. Find DB_RESOURCE_ID in RDS console → Configuration tab. For easier setup, you can use wildcards: `arn:aws:rds-db:*:*:dbuser:*/*`
 
-#### Step 3: Setup EC2 Instance with IAM Role
+Reference: [IAM policy examples](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html)
 
-1. **Attach IAM Role to EC2**
-   - New instances: Select `bytebase-rds-role` during launch configuration
-   - Existing instances: EC2 console → Actions → Security → Modify IAM role → Select `bytebase-rds-role`
-
-2. **Deploy Bytebase**
-   - Install Bytebase on your EC2 instance
-   - No AWS credentials configuration needed - the IAM role provides automatic authentication
-
-#### Step 4: Create Database User
-
-Connect to your RDS instance and create an IAM-authenticated user:
+#### Step 3: Create Database User
 
 **MySQL/Aurora MySQL:**
 ```sql
@@ -219,85 +238,75 @@ GRANT ALL PRIVILEGES ON *.* TO 'bytebase'@'%';
 ```sql
 CREATE USER bytebase;
 GRANT rds_iam TO bytebase;
--- Grant appropriate database permissions as needed
+-- Grant appropriate permissions
 ```
 
-Reference: [MySQL setup](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.DBAccounts.html#UsingWithRDS.IAMDBAuth.DBAccounts.MySQL) | [PostgreSQL setup](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.DBAccounts.html#UsingWithRDS.IAMDBAuth.DBAccounts.PostgreSQL)
+References: [MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.DBAccounts.html#UsingWithRDS.IAMDBAuth.DBAccounts.MySQL) | [PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.DBAccounts.html#UsingWithRDS.IAMDBAuth.DBAccounts.PostgreSQL)
 
-#### Step 5: Connect from Bytebase
-
-Configure the database connection in Bytebase:
+#### Step 4: Connect from Bytebase
 
 1. Click **New Instance** in Bytebase
-2. Enter connection details:
-   - **Host:** Your RDS endpoint (found in RDS console)
+2. Configure connection:
+   - **Host:** Your RDS endpoint
    - **Port:** 3306 (MySQL) or 5432 (PostgreSQL)
    - **Username:** `bytebase`
    - **Authentication:** Select `AWS RDS IAM`
-
 3. Test and save the connection
 
-Bytebase automatically handles IAM token generation and refresh using the EC2 instance role.
-
-<Tip>
-IAM authentication tokens expire after 15 minutes, but Bytebase automatically refreshes them using the instance profile. Learn more about [IAM database authentication limitations](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html#UsingWithRDS.IAMDBAuth.Limitations).
-</Tip>
+Bytebase automatically handles token generation and refresh using the EC2 instance profile.
 
 ### AWS Secrets Manager
 
-#### Create an IAM user to access the Secrets Manager
+Store database passwords securely in AWS Secrets Manager instead of Bytebase.
 
-<Tip>
-It's recommended to create a dedicated IAM user for Bytebase to retrieve the secrets. You only need to do this once.
-</Tip>
+<Note>
+Prerequisites: [IAM role](#prerequisites-iam-role-setup) with Secrets Manager permissions.
+</Note>
 
-Visit [IAM](https://aws.amazon.com/iam/) to create a new IAM user. Name it `bytebase-external-secret`.
+#### Step 1: Grant Secrets Manager Access
 
-![](/content/docs/get-started/instance/aws-secrets-manager/iam-user-detail.webp)
+Add this policy to your IAM role to read secrets:
 
-Attach `SecretsManagerReadWrite` permission.
-
-![](/content/docs/get-started/instance/aws-secrets-manager/iam-set-permission.webp)
-
-After creating the IAM user, create an Access Key to be used by Bytebase later.
-
-![](/content/docs/get-started/instance/aws-secrets-manager/iam-create-access-key.webp)
-
-Select `Third-party service` as the use case.
-
-![](/content/docs/get-started/instance/aws-secrets-manager/iam-access-key-use-case.webp)
-
-Optionally set the description tag and in the `Retrieve access keys` screen, record `Access key` and `Secret access key`. They will be passed as environment variables when starting Bytebase.
-
-![](/content/docs/get-started/instance/aws-secrets-manager/iam-access-key-info.webp)
-
-#### Create secret
-
-Visit [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) to store a new secret. Select `Other type of secret`, and add a key/value pair. The key is `DB_PASSWORD` and the value is your database user password.
-
-![](/content/docs/get-started/instance/aws-secrets-manager/secret-type.webp)
-
-Next to the `Configure secret`, use `bytebase` as the Secret name
-
-![](/content/docs/get-started/instance/aws-secrets-manager/configure-secret.webp)
-
-Skip rotation, review and create the secret.
-
-#### Use secret in Bytebase
-
-Restart Bytebase with the following environment variables:
-
-```bash
-docker run --init \
-  -e AWS_REGION=us-east-1 \
-  -e AWS_ACCESS_KEY_ID=xxx \
-  -e AWS_SECRET_ACCESS_KEY=yyy \
-  ...
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+      ],
+      "Resource": "arn:aws:secretsmanager:REGION:ACCOUNT_ID:secret:SECRET_NAME-*"
+    }
+  ]
+}
 ```
 
-Go to instance setting, specify `bytebase` as the Secret name and `DB_PASSWORD` as the Secret key. These two correspond to the value you created in the AWS Secrets Manager.
+Replace `REGION`, `ACCOUNT_ID`, and `SECRET_NAME` with your values. For easier setup, you can use wildcards: `arn:aws:secretsmanager:*:*:secret:*`
 
-![](/content/docs/get-started/instance/aws-secrets-manager/auth.webp)
+Reference: [Secrets Manager IAM permissions](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_identity-based-policies.html)
+
+#### Step 2: Create Secret
+
+1. Go to [AWS Secrets Manager Console](https://console.aws.amazon.com/secretsmanager/)
+2. Click **Store a new secret**
+3. Select **Other type of secret**
+4. Add key/value pair: Key = `DB_PASSWORD`, Value = your password
+5. Name the secret (e.g., `bytebase-db-password`)
+6. Complete creation and note the ARN
+
+Reference: [Creating secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html)
+
+#### Step 3: Configure in Bytebase
+
+1. In your database instance settings, find the password field
+2. Click the key icon to use external secret
+3. Select **AWS Secrets Manager**
+4. Enter:
+   - **Secret Name:** Your secret name from Step 2
+   - **Secret Key:** `DB_PASSWORD`
+5. Test connection and save
 
 ## GCP Configuration
 
