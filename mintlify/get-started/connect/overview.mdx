@@ -143,6 +143,31 @@ Requires Vault KV v2 engine
 }
 ```
 
+## Instance Management
+
+Configure instance-level settings to optimize how Bytebase interacts with your databases.
+
+### Sync Interval
+
+<Tip>
+Manually trigger schema metadata sync at any time:
+- **Database level**: Sync an individual database's schema metadata
+- **Instance level**: Sync all databases and detect newly added or removed databases
+</Tip>
+
+Bytebase automatically syncs schema metadata when changes are made through Bytebase. For external changes, set an automatic sync interval to keep metadata current for SQL review, data masking, and drift detection. We recommend 24 hours for most use cases—shorter intervals can overload your database server and Bytebase service.
+
+### Maximum Connections
+
+Control the number of concurrent connections Bytebase can establish to your database. Finding the right balance is important:
+- **Too high**: May overwhelm your database server
+- **Too low**: May cause task queuing and execution delays
+
+Consider these factors when setting the limit:
+- Team size and concurrent SQL Editor usage
+- Available database connection capacity
+- Parallel operations (migrations, backups, syncs)
+
 ## Database-Specific Guides
 
 Configure connection settings for specific database types:
