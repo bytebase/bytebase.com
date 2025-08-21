@@ -42,8 +42,16 @@
                   "get-started/self-host/upgrade"
                 ]
               },
-              "get-started/cloud",
-              "get-started/instance"
+              "get-started/cloud"
+            ]
+          },
+          {
+            "group": "Connect Databases",
+            "pages": [
+              "get-started/connect/overview",
+              "get-started/connect/aws",
+              "get-started/connect/azure",
+              "get-started/connect/gcp"
             ]
           },
           {
@@ -486,6 +494,10 @@
     }
   },
   "redirects": [
+    {
+      "source": "/get-started/instance",
+      "destination": "/get-started/connect/overview"
+    },
     {
       "source": "/get-started/self-host",
       "destination": "/get-started/self-host-vs-cloud"

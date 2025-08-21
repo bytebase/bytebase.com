@@ -1,0 +1,214 @@
+---
+title: AWS Database Connections
+description: Configure secure database connections for AWS RDS, Aurora, and other AWS-managed databases
+---
+
+import PostgreSQLConfig from '/snippets/get-started/instance/postgresql.mdx';
+
+Learn how to configure secure connections to AWS-managed databases using IAM authentication, Secrets Manager, and best practices for production deployments.
+
+## Prerequisites: IAM Role Setup
+
+Use attached IAM roles for secure, key-free authentication on EC2 instances. This eliminates the need to manage access keys.
+
+References: [IAM roles for EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) | [IAM best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) | [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html)
+
+### Create IAM Role
+
+1. Go to [IAM Console → Roles](https://console.aws.amazon.com/iam/home#/roles)
+2. Click **Create role**
+3. Select trusted entity type: **AWS service** → **EC2**
+4. Attach policies as needed:
+   - For RDS IAM authentication - see [RDS/Aurora section](#rdsaurora-with-iam-authentication)
+   - For Secrets Manager access - see [AWS Secrets Manager section](#aws-secrets-manager)
+5. Name the role: `bytebase-role`
+
+### Attach IAM Role to EC2
+
+**New EC2 Instance:**
+1. Launch instance in [EC2 Console](https://console.aws.amazon.com/ec2/)
+2. In **Advanced details** → **IAM instance profile**: Select `bytebase-role`
+
+**Existing EC2 Instance:**
+1. Select instance → **Actions** → **Security** → **Modify IAM role**
+2. Select `bytebase-role` → **Update IAM role**
+
+Deploy Bytebase on your EC2 instance - credentials are provided automatically through the instance metadata service.
+
+### Alternative: IAM User with Access Keys
+
+<Warning>
+Use only when running Bytebase outside AWS. See [why to use IAM roles instead of access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#access-keys-alternatives).
+</Warning>
+
+1. Create an IAM user with required policies
+2. Generate access keys
+3. Set environment variables:
+   ```bash
+   -e AWS_ACCESS_KEY_ID=xxx
+   -e AWS_SECRET_ACCESS_KEY=yyy
+   -e AWS_REGION=us-east-1
+   ```
+
+Reference: [Managing access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
+
+## RDS/Aurora with IAM Authentication
+
+<Note>
+Prerequisites: [IAM role](#prerequisites-iam-role-setup) with RDS connect permissions.
+</Note>
+
+References: [IAM database authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html) | [Connecting with IAM](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Connecting.html)
+
+### Step 1: Configure RDS/Aurora Instance
+
+1. In [RDS Console](https://console.aws.amazon.com/rds/), modify your instance
+2. Enable **IAM database authentication** under Database authentication options
+3. Save changes (SSL is enabled by default)
+
+Reference: [Enabling IAM authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Enabling.html)
+
+### Step 2: Grant Database Connect Permission
+
+Add this policy to your IAM role to allow RDS IAM authentication:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "rds-db:connect",
+      "Resource": "arn:aws:rds-db:REGION:ACCOUNT_ID:dbuser:DB_RESOURCE_ID/bytebase"
+    }
+  ]
+}
+```
+
+Replace `REGION`, `ACCOUNT_ID`, and `DB_RESOURCE_ID` with your values. Find DB_RESOURCE_ID in RDS console → Configuration tab. For easier setup, you can use wildcards: `arn:aws:rds-db:*:*:dbuser:*/*`
+
+Reference: [IAM policy examples](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html)
+
+### Step 3: Create Database User
+
+**MySQL/Aurora MySQL:**
+```sql
+CREATE USER 'bytebase'@'%' IDENTIFIED WITH AWSAuthenticationPlugin AS 'RDS';
+ALTER USER 'bytebase'@'%' REQUIRE SSL;
+GRANT ALL PRIVILEGES ON *.* TO 'bytebase'@'%';
+```
+
+**PostgreSQL/Aurora PostgreSQL:**
+```sql
+CREATE USER bytebase;
+GRANT rds_iam TO bytebase;
+-- Grant appropriate permissions
+```
+
+References: [MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.DBAccounts.html#UsingWithRDS.IAMDBAuth.DBAccounts.MySQL) | [PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.DBAccounts.html#UsingWithRDS.IAMDBAuth.DBAccounts.PostgreSQL)
+
+### Step 4: Connect from Bytebase
+
+1. Click **New Instance** in Bytebase
+2. Configure connection:
+   - **Host:** Your RDS endpoint
+   - **Port:** 3306 (MySQL) or 5432 (PostgreSQL)
+   - **Username:** `bytebase`
+   - **Authentication:** Select `AWS RDS IAM`
+3. Test and save the connection
+
+Bytebase automatically handles token generation and refresh using the EC2 instance profile.
+
+## AWS Secrets Manager
+
+Store database passwords securely in AWS Secrets Manager instead of Bytebase.
+
+<Note>
+Prerequisites: [IAM role](#prerequisites-iam-role-setup) with Secrets Manager permissions.
+</Note>
+
+### Step 1: Grant Secrets Manager Access
+
+Add this policy to your IAM role to read secrets:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+      ],
+      "Resource": "arn:aws:secretsmanager:REGION:ACCOUNT_ID:secret:SECRET_NAME-*"
+    }
+  ]
+}
+```
+
+Replace `REGION`, `ACCOUNT_ID`, and `SECRET_NAME` with your values. For easier setup, you can use wildcards: `arn:aws:secretsmanager:*:*:secret:*`
+
+Reference: [Secrets Manager IAM permissions](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_identity-based-policies.html)
+
+### Step 2: Create Secret
+
+1. Go to [AWS Secrets Manager Console](https://console.aws.amazon.com/secretsmanager/)
+2. Click **Store a new secret**
+3. Select **Other type of secret**
+4. Add key/value pair: Key = `DB_PASSWORD`, Value = your password
+5. Name the secret (e.g., `bytebase-db-password`)
+6. Complete creation and note the ARN
+
+Reference: [Creating secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html)
+
+### Step 3: Configure in Bytebase
+
+1. In your database instance settings, find the password field
+2. Click the key icon to use external secret
+3. Select **AWS Secrets Manager**
+4. Enter:
+   - **Secret Name:** Your secret name from Step 2
+   - **Secret Key:** `DB_PASSWORD`
+5. Test connection and save
+
+## Database-Specific Configuration
+
+For specific database types running on AWS, see their configuration guides:
+
+<Tabs>
+  <Tab title="PostgreSQL on RDS">
+    <PostgreSQLConfig />
+  </Tab>
+  <Tab title="Aurora PostgreSQL">
+    See the PostgreSQL configuration above, with IAM authentication enabled as described in this guide.
+  </Tab>
+  <Tab title="Aurora MySQL">
+    Follow the MySQL configuration with IAM authentication enabled as described in this guide.
+  </Tab>
+</Tabs>
+
+## Best Practices
+
+1. **Use IAM Roles over Access Keys**: Always prefer IAM roles when running on EC2
+2. **Enable SSL/TLS**: All AWS database services support encrypted connections
+3. **Use Secrets Manager**: Centralize password management with automatic rotation
+4. **Follow Least Privilege**: Grant only necessary permissions to IAM roles
+5. **Monitor Access**: Use CloudTrail to audit database access patterns
+
+## Troubleshooting
+
+### Connection Timeout
+- Verify security group rules allow traffic on database port
+- Check VPC routing and subnet configuration
+- Ensure database is publicly accessible or use VPN/bastion host
+
+### IAM Authentication Failed
+- Verify IAM role has correct `rds-db:connect` permissions
+- Check database user was created with correct authentication method
+- Ensure SSL is enabled for the connection
+
+### Secrets Manager Access Denied
+- Verify IAM role has `secretsmanager:GetSecretValue` permission
+- Check secret ARN matches the policy resource
+- Ensure secret exists in the correct region

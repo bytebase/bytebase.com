@@ -1,0 +1,208 @@
+---
+title: Azure Database Connections
+description: Configure secure database connections for Azure SQL Database and Azure-managed databases
+---
+
+Learn how to configure secure connections to Azure-managed databases using Managed Identity authentication and best practices for production deployments.
+
+## Azure SQL with Managed Identity Authentication
+
+This guide demonstrates the most secure method for connecting to Azure SQL Database and Azure SQL Managed Instance using VM-attached managed identities, eliminating the need to manage credentials or connection strings.
+
+For alternative authentication methods and detailed configuration options, refer to:
+- [Azure SQL authentication methods overview](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-overview)
+- [Managed identities for Azure resources](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)
+- [Configure Azure AD authentication for SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure)
+- [Connect to Azure SQL with managed identity](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity)
+
+### Step 1: Create Azure VM with System-Assigned Managed Identity
+
+1. **Create VM with Managed Identity**
+   - Go to [Azure Portal → Virtual Machines](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2FVirtualMachines)
+   - Click **Create** → **Azure virtual machine**
+   - Configure VM settings as needed
+   - Under **Management** tab:
+     - Enable **System assigned managed identity**: Set to **On**
+   - Complete VM creation
+   
+   > **Security Best Practice:** System-assigned managed identities are automatically managed by Azure and tied to the VM lifecycle. This eliminates credential management and reduces security risks. Learn more: [Managed identity best practices](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations)
+
+2. **Deploy Bytebase on the VM**
+   
+   Deploy Bytebase on your Azure VM. The VM's managed identity is automatically available - no credential configuration needed.
+
+### Step 2: Configure Azure SQL Database
+
+1. **Enable Microsoft Entra Authentication**
+   - Navigate to your Azure SQL Server in [Azure Portal](https://portal.azure.com)
+   - Go to **Settings** → **Microsoft Entra ID**
+   - Click **Set admin** and select an Entra admin account
+   - Click **Save** to enable Entra authentication
+   
+   Reference: [Configure Entra authentication for Azure SQL](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure)
+
+2. **Grant Database Access to Managed Identity**
+   - Note your VM's managed identity name (same as VM name)
+   - Connect to Azure SQL using the Entra admin account
+   - Run the following for each database:
+
+   ```sql
+   -- Create user for the VM's managed identity
+   CREATE USER [your-vm-name] FROM EXTERNAL PROVIDER;
+   
+   -- Grant appropriate permissions (adjust as needed)
+   ALTER ROLE db_datareader ADD MEMBER [your-vm-name];
+   ALTER ROLE db_datawriter ADD MEMBER [your-vm-name];
+   ALTER ROLE db_ddladmin ADD MEMBER [your-vm-name];
+   
+   -- For full database management in Bytebase:
+   ALTER ROLE db_owner ADD MEMBER [your-vm-name];
+   ```
+   
+   > **Production Best Practice:** Follow the principle of least privilege. Grant only the minimum permissions required for your use case. See [Azure SQL Database permissions](https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage).
+
+### Step 3: Connect from Bytebase
+
+1. Access Bytebase on your VM (typically `http://localhost:5678`)
+2. Click **New Instance**
+3. Configure the connection:
+   - **Host:** Your Azure SQL server name (e.g., `yourserver.database.windows.net`)
+   - **Port:** 1433
+   - **Database:** Target database name
+   - **Authentication:** Select `Azure Default Credential`
+4. Test and save the connection
+
+Bytebase automatically uses the VM's managed identity through Azure's Instance Metadata Service (IMDS) for authentication.
+
+<Tip>
+**Advantages of this approach:**
+- No passwords or connection strings to manage
+- Automatic credential rotation handled by Azure
+- Enhanced security through Azure RBAC
+- Simplified compliance and auditing
+
+For troubleshooting, see [Troubleshoot managed identity authentication](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity#troubleshooting).
+</Tip>
+
+### Alternative: User-Assigned Managed Identity
+
+For more granular control or cross-resource scenarios:
+
+1. **Create User-Assigned Managed Identity**
+   - Go to [Managed Identities](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ManagedIdentity%2FuserAssignedIdentities)
+   - Create a new identity with a descriptive name
+   - Assign it to your VM under **Settings** → **Identity** → **User assigned**
+
+2. **Configure Database Access**
+   ```sql
+   CREATE USER [managed-identity-name] FROM EXTERNAL PROVIDER;
+   ALTER ROLE db_owner ADD MEMBER [managed-identity-name];
+   ```
+
+3. **Set Environment Variable** (if using multiple identities)
+   ```bash
+   export AZURE_CLIENT_ID=<managed-identity-client-id>
+   ```
+
+Reference: [User-assigned managed identities](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities)
+
+## Azure Database for PostgreSQL
+
+### Entra ID Authentication
+
+1. **Enable Entra Authentication**
+   - In Azure Portal, navigate to your PostgreSQL server
+   - Go to **Authentication** → **Active Directory admin**
+   - Set an Entra admin and save
+
+2. **Create Database User**
+   Connect as the Entra admin and run:
+   ```sql
+   -- For system-assigned managed identity
+   CREATE ROLE "your-vm-name" LOGIN;
+   GRANT ALL PRIVILEGES ON DATABASE yourdb TO "your-vm-name";
+   ```
+
+3. **Connect from Bytebase**
+   - **Host:** Your PostgreSQL server name
+   - **Port:** 5432
+   - **Username:** VM name (for system-assigned identity)
+   - **Authentication:** Select `Azure Default Credential`
+
+Reference: [Azure Database for PostgreSQL Entra authentication](https://learn.microsoft.com/en-us/azure/postgresql/single-server/concepts-azure-ad-authentication)
+
+## Azure Database for MySQL
+
+### Entra ID Authentication
+
+1. **Enable Entra Authentication**
+   - Navigate to your MySQL server in Azure Portal
+   - Go to **Active Directory admin**
+   - Set an Entra admin
+
+2. **Create Database User**
+   ```sql
+   CREATE AADUSER 'your-vm-name';
+   GRANT ALL PRIVILEGES ON *.* TO 'your-vm-name';
+   ```
+
+3. **Connect from Bytebase**
+   - **Host:** Your MySQL server name
+   - **Port:** 3306
+   - **Username:** VM name
+   - **Authentication:** Select `Azure Default Credential`
+
+Reference: [Azure Database for MySQL Entra authentication](https://learn.microsoft.com/en-us/azure/mysql/single-server/concepts-azure-ad-authentication)
+
+## Private Endpoints and VNet Integration
+
+For enhanced security using private endpoints:
+
+### Configure Private Endpoint
+
+1. **Create Private Endpoint**
+   - Navigate to your database resource
+   - Go to **Networking** → **Private endpoint connections**
+   - Click **+ Private endpoint**
+   - Select your VNet and subnet
+   - Complete the configuration
+
+2. **Update DNS**
+   - Use Azure Private DNS zones for automatic resolution
+   - Or manually configure DNS for the private endpoint
+
+3. **Connect from Bytebase**
+   - Deploy Bytebase in the same VNet or peered VNet
+   - Use the private endpoint DNS name for connection
+
+Reference: [Private endpoints for Azure SQL](https://learn.microsoft.com/en-us/azure/azure-sql/database/private-endpoint-overview)
+
+## Best Practices
+
+1. **Use Managed Identities**: Eliminate password management overhead
+2. **Enable Private Endpoints**: Restrict database access to your VNet
+3. **Follow Least Privilege**: Grant minimal required permissions
+4. **Enable Auditing**: Use Azure SQL Auditing for compliance
+5. **Use Azure Key Vault**: For scenarios requiring password storage
+
+## Troubleshooting
+
+### Authentication Failed
+- Verify managed identity is properly assigned to VM
+- Check database user was created with `FROM EXTERNAL PROVIDER`
+- Ensure Entra authentication is enabled on the database
+
+### Connection Timeout
+- Verify network security group rules
+- Check VNet and subnet configuration
+- Ensure database firewall rules allow your IP
+
+### Private Endpoint Issues
+- Verify DNS resolution for private endpoint
+- Check VNet peering if using multiple VNets
+- Ensure network security allows traffic
+
+### Managed Identity Not Working
+- Restart VM after enabling managed identity
+- Check Azure RBAC assignments
+- Verify IMDS endpoint is accessible from VM
