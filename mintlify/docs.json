@@ -30,6 +30,7 @@
             "group": "Install",
             "pages": [
               "get-started/self-host-vs-cloud",
+              "get-started/cloud",
               {
                 "group": "Self-Host",
                 "pages": [
@@ -41,8 +42,7 @@
                   "get-started/self-host/production-setup",
                   "get-started/self-host/upgrade"
                 ]
-              },
-              "get-started/cloud"
+              }
             ]
           },
           {
