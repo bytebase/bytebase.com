@@ -222,7 +222,6 @@
               "administration/license",
               "administration/mode",
               "ai-assistant",
-              "administration/instance",
               "administration/environment-policy/overview",
               "administration/customize-logo",
               "security/watermark",
