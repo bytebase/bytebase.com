@@ -1,0 +1,208 @@
+---
+title: GCP Database Connections
+description: Configure secure database connections for Cloud SQL and other GCP-managed databases
+---
+
+import PostgreSQLConfig from '/snippets/get-started/instance/postgresql.mdx';
+import SpannerConfig from '/snippets/get-started/instance/spanner.mdx';
+
+Learn how to configure secure connections to GCP-managed databases using service account authentication, Secret Manager, and best practices for production deployments.
+
+## Prerequisites: Service Account Setup
+
+Use attached service accounts for secure, key-free authentication on:
+- **GCE** - VMs with attached service accounts
+- **GKE** - Pods with Workload Identity
+
+References: [Service accounts](https://cloud.google.com/iam/docs/service-account-overview) | [Best practices](https://cloud.google.com/iam/docs/best-practices-for-managing-service-account-keys) | [ADC](https://cloud.google.com/docs/authentication/application-default-credentials)
+
+### Create Service Account
+
+1. Go to [IAM & Admin → Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts)
+2. Create service account named `bytebase`
+3. Grant roles as needed:
+   - `Cloud SQL Client` and `Cloud SQL Instance User` - for Cloud SQL
+   - `Secret Manager Secret Accessor` - for Secret Manager
+4. Note the email: `bytebase@PROJECT_ID.iam.gserviceaccount.com`
+
+### Attach Service Account
+
+**Option A: GCE VM**
+1. Create VM in [Compute Engine](https://console.cloud.google.com/compute/instances)
+2. Set service account: `bytebase@PROJECT_ID.iam.gserviceaccount.com`
+3. Set access scopes: "Allow full access to all Cloud APIs"
+
+**Option B: GKE with Workload Identity**
+```bash
+# Create Kubernetes service account
+kubectl create serviceaccount bytebase-ksa
+
+# Bind to Google service account
+kubectl annotate serviceaccount bytebase-ksa \
+  iam.gke.io/gcp-service-account=bytebase@PROJECT_ID.iam.gserviceaccount.com
+
+# Allow impersonation
+gcloud iam service-accounts add-iam-policy-binding bytebase@PROJECT_ID.iam.gserviceaccount.com \
+  --role roles/iam.workloadIdentityUser \
+  --member "serviceAccount:PROJECT_ID.svc.id.goog[NAMESPACE/bytebase-ksa]"
+```
+
+Reference: [Workload Identity](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity)
+
+Deploy Bytebase on your resource - credentials are provided automatically.
+
+### Alternative: Service Account Keys
+
+<Warning>
+Use only when running Bytebase outside GCP. See [why to avoid service account keys](https://cloud.google.com/iam/docs/best-practices-for-managing-service-account-keys#avoid).
+</Warning>
+
+1. Create a service account with required roles
+2. Download the JSON key file
+3. Set environment variable:
+   ```bash
+   -e GOOGLE_APPLICATION_CREDENTIALS=/path/to/key.json
+   ```
+
+Reference: [Service account keys authentication](https://cloud.google.com/docs/authentication/provide-credentials-adc#local-key)
+
+## Cloud SQL with IAM Authentication
+
+<Note>
+Prerequisites: [Service account](#prerequisites-service-account-setup) with Cloud SQL roles.
+</Note>
+
+References: [IAM authentication](https://cloud.google.com/sql/docs/mysql/iam-authentication) | [Configure instances](https://cloud.google.com/sql/docs/mysql/create-edit-iam-instances)
+
+### Step 1: Configure Cloud SQL Instance
+
+1. In [Cloud SQL](https://console.cloud.google.com/sql/instances), edit your instance
+2. Add flag: `cloudsql_iam_authentication` = `on`
+3. Save (SSL is enabled by default)
+
+### Step 2: Add Service Account User
+
+**Using gcloud:**
+```bash
+gcloud sql users create bytebase@PROJECT_ID.iam.gserviceaccount.com \
+  --instance=INSTANCE_NAME \
+  --type=cloud_iam_service_account
+```
+
+**Using Console:**
+Instance → Users → Add User Account → Cloud IAM → Enter service account email
+
+References: [MySQL](https://cloud.google.com/sql/docs/mysql/add-manage-iam-users) | [PostgreSQL](https://cloud.google.com/sql/docs/postgres/add-manage-iam-users)
+
+### Step 3: Connect from Bytebase
+
+1. Click **New Instance** in Bytebase
+2. Configure connection details:
+   - **Host:** Your Cloud SQL connection name (`PROJECT_ID:REGION:INSTANCE_ID`)
+     - Find this in Cloud SQL console → Instance details
+   - **Port:** 3306 (MySQL) or 5432 (PostgreSQL)
+   - **Username:** 
+     - MySQL: `bytebase` (service account name only)
+     - PostgreSQL: `bytebase@PROJECT_ID.iam` (with project ID)
+   - **Authentication:** Select `Google Cloud SQL IAM`
+3. Click **Test Connection** then **Create**
+
+## GCP Secret Manager
+
+Store database passwords securely in Google Cloud Secret Manager instead of Bytebase.
+
+<Note>
+Prerequisites: [Service account](#prerequisites-service-account-setup) with `Secret Manager Secret Accessor` role.
+</Note>
+
+### Step 1: Create Secret
+
+1. Go to [Secret Manager Console](https://console.cloud.google.com/security/secret-manager)
+2. Click **Create Secret**
+3. Enter secret name (e.g., `db-password`) and your database password as value
+4. Click **Create** and note the resource name: `projects/PROJECT_ID/secrets/SECRET_NAME`
+
+### Step 2: Configure in Bytebase
+
+1. In your database instance settings, find the password field
+2. Click the key icon to use external secret
+3. Select **GCP Secret Manager** 
+4. Enter the secret resource name from Step 1
+5. Test connection and save
+
+## Private IP and VPC Peering
+
+For Cloud SQL instances using private IP:
+
+### Step 1: Configure VPC Peering
+
+1. Enable Service Networking API
+2. Reserve IP range for services:
+   ```bash
+   gcloud compute addresses create google-managed-services-default \
+     --global \
+     --purpose=VPC_PEERING \
+     --prefix-length=16 \
+     --network=default
+   ```
+3. Create private connection:
+   ```bash
+   gcloud services vpc-peerings connect \
+     --service=servicenetworking.googleapis.com \
+     --ranges=google-managed-services-default \
+     --network=default
+   ```
+
+Reference: [Private IP configuration](https://cloud.google.com/sql/docs/mysql/configure-private-ip)
+
+### Step 2: Connect from Bytebase
+
+1. Deploy Bytebase in the same VPC or a peered VPC
+2. Use the private IP address for the Cloud SQL instance
+3. Configure connection as normal with private IP
+
+## Database-Specific Configuration
+
+For specific database types running on GCP:
+
+<Tabs>
+  <Tab title="Cloud SQL PostgreSQL">
+    <PostgreSQLConfig />
+  </Tab>
+  <Tab title="Cloud SQL MySQL">
+    Follow standard MySQL configuration with IAM authentication enabled as described above.
+  </Tab>
+  <Tab title="Cloud Spanner">
+    <SpannerConfig />
+  </Tab>
+</Tabs>
+
+## Best Practices
+
+1. **Use Service Accounts over Keys**: Always prefer attached service accounts
+2. **Enable Private IP**: Use VPC peering for enhanced security
+3. **Use Secret Manager**: Centralize password management
+4. **Follow Least Privilege**: Grant only necessary IAM roles
+5. **Enable Audit Logging**: Monitor database access with Cloud Audit Logs
+
+## Troubleshooting
+
+### Connection Refused
+- Verify Cloud SQL instance allows connections from your IP/network
+- Check authorized networks configuration
+- Ensure VPC peering is properly configured for private IP
+
+### IAM Authentication Failed
+- Verify service account has `Cloud SQL Instance User` role
+- Check database user was created with correct type
+- Ensure `cloudsql_iam_authentication` flag is enabled
+
+### Secret Manager Access Denied
+- Verify service account has `Secret Manager Secret Accessor` role
+- Check secret resource name is correct
+- Ensure secret exists in the correct project
+
+### Private IP Connection Issues
+- Verify VPC peering is active
+- Check firewall rules allow traffic
+- Ensure Bytebase is deployed in the correct VPC

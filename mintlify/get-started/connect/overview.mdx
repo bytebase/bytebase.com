@@ -1,0 +1,183 @@
+---
+title: Overview
+description: Connect Bytebase to your databases - from basic setup to cloud-native authentication
+---
+
+import PostgreSQLConfig from '/snippets/get-started/instance/postgresql.mdx';
+import OracleConfig from '/snippets/get-started/instance/oracle.mdx';
+import SnowflakeConfig from '/snippets/get-started/instance/snowflake.mdx';
+import MongoDBConfig from '/snippets/get-started/instance/mongodb.mdx';
+import ClickHouseConfig from '/snippets/get-started/instance/clickhouse.mdx';
+import DatabricksConfig from '/snippets/get-started/instance/databricks.mdx';
+import SpannerConfig from '/snippets/get-started/instance/spanner.mdx';
+
+Learn how to connect Bytebase to your database instances and configure basic connection settings.
+
+## Quick Start
+
+<Columns cols={3}>
+  <Card title="AWS Databases" href="/get-started/connect/aws" icon="aws">
+    RDS, Aurora with IAM auth
+  </Card>
+  <Card title="GCP Databases" href="/get-started/connect/gcp" icon="google">
+    Cloud SQL, Spanner with service accounts
+  </Card>
+  <Card title="Azure Databases" href="/get-started/connect/azure" icon="microsoft">
+    Azure SQL with managed identity
+  </Card>
+</Columns>
+
+## Basic Connection
+
+Before configuring connection parameters, ensure network connectivity:
+
+**Network Requirements:**
+- Verify network routing between Bytebase and your database instance (e.g., VPN, private networks)
+- Configure firewall rules to allow Bytebase to connect to your database port
+- For cloud databases, add Bytebase to security groups or IP allowlists
+- Bytebase Cloud users: [Whitelist required IPs](/get-started/cloud#prerequisites)
+
+**Connection Parameters:**
+
+1. **Host**: Database server address
+   - Docker (standard): Use `host.docker.internal` for localhost databases
+   - Docker (--network host): Use `127.0.0.1` for localhost databases
+
+2. **Port**: Database port number (e.g., 5432 for PostgreSQL, 3306 for MySQL)
+
+3. **Username & Password**: Database credentials with appropriate permissions
+
+Additional parameters vary by database type - see the database-specific guides below.
+
+## Advanced Connection Options
+
+### Read-Only Connections
+
+Configure separate read-only connections for enhanced security and performance. Read-only connections are used for:
+- SQL Editor queries with [data source restrictions](/sql-editor/settings/data-source-restriction)
+- [Export Center operations](/security/database-permission/export#request-from-export-center)
+
+**Setup:**
+1. Create a read-only database user or configure a read-replica
+2. In Bytebase, click **+** next to **Connection Info**
+3. Enter the read-only connection details
+4. Save the configuration
+
+### SSH Tunnel
+
+<PricingPlanBlock feature_name="SSH_TUNNEL" />
+
+Use SSH tunneling to connect through a bastion host when your database is behind a firewall or in a private network.
+
+**Setup:**
+1. Enter your database connection details
+2. Enable **SSH Connection** and select **Tunnel + Private Key**
+3. Configure SSH settings:
+   - **SSH Host**: Bastion host address
+   - **SSH Port**: SSH port (typically 22)
+   - **SSH User**: Username for SSH authentication
+   - **Private Key** or **Password**: SSH credentials
+4. Test and save the connection
+
+### Connection Parameters
+
+Customize connection behavior with database-specific parameters:
+
+| Parameter | Description | Example | Databases |
+|-----------|------------|---------|-----------|
+| `sslmode` | SSL connection mode | `require` | PostgreSQL |
+| `connect_timeout` | Connection timeout | `10` | PostgreSQL, MySQL |
+| `readTimeout` | Read operation timeout | `30s` | MySQL, SQL Server |
+
+**Database Documentation:**
+- [PostgreSQL Parameters](https://www.postgresql.org/docs/current/libpq-connect.html)
+- [MySQL Parameters](https://github.com/go-sql-driver/mysql#parameters)
+- [SQL Server Parameters](https://pkg.go.dev/github.com/microsoft/go-mssqldb#section-readme)
+
+### Secret Manager Integration
+
+<PricingPlanBlock feature_name="EXTERNAL_SECRET_MANAGER" />
+
+Never store database passwords in Bytebase. Use your existing secret manager for automatic rotation, compliance, and centralized control.
+
+**Key benefits:**
+- Meet SOC2/HIPAA compliance requirements
+- Automatic password rotation without downtime
+- Complete audit trail of credential access
+- Centralized management across all systems
+
+**Supported integrations:**
+
+- **[AWS Secrets Manager](/get-started/connect/aws#aws-secrets-manager)** - For AWS deployments
+- **[GCP Secret Manager](/get-started/connect/gcp#gcp-secret-manager)** - For GCP deployments
+- **HashiCorp Vault** - Enterprise secret management
+- **Custom API Endpoint** - Custom integrations
+
+#### HashiCorp Vault
+
+<Note>
+Requires Vault KV v2 engine
+</Note>
+
+**Vault Setup:**
+1. Create secret in Vault:
+   - Engine: `secret`
+   - Path: `bytebase`
+   - Key: `DB_PASSWORD`
+
+**Bytebase Configuration:**
+1. Enter Vault URL
+2. Choose authentication: Token or AppRole
+3. Specify secret location
+
+#### Custom API Endpoint
+
+**Endpoint Format:** `{{http://example.com/secrets/mydbkey}}`
+
+**Expected Response:**
+```json
+{
+  "payload": {
+    "data": "base64_encoded_password"
+  }
+}
+```
+
+## Database-Specific Guides
+
+Configure connection settings for specific database types:
+
+<Tabs>
+  <Tab title="PostgreSQL">
+    <PostgreSQLConfig />
+  </Tab>
+  <Tab title="Oracle">
+    <OracleConfig />
+  </Tab>
+  <Tab title="MongoDB">
+    <MongoDBConfig />
+  </Tab>
+  <Tab title="Snowflake">
+    <SnowflakeConfig />
+  </Tab>
+  <Tab title="ClickHouse">
+    <ClickHouseConfig />
+  </Tab>
+  <Tab title="Databricks">
+    <DatabricksConfig />
+  </Tab>
+  <Tab title="Spanner">
+    <SpannerConfig />
+  </Tab>
+</Tabs>
+
+## Next Steps
+
+<Columns cols={2}>
+  <Card title="Cloud Provider Setup" href="/get-started/connect/aws">
+    Configure IAM authentication and cloud-specific features
+  </Card>
+  <Card title="Production Setup" href="/get-started/self-host/production-setup">
+    Best practices for production deployments
+  </Card>
+</Columns>
