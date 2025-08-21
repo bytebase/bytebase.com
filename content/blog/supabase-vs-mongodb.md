@@ -93,6 +93,7 @@ MongoDB offers native horizontal sharding and fast document operations but can s
 
 ## Pricing Analysis: The Total Cost of Ownership
 
+> **Disclaimer:** Pricing information in this section is current as of the publication date (August 21, 2025) and may change over time. Please refer to the official [Supabase pricing](https://supabase.com/pricing) and [MongoDB Atlas pricing](https://www.mongodb.com/pricing) pages for the most up-to-date information.
 [Supabase offers transparent, usage-based pricing](https://supabase.com/pricing) starting at $25/month for production workloads, while [MongoDB Atlas](https://www.mongodb.com/pricing) begins at $60/month with additional costs for authentication, storage, and enterprise features. MongoDB's complex pricing model often leads to unexpected costs as applications scale.
 
 ### Cost Comparison Analysis
