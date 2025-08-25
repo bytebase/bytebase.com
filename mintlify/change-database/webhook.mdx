@@ -15,6 +15,14 @@ User can configure project-level webhooks to let Bytebase post messages to the c
 - `Issue info change` - Post message when issue's basic info such as assignee, title, description has been changed.
 - `Issue comment creation` - Post message when new comment added to the issue.
 
+### Direct message
+
+<Note>
+
+With `Direct Message` enabled, Bytebase delivers messages to matched users; if none match, it falls back to the configured webhook.
+
+</Note>
+
 The following events support sending direct messages/notifications to related users, make sure you have:
 
 1. enabled the `Enable direct messages` option to enable this feature.
