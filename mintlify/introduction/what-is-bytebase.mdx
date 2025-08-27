@@ -1,59 +1,40 @@
 ---
-title: Why Bytebase
+title: Bytebase: The DevSecOps Control Plane for Your Databases
 ---
 
-Our founding team previously built the Google Cloud database and API infrastructure. We envision Bytebase
-to be the GitLab/GitHub equivalent for **Database DevSecOps**, specifically built for the developer, security, DBA and platform engineering teams.
+Bytebase is the DevSecOps platform that sits between your team and your databases. Built by the team that previously created Google's Cloud database and API infrastructure, it acts as a centralized control plane to deliver two critical outcomes for engineering leaders: **better security and compliance**, and **improved productivity and reliability**.
 
-![middleware](/content/docs/what-is-bytebase/middleware.webp)
+It’s a unified platform specifically built for your **developer, security, DBA, and platform engineering teams** to collaborate. Its value becomes particularly critical as your organization grows, reducing the friction of managing a large number of databases and instances. Bytebase achieves this by consolidating two distinct workflows.
 
-Bytebase is a **middleware** sitting between you and your database. It can be used in 2 ways:
+## 1. For Productivity & Reliability: Managing Schema Changes at Scale 🚀
 
-- **GUI** - Bytebase provides a point-and-click collaboration workspace for teams to manage database development tasks for all database systems.
-- **API (headless)** - Bytebase can go headless. Teams can leverage [Bytebase API](/integrations/api/overview/) as the database operation backend and integrate with their own development workflow.
+This section covers how Bytebase makes all database changes safer and more efficient. By providing a structured process, it also enhances security by **eliminating the need for engineers to make direct changes against databases**. Bytebase supports two distinct workflows for schema changes:
 
-## 3-in-1
+**UI-driven Workflow**: Provides a complete, console-based process with built-in risk analysis and multi-step approvals, offering a secure and self-contained way to manage schema changes.
 
-![venn](/content/docs/what-is-bytebase/venn.webp)
+**GitOps Workflow (Database-as-Code)**: Features a full GitOps workflow that integrates with your provider (GitHub, GitLab, Bitbucket, Azure DevOps) and existing CI/CD pipelines, allowing developers to manage database migrations entirely as code.
 
-Bytebase is an all-in-one solution for database development lifecycle management. It replaces fragmented database tools and unifies the workflow in a single place. Check [all the tools Bytebase replaces](https://www.bytebase.com/blog/all-database-tools-bytebase-replaces).
+In addition to these workflows, the platform provides overarching capabilities for reliability and scale:
 
-## Key Features
+**Fleet-wide Batch Changes**: Manage and apply schema changes across a collection of databases in a single, coordinated workflow, dramatically reducing manual effort.
 
-[Database CI/CD and Change Automation](/change-database/change-workflow/)
+**1-Click DML Rollback**: Provides streamlined, 1-click rollback for data changes (DML), allowing for instant recovery from unintended UPDATE or DELETE statements.
 
-Like code review, Bytebase streamlines the database change process. Within a single workflow, a database change can be requested, reviewed, approved and deployed from the dev environment all the way to the production environment. It also supports [automated SQL Review](/sql-review/overview/) and [GitOps (Database-as-Code)](/vcs-integration/overview/).
+## 2. For Security & Compliance: Governing Data Access at Scale 🛡️
 
-[SQL Editor](/sql-editor/overview/)
+This workflow governs how your database data is accessed, replacing the need for disparate SQL clients and shared credentials.
 
-A web-based SQL Editor to query and export data. DBAs no longer need to give away sensitive database credentials when developers need to access the data.
+**Centralized Access Control:** Grant data query permissions based on role, not on sharing database passwords. This provides a single place to manage who can see what across your entire environment.
 
-[Database Permission](/security/database-permission/overview/)
+**Compliance & Data Security:** Enforce **dynamic data masking** to protect sensitive PII and maintain a complete audit log of every query for compliance with standards like GDPR and CCPA.
 
-Bytebase provides a suite of features to enable organizations to enforce data security policies, avoid data leaks and conform compliance.
+**Efficient Cross-Database Querying:** The web-based SQL Editor allows you to issue a **single query against multiple databases** simultaneously, ideal for analytics and operational oversight.
 
-[Dynamic Data Masking](/security/data-masking/overview/)
+In short, Bytebase unifies the process of **changing the database** with the **process of accessing its data**, giving you a single pane of glass for true database DevSecOps.
 
-Bytebase provides role-based multi-level masking policy with approval workflow to grant unmasked data access.
+## How Bytebase Compares: Schema Migration Tools
 
-[1-click Rollback](/change-database/rollback-data-changes/)
-
-Bytebase provides streamlined 1-click data rollback.
-
-[Batch Change and Query](/change-database/batch-change/)
-
-Bytebase allows you to change a collection of databases in a single workflow. It also allows you to issue
-a single query against multiple databases.
-
-[API](/integrations/api/overview/)
-
-Bytebase GUI is built on the public Bytebase API. In theory, 3rd-party can build a new Bytebase
-GUI based on the same API.
-
-## Compare with Liquibase / Flyway / schemachange
-
-If Liquibase, Flyway are Git, then Bytebase is GitLab/GitHub. And as an open source project, Bytebase
-is growing way faster and ranked No.1 among alternatives.
+While Liquibase and Flyway are powerful command-line migration tools (think Git), Bytebase provides the complete platform experience (think GitHub/GitLab). It wraps these migration capabilities in a collaborative interface with approval workflows, audit trails, and enterprise controls. As the fastest-growing open source solution in this space, Bytebase has become the top choice for teams seeking a unified database DevSecOps platform.
 
 ![bytebase-vs-liquibase-flyway](/content/docs/what-is-bytebase/bytebase-vs-liquibase-flyway-schemachange.webp)
 
@@ -61,35 +42,12 @@ is growing way faster and ranked No.1 among alternatives.
 - [Bytebase vs. Flyway](https://www.bytebase.com/blog/bytebase-vs-flyway/)
 - [Bytebase vs. schemachange](https://www.bytebase.com/blog/snowflake-schema-change/)
 
-## Compare with CloudBeaver
+## How Bytebase Compares: SQL Clients
 
-Both have web-based SQL clients. Additionally, Bytebase offers review workflow, more collaboration and security features.
+Traditional SQL clients like DBeaver, DataGrip, and Navicat excel at individual database access but weren't built for team collaboration or enterprise security. Bytebase transforms SQL access from a personal tool into an enterprise-ready platform—providing not just query capabilities, but also role-based permissions, data masking, audit logging, and centralized governance that eliminates the need to share database credentials.
 
 ![bytebase-vs-cloudbeaver](/content/docs/what-is-bytebase/bytebase-vs-cloudbeaver.webp)
-
-[Bytebase vs. CloudBeaver](https://www.bytebase.com/blog/bytebase-vs-cloudbeaver/)
-
-## Compare with DBeaver / DataGrip / Navicat
-
-SQL GUI Client such as DBeaver, DataGrip, Navicat provide a GUI to interact with the
-database. Bytebase not only provides a GUI client, it can also enforce centralized data access control for data security and governance.
 
 - [Bytebase vs. DBeaver](https://www.bytebase.com/blog/bytebase-vs-dbeaver/)
 - [Bytebase vs. DataGrip](https://www.bytebase.com/blog/bytebase-vs-datagrip/)
 - [Bytebase vs. Navicat](https://www.bytebase.com/blog/stop-using-navicat/)
-
-## Compare with Metabase
-
-Metabase is a data visualization and business intelligence (BI) tool. It's built for data teams and business analysts
-to make sense of the data.
-
-Bytebase is a database development platform. It's built for the developer teams to perform database operations during the application development lifecycle.
-
-[Bytebase vs. Metabase](https://www.bytebase.com/blog/bytebase-vs-metabase/)
-
-## Compare with Jira
-
-Jira is a general-purpose issue ticketing system. Bytebase is a database domain-specific change management system.
-Bytebase provides an integrated experience to plan, review, and deploy database changes.
-
-[Bytebase vs. Jira](https://www.bytebase.com/blog/use-jira-for-database-change/)
