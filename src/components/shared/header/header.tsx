@@ -140,11 +140,11 @@ export const HEADER_MENU: Header[] = [
             linkUrl: Route.DOCS_JUST_IN_TIME_DATABASE_ACCESS,
           },
           {
-            name: 'Adhoc Database Change',
+            name: 'Adhoc Data Fix',
             linkUrl: Route.DOCS_DATABASE_ADHOC_CHANGE,
           },
           {
-            name: 'Large-Scale Deployment',
+            name: 'Batch Tenant Change',
             linkUrl: Route.DOCS_MULTI_TENANCY_DEPLOYMENT,
           },
           {
@@ -157,23 +157,23 @@ export const HEADER_MENU: Header[] = [
         title: 'Industry',
         items: [
           {
-            name: 'Financial Services',
+            name: '🏦 Financial Services',
             linkUrl: Route.INDUSTRY_FINANCIAL_SERVICES,
           },
           {
-            name: 'Technology',
+            name: '🌐 Technology',
             linkUrl: Route.INDUSTRY_TECHNOLOGY,
           },
           {
-            name: 'Manufacturing',
+            name: '🏭 Manufacturing',
             linkUrl: Route.INDUSTRY_MANUFACTURING,
           },
           {
-            name: 'Gaming',
+            name: '🕹️ Gaming',
             linkUrl: Route.INDUSTRY_GAMING,
           },
           {
-            name: 'Web3',
+            name: '🔗 Web3',
             linkUrl: Route.INDUSTRY_WEB3,
           },
         ],
