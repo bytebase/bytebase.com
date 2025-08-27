@@ -14,4 +14,4 @@ Building on our earlier [Type 1 certification](/blog/soc2-type1), **SOC 2 Type 2
 
 This milestone reflects our ongoing dedication to securing critical database workflows. As we advance our compliance journey, we remain focused on enhancing trust and reliability for all users.
 
-To request our SOC 2 Type 2 report or learn more about our security practices, [email us](mailto:support-3fc2156a2150@intake.linear.app).
+To request our SOC 2 Type 2 report or learn more about our security practices, [email us](mailto:support@bytebase.com).
