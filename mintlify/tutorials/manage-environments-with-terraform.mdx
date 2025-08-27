@@ -33,7 +33,7 @@ In this tutorial, you'll use Terraform to manage Bytebase environments programma
 - Define environments (Test, Prod) with different protection levels
 - Configure automatic vs manual deployment policies
 - Set up data access restrictions for production
-- Manage everything as Infrastructure as Code (IaC)
+- Manage everything via Infrastructure as Code (IaC)
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ Follow the [official Terraform installation guide](https://developer.hashicorp.c
 
    ![register-admin](/content/docs/tutorials/manage-environments-with-terraform/bb-register-admin.webp)
 
-1. Follow the guide to configure, you'll need the **built-in sample** data for this tutorial.
+1. Complete the setup to configure Bytebase, you'll need to select **use built-in sample** for this tutorial.
 
    ![use-built-in-sample](/content/docs/tutorials/manage-environments-with-terraform/bb-use-built-in-sample.webp)
 
@@ -71,13 +71,13 @@ Follow the [official Terraform installation guide](https://developer.hashicorp.c
 
 ### Explore Current Environments
 
-Navigate to **Environments** in Bytebase. You'll see two default environments `Test` and `Prod`. We’ll manage these environments using Terraform next.
+Navigate to **Environments** in Bytebase. You'll see two default environments: `Test` and `Prod`. We’ll manage these environments using Terraform next.
 
 ![env-default](/content/docs/tutorials/manage-environments-with-terraform/bb-env-default.webp)
 
 ## Step 2 - Configure Terraform Provider
 
-### Set up Provider
+### Set up the Provider
 
 1. Create a new folder `learn-terraform-bytebase` and navigate to it.
 
@@ -102,7 +102,7 @@ Navigate to **Environments** in Bytebase. You'll see two default environments `T
    }
    ```
 
-### Create Service Account
+### Create a Service Account
 
 1. In Bytebase, go to **IAM & Admin > Users & Groups**.
 1. Click **+ Add User** and create a service account:
@@ -124,7 +124,7 @@ You should see: "Terraform has been successfully initialized!"
 
 ## Step 3 - Inspect Current Environments
 
-Before making changes, let's see what environments exist.
+Before making any changes, let's see what environments currently exist.
 
 |                       |                                                                                                                        |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -154,7 +154,7 @@ terraform apply
 
 You'll see the existing `test` and `prod` environments.
 
-## Step 4 - Define Environment Configuration
+## Step 4 - Define the Environment Configuration
 
 |                       |                                                                                                                        |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -164,7 +164,7 @@ You'll see the existing `test` and `prod` environments.
 Create `1-1-env-setting.tf`:
 
 ```hcl 1-1-env-setting.tf
-# Define environments as Infrastructure as Code
+# Define environments via Infrastructure as Code
 resource "bytebase_setting" "environments" {
    name = "settings/ENVIRONMENT"
 
@@ -180,7 +180,7 @@ resource "bytebase_setting" "environments" {
       environment {
          id        = "prod"
          title     = "Prod"
-         ## Bytebase will attach a shield icon 🛡️ besides the environment name.
+         ## Bytebase will attach a shield icon 🛡️ beside the environment name.
          protected = true
       }
    }
@@ -189,7 +189,7 @@ resource "bytebase_setting" "environments" {
 
 ## Step 5 - Configure Environment Policies
 
-Let's add rollout and data protection policies, you may find more details in [Environment Settings](/administration/environment-policy/overview).
+Let's add rollout and data protection policies, for more details, see: [Environment Policy](/administration/environment-policy/overview) and [Rollout Policy](/administration/environment-policy/rollout-policy).
 
 ### Rollout Policy
 
@@ -236,7 +236,7 @@ resource "bytebase_policy" "rollout_policy_prod" {
 }
 ```
 
-- `roles` is the list of roles that are allowed to click the button to deploy the changes manually. Even automatic rollout is enabled, manual approval is still needed while there is any automatic check failure.
+- `roles` is the list of roles that are allowed to click the button to deploy changes manually. Even if automatic rollout is enabled, manual approval is still needed while there is any automatic check failure.
 
 ### Data Protection Policy
 
