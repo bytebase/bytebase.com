@@ -365,23 +365,25 @@ resource "bytebase_policy" "masking_exception_policy" {
 
   masking_exception_policy {
     exceptions {
-      reason = "Business requirement"
-      database = "instances/prod-sample-instance/databases/hr_prod"
-      table    = "employee"
-      column   = "birth_date"
-      member   = "user:admin@example.com"
-      action   = "QUERY"
+      reason           = "Business requirement"
+      database         = "instances/prod-sample-instance/databases/hr_prod"
+      table            = "employee"
+      columns          = ["birth_date", "last_name"]
+      members          = ["user:admin@example.com"]
+      actions          = ["QUERY", "EXPORT"]
       expire_timestamp = "2027-07-30T16:11:49Z"
-
+    }
+     exceptions {
+      reason           = "Export data for analysis"
+      members          = ["user:qa1@example.com"]
+      actions          = ["EXPORT"]
+      expire_timestamp = "2027-07-30T16:11:49Z"
     }
     exceptions {
-      reason = "Export data for analysis"
-      database = "instances/prod-sample-instance/databases/hr_prod"
-      table    = "employee"
-      column   = "last_name"
-      member   = "user:admin@example.com"
-      action   = "EXPORT"
-      expire_timestamp = "2027-07-30T16:11:49Z"
+      reason         = "Grant query access"
+      members = ["user:dev1@example.com"]
+      actions        = ["QUERY"]
+      raw_expression = "resource.instance_id == \"prod-sample-instance\" && resource.database_name == \"hr_prod\" && resource.table_name == \"employee\" && resource.column_name in [\"first_name\", \"last_name\", \"gender\"]"
     }
   }
 }
@@ -396,6 +398,10 @@ Our system uses PostgreSQL to store metadata, where this value is stored as a `t
 
 <Note>
 If you want to apply the exemption to all databases, you can skip the `database`, `table`, and `column` fields.
+</Note>
+
+<Note>
+If you specify `raw_expression`, it defines the exemption condition directly as a CEL expression. When `raw_expression` is used, the other fields (`database`, `schema`, `table`, `columns`, `expire_timestamp`) are ignored.
 </Note>
 
 
