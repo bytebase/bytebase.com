@@ -2,110 +2,125 @@
 title: Overview
 ---
 
-import TaskRunOrder from '/snippets/tutorials/task-run-order.mdx';
-
 <Card title="Tutorial: First Schema Change in 5 Minutes" icon="graduation-cap" href="/tutorials/first-schema-change" horizontal />
 
-For a typical change workflow, a developer first submits the SQL statement for DBA to review. After review is approved, the SQL statement will then be applied to the corresponding database. For a single change, this step would normally be repeated for each environment (e.g. integration, staging, prod).
+## Database CI/CD
 
-There are 2 typical workflows employed by the team to deal with database schema changes (DDL) and data changes (DML). [UI workflow](#ui-workflow) and [GitOps workflow (GitOps)](#gitops-workflow).
+Bytebase Database CI/CD provides a complete platform for managing database changes throughout the development lifecycle. By eliminating direct database access and enforcing structured processes, it ensures every change is safe, reviewed, and auditable.
 
-## UI workflow
+## The Database CI/CD Lifecycle
 
-Classic SQL Review workflow where the developer submits a SQL review ticket directly from Bytebase and waits for the assigned DBA or peer developer to review. Bytebase applies the SQL change after review approved.
+Every database change in Bytebase follows a structured lifecycle, regardless of which workflow you choose:
 
-![issue-to-approve](/content/docs/get-started/step-by-step/change-schema/bb-issue-to-approve.webp)
+### 1. **Plan Change**
+Define what needs to change—whether it's a schema migration (DDL) or data modification (DML). Changes can target:
+- A single database
+- Multiple selected databases
+- A Database Group (databases sharing the same schema)
 
-## GitOps Workflow
+### 2. **Automatic SQL Review**
+Built-in SQL advisor validates every change before execution:
+- **Syntax validation**: Catch SQL errors before deployment
+- **Schema rules**: Naming conventions, data types, and structure standards
+- **Performance checks**: Missing indexes, inefficient queries, table scans
+- **Security policies**: Prevent unsafe operations and data exposure
+- **Backward compatibility**: Ensure changes won't break existing applications
+- **Best practices**: Enforce organizational and industry standards
 
-Aka `Database-as-Code`. Database migration scripts are stored in a git repository. To make schema changes, a developer would create a migration script and submit for review in the corresponding VCS such as GitLab. After the script is approved and merged into the configured branch, Bytebase will automatically kicks off the task to apply the new schema change.
+### 3. **Approval Process**
+Flexible approval mechanisms based on your workflow choice:
+- **UI-Driven**: Built-in multi-level approval within Bytebase
+- **GitOps**: 
+  - Leverage pull request reviews in GitHub/GitLab/Bitbucket
+  - Integrate with external systems like ServiceNow, Jira, or custom approval workflows
+- Risk-based routing: Automatic approval for low-risk dev changes, mandatory reviews for production
 
-![workflow-vcs](/content/docs/change-database/change-workflow/workflow-vcs.webp)
+### 4. **Multi-Environment Rollout Pipeline**
+Changes progress through your environments in a controlled pipeline:
+- **Stage-by-stage promotion**: Dev → Test → Staging → Production
+- **Configurable deployment paths**: Define custom environment chains
+- **Database Groups per stage**: Different database sets for each environment
+- **Gated progression**: Manual or automatic promotion between stages
+- **Environment-specific policies**: Different review rules per stage
 
-## Core Concepts
+Within each stage, deployments execute with precision:
+- **Parallel execution**: Deploy across Database Groups simultaneously
+- **Sequential ordering**: Respect dependencies between databases
+- **Real-time monitoring**: Track progress and view execution logs
+- **Automatic retry**: Handle transient failures gracefully
 
-### Issue
+### 5. **Rollback Capabilities**
+Instant recovery when things go wrong:
+- **DML Instant Rollback**: One-click recovery for UPDATE/DELETE operations
+- **Schema Rollback**: Generate reverse migration scripts for DDL changes
+- Automatic backup before risky DML operations
 
-`Issue` adds the collaboration such as approval, comment, and notification to the database change process. An issue is often created via the UI workflow. On the other hand, an issue may not be created via the GitOps workflow since the GitOps workflow may only need the [rollout](/change-database/change-workflow/#rollout) without further human intervention.
+### 6. **Schema Monitoring**
+Detect schema drift when changes occur outside the CI/CD pipeline, ensuring your databases remain in their expected state.
 
-### Release
+## Batch Changes with Database Groups
 
-A `release` is a deployable unit that encapsulates a set of SQL statements.
+Deploy changes at scale using Database Groups—logical collections of databases that share the same schema:
 
-### Rollout
+- **Multi-tenant SaaS**: Update all tenant databases simultaneously
+- **Geographic distribution**: Roll out to regional databases in controlled waves
+- **Environment management**: Group databases by dev/staging/prod for systematic promotion
 
-To deploy the changes, Bytebase creates a multi-stage rollout pipeline from you project deployment config setting. The changes are pushed to databases stage by stage.
+Database Groups enable you to manage 10 or 10,000 databases with the same effort.
 
-### Revision
+## Choose Your Workflow
 
-`Revision` records the versioned changes applied to a database. You can get a database from version A to version B by replaying the revisions between A and B. When applying a [release](/change-database/change-workflow/#release) to a database, the changes with a version present in the revision are skipped so that the same changes are not applied twice.
+Bytebase offers two workflows to integrate with your existing processes:
 
-### Changelog
+<CardGroup cols={2}>
+  <Card title="UI-Driven Workflow" icon="mouse-pointer">
+    Visual, self-contained workflow managed entirely through Bytebase console
+  </Card>
+  <Card title="GitOps Workflow" icon="git-branch">
+    Code-first approach integrated with your Git provider (GitHub, GitLab, Bitbucket) and CI/CD pipeline
+  </Card>
+</CardGroup>
 
-`Changelog` records all changes applied to a database, whether they are versioned or not, successfully applied or not. This includes change database [issues](/change-database/change-workflow/#issue) created on Bytebase UI or [rollout](/change-database/change-workflow/#rollout) via Bytebase APIs, but NOT changes from Bytebase SQL Editor or other external database tools. Changelog offers you insights into the database schema evolution.
+## Which Workflow Should You Choose?
 
-## Review Center
+### Choose UI-Driven Workflow If:
 
-You can create a review-only ticket. Go to a particular project and click **Review Center**.
+✅ **You prefer visual interfaces** — Point-and-click change management with immediate feedback
 
-![review-center](/content/docs/change-database/change-workflow/review-center.webp)
+✅ **You need centralized control** — All database changes managed in one dedicated platform
 
-If there are review errors, then you won't be able to create the rollout.
+✅ **Multiple teams involved** — DBAs, security, and compliance teams need visibility and approval rights
 
-![review-center-error](/content/docs/change-database/change-workflow/review-center-error.webp)
+✅ **No existing CI/CD for databases** — Get started quickly without setting up additional infrastructure
 
-![review-center-block-creation](/content/docs/change-database/change-workflow/review-center-block-creation.webp)
+✅ **Ad-hoc changes are common** — Hotfixes and emergency changes need quick turnaround
 
-## Rollout Time
+**Best for:** Teams establishing database DevOps practices, organizations with dedicated DBAs, enterprises requiring multi-level approvals
 
-<PricingPlanBlock feature_name='SCHEDULE_CHANGE' />
+[Learn more about UI-Driven Workflow →](/change-database/ui-workflow)
 
-If you want to deploy changes during non-business hours, you can set a rollout time.
+### Choose GitOps Workflow If:
 
-![rollout-time](/content/docs/change-database/change-workflow/rollout-time.webp)
+✅ **Database schema = Application code** — Migration scripts live alongside your application
 
-## Rollout Process
+✅ **Existing CI/CD pipelines** — Database changes follow your established deployment process
 
-### Execution Order
+✅ **Developer-centric culture** — Engineers own the full stack including database
 
-Database rollout is organized into stages. Each stage can contain multiple tasks. Each task contains
-one or more SQL statements to be executed.
+✅ **Git is your source of truth** — All changes tracked through version control
 
-![rollout-process-order](/content/docs/change-database/change-workflow/rollout-process-order.webp)
+✅ **Automation first** — Minimize manual intervention in deployments
 
-Tasks run in the following order:
+**Best for:** DevOps teams, microservices architectures, organizations practicing Infrastructure-as-Code
 
-<TaskRunOrder />
+[Learn more about GitOps Workflow →](/change-database/gitops-workflow)
 
-### Task Detail
+## Can I Use Both?
 
-You can check the running/completed task details.
+**Yes!** Many teams use both workflows:
+- GitOps for routine application deployments
+- UI-Driven for complex migrations, hotfixes, or sensitive production changes
+- Different workflows for different teams or projects
 
-![rollout-detail-button](/content/docs/change-database/change-workflow/rollout-detail-button.webp)
-
-The logs shows how Bytebase runs SQL statements.
-
-![rollout-detail-log](/content/docs/change-database/change-workflow/rollout-detail-log.webp)
-
-<Tip>
-
-If you initiate the change from `Edit Schema` (DDL), Bytebase will take the schema snapshot before and after the change.
-
-</Tip>
-
-The sessions view shows all active sessions (PostgreSQL only).
-
-![rollout-detail-session](/content/docs/change-database/change-workflow/rollout-detail-session.webp)
-
-## Migration Types
-
-Bytebase records the migration history with the migration type information.
-
-### Schema Migration
-
-Schema migration is the migration type for DDL statements.
-
-### Data Migration
-
-Data migration is the migration type for DML statements.
+Both workflows share the same underlying CI/CD lifecycle, ensuring consistency regardless of how changes are initiated.
 
