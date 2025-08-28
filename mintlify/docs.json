@@ -85,60 +85,65 @@
             "pages": [
               "change-database/change-workflow",
               {
-                "group": "Change",
+                "group": "UI Workflow",
                 "pages": [
-                  "change-database/plan",
-                  "change-database/batch-change",
-                  "change-database/synchronize-schema",
-                  "change-database/stored-procedure",
-                  "change-database/schema-editor",
-                  "change-database/online-schema-migration-for-mysql"
+                  {
+                    "group": "Change",
+                    "pages": [
+                      "change-database/plan",
+                      "change-database/batch-change",
+                      "change-database/synchronize-schema",
+                      "change-database/stored-procedure",
+                      "change-database/schema-editor",
+                      "change-database/online-schema-migration-for-mysql"
+                    ]
+                  },
+                  {
+                    "group": "Review",
+                    "pages": [
+                      "sql-review/overview",
+                      "sql-review/review-policy",
+                      "sql-review/review-rules",
+                      "sql-review/ui",
+                      "sql-review/gitops-ci"
+                    ]
+                  },
+                  {
+                    "group": "Approve",
+                    "pages": ["administration/custom-approval"]
+                  },
+                  {
+                    "group": "Rollout",
+                    "pages": [
+                      "administration/environment-policy/rollout-policy",
+                      "change-database/scheduled-rollout",
+                      "change-database/change-history"
+                    ]
+                  },
+                  {
+                    "group": "Roll back",
+                    "pages": [
+                      "change-database/rollback-data-changes",
+                      "change-database/rollback-schema-changes"
+                    ]
+                  },
+                  {
+                    "group": "Monitor",
+                    "pages": ["change-database/drift-detection"]
+                  },
+                  {
+                    "group": "Settings",
+                    "pages": [
+                      "change-database/webhook",
+                      "administration/risk-center",
+                      "change-database/issue",
+                      "change-database/transaction-mode",
+                      "administration/schema-template"
+                    ]
+                  },
+                  "change-database/troubleshoot"
                 ]
-              },
-              {
-                "group": "Review",
-                "pages": [
-                  "sql-review/overview",
-                  "sql-review/review-policy",
-                  "sql-review/review-rules",
-                  "sql-review/ui",
-                  "sql-review/gitops-ci"
-                ]
-              },
-              {
-                "group": "Approve",
-                "pages": ["administration/custom-approval"]
-              },
-              {
-                "group": "Rollout",
-                "pages": [
-                  "administration/environment-policy/rollout-policy",
-                  "change-database/scheduled-rollout",
-                  "change-database/change-history"
-                ]
-              },
-              {
-                "group": "Roll back",
-                "pages": [
-                  "change-database/rollback-data-changes",
-                  "change-database/rollback-schema-changes"
-                ]
-              },
-              {
-                "group": "Monitor",
-                "pages": ["change-database/drift-detection"]
-              },
-              {
-                "group": "Settings",
-                "pages": [
-                  "change-database/webhook",
-                  "administration/risk-center",
-                  "change-database/issue",
-                  "change-database/transaction-mode",
-                  "administration/schema-template"
-                ]
-              },
-              "change-database/troubleshoot"
+              }
             ]
           },
           {
