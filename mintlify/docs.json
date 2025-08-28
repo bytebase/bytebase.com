@@ -78,7 +78,7 @@
         ]
       },
       {
-        "tab": "Features",
+        "tab": "Database CI/CD",
         "groups": [
           {
             "group": "Database CI/CD",
@@ -148,7 +148,12 @@
               },
               "change-database/troubleshoot"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "SQL Editor",
+        "groups": [
           {
             "group": "SQL Editor",
             "pages": [
