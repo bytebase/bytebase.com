@@ -69,7 +69,7 @@ Even when a `NOT NULL` constraint is added as `NOT VALID`, it still prevents new
 
 **DBA Note:** This is a godsend for those of us managing large production databases where downtime is measured in dollars per second. No more scheduling 3 AM maintenance windows just to add a NOT NULL constraint to that 10TB table. The fact that it still prevents new NULLs while being marked as invalid is the perfect balance – forward data integrity without the immediate validation pain.
 
-<HintBlock>
+<HintBlock type="info">
 
 Before Postgres 18, you an use a less intuitive `CHECK (column is NOT NULL) NOT VALID`.
 
