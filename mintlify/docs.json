@@ -83,7 +83,12 @@
           {
             "group": "Database CI/CD",
             "pages": [
-              "change-database/change-workflow",
+              "change-database/change-workflow"
+            ]
+          },
+          {
+            "group": "UI-Driven Workflow",
+            "pages": [
               {
                 "group": "Change",
                 "pages": [
@@ -143,7 +148,10 @@
           },
           {
             "group": "GitOps Workflow",
-            "pages": ["vcs-integration/overview", "vcs-integration/release"]
+            "pages": [
+              "vcs-integration/overview",
+              "vcs-integration/release"
+            ]
           }
         ]
       },
