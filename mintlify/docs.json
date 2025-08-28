@@ -143,14 +143,14 @@
                   },
                   "change-database/troubleshoot"
                 ]
+              },
+              {
+                "group": "GitOps Workflow",
+                "pages": [
+                  "vcs-integration/overview",
+                  "vcs-integration/release"
+                ]
               }
-            ]
-          },
-          {
-            "group": "GitOps Workflow",
-            "pages": [
-              "vcs-integration/overview",
-              "vcs-integration/release"
             ]
           }
         ]
