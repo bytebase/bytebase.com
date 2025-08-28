@@ -7,6 +7,7 @@ import { Cal } from '@/components/cal';
 import I18nProvider from '@/locales/i18nProvider';
 import PlausibleProvider from 'next-plausible';
 import { getStaticParams } from '@/locales/server';
+import ReoScript from '@/components/reo-script';
 import '@/styles/main.css';
 
 export function generateStaticParams() {
@@ -72,15 +73,7 @@ document.head.appendChild(o)}initApollo();
 `,
           }}
         />
-        <Script
-          id="reo"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-      !function(){var e,t,n;e="91f044180a1552d",t=function(){Reo.init({clientID:"91f044180a1552d"})},(n=document.createElement("script")).src="https://static.reo.dev/"+e+"/reo.js",n.defer=!0,n.onload=t,document.head.appendChild(n)}();
-`,
-          }}
-        />
+        <ReoScript />
         <PlausibleProvider domain="bytebase.com">
           <I18nProvider locale={locale}>
             <div className="relative flex min-h-screen flex-col">
