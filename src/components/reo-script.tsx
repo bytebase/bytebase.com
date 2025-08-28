@@ -2,13 +2,30 @@
 
 import Script from 'next/script';
 import { usePathname } from 'next/navigation';
+import { blogReoMapping } from '@data/blog-reo-mapping';
 
 const ReoScript = () => {
   const pathname = usePathname();
 
+  // Handle null pathname case
+  if (!pathname) {
+    return null;
+  }
+
   // Don't load reo script on /resources paths
   if (pathname.startsWith('/resources')) {
     return null;
+  }
+
+  // Handle blog post filtering
+  const blogPathMatch = pathname.match(/^\/[^/]+\/blog\/([^/]+)$/);
+  if (blogPathMatch) {
+    const slug = blogPathMatch[1];
+    // Use pre-generated mapping for instant lookup
+    const shouldLoad = blogReoMapping[slug as keyof typeof blogReoMapping];
+    if (!shouldLoad) {
+      return null;
+    }
   }
 
   return (

@@ -53,3 +53,6 @@ public/sitemap*.xml
 # we will fetch the last files from https://raw.githubusercontent.com/bytebase/bytebase via fetch-sql-review.mjs script
 data/locales/sql-review/*
 data/sql-review/*
+
+# generated files
+data/blog-reo-mapping.ts
