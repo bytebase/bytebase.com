@@ -1,0 +1,32 @@
+---
+title: Bytebase 3.9.2 - Aug 28, 2025
+author: Adela
+updated_at: 2025/08/28 18:00:00
+description: 'Support hard-delete for projects and instances'
+---
+
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
+## 🚀 New Features
+
+- Add support for hard-delete of projects and instances (resources must be archived first).
+- Add support for adding/removing changes in draft plans.
+
+## 🔔 Notable Changes
+
+- Streamline approval by enabling one-click ready for review.
+- Update `UpdateMask` values in `UpdatePolicy` to observe AIP. Use field names only; oneof type names are omitted. ([PR #17240](https://github.com/bytebase/bytebase/pull/17240))
+- **Terraform** - Deprecate `column`, `member` and `action` field in the `masking_exception_policy`, use `columns`, `members` and `actions` instead. Example: [data_masking.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/examples/setup/data_masking.tf#L113)
+
+## 🎄 Enhancements
+
+- Add support for empty environments in instance and database resources.
+- Enhance SQL Editor performance.
+- **Entra ID** - Normalize SCIM user emails to lowercase for authentication.
+- **PostgreSQL** - Add support for `CREATE RULE`.
+- **API** - Add support for pagination and filtering for group API.
+- **Terraform** - Add support for `raw_expression` in the `masking_exception_policy`. Once provided, it is used as the CEL expression, and all other ( `database`, `schema`, `table`, `columns`, `expire_timestamp`) fields are ignored.
+- **Terraform** - Add support for empty environments in instance and database resources.
+- **Terraform** - Add support for filters in group list data sources.
+
+<InstallUpgrade />
