@@ -92,7 +92,6 @@
                   "change-database/synchronize-schema",
                   "change-database/stored-procedure",
                   "change-database/schema-editor",
-                  "change-database/schema-diagram",
                   "change-database/online-schema-migration-for-mysql"
                 ]
               },
@@ -114,7 +113,8 @@
                 "group": "Rollout",
                 "pages": [
                   "administration/environment-policy/rollout-policy",
-                  "change-database/scheduled-rollout"
+                  "change-database/scheduled-rollout",
+                  "change-database/change-history"
                 ]
               },
               {
@@ -125,16 +125,8 @@
                 ]
               },
               {
-                "group": "Version",
-                "pages": ["change-database/change-history"]
-              },
-              {
                 "group": "Monitor",
                 "pages": ["change-database/drift-detection"]
-              },
-              {
-                "group": "GitOps",
-                "pages": ["vcs-integration/overview", "vcs-integration/release"]
               },
               {
                 "group": "Settings",
@@ -148,6 +140,10 @@
               },
               "change-database/troubleshoot"
             ]
+          },
+          {
+            "group": "GitOps Workflow",
+            "pages": ["vcs-integration/overview", "vcs-integration/release"]
           }
         ]
       },
@@ -162,6 +158,7 @@
               "sql-editor/admin-mode",
               "sql-editor/mask-data",
               "sql-editor/manage-sql-scripts",
+              "sql-editor/schema-diagram",
               "sql-editor/ai-assistant",
               {
                 "group": "Settings",
