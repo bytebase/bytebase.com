@@ -92,7 +92,6 @@
                   "change-database/synchronize-schema",
                   "change-database/stored-procedure",
                   "change-database/schema-editor",
-                  "change-database/schema-diagram",
                   "change-database/online-schema-migration-for-mysql"
                 ]
               },
@@ -159,6 +158,7 @@
               "sql-editor/admin-mode",
               "sql-editor/mask-data",
               "sql-editor/manage-sql-scripts",
+              "sql-editor/schema-diagram",
               "sql-editor/ai-assistant",
               {
                 "group": "Settings",
