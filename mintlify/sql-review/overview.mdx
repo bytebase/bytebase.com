@@ -3,18 +3,23 @@ title: SQL Review
 ---
 
 <Note>
-
-To avoid exceedingly long review time, Bytebase skips SQL Review if the statements exceed 1MB in size.
-
+SQL Review is skipped for statements exceeding 1MB to prevent excessive processing time.
 </Note>
 
-SQL Review automatically detects SQL anti-patterns and reduce manual review workload. Bytebase has designed an automatic process to reduce the work for DBAs who are required to do manual SQL review.
+SQL Review automatically validates SQL statements against best practices and catches potential issues before they reach production. This eliminates manual review bottlenecks and ensures consistent code quality across your database changes.
 
-DBA first chooses [SQL Review rules](/sql-review/review-rules) per each database engine to build a unified [Review policy](/sql-review/review-policy) and then chooses environments or projects to apply it.
+## Setting Up SQL Review
+
+Configure SQL Review in two steps:
+
+1. **Define Rules**: Select [review rules](/sql-review/review-rules) for each database engine type
+2. **Create Policies**: Build [review policies](/sql-review/review-policy) and assign them to specific environments or projects
 
 ![bb-sql-review-policy](/content/docs/sql-review/bb-sql-review-policy.webp)
 
-Later, when developers submit SQLs in the [database change workflow](/change-database/change-workflow/), Bytebase will check these rules automatically before the DBAs review.
+## Automated Validation
+
+When developers submit database changes through the [change workflow](/change-database/change-workflow/), SQL Review automatically validates the statements and flags any violations before human review:
 
 ![column-required](/content/docs/sql-review/schema-review-column-required.webp)
 
@@ -22,13 +27,11 @@ Later, when developers submit SQLs in the [database change workflow](/change-dat
 
 <Card title="Tutorial: SQL Review with Bytebase GUI" icon="graduation-cap" href="/tutorials/sql-review-gui" horizontal />
 
-SQL advisor runs automatic SQL checks when you create schema or data changes. On a specific issue page, the advisor will run automatically after creation:
+SQL Review runs automatically whenever you create database changes. The review process checks for:
+
+- Compliance with configured [SQL Review Rules](/sql-review/review-policy)
+- Database connectivity issues
+- SQL syntax errors
+- Missing migration schema (Bytebase's internal migration tracking)
 
 ![sql-advisor](/content/docs/sql-review/schema-review-engine-mysql-use-innodb.webp)
-
-It currently supports the following checks:
-
-- [SQL Review Rules](/sql-review/review-policy)
-- Database connection failure
-- Syntax error
-- Migration schema missing (the internal bytebase schema recording the migration history)
