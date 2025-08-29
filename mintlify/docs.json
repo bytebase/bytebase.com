@@ -96,7 +96,6 @@
                   "change-database/batch-change",
                   "change-database/synchronize-schema",
                   "change-database/schema-editor",
-                  "change-database/schema-template",
                   "change-database/online-schema-migration-for-mysql"
                 ]
               },
