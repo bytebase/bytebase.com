@@ -20,7 +20,7 @@ Each DBMS implements WAL with its own nuances, particularly in terms of redo and
 In SQL Server, the WAL mechanism is integrated into its transaction log. The transaction log records all changes made to the database, which facilitates both redo and undo operations during recovery:
 
 - **Redo Behavior**: Committed transactions are written to the transaction log, allowing SQL Server to replay these changes during recovery.
-- **Undo Behavior**: If a transaction is uncommitted at the time of a crash, SQL Server uses the log to roll back these changes, restoring the database to its last consistent state.
+- **Undo Behavior**: If a transaction is uncommitted at the time of a crash, SQL Server uses the log to rollback these changes, restoring the database to its last consistent state.
 
 ## Oracle
 
@@ -34,7 +34,7 @@ Oracle's implementation of WAL is also based on a redo log system. It employs a 
 MySQL's InnoDB storage engine utilizes a WAL mechanism known as the redo log:
 
 - **Redo Behavior**: Changes are logged in a redo log file before being written to the data files. This ensures that committed transactions can be redone after a crash.
-- **Undo Behavior**: InnoDB also maintains undo logs that allow it to roll back uncommitted transactions. This ensures that any incomplete transactions do not affect the integrity of the database.
+- **Undo Behavior**: InnoDB also maintains undo logs that allow it to rollback uncommitted transactions. This ensures that any incomplete transactions do not affect the integrity of the database.
 
 ## PostgreSQL
 

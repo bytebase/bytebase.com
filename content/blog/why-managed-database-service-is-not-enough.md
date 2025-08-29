@@ -34,7 +34,7 @@ On the other hand, developers still face a lot of **workflow challenges**:
 
 - How to propagate the change from dev, test to staging, prod.
 
-- How to roll back changes.
+- How to rollback changes.
 
 - How to spot and tune the slow query.
 

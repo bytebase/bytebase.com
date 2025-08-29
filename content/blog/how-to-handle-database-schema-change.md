@@ -99,7 +99,7 @@ As for database changes, because it involves data change, that is, the **state**
 
 ### Separate code changes from database changes
 
-An application has two major components: code and data, the former is **stateless** and the latter is **statefull**. Stateless changes are relatively easy to solve, because if there is a problem with the change, you can simply roll back and be done with it. But stateful changes are much more complicated: you have to consider whether it will lock the database and lead to unavailability of the whole service, plus rollback is much harder because of dirty data.
+An application has two major components: code and data, the former is **stateless** and the latter is **statefull**. Stateless changes are relatively easy to solve, because if there is a problem with the change, you can simply rollback and be done with it. But stateful changes are much more complicated: you have to consider whether it will lock the database and lead to unavailability of the whole service, plus rollback is much harder because of dirty data.
 
 There are two approaches to deploy the database schema change:
 

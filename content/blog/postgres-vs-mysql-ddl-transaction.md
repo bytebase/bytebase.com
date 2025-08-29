@@ -16,7 +16,7 @@ Before diving into the comparison, let's clarify what we mean by DDL transaction
 
 There are two important concepts to distinguish:
 
-1. **Transactional DDL**: The ability to include DDL statements within a multi-statement transaction block, with the option to commit or roll back all statements together.
+1. **Transactional DDL**: The ability to include DDL statements within a multi-statement transaction block, with the option to commit or rollback all statements together.
 
 2. **Atomic DDL**: The guarantee that individual DDL statements are atomic (all-or-nothing), but not necessarily supporting their inclusion in multi-statement transactions.
 
@@ -69,7 +69,7 @@ CREATE TABLE users (
 -- Add an index
 CREATE INDEX idx_username ON users(username);
 
--- Oops! We made a mistake and want to roll back all changes
+-- Oops! We made a mistake and want to rollback all changes
 ROLLBACK;
 
 -- Verify that the table was not created
@@ -95,7 +95,7 @@ SAVEPOINT after_users_table;
 -- Alter the table to add a column
 ALTER TABLE users ADD COLUMN email VARCHAR(100);
 
--- Oops! We only want to roll back the column addition
+-- Oops! We only want to rollback the column addition
 ROLLBACK TO after_users_table;
 
 -- Add a different column instead
@@ -107,7 +107,7 @@ COMMIT;
 
 ### MySQL 8
 
-In this MySQL example, despite wrapping the DDL statements in a transaction block, the `ROLLBACK` command does not undo the table creation. This is because each DDL statement implicitly commits the transaction before executing, making it impossible to roll back multiple DDL statements as a unit.
+In this MySQL example, despite wrapping the DDL statements in a transaction block, the `ROLLBACK` command does not undo the table creation. This is because each DDL statement implicitly commits the transaction before executing, making it impossible to rollback multiple DDL statements as a unit.
 
 ```sql
 -- Try to use a transaction block (note: this won't work as expected for DDL)
@@ -122,7 +122,7 @@ CREATE TABLE users (
 -- Add an index
 CREATE INDEX idx_username ON users(username);
 
--- Try to roll back all changes (won't work for DDL statements)
+-- Try to rollback all changes (won't work for DDL statements)
 ROLLBACK;
 
 -- Verify that the table was created despite the ROLLBACK

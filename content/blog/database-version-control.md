@@ -43,7 +43,7 @@ Database version control often relies on migration scripts, which are code files
 
 ## Deployment and Rollback
 
-By keeping a history of changes, version control enables controlled deployment of database updates. If a problem occurs, it allows teams to roll back to a previous version of the database schema and associated data. Bytebase provides the following rollback options:
+By keeping a history of changes, version control enables controlled deployment of database updates. If a problem occurs, it allows teams to rollback to a previous version of the database schema and associated data. Bytebase provides the following rollback options:
 
 - Data rollback. Using undo logs like MySQL binlog to revert data changes.
 - Restore from backup and Point-in-time-Recovery (PITR). You can instruct Bytebase to take manual or periodic backups and restore from them.
