@@ -148,7 +148,7 @@
             "group": "General",
             "pages": [
               "change-database/webhook",
-              "change-database/risk-center",
+              "change-database/risks",
               "change-database/settings"
             ]
           }
@@ -294,7 +294,7 @@
               "tutorials/first-schema-change",
               "tutorials/deploy-schema-migration",
               "tutorials/data-rollback",
-              "tutorials/risk-center-best-practice",
+              "tutorials/risks-best-practice",
               "tutorials/batch-change-with-database-group",
               "tutorials/sql-review-gui",
               "tutorials/how-to-move-schema-change-from-test-to-prod",
