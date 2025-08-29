@@ -17,3 +17,25 @@ DBA first chooses [SQL Review rules](/sql-review/review-rules) per each database
 Later, when developers submit SQLs in the [database change workflow](/change-database/change-workflow/), Bytebase will check these rules automatically before the DBAs review.
 
 ![column-required](/content/docs/sql-review/schema-review-column-required.webp)
+
+## UI Integration
+
+<Card title="Tutorial: SQL Review with Bytebase GUI" icon="graduation-cap" href="/tutorials/sql-review-gui" horizontal />
+
+SQL advisor runs automatic SQL checks when:
+
+- Schema or data change
+- Data query
+
+### Schema or data change process
+
+On a specific issue page, the advisor will run automatically after creation:
+
+![sql-advisor](/content/docs/sql-review/schema-review-engine-mysql-use-innodb.webp)
+
+It currently supports the following checks:
+
+- [SQL Review Rules](/sql-review/review-policy)
+- Database connection failure
+- Syntax error
+- Migration schema missing (the internal bytebase schema recording the migration history)
