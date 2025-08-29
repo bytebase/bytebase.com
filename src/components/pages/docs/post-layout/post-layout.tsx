@@ -5,7 +5,6 @@ import Image from 'next/image';
 import clsx from 'clsx';
 
 import Link from '@/components/shared/link';
-import PricingPlanBlock from '@/components/shared/content/pricing-plan-block';
 
 import { Breadcrumb } from '@/types/breadcrumb';
 
@@ -21,7 +20,6 @@ const PostLayout = ({
   children,
   updated_at = null,
   estimated_time = null,
-  feature_name,
   currentSlug,
   breadcrumbs,
   fileOriginPath,
@@ -31,7 +29,6 @@ const PostLayout = ({
   featureImage: string | null;
   updated_at: string | null;
   estimated_time: string | null;
-  feature_name: string;
   currentSlug: string;
   children: React.ReactNode;
   breadcrumbs: Breadcrumb[];
@@ -44,7 +41,6 @@ const PostLayout = ({
       <h1 className="mt-2.5 text-44 font-bold leading-extra-tight tracking-tighter text-gray-15 2xl:mt-1.5 lg:text-36 md:text-32 sm:mt-0 sm:text-30">
         {title}
       </h1>
-      <PricingPlanBlock feature_name={feature_name} />
       <div className="flex justify-between">
         {updated_at && (
           <time
