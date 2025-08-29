@@ -55,7 +55,7 @@ If multiple SQL statements appear in a single simple-Query message, the timeout 
 
 ## idle_in_transaction_session_timeout
 
-[idle_in_transaction_session_timeout](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT) controls the maximum amount of time that a session can remain idle while inside a transaction. If a session stays idle within a transaction for longer than the specified timeout period, PostgreSQL will automatically terminate the session and rollback the ongoing transaction.
+[idle_in_transaction_session_timeout](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT) controls the maximum amount of time that a session can remain idle while inside a transaction. If a session stays idle within a transaction for longer than the specified timeout period, PostgreSQL will automatically terminate the session and roll back the ongoing transaction.
 
 ```plain
 ERROR:  terminating connection due to idle-in-transaction timeout
