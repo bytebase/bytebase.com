@@ -33,8 +33,6 @@ Tables that already have triggers are not supported by `gh-ost`. If your table h
 
 **Example:** If you need to change the layout of a multi-column primary key, you'll need to break the migration into multiple steps (e.g., add a new unique key, backfill the data, then switch to the new key) or use a different migration tool that can handle this type of change.
 
----
-
 ## 2. Infrastructure Requirements: Must-Haves for a Smooth Migration
 
 Beyond the hard blockers, `gh-ost` has several infrastructure requirements that you must meet for a successful migration.
@@ -52,15 +50,11 @@ Beyond the hard blockers, `gh-ost` has several infrastructure requirements that 
 
 `gh-ost` requires specific replication-related privileges, and in some cases, `SUPER`-like capabilities. This can be challenging to obtain in managed database environments like [Amazon RDS](https://aws.amazon.com/rds/) or [Azure Database for MySQL](https://azure.microsoft.com/en-us/products/azure-database-for-mysql). Always check your platform's documentation for guidance on the required permissions required for online schema migration tools.
 
----
-
 ## 3. The "Online" Lock: Cut-Over and Long-Running Transactions
 
 Even though `gh-ost` is an "online" tool, the final cut-over phase still requires a **metadata lock (MDL)** to swap the old and new tables. This lock is typically brief, but any long-running queries on the table can block the swap, turning a minor pause into a major incident.
 
 **Real-World Scenario:** A business intelligence (BI) team runs a 15-minute `SELECT` query on the table you are migrating, right as you are about to cut over. `gh-ost` will wait for the MDL, causing your deployment to hang and potentially blocking other application traffic. To avoid this, you need to coordinate with other teams, schedule cut-overs during low-traffic periods, and have a plan to kill any long-running queries that could interfere with the migration.
-
----
 
 ## 4. Performance and Capacity Pitfalls
 
@@ -78,13 +72,11 @@ Under extreme write loads, `gh-ost`'s single-threaded binary log processing can 
 
 After the cut-over, `gh-ost` will drop the old table. On very large tables, this can cause a spike in I/O and replication lag. It is best to handle this during a low-traffic window or use a more careful housekeeping process to drop large tables.
 
----
-
 ## 5. Topology Compatibility and Native DDL
 
 ### Galera/PXC Not Supported
 
-`gh-ost` is not compatible with Galera or Percona XtraDB Cluster (PXC) due to its locking and table swap strategy. For these environments, `pt-online-schema-change` is generally the safer and recommended choice.
+`gh-ost` is not compatible with [Galera](https://galeracluster.com/) or [Percona XtraDB Cluster (PXC)](https://www.percona.com/software/mysql-database/percona-xtradb-cluster) due to its locking and table swap strategy. For these environments, [pt-online-schema-change](https://docs.percona.com/percona-toolkit/pt-online-schema-change.html) is generally the safer and recommended choice.
 
 ### Native MySQL May Be Faster
 
@@ -98,10 +90,10 @@ On modern versions of MySQL (8.0+), many DDL operations are now `INSTANT` or `IN
 
 To help you decide if `gh-ost` is the right tool for your migration, here is a quick checklist:
 
-- **Table has FKs or triggers?** → **Don't use gh-ost.** Consider [
-- **Can you get ROW binlogs and a shared UNIQUE/PRIMARY key?** → **OK.**
-- **Can you coordinate the cut-over (no long queries)?** → **OK.**
-- **Using Galera/PXC topology?** → **Prefer pt-online-schema-change.**
-- **On MySQL 8.0+?** → **Check if native INSTANT/INPLACE DDL already solves it.**
+- Table has **FKs or triggers**? → **Don't use gh-ost. Consider** [pt-online-schema-change](https://docs.percona.com/percona-toolkit/pt-online-schema-change.html).
+- Can you get **ROW binlogs** and a **shared UNIQUE/PRIMARY key**? → **OK.**
+- Can you coordinate the **cut-over** (no long queries)? → **OK.**
+- Using **Galera/PXC topology**? → **Prefer** [pt-online-schema-change](https://docs.percona.com/percona-toolkit/pt-online-schema-change.html).
+- On **MySQL 8.0+?** → **Check if native INSTANT/INPLACE DDL already solves it.**
 
 If you can check all the boxes and have tested the migration on a replica first, `gh-ost` is an excellent choice for performing online schema changes on large, hot tables with minimal production impact.
