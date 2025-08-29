@@ -68,7 +68,7 @@ const Route = {
   DOCS_AUDIT_LOG: `${DOCS_ROOT}/security/audit-log`,
   DOCS_INDEX_ADVISOR: `${DOCS_ROOT}/slow-query/overview`,
   DOCS_DRIFT_DETECTION: `${DOCS_ROOT}/change-database/drift-detection`,
-  DOCS_VCS_INTEGRATION: `${DOCS_ROOT}/vcs-integration/overview`,
+  DOCS_VCS_INTEGRATION: `${DOCS_ROOT}/gitops/overview`,
   DOCS_BATCH_CHANGE: `${DOCS_ROOT}/change-database/batch-change`,
   DOCS_ONLINE_SCHEMA_CHANGE: `${DOCS_ROOT}/change-database/online-schema-migration-for-mysql`,
   DOCS_RBAC: `${DOCS_ROOT}/concepts/roles-and-permissions`,

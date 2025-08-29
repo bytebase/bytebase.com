@@ -77,17 +77,22 @@ module.exports = {
       },
       {
         source: '/docs/tutorials/database-cicd-best-practice-with-gitlab',
-        destination: '/docs/vcs-integration/overview',
+        destination: '/docs/gitops/overview',
         permanent: true,
       },
       {
         source: '/docs/tutorials/database-cicd-best-practice-with-bitbucket',
-        destination: '/docs/vcs-integration/overview',
+        destination: '/docs/gitops/overview',
         permanent: true,
       },
       {
         source: '/docs/vcs-integration/add-gitops-connector',
-        destination: '/docs/vcs-integration/overview',
+        destination: '/docs/gitops/overview',
+        permanent: true,
+      },
+      {
+        source: '/docs/vcs-integration/:path*',
+        destination: '/docs/gitops/overview',
         permanent: true,
       },
       {

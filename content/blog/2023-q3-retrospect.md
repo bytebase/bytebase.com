@@ -35,10 +35,6 @@ Bytebase keeps up with the bi-weekly release cadence and released 7 versions.
 - Oracle: Schema Sync.
 - RisingWave: basic support.
 
-### GitOps Integration
-
-- Support [GitHub Enterprise](https://docs.bytebase.com/vcs-integration/github-enterprise/).
-- Support [Azure DevOps](https://docs.bytebase.com/vcs-integration/azure-devops/).
 
 ### Database Change Management
 

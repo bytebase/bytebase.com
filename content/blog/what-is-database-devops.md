@@ -78,7 +78,7 @@ Automation can be applied in several places:
 
 <HintBlock type="info">
 
-Bytebase automates database tasks via [GitOps](https://docs.bytebase.com/vcs-integration/overview/), [SQL Review](https://docs.bytebase.com/sql-review/overview/), [built-in rollback](https://docs.bytebase.com/change-database/rollback-data-changes/), [Webhook Integration](https://docs.bytebase.com/change-database/webhook/), and [API](https://docs.bytebase.com/api/overview/).
+Bytebase automates database tasks via [GitOps](https://docs.bytebase.com/gitops/overview/), [SQL Review](https://docs.bytebase.com/sql-review/overview/), [built-in rollback](https://docs.bytebase.com/change-database/rollback-data-changes/), [Webhook Integration](https://docs.bytebase.com/change-database/webhook/), and [API](https://docs.bytebase.com/api/overview/).
 
 </HintBlock>
 

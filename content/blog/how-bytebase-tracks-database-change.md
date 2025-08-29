@@ -22,7 +22,7 @@ to a single database as well as changes to hundreds of databases spanning multip
 ![_](/content/blog/how-bytebase-tracks-database-change/issue-detail-who.webp)
 
 1. Issue Creator
-1. Reviewers according to the [Rollout Policy](https://docs.bytebase.com/administration/environment-policy/rollout-policy/)
+1. Reviewers according to the [Rollout Policy](https://docs.bytebase.com/change-database/environment-policy/rollout-policy/)
 1. Subscribers interested in the progress.
 1. Other participants can comment.
 

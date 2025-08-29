@@ -194,6 +194,6 @@ To tackle this, you should adopt best practices:
 
 <HintBlock type="info">
 
-Bytebase offers [batch change](https://docs.bytebase.com/change-database/batch-change/), [SQL Review](https://docs.bytebase.com/sql-review/overview/), [GitOps](https://docs.bytebase.com/vcs-integration/overview/) to streamline and simplify schema migrations for the **Database per Tenant** model.
+Bytebase offers [batch change](https://docs.bytebase.com/change-database/batch-change/), [SQL Review](https://docs.bytebase.com/sql-review/overview/), [GitOps](https://docs.bytebase.com/gitops/overview/) to streamline and simplify schema migrations for the **Database per Tenant** model.
 
 </HintBlock>

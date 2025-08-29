@@ -157,7 +157,7 @@ To prevent developers from running `CREATE INDEX` and accidentally locking the d
 
 <HintBlock type="info">
 
-[Bytebase SQL Review](https://docs.bytebase.com/sql-review/review-rules#create-index-concurrently) provides automated enforcement of the `CREATE INDEX CONCURRENTLY` rule and can be integrated with [CI/CD pipelines](https://docs.bytebase.com/vcs-integration/overview#github-actions) to catch violations before deployment.
+[Bytebase SQL Review](https://docs.bytebase.com/sql-review/review-rules#create-index-concurrently) provides automated enforcement of the `CREATE INDEX CONCURRENTLY` rule and can be integrated with [CI/CD pipelines](https://docs.bytebase.com/gitops/overview) to catch violations before deployment.
 
 </HintBlock>
 

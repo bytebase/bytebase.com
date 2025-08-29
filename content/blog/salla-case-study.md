@@ -64,5 +64,5 @@ With the entire change process integrated into a single platform, their release 
 
 Salla has plans to integrate GitOps and Terraform Bytebase Provider into their workflow.
 
-- Through the [GitOps workflow](https://docs.bytebase.com/vcs-integration/overview/), developers can directly submit change requests through their code repository, further integrating database management with the development workflow.
+- Through the [GitOps workflow](https://docs.bytebase.com/gitops/overview/), developers can directly submit change requests through their code repository, further integrating database management with the development workflow.
 - With [Terraform Bytebase Provider](https://docs.bytebase.com/tutorials/manage-databases-with-terraform/), all Bytebase configurations can be codified, making it even easier for DBAs to configure batch access permissions.
