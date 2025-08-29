@@ -3,62 +3,62 @@ title: Schema Editor
 feature_name: SCHEMA_EDITOR
 ---
 
-**Schema Editor** provides a spreadsheet-like editor to view and edit database structure. Users first use the **Schema Editor** to prepare the schema changes, then those changes will be converted into SQL statements and go through the [change workflow](/change-database/change-workflow).
+Schema Editor provides a visual interface for modifying database structures without writing SQL.
 
-**Schema Editor** also supports the use of templates for fields and tables. Templates can be pre-defined at the workspace level and can be used to save time and ensure consistency when creating new schema entities. See [Schema Template](/change-database/schema-template) for more details.
+## Getting Started
 
-## Schema Editor Entry
-
-While creating a new plan within a project, go to **CI/CD** > **Plans** in the left menu, and click **New Plan**. Choose `Schema Migration` as the plan type and click **Next**. Select **one** database and click **Next**. You will see the Schema Editor.
-
-![new-plan-schema-editor](/content/docs/change-database/schema-editor/bb-new-plan-schema-editor.webp)
-
-Alternatively, you can go to **Database** > **Databases** in the left menu, select **one** database and click **Edit Schema**.
+Access Schema Editor by:
+- Creating a new plan: **CI/CD** > **Plans** > **New Plan** > Select `Schema Migration`
+- From database page: **Database** > **Databases** > Select database > **Edit Schema**
 
 ![](/content/docs/change-database/schema-editor/schema-editor-entry.webp)
 
-## Create Table / Schema
+## Basic Operations
 
-To create a new table, select a database and click the **New Table** button on top of the Edit Schema page. Enter table name and **Create**.
+### Tables
+- **Create**: Click **New Table** or use `···` menu next to a schema
+- **Duplicate**: Click the copy button on any table row
+- **Delete**: Click `···` > **Drop table** (use **Restore** to undo)
+- **Rename**: Available for newly created tables only
 
 ![](/content/docs/change-database/schema-editor/create-table.webp)
 
-You can also create a new table by clicking the `···` button by a schema, then click the **New table** button and enter your Table Name. Click the **Create** button, and you'll have created a table under this schema.
-
-![](/content/docs/change-database/schema-editor/new-table-button.webp)
-
-Similarly, you can click the `···` button on the database row to create a new schema under it.
-
-By clicking on the `copy` button on the table's row, you can replicate this table.
-
-![](/content/docs/change-database/schema-editor/copy.webp)
-
-## Drop or Restore Table / Schema
-
-To drop an existing table / schema, click the `···` button on the corresponding row of the database / schema list, and click the **Drop table** / **Drop Schema** button. Then this table / schema will be crossed out.
-
-![](/content/docs/change-database/schema-editor/drop-table.webp)
-
-Click on the `···` button of a table or schema you just dropped, and you can **Restore** it.
-
-## Alter Table
-
-### Add Column
-
-To Add a new column, click on a table and click the **Add Column** button on top of table detail page.
-
-Enter attributes for this column: Name, Type, Default, etc.
+### Columns
+- **Add**: Select table > Click **Add Column** > Configure properties
+- **Modify**: Click on existing columns to edit properties
 
 ![](/content/docs/change-database/schema-editor/add-column.webp)
 
-### Rename new Table
+### Schemas
+Use the `···` menu on database/schema rows to create, drop, or restore schemas.
 
-For _newly created_ tables, you can **Rename** in the left-side list.
+## Apply Changes
 
-![](/content/docs/change-database/schema-editor/rename.webp)
-
-### Preview Issue
-
-After your schema editing, Click the **Preview Issue** at bottom right, and you'll be redirected to the issue creating page with generated SQL statement.
+Click **Preview Issue** to review generated SQL and create a change issue.
 
 ![](/content/docs/change-database/schema-editor/edit-schema-issue.webp)
+
+## Schema Templates
+
+Create reusable components for consistent database design. Configure templates in **Settings** > **Schema Template**.
+
+### Field Templates
+Pre-defined columns that can be added to any table.
+- **Create**: Add Field Template > Configure properties > Create
+- **Use**: In Schema Editor, select table > Add from template
+
+![bb-schema-editor-add-from-template-field](/content/docs/administration/schema-template/bb-schema-editor-add-from-template-field.webp)
+
+### Table Templates  
+Complete table structures with predefined columns.
+- **Create**: Add Table Template > Define structure > Create
+- **Use**: In Schema Editor, select database > Add from template
+
+![bb-schema-editor-add-from-template-table](/content/docs/administration/schema-template/bb-schema-editor-add-from-template-table.webp)
+
+### Column Type Restrictions
+Limit available column types to enforce standards.
+- Go to Column Type Restriction > Select "Allow limited types"
+- Remove unwanted types from the allowed list
+
+![bb-schema-editor-type-dropdown](/content/docs/administration/schema-template/bb-schema-editor-type-dropdown.webp)
