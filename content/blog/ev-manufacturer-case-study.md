@@ -33,7 +33,7 @@ Introduce Bytebase, an open-source database DevOps tool, which offers a web-base
 
 ### Manage SQL scripts and initiate change requests directly through code repos
 
-SQL [is also code](/blog/database-as-code) and should be orderly and consistent. With Bytebase, they are able to [integrate SQL scripts into their code repository (GitLab)](https://docs.bytebase.com/vcs-integration/overview/): all SQL scripts will automatically trigger issues when merged into the specified branch. Devs can complete all their tasks within their familiar tool, greatly improving efficiency while reducing the chances of careless mistakes caused by copying and pasting back and forth.
+SQL [is also code](/blog/database-as-code) and should be orderly and consistent. With Bytebase, they are able to [integrate SQL scripts into their code repository (GitLab)](https://docs.bytebase.com/gitops/overview/): all SQL scripts will automatically trigger issues when merged into the specified branch. Devs can complete all their tasks within their familiar tool, greatly improving efficiency while reducing the chances of careless mistakes caused by copying and pasting back and forth.
 
 ### Notification on IM apps
 

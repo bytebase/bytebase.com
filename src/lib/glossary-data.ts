@@ -209,7 +209,7 @@ export const GLOSSARY_LIST: GlossaryLetterSet[] = [
         Thus the database schema change is managed in a very similar fashion as code. This workflow is considered superior than the classic
         UI based SQL review workflow. However, it requires a bit more setup and engineering discipline. Bytebase supports this workflow and helps
         ease the onboarding and ongoing management of using this workflow.`,
-        reference: 'https://www.bytebase.com/docs/vcs-integration/overview',
+        reference: 'https://www.bytebase.com/docs/gitops/overview',
         tagList: ['General', 'Bytebase'],
       },
       {

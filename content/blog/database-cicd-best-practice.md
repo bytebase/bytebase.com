@@ -129,7 +129,7 @@ This process can be divided into three main tasks:
 
    ![](/content/blog/database-cicd-best-practice/schema-review.webp)
 
-3. **[Set up GitOps](https://docs.bytebase.com/vcs-integration/overview)**. Configure the GitOps workflow in a given project to monitor changes in the VCS and automatically kick start the review process.
+3. **[Set up GitOps](https://docs.bytebase.com/gitops/overview)**. Configure the GitOps workflow in a given project to monitor changes in the VCS and automatically kick start the review process.
 
    ![](/content/blog/database-cicd-best-practice/gitops.webp)
 

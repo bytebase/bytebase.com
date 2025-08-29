@@ -47,7 +47,7 @@ modifications are applied uniformly across environments.
 
 <HintBlock type="info">
 
-Bytebase provides [built-in GitOps integration](https://docs.bytebase.com/vcs-integration/overview/) and [SQL Review](https://docs.bytebase.com/sql-review/overview/) to detect erroneous SQLs automatically.
+Bytebase provides [built-in GitOps integration](https://docs.bytebase.com/gitops/overview/) and [SQL Review](https://docs.bytebase.com/sql-review/overview/) to detect erroneous SQLs automatically.
 
 </HintBlock>
 

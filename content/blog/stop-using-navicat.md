@@ -90,7 +90,7 @@ Bytebase is a web-based product with server-side capabilities that can fill the 
 
 ### Integration with GitLab / GitHub to synchronize SQL scripts
 
-![_](/content/blog/stop-using-navicat/bytebase-vcs-integration.webp)
+![_](/content/blog/stop-using-navicat/bytebase-gitops.webp)
 
 ### Audit Log
 

@@ -91,6 +91,6 @@ After implementing Bytebase's database access control, the following issues have
 
   At present, only read queries are utilized; the aim is to enable modifications for both DML and DDL directly on Bytebase.
 
-- [GitOps workflow with GitHub](https://docs.bytebase.com/vcs-integration/overview/)
+- [GitOps workflow with GitHub](https://docs.bytebase.com/gitops/overview/)
 
   Given that SQL is currently managed through GitHub Issues in the existing business process, the introduction of GitOps is expected to enhance operational efficiency.

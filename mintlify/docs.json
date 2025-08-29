@@ -117,7 +117,7 @@
               {
                 "group": "Rollout",
                 "pages": [
-                  "administration/environment-policy/rollout-policy",
+                  "change-database/environment-policy/rollout-policy",
                   "change-database/scheduled-rollout",
                   "change-database/change-history"
                 ]
@@ -137,10 +137,10 @@
                 "group": "Settings",
                 "pages": [
                   "change-database/webhook",
-                  "administration/risk-center",
+                  "change-database/risk-center",
                   "change-database/issue",
                   "change-database/transaction-mode",
-                  "administration/schema-template"
+                  "change-database/schema-template"
                 ]
               },
               "change-database/troubleshoot"
@@ -149,8 +149,8 @@
           {
             "group": "GitOps Workflow",
             "pages": [
-              "vcs-integration/overview",
-              "vcs-integration/release"
+              "gitops/overview",
+              "gitops/release"
             ]
           }
         ]
@@ -232,7 +232,7 @@
               "administration/license",
               "administration/mode",
               "ai-assistant",
-              "administration/environment-policy/overview",
+              "change-database/environment-policy/overview",
               "administration/customize-logo",
               "security/watermark",
               "administration/announcement",

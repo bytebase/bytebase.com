@@ -60,5 +60,5 @@ If this interests you, please do check out our [demo](/view-live-demo) or use 1 
 
 - [What is Database Change Management?](/blog/what-is-database-change-management)
 - [Database-as-Code](/blog/database-as-code)
-- [Bytebase Database-as-Code VCS integration](https://docs.bytebase.com/vcs-integration/overview)
+- [Bytebase Database-as-Code VCS integration](https://docs.bytebase.com/gitops/overview)
 - [Database Version Control, State-based or Migration-based?](/blog/database-version-control-state-based-vs-migration-based)
