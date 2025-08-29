@@ -88,7 +88,7 @@ Bytebase has ~100 standard built-in SQL Lint and supports configuring review rul
 
 ![](/content/blog/database-cicd-best-practice/strategy.webp)
 
-- When creating your scripts, the SQL statements are pre-checked by Bytebase's [VCS-integrated review capabilities](https://docs.bytebase.com/sql-review/gitops-ci) to help identify violations.
+- When creating your scripts, the SQL statements are pre-checked by Bytebase's [VCS-integrated review capabilities](https://docs.bytebase.com/gitops/sql-review-ci) to help identify violations.
 - During the execution phase, Bytebase will initiate a secondary check. The closer you get to prod, the tougher the rules.
 
 ## Defining an automated deployment workflow

@@ -133,7 +133,7 @@ In contrast, GitHub Actions stands out with its extensive third-party ecosystem 
 
 GitHub and GitLab both offer standard code review features. GitHub excels in third-party integration through GitHub Apps and GitHub Actions.
 
-In GitLab, third-party tools can only post comments below merge requests. In GitHub, third-party tools can post inline comments directly within pull requests, enhancing review workflows. For instance, Bytebase's [SQL Review GitHub Actions](https://www.bytebase.com/docs/sql-review/gitops-ci/) can lint SQL and post inline comments within the code:
+In GitLab, third-party tools can only post comments below merge requests. In GitHub, third-party tools can post inline comments directly within pull requests, enhancing review workflows. For instance, Bytebase's [SQL Review GitHub Actions](https://www.bytebase.com/docs/gitops/sql-review-ci/) can lint SQL and post inline comments within the code:
 
 ![github-pr-inline](/content/blog/github-vs-gitlab/github-pr-inline.webp)
 

@@ -167,7 +167,7 @@ The Bytebase Console-based integration mode provides more powerful functionality
    If you are not satisfied with the default SQL Review rules, you can configure it visually from the
    Bytebase Console and all changes will take effect immediately.
 
-   See the [GitOps CI documentation](https://www.bytebase.com/docs/sql-review/gitops-ci)
+   See the [GitOps CI documentation](https://www.bytebase.com/docs/gitops/sql-review-ci)
    for details on how to do this.
 
 ### Result

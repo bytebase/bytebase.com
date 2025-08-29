@@ -107,8 +107,7 @@
                   "sql-review/overview",
                   "sql-review/review-policy",
                   "sql-review/review-rules",
-                  "sql-review/ui",
-                  "sql-review/gitops-ci"
+                  "sql-review/ui"
                 ]
               },
               {
@@ -141,6 +140,7 @@
             "group": "GitOps Workflow",
             "pages": [
               "gitops/overview",
+              "gitops/sql-review-ci",
               "gitops/release"
             ]
           },
