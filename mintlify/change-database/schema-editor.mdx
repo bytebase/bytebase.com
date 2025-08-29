@@ -3,140 +3,62 @@ title: Schema Editor
 feature_name: SCHEMA_EDITOR
 ---
 
-Schema Editor provides a visual, spreadsheet-like interface for modifying database structures without writing SQL. Changes made in the editor are automatically converted to SQL statements and processed through the standard [change workflow](/change-database/change-workflow).
+Schema Editor provides a visual interface for modifying database structures without writing SQL.
 
-## Accessing Schema Editor
+## Getting Started
 
-You can access Schema Editor in two ways:
-
-### Via Plan Creation
-1. Navigate to **CI/CD** > **Plans** in the left menu
-2. Click **New Plan** and select `Schema Migration` as the plan type
-3. Select a single database and click **Next**
-
-![new-plan-schema-editor](/content/docs/change-database/schema-editor/bb-new-plan-schema-editor.webp)
-
-### Via Database Page
-1. Go to **Database** > **Databases** in the left menu
-2. Select a single database
-3. Click **Edit Schema**
+Access Schema Editor by:
+- Creating a new plan: **CI/CD** > **Plans** > **New Plan** > Select `Schema Migration`
+- From database page: **Database** > **Databases** > Select database > **Edit Schema**
 
 ![](/content/docs/change-database/schema-editor/schema-editor-entry.webp)
 
-## Working with Tables
+## Basic Operations
 
-### Creating Tables
-
-**Option 1: Using the toolbar**
-- Select a database and click **New Table** at the top of the page
-- Enter the table name and click **Create**
+### Tables
+- **Create**: Click **New Table** or use `···` menu next to a schema
+- **Duplicate**: Click the copy button on any table row
+- **Delete**: Click `···` > **Drop table** (use **Restore** to undo)
+- **Rename**: Available for newly created tables only
 
 ![](/content/docs/change-database/schema-editor/create-table.webp)
 
-**Option 2: Using the context menu**
-- Click the `···` button next to a schema
-- Select **New table** and enter the table name
-- Click **Create**
-
-![](/content/docs/change-database/schema-editor/new-table-button.webp)
-
-**Duplicating tables**
-- Click the copy button on any table row to create a duplicate
-
-![](/content/docs/change-database/schema-editor/copy.webp)
-
-### Modifying Tables
-
-**Adding columns**
-1. Select a table from the left panel
-2. Click **Add Column** at the top of the table detail view
-3. Configure column properties (Name, Type, Default, etc.)
+### Columns
+- **Add**: Select table > Click **Add Column** > Configure properties
+- **Modify**: Click on existing columns to edit properties
 
 ![](/content/docs/change-database/schema-editor/add-column.webp)
 
-**Renaming tables**
-- For newly created tables, use the **Rename** option in the left panel
+### Schemas
+Use the `···` menu on database/schema rows to create, drop, or restore schemas.
 
-![](/content/docs/change-database/schema-editor/rename.webp)
+## Apply Changes
 
-### Deleting Tables
-
-1. Click the `···` button on the table row
-2. Select **Drop table** (the table will appear crossed out)
-3. To undo, click the `···` button again and select **Restore**
-
-![](/content/docs/change-database/schema-editor/drop-table.webp)
-
-## Working with Schemas
-
-- **Create**: Click `···` on a database row and select **New schema**
-- **Delete**: Click `···` on a schema row and select **Drop schema**
-- **Restore**: Click `···` on a dropped schema and select **Restore**
-
-## Applying Changes
-
-After making your edits, click **Preview Issue** at the bottom right to review the generated SQL statements and create a change issue.
+Click **Preview Issue** to review generated SQL and create a change issue.
 
 ![](/content/docs/change-database/schema-editor/edit-schema-issue.webp)
 
-## Using Schema Templates
+## Schema Templates
 
-Schema Templates allow Workspace Admins and DBAs to create reusable components for consistent database design. Templates are defined at the workspace level and can be applied when using Schema Editor.
+Create reusable components for consistent database design. Configure templates in **Settings** > **Schema Template**.
 
-### Template Types
-
-#### Field Templates
-Pre-defined column configurations that can be added to any table.
-
-**Creating a field template:**
-1. Navigate to **Settings** > **Schema Template** under **Security & Policy**
-2. Click **Add Field Template** under the Field Template section
-3. Configure the template properties:
-   - Category (for organization)
-   - Database engine
-   - Column specifications (name, type, default, nullable)
-4. Click **Create**
-
-![bb-schema-template-field-add](/content/docs/administration/schema-template/bb-schema-template-field-add.webp)
-
-**Using a field template:**
-1. Open Schema Editor and select a table
-2. Click **Add from template**
-3. Select your template to add the pre-configured column
+### Field Templates
+Pre-defined columns that can be added to any table.
+- **Create**: Add Field Template > Configure properties > Create
+- **Use**: In Schema Editor, select table > Add from template
 
 ![bb-schema-editor-add-from-template-field](/content/docs/administration/schema-template/bb-schema-editor-add-from-template-field.webp)
 
-#### Table Templates
-Complete table structures with predefined columns and constraints.
-
-**Creating a table template:**
-1. Navigate to **Settings** > **Schema Template** under **Security & Policy**
-2. Click **Add Table Template** under the Table Template section
-3. Define the table structure:
-   - Basic properties (category, engine, table name)
-   - Column definitions with constraints
-   - Include existing field templates if needed
-4. Click **Create**
-
-![bb-schema-template-table-add](/content/docs/administration/schema-template/bb-schema-template-table-add.webp)
-
-**Using a table template:**
-1. Open Schema Editor and select a database
-2. Click **Add from template**
-3. Select your template to create the entire table structure
+### Table Templates  
+Complete table structures with predefined columns.
+- **Create**: Add Table Template > Define structure > Create
+- **Use**: In Schema Editor, select database > Add from template
 
 ![bb-schema-editor-add-from-template-table](/content/docs/administration/schema-template/bb-schema-editor-add-from-template-table.webp)
 
-#### Column Type Restrictions
-Limit available column types to enforce data type standards.
-
-**Setting restrictions:**
-1. Navigate to **Settings** > **Schema Template** under **Security & Policy**
-2. Under Column Type Restriction, select **Allow limited types**
-3. Remove unwanted types from the allowed list
-4. Click **Update**
-
-**Effect in Schema Editor:**
-When creating or modifying columns, only approved types will appear in the type dropdown.
+### Column Type Restrictions
+Limit available column types to enforce standards.
+- Go to Column Type Restriction > Select "Allow limited types"
+- Remove unwanted types from the allowed list
 
 ![bb-schema-editor-type-dropdown](/content/docs/administration/schema-template/bb-schema-editor-type-dropdown.webp)
