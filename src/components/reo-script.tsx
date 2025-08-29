@@ -12,8 +12,8 @@ const ReoScript = () => {
     return null;
   }
 
-  // Don't load reo script on /resources paths
-  if (pathname.startsWith('/resources')) {
+  // Don't load reo script on /resources, /reference paths
+  if (pathname.startsWith('/resources') || pathname.startsWith('/reference')) {
     return null;
   }
 
