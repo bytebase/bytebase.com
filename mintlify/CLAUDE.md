@@ -33,6 +33,13 @@ mint install
 - Install Mintlify CLI globally: `npm i -g mint`
 - Run commands from the root directory where `docs.json` is located
 
+### Testing
+```bash
+# Check for broken links (excluding /api-reference)
+./mintlify/check-links.sh
+```
+Run this test before committing any documentation changes to ensure all internal links are valid.
+
 ## Content Management
 
 - **MDX Files**: All documentation pages use MDX format combining Markdown with React components
