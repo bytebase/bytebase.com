@@ -95,21 +95,12 @@
                   "change-database/plan",
                   "change-database/batch-change",
                   "change-database/synchronize-schema",
-                  "change-database/stored-procedure",
                   "change-database/schema-editor",
                   "change-database/schema-template",
                   "change-database/online-schema-migration-for-mysql"
                 ]
               },
-              {
-                "group": "Review",
-                "pages": [
-                  "sql-review/overview",
-                  "sql-review/review-policy",
-                  "sql-review/review-rules",
-                  "sql-review/ui"
-                ]
-              },
+              "sql-review/overview",
               {
                 "group": "Approve",
                 "pages": ["administration/custom-approval"]
@@ -147,6 +138,8 @@
           {
             "group": "General",
             "pages": [
+              "sql-review/review-policy",
+              "sql-review/review-rules",
               "change-database/webhook",
               "change-database/risks",
               "change-database/settings"
