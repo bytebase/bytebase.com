@@ -21,30 +21,11 @@ Then Bytebase will then create an issue to track the multi-database changes. You
 
 <PricingPlanBlock feature_name='BATCH_CHANGE' />
 
-If you always change a fixed set of databases together, you can pre-define a `database group` to enclose those databases. Typical scenarios of using database group are:
+Database groups allow you to manage and batch change multiple databases together. This is particularly useful for SaaS multi-tenant architectures, geographic deployments, or database partitioning scenarios.
 
-- A Software as a Service (SaaS) provider provides separate database instances for each of its customers (aka. tenants) alongside their application deployments.
-- For compliance and performance reasons, companies provision separate database instances in US, EU, AP respectively.
-- For scaling, companies create partitioned databases.
-
-### Create a database group
-
-1. Within a project, click **Database > Groups** on the left-side bar. Then click **New database group** to create a new database group.
-
-   ![bb-project-groups-create](/content/docs/change-database/batch-change/bb-project-groups-create.webp)
-
-1. Fill in the name and rules for filtering the desired databases.
-
-   ![bb-new-db-group-with-raw](/content/docs/change-database/batch-change/bb-new-db-group-with-raw.webp)
-
-   _If you want to use a **database label** as a filter condition, you may use **raw expression** with the following structure:_
-
-   ```
-   Where resource.labels.YOUR_LABEL_KEY == "YOUR_LABEL_VALUE"
-   and has(resource.labels.YOUR_LABEL_KEY)
-   ```
-
-1. Click **Save**, you'll see the newly created group in the list.
+<Card title="Database Group Configuration" icon="layer-group" href="/administration/database-group">
+  Learn how to create and manage database groups
+</Card>
 
 ### Batch change databases in a group
 
