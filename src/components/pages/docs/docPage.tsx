@@ -59,7 +59,7 @@ export default function DocPage({
   const navigationLinks = getDocPreviousAndNextLinks(currentPath, flatSidebar);
 
   const {
-    data: { title, feature_image, updated_at, estimated_time, feature_name },
+    data: { title, feature_image, updated_at, estimated_time },
     content,
   } = post;
 
@@ -73,7 +73,6 @@ export default function DocPage({
           featureImage={feature_image || null}
           updated_at={updated_at || null}
           estimated_time={estimated_time || null}
-          feature_name={feature_name || null}
           currentSlug={currentSlug}
           breadcrumbs={breadcrumbs}
           fileOriginPath={fileOriginPath}
