@@ -11,7 +11,7 @@ export const FEATURES = {
   SYNCHRONIZE_SCHEMA: 'Synchronize schema between databases',
   BATCH_CHANGE: 'Batch change',
   CUSTOM_APPROVAL: 'Custom approval workflow',
-  RISK_CENTER: 'Risk Center',
+  RISKS: 'Risks',
 
   //Not in the pricing page
   DRIFT_DETECTION: 'Schema drift detection',
