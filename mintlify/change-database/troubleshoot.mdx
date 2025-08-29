@@ -26,7 +26,7 @@ Following permission errors are likely to happen if either conditions meet:
 
 ### ERROR: permission denied to set role xxx (SQLSTATE 42501)
 
-This could happen if you turn on [Postgres database tenant mode](/change-database/issue/#postgres-database-tenant-mode).
+This could happen if you turn on [Postgres database tenant mode](/change-database/settings#postgres-tenant-mode).
 
 You need to grant the database owner permission to the Bytebase user configured in your PostgreSQL instance.
 
@@ -44,7 +44,7 @@ If you use AlloyDB, the database owner must NOT be created via [Cloud IAM](https
 
 ### ERROR: must be owner of table xxx (SQLSTATE 42501)
 
-This could happen if you turn on [Postgres database tenant mode](/change-database/issue/#postgres-database-tenant-mode).
+This could happen if you turn on [Postgres database tenant mode](/change-database/settings#postgres-tenant-mode).
 
 For some sophisticated setup where database owner and table owner are different, this causes problem.
 Because only table owner can alter that table schema, and if the database owner is not a member of

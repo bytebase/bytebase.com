@@ -97,6 +97,7 @@
                   "change-database/synchronize-schema",
                   "change-database/stored-procedure",
                   "change-database/schema-editor",
+                  "change-database/schema-template",
                   "change-database/online-schema-migration-for-mysql"
                 ]
               },
@@ -133,16 +134,6 @@
                 "group": "Monitor",
                 "pages": ["change-database/drift-detection"]
               },
-              {
-                "group": "Settings",
-                "pages": [
-                  "change-database/webhook",
-                  "change-database/risk-center",
-                  "change-database/issue",
-                  "change-database/transaction-mode",
-                  "change-database/schema-template"
-                ]
-              },
               "change-database/troubleshoot"
             ]
           },
@@ -151,6 +142,14 @@
             "pages": [
               "gitops/overview",
               "gitops/release"
+            ]
+          },
+          {
+            "group": "General",
+            "pages": [
+              "change-database/webhook",
+              "change-database/risk-center",
+              "change-database/settings"
             ]
           }
         ]
