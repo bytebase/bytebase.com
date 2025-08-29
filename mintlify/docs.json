@@ -95,15 +95,12 @@
                   "change-database/plan",
                   "change-database/batch-change",
                   "change-database/synchronize-schema",
-                  "change-database/schema-editor",
-                  "change-database/online-schema-migration-for-mysql"
+                  "change-database/online-schema-migration-for-mysql",
+                  "change-database/schema-editor"
                 ]
               },
               "sql-review/overview",
-              {
-                "group": "Approve",
-                "pages": ["administration/custom-approval"]
-              },
+              "change-database/approval",
               {
                 "group": "Rollout",
                 "pages": [
