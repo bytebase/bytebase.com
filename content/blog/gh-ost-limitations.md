@@ -48,7 +48,7 @@ Beyond the hard blockers, `gh-ost` has several infrastructure requirements that 
 
 ### Privileges
 
-`gh-ost` requires specific replication-related privileges, and in some cases, `SUPER`-like capabilities. This can be challenging to obtain in managed database environments like [Amazon RDS](https://aws.amazon.com/rds/) or [Azure Database for MySQL](https://azure.microsoft.com/en-us/products/azure-database-for-mysql). Always check your platform's documentation for guidance on the required permissions required for online schema migration tools.
+`gh-ost` requires specific replication-related privileges, and in some cases, `SUPER`-like capabilities. This can be challenging to obtain in managed database environments like [Amazon RDS](https://aws.amazon.com/rds/) or [Azure Database for MySQL](https://azure.microsoft.com/en-us/products/azure-database-for-mysql). Always check your platform's documentation for guidance on the required permissions for online schema migration tools.
 
 ## 3. The "Online" Lock: Cut-Over and Long-Running Transactions
 
