@@ -135,7 +135,8 @@
           {
             "group": "Appendix",
             "pages": [
-              "sql-review/review-rules"
+              "sql-review/review-rules",
+              "sql-review/error-codes"
             ]
           }
         ]
@@ -224,13 +225,6 @@
               "security/watermark",
               "administration/announcement",
               "administration/archive"
-            ]
-          },
-          {
-            "group": "Reference",
-            "pages": [
-              "reference/error-code/core",
-              "reference/error-code/advisor"
             ]
           }
         ]
