@@ -22,7 +22,6 @@
               "introduction/what-is-bytebase",
               "introduction/supported-databases",
               "introduction/use-cases",
-              "concepts/data-model",
               "faq"
             ]
           },
@@ -72,7 +71,7 @@
               "onboarding/plan",
               "onboarding/poc",
               "onboarding/sql-editor-data-access-control",
-              "onboarding/organize-projects"
+              "onboarding/organize-resources"
             ]
           }
         ]
