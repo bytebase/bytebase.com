@@ -55,7 +55,7 @@ This tutorial code repository is at [https://dev.azure.com/bytebase-hq/\_git/byt
 
 1. Create a new project. Copy `pipelines` folder from [https://dev.azure.com/bytebase-hq/\_git/bytebase-example](https://dev.azure.com/bytebase-hq/_git/bytebase-example). There are two workflows in this repository:
 
-   - `pipelines/sql-review.yml`: [Lint the SQL](/sql-review/overview/) migration files after the PR is created.
+   - `pipelines/sql-review.yml`: [Lint the SQL](/sql-review/review-policy/) migration files after the PR is created.
    - `pipelines/rollout-release.yml`: Create a release in Bytebase after the PR is merged to the `main` branch.
 
 1. Go into `pipelines/sql-review.yml` and `pipelines/rollout-release.yml`. In the `env` section, replace the variable values with your own and commit the changes.

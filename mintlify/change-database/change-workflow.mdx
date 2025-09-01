@@ -27,7 +27,7 @@ Define what needs to change—whether it's a schema migration (DDL) or data modi
 
 ### 2. **Automatic SQL Review**
 
-Built-in SQL advisor validates every change before execution:
+Built-in SQL advisor validates every change before execution using configurable [Review Policies](/sql-review/review-policy):
 
 - **Syntax validation**: Catch SQL errors before deployment
 - **Schema rules**: Naming conventions, data types, and structure standards
@@ -35,6 +35,8 @@ Built-in SQL advisor validates every change before execution:
 - **Security policies**: Prevent unsafe operations and data exposure
 - **Backward compatibility**: Ensure changes won't break existing applications
 - **Best practices**: Enforce organizational and industry standards
+
+You can configure SQL Review Policies at the environment or project level to enforce your team's specific standards and requirements.
 
 ### 3. **Approval Process**
 
