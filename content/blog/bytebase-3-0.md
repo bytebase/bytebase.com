@@ -14,7 +14,7 @@ After 17 months of baking, over 5000 commits, we’re excited to announce the la
 
 ![database](/content/blog/bytebase-3-0/database.webp)
 
-Bytebase 2.0 supported 12 database types. With Bytebase 3.0, this number has increased to 22. [Redshift](https://aws.amazon.com/redshift/), [StarRocks](https://starrocks.com/), [RisingWave](https://risingwave.com/), [Hive](https://hive.apache.org/), [Elasticsearch](https://www.elastic.co/elasticsearch), [BigQuery](https://cloud.google.com/bigquery), [DynamoDB](https://aws.amazon.com/dynamodb/), [Databricks](https://www.databricks.com/), [CockroachDB](https://www.cockroachlabs.com/), and [OceanBase (Oracle Mode)](https://en.oceanbase.com/) are new additions. Bytebase aims to be the single database development platform for managing and developing all the diverse databases in your organization.
+Bytebase 2.0 supported 12 database types. With Bytebase 3.0, this number has increased to 22. [Redshift](https://aws.amazon.com/redshift/), [StarRocks](https://starrocks.com/), [Hive](https://hive.apache.org/), [Elasticsearch](https://www.elastic.co/elasticsearch), [BigQuery](https://cloud.google.com/bigquery), [DynamoDB](https://aws.amazon.com/dynamodb/), [Databricks](https://www.databricks.com/), [CockroachDB](https://www.cockroachlabs.com/), and [OceanBase (Oracle Mode)](https://en.oceanbase.com/) are new additions. Bytebase aims to be the single database development platform for managing and developing all the diverse databases in your organization.
 
 ## Securing Database Operations
 

@@ -33,7 +33,6 @@ Bytebase keeps up with the bi-weekly release cadence and released 7 versions.
 - Redshift: support datashare query, data access control, and data masking.
 - SQL Server: additional SQL review rules.
 - Oracle: Schema Sync.
-- RisingWave: basic support.
 
 
 ### Database Change Management
