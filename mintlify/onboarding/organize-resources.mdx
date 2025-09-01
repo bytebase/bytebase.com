@@ -1,0 +1,42 @@
+---
+title: Organize Resources
+---
+
+## Workspace
+
+A `Workspace` represents your entire Bytebase installation, containing all users, projects, databases, and resources. Each Bytebase deployment corresponds to one workspace, making this concept largely transparent to users. To achieve workspace separation, you need to deploy multiple Bytebase installations.
+
+## Project
+
+A `Project` groups databases, team members, and workflows together—similar to projects in Jira or GitHub. This is where all database activities happen: schema migrations, data changes, SQL queries, and more.
+
+**How to structure your projects:**
+
+* **Team-based organization** — Align projects with your organizational structure. Each team gets their own project, providing clear ownership and accountability for database changes.
+* **Application-centric approach** — Create projects around applications or services. This works well when multiple teams contribute to a single application or when applications share common database components.
+* **Schema-based grouping** — Perfect for multi-tenant architectures where you manage hundreds of databases with identical schemas. Group them in one project to roll out changes consistently across all tenants.
+* **Environment-specific projects** — Though Bytebase provides environment controls, some organizations create separate projects for production versus non-production databases to enforce stricter isolation and different workflows.
+
+Many enterprises layer these approaches. A common pattern is to first divide projects by application or service, then further split them by environment for critical systems that require additional safeguards.
+
+<Tip>
+
+To manage project roles efficiently at scale, create [user groups](/administration/user-groups/) for teams and assign project roles to these groups rather than individual users. You can also integrate with [directory services](/administration/scim/overview) to automatically synchronize group membership with Bytebase.
+
+</Tip>
+
+## Database Instance
+
+A `Database Instance` represents a database server or cluster that you connect to using a host address and port. This includes MySQL servers, PostgreSQL clusters, AWS RDS instances, and similar database systems. A single instance can host multiple individual databases. Workspace administrators and DBAs are typically responsible for managing database instances.
+
+## Database
+
+A `Database` is an individual database residing within a database instance. Each database belongs to exactly one project, establishing clear ownership and access boundaries. Project developers primarily interact with databases in their day-to-day work.
+
+## Database Group
+
+A `Database Group` consists of multiple databases that share similar or identical schema structures. Common use cases include per-tenant databases in multi-tenant architectures or partitioned databases for scalability. Bytebase can execute [batch changes](/change-database/batch-change) consistently across all databases within a group, ensuring schema uniformity.
+
+## Environment
+
+An `Environment` represents a specific stage in your development and deployment pipeline, such as development, testing, staging, or production. These typically correspond directly to your actual deployment environments. Workspace administrators can attach organizational policies to environments, enabling different rules and approval workflows for each stage.
