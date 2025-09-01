@@ -10,68 +10,71 @@ title: Approval
 
 ## Overview
 
-Custom Approval allows you to create multi-stage approval workflows based on change risk levels. Each database change can require approvals from specific roles before proceeding to rollout.
+Custom Approval enables organizations to implement multi-stage approval workflows for database changes based on their risk levels. This ensures that potentially impactful changes receive appropriate review before deployment.
+
+### Key Features
+
+- **Risk-based routing**: Different approval flows for different risk levels
+- **Multi-stage approvals**: Chain multiple approval nodes in sequence
+- **Role-based authorization**: Leverage built-in or custom roles for approvals
+- **Flexible configuration**: Skip approvals for low-risk changes or require multiple approvers for critical ones
 
 <Tip>
-**Best Practices:**
-- Custom Approval works best with [UI workflow](/change-database/change-workflow/#ui-workflow). For [GitOps workflow](/change-database/change-workflow/#gitops-workflow), configure approvals in your PR/MR process instead.
-- By default, users cannot self-approve their own issues. You can [change this setting](/change-database/settings#self-approval) in project settings if needed.
+**Workflow Compatibility:**
+- **UI Workflow**: Custom Approval integrates seamlessly with the UI-based change workflow
+- **GitOps Workflow**: For GitOps, configure approvals in your VCS (GitHub/GitLab/Bitbucket) PR/MR process instead
 </Tip>
 
-## How It Works
+## How Approval Works
 
-### Approval Flow Structure
+### The Approval Process
 
-An approval flow consists of one or more **approval nodes** arranged in sequence:
-- Each node specifies a role (e.g., `Project Owner`, `DBA`, or custom role)
-- Any member with that role can approve the node
-- All nodes must be approved before the issue proceeds to rollout
+1. **Risk Assessment**: When a database change is created, Bytebase evaluates its risk level
+2. **Flow Assignment**: Based on the risk level, the appropriate approval flow is triggered
+3. **Sequential Approval**: Approvers review and approve each node in order
+4. **Rollout**: After all approvals, changes proceed to deployment
 
-<Note>
-After approval, the actual deployment may still require manual action depending on your [rollout policy](/change-database/environment-policy/rollout-policy/) configuration.
-</Note>
+### Understanding Risk Levels
+
+Bytebase categorizes database changes into risk levels based on:
+- Operation type (DDL vs DML)
+- Affected data volume
+- Target environment
+- Custom risk rules
+
+<Info>
+Learn more about configuring risk levels in [Risks](/administration/risks) to fine-tune how changes are categorized and routed for approval.
+</Info>
+
+## Configuration Guide
+
+### Step 1: Design Your Approval Flows
+
+Navigate to **Settings > Custom Approval > Approval Flows**
+
+#### Creating an Approval Flow
+
+1. Click **Create** to add a new flow
+2. Name your flow descriptively (e.g., "Production DDL Review")
+3. Add approval nodes:
+   - Each node represents one approval stage
+   - Specify the required role for each node (built-in or [custom role](/administration/roles))
+   - Nodes execute in the order you define
 
 ![Approval Flow](/content/docs/administration/custom-approval/edit-approval-flow.webp)
 
-## Setting Up Custom Approval
+### Step 2: Map Flows to Risk Levels
 
-### Step 1: Create Approval Flows
+Navigate to **Settings > Custom Approval > Rules**
 
-1. Navigate to **Settings > Custom Approval**
-2. Click the **Approval Flows** tab
-3. Create or edit an approval flow
-4. Add approval nodes with required roles
+1. For each risk level (Low, Moderate, High), select:
+   - An approval flow to enforce
+   - Or "Skip manual approval" for automated processing
+2. Save your configuration
 
-### Step 2: Assign Flows to Risk Levels
+### Step 3: Configure Project Settings
 
-1. Click the **Rules** tab
-2. Select an approval flow for each risk level
-3. Choose "Skip manual approval" if no approval is needed for a specific risk level
+In your project settings, consider:
 
-## Working with Custom Roles
-
-When built-in roles don't match your approval requirements, you can create [custom roles](/administration/roles) with specific permissions.
-
-**Example use cases:**
-- Create a `Tester` role for QA approval
-- Define a `Compliance Officer` role for regulatory review
-- Set up a `Release Manager` role for deployment coordination
-
-### Adding Custom Roles to Approval Flows
-
-1. First, [create the custom role](/administration/roles#creating-custom-roles)
-2. Navigate to **CI/CD > Custom Approval**
-3. Select the **Approval Flows** tab
-4. Edit your approval flow and add the custom role as an approval node
-
-![add-to-custom-approval-flow](/content/docs/administration/custom-approval/add-to-custom-approval-flow.webp)
-
-## Approval Process
-
-When an issue matches a configured risk level:
-
-1. The issue enters the approval stage
-2. Designated approvers receive notifications
-3. Each approval node must be approved in sequence
-4. After all approvals, the issue proceeds based on rollout policy
-5. Changes are deployed automatically or manually as configured
+- **Self-approval**: By default, users cannot approve their own changes. [Enable self-approval](/change-database/settings#self-approval) only if your process allows it
+- **Rollout Policy**: Define whether approved changes deploy automatically or require manual trigger via [rollout policy](/change-database/environment-policy/rollout-policy/)

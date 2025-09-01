@@ -85,7 +85,6 @@
             "pages": [
               "change-database/change-workflow",
               "sql-review/review-policy",
-              "change-database/risks",
               "change-database/webhook",
               "change-database/settings"
             ]
@@ -219,6 +218,7 @@
               "administration/license",
               "administration/mode",
               "ai-assistant",
+              "administration/risks",
               "change-database/environment-policy/overview",
               "administration/database-group",
               "administration/customize-logo",
