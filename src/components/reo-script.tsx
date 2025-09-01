@@ -18,7 +18,8 @@ const ReoScript = () => {
   }
 
   // Handle blog post filtering
-  const blogPathMatch = pathname.match(/^\/[^/]+\/blog\/([^/]+)$/);
+  // Regex handles both URL formats: /blog/slug (default locale) and /locale/blog/slug (non-default locale)
+  const blogPathMatch = pathname.match(/^(?:\/[^/]+)?\/blog\/([^/]+)$/);
   if (blogPathMatch) {
     const slug = blogPathMatch[1];
     // Use pre-generated mapping for instant lookup
