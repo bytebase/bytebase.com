@@ -123,8 +123,7 @@
               {
                 "group": "Monitor",
                 "pages": ["change-database/drift-detection"]
-              },
-              "change-database/troubleshoot"
+              }
             ]
           },
           {
