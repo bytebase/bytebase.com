@@ -218,7 +218,7 @@
               "administration/license",
               "administration/mode",
               "ai-assistant",
-              "change-database/risks",
+              "administration/risks",
               "change-database/environment-policy/overview",
               "administration/database-group",
               "administration/customize-logo",
