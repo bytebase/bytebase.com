@@ -4,7 +4,7 @@ title: Overview
 
 Bytebase offers a database-as-code workflow, enabling you to manage database changes directly through your version control system (VCS).
 
-Bytebase GitOps workflow is built upon the [Bytebase API](/integrations/api/overview). It provides the ultimate flexibility to customize the GitOps workflow to integrate with your CI/CD pipeline.
+Bytebase provides pre-built actions for popular CI/CD platforms. For custom requirements, you can build your own pipeline using the [Bytebase API](/integrations/api/overview).
 
 ## Capabilities
 
@@ -18,13 +18,6 @@ Bytebase GitOps integration provides two core capabilities:
 - **Progressive deployments** - Automated rollout across environments (test → staging → production)
 - **Multi-database support** - Apply changes across multiple databases with batch operations
 
-### SQL Review
-
-- **Automated validation** - Automatically check SQL files against configurable review policies
-- **Quality and compliance checks** - Validate for performance issues, security concerns, and best practices
-- **PR integration** - Review results posted directly as pull request comments
-- **Merge protection** - Block merges when critical issues are detected
-- **Database-specific rules** - Tailored validation for different database engines
 
 ## GitOps Workflow
 
@@ -62,106 +55,3 @@ The release follows your configured deployment pipeline:
 - Each deployment is tracked with timing and status
 
 **Important**: When deploying a release, Bytebase automatically detects which migrations have already been applied to the target database and skips them. This ensures safe re-deployment and allows the same release to be deployed multiple times without errors.
-
-## Requirements
-
-## Filename Requirements
-
-To ensure proper version control and execution, your SQL migration filenames must follow a specific structure. Each filename consists of three main parts: a **Version**, a **Description**, and an optional **Change Type Suffix**.
-
-`<Version>_<Description>_<Suffix>.sql`
-
-### Versioning Format
-
-Bytebase supports both semantic versioning and simple timestamp-based versions. The version number is crucial for ordering migrations correctly.
-
-The version must begin with a number. A `v` or `V` prefix is optional.
-
-**Valid Version Examples:**
-
-- `202501150900_add_user_table.sql`
-- `v1.2.3_description.sql`
-- `V2_add_users_table.sql`
-- `1.0_initial_schema.sql`
-
-### Change Type Suffixes
-
-You can add a suffix to the filename to specify the change type. **If the suffix is omitted, the file will be treated as the default `DDL` type.** The suffix is added to the end of the filename, just before the `.sql` extension.
-
-- **DDL (Default)**
-
-  - Used for standard schema changes (Data Definition Language). This is the default type used when no suffix is present.
-  - **Example**: `v1.0_create_table.sql`
-
-- **DML**
-
-  - Used for data manipulations (Data Manipulation Language).
-  - Add the `_dml` suffix.
-  - **Example**: `v1.0_insert_data_dml.sql`
-
-- **Ghost**
-  - Used for schema changes performed using the `gh-ost` tool.
-  - Add the `_ghost` suffix.
-  - **Example**: `v1.0_alter_table_ghost.sql`
-
-## GitHub Actions
-
-<Card
-  title="Tutorial: Database GitOps with GitHub Actions"
-  icon="graduation-cap"
-  href="/tutorials/gitops-github-workflow/"
-  horizontal
-/>
-
-<Note>
-
-To reach your self-hosted Bytebase from GitHub Actions, you can choose either options:
-
-1. Tunnel GitHub Actions using [Cloudflare Zero Trust](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) with [Cloudflare Warp GitHub Actions](https://github.com/marketplace/actions/setup-cloudflare-warp).
-
-1. Use [self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
-
-</Note>
-
-Bytebase provides pre-built [GitHub Actions](https://github.com/marketplace?query=bytebase&type=actions) to ease the GitHub integration.
-
-## Azure DevOps Pipeline
-
-<Card
-  title="Tutorial: Database GitOps with Azure DevOps Pipeline"
-  icon="graduation-cap"
-  href="/tutorials/gitops-azure-devops-workflow/"
-  horizontal
-/>
-
-## GitLab CI
-
-<Card
-  title="Tutorial: Database GitOps with GitLab CI"
-  icon="graduation-cap"
-  href="/tutorials/gitops-gitlab-workflow/"
-  horizontal
-/>
-
-<Note>
-
-If you're using **self-hosted GitLab** in an internal network:
-
-1. You’ll need to [manually load the `bytebase/bytebase-action` image](/tutorials/gitops-gitlab-workflow#use-bytebase-action-in-an-offline-gitlab-runner) into your internal Docker registry.
-
-1. Set the [`clone_url` in GitLab Runner](/tutorials/gitops-gitlab-workflow#resolve-gitlab-clone-redirect-in-internal-network) to avoid redirection to external addresses.
-
-</Note>
-
-## Bitbucket Pipelines
-
-<Card
-  title="Tutorial: Database GitOps with Bitbucket Pipelines"
-  icon="graduation-cap"
-  href="/tutorials/gitops-bitbucket-workflow/"
-  horizontal
-/>
-
-## API
-
-If the pre-built GitHub Actions do not meet your needs or you want to integrate with other VCSs, you can use the [Bytebase API](/integrations/api/overview) to build your own GitOps workflow.
