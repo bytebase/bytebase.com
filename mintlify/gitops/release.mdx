@@ -2,41 +2,67 @@
 title: Release
 ---
 
-A release is an immutable, deployable artifact that contains database changes. It serves as the database equivalent of a Docker image in modern CI/CD pipelines.
+Bytebase integrates with popular CI/CD platforms to automate database releases through GitOps workflows.
 
-## Overview
+## Release Workflow
 
-In Bytebase's GitOps workflow, a release is automatically created when changes are merged to your main branch. It packages all SQL migration files into a single deployable unit that can be progressively rolled out across your database environments.
+When triggered by your CI/CD pipeline, Bytebase automatically creates a **release** - an immutable package containing all your SQL migration files. This release can then be progressively deployed across your database environments (test → staging → production), ensuring consistent and traceable database changes.
 
-## Key Characteristics
+## GitHub Actions
 
-- **Immutable** - Once created, a release cannot be modified, ensuring deployment consistency
-- **Version-controlled** - Each release is tied to a specific VCS commit for full traceability
-- **Environment-agnostic** - The same release can be deployed across test, staging, and production
-- **Auditable** - Complete history of creation, deployment, and rollback operations
-- **Idempotent** - Bytebase automatically detects and skips already applied migrations, preventing duplicate executions
+<Card
+  title="Tutorial: Database GitOps with GitHub Actions"
+  icon="graduation-cap"
+  href="/tutorials/gitops-github-workflow/"
+  horizontal
+/>
 
-## Benefits
+<Note>
 
-### Consistency
+To reach your self-hosted Bytebase from GitHub Actions, you can choose either options:
 
-The same release deployed to test is exactly what gets deployed to production - no manual SQL copying or modification.
+1. Tunnel GitHub Actions using [Cloudflare Zero Trust](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) with [Cloudflare Warp GitHub Actions](https://github.com/marketplace/actions/setup-cloudflare-warp).
 
-### Idempotent Deployment
+1. Use [self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
-Bytebase tracks which migrations have been applied to each database. When deploying a release:
+</Note>
 
-- Already applied migrations are automatically skipped
-- Only new migrations are executed
-- Safe to re-deploy the same release multiple times
-- No risk of duplicate schema changes or data corruption
+Bytebase provides pre-built [GitHub Actions](https://github.com/marketplace?query=bytebase&type=actions) to ease the GitHub integration.
 
-### Compliance
+## Azure DevOps Pipeline
 
-- Every change is reviewed before release creation
-- Deployment requires appropriate approvals
-- Full audit trail for regulatory requirements
+<Card
+  title="Tutorial: Database GitOps with Azure DevOps Pipeline"
+  icon="graduation-cap"
+  href="/tutorials/gitops-azure-devops-workflow/"
+  horizontal
+/>
 
-### Integration
+## GitLab CI
 
-Releases integrate seamlessly with existing CI/CD tools, treating database changes with the same rigor as application deployments.
+<Card
+  title="Tutorial: Database GitOps with GitLab CI"
+  icon="graduation-cap"
+  href="/tutorials/gitops-gitlab-workflow/"
+  horizontal
+/>
+
+<Note>
+
+If you're using **self-hosted GitLab** in an internal network:
+
+1. You'll need to [manually load the `bytebase/bytebase-action` image](/tutorials/gitops-gitlab-workflow#use-bytebase-action-in-an-offline-gitlab-runner) into your internal Docker registry.
+
+1. Set the [`clone_url` in GitLab Runner](/tutorials/gitops-gitlab-workflow#resolve-gitlab-clone-redirect-in-internal-network) to avoid redirection to external addresses.
+
+</Note>
+
+## Bitbucket Pipelines
+
+<Card
+  title="Tutorial: Database GitOps with Bitbucket Pipelines"
+  icon="graduation-cap"
+  href="/tutorials/gitops-bitbucket-workflow/"
+  horizontal
+/>
+
