@@ -83,7 +83,11 @@
           {
             "group": "Database CI/CD",
             "pages": [
-              "change-database/change-workflow"
+              "change-database/change-workflow",
+              "sql-review/review-policy",
+              "change-database/risks",
+              "change-database/webhook",
+              "change-database/settings"
             ]
           },
           {
@@ -99,7 +103,7 @@
                   "change-database/schema-editor"
                 ]
               },
-              "sql-review/overview",
+              "change-database/review",
               "change-database/approval",
               {
                 "group": "Rollout",
@@ -132,13 +136,9 @@
             ]
           },
           {
-            "group": "General",
+            "group": "Appendix",
             "pages": [
-              "sql-review/review-policy",
-              "sql-review/review-rules",
-              "change-database/webhook",
-              "change-database/risks",
-              "change-database/settings"
+              "sql-review/review-rules"
             ]
           }
         ]

@@ -67,7 +67,7 @@ _Note: Usually we enable SQL review for `Prod` environment as above. In this dem
 1. Create a new repository and copy the configuration files from [https://gitlab.com/bytebase-sample/gitops-example](https://gitlab.com/bytebase-sample/gitops-example). There are two ymls in this repository:
 
    - `.gitlab-ci.yml`: The CI pipeline for the repository which includes the SQL review and release creation.
-   - `bytebase-review.yml`: [Lint the SQL](/sql-review/overview/) migration files after the MR is created.
+   - `bytebase-review.yml`: [Lint the SQL](/sql-review/review-policy/) migration files after the MR is created.
    - `bytebase-rollout.yml`: Create a release in Bytebase after the MR is merged to the `main` branch.
 
 1. Go into `bytebase-review.yml` and `bytebase-rollout.yml`. In the `env` section, replace the variable values with your own and commit the changes.

@@ -1,59 +1,118 @@
 ---
-title: Review Policy
+title: SQL Review Policy
 ---
 
-<Card title="Tutorial: Codify SQL Review Policies with Bytebase API" icon="graduation-cap" href="/tutorials/api-sql-review-policy" horizontal />
+<Note>
+SQL Review is skipped for statements exceeding 1MB to prevent excessive processing time.
+</Note>
 
-In Bytebase, you can establish a SQL Review Policy for each [environment](/concepts/data-model#environment) or [project](/concepts/data-model/#project). This policy consists of a set of [SQL lint rules](/sql-review/review-rules) tailored to each database engine. Once configured, Bytebase will check SQL against those rules.
+SQL Review automatically validates SQL statements against best practices and catches potential issues before they reach production. This eliminates manual review bottlenecks and ensures consistent code quality across your database changes.
 
-![bb-sql-review-policy](/content/docs/sql-review/bb-sql-review-policy.webp)
+## How SQL Review Works
 
-## Prerequisites
+SQL Review operates as an automated gatekeeper in your database change workflow:
 
-- **Workspace Admin**/**DBA** role to configure the Review Policy.
+1. **Automatic Triggering**: Activates whenever database changes are created or modified
+2. **Rule Evaluation**: Checks SQL statements against your configured review rules
+3. **Instant Feedback**: Provides immediate validation results with actionable insights
+4. **Enforcement Levels**: Applies Error, Warning, or Disabled status based on your policy configuration
 
-## Access SQL Review Policy
+The review process validates:
+- Compliance with configured [SQL Review Rules](/sql-review/review-rules)
+- Database connectivity and compatibility
+- SQL syntax correctness
+- Schema migration tracking
+- Performance implications
+- Security best practices
 
-You can access **SQL Review Policy** from following places:
+![sql-advisor](/content/docs/sql-review/schema-review-engine-mysql-use-innodb.webp)
 
-- **SQL Review** under **Security & Policy** sidebar
-- **Environment** setting
-- **Project** setting
+## Setting Up SQL Review
 
-## Start by Choosing a Template
+<Card title="Tutorial: SQL Review with Bytebase GUI" icon="graduation-cap" href="/tutorials/sql-review-gui" horizontal />
 
-You can choose a predefined template or create a new policy from scratch.
+### Step 1: Create a Review Policy
+
+Navigate to **SQL Review** under **Security & Policy** in the sidebar. You can create a new policy by:
+
+1. **Starting from a template**: Choose a predefined template based on best practices
+2. **Building from scratch**: Select specific rules for your requirements
 
 ![bb-sql-review-basic-info](/content/docs/sql-review/bb-sql-review-basic-info.webp)
 
+### Step 2: Configure Review Rules
+
+Select and configure the [SQL Review Rules](/sql-review/review-rules) for each database engine your policy will support. For each rule, set the enforcement level:
+
+- **Error**: Violations must be fixed before changes can proceed
+- **Warning**: Violations are flagged but won't block execution
+- **Disabled**: Rule is not enforced
+
 ![bb-sql-review-configure-rule](/content/docs/sql-review/bb-sql-review-configure-rule.webp)
 
-## Add or Remove SQL Review Rules
-
-You can add or remove SQL Review rules per database engine to this policy.
-
-![bb-sql-review-add-remove](/content/docs/sql-review/bb-sql-review-add-remove.webp)
-
-## Change Rule Level
-
-You can choose one of `Error`, `Warning` and `Disabled`.
-
-Both `Warning` and `Error` will block the [automatic rollout](/change-database/environment-policy/rollout-policy/#automatic-rollout) if configured.
-
-## Attach to Resources
-
 <Note>
-
-**Project** level policy has higher priority than **Environment** one.
-
+Both Warning and Error levels will block [automatic rollout](/change-database/environment-policy/rollout-policy/#automatic-rollout) if configured.
 </Note>
 
-You can attach the **SQL Review Policy** to environments or projects. Only **ONE** policy can be attached per **Environment** or **Project**.
+### Step 3: Attach Policy to Resources
+
+Attach your SQL Review Policy to specific environments or projects to activate it:
 
 ![bb-sql-review-attach-resource](/content/docs/sql-review/bb-sql-review-attach-resource.webp)
 
-## Disable or Delete SQL Review Policy
+## Policy Configuration
 
-You can disable the **SQL Review Policy** to prevent it from taking effect.
+<Card title="Tutorial: Codify SQL Review Policies with Bytebase API" icon="graduation-cap" href="/tutorials/api-sql-review-policy" horizontal />
 
-After disabling it, you can delete it.
+### Required Permissions
+
+To configure SQL Review Policies, you need one of the following roles:
+- **Workspace Admin**: Full access to create and manage policies across all environments and projects
+- **DBA**: Can create and manage policies for database administration purposes
+
+### Policy Scope and Application
+
+SQL Review Policies operate at two levels with different scopes and access points:
+
+| Level | Scope | Access Location | Priority |
+|-------|-------|-----------------|----------|
+| **Project** | Applies to all databases within a specific project | Project settings page | Higher |
+| **Environment** | Applies to all databases within an environment | Environment settings page | Lower |
+
+You can also manage all policies centrally from **SQL Review** under the **Security & Policy** sidebar.
+
+<Note>
+Project-level policies override environment-level policies. Only one policy can be attached per environment or project.
+</Note>
+
+### Managing Rules
+
+#### Add or Remove Rules
+
+Customize your policy by adding or removing rules specific to each database engine:
+
+![bb-sql-review-add-remove](/content/docs/sql-review/bb-sql-review-add-remove.webp)
+
+#### Adjust Rule Severity
+
+Fine-tune enforcement by adjusting rule levels based on your team's requirements:
+- Use **Error** for critical standards that must never be violated
+- Use **Warning** for best practices that should be reviewed
+- Use **Disabled** to temporarily or permanently skip specific checks
+
+### Policy Management
+
+#### Disable a Policy
+
+Temporarily disable a policy without deleting it when you need to:
+- Perform emergency fixes
+- Test new rule configurations
+- Accommodate special deployment scenarios
+
+#### Delete a Policy
+
+Remove policies that are no longer needed:
+1. First disable the policy to ensure it's not actively in use
+2. Then delete it from the policy list
+
+![bb-sql-review-policy](/content/docs/sql-review/bb-sql-review-policy.webp)
