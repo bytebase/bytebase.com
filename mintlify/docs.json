@@ -486,6 +486,14 @@
   },
   "redirects": [
     {
+      "source": "/reference/error-code/advisor",
+      "destination": "/sql-review/error-codes"
+    },
+    {
+      "source": "/reference/error-code/core",
+      "destination": "/sql-review/error-codes"
+    },
+    {
       "source": "/get-started/instance",
       "destination": "/get-started/connect/overview"
     },
