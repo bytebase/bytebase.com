@@ -2,51 +2,60 @@
 title: Overview
 ---
 
-Bytebase offers a database-as-code workflow, enabling you to manage database changes directly through your version control system (VCS).
+## Goal
 
-Bytebase provides pre-built actions for popular CI/CD platforms. For custom requirements, you can build your own pipeline using the [Bytebase API](/integrations/api/overview).
+GitOps for database CI/CD brings the same rigor and automation used in application development to database schema management. Database schema changes are equivalent to API changes in microservices - they define contracts between services, and misalignment can break production systems.
 
-## Capabilities
+By treating databases as dependencies that require versioning, compatibility management, and progressive rollout strategies, schema changes gain the same safety and predictability as application code.
 
-Bytebase GitOps integration provides two core capabilities:
+## Why Database Schema Changes Matter
 
-### Versioned Database Migrations
+Database schema changes are fundamentally similar to API changes:
+- They define contracts between services
+- Breaking changes can cause application failures
+- They require versioning and compatibility considerations
+- They benefit from progressive rollout and feature flagging
 
-- **Database-as-code workflow** - Manage database changes through your VCS just like application code
-- **Schema and data changes** - Support for both DDL (CREATE/ALTER/DROP tables, indexes) and DML (INSERT/UPDATE/DELETE) operations
-- **Change detection** - Automatically detects and skips already applied migrations, ensuring idempotency
-- **Progressive deployments** - Automated rollout across environments (test → staging → production)
-- **Multi-database support** - Apply changes across multiple databases with batch operations
+Bytebase enables database-as-code workflows, allowing you to manage database changes through your version control system (VCS) with the same process and confidence as application code.
 
+## Core Capabilities
+
+### Database-as-Code Workflow
+
+- **Unified CI/CD Pipeline** - Integrate database changes seamlessly into your existing CI/CD workflows
+- **Version Control Integration** - Manage schema changes alongside application code in your VCS
+- **Automated Change Detection** - Intelligently detect and apply only necessary changes, ensuring idempotency
+- **Progressive Deployment** - Roll out changes across environments (development → staging → production) with configurable automation and approval gates
+
+### Enterprise-Grade Safety
+
+- **SQL Review and Validation** - Automatic policy enforcement during pull requests
+- **Rollback Capabilities** - Support for safe schema rollbacks when needed
+- **Multi-Region Support** - Deploy to isolated regional databases with separate or unified Bytebase deployments
+- **Batch Operations** - Apply changes across multiple databases consistently
 
 ## GitOps Workflow
 
 ### 1. Development Phase
 
-Developers create SQL migration files in their feature branches.
+Developers create SQL migration files in feature branches, following the same branch management strategy as application code (GitHub Flow, GitLab Flow, etc.).
 
 ### 2. Review Phase (Pull Request)
 
-- SQL review runs automatically on the PR
-- Validates changes against configured policies
-- No release created yet - only validation
+- Automated SQL review validates changes against configured policies
+- Schema changes are reviewed alongside application code changes
+- Compatibility checks ensure schema and code alignment
 
-### 3. Release Creation (Merge)
+### 3. Release Creation and Deployment
 
-When the PR is merged to main:
+After PR merge, releases can be created and deployed according to your workflow, consistent with application code deployment:
 
-- GitOps integration automatically creates a new release
-- All SQL files from the merge are packaged together
-- Release is assigned a unique identifier
-- Linked to the merge commit for traceability
+- GitOps integration can create versioned releases containing SQL migrations
+- Releases are linked to commits for full traceability
+- Deployment timing is configurable based on your pipeline strategy:
+  - **Automatic**: Deploy immediately after merge (common for development/test environments)
+  - **Time-based**: Schedule deployments for specific windows
+  - **Manual approval**: Require explicit approval before deployment (common for production)
+- Feature flags can decouple schema deployment from applications using new schema version
 
-### 4. Progressive Deployment
-
-The release follows your configured deployment pipeline:
-
-- **Test Environment**: Automatic deployment after creation
-- **Staging Environment**: May require manual approval
-- **Production Environment**: Typically requires explicit approval
-- Each deployment is tracked with timing and status
-
-**Important**: When deploying a release, Bytebase automatically detects which migrations have already been applied to the target database and skips them. This ensures safe re-deployment and allows the same release to be deployed multiple times without errors.
+**Key Principle**: Bytebase automatically detects previously applied migrations and skips them, ensuring safe re-deployment and idempotent operations across all environments.
