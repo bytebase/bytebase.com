@@ -1,5 +1,5 @@
 ---
-title: Rollout Policy
+title: Rollout Permissions
 ---
 
 <Card
@@ -9,30 +9,33 @@ title: Rollout Policy
   horizontal
 />
 
-<Note>
+Configure who can deploy database changes in your environment through rollout permissions. You can choose between manual deployment by authorized users or automatic deployment when all checks pass.
 
-While you **can not** [self-approve](/change-database/approval/) your own created issue, once
-the issue is approved by the others, you **can** deploy your own issue if qualified.
+## Manual rollout permissions
 
-</Note>
+### Default permissions
 
-`Workspace Admin` or `DBA` can configure the **Rollout policy** for a particular environment from the **Environment** detail page:
+Users with the `bb.taskRuns.create` permission can perform rollouts. Built-in roles with this permission:
+- Workspace Admin
+- Workspace DBA 
+- Project Releaser
 
-![environment-rollout](/content/docs/administration/environment-policy/bb-env-rollout.webp)
+### Additional permission options
 
-This setting will affect projects using either [UI workflow or GitOps workflow](/change-database/change-workflow). The rollout policy determines who will rollout the database changes.
+Grant rollout permissions through:
+
+**Environment-specific roles**: Add custom roles per environment in Environment policy settings to control rollouts for specific databases.
+
+**UI workflow permissions**: For UI-driven changes, also grant permissions to:
+- Issue Creator
+- Last Issue Approver (when using [custom approval flow](/change-database/approval/))
 
 ## Automatic rollout
 
-If `automatic` option is checked, Bytebase will deploy the change automatically if all check have passed. Unpassed checks will block the automatic rollout and require manual intervention:
+Enable automatic deployment when all checks pass by selecting the `automatic` option. Failed checks will block automatic rollout:
 
-- [Rollout time](/change-database/change-workflow/#rollout-time)
-- [SQL Review violations](/sql-review/review-policy)
+- [SQL Review policy](/sql-review/review-policy) violations
 
-## Manual rollout by dedicated roles
-
-If any roles are specified, Bytebase requires users with those roles to manually deploy the change.
-
-## Manual rollout with custom approval flow
-
-Bytebase requires the last approver from the activated [custom approval flow](/change-database/approval/) to deploy the change manually.
+<Note>
+Do not enable automatic rollout for GitOps Workflow as it can cause conflicts that result in failures.
+</Note>
