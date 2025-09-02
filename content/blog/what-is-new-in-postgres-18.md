@@ -71,7 +71,7 @@ Even when a `NOT NULL` constraint is added as `NOT VALID`, it still prevents new
 
 <HintBlock type="info">
 
-Before Postgres 18, you an use a less intuitive `CHECK (column is NOT NULL) NOT VALID`.
+Before Postgres 18, you can use a less intuitive `CHECK (column is NOT NULL) NOT VALID`.
 
 </HintBlock>
 
