@@ -4,7 +4,7 @@ author: Adela
 tags: Tutorial
 updated_at: 2024/10/10 20:00
 integrations: General
-category: 'Database CI/CD (GUI)'
+category: 'UI-Driven Workflow'
 level: Beginner
 estimated_time: '5 mins'
 featured: true
@@ -36,17 +36,19 @@ In this tutorial, you'll use the default sample databases to get familiar with t
    ![plan-change-type](/content/docs/change-database/plan/bb-plan-change-type.webp)
 
 1. Select the databases where changes will be applied:
-   - `hr_test` on `Test Sample instance` 
+
+   - `hr_test` on `Test Sample instance`
    - `hr_prod` on `Prod Sample instance`
-   
+
    Click **Confirm** to proceed.
    ![plan-targets](/content/docs/change-database/plan/bb-plan-targets.webp)
 
 1. Add the SQL statement:
+
    ```sql
    ALTER TABLE public.employee ADD COLUMN IF NOT EXISTS nickname TEXT;
    ```
-   
+
    Click **Create** to create the plan.
 
 1. The plan will be in `Draft` status. You may see SQL review warnings, especially for the production environment. This is because Bytebase automatically runs configured checks.
@@ -55,10 +57,11 @@ In this tutorial, you'll use the default sample databases to get familiar with t
 ## Step 4 - Review and Approve
 
 1. To fix the SQL review warning, edit the SQL to add `NOT NULL DEFAULT ''`:
+
    ```sql
    ALTER TABLE public.employee ADD COLUMN IF NOT EXISTS nickname TEXT NOT NULL DEFAULT '';
    ```
-   
+
    Click **Save** to update the plan. The checks will run again and should pass.
 
 1. Click **Ready for Review** and then **Confirm** to submit the plan for approval.

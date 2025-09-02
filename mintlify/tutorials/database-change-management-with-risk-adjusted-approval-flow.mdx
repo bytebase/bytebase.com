@@ -4,13 +4,12 @@ author: Adela
 updated_at: 2023/06/01 16:15
 tags: Tutorial
 integrations: General
-category: 'Database CI/CD (GUI)'
+category: 'UI-Driven Workflow'
 level: Intermediate
 estimated_time: '15 mins'
 ---
 
 import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
-
 
 Bytebase provides a basic yet configurable rollout mechanism by default. This means that manual rollout is skipped for **Test** environments and required for **Prod** environments.
 
@@ -89,8 +88,8 @@ To learn the best practice, check out [Risks Best Practice](/tutorials/risks-bes
 
 1. Either click **the related risk rules** or **CI/CD > Risks** on the left bar. Add two new rules
 
-   -  Name: `DDL ALTER`; Risk Level: `High`; Type: `DDL`; Condition: `sql_type == 'ALTER_TABLE'`
-   -  Name: `DDL CREATE`; Risk Level: `Moderate`; Type: `DDL`; Condition: `sql_type == 'CREATE_TABLE'`
+   - Name: `DDL ALTER`; Risk Level: `High`; Type: `DDL`; Condition: `sql_type == 'ALTER_TABLE'`
+   - Name: `DDL CREATE`; Risk Level: `Moderate`; Type: `DDL`; Condition: `sql_type == 'CREATE_TABLE'`
 
    ![bb-risks](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-risks.webp)
 

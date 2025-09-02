@@ -4,7 +4,7 @@ author: Adela
 updated_at: 2025/08/11 18:00
 tags: Tutorial
 integrations: General
-category: 'Database CI/CD (GUI)'
+category: 'UI-Driven Workflow'
 level: Intermediate
 estimated_time: '20 mins'
 ---
@@ -37,6 +37,7 @@ Bytebase simplifies deploying changes across multiple databases simultaneously. 
 1. In the new project, navigate to **Database > Databases** and click **+ New DB**. Create `demo-test` on the Test instance. Click **Rollout** when the issue appears.
 
 1. Similarly, create the following databases:
+
    - `demo-prod-1` and `demo-prod-2` on `ProdAsia`
    - `demo-prod-3` and `demo-prod-4` on `ProdEU`
    - `demo-prod-5` and `demo-prod-6` on `ProdNA`
@@ -90,14 +91,14 @@ We need first to upgrade to Pro/Enterprise Plan to use Database Group.
    ```
 
 1. The **Overview** and **Rollout** tabs now show 3 production stages. Click **Run** in the ProdAsia stage to execute.
-  
+
    ![bb-overview-3-stages](/content/docs/tutorials/batch-change-with-database-group/bb-overview-3-stages.webp)
    ![bb-rollout-3-stages](/content/docs/tutorials/batch-change-with-database-group/bb-rollout-3-stages.webp)
 
 ## Summary
 
-  You've learned how to:
-  
-  - Group databases by environment for staged rollouts
-  - Use Database Groups to target databases matching specific criteria
-  - Execute batch changes across multiple databases efficiently
+You've learned how to:
+
+- Group databases by environment for staged rollouts
+- Use Database Groups to target databases matching specific criteria
+- Execute batch changes across multiple databases efficiently

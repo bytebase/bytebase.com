@@ -136,10 +136,7 @@
           },
           {
             "group": "Appendix",
-            "pages": [
-              "sql-review/review-rules",
-              "sql-review/error-codes"
-            ]
+            "pages": ["sql-review/review-rules", "sql-review/error-codes"]
           }
         ]
       },
@@ -252,9 +249,7 @@
           },
           {
             "group": "Infrastructure as Code",
-            "pages": [
-              "integrations/terraform/overview"
-            ]
+            "pages": ["integrations/terraform/overview"]
           },
           {
             "group": "3rd Party",
@@ -272,7 +267,7 @@
         "tab": "Tutorials",
         "pages": [
           {
-            "group": "Database CI/CD (GUI)",
+            "group": "UI-Driven Workflow",
             "pages": [
               "tutorials/first-schema-change",
               "tutorials/deploy-schema-migration",
@@ -286,7 +281,7 @@
             ]
           },
           {
-            "group": "Database CI/CD (GitOps)",
+            "group": "GitOps Workflow",
             "pages": [
               "tutorials/gitops-github-workflow",
               "tutorials/gitops-azure-devops-workflow",

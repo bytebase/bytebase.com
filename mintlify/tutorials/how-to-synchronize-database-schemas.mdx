@@ -5,7 +5,7 @@ updated_at: 2025/08/11 18:00
 feature_image: /content/docs/tutorials/how-to-synchronize-database-schemas/workflow.webp
 tags: Tutorial
 integrations: General
-category: 'Database CI/CD (GUI)'
+category: 'UI-Driven Workflow'
 level: Beginner
 estimated_time: '10 mins'
 ---
@@ -15,6 +15,7 @@ import PreparationWithSampleData from '/snippets/tutorials/preparation-with-samp
 Database schema synchronization ensures consistency across multiple databases by replicating schema changes from a source to target databases. This eliminates manual SQL writing and reduces deployment errors.
 
 Bytebase's **Sync Schema** feature enables:
+
 - Replicating schemas to new databases
 - Synchronizing changes across environments (dev → staging → prod)
 - Rolling back to previous schema versions
@@ -66,6 +67,7 @@ Use this for:
 1. Select **Schema Migration** and choose only `hr_test` as the target database.
 
 1. Use the **Schema Editor** to add a new column:
+
    - **Name**: `email`
    - **Type**: `text`
    - **Default**: `Empty string`

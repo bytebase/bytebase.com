@@ -51,12 +51,7 @@ type PostsProps = {
   posts: BlogPost[];
 };
 // Define sections
-const sections = [
-  'Database CI/CD (GUI)',
-  'Database CI/CD (GitOps)',
-  'Data Access Control',
-  'Integration',
-];
+const sections = ['UI-Driven Workflow', 'GitOps Workflow', 'Data Access Control', 'Integration'];
 
 // Define the card component to avoid repetition
 const TutorialCard = ({ post }: { post: BlogPost }) => {
