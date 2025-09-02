@@ -1,0 +1,53 @@
+---
+title: Installation
+description: Installation and setup guide for connecting Version Control Systems with Bytebase
+---
+
+This guide covers the setup requirements for connecting Version Control Systems (VCS) with Bytebase.
+
+## Bytebase Cloud
+
+**No installation required** for cloud VCS providers:
+- GitHub.com
+- GitLab.com  
+- Bitbucket Cloud
+- Azure DevOps Services
+
+These services connect directly to Bytebase Cloud.
+
+### Self-Hosted GitLab
+
+- Install a [GitLab Runner](https://docs.gitlab.com/runner/) on your GitLab server
+- Ensure your VPC firewall rules allow connections between Self-Hosted GitLab and Bytebase Cloud
+
+## Bytebase Self-Host
+
+Self-hosted Bytebase requires specific setup based on your VCS provider.
+
+### Cloud VCS Providers
+
+When using cloud VCS with self-hosted Bytebase, you need a self-hosted runner:
+
+**GitHub.com**
+- Install a [GitHub self-hosted runner](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners)
+- Ensure runner can access your Bytebase instance
+
+**GitLab.com**  
+- Install a [GitLab Runner](https://docs.gitlab.com/runner/)
+- Register runner with your GitLab.com project
+
+**Bitbucket Cloud**
+- Install a [Bitbucket self-hosted runner](https://support.atlassian.com/bitbucket-cloud/docs/runners/)
+- Configure Bitbucket Pipelines to use the runner
+
+**Azure DevOps Services**
+- Install a [Self-hosted Azure Pipelines Agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/agents)
+- Register agent with your Azure DevOps organization
+
+### Self-Hosted GitLab
+
+No runner installation needed. Simply ensure:
+- VPC connectivity between GitLab and Bytebase servers
+- Network policies allow communication
+- If your GitLab runner lacks internet access, pre-load the bytebase-action Docker image
+
