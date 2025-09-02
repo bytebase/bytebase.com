@@ -20,12 +20,6 @@ const Hero = () => {
             at Scale
           </mark>
         </h1>
-        <div className="mt-12 flex items-center gap-9 2xl:gap-8 xl:mt-11 xl:gap-6 md:mt-7 sm:mt-6 sm:gap-3.5">
-          <Button href={Route.DEMO} theme="primary-filled" size="md" className="sm:!w-fit sm:!px-6">
-            Try Demo
-          </Button>
-          <LinkUnderlined href={Route.REQUEST_DEMO}>Book a call</LinkUnderlined>
-        </div>
       </section>
       <DBScheme />
       <PromoCards />
