@@ -5,6 +5,7 @@ updated_at: 2022/11/27 15:40:00
 feature_image: /content/blog/how-schema-sync-work/feature.webp
 tags: Engineering
 description: Technical details about how Bytebase implements schema synchronization for MySQL.
+keypage: true
 ---
 
 ## What is Schema Synchronization?

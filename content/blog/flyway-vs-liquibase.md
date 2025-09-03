@@ -5,6 +5,7 @@ updated_at: 2025/05/23 19:21:21
 feature_image: /content/blog/flyway-vs-liquibase/flyway-vs-liquibase-banner.webp
 tags: Comparison
 description: 'When looking for a database CI/CD and schema migration change tool, Flyway and Liquibase are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.'
+keypage: true
 ---
 
 <HintBlock type="info">

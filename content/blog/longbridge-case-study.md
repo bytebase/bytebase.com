@@ -6,6 +6,7 @@ feature_image: /content/blog/longbridge-case-study/banner.webp
 tags: Case Study
 featured: true
 description: Learn how financial service SaaS provider cracked the problem of schema changes in tenant mode with Bytebase.
+keypage: true
 ---
 
 [Longbridge Whale](https://longbridge.cloud/en/) is a one-stop financial SaaS solution launched by Singaporean fintech group Longbridge. The solution covers data centers, networks, servers and securities trading services for major securities firms in all stages. The core team consists of senior financial managers from Singapore and Hong Kong, as well as technical experts from international tech giants such as Alibaba and ByteDance.

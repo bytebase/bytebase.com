@@ -5,6 +5,7 @@ updated_at: 2024/02/27 23:21:21
 feature_image: /content/blog/bytebase-vs-cloudbeaver/bb-vs-cb-banner.webp
 tags: Comparison
 description: 'When a team interacts with a database, collaborative functionalities like access control become essential. A web-based GUI also adds convenience.'
+keypage: true
 ---
 
 When a team interacts with a database, collaborative functionalities like access control become essential. A web-based GUI also adds convenience. We are comparing two popular web-based database management tools: Bytebase and CloudBeaver.

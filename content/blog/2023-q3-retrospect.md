@@ -6,6 +6,7 @@ feature_image: /content/blog/2023-q3-retrospect/2023-q3-retrospect-banner.webp
 tags: Announcement
 featured: true
 description: As Q3 2023 comes to an end, let's take a look back at what we've accomplished at Bytebase in the past three months.
+keypage: true
 ---
 
 Hello October! Only a few more months before the new year rings in, let's take a look back at what we've accomplished at Bytebase in the past three months.

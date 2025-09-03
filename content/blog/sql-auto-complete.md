@@ -6,6 +6,7 @@ feature_image: /content/blog/sql-auto-complete/autocomplete.webp
 tags: Engineering
 featured: true
 description: How Bytebase leverages ANTLR4 to build a framework to implement SQL autocomplete for different SQL dialects.
+keypage: true
 ---
 
 This is a series of articles about SQL parsers:

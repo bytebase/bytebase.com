@@ -6,6 +6,7 @@ feature_image: /content/blog/soc2-type1/soc2-bytebase.webp
 tags: Announcement
 featured: true
 description: Bytebase has obtained SOC 2 Type 1 certification, which is a significant milestone for Bytebase's security and compliance efforts.
+keypage: true
 ---
 
 _Update: We have also acquired [SOC 2 Type 2](/blog/soc2-type2)_

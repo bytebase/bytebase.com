@@ -6,6 +6,7 @@ feature_image: /content/blog/cvte-case-study/banner.webp
 tags: Case Study
 featured: true
 description: 'How electronic manufacturing corporation CVTE achieves more secure and streamlined database change management with Bytebase.'
+keypage: true
 ---
 
 > How electronic manufacturing corporation CVTE embraced Bytebase for a fresh approach to database change management: including batch changes, a simplified version control workflow, and granulated access control.

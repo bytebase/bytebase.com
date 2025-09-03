@@ -7,6 +7,7 @@ tags: Case Study
 integrations: ClickHouse
 featured: true
 description: We are a data team within a 500-person company. The company has several customer-facing products, and we are a group of data scientists analyzing data to uncover customer, product, and operational insights.
+keypage: true
 ---
 
 ## Context

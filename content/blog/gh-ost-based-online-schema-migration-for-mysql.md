@@ -7,6 +7,7 @@ tags: Announcement
 integrations: MySQL
 featured: true
 description: Introduce gh-ost based online schema migration and how to perform an online schema migration without downtime in Bytebase.
+keypage: true
 ---
 
 Bytebase is an open-source database DevOps tool; it’s the GitLab for managing databases throughout the software development lifecycle (SDLC). It offers a web-based workspace for Developers and DBAs to collaborate and execute database changes safely and efficiently.

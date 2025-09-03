@@ -6,6 +6,7 @@ feature_image: /content/blog/sql-chat/sqlchat.webp
 tags: Announcement
 featured: true
 description: Announcing SQL Chat, chat-based SQL Client for querying data and answering DB questions.
+keypage: true
 ---
 
 My first professional job is working on a codebase with over 1M LOC. The software provides a complete set of components including self-developed database, self-developed GUI controls, and custom scripting language. Users can use it to build an app purely by drag&drop. Today, this is known as the so-called no-code/low-code platform. While the software I worked on created way back in 1985 and is still iterating gradually, now at version 19.

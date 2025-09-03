@@ -5,6 +5,7 @@ updated_at: 2025/05/23 18:00
 feature_image: /content/blog/prisma-vs-typeorm/cover.webp
 tags: Comparison
 description: 'Evaluate Prisma and TypeORM, and help you to choose the right TypeScript ORM for 2025'
+keypage: true
 ---
 
 <HintBlock type="info">
@@ -58,21 +59,21 @@ TypeORM is ideal for developers who value **flexibility**, SQL control, and a ma
 
 Here's a comprehensive comparison of these two leading TypeScript ORMs:
 
-| Feature | Prisma ORM |TypeORM | 
-| --- | --- | --- |
-| **Philosophy**| Schema-first, declarative approach | SQL-friendly, flexible patterns  |
-| **Type Safety** | Excellent via generated Prisma Client | Strong via TypeScript decorators |
-| **Schema** | In `.prisma` file (PSL) | In TypeScript using decorators |
-| **Migrations** | Declarative and integrated via Prisma Migrate | Manual or CLI-based |
-| **Querying** | Abstracted API with optional raw SQL | SQL-like query builder |
-| **Performance** | Good with some overhead from query engine | Good overall, SQL-optimized |
-| **Serverless** | Better with Prisma Accelerate | Requires connection management |
-| **Tooling** | Client, Studio, Accelerate, Pulse | CLI and various utilities |
-| **Learning Curve** | Lower for abstraction-oriented devs | Steeper for SQL beginners |
-| **DB Support** | mainstream databases but not legacy ones | include legacy databases |
-| **Code Gen** | Heavy (client generation from schema) | Minimal (decorators-based) |
-| **Community** | Growing rapidly | Large and established |
-| **Open Source** | Most tools OSS, Studio is local-only and closed | All components |
+| Feature            | Prisma ORM                                      | TypeORM                          |
+| ------------------ | ----------------------------------------------- | -------------------------------- |
+| **Philosophy**     | Schema-first, declarative approach              | SQL-friendly, flexible patterns  |
+| **Type Safety**    | Excellent via generated Prisma Client           | Strong via TypeScript decorators |
+| **Schema**         | In `.prisma` file (PSL)                         | In TypeScript using decorators   |
+| **Migrations**     | Declarative and integrated via Prisma Migrate   | Manual or CLI-based              |
+| **Querying**       | Abstracted API with optional raw SQL            | SQL-like query builder           |
+| **Performance**    | Good with some overhead from query engine       | Good overall, SQL-optimized      |
+| **Serverless**     | Better with Prisma Accelerate                   | Requires connection management   |
+| **Tooling**        | Client, Studio, Accelerate, Pulse               | CLI and various utilities        |
+| **Learning Curve** | Lower for abstraction-oriented devs             | Steeper for SQL beginners        |
+| **DB Support**     | mainstream databases but not legacy ones        | include legacy databases         |
+| **Code Gen**       | Heavy (client generation from schema)           | Minimal (decorators-based)       |
+| **Community**      | Growing rapidly                                 | Large and established            |
+| **Open Source**    | Most tools OSS, Studio is local-only and closed | All components                   |
 
 ### Philosophy & Design
 
@@ -117,32 +118,32 @@ model Post {
 
 ```typescript
 // TypeORM schema definition
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
-import { Post } from "./Post"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Post } from './Post';
 
 @Entity()
 export class User {
-    @PrimaryGeneratedColumn()
-    id: number
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    email: string
+  @Column()
+  email: string;
 
-    @Column({ nullable: true })
-    name: string
+  @Column({ nullable: true })
+  name: string;
 
-    @OneToMany(() => Post, post => post.author)
-    posts: Post[]
+  @OneToMany(() => Post, (post) => post.author)
+  posts: Post[];
 
-    @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-    createdAt: Date
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  createdAt: Date;
 
-    @Column({ 
-        type: 'timestamp', 
-        default: () => 'CURRENT_TIMESTAMP',
-        onUpdate: 'CURRENT_TIMESTAMP' 
-    })
-    updatedAt: Date
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    onUpdate: 'CURRENT_TIMESTAMP',
+  })
+  updatedAt: Date;
 }
 ```
 
@@ -156,17 +157,17 @@ export class User {
 const users = await prisma.user.findMany({
   where: {
     age: {
-      gt: 18
+      gt: 18,
     },
     firstName: {
-      contains: 'john'
-    }
+      contains: 'john',
+    },
   },
   orderBy: {
-    lastName: 'asc'
+    lastName: 'asc',
   },
   take: 10,
-  skip: 5
+  skip: 5,
 });
 
 // Query with relations
@@ -175,22 +176,22 @@ const postsWithComments = await prisma.post.findMany({
     published: true,
     comments: {
       some: {
-        approved: true
-      }
-    }
+        approved: true,
+      },
+    },
   },
   include: {
     comments: {
       where: {
-        approved: true
-      }
-    }
-  }
+        approved: true,
+      },
+    },
+  },
 });
 
 // Raw SQL
 const users = await prisma.$queryRaw`
-  SELECT * FROM users WHERE age > ${18} AND first_name LIKE ${"%john%"}
+  SELECT * FROM users WHERE age > ${18} AND first_name LIKE ${'%john%'}
 `;
 ```
 
@@ -202,27 +203,27 @@ const users = await prisma.$queryRaw`
 const users = await userRepository.find({
   where: {
     age: MoreThan(18),
-    firstName: Like('%john%')
+    firstName: Like('%john%'),
   },
   order: {
-    lastName: "ASC"
+    lastName: 'ASC',
   },
   take: 10,
-  skip: 5
+  skip: 5,
 });
 
 // Complex query with joins
 const postsWithComments = await postRepository
-  .createQueryBuilder("post")
-  .leftJoinAndSelect("post.comments", "comment")
-  .where("post.isPublished = :isPublished", { isPublished: true })
-  .andWhere("comment.isApproved = :isApproved", { isApproved: true })
+  .createQueryBuilder('post')
+  .leftJoinAndSelect('post.comments', 'comment')
+  .where('post.isPublished = :isPublished', { isPublished: true })
+  .andWhere('comment.isApproved = :isApproved', { isApproved: true })
   .getMany();
 
 // Raw SQL
 const users = await userRepository.query(
-  "SELECT * FROM users WHERE age > $1 AND first_name LIKE $2",
-  [18, "%john%"]
+  'SELECT * FROM users WHERE age > $1 AND first_name LIKE $2',
+  [18, '%john%'],
 );
 ```
 

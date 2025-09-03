@@ -5,6 +5,7 @@ updated_at: 2025/05/16 18:00
 feature_image: /content/blog/gh-ost-vs-pt-online-schema-change/cover.webp
 tags: Comparison
 description: 'gh-ost and pt-online-schema-change are two popular tools for online schema migration in MySQL. This article compares the features and capabilities of the two tools.'
+keypage: true
 ---
 
 <HintBlock type="info">

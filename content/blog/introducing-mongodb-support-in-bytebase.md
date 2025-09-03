@@ -7,6 +7,7 @@ tags: Announcement
 integrations: MongoDB
 featured: true
 description: Bytebase 1.11.0 brings MongoDB support. This blog post walks you through managing MongoDB with Bytebase.
+keypage: true
 ---
 
 ## Why MongoDB

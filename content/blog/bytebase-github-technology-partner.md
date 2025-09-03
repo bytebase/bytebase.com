@@ -7,6 +7,7 @@ tags: Announcement
 integrations: GitHub
 featured: true
 description: We are proud to announce the Technology Partnership with GitHub to provide developers with a smooth database development experience.
+keypage: true
 ---
 
 We are proud to announce the Technology Partnership with GitHub to provide developers with a smooth database development experience. As the world's leading software development platform, [GitHub](https://github.com/) brings together the world's largest developer community to make it easy for developers to discover, share, and build better software. Bytebase is a Database CI/CD tool for DevOps teams, and is [the only Database CI/CD solution](/blog/cncf-landscape) to be included in the CNCF Landscape.

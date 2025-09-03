@@ -7,6 +7,7 @@ tags: Announcement
 integrations: GitLab
 featured: true
 description: We are proud to announce the Technology Partnership with GitLab to provide developers with a smooth database development experience.
+keypage: true
 ---
 
 We are proud to announce the Technology Partnership with GitLab to provide developers with a smooth database development experience.

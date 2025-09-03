@@ -6,6 +6,7 @@ feature_image: /content/blog/note-case-study/banner.webp
 tags: Case Study
 featured: true
 description: 'How note inc. implements Just-in-Time (JIT) database access control with Bytebase.'
+keypage: true
 ---
 
 > note ([note.com](https://note.com)) is a C2C content platform in Japan that empowers all types of creators and promotes creator economy. note was launched in 2014. note initially implemented an in-house database access system but faced challenges in efficiency and security. By adopting Bytebase, note streamlined access control, enhanced security, and reduced operational costs.

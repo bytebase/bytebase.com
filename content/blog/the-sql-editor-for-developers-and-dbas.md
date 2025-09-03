@@ -6,6 +6,7 @@ feature_image: /content/blog/the-sql-editor-for-developers-and-dbas/cover.webp
 tags: Announcement
 featured: true
 description: Introduce the new SQL Editor in Bytebase Console with six highlights - Admin mode, database-based access control, data masking, audit logs, collaborative sheets and easy to use.
+keypage: true
 ---
 
 ## Key features of Advanced SQL Editor

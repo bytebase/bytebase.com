@@ -5,6 +5,7 @@ updated_at: 2022/02/11 08:48:04
 feature_image: /content/blog/how-do-we-build-a-highly-available-service-in-the-cloud/cloud.webp
 tags: Engineering
 description: This article describes how sharding can help building a highly-available services in the Cloud based on author's years of experience at Google Cloud.
+keypage: true
 ---
 
 ### TL;DR

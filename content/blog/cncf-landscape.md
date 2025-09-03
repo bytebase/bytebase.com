@@ -6,6 +6,7 @@ feature_image: /content/blog/cncf-landscape/cncf-landscape.webp
 tags: Announcement
 featured: true
 description: Bytebase is now the first solution to be included in the CNCF Landscape that focuses solely on database CI/CD.
+keypage: true
 ---
 
 Bytebase has recently been included in the CNCF Landscape [Continuous Integration & Delivery catalog](https://landscape.cncf.io/?selected=bytebase). It is also the first-ever product in the CI/CD category that focuses on database CI/CD.

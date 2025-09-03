@@ -6,6 +6,7 @@ feature_image: /content/blog/payermax-case-study/banner.webp
 tags: Case Study
 featured: true
 description: 'How PayerMax Integrates Security and Compliance into Its Database Development Workflow'
+keypage: true
 ---
 
 ![what-is-payermax](/content/blog/payermax-case-study/what-is-payermax.webp)

@@ -6,6 +6,7 @@ feature_image: /content/blog/bytebase-2-0/bytebase-database-devops-cover.webp
 tags: Announcement
 featured: true
 description: Pioneering Database Change Management and bring the GitLab/GitHub experience to database development
+keypage: true
 ---
 
 Recent AI breakthroughs have excited us all. However, developers still struggle with mundane daily tasks.

@@ -6,6 +6,7 @@ feature_image: /content/blog/introducing-single-sign-on-in-bytebase/cover.webp
 tags: Announcement
 featured: true
 description: This article demonstrates the Single Sign-On (SSO) protocols supported by Bytebase. SSO allows users to log in once and access all authorized resources, improving security, user experience, and organizational flexibility.
+keypage: true
 ---
 
 ## What’s Single Sign-On?

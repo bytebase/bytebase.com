@@ -6,6 +6,7 @@ feature_image: /content/blog/one-million-downloads/cover.webp
 tags: Announcement
 featured: true
 description: Bytebase just passed 1 million downloads, thanks to our customers and community users all over the world.
+keypage: true
 ---
 
 On August 1st, 2023, Bytebase reached another milestone to have 1 Million downloads.

@@ -7,6 +7,7 @@ tags: Announcement
 integrations: TiDB, Terraform
 featured: true
 description: We are proud to announce our partnership with PingCAP, which will help developers and DBAs to more efficiently and safely manage the lifecycle of application database schemas.
+keypage: true
 ---
 
 We are proud to announce our partnership with [PingCAP](https://www.pingcap.com/?from=en), the company building TiDB, which provides scaling database infrastructure solutions via an open-source platform. This partnership will help developers and DBAs to more efficiently and safely manage the lifecycle of application database schemas.

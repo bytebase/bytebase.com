@@ -6,6 +6,7 @@ feature_image: /content/blog/salla-case-study/banner.webp
 tags: Case Study
 featured: true
 description: How the Saudi-based E-commerce platform consolidates database change and access management with Bytebase.
+keypage: true
 ---
 
 > How the Saudi-based E-commerce platform consolidates database change and access management with Bytebase.

@@ -6,6 +6,7 @@ feature_image: /content/blog/layerx-case-study/banner.webp
 featured: true
 tags: Case Study
 description: 'How LayerX Achieves “Painless” Governance and Security in the Cloud'
+keypage: true
 ---
 
 ![presentation](/content/blog/layerx-case-study/presentation.webp)

@@ -6,6 +6,7 @@ feature_image: /content/blog/schema-review-policy-mysql/schema-review-policy-cov
 tags: Announcement
 integrations: MySQL
 description: This post introduces a new feature - schema review policy, which help DBAs and application developers compose better schema change statements.
+keypage: true
 ---
 
 Bytebase is an open-source database DevOps tool, and it’s the GitLab for managing databases throughout the application development lifecycle. It offers a web-based workspace for DBAs and Developers to collaborate and manage the database change safely and efficiently.

@@ -7,6 +7,7 @@ og_image: /content/blog/2023-q1-retrospect/og-image.jpg
 tags: Announcement
 featured: true
 description: As Q1 2023 comes to an end, let's take a look back at what we've accomplished at Bytebase in the past three months.
+keypage: true
 ---
 
 As Q1 2023 comes to an end, let's take a look back at what we've accomplished at Bytebase in the past three months.

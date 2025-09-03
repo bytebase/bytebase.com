@@ -5,6 +5,7 @@ updated_at: 2021/07/12 08:27:00
 feature_image: /content/blog/announce-bytebase/logo-full.webp
 tags: Announcement
 description: Bytebase is a tool for database schema change and version control, its main audience are Developers and DBAs. We want to make Bytebase the industry benchmark solution for managing database schema change.
+keypage: true
 ---
 
 After 6 months of intense development and over 2,000 commits, Bytebase version 0.1.0 finally arrives. The code is open sourced at [https://github.com/bytebase/bytebase](https://github.com/bytebase/bytebase) using Apache 2.0.

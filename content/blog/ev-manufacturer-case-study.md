@@ -6,6 +6,7 @@ feature_image: /content/blog/ev-manufacturer-case-study/banner.webp
 tags: Case Study
 featured: true
 description: Learn how top-tier EV manufacturer utilizes Bytebase to achieve fully-automated database change management.
+keypage: true
 ---
 
 > How Bytebase helps a single DBA to work with over 1000 developers to adopt Database DevOps.

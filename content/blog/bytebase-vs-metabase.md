@@ -5,6 +5,7 @@ updated_at: 2024/02/19 20:21:21
 feature_image: /content/blog/bytebase-vs-metabase/bytebase-vs-metabase-banner.webp
 tags: Comparison
 description: 'Bytebase and Metabase stand out in the collaborative database tool spectrum, each serving different purposes. '
+keypage: true
 ---
 
 Bytebase and Metabase stand out in the collaborative database tool spectrum, each serving different purposes. Bytebase targets developer teams, manages database development lifecycle, while Metabase targets data teams, simplifies data analysis with its intuitive interface. This comparison will shed light on their functionalities, helping to discern their best-fit scenarios.

@@ -5,6 +5,7 @@ updated_at: 2022/02/21 08:08:57
 feature_image: /content/blog/how-bytebase-uses-render/bytebase-use-render.webp
 tags: Engineering
 description: We recently moved most of our hosted service to render.com and also leverage its unique capability to improve our dev workflow. I was responsible for this task.
+keypage: true
 ---
 
 ## What is Bytebase

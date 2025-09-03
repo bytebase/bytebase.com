@@ -6,6 +6,7 @@ feature_image: /content/blog/bytebase-3-0/cover.webp
 tags: Announcement
 featured: true
 description: Database DevSecOps, maintain developer velocity without compromising data security
+keypage: true
 ---
 
 After 17 months of baking, over 5000 commits, we’re excited to announce the launch of Bytebase 3.0 today!
