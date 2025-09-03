@@ -10,7 +10,6 @@ const generateBlogReoMapping = () => {
     ignore: '**/share/*.md',
   });
 
-  const allowedTags = ['Announcement', 'Case Study', 'Comparison', 'Engineering'];
   const mapping = {};
 
   files.forEach((file) => {
@@ -19,16 +18,17 @@ const generateBlogReoMapping = () => {
       const markdownWithMeta = fs.readFileSync(file, 'utf-8');
       const { data } = matter(markdownWithMeta);
 
+      // Skip hidden posts
       if (!data || data.tags?.includes('Hidden')) {
         mapping[slug] = false;
         return;
       }
 
-      const tags = data.tags ? data.tags.split(',').map(tag => tag.trim()) : [];
-      const hasAllowedTag = allowedTags.some(tag => tags.includes(tag));
-      
-      mapping[slug] = hasAllowedTag;
+      // Use keypage field from frontmatter, default to false if not present
+      mapping[slug] = data.keypage === true;
     } catch (error) {
+      const slug = file.replace(`${contentDir}/`, '').replace('.md', '');
+      // eslint-disable-next-line no-console
       console.error(`Error processing ${file}:`, error);
       mapping[slug] = false; // Default to false on error
     }
@@ -57,6 +57,9 @@ export default blogReoMapping;
 
 fs.writeFileSync(outputFile, content);
 
+// eslint-disable-next-line no-console
 console.log(`Generated blog reo mapping with ${Object.keys(mapping).length} entries`);
+// eslint-disable-next-line no-console
 console.log(`Allowed posts: ${Object.values(mapping).filter(Boolean).length}`);
+// eslint-disable-next-line no-console
 console.log(`Blocked posts: ${Object.values(mapping).filter(v => !v).length}`);
