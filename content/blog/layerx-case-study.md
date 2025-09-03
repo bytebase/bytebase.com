@@ -67,6 +67,8 @@ Logs from [AWS CloudTrail](https://aws.amazon.com/cloudtrail/), Entra ID, [Datad
 
 Traditionally, database operations are disconnected from CI/CD and governance workflows. LayerX addressed this gap by adopting [Bytebase](/) to introduce structured, auditable change management for their databases.
 
+![bytebase](/content/blog/layerx-case-study/layerX-bytebase.webp)
+
 With Bytebase, LayerX can:
 
 - Review and approve schema changes through a web interface or API
