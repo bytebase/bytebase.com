@@ -45,33 +45,42 @@ const Route = {
   BLOG: '/blog',
   BLOG_CATEGORY: '/blog/category',
 
-  // docs
+  // docs - introduction
   DOCS: DOCS_ROOT,
   DOCS_DATA_COLLECTION: `${DOCS_ROOT}/faq/#which-data-does-bytebase-collect`,
-  DOCS_SELF_HOST: `${DOCS_ROOT}/get-started/deploy-with-docker`,
+  DOCS_SELF_HOST: `${DOCS_ROOT}/get-started/self-host/deploy-with-docker`,
   DOCS_CLOUD: `${DOCS_ROOT}/get-started/cloud`,
   DOCS_USE_CASE: `${DOCS_ROOT}/introduction/use-cases/`,
-  DOCS_CONCEPT_DB_INSTANCE: `${DOCS_ROOT}/onboarding/organize-resources#database-instance`,
-  DOCS_DB: `${DOCS_ROOT}/introduction/supported-databases`,
+  DOCS_SUPPORTED_DB: `${DOCS_ROOT}/introduction/supported-databases`,
   DOCS_API: `${DOCS_ROOT}/integrations/api/overview`,
-  DOCS_SQL_REVIEW: `${DOCS_ROOT}/sql-review/overview`,
+
+  // docs - onboarding
+  DOCS_DB_INSTANCE: `${DOCS_ROOT}/onboarding/organize-resources#database-instance`,
+
+  // docs - database CI/CD
+  DOCS_SQL_REVIEW: `${DOCS_ROOT}/sql-review/review-policy`,
   DOCS_CHANGE_DATABASE: `${DOCS_ROOT}/change-database/change-workflow`,
   DOCS_ROLLBACK_DATA: `${DOCS_ROOT}/change-database/rollback-data-changes`,
   DOCS_SCHEMA_SYNC: `${DOCS_ROOT}/change-database/synchronize-schema`,
+  DOCS_BATCH_CHANGE: `${DOCS_ROOT}/change-database/batch-change`,
+  DOCS_DRIFT_DETECTION: `${DOCS_ROOT}/change-database/drift-detection`,
+  DOCS_ONLINE_SCHEMA_CHANGE: `${DOCS_ROOT}/change-database/online-schema-migration-for-mysql`,
+  DOCS_VCS_INTEGRATION: `${DOCS_ROOT}/gitops/overview`,
+
+  // docs - sql editor
   DOCS_SQL_EDITOR: `${DOCS_ROOT}/sql-editor/overview`,
   DOCS_DATABASE_PERMISSION: `${DOCS_ROOT}/security/database-permission/overview`,
   DOCS_DATA_MASKING: `${DOCS_ROOT}/security/data-masking/overview`,
   DOCS_DATA_MASKING_COLUMN: `${DOCS_ROOT}/security/data-masking/column-masking`,
   DOCS_DATA_MASKING_GLOBAL: `${DOCS_ROOT}/security/data-masking/global-masking-rule`,
   DOCS_DATA_MASKING_ACCESS: `${DOCS_ROOT}/security/data-masking/access-unmasked-data`,
+
+  // docs - adminstration
   DOCS_AUDIT_LOG: `${DOCS_ROOT}/security/audit-log`,
-  DOCS_INDEX_ADVISOR: `${DOCS_ROOT}/slow-query/overview`,
-  DOCS_DRIFT_DETECTION: `${DOCS_ROOT}/change-database/drift-detection`,
-  DOCS_VCS_INTEGRATION: `${DOCS_ROOT}/gitops/overview`,
-  DOCS_BATCH_CHANGE: `${DOCS_ROOT}/change-database/batch-change`,
-  DOCS_ONLINE_SCHEMA_CHANGE: `${DOCS_ROOT}/change-database/online-schema-migration-for-mysql`,
-  DOCS_RBAC: `${DOCS_ROOT}/concepts/roles-and-permissions`,
   DOCS_SSO: `${DOCS_ROOT}/administration/sso/overview`,
+  DOCS_RBAC: `${DOCS_ROOT}/administration/roles`,
+
+  // tutorials
   DOCS_DATABASE_CI_CD: `${DOCS_ROOT}/tutorials/how-to-move-schema-change-from-test-to-prod`,
   DOCS_JUST_IN_TIME_DATABASE_ACCESS: `${DOCS_ROOT}/tutorials/just-in-time-database-access-part1`,
   DOCS_DATABASE_ADHOC_CHANGE: `${DOCS_ROOT}/tutorials/data-rollback`,

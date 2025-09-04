@@ -26,7 +26,7 @@ const FOOTER_MENU = [
       { name: 'Changelog', linkUrl: Route.CHANGELOG },
       { name: 'Documentation', linkUrl: Route.DOCS },
       { name: 'API', linkUrl: Route.DOCS_API },
-      { name: 'Supported Databases', linkUrl: Route.DOCS_DB },
+      { name: 'Supported Databases', linkUrl: Route.DOCS_SUPPORTED_DB },
       { name: 'Security', linkUrl: Route.SECURITY },
     ],
   },

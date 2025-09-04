@@ -39,10 +39,6 @@ const ITEMS = [
     url: Route.DOCS_SCHEMA_SYNC,
   },
   {
-    title: 'Index Advisor',
-    url: Route.DOCS_INDEX_ADVISOR,
-  },
-  {
     title: 'Online Schema Change',
     url: Route.DOCS_ONLINE_SCHEMA_CHANGE,
   },

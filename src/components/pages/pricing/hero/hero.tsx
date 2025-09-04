@@ -90,7 +90,7 @@ const Hero = () => (
         <Link
           className="lg:text-14 sm:inline"
           size="sm"
-          href={Route.DOCS_CONCEPT_DB_INSTANCE}
+          href={Route.DOCS_DB_INSTANCE}
           theme="primary-1"
         >
           database instance
