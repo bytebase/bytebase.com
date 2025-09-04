@@ -47,7 +47,7 @@ INSERT INTO employees (name, department) VALUES ('Bob', 'Sales');
 COMMIT;
 ```
 
-The savepoint remains usable after rollback, and any savepoints created after it are automatically released.
+The savepoint remains usable after rollback, but any savepoints created after it are destroyed and invalidated by the rollback (not just released).
 
 ### Limitations
 
