@@ -41,7 +41,7 @@ data masking and audit logging. On the other hand, DBeaver is client-side built 
 - **DBeaver**: A universal database tool that starts as an individual SQL client and later expands to include a team version. Its primary focus is on **individual database management**, offering a comprehensive set of features.
   ![dbv-position](/content/blog/bytebase-vs-dbeaver/dbv-position.webp)
 
-- **Bytebase**: The GitLab/GitHub equivalent for Database DevOps, designed for developers, DBAs, and platform teams. It begins as a team collaboration tool dedicated to change management and evolves into a universal database tool. Its focus is **team collaboration**, offering tailored features like access control, data masking, SQL review, and custom approval flows.
+- **Bytebase**: The GitLab/GitHub equivalent for Database DevSecOps, designed for developers, DBAs, and platform teams. It begins as a team collaboration tool dedicated to change management and evolves into a universal database tool. Its focus is **team collaboration**, offering tailored features like access control, data masking, SQL review, and custom approval flows.
   ![bb-3-op](/content/blog/bytebase-vs-dbeaver/bb-3-op.webp)
 
 ### Developer interface

@@ -45,7 +45,7 @@ Bytebase focuses on team collaboration, offering tailored features like access c
 - **CloudBeaver**: A lightweight web application for all-around data management. Work with a lot of data sources easily with a single secure cloud solution using your browser. It starts as DBeaver's cloud and light-weighted version and gradually incorporates collaborative features.
   ![cb-position](/content/blog/bytebase-vs-cloudbeaver/cb-position.webp)
 
-- **Bytebase**: The GitLab/GitHub equivalent for Database DevOps, designed for developers, DBAs, and platform teams. It begins as a team collaboration tool dedicated to change management and evolves into a universal database tool. Its focus is **team collaboration**, offering tailored features like access control, data masking, SQL review, and custom approval flows.
+- **Bytebase**: The GitLab/GitHub equivalent for Database DevSecOps, designed for developers, DBAs, and platform teams. It begins as a team collaboration tool dedicated to change management and evolves into a universal database tool. Its focus is **team collaboration**, offering tailored features like access control, data masking, SQL review, and custom approval flows.
   ![bb-3-op](/content/blog/bytebase-vs-cloudbeaver/bb-3-op.webp)
 
 ### Developer interface

@@ -45,7 +45,7 @@ Bytebase is designed for developers, DBAs, and platform teams to manage database
 - **Metabase**: A business intelligence tool that allows users to create and share data visualizations and analytics dashboards without the need for extensive technical knowledge. It's mainly for data team and business analysts.
   ![mb-position](/content/blog/bytebase-vs-metabase/mb-position.webp)
 
-- **Bytebase**: The GitLab/GitHub equivalent for Database DevOps including features such as data change, data query and access control, designed for developers, DBAs, and platform teams.
+- **Bytebase**: The GitLab/GitHub equivalent for Database DevSecOps including features such as data change, data query and access control, designed for developers, DBAs, and platform teams.
   ![bb-3-op](/content/blog/bytebase-vs-metabase/bb-3-op.webp)
 
 ### Installation

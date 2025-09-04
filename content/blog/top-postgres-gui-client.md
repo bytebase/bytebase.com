@@ -99,7 +99,7 @@ Microsoft announced brand-new [PostgreSQL extension](https://techcommunity.micro
 
 ## Governance built-in: Bytebase
 
-While the aforementioned options provide a user-friendly interface for database operations, there may be instances where your organization requires an additional layer of control over database queries, changes, and administrative actions. In such cases, you can explore [Bytebase](/), our [open-source](https://github.com/bytebase/bytebase) Database DevOps and CI/CD tools designed specifically for teams. Bytebase aims to centralize control and safeguard your organization's most valuable asset - database data.
+While the aforementioned options provide a user-friendly interface for database operations, there may be instances where your organization requires an additional layer of control over database queries, changes, and administrative actions. In such cases, you can explore [Bytebase](/), our [open-source](https://github.com/bytebase/bytebase) Database DevSecOps platform designed specifically for teams. Bytebase aims to centralize control and safeguard your organization's most valuable asset - database data.
 
 ![bytebase-sql-editor](/content/blog/top-postgres-gui-client/bytebase-sql-editor.webp)
 
