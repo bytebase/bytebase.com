@@ -270,8 +270,8 @@ const MobileMenu = () => {
               <Button href={Route.DOCS_SELF_HOST} theme="gray-filled" size="md">
                 Self-host
               </Button>
-              <Button href={Route.DEMO} theme="primary-outline" size="md">
-                Demo
+              <Button href={Route.DOCS_CLOUD} theme="primary-outline" size="md">
+                Cloud
               </Button>
             </div>
           </div>
