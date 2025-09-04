@@ -16,7 +16,7 @@ export default function TabView({ tabs, defaultActiveTab = 0 }: TabViewProps) {
   const [activeTab, setActiveTab] = useState(defaultActiveTab);
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-10">
       <div className="flex justify-center">
         <div className="border-gray-200 inline-flex border">
           {tabs.map((tab, index) => (
