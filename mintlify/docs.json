@@ -540,7 +540,9 @@
     }
   ],
   "seo": {
-    "metatags": {}
+    "metatags": {
+      "canonical": "https://docs.bytebase.com"
+    }
   },
   "contextual": {
     "options": ["copy", "view", "chatgpt", "claude"]
