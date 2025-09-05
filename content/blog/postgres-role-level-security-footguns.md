@@ -6,7 +6,7 @@ feature_image: /content/blog/postgres-role-level-security-footguns/cover.webp
 tags: Explanation
 description: 'An engineering perspective to evaluate Postgres role-level-security footguns'
 ---
-PostgreSQL's Row-Level Security (RLS) is a powerful feature for implementing fine-grained access control, but it's riddled with subtle traps that can destroy performance or completely bypass security. This comprehensive guide covers all the major footguns with practical fixes and real-world examples.
+Postgres's Row-Level Security (RLS) is a powerful feature for implementing fine-grained access control, but it's riddled with subtle traps that can destroy performance or completely bypass security. This comprehensive guide covers all the major footguns with practical fixes and real-world examples.
 
 ---
 
@@ -16,7 +16,7 @@ PostgreSQL's Row-Level Security (RLS) is a powerful feature for implementing fin
 
 **The footgun:** Non-LEAKPROOF functions in RLS policies prevent index usage, causing catastrophic performance degradation.
 
-**Why it happens:** PostgreSQL must apply RLS filtering first, then non-LEAKPROOF functions, preventing the query planner from using indexes.
+**Why it happens:** Postgres must apply RLS filtering first, then non-LEAKPROOF functions, preventing the query planner from using indexes.
 
 **Example problem:**
 ```sql
@@ -138,7 +138,7 @@ SELECT * FROM patients;
 
 **Secure approaches:**
 ```sql
--- PostgreSQL 15+: Use SECURITY INVOKER
+-- Postgres 15+: Use SECURITY INVOKER
 CREATE VIEW patient_data 
 WITH (security_invoker = true)
 AS SELECT * FROM patients;
@@ -189,16 +189,16 @@ AND tenant_id = current_setting('app.tenant_id')::uuid;
 
 ### 7. CVE-2019-10130: Statistics Leakage
 
-**The footgun:** PostgreSQL's query planner statistics could leak sampled data from RLS-protected rows.
+**The footgun:** Postgres's query planner statistics could leak sampled data from RLS-protected rows.
 
 **Technical details:**
 - Query planner collects statistics by sampling column data
 - Users could craft operators to read statistics containing forbidden data
-- Affected PostgreSQL 9.5-11 before May 2019 patches
+- Affected Postgres 9.5-11 before May 2019 patches
 
-**Status:** Fixed in PostgreSQL 9.5.17, 9.6.13, 10.8, 11.3
+**Status:** Fixed in Postgres 9.5.17, 9.6.13, 10.8, 11.3
 
-**Lesson:** Keep PostgreSQL updated and remember that even internal mechanisms can leak data.
+**Lesson:** Keep Postgres updated and remember that even internal mechanisms can leak data.
 
 ---
 
