@@ -93,4 +93,4 @@ This real-world example highlights the importance of understanding the locking b
 
 ## Conclusion
 
-Understanding which Postgres operations cause table rewrites and their associated locking behavior is crucial for maintaining a healthy and performant database. Modern Postgres know which Postgres ops rewrite tables and what they lock. Newer versions skip many rewrites (e.g., constant DEFAULT). Follow the playbook: prefer non-rewriting changes, split risky work, use concurrent options, and set timeouts/guardrails to keep production fast and stable.
+Understanding which Postgres operations cause table rewrites and their associated locking behavior is crucial for maintaining a healthy and performant database. Modern Postgres databases know which Postgres ops rewrite tables and what they lock. Newer versions skip many rewrites (e.g., constant DEFAULT). Follow the playbook: prefer non-rewriting changes, split risky work, use concurrent options, and set timeouts/guardrails to keep production fast and stable.
