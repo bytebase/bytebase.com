@@ -46,8 +46,8 @@ When using cloud VCS with self-hosted Bytebase, you need a self-hosted runner:
 
 ### Self-Hosted GitLab
 
-No runner installation needed. Simply ensure:
-- VPC connectivity between GitLab and Bytebase servers
+- Install a [GitLab Runner](https://docs.gitlab.com/runner/) on your GitLab server
+- Ensure VPC connectivity between GitLab and Bytebase servers
 - Network policies allow communication
 - If your GitLab runner lacks internet access, pre-load the bytebase-action Docker image
 
