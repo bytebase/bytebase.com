@@ -1,10 +1,10 @@
 ---
-title: 'Common Postgres Role-Level-Security footguns'
+title: 'Common Postgres Row-Level-Security footguns'
 author: Adela
 updated_at: 2025/09/05 18:00
-feature_image: /content/blog/postgres-role-level-security-footguns/cover.webp
+feature_image: /content/blog/postgres-row-level-security-footguns/cover.webp
 tags: Explanation
-description: 'An engineering perspective to evaluate Postgres role-level-security footguns'
+description: 'An engineering perspective to evaluate Postgres row-level-security footguns'
 ---
 Postgres's Row-Level Security (RLS) is a powerful feature for implementing fine-grained access control, but it's riddled with subtle traps that can destroy performance or completely bypass security. This comprehensive guide covers all the major footguns with practical fixes and real-world examples.
 
