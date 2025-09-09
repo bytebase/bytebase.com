@@ -28,14 +28,11 @@ Backup data is stored within your own database instance in a dedicated `bbdataar
 
 ## Supported Operations
 
-Bytebase continues to expand backup and rollback support for additional SQL statement types.
-
-### Feasibility Conditions
-
 Prior backup is feasible when meeting **all** of the following conditions:
 
-- The SQL statement size is less than 2M.
+- `UPDATE` or `DELETE`
 - No mixed `UPDATE`/`DELETE` on the same table.
+- The SQL statement size is less than 2M.
 - No mixed DDL/DML.
 
 1-click rollback is feasible when meeting **all** of the following conditions:
@@ -46,10 +43,11 @@ Prior backup is feasible when meeting **all** of the following conditions:
 
 You can enable the **Prior Backup** option either before or after creating a database change issue.
 
-   ![bb-issue-backup-on](/content/docs/change-database/rollback-data-changes/bb-issue-backup-on.webp)
+![bb-issue-backup-on](/content/docs/change-database/rollback-data-changes/bb-issue-backup-on.webp)
 
 <Note>
-If the Prior Backup switch appears disabled, navigate to the database page and click **Sync instance** to refresh the database metadata.
+  If the Prior Backup switch appears disabled, navigate to the database page and click **Sync
+  instance** to refresh the database metadata.
 </Note>
 
 ## Perform 1-Click and Multi-Task Rollback
@@ -61,7 +59,8 @@ If the Prior Backup switch appears disabled, navigate to the database page and c
 1. You may see multiple rollbackable changes available, depending on your deployment scenario.
 
    <Note>
-   This could include a single change applied to multiple databases, multiple changes to one database, or a combination of both scenarios.
+     This could include a single change applied to multiple databases, multiple changes to one
+     database, or a combination of both scenarios.
    </Note>
 
    ![bb-issue-done-2](/content/docs/change-database/rollback-data-changes/bb-issue-done-2.webp)
@@ -80,8 +79,8 @@ If the Prior Backup switch appears disabled, navigate to the database page and c
 
 You can examine the stored backup data using Bytebase's SQL Editor to verify what information has been preserved.
 
-   ![bb-sql-editor-test](/content/docs/change-database/rollback-data-changes/bb-sql-editor-test.webp)
-   ![bb-sql-editor-prod](/content/docs/change-database/rollback-data-changes/bb-sql-editor-prod.webp)
+![bb-sql-editor-test](/content/docs/change-database/rollback-data-changes/bb-sql-editor-test.webp)
+![bb-sql-editor-prod](/content/docs/change-database/rollback-data-changes/bb-sql-editor-prod.webp)
 
 ## Project Backup Settings
 
@@ -90,7 +89,7 @@ Configure backup behavior at the project level for consistent data protection:
 - **Default backup**: Enable **Prior Backup** by default for all changes in the project
 - **Error handling**: Control whether to skip backup errors and proceed with data changes
 
-   ![prior-backup-default](/content/docs/change-database/rollback-data-changes/bb-prior-backup-default.webp)
+  ![prior-backup-default](/content/docs/change-database/rollback-data-changes/bb-prior-backup-default.webp)
 
 ## Appendix: Setting Up `bbdataarchive`
 
