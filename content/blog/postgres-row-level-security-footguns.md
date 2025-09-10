@@ -6,6 +6,7 @@ feature_image: /content/blog/postgres-row-level-security-footguns/cover.webp
 tags: Explanation
 description: 'An engineering perspective to evaluate Postgres row-level-security footguns'
 ---
+
 Postgres's Row-Level Security (RLS) is a powerful feature for implementing fine-grained access control, but it's riddled with subtle traps that can destroy performance or completely bypass security. This comprehensive guide covers all the major footguns with practical fixes and real-world examples.
 
 ---
@@ -19,6 +20,7 @@ Postgres's Row-Level Security (RLS) is a powerful feature for implementing fine-
 **Why it happens:** Postgres must apply RLS filtering first, then non-LEAKPROOF functions, preventing the query planner from using indexes.
 
 **Example problem:**
+
 ```sql
 -- This will cause full table scans even with an index on title
 CREATE POLICY user_documents ON documents
@@ -27,12 +29,13 @@ USING (owner_id = current_user_id() AND title ILIKE '%search%');
 ```
 
 **The fix:**
+
 ```sql
 -- Use LEAKPROOF functions or move complex logic out of policies
-CREATE OR REPLACE FUNCTION safe_ilike(text, text) 
-RETURNS boolean 
-LANGUAGE sql 
-LEAKPROOF 
+CREATE OR REPLACE FUNCTION safe_ilike(text, text)
+RETURNS boolean
+LANGUAGE sql
+LEAKPROOF
 AS $$ SELECT $1 ILIKE $2 $$;
 
 CREATE POLICY user_documents ON documents
@@ -47,19 +50,21 @@ USING (owner_id = current_user_id() AND safe_ilike(title, '%search%'));
 **The footgun:** Complex RLS policies with subqueries execute for every row, multiplying query cost exponentially.
 
 **Bad example:**
+
 ```sql
 CREATE POLICY complex_access ON orders
 USING (
   EXISTS (
-    SELECT 1 FROM user_permissions up 
-    JOIN departments d ON up.dept_id = d.id 
-    WHERE up.user_id = current_user_id() 
+    SELECT 1 FROM user_permissions up
+    JOIN departments d ON up.dept_id = d.id
+    WHERE up.user_id = current_user_id()
     AND d.region = orders.region
   )
 );
 ```
 
 **Better approach:**
+
 ```sql
 -- Move complexity to a LEAKPROOF function
 CREATE OR REPLACE FUNCTION user_has_region_access(region_name text)
@@ -69,9 +74,9 @@ LEAKPROOF
 STABLE
 AS $$
   SELECT EXISTS (
-    SELECT 1 FROM user_permissions up 
-    JOIN departments d ON up.dept_id = d.id 
-    WHERE up.user_id = current_user_id() 
+    SELECT 1 FROM user_permissions up
+    JOIN departments d ON up.dept_id = d.id
+    WHERE up.user_id = current_user_id()
     AND d.region = region_name
   );
 $$;
@@ -85,6 +90,7 @@ USING (user_has_region_access(region));
 **The footgun:** Forgetting to index columns used in RLS policies forces sequential scans.
 
 **Essential indexes:**
+
 ```sql
 -- Always index columns used in policies
 CREATE INDEX ON orders(tenant_id);
@@ -103,6 +109,7 @@ CREATE INDEX ON orders(tenant_id, owner_id); -- composite for AND conditions
 **Why it's dangerous:** Testing with superuser accounts makes RLS appear to work when it's actually being ignored.
 
 **The fix:**
+
 ```sql
 -- Force RLS even for table owners
 ALTER TABLE sensitive_data ENABLE ROW LEVEL SECURITY;
@@ -113,6 +120,7 @@ ALTER TABLE sensitive_data FORCE ROW LEVEL SECURITY;
 ```
 
 **Testing pattern:**
+
 ```sql
 -- Create proper test user
 CREATE ROLE test_user;
@@ -130,16 +138,18 @@ RESET ROLE;
 **The footgun:** Views are SECURITY DEFINER by default, running with creator's privileges and bypassing RLS.
 
 **Dangerous example:**
+
 ```sql
 -- Created by superuser - bypasses ALL RLS policies!
-CREATE VIEW all_patient_data AS 
+CREATE VIEW all_patient_data AS
 SELECT * FROM patients;
 ```
 
 **Secure approaches:**
+
 ```sql
 -- Postgres 15+: Use SECURITY INVOKER
-CREATE VIEW patient_data 
+CREATE VIEW patient_data
 WITH (security_invoker = true)
 AS SELECT * FROM patients;
 
@@ -154,7 +164,7 @@ BEGIN
   IF NOT row_security_active('patients') THEN
     RAISE EXCEPTION 'Row security must be active';
   END IF;
-  
+
   RETURN QUERY SELECT p.id, p.name, p.doctor_id FROM patients p;
 END;
 $$ LANGUAGE plpgsql;
@@ -167,19 +177,22 @@ $$ LANGUAGE plpgsql;
 **Attack scenario:** In a multi-tenant medical database, an attacker measures query times to determine if patients with specific conditions exist in other tenants' data.
 
 **Technical details:**
+
 - RLS policy enforcement creates measurable timing differences
 - Attackers can infer secret cardinality information
 - Works even across network latency in cloud environments
 
 **Example vulnerable query:**
+
 ```sql
 -- Timing reveals if forbidden patients exist
-SELECT COUNT(*) FROM patients 
-WHERE condition = 'rare_disease' 
+SELECT COUNT(*) FROM patients
+WHERE condition = 'rare_disease'
 AND tenant_id = current_setting('app.tenant_id')::uuid;
 ```
 
 **Mitigation strategies:**
+
 1. Use data-oblivious query patterns (performance cost)
 1. Add artificial delays to normalize timing
 1. Limit query complexity for untrusted users
@@ -189,9 +202,10 @@ AND tenant_id = current_setting('app.tenant_id')::uuid;
 
 ### 7. CVE-2019-10130: Statistics Leakage
 
-**The footgun:** Postgres's query planner statistics could leak sampled data from RLS-protected rows.
+**The footgun:** [CVE-2019-10130](https://www.postgresql.org/support/security/CVE-2019-10130/). Postgres's query planner statistics could leak sampled data from RLS-protected rows.
 
 **Technical details:**
+
 - Query planner collects statistics by sampling column data
 - Users could craft operators to read statistics containing forbidden data
 - Affected Postgres 9.5-11 before May 2019 patches
@@ -209,12 +223,14 @@ AND tenant_id = current_setting('app.tenant_id')::uuid;
 **The footgun:** Enabling RLS without FORCE allows table owners to bypass policies.
 
 **Problem:**
+
 ```sql
 -- Table owner still sees everything!
 ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
 ```
 
 **Solution:**
+
 ```sql
 -- Force RLS for everyone, including owners
 ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
@@ -226,6 +242,7 @@ ALTER TABLE orders FORCE ROW LEVEL SECURITY;
 **The footgun:** USING filters existing rows for SELECT/UPDATE/DELETE, but WITH CHECK validates new/modified rows for INSERT/UPDATE.
 
 **Dangerous example:**
+
 ```sql
 -- Users can INSERT data they can't see!
 CREATE POLICY tenant_data ON orders
@@ -234,6 +251,7 @@ USING (tenant_id = current_setting('app.tenant_id')::uuid);
 ```
 
 **Correct approach:**
+
 ```sql
 CREATE POLICY tenant_isolation ON orders
 FOR ALL
@@ -246,6 +264,7 @@ WITH CHECK (tenant_id = current_setting('app.tenant_id')::uuid);
 **The footgun:** With connection pooling, `current_user` is a shared database role, useless for tenant isolation.
 
 **Problem:**
+
 ```sql
 -- Useless with PgBouncer - all connections share same user
 CREATE POLICY user_data ON orders
@@ -253,6 +272,7 @@ USING (owner_id = current_user);
 ```
 
 **Solution:**
+
 ```sql
 -- Use application-controlled session variables
 -- App sets per transaction:
@@ -267,6 +287,7 @@ WITH CHECK (tenant_id = current_setting('app.tenant_id')::uuid);
 ```
 
 **Security hardening:**
+
 ```sql
 -- Prevent clients from setting app.* directly
 REVOKE ALL ON SCHEMA pg_catalog FROM app_user;
@@ -278,14 +299,16 @@ REVOKE ALL ON SCHEMA pg_catalog FROM app_user;
 **The footgun:** INSERT into child tables fails FK checks because RLS blocks SELECT on parent rows.
 
 **Example failure:**
+
 ```sql
 -- This INSERT fails even if customer exists
-INSERT INTO orders (customer_id, tenant_id) 
+INSERT INTO orders (customer_id, tenant_id)
 VALUES ('existing-customer-id', 'my-tenant');
 -- ERROR: insert or update on table "orders" violates foreign key constraint
 ```
 
 **Solution:**
+
 ```sql
 -- Parent table needs SELECT policy for FK checks
 CREATE POLICY customer_fk_visibility ON customers
@@ -298,6 +321,7 @@ USING (tenant_id = current_setting('app.tenant_id')::uuid);
 **The footgun:** Global unique constraints reveal data existence across tenants.
 
 **Problem:**
+
 ```sql
 -- This reveals that email exists in ANY tenant
 CREATE UNIQUE INDEX users_email_unique ON users(email);
@@ -305,9 +329,10 @@ CREATE UNIQUE INDEX users_email_unique ON users(email);
 ```
 
 **Solution:**
+
 ```sql
 -- Scope uniqueness to tenant
-CREATE UNIQUE INDEX users_email_per_tenant 
+CREATE UNIQUE INDEX users_email_per_tenant
 ON users(tenant_id, lower(email));
 ```
 
@@ -318,6 +343,7 @@ ON users(tenant_id, lower(email));
 **Example:** An UPDATE that should modify 100 rows silently affects 0 rows due to RLS policy.
 
 **Debugging approach:**
+
 ```sql
 -- Temporarily disable RLS to test
 SET row_security = off;
@@ -333,22 +359,24 @@ SELECT row_security_active('table_name');
 **The footgun:** RLS filters rows, not columns. Sensitive columns remain visible in allowed rows.
 
 **Problem:**
+
 ```sql
 -- Users can see SSN in their own records
 SELECT * FROM users WHERE tenant_id = current_setting('app.tenant_id')::uuid;
 ```
 
 **Solutions:**
+
 ```sql
 -- Option 1: Column privileges
 REVOKE SELECT (ssn, salary) ON users FROM app_user;
 
 -- Option 2: Secure views
 CREATE VIEW users_safe AS
-SELECT id, name, email, 
-       CASE WHEN has_role('hr_role') 
-            THEN ssn 
-            ELSE 'XXX-XX-' || right(ssn, 4) 
+SELECT id, name, email,
+       CASE WHEN has_role('hr_role')
+            THEN ssn
+            ELSE 'XXX-XX-' || right(ssn, 4)
        END as ssn_masked
 FROM users;
 ```
@@ -358,6 +386,7 @@ FROM users;
 **The footgun:** Data copied to materialized views or exported by jobs isn't automatically protected by source table policies.
 
 **Problems:**
+
 ```sql
 -- Materialized view bypasses RLS
 CREATE MATERIALIZED VIEW order_summary AS
@@ -368,16 +397,17 @@ COPY (SELECT * FROM orders) TO '/tmp/backup.csv';
 ```
 
 **Solutions:**
+
 ```sql
 -- Apply filtering in materialized views
 CREATE MATERIALIZED VIEW tenant_order_summary AS
 SELECT tenant_id, COUNT(*), SUM(amount)
-FROM orders 
+FROM orders
 GROUP BY tenant_id;
 
 -- Use RLS-aware exports
 COPY (
-  SELECT * FROM orders 
+  SELECT * FROM orders
   WHERE tenant_id = 'specific-tenant'
 ) TO '/tmp/tenant_backup.csv';
 ```
@@ -387,16 +417,18 @@ COPY (
 **The footgun:** Multiple permissive policies are OR-ed together; one broad policy can override stricter ones.
 
 **Problem:**
+
 ```sql
 -- These policies are OR-ed - users get access if EITHER is true
 CREATE POLICY user_own_data ON orders
 USING (owner_id = current_user_id());
 
-CREATE POLICY admin_all_data ON orders  
+CREATE POLICY admin_all_data ON orders
 USING (has_role('admin')); -- Oops, too broad!
 ```
 
 **Solutions:**
+
 ```sql
 -- Option 1: Use restrictive policies (AND-ed)
 CREATE POLICY tenant_restriction ON orders
@@ -408,7 +440,7 @@ CREATE POLICY combined_access ON orders
 USING (
   tenant_id = current_setting('app.tenant_id')::uuid
   AND (
-    owner_id = current_user_id() 
+    owner_id = current_user_id()
     OR has_role('tenant_admin')
   )
 );
