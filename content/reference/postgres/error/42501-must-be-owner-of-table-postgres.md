@@ -1,3 +1,7 @@
+---
+title: 'ERROR 42501: Must be owner of table in Postgres'
+---
+
 ## Description
 
 This error occurs when a user attempts to perform an operation that requires ownership privileges on a table, such as altering the table structure, dropping the table, or changing ownership.

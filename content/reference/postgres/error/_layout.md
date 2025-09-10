@@ -41,6 +41,8 @@
 
 ### [ERROR 42501: must be owner of table](/reference/postgres/error/42501-must-be-owner-of-table-postgres)
 
+### [ERROR 42501: permission denied to reassign objects](/reference/postgres/error/42501-only-roles-with-privileges-of-role-may-reassign-objects)
+
 ## Concurrency & Locking
 
 ### [ERROR 40P01: deadlock detected](/reference/postgres/error/40p01-deadlock-detected)

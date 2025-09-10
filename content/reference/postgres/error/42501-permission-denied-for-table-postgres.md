@@ -53,9 +53,10 @@ This error occurs when a user attempts to perform an operation on a table withou
    GRANT role_name TO user_name;
    ```
 
-## Prevention
+<HintBlock type="info">
 
-- Plan permission structure before creating objects
-- Use role-based access control instead of individual user permissions
-- Document permission requirements in your database schema
-- Test permissions in development environments
+Cloud database providers typically don't allow superuser privileges. Check with your provider about their specific permission model.
+
+For more details on Postgres permission management, see [How to Manage Postgres Users and Roles](/blog/how-to-manage-postgres-users-and-roles).
+
+</HintBlock>
