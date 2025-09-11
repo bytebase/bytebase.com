@@ -10,21 +10,22 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 ## 🚀 New Features
 
 - **Cassandra** - support data masking.
-- **Bytebase GitHub Actions** (bytebase-action) - `rollout` command now outputs a job summary on GitHub. [Example](https://github.com/bytebase/example-gitops-github-flow/actions/runs/17601287317)
+- Add TLS certificate verification toggle while adding instance.
 
 ## 🔔 Notable Changes
 
-- **API** – Deprecated SQL_RESULT_SIZE_LIMIT setting and DATA_EXPORT policy. Consolidated SQLQueryRestrictionSetting and ExportDataPolicy into the DATA_QUERY policy.
-- **Terraform** – Deprecated sql_query_restriction setting. Use the query_data_policy block instead, which supports disable_export, maximum_result_rows, maximum_result_size, and timeout_in_seconds.
 - Service accounts no longer contribute to user usage metrics.
+- **API** – Deprecate `SQL_RESULT_SIZE_LIMIT` setting and `DATA_EXPORT` policy. Consolidated `SQLQueryRestrictionSetting` and `ExportDataPolicy` into the `DATA_QUERY` policy.
+- **Terraform** – Deprecate `sql_query_restriction` setting. Use the `query_data_policy` block instead, which supports `disable_export`, `maximum_result_rows`, `maximum_result_size`, and `timeout_in_seconds`.
 
 ## 🎄 Enhancements
 
 - **Bytebase Cloud** - Gemini AI is enabled automatically in the SaaS mode - Totally FREE!
+- **Bytebase GitHub Actions** (bytebase-action) - `rollout` command now outputs a job summary on GitHub. [Example](https://github.com/bytebase/example-gitops-github-flow/actions/runs/17601287317)
 - Improve database creation page for clearer information.
 
 ## 🐞 Bug Fix
 
-- **SQL Server** - Fixed cross-database reference issues in queries.
+- **SQL Server** - Fix cross-database reference issues in queries.
 
 <InstallUpgrade />
