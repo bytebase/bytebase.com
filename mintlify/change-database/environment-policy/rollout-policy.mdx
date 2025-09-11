@@ -9,26 +9,21 @@ title: Rollout Permissions
   horizontal
 />
 
-Configure who can deploy database changes in your environment through rollout permissions. You can choose between manual deployment by authorized users or automatic deployment when all checks pass.
+Configure who can deploy database changes in your environment through rollout permissions. You can choose between role-based deployment by authorized users or automatic deployment when all checks pass.
 
-## Manual rollout permissions
+## Role-based rollout
 
-### Default permissions
+### Default roles with permissions
 
-Users with the `bb.taskRuns.create` permission can perform rollouts. Built-in roles with this permission:
+Users with the `bb.taskRuns.create` permission can perform rollouts. The following roles have this permission by default:
 - Workspace Admin
 - Workspace DBA 
 - Project Releaser
 
-### Additional permission options
+### Environment-specific roles
 
-Grant rollout permissions through:
+If you want to use different roles to perform rollouts in different environments, you can specify environment-specific roles in the Environment policy settings. This allows you to control who can deploy changes to specific environments, such as having different teams responsible for staging versus production deployments.
 
-**Environment-specific roles**: Add custom roles per environment in Environment policy settings to control rollouts for specific databases.
-
-**UI workflow permissions**: For UI-driven changes, also grant permissions to:
-- Issue Creator
-- Last Issue Approver (when using [custom approval flow](/change-database/approval/))
 
 ## Automatic rollout
 
