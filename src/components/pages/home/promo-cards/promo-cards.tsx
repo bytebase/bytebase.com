@@ -25,7 +25,7 @@ const cards: CardProps[] = [
   },
   {
     color: 'green',
-    href: Route.DOCS_SQL_EDITOR,
+    href: Route.DOCS_DATA_MASKING,
     cover: '/images/page/main/hero/query-data.webp',
     title: 'Data Masking',
     description:
