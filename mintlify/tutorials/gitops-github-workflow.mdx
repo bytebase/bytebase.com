@@ -32,6 +32,8 @@ This tutorial shows you how to build an database GitOps workflow using GitHub Ac
 
 2. Manually control rollouts by stage
 
+3. Deploy changes via ChatOps-style PR comments
+
 <Info>
 
 While we use PostgreSQL with GitHub Actions in this guide, you can apply these concepts to other SQL or NoSQL databases with any CI platforms like GitLab CI, Bitbucket Pipelines, or Azure DevOps using the Bytebase API.
@@ -63,10 +65,11 @@ https://github.com/bytebase/example-gitops-github-flow
 
 ### Step 4 - Fork the Example Repository and Configure Variables
 
-1. Fork [https://github.com/bytebase/example-gitops-github-flow](https://github.com/bytebase/example-gitops-github-flow). There are two workflows in this repository:
+1. Fork [https://github.com/bytebase/example-gitops-github-flow](https://github.com/bytebase/example-gitops-github-flow). There are three workflows in this repository:
 
    - `.github/workflows/sql-review-action.yml`: [Lint the SQL](/sql-review/review-policy/) migration files after the PR is created.
    - `.github/workflows/release-action.yml`: Create a release in Bytebase after the PR is merged to the `main` branch.
+   - `.github/workflows/chatops-migrate.yml`: Deploy changes to specific environments via PR comments using `/migrate` command.
 
 1. Go into `.github/workflows/release-action.yml` and `.github/workflows/sql-review-action.yml`. In the `env` section, replace the variable values with your own and commit the changes.
 
@@ -165,6 +168,76 @@ You can also manually control the rollout by stage.
 
    ![gh-deploy-finish](/content/docs/tutorials/gitops-github-workflow/gh-deploy-finish.webp)
 
+## ChatOps Deployment via PR Comments
+
+In addition to automatic and manual deployments, you can also deploy database changes to any environment directly from pull request comments using ChatOps commands.
+
+Team members can trigger deployments by commenting `/migrate <environment>` on any pull request. The workflow will:
+1. Validate the command and environment
+2. Create a rollout plan in Bytebase
+3. Execute the migration to the specified environment
+4. Report the results back in the PR comments
+
+### Step 1 - Configure ChatOps Workflow
+
+1. Go into `.github/workflows/chatops-migrate.yml`. In the `env` section, replace the variable values with your own:
+
+   - **BYTEBASE_URL**: your ngrok url
+   - **BYTEBASE_SERVICE_ACCOUNT**: `api-example@service.bytebase.com`
+   - **BYTEBASE_PROJECT**: `projects/project-sample`
+   - **FILE_PATTERN**: `migrations-semver/*.sql`
+
+2. In the same workflow file, modify the config generation step to match your environments:
+
+   ```yml
+   - name: Write command config
+     run: |
+       cat <<EOF > ${{ runner.temp }}/bytebase-action-config.yaml
+       test:
+         stage: environments/test
+         targets:
+           - instances/test-sample-instance/databases/hr_test
+       prod:
+         stage: environments/prod
+         targets:
+           - instances/prod-sample-instance/databases/hr_prod
+       EOF
+   ```
+
+3. Set your service account password in the repository secrets setting with the name `BYTEBASE_SERVICE_ACCOUNT_SECRET`.
+
+4. In **Settings > Environments**, ensure you have environments matching your config (e.g., "test", "prod"). For production, configure deployment protection rules if needed.
+
+### Step 2 - Deploy via PR Comments
+
+1. Create a new branch with this file and create a pull request:
+
+   - 1.14.0_code.sql
+
+   ```sql
+   ALTER TABLE IF EXISTS users ADD COLUMN IF NOT EXISTS code VARCHAR(255) NOT NULL DEFAULT '';
+   ```
+
+2. After the SQL review passes, comment `/migrate test` on the PR to deploy to test environment.
+
+   ![gh-chatops-test](/content/docs/tutorials/gitops-github-workflow/gh-chatops-test.webp)
+
+3. The workflow will add a 🚀 reaction and post deployment progress in the PR comments.
+
+   ![gh-chatops-progress](/content/docs/tutorials/gitops-github-workflow/gh-chatops-progress.webp)
+
+4. When deployment completes, you'll see a success message with links to Bytebase resources.
+
+   ![gh-chatops-success](/content/docs/tutorials/gitops-github-workflow/gh-chatops-success.webp)
+
+5. To deploy to production, comment `/migrate prod`. If production requires approval, the workflow will wait for reviewers.
+
 ## Summary
 
-Now you have learned how to database GitOps with GitHub Action. If you want to trigger a release creation with other git providers (e.g. GitLab, Bitbucket, Azure DevOps), you may customize the workflow file.
+Now you have learned how to implement database GitOps with GitHub Actions in three ways:
+
+1. **Automatic deployment** after merging to main branch
+2. **Manual rollout** with environment-level approval
+3. **ChatOps deployment** via PR comments for pre-merge testing
+
+If you want to trigger a release creation with other git providers (e.g. GitLab, Bitbucket, Azure DevOps), you may customize the workflow file.
