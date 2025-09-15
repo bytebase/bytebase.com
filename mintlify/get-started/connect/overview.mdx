@@ -155,3 +155,34 @@ Consider these factors when setting the limit:
 - Team size and concurrent SQL Editor usage
 - Available database connection capacity
 - Parallel operations (migrations, backups, syncs)
+
+### Deleting Instances
+
+#### Archive Instance
+
+To temporarily remove an instance from active use while preserving its configuration:
+
+1. Navigate to the instance page
+2. Click **Archive** to move the instance to archived status
+3. Archived instances remain accessible from **Settings > Archived**
+
+<Warning>
+Before archiving an instance, ensure all its databases are unassigned from projects. Databases actively assigned to projects cannot be archived.
+</Warning>
+
+#### Hard Delete Instance
+
+To permanently remove an instance and all its associated metadata from Bytebase:
+
+1. **Archive the instance first**:
+   - Go to the instance page
+   - Click **Archiv this instance** (requires all databases to be unassigned from projects) on the bottom of the page
+
+2. **Permanently delete the archived instance**:
+   - Navigate to **Settings > Archived**
+   - Select the archived instance
+   - Click **Hard-Delete** to permanently remove the instance
+
+<Caution>
+Hard deletion is irreversible. All instance configuration, connection settings, and metadata stored in Bytebase will be permanently removed. This does not affect the actual database itself, only Bytebase's records and configuration for that instance.
+</Caution>
