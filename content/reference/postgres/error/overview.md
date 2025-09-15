@@ -121,17 +121,23 @@ These errors relate to user permissions, ownership, and access control issues.
   ERROR: permission denied for table users
   ```
 
-- [**ERROR 42501**](/reference/postgres/error/42501-must-be-owner-of-table-postgres): Must be owner of table
-
-  ```sql
-  ERROR: must be owner of table users
-  ```
-
 - [**ERROR 42501**](/reference/postgres/error/42501-only-roles-with-privileges-of-role-may-reassign-objects): Permission denied to reassign objects
 
   ```sql
   ERROR: permission denied to reassign objects
   DETAIL: Only roles with privileges of role "[source_role]" may reassign objects owned by it.
+  ```
+
+- [**ERROR 42501**](/reference/postgres/error/42501-must-be-owner-of-table-postgres): Must be owner of table
+
+  ```sql
+  ERROR: must be owner of table
+  ```
+
+- [**ERROR 42501**](/reference/postgres/error/42501-must-be-owner-of-schema-postgres): Must be owner of table
+
+  ```sql
+  ERROR: must be owner of schema
   ```
 
 ## Concurrency & Locking Errors
