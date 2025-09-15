@@ -2,15 +2,7 @@
 title: Environment Policy
 ---
 
-## Statement execution mode
-
-Even if you have `sql.dml` and `sql.ddl` [database permissions](/security/database-permission/overview/), you can only run read-only statements such as `SELECT` in SQL Editor by default. If you attempt to run mutation DML or DDL, it will prompt you to submit an issue.
-
-![prompt-issue](/content/docs/administration/environment-policy/prompt-issue.webp)
-
-If you want to run those statements directly in SQL Editor, you need to turn on the **statement execution** setting.
-
-![statement-execution](/content/docs/administration/environment-policy/statement-execution.webp)
+Configure and manage your database environments including policies, permissions, and lifecycle operations.
 
 ## Environment tier
 
@@ -29,3 +21,48 @@ SQL Editor then displays the configured color tab.
 Once you mark an environment as a production environment, Bytebase will attach a shield icon 🛡️ besides the environment name.
 
 ![tier-envs](/content/docs/administration/environment-policy/tier-envs.webp)
+
+## Rollout policy
+
+Control who can deploy changes to each environment and whether deployments happen automatically or require manual approval.
+
+<Card title="Configure Rollout Permissions" icon="rocket" href="/change-database/environment-policy/rollout-policy" horizontal>
+  Manage deployment permissions and automatic rollout settings
+</Card>
+
+## SQL Review policy
+
+Configure automated SQL validation rules for each environment to ensure code quality and compliance. Different environments can have different strictness levels - for example, production might enforce stricter rules than development.
+
+<Card title="Configure SQL Review" icon="shield-check" href="/sql-review/review-policy" horizontal>
+  Set up automated SQL validation rules and best practices enforcement
+</Card>
+
+## Access control
+
+Configure environment-specific restrictions for SQL Editor operations:
+
+- **Restrict data copying in SQL Editor**: Only Workspace Admins and DBAs can copy data from query results
+- **Restrict querying admin data sources**: Limit access to administrative data sources in the SQL Editor
+
+## Statement execution mode
+
+Even if you have `sql.dml` and `sql.ddl` [database permissions](/security/database-permission/overview/), you can only run read-only statements such as `SELECT` in SQL Editor by default. If you attempt to run mutation DML or DDL, it will prompt you to submit an issue.
+
+![prompt-issue](/content/docs/administration/environment-policy/prompt-issue.webp)
+
+If you want to run those statements directly in SQL Editor, you need to turn on the **statement execution** setting.
+
+![statement-execution](/content/docs/administration/environment-policy/statement-execution.webp)
+
+## Delete an environment
+
+To permanently delete an environment:
+
+1. Navigate to the environment page
+2. Click **Delete this environment** at the bottom of the page
+3. Confirm the deletion
+
+<Warning>
+Deleting an environment will also remove it from all related instances and databases. This action cannot be undone.
+</Warning>
