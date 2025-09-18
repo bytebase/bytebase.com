@@ -15,7 +15,7 @@ export default function Page() {
       <div className="col-span-5 lg:col-span-8 sm:col-span-full">
         <div className="relative w-full" style={{ paddingBottom: 'calc(22/17 * 100%)' }}>
           <Image
-            src="/content/whitepaper/just-in-time-database-access/cover.webp"
+            src="/content/whitepaper/just-in-time-database-access/cover-vertical.webp"
             alt="Just-in-time Database Access Whitepaper Cover"
             width={612}
             height={792}
