@@ -76,8 +76,6 @@ const SOLUTIONS_DATA: SolutionsData = {
     caseStudyList: [
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       getBlogPostBySlug('cvte-case-study')!,
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getBlogPostBySlug('ev-manufacturer-case-study')!,
     ],
     quote:
       'Bytebase enables us to automate the database change process. In particular, its batch mode ensures consistent changes across all databases for each of our tenants.',

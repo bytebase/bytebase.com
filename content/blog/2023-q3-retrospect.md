@@ -15,7 +15,6 @@ Hello October! Only a few more months before the new year rings in, let's take a
 
 - Bytebase officially [crossed 1 Million downloads](/blog/one-million-downloads/).
 - [Technology partnership with GitLab](/blog/bytebase-gitlab-technology-partner/).
-- [How Bytebase helps a single DBA](/blog/ev-manufacturer-case-study/) to work with 1000+ developers to adopt Database DevOps for a top EV Manufacturer.
 
 ## Popular Posts
 
@@ -34,7 +33,6 @@ Bytebase keeps up with the bi-weekly release cadence and released 7 versions.
 - Redshift: support datashare query, data access control, and data masking.
 - SQL Server: additional SQL review rules.
 - Oracle: Schema Sync.
-
 
 ### Database Change Management
 
