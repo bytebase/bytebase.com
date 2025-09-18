@@ -14,7 +14,7 @@ PostgreSQL 14 (released September 30, 2021) introduced a powerful predefined rol
 `pg_database_owner` is a **built-in role** that automatically maps to the **owner of the current database**.
 
 * You don’t grant it to users.
-* Membership is **implicit and context-dependent** — whoever owns the database is the “member.”
+* Membership is **implicit and context-dependent** — whoever owns the database is the member.
 
 This allows privileges granted to `pg_database_owner` in template databases to carry over automatically when new databases are created from them.
 
