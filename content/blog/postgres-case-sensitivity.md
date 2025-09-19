@@ -97,7 +97,7 @@ PostgreSQL's case sensitivity rules can surprise even experienced developers. He
 ```sql
 -- Wrong: Mixing quoted and unquoted
 CREATE TABLE user_accounts (user_id SERIAL);
-ALTER TABLE "user_accounts" ADD COLUMN email VARCHAR(100);  -- ❌ Fails
+ALTER TABLE "User_Accounts" ADD COLUMN email VARCHAR(100);  -- ❌ Fails
 
 -- Correct: Consistent unquoted
 ALTER TABLE user_accounts ADD COLUMN email VARCHAR(100);    -- ✅ Works
