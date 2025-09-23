@@ -82,7 +82,7 @@ These are separate services that act as the **source of truth for identity**. Th
 - **Integration:** Postgres/Cockroach backend; OIDC → Postgres RLS.
 - **Best for:** Cloud-native teams who want a modern, OSS alternative to commercial IdPs.
 
-## 4. Other OSS Option
+## 4. Other OSS Options
 
 ### 🔹 [SuperTokens](https://supertokens.com/)
 
