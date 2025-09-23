@@ -23,7 +23,7 @@ Postgres (or PostgreSQL) is one of the most advanced open-source relational data
 
 It's not a must to use a GUI for managing your Postgres, it can be beneficial if you aren't a veteran at database management or if you simply prefer a graphical interface for database administration tasks.
 
-Here, we gathered 5 of the most popular Postgres GUI Clients out there.
+Here, we gathered 7 of the most popular Postgres GUI Clients out there.
 
 ## The Official: pgAdmin
 
