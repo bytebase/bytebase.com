@@ -95,6 +95,7 @@
                 "group": "Change",
                 "pages": [
                   "change-database/plan",
+                  "change-database/transaction-mode",
                   "change-database/batch-change",
                   "change-database/synchronize-schema",
                   "change-database/online-schema-migration-for-mysql",

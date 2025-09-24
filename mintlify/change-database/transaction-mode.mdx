@@ -1,0 +1,35 @@
+---
+title: Transaction Mode
+---
+
+Bytebase provides transaction management to ensure safe database changes. By default, all SQL statements are wrapped in a transaction, allowing automatic rollback if errors occur during execution.
+
+## Enable/Disable Transactions
+
+When creating a plan, you can control whether SQL statements are executed within a transaction:
+
+- **Enabled (default)**: All statements run within a transaction boundary for safety
+- **Disabled**: Statements execute directly without transaction wrapping
+
+![Transaction mode toggle](/content/docs/change-database/transaction-mode/bb-transaction-mode.webp)
+
+## MySQL-Specific Settings
+
+For MySQL databases, Bytebase offers additional control over transaction isolation levels to manage concurrent access and data consistency:
+
+![MySQL transaction isolation levels](/content/docs/change-database/transaction-mode/bb-transaction-mode-mysql.webp)
+
+### Available Isolation Levels
+
+- **READ UNCOMMITTED**: Lowest isolation, allows dirty reads
+- **READ COMMITTED**: Prevents dirty reads, allows non-repeatable reads
+- **REPEATABLE READ**: Default MySQL isolation, prevents dirty and non-repeatable reads
+- **SERIALIZABLE**: Highest isolation, prevents all phenomena but may impact performance
+
+## Best Practices
+
+- Keep transactions enabled for DDL and DML operations that modify data
+- Consider disabling transactions only for:
+  - Large batch operations that manage their own transaction boundaries
+  - Statements that cannot run within transactions (e.g., certain administrative commands)
+- Choose appropriate isolation levels based on your concurrency requirements and performance needs
