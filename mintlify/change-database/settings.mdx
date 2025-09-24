@@ -4,21 +4,6 @@ title: Settings
 
 Customize how database changes work in your projects. Navigate to **Project** → **Settings** to access these options.
 
-## Transaction Mode
-
-<Note>
-Supported databases: MySQL, PostgreSQL, Oracle, SQL Server, TiDB, Redshift
-</Note>
-
-By default, Bytebase wraps SQL statements in a transaction for safety - if something goes wrong, changes can be rolled back.
-
-Some DDL statements can't run inside transactions. To disable transaction wrapping, add this comment before your SQL:
-
-```sql
--- txn-mode=off
-ALTER TABLE t ALTER COLUMN a TYPE VARCHAR(255);
-```
-
 ## Postgres Tenant Mode
 
 Perfect for multi-tenant PostgreSQL setups where each database has its own owner.
