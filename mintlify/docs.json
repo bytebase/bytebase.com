@@ -339,6 +339,7 @@
       {
         "tab": "Changelog",
         "pages": [
+          "changelog/bytebase-3-10-1",
           "changelog/bytebase-3-10-0",
           "changelog/bytebase-3-9-2",
           "changelog/bytebase-3-9-1",

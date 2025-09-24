@@ -1,0 +1,35 @@
+---
+title: Bytebase 3.10.1 - Sep 24, 2025
+author: Adela
+updated_at: 2025/09/24 18:00:00
+description: 'Support key–value project labels'
+---
+
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
+### 🚀 New Features
+
+- Add project labels as key–value pairs, up to 64.
+
+### 🔔 Notable Changes
+
+- Environment Rollout Policy:
+  - The **Issue Creator** and **Last Issue Approver** roles are being sunset. They no longer appear in new environments, while existing environments remain unaffected. Full removal is scheduled for the **next release.**
+  - The **force rollout** mechanism will be replaced by configurable rollout conditions in the **next release**, providing more flexibility and stronger security.
+- Restrict **Disallow issue creation for SQL review with errors** option to project level only. (was applied to both project and workspace)
+- Remove settings pages in **Editor mode**.
+- **API** - Change database label filter syntax to `labels.region == "asia"` (was `label == "region:asia"`).
+- **API** - Deprecates the standalone `DisableCopyDataPolicy` and migrates its functionality to `QueryDataPolicy`.
+
+### 🎄 Enhancements
+
+- Improve Data Export issue page:
+  - Support updating targets before issue creation.
+  - Display tasks in a flat list instead of grouping by stages.
+- Add option to switch transaction mode in Plan.
+- MySQL - Add isolation level selection when transaction mode is on.
+- Postgres - Add role selection for executing SQL in Plan.
+- Support `instance_id` in risk condition.
+- Optimize advanced search with cached filters.
+
+<InstallUpgrade />
