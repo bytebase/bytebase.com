@@ -126,7 +126,7 @@ export const HEADER_MENU: Header[] = [
   },
   {
     title: 'Solutions',
-    breakpoint: 'md',
+    breakpoint: 'lg',
     menus: [
       {
         title: 'Use Case',
@@ -184,7 +184,7 @@ export const HEADER_MENU: Header[] = [
   { title: 'Pricing', href: Route.PRICING, breakpoint: 'md' },
   {
     title: 'Company',
-    breakpoint: 'lg',
+    breakpoint: 'md',
     menus: [
       {
         items: [
