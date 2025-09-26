@@ -5,7 +5,7 @@ updated_at: 2025/05/23 12:00
 feature_image: /content/blog/what-is-new-in-postgres-18/cover.webp
 tags: Industry
 featured: true
-description: 'Overview of PostgreSQL 18 features with spicy comments'
+description: "Overview of PostgreSQL 18 features with spicy comments from a DBA's perspective"
 ---
 
 <HintBlock type="info">
@@ -25,9 +25,7 @@ will constantly update this post to include the latest Postgres 18.x releases.
 - **PostgreSQL 18 Beta 2**: July 17, 2025
 - **PostgreSQL 18 Beta 3**: August 14, 2025
 - **PostgreSQL 18 RC 1**: September 4, 2025
-- **PostgreSQL 18 Official Release!**: September 25, 2025
-
-PostgreSQL just announced [18 beta 1](https://www.postgresql.org/about/news/postgresql-18-beta-1-released-3070/). While some features may still be dropped, it's worth taking a look.
+- **PostgreSQL 18 Official Release!**: September 25, 2025.
 
 ## Asynchronous I/O
 
@@ -98,3 +96,8 @@ The PostgreSQL 18 Beta 1 announcement highlights a significant improvement: the 
 Of course, with any major version, there are compatibility changes to be aware of. The release notes for version 18 list several, including changes to time zone abbreviation handling, the deprecation of MD5 password authentication (finally!), changes to how `VACUUM` and `ANALYZE` handle inheritance, and modifications to `COPY FROM` behavior regarding end-of-file markers. It's crucial to review these incompatibilities thoroughly before planning an upgrade.
 
 **DBA Note:** Anything to reduce that terrifying maintenance window during upgrade is welcome. But the list of "incompatibilities" is still there, waiting to trip up the unwary. Anyway, DBAs will still need to read the fine print, test exhaustively in staging, and have a solid rollback plan. Upgrades are still where DBAs earn their hazard pay.
+
+## Further Readings
+
+- [Postgres 18 full release notes](https://www.postgresql.org/docs/18/release-18.html)
+- [Developer's perspective about Postgres 18](/blog/what-is-new-in-postgres-18-for-developer)
