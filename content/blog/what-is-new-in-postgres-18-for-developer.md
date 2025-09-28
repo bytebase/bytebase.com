@@ -8,7 +8,7 @@ featured: true
 description: "Overview of PostgreSQL 18 features from a developer's perspective"
 ---
 
-PostgreSQL 18 was officially released on [September 25, 2025](https://www.postgresql.org/about/news/postgresql-18-released-3142/). No doubt the most consequential change is the new Asynchronous I/O subsystem. However, this post focuses on the features that will impact developers in their day-to-day work, starting with native UUID v7 support.
+PostgreSQL 18 was officially released on [September 25, 2025](https://www.postgresql.org/about/news/postgresql-18-released-3142/). No doubt the most consequential change is the new Asynchronous I/O (AIO) subsystem. However, this post focuses on the features that will impact developers in their day-to-day work, starting with native UUID v7 support.
 
 ## Native UUID v7 Support
 
@@ -151,7 +151,7 @@ PostgreSQL 18 introduces the `pg_get_acl()` function for programmatically retrie
 
 Previously, troubleshooting permissions required querying different system catalogs (`pg_class`, `pg_proc`, `pg_namespace`, `pg_attribute`) depending on the object type, each with their own ACL format.
 
-The `pg_get_acl()` function provides a unified interface for retrieving Access Control Lists from any database object, eliminating the need to remember which catalog to query for different object types.
+The `pg_get_acl()` function provides a unified interface for retrieving ACLs from any database object, eliminating the need to remember which catalog to query for different object types.
 
 ```sql
 postgres=# SELECT
@@ -173,7 +173,7 @@ identity | public.testtab
 acl      | {postgres=arwdDxtm/postgres,foo=r/postgres}
 ```
 
-While not as headline-grabbing as the new Asynchronous I/O subsystem, these quality-of-life improvements make day-to-day development easier—and clearer interfaces like `pg_get_acl()` benefit not only human developers, but AI agents as well.
+While not as headline-grabbing as the new AIO, these quality-of-life improvements make day-to-day development easier—and clearer interfaces like `pg_get_acl()` benefit not only human developers, but AI agents as well.
 
 ## Further Readings
 
