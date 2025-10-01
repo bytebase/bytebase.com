@@ -2,7 +2,7 @@
 title: 'SQL Table Naming Dilemma: Singular vs. Plural'
 author: Adela
 updated_at: 2025/10/01 18:00
-feature_image: /content/blog/sql-table-naming-dilemma-singlular-vs-plural/cover.webp
+feature_image: /content/blog/sql-table-naming-dilemma-singular-vs-plural/cover.webp
 tags: Explanation
 description: A comprehensive guide to understanding the dilemma of singular vs. plural table naming in SQL databases.
 ---
