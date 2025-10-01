@@ -30,7 +30,7 @@ Liquibase, Flyway, Sqitch are CLI based. On the other hand, Bytebase provides a 
 for DBAs and developers to collaborate on database changes.
 
 - [SQL linter](https://docs.bytebase.com/sql-review/overview/) to detect anti-patterns.
-  ![schema-review-table-drop-naming](/content/docs/sql-review/schema-review-table-drop-naming.webp)
+  ![schema-review-table-drop-naming](/content/blog/all-database-tools-bytebase-replaces/schema-review-table-drop-naming.webp)
 - [Streamline the change](https://docs.bytebase.com/change-database/batch-change/) across different environments and allow to batch change many databases consistently.
 - [GitOps integration](https://docs.bytebase.com/gitops/overview/) with mainstream VCSs to enable database-as-code workflow.
 - [Online schema migration for MySQL](https://docs.bytebase.com/change-database/online-schema-migration-for-mysql/) with gh-ost integration.
@@ -44,7 +44,7 @@ A typical database change workflow:
 1. DBA runs the change script offline.
 1. DBA updates the ticket status / notify the developer.
 
-![Issue detail interface](/content/docs/change-database/change-workflow/issue-detail.webp)
+![Issue detail interface](/content/blog/all-database-tools-bytebase-replaces/issue-detail.webp)
 
 Bytebase provides a single place to coordinate the database changes. The issue interface provides
 a holistic view of the database change status. Upon approval, changes are rolled out from Bytebase
