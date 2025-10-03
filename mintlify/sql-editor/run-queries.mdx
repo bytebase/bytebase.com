@@ -4,22 +4,19 @@ title: Query
 
 <Info>
 
-SQL Editor default mode is read-only, which only supports running SELECT queries. If you attempt
-to run DDL or DML change queries, SQL Editor will prompt you to create a new issue to start the
-[SQL change workflow](/change-database/change-workflow).
+By default, SQL Editor allows executing both read (SELECT) and write (DDL/DML) SQL statements.
 
-Workspace Admins and DBAs are allowed to execute any SQL statements in
-[Admin Mode](/sql-editor/admin-mode).
+You can restrict SQL Editor to read-only mode by configuring [Statement Execution Mode](/change-database/environment-policy/overview#statement-execution-mode). In read-only mode, if you attempt to run DDL or DML change queries, SQL Editor will prompt you to create a new issue to start the [SQL change workflow](/change-database/change-workflow).
 
-The read-only mode is not available for MongoDB, but you also can execute the statements in [Admin Mode](/sql-editor/admin-mode).
+Workspace Admins and DBAs can always execute any SQL statements in [Admin Mode](/sql-editor/admin-mode).
 
 </Info>
 
-## IntelliSense
+## Autocomplete
 
 ![autocomplete](/content/docs/sql-editor/autocomplete.webp)
 
-IntelliSense depends on WebSocket. If you access Bytebase via a gateway, you need to enable WebSocket there. Here is a NGINX configuration:
+Autocomplete depends on WebSocket. If you access Bytebase via a gateway, you need to enable WebSocket there. Here is a NGINX configuration:
 
 ```nginx
 
