@@ -4,7 +4,7 @@ author: Adela
 updated_at: 2025/10/03 18:00:00
 feature_image: /content/blog/open-source-postgres-connection-pooler/cover.webp
 tags: Industry
-description: List of open source postgres connection pooler
+description: List of open source postgres connection poolers
 ---
 
 Postgres is famously robust, but its connection model isn't. Each client connection maps to a dedicated backend process with non-trivial memory and CPU overhead. Spinning up and tearing down connections is expensive, and even "idle" sessions consume resources. Choosing a safe `max_connections` is more art than science: too low and your app queues; too high and the database wastes RAM and scheduler time.
