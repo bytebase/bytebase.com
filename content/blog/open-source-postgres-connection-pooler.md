@@ -79,10 +79,10 @@ Right-size `server_pool_size`, `max_client_conn`, and timeouts based on your wor
 
 | Project          | Headline strengths                           | Maturity       | Notes                                                                            |
 | ---------------- | -------------------------------------------- | -------------- | -------------------------------------------------------------------------------- |
-| **PgBouncer**    | Lightweight, ubiquitous, three pooling modes | Very mature    | Great default choice; wide community/packager support.           |
-| **cf-pgbouncer** | Multi-tenant isolation; auth fixes           | Mature fork    | Useful when you need stricter per-user/pool controls.  |
-| **Supavisor**    | Cloud-native scale; demonstrated ~1M clients | Young→maturing | Optimized for massive fan-out and provider use cases.           |
-| **PgDog**        | Pooler + load balancer + sharder (Rust)      | Emerging       | Ambitious all-in-one proxy with horizontal scale features. |
+| **PgBouncer**    | Lightweight, ubiquitous, three pooling modes | Very mature    | Great default choice; wide community/packager support.|
+| **cf-pgbouncer** | Multi-tenant isolation; auth fixes           | Mature fork    | Useful when you need stricter per-user/pool controls.|
+| **Supavisor**    | Cloud-native scale; demonstrated ~1M clients | Young→maturing | Optimized for massive fan-out and provider use cases.|
+| **PgDog**        | Pooler + load balancer + sharder (Rust)      | Emerging       | Ambitious all-in-one proxy with horizontal scale features.|
 
 ---
 
