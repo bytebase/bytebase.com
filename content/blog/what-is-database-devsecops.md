@@ -6,6 +6,7 @@ feature_image: /content/blog/what-is-database-devsecops/cover.webp
 tags: Explanation
 featured: true
 description: Database DevSecOps is the practice of integrating security throughout the entire database development lifecycle, much like how DevSecOps evolved from DevOps.
+keypage: true
 ---
 
 Last time we addressed [What is Database DevOps](/blog/what-is-database-devops/), today we are extending

@@ -5,6 +5,7 @@ updated_at: 2025/04/30 12:00:00
 feature_image: /content/blog/top-open-source-database-governance-tools/banner.webp
 tags: Industry
 description: Database governance tools help organizations manage database changes, enforce policies, and maintain data quality. This post explores the top open-source database governance tools available in 2025.
+keypage: true
 ---
 
 As organizations scale their database operations, the need for proper governance becomes critical. Database governance tools help teams manage database changes safely, enforce access control policies, track schema migrations, and maintain compliance.

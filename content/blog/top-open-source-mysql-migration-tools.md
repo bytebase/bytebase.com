@@ -6,6 +6,7 @@ feature_image: /content/blog/top-open-source-mysql-migration-tools/banner.webp
 tags: Industry
 featured: true
 description: What are the top open source MySQL schema migration tools.
+keypage: true
 ---
 
 MySQL is the most popular open-source relational database management system (RDBMS) for storing and managing structured data. MySQL table migration is always a PITA. As such, several database schema migration tools for MySQL have emerged, and they provide different capabilities and experience.

@@ -5,6 +5,7 @@ updated_at: 2025/09/02 11:00
 feature_image: /content/blog/postgres-schema-migration-without-downtime/banner.webp
 tags: Explanation
 description: Learn how Postgres locks affect schema migrations and which DDL operations conflict with DML to achieve zero-downtime deployments.
+keypage: true
 ---
 
 ## Understanding Postgres Locks

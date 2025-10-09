@@ -6,6 +6,7 @@ feature_image: /content/blog/top-postgres-schema-compare-tools/banner.webp
 tags: Industry
 featured: true
 description: Postgres schema compare tool is used to diff and synchronize schemas between Postgres databases. This article reviews the top 4 common tools in this category.
+keypage: true
 ---
 
 Database schema comparison tools are essential for PostgreSQL developers and DBAs who need to identify differences between database environments and synchronize them effectively. In this article, we'll examine the top tools for comparing and syncing Postgres schemas in 2025.

@@ -5,6 +5,7 @@ updated_at: 2023/05/19 18:00:00
 feature_image: /content/blog/how-to-handle-database-schema-change/change.webp
 tags: Explanation
 description: The common mistakes when making schema migrations and the best practice to avoid those pitfalls.
+keypage: true
 ---
 
 A series of articles about database migration / schema change:

@@ -5,6 +5,7 @@ updated_at: 2025/04/04 18:00
 feature_image: /content/blog/data-access-governance/cover.webp
 tags: Explanation
 description: "Data access governance is a critical component of any organization's security strategy. By implementing the right tools and policies, you can protect sensitive data, ensure regulatory compliance, and maintain a secure and productive work environment."
+keypage: true
 ---
 
 _80% of data breaches involve compromised credentials. What if access had been properly governed?_

@@ -4,7 +4,8 @@ author: Adela
 updated_at: 2025/10/07 18:00
 feature_image: /content/blog/mysql-online-ddl/cover.webp
 tags: Explanation
-description: "Introduction to MySQL Online DDL and its three algorithms: INSTANT, INPLACE, and COPY"
+description: 'Introduction to MySQL Online DDL and its three algorithms: INSTANT, INPLACE, and COPY'
+keypage: true
 ---
 
 Database schemas evolve constantly as applications grow and requirements change. Traditional schema modifications require downtime, disrupting user experience and causing revenue loss. MySQL's Online DDL solves this problem by allowing schema changes while the database remains operational.
@@ -27,19 +28,19 @@ MySQL uses three algorithms for schema changes, each with different performance 
 
 ## Operation Support Matrix
 
-| Operation | INSTANT | INPLACE | COPY |
-| :--- | :---: | :---: | :---: |
-| **Adding a Column** | ✅ * | ✅ | ✅ |
-| **Dropping a Column** | ✅ * | ✅ | ✅ |
-| **Renaming a Column** | ✅ * | ✅ | ✅ |
-| **Changing Data Type** | ❌ | ❌ | ✅ |
-| **Adding Secondary Index** | ❌ | ✅ | ✅ |
-| **Dropping Index** | ❌ | ✅ | ✅ |
-| **Adding Primary Key** | ❌ | ✅ * | ✅ |
-| **Dropping Primary Key** | ❌ | ❌ | ✅ |
-| **Adding Foreign Key** | ❌ | ✅ | ✅ |
+| Operation                  | INSTANT | INPLACE | COPY |
+| :------------------------- | :-----: | :-----: | :--: |
+| **Adding a Column**        |  ✅ \*  |   ✅    |  ✅  |
+| **Dropping a Column**      |  ✅ \*  |   ✅    |  ✅  |
+| **Renaming a Column**      |  ✅ \*  |   ✅    |  ✅  |
+| **Changing Data Type**     |   ❌    |   ❌    |  ✅  |
+| **Adding Secondary Index** |   ❌    |   ✅    |  ✅  |
+| **Dropping Index**         |   ❌    |   ✅    |  ✅  |
+| **Adding Primary Key**     |   ❌    |  ✅ \*  |  ✅  |
+| **Dropping Primary Key**   |   ❌    |   ❌    |  ✅  |
+| **Adding Foreign Key**     |   ❌    |   ✅    |  ✅  |
 
-*Conditions apply. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-online-ddl-operations.html) for details.*
+_Conditions apply. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-online-ddl-operations.html) for details._
 
 ## Key Limitations
 

@@ -5,6 +5,7 @@ updated_at: 2024/03/01 10:00:00
 feature_image: /content/blog/snowflake-ci-cd-devops/cover.webp
 tags: Explanation
 description: Describe the current feature gap of Snowflake CI/CD story and present a solution
+keypage: true
 ---
 
 Snowflake offers scalable compute and storage resources, with a SQL-based interface for data manipulation and analysis. However, when integrating Continuous Integration/Continuous Deployment (CI/CD) processes with Snowflake, especially in comparison to its querying capabilities in SnowSight, several shortcomings or challenges can be identified.

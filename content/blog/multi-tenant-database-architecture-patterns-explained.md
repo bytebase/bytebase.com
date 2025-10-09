@@ -6,6 +6,7 @@ feature_image: /content/blog/multi-tenant-database-architecture-patterns-explain
 tags: Explanation
 featured: true
 description: A deep dive into multi-tenant database architecture patterns, exploring pros and cons of shared vs. isolated models, and how to choose the right approach for your SaaS application.
+keypage: true
 ---
 
 We frequently hear from prospects about their schema migration challenges. One of the top pain points is managing schemas where they employ a single DB per tenant architecture.

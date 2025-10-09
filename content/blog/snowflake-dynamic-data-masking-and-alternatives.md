@@ -6,6 +6,7 @@ feature_image: /content/blog/snowflake-dynamic-data-masking-and-alternatives/cov
 featured: true
 tags: Comparison
 description: Explore Snowflake Dynamic Data Masking capabilities and compare with alternative data masking solutions
+keypage: true
 ---
 
 ## Snowflake Dynamic Data Masking

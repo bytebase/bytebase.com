@@ -5,6 +5,7 @@ updated_at: 2024/05/17 19:21:21
 feature_image: /content/blog/use-jira-for-database-change/banner.webp
 tags: Industry
 description: "When team wants to enforce a process for database change management. A quick approach is to reuse their existing ITSM system such as Jira. Let's review how a typical Jira workflow looks like and its inherent limitations."
+keypage: true
 ---
 
 As the engineering team grows and more database change operations are executed on a daily basis, we need to find a centralized way to coordinate and enforce the database change process. A quick approach is to rely on the existing in-house ITSM (IT service management) or a simple ticketing system. Among them, Jira is probably the most popular option.

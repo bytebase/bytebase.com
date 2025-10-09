@@ -6,6 +6,7 @@ feature_image: /content/blog/postgres-data-masking/banner.webp
 tags: Explanation
 featured: true
 description: Comparing PostgreSQL data masking solutions - PostgreSQL Anonymizer and Bytebase Dynamic Data Masking.
+keypage: true
 ---
 
 Data Masking is a widely employed approach to safeguarding sensitive data, like credit card details, Social Security Numbers (SSNs), and addresses. And sometimes, masking data is much more than just keeping your and your customers' data secure – in some cases it is required by law, the most famous example is GDPR.

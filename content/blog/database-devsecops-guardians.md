@@ -5,6 +5,7 @@ updated_at: 2024/11/14 21:00:00
 feature_image: /content/blog/database-devsecops-guardians/cover.webp
 tags: Industry
 description: In a mystical land where data flows like rivers, four heroes — a warrior, a cleric, a druid, and a paladin — unite to tame the Hydra of Database DevSecOps, a powerful three-headed dragon embodying Velocity, Security, and Reliability.
+keypage: true
 ---
 
 In a mythical land where data flows like rivers and knowledge towers reach the skies, an ominous beast roams the mountains — a fearsome, three-headed dragon known as the Hydra of **Database DevSecOps**.

@@ -6,6 +6,7 @@ feature_image: /content/blog/top-open-source-postgres-migration-tools/cover.webp
 tags: Industry
 featured: true
 description: What are the top open source Postgres schema migration tools.
+keypage: true
 ---
 
 <HintBlock type="info">

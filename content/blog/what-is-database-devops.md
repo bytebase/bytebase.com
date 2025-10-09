@@ -6,6 +6,7 @@ feature_image: /content/blog/what-is-database-devops/cover.webp
 tags: Explanation
 featured: true
 description: Database DevOps integrates DevOps practices into database management, automating processes like schema changes, testing, and deployment.
+keypage: true
 ---
 
 <HintBlock type="info">

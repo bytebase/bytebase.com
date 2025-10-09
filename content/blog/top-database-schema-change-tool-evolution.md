@@ -6,6 +6,7 @@ feature_image: /content/blog/top-database-schema-change-tool-evolution/banner.we
 tags: Industry
 featured: true
 description: Database schema migration have come a long way, from CLI to GUI, and all the way to GitOps/Database-as-Code. Let's review the state-of-the-art of database schema change / migration tools in 2025.
+keypage: true
 ---
 
 <HintBlock type="info">

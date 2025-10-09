@@ -6,6 +6,7 @@ feature_image: /content/blog/sql-review-tool-for-devs/dev-fighting-dba.webp
 tags: Industry
 featured: true
 description: Reviewing SQL can be somewhat tedious, yet is essential to keep your database fleet reliable. At Bytebase, we are building a developer-first SQL review tool to empower the DevOps system.
+keypage: true
 ---
 
 Treat SQL as code ("[Why](https://blog.devgenius.io/why-google-treats-sql-like-code-and-you-should-too-53f97925037e)?", you may ask), which means all the reasons why we review other codes need to apply to SQL scripts. They interact straight with databases, and databases are too important. No matter how database vendors promise their products are stable and robust, databases are still pretty fragile. Even if we disregard the accidental "DROP TABLE" fiasco, ordinary queries like "SELECT FROM" can also overwhelm a database and bring it down. Let’s face it: databases are delicate, yet very few users understand how to treat them properly - meaning we should discipline the users’ behavior to some degree.

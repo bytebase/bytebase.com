@@ -6,6 +6,7 @@ feature_image: /content/blog/top-mysql-schema-compare-tools/top-mysql-compare-to
 tags: Industry
 featured: true
 description: MySQL schema compare tool is used to diff and synchronize schemas between MySQL databases. This article reviews the top 4 common tools in this category.
+keypage: true
 ---
 
 Database schema compare tool enables you to identify differences in the object structure within relational databases, and synchronize your specific objects across multiple databases. It is usually used in the following scenarios:

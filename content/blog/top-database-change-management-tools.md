@@ -6,6 +6,7 @@ feature_image: /content/blog/top-database-change-management-tools/banner.webp
 tags: Industry
 featured: true
 description: Describe the top database change management solutions from basic manual processes to advanced, integrated solutions in 2025.
+keypage: true
 ---
 
 This is a series of articles about database change management (DCM):

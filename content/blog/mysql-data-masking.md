@@ -6,6 +6,7 @@ feature_image: /content/blog/mysql-data-masking/banner.webp
 tags: Explanation
 featured: true
 description: Compare MySQL data masking solutions. MySQL Enterprise Data Masking, Percona Data Masking Plugin and Bytebase Dynamic Data Masking.
+keypage: true
 ---
 
 Data Masking is a technique used to secure sensitive data such as credit card information, SSNs, addresses etc. for situations where the data is being shared or used for testing purposes.

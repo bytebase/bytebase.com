@@ -5,6 +5,7 @@ updated_at: 2023/07/11 18:00:00
 feature_image: /content/blog/snowflake-schema-change/snowflake-schema-change.webp
 tags: Explanation
 description: While Snowflake revolutionizes data management and analytics, effectively managing schema changes and tracking change history becomes increasingly crucial.
+keypage: true
 ---
 
 While [Snowflake](https://www.snowflake.com/) revolutionizes data management and analytics, effectively managing schema changes, CI/CD and tracking change history becomes increasingly crucial.

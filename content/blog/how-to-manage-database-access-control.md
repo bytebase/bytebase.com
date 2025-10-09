@@ -5,6 +5,7 @@ updated_at: 2022/11/24 17:21:21
 feature_image: /content/blog/how-to-manage-database-access-control/freedom-control.webp
 tags: Explanation
 description: Database access control can be a headache for DBAs and engineering teams. In this post, we explore database access control scenarios, and how Bytebase helps you to centralize database access control.
+keypage: true
 ---
 
 Database access control is a constant headache for DBAs and platform engineering teams. On the one hand, the ones overseeing the databases prefer centralized control; but on the other hand, the ones using the database would like database access anytime, anywhere.

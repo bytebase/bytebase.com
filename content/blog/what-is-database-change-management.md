@@ -6,6 +6,7 @@ feature_image: /content/blog/what-is-database-change-management/change-path.webp
 tags: Explanation
 featured: true
 description: What is Database Change Management (DCM), the challenges and solution.
+keypage: true
 ---
 
 This is a series of articles about database change management (DCM):

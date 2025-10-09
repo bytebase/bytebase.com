@@ -5,6 +5,7 @@ updated_at: 2024/12/24 09:00:00
 feature_image: /content/blog/top-devsecops-tool/cover.webp
 tags: Industry
 description: DevSecOps tools empower teams to seamlessly integrate security into every phase of the software development lifecycle, fostering the adoption of DevSecOps practices.
+keypage: true
 ---
 
 **DevSecOps** stands for Development, Security, and Operations. It extends the principles of DevOps by embedding security practices throughout the software development lifecycle (SDLC), from initial design to deployment and maintenance.
