@@ -34,7 +34,15 @@ const generateBlogReoMapping = () => {
     }
   });
 
-  return mapping;
+  // Sort the mapping alphabetically by keys before returning
+  const sortedMapping = Object.keys(mapping)
+    .sort()
+    .reduce((acc, key) => {
+      acc[key] = mapping[key];
+      return acc;
+    }, {});
+
+  return sortedMapping;
 };
 
 const mapping = generateBlogReoMapping();
