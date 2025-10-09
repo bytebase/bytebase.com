@@ -13,7 +13,7 @@ export default function getMetadata({
   pathname,
   imagePath = DEFAULT_IMAGE_PATH,
 }: Metadata) {
-  const SITE_URL = process.env.NEXT_PUBLIC_DEFAULT_SITE_URL;
+  const SITE_URL = process.env.NEXT_PUBLIC_DEFAULT_SITE_URL || 'https://www.bytebase.com';
   const canonicalUrl = SITE_URL + pathname;
   const imageUrl = imagePath.startsWith('http') ? imagePath : SITE_URL + imagePath;
   const siteName = 'Bytebase';
@@ -24,7 +24,7 @@ export default function getMetadata({
     alternates: {
       canonical: canonicalUrl,
     },
-    manifest: `${SITE_URL}/manifest.json`,
+    manifest: '/manifest.json',
     icons: {
       icon: '/favicon/favicon.png',
       apple: [
