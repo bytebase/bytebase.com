@@ -6,7 +6,6 @@ feature_image: /content/blog/hacktoberfest-2023/banner.webp
 tags: Announcement
 featured: true
 description: Join us at the 10th year of Hacktoberfest celebrating open-source!
-keypage: true
 ---
 
 It's almost October, which means Hacktoberfest is upon us! This year we are celebrating the 10th year of Hacktoberfest and Bytebase is joining the festivities once again.
