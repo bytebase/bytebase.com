@@ -9,27 +9,52 @@ title: Rollout Permissions
   horizontal
 />
 
-Configure who can deploy database changes in your environment through rollout permissions. You can choose between role-based deployment by authorized users or automatic deployment when all checks pass.
+Configure who can deploy database changes and what conditions must be met before rollout can proceed in each environment.
 
 ## Role-based rollout
 
 ### Default roles with permissions
 
 Users with the `bb.taskRuns.create` permission can perform rollouts. The following roles have this permission by default:
+
 - Workspace Admin
-- Workspace DBA 
+- Workspace DBA
 - Project Releaser
 
 ### Environment-specific roles
 
 If you want to use different roles to perform rollouts in different environments, you can specify environment-specific roles in the Environment policy settings. This allows you to control who can deploy changes to specific environments, such as having different teams responsible for staging versus production deployments.
 
+## Configurable rollout requirements
+
+Configure what conditions must be met before changes can be rolled out in each environment:
+
+### Require issue approval
+
+Ensures all changes are reviewed and approved before deployment to production environments. When enabled, issues must receive approval before rollout can proceed.
+
+**Default**: Enabled
+
+### Plan check enforcement
+
+Controls how rollout behaves based on plan check results, including SQL Review policy violations and other validations:
+
+- **Block on errors only** (default): Rollout is blocked if checks return errors, but warnings still allow rollout
+- **Block on errors and warnings**: Rollout is blocked if checks return either errors or warnings
+- **Allow rollout regardless**: Rollout can proceed even if checks return errors or warnings
+
+**Default**: Block on errors only
+
+<Note>
+Plan checks include [SQL Review policy](/sql-review/review-policy) violations and other automated validations configured for your environment.
+</Note>
 
 ## Automatic rollout
 
-Enable automatic deployment when all checks pass by selecting the `automatic` option. Failed checks will block automatic rollout:
+Enable automatic deployment when all checks pass by selecting the `automatic` option. This will automatically deploy changes when:
 
-- [SQL Review policy](/sql-review/review-policy) violations
+- All required approvals are obtained (if "Require Issue Approval" is enabled)
+- Plan checks pass according to the configured enforcement level
 
 <Note>
 Do not enable automatic rollout for GitOps Workflow as it can cause conflicts that result in failures.

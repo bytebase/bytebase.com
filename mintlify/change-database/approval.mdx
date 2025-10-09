@@ -77,4 +77,7 @@ Navigate to **Settings > Custom Approval > Rules**
 In your project settings, consider:
 
 - **Self-approval**: By default, users cannot approve their own changes. [Enable self-approval](/change-database/settings#self-approval) only if your process allows it
-- **Rollout Policy**: Define whether approved changes deploy automatically or require manual trigger via [rollout policy](/change-database/environment-policy/rollout-policy/)
+- **Rollout Policy**: Configure rollout requirements and permissions via [rollout policy](/change-database/environment-policy/rollout-policy/), including:
+  - Whether issue approval is required before rollout
+  - How plan checks should be enforced (block on errors only, errors and warnings, or allow rollout regardless)
+  - Whether changes deploy automatically or require manual trigger
