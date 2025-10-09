@@ -108,8 +108,13 @@ const detectSpamSubmission = (values: ValueType): boolean => {
 
   // Medium confidence indicators (2 points each)
   const freeEmailDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com', 'icloud.com', 't-online.de'];
-  const emailDomain = email.toLowerCase().split('@')[1];
-  if (freeEmailDomains.includes(emailDomain)) spamScore += 2;
+  const emailDomain = email.toLowerCase().split('@')[1] || '';
+  if (!emailDomain) {
+    // Invalid email format (missing domain) - likely spam
+    spamScore += 2;
+  } else if (freeEmailDomains.includes(emailDomain)) {
+    spamScore += 2;
+  }
 
   // Low confidence indicators (1 point each)
   const messageWords = (message || '').trim().split(/\s+/).filter(word => word.length > 0);
@@ -194,7 +199,7 @@ const ContactForm = ({
 
       // Feishu: fire-and-forget, ignore failures
       feishuWebhookList.forEach((url) => {
-        fetchWithRetry(url, {
+        void fetchWithRetry(url, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -211,17 +216,14 @@ const ContactForm = ({
         });
       });
 
-      // Wait for Slack to complete
-      const slackResult = await slackPromise;
+      // Wait for Slack to complete (throws on failure after retries)
+      try {
+        const slackResult = await slackPromise;
+        if (!slackResult.ok) {
+          throw new Error('Slack webhook failed');
+        }
 
-      // Check if Slack succeeded (Feishu failures are ignored)
-      if (!slackResult.ok) {
-        setButtonState(STATES.ERROR);
-        setTimeout(() => {
-          setButtonState(STATES.DEFAULT);
-        }, BUTTON_SUCCESS_TIMEOUT_MS);
-        setFormError('Something went wrong. Please try again later.');
-      } else {
+        // Success - redirect user
         if (formId == VIEW_LIVE_DEMO) {
           window.open(Route.LIVE_DEMO, '_blank');
         }
@@ -232,6 +234,13 @@ const ContactForm = ({
           setButtonState(STATES.DEFAULT);
           reset();
         }, BUTTON_SUCCESS_TIMEOUT_MS);
+      } catch (slackError) {
+        // Slack failed after retries - show error
+        setButtonState(STATES.ERROR);
+        setTimeout(() => {
+          setButtonState(STATES.DEFAULT);
+        }, BUTTON_SUCCESS_TIMEOUT_MS);
+        setFormError('Something went wrong. Please try again later.');
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
