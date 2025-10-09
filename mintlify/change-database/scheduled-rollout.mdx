@@ -33,7 +33,11 @@ This separation of concerns ensures that developers focus on creating quality mi
 
 ![rollout-schedule](/content/docs/change-database/scheduled-rollout/bb-rollout.webp)
 
-If there are any warnings or errors, as long as you check **Rollout anyway**, you can still schedule the time.
+If there are any warnings or errors, your ability to proceed depends on the [Plan Check Enforcement](/change-database/environment-policy/rollout-policy#plan-check-enforcement) settings configured for the environment:
+
+- **Block on errors only**: You can proceed if there are only warnings
+- **Block on errors and warnings**: You must resolve all errors and warnings before scheduling
+- **Allow rollout regardless**: You can proceed even with errors or warnings
 
 ![rollout-schedule-anyway](/content/docs/change-database/scheduled-rollout/bb-rollout-anyway.webp)
 
