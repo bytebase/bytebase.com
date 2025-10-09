@@ -78,12 +78,6 @@ const socialLinks = [
 ];
 
 const Footer = () => {
-  const registration = () => {
-    return process.env.NEXT_PUBLIC_DEFAULT_SITE_URL?.includes('bytebase.cc')
-      ? '沪ICP备2024059253号'
-      : '';
-  };
-
   return (
     <footer className="safe-paddings container relative z-10 shrink-0 pb-10 pt-24 lg:pt-16 md:pt-14 xs:pt-12">
       <div className="grid grid-cols-10 gap-x-10 xl:gap-x-9 lg:gap-x-6 md:gap-x-7 sm:grid sm:grid-cols-4 sm:gap-x-4 sm:gap-y-14">
@@ -151,7 +145,7 @@ const Footer = () => {
         </div>
         <div className="col-span-3 flex items-center justify-end xl:col-span-3 lg:col-span-3 md:col-span-full md:justify-start xs:flex-wrap">
           <p className="whitespace-nowrap text-14 font-medium leading-none tracking-tight text-gray-60">
-            © {new Date().getFullYear()} Bytebase. All Rights Reserved. {registration()}
+            © {new Date().getFullYear()} Bytebase. All Rights Reserved.
           </p>
         </div>
       </div>
