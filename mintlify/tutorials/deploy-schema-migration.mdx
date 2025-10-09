@@ -14,14 +14,12 @@ import PreparationWithSampleData from '/snippets/tutorials/preparation-with-samp
 
 Bytebase provides a powerful GUI for deploying schema migrations. This tutorial walks you through deploying schema changes with features such as SQL Review, rollout policies, custom approval, time scheduling, and more.
 
-![4-steps-graph](/content/docs/tutorials/deploy-schema-migration/4-steps-graph.webp)
-
 Bytebase offers **Community**, **Pro**, and **Enterprise** [plans](https://www.bytebase.com/pricing). Higher plans unlock additional deployment capabilities. We will explore them progressively.
 
 ### Features covered
 
 - Level 1 – [Automatic rollout (Rollout Policy)](/change-database/environment-policy/rollout-policy/) (available in all plans)
-- Level 2 – [SQL Review](/sql-review/review-policy/) (available in all plans)
+- Level 2 – Manual rollout with [SQL Review](/sql-review/review-policy/) (available in all plans)
 - Level 3 – [Custom Approval](/change-database/approval/) (available in Enterprise)
 
 ### Preparation
@@ -30,9 +28,7 @@ Bytebase offers **Community**, **Pro**, and **Enterprise** [plans](https://www.b
 
 ### Level 1: Automatic rollout in the Test environment (All plans)
 
-1. In Workspace, go to **Environments** > **Test**, and set the rollout policy to `Automatic`.
-
-   ![env-test-auto](/content/docs/tutorials/deploy-schema-migration/bb-env-test-auto.webp)
+1. In Workspace, go to **Environments** > **Test**, and check `Automatic` under the **Rollout policy**.
 
 1. From the top-left project switcher, select `Sample Project`. Under the **CI/CD** section, click **Plans**, then **+ New Plan**. Choose `Schema Migration (DDL)` and select the `hr_test` database.
 
@@ -53,11 +49,11 @@ Bytebase offers **Community**, **Pro**, and **Enterprise** [plans](https://www.b
 
 ### Level 2: Manual rollout with SQL Review (All plans)
 
-1. In Workspace, go to **Environments** > **Prod**. Leave the rollout policy as the default `Manual`. We'll add an SQL Review policy to the `Prod` environment.
+1. In Workspace, go to **Environments** > **Prod**. Leave the `Automatic` unchecked under the **Rollout policy**. Keep the default Setting without changing, it's `Require Issue Approval` and `Plan Check Enforcement`>`Block on Errors Only`.
 
-   ![env-prod-sql-review](/content/docs/tutorials/deploy-schema-migration/bb-env-prod-sql-review.webp)
+   ![rollout-policy-manual-default](/content/docs/tutorials/deploy-schema-migration/bb-rollout-policy-manual-default.webp)
 
-1. Click **SQL Review Policy** to open **SQL Review** under the **Environment > Prod**. Select the `Sample Template`, which has 20 enabled rules.
+1. We'll add an SQL Review policy to the `Prod` environment. Click **SQL Review Policy** to open **SQL Review** under the **Environment > Prod**. Select the `Sample Template`, which has 20 enabled rules.
 
    ![sql-review-sample](/content/docs/tutorials/deploy-schema-migration/bb-sql-review-sample.webp)
 
@@ -81,17 +77,22 @@ Bytebase offers **Community**, **Pro**, and **Enterprise** [plans](https://www.b
 
    ![plan-to-review-warning-detail](/content/docs/tutorials/deploy-schema-migration/bb-plan-to-review-warning-detail.webp)
 
-1. Fix the SQL by adding the `NOT NULL` constraint. Click **Save** to update the plan. SQL Review runs again and should pass. Click **Ready for Review**, then **Confirm** to submit the plan for approval.
+1. Go to the **Rollout** tab, click **Run**. You will see a warning that the SQL Review is not passed. However, you can bypass the SQL Review by checking **Bypass** to continue rollout.
+
+   ![rollout-prod-to-run](/content/docs/tutorials/deploy-schema-migration/bb-rollout-prod-to-run.webp)
+
+   ![run-warning](/content/docs/tutorials/deploy-schema-migration/bb-run-warning.webp)
+
+1. Go back to the `Prod` environment, and set `Plan Check Enforcement` > `Strict Enforcement` under the **Rollout Policy**, then come back to the plan and refresh, you will see this time you can't bypass the SQL Review.
+
+   ![run-error](/content/docs/tutorials/deploy-schema-migration/bb-run-error.webp)
+
+1. Fix the SQL by adding the `NOT NULL` constraint. Click **Save** to update the plan. SQL Review runs again and should pass. Click **Ready for Review** to submit the plan for approval. Cuz here we don't have approval flow configured, so the plan will be approved automatically.
 
    ![plan-to-review-pass](/content/docs/tutorials/deploy-schema-migration/bb-plan-to-review-pass.webp)
 
-1. The rollout is now ready to execute manually.
+1. The rollout is now ready, click **Run** again, this time you will see the SQL Review is passed.
 
-   ![plan-prod-to-rollout](/content/docs/tutorials/deploy-schema-migration/bb-plan-prod-to-rollout.webp)
-
-1. Click **Rollout**, then click **Run**.
-
-   ![rollout-prod-to-run](/content/docs/tutorials/deploy-schema-migration/bb-rollout-prod-to-run.webp)
    ![rollout-prod-to-run-detail](/content/docs/tutorials/deploy-schema-migration/bb-rollout-prod-to-run-detail.webp)
 
 1. After the rollout completes, the issue is marked as `Done`.
