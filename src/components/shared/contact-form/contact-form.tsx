@@ -55,6 +55,49 @@ const getButtonTitle = (formId: string) => {
   }
 };
 
+// Detects spam-like patterns in text (random mixed-case strings)
+const isLikelySpam = (text: string): boolean => {
+  if (!text) return false;
+
+  // Count uppercase letters that appear after lowercase letters (not at word boundaries)
+  const mixedCaseTransitions = (text.match(/[a-z][A-Z]/g) || []).length;
+
+  // Spam pattern: 3+ mixed case transitions in a single field
+  // Examples: kLfvrCxSDewcS, xKyCpzFjUCOipFFB, TsPoonGZcPwAv
+  // Legitimate: Christopher, Gambino, McDonald (0-1 transitions)
+  return mixedCaseTransitions >= 3;
+};
+
+const detectSpamSubmission = (values: ValueType): boolean => {
+  const { firstname, lastname, company, email, message } = values;
+
+  let spamScore = 0;
+
+  // High confidence spam indicators (3 points each)
+  if (isLikelySpam(firstname)) spamScore += 3;
+  if (isLikelySpam(lastname)) spamScore += 3;
+  if (isLikelySpam(company)) spamScore += 3;
+  if (company.trim().length <= 2) spamScore += 3;
+
+  // Medium confidence indicators (2 points each)
+  const freeEmailDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com', 'icloud.com', 't-online.de'];
+  const emailDomain = email.toLowerCase().split('@')[1];
+  if (freeEmailDomains.includes(emailDomain)) spamScore += 2;
+
+  // Low confidence indicators (1 point each)
+  const messageWords = (message || '').trim().split(/\s+/).filter(word => word.length > 0);
+  if (messageWords.length < 5) spamScore += 1;
+
+  // Flag as spam if score >= 5
+  // Examples:
+  // - Random case name (3) + free email (2) = spam
+  // - Random case name (3) + short company (3) = spam
+  // - Free email (2) + short message (1) + short company (3) = spam
+  // - Free email (2) + short company (3) = not spam (legitimate small companies)
+  // - Free email (2) + short message (1) = not spam
+  return spamScore >= 5;
+};
+
 const ContactForm = ({
   className,
   formId,
@@ -81,6 +124,9 @@ const ContactForm = ({
 
     setButtonState(STATES.LOADING);
     setFormError('');
+
+    const isSpam = detectSpamSubmission(values);
+    const spamPrefix = isSpam ? '[POTENTIAL SPAM] ' : '';
 
     try {
       if (
@@ -113,7 +159,7 @@ const ContactForm = ({
             body: JSON.stringify({
               msg_type: 'text',
               content: {
-                text: `${formId} by ${firstname} ${lastname} (${email}) from ${company}\n\n${message}`,
+                text: `${spamPrefix}${formId} by ${firstname} ${lastname} (${email}) from ${company}\n\n${message}`,
               },
             }),
           }),
@@ -130,6 +176,7 @@ const ContactForm = ({
             email,
             company,
             message,
+            isSpam,
           }),
         }),
       ]);
