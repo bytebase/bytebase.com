@@ -55,6 +55,81 @@ const getButtonTitle = (formId: string) => {
   }
 };
 
+// Detects spam-like patterns in text (random mixed-case strings)
+const isLikelySpam = (text: string): boolean => {
+  if (!text) return false;
+
+  // Count uppercase letters that appear after lowercase letters (not at word boundaries)
+  const mixedCaseTransitions = (text.match(/[a-z][A-Z]/g) || []).length;
+
+  // Spam pattern: 3+ mixed case transitions in a single field
+  // Examples: kLfvrCxSDewcS, xKyCpzFjUCOipFFB, TsPoonGZcPwAv
+  // Legitimate: Christopher, Gambino, McDonald (0-1 transitions)
+  return mixedCaseTransitions >= 3;
+};
+
+// Retry a fetch request up to 3 times with exponential backoff
+const fetchWithRetry = async (url: string, options: RequestInit): Promise<Response> => {
+  const maxRetries = 3;
+  let lastError: Error | null = null;
+
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    try {
+      const response = await fetch(url, options);
+      if (response.ok) {
+        return response;
+      }
+      // If not ok, treat as retriable error
+      lastError = new Error(`HTTP ${response.status}: ${response.statusText}`);
+    } catch (error) {
+      lastError = error as Error;
+    }
+
+    // Wait before retrying (exponential backoff: 500ms, 1000ms, 2000ms)
+    if (attempt < maxRetries - 1) {
+      await new Promise((resolve) => setTimeout(resolve, 500 * Math.pow(2, attempt)));
+    }
+  }
+
+  // All retries failed, throw the last error
+  throw lastError || new Error('Request failed');
+};
+
+const detectSpamSubmission = (values: ValueType): boolean => {
+  const { firstname, lastname, company, email, message } = values;
+
+  let spamScore = 0;
+
+  // High confidence spam indicators (3 points each)
+  if (isLikelySpam(firstname)) spamScore += 3;
+  if (isLikelySpam(lastname)) spamScore += 3;
+  if (isLikelySpam(company)) spamScore += 3;
+  if (company.trim().length <= 2) spamScore += 3;
+
+  // Medium confidence indicators (2 points each)
+  const freeEmailDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com', 'icloud.com', 't-online.de'];
+  const emailDomain = email.toLowerCase().split('@')[1] || '';
+  if (!emailDomain) {
+    // Invalid email format (missing domain) - likely spam
+    spamScore += 2;
+  } else if (freeEmailDomains.includes(emailDomain)) {
+    spamScore += 2;
+  }
+
+  // Low confidence indicators (1 point each)
+  const messageWords = (message || '').trim().split(/\s+/).filter(word => word.length > 0);
+  if (messageWords.length < 5) spamScore += 1;
+
+  // Flag as spam if score >= 5
+  // Examples:
+  // - Random case name (3) + free email (2) = spam
+  // - Random case name (3) + short company (3) = spam
+  // - Free email (2) + short message (1) + short company (3) = spam
+  // - Free email (2) + short company (3) = not spam (legitimate small companies)
+  // - Free email (2) + short message (1) = not spam
+  return spamScore >= 5;
+};
+
 const ContactForm = ({
   className,
   formId,
@@ -82,6 +157,9 @@ const ContactForm = ({
     setButtonState(STATES.LOADING);
     setFormError('');
 
+    const isSpam = detectSpamSubmission(values);
+    const spamPrefix = isSpam ? '[POTENTIAL SPAM] ' : '';
+
     try {
       if (
         formId == VIEW_LIVE_DEMO ||
@@ -102,39 +180,50 @@ const ContactForm = ({
         });
       }
 
-      const responses = await Promise.all([
-        ...feishuWebhookList.map((url) =>
-          fetch(url, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Accept: 'application/json, text/plain, */*',
-            },
-            body: JSON.stringify({
-              msg_type: 'text',
-              content: {
-                text: `${formId} by ${firstname} ${lastname} (${email}) from ${company}\n\n${message}`,
-              },
-            }),
-          }),
-        ),
-        fetch('/api/slack', {
+      // Send to Feishu (fire-and-forget) and Slack (must succeed) in parallel with retries
+      const slackPromise = fetchWithRetry('/api/slack', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formId,
+          firstname,
+          lastname,
+          email,
+          company,
+          message,
+          isSpam,
+        }),
+      });
+
+      // Feishu: fire-and-forget, ignore failures
+      feishuWebhookList.forEach((url) => {
+        void fetchWithRetry(url, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            Accept: 'application/json, text/plain, */*',
           },
           body: JSON.stringify({
-            formId,
-            firstname,
-            lastname,
-            email,
-            company,
-            message,
+            msg_type: 'text',
+            content: {
+              text: `${spamPrefix}${formId} by ${firstname} ${lastname} (${email}) from ${company}\n\n${message}`,
+            },
           }),
-        }),
-      ]);
+        }).catch(() => {
+          // Ignore Feishu failures
+        });
+      });
 
-      if (responses.every((response) => response.ok)) {
+      // Wait for Slack to complete (throws on failure after retries)
+      try {
+        const slackResult = await slackPromise;
+        if (!slackResult.ok) {
+          throw new Error('Slack webhook failed');
+        }
+
+        // Success - redirect user
         if (formId == VIEW_LIVE_DEMO) {
           window.open(Route.LIVE_DEMO, '_blank');
         }
@@ -145,7 +234,8 @@ const ContactForm = ({
           setButtonState(STATES.DEFAULT);
           reset();
         }, BUTTON_SUCCESS_TIMEOUT_MS);
-      } else {
+      } catch (slackError) {
+        // Slack failed after retries - show error
         setButtonState(STATES.ERROR);
         setTimeout(() => {
           setButtonState(STATES.DEFAULT);
