@@ -25,17 +25,17 @@ Users with the `bb.taskRuns.create` permission can perform rollouts. The followi
 
 If you want to use different roles to perform rollouts in different environments, you can specify environment-specific roles in the Environment policy settings. This allows you to control who can deploy changes to specific environments, such as having different teams responsible for staging versus production deployments.
 
-## Configurable Rollout Requirements
+## Configurable rollout requirements
 
 Configure what conditions must be met before changes can be rolled out in each environment:
 
-### Require Issue Approval
+### Require issue approval
 
 Ensures all changes are reviewed and approved before deployment to production environments. When enabled, issues must receive approval before rollout can proceed.
 
 **Default**: Enabled
 
-### Plan Check Enforcement
+### Plan check enforcement
 
 Controls how rollout behaves based on plan check results, including SQL Review policy violations and other validations:
 
@@ -49,7 +49,7 @@ Controls how rollout behaves based on plan check results, including SQL Review p
 Plan checks include [SQL Review policy](/sql-review/review-policy) violations and other automated validations configured for your environment.
 </Note>
 
-## Automatic Rollout
+## Automatic rollout
 
 Enable automatic deployment when all checks pass by selecting the `automatic` option. This will automatically deploy changes when:
 
