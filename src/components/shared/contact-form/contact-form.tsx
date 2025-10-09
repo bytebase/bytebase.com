@@ -68,6 +68,33 @@ const isLikelySpam = (text: string): boolean => {
   return mixedCaseTransitions >= 3;
 };
 
+// Retry a fetch request up to 3 times with exponential backoff
+const fetchWithRetry = async (url: string, options: RequestInit): Promise<Response> => {
+  const maxRetries = 3;
+  let lastError: Error | null = null;
+
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    try {
+      const response = await fetch(url, options);
+      if (response.ok) {
+        return response;
+      }
+      // If not ok, treat as retriable error
+      lastError = new Error(`HTTP ${response.status}: ${response.statusText}`);
+    } catch (error) {
+      lastError = error as Error;
+    }
+
+    // Wait before retrying (exponential backoff: 500ms, 1000ms, 2000ms)
+    if (attempt < maxRetries - 1) {
+      await new Promise((resolve) => setTimeout(resolve, 500 * Math.pow(2, attempt)));
+    }
+  }
+
+  // All retries failed, throw the last error
+  throw lastError || new Error('Request failed');
+};
+
 const detectSpamSubmission = (values: ValueType): boolean => {
   const { firstname, lastname, company, email, message } = values;
 
@@ -148,40 +175,53 @@ const ContactForm = ({
         });
       }
 
-      const responses = await Promise.all([
-        ...feishuWebhookList.map((url) =>
-          fetch(url, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Accept: 'application/json, text/plain, */*',
-            },
-            body: JSON.stringify({
-              msg_type: 'text',
-              content: {
-                text: `${spamPrefix}${formId} by ${firstname} ${lastname} (${email}) from ${company}\n\n${message}`,
-              },
-            }),
-          }),
-        ),
-        fetch('/api/slack', {
+      // Send to Feishu (fire-and-forget) and Slack (must succeed) in parallel with retries
+      const slackPromise = fetchWithRetry('/api/slack', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formId,
+          firstname,
+          lastname,
+          email,
+          company,
+          message,
+          isSpam,
+        }),
+      });
+
+      // Feishu: fire-and-forget, ignore failures
+      feishuWebhookList.forEach((url) => {
+        fetchWithRetry(url, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            Accept: 'application/json, text/plain, */*',
           },
           body: JSON.stringify({
-            formId,
-            firstname,
-            lastname,
-            email,
-            company,
-            message,
-            isSpam,
+            msg_type: 'text',
+            content: {
+              text: `${spamPrefix}${formId} by ${firstname} ${lastname} (${email}) from ${company}\n\n${message}`,
+            },
           }),
-        }),
-      ]);
+        }).catch(() => {
+          // Ignore Feishu failures
+        });
+      });
 
-      if (responses.every((response) => response.ok)) {
+      // Wait for Slack to complete
+      const slackResult = await slackPromise;
+
+      // Check if Slack succeeded (Feishu failures are ignored)
+      if (!slackResult.ok) {
+        setButtonState(STATES.ERROR);
+        setTimeout(() => {
+          setButtonState(STATES.DEFAULT);
+        }, BUTTON_SUCCESS_TIMEOUT_MS);
+        setFormError('Something went wrong. Please try again later.');
+      } else {
         if (formId == VIEW_LIVE_DEMO) {
           window.open(Route.LIVE_DEMO, '_blank');
         }
@@ -192,12 +232,6 @@ const ContactForm = ({
           setButtonState(STATES.DEFAULT);
           reset();
         }, BUTTON_SUCCESS_TIMEOUT_MS);
-      } else {
-        setButtonState(STATES.ERROR);
-        setTimeout(() => {
-          setButtonState(STATES.DEFAULT);
-        }, BUTTON_SUCCESS_TIMEOUT_MS);
-        setFormError('Something went wrong. Please try again later.');
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
