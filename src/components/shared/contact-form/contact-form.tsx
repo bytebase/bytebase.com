@@ -59,13 +59,37 @@ const getButtonTitle = (formId: string) => {
 const isLikelySpam = (text: string): boolean => {
   if (!text) return false;
 
-  // Count uppercase letters that appear after lowercase letters (not at word boundaries)
-  const mixedCaseTransitions = (text.match(/[a-z][A-Z]/g) || []).length;
+  const letters = text.replace(/[^a-zA-Z]/g, '');
+  if (letters.length === 0) return false;
 
-  // Spam pattern: 3+ mixed case transitions in a single field
-  // Examples: kLfvrCxSDewcS, xKyCpzFjUCOipFFB, TsPoonGZcPwAv
-  // Legitimate: Christopher, Gambino, McDonald (0-1 transitions)
-  return mixedCaseTransitions >= 3;
+  // Allow all uppercase (like "IBM", "NASA", "JOHN SMITH")
+  if (letters === letters.toUpperCase()) return false;
+
+  // Allow all lowercase (like "john smith")
+  if (letters === letters.toLowerCase()) return false;
+
+  // Count ANY case transitions (uppercase to lowercase OR lowercase to uppercase)
+  const lowToHigh = (text.match(/[a-z][A-Z]/g) || []).length;
+  const highToLow = (text.match(/[A-Z][a-z]/g) || []).length;
+  const totalTransitions = lowToHigh + highToLow;
+
+  // Count uppercase letters
+  const uppercaseCount = (letters.match(/[A-Z]/g) || []).length;
+  const uppercaseRatio = uppercaseCount / letters.length;
+
+  // Spam pattern 1: 4+ total case transitions
+  // Examples: CuxFbsjOMshzd (6), lxBMWgpkbCX (4), wUwqIVjOmhQbJi (10)
+  // Legitimate: Christopher (2), McDonald (2), iPhone (2), MacBook (2)
+  if (totalTransitions >= 4) return true;
+
+  // Spam pattern 2: Uppercase ratio in suspicious range (30-95%)
+  // Too random to be legitimate mixed case (which is typically <30%)
+  // Not all caps (which would be 100%)
+  // Examples: lxBMWgpkbCX (42%), cVBaaQcPphWeXH (64%), CuxFbsjOMshzd (38%)
+  // Legitimate: McDonald (25%), iPhone (33% but only 2 transitions), John (25%)
+  if (uppercaseRatio > 0.3 && uppercaseRatio < 0.95) return true;
+
+  return false;
 };
 
 // Retry a fetch request up to 3 times with exponential backoff
@@ -158,7 +182,7 @@ const ContactForm = ({
     setFormError('');
 
     const isSpam = detectSpamSubmission(values);
-    const spamPrefix = isSpam ? '[POTENTIAL SPAM] ' : '';
+    const spamPrefix = isSpam ? '🙄 ' : '';
 
     try {
       if (

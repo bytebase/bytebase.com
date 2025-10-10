@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { formId, firstname, lastname, email, company, message, isSpam } = body;
 
-    const spamPrefix = isSpam ? '[POTENTIAL SPAM] ' : '';
+    const spamPrefix = isSpam ? '🙄 ' : '';
 
     const responses = await Promise.all(
       slackWebhookList.map((webhookUrl) =>
