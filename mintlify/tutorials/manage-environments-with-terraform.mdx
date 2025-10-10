@@ -156,10 +156,10 @@ You'll see the existing `test` and `prod` environments.
 
 ## Step 4 - Define the Environment Configuration
 
-|                       |                                                                                                                        |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Terraform resource    | [bytebase_setting](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/setting)           |
-| Sample file           | [1-1-env-setting.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/1-1-env-setting.tf)   |
+|                    |                                                                                                                      |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource | [bytebase_setting](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/setting)          |
+| Sample file        | [1-1-env-setting.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/1-1-env-setting.tf) |
 
 Create `1-1-env-setting.tf`:
 
@@ -193,15 +193,20 @@ Let's add rollout and data protection policies, for more details, see: [Environm
 
 ### Rollout Policy
 
-|                       |                                                                                                                        |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Terraform resource    | [bytebase_policy](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/policy)             |
-| Sample file           | [1-2-env-policy-rollout.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/1-2-env-policy-rollout.tf) |
+|                    |                                                                                                                                    |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource | [bytebase_policy](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/policy)                          |
+| Sample file        | [1-2-env-policy-rollout.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/1-2-env-policy-rollout.tf) |
 
-Create `1-2-env-policy-rollout.tf`:
+When no rollout policy is found for an environment, Bytebase applies a default rollout policy with the following checkers:
+
+- **Required Issue Approval**: Changes must be approved before deployment
+- **Plan Check Enforcement**: SQL plan checks must pass (errors only)
+
+You can explicitly configure these policies using Terraform. Create `1-2-env-policy-rollout.tf`:
 
 ```hcl 1-2-env-policy-rollout.tf
-# Test environment - automatic deployment
+# Test environment - automatic deployment with default checkers
 resource "bytebase_policy" "rollout_policy_test" {
    depends_on = [bytebase_setting.environments]
    parent     = bytebase_setting.environments.environment_setting[0].environment[0].name
@@ -215,10 +220,18 @@ resource "bytebase_policy" "rollout_policy_test" {
          "roles/LAST_APPROVER",
          "roles/CREATOR"
       ]
+
+      # Default checkers (explicitly configured)
+      checkers {
+         required_issue_approval = true
+         required_status_checks {
+            plan_check_enforcement = "ERROR_ONLY"  # Block on errors only
+         }
+      }
    }
 }
 
-# Production - manual deployment required
+# Production - manual deployment with stricter checks
 resource "bytebase_policy" "rollout_policy_prod" {
    depends_on = [bytebase_setting.environments]
    parent     = bytebase_setting.environments.environment_setting[0].environment[1].name
@@ -232,18 +245,34 @@ resource "bytebase_policy" "rollout_policy_prod" {
          "roles/LAST_APPROVER",
          "roles/CREATOR"
       ]
+
+      # Enforce all plan checks (errors and warnings)
+      checkers {
+         required_issue_approval = true
+         required_status_checks {
+            plan_check_enforcement = "STRICT"  # Block on both errors and warnings
+         }
+      }
    }
 }
 ```
 
-- `roles` is the list of roles that are allowed to click the button to deploy changes manually. Even if automatic rollout is enabled, manual approval is still needed while there is any automatic check failure.
+**Key Configuration Options:**
+
+- `automatic`: When `true`, changes deploy automatically after approval. When `false`, requires manual click to deploy.
+- `roles`: List of roles allowed to manually deploy changes. Required even with automatic rollout, as manual approval is needed when checks fail.
+- `checkers.required_issue_approval`: When `true`, requires issue approval before rollout.
+- `checkers.required_status_checks.plan_check_enforcement`: Controls SQL plan check enforcement:
+  - `PLAN_CHECK_ENFORCEMENT_UNSPECIFIED`: Allow rollout regardless of plan check results (no enforcement)
+  - `ERROR_ONLY`: Block rollout only when plan check finds errors (default)
+  - `STRICT`: Block rollout when plan check finds errors or warnings (stricter for production)
 
 ### Data Protection Policy
 
-|                       |                                                                                                                        |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Terraform resource    | [bytebase_policy](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/policy)             |
-| Sample file           | [1-3-env-policy-data.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/1-3-env-policy-data.tf)   |
+|                    |                                                                                                                              |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| Terraform resource | [bytebase_policy](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/policy)                    |
+| Sample file        | [1-3-env-policy-data.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/1-3-env-policy-data.tf) |
 
 Create `1-3-env-policy-data.tf`:
 
