@@ -182,7 +182,7 @@ const ContactForm = ({
     setFormError('');
 
     const isSpam = detectSpamSubmission(values);
-    const spamPrefix = isSpam ? '[POTENTIAL SPAM] ' : '';
+    const spamPrefix = isSpam ? '🙄 ' : '';
 
     try {
       if (
