@@ -14,19 +14,21 @@ You can use Bytebase to manage persistent database permissions as well as implem
 
 Database permission controls individual users' or groups' actions within the database. Below shows the built-in roles' database permissions.
 
-| Role              | EXPLAIN | Query | Export | Mutation DML | DDL | Admin |
-| ----------------- | ------- | ----- | ------ | ------------ | --- | ----- |
-| Workspace Admin   | ✅      | ✅    | ✅     | ✅           | ✅  | ✅    |
-| Workspace DBA     | ✅      | ✅    | ✅     | ✅           | ✅  | ✅    |
-| Project Owner     | ✅      | ✅    | ✅     | ✅           | ✅  |       |
-| Project Developer |         |       |        | \*           | \*  |       |
-| SQL Editor User   | ✅      | ✅    |        | ✅           | ✅  |       |
-| Project Exporter  |         |       | ✅     |              |     |       |
-| Project Releaser  |         |       |        |              |     |       |
-| Project Viewer    |         |       |        |              |     |       |
+  | Role              | EXPLAIN | Query | Export | Mutation DML | DDL | Admin |
+  | ----------------- | ------- | ----- | ------ | ------------ | --- | ----- |
+  | Workspace Admin   | ✅      | ✅    | ✅     | ✅           | ✅  | ✅    |
+  | Workspace DBA     | ✅      | ✅    | ✅     | ✅           | ✅  | ✅    |
+  | Project Owner     | ✅      | ✅    | ✅     | ✅           | ✅  |       |
+  | Project Developer |         |       | \*1       |  \*2        | \*2  |       |
+  | SQL Editor User   | ✅      | ✅    | ✅        | \*3           | \*3  |       |
+  | Project Releaser  |         |       |        |              |     |       |
+  | Project Viewer    |         |       |        |              |     |       |
 
-\* _Project Developers can't execute DML and DDL directly in SQL Editor. On the other hand, they can
-request DML/DDL change by creating an issue_.
+\*1 _**Project Developer** can create Export issues for one-time exports. While **SQL Editor User** can export directly from SQL Editor._
+
+\*2 _**Project Developer** don’t have SQL Editor access and should request DDL/DML changes through an issue._
+
+\*3 _**SQL Editor User** can run DDL/DML in SQL Editor unless restricted by [environment policy](/change-database/environment-policy/overview#statement-execution-mode), but it’s recommended to make these changes through issues for better traceability._
 
 ---
 

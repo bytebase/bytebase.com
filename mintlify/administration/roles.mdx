@@ -28,10 +28,9 @@ Bytebase provides two types of roles:
 
 **Project roles:**
 - `Project Owner` - Full control over project resources
-- `Project Developer` - Create and manage database changes
+- `Project Developer` - Create and manage database changes; create Export issues for one-time exports
 - `Project Releaser` - Approve and release changes
-- `SQL Editor User` - Query databases (formerly `Project Querier`)
-- `Project Exporter` - Export data
+- `SQL Editor User` (formerly `Project Querier`) - Query in SQL Editor; export results directly from the Editor
 - `Project Viewer` - Read-only access
 
 #### Custom Roles
@@ -130,23 +129,22 @@ By default, the first registered user is granted the `Admin` role, all following
 
 Any user can create project. By default, the project creator is granted the `Project Owner` role. `Workspace DBA` and `Workspace Admin` assume the `Project Owner` role for all projects.
 
-| Project Permission           | SQL Editor User | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
-| ---------------------------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
-| Change project role          |                 |                  |                   | ✔️            | ✔️            | ✔️              |
-| Edit project                 |                 |                  |                   | ✔️            | ✔️            | ✔️              |
-| Archive project              |                 |                  |                   | ✔️            | ✔️            | ✔️              |
-| Configure UI/GitOps workflow |                 |                  |                   | ✔️            | ✔️            | ✔️              |
+| Project Permission           | SQL Editor User | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
+| ---------------------------- | --------------- | ----------------- | ------------- | ------------- | --------------- |
+| Change project role          |                 |                   | ✔️            | ✔️            | ✔️              |
+| Edit project                 |                 |                   | ✔️            | ✔️            | ✔️              |
+| Archive project              |                 |                   | ✔️            | ✔️            | ✔️              |
+| Configure UI/GitOps workflow |                 |                   | ✔️            | ✔️            | ✔️              |
 
 ### Database Permissions
 
 Bytebase does not define database specific roles. Whether a user can perform certain action to the database is based on the user's Workspace role and the role of the project owning the database.
 
-| Database Permission | SQL Editor User | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
-| ------------------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
-| Query               | ✔️              |                  |                   | ✔️            | ✔️            | ✔️              |
-| Export              |                 | ✔️               |                   | ✔️            | ✔️            | ✔️              |
-| Edit database label |                 |                  |                   | ✔️            | ✔️            | ✔️              |
-| Transfer database   |                 |                  |                   | ✔️            | ✔️            | ✔️              |
+| Database Permission | SQL Editor User | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
+| ------------------- | --------------- | ----------------- | ------------- | ------------- | --------------- |
+| Query               | ✔️              |                   | ✔️            | ✔️            | ✔️              |
+| Edit database label |                 |                   | ✔️            | ✔️            | ✔️              |
+| Transfer database   |                 |                   | ✔️            | ✔️            | ✔️              |
 
 ### Sheet Permissions
 
@@ -158,40 +156,40 @@ User can save sheets from [SQL Editor](/sql-editor/overview). A sheet always bel
 
 #### Private Sheet
 
-| Permission | Creator | SQL Editor User | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
-| ---------- | ------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
-| Star       | ✔️      |                 |                  |                   |               |               |                 |
-| Read       | ✔️      |                 |                  |                   |               |               |                 |
-| Write      | ✔️      |                 |                  |                   |               |               |                 |
-| Delete     | ✔️      |                 |                  |                   |               |               |                 |
+| Permission | Creator | SQL Editor User | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
+| ---------- | ------- | --------------- | ----------------- | ------------- | ------------- | --------------- |
+| Star       | ✔️      |                 |                   |               |               |                 |
+| Read       | ✔️      |                 |                   |               |               |                 |
+| Write      | ✔️      |                 |                   |               |               |                 |
+| Delete     | ✔️      |                 |                   |               |               |                 |
 
 #### Project Sheet
 
-| Permission | Creator | SQL Editor User | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
-| ---------- | ------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
-| Star       | ✔️      | ✔️              | ✔️               | ✔️                | ✔️            | ✔️            | ✔️              |
-| Read       | ✔️      | ✔️              | ✔️               | ✔️                | ✔️            | ✔️            | ✔️              |
-| Write      | ✔️      |                 |                  |                   | ✔️            | ✔️            | ✔️              |
-| Delete     | ✔️      |                 |                  |                   | ✔️            | ✔️            | ✔️              |
+| Permission | Creator | SQL Editor User | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
+| ---------- | ------- | --------------- | ----------------- | ------------- | ------------- | --------------- |
+| Star       | ✔️      | ✔️              | ✔️                | ✔️            | ✔️            | ✔️              |
+| Read       | ✔️      | ✔️              | ✔️                | ✔️            | ✔️            | ✔️              |
+| Write      | ✔️      |                 |                   | ✔️            | ✔️            | ✔️              |
+| Delete     | ✔️      |                 |                   | ✔️            | ✔️            | ✔️              |
 
 #### Public Sheet
 
-| Permission | Creator | SQL Editor User | Project Exporter | Project Developer | Project Owner | Others |
-| ---------- | ------- | --------------- | ---------------- | ----------------- | ------------- | ------ |
-| Star       | ✔️      | ✔️              | ✔️               | ✔️                | ✔️            | ✔️     |
-| Read       | ✔️      | ✔️              | ✔️               | ✔️                | ✔️            | ✔️     |
-| Write      | ✔️      |                 |                  |                   | ✔️            |        |
-| Delete     | ✔️      |                 |                  |                   | ✔️            |        |
+| Permission | Creator | SQL Editor User | Project Developer | Project Owner | Others |
+| ---------- | ------- | --------------- | ----------------- | ------------- | ------ |
+| Star       | ✔️      | ✔️              | ✔️                | ✔️            | ✔️     |
+| Read       | ✔️      | ✔️              | ✔️                | ✔️            | ✔️     |
+| Write      | ✔️      |                 |                   | ✔️            |        |
+| Delete     | ✔️      |                 |                   | ✔️            |        |
 
 ### Issue Permissions
 
-| Issue Permission          | Assignee | Creator | SQL Editor User | Project Exporter | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
-| ------------------------- | -------- | ------- | --------------- | ---------------- | ----------------- | ------------- | ------------- | --------------- |
-| Create issue              | N/A      | N/A     |                 | ✔️               | ✔️                | ✔️            | ✔️            | ✔️              |
-| Change issue status       | ✔️       |         |                 |                  |                   | Depends\*     | ✔️            | ✔️              |
-| Edit name and description | ✔️       | ✔️      |                 |                  |                   |               | ✔️            | ✔️              |
-| Edit SQL Statement        |          | ✔️      |                 |                  |                   |               |               |                 |
-| Subscribe/Unsubscribe     | ✔️       | ✔️      | ✔️              | ✔️               | ✔️                | ✔️            | ✔️            | ✔️              |
-| Add comment               | ✔️       | ✔️      | ✔️              | ✔️               | ✔️                | ✔️            | ✔️            | ✔️              |
+| Issue Permission          | Assignee | Creator | SQL Editor User | Project Developer | Project Owner | Workspace DBA | Workspace Admin |
+| ------------------------- | -------- | ------- | --------------- | ----------------- | ------------- | ------------- | --------------- |
+| Create issue              | N/A      | N/A     |                 | ✔️                | ✔️            | ✔️            | ✔️              |
+| Change issue status       | ✔️       |         |                 |                   | Depends\*     | ✔️            | ✔️              |
+| Edit name and description | ✔️       | ✔️      |                 |                   |               | ✔️            | ✔️              |
+| Edit SQL Statement        |          | ✔️      |                 |                   |               |               |                 |
+| Subscribe/Unsubscribe     | ✔️       | ✔️      | ✔️              | ✔️                | ✔️            | ✔️            | ✔️              |
+| Add comment               | ✔️       | ✔️      | ✔️              | ✔️                | ✔️            | ✔️            | ✔️              |
 
 \* `Project Owner` can change issue status when the current active [Environment Rollout Policy](/change-database/environment-policy/rollout-policy) is set to **Require manual rolling out**.
