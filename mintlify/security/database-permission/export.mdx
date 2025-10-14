@@ -1,28 +1,21 @@
 ---
-title: One-Time Export
+title: Export
 ---
 
-Except for requesting or being assigned `Project Exporter` role to export data repeatedly, you can also request a one-time export in **Export Center**.
+There are two ways to export data:
 
-## One-time Export Request
+- As **SQL Editor User**, you can export directly from SQL Editor.
+- As **Project Developer**, you can request a one-time export in **Export Center**.
 
-Approval flow matches the `Export Data` in [custom approval](/change-database/approval/) if configured.
+## Export directly from SQL Editor
 
-### Request from SQL Editor
-
-Data can be exported directly from the SQL Editor result panel if you have the export permission for the data.
+As **SQL Editor User**, after you run a query, you can export the result by clicking **Export** button. The exported data still respects the masking policy to mask exported columns.
 
 ![sql-editor](/content/docs/security/database-permission/export/sql-editor.webp)
 
-Without the export permission, you can request a one-time export via **Request Export**.
+## One-time Export Request
 
-![sql-editor-request-export](/content/docs/security/database-permission/export/sql-editor-request-export.webp)
-
-You will be redirected to an issue page. **Create** the issue. After approval, you'll be able to export the data one time.
-
-![sql-editor-export](/content/docs/security/database-permission/export/sql-editor-export.webp)
-
-### Request from Export Center
+As **Project Developer**, you can request a one-time export in **Export Center**. Approval flow matches the `Export Data` in [custom approval](/change-database/approval/) if configured.
 
 Enter **Export Center** within a project, where you **Request Export**, select a database and click **Next**.
 
@@ -32,7 +25,7 @@ You'll be creating an issue. Enable **Encrypt** and set **Password** if needed, 
 
 ![export-preview](/content/docs/security/database-permission/export/export-preview.webp)
 
-After approval, you can click **Export** to download the exported file _once_.
+After approval, you can click **Export** to download the exported file **unlimited times** within 24 hours.
 
 ![export](/content/docs/security/database-permission/export/export.webp)
 
