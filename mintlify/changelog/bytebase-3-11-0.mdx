@@ -15,7 +15,7 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
     - **Require Issue Approval** – ensures issues must be approved before rollout can proceed (default: enabled).
     - **Plan Check Enforcement** – controls rollout behavior based on plan check results (default: block on errors only).
 
-- Deprecate `bb.sql.export` permission and `roles/projectExporter` role.
+- Deprecate `bb.sql.export` permission and `roles/projectExporter` role. It’s merged into `SQL Editor User` role, which now can export directly in SQL Editor; Developer can still create Export issue as before.
 - Deprecate `request.row_limit` in the project IAM policy. Use `maximum_result_rows` in `QueryDataPolicy` instead.
 
 - **API**
