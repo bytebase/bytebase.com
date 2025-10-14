@@ -11,7 +11,7 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
 - **Environment rollout policy update**
   - **Issue Creators** and **Last Issue Approvers** can no longer roll out issues. Manual rollouts now require specifying workspace/project roles or users with the `bb.taskRuns.create` permission.
-  - The force rollout mechanism has been replaced by configurable rollout requirements:
+  - The force rollout mechanism has been replaced by [configurable rollout requirements](/change-database/environment-policy/rollout-policy#configurable-rollout-requirements):
     - **Require Issue Approval** – ensures issues must be approved before rollout can proceed (default: enabled).
     - **Plan Check Enforcement** – controls rollout behavior based on plan check results (default: block on errors only).
 
