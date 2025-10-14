@@ -10,8 +10,6 @@ Configure and manage your database environments including policies, permissions,
 
 You can configure any color for an environment either by inputting in **HEX** tab or choosing one in the palette.
 
-![env-color](/content/docs/administration/environment-policy/env-color.webp)
-
 SQL Editor then displays the configured color tab.
 
 ![env-color-sql-editor](/content/docs/administration/environment-policy/env-color-sql-editor.webp)
@@ -19,8 +17,6 @@ SQL Editor then displays the configured color tab.
 ### Production indicator
 
 Once you mark an environment as a production environment, Bytebase will attach a shield icon 🛡️ besides the environment name.
-
-![tier-envs](/content/docs/administration/environment-policy/tier-envs.webp)
 
 ## Rollout policy
 
@@ -45,15 +41,14 @@ Configure environment-specific restrictions for SQL Editor operations:
 - **Restrict data copying in SQL Editor**: Only Workspace Admins and DBAs can copy data from query results
 - **Restrict querying admin data sources**: Limit access to administrative data sources in the SQL Editor
 
-## Statement execution mode
+## Statement execution
 
-Even if you have `sql.dml` and `sql.ddl` [database permissions](/security/database-permission/overview/), you can only run read-only statements such as `SELECT` in SQL Editor by default. If you attempt to run mutation DML or DDL, it will prompt you to submit an issue.
+By default, users with **SQL Editor User** role or `sql.dml` and `sql.ddl` [database permissions](/security/database-permission/overview/) can execute DDL and DML statements directly in SQL Editor. To restrict statement execution to SELECT-only queries and require users to create issues for data modifications, configure the following **statement execution** settings:
+
+- Disallow running DDL statements in the SQL editor
+- Disallow running data-modifying DML statements in the SQL Editor
 
 ![prompt-issue](/content/docs/administration/environment-policy/prompt-issue.webp)
-
-If you want to run those statements directly in SQL Editor, you need to turn on the **statement execution** setting.
-
-![statement-execution](/content/docs/administration/environment-policy/statement-execution.webp)
 
 ## Delete an environment
 
