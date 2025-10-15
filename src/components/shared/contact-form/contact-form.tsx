@@ -28,6 +28,7 @@ type ValueType = {
   email: string;
   company: string;
   message?: string;
+  website?: string; // Honeypot field
 };
 
 const validationSchema = yup.object().shape({
@@ -40,6 +41,7 @@ const validationSchema = yup.object().shape({
     .required('Work email is a required field'),
   company: yup.string().trim().required('Company name is a required field'),
   message: yup.string().trim().optional(),
+  website: yup.string().trim().optional(), // Honeypot field - should be empty
 });
 
 const getButtonTitle = (formId: string) => {
@@ -131,7 +133,15 @@ const detectSpamSubmission = (values: ValueType): boolean => {
   if (company.trim().length <= 2) spamScore += 3;
 
   // Medium confidence indicators (2 points each)
-  const freeEmailDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com', 'icloud.com', 't-online.de'];
+  const freeEmailDomains = [
+    'gmail.com',
+    'yahoo.com',
+    'hotmail.com',
+    'outlook.com',
+    'aol.com',
+    'icloud.com',
+    't-online.de',
+  ];
   const emailDomain = email.toLowerCase().split('@')[1] || '';
   if (!emailDomain) {
     // Invalid email format (missing domain) - likely spam
@@ -141,7 +151,10 @@ const detectSpamSubmission = (values: ValueType): boolean => {
   }
 
   // Low confidence indicators (1 point each)
-  const messageWords = (message || '').trim().split(/\s+/).filter(word => word.length > 0);
+  const messageWords = (message || '')
+    .trim()
+    .split(/\s+/)
+    .filter((word) => word.length > 0);
   if (messageWords.length < 5) spamScore += 1;
 
   // Flag as spam if score >= 5
@@ -176,7 +189,18 @@ const ContactForm = ({
   } = useForm<ValueType>({ resolver: yupResolver(validationSchema) });
 
   const onSubmit = async (values: ValueType) => {
-    const { firstname, lastname, email, company, message } = values;
+    const { firstname, lastname, email, company, message, website } = values;
+
+    // Honeypot check - if filled, it's a bot
+    if (website?.trim()) {
+      // Silently reject the submission (don't show error to bot)
+      setButtonState(STATES.SUCCESS);
+      setTimeout(() => {
+        setButtonState(STATES.DEFAULT);
+        reset();
+      }, BUTTON_SUCCESS_TIMEOUT_MS);
+      return;
+    }
 
     setButtonState(STATES.LOADING);
     setFormError('');
@@ -313,6 +337,20 @@ const ContactForm = ({
           error={errors?.message?.message}
           {...register('message')}
         />
+        {/* Honeypot field - hidden from users but visible to bots */}
+        <div className="pointer-events-none absolute left-[-9999px] opacity-0" aria-hidden="true">
+          <label htmlFor="website-field" tabIndex={-1}>
+            Website
+          </label>
+          <Field
+            id="website-field"
+            type="text"
+            placeholder="https://yourcompany.com"
+            autoComplete="off"
+            tabIndex={-1}
+            {...register('website')}
+          />
+        </div>
         <div className="relative col-span-full flex items-center gap-x-5 sm:flex-col sm:items-start sm:gap-y-2">
           <div className="flex w-full max-w-[260px] flex-col items-center lg:max-w-[320px] sm:max-w-full">
             <Button
