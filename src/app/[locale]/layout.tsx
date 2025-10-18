@@ -31,16 +31,23 @@ export default function RootLayout({ params: { locale }, children }: Props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
         />
+        {/* Resource hints for performance optimization */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://static.reo.dev" />
+        <link rel="dns-prefetch" href="https://static.reo.dev" />
+        <link rel="preconnect" href="https://www.redditstatic.com" />
+        <link rel="dns-prefetch" href="https://www.redditstatic.com" />
       </head>
       <body className="flex h-full flex-col">
         <Cal />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=G-4BZ4JH7449`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script
           id="ga"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
             window.dataLayer = window.dataLayer || [];
@@ -53,8 +60,8 @@ export default function RootLayout({ params: { locale }, children }: Props) {
           }}
         />
         <Script
-          id="ga"
-          strategy="afterInteractive"
+          id="reddit-pixel"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
 !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','t2_eaojgtkcg', {"optOut":false,"useDecimalCurrencyValues":true});rdt('track', 'PageVisit');

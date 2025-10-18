@@ -33,6 +33,7 @@ const Card = forwardRef<HTMLElement, CardProps>(function CardComponent(
           width={464}
           height={604}
           alt=""
+          priority
         />
       </div>
       <div className="mt-8">

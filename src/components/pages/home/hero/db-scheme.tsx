@@ -65,7 +65,7 @@ const DBScheme = () => {
           alt=""
           width={366}
           height={498}
-          loading="lazy"
+          priority
         />
       </div>
     </section>

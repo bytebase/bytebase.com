@@ -2,6 +2,10 @@
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { codeInspectorPlugin } = require('code-inspector-plugin');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 const skippedSectionsInNewWebsite = [
   '/database-review-guide',
@@ -18,11 +22,29 @@ const tutorialRedirects = [
   'how-to-integrate-sql-review-into-gitlab-github-ci',
 ];
 
-module.exports = {
+const nextConfig = {
   output: 'standalone',
   poweredByHeader: false,
   trailingSlash: true,
   transpilePackages: ['next-international', 'international-types'],
+  // Performance optimizations
+  compress: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,
+  },
+  // Enable SWC minification (default in Next.js 14+)
+  swcMinify: true,
+  // Image optimization
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 31536000,
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  },
+  // Experimental features for performance
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'react-icons'],
+  },
   async redirects() {
     return [
       {
@@ -289,3 +311,5 @@ module.exports = {
     return config;
   },
 };
+
+module.exports = withBundleAnalyzer(nextConfig);

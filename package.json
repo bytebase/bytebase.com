@@ -6,6 +6,7 @@
     "dev": "PORT=3001 next dev",
     "prebuild": "node scripts/generate-blog-reo-mapping.js",
     "build": "next build",
+    "analyze": "ANALYZE=true next build",
     "postbuild": "next-sitemap",
     "start": "next start",
     "type-check": "tsc",
@@ -58,6 +59,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
+    "@next/bundle-analyzer": "^14.2.16",
     "@svgr/webpack": "^7.0.0",
     "@tailwindcss/typography": "^0.5.15",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
