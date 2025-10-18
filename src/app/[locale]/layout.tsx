@@ -36,8 +36,6 @@ export default function RootLayout({ params: { locale }, children }: Props) {
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://static.reo.dev" />
         <link rel="dns-prefetch" href="https://static.reo.dev" />
-        <link rel="preconnect" href="https://www.redditstatic.com" />
-        <link rel="dns-prefetch" href="https://www.redditstatic.com" />
       </head>
       <body className="flex h-full flex-col">
         <Cal />
@@ -57,15 +55,6 @@ export default function RootLayout({ params: { locale }, children }: Props) {
               page_path: window.location.pathname,
             });
           `,
-          }}
-        />
-        <Script
-          id="reddit-pixel"
-          strategy="lazyOnload"
-          dangerouslySetInnerHTML={{
-            __html: `
-!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','t2_eaojgtkcg', {"optOut":false,"useDecimalCurrencyValues":true});rdt('track', 'PageVisit');
-`,
           }}
         />
         <ReoScript />
