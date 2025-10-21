@@ -77,7 +77,7 @@ There are two ways to configure the data masking based on the classification lev
        bytebase_account="api-sample@service.bytebase.com"
        bytebase_password="bbs_bxxxxxxxxxoUxfY"
        bytebase_token=$(curl -v ${bytebase_url}/v1/auth/login \
-           --data-raw '{"email":"'${bytebase_account}'","password":"'${bytebase_password}'","web":true}' \ --compressed 2>&1 | grep token | grep -o 'access-token=[^;]*;' | grep -o '[^;]*' | sed 's/access-token=//g; s/;//g')
+           --data-raw '{"email":"'${bytebase_account}'","password":"'${bytebase_password}'"}' \ --compressed 2>&1 | grep token | grep -o 'access-token=[^;]*;' | grep -o '[^;]*' | sed 's/access-token=//g; s/;//g')
 
        echo $bytebase_token
    ```

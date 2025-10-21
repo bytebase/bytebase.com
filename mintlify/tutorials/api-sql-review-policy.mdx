@@ -53,7 +53,7 @@ This is one of the tutorial series of SQL Review:
    export bytebase_account=api-sample@service.bytebase.com
    export bytebase_password=bbs_************ilcLVG
    bytebase_token=$(curl -v ${bytebase_url}/v1/auth/login \
-      --data-raw '{"email":"'${bytebase_account}'","password":"'${bytebase_password}'","web":true}' \
+      --data-raw '{"email":"'${bytebase_account}'","password":"'${bytebase_password}'"}' \
       --compressed 2>&1 | grep token | grep -o 'access-token=[^;]*;' | grep -o '[^;]*' | sed 's/access-token=//g; s/;//g')
    echo $bytebase_token
    ```
