@@ -1,0 +1,33 @@
+---
+title: Bytebase 3.11.1 - Oct 23, 2025
+author: Adela
+updated_at: 2025/10/23 18:00:00
+description: 'Environment rollout policy update'
+---
+
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
+## 🚀 Features
+
+- Apache Doris - Support system views and functions in SQL Editor
+- AWS RDS IAM authentication - Add cross-account role assumption support
+
+## 🔔 Notable Changes
+
+- Remove Check() RPC and SQL Review functionality in SQL Editor
+- Remove --check-plan option from bytebase-action rollout command
+- Enforce proper create permissions for allow_missing updates
+
+## 🎄 Enhancements
+
+- Support editing migration type in draft plans
+- Support exporting results from multiple queries
+- Add banner notifications for approved issues ready to roll out
+- Show full signatures for functions and procedures instead of just names
+- Add HTTP security headers in all responses
+
+## 🐞 Bug Fixes
+- Elasticsearch - Fix query parameter encoding in URLs
+- SQL Server - Fix IDENTITY column handling during backup/restore
+
+<InstallUpgrade />
