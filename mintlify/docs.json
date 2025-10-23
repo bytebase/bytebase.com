@@ -467,9 +467,9 @@
     },
     "links": [
       {
-        "label": "GitHub",
-        "icon": "github",
-        "href": "https://github.com/bytebase/bytebase"
+        "label": "Try Cloud",
+        "icon": "square-arrow-out-up-right",
+        "href": "https://hub.bytebase.com/"
       }
     ]
   },
