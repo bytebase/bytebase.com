@@ -1,5 +1,5 @@
 ---
-title: 'Bytebase vs. StrongDM: a side-by-side comparison for Just-in-time (JIT) database access control'
+title: 'Bytebase vs. StrongDM: which vendor delivers best Just-in-time (JIT) database access control'
 author: Adela
 updated_at: 2025/02/19 18:00
 feature_image: /content/blog/bytebase-vs-strongdm/bytebase-vs-strongdm-banner.webp
