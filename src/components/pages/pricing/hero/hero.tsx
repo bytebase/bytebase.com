@@ -54,7 +54,7 @@ const cards: TCard[] = [
     planTitle: 'enterprise',
     price: 'Custom',
     description: 'Security and Compliance',
-    additionalDescription: 'Free trial for 14 days, volume discount',
+    additionalDescription: 'Free trial for 14 days',
     buttonText: 'Contact Us',
     buttonTheme: 'primary-filled',
     buttonLink: '/contact-us',
