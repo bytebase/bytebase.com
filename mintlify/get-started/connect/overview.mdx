@@ -99,7 +99,6 @@ Never store database passwords in Bytebase. Use your existing secret manager for
 - **[AWS Secrets Manager](/get-started/connect/aws#aws-secrets-manager)** - For AWS deployments
 - **[GCP Secret Manager](/get-started/connect/gcp#gcp-secret-manager)** - For GCP deployments
 - **HashiCorp Vault** - Enterprise secret management
-- **Custom API Endpoint** - Custom integrations
 
 #### HashiCorp Vault
 
@@ -117,19 +116,6 @@ Requires Vault KV v2 engine
 1. Enter Vault URL
 2. Choose authentication: Token or AppRole
 3. Specify secret location
-
-#### Custom API Endpoint
-
-**Endpoint Format:** `{{http://example.com/secrets/mydbkey}}`
-
-**Expected Response:**
-```json
-{
-  "payload": {
-    "data": "base64_encoded_password"
-  }
-}
-```
 
 ## Instance Management
 
