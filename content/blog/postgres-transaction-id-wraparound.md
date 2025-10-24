@@ -117,7 +117,7 @@ Use `postgres_get_av_diag` to monitor autovacuum health and aging tables —
 [https://aws.amazon.com/blogs/database/prevent-transaction-id-wraparound-by-using-postgres_get_av_diag-for-monitoring-autovacuum/](https://aws.amazon.com/blogs/database/prevent-transaction-id-wraparound-by-using-postgres_get_av_diag-for-monitoring-autovacuum/)
 
 **Google Cloud SQL**
-Cloud SQL provides a Recommender for High Transaction ID Utilization —
+Cloud SQL provides a Recommender for High Transaction ID Utilization -
 [https://cloud.google.com/sql/docs/postgres/recommender-high-transactionid-utilization](https://cloud.google.com/sql/docs/postgres/recommender-high-transactionid-utilization)
 
 General advice:
