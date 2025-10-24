@@ -57,43 +57,6 @@ const getButtonTitle = (formId: string) => {
   }
 };
 
-// Detects spam-like patterns in text (random mixed-case strings)
-const isLikelySpam = (text: string): boolean => {
-  if (!text) return false;
-
-  const letters = text.replace(/[^a-zA-Z]/g, '');
-  if (letters.length === 0) return false;
-
-  // Allow all uppercase (like "IBM", "NASA", "JOHN SMITH")
-  if (letters === letters.toUpperCase()) return false;
-
-  // Allow all lowercase (like "john smith")
-  if (letters === letters.toLowerCase()) return false;
-
-  // Count ANY case transitions (uppercase to lowercase OR lowercase to uppercase)
-  const lowToHigh = (text.match(/[a-z][A-Z]/g) || []).length;
-  const highToLow = (text.match(/[A-Z][a-z]/g) || []).length;
-  const totalTransitions = lowToHigh + highToLow;
-
-  // Count uppercase letters
-  const uppercaseCount = (letters.match(/[A-Z]/g) || []).length;
-  const uppercaseRatio = uppercaseCount / letters.length;
-
-  // Spam pattern 1: 4+ total case transitions
-  // Examples: CuxFbsjOMshzd (6), lxBMWgpkbCX (4), wUwqIVjOmhQbJi (10)
-  // Legitimate: Christopher (2), McDonald (2), iPhone (2), MacBook (2)
-  if (totalTransitions >= 4) return true;
-
-  // Spam pattern 2: Uppercase ratio in suspicious range (30-95%)
-  // Too random to be legitimate mixed case (which is typically <30%)
-  // Not all caps (which would be 100%)
-  // Examples: lxBMWgpkbCX (42%), cVBaaQcPphWeXH (64%), CuxFbsjOMshzd (38%)
-  // Legitimate: McDonald (25%), iPhone (33% but only 2 transitions), John (25%)
-  if (uppercaseRatio > 0.3 && uppercaseRatio < 0.95) return true;
-
-  return false;
-};
-
 // Retry a fetch request up to 3 times with exponential backoff
 const fetchWithRetry = async (url: string, options: RequestInit): Promise<Response> => {
   const maxRetries = 3;
@@ -119,52 +82,6 @@ const fetchWithRetry = async (url: string, options: RequestInit): Promise<Respon
 
   // All retries failed, throw the last error
   throw lastError || new Error('Request failed');
-};
-
-const detectSpamSubmission = (values: ValueType): boolean => {
-  const { firstname, lastname, company, email, message } = values;
-
-  let spamScore = 0;
-
-  // High confidence spam indicators (3 points each)
-  if (isLikelySpam(firstname)) spamScore += 3;
-  if (isLikelySpam(lastname)) spamScore += 3;
-  if (isLikelySpam(company)) spamScore += 3;
-  if (company.trim().length <= 2) spamScore += 3;
-
-  // Medium confidence indicators (2 points each)
-  const freeEmailDomains = [
-    'gmail.com',
-    'yahoo.com',
-    'hotmail.com',
-    'outlook.com',
-    'aol.com',
-    'icloud.com',
-    't-online.de',
-  ];
-  const emailDomain = email.toLowerCase().split('@')[1] || '';
-  if (!emailDomain) {
-    // Invalid email format (missing domain) - likely spam
-    spamScore += 2;
-  } else if (freeEmailDomains.includes(emailDomain)) {
-    spamScore += 2;
-  }
-
-  // Low confidence indicators (1 point each)
-  const messageWords = (message || '')
-    .trim()
-    .split(/\s+/)
-    .filter((word) => word.length > 0);
-  if (messageWords.length < 5) spamScore += 1;
-
-  // Flag as spam if score >= 5
-  // Examples:
-  // - Random case name (3) + free email (2) = spam
-  // - Random case name (3) + short company (3) = spam
-  // - Free email (2) + short message (1) + short company (3) = spam
-  // - Free email (2) + short company (3) = not spam (legitimate small companies)
-  // - Free email (2) + short message (1) = not spam
-  return spamScore >= 5;
 };
 
 const ContactForm = ({
@@ -205,9 +122,6 @@ const ContactForm = ({
     setButtonState(STATES.LOADING);
     setFormError('');
 
-    const isSpam = detectSpamSubmission(values);
-    const spamPrefix = isSpam ? '🙄 ' : '';
-
     try {
       if (
         formId == VIEW_LIVE_DEMO ||
@@ -241,7 +155,6 @@ const ContactForm = ({
           email,
           company,
           message,
-          isSpam,
         }),
       });
 
@@ -256,7 +169,7 @@ const ContactForm = ({
           body: JSON.stringify({
             msg_type: 'text',
             content: {
-              text: `${spamPrefix}${formId} by ${firstname} ${lastname} (${email}) from ${company}\n\n${message}`,
+              text: `${formId} by ${firstname} ${lastname} (${email}) from ${company}\n\n${message}`,
             },
           }),
         }).catch(() => {

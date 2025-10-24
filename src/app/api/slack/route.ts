@@ -5,9 +5,7 @@ const slackWebhookList = [process.env.SLACK_WEBHOOK_URL as string];
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { formId, firstname, lastname, email, company, message, isSpam } = body;
-
-    const spamPrefix = isSpam ? '🙄 ' : '';
+    const { formId, firstname, lastname, email, company, message } = body;
 
     const responses = await Promise.all(
       slackWebhookList.map((webhookUrl) =>
@@ -17,7 +15,7 @@ export async function POST(request: Request) {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            text: `${spamPrefix}${formId} by ${firstname} ${lastname} (${email}) from ${company}\n\n${message}`,
+            text: `${formId} by ${firstname} ${lastname} (${email}) from ${company}\n\n${message}`,
           }),
         }),
       ),
