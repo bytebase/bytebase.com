@@ -56,7 +56,7 @@ pgBackRest, maintained by [Crunchy Data](https://www.crunchydata.com/), is desig
 
 ## pgBackWeb
 
-**GitHub:** https://github.com/eduardolat/pgbackweb
+- **GitHub:** https://github.com/eduardolat/pgbackweb
 - **Language:** Python + Flask
 - **Maintainer:** Community
 - **Learning Curve:** Easy
