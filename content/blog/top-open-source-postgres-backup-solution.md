@@ -43,7 +43,7 @@ Barman is distributed under [GNU GPL 3](https://www.gnu.org/licenses/gpl-3.0.htm
 
 ## pgBackRest
 
-**GitHub:** https://github.com/pgbackrest/pgbackrest
+- **GitHub:** https://github.com/pgbackrest/pgbackrest
 - **Language:** C
 - **Maintainer:** Crunchy Data
 - **Learning Curve:** Moderate
