@@ -32,7 +32,7 @@ WAL-G is an archival and restoration tool for databases in the Cloud, the spirit
 - **Language:** Python
 - **Maintainer:** EnterpriseDB (EDB)
 - **Learning Curve:** Moderate–High
-- **Performance:** ⭐⭐⭐☆
+- **Performance:** ⭐⭐⭐☆☆
 - **Maintenance Effort:** Medium–High
 - **Supported Databases:** PostgreSQL only
 - **Best For:** Enterprises requiring centralized backup management
@@ -60,7 +60,7 @@ pgBackRest, maintained by [Crunchy Data](https://www.crunchydata.com/), is desig
 - **Language:** Python + Flask
 - **Maintainer:** Community
 - **Learning Curve:** Easy
-- **Performance:** ⭐⭐⭐☆ (inherits pgBackRest’s performance)
+- **Performance:** ⭐⭐⭐⭐⭐
 - **Maintenance Effort:** Low
 - **Supported Databases:** PostgreSQL (via pgBackRest)
 - **Best For:** Teams preferring visual management for pgBackRest backups
@@ -75,7 +75,7 @@ pgBackWeb provides a user-friendly web dashboard on top of pgBackRest. It enable
 - **Language:** Python
 - **Maintainer:** Community
 - **Learning Curve:** Easy
-- **Performance:** ⭐⭐☆
+- **Performance:** ⭐⭐☆☆☆
 - **Maintenance Effort:** Low
 - **Supported Databases:** PostgreSQL only
 - **Best For:** Lightweight or developer environments needing simple scheduled backups
@@ -91,7 +91,7 @@ PostgresUS focuses on simplicity and automation. It’s easy to set up and use, 
 | **WAL-G**      | Moderate       | ⭐⭐⭐⭐        | Medium      | ✅                | ✅ Seamless integration | Cloud-native, multi-database   |
 | **Barman**     | Moderate–High  | ⭐⭐⭐         | Medium–High | ❌                | ✅ Supported            | Centralized enterprise backups |
 | **pgBackRest** | Moderate       | ⭐⭐⭐⭐⭐       | Medium      | ❌                | ✅ Seamless integration | Mission-critical systems       |
-| **pgBackWeb**  | Easy           | ⭐⭐⭐         | Low         | ❌                | ✅ (via pgBackRest)     | GUI for pgBackRest users       |
+| **pgBackWeb**  | Easy           | ⭐⭐⭐⭐⭐         | Low         | ❌                | ✅ (via pgBackRest)     | GUI for pgBackRest users       |
 | **PostgresUS** | Easy           | ⭐⭐          | Low         | ❌                | ❌                      | Simple scheduled backups       |
 
 ## Choosing the Right Tool
