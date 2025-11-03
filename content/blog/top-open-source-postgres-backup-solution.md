@@ -18,6 +18,8 @@ Below is a curated list of the top PostgreSQL backup solutions, compared across 
 - **GitHub:** https://github.com/wal-g/wal-g
 - **Language:** Go
 - **Maintainer:** Community
+- **License:** Apache License 2.0
+- **Interface:** CLI
 - **Supported Databases:** PostgreSQL, MySQL/MariaDB, MS SQL Server, MongoDB (beta), Redis (beta)
 - **Best For:** Cloud-native and multi-database environments
 
@@ -28,6 +30,8 @@ WAL-G is an archival and restoration tool for databases in the Cloud, the spirit
 - **GitHub:** https://github.com/EnterpriseDB/barman
 - **Language:** Python
 - **Maintainer:** EnterpriseDB (EDB)
+- **License:** GNU GPL 3
+- **Interface:** CLI
 - **Supported Databases:** PostgreSQL only
 - **Best For:** Enterprises requiring centralized backup management
 
@@ -40,6 +44,8 @@ Barman is distributed under [GNU GPL 3](https://www.gnu.org/licenses/gpl-3.0.htm
 - **GitHub:** https://github.com/pgbackrest/pgbackrest
 - **Language:** C
 - **Maintainer:** Crunchy Data
+- **License:** MIT License
+- **Interface:** CLI
 - **Supported Databases:** PostgreSQL only
 - **Best For:** Mission-critical, high-performance PostgreSQL workloads
 
@@ -50,6 +56,8 @@ pgBackRest, maintained by [Crunchy Data](https://www.crunchydata.com/), is desig
 - **GitHub:** https://github.com/eduardolat/pgbackweb
 - **Language:** Python + Flask
 - **Maintainer:** Community
+- **License:** AGPL-3.0
+- **Interface:** Web UI
 - **Supported Databases:** PostgreSQL (via pgBackRest)
 - **Best For:** Teams preferring visual management for pgBackRest backups
 
@@ -62,6 +70,8 @@ pgBackWeb provides a user-friendly web dashboard on top of pgBackRest. It enable
 - **GitHub:** https://github.com/RostislavDugin/postgresus
 - **Language:** Python
 - **Maintainer:** Community
+- **License:** MIT License
+- **Interface:** Web UI
 - **Supported Databases:** PostgreSQL only
 - **Best For:** Lightweight or developer environments needing simple scheduled backups
 
@@ -71,13 +81,13 @@ PostgresUS focuses on simplicity and automation. It’s easy to set up and use, 
 
 ## Comparison Table
 
-| Tool           | Multi-DB Support | Cloud Storage          | Best For                       |
-| -------------- | ---------------- | ---------------------- | ------------------------------ |
-| **WAL-G**      | ✅                | ✅ Seamless integration | Cloud-native, multi-database   |
-| **Barman**     | ❌                | ✅ Supported            | Centralized enterprise backups |
-| **pgBackRest** | ❌                | ✅ Seamless integration | Mission-critical systems       |
-| **pgBackWeb**  | ❌                | ✅ (via pgBackRest)     | GUI for pgBackRest users       |
-| **PostgresUS** | ❌                | ❌                      | Simple scheduled backups       |
+| Tool           | Language        | License         | Interface | Multi-DB Support | Cloud Storage          |
+| -------------- | --------------- | --------------- | --------- | ---------------- | ---------------------- |
+| **WAL-G**      | Go              | Apache 2.0      | CLI       | ✅                | ✅ Seamless integration |
+| **Barman**     | Python          | GNU GPL 3       | CLI       | ❌                | ✅ Supported            |
+| **pgBackRest** | C               | MIT             | CLI       | ❌                | ✅ Seamless integration |
+| **pgBackWeb**  | Python + Flask  | AGPL-3.0        | Web UI    | ❌                | ✅ (via pgBackRest)     |
+| **PostgresUS** | Python          | MIT             | Web UI    | ❌                | ❌                      |
 
 ## Choosing the Right Tool
 
