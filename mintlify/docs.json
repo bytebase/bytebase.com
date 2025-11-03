@@ -200,7 +200,8 @@
                   "administration/sso/oauth2",
                   "administration/sso/oidc",
                   "administration/sso/oidc-entra-id",
-                  "administration/sso/ldap"
+                  "administration/sso/ldap",
+                  "administration/sso/idp-initiated"
                 ]
               },
               "administration/user-groups",
