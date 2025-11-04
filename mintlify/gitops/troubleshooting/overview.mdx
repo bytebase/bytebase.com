@@ -1,0 +1,96 @@
+---
+title: Overview
+---
+
+This troubleshooting guide helps you diagnose and resolve common issues in GitOps workflows with Bytebase.
+
+## Common Issue Categories
+
+<CardGroup cols={2}>
+  <Card title="Release and Plan Issues" icon="file-warning" href="/gitops/troubleshooting/release-and-plan">
+    Invalid files, SHA256 mismatches, release not found, plan creation failures
+  </Card>
+
+  <Card title="Rollout Issues" icon="circle-alert" href="/gitops/troubleshooting/rollout">
+    Skipped tasks, pending approvals, SQL errors, permissions, connectivity
+  </Card>
+
+  <Card title="SDL Issues" icon="triangle-alert" href="/gitops/troubleshooting/sdl-issues">
+    Schema qualification, constraints, foreign keys, validation errors
+  </Card>
+
+  <Card title="CI/CD Issues" icon="settings" href="/gitops/troubleshooting/cicd-issues">
+    GitHub Actions, authentication, SQL review failures in CI
+  </Card>
+</CardGroup>
+
+## Quick Diagnostics
+
+### Check System Status
+
+```bash
+# Verify Bytebase is accessible
+curl -f $BB_URL/v1/actuator/info
+
+# Test authentication
+curl -H "Authorization: Bearer $BB_TOKEN" \
+  $BB_URL/v1/actuator/info
+```
+
+### View Recent Releases
+
+```bash
+# List releases in project
+curl -X GET "$BB_URL/v1/projects/my-project/releases" \
+  -H "Authorization: Bearer $BB_TOKEN"
+```
+
+### Check Task Logs
+
+1. Navigate to the rollout in Bytebase UI
+2. Click on the failed task
+3. View execution logs for error details
+
+## Getting Help
+
+If you've tried these solutions and still need help:
+
+1. **Check documentation:**
+   - [API Reference](/integrations/api/overview)
+   - [Error Codes](/sql-review/error-codes)
+   - [GitOps Tutorials](/tutorials/gitops-github-workflow)
+
+2. **Review logs:**
+   - Task execution logs in Bytebase UI
+   - CI/CD workflow logs
+   - Database server logs
+
+3. **Community support:**
+   - GitHub Issues: [github.com/bytebase/bytebase/issues](https://github.com/bytebase/bytebase/issues)
+   - Discord: Join Bytebase community
+   - Documentation feedback: [docs.bytebase.com](https://docs.bytebase.com)
+
+4. **Enterprise support:**
+   - Contact your Bytebase account team
+   - Submit support ticket via dashboard
+   - Schedule technical consultation
+
+## Related Documentation
+
+<CardGroup cols={2}>
+  <Card title="GitOps Overview" icon="diagram-project" href="/gitops/overview">
+    Understand the complete GitOps workflow
+  </Card>
+
+  <Card title="Best Practices" icon="lightbulb" href="/gitops/best-practices/overview">
+    Production-ready patterns
+  </Card>
+
+  <Card title="API Reference" icon="code" href="/integrations/api/overview">
+    Complete API documentation
+  </Card>
+
+  <Card title="Error Codes" icon="triangle-alert" href="/sql-review/error-codes">
+    SQL review error reference
+  </Card>
+</CardGroup>

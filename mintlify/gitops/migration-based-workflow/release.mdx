@@ -1,0 +1,193 @@
+---
+title: Release
+---
+
+After PR/MR approval and merge, your CI/CD pipeline triggers Bytebase to create a release and deploy the migrations.
+
+## How Releases Work
+
+A **Release** is an immutable package containing all your SQL migration files:
+
+- Linked to VCS commit for full traceability
+- Files validated and stored with SHA256 checksums
+- Can be deployed to multiple environments
+- Supports progressive rollout strategies
+
+**Inside Bytebase, the release triggers:**
+
+1. **Plan Generation** - Defines target databases and rollout strategy
+2. **Rollout Execution** - Creates tasks for each database
+3. **Revision Tracking** - Records applied migrations to prevent duplicates
+
+## CI/CD Integration Examples
+
+<Tabs>
+  <Tab title="GitHub Actions">
+    ```yaml
+    # .github/workflows/release.yml
+    name: Database Release
+    on:
+      push:
+        branches: [main]
+        paths:
+          - 'migrations/**'
+
+    jobs:
+      release:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v4
+
+          - name: Create Bytebase Release
+            uses: bytebase/sql-review-action@v1
+            with:
+              command: rollout
+              bytebase-url: ${{ secrets.BYTEBASE_URL }}
+              bytebase-token: ${{ secrets.BYTEBASE_SERVICE_ACCOUNT_TOKEN }}
+              file-pattern: 'migrations/**/*.sql'
+              project: projects/my-project
+              targets: instances/prod/databases/mydb
+    ```
+
+    <Card title="GitHub Tutorial" icon="graduation-cap" href="/tutorials/gitops-github-workflow/" horizontal />
+
+    <Card title="GitHub Example" icon="code" href="https://github.com/bytebase/example-gitops-github-flow/blob/main/.github/workflows/release-action.yml" horizontal />
+  </Tab>
+
+  <Tab title="GitLab CI">
+    ```yaml
+    # .gitlab-ci.yml
+    rollout:
+      image: bytebase/bytebase-action:latest
+      stage: deploy
+      only:
+        - main
+      script:
+        - |
+          bytebase-action rollout \
+            --url $BYTEBASE_URL \
+            --service-account $BYTEBASE_SERVICE_ACCOUNT \
+            --service-account-secret $BYTEBASE_SERVICE_ACCOUNT_SECRET \
+            --file-pattern "migrations/**/*.sql" \
+            --project projects/my-project \
+            --targets instances/prod/databases/mydb
+    ```
+
+    <Card title="GitLab Tutorial" icon="graduation-cap" href="/tutorials/gitops-gitlab-workflow/" horizontal />
+
+    <Card title="GitLab Example" icon="code" href="https://gitlab.com/bytebase-sample/gitops-example/-/blob/main/bytebase-rollout.yml" horizontal />
+  </Tab>
+
+  <Tab title="Azure DevOps">
+    ```yaml
+    # azure-pipelines.yml
+    trigger:
+      branches:
+        include:
+          - main
+      paths:
+        include:
+          - migrations/**
+
+    jobs:
+      - job: Release
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: Docker@2
+            inputs:
+              command: run
+              arguments: >
+                -e BYTEBASE_URL=$(BYTEBASE_URL)
+                -e BYTEBASE_SERVICE_ACCOUNT=$(BYTEBASE_SERVICE_ACCOUNT)
+                -e BYTEBASE_SERVICE_ACCOUNT_SECRET=$(BYTEBASE_SERVICE_ACCOUNT_SECRET)
+                -v $(System.DefaultWorkingDirectory):/workspace
+                bytebase/bytebase-action
+                rollout
+                --file-pattern "/workspace/migrations/**/*.sql"
+                --project projects/my-project
+                --targets instances/prod/databases/mydb
+    ```
+
+    <Card title="Azure Tutorial" icon="graduation-cap" href="/tutorials/gitops-azure-devops-workflow/" horizontal />
+
+    <Card title="Azure Example" icon="code" href="https://dev.azure.com/bytebase-hq/_git/bytebase-example?path=/pipelines/rollout-release.yml" horizontal />
+  </Tab>
+
+  <Tab title="Bitbucket Pipelines">
+    ```yaml
+    # bitbucket-pipelines.yml
+    pipelines:
+      branches:
+        main:
+          - step:
+              name: Database Release
+              image: bytebase/bytebase-action:latest
+              deployment: production
+              script:
+                - |
+                  bytebase-action rollout \
+                    --url $BYTEBASE_URL \
+                    --service-account $BYTEBASE_SERVICE_ACCOUNT \
+                    --service-account-secret $BYTEBASE_SERVICE_ACCOUNT_SECRET \
+                    --file-pattern "migrations/**/*.sql" \
+                    --project projects/my-project \
+                    --targets instances/prod/databases/mydb
+    ```
+
+    <Card title="Bitbucket Tutorial" icon="graduation-cap" href="/tutorials/gitops-bitbucket-workflow/" horizontal />
+
+    <Card title="Bitbucket Example" icon="code" href="https://bitbucket.org/p0nyyy/cicd/src/main/bitbucket-pipelines.yml" horizontal />
+  </Tab>
+</Tabs>
+
+## Deployment Strategies
+
+**Progressive rollout across environments:**
+
+```yaml
+# Deploy to dev, then staging, then production
+targets: >
+  instances/dev/databases/mydb,
+  instances/staging/databases/mydb,
+  instances/prod/databases/mydb
+```
+
+**Multi-tenant deployment using database groups:**
+
+```yaml
+# Deploy to entire production fleet
+targets: projects/my-project/databaseGroups/production-fleet
+```
+
+<Card title="Database Groups" icon="layer-group" href="/administration/database-group">
+  Manage database fleets with groups
+</Card>
+
+## Idempotency Guarantee
+
+Bytebase tracks which migration versions have been applied to each database via the **revision system**. When creating a release:
+
+1. **Check revisions** - Query which versions already exist
+2. **Skip applied** - Migrations with matching versions are skipped
+3. **Execute new** - Only unapplied versions are executed
+4. **Record success** - Create revision only on successful completion
+
+This ensures:
+- ✅ Safe to run the same release multiple times
+- ✅ Migrations never double-execute
+- ✅ Environment parity (dev migrations auto-skip in prod)
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Limitations" icon="triangle-alert" href="/gitops/migration-based-workflow/limitations">
+    Understand constraints and considerations
+  </Card>
+
+  <Card title="Best Practices" icon="lightbulb" href="/gitops/best-practices/overview">
+    Production-ready workflow patterns
+  </Card>
+</CardGroup>

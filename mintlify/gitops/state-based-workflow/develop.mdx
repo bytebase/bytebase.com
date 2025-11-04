@@ -1,0 +1,230 @@
+---
+title: Develop
+---
+
+Create SDL files that define your complete database schema in a declarative format.
+
+## Getting Started
+
+When starting with state-based workflow:
+
+1. **Export Current Schema** - In Bytebase database detail page, click `Export Schema` to download your current database schema
+2. **Organize Schema Files** - Edit and organize the exported schema into manageable files
+3. **Commit to Repository** - Add SDL files to version control
+4. **Make Changes** - Update the desired state and commit
+
+## File Organization
+
+Organize SDL files by schema or module:
+
+```
+schema/
+├── public.sql          # Public schema objects
+├── analytics.sql       # Analytics schema
+└── internal.sql        # Internal schema
+```
+
+Or split by object type:
+
+```
+schema/
+├── 01_tables.sql
+├── 02_indexes.sql
+├── 03_views.sql
+├── 04_functions.sql
+└── 05_sequences.sql
+```
+
+## SDL Syntax Requirements
+
+SDL enforces strict conventions to ensure maintainability:
+
+### 1. Schema Qualification Required
+
+All objects must include schema prefix:
+
+```sql
+✅ Correct - Fully qualified names
+CREATE TABLE public.users (...);
+CREATE INDEX idx_name ON public.users(name);
+CREATE FUNCTION public.get_user(...) RETURNS ...;
+```
+
+```sql
+❌ Incorrect - Missing schema
+CREATE TABLE users (...);
+CREATE INDEX idx_name ON users(name);
+```
+
+### 2. Table-Level Constraints
+
+PRIMARY KEY, UNIQUE, FOREIGN KEY, and CHECK constraints must be defined at table level with explicit names:
+
+```sql
+✅ Correct - Table-level with names
+CREATE TABLE public.users (
+    id INTEGER NOT NULL,                    -- NOT NULL allowed at column level
+    email TEXT NOT NULL,                    -- NOT NULL allowed at column level
+    created_at TIMESTAMP DEFAULT NOW(),     -- DEFAULT allowed at column level
+    CONSTRAINT users_pkey PRIMARY KEY (id),
+    CONSTRAINT users_email_key UNIQUE (email),
+    CONSTRAINT users_email_check CHECK (email LIKE '%@%')
+);
+```
+
+```sql
+❌ Incorrect - Column-level constraints
+CREATE TABLE public.users (
+    id INTEGER PRIMARY KEY,           -- Must be at table level
+    email TEXT UNIQUE,                -- Must be at table level
+    age INTEGER CHECK (age >= 0)      -- Must be at table level
+);
+```
+
+**Allowed at column level:**
+- `NOT NULL`
+- `DEFAULT`
+- `GENERATED ALWAYS AS`
+- `SERIAL` / `BIGSERIAL`
+
+### 3. Named Constraints
+
+All table constraints require explicit names:
+
+```sql
+✅ Correct - Named constraints
+CONSTRAINT users_pkey PRIMARY KEY (id)
+CONSTRAINT users_email_key UNIQUE (email)
+CONSTRAINT fk_orders_users FOREIGN KEY (user_id) REFERENCES public.users(id)
+CONSTRAINT check_positive_age CHECK (age > 0)
+```
+
+```sql
+❌ Incorrect - Unnamed constraints
+PRIMARY KEY (id)
+UNIQUE (email)
+FOREIGN KEY (user_id) REFERENCES public.users(id)
+CHECK (age > 0)
+```
+
+**Naming conventions:**
+- Primary keys: `{table}_pkey`
+- Unique constraints: `{table}_{column}_key`
+- Foreign keys: `fk_{table}_{referenced_table}`
+- Check constraints: `check_{description}` or `{table}_{column}_check`
+
+### 4. Foreign Key References
+
+Foreign keys must use fully qualified table names:
+
+```sql
+✅ Correct - Fully qualified reference
+CREATE TABLE public.orders (
+    id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    CONSTRAINT orders_pkey PRIMARY KEY (id),
+    CONSTRAINT fk_orders_users FOREIGN KEY (user_id) REFERENCES public.users(id)
+);
+```
+
+```sql
+❌ Incorrect - Unqualified reference
+CONSTRAINT fk_orders_users FOREIGN KEY (user_id) REFERENCES users(id)
+```
+
+### 5. Named Indexes
+
+All indexes must have explicit names:
+
+```sql
+✅ Correct - Named indexes
+CREATE INDEX idx_users_email ON public.users(email);
+CREATE UNIQUE INDEX idx_users_username ON public.users(username);
+```
+
+```sql
+❌ Incorrect - Unnamed index
+CREATE INDEX ON public.users(email);
+```
+
+## Supported Statements
+
+SDL files support these PostgreSQL statements:
+
+- `CREATE TABLE`
+- `CREATE INDEX` / `CREATE UNIQUE INDEX`
+- `CREATE VIEW`
+- `CREATE SEQUENCE`
+- `CREATE FUNCTION`
+- `ALTER SEQUENCE ... OWNED BY` (for serial columns)
+
+**Not Allowed:**
+- `ALTER TABLE`, `DROP` (Bytebase generates these)
+- `INSERT`, `UPDATE`, `DELETE` (use migration-based workflow)
+- Transaction control (`BEGIN`, `COMMIT`)
+
+## Complete SDL Example
+
+```sql
+-- schema/public.sql
+
+-- Sequences
+CREATE SEQUENCE public.users_id_seq;
+
+-- Tables
+CREATE TABLE public.users (
+    id INTEGER NOT NULL DEFAULT nextval('public.users_id_seq'::regclass),
+    username TEXT NOT NULL,
+    email TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status TEXT NOT NULL DEFAULT 'active',
+    CONSTRAINT users_pkey PRIMARY KEY (id),
+    CONSTRAINT users_username_key UNIQUE (username),
+    CONSTRAINT users_email_key UNIQUE (email),
+    CONSTRAINT check_email_format CHECK (email ~* '^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$'),
+    CONSTRAINT check_status_values CHECK (status IN ('active', 'inactive', 'suspended'))
+);
+
+ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
+
+CREATE TABLE public.user_profiles (
+    user_id INTEGER NOT NULL,
+    bio TEXT,
+    avatar_url TEXT,
+    CONSTRAINT user_profiles_pkey PRIMARY KEY (user_id),
+    CONSTRAINT fk_user_profiles_users FOREIGN KEY (user_id) REFERENCES public.users(id) ON DELETE CASCADE
+);
+
+-- Indexes
+CREATE INDEX idx_users_email ON public.users(email);
+CREATE INDEX idx_users_created_at ON public.users(created_at);
+CREATE INDEX idx_users_status ON public.users(status) WHERE status != 'inactive';
+
+-- Views
+CREATE VIEW public.active_users AS
+SELECT id, username, email, created_at
+FROM public.users
+WHERE status = 'active';
+
+-- Functions
+CREATE FUNCTION public.get_user_count()
+RETURNS INTEGER
+LANGUAGE sql
+AS $$
+    SELECT COUNT(*) FROM public.users;
+$$;
+```
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="SQL Review CI" icon="shield-check" href="/gitops/state-based-workflow/sql-review-ci">
+    Set up SDL validation in your CI/CD pipeline
+  </Card>
+
+  <Card title="Release" icon="rocket" href="/gitops/state-based-workflow/release">
+    Deploy your SDL changes to databases
+  </Card>
+</CardGroup>

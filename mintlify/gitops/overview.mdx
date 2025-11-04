@@ -36,26 +36,147 @@ Bytebase enables database-as-code workflows, allowing you to manage database cha
 
 ## GitOps Workflow
 
-### 1. Development Phase
+Bytebase GitOps follows a streamlined 3-stage pipeline:
 
-Developers create SQL migration files in feature branches, following the same branch management strategy as application code (e.g., [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow), [GitLab Flow](https://about.gitlab.com/blog/gitlab-flow-duo/)).
+```
+Develop → Review (PR/MR) → Release (Bytebase)
+```
 
-### 2. Review Phase (Pull Request)
+### 1. Develop
 
-- Automated SQL review validates changes against configured policies
-- Schema changes are reviewed alongside application code changes
-- Compatibility checks ensure schema and code alignment
+Developers create SQL files in feature branches following your team's Git workflow (GitHub Flow, GitLab Flow, trunk-based, etc.).
 
-### 3. Release Creation and Deployment
+**What happens:**
+- Write SQL migration or schema files
+- Follow naming conventions for proper versioning
+- Test changes locally when possible
+- Commit to version control
 
-After PR merge, releases can be created and deployed according to your workflow, consistent with application code deployment:
+### 2. Review (Pull Request / Merge Request)
 
-- GitOps integration can create versioned releases containing SQL migrations
-- Releases are linked to commits for full traceability
-- Deployment timing is configurable based on your pipeline strategy:
-  - **Automatic**: Deploy immediately after merge (common for development/test environments)
-  - **Time-based**: Schedule deployments for specific windows
-  - **Manual approval**: Require explicit approval before deployment (common for production)
-- Feature flags can decouple schema deployment from applications using new schema version
+When developers open a pull/merge request, automated validation ensures changes meet your organization's standards.
 
-**Key Principle**: Bytebase automatically detects previously applied migrations and skips them, ensuring safe re-deployment and idempotent operations across all environments.
+**What happens:**
+- **Automated SQL Review** - Validates syntax and enforces policies
+- **Risk Assessment** - Identifies high-risk operations
+- **Schema Compatibility** - Checks for breaking changes
+- **Team Review** - Human review of schema changes alongside code
+
+### 3. Release (Bytebase)
+
+After PR/MR approval and merge, Bytebase orchestrates the deployment. This single stage encompasses **Plan → Rollout → Revision** tracking, all managed within Bytebase.
+
+**What happens in Bytebase:**
+
+1. **Release Creation** - Immutable package of SQL files linked to VCS commit
+2. **Plan Generation** - Defines deployment strategy and target databases
+3. **Rollout Execution** - Creates and executes tasks across environments
+4. **Revision Tracking** - Records applied migrations to prevent duplicates
+
+<Accordion title="Learn more about Release internals">
+The Release stage in Bytebase involves several coordinated steps:
+
+- **Plan**: Defines which databases to target and rollout strategy
+- **Rollout**: Executes the plan, creating stages for progressive deployment
+- **Revision**: Tracks which migrations have been applied to each database
+
+For detailed information about these components, see:
+- Plan creation and targeting strategies
+- Rollout execution and approval workflows
+- Revision-based idempotency
+
+These topics are covered in detail within each workflow documentation.
+</Accordion>
+
+**Key Principle**: Bytebase automatically detects previously applied changes by checking revision history and skips them, ensuring safe re-deployment and idempotent operations across all environments.
+
+## Two Workflow Approaches
+
+Bytebase supports two complementary approaches for managing database schema changes. Choose the one that fits your team's needs, or use both for different scenarios.
+
+### Migration-Based Workflow
+
+The **imperative** approach where you write incremental change scripts that describe how to modify the schema.
+
+```sql
+-- migrations/001__create_users.sql
+CREATE TABLE users (id INT PRIMARY KEY, name TEXT);
+
+-- migrations/002__add_email.sql
+ALTER TABLE users ADD COLUMN email TEXT;
+```
+
+**Best for:**
+- Teams familiar with traditional database migration tools
+- Complex changes requiring specific execution order
+- Data migrations (INSERT, UPDATE, DELETE operations)
+- All supported databases (MySQL, PostgreSQL, SQL Server, etc.)
+- Situations requiring fine-grained control over each change
+
+**How it works:** Each migration file contains explicit DDL/DML statements. Files execute sequentially based on version numbers. Bytebase tracks which versions have been applied to prevent re-execution.
+
+<Card title="Migration-Based Workflow Guide" icon="file-code" href="/gitops/migration-based-workflow/overview" horizontal>
+  Complete guide to migration-based approach with examples and best practices
+</Card>
+
+### State-Based Workflow (SDL)
+
+The **declarative** approach where you define the desired end-state of your database schema, and Bytebase automatically generates the migration DDL.
+
+```sql
+-- schema/public.sql (complete desired state)
+CREATE TABLE public.users (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    email TEXT
+);
+```
+
+**Best for:**
+- Teams adopting infrastructure-as-code principles
+- Pure schema changes (DDL only, no data operations)
+- Simplified Git diffs showing schema evolution
+- PostgreSQL databases (currently)
+- Reducing complexity around migration ordering
+
+**How it works:** You maintain the complete schema definition. Bytebase compares your desired state with the current database state and automatically generates the necessary ALTER/DROP statements to reach the desired state.
+
+<Card title="State-Based Workflow Guide" icon="sparkles" href="/gitops/state-based-workflow/overview" horizontal>
+  Complete guide to state-based (SDL) approach with validation rules and examples
+</Card>
+
+## Choosing Between Workflows
+
+| Aspect | Migration-Based | State-Based (SDL) |
+|--------|-----------------|-------------------|
+| **Approach** | Imperative (how to change) | Declarative (desired end state) |
+| **Files** | Multiple migration scripts | Single schema definition per module |
+| **Git History** | Shows individual changes | Shows current state + diffs |
+| **Operations** | DDL + DML | DDL only |
+| **Data Changes** | ✅ Supported | ❌ Not supported |
+| **Database Support** | All databases | PostgreSQL only (currently) |
+| **Learning Curve** | Familiar to DBAs | Familiar to DevOps/IaC users |
+| **Control** | Explicit control over each step | Automatic diff generation |
+| **Rollback** | Write reverse migration | Define previous state |
+
+**Can I use both?** Yes! You can use state-based workflow for schema structure and migration-based workflow for data operations in the same project.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Migration-Based Workflow" icon="file-code" href="/gitops/migration-based-workflow/overview">
+    Traditional approach with incremental changes
+  </Card>
+
+  <Card title="State-Based Workflow (SDL)" icon="sparkles" href="/gitops/state-based-workflow/overview">
+    Modern declarative schema management
+  </Card>
+
+  <Card title="Installation" icon="download" href="/gitops/installation">
+    Set up VCS integration and runners
+  </Card>
+
+  <Card title="Best Practices" icon="lightbulb" href="/gitops/best-practices/overview">
+    Production-ready workflow patterns
+  </Card>
+</CardGroup>

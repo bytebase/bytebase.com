@@ -1,0 +1,311 @@
+---
+title: Migration Guidelines
+---
+
+Follow these guidelines to write maintainable, safe, and effective database migrations.
+
+## Version Numbering Strategies
+
+### Strategy 1: Timestamp-Based (Recommended)
+
+```
+20250120143000__add_user_email.sql
+20250121091500__create_orders_table.sql
+```
+
+**Format:** `YYYYMMDDHHmmss`
+
+**Advantages:**
+- ✅ No merge conflicts with parallel development
+- ✅ Chronological ordering
+- ✅ Supports distributed teams
+
+**Disadvantages:**
+- ⚠️  Less human-readable
+- ⚠️  Doesn't convey significance
+
+**Best for:** Teams with frequent parallel development
+
+### Strategy 2: Semantic Versioning
+
+```
+v1.0.0__initial_release.sql
+v1.1.0__add_user_profiles.sql
+v1.1.1__fix_profile_constraint.sql
+v2.0.0__redesign_authentication.sql
+```
+
+**Format:** `v<major>.<minor>.<patch>`
+
+**Advantages:**
+- ✅ Conveys change significance
+- ✅ Aligns with application versioning
+- ✅ Clear breaking change indication
+
+**Disadvantages:**
+- ⚠️  Requires coordination
+- ⚠️  Merge conflicts possible
+
+**Best for:** Teams with coordinated releases
+
+### Strategy 3: Sequential with Milestones
+
+```
+001__initial_schema.sql
+002__add_users.sql
+...
+100__v1_0_release.sql
+101__add_analytics.sql
+...
+200__v2_0_release.sql
+```
+
+**Advantages:**
+- ✅ Simple and clear
+- ✅ Milestones mark releases
+
+**Disadvantages:**
+- ⚠️  Merge conflicts in parallel work
+- ⚠️  Gaps can be confusing
+
+**Best for:** Small teams, sequential development
+
+## Migration File Best Practices
+
+### Keep Migrations Small
+
+<Tabs>
+  <Tab title="✅ Good - Focused">
+    ```sql
+    -- 005__add_user_email.sql
+    ALTER TABLE users ADD COLUMN email TEXT;
+    ```
+
+    - Single, clear purpose
+    - Fast execution
+    - Easy to review
+    - Simple to rollback
+  </Tab>
+
+  <Tab title="❌ Bad - Too Large">
+    ```sql
+    -- 005__big_refactor.sql
+    ALTER TABLE users ADD COLUMN email TEXT;
+    ALTER TABLE users ADD COLUMN phone TEXT;
+    CREATE TABLE user_preferences (...);
+    CREATE TABLE user_sessions (...);
+    INSERT INTO user_preferences ...;
+    -- 500 more lines
+    ```
+
+    - Multiple unrelated changes
+    - Long execution time
+    - Hard to review
+    - Difficult to troubleshoot
+  </Tab>
+</Tabs>
+
+**Guideline:** One logical change per file
+
+### Include Rollback Planning
+
+Document rollback approach in comments:
+
+```sql
+-- 010__add_payment_methods_table.sql
+-- Rollback: DROP TABLE payment_methods;
+-- Impact: Requires app deployment v2.5.0+
+
+CREATE TABLE payment_methods (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    card_last_four TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+```
+
+### Transaction Handling
+
+<Note>
+  **Bytebase Automatic Transactions**: Bytebase automatically wraps all SQL statements in a migration file within a single transaction. You typically don't need to add explicit `BEGIN`/`COMMIT` statements.
+</Note>
+
+**When Bytebase's automatic transactions are sufficient:**
+- Single-file migrations with multiple statements
+- Standard DDL operations (CREATE, ALTER, DROP)
+- Simple DML operations (INSERT, UPDATE, DELETE)
+
+**When you might need explicit transaction control:**
+- **Batched operations** requiring commits between chunks
+- **Long-running data migrations** that need progress checkpoints
+- **Database-specific requirements** like PostgreSQL's `CREATE INDEX CONCURRENTLY` (which cannot run in a transaction)
+
+**Example of batched migration (when needed):**
+```sql
+-- 015__batch_archive_logs_dml.sql
+-- Note: This uses explicit batching for large data operation
+DO $$
+DECLARE
+    batch_size INT := 10000;
+    deleted_count INT;
+BEGIN
+    LOOP
+        DELETE FROM logs
+        WHERE id IN (
+            SELECT id FROM logs
+            WHERE created_at < '2024-01-01'
+            LIMIT batch_size
+        );
+
+        GET DIAGNOSTICS deleted_count = ROW_COUNT;
+        EXIT WHEN deleted_count < batch_size;
+
+        COMMIT; -- Commit each batch
+        PERFORM pg_sleep(0.1); -- Throttle
+    END LOOP;
+END $$;
+```
+
+**Database-specific transaction support:**
+- ✅ PostgreSQL: DDL in transactions (except `CONCURRENTLY` operations)
+- ❌ MySQL: DDL commits immediately (implicit commit)
+- ✅ SQL Server: DDL in transactions
+
+### Add Comments for Complex Logic
+
+```sql
+-- 020__migrate_legacy_permissions_dml.sql
+-- Migrates old role system to new permission model
+-- Old: roles.name -> New: permissions.scope + permissions.action
+-- Mapping:
+--   'admin' -> 'database:*'
+--   'editor' -> 'database:write'
+--   'viewer' -> 'database:read'
+
+UPDATE permissions
+SET
+    scope = CASE
+        WHEN roles.name = 'admin' THEN 'database'
+        WHEN roles.name = 'editor' THEN 'database'
+        WHEN roles.name = 'viewer' THEN 'database'
+    END,
+    action = CASE
+        WHEN roles.name = 'admin' THEN '*'
+        WHEN roles.name = 'editor' THEN 'write'
+        WHEN roles.name = 'viewer' THEN 'read'
+    END
+FROM roles
+WHERE permissions.role_id = roles.id;
+```
+
+## Documentation
+
+### Maintain Migration Changelog
+
+Document significant schema changes:
+
+```markdown
+# Database Changelog
+
+## v2.0.0 (2025-01-20)
+- Added `user_preferences` table for customization
+- Migrated legacy role system to new permissions model
+- **Breaking**: Removed deprecated `user_settings` table
+
+## v1.5.0 (2025-01-15)
+- Added email column to users table
+- Created indexes on frequently queried columns
+```
+
+### Document Schema Dependencies
+
+Track dependencies between application and schema:
+
+```markdown
+# Schema Dependencies
+
+## users.email Column
+- Added: v1.5.0 (migration 010)
+- Required by: Auth Service v2.0+
+- Can remove after: All instances upgraded to v2.1+
+```
+
+This helps coordinate schema cleanup with application deployments.
+
+## Common Anti-Patterns to Avoid
+
+### ❌ Modifying Applied Migrations
+
+**Don't:**
+```sql
+-- 005__add_email.sql (already deployed)
+ALTER TABLE users ADD COLUMN email TEXT; -- Changed to VARCHAR
+```
+
+**Do:**
+```sql
+-- 006__fix_email_type.sql
+ALTER TABLE users ALTER COLUMN email TYPE VARCHAR(255);
+```
+
+### ❌ Skipping Version Numbers
+
+**Don't:**
+```
+001__init.sql
+002__add_users.sql
+010__add_products.sql  ← Why skip 003-009?
+```
+
+**Do:**
+```
+001__init.sql
+002__add_users.sql
+003__add_products.sql
+```
+
+### ❌ Mixing DDL and DML Without Suffix
+
+**Don't:**
+```sql
+-- 015__add_orders.sql
+CREATE TABLE orders (...);
+INSERT INTO orders VALUES (...);  -- DML without _dml suffix
+```
+
+**Do:**
+```sql
+-- 015__add_orders.sql (DDL only)
+CREATE TABLE orders (...);
+
+-- 016__seed_orders_dml.sql (DML separate)
+INSERT INTO orders VALUES (...);
+```
+
+### ❌ Long-Running Migrations in Production
+
+**Don't:**
+```sql
+-- 020__huge_migration.sql
+UPDATE users SET legacy_field = NULL; -- Locks 10M rows for 10 minutes
+```
+
+**Do:**
+```sql
+-- 020__migrate_users_batch_dml.sql
+-- Batch processing with throttling (see Performance section)
+```
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Git and CI/CD" icon="git-branch" href="/gitops/best-practices/git-and-cicd">
+    Learn branching strategies and testing patterns
+  </Card>
+
+  <Card title="Performance and Drift" icon="gauge" href="/gitops/best-practices/performance-and-drift">
+    Optimize migrations and handle drift
+  </Card>
+</CardGroup>

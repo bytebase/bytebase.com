@@ -1,0 +1,290 @@
+---
+title: CI/CD Issues
+---
+
+Troubleshoot problems with CI/CD integration, authentication, and automated workflows.
+
+## GitHub Actions: API Call Fails
+
+**Error:**
+```
+curl: (6) Could not resolve host: bytebase.example.com
+```
+
+**Causes:**
+1. Incorrect Bytebase URL
+2. Network restrictions
+3. DNS resolution issues
+
+**Solutions:**
+
+```yaml
+# .github/workflows/gitops.yml
+
+# 1. Verify BB_URL environment variable
+- name: Check Bytebase URL
+  run: echo "Bytebase URL: $BB_URL"
+  env:
+    BB_URL: ${{ secrets.BYTEBASE_URL }}
+
+# 2. Test connectivity
+- name: Test Connection
+  run: curl -f $BB_URL/v1/actuator/info
+
+# 3. Use correct authentication
+- name: Create Release
+  run: |
+    curl -X POST "$BB_URL/v1/projects/my-project/releases" \
+      -H "Authorization: Bearer $BB_TOKEN" \
+      -H "Content-Type: application/json" \
+      -d @release.json
+  env:
+    BB_URL: ${{ secrets.BYTEBASE_URL }}
+    BB_TOKEN: ${{ secrets.BYTEBASE_TOKEN }}
+```
+
+## Unauthorized Error
+
+**Error:**
+```
+401 Unauthorized: Invalid token
+```
+
+**Causes:**
+1. Token expired or invalid
+2. Token not properly set in secrets
+3. Wrong token format
+
+**Solutions:**
+
+<AccordionGroup>
+  <Accordion title="Verify Token">
+    Test token manually:
+    ```bash
+    curl -H "Authorization: Bearer $BB_TOKEN" \
+      $BB_URL/v1/actuator/info
+    ```
+
+    Should return server info, not 401.
+  </Accordion>
+
+  <Accordion title="Regenerate Service Account Token">
+    1. Login to Bytebase
+    2. Navigate to Settings → Service Accounts
+    3. Find CI/CD service account
+    4. Generate new token
+    5. Update CI/CD secrets
+  </Accordion>
+
+  <Accordion title="Check Token Format">
+    Token should be:
+    - Format: `bb_xxxxxxxxxxxxxxxxxxxxxx`
+    - No quotes or extra characters
+    - Properly base64 encoded if required
+
+    **In GitHub Actions:**
+    ```yaml
+    env:
+      BB_TOKEN: ${{ secrets.BYTEBASE_TOKEN }}
+      # NOT: "${{ secrets.BYTEBASE_TOKEN }}"
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## SQL Review Fails in CI
+
+**Error:**
+```
+SQL review failed: Rule violation - table naming convention
+```
+
+**Cause:** Migration violates configured SQL review rules.
+
+**Solutions:**
+
+**Option 1: Fix the violation**
+```sql
+-- If error: Table name must be lowercase
+-- ❌ Wrong
+CREATE TABLE UserProfiles (...);
+
+-- ✅ Correct
+CREATE TABLE user_profiles (...);
+```
+
+**Option 2: Adjust SQL review policy**
+
+If rule is too strict:
+1. Navigate to SQL Review settings
+2. Adjust rule severity (ERROR → WARNING)
+3. Or disable rule if not needed
+
+<Card title="SQL Review Rules" icon="search" href="/sql-review/review-rules">
+  Complete reference of 200+ rules
+</Card>
+
+**Option 3: Override for specific case**
+
+Add comment justification in SQL:
+```sql
+-- bytebase:ignore-rule table.naming.convention
+-- Legacy table name required for compatibility
+CREATE TABLE UserProfiles (...);
+```
+
+<Tip>
+  Review failures prevent bad changes from reaching production. Fix violations rather than bypassing checks.
+</Tip>
+
+## CI Timeout
+
+**Error:**
+```
+Error: The operation was canceled.
+```
+
+**Causes:**
+1. Long-running migration exceeds CI timeout
+2. Network connectivity issues
+3. Bytebase server overloaded
+
+**Solutions:**
+
+<Tabs>
+  <Tab title="Increase Timeout">
+    **GitHub Actions:**
+    ```yaml
+    jobs:
+      deploy:
+        runs-on: ubuntu-latest
+        timeout-minutes: 30  # Increase from default 360
+        steps:
+          - name: Deploy
+            timeout-minutes: 20  # Step-level timeout
+            run: ...
+    ```
+
+    **GitLab CI:**
+    ```yaml
+    rollout:
+      timeout: 30m
+      script:
+        - bytebase-action rollout ...
+    ```
+  </Tab>
+
+  <Tab title="Optimize Migration">
+    For long-running migrations:
+    - Break into smaller batches
+    - Use online schema migration for large tables
+    - Consider running outside of CI
+
+    <Card title="Performance Optimization" icon="gauge" href="/gitops/best-practices/performance-and-drift">
+      Learn optimization techniques
+    </Card>
+  </Tab>
+
+  <Tab title="Check Bytebase Status">
+    Verify Bytebase is responsive:
+    ```bash
+    # Test API response time
+    time curl -f $BB_URL/v1/actuator/info
+
+    # Check Bytebase logs
+    docker logs bytebase
+    ```
+  </Tab>
+</Tabs>
+
+## Workflow Dispatch Not Triggering
+
+**Error:** Manual workflow doesn't start when triggered.
+
+**Causes:**
+1. Wrong branch selected
+2. Insufficient permissions
+3. Workflow file syntax error
+
+**Solutions:**
+
+**Check workflow configuration:**
+```yaml
+# .github/workflows/deploy.yml
+name: Manual Deploy
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy'
+        required: true
+        type: choice
+        options:
+          - dev
+          - staging
+          - production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to ${{ inputs.environment }}
+        run: echo "Deploying to ${{ inputs.environment }}"
+```
+
+**Verify permissions:**
+- Must have write access to repository
+- Workflow must be in default branch
+- Actions must be enabled for repository
+
+## Secrets Not Available
+
+**Error:**
+```
+Error: Secret BYTEBASE_TOKEN is not set
+```
+
+**Solutions:**
+
+1. **Add secrets to repository:**
+   - Navigate to Settings → Secrets and variables → Actions
+   - Click "New repository secret"
+   - Add required secrets
+
+2. **Environment-specific secrets:**
+   ```yaml
+   jobs:
+     deploy:
+       runs-on: ubuntu-latest
+       environment: production  # Use environment secrets
+       steps:
+         - name: Deploy
+           env:
+             BB_TOKEN: ${{ secrets.BYTEBASE_TOKEN }}
+   ```
+
+3. **Organization secrets:**
+   - Can be shared across repositories
+   - Set at organization level
+   - Select which repositories can access
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="GitOps Tutorials" icon="graduation-cap" href="/tutorials/gitops-github-workflow">
+    Step-by-step CI/CD setup guides
+  </Card>
+
+  <Card title="API Authentication" icon="key" href="/integrations/api/authentication">
+    Learn about service accounts
+  </Card>
+
+  <Card title="Best Practices" icon="lightbulb" href="/gitops/best-practices/git-and-cicd">
+    CI/CD patterns and strategies
+  </Card>
+
+  <Card title="Troubleshooting Overview" icon="arrow-left" href="/gitops/troubleshooting/overview">
+    Return to troubleshooting overview
+  </Card>
+</CardGroup>

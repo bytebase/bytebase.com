@@ -1,0 +1,82 @@
+---
+title: Overview
+---
+
+This guide provides battle-tested patterns and recommendations for production GitOps workflows with Bytebase.
+
+## What You'll Learn
+
+This best practices guide covers:
+
+- **File Organization** - Repository structures and directory layouts for different team sizes
+- **Migration Guidelines** - Version numbering strategies, file best practices, and common pitfalls
+- **Git and CI/CD** - Branching strategies, CI/CD patterns, and testing approaches
+- **SQL Review and Security** - Review configuration and security best practices
+- **Performance and Drift** - Optimization techniques and drift management
+
+## Who Should Read This
+
+This guide is designed for:
+
+- **DevOps Engineers** setting up database CI/CD pipelines
+- **Database Administrators** migrating to GitOps workflows
+- **Development Teams** implementing database version control
+- **Platform Engineers** building self-service database platforms
+
+## Prerequisites
+
+Before diving into best practices, you should have:
+
+- Basic understanding of [GitOps Workflow](/gitops/overview)
+- Familiarity with either [Migration-Based](/gitops/migration-based-workflow/overview) or [State-Based](/gitops/state-based-workflow/overview) workflows
+- [GitOps integration installed](/gitops/installation)
+
+## Quick Reference
+
+### Critical Best Practices
+
+**File Management:**
+- Use timestamp-based versioning for parallel development
+- Keep migrations small and focused (one logical change per file)
+- Never modify applied migrations
+
+**Testing:**
+- Always test in non-production first: Local → Dev → Staging → Production
+- Maintain test data that mirrors production
+- Test schema compatibility before deployment
+
+**Security:**
+- Use service accounts for CI/CD
+- Grant least privilege database access
+- Store secrets in secret management systems
+
+**Performance:**
+- Batch large data migrations
+- Use online schema changes for large tables
+- Create indexes concurrently when possible
+
+---
+
+## Get Started
+
+<CardGroup cols={2}>
+  <Card title="File Organization" icon="folder-tree" href="/gitops/best-practices/file-organization">
+    Repository structures and directory layouts
+  </Card>
+
+  <Card title="Migration Guidelines" icon="file-code" href="/gitops/best-practices/migration-guidelines">
+    Version numbering and migration best practices
+  </Card>
+
+  <Card title="Git and CI/CD" icon="git-branch" href="/gitops/best-practices/git-and-cicd">
+    Branching strategies and testing patterns
+  </Card>
+
+  <Card title="SQL Review and Security" icon="shield-check" href="/gitops/best-practices/sql-review-and-security">
+    Review configuration and security practices
+  </Card>
+
+  <Card title="Performance and Drift" icon="gauge" href="/gitops/best-practices/performance-and-drift">
+    Optimization and drift management
+  </Card>
+</CardGroup>

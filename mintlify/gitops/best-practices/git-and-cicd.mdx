@@ -1,0 +1,231 @@
+---
+title: Git and CI/CD
+---
+
+Choose the right Git branching strategy and CI/CD patterns for your team's workflow.
+
+## Git Branching Strategies
+
+### GitHub Flow (Simple)
+
+```
+main ─────────────○─────────────○─────→
+        ╲        ╱             ╱
+         feature-branch    hotfix-branch
+```
+
+**Workflow:**
+1. Create feature branch from `main`
+2. Develop migration
+3. Open PR, SQL review runs
+4. Merge to `main`
+5. CI creates release and deploys
+
+**Best for:** Continuous deployment, small teams
+
+### GitLab Flow (Environment Branches)
+
+```
+main ─────────○─────────○─────────────→
+               ╲         ╲
+                staging   production
+```
+
+**Workflow:**
+1. Merge to `main` → deploys to dev
+2. Merge `main` to `staging` → deploys to staging
+3. Merge `staging` to `production` → deploys to prod
+
+**Best for:** Progressive environment promotion
+
+### Git Flow (Release Branches)
+
+```
+main ──────────────────○────────○────→ (production)
+         ╲            ╱        ╱
+          develop ─○─○─────○───         (dev)
+                   ╲        ╱
+                    feature-branch
+```
+
+**Workflow:**
+1. Develop in `feature` branches
+2. Merge to `develop` → deploys to dev/staging
+3. Create `release` branch → final testing
+4. Merge to `main` → deploys to production
+
+**Best for:** Scheduled releases, large teams
+
+## CI/CD Integration Patterns
+
+### Pattern 1: Automated Review + Manual Deploy
+
+```yaml
+# .github/workflows/sql-review.yml
+on: pull_request
+
+jobs:
+  sql-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: SQL Review
+        run: |
+          # Call Bytebase API to check release
+          curl -X POST "$BB_URL/v1/projects/my-project/releases:check"
+```
+
+```yaml
+# .github/workflows/deploy.yml
+on:
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Release
+        run: |
+          # Create release via API
+```
+
+**Best for:** Production environments requiring manual control
+
+### Pattern 2: Fully Automated Pipeline
+
+```yaml
+# .github/workflows/database-cicd.yml
+on:
+  push:
+    branches: [main]
+    paths: ['migrations/**']
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create Release
+        id: release
+        run: |
+          RELEASE=$(curl -X POST "$BB_URL/v1/projects/my-project/releases" ...)
+          echo "release=$RELEASE" >> $GITHUB_OUTPUT
+
+      - name: Create Plan
+        id: plan
+        run: |
+          PLAN=$(curl -X POST "$BB_URL/v1/projects/my-project/plans" \
+            -d '{"release": "${{ steps.release.outputs.release }}"}')
+          echo "plan=$PLAN" >> $GITHUB_OUTPUT
+
+      - name: Create Rollout
+        run: |
+          curl -X POST "$BB_URL/v1/projects/my-project/rollouts" \
+            -d '{"plan": "${{ steps.plan.outputs.plan }}"}'
+```
+
+**Best for:** Dev/staging environments, high-frequency deployments
+
+<Card title="GitOps Tutorials" icon="graduation-cap" href="/tutorials/gitops-github-workflow">
+  Complete CI/CD setup examples for GitHub, GitLab, Azure DevOps, and Bitbucket
+</Card>
+
+## Testing Strategies
+
+### Test in Non-Production First
+
+Always follow environment progression:
+
+```
+Local Dev → CI Testing → Dev Environment → Staging → Production
+```
+
+**Never skip environments for production changes.**
+
+### Use Sampling for Large Fleets
+
+For database groups with 100+ databases:
+
+```json
+{
+  "project": {
+    "ci_sampling_size": 20
+  }
+}
+```
+
+During SQL review, validates on 20 random databases for faster feedback.
+
+### Maintain Test Data
+
+Create sample datasets that mirror production:
+
+```sql
+-- test-data/seed.sql
+-- Realistic test data for development
+INSERT INTO users (username, email) VALUES
+    ('alice', 'alice@example.com'),
+    ('bob', 'bob@example.com');
+
+INSERT INTO orders (user_id, total) VALUES
+    (1, 99.99),
+    (2, 149.99);
+```
+
+Test migrations against this data locally before committing.
+
+### Schema Compatibility Testing
+
+Before deploying schema changes:
+
+1. **Deploy new schema to staging**
+2. **Test old application version against new schema**
+3. **Verify backward compatibility**
+4. **Deploy application update**
+5. **Remove deprecated columns/tables later**
+
+This enables zero-downtime deployments.
+
+### Local Testing Workflow
+
+**Before committing:**
+
+```bash
+# 1. Apply migration locally
+psql $LOCAL_DB -f migrations/new_migration.sql
+
+# 2. Test with sample data
+psql $LOCAL_DB -f test-data/seed.sql
+
+# 3. Run application tests
+npm test
+
+# 4. Verify rollback (if applicable)
+psql $LOCAL_DB -f migrations/rollback.sql
+```
+
+### CI Testing Checklist
+
+Automated tests should verify:
+
+- ✅ SQL syntax is valid
+- ✅ Migration applies successfully
+- ✅ No SQL review rule violations
+- ✅ Schema changes don't break existing queries
+- ✅ Performance impact is acceptable
+- ✅ Rollback script works (if provided)
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="SQL Review and Security" icon="shield-check" href="/gitops/best-practices/sql-review-and-security">
+    Configure review rules and security practices
+  </Card>
+
+  <Card title="GitOps Tutorials" icon="graduation-cap" href="/tutorials/gitops-github-workflow">
+    Step-by-step CI/CD setup guides
+  </Card>
+</CardGroup>

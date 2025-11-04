@@ -1,0 +1,78 @@
+---
+title: Overview
+---
+
+The migration-based workflow is the **imperative** approach to database schema management, where you write incremental SQL files that explicitly describe each change to apply. This is the traditional approach familiar to database administrators and developers using tools like Flyway, Liquibase, or Rails migrations.
+
+## How It Works
+
+Each migration file contains explicit DDL or DML statements:
+
+```sql
+-- migrations/001__create_users.sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username TEXT NOT NULL UNIQUE
+);
+
+-- migrations/002__add_email.sql
+ALTER TABLE users ADD COLUMN email TEXT;
+
+-- migrations/003__seed_admin_dml.sql
+INSERT INTO users (username, email) VALUES ('admin', 'admin@example.com');
+```
+
+Bytebase executes these files sequentially based on version numbers and tracks which versions have been applied to each database through the revision system, ensuring migrations are never re-executed.
+
+## When to Use Migration-Based Workflow
+
+✅ **Use migration-based workflow when:**
+
+- You need data migrations (INSERT, UPDATE, DELETE operations)
+- You require precise control over the execution order
+- Your team is familiar with traditional migration tools
+- You're working with any database type (MySQL, PostgreSQL, SQL Server, MongoDB, etc.)
+- You need to perform complex multi-step transformations
+- You want explicit versioning of each database change
+
+## Complete Workflow
+
+The migration-based workflow consists of three stages:
+
+```
+1. Develop → 2. SQL Review (PR/MR) → 3. Release (Bytebase)
+```
+
+### Stage 1: Develop
+
+Write migration files following the naming convention and commit to your repository.
+
+### Stage 2: SQL Review (PR/MR)
+
+Open a pull/merge request. Automated SQL review runs in CI/CD.
+
+### Stage 3: Release (Bytebase)
+
+After merge, CI/CD triggers Bytebase to create a release and deploy to target databases.
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Develop" icon="code" href="/gitops/migration-based-workflow/develop">
+    Learn about file naming conventions and versioning strategies
+  </Card>
+
+  <Card title="SQL Review CI" icon="shield-check" href="/gitops/migration-based-workflow/sql-review-ci">
+    Set up automated SQL validation in your CI/CD pipeline
+  </Card>
+
+  <Card title="Release" icon="rocket" href="/gitops/migration-based-workflow/release">
+    Deploy migrations to your databases
+  </Card>
+
+  <Card title="Limitations" icon="triangle-alert" href="/gitops/migration-based-workflow/limitations">
+    Understand constraints and considerations
+  </Card>
+</CardGroup>

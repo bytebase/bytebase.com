@@ -1,0 +1,165 @@
+---
+title: SQL Review CI
+---
+
+Automated SQL review validates your migration files during pull/merge requests, catching issues before they reach production.
+
+## What Gets Validated
+
+**Automated checks include:**
+- SQL syntax validation
+- Policy rule enforcement (200+ configurable rules)
+- Naming convention compliance
+- Risk assessment for dangerous operations
+- Schema compatibility checks
+
+<Card title="SQL Review Policy" icon="shield-check" href="/sql-review/review-policy">
+  Configure 200+ linting rules for automated validation
+</Card>
+
+## Setup
+
+**Prerequisites:**
+1. [Set up SQL Review Policy](/sql-review/review-policy) - Define your SQL standards
+2. [Install GitOps Integration](/gitops/installation) - Connect Bytebase to your VCS
+
+## CI/CD Integration Examples
+
+<Tabs>
+  <Tab title="GitHub Actions">
+    ```yaml
+    # .github/workflows/sql-review.yml
+    name: SQL Review
+    on:
+      pull_request:
+        paths:
+          - 'migrations/**'
+
+    jobs:
+      sql-review:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v4
+
+          - name: SQL Review
+            uses: bytebase/sql-review-action@v1
+            with:
+              bytebase-url: ${{ secrets.BYTEBASE_URL }}
+              bytebase-token: ${{ secrets.BYTEBASE_SERVICE_ACCOUNT_TOKEN }}
+              file-pattern: 'migrations/**/*.sql'
+    ```
+
+    <Card title="GitHub Tutorial" icon="graduation-cap" href="/tutorials/gitops-github-workflow#step-3-configure-sql-review-in-bytebase" horizontal />
+
+    <Card title="GitHub Example" icon="code" href="https://github.com/bytebase/example-gitops-github-flow/blob/main/.github/workflows/sql-review-action.yml" horizontal />
+
+    ![GitHub PR SQL Review](/content/docs/gitops/sql-review-ci/github-pr-sql-review.webp)
+  </Tab>
+
+  <Tab title="GitLab CI">
+    ```yaml
+    # .gitlab-ci.yml
+    sql-review:
+      image: bytebase/bytebase-action:latest
+      stage: test
+      only:
+        - merge_requests
+      script:
+        - |
+          bytebase-action check \
+            --url $BYTEBASE_URL \
+            --service-account $BYTEBASE_SERVICE_ACCOUNT \
+            --service-account-secret $BYTEBASE_SERVICE_ACCOUNT_SECRET \
+            --file-pattern "migrations/**/*.sql"
+    ```
+
+    <Card title="GitLab Example" icon="code" href="https://gitlab.com/bytebase-sample/gitops-example/-/blob/main/bytebase-review.yml" horizontal />
+
+    ![GitLab PR SQL Review](/content/docs/gitops/sql-review-ci/gitlab-pr-sql-review.webp)
+  </Tab>
+
+  <Tab title="Azure DevOps">
+    ```yaml
+    # azure-pipelines.yml
+    trigger: none
+    pr:
+      branches:
+        include:
+          - main
+      paths:
+        include:
+          - migrations/**
+
+    jobs:
+      - job: SQLReview
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: Docker@2
+            inputs:
+              command: run
+              arguments: >
+                -e BYTEBASE_URL=$(BYTEBASE_URL)
+                -e BYTEBASE_SERVICE_ACCOUNT=$(BYTEBASE_SERVICE_ACCOUNT)
+                -e BYTEBASE_SERVICE_ACCOUNT_SECRET=$(BYTEBASE_SERVICE_ACCOUNT_SECRET)
+                -v $(System.DefaultWorkingDirectory):/workspace
+                bytebase/bytebase-action
+                check --file-pattern "/workspace/migrations/**/*.sql"
+    ```
+
+    <Card title="Azure Tutorial" icon="graduation-cap" href="/tutorials/gitops-azure-devops-workflow/" horizontal />
+
+    <Card title="Azure Example" icon="code" href="https://dev.azure.com/bytebase-hq/_git/bytebase-example?path=/pipelines/sql-review.yml" horizontal />
+
+    ![Azure DevOps PR SQL Review](/content/docs/gitops/sql-review-ci/azure-devops-pr-sql-review.webp)
+  </Tab>
+
+  <Tab title="Bitbucket Pipelines">
+    ```yaml
+    # bitbucket-pipelines.yml
+    pipelines:
+      pull-requests:
+        '**':
+          - step:
+              name: SQL Review
+              image: bytebase/bytebase-action:latest
+              script:
+                - |
+                  bytebase-action check \
+                    --url $BYTEBASE_URL \
+                    --service-account $BYTEBASE_SERVICE_ACCOUNT \
+                    --service-account-secret $BYTEBASE_SERVICE_ACCOUNT_SECRET \
+                    --file-pattern "migrations/**/*.sql"
+    ```
+
+    <Card title="Bitbucket Tutorial" icon="graduation-cap" href="/tutorials/gitops-bitbucket-workflow/" horizontal />
+
+    <Card title="Bitbucket Example" icon="code" href="https://bitbucket.org/p0nyyy/cicd/src/main/bitbucket-pipelines.yml" horizontal />
+
+    ![Bitbucket PR SQL Review](/content/docs/gitops/sql-review-ci/bb-pr-sql-review.webp)
+  </Tab>
+</Tabs>
+
+## Review Bot Feedback
+
+The SQL review bot posts detailed feedback as PR/MR comments:
+
+- ✅ **Passed checks** - Migration meets all policy requirements
+- ⚠️  **Warnings** - Best practice violations (non-blocking by default)
+- ❌ **Errors** - Policy violations (blocking by default)
+- 📊 **Risk assessment** - Evaluation of potential impact
+- 📝 **Detailed explanations** - Why rules failed with fix suggestions
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Release" icon="rocket" href="/gitops/migration-based-workflow/release">
+    Deploy your migrations after review approval
+  </Card>
+
+  <Card title="SQL Review Rules" icon="list-check" href="/sql-review/review-rules">
+    Explore all available SQL review rules
+  </Card>
+</CardGroup>

@@ -1,0 +1,165 @@
+---
+title: SQL Review CI
+---
+
+SDL validation runs automatically during pull/merge requests to catch syntax and convention violations before merge.
+
+<Warning>
+  **Work in Progress**: SDL SQL Review currently supports basic syntax checks and pre-defined SDL validation rules. Custom SQL Review rules configured in the Bytebase SQL Review Policy feature are not yet supported for SDL workflows, but this capability is actively under development.
+</Warning>
+
+## What Gets Validated
+
+**SDL-specific checks (Current):**
+- Schema qualification on all objects
+- Table-level constraint placement
+- Constraint naming requirements
+- Foreign key type matching
+- Cross-file integrity validation
+- Unsupported statement detection
+- SQL syntax validation
+
+**Coming Soon:**
+- Custom SQL Review Policy rules from Bytebase
+- Team-specific naming conventions
+- Custom validation rules
+
+<Card title="SQL Review Policy" icon="shield-check" href="/sql-review/review-policy">
+  Learn about SQL Review Policy (migration-based workflow)
+</Card>
+
+## CI/CD Integration
+
+Enable declarative mode by adding the `--declarative` flag:
+
+<Tabs>
+  <Tab title="GitHub Actions">
+    ```yaml
+    # .github/workflows/sql-review.yml
+    name: SDL Review
+    on:
+      pull_request:
+        paths:
+          - 'schema/**'
+
+    jobs:
+      sdl-review:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v4
+
+          - name: SDL Validation
+            uses: bytebase/sql-review-action@v1
+            with:
+              bytebase-url: ${{ secrets.BYTEBASE_URL }}
+              bytebase-token: ${{ secrets.BYTEBASE_SERVICE_ACCOUNT_TOKEN }}
+              file-pattern: 'schema/**/*.sql'
+              declarative: true  # Enable SDL mode
+    ```
+
+    <Card title="GitHub Tutorial" icon="graduation-cap" href="/tutorials/gitops-github-workflow/" horizontal />
+  </Tab>
+
+  <Tab title="GitLab CI">
+    ```yaml
+    # .gitlab-ci.yml
+    sdl-review:
+      image: bytebase/bytebase-action:latest
+      stage: test
+      only:
+        - merge_requests
+      script:
+        - |
+          bytebase-action check \
+            --url $BYTEBASE_URL \
+            --service-account $BYTEBASE_SERVICE_ACCOUNT \
+            --service-account-secret $BYTEBASE_SERVICE_ACCOUNT_SECRET \
+            --file-pattern "schema/**/*.sql" \
+            --declarative
+    ```
+
+    <Card title="GitLab Tutorial" icon="graduation-cap" href="/tutorials/gitops-gitlab-workflow/" horizontal />
+  </Tab>
+
+  <Tab title="Azure DevOps">
+    ```yaml
+    # azure-pipelines.yml
+    jobs:
+      - job: SDLReview
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: Docker@2
+            inputs:
+              command: run
+              arguments: >
+                bytebase/bytebase-action
+                check --file-pattern "/workspace/schema/**/*.sql"
+                --declarative
+    ```
+
+    <Card title="Azure Tutorial" icon="graduation-cap" href="/tutorials/gitops-azure-devops-workflow/" horizontal />
+  </Tab>
+</Tabs>
+
+## Common Validation Errors
+
+<AccordionGroup>
+  <Accordion title="Missing schema qualification">
+    **Error:** `Table 'users' must include schema name`
+
+    **Fix:** Add schema prefix to all objects
+    ```sql
+    -- Change: CREATE TABLE users
+    -- To: CREATE TABLE public.users
+    ```
+  </Accordion>
+
+  <Accordion title="Column-level constraint">
+    **Error:** `PRIMARY KEY must be table-level constraint`
+
+    **Fix:** Move constraint to table level
+    ```sql
+    -- Change:
+    id INTEGER PRIMARY KEY
+
+    -- To:
+    id INTEGER,
+    CONSTRAINT users_pkey PRIMARY KEY (id)
+    ```
+  </Accordion>
+
+  <Accordion title="Unnamed constraint">
+    **Error:** `All constraints must have explicit names`
+
+    **Fix:** Add CONSTRAINT keyword with name
+    ```sql
+    -- Change: UNIQUE (email)
+    -- To: CONSTRAINT users_email_key UNIQUE (email)
+    ```
+  </Accordion>
+
+  <Accordion title="Type mismatch in foreign key">
+    **Error:** `Foreign key column 'user_id' (INTEGER) references 'users.id' (BIGINT)`
+
+    **Fix:** Align column types
+    ```sql
+    -- Ensure both are same type
+    user_id BIGINT  -- Match users.id type
+    ```
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Release" icon="rocket" href="/gitops/state-based-workflow/release">
+    Deploy SDL changes after validation approval
+  </Card>
+
+  <Card title="SQL Review Rules" icon="list-check" href="/sql-review/review-rules">
+    Explore all available SQL review rules
+  </Card>
+</CardGroup>

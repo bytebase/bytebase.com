@@ -1,0 +1,90 @@
+---
+title: Overview
+---
+
+The state-based workflow uses **SDL (Schema Definition Language)** - a declarative approach where you define the desired end-state of your database schema, and Bytebase automatically generates the migration DDL. This approach mirrors infrastructure-as-code principles used by Kubernetes, Terraform, and other modern DevOps tools.
+
+## How It Works
+
+Instead of writing incremental changes, you maintain the complete schema definition:
+
+```sql
+-- schema/public.sql (complete desired state)
+CREATE TABLE public.users (
+    id INTEGER,
+    name TEXT NOT NULL,
+    email TEXT,
+    CONSTRAINT users_pkey PRIMARY KEY (id),
+    CONSTRAINT users_email_key UNIQUE (email)
+);
+
+CREATE INDEX idx_users_email ON public.users(email);
+```
+
+When you update this file and deploy, Bytebase:
+1. Compares your desired state with the current database
+2. Automatically generates the necessary ALTER/DROP statements
+3. Executes the generated migration to reach the desired state
+
+## When to Use State-Based Workflow
+
+✅ **Use state-based workflow when:**
+
+- You're managing pure schema changes (DDL only)
+- Your team embraces infrastructure-as-code principles
+- You want Git-friendly diffs showing schema evolution
+- You need simplified management without tracking migration order
+- You're working with PostgreSQL databases (currently supported)
+- You prefer automatic dependency resolution over manual ordering
+
+❌ **Don't use state-based workflow when:**
+
+- You need data migrations (INSERT, UPDATE, DELETE)
+- You require complex multi-step logic
+- You're working with MySQL, SQL Server, or other databases (not yet supported)
+
+<Tip>
+  **Hybrid Approach:** Use state-based workflow for schema structure and migration-based workflow for data operations in the same project.
+</Tip>
+
+## Complete Workflow
+
+The state-based workflow follows the same three stages:
+
+```
+1. Develop → 2. SQL Review (PR/MR) → 3. Release (Bytebase)
+```
+
+### Stage 1: Develop
+
+Maintain complete schema definition files representing desired state.
+
+### Stage 2: SQL Review (PR/MR)
+
+Open a pull/merge request. SDL validation runs in CI/CD.
+
+### Stage 3: Release (Bytebase)
+
+After merge, Bytebase compares states, generates DDL, and deploys.
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Develop" icon="code" href="/gitops/state-based-workflow/develop">
+    Learn about SDL syntax and requirements
+  </Card>
+
+  <Card title="SQL Review CI" icon="shield-check" href="/gitops/state-based-workflow/sql-review-ci">
+    Set up SDL validation in your CI/CD pipeline
+  </Card>
+
+  <Card title="Release" icon="rocket" href="/gitops/state-based-workflow/release">
+    Deploy SDL changes to your databases
+  </Card>
+
+  <Card title="Limitations" icon="triangle-alert" href="/gitops/state-based-workflow/limitations">
+    Understand constraints and considerations
+  </Card>
+</CardGroup>

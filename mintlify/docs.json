@@ -130,9 +130,47 @@
             "pages": [
               "gitops/overview",
               "gitops/installation",
-              "gitops/develop",
-              "gitops/sql-review-ci",
-              "gitops/release"
+              {
+                "group": "Migration-Based Workflow",
+                "pages": [
+                  "gitops/migration-based-workflow/overview",
+                  "gitops/migration-based-workflow/develop",
+                  "gitops/migration-based-workflow/sql-review-ci",
+                  "gitops/migration-based-workflow/release",
+                  "gitops/migration-based-workflow/limitations"
+                ]
+              },
+              {
+                "group": "State-Based Workflow (SDL)",
+                "pages": [
+                  "gitops/state-based-workflow/overview",
+                  "gitops/state-based-workflow/develop",
+                  "gitops/state-based-workflow/sql-review-ci",
+                  "gitops/state-based-workflow/release",
+                  "gitops/state-based-workflow/limitations"
+                ]
+              },
+              {
+                "group": "Best Practices",
+                "pages": [
+                  "gitops/best-practices/overview",
+                  "gitops/best-practices/file-organization",
+                  "gitops/best-practices/migration-guidelines",
+                  "gitops/best-practices/git-and-cicd",
+                  "gitops/best-practices/sql-review-and-security",
+                  "gitops/best-practices/performance-and-drift"
+                ]
+              },
+              {
+                "group": "Troubleshooting",
+                "pages": [
+                  "gitops/troubleshooting/overview",
+                  "gitops/troubleshooting/release-and-plan",
+                  "gitops/troubleshooting/rollout",
+                  "gitops/troubleshooting/sdl-issues",
+                  "gitops/troubleshooting/cicd-issues"
+                ]
+              }
             ]
           },
           {
