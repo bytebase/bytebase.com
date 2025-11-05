@@ -54,7 +54,6 @@ Besides emphasizing control throughout the release process, Bytebase provides va
 
 - **Batch changes**: Bytebase supports multiple ways to release changes, among which [Batch Change](https://docs.bytebase.com/change-database/batch-change/) can group and release changes to a large number of databases simultaneously, avoiding database-by-database execution, and can flexibly handle cross-grouping issues, which simply cannot be addressed by customizing batch change scripts.
 - **Script validation**: Bytebase helps write better SQL statements by incorporating syntax checking and object name verification. For certain operations, such as modifying schema referenced by VIEWs (in PostgreSQL, the VIEW needs to be deleted to modify table schema), Bytebase can automatically provide VIEW definitions for easy script rewriting.
-- **Simplified version control**: Before Bytebase, change scripts in test environments needed to be manually recorded and arranged using tools like spreadsheets, before being individually released into production environments. This process was cumbersome and prone to errors. With [Changelist](https://docs.bytebase.com/changelist/), they can now import changes from change history or external files and release them with one click, significantly improving the experience.
 
 ### Integrating Compliance
 

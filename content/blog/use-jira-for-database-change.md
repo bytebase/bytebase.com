@@ -66,7 +66,7 @@ It's challenging to force a general issue ticketing system to handle the special
 ## Why Bytebase
 
 Many customers come to [Bytebase](/) from Jira because of the aforementioned challenges. Similar to Jira,
-Bytebase has the concepts of `Project`, `Issue`. Additionally, Bytebase defines some database domain-specific concepts as first-class citizens, such as `Database Instance`, `Database`, `Environment`, `Changelist`. Bytebase provides an integrated
+Bytebase has the concepts of `Project`, `Issue`. Additionally, Bytebase defines some database domain-specific concepts as first-class citizens, such as `Database Instance`, `Database`, `Environment`. Bytebase provides an integrated
 experience to plan, review, and deploy database changes.
 
 ![Issue detail interface](/content/blog/use-jira-for-database-change/issue-detail.webp)
