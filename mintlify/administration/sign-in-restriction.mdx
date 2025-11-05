@@ -2,6 +2,23 @@
 title: Sign-in Restriction
 ---
 
+## Rate Limiting for Login Attempts
+
+Bytebase implements rate limiting to protect against brute force attacks on user authentication. The system automatically tracks and limits failed login attempts:
+
+### Password Authentication Phase
+- **Maximum attempts**: 10 failed attempts
+- **Time window**: 10 minutes
+- After exceeding the limit, the account will be temporarily locked
+
+### Multi-Factor Authentication (MFA) Phase
+- **Maximum attempts**: 5 failed attempts
+- **Time window**: 5 minutes
+- After exceeding the limit, the MFA verification will be temporarily locked
+- MFA temporary token expires after 5 minutes
+
+These security measures help protect user accounts from unauthorized access attempts while ensuring legitimate users can still access their accounts.
+
 ## Sign-in Frequency
 
 **Sign-in Frequency** specifies the period that users are required to sign in again.
