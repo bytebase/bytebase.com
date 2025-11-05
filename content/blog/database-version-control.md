@@ -36,12 +36,6 @@ Version control systems store the history of changes made to the database schema
 
 ![change-history-diff](/content/blog/database-version-control/change-history-diff.webp)
 
-## Migration Scripts
-
-Database version control often relies on migration scripts, which are code files that define the necessary changes to the database schema. These scripts typically contain SQL statements or other database-specific commands to create, modify, or delete database objects. In Bytebase, one can use [Changelist](https://docs.bytebase.com/changelist/) to compose the migration scripts.
-
-![change-list](/content/blog/database-version-control/changelist.webp)
-
 ## Deployment and Rollback
 
 By keeping a history of changes, version control enables controlled deployment of database updates. If a problem occurs, it allows teams to roll back to a previous version of the database schema and associated data. Bytebase provides the following rollback options:
