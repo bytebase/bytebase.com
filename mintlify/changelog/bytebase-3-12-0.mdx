@@ -27,36 +27,34 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
     Before:
     ```json
     {
-    "slack": {
-        "enabled": true,
-        "token": "xxx"
-    },
-    "lark": {
-        "enabled": true,
-        ...
-    },
-    "feishu": {
-        "enabled": true,
-        ...
-    }
+        "slack": {
+            "enabled": true,
+            "token": "xxx"
+        },
+        "lark": {
+            "enabled": true,
+            ...
+        },
+        "feishu": {
+            "enabled": true,
+            ...
+        }
     }
     ```
 
     After:
     ```json
     {
-    "settings": [
-        {
-        "type": "slack",
-        "slack": {
-            "token": "xxx"
-        }
-        },
-        {
-        "type": "lark",
-        "lark": {}
-        }
-    ]
+        "settings": [
+            {
+                "type": "slack",
+                "slack": {"token": "xxx"}
+            },
+            {
+                "type": "lark",
+                "lark": {}
+            }
+        ]
     }
     ```
 
