@@ -1,0 +1,230 @@
+---
+title: SDL Issues
+---
+
+Troubleshoot State-Based Workflow (SDL) specific validation errors.
+
+<Note>
+  SDL is currently supported for PostgreSQL databases only. Validation rules enforce strict conventions to ensure maintainable schema definitions.
+</Note>
+
+## Missing Schema Qualification
+
+**Error:**
+```
+Table 'users' must include schema name
+```
+
+**Cause:** SDL requires all objects to have schema prefix.
+
+**Solution:**
+
+```sql
+-- ❌ Wrong
+CREATE TABLE users (id INTEGER PRIMARY KEY);
+
+-- ✅ Correct
+CREATE TABLE public.users (id INTEGER PRIMARY KEY);
+```
+
+Apply to all objects:
+- Tables: `CREATE TABLE public.users`
+- Indexes: `CREATE INDEX idx_name ON public.users(name)`
+- Views: `CREATE VIEW public.active_users AS ...`
+- Functions: `CREATE FUNCTION public.get_user() ...`
+
+## Column-Level Constraint
+
+**Error:**
+```
+PRIMARY KEY must be table-level constraint
+```
+
+**Cause:** SDL requires constraints at table level (except NOT NULL, DEFAULT, GENERATED).
+
+**Solution:**
+
+```sql
+-- ❌ Wrong - Column-level constraint
+CREATE TABLE public.users (
+    id INTEGER PRIMARY KEY,
+    email TEXT UNIQUE
+);
+
+-- ✅ Correct - Table-level constraints
+CREATE TABLE public.users (
+    id INTEGER,
+    email TEXT,
+    CONSTRAINT users_pkey PRIMARY KEY (id),
+    CONSTRAINT users_email_key UNIQUE (email)
+);
+```
+
+**Allowed at column level:**
+```sql
+CREATE TABLE public.users (
+    id SERIAL,                        -- ✅ SERIAL allowed
+    name TEXT NOT NULL,               -- ✅ NOT NULL allowed
+    created_at TIMESTAMP DEFAULT NOW(), -- ✅ DEFAULT allowed
+    CONSTRAINT users_pkey PRIMARY KEY (id)
+);
+```
+
+## Unnamed Constraint
+
+**Error:**
+```
+All constraints must have explicit names using CONSTRAINT keyword
+```
+
+**Solution:**
+
+```sql
+-- ❌ Wrong - Unnamed constraints
+CREATE TABLE public.orders (
+    id INTEGER,
+    user_id INTEGER,
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES public.users(id)
+);
+
+-- ✅ Correct - Named constraints
+CREATE TABLE public.orders (
+    id INTEGER,
+    user_id INTEGER,
+    CONSTRAINT orders_pkey PRIMARY KEY (id),
+    CONSTRAINT fk_orders_users FOREIGN KEY (user_id) REFERENCES public.users(id)
+);
+```
+
+**Naming conventions:**
+- Primary keys: `{table}_pkey`
+- Unique constraints: `{table}_{column}_key`
+- Foreign keys: `fk_{table}_{referenced_table}`
+- Check constraints: `check_{description}`
+
+## Foreign Key Type Mismatch
+
+**Error:**
+```
+Foreign key column 'user_id' (INTEGER) references 'users.id' (BIGINT)
+Types must match exactly
+```
+
+**Cause:** Column types don't match between foreign key and referenced column.
+
+**Solution:**
+
+```sql
+-- Ensure types match
+CREATE TABLE public.users (
+    id BIGINT,
+    CONSTRAINT users_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE public.orders (
+    id BIGINT,
+    user_id BIGINT,  -- Must match users.id type
+    CONSTRAINT orders_pkey PRIMARY KEY (id),
+    CONSTRAINT fk_orders_users FOREIGN KEY (user_id) REFERENCES public.users(id)
+);
+```
+
+## Foreign Key Missing Schema
+
+**Error:**
+```
+Foreign key reference must include schema name
+```
+
+**Solution:**
+
+```sql
+-- ❌ Wrong
+FOREIGN KEY (user_id) REFERENCES users(id)
+
+-- ✅ Correct
+FOREIGN KEY (user_id) REFERENCES public.users(id)
+```
+
+## CHECK Constraint References Other Table
+
+**Error:**
+```
+CHECK constraint cannot reference other tables
+```
+
+**Cause:** CHECK constraints can only reference columns in the same table.
+
+**Solution:**
+
+```sql
+-- ❌ Wrong - References other table
+CREATE TABLE public.orders (
+    user_id INTEGER,
+    CONSTRAINT check_valid_user CHECK (user_id IN (SELECT id FROM public.users))
+);
+
+-- ✅ Correct - Use foreign key instead
+CREATE TABLE public.orders (
+    user_id INTEGER,
+    CONSTRAINT fk_orders_users FOREIGN KEY (user_id) REFERENCES public.users(id)
+);
+```
+
+## Migration Generation Fails
+
+**Error:**
+```
+Failed to generate migration: duplicate object 'users_pkey'
+```
+
+**Causes:**
+1. Duplicate constraint names across tables
+2. Duplicate index names
+3. Conflicting object names
+
+**Solution:**
+
+Ensure all object names are unique:
+```sql
+-- ❌ Wrong - Duplicate constraint name
+CREATE TABLE public.users (
+    id INTEGER,
+    CONSTRAINT pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE public.orders (
+    id INTEGER,
+    CONSTRAINT pkey PRIMARY KEY (id)  -- Duplicate name!
+);
+
+-- ✅ Correct - Unique names
+CREATE TABLE public.users (
+    id INTEGER,
+    CONSTRAINT users_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE public.orders (
+    id INTEGER,
+    CONSTRAINT orders_pkey PRIMARY KEY (id)
+);
+```
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="SDL Develop Guide" icon="code" href="/gitops/state-based-workflow/develop">
+    Learn SDL syntax requirements
+  </Card>
+
+  <Card title="SDL Limitations" icon="info" href="/gitops/state-based-workflow/limitations">
+    Understand SDL constraints
+  </Card>
+
+  <Card title="CI/CD Issues" icon="settings" href="/gitops/troubleshooting/cicd-issues">
+    Troubleshoot CI/CD problems
+  </Card>
+</CardGroup>

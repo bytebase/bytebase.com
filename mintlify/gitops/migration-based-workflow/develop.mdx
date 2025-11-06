@@ -1,0 +1,189 @@
+---
+title: Develop
+---
+
+Create SQL migration files following naming conventions that enable proper version tracking and execution order.
+
+## File Naming Convention
+
+Migration filenames must follow this structure:
+
+```
+<Version>__<Description>_<Suffix>.sql
+```
+
+**Components:**
+
+1. **Version** (required) - Must begin with a number, optional `v` or `V` prefix
+2. **Double underscore** (`__`) separator
+3. **Description** - Human-readable description using underscores or hyphens
+4. **Suffix** (optional) - Migration type indicator
+5. **`.sql`** file extension
+
+## Version Formats
+
+Choose a versioning strategy that fits your team:
+
+<Tabs>
+  <Tab title="Timestamp">
+    **Timestamp-Based** - Recommended for teams with parallel development
+
+    ```
+    20250120143000__add_user_email.sql
+    20250121091500__create_orders_table.sql
+    ```
+
+    Format: `YYYYMMDDHHmmss`
+
+    ✅ No merge conflicts
+    ✅ Chronological ordering
+    ✅ Supports distributed teams
+
+    ⚠️  Less human-readable
+  </Tab>
+
+  <Tab title="Semantic">
+    **Semantic Versioning** - Meaningful version numbers
+
+    ```
+    v1.0.0__initial_release.sql
+    v1.1.0__add_user_profiles.sql
+    v1.1.1__fix_profile_constraint.sql
+    v2.0.0__redesign_authentication.sql
+    ```
+
+    ✅ Conveys change significance
+    ✅ Aligns with application versioning
+
+    ⚠️  Requires coordination
+    ⚠️  Merge conflicts possible
+  </Tab>
+
+  <Tab title="Sequential">
+    **Simple Sequential** - Easy to understand
+
+    ```
+    001__initial_schema.sql
+    002__add_users.sql
+    003__add_products.sql
+    ```
+
+    ✅ Simple and clear
+    ✅ Milestones mark releases
+
+    ⚠️  Merge conflicts in parallel work
+  </Tab>
+</Tabs>
+
+## Change Type Suffixes
+
+Specify the migration type using an optional suffix:
+
+| Suffix | Type | Description | Use Cases |
+|--------|------|-------------|-----------|
+| *(none)* | **DDL** | Data Definition Language | CREATE, ALTER, DROP tables, indexes, constraints |
+| `_dml` | **DML** | Data Manipulation Language | INSERT, UPDATE, DELETE, data migrations |
+| `_ghost` | **Ghost** | gh-ost online migration | Zero-downtime MySQL schema changes |
+
+**Examples:**
+
+```
+v1.0.0__create_schema.sql           (DDL - default)
+v1.1.0__seed_initial_data_dml.sql   (DML - data changes)
+v1.2.0__add_user_index_ghost.sql    (Ghost - online schema change)
+```
+
+<Card title="Online Schema Migration" icon="bolt" href="/change-database/online-schema-migration-for-mysql">
+  Learn about gh-ost for zero-downtime MySQL migrations
+</Card>
+
+## File Organization
+
+**Recommended structure:**
+
+```
+migrations/
+├── 001__initial_schema.sql
+├── 002__add_users.sql
+├── 003__add_products_dml.sql
+└── 004__add_indexes.sql
+```
+
+**Or with subdirectories:**
+
+```
+migrations/
+├── baseline/
+│   └── 000__initial_schema.sql
+├── features/
+│   ├── 001__users.sql
+│   ├── 002__products.sql
+│   └── 003__orders.sql
+└── hotfixes/
+    └── 004__fix_index.sql
+```
+
+## Best Practices
+
+**Keep migrations small and focused:**
+
+```sql
+✅ Good - Single, clear purpose
+-- 005__add_user_email.sql
+ALTER TABLE users ADD COLUMN email TEXT;
+```
+
+```sql
+❌ Bad - Too large and unfocused
+-- 005__big_refactor.sql
+ALTER TABLE users ADD COLUMN email TEXT;
+ALTER TABLE users ADD COLUMN phone TEXT;
+CREATE TABLE user_preferences (...);
+-- 500 more lines
+```
+
+**Add comments for complex logic:**
+
+```sql
+-- 020__migrate_legacy_permissions_dml.sql
+-- Migrates old role system to new permission model
+-- Old: roles.name -> New: permissions.scope + permissions.action
+
+UPDATE permissions
+SET scope = CASE
+    WHEN roles.name = 'admin' THEN 'database'
+    WHEN roles.name = 'editor' THEN 'database'
+END
+FROM roles
+WHERE permissions.role_id = roles.id;
+```
+
+**Use transactions when possible:**
+
+```sql
+-- 015__multi_step_migration_dml.sql
+BEGIN;
+
+UPDATE users SET status = 'migrated' WHERE status = 'legacy';
+
+INSERT INTO user_audit_log (user_id, action)
+SELECT id, 'status_migrated'
+FROM users
+WHERE status = 'migrated';
+
+COMMIT;
+```
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="SQL Review CI" icon="shield-check" href="/gitops/migration-based-workflow/sql-review-ci">
+    Set up automated validation in your CI/CD pipeline
+  </Card>
+
+  <Card title="Release" icon="rocket" href="/gitops/migration-based-workflow/release">
+    Deploy your migrations to databases
+  </Card>
+</CardGroup>

@@ -1,0 +1,185 @@
+---
+title: File Organization
+---
+
+Proper file organization is crucial for maintainable GitOps workflows. This guide covers repository structures and directory layouts that scale with your team.
+
+## Repository Structure
+
+### Monorepo Approach
+
+Database migrations alongside application code:
+
+```
+my-app/
+├── src/                         # Application code
+├── migrations/                  # Database migrations
+│   ├── versioned/
+│   │   ├── 001__init.sql
+│   │   └── 002__add_users.sql
+│   └── schema/
+│       └── public.sql           # SDL if using declarative
+├── .github/workflows/
+│   └── bytebase-gitops.yml      # CI/CD integration
+└── README.md
+```
+
+**Benefits:**
+- Migrations versioned with application code
+- Atomic commits for schema + code changes
+- Single source of truth
+
+**Best for:**
+- Small to medium teams
+- Tight schema-code coupling
+- Monolithic or modular monolith architectures
+
+### Separate Repository
+
+Dedicated database repository:
+
+```
+database-schemas/
+├── app-db/
+│   ├── migrations/
+│   └── schema/
+├── analytics-db/
+│   └── migrations/
+└── .gitlab-ci.yml
+```
+
+**Benefits:**
+- Separation of concerns
+- Independent deployment cycles
+- Multiple teams/databases
+
+**Best for:**
+- Larger organizations
+- Dedicated database teams
+- Microservices with shared databases
+
+<Tip>
+  Choose based on your team structure. Co-located migrations work well for small teams with tight schema-code coupling. Separate repos fit larger organizations with dedicated database teams.
+</Tip>
+
+## Directory Layout
+
+### For Migration-Based Workflow
+
+**Option 1: Organized by Category**
+
+```
+migrations/
+├── baseline/
+│   └── 000__initial_schema.sql      # Initial baseline
+├── features/
+│   ├── 001__users.sql
+│   ├── 002__products.sql
+│   └── 003__orders.sql
+└── hotfixes/
+    └── 004__fix_index.sql
+```
+
+**Benefits:**
+- Clear organization by purpose
+- Easy to navigate
+- Separates routine changes from emergencies
+
+**Option 2: Flat Structure**
+
+```
+migrations/
+├── 001__initial_schema.sql
+├── 002__add_users.sql
+├── 003__add_products_dml.sql
+└── 004__add_indexes.sql
+```
+
+**Benefits:**
+- Simple and straightforward
+- Chronological ordering
+- Easy to understand
+
+### For State-Based Workflow (SDL)
+
+**Option 1: Organized by Schema**
+
+```
+schema/
+├── public.sql                # Main schema
+├── analytics.sql             # Analytics schema
+└── internal.sql              # Internal schema
+```
+
+**Benefits:**
+- Clear schema separation
+- Matches database structure
+- Easy to find objects
+
+**Option 2: Split by Object Type**
+
+```
+schema/
+├── 01_tables.sql
+├── 02_indexes.sql
+├── 03_views.sql
+├── 04_functions.sql
+└── 05_sequences.sql
+```
+
+**Benefits:**
+- Organized by DDL type
+- Predictable file structure
+- Clear dependencies (tables before indexes)
+
+### Hybrid Approach
+
+Combine both workflows for different purposes:
+
+```
+database/
+├── schema/               # SDL for structure (DDL)
+│   ├── public.sql
+│   └── analytics.sql
+├── migrations/           # Migrations for data (DML)
+│   ├── 001__seed_roles_dml.sql
+│   └── 002__migrate_users_dml.sql
+└── .github/workflows/
+    ├── schema-cicd.yml   # SDL pipeline
+    └── data-cicd.yml     # Migration pipeline
+```
+
+**Best for:**
+- Teams wanting declarative schema management
+- Projects requiring data migrations
+- Gradual migration from versioned to SDL
+
+## Documentation Structure
+
+Maintain supporting documentation alongside migrations:
+
+```
+database/
+├── migrations/
+├── schema/
+├── docs/
+│   ├── CHANGELOG.md          # Schema changelog
+│   ├── DEPENDENCIES.md       # Schema-app dependencies
+│   └── ROLLBACK_PLAN.md      # Rollback procedures
+└── test-data/
+    └── seed.sql              # Test data for development
+```
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Migration Guidelines" icon="file-code" href="/gitops/best-practices/migration-guidelines">
+    Learn version numbering and file best practices
+  </Card>
+
+  <Card title="Git and CI/CD" icon="git-branch" href="/gitops/best-practices/git-and-cicd">
+    Set up branching strategies and pipelines
+  </Card>
+</CardGroup>

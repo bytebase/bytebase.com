@@ -1,0 +1,228 @@
+---
+title: Release and Plan Issues
+---
+
+Troubleshoot problems with release creation and plan generation.
+
+## Release Creation Fails with Invalid File
+
+**Error:**
+```
+Failed to create release: Invalid migration file '002__add_users.sql'
+```
+
+**Possible Causes:**
+1. **Invalid filename format**
+   - Missing version number
+   - Invalid characters
+   - Incorrect suffix
+
+2. **SQL syntax errors**
+   - Unparseable SQL
+   - Database-specific syntax issues
+
+3. **File encoding issues**
+   - Non-UTF-8 encoding
+   - Binary content in SQL file
+
+**Solutions:**
+
+<AccordionGroup>
+  <Accordion title="Check Filename Format">
+    Ensure filename follows pattern:
+    ```
+    <Version>__<Description>_<Suffix>.sql
+    ```
+
+    Valid examples:
+    ```
+    ✅ 002__add_users.sql
+    ✅ v1.0.0__init.sql
+    ✅ 20250120__add_email_dml.sql
+    ```
+
+    Invalid examples:
+    ```
+    ❌ add_users.sql (missing version)
+    ❌ 002-add-users.sql (wrong separator, use __)
+    ❌ 002__add users.sql (space in filename)
+    ```
+  </Accordion>
+
+  <Accordion title="Validate SQL Syntax">
+    Test SQL locally:
+    ```bash
+    # PostgreSQL
+    psql -h localhost -U user -d testdb -f 002__add_users.sql
+
+    # MySQL
+    mysql -h localhost -u user -p testdb < 002__add_users.sql
+    ```
+
+    Common syntax issues:
+    - Missing semicolons
+    - Incorrect quote types
+    - Database-specific keywords
+  </Accordion>
+
+  <Accordion title="Check File Encoding">
+    Ensure UTF-8 encoding:
+    ```bash
+    file 002__add_users.sql
+    # Should show: UTF-8 Unicode text
+
+    # Convert if needed
+    iconv -f ISO-8859-1 -t UTF-8 file.sql > file_utf8.sql
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## SHA256 Mismatch Warning
+
+**Warning:**
+```
+Warning: Version 005 already applied with different content
+Existing SHA256: abc123...
+New SHA256: xyz789...
+```
+
+**Cause:** Migration file content changed for an existing version.
+
+**Impact:** File is skipped (idempotent behavior), but indicates inconsistency.
+
+**Solutions:**
+
+**Option 1: Accept the difference (if intentional)**
+- Document why content differs
+- Verify both versions produce same schema
+- No action needed (file will be skipped)
+
+**Option 2: Fix the inconsistency (recommended)**
+1. Revert file to original content
+2. Create new migration with changes:
+   ```sql
+   -- 006__fix_previous_migration.sql
+   -- Corrects issue from migration 005
+   ALTER TABLE ...
+   ```
+
+<Warning>
+  Never modify deployed migrations. Always create new migrations for fixes.
+</Warning>
+
+## Release Not Found
+
+**Error:**
+```
+Release 'projects/my-project/releases/v1.0.0' not found
+```
+
+**Causes:**
+1. Release was deleted
+2. Wrong project name
+3. Wrong release identifier
+
+**Solutions:**
+
+```bash
+# List all releases
+curl -X GET "$BB_URL/v1/projects/my-project/releases" \
+  -H "Authorization: Bearer $BB_TOKEN"
+
+# Search by digest
+curl -X GET "$BB_URL/v1/projects/my-project/releases:search?digest=v1.0.0" \
+  -H "Authorization: Bearer $BB_TOKEN"
+
+# Recreate release if deleted
+curl -X POST "$BB_URL/v1/projects/my-project/releases" \
+  -H "Authorization: Bearer $BB_TOKEN" \
+  -d @release-payload.json
+```
+
+## Plan Creation Fails - Invalid Target
+
+**Error:**
+```
+Invalid target: instances/prod-mysql/databases/nonexistent
+```
+
+**Cause:** Specified database doesn't exist or is archived.
+
+**Solutions:**
+
+<Tabs>
+  <Tab title="Verify Database Exists">
+    ```bash
+    # List databases in instance
+    curl -X GET "$BB_URL/v1/instances/prod-mysql/databases" \
+      -H "Authorization: Bearer $BB_TOKEN"
+    ```
+
+    Check if database:
+    - Exists with correct name
+    - Is not archived
+    - Has correct instance path
+  </Tab>
+
+  <Tab title="Check Database Group">
+    If using database group:
+    ```bash
+    # List database groups
+    curl -X GET "$BB_URL/v1/projects/my-project/databaseGroups" \
+      -H "Authorization: Bearer $BB_TOKEN"
+
+    # Get specific group members
+    curl -X GET "$BB_URL/v1/projects/my-project/databaseGroups/prod-fleet" \
+      -H "Authorization: Bearer $BB_TOKEN"
+    ```
+
+    Verify group:
+    - Exists
+    - Contains expected databases
+    - Has active members
+  </Tab>
+</Tabs>
+
+## Plan References Wrong Release
+
+**Error:**
+```
+Release 'projects/my-project/releases/old-release' has no unapplied migrations
+```
+
+**Cause:** Plan references release where all migrations already applied.
+
+**Expected Behavior:** This is normal if all migrations are already deployed.
+
+**Solutions:**
+
+**If migrations should be unapplied:**
+1. Check revision records on target database:
+   ```bash
+   curl -X GET "$BB_URL/v1/instances/prod/databases/app_db/revisions" \
+     -H "Authorization: Bearer $BB_TOKEN"
+   ```
+
+2. Verify versions in release match:
+   ```bash
+   curl -X GET "$BB_URL/v1/projects/my-project/releases/old-release" \
+     -H "Authorization: Bearer $BB_TOKEN"
+   ```
+
+**If releasing new changes:**
+1. Create new release with new version numbers
+2. Update plan to reference new release
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Rollout Issues" icon="circle-alert" href="/gitops/troubleshooting/rollout">
+    Troubleshoot deployment problems
+  </Card>
+
+  <Card title="API Reference" icon="code" href="/integrations/api/overview">
+    Complete API documentation
+  </Card>
+</CardGroup>

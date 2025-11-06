@@ -1,0 +1,274 @@
+---
+title: Rollout Issues
+---
+
+Troubleshoot problems during rollout execution and task failures.
+
+## All Tasks Skipped
+
+**Behavior:** Rollout completes immediately with all tasks skipped.
+
+**Cause:** All migrations already applied (detected via revision records).
+
+**Verification:**
+
+```bash
+# Check revisions on target database
+curl -X GET "$BB_URL/v1/instances/prod/databases/app_db/revisions"
+```
+
+**This is normal behavior** indicating idempotent operation.
+
+**To deploy new changes:**
+1. Create migrations with new version numbers
+2. Create new release
+3. Create new plan/rollout
+
+## Task Stuck in PENDING_APPROVAL
+
+**Behavior:** Task waiting for approval indefinitely.
+
+**Causes:**
+1. Rollout policy requires manual approval
+2. No authorized users have approved
+
+**Solutions:**
+
+<Tabs>
+  <Tab title="Approve Task">
+    ```bash
+    curl -X POST "$BB_URL/v1/projects/my-project/rollouts/rollout-123/stages/stage-1/tasks/task-1:approve" \
+      -H "Authorization: Bearer $BB_TOKEN" \
+      -d '{"comment": "Approved for deployment"}'
+    ```
+  </Tab>
+
+  <Tab title="Check Approval Policy">
+    Verify rollout policy:
+    ```bash
+    curl -X GET "$BB_URL/v1/projects/my-project/environments/prod" \
+      -H "Authorization: Bearer $BB_TOKEN"
+    ```
+
+    Check `rollout_policy` field:
+    ```json
+    {
+      "rollout_policy": {
+        "automatic": false,
+        "issue_roles": ["roles/projectOwner", "roles/projectDBA"]
+      }
+    }
+    ```
+  </Tab>
+
+  <Tab title="Update Policy (If Needed)">
+    Change to automatic (use with caution):
+    ```bash
+    curl -X PATCH "$BB_URL/v1/projects/my-project/environments/prod" \
+      -H "Authorization: Bearer $BB_TOKEN" \
+      -d '{
+        "rollout_policy": {
+          "automatic": true
+        }
+      }'
+    ```
+
+    <Warning>
+      Only enable automatic rollout in non-production environments or with proper safeguards.
+    </Warning>
+  </Tab>
+</Tabs>
+
+## Task Fails with SQL Error
+
+**Error in task logs:**
+```
+ERROR: syntax error at or near "CRATE"
+```
+
+**Cause:** SQL syntax error in migration file.
+
+**Solutions:**
+
+1. **Identify problematic file:**
+   - Check task logs for error location
+   - Identify which migration file failed
+
+2. **Fix syntax error:**
+   ```sql
+   -- Wrong:
+   CRATE TABLE users (...);
+
+   -- Correct:
+   CREATE TABLE users (...);
+   ```
+
+3. **Create new release:**
+   - Don't modify original file if already released
+   - Create new migration with fix:
+     ```sql
+     -- 006__fix_users_table.sql
+     CREATE TABLE IF NOT EXISTS users (...);
+     ```
+
+4. **Retry or create new rollout:**
+   ```bash
+   # Option 1: Retry failed task (if file was corrected before execution)
+   curl -X POST "$BB_URL/v1/projects/my-project/rollouts/rollout-123/stages/stage-1/tasks:batchRun" \
+     -d '{"tasks": ["task-1"]}'
+
+   # Option 2: Create new rollout with corrected release
+   curl -X POST "$BB_URL/v1/projects/my-project/rollouts" \
+     -d '{"plan": "projects/my-project/plans/plan-new"}'
+   ```
+
+## Permission Denied Error
+
+**Error:**
+```
+ERROR: permission denied to create table "users"
+```
+
+**Cause:** Bytebase database user lacks required permissions.
+
+**Solutions:**
+
+<AccordionGroup>
+  <Accordion title="Grant Required Permissions">
+    **For DDL operations (schema changes):**
+    ```sql
+    -- PostgreSQL
+    GRANT CREATE, ALTER, DROP ON DATABASE app_db TO bytebase_user;
+    GRANT ALL ON SCHEMA public TO bytebase_user;
+
+    -- MySQL
+    GRANT CREATE, ALTER, DROP, INDEX ON app_db.* TO 'bytebase_user'@'%';
+    ```
+
+    **For DML operations (data changes):**
+    ```sql
+    -- PostgreSQL
+    GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO bytebase_user;
+
+    -- MySQL
+    GRANT SELECT, INSERT, UPDATE, DELETE ON app_db.* TO 'bytebase_user'@'%';
+    ```
+  </Accordion>
+
+  <Accordion title="Update Instance Connection">
+    If using wrong user in Bytebase:
+
+    1. Navigate to Instance settings
+    2. Update connection username
+    3. Save changes
+
+    Or via API:
+    ```bash
+    curl -X PATCH "$BB_URL/v1/instances/prod-mysql" \
+      -d '{
+        "username": "bytebase_admin",
+        "password": "new_password"
+      }'
+    ```
+
+    <Card title="Instance Configuration" icon="server" href="/get-started/connect/overview">
+      Configure database connections
+    </Card>
+  </Accordion>
+
+  <Accordion title="Verify Permissions">
+    Test permissions:
+    ```sql
+    -- PostgreSQL: Check grants
+    SELECT grantee, privilege_type
+    FROM information_schema.role_table_grants
+    WHERE grantee = 'bytebase_user';
+
+    -- MySQL: Show grants
+    SHOW GRANTS FOR 'bytebase_user'@'%';
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Connection Timeout
+
+**Error:**
+```
+Connection timeout after 30 seconds
+```
+
+**Causes:**
+1. Database server down
+2. Network connectivity issues
+3. Firewall blocking connection
+4. Incorrect connection parameters
+
+**Solutions:**
+
+<Tabs>
+  <Tab title="Verify Database Status">
+    Check if database is running:
+    ```bash
+    # PostgreSQL
+    pg_isready -h prod-mysql -p 5432
+
+    # MySQL
+    mysqladmin -h prod-mysql -u user -p ping
+    ```
+  </Tab>
+
+  <Tab title="Test Network Connectivity">
+    ```bash
+    # Test connection
+    telnet prod-mysql 5432
+
+    # Or with nc
+    nc -zv prod-mysql 5432
+
+    # Test from Bytebase server
+    docker exec bytebase nc -zv prod-mysql 5432
+    ```
+  </Tab>
+
+  <Tab title="Check Firewall Rules">
+    Ensure firewall allows traffic:
+    - From Bytebase server IP
+    - To database port (3306/5432/etc.)
+    - Bidirectional if stateful
+
+    **Cloud providers:**
+    - AWS: Security Groups
+    - GCP: Firewall Rules
+    - Azure: Network Security Groups
+  </Tab>
+
+  <Tab title="Verify Connection Settings">
+    Check instance configuration:
+    ```bash
+    curl -X GET "$BB_URL/v1/instances/prod-mysql"
+    ```
+
+    Verify:
+    - Host address correct
+    - Port correct
+    - SSL/TLS settings if required
+
+    <Card title="Instance Configuration" icon="server" href="/get-started/connect/overview">
+      Database connection setup
+    </Card>
+  </Tab>
+</Tabs>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="SDL Issues" icon="triangle-alert" href="/gitops/troubleshooting/sdl-issues">
+    Troubleshoot SDL-specific problems
+  </Card>
+
+  <Card title="Best Practices" icon="lightbulb" href="/gitops/best-practices/overview">
+    Learn production-ready patterns
+  </Card>
+</CardGroup>

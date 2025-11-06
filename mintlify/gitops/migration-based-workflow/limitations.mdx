@@ -1,0 +1,82 @@
+---
+title: Limitations
+---
+
+While migration-based workflow is powerful and flexible, be aware of these considerations:
+
+## Version Conflicts
+
+**Issue:** Multiple developers creating migrations with the same version number.
+
+**Solution:** Use timestamp-based versioning (`YYYYMMDDHHmmss`) to avoid conflicts.
+
+## Migration Order Dependencies
+
+**Issue:** Complex dependencies between migrations can be hard to manage.
+
+**Solution:**
+- Keep migrations small and focused
+- Use descriptive names
+- Document dependencies in comments
+- Consider state-based workflow for pure schema changes
+
+## Rollback Complexity
+
+**Issue:** Reverting migrations requires writing reverse scripts.
+
+**Solution:**
+- Plan rollback strategy before deploying
+- Test rollback scripts in staging
+- Consider using Bytebase's data rollback feature for DML changes
+
+<Card title="Data Rollback" icon="rotate-left" href="/change-database/rollback-data-changes">
+  Automatic rollback for INSERT/UPDATE/DELETE operations
+</Card>
+
+## Schema Drift Detection
+
+**Issue:** Manual changes bypass GitOps and cause drift.
+
+**Solution:**
+- Restrict direct database access
+- Enable drift detection
+- Enforce all changes through GitOps
+
+<Card title="Drift Detection" icon="triangle-alert" href="/change-database/drift-detection">
+  Detect and manage schema drift
+</Card>
+
+## Large-Scale Deployments
+
+**Issue:** Deploying to hundreds or thousands of databases takes time.
+
+**Solution:**
+- Use database groups for fleet management
+- Configure parallel execution limits
+- Enable sampling for validation (check N random databases)
+
+<Card title="Best Practices" icon="lightbulb" href="/gitops/best-practices/overview">
+  Production-ready workflow patterns and optimizations
+</Card>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="State-Based Workflow" icon="sparkles" href="/gitops/state-based-workflow/overview">
+    Learn about the declarative alternative
+  </Card>
+
+  <Card title="Best Practices" icon="lightbulb" href="/gitops/best-practices/overview">
+    Production-ready workflow patterns
+  </Card>
+
+  <Card title="Troubleshooting" icon="wrench" href="/gitops/troubleshooting/overview">
+    Solutions for common issues
+  </Card>
+
+  <Card title="GitOps Overview" icon="arrow-left" href="/gitops/overview">
+    Return to GitOps overview
+  </Card>
+</CardGroup>

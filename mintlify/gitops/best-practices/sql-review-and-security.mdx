@@ -1,0 +1,251 @@
+---
+title: SQL Review and Security
+---
+
+Configure SQL review rules and implement security best practices for production GitOps workflows.
+
+## SQL Review Configuration
+
+Configure SQL review rules to enforce standards across your team.
+
+<Card title="SQL Review Policy" icon="search" href="/sql-review/review-policy">
+  Configure 200+ linting rules for automated validation
+</Card>
+
+### Recommended Rules
+
+**Critical Rules (ERROR level):**
+- ❌ `DROP DATABASE`
+- ❌ `DROP TABLE` (without confirmation)
+- ❌ Missing `WHERE` clause in `UPDATE`/`DELETE`
+- ❌ `NOT NULL` on existing columns without default
+- ❌ Charset changes on existing columns
+
+**Warning Rules (WARN level):**
+- ⚠️  Missing indexes on foreign keys
+- ⚠️  Column without comments
+- ⚠️  Table without primary key
+- ⚠️  Large `IN` clause (> 1000 items)
+
+**Info Rules:**
+- 💡 Consider partitioning for large tables
+- 💡 Index naming convention suggestions
+
+### Example Policy
+
+```json
+{
+  "rule_list": [
+    {
+      "type": "naming.table",
+      "level": "ERROR",
+      "payload": {
+        "format": "^[a-z_]+$"
+      }
+    },
+    {
+      "type": "statement.select.no-select-all",
+      "level": "WARNING"
+    },
+    {
+      "type": "column.required",
+      "level": "WARNING",
+      "payload": {
+        "column_list": ["created_at", "updated_at"]
+      }
+    }
+  ]
+}
+```
+
+### Review Severity Levels
+
+Configure how different rule violations are handled:
+
+| Level | Behavior | Use Case |
+|-------|----------|----------|
+| **ERROR** | Blocks merge | Dangerous operations, critical standards |
+| **WARNING** | Allows merge with approval | Best practices, style guidelines |
+| **INFO** | Informational only | Suggestions, optimization tips |
+
+## Security Best Practices
+
+### Use Service Accounts
+
+Create dedicated service accounts for CI/CD:
+
+```bash
+# Don't use personal accounts
+❌ export BB_TOKEN="user-alice-token"
+
+# Use service accounts
+✅ export BB_TOKEN="service-account-cicd-token"
+```
+
+**Service account setup:**
+1. Create service account in Bytebase
+2. Grant minimum required permissions
+3. Store token in CI/CD secrets
+4. Rotate tokens regularly
+
+<Card title="API Authentication" icon="key" href="/integrations/api/authentication">
+  Learn about service account authentication
+</Card>
+
+### Least Privilege Database Access
+
+Configure Bytebase with minimal database permissions:
+
+**For schema changes:**
+```sql
+GRANT CREATE, ALTER, DROP ON DATABASE app_db TO bytebase_user;
+```
+
+**For readonly access:**
+```sql
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO bytebase_readonly;
+```
+
+Avoid using superuser accounts.
+
+### Protect Sensitive Migrations
+
+For migrations containing sensitive data:
+
+```sql
+-- 099__seed_api_keys_dml.sql
+-- WARNING: Contains sensitive data
+-- Ensure this file is not committed to version control
+
+INSERT INTO api_credentials (service, key) VALUES
+    ('payment_gateway', '${PAYMENT_API_KEY}'),
+    ('email_service', '${EMAIL_API_KEY}');
+```
+
+**Alternatives:**
+- Store secrets in secret management systems (AWS Secrets Manager, HashiCorp Vault)
+- Reference secrets via environment variables in CI/CD
+- Use Bytebase secret integration
+
+<Card title="Instance Configuration" icon="server" href="/get-started/connect/overview">
+  Configure database connections with secret managers
+</Card>
+
+### Secrets Management
+
+**Option 1: CI/CD Secrets**
+
+```yaml
+# .github/workflows/deploy.yml
+env:
+  BYTEBASE_TOKEN: ${{ secrets.BYTEBASE_TOKEN }}
+  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+```
+
+**Option 2: Secret Manager**
+
+```yaml
+# Use AWS Secrets Manager
+- name: Get secrets
+  run: |
+    aws secretsmanager get-secret-value \
+      --secret-id bytebase/cicd \
+      --query SecretString
+```
+
+**Option 3: External Secret Store**
+
+```bash
+# Use HashiCorp Vault
+export BYTEBASE_TOKEN=$(vault kv get -field=token secret/bytebase)
+```
+
+### Audit and Compliance
+
+Enable comprehensive audit logging:
+
+```json
+{
+  "project": {
+    "audit_log_retention_days": 365
+  }
+}
+```
+
+**What gets logged:**
+- All schema changes
+- Who approved changes
+- When deployments occurred
+- Access to sensitive data
+- Policy violations
+
+<Card title="Audit Log" icon="file-text" href="/security/audit-log">
+  Configure audit logging for compliance
+</Card>
+
+### Network Security
+
+**Restrict Bytebase Access:**
+- Use VPN or private networking for production
+- Enable IP allowlisting
+- Use TLS for all connections
+- Implement firewall rules
+
+**Database Connection Security:**
+```yaml
+# Use SSL/TLS for database connections
+database:
+  ssl:
+    enabled: true
+    ca_cert: /path/to/ca.pem
+    verify_mode: require
+```
+
+### Role-Based Access Control
+
+Configure appropriate roles:
+
+| Role | Permissions | Use Case |
+|------|-------------|----------|
+| **Owner** | Full access | Team leads, admins |
+| **DBA** | Schema changes, admin mode | Database administrators |
+| **Developer** | Create issues, query data | Application developers |
+| **Releaser** | Deploy to production | Release engineers |
+| **Querier** | Query data only | Analysts, support |
+
+<Card title="Roles and Permissions" icon="users" href="/administration/roles">
+  Configure role-based access control
+</Card>
+
+### Code Review Security
+
+Security checklist for PR/MR reviews:
+
+- ✅ No hardcoded secrets or passwords
+- ✅ No `SELECT *` exposing sensitive columns
+- ✅ Proper `WHERE` clauses to prevent mass updates
+- ✅ No `DROP` statements without explicit approval
+- ✅ Appropriate indexes to prevent performance issues
+- ✅ Data access follows compliance requirements
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Performance and Drift" icon="gauge" href="/gitops/best-practices/performance-and-drift">
+    Optimize migrations and handle drift
+  </Card>
+
+  <Card title="SQL Review Rules" icon="list-check" href="/sql-review/review-rules">
+    Complete reference of 200+ rules
+  </Card>
+
+  <Card title="Audit Log" icon="file-text" href="/security/audit-log">
+    Configure audit logging
+  </Card>
+
+  <Card title="Data Masking" icon="eye-off" href="/security/data-masking/overview">
+    Protect sensitive data
+  </Card>
+</CardGroup>

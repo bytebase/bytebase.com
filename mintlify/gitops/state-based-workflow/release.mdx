@@ -1,0 +1,145 @@
+---
+title: Release
+---
+
+After PR/MR merge, Bytebase creates a release, compares the desired state with current database state, generates migration DDL, and deploys.
+
+## How SDL Release Works
+
+1. **State Comparison** - Bytebase compares your SDL files with current database schema
+2. **DDL Generation** - Automatically generates ALTER/DROP statements using topological sort
+3. **Migration Execution** - Applies generated DDL to reach desired state
+4. **Revision Tracking** - Records new version for future comparisons
+
+## CI/CD Integration
+
+Add `--declarative` flag to enable SDL mode:
+
+<Tabs>
+  <Tab title="GitHub Actions">
+    ```yaml
+    # .github/workflows/release.yml
+    name: SDL Release
+    on:
+      push:
+        branches: [main]
+        paths:
+          - 'schema/**'
+
+    jobs:
+      release:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v4
+
+          - name: Deploy SDL
+            uses: bytebase/sql-review-action@v1
+            with:
+              command: rollout
+              bytebase-url: ${{ secrets.BYTEBASE_URL }}
+              bytebase-token: ${{ secrets.BYTEBASE_SERVICE_ACCOUNT_TOKEN }}
+              file-pattern: 'schema/**/*.sql'
+              project: projects/my-project
+              targets: instances/prod/databases/mydb
+              declarative: true
+    ```
+  </Tab>
+
+  <Tab title="GitLab CI">
+    ```yaml
+    # .gitlab-ci.yml
+    sdl-rollout:
+      image: bytebase/bytebase-action:latest
+      stage: deploy
+      only:
+        - main
+      script:
+        - |
+          bytebase-action rollout \
+            --url $BYTEBASE_URL \
+            --service-account $BYTEBASE_SERVICE_ACCOUNT \
+            --service-account-secret $BYTEBASE_SERVICE_ACCOUNT_SECRET \
+            --file-pattern "schema/**/*.sql" \
+            --project projects/my-project \
+            --targets instances/prod/databases/mydb \
+            --declarative
+    ```
+  </Tab>
+
+  <Tab title="Azure DevOps">
+    ```yaml
+    # azure-pipelines.yml
+    jobs:
+      - job: SDLRelease
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: Docker@2
+            inputs:
+              command: run
+              arguments: >
+                bytebase/bytebase-action
+                rollout
+                --file-pattern "/workspace/schema/**/*.sql"
+                --project projects/my-project
+                --targets instances/prod/databases/mydb
+                --declarative
+    ```
+  </Tab>
+</Tabs>
+
+## Version Management
+
+SDL automatically generates versions using timestamp format `YYYYMMDD.HHMMSS`:
+
+```
+Release 2025-01-15 10:30:00 → Version: 20250115.103000
+Release 2025-01-20 14:15:00 → Version: 20250120.141500
+```
+
+All files in a release share the same version. Bytebase compares this version with the latest revision to determine if deployment is needed.
+
+## Migration Generation Example
+
+**Current Database:**
+```sql
+CREATE TABLE public.users (
+    id INTEGER PRIMARY KEY,
+    username TEXT NOT NULL
+);
+```
+
+**New SDL:**
+```sql
+CREATE TABLE public.users (
+    id INTEGER,
+    username TEXT NOT NULL,
+    email TEXT NOT NULL,
+    CONSTRAINT users_pkey PRIMARY KEY (id),
+    CONSTRAINT users_email_key UNIQUE (email)
+);
+
+CREATE INDEX idx_users_email ON public.users(email);
+```
+
+**Generated Migration:**
+```sql
+-- Bytebase automatically generates:
+ALTER TABLE public.users ADD COLUMN email TEXT NOT NULL;
+ALTER TABLE public.users ADD CONSTRAINT users_email_key UNIQUE (email);
+CREATE INDEX idx_users_email ON public.users(email);
+```
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Limitations" icon="triangle-alert" href="/gitops/state-based-workflow/limitations">
+    Understand SDL constraints and considerations
+  </Card>
+
+  <Card title="Best Practices" icon="lightbulb" href="/gitops/best-practices/overview">
+    Production-ready workflow patterns
+  </Card>
+</CardGroup>
