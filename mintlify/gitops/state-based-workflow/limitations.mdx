@@ -7,11 +7,11 @@ State-based workflow (SDL) currently has these limitations:
 ## Database Support
 
 **Supported:**
+
 - PostgreSQL
-- CockroachDB
-- Redshift (PostgreSQL-compatible)
 
 **Not yet supported:**
+
 - MySQL
 - SQL Server
 - Oracle
@@ -30,6 +30,7 @@ Only these PostgreSQL statements are supported:
 - `ALTER SEQUENCE` (for OWNED BY)
 
 **Not supported:**
+
 - Complex stored procedures
 - Triggers
 - Row-level security policies
@@ -42,12 +43,14 @@ Only these PostgreSQL statements are supported:
 SDL requires strict adherence to conventions:
 
 1. **All objects must use fully qualified names** (with schema prefix)
+
    ```sql
    -- Required: public.users
    -- Not allowed: users
    ```
 
 2. **PRIMARY KEY, UNIQUE, FOREIGN KEY, CHECK must be table-level with explicit names**
+
    ```sql
    -- Correct:
    CONSTRAINT users_pkey PRIMARY KEY (id)
@@ -57,6 +60,7 @@ SDL requires strict adherence to conventions:
    ```
 
 3. **Only NOT NULL, DEFAULT, GENERATED allowed at column level**
+
    ```sql
    -- Allowed:
    id SERIAL,
@@ -68,6 +72,7 @@ SDL requires strict adherence to conventions:
    ```
 
 4. **Foreign key references must be fully qualified**
+
    ```sql
    -- Required:
    REFERENCES public.users(id)
@@ -77,6 +82,7 @@ SDL requires strict adherence to conventions:
    ```
 
 5. **All indexes must have explicit names**
+
    ```sql
    -- Required:
    CREATE INDEX idx_users_email ON public.users(email)
@@ -90,12 +96,14 @@ SDL requires strict adherence to conventions:
 SDL only manages schema structure. For data operations, use migration-based workflow.
 
 **Not supported in SDL:**
+
 - INSERT statements
 - UPDATE statements
 - DELETE statements
 - Data transformation logic
 
 **Solution:** Combine both workflows:
+
 ```
 schema/               # SDL for schema structure
   ├── tables.sql
@@ -115,7 +123,8 @@ SDL-generated DROP statements execute automatically when objects are removed fro
 ```
 
 <Warning>
-  Always backup data before deploying SDL changes that remove objects from schema files. Bytebase will automatically drop those objects.
+  Always backup data before deploying SDL changes that remove objects from schema files. Bytebase
+  will automatically drop those objects.
 </Warning>
 
 ## Limited Rollback
@@ -126,7 +135,11 @@ SDL only moves forward to new desired states:
 - To rollback: revert SDL files to previous state and redeploy
 - Data in dropped objects is lost (backup required)
 
-<Card title="Schema Rollback Strategies" icon="rotate-left" href="/change-database/rollback-schema-changes">
+<Card
+  title="Schema Rollback Strategies"
+  icon="rotate-left"
+  href="/change-database/rollback-schema-changes"
+>
   Approaches for reversing schema changes
 </Card>
 
@@ -139,6 +152,7 @@ For large schemas:
 - DDL generation uses topological sort (handles dependencies)
 
 **Mitigation:**
+
 - Organize schema into multiple files
 - Use database groups for fleet management
 - Test SDL workflow on staging first
@@ -152,13 +166,15 @@ For large schemas:
     Learn about the imperative alternative
   </Card>
 
-  <Card title="Best Practices" icon="lightbulb" href="/gitops/best-practices/overview">
-    Production-ready workflow patterns
-  </Card>
+{' '}
+<Card title="Best Practices" icon="lightbulb" href="/gitops/best-practices/overview">
+  Production-ready workflow patterns
+</Card>
 
-  <Card title="Troubleshooting" icon="wrench" href="/gitops/troubleshooting/overview">
-    Solutions for common issues
-  </Card>
+{' '}
+<Card title="Troubleshooting" icon="wrench" href="/gitops/troubleshooting/overview">
+  Solutions for common issues
+</Card>
 
   <Card title="GitOps Overview" icon="arrow-left" href="/gitops/overview">
     Return to GitOps overview
