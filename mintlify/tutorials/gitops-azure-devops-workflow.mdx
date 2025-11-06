@@ -35,11 +35,12 @@ This tutorial code repository is at [https://dev.azure.com/bytebase-hq/\_git/byt
 ## Prerequisites
 
 - [Docker](https://www.docker.com/) installed
-- An [ngrok](https://ngrok.com/) account
+- A Bytebase instance (Bytebase Cloud or self-hosted)
+- For local testing: [ngrok](https://ngrok.com/) account (optional)
 
 ## Automatic Rollout across environments
 
-### Step 1 - Start Bytebase with ngrok
+### Step 1 - Set up Bytebase Instance
 
 <StartWithNgrok />
 
@@ -60,7 +61,7 @@ This tutorial code repository is at [https://dev.azure.com/bytebase-hq/\_git/byt
 
 1. Go into `pipelines/sql-review.yml` and `pipelines/rollout-release.yml`. In the `env` section, replace the variable values with your own and commit the changes.
 
-   - **BYTEBASE_URL**: your ngrok url
+   - **BYTEBASE_URL**: your Bytebase instance URL (e.g., `https://bytebase.your-company.com` or your ngrok URL if testing locally)
    - **BYTEBASE_SERVICE_ACCOUNT**: `api-example@service.bytebase.com` (the service account you created in the previous step)
    - **BYTEBASE_PROJECT**: `projects/project-sample` (the sample project in the Bytebase)
    - **BYTEBASE_TARGETS**: `instances/test-sample-instance/databases/hr_test,instances/prod-sample-instance/databases/hr_prod` (the two default databases in the sample project)

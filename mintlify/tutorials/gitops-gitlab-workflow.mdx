@@ -44,11 +44,12 @@ https://gitlab.com/bytebase-sample/gitops-example
 ## Prerequisites
 
 - [Docker](https://www.docker.com/) installed
-- An [ngrok](https://ngrok.com/) account
+- A Bytebase instance (Bytebase Cloud or self-hosted)
+- For local testing: [ngrok](https://ngrok.com/) account (optional)
 
 ## Enable Automatic Rollout Across Environments
 
-### Step 1 - Start Bytebase with ngrok
+### Step 1 - Set up Bytebase Instance
 
 <StartWithNgrok />
 
@@ -72,7 +73,7 @@ _Note: Usually we enable SQL review for `Prod` environment as above. In this dem
 
 1. Go into `bytebase-review.yml` and `bytebase-rollout.yml`. In the `env` section, replace the variable values with your own and commit the changes.
 
-   - **BYTEBASE_URL**: your ngrok url
+   - **BYTEBASE_URL**: your Bytebase instance URL (e.g., `https://bytebase.your-company.com` or your ngrok URL if testing locally)
    - **BYTEBASE_SERVICE_ACCOUNT**: `api-example@service.bytebase.com` (the service account you created in the previous step)
    - **BYTEBASE_SERVICE_ACCOUNT_SECRET**: the password of the service account
 
