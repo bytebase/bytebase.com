@@ -196,7 +196,7 @@ Full-control networking and IAM system for isolation and compliance.
 - Centralized access and audit through IAM.
 - Broad compliance coverage — [AWS Compliance](https://aws.amazon.com/compliance) vs [Supabase Security](https://supabase.com/security).
 
-### Validate, Cut Over, and Optimize**
+### Validate, Cut Over, and Optimize
 
 **Migration focus:**
 
