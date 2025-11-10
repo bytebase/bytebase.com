@@ -19,59 +19,71 @@ But as your product matures, new requirements appear that go beyond what Supabas
 - **Enterprise-grade compliance and security** – meeting SOC, ISO, HIPAA, or FedRAMP standards.
 - **Granular IAM and networking** – unifying database access, APIs, and infrastructure under a single identity and policy system.
 
-That’s where [AWS](https://aws.amazon.com/) comes in. It offers a **best-of-breed ecosystem** — each component is purpose-built, scales independently, and integrates deeply with the rest of your stack.
-This guide walks you through how to migrate each Supabase component to its AWS counterpart — practically and step by step.
+That's where hyperscalers like [AWS](https://aws.amazon.com/), [GCP](https://cloud.google.com/), and [Azure](https://azure.microsoft.com/) come in. They offer a **best-of-breed ecosystem** — each component is purpose-built, scales independently.
+
+**This guide focuses on AWS**, but the migration principles and architecture patterns apply equally to other cloud providers.
+
+We'll walk you through how to migrate each Supabase component to its AWS counterpart.
 
 ---
 
-## The Migration Process
+## Debundle Supabase
 
-Supabase’s integrated platform maps cleanly to AWS’s modular architecture:
-
-| Supabase Component   | AWS Equivalent                                 | Notes                                                     |
-| -------------------- | ---------------------------------------------- | --------------------------------------------------------- |
-| **Database**         | Amazon RDS / Aurora                            | Managed PostgreSQL with Multi-AZ, PITR, and replicas      |
-| **Auth**             | Amazon Cognito / BetterAuth / Auth0            | Centralized user management, SSO, and MFA                 |
-| **Storage**          | Amazon S3                                      | Object storage with IAM-based access and CloudFront CDN   |
-| **Functions**        | AWS Lambda + API Gateway                       | Event-driven compute for backend logic                    |
-| **Realtime**         | AppSync / EventBridge / API Gateway WebSockets | Live updates, subscriptions, or event streams             |
-| **Networking & IAM** | VPC + IAM roles/policies                       | Fine-grained control, security, and compliance boundaries |
+| Supabase Component   | Equivalent                                     | Notes                                                   |
+| -------------------- | ---------------------------------------------- | ------------------------------------------------------- |
+| **Networking & IAM** | VPC + IAM roles/policies                       | AWS foundation - must be set up first                   |
+| **Auth**             | Amazon Cognito / BetterAuth / Auth0            | Centralized user management, SSO, and MFA               |
+| **Storage**          | Amazon S3                                      | Object storage with IAM-based access and CloudFront CDN |
+| **Functions**        | AWS Lambda + API Gateway                       | Event-driven compute for backend logic                  |
+| **Realtime**         | AppSync / EventBridge / API Gateway WebSockets | Live updates, subscriptions, or event streams           |
+| **Database**         | Amazon RDS / Aurora                            | Migrate last - becomes simple PostgreSQL migration      |
 
 **Recommended migration order:**
 
-1. **Database** – foundation of everything.
-1. **Auth** – migrate user identities and sessions.
-1. **Storage** – move file assets and update access logic.
-1. **Functions** – redeploy backend logic.
-1. **Realtime and Networking** – finalize integration and optimize architecture.
+This guide uses a **Services-First** approach — decouple Supabase-specific services first, then migrate the database last as a simple PostgreSQL migration.
+
+1. **Networking & IAM** – set up AWS infrastructure (VPC, subnets, IAM roles).
+1. **Auth** – migrate to Cognito (decouples from Supabase `auth` schema).
+1. **Storage** – migrate to S3 (decouples from Supabase `storage` schema).
+1. **Functions** – redeploy to Lambda (update to use Cognito + S3).
+1. **Realtime** – replace with AppSync/EventBridge (removes logical replication dependency).
+1. **Database** – simple PostgreSQL migration of application data only (`public` schema).
+
+**Why this order?** By migrating services first, the Supabase `auth` and `storage` schemas become dormant. The final database migration is just your application data — lower risk, simpler cutover, and easier to validate.
 
 Always start in **staging**, validate each part, then proceed to production.
 
-### 1. Database → Amazon RDS / Aurora
+### 1. Networking and IAM
+
+> **Note:** The networking and identity concepts in this section apply to all major cloud providers (AWS, GCP, Azure). This guide focuses on AWS implementations, but the architecture patterns translate directly to VPC/IAM (GCP) or VNet/RBAC (Azure).
 
 **Supabase:**
-Managed PostgreSQL with limited scaling and shared tenancy.
+Abstracted networking and simple project-level access roles.
 
-**AWS replacement:**
+**AWS approach:**
+Full-control networking and IAM system for isolation and compliance.
 
-- **Amazon RDS (PostgreSQL)** – Multi-AZ, automated backups, PITR, read replicas.
-- **Amazon Aurora (PostgreSQL-compatible)** – high-performance clustered Postgres.
-- **DynamoDB** – optional for NoSQL or key-value workloads.
+| Concept                | Supabase          | AWS Equivalent                 |
+| ---------------------- | ----------------- | ------------------------------ |
+| Top-level entity       | Organization      | AWS Organization               |
+| Project                | Supabase Project  | AWS Account                    |
+| Environment separation | Multiple projects | Separate accounts or VPCs      |
+| Access control         | Role-based in app | IAM users, roles, and policies |
 
 **Migration focus:**
 
-1. Export schema and data using `pg_dump`.
-1. Restore into RDS or Aurora (same Postgres version).
-1. Recreate extensions (e.g., `pgcrypto`, `uuid-ossp`).
-1. Validate schema and queries in staging.
-1. Reconnect applications with new connection strings.
+1. Create VPC with public and private subnets across multiple Availability Zones.
+1. Set up **Security Groups** for database, Lambda, and API Gateway.
+1. Configure **Route Tables** and **NAT Gateways** for private subnet internet access.
+1. Create **IAM roles** for Lambda, RDS, S3, and Cognito.
+1. Set up **VPC endpoints** for AWS service access (S3, DynamoDB, etc.).
+1. Use **AWS Organizations** for environment isolation (dev, staging, prod).
 
 **Key advantages:**
 
-- Performance tuning and [CloudWatch metrics](https://aws.amazon.com/cloudwatch/).
-- Automated backups and [PITR](https://aws.amazon.com/rds/features/point-in-time-recovery/).
-- Private networking and parameter groups.
-- Access to AWS analytics tools ([Redshift](https://aws.amazon.com/redshift/), [Athena](https://aws.amazon.com/athena/), [Glue](https://aws.amazon.com/glue/)).
+- Granular control over infrastructure and networking.
+- Centralized access and audit through IAM.
+- Broad compliance coverage — [AWS Compliance](https://aws.amazon.com/compliance) vs [Supabase Security](https://supabase.com/security).
 
 ### 2. Auth → Amazon Cognito (or Alternatives)
 
@@ -89,7 +101,10 @@ Managed PostgreSQL with limited scaling and shared tenancy.
 1. Import into Cognito User Pool.
 1. Configure OAuth providers (Google, GitHub, etc.).
 1. Update frontend SDKs and backend JWT verification.
+1. Update application authorization logic (see RLS section below).
 1. Require one-time user re-authentication after migration.
+
+> **Important:** If you're using Supabase Row-Level Security (RLS) policies, they reference `auth.uid()` and won't work after migrating to Cognito. See the **Handling RLS Policies** section in the Database migration step for strategies to address this.
 
 **Key advantages:**
 
@@ -153,7 +168,7 @@ Realtime engine based on Postgres logical replication and WebSockets.
 
 - [AppSync](https://aws.amazon.com/appsync/) – GraphQL subscriptions for live updates.
 - [EventBridge](https://aws.amazon.com/eventbridge/), [SNS](https://aws.amazon.com/sns/), or [SQS](https://aws.amazon.com/sqs/) – event-driven messaging.
-- [API Gateway WebSockets](https://aws.amazon.com/api-gateway/features/websocket/) – persistent connections for custom protocols.
+- [API Gateway WebSockets](https://aws.amazon.com/api-gateway/) – persistent connections for custom protocols.
 
 **Migration focus:**
 
@@ -167,63 +182,91 @@ Realtime engine based on Postgres logical replication and WebSockets.
 - Scalable pub/sub and async event flows.
 - Integrates natively with Lambda and analytics pipelines.
 
-### 6. Networking and IAM
+### 6. Database → Amazon RDS / Aurora
 
 **Supabase:**
-Abstracted networking and simple project-level access roles.
+Managed PostgreSQL with `auth`, `storage`, and `public` schemas.
 
 **AWS replacement:**
-Full-control networking and IAM system for isolation and compliance.
 
-| Concept                | Supabase          | AWS Equivalent                 |
-| ---------------------- | ----------------- | ------------------------------ |
-| Top-level entity       | Organization      | AWS Organization               |
-| Project                | Supabase Project  | AWS Account                    |
-| Environment separation | Multiple projects | Separate accounts or VPCs      |
-| Access control         | Role-based in app | IAM users, roles, and policies |
+- **Amazon RDS (PostgreSQL)** – Multi-AZ, automated backups, PITR, read replicas.
+- **Amazon Aurora (PostgreSQL-compatible)** – high-performance clustered Postgres.
+- **DynamoDB** – optional for NoSQL or key-value workloads.
 
-**Migration focus:**
+**Why migrate last:**
 
-1. Deploy RDS/Aurora in private subnets (VPC).
-1. Connect Lambda and EC2 via **VPC endpoints**.
-1. Secure traffic with **Security Groups** and **Route Tables**.
-1. Manage access using **IAM policies** and least-privilege principles.
-1. Use **AWS Organizations** for environment isolation.
+By this point, Auth is on Cognito, Storage is on S3, and Realtime has been replaced with AppSync/EventBridge. The Supabase `auth` and `storage` schemas are now dormant — your application no longer uses them.
+
+This makes the database migration simple — just a vanilla PostgreSQL migration of your application data (the `public` schema).
+
+#### Handling Row-Level Security (RLS) Policies
+
+Supabase uses PostgreSQL [Row-Level Security (RLS)](https://supabase.com/docs/guides/auth/row-level-security) policies heavily. These policies reference Supabase-specific functions and the `auth.users` table:
+
+```sql
+-- Example Supabase RLS policy
+CREATE POLICY "Users can only see their own data"
+ON public.profiles
+FOR SELECT
+USING (auth.uid() = user_id);
+```
+
+The problem: `auth.uid()` and `auth.jwt()` are Supabase-specific functions that won't work after migrating to Cognito.
+
+**Migration Strategy: Replace RLS with Application-Level Authorization**
+
+The recommended approach is to move authorization logic from the database to your application layer (Lambda functions):
+
+- **More flexible** – Works with any auth provider (Cognito, Auth0, BetterAuth, etc.).
+- **Easier to test** – Authorization logic can be unit tested independently.
+- **Framework-agnostic** – Not tied to PostgreSQL-specific features.
+- **Modern best practice** – Industry standard for cloud-native applications.
+- **Better debugging** – Authorization failures are easier to trace in application code.
+
+Implementation example:
+
+```javascript
+// Lambda function with application-level authorization
+const getUserProfile = async (event) => {
+  // Extract Cognito user ID from JWT claims
+  const cognitoUserId = event.requestContext.authorizer.claims.sub;
+
+  // Enforce authorization in application code
+  const profile = await db.query('SELECT * FROM profiles WHERE user_id = $1', [cognitoUserId]);
+
+  return profile;
+};
+```
+
+**Database migration focus:**
+
+1. **Audit RLS policies** – Identify all RLS policies in your schema (see RLS migration strategy above).
+1. Set up RDS/Aurora instance in the VPC created in step 1.
+1. Export `public` schema and data using `pg_dump` (ignore dormant `auth` and `storage` schemas).
+1. Restore into RDS or Aurora (same Postgres version).
+1. **Implement application-level authorization** – Migrate RLS logic to Lambda functions as shown above.
+1. **Remove RLS policies** – Drop policies once application-level authorization is tested and deployed.
+1. Recreate extensions (e.g., `pgcrypto`, `uuid-ossp`) if used in application.
+1. Validate schema and queries in staging environment.
+1. Update application connection strings to point to RDS/Aurora.
+1. Perform final cutover during low-traffic window.
 
 **Key advantages:**
 
-- Granular control over infrastructure and networking.
-- Centralized access and audit through IAM.
-- Broad compliance coverage — [AWS Compliance](https://aws.amazon.com/compliance) vs [Supabase Security](https://supabase.com/security).
-
-### Validate, Cut Over, and Optimize
-
-**Migration focus:**
-
-1. Test schema, auth, and storage in staging.
-1. Monitor query performance (RDS/Aurora Performance Insights).
-1. Validate endpoints and access patterns.
-1. Schedule final cutover during low traffic.
-1. Keep Supabase in read-only mode for rollback.
-
-**Post-migration optimization:**
-
-1. Enable PITR and automatic backups.
-1. Configure **CloudWatch**, **CloudTrail**, and **GuardDuty**.
-1. Automate deployments with **CDK**, **Terraform**, or **CodePipeline**.
-1. Integrate data pipelines using **Redshift** or **Athena**.
-1. Review IAM roles and optimize cost and storage tiers.
-
----
+- Performance tuning and [CloudWatch metrics](https://aws.amazon.com/cloudwatch/).
+- Private networking in VPC with security groups.
+- Access to AWS analytics tools ([Redshift](https://aws.amazon.com/redshift/), [Athena](https://aws.amazon.com/athena/), [Glue](https://aws.amazon.com/glue/)).
 
 ## Conclusion
 
-Migrating from Supabase to AWS isn’t just a lift-and-shift — it’s a step toward scalable, enterprise-ready infrastructure.
+Migrating from Supabase to AWS isn't just a lift-and-shift — it's a step toward scalable, enterprise-ready infrastructure.
 
-Move one layer at a time:
-**Database → Auth → Storage → Functions → Realtime → Networking.**
+Use the **Services-First** approach to decouple components gradually:
+**Networking & IAM → Auth → Storage → Functions → Realtime → Database.**
+
+By migrating services first, the final database migration becomes a simple PostgreSQL-to-PostgreSQL operation with just your application data — lower risk, simpler cutover, and easier to validate.
 
 Supabase helps you **build fast**.
-AWS helps you **scale safely** — with advanced database management, analytics, IAM, and compliance.
+AWS helps you **scale next** — with advanced database management, analytics, IAM, and compliance.
 
 When done right, the migration lays a foundation your product can grow on for years to come.
