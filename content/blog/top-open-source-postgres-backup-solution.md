@@ -35,9 +35,7 @@ WAL-G is an archival and restoration tool for databases in the Cloud, the spirit
 - **Supported Databases:** PostgreSQL only
 - **Best For:** Enterprises requiring centralized backup management
 
-Barman (Backup and Recovery Manager) is an open-source administration tool for disaster recovery of PostgreSQL servers written in Python. It allows your organisation to perform remote backups of multiple servers in business critical environments to reduce risk and help DBAs during the recovery phase.
-
-Barman is distributed under [GNU GPL 3](https://www.gnu.org/licenses/gpl-3.0.html) and maintained by [EnterpriseDB](https://www.enterprisedb.com/).
+Barman (**B**ackup **A**nd **R**ecovery Manager) is an open-source administration tool for disaster recovery of PostgreSQL servers written in Python. It allows your organisation to perform remote backups of multiple servers in business critical environments to reduce risk and help DBAs during the recovery phase.
 
 ## pgBackRest
 
@@ -49,12 +47,12 @@ Barman is distributed under [GNU GPL 3](https://www.gnu.org/licenses/gpl-3.0.htm
 - **Supported Databases:** PostgreSQL only
 - **Best For:** Mission-critical, high-performance PostgreSQL workloads
 
-pgBackRest, maintained by [Crunchy Data](https://www.crunchydata.com/), is designed for speed, reliability, and flexibility. It supports full, differential, and incremental backups with parallel processing, compression, encryption, and seamless cloud storage integration. Trusted by production teams worldwide, it’s one of the most capable PostgreSQL backup tools for both on-premises and cloud environments.
+pgBackRest, is designed for speed, reliability, and flexibility. It supports full, differential, and incremental backups with parallel processing, compression, encryption, and seamless cloud storage integration. Trusted by production teams worldwide, it’s one of the most capable PostgreSQL backup tools for both on-premises and cloud environments.
 
 ## pgBackWeb
 
 - **GitHub:** https://github.com/eduardolat/pgbackweb
-- **Language:** Python + Flask
+- **Language:** Go + JavaScript
 - **Maintainer:** Community
 - **License:** AGPL-3.0
 - **Interface:** Web UI
@@ -65,29 +63,29 @@ pgBackWeb provides a user-friendly web dashboard on top of pgBackRest. It enable
 
 ![pgbackweb](/content/blog/top-open-source-postgres-backup-solution/pgbackweb.webp)
 
-## PostgresUS
+## Postgresus
 
 - **GitHub:** https://github.com/RostislavDugin/postgresus
-- **Language:** Python
+- **Language:** Go + Typescript (React)
 - **Maintainer:** Community
-- **License:** MIT License
+- **License:** Apache 2.0
 - **Interface:** Web UI
 - **Supported Databases:** PostgreSQL only
 - **Best For:** Lightweight or developer environments needing simple scheduled backups
 
-PostgresUS focuses on simplicity and automation. It’s easy to set up and use, providing regular scheduled backups with minimal configuration — best suited for staging, QA, or developer environments.
+Postgresus focuses on simplicity and automation. It’s easy to set up and use, providing regular scheduled backups with minimal configuration — best suited for staging, QA, or developer environments.
 
 ![postgresus](/content/blog/top-open-source-postgres-backup-solution/postgresus.webp)
 
 ## Comparison Table
 
-| Tool           | Language        | License         | Interface | Multi-DB Support | Cloud Storage          |
-| -------------- | --------------- | --------------- | --------- | ---------------- | ---------------------- |
-| **WAL-G**      | Go              | Apache 2.0      | CLI       | ✅                | ✅ Seamless integration |
-| **Barman**     | Python          | GNU GPL 3       | CLI       | ❌                | ✅ Supported            |
-| **pgBackRest** | C               | MIT             | CLI       | ❌                | ✅ Seamless integration |
-| **pgBackWeb**  | Python + Flask  | AGPL-3.0        | Web UI    | ❌                | ✅ (via pgBackRest)     |
-| **PostgresUS** | Python          | MIT             | Web UI    | ❌                | ❌                      |
+| Tool           | Language                | License    | Interface | Multi-DB Support | Cloud Storage       |
+| -------------- | ----------------------- | ---------- | --------- | ---------------- | ------------------- |
+| **WAL-G**      | Go                      | Apache 2.0 | CLI       | ✅               | ✅                  |
+| **Barman**     | Python                  | GNU GPL 3  | CLI       | ❌               | ✅                  |
+| **pgBackRest** | C                       | MIT        | CLI       | ❌               | ✅                  |
+| **pgBackWeb**  | Go + JavaScript         | AGPL-3.0   | Web UI    | ❌               | ✅ (via pgBackRest) |
+| **Postgresus** | Go + Typescript (React) | Apache 2.0 | Web UI    | ❌               | ✅                  |
 
 ## Choosing the Right Tool
 
@@ -95,6 +93,6 @@ PostgresUS focuses on simplicity and automation. It’s easy to set up and use, 
 - **Barman** — fits enterprise environments with strict compliance.
 - **pgBackRest** — the most complete solution for high-performance and cloud-integrated PostgreSQL.
 - **pgBackWeb** — ideal if you prefer a GUI for pgBackRest.
-- **PostgresUS** — great for lightweight automation in dev/staging.
+- **Postgresus** — great for lightweight automation in dev/staging.
 
 Each project offers a unique trade-off between simplicity, scalability, and ecosystem support. Pick based on your environment’s scale, cloud strategy, and team expertise.
