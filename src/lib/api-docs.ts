@@ -24,15 +24,12 @@ const getPostBySlug = (
     const source = fs.readFileSync(`${docsPath}/${slug}.md`);
     const { data, content } = matter(source);
 
-    const contentWithReplacements = content.replace(
-      /%%bb_api_endpoint%%/g,
-      (match) => {
-        if (match === '%%bb_api_endpoint%%') {
-          return API_ENDPOINT;
-        }
-        return match; // Just in case there's a match that doesn't fit any case
-      },
-    );
+    const contentWithReplacements = content.replace(/%%bb_api_endpoint%%/g, (match) => {
+      if (match === '%%bb_api_endpoint%%') {
+        return API_ENDPOINT;
+      }
+      return match; // Just in case there's a match that doesn't fit any case
+    });
 
     return { data, content: contentWithReplacements };
   } catch (e) {
@@ -83,6 +80,11 @@ const getSidebar = (docsPath: string): { sidebar: SidebarItem[]; expandedList: s
   const layoutFile = glob.sync(`${docsPath}/_layout.md`);
 
   const sidebar: SidebarItem[] = [];
+
+  // Check if layout file exists
+  if (!layoutFile || !layoutFile[0]) {
+    return { sidebar: [], expandedList: [] };
+  }
 
   const md = fs.readFileSync(layoutFile[0], 'utf-8');
   const { data, content } = matter(md);

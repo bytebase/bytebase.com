@@ -44,6 +44,7 @@ const Link = ({
   href,
   children,
   withArrow = false,
+  prefetch,
   ...props
 }: LinkProps) => {
   const linkClassName = clsx(
@@ -63,7 +64,7 @@ const Link = ({
 
   if (href.startsWith('/')) {
     return (
-      <NextLink className={linkClassName} href={href} {...props}>
+      <NextLink className={linkClassName} href={href} prefetch={prefetch} {...props}>
         {content}
       </NextLink>
     );
