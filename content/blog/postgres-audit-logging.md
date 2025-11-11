@@ -1,5 +1,5 @@
 ---
-title: Postgres Audit Loggging Guide
+title: Postgres Audit Logging Guide
 author: Adela
 updated_at: 2025/11/10 18:00:00
 feature_image: /content/blog/postgres-audit-logging/cover.webp
@@ -92,7 +92,68 @@ This captures all DML operations (`INSERT`, `UPDATE`, `DELETE`) on the `users` t
 
 For real-time change notifications, PostgreSQL offers the [tcn](https://www.postgresql.org/docs/current/tcn.html) module (Triggered Change Notification), which can be used to send `NOTIFY` events to listening clients when data changes.
 
-## 3. pgAudit Extension
+## 3. Logical Replication Based Auditing
+
+PostgreSQL's [logical replication](https://www.postgresql.org/docs/current/logical-replication.html) decodes changes from the Write-Ahead Log (WAL) and streams them in a structured format. This allows you to capture all data changes without adding triggers or modifying application code.
+
+**How It Works**
+
+Logical replication uses _replication slots_ and _output plugins_ (like `wal2json` or `pgoutput`) to convert WAL entries into JSON or other formats. Tools like [Debezium](https://debezium.io/) can then consume these changes and forward them to audit storage systems like Kafka, Elasticsearch, or S3.
+
+**Example Setup**
+
+Enable logical replication in `postgresql.conf`:
+
+```ini
+wal_level = logical
+max_replication_slots = 4
+max_wal_senders = 4
+```
+
+Create a replication slot:
+
+```sql
+SELECT * FROM pg_create_logical_replication_slot('audit_slot', 'wal2json');
+```
+
+Read changes:
+
+```sql
+SELECT * FROM pg_logical_slot_get_changes('audit_slot', NULL, NULL);
+```
+
+You'll receive JSON output like:
+
+```json
+{
+  "change": [
+    {
+      "kind": "update",
+      "schema": "public",
+      "table": "users",
+      "columnnames": ["id", "email", "updated_at"],
+      "columnvalues": [42, "user@example.com", "2025-11-10 10:30:00"],
+      "oldkeys": { "keynames": ["id"], "keyvalues": [42] }
+    }
+  ]
+}
+```
+
+**Pros**
+
+- Captures all data changes automatically, no per-table setup.
+- Minimal performance impact — reads from existing WAL infrastructure.
+- Works with existing tools like Debezium for streaming to external systems.
+- No application code changes required.
+
+**Cons**
+
+- Does not capture `SELECT` queries (only data modifications).
+- WAL retention can increase storage if replication slot falls behind.
+
+This approach is ideal when you need **near-real-time change data capture (CDC)** for auditing, analytics, or event-driven architectures.
+
+## 4. pgAudit Extension
 
 For structured, compliance-grade audit logs, PostgreSQL’s [pgAudit](https://github.com/pgaudit/pgaudit) extension is the standard choice.
 It extends native logging to provide more context and granularity, especially around read/write operations.
@@ -130,9 +191,9 @@ AUDIT: SESSION,1,READ,SELECT,,,,"SELECT * FROM customers WHERE id=42;",<none>
 - Logs can be verbose — use `pgaudit.log_parameter = off` to reduce noise.
 - Requires proper log rotation and analysis strategy.
 
-## 4. Bytebase
+## 5. Bytebase
 
-Bytebase is a Database DevSecOps platform that provides a [centralized audit trail](https://docs.bytebase.com/security/audit-lo) across your PostgreSQL environments.
+Bytebase is a Database DevSecOps platform that provides a [centralized audit trail](https://docs.bytebase.com/security/audit-log) across your PostgreSQL environments.
 It records _who did what, when, and why_ — linking SQL actions to their context (issues, approvals, and deployments) while keeping sensitive data secure.
 
 **What Bytebase Audits**
@@ -140,6 +201,7 @@ It records _who did what, when, and why_ — linking SQL actions to their contex
 - **Query access:** logs _who queried which data_ and _when_ across SQL Editor, Admin Query, and Data Export.
 - **Schema and data changes:** tracks _who made which changes_, _when they were approved_, and _through which workflow or Git commit_.
 - **Governance controls:** built-in SQL review rules, approval flow, and role-based access help prevent unauthorized actions.
+- **Actual end users, not just database users:** A critical advantage is that Bytebase solves the **shared database user problem**. In most applications, all queries use the same database connection user (like `app_user`), making it impossible to trace actions back to individual users using traditional database auditing. Since users operate through Bytebase, every action is attributed to the actual end user, not just a generic database account.
 
 **Why It Matters**
 
@@ -147,18 +209,30 @@ It records _who did what, when, and why_ — linking SQL actions to their contex
 - **Privacy-safe auditing** with no sensitive data exposure.
 - **Compliance-ready** logs aligned with SOC 2, ISO 27001, and GDPR.
 
-Unlike other solutions, which records statements at the database level, Bytebase captures **who accessed or changed data, under which approval, without exposing sensitive information**. You can also call the [API](https://docs.bytebase.com/integrations/api/audit-log) to send the audit logs to a centralized log sink.
+You can also call the [API](https://docs.bytebase.com/integrations/api/audit-log) to send the audit logs to a centralized log sink.
 
 ## Conclusion
 
 PostgreSQL offers multiple layers of auditing — from basic text logs to complete governance solutions.
 
-- Use **native logging** for baseline activity tracking.
+**Comparison Table**
 
-- Use **pgAudit** for structured, compliance-grade statement logging.
+| Approach | Performance Impact | Captures SELECTs | Captures Actor | Row-Level Detail | Best For |
+|----------|-------------------|------------------|----------------|------------------|----------|
+| **Native Logging** | Low-Medium | ✅ | ⚠️ DB user only | ❌ | Development, debugging, basic audit trails |
+| **Triggers** | Medium-High | ❌ | ⚠️ DB user only | ✅ (before/after) | Critical tables needing full change history |
+| **Logical Replication** | Low | ❌ | ❌ | ✅ | Real-time CDC, event-driven systems, analytics |
+| **pgAudit** | Medium | ✅ | ⚠️ DB user only | ❌ | Compliance requirements, structured logging |
+| **Bytebase** | N/A (app-level) | ✅ | ✅ End user | ✅ | Centralized governance, approval workflows, team collaboration |
 
-- Add **Bytebase** for centralized auditing that records who accessed or changed data, when, and why — all while protecting sensitive information.
+- Use **native logging** for baseline activity tracking (captures database user only).
 
-- Optionally, use **triggers** for fine-grained row-level auditing on critical tables.
+- Use **triggers** for fine-grained row-level auditing on critical tables (captures database user only).
+
+- Use **logical replication** for near-real-time change data capture without application changes.
+
+- Use **pgAudit** for structured, compliance-grade statement logging (captures database user only).
+
+- Add **Bytebase** for centralized auditing that tracks actual end users (not just database users), linking every action to the person who performed it with full context of approvals and workflows.
 
 By combining these layers, you gain both the visibility and control needed for secure, compliant, and well-governed database operations.
