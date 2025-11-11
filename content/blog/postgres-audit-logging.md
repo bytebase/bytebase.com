@@ -1,8 +1,8 @@
 ---
-title: Postgres Audit Log Guide
+title: Postgres Audit Loggging Guide
 author: Adela
 updated_at: 2025/11/10 18:00:00
-feature_image: /content/blog/postgres-audit-log/cover.webp
+feature_image: /content/blog/postgres-audit-logging/cover.webp
 tags: Explanation
 description: A guide to audit logging in Postgres.
 ---
@@ -13,9 +13,7 @@ In this guide, we’ll walk through the most practical approaches — from Postg
 
 ## 1. Native PostgreSQL Logging
 
-[PostgreSQL logging documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html)
-
-PostgreSQL comes with a robust logging subsystem out of the box. It’s often the first step in building an audit trail.
+PostgreSQL comes with a [logging subsystem](https://www.postgresql.org/docs/current/runtime-config-logging.html) out of the box. It’s often the first step in building an audit trail.
 
 **Key settings**
 
@@ -44,11 +42,7 @@ This setup tells PostgreSQL to collect all executed SQL statements, include who 
 
 You can use tools like [pgBadger](https://github.com/darold/pgbadger) to analyze these logs and generate visual reports of who executed what queries and when.
 
-➡️ *Takeaway:* Native logging is the minimum audit layer every PostgreSQL instance should have enabled.
-
 ## 2. Trigger-Based Auditing
-
-[PostgreSQL Triggered Change Notification (tcn) documentation](https://www.postgresql.org/docs/current/tcn.html)
 
 If you need to record **row-level changes** — for example, before and after values on UPDATE — you can use triggers.
 
@@ -96,15 +90,11 @@ This captures all DML operations (`INSERT`, `UPDATE`, `DELETE`) on the `users` t
 - Must be defined per table.
 - Can impact performance on write-heavy workloads.
 
-For real-time change notifications, PostgreSQL offers the `tcn` module (Triggered Change Notification), which can be used to send `NOTIFY` events to listening clients when data changes.
-
-➡️ *Takeaway:* Trigger-based auditing gives detailed change tracking for sensitive tables — best used selectively.
+For real-time change notifications, PostgreSQL offers the [tcn](https://www.postgresql.org/docs/current/tcn.html) module (Triggered Change Notification), which can be used to send `NOTIFY` events to listening clients when data changes.
 
 ## 3. pgAudit Extension
 
-[Visit the pgAudit GitHub repository](https://github.com/pgaudit/pgaudit)
-
-For structured, compliance-grade audit logs, PostgreSQL’s **pgAudit** extension is the standard choice.
+For structured, compliance-grade audit logs, PostgreSQL’s [pgAudit](https://github.com/pgaudit/pgaudit) extension is the standard choice.
 It extends native logging to provide more context and granularity, especially around read/write operations.
 
 **Installation**
@@ -125,7 +115,7 @@ pgaudit.log_catalog = off
 
 After restarting PostgreSQL, you’ll start seeing audit logs like:
 
-```
+```plain
 AUDIT: SESSION,1,READ,SELECT,,,,"SELECT * FROM customers WHERE id=42;",<none>
 ```
 
@@ -140,20 +130,15 @@ AUDIT: SESSION,1,READ,SELECT,,,,"SELECT * FROM customers WHERE id=42;",<none>
 - Logs can be verbose — use `pgaudit.log_parameter = off` to reduce noise.
 - Requires proper log rotation and analysis strategy.
 
-➡️ *Takeaway:* pgAudit is the go-to choice for organizations that need **detailed, compliant** audit trails.
-
 ## 4. Bytebase
 
-[See the Bytebase audit log documentation](https://docs.bytebase.com/security/audit-log)
-
-Bytebase is a Database DevSecOps platform that provides a **centralized audit trail protected from unauthorized modification** across your PostgreSQL environments.
-It records *who did what, when, and why* — linking SQL actions to their **context** (issues, approvals, and deployments) while keeping sensitive data secure.
+Bytebase is a Database DevSecOps platform that provides a [centralized audit trail](https://docs.bytebase.com/security/audit-lo) across your PostgreSQL environments.
+It records _who did what, when, and why_ — linking SQL actions to their context (issues, approvals, and deployments) while keeping sensitive data secure.
 
 **What Bytebase Audits**
 
-- **Query access:** logs *who queried which data* and *when* across SQL Editor, Admin Query, and Data Export.
-  Thanks to **dynamic data masking**, Bytebase only stores the **executed SQL statements** and metadata — **never the actual query results**.
-- **Schema and data changes:** tracks *who made which changes*, *when they were approved*, and *through which workflow or Git commit*.
+- **Query access:** logs _who queried which data_ and _when_ across SQL Editor, Admin Query, and Data Export.
+- **Schema and data changes:** tracks _who made which changes_, _when they were approved_, and _through which workflow or Git commit_.
 - **Governance controls:** built-in SQL review rules, approval flow, and role-based access help prevent unauthorized actions.
 
 **Why It Matters**
@@ -162,17 +147,7 @@ It records *who did what, when, and why* — linking SQL actions to their **cont
 - **Privacy-safe auditing** with no sensitive data exposure.
 - **Compliance-ready** logs aligned with SOC 2, ISO 27001, and GDPR.
 
-➡️ *Takeaway:* Unlike pgAudit, which records statements at the database level, Bytebase captures **who accessed or changed data, under which approval, without exposing sensitive information** — a privacy-first audit trail for modern teams.
-
-## Best Practices
-
-Audit logging can generate large volumes of data, so design it carefully.
-
-- **Centralize and retain logs:** forward to ELK, Datadog, or S3.
-- **Avoid sensitive data:** mask or omit personal identifiers.
-- **Rotate regularly:** control log size and prevent disk exhaustion.
-- **Test impact:** measure overhead before enabling full-statement logging.
-- **Layer approaches:** combine pgAudit (low-level) with Bytebase (change workflow) for complete visibility.
+Unlike other solutions, which records statements at the database level, Bytebase captures **who accessed or changed data, under which approval, without exposing sensitive information**. You can also call the [API](https://docs.bytebase.com/integrations/api/audit-log) to send the audit logs to a centralized log sink.
 
 ## Conclusion
 
