@@ -13,7 +13,7 @@ In this guide, we’ll walk through the most practical approaches — from Postg
 
 ## 1. Native PostgreSQL Logging
 
-[official documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html)
+[PostgreSQL logging documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html)
 
 PostgreSQL comes with a robust logging subsystem out of the box. It’s often the first step in building an audit trail.
 
@@ -48,7 +48,7 @@ You can use tools like [pgBadger](https://github.com/darold/pgbadger) to analyze
 
 ## 2. Trigger-Based Auditing
 
-[tcn module documentation](https://www.postgresql.org/docs/current/tcn.html)
+[PostgreSQL Triggered Change Notification (tcn) documentation](https://www.postgresql.org/docs/current/tcn.html)
 
 If you need to record **row-level changes** — for example, before and after values on UPDATE — you can use triggers.
 
@@ -102,7 +102,7 @@ For real-time change notifications, PostgreSQL offers the `tcn` module (Triggere
 
 ## 3. pgAudit Extension
 
-[pgAudit Extension documentation](https://github.com/pgaudit/pgaudit)
+[Visit the pgAudit GitHub repository](https://github.com/pgaudit/pgaudit)
 
 For structured, compliance-grade audit logs, PostgreSQL’s **pgAudit** extension is the standard choice.
 It extends native logging to provide more context and granularity, especially around read/write operations.
@@ -144,7 +144,7 @@ AUDIT: SESSION,1,READ,SELECT,,,,"SELECT * FROM customers WHERE id=42;",<none>
 
 ## 4. Bytebase
 
-[Bytebase audit documentation](https://docs.bytebase.com/security/audit-log)
+[See the Bytebase audit log documentation](https://docs.bytebase.com/security/audit-log)
 
 Bytebase is a Database DevSecOps platform that provides a **centralized audit trail protected from unauthorized modification** across your PostgreSQL environments.
 It records *who did what, when, and why* — linking SQL actions to their **context** (issues, approvals, and deployments) while keeping sensitive data secure.
