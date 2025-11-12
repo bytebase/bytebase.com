@@ -19,7 +19,7 @@ Identity provider information:
 - **Bind DN**: the Distinguished Name (DN) of the user to bind as a service account to perform search requests (e.g. `uid=system,ou=Users,dc=jumpcloud,dc=com`)
 - **Bind Password**: the password of the user to bind as a service account
 - **Base DN**: the base Distinguished Name (DN) to search for users (e.g. `ou=users,dc=jumpcloud,dc=com`)
-- **User Filter**: the filter to search for users (e.g. `(uid=%s)`, where `%s` will be subsituted by the username)
+- **User Filter**: the LDAP search filter to match users during authentication. The `%s` placeholder will be replaced with the username entered during login (e.g. `(uid=%s)` searches for a user with matching `uid` attribute)
 - **Security protocol**: the security protocol to be used for establishing connections with the LDAP server
 
 User information field mapping:
@@ -27,6 +27,56 @@ User information field mapping:
 - **Email**: the attribute to be used as the Bytebase user email address (e.g. `mail`)
 - **Display name**: the attribute to be used as the Bytebase user display name (e.g. `displayName`, optional)
 - **Phone**: the attribute to be used as the Bytebase user phone number (e.g. `phone`, optional)
+
+## User Filter Configuration
+
+The **User Filter** field is critical for LDAP authentication. It defines how Bytebase searches for users in your LDAP directory.
+
+### Understanding the User Filter
+
+- The `%s` placeholder is **required** and will be replaced with the username entered during login
+- Filters must use valid LDAP filter syntax with proper parentheses
+- The filter should uniquely identify users to prevent authentication issues
+
+### Common User Filter Patterns
+
+Different LDAP providers use different object classes and attributes:
+
+| Provider         | Recommended User Filter                    | Description                                                     |
+| ---------------- | ------------------------------------------ | --------------------------------------------------------------- |
+| Okta             | `(&(objectClass=inetOrgPerson)(uid=%s))`   | Matches users with `inetOrgPerson` class and matching `uid`     |
+| JumpCloud        | `(&(objectClass=posixAccount)(uid=%s))`    | Matches users with `posixAccount` class and matching `uid`      |
+| Active Directory | `(&(objectClass=user)(sAMAccountName=%s))` | Matches users with matching `sAMAccountName` (Windows username) |
+| OpenLDAP         | `(&(objectClass=inetOrgPerson)(uid=%s))`   | Standard OpenLDAP user filter                                   |
+
+### Best Practices
+
+1. **Use AND conditions**: Combine object class with the user identifier for more precise matching:
+
+   - Good: `(&(objectClass=inetOrgPerson)(uid=%s))`
+   - Avoid: `(uid=%s)` (too broad, may match non-user entries)
+
+2. **Match your directory schema**: Verify the object class used in your LDAP directory:
+
+   - Common classes: `inetOrgPerson`, `posixAccount`, `user`, `person`
+   - Use LDAP browser tools to inspect your directory structure
+
+3. **Test the filter**: Use the **Test Connection** button to verify your filter works before saving
+
+### Common Issues
+
+- **Invalid filter syntax**: Ensure parentheses are balanced, e.g. `(&(objectClass=user)(uid=%s))`
+- **Missing %s placeholder**: The `%s` must be present in the filter
+- **Wrong attribute name**: Verify the username attribute (common ones: `uid`, `sAMAccountName`, `cn`, `mail`)
+- **Wrong object class**: Check your LDAP schema to confirm the correct object class
+
+<Tip>
+
+If you're unsure about your LDAP schema, use an LDAP browser tool (like Apache Directory Studio or ldapsearch) to inspect a user entry and identify the correct object class and username attribute.
+
+</Tip>
+
+## Examples
 
 ### JumpCloud
 
