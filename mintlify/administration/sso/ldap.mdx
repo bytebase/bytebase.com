@@ -65,10 +65,12 @@ Different LDAP providers use different object classes and attributes:
 
 ### Common Issues
 
-- **Invalid filter syntax**: Ensure parentheses are balanced, e.g. `(&(objectClass=user)(uid=%s))`
-- **Missing %s placeholder**: The `%s` must be present in the filter
-- **Wrong attribute name**: Verify the username attribute (common ones: `uid`, `sAMAccountName`, `cn`, `mail`)
-- **Wrong object class**: Check your LDAP schema to confirm the correct object class
+| Issue Type                 | Description                                                                                    | Bad Example                          | Correction                               |
+| -------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------ | ---------------------------------------- |
+| **Invalid filter syntax**  | Parentheses must be balanced and properly nested following LDAP filter syntax                  | `&(objectClass=user)(uid=%s)`        | `(&(objectClass=user)(uid=%s))`          |
+| **Missing %s placeholder** | The `%s` placeholder must be present for username substitution                                 | `(uid=username)`                     | `(uid=%s)`                               |
+| **Wrong attribute name**   | Username attribute must match your LDAP schema (common: `uid`, `sAMAccountName`, `cn`, `mail`) | `(&(objectClass=user)(username=%s))` | `(&(objectClass=user)(uid=%s))`          |
+| **Wrong object class**     | Object class must match the user entries in your LDAP directory                                | `(&(objectClass=person)(uid=%s))`    | `(&(objectClass=inetOrgPerson)(uid=%s))` |
 
 <Tip>
 
