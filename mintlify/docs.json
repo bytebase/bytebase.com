@@ -36,6 +36,7 @@
                   "get-started/self-host/deploy-with-docker",
                   "get-started/self-host/deploy-with-kubernetes",
                   "get-started/self-host/external-postgres",
+                  "get-started/self-host/network-architecture",
                   "get-started/self-host/external-access",
                   "get-started/self-host/external-url",
                   "get-started/self-host/production-setup",

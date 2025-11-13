@@ -1,0 +1,24 @@
+import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volume.mdx';
+
+<Tabs>
+  <Tab title="Cloud">
+    Use [Bytebase Cloud](https://hub.bytebase.com/) for instant setup without infrastructure management. CI/CD services can connect immediately.
+    
+    **Best for:** Quick testing, evaluation, and small teams
+  </Tab>
+  <Tab title="Self-Hosted">
+    Run Bytebase in Docker within your infrastructure:
+    
+    <TerminalDockerRunVolume />
+    
+    **Network Access Options:**
+    
+    - **For testing:** Use tools such as [ngrok](https://ngrok.com/) or [VS Code port forwarding](https://code.visualstudio.com/docs/editor/port-forwarding) to temporarily expose your local Bytebase to cloud CI/CD services. After exposing, configure the **External URL** in Bytebase **Settings > General**.
+    
+    - **For production:** Use self-hosted CI/CD runners within your private network. Never expose production Bytebase to the internet.
+    
+    **Best for:** Organizations with security requirements or existing infrastructure
+  </Tab>
+</Tabs>
+
+See [Network Architecture guide](/get-started/self-host/network-architecture#pattern-2-self-hosted-with-private-runners-recommended-for-production).
