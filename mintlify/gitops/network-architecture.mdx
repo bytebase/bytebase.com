@@ -1,0 +1,45 @@
+---
+title: Network Architecture and External Access
+---
+
+This guide explains the network connectivity options for Bytebase features that require external access, including GitOps workflows, SSO authentication, and webhooks.
+
+## Features Requiring External Access
+
+- **GitOps Workflows**: CI/CD platforms (GitHub Actions, GitLab CI, etc.) need to call Bytebase API
+- **SSO Authentication**: OAuth2/OIDC/SAML providers need callback access
+- **Webhooks**: External services sending events to Bytebase
+
+## Three Network Patterns
+
+### 1. Bytebase Cloud
+Use [Bytebase Cloud](https://hub.bytebase.com/) for instant setup without infrastructure management. External services connect directly.
+
+**Best for:** Quick testing, evaluation, and small teams
+
+### 2. Self-Hosted Production with Private Runners
+
+Deploy Bytebase in your private network with self-hosted CI/CD runners. No internet exposure.
+
+**Best for:** Production environments with security requirements
+
+**Runner Documentation:**
+- [GitHub Actions self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners)
+- [GitLab runners](https://docs.gitlab.com/runner/)
+- [Bitbucket runners](https://support.atlassian.com/bitbucket-cloud/docs/runners/)
+- [Azure DevOps agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/agents)
+
+### 3. Self-Hosted Local Testing with Reverse Proxy
+
+Temporarily expose local Bytebase for testing using reverse proxy tools such as:
+- [ngrok](https://ngrok.com/)
+- [VS Code port forwarding](https://code.visualstudio.com/docs/editor/port-forwarding)
+- Other tunneling services
+
+<Warning>
+Never use reverse proxy tools in production. They are for local testing only.
+</Warning>
+
+<Info>
+**Important for Self-Hosted:** Remember to configure the External URL in Bytebase **Settings > General** with your public URL for SSO callbacks and other integrations to work properly.
+</Info>
