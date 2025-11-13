@@ -10,7 +10,6 @@ estimated_time: '40 mins'
 featured: true
 ---
 
-import StartWithNgrok from '/snippets/install/start-with-ngrok.mdx';
 import CreateServiceAccountGitOps from '/snippets/tutorials/create-service-account-gitops.mdx';
 import ConfigSQLReview from '/snippets/tutorials/config-sql-review.mdx';
 
@@ -43,15 +42,16 @@ https://gitlab.com/bytebase-sample/gitops-example
 
 ## Prerequisites
 
-- [Docker](https://www.docker.com/) installed
 - A Bytebase instance (Bytebase Cloud or self-hosted)
-- For local testing: [ngrok](https://ngrok.com/) account (optional)
+- For self-hosted version, you need [Docker](https://www.docker.com/) to run Bytebase
 
-## Enable Automatic Rollout Across Environments
+## Automatic Rollout across environments
 
-### Step 1 - Set up Bytebase Instance
+### Step 1 - Set up Bytebase
 
-<StartWithNgrok />
+import BytebaseSetupOptions from '/snippets/tutorials/bytebase-setup-options.mdx';
+
+<BytebaseSetupOptions />
 
 ### Step 2 - Create Service Account
 

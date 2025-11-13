@@ -9,7 +9,6 @@ level: Advanced
 estimated_time: '40 mins'
 ---
 
-import StartWithNgrok from '/snippets/install/start-with-ngrok.mdx';
 import CreateServiceAccountGitOps from '/snippets/tutorials/create-service-account-gitops.mdx';
 import ConfigSQLReview from '/snippets/tutorials/config-sql-review.mdx';
 
@@ -34,15 +33,16 @@ This tutorial code repository is at [https://dev.azure.com/bytebase-hq/\_git/byt
 
 ## Prerequisites
 
-- [Docker](https://www.docker.com/) installed
 - A Bytebase instance (Bytebase Cloud or self-hosted)
-- For local testing: [ngrok](https://ngrok.com/) account (optional)
+- For self-hosted version, you need [Docker](https://www.docker.com/) to run Bytebase
 
 ## Automatic Rollout across environments
 
-### Step 1 - Set up Bytebase Instance
+### Step 1 - Set up Bytebase
 
-<StartWithNgrok />
+import BytebaseSetupOptions from '/snippets/tutorials/bytebase-setup-options.mdx';
+
+<BytebaseSetupOptions />
 
 ### Step 2 - Create Service Account
 
