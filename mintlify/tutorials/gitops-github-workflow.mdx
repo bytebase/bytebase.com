@@ -74,7 +74,7 @@ import BytebaseSetupOptions from '/snippets/tutorials/bytebase-setup-options.mdx
 
 1. Go into `.github/workflows/release-action.yml` and `.github/workflows/sql-review-action.yml`. In the `env` section, replace the variable values with your own and commit the changes.
 
-   - **BYTEBASE_URL**: Your Bytebase instance URL (e.g., `https://bytebase.your-company.com` or your ngrok URL if testing locally)
+   - **BYTEBASE_URL**: Your Bytebase instance URL (e.g., `https://bytebase.your-company.com` or your Bytebase Cloud URL)
    - **BYTEBASE_SERVICE_ACCOUNT**: `api-example@service.bytebase.com` (the service account you created in the previous step)
    - **BYTEBASE_PROJECT**: `projects/project-sample` (the sample project in the Bytebase)
    - **BYTEBASE_TARGETS**: `instances/test-sample-instance/databases/hr_test,instances/prod-sample-instance/databases/hr_prod` (the two default databases in the sample project)
@@ -183,7 +183,7 @@ Team members can trigger deployments by commenting `/migrate <environment>` on a
 
 1. Go into `.github/workflows/chatops-migrate.yml`. In the `env` section, replace the variable values with your own:
 
-   - **BYTEBASE_URL**: your Bytebase instance URL (e.g., `https://bytebase.your-company.com` or your ngrok URL if testing locally)
+   - **BYTEBASE_URL**: Your Bytebase instance URL (e.g., `https://bytebase.your-company.com` or your Bytebase Cloud URL)
    - **BYTEBASE_SERVICE_ACCOUNT**: `api-example@service.bytebase.com`
    - **BYTEBASE_PROJECT**: `projects/project-sample`
    - **FILE_PATTERN**: `migrations-semver/*.sql`
