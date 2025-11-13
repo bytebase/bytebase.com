@@ -17,17 +17,21 @@ Use [Bytebase Cloud](https://hub.bytebase.com/) for instant setup without infras
 
 **Best for:** Quick testing, evaluation, and small teams
 
-### 2. Self-Hosted Production with Private Runners
+### 2. Self-Hosted Bytebase (Production)
 
-Deploy Bytebase in your private network with self-hosted CI/CD runners. No internet exposure.
+Keep Bytebase inside your private network for security.
 
-**Best for:** Production environments with security requirements
+**With cloud CI/CD** (GitHub.com, GitLab.com, Bitbucket, Azure DevOps):
 
-**Runner Documentation:**
-- [GitHub Actions self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners)
-- [GitLab runners](https://docs.gitlab.com/runner/)
-- [Bitbucket runners](https://support.atlassian.com/bitbucket-cloud/docs/runners/)
-- [Azure DevOps agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/agents)
+- Works without self-hosted runners
+- Cloud CI/CD can call Bytebase directly (or via the required exposed endpoint)
+
+**With self-hosted CI/CD** (GitHub Enterprise Server, self-hosted GitLab, Jenkins):
+
+- Install self-hosted runners/agents inside your network
+- Runners connect to your internal Bytebase without exposing it to the internet
+
+**Best for:** Production setups with strict network boundaries.
 
 ### 3. Self-Hosted Local Testing with Reverse Proxy
 
