@@ -7,6 +7,10 @@ tags: Explanation
 description: Learn why enforcing NOT VALID in CHECK constraints is important and how the "Enforce NOT VALID in CHECK" review rule protects your production database.
 ---
 
+Bytebase [SQL Review](https://docs.bytebase.com/change-database/review) contains a rule to enforce including "NOT VALID" option when adding "CHECK" constraints:
+
+> Adding a CHECK constraint needs to verify the existing data and requires ACCESS EXCLUSIVE table lock. This blocks read and write, which may cause business interruption. It is recommended to add the "NOT VALID" option to validate new data and manually validate existing data after the change is completed.
+
 PostgreSQL allows you to add `CHECK` constraints to enforce data quality rules on a table. This is useful, but adding a CHECK constraint in the wrong way can block reads and writes and cause unexpected downtime.
 This SQL Review rule ensures that all new CHECK constraints are created using the safe, non-blocking approach.
 
@@ -34,16 +38,16 @@ This is where the risk comes from.
 
 When PostgreSQL validates an existing table, it must scan every row to confirm the constraint is not violated. During this step, it acquires an `ACCESS EXCLUSIVE` lock. This lock is the strongest one in PostgreSQL and can block:
 
-* Reads
-* Writes
-* Other schema changes
+- Reads
+- Writes
+- Other schema changes
 
 On large tables or busy production databases, the lock can cause:
 
-* Query timeouts
-* Application errors
-* Service degradation
-* Full outages
+- Query timeouts
+- Application errors
+- Service degradation
+- Full outages
 
 This SQL Review rule prevents teams from accidentally introducing blocking schema changes during deployments.
 
@@ -59,9 +63,9 @@ ALTER TABLE orders
 ADD CONSTRAINT orders_positive CHECK (amount > 0) NOT VALID;
 ```
 
-* Only a brief catalog lock is required
-* The constraint is enforced for all new inserts and updates
-* Existing rows are not scanned yet
+- Only a brief catalog lock is required
+- The constraint is enforced for all new inserts and updates
+- Existing rows are not scanned yet
 
 **Step 2: Validate at a convenient time**
 
@@ -103,7 +107,7 @@ This ensures the constraint is applied safely without disrupting user traffic.
 Adding CHECK constraints without `NOT VALID` can block reads and writes and lead to downtime.
 This SQL Review rule enforces the two-step PostgreSQL best practice:
 
-* Add the constraint using `NOT VALID`
-* Validate it later using a non-blocking operation
+- Add the constraint using `NOT VALID`
+- Validate it later using a non-blocking operation
 
 By following this pattern, teams can ensure constraint correctness without risking production stability.
