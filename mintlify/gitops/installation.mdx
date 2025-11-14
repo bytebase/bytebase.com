@@ -1,9 +1,12 @@
 ---
 title: Installation
-description: Installation and setup guide for connecting Version Control Systems with Bytebase
 ---
 
 This guide covers the setup requirements for connecting Version Control Systems (VCS) with Bytebase.
+
+<Info>
+For understanding network patterns and external access options, see the [Network Architecture guide](/get-started/self-host/network-architecture).
+</Info>
 
 ## Bytebase Cloud
 
@@ -51,3 +54,10 @@ When using cloud VCS with self-hosted Bytebase, you need a self-hosted runner:
 - Network policies allow communication
 - If your GitLab runner lacks internet access, pre-load the bytebase-action Docker image
 
+## Local Testing
+
+To expose local Bytebase for testing with cloud VCS services, use reverse proxy tools like ngrok. See [Network Architecture guide](/get-started/self-host/network-architecture#3-self-hosted-local-testing-with-reverse-proxy) for setup details.
+
+<Warning>
+For development and testing only. Never use in production.
+</Warning>

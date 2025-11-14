@@ -10,7 +10,6 @@ estimated_time: '40 mins'
 featured: true
 ---
 
-import StartWithNgrok from '/snippets/install/start-with-ngrok.mdx';
 import CreateServiceAccountGitOps from '/snippets/tutorials/create-service-account-gitops.mdx';
 import ConfigSQLReview from '/snippets/tutorials/config-sql-review.mdx';
 
@@ -43,14 +42,16 @@ https://gitlab.com/bytebase-sample/gitops-example
 
 ## Prerequisites
 
-- [Docker](https://www.docker.com/) installed
-- An [ngrok](https://ngrok.com/) account
+- A Bytebase instance (Bytebase Cloud or self-hosted)
+- For self-hosted version, you need [Docker](https://www.docker.com/) to run Bytebase
 
-## Enable Automatic Rollout Across Environments
+## Automatic Rollout across environments
 
-### Step 1 - Start Bytebase with ngrok
+### Step 1 - Set up Bytebase
 
-<StartWithNgrok />
+import BytebaseSetupOptions from '/snippets/tutorials/bytebase-setup-options.mdx';
+
+<BytebaseSetupOptions />
 
 ### Step 2 - Create Service Account
 
@@ -72,7 +73,7 @@ _Note: Usually we enable SQL review for `Prod` environment as above. In this dem
 
 1. Go into `bytebase-review.yml` and `bytebase-rollout.yml`. In the `env` section, replace the variable values with your own and commit the changes.
 
-   - **BYTEBASE_URL**: your ngrok url
+   - **BYTEBASE_URL**: Your Bytebase instance URL (e.g., `https://bytebase.your-company.com` or your Bytebase Cloud URL)
    - **BYTEBASE_SERVICE_ACCOUNT**: `api-example@service.bytebase.com` (the service account you created in the previous step)
    - **BYTEBASE_SERVICE_ACCOUNT_SECRET**: the password of the service account
 
