@@ -1,0 +1,198 @@
+---
+title: Testing Cross-Account Authentication in Single Account
+---
+
+When you have only one AWS account, you can still test the cross-account authentication feature by creating separate IAM roles that simulate a multi-account setup. This guide walks through creating two roles that demonstrate the authentication flow.
+
+## What We're Building
+
+In production cross-account setups:
+- **Account A** hosts Bytebase on an EC2 instance
+- **Account B** hosts the RDS database
+- Bytebase assumes a role in Account B to access the database
+
+For testing in a single account, we'll create:
+- **Role 1**: `bytebase-instance-role` (simulates Account A's EC2 role)
+- **Role 2**: `bytebase-target-db-role` (simulates Account B's database access role)
+
+## Prerequisites
+
+- An EC2 instance where Bytebase will run
+- An RDS instance with IAM authentication enabled
+- IAM admin permissions to create roles and policies
+
+## Step 1: Set Up the EC2 Instance Role
+
+This role will be attached to your EC2 instance running Bytebase.
+
+### Create the Role
+
+1. Go to [IAM Console → Roles](https://console.aws.amazon.com/iam/home#/roles)
+2. Click **Create role**
+3. Choose trusted entity:
+   - Select **AWS service**
+   - Choose **EC2**
+   - Click **Next**
+4. Skip policy attachment for now (we'll add it later)
+5. Name the role: `bytebase-instance-role`
+6. Click **Create role**
+
+### Attach Role to EC2
+
+**For a new EC2 instance:**
+- During launch, in **Advanced details** → **IAM instance profile**, select `bytebase-instance-role`
+
+**For an existing EC2 instance:**
+1. Select your instance in the [EC2 Console](https://console.aws.amazon.com/ec2/)
+2. Click **Actions** → **Security** → **Modify IAM role**
+3. Select `bytebase-instance-role`
+4. Click **Update IAM role**
+
+## Step 2: Create the Database Access Role
+
+This role will have permission to connect to your RDS database. In production, this would be in a different account.
+
+### Create the Role with Trust Policy
+
+1. In [IAM Console](https://console.aws.amazon.com/iam/), click **Create role**
+2. Select **Custom trust policy**
+3. Replace the default policy with this (substitute your account ID):
+
+   ```json
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+           "AWS": "arn:aws:iam::YOUR_ACCOUNT_ID:role/bytebase-instance-role"
+         },
+         "Action": "sts:AssumeRole",
+         "Condition": {}
+       }
+     ]
+   }
+   ```
+   
+   <Info>
+   This trust policy allows `bytebase-instance-role` to assume this role. In production, the Principal would reference a role from a different account.
+   </Info>
+
+4. Click **Next**
+5. Skip policy attachment (we'll add inline policy next)
+6. Name the role: `bytebase-target-db-role`
+7. Click **Create role**
+
+### Add RDS Connect Permission
+
+1. Open the newly created `bytebase-target-db-role`
+2. Go to the **Permissions** tab
+3. Click **Add permissions** → **Create inline policy**
+4. Switch to **JSON** view and paste:
+
+   ```json
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Action": "rds-db:connect",
+         "Resource": "arn:aws:rds-db:*:*:dbuser:*/*"
+       }
+     ]
+   }
+   ```
+   
+   <Note>
+   For production, replace wildcards with specific values: 
+   `arn:aws:rds-db:REGION:ACCOUNT_ID:dbuser:DB_RESOURCE_ID/bytebase`
+   
+   Find your DB_RESOURCE_ID in RDS Console → your database → Configuration tab
+   </Note>
+
+5. Click **Review policy**
+6. Name it: `RDSConnect`
+7. Click **Create policy**
+
+## Step 3: Allow the EC2 Role to Assume the Database Role
+
+Now we need to give the EC2 role permission to assume the database role.
+
+1. Go back to the `bytebase-instance-role` in IAM Console
+2. Click **Add permissions** → **Create inline policy**
+3. Switch to **JSON** view and paste (substitute your account ID):
+
+   ```json
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Action": "sts:AssumeRole",
+         "Resource": "arn:aws:iam::YOUR_ACCOUNT_ID:role/bytebase-target-db-role"
+       }
+     ]
+   }
+   ```
+
+4. Click **Review policy**
+5. Name it: `AssumeTargetRole`
+6. Click **Create policy**
+
+## Step 4: Configure the Database
+
+Your RDS instance needs:
+1. **IAM authentication enabled** (check in RDS Console → Modify → Database authentication options)
+2. **A database user configured for IAM auth**
+
+### Create the IAM Database User
+
+Connect to your RDS instance using your master credentials, then run:
+
+**For PostgreSQL:**
+
+```sql
+-- Create user for IAM authentication
+CREATE USER bytebase;
+GRANT rds_iam TO bytebase;
+
+-- Grant necessary permissions (adjust as needed)
+GRANT CONNECT ON DATABASE postgres TO bytebase;
+GRANT CREATE ON DATABASE postgres TO bytebase;
+GRANT ALL PRIVILEGES ON DATABASE your_database TO bytebase;
+```
+
+**For MySQL:**
+
+```sql
+-- Create user for IAM authentication
+CREATE USER 'bytebase'@'%' IDENTIFIED WITH AWSAuthenticationPlugin AS 'RDS';
+ALTER USER 'bytebase'@'%' REQUIRE SSL;
+
+-- Grant necessary permissions (adjust as needed)
+GRANT ALL PRIVILEGES ON *.* TO 'bytebase'@'%';
+FLUSH PRIVILEGES;
+```
+
+## Step 5: Configure Bytebase Connection
+
+Now configure Bytebase to use the cross-account authentication:
+
+1. Open Bytebase and click **New Instance**
+2. Configure basic connection:
+   - **Host:** Your RDS endpoint (e.g., `mydb.abc123.us-east-1.rds.amazonaws.com`)
+   - **Port:** 5432 (PostgreSQL) or 3306 (MySQL)
+   - **Username:** `bytebase`
+   - **Authentication:** Select `AWS RDS IAM`
+
+3. Configure AWS credentials:
+   - **Credential Source:** Select **Specific Credentials**
+   - **Access Key ID:** Leave empty (uses EC2 instance profile)
+   - **Secret Access Key:** Leave empty (uses EC2 instance profile)
+   - **Session Token:** Leave empty
+   - **Role ARN:** `arn:aws:iam::YOUR_ACCOUNT_ID:role/bytebase-target-db-role`
+   - **Database Region:** Select your RDS region
+   - **Database:** Your database name
+
+4. Click **Test Connection** to verify the setup
+5. If successful, click **Create**

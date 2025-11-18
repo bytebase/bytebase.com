@@ -1,6 +1,5 @@
 ---
 title: AWS Database Connections
-description: Configure secure database connections for AWS RDS, Aurora, and other AWS-managed databases
 ---
 
 import PostgreSQLConfig from '/snippets/get-started/instance/postgresql.mdx';
@@ -110,19 +109,28 @@ References: [MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Using
 ### Step 4: Connect from Bytebase
 
 1. Click **New Instance** in Bytebase
-2. Configure connection:
+2. Configure basic connection:
    - **Host:** Your RDS endpoint
    - **Port:** 3306 (MySQL) or 5432 (PostgreSQL)
    - **Username:** `bytebase`
    - **Authentication:** Select `AWS RDS IAM`
-3. Test and save the connection
 
-Bytebase automatically handles token generation and refresh using the EC2 instance profile.
+3. Configure AWS credentials:
+   - **Credential Source:** Select **Default** (recommended for same-account connections)
+     - Automatically uses EC2 instance profile or environment variables
+     - **Database Region:** Select your RDS region (e.g., `us-east-1`)
+     - **Database:** Your database name
+
+4. Test and save the connection
+
+<Info>
+For same-account connections on EC2, always use **Default** credential source. Bytebase automatically uses the instance profile to authenticate. Use **Specific Credentials** only for cross-account scenarios.
+</Info>
 
 ## Cross-Account IAM Authentication
 
 <Info>
-Available in Bytebase version 3.11.1 and later
+Available in Bytebase version 3.12.1 and later
 </Info>
 
 Connect to RDS databases in different AWS accounts using IAM role assumption. This allows Bytebase running in Account A to authenticate to databases in Accounts B, C, D, etc.
@@ -141,63 +149,113 @@ In each target AWS account (where databases reside):
 2. Click **Create role**
 3. Select trusted entity: **Another AWS account**
 4. Enter the source account ID (where Bytebase runs)
-5. Attach this policy for RDS access:
+5. Name the role (e.g., `bytebase-target-db-role`)
+6. After creating the role, add an inline policy for RDS access:
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": "rds-db:connect",
-      "Resource": "arn:aws:rds-db:REGION:ACCOUNT_ID:dbuser:DB_RESOURCE_ID/bytebase"
-    }
-  ]
-}
-```
+   - Go to the **Permissions** tab
+   - Click **Add permissions** → **Create inline policy**
+   - Switch to **JSON** view and paste:
 
-6. Name the role (e.g., `bytebase-cross-account-rds`)
-7. Note the role ARN: `arn:aws:iam::TARGET_ACCOUNT:role/bytebase-cross-account-rds`
+   ```json
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Action": "rds-db:connect",
+         "Resource": "arn:aws:rds-db:REGION:ACCOUNT_ID:dbuser:DB_RESOURCE_ID/bytebase"
+       }
+     ]
+   }
+   ```
+
+   <Note>
+   For production, replace with specific values. Find your DB_RESOURCE_ID in RDS Console → your database → Configuration tab
+   </Note>
+
+7. Note the role ARN: `arn:aws:iam::TARGET_ACCOUNT:role/bytebase-target-db-role`
 
 ### Step 2: Grant AssumeRole Permission
 
-In the source account (where Bytebase runs), add this policy to your Bytebase IAM role:
+In the source account (where Bytebase runs), add permission to assume the target role:
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": "sts:AssumeRole",
-      "Resource": [
-        "arn:aws:iam::ACCOUNT_B:role/bytebase-cross-account-rds",
-        "arn:aws:iam::ACCOUNT_C:role/bytebase-cross-account-rds",
-        "arn:aws:iam::ACCOUNT_D:role/bytebase-cross-account-rds"
-      ]
-    }
-  ]
-}
+1. Go to your Bytebase IAM role (e.g., `bytebase-instance-role`)
+2. Click **Add permissions** → **Create inline policy**
+3. Switch to **JSON** view and paste:
+
+   ```json
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Action": "sts:AssumeRole",
+         "Resource": [
+           "arn:aws:iam::ACCOUNT_B:role/bytebase-target-db-role",
+           "arn:aws:iam::ACCOUNT_C:role/bytebase-target-db-role",
+           "arn:aws:iam::ACCOUNT_D:role/bytebase-target-db-role"
+         ]
+       }
+     ]
+   }
+   ```
+
+4. Name the policy (e.g., `AssumeTargetRoles`)
+5. Replace `ACCOUNT_B`, `ACCOUNT_C`, `ACCOUNT_D` with your target account IDs
+
+### Step 3: Configure Database User
+
+Ensure the target RDS instance has:
+
+1. **IAM authentication enabled** (RDS Console → Modify → Database authentication options)
+2. **A database user configured for IAM auth**
+
+**For PostgreSQL:**
+
+```sql
+CREATE USER bytebase;
+GRANT rds_iam TO bytebase;
+-- Grant necessary permissions
 ```
 
-Replace `ACCOUNT_B`, `ACCOUNT_C`, `ACCOUNT_D` with your target account IDs.
+**For MySQL:**
 
-### Step 3: Configure Cross-Account Connection
+```sql
+CREATE USER 'bytebase'@'%' IDENTIFIED WITH AWSAuthenticationPlugin AS 'RDS';
+ALTER USER 'bytebase'@'%' REQUIRE SSL;
+-- Grant necessary permissions
+```
+
+### Step 4: Configure Cross-Account Connection
 
 1. Click **New Instance** in Bytebase
-2. Configure connection:
+2. Configure basic connection:
    - **Host:** RDS endpoint in target account
    - **Port:** 3306 (MySQL) or 5432 (PostgreSQL)
    - **Username:** `bytebase`
    - **Authentication:** Select `AWS RDS IAM`
-   - **AWS Assume Role ARN:** Enter the target account role ARN
-     (e.g., `arn:aws:iam::TARGET_ACCOUNT:role/bytebase-cross-account-rds`)
-3. Test and save the connection
 
-Bytebase will:
-1. Assume the role in the target account
-2. Use the assumed credentials to generate RDS IAM tokens
-3. Authenticate to the database using the token
+3. Configure AWS credentials:
+   - **Credential Source:** Select **Specific Credentials** (required for cross-account)
+     - **Access Key ID:** Leave empty (uses EC2 instance profile)
+     - **Secret Access Key:** Leave empty (uses EC2 instance profile)
+     - **Session Token:** Leave empty
+     - **Role ARN:** `arn:aws:iam::TARGET_ACCOUNT:role/bytebase-target-db-role`
+     - **External ID:** Optional security string (if configured in trust policy)
+     - **Database Region:** Select target RDS region
+     - **Database:** Your database name
+
+4. Test and save the connection
+
+<Note>
+**Important:** For cross-account access, always use **Specific Credentials**. Leave Access Key ID, Secret Access Key, and Session Token empty when using EC2 instance profile - only provide the Role ARN. Use **Default** credential source only for same-account connections.
+</Note>
+
+How it works:
+1. Bytebase uses the EC2 instance profile credentials
+2. Assumes the specified role in the target account
+3. Generates RDS IAM authentication tokens using the assumed role
+4. Connects to the database using the token
 
 ### Example Setup
 
@@ -232,7 +290,7 @@ Bytebase will:
     {
       "Effect": "Allow",
       "Action": "sts:AssumeRole",
-      "Resource": "arn:aws:iam::987654321098:role/bytebase-cross-account-rds"
+      "Resource": "arn:aws:iam::987654321098:role/bytebase-target-db-role"
     }
   ]
 }
@@ -246,21 +304,55 @@ Bytebase will:
 4. **Enable CloudTrail**: Monitor cross-account role assumptions
 5. **Regular Audits**: Review cross-account permissions periodically
 
+### Testing Cross-Account Setup
+
+<Note>
+Need to test cross-account authentication but only have one AWS account? See our guide on [testing cross-account authentication in a single account](/get-started/connect/aws-cross-account-testing).
+</Note>
+
 ### Troubleshooting Cross-Account Issues
+
+**"Static credentials are empty" Error:**
+
+This means Bytebase cannot access the EC2 instance profile. Solutions:
+
+1. **For Docker deployments:** Use host network mode
+   ```bash
+   docker run -d --name bytebase --network host bytebase/bytebase
+   ```
+
+2. **Check IMDS access:** Verify the container can reach the metadata service
+   ```bash
+   docker exec bytebase curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
+   ```
+
+3. **For IMDSv2:** Make tokens optional temporarily
+   ```bash
+   aws ec2 modify-instance-metadata-options \
+     --instance-id $(curl -s http://169.254.169.254/latest/meta-data/instance-id) \
+     --http-tokens optional
+   ```
 
 **AssumeRole Access Denied:**
 - Verify trust relationship in target account role
 - Check source account has AssumeRole permission
 - Ensure role ARN is correct
+- Test manually: `aws sts assume-role --role-arn YOUR_ARN --role-session-name test`
 
-**RDS Authentication Failed After AssumeRole:**
-- Verify target role has rds-db:connect permission
+**RDS Authentication Failed:**
+- Verify target role has `rds-db:connect` permission
 - Check database user exists with IAM authentication enabled
 - Ensure RDS instance has IAM authentication enabled
+- Confirm SSL/TLS is enabled for the connection
 
-**Token Expiration:**
-- Bytebase automatically refreshes tokens before expiration
-- Default session duration is 1 hour (configurable in role settings)
+**Understanding Credential Fields:**
+
+| Scenario | Access Key ID | Secret Access Key | Session Token | Assume Role ARN |
+|----------|--------------|-------------------|---------------|-----------------|
+| EC2 with IAM role (same account) | Empty | Empty | Empty | Empty |
+| EC2 with IAM role (cross-account) | Empty | Empty | Empty | Target role ARN |
+| Manual credentials (testing) | From assumed role | From assumed role | From assumed role | Empty |
+| IAM user (not recommended) | User's key | User's secret | Empty | Optional target role |
 
 ## AWS Secrets Manager
 
@@ -342,16 +434,19 @@ For specific database types running on AWS, see their configuration guides:
 ## Troubleshooting
 
 ### Connection Timeout
+
 - Verify security group rules allow traffic on database port
 - Check VPC routing and subnet configuration
 - Ensure database is publicly accessible or use VPN/bastion host
 
 ### IAM Authentication Failed
+
 - Verify IAM role has correct `rds-db:connect` permissions
 - Check database user was created with correct authentication method
 - Ensure SSL is enabled for the connection
 
 ### Secrets Manager Access Denied
+
 - Verify IAM role has `secretsmanager:GetSecretValue` permission
 - Check secret ARN matches the policy resource
 - Ensure secret exists in the correct region
