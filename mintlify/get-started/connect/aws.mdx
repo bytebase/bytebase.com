@@ -20,17 +20,17 @@ References: [IAM roles for EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGu
 4. Attach policies as needed:
    - For RDS IAM authentication - see [RDS/Aurora section](#rdsaurora-with-iam-authentication)
    - For Secrets Manager access - see [AWS Secrets Manager section](#aws-secrets-manager)
-5. Name the role: `bytebase-role`
+5. Name the role: `bytebase-instance-role`
 
 ### Attach IAM Role to EC2
 
 **New EC2 Instance:**
 1. Launch instance in [EC2 Console](https://console.aws.amazon.com/ec2/)
-2. In **Advanced details** → **IAM instance profile**: Select `bytebase-role`
+2. In **Advanced details** → **IAM instance profile**: Select `bytebase-instance-role`
 
 **Existing EC2 Instance:**
 1. Select instance → **Actions** → **Security** → **Modify IAM role**
-2. Select `bytebase-role` → **Update IAM role**
+2. Select `bytebase-instance-role` → **Update IAM role**
 
 Deploy Bytebase on your EC2 instance - credentials are provided automatically through the instance metadata service.
 
@@ -149,8 +149,9 @@ In each target AWS account (where databases reside):
 2. Click **Create role**
 3. Select trusted entity: **Another AWS account**
 4. Enter the source account ID (where Bytebase runs)
-5. Name the role (e.g., `bytebase-target-db-role`)
-6. After creating the role, add an inline policy for RDS access:
+5. Optionally add an External ID for additional security
+6. Name the role: `bytebase-target-db-role`
+7. After creating the role, add an inline policy for RDS access:
 
    - Go to the **Permissions** tab
    - Click **Add permissions** → **Create inline policy**
@@ -175,11 +176,40 @@ In each target AWS account (where databases reside):
 
 7. Note the role ARN: `arn:aws:iam::TARGET_ACCOUNT:role/bytebase-target-db-role`
 
-### Step 2: Grant AssumeRole Permission
+### Step 2: Configure Trust Relationship (Target Account)
+
+In the target account, configure the trust policy for `bytebase-target-db-role`:
+
+1. Go to the role in IAM Console
+2. Select **Trust relationships** tab
+3. Click **Edit trust policy**
+4. Update with this policy (replace with your source account details):
+
+   ```json
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+           "AWS": "arn:aws:iam::SOURCE_ACCOUNT:role/bytebase-instance-role"
+         },
+         "Action": "sts:AssumeRole",
+         "Condition": {
+           "StringEquals": {
+             "sts:ExternalId": "your-external-id"  // Optional but recommended
+           }
+         }
+       }
+     ]
+   }
+   ```
+
+### Step 3: Grant AssumeRole Permission (Source Account)
 
 In the source account (where Bytebase runs), add permission to assume the target role:
 
-1. Go to your Bytebase IAM role (e.g., `bytebase-instance-role`)
+1. Go to your `bytebase-instance-role` in IAM Console
 2. Click **Add permissions** → **Create inline policy**
 3. Switch to **JSON** view and paste:
 
@@ -192,18 +222,17 @@ In the source account (where Bytebase runs), add permission to assume the target
          "Action": "sts:AssumeRole",
          "Resource": [
            "arn:aws:iam::ACCOUNT_B:role/bytebase-target-db-role",
-           "arn:aws:iam::ACCOUNT_C:role/bytebase-target-db-role",
-           "arn:aws:iam::ACCOUNT_D:role/bytebase-target-db-role"
+           "arn:aws:iam::ACCOUNT_C:role/bytebase-target-db-role"
          ]
        }
      ]
    }
    ```
 
-4. Name the policy (e.g., `AssumeTargetRoles`)
-5. Replace `ACCOUNT_B`, `ACCOUNT_C`, `ACCOUNT_D` with your target account IDs
+4. Name the policy: `AssumeTargetRoles`
+5. Replace `ACCOUNT_B`, `ACCOUNT_C` with your target account IDs
 
-### Step 3: Configure Database User
+### Step 4: Configure Database User
 
 Ensure the target RDS instance has:
 
@@ -226,7 +255,7 @@ ALTER USER 'bytebase'@'%' REQUIRE SSL;
 -- Grant necessary permissions
 ```
 
-### Step 4: Configure Cross-Account Connection
+### Step 5: Configure Cross-Account Connection
 
 1. Click **New Instance** in Bytebase
 2. Configure basic connection:
@@ -262,6 +291,9 @@ How it works:
 **Scenario:** Bytebase in Account A (123456789012) connecting to RDS in Account B (987654321098)
 
 **Account B - Create role with trust relationship:**
+
+Configure the trust policy to allow the source account's role to assume this role:
+
 ```json
 {
   "Version": "2012-10-17",
@@ -269,12 +301,12 @@ How it works:
     {
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::123456789012:root"
+        "AWS": "arn:aws:iam::123456789012:role/bytebase-instance-role"
       },
       "Action": "sts:AssumeRole",
       "Condition": {
         "StringEquals": {
-          "sts:ExternalId": "optional-external-id"
+          "sts:ExternalId": "your-secure-external-id"
         }
       }
     }
