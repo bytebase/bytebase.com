@@ -328,63 +328,9 @@ Configure the trust policy to allow the source account's role to assume this rol
 }
 ```
 
-### Security Best Practices
-
-1. **Use External IDs**: Add an external ID to the trust relationship for additional security
-2. **Limit Role Scope**: Grant only necessary RDS permissions in target accounts
-3. **Use Specific Resource ARNs**: Avoid wildcards in IAM policies when possible
-4. **Enable CloudTrail**: Monitor cross-account role assumptions
-5. **Regular Audits**: Review cross-account permissions periodically
-
-### Testing Cross-Account Setup
-
 <Note>
 Need to test cross-account authentication but only have one AWS account? See our guide on [testing cross-account authentication in a single account](/get-started/connect/aws-cross-account).
 </Note>
-
-### Troubleshooting Cross-Account Issues
-
-**"Static credentials are empty" Error:**
-
-This means Bytebase cannot access the EC2 instance profile. Solutions:
-
-1. **For Docker deployments:** Use host network mode
-   ```bash
-   docker run -d --name bytebase --network host bytebase/bytebase
-   ```
-
-2. **Check IMDS access:** Verify the container can reach the metadata service
-   ```bash
-   docker exec bytebase curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
-   ```
-
-3. **For IMDSv2:** Make tokens optional temporarily
-   ```bash
-   aws ec2 modify-instance-metadata-options \
-     --instance-id $(curl -s http://169.254.169.254/latest/meta-data/instance-id) \
-     --http-tokens optional
-   ```
-
-**AssumeRole Access Denied:**
-- Verify trust relationship in target account role
-- Check source account has AssumeRole permission
-- Ensure role ARN is correct
-- Test manually: `aws sts assume-role --role-arn YOUR_ARN --role-session-name test`
-
-**RDS Authentication Failed:**
-- Verify target role has `rds-db:connect` permission
-- Check database user exists with IAM authentication enabled
-- Ensure RDS instance has IAM authentication enabled
-- Confirm SSL/TLS is enabled for the connection
-
-**Understanding Credential Fields:**
-
-| Scenario | Access Key ID | Secret Access Key | Session Token | Assume Role ARN |
-|----------|--------------|-------------------|---------------|-----------------|
-| EC2 with IAM role (same account) | Empty | Empty | Empty | Empty |
-| EC2 with IAM role (cross-account) | Empty | Empty | Empty | Target role ARN |
-| Manual credentials (testing) | From assumed role | From assumed role | From assumed role | Empty |
-| IAM user (not recommended) | User's key | User's secret | Empty | Optional target role |
 
 ## AWS Secrets Manager
 
