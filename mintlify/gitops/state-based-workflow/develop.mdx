@@ -6,9 +6,22 @@ Create SDL files that define your complete database schema in a declarative form
 
 ## Getting Started
 
-You don't need to write SDL files from scratch. Bytebase can export your existing database schema in the multi-file format, ready to use.
+To use state-based workflow, you must start by exporting your database schema. Bytebase provides a built-in export feature that generates SDL files in the multi-file format, ready to commit to your Git repository.
 
-### Export Schema from Bytebase
+### Quick Start Workflow
+
+1. **Export** - Click `Export Schema` → `Multi-File (ZIP)` in Bytebase database detail page
+2. **Extract** - Unzip the downloaded file to your Git repository
+3. **Verify** - Check the exported structure follows the [multi-file format](#file-organization)
+4. **Commit** - Add files to Git and push to your repository
+5. **Make Changes** - Edit the SDL files to modify your schema
+6. **Deploy** - Commit changes to trigger deployment via GitOps
+
+<Tip>
+The exported ZIP contains a complete, ready-to-use schema structure. You can immediately commit it to Git without any manual organization.
+</Tip>
+
+### How to Export Schema
 
 1. **Navigate to Database Detail Page** - Go to your database in Bytebase
 2. **Click "Export Schema" Button** - Find it in the action buttons at the top
@@ -21,30 +34,15 @@ You don't need to write SDL files from scratch. Bytebase can export your existin
      - Useful for quick review or legacy workflows
      - Requires manual splitting if you want multi-file format
 
-### Quick Start Workflow
-
-1. **Export** - Click `Export Schema` → `Multi-File (ZIP)` in Bytebase
-2. **Extract** - Unzip the downloaded file to your Git repository
-3. **Review** - The exported structure follows the [multi-file format](#file-organization)
-4. **Commit** - Add files to Git and push to your repository
-5. **Make Changes** - Edit the SDL files to modify your schema
-6. **Deploy** - Commit changes to trigger deployment via GitOps
-
-<Tip>
-The exported ZIP contains a complete, ready-to-use schema structure. You can immediately commit it to Git without any manual organization.
-</Tip>
-
 ### What Gets Exported
 
-The multi-file export includes:
+The multi-file export automatically includes:
 - **Tables** - With inline indexes, comments, and owned sequences
-- **Views** - Simple and materialized views
-- **Functions & Procedures** - Stored procedures and user-defined functions
+- **Views** - Regular views with their definitions
+- **Materialized Views** - With their indexes and refresh settings
+- **Functions & Procedures** - User-defined functions and stored procedures
 - **Sequences** - Independent sequences consolidated per schema
-- **Indexes** - Standalone indexes (for materialized views)
 - **Comments** - All object and column comments
-
-All objects follow [SDL syntax requirements](#sdl-syntax-requirements) and are organized by schema and type.
 
 ## File Organization
 
