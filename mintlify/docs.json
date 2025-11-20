@@ -380,6 +380,7 @@
       {
         "tab": "Changelog",
         "pages": [
+          "changelog/bytebase-3-12-1",
           "changelog/bytebase-3-12-0",
           "changelog/bytebase-3-11-1",
           "changelog/bytebase-3-11-0",
