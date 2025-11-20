@@ -4,13 +4,9 @@ title: SQL Review CI
 
 SDL validation runs automatically during pull/merge requests to catch syntax and convention violations before merge.
 
-<Warning>
-  **Work in Progress**: SDL SQL Review currently supports basic syntax checks and pre-defined SDL validation rules. Custom SQL Review rules configured in the Bytebase SQL Review Policy feature are not yet supported for SDL workflows, but this capability is actively under development.
-</Warning>
-
 ## What Gets Validated
 
-**SDL-specific checks (Current):**
+**SDL-specific checks:**
 - Schema qualification on all objects
 - Table-level constraint placement
 - Constraint naming requirements
@@ -19,86 +15,318 @@ SDL validation runs automatically during pull/merge requests to catch syntax and
 - Unsupported statement detection
 - SQL syntax validation
 
-**Coming Soon:**
-- Custom SQL Review Policy rules from Bytebase
-- Team-specific naming conventions
-- Custom validation rules
+**AI-powered validation with your team's standards (Optional):**
+- Define standards in natural language (any language)
+- Enforce team-specific conventions
+- Get context-aware recommendations
+- Validate naming conventions and best practices
 
-<Card title="SQL Review Policy" icon="shield-check" href="/sql-review/review-policy">
-  Learn about SQL Review Policy (migration-based workflow)
-</Card>
+## AI-Powered Validation with Your Standards
+
+Enhance SDL validation by teaching AI your team's SQL standards using natural language. Define your project's conventions, naming rules, and best practices in any language - AI will validate your schema against them.
+
+### How It Works
+
+1. **Write Your Standards**: Document your team's SQL conventions in natural language (supports any language)
+2. **AI Validates**: Bytebase AI analyzes your schema files against your documented standards
+3. **Get Feedback**: Receive specific, actionable feedback on any violations with exact file and line references
+
+### Setup Requirements
+
+<Warning>
+  AI must be enabled and configured in your Bytebase instance to use this feature. Without AI setup, your standards file will be ignored during validation.
+</Warning>
+
+**Step 1: Enable AI in Bytebase** (One-time setup)
+- Navigate to **Settings** → **General** → **AI Assistant**
+- Enable AI and choose your provider (OpenAI, Azure OpenAI, Gemini, or Claude)
+- Enter your API credentials and test the connection
+
+**Step 2: Document Your Standards**
+- Create `.bytebase/sql-review.md` in your repository
+- Write your team's SQL standards in natural language - no special syntax required
+
+**Step 3: Update Your CI/CD Pipeline**
+- Add the `--custom-rules` flag pointing to your standards file
+- See platform-specific examples in the [CI/CD Integration](#cicd-integration) section
+
+### Example: SQL Review Standards
+
+Create a Markdown file with your SQL review standards. We recommend placing it in `.bytebase/sql-review.md`:
+
+```markdown
+# .bytebase/sql-review.md
+# SQL Review Standards
+
+## 1. Table Naming Convention
+- All table names must be in snake_case
+- Table names should be plural nouns (e.g., users, orders, products)
+- Avoid abbreviations unless commonly understood
+
+## 2. Column Standards
+- Every table must have a created_at timestamp column
+- Every table must have an updated_at timestamp column
+- Primary key columns should be named 'id'
+
+## 3. Index Requirements
+- Foreign key columns must have indexes
+- Columns used in WHERE clauses frequently should be indexed
+
+## 4. Comment Requirements
+- All tables must have descriptive comments
+- Complex columns should have comments explaining their purpose
+
+## 5. Type Consistency
+- Use TEXT instead of VARCHAR for string columns
+- Use TIMESTAMP for datetime values
+- Use BIGINT for auto-incrementing primary keys
+```
+
+### AI Validation Output
+
+When AI detects violations, you'll see detailed feedback in your PR/MR:
+
+```
+❌ AI-powered validation errors found:
+
+File: schemas/public/tables/users.sql
+Rule: Table Naming Convention
+Message: Table name 'User' should be plural. Consider renaming to 'users'.
+Line: 1
+
+File: schemas/public/tables/products.sql
+Rule: Column Standards
+Message: Table 'products' is missing required 'created_at' timestamp column.
+Line: 1
+
+File: schemas/public/tables/orders.sql
+Rule: Index Requirements
+Message: Foreign key column 'user_id' should have an index for better query performance.
+Line: 5
+```
+
+### Best Practices for SQL Review Standards
+
+1. **Be Specific and Actionable**: Clear, specific standards produce better AI analysis
+   - ✅ "Primary key columns must be named 'id'"
+   - ❌ "Use good naming conventions"
+
+2. **Organize by Category**: Group related standards for clarity
+   ```markdown
+   ## Naming Conventions
+   - Tables: plural, snake_case
+   - Columns: singular, snake_case
+
+   ## Type Standards
+   - Timestamps: use TIMESTAMP NOT NULL
+   - Text fields: use TEXT not VARCHAR
+   ```
+
+3. **Document the "Why"**: Explain the rationale behind each standard
+   ```markdown
+   ## Primary Key Type
+   Use BIGINT for primary keys (not INTEGER) to prevent ID exhaustion
+   in high-volume tables and support future growth.
+   ```
+
+4. **Start Small, Iterate**: Begin with a few critical standards and expand based on team needs
+
+5. **Version Control Standards**: Commit `.bytebase/sql-review.md` to your repository alongside schema files for team collaboration
 
 ## CI/CD Integration
 
-Enable declarative mode by adding the `--declarative` flag:
+Configure SDL validation in your CI/CD pipeline. Choose between:
+- **Basic SDL Validation**: Built-in checks for syntax, naming, and structure
+- **With Your Team's Standards**: AI validates against your custom standards in `.bytebase/sql-review.md`
 
 <Tabs>
   <Tab title="GitHub Actions">
-    ```yaml
-    # .github/workflows/sql-review.yml
-    name: SDL Review
-    on:
-      pull_request:
-        paths:
-          - 'schema/**'
+    <Accordion title="Basic SDL Validation">
+      ```yaml
+      # .github/workflows/sql-review.yml
+      name: SDL Review
+      on:
+        pull_request:
+          paths:
+            - 'schema/**'
 
-    jobs:
-      sdl-review:
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v4
+      jobs:
+        sdl-review:
+          runs-on: ubuntu-latest
+          steps:
+            - uses: actions/checkout@v4
 
-          - name: SDL Validation
-            uses: bytebase/sql-review-action@v1
-            with:
-              bytebase-url: ${{ secrets.BYTEBASE_URL }}
-              bytebase-token: ${{ secrets.BYTEBASE_SERVICE_ACCOUNT_TOKEN }}
-              file-pattern: 'schema/**/*.sql'
-              declarative: true  # Enable SDL mode
-    ```
+            - name: SDL Validation
+              run: |
+                docker run --rm \
+                  -v ${{ github.workspace }}:/workspace \
+                  bytebase/bytebase-action \
+                  check \
+                  --url ${{ secrets.BYTEBASE_URL }} \
+                  --service-account ${{ secrets.BYTEBASE_SERVICE_ACCOUNT }} \
+                  --service-account-secret ${{ secrets.BYTEBASE_SERVICE_ACCOUNT_SECRET }} \
+                  --file-pattern "/workspace/schema/**/*.sql" \
+                  --declarative
+      ```
+    </Accordion>
+
+    <Accordion title="With Your Team's Standards" defaultOpen>
+      **Prerequisites:** AI must be enabled in Bytebase Settings → AI Assistant
+
+      ```yaml
+      # .github/workflows/sql-review.yml
+      name: SDL Review with Team Standards
+      on:
+        pull_request:
+          paths:
+            - 'schema/**'
+            - '.bytebase/sql-review.md'
+
+      jobs:
+        sdl-review:
+          runs-on: ubuntu-latest
+          steps:
+            - uses: actions/checkout@v4
+
+            - name: SDL Validation with Team Standards
+              run: |
+                docker run --rm \
+                  -v ${{ github.workspace }}:/workspace \
+                  bytebase/bytebase-action \
+                  check \
+                  --url ${{ secrets.BYTEBASE_URL }} \
+                  --service-account ${{ secrets.BYTEBASE_SERVICE_ACCOUNT }} \
+                  --service-account-secret ${{ secrets.BYTEBASE_SERVICE_ACCOUNT_SECRET }} \
+                  --file-pattern "/workspace/schema/**/*.sql" \
+                  --declarative \
+                  --custom-rules "$(cat ${{ github.workspace }}/.bytebase/sql-review.md)"
+      ```
+    </Accordion>
 
     <Card title="GitHub Tutorial" icon="graduation-cap" href="/tutorials/gitops-github-workflow/" horizontal />
   </Tab>
 
   <Tab title="GitLab CI">
-    ```yaml
-    # .gitlab-ci.yml
-    sdl-review:
-      image: bytebase/bytebase-action:latest
-      stage: test
-      only:
-        - merge_requests
-      script:
-        - |
-          bytebase-action check \
-            --url $BYTEBASE_URL \
-            --service-account $BYTEBASE_SERVICE_ACCOUNT \
-            --service-account-secret $BYTEBASE_SERVICE_ACCOUNT_SECRET \
-            --file-pattern "schema/**/*.sql" \
-            --declarative
-    ```
+    <Accordion title="Basic SDL Validation">
+      ```yaml
+      # .gitlab-ci.yml
+      sdl-review:
+        image: bytebase/bytebase-action:latest
+        stage: test
+        only:
+          - merge_requests
+        script:
+          - |
+            bytebase-action check \
+              --url $BYTEBASE_URL \
+              --service-account $BYTEBASE_SERVICE_ACCOUNT \
+              --service-account-secret $BYTEBASE_SERVICE_ACCOUNT_SECRET \
+              --file-pattern "schema/**/*.sql" \
+              --declarative
+      ```
+    </Accordion>
+
+    <Accordion title="With Your Team's Standards" defaultOpen>
+      **Prerequisites:** AI must be enabled in Bytebase Settings → AI Assistant
+
+      ```yaml
+      # .gitlab-ci.yml
+      sdl-review:
+        image: bytebase/bytebase-action:latest
+        stage: test
+        only:
+          - merge_requests
+        script:
+          - |
+            bytebase-action check \
+              --url $BYTEBASE_URL \
+              --service-account $BYTEBASE_SERVICE_ACCOUNT \
+              --service-account-secret $BYTEBASE_SERVICE_ACCOUNT_SECRET \
+              --file-pattern "schema/**/*.sql" \
+              --declarative \
+              --custom-rules "$(cat .bytebase/sql-review.md)"
+      ```
+    </Accordion>
 
     <Card title="GitLab Tutorial" icon="graduation-cap" href="/tutorials/gitops-gitlab-workflow/" horizontal />
   </Tab>
 
   <Tab title="Azure DevOps">
-    ```yaml
-    # azure-pipelines.yml
-    jobs:
-      - job: SDLReview
-        pool:
-          vmImage: 'ubuntu-latest'
-        steps:
-          - task: Docker@2
-            inputs:
-              command: run
-              arguments: >
-                bytebase/bytebase-action
-                check --file-pattern "/workspace/schema/**/*.sql"
-                --declarative
-    ```
+    <Accordion title="Basic SDL Validation">
+      ```yaml
+      # azure-pipelines.yml
+      jobs:
+        - job: SDLReview
+          pool:
+            vmImage: 'ubuntu-latest'
+          steps:
+            - script: |
+                docker run --rm \
+                  -v $(Build.SourcesDirectory):/workspace \
+                  bytebase/bytebase-action \
+                  check \
+                  --url $(BYTEBASE_URL) \
+                  --service-account $(BYTEBASE_SERVICE_ACCOUNT) \
+                  --service-account-secret $(BYTEBASE_SERVICE_ACCOUNT_SECRET) \
+                  --file-pattern "/workspace/schema/**/*.sql" \
+                  --declarative
+              displayName: 'SDL Validation'
+      ```
+    </Accordion>
+
+    <Accordion title="With Your Team's Standards" defaultOpen>
+      **Prerequisites:** AI must be enabled in Bytebase Settings → AI Assistant
+
+      ```yaml
+      # azure-pipelines.yml
+      jobs:
+        - job: SDLReview
+          pool:
+            vmImage: 'ubuntu-latest'
+          steps:
+            - script: |
+                docker run --rm \
+                  -v $(Build.SourcesDirectory):/workspace \
+                  bytebase/bytebase-action \
+                  check \
+                  --url $(BYTEBASE_URL) \
+                  --service-account $(BYTEBASE_SERVICE_ACCOUNT) \
+                  --service-account-secret $(BYTEBASE_SERVICE_ACCOUNT_SECRET) \
+                  --file-pattern "/workspace/schema/**/*.sql" \
+                  --declarative \
+                  --custom-rules "$(cat $(Build.SourcesDirectory)/.bytebase/sql-review.md)"
+              displayName: 'SDL Validation with Team Standards'
+      ```
+    </Accordion>
 
     <Card title="Azure Tutorial" icon="graduation-cap" href="/tutorials/gitops-azure-devops-workflow/" horizontal />
+  </Tab>
+
+  <Tab title="Command Line">
+    <Accordion title="Basic SDL Validation">
+      ```bash
+      bytebase-action check \
+        --url https://bytebase.example.com \
+        --service-account service@example.com \
+        --service-account-secret "${SERVICE_SECRET}" \
+        --file-pattern "schema/**/*.sql" \
+        --declarative
+      ```
+    </Accordion>
+
+    <Accordion title="With Your Team's Standards" defaultOpen>
+      **Prerequisites:** AI must be enabled in Bytebase Settings → AI Assistant
+
+      ```bash
+      bytebase-action check \
+        --url https://bytebase.example.com \
+        --service-account service@example.com \
+        --service-account-secret "${SERVICE_SECRET}" \
+        --file-pattern "schema/**/*.sql" \
+        --declarative \
+        --custom-rules "$(cat .bytebase/sql-review.md)"
+      ```
+    </Accordion>
   </Tab>
 </Tabs>
 
