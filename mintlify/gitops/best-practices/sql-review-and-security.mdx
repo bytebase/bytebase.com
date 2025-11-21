@@ -84,9 +84,13 @@ Create dedicated service accounts for CI/CD:
 
 **Service account setup:**
 1. Create service account in Bytebase
-2. Grant minimum required permissions
+2. Grant the `GitOps Service Agent` role for automated CI/CD workflows
 3. Store token in CI/CD secrets
 4. Rotate tokens regularly
+
+<Tip>
+The `GitOps Service Agent` role is specifically designed for CI/CD integrations with minimal permissions required for automated deployments.
+</Tip>
 
 <Card title="API Authentication" icon="key" href="/integrations/api/authentication">
   Learn about service account authentication
