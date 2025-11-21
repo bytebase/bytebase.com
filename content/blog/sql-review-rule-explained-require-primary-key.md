@@ -29,12 +29,6 @@ Reference: [Database schema missing many primary keys - breaks replication](http
 
 ## Why Missing Primary Keys Are Dangerous
 
-Here’s a **simpler, clearer, easier-to-read** version of the section — short sentences, direct explanations, developer-friendly tone.
-
----
-
-## 🚨 Why Missing Primary Keys Are Dangerous
-
 ### **1. Duplicate rows slip in**
 
 Without a PK, the database cannot enforce uniqueness.
