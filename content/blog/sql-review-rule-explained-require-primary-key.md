@@ -9,7 +9,7 @@ description: Learn why requiring a primary key is important and how the "Require
 
 A table without a primary key seems harmless until your system grows and problems appear. Missing primary keys commonly lead to **duplicate data, broken CDC pipelines, replication stalls, and inconsistent analytics**.
 
-Bytebase [SQL Review includes the rule](https://docs.bytebase.com/sql-review/review-rules#require-primary-key) :
+Bytebase [SQL Review includes the rule](https://docs.bytebase.com/sql-review/review-rules#require-primary-key):
 
 > Bytebase considers this rule to be violated if the SQL tries to create a no primary key table or drop the primary key. If the SQL drops all columns in the primary key, Bytebase also considers that this SQL drops the primary key.
 
