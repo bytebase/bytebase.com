@@ -8,6 +8,7 @@ import Link from '@/components/shared/link';
 import MobileMenu from '@/components/shared/mobile-menu';
 
 import Route from '@/lib/route';
+import { EVENTS } from '@/lib/events';
 
 import AboutIcon from '@/svgs/about.inline.svg';
 import BlogIcon from '@/svgs/blog.inline.svg';
@@ -393,10 +394,22 @@ const Header = () => {
           </ul>
           <div className="ml-auto flex items-center gap-2 md:mr-10 sm:hidden">
             <GithubStarCounter />
-            <Button href={Route.DOCS_CLOUD} theme="primary-outline" className="w-[88px]" size="sm">
+            <Button
+              href={Route.DOCS_CLOUD}
+              theme="primary-outline"
+              className="w-[88px]"
+              size="sm"
+              event={EVENTS.CLOUD_CLICK}
+            >
               Cloud
             </Button>
-            <Button href={Route.DOCS_SELF_HOST} theme="gray-filled" className="w-[116px]" size="sm">
+            <Button
+              href={Route.DOCS_SELF_HOST}
+              theme="gray-filled"
+              className="w-[116px]"
+              size="sm"
+              event={EVENTS.SELF_HOST_CLICK}
+            >
               Self-host
             </Button>
           </div>

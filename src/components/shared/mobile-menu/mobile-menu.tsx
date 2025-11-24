@@ -13,6 +13,7 @@ import Button from '@/components/shared/button';
 import Link from '@/components/shared/link';
 
 import Route from '@/lib/route';
+import { EVENTS } from '@/lib/events';
 
 import AboutIcon from '@/svgs/about.inline.svg';
 import BlogIcon from '@/svgs/blog.inline.svg';
@@ -267,10 +268,20 @@ const MobileMenu = () => {
               </li>
             </div>
             <div className="sticky bottom-0 z-10 mt-auto hidden flex-col gap-4 pt-4 sm:flex sm:gap-2">
-              <Button href={Route.DOCS_SELF_HOST} theme="gray-filled" size="md">
+              <Button
+                href={Route.DOCS_SELF_HOST}
+                theme="gray-filled"
+                size="md"
+                event={EVENTS.SELF_HOST_CLICK}
+              >
                 Self-host
               </Button>
-              <Button href={Route.DOCS_CLOUD} theme="primary-outline" size="md">
+              <Button
+                href={Route.DOCS_CLOUD}
+                theme="primary-outline"
+                size="md"
+                event={EVENTS.CLOUD_CLICK}
+              >
                 Cloud
               </Button>
             </div>
