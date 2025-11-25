@@ -1,0 +1,54 @@
+---
+title: Prisma
+---
+
+[Prisma Postgres](https://www.prisma.io/postgres) is a fully managed serverless PostgreSQL that focuses on performance, with built-in connection pooling.
+
+You can create a Prisma Postgres instance and use Bytebase to manage the database development lifecycle for those databases.
+
+While Prisma Postgres already has developer-oriented features like branching, Bytebase adds extra value to offer a systematic database development and change workflow. This is especially useful for cross-functional teams requiring collaboration (e.g. having dedicated DBA or platform engineering team apart from the application development teams).
+
+## Prerequisites
+
+- [Sign up](https://console.prisma.io/) for Prisma Postgres, you can sign in with a Github Google account, or email and password.
+- After signing in, you are directed to the Prisma Console where you can [set up your project](https://www.prisma.io/docs/postgres/).
+
+## Procedure
+
+### Step 1 - Set up project on Prisma Postgres and collect connection info
+
+Once you have set up your project, click "Connect" button in the Connect Database card and copy the connection string that is generated for you. 
+
+
+![prisma-project-setup](/content/docs/integrations/prisma/ppg-project-connection.webp)
+
+With this connection string, we have the following information represented
+
+```
+postgresql://[username]:[password]@[host][:port]/[dbname][?param1=value1&param2=value2]
+```
+
+### Step 2 - Add Prisma Postgres instance to Bytebase
+
+From your Bytebase **Create Instance** page, choose **Add Instance**, fill in the details to create the connection as follows:
+
+1. **Database:** `PostgreSQL`.
+2. **Instance Name:** any name of your choosing, e.g. `ppg-bb`.
+3. **Environment:** `Prod` or `Test` (select the environment you want to add the instance to).
+4. **Host or Socket:** the **host** section of the connection string: `db.prisma.io`
+5. **Port:** 5432 (Prisma Postgres uses the default PostgreSQL port of 5432 to connect)
+6. **Username:** copy the **username** section of the connection string
+7. **Password:** copy the **password** section of the connection string
+8. **Database:** copy the **dbname** section of the connection string: `postgres`
+
+![ppg-bytebase-create-instance](/content/docs/integrations/prisma/ppg-create-instance.webp)
+
+See [Add an Instance](/get-started/step-by-step/add-an-instance) for more details.
+
+### Step 3 - Check if the database instance is properly imported
+
+All databases should be synced properly. Expect some delay if the database instance is large.
+
+So should the tables under the databases.
+
+![ppg-bytebase-database](/content/docs/integrations/prisma/ppg-bytebase-database.webp)
