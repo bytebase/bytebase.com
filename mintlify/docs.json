@@ -297,6 +297,7 @@
             "pages": [
               "integrations/slack",
               "integrations/jira",
+              "integrations/prisma",
               "integrations/supabase",
               "integrations/render",
               "integrations/neon"
