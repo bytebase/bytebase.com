@@ -32,7 +32,7 @@ Without reliable audit logs, organizations lack visibility at the exact moment i
 
 ## The Real-World Pain Today (Across All Major Databases)
 
-All major relational databases — MySQL, PostgreSQL, SQL Server, Oracle and cloud-managed variants like RDS, Cloud SQL, and Azure Database — provide audit capabilities. However, *how* they provide these capabilities varies dramatically, and implementing them correctly requires deep expertise.
+All major relational databases — MySQL, PostgreSQL, SQL Server, Oracle and cloud-managed variants like AWS RDS, Google Cloud SQL, and Azure Database — provide audit capabilities. However, *how* they provide these capabilities varies dramatically, and implementing them correctly requires deep expertise.
 
 Here are common issues teams encounter:
 
@@ -46,7 +46,7 @@ Selective auditing (especially for non-root users) requires additional plugins t
 PostgreSQL relies on extensions such as `pgaudit` for structured auditing.
 While powerful, these extensions require **careful tuning** to avoid overwhelming log volume while still capturing all critical operations — including SELECTs.
 
-### Cloud Databases (RDS, Cloud SQL, Azure Database) — Example
+### Cloud Databases (AWS RDS, Google Cloud SQL, Azure Database) — Example
 
 Cloud platforms wrap underlying engine audit logs into provider-specific formats.
 Teams often struggle with:
@@ -78,14 +78,14 @@ In modern security models, **access is just as important — and often more impo
 - **Authentication events**
   Both successful logins and failed login attempts.
 
-- **Source information**
-  Client IP, hostname, application name, proxy layer.
+- **Permission changes**
+  The audit log must record any permissions granted or revoked for specific users.
 
 - **Execution outcome**
   Whether the operation succeeded, failed, or was rejected.
 
 - **Optional contextual metadata**
-  Such as ticket/issue ID, environment, or deployment reference.
+  Such as ticket/issue ID, environment, deployment reference, or any policy configurations or changes.
 
 A complete record of SELECT queries ensures you always know *exactly who viewed what data*, which is a mandatory capability under many security and privacy frameworks.
 
@@ -105,8 +105,8 @@ Each database engine includes its own audit features.
 **Cons:**
 
 - Different for every engine
-- Complex configuration
-- Can produce overwhelming noise if tuned incorrectly
+- Easily becomes noisy without tuning
+- Harder to unify across environments
 
 ### 2. Cloud provider audit logs
 
@@ -140,11 +140,11 @@ SQL is routed through a centralized gateway or workflow before executing.
 - Requires routing SQL through a central component
 
 *For example:*
-A workflow platform like **Bytebase** produces complete, contextual audit logs because all SQL — including SELECT — flows through its pipeline.
+A workflow platform like **Bytebase** produces complete, contextual audit logs because all SQL flows through a single, identity-aware pipeline.
 
 ## Recommended Best Practices
 
-Regardless of database engine or auditing method, the fundamentals of solid auditing remain the same:
+Regardless of database engine or auditing method, strong audit practices share the same foundations:
 
 - **Use individual identities** — never share DB accounts.
 - **Record all DDL, DML, and SELECT** — access visibility is non-negotiable.
@@ -154,7 +154,3 @@ Regardless of database engine or auditing method, the fundamentals of solid audi
 - **Treat default engine settings cautiously** — they often require substantial tuning.
 
 A minimal-noise, high-fidelity audit log is better than a noisy one that nobody can use.
-
-## Conclusion
-
-A reliable audit log requires intentional design. Native tools across major databases vary widely, so teams must ensure consistent identity tracking and full query visibility — including all SELECT statements. With the right approach, audit logs become a dependable source of truth for security, compliance, and incident response.
