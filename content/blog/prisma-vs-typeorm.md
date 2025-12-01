@@ -5,7 +5,6 @@ updated_at: 2025/05/23 18:00
 feature_image: /content/blog/prisma-vs-typeorm/cover.webp
 tags: Comparison
 description: 'Evaluate Prisma and TypeORM, and help you to choose the right TypeScript ORM for 2025'
-keypage: true
 ---
 
 <HintBlock type="info">

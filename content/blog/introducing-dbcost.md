@@ -5,7 +5,6 @@ updated_at: 2022/11/02 14:00
 feature_image: /content/blog/introducing-dbcost/background.webp
 tags: Announcement
 description: DB Cost is a tool for developers to compare performance and cost differences among cloud database providers.
-keypage: true
 ---
 
 ## 💸 What is DB Cost?

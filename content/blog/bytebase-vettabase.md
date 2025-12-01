@@ -6,7 +6,6 @@ feature_image: /content/blog/bytebase-vettabase/partnership-banner.webp
 tags: Announcement
 featured: true
 description: Bytebase is pleased to announce a partnership with Vettabase, an open source database services company with a focus on database automation.
-keypage: true
 ---
 
 Bytebase has partnered with [Vettabase](https://vettabase.com/)!

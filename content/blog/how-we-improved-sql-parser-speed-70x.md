@@ -6,7 +6,6 @@ feature_image: /content/blog/how-we-improved-sql-parser-speed-70x/banner.webp
 tags: Engineering
 featured: true
 description: How we optimize the ANTLR's grammar to significantly increase the SQL parsing speed for SQL Server.
-keypage: true
 ---
 
 This is a series of articles about SQL parsers

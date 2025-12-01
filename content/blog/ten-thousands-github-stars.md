@@ -6,7 +6,6 @@ feature_image: /content/blog/ten-thousands-github-stars/cover.webp
 tags: Announcement
 featured: true
 description: Bytebase just passed 10,000 stars on GitHub, thanks to our global community.
-keypage: true
 ---
 
 On April 24th, 2024, Bytebase reached another milestone by achieving 10,000 GitHub stars. Thanks to the support from our global community.

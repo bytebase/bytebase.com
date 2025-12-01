@@ -5,7 +5,6 @@ updated_at: 2022/09/29 15:15
 feature_image: /content/blog/hacktoberfest-2022/bytebase-hacktoberfest-2022.webp
 tags: Announcement
 description: Bytebase is participating in Hacktoberfest 2022! Join the month long celebration of open source with us.
-keypage: true
 ---
 
 It's almost October, the holiday season is almost upon us! For us hackers, it means that the annual [Hacktoberfest](https://hacktoberfest.com/) is about to start.
