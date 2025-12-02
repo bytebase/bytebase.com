@@ -1,8 +1,8 @@
 ---
-title: Database Audit Logging - The Practical Guide for Modern Teams
+title: Database Audit Logging - The Practical Guide
 author: Adela
 updated_at: 2025/11/27 18:00:00
-feature_image: /content/blog/database-audit-logging/cover.webp
+feature_image: /content/blog/database-audit-logging/banner.webp
 tags: Industry
 description: A guide to audit logging in databases.
 ---
