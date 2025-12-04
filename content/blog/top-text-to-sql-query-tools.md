@@ -9,7 +9,7 @@ description: 'An overview to the most popular text-to-SQL AI tools in 2025, incl
 
 <HintBlock type="info">
 
-This post is maintained by Bytebase, an open-source database DevSecOps tool. We update the post gradually.
+This post is maintained by Bytebase, an open-source database DevSecOps tool. We update the post every year.
 
 </HintBlock>
 
@@ -18,6 +18,13 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool. We 
 | 2024/09/11     | Initial version.                                                    |
 | 2025/05/27     | 2025 Update.                                                        |
 | 2025/12/04     | Add TablePlus and DBHub. Remove Outerbase (acquired by Cloudflare). |
+
+This is a series articles about SQL Clients / SQL Editors:
+
+1. [Open Source SQL Clients](/blog/top-open-source-sql-clients)
+1. Text-to-SQL Query Tools (this one)
+
+---
 
 If you work with databases, SQL AI tools can significantly improve your productivity and efficiency. They help generate SQL commands automatically from natural language input and optimize query performance as functional and starter-friendly tool.
 
