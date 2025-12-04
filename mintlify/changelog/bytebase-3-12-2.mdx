@@ -1,0 +1,24 @@
+---
+title: Bytebase 3.12.2 - Dec 4, 2025
+author: Adela
+updated_at: 2025/12/04 18:00:00
+description: 'Improvements and Bug Fixes'
+---
+
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
+## 🎄 Enhancements
+
+- Enhance database and query permission checks.
+- Improve selector performance with lazy loading for large workspaces.
+- **SQL Server** - Add visualized EXPLAIN support in SQL Editor.
+- **Doris** - Improve syntax compatibility
+
+## 🐞 Bug Fixes
+
+- Prevent DML statements from being incorrectly wrapped in CTEs in SQL Editor.
+- Fix popup handling for database change statements in SQL Editor
+- Improve and isolate SQL Editor state management across browser tabs.
+- Format Cassandra, Spanner, and ClickHouse result data instead of showing raw protobuf.
+
+<InstallUpgrade />
