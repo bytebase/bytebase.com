@@ -1,10 +1,10 @@
 ---
 title: Top 5 Text-to-SQL Query Tools in 2025
 author: Ayra
-updated_at: 2025/05/27 12:00:00
+updated_at: 2025/12/04 12:00:00
 feature_image: /content/blog/top-text-to-sql-query-tools/banner.webp
 tags: Industry
-description: 'Some of the most popular SQL AI tools on the market in 2024.'
+description: 'An overview to the most popular text-to-SQL AI tools in 2025, including DataGrip, TablePlus, SQL Chat, Vanna.ai, SQLAI.ai, Postgres.new, and DBHub MCP server. Compare features and capabilities to find the best SQL AI assistant for your workflow.'
 ---
 
 <HintBlock type="info">
@@ -13,10 +13,11 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool. We 
 
 </HintBlock>
 
-| Update History | Comment          |
-| -------------- | ---------------- |
-| 2024/09/11     | Initial version. |
-| 2025/05/27     | 2025 Update.     |
+| Update History | Comment                                                             |
+| -------------- | ------------------------------------------------------------------- |
+| 2024/09/11     | Initial version.                                                    |
+| 2025/05/27     | 2025 Update.                                                        |
+| 2025/12/04     | Add TablePlus and DBHub. Remove Outerbase (acquired by Cloudflare). |
 
 If you work with databases, SQL AI tools can significantly improve your productivity and efficiency. They help generate SQL commands automatically from natural language input and optimize query performance as functional and starter-friendly tool.
 
@@ -36,6 +37,16 @@ The DataGrip AI assistants can:
 1. Compare DDL of two database objects.
 1. Fix SQL mistakes.
 1. Format and rewrite SQL.
+
+## TablePlus
+
+[TablePlus](https://tableplus.com/) is considered by many as the best SQL client on Mac. It's a modern, native database management tool that supports multiple databases. It has integrated text-to-SQL AI capabilities to help developers generate queries from natural language.
+
+![](/content/blog/top-text-to-sql-query-tools/tableplus.webp)
+
+Unlike DataGrip which charges an extra price for its comprehensive AI Assistant features, TablePlus follows a BYOK (Bring Your Own Key) model, allowing you to pick your preferred LLM provider. While it only provides text-to-SQL generation rather than the full suite of AI features offered by DataGrip, this approach gives users more flexibility in choosing their AI backend.
+
+![](/content/blog/top-text-to-sql-query-tools/tableplus-llm.webp)
 
 ## SQL Chat
 
@@ -76,29 +87,27 @@ The platform supports major databases including Snowflake, BigQuery, Postgres an
 
 In addition to the core generators, SQLAI.ai includes tools to facilitate your work. The available tools vary depending on the generator.
 
-## Outerbase
+## Honorable mention
 
-_Outerbase has been [acquired by Cloudflare](https://blog.cloudflare.com/cloudflare-acquires-outerbase-database-dx/) in 2025_
-
-[Outerbase](https://www.outerbase.com/) impresses users at first sight with its strong-sense-of-tech and comics-style interface.
-
-![](/content/blog/top-text-to-sql-query-tools/outerbase.webp)
-
-It supports a variety of SQL or NoSQL databases.
-
-![](/content/blog/top-text-to-sql-query-tools/outerbase-database.webp)
-
-Outerbase develops its AI agent `EZQL` to understand your natural language prompts.
-
-![](/content/blog/top-text-to-sql-query-tools/outerbaseai.webp)
-
-## Honorable mention: Postgres.new
+### Postgres.new
 
 [Postgres.new](https://postgres.new/) is an WASM-based in-browser PostgreSQL sandbox with AI assistance. It allows users to operate with PostgreSQL directly in a web browser, without having to install or set up the database locally.
 
 ![](/content/blog/top-text-to-sql-query-tools/postgresnew.webp)
 
 Postgres.new is currently in early alpha with limited functionality. It may have limitations compared to a full native PostgreSQL installation.
+
+### DBHub (MCP Server)
+
+Unlike standalone SQL clients, [DBHub](https://dbhub.ai) brings text-to-SQL capabilities directly into your existing development workflow through the MCP standard, eliminating the need to switch between tools.
+
+![](/content/blog/top-text-to-sql-query-tools/dbhub.webp)
+
+DBHub is a universal database MCP (Model Context Protocol) server that enables any MCP client such as Claude, Cursor, VS Code, and Codex to have text-to-SQL capability. It acts as a bridge between AI assistants and databases, allowing developers to use natural language to query and explore their databases directly from their development tools.
+
+DBHub supports multiple databases including PostgreSQL, MySQL, MariaDB, SQL Server, and SQLite. Compare with other database MCP server, it comes with an admin console to view configured data sources and trace SQL requests.
+
+![](/content/blog/top-text-to-sql-query-tools/dbhub-console.webp)
 
 ## Techniques and Benchmarks
 
