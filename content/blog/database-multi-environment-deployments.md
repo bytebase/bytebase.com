@@ -7,7 +7,7 @@ tags: Explanation
 description: A guide to multi-environment deployments in databases.
 ---
 
-Most development teams work with several environments — Dev->Test-UAT->Staging->Prod, some also manage multiple tenants in production. Application code moves through this workflow fairly smoothly. Databases are a different story. They hold state, evolve over time, and can’t simply be redeployed or rolled back. As a result, promoting database changes across multiple environments often turns into a recurring source of friction.
+Most development teams work with several environments — Dev->Test->UAT->Staging->Prod, some also manage multiple tenants in production. Application code moves through this workflow fairly smoothly. Databases are a different story. They hold state, evolve over time, and can’t simply be redeployed or rolled back. As a result, promoting database changes across multiple environments often turns into a recurring source of friction.
 
 ## What does Database Multi-Environment Deployment Mean?
 
