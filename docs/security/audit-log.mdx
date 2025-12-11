@@ -28,13 +28,78 @@ You can also export the audit logs.
 
 ![filter-date](/content/docs/security/audit-log/filter-date.webp)
 
-## Emit audit logs to stdout
+## Stream audit logs to external systems
 
-Bytebase can emit audit logs to **stdout**, allowing seamless integration with log aggregation and SIEM systems such as Datadog, Splunk, Elastic, Loki, CloudWatch, and GCP Logging—without using the API.
+Bytebase can stream audit logs to **stdout** for collection by external logging and monitoring systems.
 
-Go to **Settings** -> **General** -> **Audit Log Export**, and enable **Enable audit logging to stdout**.
+### Configuration
 
-Once enabled, audit events will appear in the standard output stream of your Bytebase service.
+1. Navigate to **Settings** → **General** → **Audit Log Export**.
+2. Enable **Enable audit logging to stdout**.
+
+Once enabled, audit events stream to the standard output of your Bytebase service.
+
+### Output format
+
+By default, audit logs are output as key-value pairs. To enable JSON format for easier parsing by log aggregators, start Bytebase with one of these flags:
+
+- `--enable-json-logging` - Outputs all logs in JSON format (you still need to enable the audit log export in the settings)
+
+**Docker example with JSON format:**
+```bash
+docker run -d \
+  --name bytebase \
+  bytebase/bytebase:latest \
+  --enable-json-logging \
+  --port 8080 \
+  --data /var/opt/bytebase
+```
+
+### Example output
+
+**Default format (key-value pairs):**
+```
+time=2025-12-10T15:55:21.729Z level=INFO source=v1/audit.go:274 
+msg=/bytebase.v1.ProjectService/SetIamPolicy log_type=audit 
+parent=projects/project-sample method=/bytebase.v1.ProjectService/SetIamPolicy 
+resource=projects/project-sample user=users/101 latency_ms=7 
+client_ip=192.168.65.1:51907 user_agent="Mozilla/5.0..." severity=INFO
+```
+
+**With JSON format enabled:**
+```json
+{
+  "time": "2025-12-10T15:55:21.729Z",
+  "level": "INFO",
+  "source": "v1/audit.go:274",
+  "msg": "/bytebase.v1.ProjectService/SetIamPolicy",
+  "log_type": "audit",
+  "parent": "projects/project-sample",
+  "method": "/bytebase.v1.ProjectService/SetIamPolicy",
+  "resource": "projects/project-sample",
+  "user": "users/101",
+  "latency_ms": 7,
+  "client_ip": "192.168.65.1:51907",
+  "user_agent": "Mozilla/5.0...",
+  "severity": "INFO"
+}
+```
+
+### Integration
+
+When running Bytebase in Docker or Kubernetes, audit logs automatically appear in container logs and can be collected by your existing logging infrastructure:
+
+- **Docker**: Access via `docker logs` or configure Docker logging drivers
+- **Kubernetes**: Collected by cluster logging systems (Fluentd, Fluent Bit)
+- **Cloud platforms**: Stream to CloudWatch (AWS), Cloud Logging (GCP), or Azure Monitor
+
+### Supported systems
+
+The stdout logs can be ingested by any log collection system, including:
+
+- **SIEM platforms**: Splunk, Datadog, Elastic, Sumo Logic, Panther
+- **Log aggregators**: Fluentd, Logstash, Vector, Loki
+- **Cloud logging**: AWS CloudWatch, GCP Logging, Azure Monitor
 
 ## Retention
 
