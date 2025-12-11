@@ -47,12 +47,12 @@ By default, audit logs are output as key-value pairs. To enable JSON format for 
 
 **Docker example with JSON format:**
 ```bash
-docker run -d \
+docker run --rm --init \
   --name bytebase \
+  --publish 8080:8080 --pull always \
+  --volume ~/.bytebase/data:/var/opt/bytebase \
   bytebase/bytebase:latest \
-  --enable-json-logging \
-  --port 8080 \
-  --data /var/opt/bytebase
+  --enable-json-logging
 ```
 
 ### Example output
