@@ -52,8 +52,12 @@ docker run --rm --init \
   --publish 8080:8080 --pull always \
   --volume ~/.bytebase/data:/var/opt/bytebase \
   bytebase/bytebase:latest \
-  --enable-json-logging
+  --port 8080 --data /var/opt/bytebase --enable-json-logging
 ```
+
+<Note>
+While using the `--enable-json-logging` flag, you need to specify the port and data directory.
+</Note>
 
 ### Example output
 
