@@ -3,9 +3,9 @@ name: Check Broken Links in MDX Files
 on:
   pull_request:
     paths:
-      - 'mintlify/**/*.mdx'
+      - 'docs/**/*.mdx'
       - '.github/workflows/broken-links.yml'
-      - 'mintlify/check-links.sh'
+      - 'docs/check-links.sh'
 
 permissions:
   contents: read
@@ -13,21 +13,21 @@ permissions:
 jobs:
   check-broken-links:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
+
       - name: Install Mintlify CLI
         run: npm install -g mintlify
-        
+
       - name: Run broken links check
         run: |
           echo "## 🔍 Checking for broken links (excluding /api-reference)..."
           echo ""
-          
+
           # Run the check script
-          ./mintlify/check-links.sh
-          
+          ./docs/check-links.sh
+
           echo ""
           echo "> **Note**: Links to \`/api-reference/\` are automatically excluded from this check."
