@@ -7,6 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a Mintlify documentation site for Bytebase, a database DevOps and CI/CD platform. The repository contains:
 
 - **Content Structure**: Documentation is organized into MDX files following a hierarchical structure with main sections for:
+
   - Introduction & Getting Started
   - Features (Database CI/CD, SQL Editor, Permissions, Data Masking)
   - Administration & Security
@@ -21,6 +22,7 @@ This is a Mintlify documentation site for Bytebase, a database DevOps and CI/CD 
 ## Development Commands
 
 ### Local Development
+
 ```bash
 # Start development server (requires Mintlify CLI)
 mint dev
@@ -30,14 +32,17 @@ mint install
 ```
 
 ### Prerequisites
+
 - Install Mintlify CLI globally: `npm i -g mint`
 - Run commands from the root directory where `docs.json` is located
 
 ### Testing
+
 ```bash
 # Check for broken links (excluding /api-reference)
-./mintlify/check-links.sh
+./docs/check-links.sh
 ```
+
 Run this test before committing any documentation changes to ensure all internal links are valid.
 
 ## Content Management
