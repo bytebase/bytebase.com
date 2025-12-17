@@ -1,0 +1,217 @@
+---
+title: GitHub Actions
+---
+
+This guide explains how to configure Workload Identity for GitHub Actions to authenticate with Bytebase without storing long-lived credentials.
+
+## Step 1: Create a Workload Identity in Bytebase
+
+1. Go to **IAM & Admin** > **Users & Groups**.
+2. Click **Add User** in the upper-right corner.
+3. Select **Workload Identity** as the Type.
+4. Fill in the configuration:
+
+| Field | Description | Example |
+|-------|-------------|---------|
+| **Name** | Display name for this identity | `GitHub Actions Deploy` |
+| **Email** | Unique email for this identity (must end with `@workload.bytebase.com`) | `github-actions-deploy@workload.bytebase.com` |
+| **Platform** | Select GitHub Actions | `GitHub Actions` |
+| **Owner** | GitHub organization or username | `my-org` |
+| **Repository** | Repository name | `my-repo` |
+| **Branch** | Branch name (use `*` for all branches) | `main` |
+
+5. Click **Confirm** to create the Workload Identity.
+
+## Step 2: Assign Roles
+
+After creating the Workload Identity, assign the `GitOps Service Agent` role to enable automated CI/CD workflows:
+
+1. Go to your project's **Settings** > **Members**.
+2. Click **Grant Access**.
+3. Enter the Workload Identity email (e.g., `github-actions-deploy@workload.bytebase.com`).
+4. Select the **GitOps Service Agent** role.
+5. Click **Confirm**.
+
+<Tip>
+
+The `GitOps Service Agent` role is designed for automated CI/CD workflows, allowing the identity to create and execute database changes. See [Roles and Permissions](/administration/roles) for details.
+
+</Tip>
+
+## Step 3: Configure GitHub Actions Workflow
+
+In your GitHub Actions workflow, add the following configuration:
+
+### Request OIDC Token
+
+Add `id-token: write` permission and use the `actions/github-script` action to get the token:
+
+```yaml
+name: Deploy Database Changes
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  id-token: write  # Required for OIDC token
+  contents: read
+
+env:
+  BYTEBASE_URL: https://bytebase.example.com
+  WORKLOAD_IDENTITY_EMAIL: github-actions-deploy@workload.bytebase.com
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get Bytebase Token
+        id: bytebase-token
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const token = await core.getIDToken('https://github.com/${{ github.repository_owner }}');
+            core.setSecret(token);
+            core.setOutput('token', token);
+
+      - name: Exchange for Bytebase API Token
+        id: exchange
+        run: |
+          RESPONSE=$(curl -s -X POST "${BYTEBASE_URL}/v1/auth:exchangeToken" \
+            -H "Content-Type: application/json" \
+            -d "{\"token\": \"${{ steps.bytebase-token.outputs.token }}\", \"email\": \"${WORKLOAD_IDENTITY_EMAIL}\"}")
+
+          ACCESS_TOKEN=$(echo $RESPONSE | jq -r '.accessToken')
+          echo "::add-mask::$ACCESS_TOKEN"
+          echo "access_token=$ACCESS_TOKEN" >> $GITHUB_OUTPUT
+
+      - name: Call Bytebase API
+        run: |
+          curl -s "${BYTEBASE_URL}/v1/projects" \
+            -H "Authorization: Bearer ${{ steps.exchange.outputs.access_token }}"
+```
+
+## Complete Example
+
+Here's a complete workflow that creates a database change using Workload Identity:
+
+```yaml
+name: Database Schema Change
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'migrations/**'
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  BYTEBASE_URL: https://bytebase.example.com
+  WORKLOAD_IDENTITY_EMAIL: github-deploy@workload.bytebase.com
+  PROJECT: projects/my-project
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get OIDC Token
+        id: oidc
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const token = await core.getIDToken('https://github.com/${{ github.repository_owner }}');
+            core.setSecret(token);
+            core.setOutput('token', token);
+
+      - name: Exchange Token
+        id: auth
+        run: |
+          RESPONSE=$(curl -s -X POST "${BYTEBASE_URL}/v1/auth:exchangeToken" \
+            -H "Content-Type: application/json" \
+            -d "{\"token\": \"${{ steps.oidc.outputs.token }}\", \"email\": \"${WORKLOAD_IDENTITY_EMAIL}\"}")
+
+          ACCESS_TOKEN=$(echo $RESPONSE | jq -r '.accessToken')
+          if [ "$ACCESS_TOKEN" = "null" ] || [ -z "$ACCESS_TOKEN" ]; then
+            echo "Failed to get access token"
+            echo $RESPONSE
+            exit 1
+          fi
+
+          echo "::add-mask::$ACCESS_TOKEN"
+          echo "access_token=$ACCESS_TOKEN" >> $GITHUB_OUTPUT
+
+      - name: Create Plan
+        id: plan
+        run: |
+          # Read migration SQL file
+          SQL_CONTENT=$(cat migrations/latest.sql | jq -Rs .)
+
+          RESPONSE=$(curl -s -X POST "${BYTEBASE_URL}/v1/${PROJECT}/plans" \
+            -H "Authorization: Bearer ${{ steps.auth.outputs.access_token }}" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"title\": \"Migration from GitHub Actions\",
+              \"steps\": [{
+                \"specs\": [{
+                  \"changeDatabaseConfig\": {
+                    \"target\": \"instances/prod/databases/mydb\",
+                    \"type\": \"MIGRATE\",
+                    \"sheet\": \"${SQL_CONTENT}\"
+                  }
+                }]
+              }]
+            }")
+
+          PLAN_NAME=$(echo $RESPONSE | jq -r '.name')
+          echo "plan_name=$PLAN_NAME" >> $GITHUB_OUTPUT
+
+      - name: Create Issue and Rollout
+        run: |
+          # Create issue
+          curl -s -X POST "${BYTEBASE_URL}/v1/${PROJECT}/issues" \
+            -H "Authorization: Bearer ${{ steps.auth.outputs.access_token }}" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"title\": \"Schema migration\",
+              \"type\": \"DATABASE_CHANGE\",
+              \"plan\": \"${{ steps.plan.outputs.plan_name }}\"
+            }"
+```
+
+## Troubleshooting
+
+### Token Exchange Fails
+
+If the token exchange returns an error:
+
+1. **Verify the repository and branch**: Check that your workflow's repository, branch match the configured values in Bytebase.
+
+2. **Check the audience**: Ensure the audience in your `getIDToken()` call matches `https://github.com/{owner}`.
+
+### Permission Denied
+
+If API calls return permission errors:
+
+1. Verify the Workload Identity has the `GitOps Service Agent` role assigned.
+2. Check that the Workload Identity is a member of the target project.
+
+### Debug Token Claims
+
+To inspect the OIDC token claims, decode the JWT:
+
+```yaml
+- name: Debug Token
+  run: |
+    echo "${{ steps.oidc.outputs.token }}" | cut -d. -f2 | base64 -d | jq .
+```
+
+This shows the token's claims including `sub`, `aud`, and `iss` that Bytebase validates.

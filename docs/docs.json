@@ -273,6 +273,13 @@
         "tab": "Integrations",
         "groups": [
           {
+            "group": "Workload Identity",
+            "pages": [
+              "integrations/workload-identity/overview",
+              "integrations/workload-identity/github-actions"
+            ]
+          },
+          {
             "group": "API",
             "pages": [
               "integrations/api/overview",
