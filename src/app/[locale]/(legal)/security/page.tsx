@@ -76,8 +76,8 @@ export default function Page() {
           request in our Enterprise plan.
         </li>
         <li>
-          The customer Bytebase workspace will be deactivated automatically if there is no traffic in
-          48 hours. The data will be purged in 60 days after deactivation.
+          The customer Bytebase workspace will be deactivated automatically if there is no traffic
+          in 48 hours. The data will be purged in 60 days after deactivation.
         </li>
       </ul>
       <h2 id="self-host">Bytebase self-hosted</h2>
@@ -93,7 +93,8 @@ export default function Page() {
           bare-metal.
         </li>
         <li>
-          Anonymous usage metrics are collected and sent to Segment. Collection can be disabled in the workspace settings.
+          Anonymous usage metrics are collected and sent to Segment. Collection can be disabled in
+          the workspace settings.
         </li>
       </ul>
       <h2>Shared practices between Bytebase Cloud and self-hosted</h2>
@@ -119,10 +120,6 @@ export default function Page() {
       <ul>
         <li>Database connection info.</li>
         <li>Database schema.</li>
-        <li>
-          Slow query statistics if <Link href="/docs/slow-query/overview/">slow query report</Link>{' '}
-          is enabled.
-        </li>
       </ul>
       <h3>How do I report a potential vulnerability or security concern?</h3>
       <p>
