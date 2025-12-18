@@ -1,5 +1,5 @@
 ---
-title: Users and Groups
+title: Overview
 ---
 
 ## User
@@ -9,6 +9,23 @@ A `User` represents anyone who can access and perform operations in Bytebase. Us
 ## Service Account
 
 Service accounts are special users designed for automated processes and applications.
+
+## Workload Identity
+
+Workload Identity is a secure authentication method for CI/CD pipelines and external services using OpenID Connect (OIDC) tokens, eliminating the need for long-lived credentials.
+
+Unlike traditional Service Accounts that require storing API keys as secrets, Workload Identity:
+- Uses short-lived tokens generated per job
+- Validates tokens against your CI/CD platform's identity provider  
+- Restricts access to specific repositories, branches, and workflows
+
+### Setup Workload Identity
+
+<CardGroup cols={2}>
+  <Card title="GitHub Actions" icon="github" href="/administration/user-groups/workload-identity/github-actions">
+    Configure OIDC authentication for GitHub Actions workflows
+  </Card>
+</CardGroup>
 
 ## User Group
 
