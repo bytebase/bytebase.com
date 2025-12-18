@@ -7,22 +7,26 @@ Schema Editor provides a visual interface for modifying database structures with
 ## Getting Started
 
 Access Schema Editor by:
+
 - Creating a new plan: **CI/CD** > **Plans** > **New Plan** > Select `Schema Migration`
 - From database page: **Database** > **Databases** > Select database > **Edit Schema**
 
 ## Basic Operations
 
 ### Tables
+
 - **Create**: Click **New Table** or use `···` menu next to a schema
 - **Duplicate**: Click the copy button on any table row
 - **Delete**: Click `···` > **Drop table** (use **Restore** to undo)
 - **Rename**: Available for newly created tables only
 
 ### Columns
+
 - **Add**: Select table > Click **Add Column** > Configure properties
 - **Modify**: Click on existing columns to edit properties
 
 ### Schemas
+
 Use the `···` menu on database/schema rows to create, drop, or restore schemas.
 
 ## Apply Changes
@@ -30,28 +34,3 @@ Use the `···` menu on database/schema rows to create, drop, or restore schema
 Click **Preview Issue** to review generated SQL and create a change issue.
 
 ![](/content/docs/change-database/schema-editor/edit-schema-issue.webp)
-
-## Schema Templates
-
-Create reusable components for consistent database design. Configure templates in **Settings** > **Schema Template**.
-
-### Field Templates
-Pre-defined columns that can be added to any table.
-- **Create**: Add Field Template > Configure properties > Create
-- **Use**: In Schema Editor, select table > Add from template
-
-![bb-schema-editor-add-from-template-field](/content/docs/administration/schema-template/bb-schema-editor-add-from-template-field.webp)
-
-### Table Templates  
-Complete table structures with predefined columns.
-- **Create**: Add Table Template > Define structure > Create
-- **Use**: In Schema Editor, select database > Add from template
-
-![bb-schema-editor-add-from-template-table](/content/docs/administration/schema-template/bb-schema-editor-add-from-template-table.webp)
-
-### Column Type Restrictions
-Limit available column types to enforce standards.
-- Go to Column Type Restriction > Select "Allow limited types"
-- Remove unwanted types from the allowed list
-
-![bb-schema-editor-type-dropdown](/content/docs/administration/schema-template/bb-schema-editor-type-dropdown.webp)
