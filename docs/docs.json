@@ -243,7 +243,13 @@
                   "administration/sso/idp-initiated"
                 ]
               },
-              "administration/user-groups",
+              {
+                "group": "Users & Groups",
+                "pages": [
+                  "administration/user-groups/overview",
+                  "administration/user-groups/workload-identity/github-actions"
+                ]
+              },
               "administration/roles",
               "administration/scim/overview",
               "administration/2fa",
@@ -272,13 +278,6 @@
       {
         "tab": "Integrations",
         "groups": [
-          {
-            "group": "Workload Identity",
-            "pages": [
-              "integrations/workload-identity/overview",
-              "integrations/workload-identity/github-actions"
-            ]
-          },
           {
             "group": "API",
             "pages": [
