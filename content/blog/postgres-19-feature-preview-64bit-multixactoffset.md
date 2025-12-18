@@ -11,7 +11,7 @@ PostgreSQL uses MultiXact structures to track row-level locks shared by multiple
 
 This isn't just theoretical. In May 2025, [Metronome experienced four separate outages](https://metronome.com/blog/root-cause-analysis-postgresql-multixact-member-exhaustion-incidents-may-2025) when their PostgreSQL cluster exhausted MultiXact member space during a large data migration. The insidious part: their monitoring showed MultiXact ID usage under 50%, but PostgreSQL enforces a separate, poorly-documented member space limit. When it hit, all writes failed with "This command would create a multixact" errors, and recovery required hours of emergency vacuuming across their 30TB cluster.
 
-Postgres 19 eliminates this limit entirely with 64-bit MultiXactOffset, introduced by Heikki Linnakangas [bd8d9c9b](https://git.postgresql.org/gitweb/?p=postgresql.git;a=commit;h=bd8d9c9bdfa0c2168bb37edca6fa88168cacbbaa) widened MultiXactOffset to 64 bits.
+Postgres 19 eliminates this limit entirely with 64-bit MultiXactOffset, introduced by Heikki Linnakangas in commit [bd8d9c9b](https://git.postgresql.org/gitweb/?p=postgresql.git;a=commit;h=bd8d9c9bdfa0c2168bb37edca6fa88168cacbbaa), which widened MultiXactOffset to 64 bits.
 
 ## What Changes
 
