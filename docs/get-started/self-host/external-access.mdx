@@ -37,7 +37,8 @@ http {
         ssl_certificate_key /path/to/private/key/file;
 
        location ~ ^/(v1:adminExecute|lsp) {
-            proxy_pass http://bytebase.example.com;
+            # Point to the actual Bytebase service, NOT the nginx domain
+            proxy_pass http://127.0.0.1:8080;  # If Bytebase runs on the same host
             proxy_http_version 1.1;
             # Enables WebSocket which is required for SQL Editor autocomplete
             proxy_set_header Upgrade $http_upgrade;
@@ -45,13 +46,28 @@ http {
         }
 
         location / {
-            proxy_pass http://bytebase.example.com;
+            # Point to the actual Bytebase service, NOT the nginx domain
+            proxy_pass http://127.0.0.1:8080;  # If Bytebase runs on the same host
         }
 
         proxy_read_timeout 3600;
         proxy_send_timeout 3600;
     }
 }
+```
+
+#### Common Issue: 502 Bad Gateway
+
+If you're getting 502 errors, ensure `proxy_pass` points to the actual Bytebase service, not the nginx domain itself (which creates a loop):
+
+```nginx
+# ❌ WRONG - Creates proxy loop
+proxy_pass http://bytebase.example.com;
+
+# ✅ CORRECT - Points to Bytebase service
+proxy_pass http://127.0.0.1:8080;      # Same host
+proxy_pass http://bytebase:8080;        # Docker Compose service name
+proxy_pass http://10.0.0.5:8080;        # Different host IP
 ```
 
 ### Caddy Configuration
@@ -74,6 +90,7 @@ bytebase.example.com {
 ```
 
 To use this Caddy configuration:
+
 1. Install Caddy on your VM
 2. Save the configuration to `/etc/caddy/Caddyfile`
 3. Run: `caddy reload`
@@ -196,6 +213,7 @@ For production usage, configure the External URL to match your domain. See [Conf
 ### WebSocket Support
 
 SQL Editor autocomplete requires WebSocket support. All configurations above include the necessary WebSocket settings. Key endpoints that require WebSocket:
+
 - `/v1:adminExecute` - For SQL execution
 - `/lsp` - For Language Server Protocol (autocomplete)
 
