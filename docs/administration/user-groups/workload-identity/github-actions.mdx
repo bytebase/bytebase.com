@@ -173,18 +173,6 @@ jobs:
 
           PLAN_NAME=$(echo $RESPONSE | jq -r '.name')
           echo "plan_name=$PLAN_NAME" >> $GITHUB_OUTPUT
-
-      - name: Create Issue and Rollout
-        run: |
-          # Create issue
-          curl -s -X POST "${BYTEBASE_URL}/v1/${PROJECT}/issues" \
-            -H "Authorization: Bearer ${{ steps.auth.outputs.access_token }}" \
-            -H "Content-Type: application/json" \
-            -d "{
-              \"title\": \"Schema migration\",
-              \"type\": \"DATABASE_CHANGE\",
-              \"plan\": \"${{ steps.plan.outputs.plan_name }}\"
-            }"
 ```
 
 ## Troubleshooting
