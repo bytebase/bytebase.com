@@ -1,0 +1,190 @@
+---
+title: State-based Schema Management with GitHub Actions and AI Review
+author: Adela
+updated_at: 2025/12/12 18:00
+tags: Tutorial
+integrations: GitHub
+category: Tutorial
+level: Advanced
+estimated_time: '45 mins'
+---
+
+import CreateServiceAccountGitOps from '/snippets/tutorials/create-service-account-gitops.mdx';
+import ConfigSQLReview from '/snippets/tutorials/config-sql-review.mdx';
+
+This is part of our database deployment series with Bytebase:
+
+- [Database GitOps with GitHub Actions](/tutorials/gitops-github-workflow)
+- [Database GitOps with Azure DevOps Pipeline](/tutorials/gitops-azure-devops-workflow)
+- [Database GitOps with GitLab CI](/tutorials/gitops-gitlab-workflow)
+- [Database GitOps with Bitbucket Pipelines](/tutorials/gitops-bitbucket-workflow)
+- State-based Database Schema Management with GitHub Actions (this one)
+
+---
+
+This tutorial shows you how to build a database state-based workflow using GitHub Actions and Bytebase API for PostgreSQL databases. Unlike migration-based approaches that track incremental changes, state-based workflows declare the desired final state of your database schema and let the system determine the necessary migrations. You'll learn to:
+
+1. Create a state-based database workflow where you can:
+
+   - Define your desired database schema state in declarative SQL files
+   - Automatically generate migration scripts based on state differences
+   - Run SQL reviews on pull requests for generated migrations
+   - Auto-deploy changes when merging to `main`
+
+1. Handle schema drift detection and remediation
+
+1. Deploy state changes via ChatOps-style PR comments
+
+<Info>
+
+**Important:** State-based workflow currently only supports PostgreSQL.
+
+</Info>
+
+## Repository
+
+[https://github.com/bytebase/example-gitops-github-flow](https://github.com/bytebase/example-gitops-github-flow)
+
+## Prerequisites
+
+- A Bytebase instance (Bytebase Cloud or self-hosted)
+- For self-hosted version, you need [Docker](https://www.docker.com/) to run Bytebase.
+
+## State-based vs Migration-based
+
+**Migration-based**: Write incremental scripts that transform the database step-by-step. You track which migrations have run.
+
+**State-based**: Declare the desired schema state. The system automatically generates migrations by comparing current and desired states.
+
+## Prepare the Environment
+
+### Step 1 - Set up Bytebase
+
+import BytebaseSetupOptions from '/snippets/tutorials/bytebase-setup-options.mdx';
+
+<BytebaseSetupOptions />
+
+### Step 2 - Create Service Account
+
+<CreateServiceAccountGitOps />
+
+### Step 3 - Fork the Example Repository and Configure Variables
+
+1. Fork [https://github.com/bytebase/example-gitops-github-flow](https://github.com/bytebase/example-gitops-github-flow). There are two workflows in this repository for this tutorial:
+
+   - `.github/workflows/declarative-release-action.yml`: Deploy release in Bytebase after the PR is merged to the `main` branch.
+   - `.github/workflows/declarative-sql-review-action.yml`: [Lint the generated SQL](/sql-review/review-policy/) migration after the PR is created with AI configured.
+
+1. Go into the workflow files and update the `env` section with your own values:
+
+   - **BYTEBASE_URL**: Your Bytebase instance URL (e.g., `https://bytebase.your-company.com` or your Bytebase Cloud URL)
+   - **BYTEBASE_SERVICE_ACCOUNT**: `api-example@service.bytebase.com` (the service account you created in the previous step)
+   - **BYTEBASE_PROJECT**: `projects/project-sample` (the sample project in Bytebase)
+   - **BYTEBASE_TARGETS**: `instances/test-sample-instance/databases/hr_test,instances/prod-sample-instance/databases/hr_prod` (the two default databases in the sample project)
+   - **STATE_FILE_PATTERN**: `schemas/*.sql` (the pattern for state definition files)
+
+1. Add the service account password as a secret named **BYTEBASE_SERVICE_ACCOUNT_SECRET** in **Settings > Secrets and Variables > Actions**.
+
+1. The **`GITHUB_TOKEN`** is automatically provided by GitHub during workflow execution.
+
+1. Go to **Actions** tab and enable workflow runs.
+
+### Step 4 - Configure AI Review
+
+1. Go to Bytebase console, click **Settings > General > AI Assistant**.
+1. Enable AI and choose your provider (OpenAI, Azure OpenAI, Gemini, or Claude).
+1. Enter your API credentials and test the connection.
+1. Create a `.bytebase/sql-review.md` file in your repository and write your team's SQL standards in natural language - no special syntax required. Here is an example:
+
+```markdown
+# .bytebase/sql-review.md
+# SQL Review Standards
+
+## 1. Table Naming Convention
+- All table names must be in snake_case
+```
+
+1. Update `.github/workflows/declarative-sql-review-action.yml` to use the `.bytebase/sql-review.md` file.
+
+```yaml
+...
+run: |
+          bytebase-action check --url=${{ env.BYTEBASE_URL }} --project=${{ env.BYTEBASE_PROJECT }} --targets=${{ env.BYTEBASE_TARGETS }} --file-pattern=${{ env.FILE_PATTERN }} --declarative --custom-rules "$(cat .bytebase/sql-review.md)"
+
+```
+
+## Deploy the State Changes
+
+### Step 1 - Export the Schema Definition File
+
+State-based workflows use declarative SQL files that describe the complete desired state of your database schema.
+
+1. Create a state definition file under `schemas/` directory, if you want to manage your existing database schema. You may go to Bytebase console, choose a database and then click **Export Schema** to get the schema definition file.
+
+1. In this tutorial, we go to `Sample Project` and then click **Database > Databases**. Choose `hr_prod` database and click **Export Schema > Single File** to get the schema definition file as follows:
+
+   ```sql
+   COMMENT ON SCHEMA "public" IS 'standard public schema';
+
+   CREATE TABLE "public"."audit" (
+      "id" serial,
+      "operation" text NOT NULL,
+      "query" text,
+      "user_name" text NOT NULL,
+      "changed_at" timestamp(6) with time zone DEFAULT CURRENT_TIMESTAMP,
+      CONSTRAINT "audit_pkey" PRIMARY KEY (id)
+   );
+
+   ...
+   ```
+
+1. Add a new table before `audit` table. Rename the file to `schema.sql` and move it to the `schemas/` directory.
+
+   ```sql
+   CREATE TABLE "public"."fakeTable" (
+      "id" serial,
+      "name" text NOT NULL
+   );
+   ```
+
+### Step 2 - Create a Pull Request
+
+1. Commit to a new branch and create a pull request. Wait for a while, `declarative-sql-review-action.yml` workflow will be triggered and you can see the review results in the PR comments and file changes tab.
+
+   ![gh-summary](/content/docs/tutorials/state-based-schema-management-github/gh-summary.webp)
+   ![gh-ai-review](/content/docs/tutorials/state-based-schema-management-github/gh-ai-review.webp)
+
+1. There is a warning regarding the `fakeTable` table, we can fix by updating the schema definition file.
+
+   ```sql
+   CREATE TABLE "public"."fake_table" (
+      "id" serial,
+      "name" text NOT NULL
+   );
+   ```
+
+### Step 3 - Merge the Pull Request
+
+1. Commit to the branch and push the changes. After the AI SQL review is passed, we can merge the pull request.
+
+1. Go to the **Actions** tab, you can see the workflow is running and the test stage is passed because it's automatically deployed. While the prod stage is waiting for approval.
+
+   ![gh-test-done](/content/docs/tutorials/state-based-schema-management-github/gh-test-done.webp)
+
+1. Go to Bytebase console, you can see the release is created and the schema change is applied to the `hr_test` database.
+
+   ![bb-sdl-release](/content/docs/tutorials/state-based-schema-management-github/bb-sdl-release.webp)
+
+   ![bb-sdl-rollout-changes](/content/docs/tutorials/state-based-schema-management-github/bb-sdl-rollout-changes.webp)
+
+   ![bb-rollout-test-done](/content/docs/tutorials/state-based-schema-management-github/bb-rollout-test-done.webp)
+
+1. Go back to GitHub **Actions** tab and approve the prod stage and wait for it to be deployed
+
+1. Go to Bytebase console, you can see the schema change is applied to the `hr_prod` database.
+
+   ![bb-rollout-prod-done](/content/docs/tutorials/state-based-schema-management-github/bb-rollout-prod-done.webp)
+
+## Summary
+
+In this tutorial, we have learned how to build a database state-based workflow using GitHub Actions and Bytebase API for PostgreSQL databases. We have also learned how to use AI review to review the schema definition file.

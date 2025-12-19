@@ -334,7 +334,8 @@
               "tutorials/gitops-github-workflow",
               "tutorials/gitops-azure-devops-workflow",
               "tutorials/gitops-gitlab-workflow",
-              "tutorials/gitops-bitbucket-workflow"
+              "tutorials/gitops-bitbucket-workflow",
+              "tutorials/state-based-schema-management-github"
             ]
           },
           {
