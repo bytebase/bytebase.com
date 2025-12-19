@@ -8,41 +8,21 @@ title: 'Step 6: Change Schema'
 
 1. Navigate to **CI/CD** > **Plans** in your project menu and click **+ New Plan**.
 
-    ![new-plan](/content/docs/change-database/plan/bb-new-plan.webp)
-
-1. Choose either **Schema Migration (DDL)** or **Data Migration (DML)**. In this example, we select **Schema Migration (DDL)**. After adding the first change, you can continue to add more changes within the same plan.
-
-    ![plan-change-type](/content/docs/change-database/plan/bb-plan-change-type.webp)
-
 1. Select one or more databases where the changes will be applied. Click **Confirm** to proceed.
 
-    ![plan-targets](/content/docs/change-database/plan/bb-plan-targets.webp)
-
-1. If only **one** database is selected, you can use the **Schema Editor** to visually design the schema.
-
-    ![new-plan-schema-editor](/content/docs/change-database/schema-editor/bb-new-plan-schema-editor.webp)
+1. Input the SQL statement you want to apply to the database. You may click **Schema Editor** to visually design the schema if needed.
 
 ## Review the Issue
 
-1. After clicking **Confirm**, you will be directed to the **Plan** page. Before clicking **Create**, you may choose to **Run checks** to execute the [configured SQL review](/sql-review/review-policy).
-
-    ![plan-before-create-warning](/content/docs/get-started/step-by-step/change-schema/bb-plan-before-create-warning.webp)
+1. Before clicking **Create**, you may choose to **Run checks** to execute the [configured SQL review](/sql-review/review-policy). It will be automatically executed when you click **Create**, too.
 
 1. Once you click **Create**, the plan will enter `Draft` status. You may still encounter warnings. Address these warnings first.
 
-    ![plan-draft-warning](/content/docs/get-started/step-by-step/change-schema/bb-plan-draft-warning.webp)
-
-    ![plan-draft-passed](/content/docs/get-started/step-by-step/change-schema/bb-plan-draft-passed.webp)
-
-1. Click **Ready for Review** and then click **Confirm**.
-
-    ![plan-ready-for-review](/content/docs/get-started/step-by-step/change-schema/bb-plan-ready-for-review.webp)
+1. Click **Ready for Review** and the issue is ready for review.
 
 ## Approve the Issue
 
 1. The issue will await approval. The approval process is automatically matched by the [custom approval](/change-database/approval).
-
-    ![issue-to-approve](/content/docs/get-started/step-by-step/change-schema/bb-issue-to-approve.webp)
 
 1. Click **Approve** to authorize the plan by the designated approvers.
 
@@ -50,17 +30,9 @@ title: 'Step 6: Change Schema'
 
 1. Once all approvals are secured, the rollout is ready to be executed.
 
-    ![issue-to-rollout](/content/docs/get-started/step-by-step/change-schema/bb-issue-to-rollout.webp)
-
 1. Click **Run** to deploy the issue.
 
-    ![rollout-to-run](/content/docs/get-started/step-by-step/change-schema/bb-rollout-to-run.webp)
-
-    ![run-rollout](/content/docs/get-started/step-by-step/change-schema/bb-run-rollout.webp)
-
 1. When all rollouts are successfully executed, the issue will be marked as `Done`.
-
-    ![issue-done](/content/docs/get-started/step-by-step/change-schema/bb-issue-done.webp)
 
 ## Summary
 
