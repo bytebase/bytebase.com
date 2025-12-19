@@ -2,42 +2,42 @@
 title: 'Step 6: Change Schema'
 ---
 
-**Issue** serves as the starting point for managing database changes, including `Schema Change (DDL)` and `Data Change (DML)`. These changes follow a structured workflow: **Plan**, **Review**, **Approve**, and **Rollout**. For actions like `Database Creation`, the workflow might be simpler, omitting some steps.
+Database changes follow four stages: **Plan**, **Review**, **Approve**, and **Rollout**. Plans become Issues when submitted for review.
 
-## Initiate an Issue with a Plan
+## Create a Plan
 
-1. Navigate to **CI/CD** > **Plans** in your project menu and click **+ New Plan**.
+1. Navigate to **CI/CD** > **Plans** and click **+ New Plan**.
 
-1. Select one or more databases where the changes will be applied. Click **Confirm** to proceed.
+1. Select target databases and click **Confirm**.
 
-1. Input the SQL statement you want to apply to the database. You may click **Schema Editor** to visually design the schema if needed.
+1. Add your SQL statement or use **Schema Editor** for visual design.
 
-## Review the Issue
+## Create Issue & Run SQL Review
 
-1. Before clicking **Create**, you may choose to **Run checks** to execute the [configured SQL review](/sql-review/review-policy). It will be automatically executed when you click **Create**, too.
+1. Click **Create** to convert the plan into an issue. SQL review runs automatically.
 
-1. Once you click **Create**, the plan will enter `Draft` status. You may still encounter warnings. Address these warnings first.
+    ![bb-plan-warning-detail](/content/docs/get-started/step-by-step/change-schema/bb-plan-warning-detail.webp)
 
-1. Click **Ready for Review** and the issue is ready for review.
+1. Fix any warnings while in `Draft` status.
 
-## Approve the Issue
+1. Click **Ready for Review** to submit for approval.
 
-1. The issue will await approval. The approval process is automatically matched by the [custom approval](/change-database/approval).
+## Approve (Enterprise)
 
-1. Click **Approve** to authorize the plan by the designated approvers.
+1. Issue awaits approval per [configured rules](/change-database/approval). Approvers click **Approve**.
 
-## Deploy the Issue
+## Deploy
 
-1. Once all approvals are secured, the rollout is ready to be executed.
+1. Click **Run** to deploy manually, or configure automatic rollout in environment settings.
 
-1. Click **Run** to deploy the issue.
+    ![bb-issue-2-targets-to-rollout](/content/docs/get-started/step-by-step/change-schema/bb-issue-2-targets-to-rollout.webp)
 
-1. When all rollouts are successfully executed, the issue will be marked as `Done`.
+1. Issue marked `Done` when complete.
 
 ## Summary
 
-An issue lifecycle: Plan -> Review -> Approve -> Rollout.
+Plan → Review → Approve → Rollout
 
 ![issue-lifecycle](/content/docs/get-started/step-by-step/change-schema/issue-lifecycle.webp)
 
-Refer to [Database Change Workflow](/change-database/change-workflow/) for more details.
+See [Database Change Workflow](/change-database/change-workflow/) for details.
