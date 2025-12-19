@@ -20,30 +20,22 @@ In this tutorial, you'll use the default sample databases to get familiar with t
 
 ## Step 2 - Configure the SQL Review
 
-1. Navigate to **CI/CD** > **SQL Review** in the left menu. Click **+ New SQL Review** to create a new SQL review.
+1. Navigate to **CI/CD** > **SQL Review** in the left menu. Click **+ Create SQL review** to create a new SQL review.
 
-1. Choose `Sample Template` which has 20 enabled rules and click **Confirm and add**. Attach the SQL review to Environment `Prod` and click **Confirm**.
-
-1. You'll see the SQL review is created.
-   ![sql-review-configured](/content/docs/tutorials/first-schema-change/bb-sql-review-configured.webp)
+1. Choose `Sample Template` which has 19 enabled rules and click **Next**. Click **Confirm and add** to attach the SQL review to Environment `Prod` and click **Confirm**. The SQL review is created.
 
 ## Step 3 - Create a Plan
 
 1. Navigate to **CI/CD** > **Plans** in the left menu and click **+ New Plan**.
-   ![new-plan](/content/docs/change-database/plan/bb-new-plan.webp)
 
-1. Select **Schema Migration (DDL)** as the change type.
-   ![plan-change-type](/content/docs/change-database/plan/bb-plan-change-type.webp)
-
-1. Select the databases where changes will be applied:
+1. Select both databases where changes will be applied:
 
    - `hr_test` on `Test Sample instance`
    - `hr_prod` on `Prod Sample instance`
 
    Click **Confirm** to proceed.
-   ![plan-targets](/content/docs/change-database/plan/bb-plan-targets.webp)
 
-1. Add the SQL statement:
+1. Add the SQL statement, you may click **Schema Editor** to visually design the schema if needed.
 
    ```sql
    ALTER TABLE public.employee ADD COLUMN IF NOT EXISTS nickname TEXT;
@@ -51,8 +43,9 @@ In this tutorial, you'll use the default sample databases to get familiar with t
 
    Click **Create** to create the plan.
 
-1. The plan will be in `Draft` status. You may see SQL review warnings, especially for the production environment. This is because Bytebase automatically runs configured checks.
-   ![plan-draft-2-targets-warning](/content/docs/tutorials/first-schema-change/bb-plan-draft-2-targets-warning.webp)
+1. The plan will be in `Draft` status. You may see SQL review warnings, this is because Bytebase automatically runs configured checks according to the SQL review policy. Click the warning to view details.
+
+   ![plan-warning-detail](/content/docs/tutorials/first-schema-change/bb-plan-warning-detail.webp)
 
 ## Step 4 - Review and Approve
 
@@ -64,7 +57,7 @@ In this tutorial, you'll use the default sample databases to get familiar with t
 
    Click **Save** to update the plan. The checks will run again and should pass.
 
-1. Click **Ready for Review** and then **Confirm** to submit the plan for approval.
+1. Click **Ready for Review** and to submit the plan for approval.
 
 1. The plan has no approval required.
    ![issue-2-targets-no-approval](/content/docs/tutorials/first-schema-change/bb-issue-2-targets-no-approval.webp)
