@@ -5,39 +5,29 @@ title: Plan
 A **Plan** is the core component of Bytebase’s CI/CD pipeline. It defines a series of schema or data changes to be applied to one or more databases.
 
 ### 1. Create a New Plan
-In your project, go to **CI/CD** > **Plans** in the left menu and click **New Plan**.
 
-![new-plan](/content/docs/change-database/plan/bb-new-plan.webp)
+In your project, go to **CI/CD** > **Plans** in the left menu and click **+ New Plan**.
 
-### 2. Choose the Change Type
-Select either **Schema Migration (DDL)** or **Data Migration (DML)**. After adding the first change, you can continue to add more.
+### 2. Select Target Databases
 
-![plan-change-type](/content/docs/change-database/plan/bb-plan-change-type.webp)
-
-### 3. Select Target Databases
 Choose one or more databases where the changes will be applied. Click **Confirm** to proceed.
 
-![plan-targets](/content/docs/change-database/plan/bb-plan-targets.webp)
+### 3. Add Changes
 
-### 4. Add Changes
-Fill in the SQL statement. You can add multiple changes to the same plan. Once done, click **Create**.
+Add SQL statements (multiple allowed). Click **Create** to convert the plan into an issue. SQL review runs automatically, showing any warnings.
 
-![plan-add-change](/content/docs/change-database/plan/bb-plan-add-change.webp)
-![plan-2-change](/content/docs/change-database/plan/bb-plan-2-change.webp)
+![bb-plan-warning-detail](/content/docs/change-database/plan/bb-plan-warning-detail.webp)
 
-### 5. Submit for Review
-The plan starts in a `draft` state. Click **Ready for Review** to submit it for approval.
-
-![plan-draft](/content/docs/change-database/plan/bb-plan-draft.webp)
-
-### 6. Approve and Roll Out
-Once approved, go to the **Rollout** section to begin deployment.
+### 4. Submit for Review waiting for approval (Enterprise)
+s
+Click **Ready for Review** to submit it for approval. The issue awaits approval per [configured rules](/change-database/approval).
 
 ![plan-approval](/content/docs/change-database/plan/bb-plan-approval.webp)
-![plan-ready-rollout](/content/docs/change-database/plan/bb-plan-ready-rollout.webp)
 
-### 7. Deploy to Environments
+### 5. Deploy to Environments
+
+Once approved, go to the **Rollout** section to begin deployment.
+
+![bb-issue-2-targets-to-rollout](/content/docs/change-database/plan/bb-issue-2-targets-to-rollout.webp)
+
 First, deploy to the `Test` environment. If successful, proceed to deploy to `Prod`.
-
-![plan-rollout-test](/content/docs/change-database/plan/bb-plan-rollout-test.webp)
-![plan-rollout-prod](/content/docs/change-database/plan/bb-plan-rollout-prod.webp)
