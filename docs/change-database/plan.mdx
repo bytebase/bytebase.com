@@ -2,32 +2,32 @@
 title: Plan
 ---
 
-A **Plan** is the core component of Bytebase’s CI/CD pipeline. It defines a series of schema or data changes to be applied to one or more databases.
+A **Plan** is the core component of Bytebase’s CI/CD pipeline. It defines a series of schema or data changes to be applied to one or more databases. It can be converted into an **Issue** for review and deployment.
 
-### 1. Create a New Plan
+### 1. Create Plan
 
-In your project, go to **CI/CD** > **Plans** in the left menu and click **+ New Plan**.
+In your project, navigate to **CI/CD** > **Plans** and click **+ New Plan**.
 
-### 2. Select Target Databases
+### 2. Select Databases
 
-Choose one or more databases where the changes will be applied. Click **Confirm** to proceed.
+Choose one or moretarget databases and click **Confirm**.
 
 ### 3. Add Changes
 
-Add SQL statements (multiple allowed). Click **Create** to convert the plan into an issue. SQL review runs automatically, showing any warnings.
+Add SQL statements (multiple allowed by clicking **+ Add Change**) and click **Create**. The plan becomes an issue with automatic SQL review.
 
 ![bb-plan-warning-detail](/content/docs/change-database/plan/bb-plan-warning-detail.webp)
 
-### 4. Submit for Review waiting for approval (Enterprise)
-s
-Click **Ready for Review** to submit it for approval. The issue awaits approval per [configured rules](/change-database/approval).
+### 4. Submit for Review (Enterprise)
+
+Fix the warning, and click **Ready for Review**. Approval follows [configured rules](/change-database/approval).
 
 ![plan-approval](/content/docs/change-database/plan/bb-plan-approval.webp)
 
-### 5. Deploy to Environments
+### 5. Deploy
 
-Once approved, go to the **Rollout** section to begin deployment.
+After approval, go to the **Rollout** section to deploy changes. You may configure the rollout policy to `Automatic` in the [environment](/change-database/environment-policy/rollout-policy).
 
 ![bb-issue-2-targets-to-rollout](/content/docs/change-database/plan/bb-issue-2-targets-to-rollout.webp)
 
-First, deploy to the `Test` environment. If successful, proceed to deploy to `Prod`.
+Deploy to `Test` first, then `Prod` after success.
