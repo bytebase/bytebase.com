@@ -46,12 +46,6 @@ Make sure you have [Docker](https://www.docker.com/) installed, and if you donâ€
 
 1. Go to `Sample Project`, navigate to **CI/CD** > **Plans** and click **+ New Plan**.
 
-   ![new-plan](/content/docs/change-database/plan/bb-new-plan.webp)
-
-1. Select **Schema Migration (DDL)** as the change type.
-
-   ![plan-change-type](/content/docs/change-database/plan/bb-plan-change-type.webp)
-
 1. Select `hr_prod` database as the target since the default SQL Review policy is attached to the `Prod` environment. Click **Confirm** to proceed. You can use the **Schema Editor** to visually design the schema, here we'll intentionally uncheck **Not Null** for `nickname` column.
 
 1. The plan will be in `Draft` status. SQL Review will run automatically, and you'll see violations against our defined rules marked in orange as `warning`.
