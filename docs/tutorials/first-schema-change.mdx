@@ -12,76 +12,69 @@ featured: true
 
 import PreparationWithSampleData from '/snippets/tutorials/preparation-with-sample-data.mdx';
 
-In this tutorial, you'll use the default sample databases to get familiar with the product in the quickest way.
+Learn Bytebase's schema change workflow using sample databases.
 
-## Step 1 - Run via Docker and Setup
+## Step 1 - Setup Bytebase
 
 <PreparationWithSampleData />
 
-## Step 2 - Configure the SQL Review
+## Step 2 - Configure SQL Review
 
-1. Navigate to **CI/CD** > **SQL Review** in the left menu. Click **+ New SQL Review** to create a new SQL review.
+1. Navigate to **CI/CD** > **SQL Review** and click **+ Create SQL review**.
 
-1. Choose `Sample Template` which has 20 enabled rules and click **Confirm and add**. Attach the SQL review to Environment `Prod` and click **Confirm**.
-
-1. You'll see the SQL review is created.
-   ![sql-review-configured](/content/docs/tutorials/first-schema-change/bb-sql-review-configured.webp)
+1. Select `Sample Template` (19 enabled rules), click **Next**. Attach to `Prod` environment and confirm.
 
 ## Step 3 - Create a Plan
 
-1. Navigate to **CI/CD** > **Plans** in the left menu and click **+ New Plan**.
-   ![new-plan](/content/docs/change-database/plan/bb-new-plan.webp)
+1. Navigate to **CI/CD** > **Plans** and click **+ New Plan**.
 
-1. Select **Schema Migration (DDL)** as the change type.
-   ![plan-change-type](/content/docs/change-database/plan/bb-plan-change-type.webp)
-
-1. Select the databases where changes will be applied:
+1. Select both databases where changes will be applied:
 
    - `hr_test` on `Test Sample instance`
    - `hr_prod` on `Prod Sample instance`
 
    Click **Confirm** to proceed.
-   ![plan-targets](/content/docs/change-database/plan/bb-plan-targets.webp)
 
-1. Add the SQL statement:
+1. Add this SQL statement (or use **Schema Editor** for visual design):
 
    ```sql
    ALTER TABLE public.employee ADD COLUMN IF NOT EXISTS nickname TEXT;
    ```
 
-   Click **Create** to create the plan.
+   Click **Create**.
 
-1. The plan will be in `Draft` status. You may see SQL review warnings, especially for the production environment. This is because Bytebase automatically runs configured checks.
-   ![plan-draft-2-targets-warning](/content/docs/tutorials/first-schema-change/bb-plan-draft-2-targets-warning.webp)
+1. The plan is then in `Draft` status. Any SQL review warnings appear because Bytebase automatically checks against your configured policy. Click warnings for details.
+
+   ![plan-warning-detail](/content/docs/tutorials/first-schema-change/bb-plan-warning-detail.webp)
 
 ## Step 4 - Review and Approve
 
-1. To fix the SQL review warning, edit the SQL to add `NOT NULL DEFAULT ''`:
+1. Fix the warning by adding `NOT NULL DEFAULT ''`:
 
    ```sql
    ALTER TABLE public.employee ADD COLUMN IF NOT EXISTS nickname TEXT NOT NULL DEFAULT '';
    ```
 
-   Click **Save** to update the plan. The checks will run again and should pass.
+   Click **Save**. The checks rerun and pass.
 
-1. Click **Ready for Review** and then **Confirm** to submit the plan for approval.
+1. Click **Ready for Review** to convert the plan into an issue and submit for approval.
 
-1. The plan has no approval required.
+1. No approval is required for this change.
    ![issue-2-targets-no-approval](/content/docs/tutorials/first-schema-change/bb-issue-2-targets-no-approval.webp)
 
-## Step 4 - Deploy the Changes
+## Step 5 - Deploy Changes
 
-1. Navigate to the **Rollout** section. You'll see the deployment is ready for both Test and Prod environments.
+1. In the **Rollout** section, both Test and Prod deployments are ready.
    ![issue-2-targets-to-rollout](/content/docs/tutorials/first-schema-change/bb-issue-2-targets-to-rollout.webp)
 
-1. Click **Run** for the Test stage first and then if it's successful, click **Run** for the Prod stage.
+1. Click **Run** for Test, then for Prod after success.
 
-1. When all rollouts are successfully executed, the issue will be marked as `Done`.
+1. Once complete, the issue is marked `Done`.
 
-## Next Step
+## Next Steps
 
-Now you have successfully performed your first schema change, the core workflow in Bytebase. Next:
+You've completed your first schema change. Continue with:
 
-- If you want to move changes between environments, follow [How to Move Schema Change from Test to Prod](/tutorials/how-to-move-schema-change-from-test-to-prod/)
-- If you want to rollout manually, follow [Deploy Schema Change with Rollout Policy](/tutorials/deploy-schema-migration/).
-- If you want to assign approvers before the rollout, follow [Database Change with Risk-Based Approval Flow](/tutorials/database-change-management-with-risk-adjusted-approval-flow/)
+- [Move Schema Changes from Test to Prod](/tutorials/how-to-move-schema-change-from-test-to-prod/) - for environment transitions
+- [Deploy with Rollout Policy](/tutorials/deploy-schema-migration/) - for manual rollouts
+- [Risk-Based Approval Flow](/tutorials/database-change-management-with-risk-adjusted-approval-flow/) - for adding approvers
