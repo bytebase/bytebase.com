@@ -20,7 +20,7 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
   - Generic payload and comment fields are removed.
   - Rule level enums migrate from `SQLReviewRuleLevel_WARNING/ERROR` to `SQLReviewRule_WARNING/ERROR`.
 - Move rollout policy checkers from environment to project level: **Require issue approval** and **Plan check enforcement**. Project settings are checked if any checker is previously used via automatic migration.
-- Migrate user identifiers: User references change from users/{id} to users/{email} in APIs and storage. Audit logs store user emails directly.
+- Migrate user identifiers: User references change from `users/{id}` to `users/{email}` in APIs and storage. Audit logs store user emails directly.
 - Rename **Masking Exception** to **Masking Exemption**:
   - APIs rename `MaskingException` to `MaskingExemption`.
   - The action field is removed.
