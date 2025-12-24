@@ -101,17 +101,18 @@ Never store database passwords in Bytebase. Use your existing secret manager for
 
 #### HashiCorp Vault
 
+**Vault Setup:**
+1. Create secret in Vault KV v2:
+  - Engine: `secret`
+  - Path: `bytebase`
+  - Key: `DB_PASSWORD`
+
 <Note>
-Requires Vault KV v2 engine
+Requires Vault KV v2 engine with `read` and `list` permissions on both `/data/` and `/metadata/` paths
 </Note>
 
-**Vault Setup:**
-1. Create secret in Vault:
-   - Engine: `secret`
-   - Path: `bytebase`
-   - Key: `DB_PASSWORD`
+**Configuration in Bytebase:**
 
-**Bytebase Configuration:**
 1. Enter Vault URL
 2. Choose authentication: Token or AppRole
 3. Specify secret location
