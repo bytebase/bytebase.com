@@ -1,0 +1,65 @@
+---
+title: Model Context Protocol (MCP)
+---
+
+Connect AI assistants to Bytebase using the Model Context Protocol.
+
+## Prerequisites
+
+- [Configure external URL](/get-started/self-host/external-url) if you haven't already.
+
+- OAuth authentication is required on first connection. Ensure you have appropriate Bytebase permissions.
+
+## Setup
+
+Navigate to **Integration** > **MCP** in your Bytebase console. Choose one of the following options:
+
+### Option 1: JSON Configuration
+
+Add this JSON to your MCP client configuration file:
+
+```json
+{
+  "mcpServers": {
+    "bytebase": {
+      "type": "http",
+      "url": "{https://your-bytebase-url.com}/mcp"
+    }
+  }
+}
+```
+
+### Option 2: CLI Commands
+
+Alternatively, use the CLI command shown on the MCP integration page for your preferred tool (Claude Code, Codex, Copilot CLI, Gemini CLI, or VS Code).
+
+## Authentication
+
+To connect to Bytebase, you need to finish the authentication process via OAuth by logging into Bytebase and authorizing the AI to access your Bytebase account.
+
+![mcp-auth](/content/docs/integrations/mcp/mcp-auth.webp)
+
+Your tool will be connected to Bytebase once you click the Allow button.
+
+## Usage
+
+Once connected, try asking your AI assistant:
+
+- "List all projects in my Bytebase instance"
+- "Show me the schema for database X"
+- "Generate a migration script to add a users table"
+
+
+## Important notes
+
+<Warning>
+
+Caution: Once connected, your AI assistant will inherit all your permissions in Bytebase, including making changes to database or updating settings (in the case of an admin). So be cautious when instructing AI assistant to apply any change via Bytebase.
+</Warning>
+
+<Warning>
+
+Audit logging: any action taken by the AI assistant via MCP will be audit-logged in Bytebase under your account.
+
+</Warning>
+

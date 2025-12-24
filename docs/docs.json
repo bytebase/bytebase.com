@@ -299,6 +299,12 @@
             "pages": ["integrations/terraform/overview"]
           },
           {
+            "group": "AI Integration",
+            "pages": [
+              "integrations/mcp"
+            ]
+          },
+          {
             "group": "3rd Party",
             "pages": [
               "integrations/slack",
