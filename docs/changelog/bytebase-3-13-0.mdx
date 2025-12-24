@@ -2,24 +2,26 @@
 title: Bytebase 3.13.0 - Dec 18, 2025
 author: Adela
 updated_at: 2025/12/18 18:00:00
-description: 'Support MCP integration'
+description: 'Support MCP integration and simplified approval flow configuration'
 ---
 
 import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
 ## 🔔 Notable Changes
 
-- **Consolidate DDL and DML changes** so users no longer need to select them explicitly.
+- **Consolidate DDL and DML changes** so users no longer need to select them explicitly when initiating New Plan or configuring approval flow.
+- **Simplify approval workflows**:
+  - Approval flows are defined directly using CEL expressions, without intermediate risk definitions.
+  - Risk level is automatically evaluated using a standardized assessment framework.
+  - `risk.level` is an optional CEL factor for CHANGE_DATABASE approval flows.
+  - For non-Terraform, existing approval flows are automatically migrated.
+  - For Terraform, approval flows are defined via bytebase_setting (settings/WORKSPACE_APPROVAL) using approval_flow.rules.flow, and risk resources are removed.(e.g. [approval_flow.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/examples/setup/approval_flow.tf))
 - Update SQL review configuration for Terraform: (e.g. [sql_review.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/examples/setup/sql_review.tf))
   - SQL review rules use typed payload fields (`number_payload`, `string_payload`, `string_array_payload`, `naming_payload`, etc.).
   - Generic payload and comment fields are removed.
-  - Rule level enums from `SQLReviewRuleLevel_WARNING/ERROR` to `SQLReviewRule_WARNING/ERROR`.
-- **Simplify approval workflows**:
-  - Approval flows are defined directly using CEL expressions, without intermediate risk definitions.
-  - Risk evaluation uses system presets.
-  - `risk.level` is an optional CEL factor for CHANGE_DATABASE approval flows.
-  - For Terraform, approval flows are defined via bytebase_setting (settings/WORKSPACE_APPROVAL) using approval_flow.rules.flow, and risk resources are removed.(e.g. [approval_flow.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/examples/setup/approval_flow.tf))
-- Move rollout policy checkers (**Require issue approval**, **Plan check enforcement**) from environment to project.
+  - Rule level enums migrate from `SQLReviewRuleLevel_WARNING/ERROR` to `SQLReviewRule_WARNING/ERROR`.
+- Move rollout policy checkers from environment to project level: **Require issue approval** and **Plan check enforcement**. Project settings are checked if any checker is previously used via automatic migration.
+- Migrate user identifiers: User references change from `users/{id}` to `users/{email}` in APIs and storage. Audit logs store user emails directly.
 - Rename **Masking Exception** to **Masking Exemption**:
   - APIs rename `MaskingException` to `MaskingExemption`.
   - The action field is removed.
@@ -29,14 +31,14 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 - Refine database group permissions:
   - Roles with `bb.projects.get` gain `bb.databaseGroups.list/get`.
   - Roles with `bb.projects.update` gain `bb.databaseGroups.create/update/delete`.
-- Migrate user identifiers: User references change from `users/{id}` to `users/{email}` in APIs and storage. Audit logs store user emails directly.
+  - For Terraform, please update the permissions of custom roles accordingly.
 - Update batch task APIs: The `reason` field is removed from `BatchRunTasks` and `BatchCancelTaskRuns`. `reason` is supported only for skip operations.
-- Remove **SchemaTemplate** functionality.
+- Remove **Schema Template** functionality.
 
 ## 🚀 Features
 
-- Support **MCP integration** under Workspace Integration > MCP.
-- Add **Workload Identity** as a dedicated account type for OIDC-based authentication, with **GitHub Actions** support.
+- Support [MCP integration](/integrations/mcp).
+- Add **Workload Identity** as a dedicated account type for OIDC-based authentication, with [GitHub Actions support](/administration/user-groups/workload-identity/github-actions).
 - Support direct messages for **Microsoft Teams**.
 
 ## 🎄 Enhancements
