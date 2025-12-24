@@ -14,6 +14,7 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
   - Approval flows are defined directly using CEL expressions, without intermediate risk definitions.
   - Risk level is automatically evaluated using a standardized assessment framework.
   - `risk.level` is an optional CEL factor for CHANGE_DATABASE approval flows.
+  - For non-Terraform, existing approval flows are automatically migrated.
   - For Terraform, approval flows are defined via bytebase_setting (settings/WORKSPACE_APPROVAL) using approval_flow.rules.flow, and risk resources are removed.(e.g. [approval_flow.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/examples/setup/approval_flow.tf))
 - Update SQL review configuration for Terraform: (e.g. [sql_review.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/examples/setup/sql_review.tf))
   - SQL review rules use typed payload fields (`number_payload`, `string_payload`, `string_array_payload`, `naming_payload`, etc.).
