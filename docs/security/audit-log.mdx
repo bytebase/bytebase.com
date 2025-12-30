@@ -108,7 +108,7 @@ Bytebase does not automatically purge audit logs. You must implement periodic cl
 
 Audit logs are stored in the `audit_log` table in the Bytebase metadata database.
 
-You can manually delete old logs from the `audit_log` table or set up a scheduled job (e.g., using pg_cron or system cron) to automatically purge logs periodically.
+You can manually delete old logs from the `audit_log` table or set up a scheduled job (e.g., using pg_cron or system cron) to automatically purge logs periodically. As a general best practice, many organizations retain audit logs for **at least 90 days**, and often **6–12 months** in environments with stricter compliance or investigation requirements. When choosing a retention period, balance your regulatory and security needs against available storage capacity and consider exporting logs to external log management or SIEM systems for longer-term retention.
 
 ## Events Reference
 
