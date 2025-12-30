@@ -2,75 +2,33 @@
 title: Audit Log
 ---
 
-**Workspace Admin** or **DBA** can view the audit logs of the workspace.
+Audit logging tracks all configuration changes and data operations within your Bytebase workspace. These logs help you identify who performed what action, when it occurred, and what resources were affected. This enables compliance monitoring, security analysis, and troubleshooting.
 
-![overview](/content/docs/security/audit-log/overview.webp)
+<Info>
+Audit logging is available only for **Pro** and **Enterprise** plans.
+</Info>
 
-## Filter audit logs
+For a complete list of logged events, see the [Events Reference](#events-reference) section at the end of this document.
 
-You can filter the audit logs by different conditions.
+### Log Structure
 
-![filter](/content/docs/security/audit-log/filter.webp)
+Each audit log entry contains the following fields:
 
-You can also specify a time range.
+| Field | Description |
+|-------|-------------|
+| `time` | Timestamp when the event occurred (ISO 8601 format) |
+| `level` | Log severity level (INFO, WARNING, ERROR) |
+| `method` | API method or action performed |
+| `resource` | Target resource (e.g., projects/project-sample) |
+| `user` | User who performed the action |
+| `latency_ms` | Request processing time in milliseconds |
+| `client_ip` | IP address and port of the client |
+| `user_agent` | Browser or API client information |
+| `parent` | Parent resource context (for nested resources) |
+| `severity` | Event severity classification |
 
-![filter-date](/content/docs/security/audit-log/filter-date.webp)
+Example log entry:
 
-## Export audit logs
-
-<Tip>
-
-If you want to export the audit logs to an external system such as S3, refer [Audit Log API](/integrations/api/audit-log/).
-
-</Tip>
-
-You can also export the audit logs.
-
-![filter-date](/content/docs/security/audit-log/filter-date.webp)
-
-## Stream audit logs to external systems
-
-Bytebase can stream audit logs to **stdout** for collection by external logging and monitoring systems.
-
-### Configuration
-
-1. Navigate to **Settings** → **General** → **Audit Log Export**.
-2. Enable **Enable audit logging to stdout**.
-
-Once enabled, audit events stream to the standard output of your Bytebase service.
-
-### Output format
-
-By default, audit logs are output as key-value pairs. To enable JSON format for easier parsing by log aggregators, start Bytebase with one of these flags:
-
-- `--enable-json-logging` - Outputs all logs in JSON format (you still need to enable the audit log export in the settings)
-
-**Docker example with JSON format:**
-```bash
-docker run --rm --init \
-  --name bytebase \
-  --publish 8080:8080 --pull always \
-  --volume ~/.bytebase/data:/var/opt/bytebase \
-  bytebase/bytebase:latest \
-  --port 8080 --data /var/opt/bytebase --enable-json-logging
-```
-
-<Note>
-While using the `--enable-json-logging` flag, you need to specify the port and data directory.
-</Note>
-
-### Example output
-
-**Default format (key-value pairs):**
-```
-time=2025-12-10T15:55:21.729Z level=INFO source=v1/audit.go:274 
-msg=/bytebase.v1.ProjectService/SetIamPolicy log_type=audit 
-parent=projects/project-sample method=/bytebase.v1.ProjectService/SetIamPolicy 
-resource=projects/project-sample user=users/101 latency_ms=7 
-client_ip=192.168.65.1:51907 user_agent="Mozilla/5.0..." severity=INFO
-```
-
-**With JSON format enabled:**
 ```json
 {
   "time": "2025-12-10T15:55:21.729Z",
@@ -89,32 +47,147 @@ client_ip=192.168.65.1:51907 user_agent="Mozilla/5.0..." severity=INFO
 }
 ```
 
-### Integration
+## Accessing Audit Logs
 
-When running Bytebase in Docker or Kubernetes, audit logs automatically appear in container logs and can be collected by your existing logging infrastructure:
+### GUI
 
-- **Docker**: Access via `docker logs` or configure Docker logging drivers
-- **Kubernetes**: Collected by cluster logging systems (Fluentd, Fluent Bit)
-- **Cloud platforms**: Stream to CloudWatch (AWS), Cloud Logging (GCP), or Azure Monitor
+**Workspace Admin** or **DBA** can access audit logs through the Bytebase console:
 
-### Supported systems
+1. Navigate to the **Settings** page
+2. Select **Audit Log** from the sidebar
+3. View the chronological list of all audit events
 
-The stdout logs can be ingested by any log collection system, including:
+![overview](/content/docs/security/audit-log/overview.webp)
 
-- **SIEM platforms**: Splunk, Datadog, Elastic, Sumo Logic, Panther
-- **Log aggregators**: Fluentd, Logstash, Vector, Loki
-- **Cloud logging**: AWS CloudWatch, GCP Logging, Azure Monitor
+You can filter audit logs by:
+- User
+- Action type
+- Resource
+- Time range
+
+![filter](/content/docs/security/audit-log/filter.webp)
+
+![filter-date](/content/docs/security/audit-log/filter-date.webp)
+
+### API
+
+Use the Bytebase API to programmatically access audit logs for integration with external systems and automated monitoring.
+
+<Tip>
+For detailed API documentation and examples, see [Audit Log API](/integrations/api/audit-log/).
+</Tip>
+
+### Streaming
+
+Stream audit logs to external logging and monitoring systems for centralized management. It supports JSON format output in addition to the default text format.
+
+1. Navigate to **Settings** → **General** → **Audit Log Export**
+1. Enable **Enable audit logging to stdout**
+1. Save the configuration
+
+Once enabled, all audit events stream to stdout of your Bytebase service.
+
+To enable **JSON format output**, start Bytebase with the `--enable-json-logging` flag:
+
+```bash
+docker run --rm --init \
+  --name bytebase \
+  --publish 8080:8080 --pull always \
+  --volume ~/.bytebase/data:/var/opt/bytebase \
+  bytebase/bytebase:latest \
+  --enable-json-logging
+```
+
+It supports **SIEM Platforms** (e.g., Splunk, Datadog, Elastic Security), **Log Aggregators** (e.g., Fluentd, Logstash, Grafana Loki) and **Cloud Services** (e.g., AWS CloudWatch, Google Cloud Logging, Azure Monitor, New Relic Logs).
 
 ## Retention
 
-Bytebase does not purge the audit logs. If you want to purge the audit logs, please locate the
-`audit_log` table in the metadata database and delete manually.
+<Warning>
+Bytebase does not automatically purge audit logs. You must implement periodic cleanup to prevent disk space exhaustion, which can cause Bytebase to crash.
+</Warning>
 
-![audit-log-table](/content/docs/security/audit-log/audit-log-table.webp)
+Audit logs are stored in the `audit_log` table in the Bytebase metadata database.
 
-```sql
+You can manually delete old logs from the `audit_log` table or set up a scheduled job (e.g., using pg_cron or system cron) to automatically purge logs periodically.
 
-DELETE FROM public.audit_log
-WHERE created_ts < EXTRACT(EPOCH FROM NOW() - INTERVAL '3 months');
+## Events Reference
 
-```
+Bytebase logs the following event categories:
+
+### Authentication & Authorization
+
+- User login/logout (Login, Logout)
+- API token operations
+- IAM policy changes
+- Role assignments (CreateRole, UpdateRole, DeleteRole)
+
+### Database Operations
+
+- Schema migrations
+- Data changes (DML operations)
+- Database creation/deletion/updates
+- Database transfers between projects
+- SQL query executions
+- Database catalog modifications
+
+### Project Management
+
+- Project creation/updates/deletion
+- Project IAM policy updates
+- Database group management
+
+### Issue & Change Management
+
+- Issue creation/updates/approvals
+- Rollout plan executions
+- Task runs and approvals
+
+### Instance Management
+
+- Instance creation/updates/deletion
+- Instance connection operations
+- Data source management
+- Sync operations
+
+### Configuration & Settings
+
+- Workspace settings changes
+- Organization policy updates
+- SSO/IDP configurations
+- Setting updates
+
+### Access Control
+
+- Permission grants/revokes
+- Group membership changes (CreateGroup, UpdateGroup, DeleteGroup)
+- User management operations
+
+### Data Security
+
+- Data masking rule changes
+- Access control policy updates
+- Sensitive data access (via SQL queries)
+
+## Limitations
+
+### Events Not Logged
+
+The following activities are not logged:
+
+- Most read-only operations (Get, List, Search methods - viewing data, browsing schemas)
+- System health checks and monitoring probes (/actuator endpoints)
+- Internal background jobs and maintenance tasks
+- WebSocket connections and real-time events
+
+### Privacy and Security Considerations
+
+- **Query results excluded:** Actual row data from queries is redacted in audit logs
+- **Sensitive data masking:** Passwords, API keys, SSL certificates, SSH keys, and other secrets are automatically replaced with masked values
+- **Response truncation:** Large response payloads may be omitted
+
+### Technical Limitations
+
+- **Log generation:** Audit logs are generated synchronously during request processing
+- **Pagination limit:** Maximum 5000 audit log entries can be retrieved per API call
+- **Filter complexity:** Audit log searches must use valid CEL expressions
+- **Storage:** Audit logs are stored in the meta database and follow its retention policies
