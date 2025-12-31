@@ -389,7 +389,7 @@
       },
       {
         "tab": "API Reference",
-        "openapi": "https://raw.githubusercontent.com/bytebase/bytebase/refs/heads/main/proto/gen/grpc-doc/openapi.yaml"
+        "openapi": "https://raw.githubusercontent.com/bytebase/bytebase/refs/heads/release/3.13.1/proto/gen/grpc-doc/openapi.yaml"
       },
       {
         "tab": "Changelog",
