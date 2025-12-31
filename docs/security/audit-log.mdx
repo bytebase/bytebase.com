@@ -120,18 +120,27 @@ Supported integrations:
 
 ### Status Codes
 
-Status codes follow gRPC conventions:
+Status codes follow [gRPC conventions](https://grpc.io/docs/guides/status-codes/):
 
-| Code | Name              | Description              |
-| ---- | ----------------- | ------------------------ |
-| 0    | OK                | Success                  |
-| 1    | CANCELED          | Operation canceled       |
-| 2    | UNKNOWN           | Unknown error            |
-| 3    | INVALID_ARGUMENT  | Invalid input            |
-| 5    | NOT_FOUND         | Resource not found       |
-| 7    | PERMISSION_DENIED | Insufficient permissions |
-| 13   | INTERNAL          | Internal server error    |
-| 16   | UNAUTHENTICATED   | Authentication required  |
+| Code | Name | Description |
+|------|------|-------------|
+| 0 | OK | Operation succeeded (no error) |
+| 1 | CANCELED | Operation was canceled, typically by the caller |
+| 2 | UNKNOWN | Operation failed for an unknown reason |
+| 3 | INVALID_ARGUMENT | Client supplied an invalid argument |
+| 4 | DEADLINE_EXCEEDED | Deadline expired before the operation could complete |
+| 5 | NOT_FOUND | Requested entity (e.g., file, resource) was not found |
+| 6 | ALREADY_EXISTS | Entity that client attempted to create already exists |
+| 7 | PERMISSION_DENIED | Caller doesn't have permission to execute the operation |
+| 8 | RESOURCE_EXHAUSTED | Some resource has been exhausted (e.g., quota, disk space) |
+| 9 | FAILED_PRECONDITION | System is not in a state required for operation's execution |
+| 10 | ABORTED | Operation aborted due to concurrency issue (e.g., transaction abort) |
+| 11 | OUT_OF_RANGE | Operation attempted past the valid range (e.g., seek past EOF) |
+| 12 | UNIMPLEMENTED | Operation isn't implemented, supported, or enabled |
+| 13 | INTERNAL | Internal error - some invariants expected by the system have been broken |
+| 14 | UNAVAILABLE | Service is currently unavailable (usually temporary) |
+| 15 | DATA_LOSS | Unrecoverable data loss or corruption |
+| 16 | UNAUTHENTICATED | Request does not have valid authentication credentials |
 
 ## Audited Events
 
