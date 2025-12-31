@@ -2,119 +2,361 @@
 title: Audit Log
 ---
 
-**Workspace Admin** or **DBA** can view the audit logs of the workspace.
+Audit logging tracks all configuration changes and data operations within your Bytebase workspace. These logs help you identify who performed what action, when it occurred, and what resources were affected. This enables compliance monitoring, security analysis, and troubleshooting.
+
+<Info>
+Audit logging is available only for **Pro** and **Enterprise** plans.
+</Info>
+
+## Accessing Audit Logs
+
+### GUI
+
+**Workspace Admin** or **DBA** can access audit logs through the Bytebase console:
+
+1. Navigate to the **Settings** page
+2. Select **Audit Log** from the sidebar
+3. View the chronological list of all audit events
 
 ![overview](/content/docs/security/audit-log/overview.webp)
 
-## Filter audit logs
+You can filter audit logs by:
 
-You can filter the audit logs by different conditions.
+- User
+- Action type
+- Resource
+- Time range
 
 ![filter](/content/docs/security/audit-log/filter.webp)
 
-You can also specify a time range.
-
 ![filter-date](/content/docs/security/audit-log/filter-date.webp)
 
-## Export audit logs
+### API
+
+Use the Bytebase API to programmatically access audit logs for integration with external systems and automated monitoring.
 
 <Tip>
-
-If you want to export the audit logs to an external system such as S3, refer [Audit Log API](/integrations/api/audit-log/).
-
+For detailed API documentation and examples, see [Audit Log API](/integrations/api/audit-log/).
 </Tip>
 
-You can also export the audit logs.
+### Streaming
 
-![filter-date](/content/docs/security/audit-log/filter-date.webp)
+Stream audit logs to external logging and monitoring systems for centralized management. It supports JSON format output in addition to the default text format.
 
-## Stream audit logs to external systems
+1. Navigate to **Settings** → **General** → **Audit Log Export**
+1. Enable **Enable audit logging to stdout**
+1. Save the configuration
 
-Bytebase can stream audit logs to **stdout** for collection by external logging and monitoring systems.
+Once enabled, all audit events stream to stdout of your Bytebase service.
 
-### Configuration
+To enable **JSON format output**, start Bytebase with the `--enable-json-logging` flag:
 
-1. Navigate to **Settings** → **General** → **Audit Log Export**.
-2. Enable **Enable audit logging to stdout**.
-
-Once enabled, audit events stream to the standard output of your Bytebase service.
-
-### Output format
-
-By default, audit logs are output as key-value pairs. To enable JSON format for easier parsing by log aggregators, start Bytebase with one of these flags:
-
-- `--enable-json-logging` - Outputs all logs in JSON format (you still need to enable the audit log export in the settings)
-
-**Docker example with JSON format:**
 ```bash
 docker run --rm --init \
   --name bytebase \
   --publish 8080:8080 --pull always \
   --volume ~/.bytebase/data:/var/opt/bytebase \
   bytebase/bytebase:latest \
-  --port 8080 --data /var/opt/bytebase --enable-json-logging
+  --enable-json-logging
 ```
 
-<Note>
-While using the `--enable-json-logging` flag, you need to specify the port and data directory.
-</Note>
+Supported integrations:
 
-### Example output
+- **SIEM Platforms**: e.g., Splunk, Datadog, Elastic Security
+- **Log Aggregators**: e.g., Fluentd, Logstash, Grafana Loki
+- **Cloud Services**: e.g., AWS CloudWatch, Google Cloud Logging, Azure Monitor
 
-**Default format (key-value pairs):**
-```
-time=2025-12-10T15:55:21.729Z level=INFO source=v1/audit.go:274 
-msg=/bytebase.v1.ProjectService/SetIamPolicy log_type=audit 
-parent=projects/project-sample method=/bytebase.v1.ProjectService/SetIamPolicy 
-resource=projects/project-sample user=users/101 latency_ms=7 
-client_ip=192.168.65.1:51907 user_agent="Mozilla/5.0..." severity=INFO
-```
+## Log Structure
 
-**With JSON format enabled:**
+### Example Entry
+
 ```json
 {
-  "time": "2025-12-10T15:55:21.729Z",
-  "level": "INFO",
-  "source": "v1/audit.go:274",
-  "msg": "/bytebase.v1.ProjectService/SetIamPolicy",
-  "log_type": "audit",
-  "parent": "projects/project-sample",
-  "method": "/bytebase.v1.ProjectService/SetIamPolicy",
-  "resource": "projects/project-sample",
-  "user": "users/101",
-  "latency_ms": 7,
-  "client_ip": "192.168.65.1:51907",
-  "user_agent": "Mozilla/5.0...",
-  "severity": "INFO"
+  "parent": "projects/sample-project",
+  "method": "/bytebase.v1.SQLService/Query",
+  "resource": "instances/prod-postgres/databases/mydb",
+  "user": "users/developer@example.com",
+  "severity": "INFO",
+  "request": "{\"name\":\"instances/prod-postgres/databases/mydb\",\"statement\":\"SELECT * FROM users LIMIT 10\",\"limit\":100}",
+  "response": "{\"results\":[{\"columnNames\":[\"id\",\"name\"],\"columnTypeNames\":[\"int4\",\"text\"],\"rowsCount\":10}]}",
+  "status": { "code": 0 },
+  "latency": { "seconds": 0, "nanos": 125000000 },
+  "requestMetadata": {
+    "callerIp": "192.168.1.100",
+    "callerSuppliedUserAgent": "Mozilla/5.0 Chrome/120.0"
+  }
 }
 ```
 
-### Integration
+### Payload Fields
 
-When running Bytebase in Docker or Kubernetes, audit logs automatically appear in container logs and can be collected by your existing logging infrastructure:
+| Field             | Type   | Description                                                                    |
+| ----------------- | ------ | ------------------------------------------------------------------------------ |
+| `parent`          | string | Scope of the audit log. Format: `projects/{project}` or `workspaces/{workspace}` |
+| `method`          | string | Full API method name. Example: `/bytebase.v1.SQLService/Query`                 |
+| `resource`        | string | The primary resource being acted upon                                          |
+| `user`            | string | User who performed the action. Format: `users/{email}`                         |
+| `severity`        | string | Log severity level                                                             |
+| `request`         | string | JSON-serialized request payload (sensitive fields redacted)                    |
+| `response`        | string | JSON-serialized response payload (sensitive fields redacted)                   |
+| `status`          | object | gRPC status with `code` and `message` fields                                   |
+| `latency`         | object | Operation duration with `seconds` and `nanos` fields                           |
+| `serviceData`     | object | Service-specific metadata (e.g., IAM policy changes)                           |
+| `requestMetadata` | object | Client information including `callerIp` and `callerSuppliedUserAgent`          |
 
-- **Docker**: Access via `docker logs` or configure Docker logging drivers
-- **Kubernetes**: Collected by cluster logging systems (Fluentd, Fluent Bit)
-- **Cloud platforms**: Stream to CloudWatch (AWS), Cloud Logging (GCP), or Azure Monitor
+### Severity Levels
 
-### Supported systems
+| Level                  | Value | Description                          |
+| ---------------------- | ----- | ------------------------------------ |
+| `SEVERITY_UNSPECIFIED` | 0     | Unspecified                          |
+| `DEBUG`                | 1     | Debug-level information              |
+| `INFO`                 | 2     | Informational messages (default)     |
+| `NOTICE`               | 3     | Notable events                       |
+| `WARNING`              | 4     | Warning conditions                   |
+| `ERROR`                | 5     | Error conditions                     |
+| `CRITICAL`             | 6     | Critical conditions                  |
+| `ALERT`                | 7     | Action must be taken immediately     |
+| `EMERGENCY`            | 8     | System is unusable                   |
 
-The stdout logs can be ingested by any log collection system, including:
+### Status Codes
 
-- **SIEM platforms**: Splunk, Datadog, Elastic, Sumo Logic, Panther
-- **Log aggregators**: Fluentd, Logstash, Vector, Loki
-- **Cloud logging**: AWS CloudWatch, GCP Logging, Azure Monitor
+Status codes follow [gRPC conventions](https://grpc.io/docs/guides/status-codes/):
+
+| Code | Name | Description |
+|------|------|-------------|
+| 0 | OK | Operation succeeded (no error) |
+| 1 | CANCELED | Operation was canceled, typically by the caller |
+| 2 | UNKNOWN | Operation failed for an unknown reason |
+| 3 | INVALID_ARGUMENT | Client supplied an invalid argument |
+| 4 | DEADLINE_EXCEEDED | Deadline expired before the operation could complete |
+| 5 | NOT_FOUND | Requested entity (e.g., file, resource) was not found |
+| 6 | ALREADY_EXISTS | Entity that client attempted to create already exists |
+| 7 | PERMISSION_DENIED | Caller doesn't have permission to execute the operation |
+| 8 | RESOURCE_EXHAUSTED | Some resource has been exhausted (e.g., quota, disk space) |
+| 9 | FAILED_PRECONDITION | System is not in a state required for operation's execution |
+| 10 | ABORTED | Operation aborted due to concurrency issue (e.g., transaction abort) |
+| 11 | OUT_OF_RANGE | Operation attempted past the valid range (e.g., seek past EOF) |
+| 12 | UNIMPLEMENTED | Operation isn't implemented, supported, or enabled |
+| 13 | INTERNAL | Internal error - some invariants expected by the system have been broken |
+| 14 | UNAVAILABLE | Service is currently unavailable (usually temporary) |
+| 15 | DATA_LOSS | Unrecoverable data loss or corruption |
+| 16 | UNAUTHENTICATED | Request does not have valid authentication credentials |
+
+## Audited Events
+
+<AccordionGroup>
+<Accordion title="Authentication">
+
+| Event          | Method                                    | Description                                          |
+| -------------- | ----------------------------------------- | ---------------------------------------------------- |
+| User Login     | `/bytebase.v1.AuthService/Login`          | User authentication (password, SSO, MFA)             |
+| User Logout    | `/bytebase.v1.AuthService/Logout`         | User session termination                             |
+| Token Exchange | `/bytebase.v1.AuthService/ExchangeToken`  | Workload Identity token exchange for CI/CD pipelines |
+
+**Notes:**
+
+- Sensitive fields redacted: `password`, `otpCode`, `recoveryCode`, `mfaTempToken`, `idpContext`
+- MFA phase logs extract user email from MFA temp token when email is not in request
+
+</Accordion>
+<Accordion title="User Management">
+
+| Event        | Method                                  | Description                          |
+| ------------ | --------------------------------------- | ------------------------------------ |
+| Create User  | `/bytebase.v1.UserService/CreateUser`   | Create new user account              |
+| Update User  | `/bytebase.v1.UserService/UpdateUser`   | Modify user settings, MFA, profile   |
+| Delete User  | `/bytebase.v1.UserService/DeleteUser`   | Soft-delete user account             |
+| Restore User | `/bytebase.v1.UserService/UndeleteUser` | Restore deleted user                 |
+| Update Email | `/bytebase.v1.UserService/UpdateEmail`  | Change user email address            |
+
+**Notes:**
+
+- User responses redacted to only include: `name`, `email`, `title`, `userType`
+
+</Accordion>
+<Accordion title="Group Management">
+
+| Event        | Method                                  | Description                      |
+| ------------ | --------------------------------------- | -------------------------------- |
+| Create Group | `/bytebase.v1.GroupService/CreateGroup` | Create user group                |
+| Update Group | `/bytebase.v1.GroupService/UpdateGroup` | Modify group membership/settings |
+| Delete Group | `/bytebase.v1.GroupService/DeleteGroup` | Delete user group                |
+
+</Accordion>
+<Accordion title="Role Management">
+
+| Event       | Method                                | Description             |
+| ----------- | ------------------------------------- | ----------------------- |
+| Create Role | `/bytebase.v1.RoleService/CreateRole` | Create custom role      |
+| Update Role | `/bytebase.v1.RoleService/UpdateRole` | Modify role permissions |
+| Delete Role | `/bytebase.v1.RoleService/DeleteRole` | Delete custom role      |
+
+</Accordion>
+<Accordion title="Identity Provider (SSO)">
+
+| Event                    | Method                                                        | Description                |
+| ------------------------ | ------------------------------------------------------------- | -------------------------- |
+| Create Identity Provider | `/bytebase.v1.IdentityProviderService/CreateIdentityProvider` | Configure new SSO provider |
+| Update Identity Provider | `/bytebase.v1.IdentityProviderService/UpdateIdentityProvider` | Modify SSO configuration   |
+| Delete Identity Provider | `/bytebase.v1.IdentityProviderService/DeleteIdentityProvider` | Remove SSO provider        |
+
+</Accordion>
+<Accordion title="Project Management">
+
+| Event                  | Method                                            | Description                       |
+| ---------------------- | ------------------------------------------------- | --------------------------------- |
+| Delete Project         | `/bytebase.v1.ProjectService/DeleteProject`       | Soft-delete project               |
+| Restore Project        | `/bytebase.v1.ProjectService/UndeleteProject`     | Restore deleted project           |
+| Batch Delete Projects  | `/bytebase.v1.ProjectService/BatchDeleteProjects` | Delete multiple projects          |
+| Set Project IAM Policy | `/bytebase.v1.ProjectService/SetIamPolicy`        | Modify project member permissions |
+
+**Notes:**
+
+- IAM policy changes include `serviceData` with `PolicyDelta` showing added/removed bindings
+
+</Accordion>
+<Accordion title="Workspace IAM">
+
+| Event                    | Method                                       | Description                        |
+| ------------------------ | -------------------------------------------- | ---------------------------------- |
+| Set Workspace IAM Policy | `/bytebase.v1.WorkspaceService/SetIamPolicy` | Modify workspace-level permissions |
+
+**Notes:**
+
+- Includes `serviceData` with `PolicyDelta` showing added/removed bindings
+
+</Accordion>
+<Accordion title="Instance Management">
+
+| Event                  | Method                                              | Description                    |
+| ---------------------- | --------------------------------------------------- | ------------------------------ |
+| Create Instance        | `/bytebase.v1.InstanceService/CreateInstance`       | Register new database instance |
+| Update Instance        | `/bytebase.v1.InstanceService/UpdateInstance`       | Modify instance configuration  |
+| Delete Instance        | `/bytebase.v1.InstanceService/DeleteInstance`       | Soft-delete instance           |
+| Restore Instance       | `/bytebase.v1.InstanceService/UndeleteInstance`     | Restore deleted instance       |
+| Batch Update Instances | `/bytebase.v1.InstanceService/BatchUpdateInstances` | Bulk update instances          |
+| Add Data Source        | `/bytebase.v1.InstanceService/AddDataSource`        | Add connection to instance     |
+| Update Data Source     | `/bytebase.v1.InstanceService/UpdateDataSource`     | Modify connection settings     |
+| Remove Data Source     | `/bytebase.v1.InstanceService/RemoveDataSource`     | Remove connection              |
+
+**Notes:**
+
+- DataSource sensitive fields redacted: `password`, `sslCa`, `sslCert`, `sslKey`, `sshPassword`, `sshPrivateKey`, `authenticationPrivateKey`, `externalSecret`, `saslConfig.krbConfig.keytab`, `masterPassword`
+
+</Accordion>
+<Accordion title="Database Management">
+
+| Event                   | Method                                                      | Description                          |
+| ----------------------- | ----------------------------------------------------------- | ------------------------------------ |
+| Update Database         | `/bytebase.v1.DatabaseService/UpdateDatabase`               | Modify database settings/labels      |
+| Batch Update Databases  | `/bytebase.v1.DatabaseService/BatchUpdateDatabases`         | Bulk update databases                |
+| Update Database Catalog | `/bytebase.v1.DatabaseCatalogService/UpdateDatabaseCatalog` | Modify schema catalog/classification |
+
+</Accordion>
+<Accordion title="Database Groups">
+
+| Event                 | Method                                                  | Description                   |
+| --------------------- | ------------------------------------------------------- | ----------------------------- |
+| Create Database Group | `/bytebase.v1.DatabaseGroupService/CreateDatabaseGroup` | Create logical database group |
+| Update Database Group | `/bytebase.v1.DatabaseGroupService/UpdateDatabaseGroup` | Modify database group         |
+| Delete Database Group | `/bytebase.v1.DatabaseGroupService/DeleteDatabaseGroup` | Delete database group         |
+
+</Accordion>
+<Accordion title="SQL Operations">
+
+| Event         | Method                                 | Description                                   |
+| ------------- | -------------------------------------- | --------------------------------------------- |
+| Execute Query | `/bytebase.v1.SQLService/Query`        | Execute read-only SQL query                   |
+| Admin Execute | `/bytebase.v1.SQLService/AdminExecute` | Execute SQL with admin privileges (streaming) |
+| Export Data   | `/bytebase.v1.SQLService/Export`       | Export query results to file                  |
+
+**Notes:**
+
+- Response rows completely redacted - only metadata captured: `columnNames`, `columnTypeNames`, `rowsCount`, `error`, `latency`, `statement`
+- Each request/response pair in streaming operations generates a separate audit log
+- Export request `password` field redacted; response `content` not logged
+
+</Accordion>
+<Accordion title="Issue Management">
+
+| Event                      | Method                                              | Description            |
+| -------------------------- | --------------------------------------------------- | ---------------------- |
+| Create Issue               | `/bytebase.v1.IssueService/CreateIssue`             | Create change request  |
+| Update Issue               | `/bytebase.v1.IssueService/UpdateIssue`             | Modify issue details   |
+| Create Issue Comment       | `/bytebase.v1.IssueService/CreateIssueComment`      | Add comment to issue   |
+| Update Issue Comment       | `/bytebase.v1.IssueService/UpdateIssueComment`      | Modify issue comment   |
+| Batch Update Issues Status | `/bytebase.v1.IssueService/BatchUpdateIssuesStatus` | Bulk status change     |
+| Approve Issue              | `/bytebase.v1.IssueService/ApproveIssue`            | Approve change request |
+| Reject Issue               | `/bytebase.v1.IssueService/RejectIssue`             | Reject change request  |
+| Request Issue              | `/bytebase.v1.IssueService/RequestIssue`            | Re-request approval    |
+
+</Accordion>
+<Accordion title="Plan & Rollout">
+
+| Event            | Method                                            | Description               |
+| ---------------- | ------------------------------------------------- | ------------------------- |
+| Create Plan      | `/bytebase.v1.PlanService/CreatePlan`             | Create deployment plan    |
+| Update Plan      | `/bytebase.v1.PlanService/UpdatePlan`             | Modify deployment plan    |
+| Create Rollout   | `/bytebase.v1.RolloutService/CreateRollout`       | Create deployment rollout |
+| Run Tasks        | `/bytebase.v1.RolloutService/BatchRunTasks`       | Execute deployment tasks  |
+| Skip Tasks       | `/bytebase.v1.RolloutService/BatchSkipTasks`      | Skip deployment tasks     |
+| Cancel Task Runs | `/bytebase.v1.RolloutService/BatchCancelTaskRuns` | Cancel running tasks      |
+
+</Accordion>
+<Accordion title="Policy & Settings">
+
+| Event          | Method                                       | Description                  |
+| -------------- | -------------------------------------------- | ---------------------------- |
+| Create Policy  | `/bytebase.v1.OrgPolicyService/CreatePolicy` | Create organizational policy |
+| Update Policy  | `/bytebase.v1.OrgPolicyService/UpdatePolicy` | Modify policy settings       |
+| Delete Policy  | `/bytebase.v1.OrgPolicyService/DeletePolicy` | Remove policy                |
+| Update Setting | `/bytebase.v1.SettingService/UpdateSetting`  | Modify system settings       |
+
+</Accordion>
+</AccordionGroup>
+
+## Events Not Logged
+
+| Category                    | Operations                                                                  | Reason                                               |
+| --------------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------- |
+| **Read-Only Operations**    | All `Get*`, `List*`, `Search*` methods, `GetIamPolicy`                      | Low security impact - viewing data doesn't modify state |
+| **High-Frequency Operations** | `AuthService/Refresh`, `BatchSyncInstances`, Actuator health checks        | Too frequent, would create excessive log volume      |
+| **Validate-Only Requests**  | Any request with `validate_only = true`                                     | Dry-run operations that don't modify state           |
+| **Utility Services**        | `CELService/*`, `SQLService/AICompletion`, `SQLService/DiffMetadata`        | Utility functions with no security implications      |
+| **Review & Sheet Operations** | `ReviewConfigService/*`, `SheetService/*`, `WorksheetService/*`            | Lower security impact configuration                  |
+| **Release & Revision**      | `ReleaseService/*`, `RevisionService/*`                                     | Schema tracking operations                           |
+| **Instance Role Operations** | `InstanceRoleService/*`                                                    | Database role management                             |
 
 ## Retention
 
-Bytebase does not purge the audit logs. If you want to purge the audit logs, please locate the
-`audit_log` table in the metadata database and delete manually.
+<Warning>
+Bytebase does not automatically purge audit logs. You must implement periodic cleanup to prevent disk space exhaustion, which can cause Bytebase to crash.
+</Warning>
 
-![audit-log-table](/content/docs/security/audit-log/audit-log-table.webp)
+Audit logs are stored in the `audit_log` table in the Bytebase metadata database.
 
-```sql
+**Recommended retention periods:**
 
-DELETE FROM public.audit_log
-WHERE created_ts < EXTRACT(EPOCH FROM NOW() - INTERVAL '3 months');
+- **Minimum**: 90 days
+- **Compliance environments**: 6–12 months
 
-```
+**Cleanup options:**
+
+- Manually delete old logs from the `audit_log` table
+- Set up a scheduled job using `pg_cron` or system cron
+- Export logs to external log management or SIEM systems for longer-term retention
+
+## Limitations
+
+### Privacy and Security
+
+- **Query results excluded**: Actual row data from queries is redacted
+- **Sensitive data masking**: Passwords, API keys, SSL certificates, SSH keys automatically replaced with masked values
+- **Response truncation**: Large response payloads may be omitted
+
+### Technical Constraints
+
+- **Synchronous generation**: Audit logs are generated during request processing
+- **Pagination limit**: Maximum 5,000 entries per API call
+- **Filter complexity**: Searches must use valid CEL expressions
+- **Storage**: Logs stored in metadata database, following its retention policies
