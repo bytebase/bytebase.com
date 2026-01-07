@@ -4,20 +4,9 @@ title: Approval
 
 <Card title="Tutorial: Database Change with Risk-Based Approval Flow" icon="graduation-cap" href="/tutorials/database-change-management-with-risk-adjusted-approval-flow" horizontal />
 
-<br />
-
-<iframe width="675" height="380" src="https://www.youtube.com/embed/K_RWlqdplZQ" title="YouTube video player" className="w-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowFullScreen"></iframe>
-
 ## Overview
 
-Custom Approval enables organizations to implement multi-stage approval workflows for database changes based on their risk levels. This ensures that potentially impactful changes receive appropriate review before deployment.
-
-### Key Features
-
-- **Risk-based routing**: Different approval flows for different risk levels
-- **Multi-stage approvals**: Chain multiple approval nodes in sequence
-- **Role-based authorization**: Leverage built-in or custom roles for approvals
-- **Flexible configuration**: Skip approvals for low-risk changes or require multiple approvers for critical ones
+Custom Approval enables organizations to define flexible approval workflows for database changes. Configure approval rules based on conditions like operation types, affected rows, environments, and databases, with automatic risk assessment providing objective impact analysis.
 
 <Tip>
 **Workflow Compatibility:**
@@ -25,59 +14,215 @@ Custom Approval enables organizations to implement multi-stage approval workflow
 - **GitOps Workflow**: For GitOps, configure approvals in your VCS (GitHub/GitLab/Bitbucket) PR/MR process instead
 </Tip>
 
-## How Approval Works
+## How It Works
 
-### The Approval Process
+### Workflow Process
 
-1. **Risk Assessment**: When a database change is created, Bytebase evaluates its risk level
-2. **Flow Assignment**: Based on the risk level, the appropriate approval flow is triggered
-3. **Sequential Approval**: Approvers review and approve each node in order
-4. **Rollout**: After all approvals, changes proceed to deployment
+1. **Submit Change**: User submits a database change (DDL/DML)
+2. **Risk Assessment**: System automatically evaluates the change against the built-in Risk Assessment Module
+3. **Impact Analysis**: Generates a Risk Level (High/Medium/Low) and Impact Summary (e.g., "Potential Data Loss", "Long Downtime")
+4. **Rule Matching**: Approval rules are evaluated in order, first matching rule determines approvers
+5. **Approval**: Required approvers review the change with risk and impact information
+6. **Deployment**: After approval, changes proceed to rollout
 
-### Understanding Risk Levels
-
-Bytebase categorizes database changes into risk levels based on:
-- Operation type (DDL vs DML)
-- Affected data volume
-- Target environment
-- Custom risk rules
+### Rule Evaluation
 
 <Info>
-Learn more about configuring risk levels in [Risks](/administration/risks) to fine-tune how changes are categorized and routed for approval.
+**Important**: Rules are evaluated in order and stop on the first match. Order your rules from most specific to most general, always ending with a fallback rule.
 </Info>
 
-## Configuration Guide
+## Risk Assessment Module
 
-### Step 1: Design Your Approval Flows
+### Built-in Risk Assessment
 
-Navigate to **Settings > Custom Approval > Approval Flows**
+Bytebase includes a transparent, standardized Risk Assessment Module that automatically evaluates changes:
 
-#### Creating an Approval Flow
+**Risk Levels:**
+- **High**: Destructive operations (DROP TABLE, TRUNCATE) or large-scale data modifications
+- **Medium**: Standard DDL changes like adding columns or creating indexes
+- **Low**: SELECT queries and minor schema changes
 
-1. Click **Create** to add a new flow
-2. Name your flow descriptively (e.g., "Production DDL Review")
-3. Add approval nodes:
-   - Each node represents one approval stage
-   - Specify the required role for each node (built-in or [custom role](/administration/roles))
-   - Nodes execute in the order you define
+**Impact Detection:**
+- Potential data loss
+- Extended downtime
+- Non-backward compatible schema changes
+- Large row modifications
+- Compliance implications
 
-![Approval Flow](/content/docs/administration/custom-approval/edit-approval-flow.webp)
+<Note>
+The Risk Assessment Module provides objective, best-practice evaluations. Risk levels and impacts are shown to help approvers make informed decisions but don't directly control routing—your custom approval rules determine the workflow.
+</Note>
 
-### Step 2: Map Flows to Risk Levels
+### Risk Center Configuration
 
-Navigate to **Settings > Custom Approval > Rules**
+Navigate to **CI/CD** > **Risk Center** to view the Risk Assessment Module:
 
-1. For each risk level (Low, Moderate, High), select:
-   - An approval flow to enforce
-   - Or "Skip manual approval" for automated processing
-2. Save your configuration
+- **Toggle State**: Enable/disable risk assessment
+  - **ON**: Changes are automatically labeled with risk levels and impacts
+  - **OFF**: Risk labeling is hidden and risk-based conditions are disabled
+- **Transparency**: View the assessment rules (read-only in current version)
+  - See mappings of operations to risk levels
+  - Understand impact detection logic
 
-### Step 3: Configure Project Settings
+<Info>
+Future versions will support customizable Risk Assessment Modules and integration with external tools.
+</Info>
 
-In your project settings, consider:
+## Creating Approval Rules
 
-- **Self-approval**: By default, users cannot approve their own changes. [Enable self-approval](/change-database/settings#self-approval) only if your process allows it
-- **Rollout Policy**: Configure rollout requirements and permissions via [rollout policy](/change-database/environment-policy/rollout-policy/), including:
-  - Whether issue approval is required before rollout
-  - How plan checks should be enforced (block on errors only, errors and warnings, or allow rollout regardless)
-  - Whether changes deploy automatically or require manual trigger
+Navigate to **CI/CD** > **Custom Approval** to manage your approval rules.
+
+### Add Rule
+
+Click **+ Add rule** to create a new approval rule. Choose from presets or build custom rules:
+
+**Presets Available:**
+- **Drop/Truncate Table**: High-risk destructive operations
+- **High Affected Rows**: Large data modifications
+- **Fallback Rule**: Default approval for unmatched conditions
+
+### Configure Rule Components
+
+#### 1. Basic Information
+- **Title**: Descriptive name (e.g., "Production High-Risk DDL")
+- **Description**: Document the rule's purpose and scope
+
+#### 2. Conditions
+
+Build conditions using the visual editor or CEL expressions:
+
+**Condition Builder Options:**
+- **Add condition**: Simple field comparisons
+- **Add condition group**: Combine conditions with AND/OR logic
+- **Add raw expression**: Write custom CEL expressions
+
+**Available Condition Fields:**
+
+```cel
+// Operation-based
+statement.sql_type        // DROP_TABLE, TRUNCATE, ALTER_TABLE, etc.
+statement.affected_rows   // Number of rows affected
+
+// Environment & Database
+environment              // prod, staging, dev
+database                 // Database name
+resource.db_engine      // MYSQL, POSTGRES, etc.
+resource.table_name     // Affected table names
+
+// Risk-based (when Risk Assessment is enabled)
+risk.level              // HIGH, MEDIUM, LOW
+risk.impacts            // Array of detected impacts
+```
+
+**Example Conditions:**
+
+```cel
+// High-risk production operations
+environment == "prod" && statement.sql_type in ["DROP_TABLE", "TRUNCATE"]
+
+// Large data modifications
+statement.affected_rows > 100000
+
+// Risk-based routing (when enabled)
+risk.level == "HIGH" && environment == "prod"
+
+// Combined complex conditions
+database.startsWith("customer_") && (
+  statement.sql_type == "DROP_TABLE" || 
+  statement.affected_rows > 10000
+)
+```
+
+#### 3. Approval Nodes
+
+Configure the approval chain:
+- **Order**: Sequential stages (1, 2, 3...)
+- **Approver Role**: 
+  - Project Owner
+  - Workspace DBA
+  - Workspace Admin
+  - Custom roles
+- **Logic**: When multiple users have the role, only one approval is required
+
+### Managing Rules
+
+Rules are organized by operation category:
+
+- **Change Database**: Schema and data modifications
+- **Create Database**: New database creation
+- **Export Data**: Data export operations
+- **Request Role**: Permission requests
+- **Fallback Rules**: Default rules for unmatched conditions
+
+**Operations:**
+- Edit conditions or approvers
+- Delete rules
+- Reorder by dragging (remember: first match wins)
+
+## Best Practices
+
+### Rule Design Strategy
+
+1. **Use presets as templates**: Start with built-in best practices
+2. **Order matters**: Most specific rules first, fallback last
+3. **Leverage risk assessment**: Use risk levels and impacts for informed routing
+4. **Test thoroughly**: Verify rules trigger correctly before production
+
+### Common Patterns
+
+**Risk-Based Approval:**
+```cel
+// High-risk changes need DBA approval
+risk.level == "HIGH"  // → Workspace DBA
+
+// Medium risk in production needs two approvals
+risk.level == "MEDIUM" && environment == "prod"  // → Project Owner → Workspace DBA
+
+// Low risk can auto-approve or minimal review
+risk.level == "LOW"  // → Project Owner or auto-approve
+```
+
+**Environment-Based Patterns:**
+```cel
+// Production always needs review
+environment == "prod"  // → Project Owner → Workspace DBA
+
+// Staging lighter review
+environment == "staging"  // → Project Owner
+
+// Development minimal or skip
+environment == "dev"  // → Auto-approve
+```
+
+**Operation-Specific Patterns:**
+```cel
+// Destructive operations
+statement.sql_type in ["DROP_TABLE", "TRUNCATE"]  // → Workspace DBA → Project Owner
+
+// Large data changes
+statement.affected_rows > 100000  // → Project Owner → Workspace DBA
+
+// Schema modifications
+statement.sql_type in ["ALTER_TABLE", "CREATE_INDEX"]  // → Project Owner
+```
+
+## Migration Notes
+
+### From Previous Version
+
+**UI Configurations:**
+- Automatically migrated to new condition-based rules
+- Previous risk mappings converted to direct conditions
+- Review and reorder rules after migration
+
+**Terraform Configurations:**
+- Breaking change requiring manual updates
+- Replace risk mapping logic with direct condition fields
+- See Terraform provider documentation for migration guide
+
+## Related Configuration
+
+- **[Risk Center](/administration/risks)**: View and configure Risk Assessment Module
+- **[Self-approval](/change-database/settings#self-approval)**: Control whether users can approve their own changes
+- **[Rollout Policy](/change-database/environment-policy/rollout-policy/)**: Configure deployment requirements and automation
+- **[Custom Roles](/administration/roles)**: Create specialized roles for approval workflows
