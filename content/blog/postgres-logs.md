@@ -82,7 +82,7 @@ Useful for debugging, but very noisy if left on permanently.
 
 Controls which statements are logged.
 
-Values include `none`,`ddl`,`mod` and `all`.
+Values include `none`, `ddl`, `mod` and `all`.
 
 ```conf
 log_statement = none
