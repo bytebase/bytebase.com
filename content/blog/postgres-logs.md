@@ -7,9 +7,9 @@ tags: Explanation
 description: A guide to Postgres logs in production.
 ---
 
-Logs are one of the most important — and most misunderstood — parts of running **Postgres** in production. When configured well, Postgres logs help you debug incidents, understand performance issues, and gain visibility into database behavior. When configured poorly, they create noise, increase load, and still fail to answer the questions you care about.
+Logs are one of the most important, and most misunderstood parts of running **Postgres** in production. When configured well, Postgres logs help you debug incidents, understand performance issues, and gain visibility into database behavior. When configured poorly, they create noise, increase load, and still fail to answer the questions you care about.
 
-This guide explains **what Postgres logs are, how logging works, which settings matter most, and how to use logs effectively in real systems** — without overcomplicating things.
+This guide explains **what Postgres logs are, how logging works, which settings matter most, and how to use logs effectively in real systems**, without overcomplicating things.
 
 ---
 
@@ -44,7 +44,7 @@ Key points to know:
 - Log rotation can be based on time or file size
 - Retention is your responsibility — Postgres does not manage it automatically
 
-### Common log formats
+#### Common log formats
 
 - **Plain text logs**
   Easy to read, harder to parse at scale.
@@ -82,12 +82,7 @@ Useful for debugging, but very noisy if left on permanently.
 
 Controls which statements are logged.
 
-Values include:
-
-- `none`
-- `ddl`
-- `mod`
-- `all`
+Values include `none`,`ddl`,`mod` and `all`.
 
 ```conf
 log_statement = none
@@ -99,11 +94,7 @@ Setting `log_statement = all` in production is rarely a good idea — it generat
 
 Connection-related logs help diagnose spikes, leaks, and unexpected traffic.
 
-Key settings:
-
-- `log_connections`
-- `log_disconnections`
-- `log_hostname`
+Key settings are `log_connections`, `log_disconnections` and `log_hostname`.
 
 These are especially useful when:
 
@@ -210,7 +201,7 @@ In real systems, Postgres logs are commonly used to:
 
 They work best when paired with clear operational workflows and disciplined configuration changes.
 
-## Postgres logging best practices (quick summary)
+## Postgres logging best practices quick summary
 
 - Log slow queries, not everything
 - Always configure `log_line_prefix`
