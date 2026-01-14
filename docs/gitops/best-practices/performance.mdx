@@ -1,8 +1,8 @@
 ---
-title: Performance and Drift
+title: Performance Optimization
 ---
 
-Optimize migration performance and effectively manage schema drift in your GitOps workflow.
+Optimize migration performance in your GitOps workflow.
 
 ## Performance Optimization
 
@@ -110,133 +110,6 @@ Set expectations for production:
 -- Tested on: 2M row table
 ```
 
-## Handling Schema Drift
-
-Schema drift occurs when manual changes bypass GitOps.
-
-### Detection
-
-Bytebase drift detection identifies untracked changes:
-
-<Card title="Drift Detection" icon="triangle-alert" href="/change-database/drift-detection">
-  Detect and manage schema drift
-</Card>
-
-**How drift detection works:**
-1. Bytebase periodically scans database schema
-2. Compares with GitOps tracked schema
-3. Identifies differences (new columns, indexes, etc.)
-4. Alerts team of drift
-
-### Prevention
-
-**1. Restrict Direct Database Access**
-
-Use readonly users for most access:
-
-```sql
--- Default user: read-only
-GRANT SELECT ON ALL TABLES IN SCHEMA public TO app_user;
-
--- Special user for emergencies only
-GRANT ALL ON DATABASE app_db TO emergency_user;
-```
-
-**2. Require All Changes Through GitOps**
-
-Enforce policy through:
-- Database access controls
-- Team documentation
-- Code review requirements
-- Regular audits
-
-**3. Monitor Drift Alerts**
-
-Set up notifications:
-
-```json
-{
-  "drift_detection": {
-    "enabled": true,
-    "schedule": "0 */6 * * *",  // Every 6 hours
-    "notification": {
-      "channels": ["slack", "email"]
-    }
-  }
-}
-```
-
-**4. Regular Drift Checks**
-
-Audit schema consistency:
-- Weekly automated scans
-- Monthly manual reviews
-- After emergency changes
-
-### Resolution
-
-When drift is detected:
-
-**Option 1: Reverse the drift**
-```sql
--- Revert manual change to match GitOps state
-ALTER TABLE users DROP COLUMN unauthorized_column;
-```
-
-**Option 2: Incorporate into GitOps**
-```sql
--- Create migration reflecting the change
--- 055__add_emergency_column.sql
-ALTER TABLE users ADD COLUMN emergency_column TEXT;
-```
-
-**Decision matrix:**
-
-| Scenario | Action |
-|----------|--------|
-| Unauthorized change | Reverse immediately |
-| Emergency hotfix | Document and create migration |
-| Testing/development | Reverse in non-prod |
-| Production emergency | Incorporate, review process |
-
-### Drift Incident Response
-
-When drift occurs:
-
-1. **Detect** - Alert received
-2. **Assess** - Identify change and impact
-3. **Communicate** - Notify team
-4. **Resolve** - Reverse or incorporate
-5. **Document** - Post-incident review
-6. **Prevent** - Update processes
-
-**Incident template:**
-
-```markdown
-# Drift Incident: [Date]
-
-## Summary
-- **Detected:** 2025-01-20 14:30 UTC
-- **Database:** production-db
-- **Change:** Column `temp_fix` added to `users` table
-
-## Impact
-- No customer impact
-- Not tracked in GitOps
-
-## Root Cause
-- Emergency hotfix bypassed GitOps
-- Developer had elevated permissions
-
-## Resolution
-- Created migration 056__add_temp_fix.sql
-- Updated GitOps repository
-
-## Prevention
-- Removed elevated permissions
-- Added approval requirement for prod access
-```
-
 ## Performance Monitoring
 
 ### Track Migration Metrics
@@ -287,10 +160,6 @@ ORDER BY pg_relation_size(indexrelid) DESC;
 
   <Card title="Online Schema Migration" icon="bolt" href="/change-database/online-schema-migration-for-mysql">
     Configure gh-ost for zero-downtime changes
-  </Card>
-
-  <Card title="Drift Detection" icon="triangle-alert" href="/change-database/drift-detection">
-    Set up automated drift detection
   </Card>
 
   <Card title="GitOps Overview" icon="arrow-left" href="/gitops/overview">
