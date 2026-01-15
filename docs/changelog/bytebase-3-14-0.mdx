@@ -1,0 +1,78 @@
+---
+title: Bytebase 3.14.0 - Jan 15, 2026
+author: Adela
+updated_at: 2026/01/15 18:00:00
+description: 'Separate CI and CD phases'
+
+---
+
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
+## 🔔 Notable Changes
+
+- Redesign the database CI/CD workflow to align with industry practices (GitHub, GitLab) by clearly separating **CI (review)** and **CD (deployment)** phases:
+  - Issue page now displays plan changes directly - no more context switching between tabs
+  - Rollout is now a standalone deployment page, clearly separating review from execution
+  - Rollout UI now supports release-based tasks — showing per-file execution status, command duration, and release info in task items
+  - Rollout creation: previously rollout is created at the same time when issue is created, but now it's creation is decoupled from issue creation, with 2 creation modes: 1) automatic creation, if issue is approved AND SQL review check pass; 2) user can manually create in other cases (most common case, issue approved BUT review not passed, and there should be an action button)
+  - As a result of mode 2, project releaser might need to create rollout manually before executing rollout, so `bb.rollouts.create` permission is added to project releaser role. All custom roles for rollout initiation are advised to be assigned `bb.rollouts.create` permission. This permission only controls who can create a rollout; it does not bypass approval requirements or task execution.
+  
+- Improve permission guards and access control:
+  - Stop hiding UI elements when users lack permissions and show a no permission alert instead. Allow users to request roles directly from the UI.
+  - Allow project owners to disable the self-service role request workflow in Project Settings.
+  - Introduce more granular permission management:
+    - Add new policy permissions:
+      - `bb.policies.getMaskingRulePolicy`
+      - `bb.policies.updateMaskingRulePolicy`
+    - Add new settings permissions:
+      - `bb.settings.getEnvironment`
+      - `bb.settings.setEnvironment`
+      - `bb.settings.getWorkspaceProfile`
+      - `bb.settings.setWorkspaceProfile`
+    - Permission assignments are updated accordingly:
+      - The **Workspace Admin** and **DBA** receive all these new permissions.
+      - The **Project Owner** receives the new policy permissions.
+      - The **Workspace Member** receives `bb.settings.getEnvironment` and `bb.settings.getWorkspaceProfile`.
+  - Tighten **Workspace Members** permissions:
+    - Revoke `bb.settings.get`, `bb.settings.list`, `bb.projects.list`.
+    - If **Workspace Members** should not access the user list, create a custom role and revoke `bb.users.list` and `bb.users.get`.
+- Redesign the **Database Changelog** and **Revision** pages.
+- Remove **Schema Drift Detection** feature:
+  - Remove `drifted` field from `Database message` in `v1/database_service.proto`.
+  - Remove `drifted` filter option from `ListDatabases` API (previously supported `drifted == true` filter).
+  - Remove `dump_version` field from `ChangelogPayload` in store proto.
+- Update core APIs `CreateSheet`, `CreatePlan`, `CreateRollout`, and `CreateRelease`, please refer to the latest API documentation for updated request/response definitions.
+- Update **Project Webhook events**. Please review the [documentation](/change-database/webhook) for the current list of supported events to ensure your listeners remain compatible.
+- Remove `auto_resolve_issue` and `allow_modify_statement` from **Project Settings**.
+- Remove `maximum_connections` from **Instance Settings** and use `Parallel tasks per rollout` in **Project Settings** instead.
+- Unify `TRUNCATE_TABLE` and `TRUNCATE` into a single `TRUNCATE` statement type for **Custom Approval** CEL expressions.
+- Update **Terraform provider**:
+  - Remove `allow_modify_statement` and `auto_resolve_issue` from the project resource.
+  - Remove `auto_resolve_issue` from the workspace_profile setting resource.
+  - Remove `maximum_connections` from the instance resource.
+  - The `notification_types` in the project webhook are changed to `ISSUE_CREATED`, `ISSUE_APPROVAL_REQUESTED`, `ISSUE_SENT_BACK`, `PIPELINE_FAILED` and `PIPELINE_COMPLETED`.
+  - Support configure `allow_request_role`, `data_classification_config_id`, `enforce_sql_review`, `force_issue_labels`, `issue_labels`, `labels`, `require_issue_approval`, `require_plan_check_no_error` for the project resource.
+
+## 🚀 Features
+
+- Add **refresh token** support (previously only access tokens were supported).
+- Allow configuring **Access token duration** and **Refresh token duration** (previously the sign-in frequency setting).
+- Allow setting `No approval required` in approval rules when configured conditions are met.
+- Support [**Workload Identity** with **GitLab**](/administration/user-groups/workload-identity/github-actions).
+
+## 🎄 Enhancements
+
+- Add list sorting for projects, instances, and databases.
+- Grant Exemption supports CEL expressions and includes a database selector.
+- **PostgreSQL** - Support ENUM value additions via `ALTER TYPE ... ADD VALUE` in schema sync.
+- **MySQL** - Prettify generated DDL statements.
+
+## 🐞 Bug Fixes
+
+- Fix AI setting cache modification issues.
+- **PostgreSQL** – Fix cyclic foreign key dependency handling in schema diff.
+- **TiDB** – Fix DML dry run handling for BATCH syntax.
+- **PostgreSQL** – Fix using identifiers as SELECT target field aliases.
+- **Oracle** – Fix SQL Review incorrectly flagging GRANT / REVOKE as reserved keywords.
+
+<InstallUpgrade />
