@@ -21,7 +21,7 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
   
 - Improve permission guards and access control:
   <Expandable title="details" defaultOpen={false}>
-  - Stop hiding UI elements when users lack permissions and show a no permission alert instead. Allow users to request roles directly from the UI.
+  - Stop hiding UI elements when users lack permissions and show a no permission alert instead. Allow users with `bb.issues.create` permission to request Project roles directly from the UI.
   - Allow **Project Owners** to disable the self-service role request workflow in **Project Settings**.
   - Introduce more granular permission management:
     - Add new policy permissions:
@@ -66,7 +66,7 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 - Add **refresh token** support (previously only access tokens were supported).
 - Allow configuring **Access token duration** and **Refresh token duration** (previously the sign-in frequency setting).
 - Allow setting `No approval required` in approval rules when configured conditions are met.
-- Support [**Workload Identity** with **GitLab**](/administration/user-groups/workload-identity/github-actions).
+- Support [**Workload Identity** with **GitLab**](/administration/user-groups/workload-identity/gitlab-ci).
 
 ## 🎄 Enhancements
 
