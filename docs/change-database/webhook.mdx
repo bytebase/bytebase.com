@@ -8,15 +8,11 @@ User can configure project-level webhooks to let Bytebase post messages to the c
 
 ## Supported events
 
-- `Issue creation` - Post message when issue belonging to the configured project has been created.
-- `Issue status change` - Post message when the status of the issue belonging to the configured project has been changed.
-- `Issue stage status change` - Post message when issue's enclosing stage status has been changed.
-- `Issue task status change` - Post message when issue's enclosing task status has been changed.
-- `Issue info change` - Post message when issue's basic info such as assignee, title, description has been changed.
-- `Issue comment creation` - Post message when new comment added to the issue.
-- `Issue approval needed` - Post message when issue needs approval.
-- `Issue approved` - Post message when issue has been approved.
-- `Issue rollout needed` - Post message when issue needs rollout.
+- `Issue created` - Post message when a new issue has been created.
+- `Issue approval requested` - Post message when an approval request has been made.
+- `Issue sent back` - Post message when an issue has been sent back by an approver.
+- `Pipeline failed` - Post message when a pipeline has failed.
+- `Pipeline completed` - Post message when a pipeline has completed successfully.
 
 ### Direct message
 
@@ -31,9 +27,7 @@ The following events support sending direct messages/notifications to related us
 1. enabled the `Enable direct messages` option to enable this feature.
 1. configured the `IM` integration to send messages to related users.
 
-- `Issue approval needed`
-- `Issue approved`
-- `Issue rollout needed`
+- `Issue approval requested`
 
 ## Supported webhook endpoints
 
