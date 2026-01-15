@@ -33,19 +33,6 @@ While migration-based workflow is powerful and flexible, be aware of these consi
   Automatic rollback for INSERT/UPDATE/DELETE operations
 </Card>
 
-## Schema Drift Detection
-
-**Issue:** Manual changes bypass GitOps and cause drift.
-
-**Solution:**
-- Restrict direct database access
-- Enable drift detection
-- Enforce all changes through GitOps
-
-<Card title="Drift Detection" icon="triangle-alert" href="/change-database/drift-detection">
-  Detect and manage schema drift
-</Card>
-
 ## Large-Scale Deployments
 
 **Issue:** Deploying to hundreds or thousands of databases takes time.

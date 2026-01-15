@@ -120,10 +120,6 @@
                   "change-database/rollback-schema-changes"
                 ]
               },
-              {
-                "group": "Monitor",
-                "pages": ["change-database/drift-detection"]
-              }
             ]
           },
           {
@@ -159,7 +155,7 @@
                   "gitops/best-practices/migration-guidelines",
                   "gitops/best-practices/git-and-cicd",
                   "gitops/best-practices/sql-review-and-security",
-                  "gitops/best-practices/performance-and-drift"
+                  "gitops/best-practices/performance"
                 ]
               },
               {
