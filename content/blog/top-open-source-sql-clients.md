@@ -1,11 +1,11 @@
 ---
-title: Top 7 Free, Open Source SQL Clients to Make Database Management Easier 2025
+title: Top 7 Free, Open Source SQL Clients to Make Database Management Easier 2026
 author: Mila
-updated_at: 2025/08/27 10:00:00
-feature_image: /content/blog/top-open-source-sql-clients/banner.webp
+updated_at: 2026/01/14 10:00:00
+feature_image: /content/blog/top-open-source-sql-clients/cover.webp
 tags: Industry
 featured: true
-description: A comprehensive guide to the top free and open-source SQL clients in 2025, including DBeaver, Beekeeper Studio, DbGate, HeidiSQL, phpMyAdmin, pgAdmin, and Bytebase. Compare features, database support, and capabilities to find the best SQL client for your needs.
+description: A comprehensive guide to the top free and open-source SQL clients in 2026, including DBeaver, Beekeeper Studio, DbGate, HeidiSQL, phpMyAdmin, pgAdmin, and Bytebase. Compare features, database support, and capabilities to find the best SQL client for your needs.
 ---
 
 <HintBlock type="info">
