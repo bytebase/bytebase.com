@@ -1,7 +1,7 @@
 ---
 title: Top Open-Source Postgres Backup Solutions in 2026
 author: Adela
-updated_at: 2026/01/08 18:15:26
+updated_at: 2026/01/15 18:15:26
 feature_image: /content/blog/top-open-source-postgres-backup-solution/cover.webp
 tags: Industry
 description: Top open-source Postgres backup solutions for 2026.
@@ -66,26 +66,26 @@ pgBackWeb provides a user-friendly web dashboard on top of pgBackRest. It enable
 ## Databasus
 
 - **GitHub:** https://github.com/databasus/databasus
-- **Language:** Go + Typescript (React)
+- **Language:** Go + TypeScript
 - **Maintainer:** Community
 - **License:** Apache 2.0
 - **Interface:** Web UI
-- **Supported Databases:** PostgreSQL, MySQL, MongoDB
-- **Best For:** Lightweight or developer environments needing simple scheduled backups
+- **Supported Databases:** PostgreSQL, MySQL, MariaDB, MongoDB
+- **Best For:** Teams needing a self-hosted, web-based backup management solution
 
-Databasus (rebranded from Postgresus) focuses on simplicity and automation. It’s easy to set up and use, providing regular scheduled backups with minimal configuration — best suited for staging, QA, or developer environments.
+Databasus (rebranded from Postgresus) is a self-hosted database backup management tool with a modern web UI. It offers flexible scheduling (hourly, daily, weekly, monthly, or cron), multiple storage destinations (S3, Google Drive, NAS, SFTP), AES-256-GCM encryption, and team features like role-based access control and audit logging. Notifications are supported via email, Telegram, Slack, Discord, and webhooks.
 
 ![databasus](/content/blog/top-open-source-postgres-backup-solution/databasus.webp)
 
 ## Comparison Table
 
-| Tool           | Language                | License    | Interface | Multi-DB Support | Cloud Storage       |
-| -------------- | ----------------------- | ---------- | --------- | ---------------- | ------------------- |
-| **WAL-G**      | Go                      | Apache 2.0 | CLI       | ✅               | ✅                  |
-| **Barman**     | Python                  | GNU GPL 3  | CLI       | ❌               | ✅                  |
-| **pgBackRest** | C                       | MIT        | CLI       | ❌               | ✅                  |
-| **pgBackWeb**  | Go + JavaScript         | AGPL-3.0   | Web UI    | ❌               | ✅ (via pgBackRest) |
-| **Databasus**  | Go + Typescript (React) | Apache 2.0 | Web UI    | ✅               | ✅                  |
+| Tool           | Language        | License    | Interface | Multi-DB Support | Cloud Storage       |
+| -------------- | --------------- | ---------- | --------- | ---------------- | ------------------- |
+| **WAL-G**      | Go              | Apache 2.0 | CLI       | ✅               | ✅                  |
+| **Barman**     | Python          | GNU GPL 3  | CLI       | ❌               | ✅                  |
+| **pgBackRest** | C               | MIT        | CLI       | ❌               | ✅                  |
+| **pgBackWeb**  | Go + JavaScript | AGPL-3.0   | Web UI    | ❌               | ✅ (via pgBackRest) |
+| **Databasus**  | Go + TypeScript | Apache 2.0 | Web UI    | ✅               | ✅                  |
 
 ## Choosing the Right Tool
 
@@ -93,6 +93,6 @@ Databasus (rebranded from Postgresus) focuses on simplicity and automation. It�
 - **Barman** — fits enterprise environments with strict compliance.
 - **pgBackRest** — the most complete solution for high-performance and cloud-integrated PostgreSQL.
 - **pgBackWeb** — ideal if you prefer a GUI for pgBackRest.
-- **Databasus** — great for lightweight automation in dev/staging.
+- **Databasus** — great for teams wanting a self-hosted web UI with multi-database support.
 
 Each project offers a unique trade-off between simplicity, scalability, and ecosystem support. Pick based on your environment’s scale, cloud strategy, and team expertise.
