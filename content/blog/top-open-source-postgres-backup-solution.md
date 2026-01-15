@@ -13,6 +13,20 @@ Below is a curated list of the top PostgreSQL backup solutions, compared across 
 
 ![star-history](/content/blog/top-open-source-postgres-backup-solution/star-history.webp)
 
+## Databasus
+
+- **GitHub:** https://github.com/databasus/databasus
+- **Language:** Go + TypeScript
+- **Maintainer:** Community
+- **License:** Apache 2.0
+- **Interface:** Web UI
+- **Supported Databases:** PostgreSQL, MySQL, MariaDB, MongoDB
+- **Best For:** Teams needing a self-hosted, web-based backup management solution
+
+Databasus (rebranded from Postgresus) is a self-hosted database backup management tool with a modern web UI. It offers flexible scheduling (hourly, daily, weekly, monthly, or cron), multiple storage destinations (S3, Google Drive, NAS, SFTP), AES-256-GCM encryption, and team features like role-based access control and audit logging. Notifications are supported via email, Telegram, Slack, Discord, and webhooks.
+
+![databasus](/content/blog/top-open-source-postgres-backup-solution/databasus.webp)
+
 ## WAL-G
 
 - **GitHub:** https://github.com/wal-g/wal-g
@@ -23,7 +37,19 @@ Below is a curated list of the top PostgreSQL backup solutions, compared across 
 - **Supported Databases:** PostgreSQL, MySQL/MariaDB, MS SQL Server, MongoDB (beta), Redis (beta)
 - **Best For:** Cloud-native and multi-database environments
 
-WAL-G is an archival and restoration tool for databases in the Cloud, the spiritual successor to [WAL-E](https://github.com/wal-g/wal-e). It’s built for performance, with parallel compression, encryption, and seamless cloud storage integration. Its multi-database support makes it ideal for teams managing mixed database stacks.
+WAL-G is an archival and restoration tool for databases in the Cloud, the spiritual successor to [WAL-E](https://github.com/wal-g/wal-e). It's built for performance, with parallel compression, encryption, and seamless cloud storage integration. Its multi-database support makes it ideal for teams managing mixed database stacks.
+
+## pgBackRest
+
+- **GitHub:** https://github.com/pgbackrest/pgbackrest
+- **Language:** C
+- **Maintainer:** Crunchy Data
+- **License:** MIT License
+- **Interface:** CLI
+- **Supported Databases:** PostgreSQL only
+- **Best For:** Mission-critical, high-performance PostgreSQL workloads
+
+pgBackRest, is designed for speed, reliability, and flexibility. It supports full, differential, and incremental backups with parallel processing, compression, encryption, and seamless cloud storage integration. Trusted by production teams worldwide, it's one of the most capable PostgreSQL backup tools for both on-premises and cloud environments.
 
 ## Barman
 
@@ -36,18 +62,6 @@ WAL-G is an archival and restoration tool for databases in the Cloud, the spirit
 - **Best For:** Enterprises requiring centralized backup management
 
 Barman (**B**ackup **A**nd **R**ecovery Manager) is an open-source administration tool for disaster recovery of PostgreSQL servers written in Python. It allows your organisation to perform remote backups of multiple servers in business critical environments to reduce risk and help DBAs during the recovery phase.
-
-## pgBackRest
-
-- **GitHub:** https://github.com/pgbackrest/pgbackrest
-- **Language:** C
-- **Maintainer:** Crunchy Data
-- **License:** MIT License
-- **Interface:** CLI
-- **Supported Databases:** PostgreSQL only
-- **Best For:** Mission-critical, high-performance PostgreSQL workloads
-
-pgBackRest, is designed for speed, reliability, and flexibility. It supports full, differential, and incremental backups with parallel processing, compression, encryption, and seamless cloud storage integration. Trusted by production teams worldwide, it’s one of the most capable PostgreSQL backup tools for both on-premises and cloud environments.
 
 ## pgBackWeb
 
@@ -63,36 +77,22 @@ pgBackWeb provides a user-friendly web dashboard on top of pgBackRest. It enable
 
 ![pgbackweb](/content/blog/top-open-source-postgres-backup-solution/pgbackweb.webp)
 
-## Databasus
-
-- **GitHub:** https://github.com/databasus/databasus
-- **Language:** Go + TypeScript
-- **Maintainer:** Community
-- **License:** Apache 2.0
-- **Interface:** Web UI
-- **Supported Databases:** PostgreSQL, MySQL, MariaDB, MongoDB
-- **Best For:** Teams needing a self-hosted, web-based backup management solution
-
-Databasus (rebranded from Postgresus) is a self-hosted database backup management tool with a modern web UI. It offers flexible scheduling (hourly, daily, weekly, monthly, or cron), multiple storage destinations (S3, Google Drive, NAS, SFTP), AES-256-GCM encryption, and team features like role-based access control and audit logging. Notifications are supported via email, Telegram, Slack, Discord, and webhooks.
-
-![databasus](/content/blog/top-open-source-postgres-backup-solution/databasus.webp)
-
 ## Comparison Table
 
 | Tool           | Language        | License    | Interface | Multi-DB Support | Cloud Storage       |
 | -------------- | --------------- | ---------- | --------- | ---------------- | ------------------- |
-| **WAL-G**      | Go              | Apache 2.0 | CLI       | ✅               | ✅                  |
-| **Barman**     | Python          | GNU GPL 3  | CLI       | ❌               | ✅                  |
-| **pgBackRest** | C               | MIT        | CLI       | ❌               | ✅                  |
-| **pgBackWeb**  | Go + JavaScript | AGPL-3.0   | Web UI    | ❌               | ✅ (via pgBackRest) |
 | **Databasus**  | Go + TypeScript | Apache 2.0 | Web UI    | ✅               | ✅                  |
+| **WAL-G**      | Go              | Apache 2.0 | CLI       | ✅               | ✅                  |
+| **pgBackRest** | C               | MIT        | CLI       | ❌               | ✅                  |
+| **Barman**     | Python          | GNU GPL 3  | CLI       | ❌               | ✅                  |
+| **pgBackWeb**  | Go + JavaScript | AGPL-3.0   | Web UI    | ❌               | ✅ (via pgBackRest) |
 
 ## Choosing the Right Tool
 
-- **WAL-G** — best for multi-database, cloud-native setups.
-- **Barman** — fits enterprise environments with strict compliance.
-- **pgBackRest** — the most complete solution for high-performance and cloud-integrated PostgreSQL.
-- **pgBackWeb** — ideal if you prefer a GUI for pgBackRest.
 - **Databasus** — great for teams wanting a self-hosted web UI with multi-database support.
+- **WAL-G** — best for multi-database, cloud-native setups.
+- **pgBackRest** — the most complete solution for high-performance and cloud-integrated PostgreSQL.
+- **Barman** — fits enterprise environments with strict compliance.
+- **pgBackWeb** — ideal if you prefer a GUI for pgBackRest.
 
 Each project offers a unique trade-off between simplicity, scalability, and ecosystem support. Pick based on your environment’s scale, cloud strategy, and team expertise.
