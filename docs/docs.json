@@ -119,7 +119,7 @@
                   "change-database/rollback-data-changes",
                   "change-database/rollback-schema-changes"
                 ]
-              },
+              }
             ]
           },
           {
@@ -297,9 +297,7 @@
           },
           {
             "group": "AI Integration",
-            "pages": [
-              "integrations/mcp"
-            ]
+            "pages": ["integrations/mcp"]
           },
           {
             "group": "3rd Party",
@@ -386,7 +384,7 @@
       },
       {
         "tab": "API Reference",
-        "openapi": "https://raw.githubusercontent.com/bytebase/bytebase/refs/heads/release/3.13.1/proto/gen/grpc-doc/openapi.yaml"
+        "href": "https://api.bytebase.com"
       },
       {
         "tab": "Changelog",
