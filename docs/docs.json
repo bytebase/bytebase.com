@@ -247,7 +247,8 @@
                 "group": "Users & Groups",
                 "pages": [
                   "administration/user-groups/overview",
-                  "administration/user-groups/workload-identity/github-actions"
+                  "administration/user-groups/workload-identity/github-actions",
+                  "administration/user-groups/workload-identity/gitlab-ci"
                 ]
               },
               "administration/roles",
