@@ -10,13 +10,13 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
 ## 🌟 Sequel to New CI/CD Experience
 
-- Redesign the database CI/CD workflow to align with industry practices (GitHub, GitLab) by clearly separating **CI (review)** and **CD (deployment)** phases:
+- Database **CI (review)** and **CD (deployment)** are 2 separated phases, aligning with industry standard CI/CD practices (GitHub, GitLab):
   <Expandable title="details" defaultOpen={false}>
-    - Issue page now displays plan changes directly - no more context switching between tabs.
-    - Rollout is now a standalone deployment page, clearly separating review from execution.
+    - **CI (review)** - issue page displays plan changes directly, no more context switching between tabs.
+    - **CD (deployment)** - rollout is now a standalone page, clearly separating review from execution.
     - Rollout UI now supports release-based tasks — showing per-file execution status, command duration, and release info in task items.
-    - Rollout creation: previously rollout is created at the same time when issue is created, but now it's creation is decoupled from issue creation, with 2 creation modes: 1) automatic creation, if issue is approved AND SQL review check pass; 2) user can manually create in other cases (most common case, issue approved BUT review not passed, and there should be an action button).
-    - As a result of mode 2, project releaser might need to create rollout manually before executing rollout, so `bb.rollouts.create` permission is added to project releaser role. All custom roles for rollout initiation are advised to be assigned `bb.rollouts.create` permission. This permission only controls who can create a rollout; it does not bypass approval requirements or task execution.
+    - Rollout creation: introduce creation dependency between issue and rollout, with 2 rollout creation modes - 1) automatic creation, if issue is approved AND SQL review check pass; 2) manual creation, in other cases, e.g. issue approved BUT review not passed.
+    - Rollout permission: as a result of introducing manual creation, `bb.rollouts.create` permission is added to **Project Releaser** role . All custom roles for rollout initiation are advised to be assigned `bb.rollouts.create` permission (it only controls who can create a rollout, but it does not bypass approval requirements or task execution).
   </Expandable>
 - Remove `auto_resolve_issue` and `allow_modify_statement` from **Project Settings**.
 - For Terraform, remove `allow_modify_statement` and `auto_resolve_issue` from the project resource, remove `auto_resolve_issue` from the workspace_profile setting resource.
