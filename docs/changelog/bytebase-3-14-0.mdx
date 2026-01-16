@@ -1,14 +1,14 @@
 ---
 title: Bytebase 3.14.0 - Jan 15, 2026
 author: Adela
-updated_at: 2026/01/15 18:00:00
-description: 'Separate CI and CD phases'
+updated_at: 2026/01/16 18:00:00
+description: 'Separate CI and CD phases and Redefine Webhook Events'
 
 ---
 
 import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
-## 🔔 Notable Changes
+## 🌟 Sequel to New CI/CD Experience
 
 - Redesign the database CI/CD workflow to align with industry practices (GitHub, GitLab) by clearly separating **CI (review)** and **CD (deployment)** phases:
   <Expandable title="details" defaultOpen={false}>
@@ -18,11 +18,20 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
     - Rollout creation: previously rollout is created at the same time when issue is created, but now it's creation is decoupled from issue creation, with 2 creation modes: 1) automatic creation, if issue is approved AND SQL review check pass; 2) user can manually create in other cases (most common case, issue approved BUT review not passed, and there should be an action button).
     - As a result of mode 2, project releaser might need to create rollout manually before executing rollout, so `bb.rollouts.create` permission is added to project releaser role. All custom roles for rollout initiation are advised to be assigned `bb.rollouts.create` permission. This permission only controls who can create a rollout; it does not bypass approval requirements or task execution.
   </Expandable>
-- Update **Project Webhook events**. Please review the [documentation](/change-database/webhook) for the current list of supported events to ensure your listeners remain compatible.
-- Improve permission guards and access control:
+- Remove `auto_resolve_issue` and `allow_modify_statement` from **Project Settings**.
+- For Terraform, remove `allow_modify_statement` and `auto_resolve_issue` from the project resource, remove `auto_resolve_issue` from the workspace_profile setting resource.
+
+## 🔔 Other Notable Changes
+
+- Update [**Project Webhook events**](/change-database/webhook#supported-events).
   <Expandable title="details" defaultOpen={false}>
-  - Stop hiding UI elements when users lack permissions and show a no permission alert instead. Allow users with `bb.issues.create` permission to request Project roles directly from the UI.
+  - For Terraform, the `notification_types` in the project webhook are changed to `ISSUE_CREATED`, `ISSUE_APPROVAL_REQUESTED`, `ISSUE_SENT_BACK`, `PIPELINE_FAILED` and `PIPELINE_COMPLETED`.
+  </Expandable>
+- Improve permission guards and access control:
+  - Stop hiding UI elements when users lack permissions and show a no permission alert instead.
+  - Allow users with `bb.issues.create` permission to request Project roles directly from the UI.
   - Allow **Project Owners** to disable the self-service role request workflow in **Project Settings**.
+  <Expandable title="details" defaultOpen={false}>
   - Introduce more granular permission management:
     - Add new policy permissions:
       - `bb.policies.getMaskingRulePolicy`
@@ -39,6 +48,7 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
   - Tighten **Workspace Members** permissions:
     - Revoke `bb.settings.get`, `bb.settings.list`, `bb.projects.list`.
     - If **Workspace Members** should not access the user list, create a custom role and revoke `bb.users.list` and `bb.users.get`.
+  - For Terraform, support configure `allow_request_role`, `data_classification_config_id`, `enforce_sql_review`, `force_issue_labels`, `issue_labels`, `labels`, `require_issue_approval`, `require_plan_check_no_error` for the project resource.
   </Expandable>
 - Redesign the **Database Changelog** and **Revision** pages.
 - Remove **Schema Drift Detection** feature:
@@ -48,22 +58,19 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
   - Remove `dump_version` field from `ChangelogPayload` in store proto.
   </Expandable>
 - Update core APIs `CreateSheet`, `CreatePlan`, `CreateRollout`, and `CreateRelease`, please refer to the latest API documentation for updated request/response definitions.
-- Remove `auto_resolve_issue` and `allow_modify_statement` from **Project Settings**.
-- Remove `maximum_connections` from **Instance Settings** and use `Parallel tasks per rollout` in **Project Settings** instead.
-- Unify `TRUNCATE_TABLE` and `TRUNCATE` into a single `TRUNCATE` statement type for **Custom Approval** CEL expressions.
-- Update **Terraform provider**:
   <Expandable title="details" defaultOpen={false}>
-  - Remove `allow_modify_statement` and `auto_resolve_issue` from the project resource.
-  - Remove `auto_resolve_issue` from the workspace_profile setting resource.
-  - Remove `maximum_connections` from the instance resource.
-  - The `notification_types` in the project webhook are changed to `ISSUE_CREATED`, `ISSUE_APPROVAL_REQUESTED`, `ISSUE_SENT_BACK`, `PIPELINE_FAILED` and `PIPELINE_COMPLETED`.
-  - Support configure `allow_request_role`, `data_classification_config_id`, `enforce_sql_review`, `force_issue_labels`, `issue_labels`, `labels`, `require_issue_approval`, `require_plan_check_no_error` for the project resource.
+  - Sheet: Remove `engine`, `title`, `creator`, `create_time` fields; remove `UpdateSheet` RPC (sheets are now immutable).
+  - Plan: Remove `rollout` field (use `has_rollout` boolean); remove `ChangeDatabaseConfig.type` field.
+  - Rollout: Resource path changed from `projects/*/rollouts/*` to `projects/*/plans/*/rollout`; remove `rollout` field from `CreateRolloutRequest`.
+  - Release: Move `File.type` to release level; remove `File.id` field; remove `SearchReleases` RPC.
+  - Common: Remove `DatabaseChangeType` enum; consolidate `DATABASE_SDL` into `DATABASE_MIGRATE`.
   </Expandable>
+- Remove `maximum_connections` from **Instance Settings** and use `Parallel tasks per rollout` in **Project Settings** instead. For Terraform, remove `maximum_connections` from the instance resource.
+- Unify `TRUNCATE_TABLE` and `TRUNCATE` into a single `TRUNCATE` statement type for **Custom Approval** CEL expressions.
 
 ## 🚀 Features
 
-- Add **refresh token** support (previously only access tokens were supported).
-- Allow configuring **Access token duration** and **Refresh token duration** (previously the sign-in frequency setting).
+- Improve access and refresh token support. Add refresh tokens (previously only access tokens on the web were supported) and allow separate configuration of **access token duration** and **refresh token duration** (previously the sign-in frequency setting).
 - Allow setting `No approval required` in approval rules when configured conditions are met.
 - Support [**Workload Identity** with **GitLab**](/administration/user-groups/workload-identity/gitlab-ci).
 
