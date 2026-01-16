@@ -1,7 +1,7 @@
 ---
-title: Top 7 Postgres GUI Clients to Command Postgres 2025
+title: Top 7 Postgres GUI Clients to Command Postgres 2026
 author: Mila
-updated_at: 2025/05/18 21:21:21
+updated_at: 2026/01/16 21:21:21
 feature_image: /content/blog/top-postgres-gui-client/banner.webp
 tags: Industry
 description: Postgres GUI clients makes it safer and easier to manage Postgres databases by providing a provide a visual graphical interface. In this post, we are taking a look at the most common Postgres GUI Clients.
@@ -18,6 +18,7 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 | 2023/07/18     | Initial version.                  |
 | 2025/03/18     | Update for 2025.                  |
 | 2025/05/23     | Add VS Code PostgreSQL extension. |
+| 2026/01/16     | Update for 2026.                  |
 
 Postgres (or PostgreSQL) is one of the most advanced open-source relational databases on the market (alongside [MySQL](/blog/postgres-vs-mysql/)).
 
