@@ -1,8 +1,8 @@
 ---
-title: Top Free, Open Source Kubernetes Dashboard in 2025
+title: Top Free, Open Source Kubernetes Dashboard in 2026
 author: Adela
-updated_at: 2025/5/28 18:00:00
-feature_image: /content/blog/top-open-source-kubernetes-dashboard/top-k8s-dashboard.webp
+updated_at: 2026/01/19 18:00:00
+feature_image: /content/blog/top-open-source-kubernetes-dashboard/cover.webp
 tags: Industry
 description: Top open-source Kubernetes dashboard solutions include K9s, Lens, and KubeDashboard.
 ---
@@ -17,6 +17,7 @@ This post is maintained by Bytebase, an open-source database Management Software
 | -------------- | ---------------- |
 | 2025/03/14     | Initial version. |
 | 2025/05/28     | Add Devtron.     |
+| 2026/01/19     | Update for 2026. |
 
 ## What are the criteria?
 
