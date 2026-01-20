@@ -1,10 +1,9 @@
 ---
-title: Top Open Source Postgres Migration Tools in 2025
+title: Top Open Source Postgres Migration Tools in 2026
 author: Tianzhou
-updated_at: 2025/03/16 09:00:00
+updated_at: 2026/01/20 09:00:00
 feature_image: /content/blog/top-open-source-postgres-migration-tools/cover.webp
 tags: Industry
-featured: true
 description: What are the top open source Postgres schema migration tools.
 keypage: true
 ---
@@ -18,7 +17,8 @@ This post is maintained by Bytebase, an open-source database Management Software
 | Update History | Comment          |
 | -------------- | ---------------- |
 | 2024/01/16     | Initial version. |
-| 2024/03/16     | Update for 2025. |
+| 2025/03/16     | Update for 2025. |
+| 2026/01/20     | Update for 2026. |
 
 PostgreSQL is the DBMS of the Year 2023 and the runner-up in 2024. On the other hand,
 database schema migration in Postgres is still PITA. In this post, we are reviewing several open source
