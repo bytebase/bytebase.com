@@ -11,7 +11,7 @@ Backing up PostgreSQL is essential for reliability and disaster recovery. The op
 
 Below is a curated list of the top PostgreSQL backup solutions, compared across multiple dimensions: language and ideal use cases.
 
-![star-history](/content/blog/top-open-source-postgres-backup-solution/star-history.webp)
+[![star-history](/content/blog/top-open-source-postgres-backup-solution/star-history.webp)](https://www.star-history.com/#databasus/databasus&wal-g/wal-g&pgbackrest/pgbackrest&EnterpriseDB/barman&pgmoneta/pgmoneta&eduardolat/pgbackweb)
 
 ## Databasus
 
@@ -63,6 +63,18 @@ pgBackRest, is designed for speed, reliability, and flexibility. It supports ful
 
 Barman (**B**ackup **A**nd **R**ecovery Manager) is an open-source administration tool for disaster recovery of PostgreSQL servers written in Python. It allows your organisation to perform remote backups of multiple servers in business critical environments to reduce risk and help DBAs during the recovery phase.
 
+## pgmoneta
+
+- **GitHub:** https://github.com/pgmoneta/pgmoneta
+- **Language:** C
+- **Maintainer:** Community
+- **License:** BSD-3-Clause
+- **Interface:** CLI (daemon mode)
+- **Supported Databases:** PostgreSQL only
+- **Best For:** Teams needing efficient daemon-based backup with incremental support
+
+pgmoneta is a backup and restore solution for PostgreSQL, named after the Roman Goddess of Memory. It runs as a daemon and supports full and incremental backups (PostgreSQL 14+), multiple compression options (gzip, zstd, lz4, bzip2), AES encryption, and WAL shipping. It features Prometheus monitoring integration, remote management capabilities, and TLS v1.2+ support. Built with a process-based model using shared memory and libev for efficient network operations.
+
 ## pgBackWeb
 
 - **GitHub:** https://github.com/eduardolat/pgbackweb
@@ -79,13 +91,14 @@ pgBackWeb provides a user-friendly web dashboard on top of pgBackRest. It enable
 
 ## Comparison Table
 
-| Tool           | Language        | License    | Interface | Multi-DB Support | Cloud Storage       |
-| -------------- | --------------- | ---------- | --------- | ---------------- | ------------------- |
-| **Databasus**  | Go + TypeScript | Apache 2.0 | Web UI    | ✅               | ✅                  |
-| **WAL-G**      | Go              | Apache 2.0 | CLI       | ✅               | ✅                  |
-| **pgBackRest** | C               | MIT        | CLI       | ❌               | ✅                  |
-| **Barman**     | Python          | GNU GPL 3  | CLI       | ❌               | ✅                  |
-| **pgBackWeb**  | Go + JavaScript | AGPL-3.0   | Web UI    | ❌               | ✅ (via pgBackRest) |
+| Tool           | Language        | License      | Interface    | Multi-DB Support | Cloud Storage       |
+| -------------- | --------------- | ------------ | ------------ | ---------------- | ------------------- |
+| **Databasus**  | Go + TypeScript | Apache 2.0   | Web UI       | ✅               | ✅                  |
+| **WAL-G**      | Go              | Apache 2.0   | CLI          | ✅               | ✅                  |
+| **pgBackRest** | C               | MIT          | CLI          | ❌               | ✅                  |
+| **Barman**     | Python          | GNU GPL 3    | CLI          | ❌               | ✅                  |
+| **pgmoneta**   | C               | BSD-3-Clause | CLI (daemon) | ❌               | ❌                  |
+| **pgBackWeb**  | Go + JavaScript | AGPL-3.0     | Web UI       | ❌               | ✅ (via pgBackRest) |
 
 ## Choosing the Right Tool
 
@@ -93,6 +106,7 @@ pgBackWeb provides a user-friendly web dashboard on top of pgBackRest. It enable
 - **WAL-G** — best for multi-database, cloud-native setups.
 - **pgBackRest** — the most complete solution for high-performance and cloud-integrated PostgreSQL.
 - **Barman** — fits enterprise environments with strict compliance.
+- **pgmoneta** — lightweight daemon-based solution with incremental backup and monitoring support.
 - **pgBackWeb** — ideal if you prefer a GUI for pgBackRest.
 
 Each project offers a unique trade-off between simplicity, scalability, and ecosystem support. Pick based on your environment’s scale, cloud strategy, and team expertise.
