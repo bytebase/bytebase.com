@@ -1,9 +1,9 @@
 ---
 title: 'Postgres Query Plan: How to Read and Fix Performance Issues'
 author: Adela
-updated_at: 2026/01/20 12:00:00
+updated_at: 2026/01/21 15:00:00
 feature_image: /content/blog/postgres-query-plan/cover.webp
-tags: Industry
+tags: Explanation
 description: A comprehensive guide to understanding and analyzing Postgres query plans.
 ---
 
