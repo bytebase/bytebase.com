@@ -1,10 +1,10 @@
 ---
-title: Top 4 Terraform UI Tools 2025
+title: Top 4 Terraform UI Tools 2026
 author: Ayra
-updated_at: 2025/04/02 12:00:00
-feature_image: /content/blog/top-terraform-ui-tools/banner.webp
+updated_at: 2026/01/20 12:00:00
+feature_image: /content/blog/top-terraform-ui-tools/cover.webp
 tags: Industry
-description: Explore the leading Terraform UI tools of 2025 that enhance IaC workflows with visualization, collaboration, and governance features to streamline infrastructure management.
+description: Explore the leading Terraform UI tools of 2026 that enhance IaC workflows with visualization, collaboration, and governance features to streamline infrastructure management.
 ---
 
 ## Introduction
