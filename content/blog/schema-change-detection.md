@@ -4,7 +4,7 @@ author: Adela
 updated_at: 2026/01/26 15:00:00
 feature_image: /content/blog/schema-change-detection/cover.webp
 tags: Explanation
-description: A comprehensive guide to schema change detection and notification
+description: Schema change detection and notification are essential for data pipelines. This article explains why a simple column rename can break your data pipeline and how to prevent it.
 keypage: true
 ---
 
