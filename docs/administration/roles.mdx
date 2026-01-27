@@ -38,6 +38,10 @@ Bytebase provides two types of roles:
 
 Organizations can create custom roles with specific permission sets tailored to their needs. Custom roles are defined at the workspace level and can be granted at both workspace and project levels.
 
+<Tip>
+**Granular Permissions:** Bytebase provides granular permissions for sensitive operations like masking policies. For example, instead of generic `bb.policies.create/update/delete` permissions, you can grant specific permissions like `bb.policies.createMaskingExemptionPolicy` or `bb.policies.updateMaskingRulePolicy` to control access to masking exemptions and global masking rules separately.
+</Tip>
+
 ### Granting Roles
 
 Roles are granted through IAM policies at two levels:

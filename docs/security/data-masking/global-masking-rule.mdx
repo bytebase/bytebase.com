@@ -17,7 +17,10 @@ Admins may want to batch apply masking settings globally. e.g.
 Global masking rule along with [Semantic Types](/security/data-masking/semantic-types) allows you to do this. It's similar to the iptables where you configure an ordered
 rule list. The first matching rule will be applied. If no rule matches, no `Semantic Type` will be applied.
 
-`Workspace Admin` and `DBA` can set global masking rules to mask the data.
+Certain roles can set global masking rules to mask the data:
+
+- Built-in roles: `Workspace Admin`, `DBA`.
+- [Custom roles](/administration/roles): `bb.policies.createMaskingRulePolicy`, `bb.policies.updateMaskingRulePolicy`, `bb.policies.deleteMaskingRulePolicy`.
 
 1. Go to **Data Access**>**Global Masking**.
 1. Click **Add**. Click **+Add condition** or **+Add condition group**, set **Semantic Type** and then click **Confirm**.
