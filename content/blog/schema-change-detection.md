@@ -104,8 +104,7 @@ It's about:
 
 But once a schema change reaches production, notification alone is no longer enough.
 
-At that point, the schema has already changed. The question becomes:
-what should run next?
+At that point, the schema has already changed, and the question becomes: what should run next?
 
 In mature workflows, a successful schema change actively triggers downstream pipelines:
 
