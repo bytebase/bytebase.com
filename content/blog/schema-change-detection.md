@@ -102,39 +102,48 @@ It's about:
 - Understanding who might be affected
 - Letting the right people know early
 
-When teams have this visibility, schema changes stop being surprises and start being manageable.
+But once a schema change reaches production, notification alone is no longer enough.
 
-## What This Looks Like in Practice
+At that point, the schema has already changed. The question becomes:
+what should run next?
 
-Teams that run into this more than once usually add a **review point before schema changes reach production**.
+In mature workflows, a successful schema change actively triggers downstream pipelines:
 
-That often includes:
+- Data sync jobs refresh with the new schema
+- dbt models are validated or updated
+- Data quality checks are re-run
+- Dashboards and derived tables are verified
 
-- Automatically detecting schema diffs
-- Flagging risky changes like renames or drops
-- Requiring review or approval
-- Notifying data and analytics teams ahead of time
-- Keeping a record of what changed and when
+Instead of waiting for the next scheduled run — or worse, for someone to notice broken data — the schema change itself becomes the trigger.
 
-This doesn't slow teams down. It avoids fire drills.
+More advanced teams treat schema changes as first-class pipeline events:
 
-## Where Tools Like Bytebase Fit
+- A migration is applied successfully
+- The system emits a schema change event
+- Downstream pipelines react automatically via webhooks or integrations
 
-Some teams use tools like **Bytebase** at this control point.
+## How Bytebase Helps
 
-The idea isn't to replace data tools, but to:
+Bytebase sits at the control point where schema changes are planned, reviewed, and applied — which makes it a natural place to turn schema changes into events.
 
-- Make schema changes visible
-- Add lightweight review and approval
-- Keep an audit trail of database evolution
+Before deployment, Bytebase helps teams:
 
-Instead of discovering breaking changes through a broken dashboard, teams see them when it's still easy to react.
+- Run SQL Review against the change automatically
+- Require approval before changes reach production
+- Keep a clear record of who approved what, and why
 
-## The Real Takeaway
+After deployment, Bytebase closes the loop.
 
-Most data incidents don't come from complex bugs.
-They come from **small, reasonable changes made in isolation**.
+When a schema change is successfully applied, Bytebase can emit **a post-deploy schema change signal**, including the metadata. This signal is sent as a **webhook** to downstream systems:
 
-Schema change detection and notification help teams treat database schemas as shared contracts, not private implementation details.
+- Bytebase applies the schema change
+- Bytebase posts a webhook to an endpoint
+- That endpoint triggers pipeline actions, such as:
+  - Running or validating data pipelines
+  - Opening or updating dbt pull requests
+  - Running data quality checks
+  - Notifying the correct data owners with precise context via IM (e.g. Slack)
 
-That shift alone prevents a surprising number of Friday-morning incidents.
+This shifts teams from reacting to schema changes after something breaks to coordinating and automating around them.
+
+Instead of discovering schema changes through missing data or failed dashboards, teams see — and act on — schema changes the moment they happen.
