@@ -133,7 +133,7 @@ Before deployment, Bytebase helps teams:
 
 After deployment, Bytebase closes the loop.
 
-When a schema change is successfully applied, Bytebase can emit **a post-deploy schema change signal**, including the metadata. This signal is sent as a **webhook** to downstream systems:
+When a schema change is successfully applied, Bytebase can emit **a post-deploy schema change signal** with rich metadata about the change (such as the database, environment, project, affected tables and columns, executor, and timestamp). This signal is sent as a **webhook** to downstream systems:
 
 - Bytebase applies the schema change
 - Bytebase posts a webhook to an endpoint
