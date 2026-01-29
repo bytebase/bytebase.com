@@ -36,6 +36,12 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
     - Add new policy permissions:
       - `bb.policies.getMaskingRulePolicy`
       - `bb.policies.updateMaskingRulePolicy`
+      - `bb.policies.createMaskingRulePolicy`
+      - `bb.policies.deleteMaskingRulePolicy`
+      - `bb.policies.getMaskingExemptionPolicy`
+      - `bb.policies.updateMaskingExemptionPolicy`
+      - `bb.policies.createMaskingExemptionPolicy`
+      - `bb.policies.deleteMaskingExemptionPolicy`
     - Add new settings permissions:
       - `bb.settings.getEnvironment`
       - `bb.settings.setEnvironment`
@@ -67,6 +73,7 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
   </Expandable>
 - Remove `maximum_connections` from **Instance Settings** and use `Parallel tasks per rollout` in **Project Settings** instead. For Terraform, remove `maximum_connections` from the instance resource.
 - Unify `TRUNCATE_TABLE` and `TRUNCATE` into a single `TRUNCATE` statement type for **Custom Approval** CEL expressions.
+- Releases are now identified by `release_id` (e.g., `my-release-RC00`) with automatic train/RC iteration numbering. The `title`, `digest` fields are removed from the Release API, and UpdateRelease returns `UNIMPLEMENTED`. For Terraform, update `bytebase_release` resource if using `title` or `digest` fields.
 
 ## 🚀 Features
 
