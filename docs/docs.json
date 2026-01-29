@@ -172,7 +172,10 @@
           },
           {
             "group": "Appendix",
-            "pages": ["sql-review/review-rules", "sql-review/error-codes"]
+            "pages": [
+              "sql-review/review-rules",
+              "sql-review/error-codes"
+            ]
           }
         ]
       },
@@ -293,11 +296,15 @@
           },
           {
             "group": "Infrastructure as Code",
-            "pages": ["integrations/terraform/overview"]
+            "pages": [
+              "integrations/terraform/overview"
+            ]
           },
           {
             "group": "AI Integration",
-            "pages": ["integrations/mcp"]
+            "pages": [
+              "integrations/mcp"
+            ]
           },
           {
             "group": "3rd Party",
@@ -389,6 +396,7 @@
       {
         "tab": "Changelog",
         "pages": [
+          "changelog/bytebase-3-14-1",
           "changelog/bytebase-3-14-0",
           "changelog/bytebase-3-13-1",
           "changelog/bytebase-3-13-0",
@@ -605,7 +613,12 @@
     }
   },
   "contextual": {
-    "options": ["copy", "view", "chatgpt", "claude"]
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude"
+    ]
   },
   "integrations": {
     "plausible": {
