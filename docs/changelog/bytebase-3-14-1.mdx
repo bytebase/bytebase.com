@@ -1,0 +1,27 @@
+---
+title: Bytebase 3.14.1 - Jan 29, 2026
+author: Adela
+updated_at: 2026/01/29 18:00:00
+description: 'Improvements and Bug Fixes'
+
+---
+
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
+## 🎄 Enhancements
+
+- Improve result masking performance for queries spanning multiple databases, and enhanced masking coverage.
+- Show rollout link whenever plan has a rollout, regardless of issue status.
+- **Google Cloud SQL** — Support IAM authentication for Cloud SQL connections.
+- **Azure SCIM** — Support string-format active field and set source in SCIM PATCH API.
+
+## 🐞 Bug Fixes
+
+- Fix database group SQL checks bypassed issue.
+- Fix export data issues: add task actions (Run/Retry, Skip, Cancel) and fix skip/download for export data issues.
+- Fix page table showing errors from corrupted localStorage page size.
+- Fix minor issues for IM integration: direct messaging not working for new installation and settings page not showing configured data.
+- Fix missing users and approvers in some webhook notifications.
+- Fix nested transaction patterns that could cause deadlocks under high concurrency.
+
+<InstallUpgrade />
