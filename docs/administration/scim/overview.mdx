@@ -4,11 +4,12 @@ title: SCIM
 
 SCIM (System for Cross-domain Identity Management) is a standard for provisioning and deprovisioning users and groups in an organization.
 
-Bytebase implements SCIM 2.0 and provides built-in support for Entra ID (Azure AD).
+Bytebase implements SCIM 2.0 and provides built-in support for Entra ID (Azure AD) and Okta.
 
 | IdP                 | User                | Group                           | Role | Interval                                                                                                                                                                                      |
 | ------------------- | ------------------- | ------------------------------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Entra ID (Azure AD) | Sync name and email | Sync group email and membership | ❌   | [40 minutes](https://learn.microsoft.com/en-us/entra/identity/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) |
+| Entra ID (Azure AD) | Sync name and email | Sync group name, email and membership | ❌   | [40 minutes](https://learn.microsoft.com/en-us/entra/identity/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) |
+| Okta                | Sync name and email | Sync group name, email and membership | ❌   | [Configured in Okta](https://developer.okta.com/docs/reference/scim/scim-20/) |
 
 ## Prerequisites
 
@@ -68,34 +69,37 @@ Continue the provision, click **Mappings** and click **Provision Microsoft Entra
 
 ![provision-group](/content/docs/administration/scim/entra/provision-group.webp)
 
+Bytebase uses the group's `externalId` to uniquely identify a group. By default, Entra ID maps `objectId` to `externalId`, which is stable and recommended. You can optionally add a custom `email` attribute to sync the group email to Bytebase.
+
 <Note>
 
-Bytebase relies on email to uniquely identify an user. Thus you need to disable the `displayName` mapping and only
-enable the `id` mapping and use `mail` as the source attribute.
+If you have an existing SCIM configuration that maps `externalId` to `mail`, it will continue to work. However, we recommend switching to the default `objectId` mapping for stability, since object IDs do not change when a group's email is updated.
 
 </Note>
 
-Click **Edit** button for the `displayName` row.
+#### Step 1 - Create a new `email` attribute
 
-![mapping-edit-display-name](/content/docs/administration/scim/entra/mapping-edit-display-name.webp)
+Click **Show advanced options**, then click **Edit attribute list for Bytebase**.
 
-Change **Match objects using this attribute** to `No`.
+![mapping-create-email-attr](/content/docs/administration/scim/entra/mapping-create-email-attr.webp)
 
-![mapping-display-name](/content/docs/administration/scim/entra/mapping-display-name.webp)
+Add a new attribute `email` with type `String`, then click **Save**.
 
-Click **Edit** button for the `externalId` row.
+![mapping-email-attr-config](/content/docs/administration/scim/entra/mapping-email-attr-config.webp)
 
-![mapping-edit-external-id](/content/docs/administration/scim/entra/mapping-edit-external-id.webp)
+#### Step 2 - Edit the mapping
 
-- Change **Source attribute** to `mail`.
-- Change **Match objects using this attribute** to `Yes`.
-- Set **Matching precedence** to `1`.
+Edit the attribute mapping:
 
-![edit-external-id](/content/docs/administration/scim/entra/mapping-external-id.webp)
+- Click **Edit** for the `displayName` row. Change **Match objects using this attribute** to `No`.
+- Click **Edit** for the `externalId` row. Change **Match objects using this attribute** to `Yes` and set **Matching precedence** to `1`.
+- Add a new mapping row: set **email** to map to **mail**.
+
+![mapping-edit-mapping](/content/docs/administration/scim/entra/mapping-edit-mapping.webp)
 
 The final mappings look like this.
 
-![mapping](/content/docs/administration/scim/entra/mapping.webp)
+![mapping-final](/content/docs/administration/scim/entra/mapping-final.webp)
 
 ### Assign users and groups
 
