@@ -21,7 +21,8 @@ const QUESTIONS: Question[] = [
   },
   {
     question: 'Which payment methods do you accept?',
-    answer: 'We accept credit card, wire transfers, AWS Marketplace, and GCP Marketplace.',
+    answer:
+      'For the Pro plan, we accept credit card. For the Enterprise plan, we accept credit card, wire transfers, AWS Marketplace, and GCP Marketplace.',
   },
   {
     question: 'What is your cancellation policy?',
