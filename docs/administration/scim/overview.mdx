@@ -1,10 +1,13 @@
 ---
-title: SCIM
+title: Overview
 ---
 
 SCIM (System for Cross-domain Identity Management) is a standard for provisioning and deprovisioning users and groups in an organization.
 
-Bytebase implements SCIM 2.0 and provides built-in support for Entra ID (Azure AD) and Okta.
+Bytebase implements SCIM 2.0 and provides built-in support for the following identity providers:
+
+- [Entra ID (Azure AD)](/administration/scim/entra-id)
+- [Okta](/administration/scim/okta)
 
 | IdP                 | User                | Group                           | Role | Interval                                                                                                                                                                                      |
 | ------------------- | ------------------- | ------------------------------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -15,106 +18,3 @@ Bytebase implements SCIM 2.0 and provides built-in support for Entra ID (Azure A
 
 - You must be the **Workspace Admin** to configure SCIM.
 - Configure [External URL](/get-started/self-host/external-url).
-
-## Entra ID
-
-<Card title="Tutorial: Managing user account provisioning for enterprise apps in Entra" icon="graduation-cap" href="https://learn.microsoft.com/en-us/entra/identity/app-provisioning/configure-automatic-user-provisioning-portal" horizontal />
-
-### Create enterprise application
-
-Sign in to the Entra ID Admin Center Dashboard. Select **Enterprise applications** and click **New application**.
-
-![create-application](/content/docs/administration/scim/entra/create-application.webp)
-
-Select **Create your own application**. Give your application a descriptive name, and select **Integrate any other application you don’t find in the gallery (Non-gallery)** option, then click **Create**.
-
-![create-own-application](/content/docs/administration/scim/entra/create-own-application.webp)
-
-### Create provision
-
-Go to the application detail page. Select **Provision User Accounts**.
-
-![provision-user-accounts](/content/docs/administration/scim/entra/provision-user-accounts.webp)
-
-Click **Get Started** button.
-
-![provision-get-started](/content/docs/administration/scim/entra/provision-get-started.webp)
-
-Change **Provisioning Mode** to **Automatic**.
-
-![provision-automatic](/content/docs/administration/scim/entra/provision-automatic.webp)
-
-Go to your Bytebase console, navigate to **Security & Policy** -> **Users & Groups** page. Click **Sync From Entra ID (Azure AD)**.
-
-![bytebase-sync-from-entra](/content/docs/administration/scim/entra/bytebase-sync-from-entra.webp)
-
-Copy the **Endpoint** and **Secret Token**.
-
-<Note>
-
-Bytebase endpoint implements SCIM protocol, please make sure you have configured [External URL](/get-started/self-host/external-url) and it's network accessible from Entra.
-
-</Note>
-
-![bytebase-setting](/content/docs/administration/scim/entra/bytebase-setting.webp)
-
-Go back to Entra console, paste the `Endpoint` and `Secret Token` above to `Tenant URL` and `Secret Token` respectively.
-Click **Test Connection** and save upon success.
-
-![provision-admin-credentials](/content/docs/administration/scim/entra/provision-admin-credentials.webp)
-
-### Edit attribute mapping
-
-Continue the provision, click **Mappings** and click **Provision Microsoft Entra ID Groups**.
-
-![provision-group](/content/docs/administration/scim/entra/provision-group.webp)
-
-Bytebase uses the group's `externalId` to uniquely identify a group. By default, Entra ID maps `objectId` to `externalId`, which is stable and recommended. You can optionally add a custom `email` attribute to sync the group email to Bytebase.
-
-<Note>
-
-If you have an existing SCIM configuration that maps `externalId` to `mail`, it will continue to work. However, we recommend switching to the default `objectId` mapping for stability, since object IDs do not change when a group's email is updated.
-
-</Note>
-
-#### Step 1 - Create a new `email` attribute
-
-Click **Show advanced options**, then click **Edit attribute list for Bytebase**.
-
-![mapping-create-email-attr](/content/docs/administration/scim/entra/mapping-create-email-attr.webp)
-
-Add a new attribute `email` with type `String`, then click **Save**.
-
-![mapping-email-attr-config](/content/docs/administration/scim/entra/mapping-email-attr-config.webp)
-
-#### Step 2 - Edit the mapping
-
-Edit the attribute mapping:
-
-- Click **Edit** for the `displayName` row. Change **Match objects using this attribute** to `No`.
-- Click **Edit** for the `externalId` row. Change **Match objects using this attribute** to `Yes` and set **Matching precedence** to `1`.
-- Add a new mapping row: set **email** to map to **mail**.
-
-![mapping-edit-mapping](/content/docs/administration/scim/entra/mapping-edit-mapping.webp)
-
-The final mappings look like this.
-
-![mapping-final](/content/docs/administration/scim/entra/mapping-final.webp)
-
-### Assign users and groups
-
-In order for your users and groups to be synced to Bytebase, you will need to assign them to your Entra SCIM application. Select **Users and groups** and click **Add user/group**.
-
-![add-user-group](/content/docs/administration/scim/entra/add-user-group.webp)
-
-Click **None selected** under the **Users and Groups**. Select the users and groups that you want to add to the SCIM application, and click **Select** and **Assign**.
-
-![assign-user-group](/content/docs/administration/scim/entra/assign-user-group.webp)
-
-### Turn on provisioning
-
-On the application overview page, click **Start provisioning**. To test syncing, we recommend starting with **Provision on demand** for a subset of users or groups.
-
-![start-provision](/content/docs/administration/scim/entra/start-provision.webp)
-
-Afterwards, Entra will sync the users and groups to Bytebase periodically.
