@@ -1,7 +1,7 @@
 ---
-title: 'Postgres vs. MySQL: a Complete Comparison in 2025'
+title: 'Postgres vs. MySQL: a Complete Comparison in 2026'
 author: Tianzhou
-updated_at: 2025/02/23 12:00
+updated_at: 2026/02/03 12:00
 feature_image: /content/blog/postgres-vs-mysql/cover.webp
 tags: Comparison
 description: 'An extensive comparison between Postgres and MySQL on performance, features, security, extensibility, usability, architecture, ecosystem, industry best practices.'
@@ -18,6 +18,7 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 | 2023/07/11     | Initial version.                       |
 | 2024/09/16     | Added scaling and sharding references. |
 | 2025/02/23     | Added online DDL.                      |
+| 2026/02/03     | Updated for Postgres 18, MySQL 9.x, Stack Overflow 2025. |
 
 This is a series of articles between MySQL and PostgreSQL:
 
@@ -29,9 +30,9 @@ This is a series of articles between MySQL and PostgreSQL:
 
 > For the impatience, jump to the [last section](#postgres-or-mysql) to see the comparison table. The [References](#references) collects many industry best practices.
 
-In 2024, Postgres ranked the 2nd after Snowflake in the [DB-Engines Ranking](https://db-engines.com/en/blog_post/109), one year after it took over Snowflake and [won DBMS of the Year 2023](https://db-engines.com/en/blog_post/106#:~:text=PostgreSQL%20is%20the%20database%20management,DBMS%20of%20the%20Year%202023.).
+In 2025, Snowflake [won DBMS of the Year 2024](https://db-engines.com/en/blog_post/109), with Postgres and Oracle as runners-up. Postgres remains one of the top climbers in the [DB-Engines rankings](https://db-engines.com/en/blog_post/110).
 
-The Postgres rise is also reflected in the recent Stack Overflow survey ([2024](https://survey.stackoverflow.co/2024/technology/#1-databases), [2023](https://survey.stackoverflow.co/2023/#most-popular-technologies-database)). Postgres has taken over the first place spot from MySQL and become the most admired, desired database.
+The Postgres dominance is also reflected in the Stack Overflow survey ([2025](https://survey.stackoverflow.co/2025/technology), [2024](https://survey.stackoverflow.co/2024/technology/#1-databases)). Postgres has been the most admired (65%) and desired (46%) database for the third year in a row.
 
 ![stackoverflow](/content/blog/postgres-vs-mysql/stackoverflow.webp)
 
@@ -68,7 +69,7 @@ from the following dimensions:
 - [Operability](#operability)
 - [Ecosystem](#ecosystem)
 
-_Unless otherwise specified, the comparison below is between the latest stable release, Postgres 17 vs. MySQL 9 (using InnoDB). We also use Postgres instead of PostgreSQL throughout the article, though we know the latter is the official name, which is considered as [the biggest mistake in Postgres History](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)_.
+_Unless otherwise specified, the comparison below is between the latest stable release, Postgres 18 vs. MySQL 9.x (using InnoDB). We also use Postgres instead of PostgreSQL throughout the article, though we know the latter is the official name, which is considered as [the biggest mistake in Postgres History](https://www.craigkerstiens.com/2018/10/30/postgres-biggest-mistake/)_.
 
 ## License
 
@@ -91,6 +92,10 @@ it's recommended to proxy the connection via a connection pooler such as [PgBoun
 
 For most workloads, the performance between Postgres and MySQL is comparable with at most 30% variations.
 On the other hand, regardless of which database you choose, if your query misses an index, it could be 10x ~ 1000x degradation.
+
+Postgres 18 introduces an asynchronous I/O (AIO) subsystem that can improve performance 2-3x for sequential scans, bitmap heap scans, and vacuum operations.
+
+MySQL 9.2 improved hash join performance and the query optimizer continues to receive incremental improvements with each Innovation release.
 
 Saying that, MySQL does have an edge over Postgres for extreme write-intensive workloads. You can read following
 articles for details:
@@ -132,9 +137,11 @@ Both Postgres and MySQL support RBAC.
 Postgres supports the additional Row Level Security (RLS) out of the box, while MySQL needs to create
 extra views to emulate this behavior.
 
+For authentication, Postgres 18 adds OAuth 2.0 support for modern identity providers, while MySQL 9.1 introduces WebAuthn for Windows Hello authentication. Both have deprecated older methods (Postgres: MD5 → SCRAM-SHA-256).
+
 ### Query Optimizer
 
-Postgres has a better query optimizer. More details in this [rant](https://news.ycombinator.com/item?id=29455852).
+Postgres has a better query optimizer. More details in this [rant](https://news.ycombinator.com/item?id=29455852). Postgres 18 adds "skip scan" support for multicolumn B-tree indexes, allowing more efficient queries when leading columns are not specified.
 
 ### Online DDL
 
@@ -143,6 +150,7 @@ Postgres provides online DDL for the following cases:
 1. `ADD COLUMN` without a default value.
 1. (Postgres 11+) `ADD COLUMN` with a default value.
 1. Specify `CONCURRENTLY` when running `CREATE INDEX`.
+1. (Postgres 18+) Improved async I/O makes vacuum and other maintenance operations faster.
 
 MySQL provides a more comprehensive support for online DDL. You can specify the `ALGORITHM` to be `INSTANT`, `INPLACE` or `COPY` when running `ALTER TABLE`.
 In addition, there are [gh-ost](https://github.com/github/gh-ost), [pt-online-schema-change](https://docs.percona.com/percona-toolkit/pt-online-schema-change.html) to support online DDL for MySQL where the native support is limited.
@@ -153,6 +161,10 @@ For Postgres, the standard replication is physical replication using WAL. For My
 replication is logical replication using binlog.
 
 Postgres also supports logical replication via its Publish/Subscribe mode.
+
+### UUIDs
+
+Postgres 18 introduces native `uuidv7()` function for timestamp-ordered UUIDs, combining global uniqueness with sequential ordering for better index performance. MySQL requires application-level UUID generation or custom functions.
 
 ### JSON
 
@@ -185,7 +197,7 @@ Performance: In general, Postgres implementation of window functions is consider
 
 ### AI
 
-Postgres leverages pgvector for vector operations. MySQL 9 introduces [VECTOR type](https://dev.mysql.com/doc/refman/9.0/en/mysql-nutshell.html), but the support is quite limited as it only supports the distance functions.
+Postgres leverages [pgvector](https://github.com/pgvector/pgvector) for vector operations, which has become the de-facto standard for AI/ML workloads. MySQL 9 introduces [VECTOR type](https://dev.mysql.com/doc/refman/9.0/en/mysql-nutshell.html) with up to 16,383 dimensions, though the support is still more limited compared to pgvector's rich indexing options (IVFFlat, HNSW).
 
 ## Extensibility
 
@@ -198,6 +210,8 @@ to track planning and execution statistics, and even pgvector to perform vector 
 MySQL has a pluggable storage engine architecture and gives the birth of InnoDB. But today, InnoDB has
 become the dominant storage engine in MySQL, so the pluggable architecture just serves as an API boundary rather
 than being used for extension purposes.
+
+MySQL 9.0+ introduces [JavaScript stored programs](https://dev.mysql.com/doc/refman/9.0/en/stored-routines-javascript.html) (Enterprise Edition), allowing stored procedures and functions to be written in JavaScript via GraalVM. This is a significant extensibility improvement for MySQL Enterprise users.
 
 For auth, both Postgres and MySQL support pluggable authentication module (PAM).
 
@@ -213,9 +227,9 @@ unless using the FDW extension.
 
 ## Operability
 
-Due to the underlying storage engine design, Postgres has an infamous [XID wraparound issue](https://blog.sentry.io/transaction-id-wraparound-in-postgres/) under heavy load.
+Due to the underlying storage engine design, Postgres has an infamous [XID wraparound issue](https://blog.sentry.io/transaction-id-wraparound-in-postgres/) under heavy load. Postgres 18 mitigates upgrade pain by preserving planner statistics during major-version upgrades, eliminating lengthy post-upgrade ANALYZE operations.
 
-For MySQL, we encountered a few replication bugs when operating a huge MySQL fleet at Google Cloud.
+For MySQL, we encountered a few replication bugs when operating a huge MySQL fleet at Google Cloud. MySQL now follows a [three-month Innovation release cadence](https://dev.mysql.com/blog-archive/introducing-mysql-innovation-and-long-term-support-lts-versions/) with Long-Term Support (LTS) versions every two years, giving teams flexibility between stability and new features.
 
 Those issues only occur in extreme load. For normal workload, both Postgres and MySQL are mature and
 reliable. Database hosting platforms also provide integrated backup/restore, monitoring.
