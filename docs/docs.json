@@ -251,7 +251,14 @@
                 ]
               },
               "administration/roles",
-              "administration/scim/overview",
+              {
+                "group": "SCIM",
+                "pages": [
+                  "administration/scim/overview",
+                  "administration/scim/entra-id",
+                  "administration/scim/okta"
+                ]
+              },
               "administration/2fa",
               "administration/password",
               "administration/sign-in-restriction"

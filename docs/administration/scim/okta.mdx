@@ -1,0 +1,119 @@
+---
+title: Okta
+---
+
+## Get SCIM credentials from Bytebase
+
+1. Log in to Bytebase as a **Workspace Admin**.
+2. Navigate to **Settings** -> **General** -> **Network**.
+3. Ensure **External URL** is configured (e.g., `https://bytebase.example.com`).
+4. Navigate to **Settings** -> **Members**.
+5. Click the **Directory Sync** button (or gear icon).
+6. In the Directory Sync drawer, you'll find:
+   - **SCIM Endpoint URL**: `https://<your-bytebase-url>/hook/scim/workspaces/<workspace-id>`
+   - **Secret Token**: Bearer token for authentication
+7. Copy both values - you'll need them in the next steps.
+
+![bytebase-setting](/content/docs/administration/scim/okta/bytebase-setting.webp)
+
+## Create SCIM application in Okta
+
+1. Log in to the **Okta Admin Console** (`https://your-domain-admin.okta.com`).
+2. In the left navigation, go to **Applications** -> **Applications**.
+3. Click **Create App Integration**.
+4. Select **SWA - Secure Web Authentication** and click **Next**.
+
+![create-app-integration](/content/docs/administration/scim/okta/create-app-integration.webp)
+
+5. Configure the application:
+   - **App name**: `Bytebase SCIM`
+   - **App login page URL**: Your Bytebase external URL
+   - You can also check "Do not display application icon to users" and "This is an internal application that we created" since it's only used for data sync.
+
+![create-swa-integration](/content/docs/administration/scim/okta/create-swa-integration.webp)
+
+## Configure API integration
+
+1. Go to the **General** tab, in the **App Settings** section, click **Edit**.
+
+![general-tab-edit](/content/docs/administration/scim/okta/general-tab-edit.webp)
+
+2. Find the **Provisioning** field and select **SCIM**, then save the setting. After saving, the **Provisioning** tab will appear in the application.
+
+![provisioning-scim](/content/docs/administration/scim/okta/provisioning-scim.webp)
+
+3. Go to the **Provisioning** tab, edit the integration:
+   - **SCIM connector base URL**: The SCIM Endpoint URL from Bytebase (e.g., `https://bytebase.example.com/hook/scim/workspaces/abc123`)
+   - **Unique identifier field for users**: `userName`
+   - **Authentication Mode**: HTTP Header
+   - **Authorization**: The Secret Token from Bytebase
+
+![scim-connection](/content/docs/administration/scim/okta/scim-connection.webp)
+
+4. Click **Test Connector Configuration** and save upon success.
+
+## Enable provisioning features
+
+1. Still on the **Provisioning** tab, click **To App** in the left sidebar.
+2. Click **Edit** in the Provisioning to App section.
+3. Enable the following features:
+   - **Create Users**
+   - **Update User Attributes**
+   - **Deactivate Users**
+4. Click **Save**.
+
+![provisioning-to-app](/content/docs/administration/scim/okta/provisioning-to-app.webp)
+
+## Configure user attribute mappings
+
+No changes are needed for the default attribute mapping configuration.
+
+## Assign users to the application
+
+### Assign individual users
+
+1. Go to the **Assignments** tab.
+2. Click **Assign** -> **Assign to People**.
+3. Find and select the users you want to provision.
+4. Click **Assign** next to each user.
+5. Review the user's attribute values (you can customize per user if needed).
+6. Click **Save and Go Back**.
+7. Click **Done** when finished.
+
+### Assign groups (preferred)
+
+1. Go to the **Assignments** tab.
+2. Click **Assign** -> **Assign to Groups**.
+3. Select the groups whose members should be provisioned.
+
+![assign-to-groups](/content/docs/administration/scim/okta/assign-to-groups.webp)
+
+4. Click **Assign**, review the attribute values, and click **Save and Go Back**.
+
+![assign-groups-dialog](/content/docs/administration/scim/okta/assign-groups-dialog.webp)
+
+![assign-groups-attributes](/content/docs/administration/scim/okta/assign-groups-attributes.webp)
+
+5. Click **Done** when finished.
+
+<Note>
+
+Assigning a group provisions all members as users, but **does not create the group in Bytebase**. To sync groups, see [Configure group push](#configure-group-push) below.
+
+</Note>
+
+## Configure group push
+
+To sync Okta groups to Bytebase (not just group members as users):
+
+1. Go to the **Push Groups** tab.
+2. Click **Push Groups**, search group by name or rule.
+3. Click **Save**, then wait and check the status.
+
+![push-groups](/content/docs/administration/scim/okta/push-groups.webp)
+
+After the status changes to **Active**, the groups are successfully synced to Bytebase.
+
+![push-groups-active](/content/docs/administration/scim/okta/push-groups-active.webp)
+
+![bytebase-groups-synced](/content/docs/administration/scim/okta/bytebase-groups-synced.webp)
