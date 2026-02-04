@@ -1,14 +1,10 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-
 import { useEffect, useState } from 'react';
-import PROMO_DATA from '@/lib/promo-data';
 
 import clsx from 'clsx';
 import { AnimatePresence, LazyMotion, domAnimation, m, useAnimation } from 'framer-motion';
 
-import AlgoliaSearch from '@/components/pages/docs/algolia-search';
 import Button from '@/components/shared/button';
 import Link from '@/components/shared/link';
 
@@ -101,22 +97,6 @@ const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openedDropdown, setOpenedDropdown] = useState(-1);
   const controls = useAnimation();
-  const pathname = usePathname();
-  const topBanner = PROMO_DATA.TOP_BANNER;
-  const [isSticky, setIsSticky] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Get the banner height
-      const bannerHeight = topBanner ? 40 : 0;
-      const currentPosition = window.scrollY;
-
-      setIsSticky(currentPosition >= bannerHeight);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [topBanner]);
 
   useEffect(() => {
     if (isOpen) {
@@ -132,19 +112,8 @@ const MobileMenu = () => {
 
   const toggleMenu = () => setIsOpen((prevIsOpen) => !prevIsOpen);
 
-  const isDocs = pathname?.startsWith(Route.DOCS);
-
   return (
     <>
-      {isDocs && (
-        <AlgoliaSearch
-          className={clsx(
-            'fixed right-0 top-0 hidden transition-all duration-200 sm:block',
-            isSticky ? '' : topBanner ? 'mt-[40px]' : '',
-            isOpen ? 'z-40' : 'z-50',
-          )}
-        />
-      )}
       <Burger className="hidden md:block" isToggled={isOpen} onClick={toggleMenu} />
       <LazyMotion features={domAnimation}>
         <m.nav
