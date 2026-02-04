@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "PORT=3001 next dev",
-    "prebuild": "node scripts/generate-blog-reo-mapping.js",
     "build": "next build",
     "analyze": "ANALYZE=true next build",
     "postbuild": "next-sitemap",

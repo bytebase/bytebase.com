@@ -7,7 +7,6 @@ import { Cal } from '@/components/cal';
 import I18nProvider from '@/locales/i18nProvider';
 import PlausibleProvider from 'next-plausible';
 import { getStaticParams } from '@/locales/server';
-import ReoScript from '@/components/reo-script';
 import '@/styles/main.css';
 
 export function generateStaticParams() {
@@ -34,8 +33,6 @@ export default function RootLayout({ params: { locale }, children }: Props) {
         {/* Resource hints for performance optimization */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://static.reo.dev" />
-        <link rel="dns-prefetch" href="https://static.reo.dev" />
       </head>
       <body className="flex h-full flex-col">
         <Cal />
@@ -57,7 +54,6 @@ export default function RootLayout({ params: { locale }, children }: Props) {
           `,
           }}
         />
-        <ReoScript />
         <PlausibleProvider domain="bytebase.com">
           <I18nProvider locale={locale}>
             <div className="relative flex min-h-screen flex-col">
