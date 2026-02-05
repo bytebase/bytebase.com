@@ -30,7 +30,6 @@ We intentionally exclude:
   (GitHub Actions, GitLab CI, Terraform)
 - **Framework-specific migration systems**
   (Rails or Django migrations)
-- **Single-database tools** tied to one engine only
 
 Many of these tools can run SQL. That alone doesn't make them database deployment tools in the sense discussed here.
 
