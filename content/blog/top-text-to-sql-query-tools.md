@@ -140,6 +140,6 @@ Cloud hyperscalers are increasingly integrating Text-to-SQL capabilities across 
 
 ## Security Considerations
 
-When Anthropic launched MCP in November 2024, Postgres was among the original reference implementations. However, a vulnerability discovered by Datadog in 2025 exploited the original implementation—the server wrapped queries in read-only transactions but accepted semicolon-delimited statements, allowing attackers to bypass the read-only protection. Anthropic has since archived the vulnerable repository. When evaluating MCP-based database tools, prioritize implementations with robust security controls like proper query parsing and read-only enforcement.
+When Anthropic introduced MCP, the Postgres server was one of the original reference implementations. Security reviews of early MCP-based database servers have shown that simply wrapping user-supplied SQL in a read-only transaction is not sufficient if the server also accepts semicolon-delimited statements, because additional statements may execute outside the intended protection. When evaluating MCP-based database tools, prioritize implementations with robust security controls such as proper SQL parsing or allow-listing, strict read-only enforcement, and clear configuration for which databases and schemas can be accessed.
 
 Text-to-SQL tools improve efficiency and make it easier to interact with databases. Although they use state-of-the-art LLM models, the results may sometimes be inaccurate. If you want to use them in production, make sure to double-check before you hit **RUN**.
