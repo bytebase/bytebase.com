@@ -124,7 +124,7 @@ Unlike standalone SQL clients, [DBHub](https://dbhub.ai) brings text-to-SQL capa
 
 DBHub is a universal database MCP (Model Context Protocol) server that enables any MCP client such as Claude, Cursor, VS Code, and Codex to have text-to-SQL capability. It acts as a bridge between AI assistants and databases, allowing developers to use natural language to query and explore their databases directly from their development tools.
 
-As of early 2026, DBHub has over 100K downloads and 1.7K GitHub stars. It supports multiple databases including PostgreSQL, MySQL, MariaDB, SQL Server, and SQLite. Key features include:
+As of early 2026, DBHub has over 100K downloads and 2K GitHub stars. It supports multiple databases including PostgreSQL, MySQL, MariaDB, SQL Server, and SQLite. Key features include:
 
 - **Custom tools**: Define reusable, parameterized SQL operations in configuration files.
 - **Built-in web interface**: Visual way to execute queries, run custom tools, and view request traces without requiring an MCP client.
