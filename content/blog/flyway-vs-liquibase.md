@@ -1,7 +1,7 @@
 ---
-title: 'Flyway (Redgate) vs. Liquibase in 2025'
+title: 'Flyway (Redgate) vs. Liquibase in 2026'
 author: Cayden
-updated_at: 2025/05/23 19:21:21
+updated_at: 2026/02/03 12:00
 feature_image: /content/blog/flyway-vs-liquibase/flyway-vs-liquibase-banner.webp
 tags: Comparison
 description: 'When looking for a database CI/CD and schema migration change tool, Flyway and Liquibase are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.'
@@ -14,10 +14,11 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 
 </HintBlock>
 
-| Update History | Comment          |
-| -------------- | ---------------- |
-| 2023/06/27     | Initial version. |
-| 2025/05/23     | Update for 2025. |
+| Update History | Comment                                                 |
+| -------------- | ------------------------------------------------------- |
+| 2023/06/27     | Initial version.                                        |
+| 2025/05/23     | Update for 2025.                                        |
+| 2026/02/03     | Flyway 2026, Liquibase 5.0, pricing/licensing changes.  |
 
 When looking for a database CI/CD and schema migration change tool, Flyway (Redgate) and Liquibase are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.
 
@@ -68,25 +69,27 @@ While both Flyway and Liquibase are tools for database CI/CD, there are some key
 
 ### Supported databases
 
-- **Flyway**: 22+ SQL databases with expanded support in 2025 for:
+- **Flyway**: 22+ SQL databases with support for:
 
-  - MongoDB (preview for NoSQL migration capabilities)
+  - MongoDB (Native Connectors mode only; JDBC support removed in 2025)
   - SinglestoreDB
   - Google Cloud Spanner
   - EnterpriseDB
   - TimescaleDB
-  - Full compatibility for all databases in Community version without age restrictions
+  - Postgres 18, SQL Server 2025, Oracle 26ai (added 2025)
+  - Full compatibility for all databases in Community version
 
-- **Liquibase**: 50+ SQL and NoSQL databases with enhanced support in 2025 for:
+- **Liquibase**: 50+ SQL and NoSQL databases with enhanced support for:
+  - Databricks (added 2025)
   - Google BigQuery (including DATABASECHANGELOGHISTORY table support)
   - Continued MongoDB support
-  - Broader NoSQL database coverage
+  - Snowflake with OAuth/PKI authentication
 
 ### Installation
 
 - **Flyway**: Java-based tool requiring JVM installation. In 2025, configuration has moved to unified flyway.toml format, deprecating the older JSON format.
 
-- **Liquibase**: Java-based tool requiring JVM installation. In 2025, MacOS .dmg installer was deprecated in favor of Homebrew installation.
+- **Liquibase**: Java-based tool requiring JVM installation. **Liquibase 5.0+ requires Java 17 minimum** (Java 8/11 deprecated). MacOS .dmg installer was deprecated in favor of Homebrew installation.
 
 ### Change execution
 
@@ -129,8 +132,8 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 
 #### Supported plan
 
-- **Flyway**: Only in Team Plan or above
-- **Liquibase**: Only in Pro Plan and above
+- **Flyway**: Enterprise only (Teams discontinued in 2025)
+- **Liquibase**: Paid tiers only (Starter and above)
 
 #### Number of rules
 
@@ -143,7 +146,7 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 
   ![flyway-code-analysis-rules](/content/blog/bytebase-vs-flyway/flyway-code-analysis-rules.webp)
 
-- **Liquibase**: Predefined, users may set levels while calling. In 2025, Python-based Custom Policy Checks for Pro users offer more flexibility.
+- **Liquibase**: Predefined, users may set levels while calling. Python-based Custom Policy Checks available in paid tiers.
 
   ![liquibase-quality-check](/content/blog/flyway-vs-liquibase/liquibase-quality-check.webp)
 
@@ -176,9 +179,9 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 
 ### Rollback
 
-- **Flyway**: Write rollback scripts manually. Supported in Team version. No significant changes in 2025.
+- **Flyway**: Write rollback scripts manually. Enterprise only (Community does not support rollback).
 
-- **Liquibase**: Support `rollback-one-changeset` or `rollback`. In 2025, enhanced Rollback Report for Pro users.
+- **Liquibase**: Support `rollback-one-changeset` or `rollback`. Enhanced Rollback Report in paid tiers.
 
 ### Schema drift detection
 
@@ -186,40 +189,56 @@ SQL auto check helps developers write less buggy SQL and save DBAs manual review
 
 - **Liquibase**: Run `liquibase diff --format=json` to produce a report indicating difference between target database and source database. In 2025, improved Drift Report capabilities with better visualization.
 
-## Flyway enhancements in 2025
+## Flyway enhancements in 2025-2026
 
-One of the most significant Flyway enhancements in 2025 is the backup-based baseline approach. Instead of using lengthy baseline scripts that can be problematic, Flyway now allows using a backup to represent the baseline for shadow databases.
+Key features released in [2025](https://www.red-gate.com/blog/redgate-flyway-2025-year-in-review):
 
-This approach solves two main problems:
+- **State-based deployments** - Work the way you want with declarative schema definitions
+- **Backups as baseline** - Use database backups instead of lengthy baseline scripts, solving issues with invalid objects or external server references
+- **Improved drift detection** - Snapshots and drift resolution scripts to identify and resolve schema drift
+- **Database support** - Added support for Postgres 18, SQL Server 2025, Oracle 26ai
 
-1. Eliminates the need for baseline scripts that can be thousands or millions of lines long
-1. Avoids issues with invalid objects or references to external servers in baseline scripts
+[January 2026 updates](https://www.red-gate.com/blog/redgate-flyway-product-updates-january-2026):
 
-This feature is particularly valuable for SQL Server users and is available in Flyway Enterprise.
+- **AI-powered migration descriptions** - Flyway Desktop 8 generates descriptions based on migration script contents
+- **New shadow database dialog** - Option to let Flyway create shadow databases automatically
+- **Schema model view** - View all object definitions in Flyway Desktop
+- **SQLFluff 4.0.0** - Upgraded from 3.5.0
 
-## Liquibase enhancements in 2025
+**Important licensing change**: Since May 2025, Flyway only offers Community (free) and Enterprise (paid). The Teams tier was discontinued for new customers.
 
-Liquibase has significantly improved its Flow capabilities in 2025, adding:
+## Liquibase enhancements in 2025-2026
 
-- Flow conditionals for more sophisticated migration logic
-- Variable functionality in flow files
-- Better orchestration of complex migration steps
+[Liquibase 5.0](https://docs.liquibase.com/community/release-notes/5-0) was released in September 2025 as a major release:
 
-These enhancements make Liquibase even more flexible for complex database migration scenarios, particularly in enterprise environments with multiple databases and dependencies.
+- **Java 17 minimum requirement** - Java 8 and 11 deprecated for improved performance and security
+- **Liquibase Secure 5.0** - Certified enterprise distribution with integrated extensions, drivers, and policies
+- **Liquibase Secure Developer** - New VS Code extension for enterprise users
+- **AI Changelog Generator** - MCP Server powered tool to convert natural language to production-ready changelogs (Private Preview)
+- **Databricks support** - Added database connection support
+
+Flow and automation enhancements:
+
+- **Conditional Flow File logic** - Based on action exit codes with new `continueOnError` property
+- **Snowflake OAuth/PKI authentication** - Simplified authentication for Snowflake's token-based requirements
+- **New policy check** - `FormattedSqlHeaderRequired` ensures proper SQL file formatting
+- **Python checks enhancements** - New `get_config_value()` helper function
+
+**Important licensing change**: Liquibase Community has adopted the [Functional Source License (FSL)](https://docs.liquibase.com/community/release-notes/5-0) to ensure long-term sustainability while keeping the software free for developers.
 
 ## Pricing
 
-Flyway uses a per-user licensing model, while Liquibase uses a per-target (database instance) licensing model.
+Flyway uses a per-user licensing model, while Liquibase uses a per-application/database-type licensing model.
 
-| Aspect                 | Flyway                               | Liquibase                             |
-| ---------------------- | ------------------------------------ | ------------------------------------- |
-| **Free Tier**          | Community Edition                    | Community Edition                     |
-| **Entry-Level Paid**   | Teams: $3,000/year                   | Pro: $5,000/year (10 targets minimum) |
-| **Enterprise**         | Custom pricing, starting at $10,000+ | Custom pricing based on targets       |
-| **Licensing Model**    | Per-user based                       | Per-target based                      |
-| **Minimum Commitment** | None specified                       | 10 targets for Pro edition            |
-| **Volume Discounts**   | Available based on user count        | Available based on target count       |
-| **Pricing Structure**  | Tiered by edition                    | Target-based with minimum commitment  |
+| Aspect               | Flyway                            | Liquibase                                        |
+| -------------------- | --------------------------------- | ------------------------------------------------ |
+| **Free Tier**        | Community                         | Community (FSL license)                          |
+| **Paid Tiers**       | Enterprise only                   | 4 tiers: Starter, Growth, Business, Enterprise   |
+| **Licensing Model**  | Per-user                          | Per-application + database types                 |
+| **Entry-Level**      | Enterprise (contact for quote)    | Starter: up to 5 apps, 1 DB type                 |
+| **Mid-Tier**         | —                                 | Growth (10 apps, 3 DB types), Business (25 apps) |
+| **Enterprise**       | Unlimited (custom pricing)        | Unlimited apps & DB types, 24/7 support          |
+| **Pricing**          | Contact sales                     | Contact sales (all tiers)                        |
 
 ## Summary
 
