@@ -4,7 +4,7 @@ author: Ayra
 updated_at: 2026/02/03 12:00:00
 feature_image: /content/blog/top-text-to-sql-query-tools/cover.webp
 tags: Industry
-description: 'An overview to the most popular text-to-SQL AI tools in 2026, including DataGrip, TablePlus, SQL Chat, Vanna.ai, SQLAI.ai, Postgres.new, and DBHub MCP server. Compare features and capabilities to find the best SQL AI assistant for your workflow.'
+description: 'An overview of the most popular text-to-SQL AI tools in 2026, including DataGrip, TablePlus, SQL Chat, Vanna.ai, SQLAI.ai, Postgres.new, and DBHub MCP server. Compare features and capabilities to find the best SQL AI assistant for your workflow.'
 ---
 
 <HintBlock type="info">
