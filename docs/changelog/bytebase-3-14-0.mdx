@@ -14,7 +14,7 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
     - **CI (review)** - issue page displays plan changes directly, no more context switching between tabs.
     - **CD (deployment)** - rollout is now a standalone page, clearly separating review from execution.
     - Rollout UI now supports release-based tasks — showing per-file execution status, command duration, and release info in task items.
-    - Rollout creation: introduce creation dependency between issue and rollout, with 2 rollout creation modes - 1) automatic creation, if issue is approved AND SQL review check pass; 2) manual creation, in other cases, e.g. issue approved BUT review not passed.
+    - Rollout creation: introduce creation dependency between issue and rollout, with 2 rollout creation modes - 1) automatic creation, if issue is approved AND SQL review check pass; 2) manual creation, in other cases, e.g. issue approved BUT review not passed. After rollout is created, issue status will be automatically set to `DONE`.
     - Rollout permission: as a result of introducing manual creation, `bb.rollouts.create` permission is added to **Project Releaser** role . All custom roles for rollout initiation are advised to be assigned `bb.rollouts.create` permission (it only controls who can create a rollout, but it does not bypass approval requirements or task execution).
 - Remove `auto_resolve_issue` and `allow_modify_statement` from **Project Settings**.
 - For Terraform, remove `allow_modify_statement` and `auto_resolve_issue` from the project resource, remove `auto_resolve_issue` from the workspace_profile setting resource.
