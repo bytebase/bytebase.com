@@ -46,7 +46,7 @@ The DataGrip AI Assistant can:
 1. Fix SQL mistakes.
 1. Format and rewrite SQL.
 
-In 2025, JetBrains significantly enhanced the AI Assistant:
+During 2025, JetBrains significantly enhanced the AI Assistant:
 
 - **Schema and object context**: Attach specific database objects (tables, views) to AI chat for more precise responses, not just the whole schema.
 - **Execution plan analysis**: AI can explain query execution plans and suggest optimizations for better performance.
