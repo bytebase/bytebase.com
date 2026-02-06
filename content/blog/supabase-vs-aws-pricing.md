@@ -1,7 +1,7 @@
 ---
-title: 'Supabase vs AWS: Feature and Pricing Comparison (2025)'
+title: 'Supabase vs AWS: Feature and Pricing Comparison (2026)'
 author: Adela
-updated_at: 2025/06/25 18:00:00
+updated_at: 2026/02/06 18:00:00
 feature_image: /content/blog/supabase-vs-aws-pricing/cover.webp
 tags: Comparison
 description: 'We compare Supabase vs AWS across auth, storage, edge functions, realtime, and more'
@@ -31,7 +31,7 @@ We’ll go **feature by feature**, then compare **total costs at different usage
 
 🧬 Supabase is easier and more predictable. RDS gives more control and is better for compliance-heavy or complex workloads.
 
-See our full comparison here: [Supabase vs AWS Database Pricing (2025)](/blog/supabase-vs-aws-database-pricing/)
+See our full comparison here: [Supabase vs AWS Database Pricing (2026)](/blog/supabase-vs-aws-database-pricing/)
 
 - Supabase bundles compute, storage, backup, and bandwidth into flat tiers.
 - AWS RDS offers cheaper options if you commit to Reserved Instances, but requires piecing together compute, storage, backup, and bandwidth costs.
@@ -46,13 +46,13 @@ See our full comparison here: [Supabase vs AWS Database Pricing (2025)](/blog/su
 
 🧬 **Supabase Auth is simpler and developer-friendly**, great for fast setup and apps with straightforward auth needs. **Cognito is better for enterprises** that require SSO, security compliance, and deep AWS integration.
 
-| Feature         | Supabase Auth        | AWS Cognito              |
-| --------------- | -------------------- | ------------------------ |
-| Free Tier       | 50,000 MAUs          | 50,000 MAUs              |
-| Paid Pricing    | \$0.0015/MAU         | \$0.0055/MAU             |
-| SSO Support     | Enterprise plan only | Included (OIDC, SAML)    |
-| MFA / Passwords | Included             | Included                 |
-| Rate Limits     | Generous             | Strict (especially SAML) |
+| Feature         | Supabase Auth          | AWS Cognito                |
+| --------------- | ---------------------- | -------------------------- |
+| Free Tier       | 50,000 MAUs            | 10,000 MAUs                |
+| Paid Pricing    | \$0.00325/MAU          | \$0.015/MAU (Essentials)   |
+| SSO Support     | Enterprise plan only   | Included (OIDC, SAML)      |
+| MFA / Passwords | Included               | Included                   |
+| Rate Limits     | Generous               | Strict (especially SAML)   |
 
 ➡️ Choose Supabase if you want fast, simple auth for your apps. However, as your business grows, your team will likely need a more sophisticated auth solution. Cognito is one option, but many teams also consider Okta, Azure Entra, or WorkOS.
 
@@ -143,7 +143,7 @@ For example:
 | Feature   | Supabase                        | AWS                                                       |
 | --------- | ------------------------------- | --------------------------------------------------------- |
 | Database  | ✅ Shared CPU /500MB PostgreSQL | ⚠️ 2 vCPU (burstable) / 1GB RAM for t4g.micro (12 months) |
-| Auth      | ✅ 50K MAUs                     | ✅ 50K MAUs (Cognito)                                     |
+| Auth      | ✅ 50K MAUs                     | ⚠️ 10K MAUs (Cognito)                                     |
 | Storage   | ✅ 1GB w/ CDN                   | ⚠️ 5GB (12 months, no CDN)                                |
 | Functions | ✅ 500K Edge calls              | ✅ 1M Lambda calls                                        |
 | Messaging | ✅ 500K Realtime messages       | ✅ 1M SQS/SNS messages                                    |
@@ -190,7 +190,7 @@ AWS has generous limits — but database and storage expire after 12 months.
 | ------------------------ | -------- | -------------------------------------- |
 | Pro Plan Base            | \$25.00  | Includes basic DB, auth, 100GB storage |
 | Extra DB Storage (192GB) | \$24.00  | \$0.125/GB beyond included 8GB         |
-| Compute Upgrade          | \$60.00  | 4-core, 2GB RAM                        |
+| Compute Upgrade          | \$60.00  | 2-core ARM, 4GB RAM                    |
 | Extra Storage (900GB)    | \$18.90  | \$0.021/GB beyond included 100GB       |
 | Bandwidth (4.75TB)       | \$427.50 | \$0.09/GB beyond 250GB included        |
 | Edge Functions           | \$50.00  | Estimate for high usage                |
@@ -200,21 +200,21 @@ AWS has generous limits — but database and storage expire after 12 months.
 
 #### AWS
 
-- On-Demand – **\$2,325.59/month**
-- 1-Year RI Estimate: **~\$2,000.69/month**
-- 3-Year RI Estimate: **~\$1,675.79/month**
+- On-Demand – **\$3,180.59/month**
+- 1-Year RI Estimate: **~\$2,855.69/month**
+- 3-Year RI Estimate: **~\$2,530.79/month**
 
-| Service                    | Cost (On-Demand) | 1-Year RI (est. -30%) | 3-Year RI (est. -60%) | Notes              |
-| -------------------------- | ---------------- | --------------------- | --------------------- | ------------------ |
-| RDS (db.m5.large Multi-AZ) | \$249.66         | \$174.76              | \$99.86               | 2 vCPU, 8GB RAM    |
-| RDS Storage (200GB)        | \$46.00          | —                     | —                     | SSD, replicated    |
-| Cognito (90K MAUs)         | \$495.00         | —                     | —                     | \$0.0055/MAU       |
-| Lambda (50M execs)         | \$833.33         | \$583.33              | \$333.33              | 1GB, 500ms execs   |
-| S3 (1TB)                   | \$23.00          | —                     | —                     | \$0.023/GB         |
-| Bandwidth (5TB)            | \$450.00         | —                     | —                     | Tiered pricing     |
-| API Gateway                | \$175.00         | —                     | —                     | 50M HTTP requests  |
-| CloudWatch                 | \$50.00          | —                     | —                     | Monitoring         |
-| SQS (10M requests)         | \$3.60           | —                     | —                     | \$0.40 per million |
+| Service                    | Cost (On-Demand) | 1-Year RI (est. -30%) | 3-Year RI (est. -60%) | Notes                |
+| -------------------------- | ---------------- | --------------------- | --------------------- | -------------------- |
+| RDS (db.m5.large Multi-AZ) | \$249.66         | \$174.76              | \$99.86               | 2 vCPU, 8GB RAM      |
+| RDS Storage (200GB)        | \$46.00          | —                     | —                     | SSD, replicated      |
+| Cognito (90K MAUs)         | \$1,350.00       | —                     | —                     | \$0.015/MAU          |
+| Lambda (50M execs)         | \$833.33         | \$583.33              | \$333.33              | 1GB, 500ms execs     |
+| S3 (1TB)                   | \$23.00          | —                     | —                     | \$0.023/GB           |
+| Bandwidth (5TB)            | \$450.00         | —                     | —                     | Tiered pricing       |
+| API Gateway                | \$175.00         | —                     | —                     | 50M HTTP requests    |
+| CloudWatch                 | \$50.00          | —                     | —                     | Monitoring           |
+| SQS (10M requests)         | \$3.60           | —                     | —                     | \$0.40 per million   |
 
 ⚠️ **More expensive due to metered pricing across services. Complex to manage.**
 
@@ -226,7 +226,7 @@ AWS has generous limits — but database and storage expire after 12 months.
 | ----------------- | ---------- | -------------------------------------- |
 | Team Plan         | \$599.00   | Enterprise features + support          |
 | DB Storage (2TB)  | \$249.00   | Extra beyond base plan                 |
-| Compute (4XL)     | \$960.00   | 16-core, 32GB RAM                      |
+| Compute (4XL)     | \$960.00   | 16-core ARM, 64GB RAM                  |
 | Auth (1.5M MAUs)  | \$4,550.00 | \$0.00325 per MAU beyond 100K included |
 | Storage (50TB)    | \$1,047.90 | \$0.021/GB beyond 100GB                |
 | Bandwidth (100TB) | \$8,977.50 | \$0.09/GB beyond 250GB                 |
@@ -245,7 +245,7 @@ AWS has generous limits — but database and storage expire after 12 months.
 | ------------------------- | ---------------- | --------------------- | --------------------- | -------------------------------- |
 | RDS (r5.4xlarge Multi-AZ) | \$2,639.68       | \$1,847.78            | \$1,055.87            | 16 vCPU, 128GB RAM               |
 | RDS Storage (2TB IOPS)    | \$2,500.00       | —                     | —                     | High-performance SSD             |
-| Cognito (1.5M MAUs)       | \$22,350.00      | —                     | —                     | \$0.015 per MAU (Essential plan) |
+| Cognito (1.5M MAUs)       | \$22,350.00      | —                     | —                     | \$0.015/MAU (Essentials)         |
 | Lambda (1B execs)         | \$33,333.33      | \$23,333.33           | \$13,333.33           | 2GB RAM, 1s duration             |
 | S3 (50TB)                 | \$1,100.00       | —                     | —                     | Tiered pricing                   |
 | Bandwidth (100TB)         | \$7,000.00       | —                     | —                     | Tiered egress                    |
@@ -272,13 +272,13 @@ Supabase’s architecture is optimized for small to mid-sized applications. Whil
 
 ✅ If you're approaching hyperscale, you can still **start with Supabase** — but architect with portability in mind.
 
-#### AWS – **\$246,392.81/month (on-demand)**
+#### AWS – **\$247,742.81/month (on-demand)**
 
 | Service                    | On-Demand    | 1-Year RI (est. -30%) | 3-Year RI (est. -60%) | Notes                        |
 | -------------------------- | ------------ | --------------------- | --------------------- | ---------------------------- |
 | RDS (r6i.8xlarge Multi-AZ) | \$10,560.00  | \$7,392.00            | \$4,224.00            | 32 vCPU, 256GB RAM x2        |
 | RDS Storage (10TB IOPS)    | \$12,500.00  | —                     | —                     | High IOPS SSD                |
-| Cognito (9.9M MAUs)        | \$148,500.00 | —                     | —                     | \$0.015 per MAU              |
+| Cognito (9.99M MAUs)       | \$149,850.00 | —                     | —                     | \$0.015/MAU (Essentials)     |
 | Lambda (10B execs)         | \$33,333.33  | \$23,333.33           | \$13,333.33           | 2GB, 1s exec duration        |
 | S3 (200TB)                 | \$4,000.00   | —                     | —                     | Tiered pricing               |
 | Bandwidth (500TB)          | \$35,000.00  | —                     | —                     | Tiered egress                |
