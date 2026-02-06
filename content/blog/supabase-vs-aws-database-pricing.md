@@ -1,7 +1,7 @@
 ---
-title: 'Supabase vs AWS: Database Pricing Comparison in 2025'
+title: 'Supabase vs AWS: Database Pricing Comparison in 2026'
 author: Adela
-updated_at: 2025/06/23 18:00:00
+updated_at: 2026/02/06 18:00:00
 feature_image: /content/blog/supabase-vs-aws-database-pricing/cover.webp
 tags: Comparison
 description: 'We compare Supabase vs AWS (RDS and Aurora) across free, entry-level, and production tiers'
@@ -21,7 +21,7 @@ Both platforms offer free tiers, but they differ significantly in **duration**, 
 | Compute          | Shared CPU / 500MB RAM       | 2 vCPU (burstable) / 1GB RAM (t4g.micro, 750 hrs/mo)\* |
 | Compute Type     | Shared container environment | Dedicated EC2 instance (Graviton2, burstable)          |
 | CPU Architecture | x86                          | ARM (AWS Graviton2)                                    |
-| Storage (DB)     | 500MB                        | 20GB gp2\*                                             |
+| Storage (DB)     | 500MB                        | 20GB gp3\*                                             |
 | Backup           | 7-day snapshot               | 20GB snapshot                                          |
 | Bandwidth        | 5GB outbound                 | 15GB outbound                                          |
 | OS / Isolation   | Serverless (no OS access)    | Full OS-level isolation                                |
@@ -36,10 +36,10 @@ When you outgrow the free tier but don’t need production-grade resources, thes
 | Feature          | Supabase Pro Tier                      | RDS t4g.micro (On-Demand)             | RDS t4g.micro (1yr Reserved)        | RDS t4g.micro (3yr Reserved)        |
 | ---------------- | -------------------------------------- | ------------------------------------- | ----------------------------------- | ----------------------------------- |
 | Monthly Price    | \$25 (includes \$10 compute)\*         | \$11.68                               | \$6.69                              | \$4.76                              |
-| Compute          | 1 vCPU (shared) / 1GB RAM              | 2 vCPU (burstable) / 1GB RAM          | 2 vCPU (burstable) / 1GB RAM        | 2 vCPU (burstable) / 1GB RAM        |
+| Compute          | 2-core ARM (shared) / 1GB RAM          | 2 vCPU (burstable) / 1GB RAM          | 2 vCPU (burstable) / 1GB RAM        | 2 vCPU (burstable) / 1GB RAM        |
 | Compute Type     | Shared container environment           | Dedicated ARM instance (Graviton2)    | Dedicated ARM instance (Graviton2)  | Dedicated ARM instance (Graviton2)  |
 | OS Access        | No                                     | Yes                                   | Yes                                 | Yes                                 |
-| Storage Included | 8GB                                    | 20GB gp2                              | 20GB gp2                            | 20GB gp2                            |
+| Storage Included | 8GB                                    | 20GB gp3                              | 20GB gp3                            | 20GB gp3                            |
 | Extra Storage    | \$0.125/GB                             | \$0.115/GB                            | \$0.115/GB                          | \$0.115/GB                          |
 | Backups          | 7-day snapshot                         | Free up to DB size, then \$0.095/GB\* | Free up to DB size, then \$0.095/GB | Free up to DB size, then \$0.095/GB |
 | Bandwidth        | 250GB outbound included, then $0.09/GB | \$0.09/GB outbound                    | \$0.09/GB outbound                  | \$0.09/GB outbound                  |
@@ -55,10 +55,10 @@ For established applications with real user traffic and non-trivial data volumes
 | Feature           | Supabase (Large)                    | RDS m5.large (On-Demand) | RDS m5.large (1yr Reserved) | RDS m5.large (3yr Reserved) | Aurora r5.large (On-Demand)      | Aurora r5.large (1yr Reserved) | Aurora r5.large (3yr Reserved) |
 | ----------------- | ----------------------------------- | ------------------------ | --------------------------- | --------------------------- | -------------------------------- | ------------------------------ | ------------------------------ |
 | Monthly Price     | \$110 (flat)\*                      | \$130                    | \$81                        | \$56                        | \$211                            | \$138                          | \$96                           |
-| Compute           | 2 vCPU (shared) / 8GB RAM           | 2 vCPU / 8GB RAM         | 2 vCPU / 8GB RAM            | 2 vCPU / 8GB RAM            | 2 vCPU / 16GB RAM                | 2 vCPU / 16GB RAM              | 2 vCPU / 16GB RAM              |
-| Compute Type      | Shared container environment        | Dedicated EC2 (x86)      | Dedicated EC2 (x86)         | Dedicated EC2 (x86)         | Aurora cluster (I/O-Optimized)\* | Aurora cluster (I/O-Optimized) | Aurora cluster (I/O-Optimized) |
+| Compute           | 2-core ARM (dedicated) / 8GB RAM    | 2 vCPU / 8GB RAM         | 2 vCPU / 8GB RAM            | 2 vCPU / 8GB RAM            | 2 vCPU / 16GB RAM                | 2 vCPU / 16GB RAM              | 2 vCPU / 16GB RAM              |
+| Compute Type      | Dedicated ARM instance              | Dedicated EC2 (x86)      | Dedicated EC2 (x86)         | Dedicated EC2 (x86)         | Aurora cluster (I/O-Optimized)\* | Aurora cluster (I/O-Optimized) | Aurora cluster (I/O-Optimized) |
 | OS Access         | No                                  | Yes                      | Yes                         | Yes                         | Yes                              | Yes                            | Yes                            |
-| Storage (100GB)   | Included                            | \$11.50 (gp2)            | \$11.50 (gp2)               | \$11.50 (gp2)               | \$10 (I/O-Optimized)             | \$10 (I/O-Optimized)           | \$10 (I/O-Optimized)           |
+| Storage (100GB)   | Included                            | \$11.50 (gp3)            | \$11.50 (gp3)               | \$11.50 (gp3)               | \$10 (I/O-Optimized)             | \$10 (I/O-Optimized)           | \$10 (I/O-Optimized)           |
 | Backup            | Included                            | Free up to DB size\*     | Free up to DB size          | Free up to DB size          | \$0.021/GB\*                     | \$0.021/GB                     | \$0.021/GB                     |
 | Bandwidth (500GB) | \$22.50 (250GB included + $0.09/GB) | \$45 (\$0.09/GB)         | \$45 (\$0.09/GB)            | \$45 (\$0.09/GB)            | \$45 (\$0.09/GB)                 | \$45 (\$0.09/GB)               | \$45 (\$0.09/GB)               |
 | **Total/Month**   | **\$145**                           | **\$186**                | **\$138**                   | **\$112.50**                | **\$266**                        | **\$193**                      | **\$161**                      |
@@ -74,10 +74,10 @@ For mission-critical workloads with large storage, high concurrency, and peak tr
 | Feature              | Supabase 2XL                        | RDS r5.xlarge (On-Demand) | RDS r5.xlarge (1yr Reserved) | RDS r5.xlarge (3yr Reserved) | Aurora r5.xlarge (On-Demand)     | Aurora r5.xlarge (1yr Reserved) | Aurora r5.xlarge (3yr Reserved) |
 | -------------------- | ----------------------------------- | ------------------------- | ---------------------------- | ---------------------------- | -------------------------------- | ------------------------------- | ------------------------------- |
 | Monthly Price        | \$410 (flat)\*                      | \$422                     | \$246                        | \$170                        | \$422                            | \$287                           | \$210                           |
-| Compute              | 4 vCPU (shared) / 16GB RAM          | 4 vCPU / 32GB RAM         | 4 vCPU / 32GB RAM            | 4 vCPU / 32GB RAM            | 4 vCPU / 32GB RAM                | 4 vCPU / 32GB RAM               | 4 vCPU / 32GB RAM               |
-| Compute Type         | Shared container                    | Dedicated EC2 (x86)       | Dedicated EC2 (x86)          | Dedicated EC2 (x86)          | Aurora cluster (I/O-Optimized)\* | Aurora cluster (I/O-Optimized)  | Aurora cluster (I/O-Optimized)  |
+| Compute              | 8-core ARM (dedicated) / 32GB RAM   | 4 vCPU / 32GB RAM         | 4 vCPU / 32GB RAM            | 4 vCPU / 32GB RAM            | 4 vCPU / 32GB RAM                | 4 vCPU / 32GB RAM               | 4 vCPU / 32GB RAM               |
+| Compute Type         | Dedicated ARM instance              | Dedicated EC2 (x86)       | Dedicated EC2 (x86)          | Dedicated EC2 (x86)          | Aurora cluster (I/O-Optimized)\* | Aurora cluster (I/O-Optimized)  | Aurora cluster (I/O-Optimized)  |
 | OS Access            | No                                  | Yes                       | Yes                          | Yes                          | Yes                              | Yes                             | Yes                             |
-| Storage (500GB)      | Included                            | \$57.50 (gp2)             | \$57.50 (gp2)                | \$57.50 (gp2)                | \$50 (I/O-Optimized)             | \$50 (I/O-Optimized)            | \$50 (I/O-Optimized)            |
+| Storage (500GB)      | Included                            | \$57.50 (gp3)             | \$57.50 (gp3)                | \$57.50 (gp3)                | \$50 (I/O-Optimized)             | \$50 (I/O-Optimized)            | \$50 (I/O-Optimized)            |
 | IOPS / Throughput    | Included (abstracted)\*             | \$100+ (io1 estimated)\*  | \$100+ (io1 estimated)       | \$100+ (io1 estimated)       | Included                         | Included                        | Included                        |
 | Backup (500GB extra) | Included                            | \$47.50\*                 | \$47.50                      | \$47.50                      | \$10.50                          | \$10.50                         | \$10.50                         |
 | Bandwidth (1TB)      | \$67.50 (250GB included + $0.09/GB) | \$90 (\$0.09/GB)          | \$90 (\$0.09/GB)             | \$90 (\$0.09/GB)             | \$90 (\$0.09/GB)                 | \$90 (\$0.09/GB)                | \$90 (\$0.09/GB)                |
@@ -91,7 +91,7 @@ For mission-critical workloads with large storage, high concurrency, and peak tr
 
 | Metric        | Supabase                | AWS RDS (On-Demand) | AWS RDS (Reserved)\* | Aurora (I/O-Optimized)\* |
 | ------------- | ----------------------- | ------------------- | -------------------- | ------------------------ |
-| **Storage**   | \$0.125/GB              | \$0.115/GB (gp2)\*  | \$0.115/GB (gp2)     | \$0.10–\$0.225/GB\*      |
+| **Storage**   | \$0.125/GB              | \$0.115/GB (gp3)\*  | \$0.115/GB (gp3)     | \$0.10–\$0.225/GB\*      |
 | **Backup**    | Included                | \$0.095/GB\*        | \$0.095/GB           | \$0.021/GB (snapshot)\*  |
 | **Bandwidth** | 250GB outbound included | \$0.09/GB outbound  | \$0.09/GB outbound   | \$0.09/GB outbound       |
 | **Compute**   | \$10–\$3,730 (flat)     | \$11–\$1,688        | \$6–\$1,080          | \$67–\$3,376             |
@@ -103,7 +103,7 @@ For mission-critical workloads with large storage, high concurrency, and peak tr
 
 - **t4g.micro (burstable)**: AWS uses burstable instances like `t4g.micro` for its Free and entry-level RDS tiers. These provide 2 ARM-based vCPUs with a CPU credit system — ideal for low-to-moderate workloads with occasional spikes.
 
-- **gp2 Storage (AWS)**: gp2 volumes offer 3 IOPS per GB, with a **minimum baseline of 100 IOPS** at 20GB. They also include **burst capacity**, giving better performance than basic shared storage.
+- **gp3 Storage (AWS)**: gp3 is now the default storage type for new RDS instances. It provides a **baseline of 3,000 IOPS and 125 MB/s throughput** at no extra cost — a significant improvement over the older gp2 type. The per-GB price remains the same at \$0.115/GB-month.
 
 - **Supabase Flat Pricing**: Supabase’s pricing includes compute, storage, backups, and bandwidth in a **single monthly rate** — simplifying cost tracking and reducing surprise bills.
 
@@ -114,7 +114,7 @@ For mission-critical workloads with large storage, high concurrency, and peak tr
 
 - **Aurora I/O-Optimized**: This newer Aurora pricing tier eliminates per-I/O charges and instead bills a flat rate per GB stored. Ideal for write-heavy or high-throughput workloads with unpredictable I/O.
 
-- **IOPS Costs (RDS)**: For high-performance needs, RDS users may upgrade to `io1` or `gp3` storage with provisioned IOPS — typically adding \$100+ per month for workloads requiring consistent low-latency throughput.
+- **IOPS Costs (RDS)**: For high-performance needs beyond gp3's 3,000 IOPS baseline, RDS users may provision additional IOPS on gp3 or upgrade to `io1`/`io2` storage — typically adding \$100+ per month for workloads requiring consistent low-latency throughput.
 
 - **Reserved Pricing (AWS)**: RDS and Aurora support **1-year and 3-year reservations**, reducing monthly compute costs by 30–60%. These are billed upfront or monthly and require workload stability.
 
