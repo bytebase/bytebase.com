@@ -26,11 +26,11 @@ Very different teams ran into the same issues once they put Text-to-SQL in front
 
 - Google Cloud shared practical techniques they had to add just to get Text-to-SQL working reliably over large, messy schemas. [Getting AI to write good SQL: Text-to-SQL techniques explained](https://cloud.google.com/blog/products/databases/techniques-for-improving-text-to-sql)
 
-- Hex reflected on what actually matters when you ship AI features to real users and the environment keeps changing underneath you.[Bitter lessons building AI products](https://hex.tech/blog/bitter-lessons-building-ai-in-hex-product-management/)
+- Hex reflected on what actually matters when you ship AI features to real users and the environment keeps changing underneath you. [Bitter lessons building AI products](https://hex.tech/blog/bitter-lessons-building-ai-in-hex-product-management/)
 
 - Vercel explained why they eventually removed most of their agent tools in production to make the system easier to reason about. [We removed 80% of our agent’s tools](https://vercel.com/blog/we-removed-80-percent-of-our-agents-tools)
 
-Different products. Different users. But once you get into the details, the problems and the fixes, start to look very familiar.
+Different products. Different users. But once you get into the details, the problems and the fixes start to look very familiar.
 
 ## Context: where things first went wrong
 
