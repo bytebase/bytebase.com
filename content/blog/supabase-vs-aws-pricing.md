@@ -4,12 +4,16 @@ author: Adela
 updated_at: 2026/02/06 18:00:00
 feature_image: /content/blog/supabase-vs-aws-pricing/cover.webp
 tags: Comparison
-description: 'We compare Supabase vs AWS across auth, storage, edge functions, realtime, and more'
+description: 'Supabase pricing starts free. We break down real costs for Pro ($25/mo) and Team ($599/mo) plans, explain overages, and compare each service head-to-head with AWS.'
 ---
+
+Last updated: February 2026
 
 When comparing **Supabase** and **AWS**, the key question isn't just about raw features, it's about how much functionality you get **per dollar** and how easily you can scale from a free plan to enterprise-grade infrastructure.
 
-In this guide, we break down the pricing and functionality for each of **Supabase’s core features** and compare them to their **closest AWS counterparts**:
+**TL;DR** — Supabase's free tier never expires and includes a full backend stack. The Pro plan (\$25/mo) works for most production apps. The biggest cost surprises come from **bandwidth** (\$0.09/GB), **auth MAUs** (\$0.00325/user), and **compute upgrades** (\$10–\$3,730/mo). At 100K MAUs, Supabase costs ~\$630/mo vs ~\$3,180/mo on AWS. At 10M+ MAUs, consider migrating to AWS.
+
+In this guide, we first break down **Supabase pricing** in detail — plans, overages, and what actually drives your bill — then compare each service to its **closest AWS counterpart**:
 
 - Supabase Database → AWS RDS PostgreSQL
 - Supabase Auth → AWS Cognito
@@ -17,11 +21,81 @@ In this guide, we break down the pricing and functionality for each of **Supabas
 - Supabase Edge Functions → AWS Lambda
 - Supabase Realtime (Messages) → AWS SQS/SNS
 
-We’ll go **feature by feature**, then compare **total costs at different usage tiers**, and conclude with final recommendations.
+---
+
+## Supabase Pricing
+
+Supabase uses a **tier-based pricing model** with usage-based overages. There are four plans:
+
+| Plan             | Price        | Best For                            |
+| ---------------- | ------------ | ----------------------------------- |
+| **Free**         | \$0/month    | Side projects, prototyping          |
+| **Pro**          | \$25/month   | Production apps, small teams        |
+| **Team**         | \$599/month  | Scaling teams, SOC2 compliance      |
+| **Enterprise**   | Custom       | Large orgs, SLAs, dedicated support |
+
+### Free vs Paid
+
+The **Free plan** is generous — you get a full-stack backend (database, auth, storage, edge functions, realtime) with no time limit. But it comes with hard caps: 500MB database, 1GB storage, 50K auth users, and shared compute. Projects also pause after 1 week of inactivity.
+
+The **Pro plan** at \$25/month removes pausing, bumps the database to 8GB, storage to 100GB, and bandwidth to 250GB. Beyond those limits, you pay per-unit overages. For most production apps, the Pro plan is where real usage starts.
+
+### What Drives Real Cost
+
+At scale, three factors dominate your Supabase bill:
+
+1. **Bandwidth** — At \$0.09/GB beyond the included 250GB, egress adds up fast. A media-heavy app serving 5TB/month could see \$400+ in bandwidth alone.
+2. **Auth MAUs** — Free up to the plan's included MAUs, but at \$0.00325/MAU on the Pro/Team plan, 1M active users means \$2,925/month just for auth.
+3. **Compute add-ons** — The base Pro plan uses a small instance. Upgrading to a dedicated 2-core/8GB instance costs \$110/month; a 16-core/64GB instance is \$960/month.
+
+Database storage and file storage overages exist but are relatively cheap (\$0.125/GB and \$0.021/GB respectively). The real surprise on most bills comes from bandwidth and compute, not storage.
+
+### Supabase Pricing Breakdown: Free vs Paid
+
+| Resource       | Free Plan                   | Paid Plans (Pro \$25/mo+)                |
+| -------------- | --------------------------- | ---------------------------------------- |
+| Database       | 500MB, shared CPU           | 8GB included, then \$0.125/GB            |
+| Auth (MAUs)    | 50,000                      | 100,000 included, then \$0.00325/MAU     |
+| Storage        | 1GB                         | 100GB included, then \$0.021/GB          |
+| Bandwidth      | 5GB                         | 250GB included, then \$0.09/GB           |
+| Edge Functions | 500K invocations            | 2M included, then \$2/million            |
+| Realtime       | 500K messages               | 2M included, then \$2/million            |
+| Backups        | 7-day snapshots             | 7-day (Pro) / 14-day (Team)              |
+| Compute        | Shared, pauses after 1 week | Dedicated from \$10/mo, up to \$3,730/mo |
+
+For a deeper look at database-specific costs, see [Supabase vs AWS Database Pricing (2026)](/blog/supabase-vs-aws-database-pricing/).
 
 ---
 
-## Feature by Feature
+## Common Supabase Pricing Questions
+
+### Is Supabase free?
+
+Yes. Supabase offers a **permanent free tier** with 500MB database, 1GB storage, 50K monthly active users, and 500K edge function calls. Unlike AWS, there is no 12-month expiration. The main limitation is that free projects pause after one week of inactivity.
+
+### How much does Supabase cost for production?
+
+Most production apps run on the **Pro plan at \$25/month** plus overages. A typical small-to-medium app (10K MAUs, 20GB database, 50GB storage) costs around **\$27/month**. A growing app (100K MAUs, 200GB DB, 5TB bandwidth) can reach **\$630/month**, with bandwidth being the largest cost driver.
+
+### What are the hidden costs of Supabase?
+
+The biggest surprises come from **bandwidth overages** (\$0.09/GB beyond 250GB), **compute add-ons** (required for performance-sensitive apps), and **auth MAU charges** at scale. Compute add-ons are billed independently of the spend cap, meaning they can increase your bill even with the cap enabled.
+
+### Is Supabase cheaper than AWS?
+
+At startup and mid-scale, **yes — significantly**. A startup running 10K MAUs pays ~\$27/month on Supabase vs ~\$75/month on AWS. A growing business at 100K MAUs pays ~\$630/month on Supabase vs ~\$3,180/month on AWS. However, at hyperscale (10M+ MAUs), Supabase hits architectural limits and AWS becomes more viable. Many teams [start on Supabase and migrate to AWS](/blog/how-to-migrate-from-supabase-to-aws/) as they scale.
+
+---
+
+## Who This Pricing Model Fits
+
+- **Startups and indie developers** — Supabase's free tier and \$25/month Pro plan are hard to beat for getting a full-stack backend running fast. No AWS accounts, no infrastructure management, no surprise bills from misconfigured services.
+- **Growing product teams** — Up to ~100K MAUs and a few TB of data, Supabase remains cost-effective and operationally simple. The biggest decision is when to upgrade compute and whether bandwidth costs justify a CDN.
+- **Regulated or large organizations** — Supabase's Team (\$599/mo) and Enterprise plans offer SOC2, SSO, and extended support. But at enterprise scale, teams often need finer control over [database change management](/blog/what-is-database-change-management/), networking, and compliance — which may mean supplementing Supabase with dedicated tooling or migrating parts of the stack to AWS.
+
+---
+
+## Supabase vs AWS: Feature by Feature
 
 ### 🗄️ Database: Supabase DB vs AWS RDS
 
@@ -81,7 +155,6 @@ See our full comparison here: [Supabase vs AWS Database Pricing (2026)](/blog/su
 **AWS Lambda:** Flexible, multi-runtime functions with deep AWS service integration.
 
 🧬 Supabase is simpler for edge APIs. Lambda is better for complex logic, language flexibility, and AWS ecosystem workflows.
-
 
 | Feature          | Supabase Edge Functions                | AWS Lambda                             |
 | ---------------- | -------------------------------------- | -------------------------------------- |
@@ -164,9 +237,8 @@ AWS has generous limits — but database and storage expire after 12 months.
 
 ✅ **Flat, all-inclusive plan with tiny storage add-on.**
 
-#### AWS
+#### AWS – **\$75.00/month** (on-demand)
 
-- On-Demand – **\$75.00/month**
 - 1-Year RI Estimate: **~\$67.73/month**
 - 3-Year RI Estimate: **~\$59.47/month**
 
@@ -198,9 +270,8 @@ AWS has generous limits — but database and storage expire after 12 months.
 
 ✅ **Integrated platform; all services billed under one umbrella.**
 
-#### AWS
+#### AWS – **\$3,180.59/month** (on-demand)
 
-- On-Demand – **\$3,180.59/month**
 - 1-Year RI Estimate: **~\$2,855.69/month**
 - 3-Year RI Estimate: **~\$2,530.79/month**
 
@@ -235,9 +306,8 @@ AWS has generous limits — but database and storage expire after 12 months.
 
 ✅ **Predictable, transparent billing; all services built-in.**
 
-#### AWS
+#### AWS – **\$73,122.81/month** (on-demand)
 
-- On-Demand – **\$73,122.81/month**
 - 1-Year RI Estimate: **~\$62,330.91/month**
 - 3-Year RI Estimate: **~\$51,539.00/month**
 
@@ -313,4 +383,4 @@ But as your product reaches **hyperscale — millions of users, terabytes of dat
 ✅ **Choose Supabase** if you want a fast, simple way to build and scale to your first million users.
 ✅ **Choose AWS** if you need performance at scale, deep customization, or global enterprise-grade infrastructure.
 
-👉 For a deep dive into database-specific pricing, see: [Supabase vs AWS Database Pricing](https://www.bytebase.com/blog/supabase-vs-aws-database-pricing/)
+👉 For a deep dive into database-specific pricing, see: [Supabase vs AWS Database Pricing (2026)](/blog/supabase-vs-aws-database-pricing/)
