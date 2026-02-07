@@ -81,7 +81,7 @@ It also provides configurable SQL lint rules to detect SQL anti-patterns.
 
 For MySQL, it also provides a GUI wrapper around gh-ost for online schema migration.
 
-![bb-issue-ghost-config](/content/docs/change-database/online-schema-migration-for-mysql/bb-issue-ghost-config.webp)
+![bb-issue-ghost-config](/content/blog/top-open-source-mysql-migration-tools/bb-issue-ghost-config.webp)
 
 Apart from taking care of database change management, Bytebase also provides a SQL Editor with data
 access control, dynamic data masking and audit logs to control the query path.
