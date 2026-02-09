@@ -31,7 +31,7 @@ For schema migrations, my choice depends on the tech stack. With Go backends, I 
 
 When working with Node, I prefer [Drizzle](https://orm.drizzle.team/). The main selling point for me is that Drizzle can export the full schema. This is useful for keeping a copy of my latest database schema in the repo, which makes it easy to understand the current state without piecing together migration files.
 
-Overall though, I think schema migration tooling for Postgres can be improved. Most tools follow the imperative migration pattern—you write a series of "ALTER TABLE" statements. That's why I built [pgschema](https://github.com/pgschema/pgschema)—a Postgres-specific declarative solution. You define what you want your schema to look like, and the tool figures out the migrations needed to get there. It's still early, but it solves a real pain point I've experienced.
+Overall though, I think schema migration tooling for Postgres can be improved. Most tools follow the imperative migration pattern—you write a series of "ALTER TABLE" statements. That's why I built [pgschema](https://github.com/pgplex/pgschema)—a Postgres-specific declarative solution. You define what you want your schema to look like, and the tool figures out the migrations needed to get there. It's still early, but it solves a real pain point I've experienced.
 
 ## Running Integration Tests
 

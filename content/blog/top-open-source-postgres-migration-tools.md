@@ -102,7 +102,7 @@ git-like workflow when developing against the local database.
 
 ## pgschema
 
-[pgschema](https://github.com/pgschema/pgschema) is a new CLI-based tool, written in Go. It features a terraform-like declarative schema migration workflow:
+[pgschema](https://github.com/pgplex/pgschema) is a new CLI-based tool, written in Go. It features a terraform-like declarative schema migration workflow:
 
 - **Dump** a Postgres schema in a developer-friendly format with support for all common objects
 - **Edit** a schema to the desired state
@@ -121,7 +121,7 @@ git-like workflow when developing against the local database.
 | [Reshape](https://github.com/fabianlindfors/reshape)    | CLI       | Rust            | Y             | Zero-downtime based on view.                                       |
 | [pgroll](https://github.com/xataio/pgroll)              | CLI       | Go              | Y             | Inspired by Reshape and more accessible via its database platform. |
 | [graphile-migrate](https://github.com/graphile/migrate) | CLI       | TypeScript      | Y             | Opinionated with git-like workflow.                                |
-| [pgschema](https://github.com/pgschema/pgschema)        | CLI       | Go              | Y             | Terraform-like declarative schema migration workflow               |
+| [pgschema](https://github.com/pgplex/pgschema)          | CLI       | Go              | Y             | Terraform-like declarative schema migration workflow               |
 
 ## Further Readings
 
