@@ -17,7 +17,7 @@ We introduce project-level Service Accounts and Workload Identities in addition 
   - Workspace Members page now has separate tabs for Users&Groups, Service Accounts, and Workload Identities.
   - Service accounts and workload identities can now be created at both workspace and project levels, governed by their respective IAM policies.
   - Project-level identities are scoped to a single project to enable isolated automation.
-  - The account selector for role assignment now supports users, groups, service accounts, and workload identities. Service accounts and workload identities require entering the full email address (not searchable).
+  - The account selector for role assignment now supports users, groups, service accounts, and workload identities. Service accounts and workload identities require entering the full email address.
 
 - **Breaking changes (API / Terraform users)**
 
@@ -37,6 +37,7 @@ We introduce project-level Service Accounts and Workload Identities in addition 
   - **Max result rows** can also be configured at the project level.
   - `DataSourceQueryPolicy` is merged into `QueryDataPolicy` and deprecated (auto-migrated).
   - DDL/DML execution control is now configured at the project role level using `bb.sql.ddl` and `bb.sql.dml` permissions. The previous `disallow_ddl` / `disallow_dml` environment policy is removed.
+  - For Terraform users, the settings update also affect Terraform, need to update bytebase_policy configuration. [Latest provider documentation](https://registry.terraform.io/providers/bytebase/bytebase/3.15.1/docs/resources/policy)
 
 - **Role & permission adjustments**
   - Add `bb.taskRuns.create` permission to the **Project Owner** role.
