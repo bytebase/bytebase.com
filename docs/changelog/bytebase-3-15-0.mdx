@@ -1,0 +1,81 @@
+---
+title: Bytebase 3.15.0 - Feb 12, 2026
+author: Adela
+updated_at: 2026/02/12 18:00:00
+description: 'Project-level Service Accounts & Workload Identities'
+
+---
+
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
+## 🔔 Project-level Service Accounts & Workload Identities
+
+We introduce project-level Service Accounts and Workload Identities in addition to the existing workspace-level scope. This enables project-scoped machine identities to follow least privilege and reduce automation blast radius, while clearly separating machine identities from users and aligning them with the resource hierarchy.
+
+- **UI & scope changes**
+
+  - Workspace Members page now has separate tabs for Users&Groups, Service Accounts, and Workload Identities.
+  - Service accounts and workload identities can now be created at both workspace and project levels, governed by their respective IAM policies.
+  - Project-level identities are scoped to a single project to enable isolated automation.
+  - The account selector for role assignment now supports users, groups, service accounts, and workload identities. Service accounts and workload identities require entering the full email address (not searchable).
+
+- **Breaking changes (API / Terraform users)**
+
+  - Machine identities are managed via dedicated APIs (`ServiceAccountService`, `WorkloadIdentityService`) instead of the User API.
+  - IAM member prefixes updated:
+   `user:{email}` → `serviceAccount:{email}` / `workloadIdentity:{email}`
+  - Workspace-level Service Account and Workload Identity APIs now require explicit parent `workspaces/-` instead of an empty string.  
+    Affected APIs: `CreateServiceAccount`, `ListServiceAccounts`, `CreateWorkloadIdentity`, `ListWorkloadIdentities`.  
+    Endpoint change:  
+    `/v1/serviceAccounts` → `/v1/workspaces/-/serviceAccounts`
+  - Terraform users must update IAM member prefixes and use the new service account/workload identity resources.
+
+## 🔔 Other Notable Changes
+
+- **SQL Editor settings consolidation & policy updates**
+  - Add a dedicated **SQL Editor** section under **Workspace Settings > General**, consolidating data export, data copying, admin data source access, max result size, max result rows, and max query time.
+  - **Max result rows** can also be configured at the project level.
+  - `DataSourceQueryPolicy` is merged into `QueryDataPolicy` and deprecated (auto-migrated).
+  - DDL/DML execution control is now configured at the project role level using `bb.sql.ddl` and `bb.sql.dml` permissions. The previous `disallow_ddl` / `disallow_dml` environment policy is removed.
+
+- **Role & permission adjustments**
+  - Add `bb.taskRuns.create` permission to the **Project Owner** role.
+  - Remove `bb.rollouts.create` permission from the **Project Developer** role (use **Project Releaser** or **Project Owner**).
+  - Allow managing project IAM policy without the **Project Owner** role.
+
+- **Online migration configuration change**
+  - Move gh-ost configuration from Plan spec to SQL directive in sheet content (`-- gh-ost = { ... }`).
+  - Remove `enable_ghost` and `ghost_flags` from `ChangeDatabaseConfig` in the Plan API.
+
+- **Execution & validation improvements**
+  - Skip DML dry-run checks when DDL statements are present to reduce false positives.
+
+- **Cleanup & removals**
+  - Remove the **Archived** page (archived projects and instances now appear directly in the dashboard).
+  - Remove `auto_enable_backup` and `skip_backup_errors` from project settings.
+  - Deprecate the legacy issue page and route.
+
+## 🚀 Features
+
+- **MongoDB**
+  - Use native driver for queries by default, with fallback to `mongosh`.
+  - SQL Editor now supports auto-complete, current statement highlighting, and syntax checking.
+  - Support statement-type access control in SQL Editor, allowing administrators to control Read and Write permissions.
+
+- **Elasticsearch**
+  - Support statement-type access control in SQL Editor, allowing administrators to control Read and Write permissions.
+
+## 🎄 Enhancements
+
+- SQL Editor query results support multi-select via Cmd/Ctrl + Click for rows and columns. Copied data now includes column names.
+- Improve the SQL Editor database connection panel layout.
+- Normalize Unicode emails to prevent creating accounts with visually identical but technically different addresses.
+
+## 🐞 Bug Fixes
+
+- Fix access token refresh on SQL Editor LSP websocket reconnection.
+- Fix incorrect Learn More link for online migration.
+- **Google Cloud SQL** - Fix IAM authentication while creating instances in Bytebase Cloud.
+- **PostgreSQL** - Support CTE for Backup.
+
+<InstallUpgrade />
