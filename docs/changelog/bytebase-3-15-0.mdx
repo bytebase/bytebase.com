@@ -49,7 +49,7 @@ We introduce project-level Service Accounts and Workload Identities in addition 
   - Remove `enable_ghost` and `ghost_flags` from `ChangeDatabaseConfig` in the Plan API.
 
 - **Execution & validation improvements**
-  - Skip DML dry-run checks when DDL statements are present to reduce false positives.
+  - Skip DML dry-run checks when DDL statements are present to reduce false positives. Primarily applied to SQL Review rule `Validate the executability of DML statements`.
 
 - **Cleanup & removals**
   - Remove the **Archived** page (archived projects and instances now appear directly in the dashboard).
