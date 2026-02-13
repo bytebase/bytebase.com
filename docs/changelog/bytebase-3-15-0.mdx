@@ -28,7 +28,7 @@ We introduce project-level Service Accounts and Workload Identities in addition 
     Affected APIs: `CreateServiceAccount`, `ListServiceAccounts`, `CreateWorkloadIdentity`, `ListWorkloadIdentities`.  
     Endpoint change:  
     `/v1/serviceAccounts` → `/v1/workspaces/-/serviceAccounts`
-  - Terraform users must update IAM member prefixes and use the new service account/workload identity resources.
+  - Terraform users must update IAM member prefixes and use the new service account/workload identity resources. [Latest provider documentation](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs)
 
 ## 🔔 Other Notable Changes
 
@@ -37,7 +37,7 @@ We introduce project-level Service Accounts and Workload Identities in addition 
   - **Max result rows** can also be configured at the project level.
   - `DataSourceQueryPolicy` is merged into `QueryDataPolicy` and deprecated (auto-migrated).
   - DDL/DML execution control is now configured at the project role level using `bb.sql.ddl` and `bb.sql.dml` permissions. The previous `disallow_ddl` / `disallow_dml` environment policy is removed.
-  - For Terraform users, the settings update also affect Terraform, need to update bytebase_policy configuration. [Latest provider documentation](https://registry.terraform.io/providers/bytebase/bytebase/3.15.1/docs/resources/policy)
+  - For Terraform users, the settings update also affect Terraform, need to update bytebase_policy configuration. [Latest provider documentation](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs)
 
 - **Role & permission adjustments**
   - Add `bb.taskRuns.create` permission to the **Project Owner** role.
@@ -77,6 +77,6 @@ We introduce project-level Service Accounts and Workload Identities in addition 
 - Fix access token refresh on SQL Editor LSP websocket reconnection.
 - Fix incorrect Learn More link for online migration.
 - **Google Cloud SQL** - Fix IAM authentication while creating instances in Bytebase Cloud.
-- **PostgreSQL** - Support CTE for Backup.
+- **PostgreSQL** - Support Common Table Expressions (CTE) in backup statement execution.
 
 <InstallUpgrade />
