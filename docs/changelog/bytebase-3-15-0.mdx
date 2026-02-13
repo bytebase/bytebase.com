@@ -37,7 +37,7 @@ We introduce project-level Service Accounts and Workload Identities in addition 
   - **Max result rows** can also be configured at the project level.
   - `DataSourceQueryPolicy` is merged into `QueryDataPolicy` and deprecated (auto-migrated).
   - DDL/DML execution control is now managed via `bb.sql.ddl` and `bb.sql.dml` project role permissions, which can be restricted to specific environments. The previous `disallow_ddl` / `disallow_dml`  environment policy is removed.
-  - For Terraform users, the settings update also affect Terraform, need to update bytebase_policy configuration. [Latest provider documentation](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs)
+  - For Terraform users, need to update `bytebase_policy` configuration. [Latest provider documentation](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs)
 
 - **Role & permission adjustments**
   - Add `bb.taskRuns.create` permission to the **Project Owner** role.
