@@ -27,7 +27,7 @@ pgAdmin runs in two modes: **desktop mode**, where it launches as a standalone a
 
 It is comprehensive. You can manage databases, schemas, roles, extensions, backups, and server level configuration. You can inspect dependencies and review object details across the entire cluster. The built-in tools go beyond basic querying: a PL/pgSQL debugger, schema diff, an ERD diagram editor, and an embedded psql terminal are all included.
 
-The query tool supports syntax highlighting, autocomplete, graphical EXPLAIN/EXPLAIN ANALYZE, and data visualization. Because pgAdmin is built around Postgres, it understands its object model deeply.
+The query tool supports syntax highlighting, autocomplete, graphical EXPLAIN/EXPLAIN ANALYZE, and data visualization. Recent development versions have introduced an AI assistant in the query tool that supports natural language to SQL generation, schema-aware query suggestions, and iterative refinement — though it requires configuring an external AI provider. Because pgAdmin is built around Postgres, it understands its object model deeply.
 
 Where pgAdmin stands out is administration. If you manage permissions, extensions, or multiple servers, it gives you full control. Features like pgAgent job scheduling, backup/restore via pg_dump, and a dashboard with server activity monitoring make it a complete operational toolkit.
 
@@ -43,7 +43,7 @@ The SQL editor supports multiple files organized into folders with autosave, and
 
 Postico handles some Postgres-specific types well. Enum columns get dropdown menus populated with valid values. JSONB columns are editable with pretty-print support, though filtering by JSONB fields requires writing SQL expressions manually. Arrays and composite types are displayed in their Postgres literal form without specialized editors.
 
-Unlike pgAdmin, Postico focuses on day to day development rather than deep server administration. There is no backup/restore integration, no role management, no visual EXPLAIN plan, and no performance monitoring. It deliberately keeps the scope narrow to stay clean and approachable.
+Unlike pgAdmin, Postico focuses on day to day development rather than deep server administration. There is no backup/restore integration, no role management, no visual EXPLAIN plan, no performance monitoring, and no AI assistant. It deliberately keeps the scope narrow to stay clean and approachable.
 
 It runs only on macOS (requires macOS 14 Sonoma or later) and uses a one-time purchase model starting at $69 for a personal license. A free evaluation with no time limit is available.
 
@@ -55,7 +55,7 @@ Postico 2 is ideal for product developers, data analysts, and engineers who prim
 
 Startup is fast. The layout stays out of your way. If your workflow centers on writing and running SQL, pgConsole feels direct and efficient.
 
-It supports Postgres syntax well and provides essential schema browsing and connection management. It does not try to replicate the full administrative depth of pgAdmin. Instead, it prioritizes speed and simplicity.
+It supports Postgres syntax well and provides essential schema browsing and connection management. It does not try to replicate the full administrative depth of pgAdmin. Instead, it prioritizes speed and simplicity. pgConsole also includes a built-in AI assistant that supports natural language to SQL, query explanation, error fixing, and change risk assessment. Users bring their own AI provider, so data stays within their infrastructure.
 
 For developers who value a clean, distraction free environment, this focus is appealing.
 
@@ -65,14 +65,17 @@ pgConsole is best for engineers who want a focused Postgres editor for daily dev
 
 ## Choosing the Right Postgres Editor
 
-pgAdmin offers depth and complete administrative control.
-Postico 2 offers polish and a smooth macOS experience.
-pgConsole offers speed and minimalism.
-
-All three respect Postgres as the primary database, not just one option among many. That difference shows up in how they handle types, metadata, permissions, and explain plans.
+| Feature | pgAdmin | Postico 2 | pgConsole |
+| --- | --- | --- | --- |
+| **Platform** | Windows, macOS, Linux, Web | macOS only | Web (Self-Hosted) |
+| **Pricing** | Free & Open Source | Commercial (Paid License) | Free & Paid Tiers |
+| **UI Philosophy** | Comprehensive, feature dense | Minimalist, native, user friendly | Modern, web based, fast |
+| **AI Assistant** | Yes (requires external AI provider) | No | Yes (bring your own AI provider) |
+| **Key Differentiator** | The de facto standard, all in one tool | Polished native Mac UX | Team based access control, GitOps, AI |
+| **Target Audience** | All PostgreSQL users, especially DBAs | Mac users who value design | Teams, modern developers, product integrators |
 
 If you manage infrastructure, pgAdmin is difficult to replace.
 If you develop on macOS and care about usability, Postico 2 feels natural.
-If you want a fast, focused query tool, pgConsole keeps things simple.
+If you want a fast, focused query tool with AI and team features, pgConsole keeps things simple.
 
 When Postgres is your main database, using a tool built specifically for it makes everyday work clearer and more efficient.
