@@ -19,29 +19,25 @@ In this article, we focus strictly on 3 Postgres-only SQL editors, each one serv
 
 ## pgAdmin: The Official Postgres Standard
 
-[pgAdmin](https://www.pgadmin.org/) is the official administrative interface maintained by the Postgres community. If you install Postgres and look for a GUI, this is the default choice. It's open-source and free.
+![pgadmin-screenshot](/content/blog/top-pg-only-sql-editor/pgadmin.webp)
 
-It is comprehensive. You can manage databases, schemas, roles, extensions, backups, and server level configuration. You can inspect dependencies and review object details across the entire cluster.
+[pgAdmin](https://www.pgadmin.org/) is the official administrative interface maintained by the Postgres community. If you install Postgres and look for a GUI, this is the default choice. It's open-source and free. The latest major version (pgAdmin 4) is a complete rewrite from the older C++ desktop app into a Python/Flask web application with a React frontend.
 
-The query tool supports explain plans, formatting, and result inspection. Because pgAdmin is built around Postgres, it understands its object model deeply.
+pgAdmin runs in two modes: **desktop mode**, where it launches as a standalone app bundled with an embedded browser, and **server mode**, where it's deployed on a web server for multi-user, browser-based access. Official Docker images are also available.
 
-Where pgAdmin stands out is administration. If you manage permissions, extensions, or multiple servers, it gives you full control.
+It is comprehensive. You can manage databases, schemas, roles, extensions, backups, and server level configuration. You can inspect dependencies and review object details across the entire cluster. The built-in tools go beyond basic querying: a PL/pgSQL debugger, schema diff, an ERD diagram editor, and an embedded psql terminal are all included.
 
-The tradeoff is weight. Startup is not instant. The interface can feel dense for developers who mainly write queries.
+The query tool supports syntax highlighting, autocomplete, graphical EXPLAIN/EXPLAIN ANALYZE, and data visualization. Because pgAdmin is built around Postgres, it understands its object model deeply.
+
+Where pgAdmin stands out is administration. If you manage permissions, extensions, or multiple servers, it gives you full control. Features like pgAgent job scheduling, backup/restore via pg_dump, and a dashboard with server activity monitoring make it a complete operational toolkit.
+
+The tradeoff is weight. The web-based architecture means startup is not instant. The interface can feel dense for developers who mainly write queries.
 
 pgAdmin is best suited for DBAs, platform engineers, and teams that need complete visibility into Postgres environments.
 
 ## Postico 2: A Polished macOS Experience
 
-![Image](https://eggerapps.at/postico2/screenshots/query-light.png)
-
-![Image](https://eggerapps.at/postico/screenshots/table-content-view.png)
-
-![Image](https://eggerapps.at/postico/screenshots/sql-query-view.png)
-
-Official site [https://eggerapps.at/postico2/](https://eggerapps.at/postico2/)
-
-Postico 2 is a macOS-native Postgres client designed with clarity and usability in mind. From the first launch, it feels like a well-crafted Mac application.
+[Postico 2](https://eggerapps.at/postico2/) is a macOS-native Postgres client designed with clarity and usability in mind. From the first launch, it feels like a well-crafted Mac application.
 
 The SQL editor is responsive and clean. Autocomplete works reliably. Query results render smoothly, even with larger datasets. Browsing and editing table data feels intuitive rather than technical.
 
