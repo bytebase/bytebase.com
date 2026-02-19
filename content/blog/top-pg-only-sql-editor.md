@@ -37,31 +37,21 @@ pgAdmin is best suited for DBAs, platform engineers, and teams that need complet
 
 ## Postico 2: A Polished macOS Experience
 
-[Postico 2](https://eggerapps.at/postico2/) is a macOS-native Postgres client designed with clarity and usability in mind. From the first launch, it feels like a well-crafted Mac application.
+[Postico 2](https://eggerapps.at/postico2/) is a macOS-native Postgres client built with native Apple frameworks. It follows macOS design conventions, integrates with iCloud for syncing connection settings, and feels like a first-party Mac application.
 
-The SQL editor is responsive and clean. Autocomplete works reliably. Query results render smoothly, even with larger datasets. Browsing and editing table data feels intuitive rather than technical.
+The SQL editor supports multiple files organized into folders with autosave, and includes built-in formatting via pgFormatter. Query results render inline below the editor. Browsing and editing table data is designed to require minimal SQL: inline row editing, a row detail sidebar, a foreign key picker for navigating related rows, and popup menus for enum and boolean columns.
 
-Postico handles Postgres-specific types well. JSONB columns are readable. Arrays are clearly displayed. Custom types and enums integrate naturally into the interface. Schema navigation is simple and visual.
+Postico handles some Postgres-specific types well. Enum columns get dropdown menus populated with valid values. JSONB columns are editable with pretty-print support, though filtering by JSONB fields requires writing SQL expressions manually. Arrays and composite types are displayed in their Postgres literal form without specialized editors.
 
-Unlike pgAdmin, Postico focuses on day to day development rather than deep server administration. It supports core database management tasks but does not aim to replace operational tooling.
+Unlike pgAdmin, Postico focuses on day to day development rather than deep server administration. There is no backup/restore integration, no role management, no visual EXPLAIN plan, and no performance monitoring. It deliberately keeps the scope narrow to stay clean and approachable.
 
-It runs only on macOS and requires a paid license. For Mac-based engineers who value experience and speed, that tradeoff often makes sense.
+It runs only on macOS (requires macOS 14 Sonoma or later) and uses a one-time purchase model starting at $69 for a personal license. A free evaluation with no time limit is available.
 
 Postico 2 is ideal for product developers, data analysts, and engineers who primarily work on macOS.
 
----
-
 ## pgConsole: Lightweight and Developer Focused
 
-![Image](https://res.cloudinary.com/dh8fp23nd/image/upload/v1673782880/main-blog/ezgif-2-ea5428312d_1_wdfzhs.jpg)
-
-![Image](https://www.pgconsole.com/sql-editor-overview.webp)
-
-![Image](https://miro.medium.com/v2/resize%3Afit%3A1400/1%2AGNw5vqhv4r5r4RNH1D5ZGw.png)
-
-![Image](https://postgrespro.com/media/2022/02/18/query2.png)
-
-pgConsole takes a minimalist approach. It is lightweight and straightforward. You connect, write queries, and iterate quickly.
+[pgConsole](https://www.pgconsole.com/) takes a minimalist approach. It is lightweight and straightforward. You connect, write queries, and iterate quickly.
 
 Startup is fast. The layout stays out of your way. If your workflow centers on writing and running SQL, pgConsole feels direct and efficient.
 
@@ -72,8 +62,6 @@ For developers who value a clean, distraction free environment, this focus is ap
 Its limitations are clear. Advanced role management, backup workflows, and complex server configuration are outside its main scope.
 
 pgConsole is best for engineers who want a focused Postgres editor for daily development tasks.
-
----
 
 ## Choosing the Right Postgres Editor
 
