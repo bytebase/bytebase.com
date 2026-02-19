@@ -17,51 +17,35 @@ In this article, we look at three Postgres-only SQL editors, each serving a diff
 
 ![pgadmin-screenshot](/content/blog/top-pg-only-sql-editor/pgadmin-screenshot.webp)
 
-[pgAdmin](https://www.pgadmin.org/) is the official administrative interface maintained by the Postgres community. If you install Postgres and look for a GUI, this is the default choice. It's open-source and free. The latest major version (pgAdmin 4) is a complete rewrite from the older C++ desktop app into a Python/Flask web application with a React frontend.
+[pgAdmin](https://www.pgadmin.org/) is the official, open-source administrative interface for Postgres. The latest major version (pgAdmin 4) is a Python/Flask web application with a React frontend, available in **desktop mode** (standalone app) and **server mode** (multi-user, browser-based). Docker images are also available.
 
-pgAdmin runs in two modes: **desktop mode**, where it launches as a standalone app bundled with an embedded browser, and **server mode**, where it's deployed on a web server for multi-user, browser-based access. Official Docker images are also available.
+It covers the full spectrum: database, schema, role, extension, and backup management, plus a PL/pgSQL debugger, schema diff, ERD editor, and embedded psql terminal. The query tool includes graphical EXPLAIN/EXPLAIN ANALYZE and an AI assistant (requires an external AI provider) for natural language to SQL generation.
 
-It is comprehensive. You can manage databases, schemas, roles, extensions, backups, and server level configuration. You can inspect dependencies and review object details across the entire cluster. The built-in tools go beyond basic querying: a PL/pgSQL debugger, schema diff, an ERD diagram editor, and an embedded psql terminal are all included.
+Where pgAdmin stands out is administration — pgAgent job scheduling, backup/restore via pg_dump, and server activity monitoring. The tradeoff is weight: startup is not instant and the interface can feel dense for developers who mainly write queries.
 
-The query tool supports syntax highlighting, autocomplete, graphical EXPLAIN/EXPLAIN ANALYZE, and data visualization. Recent development versions have introduced an AI assistant in the query tool that supports natural language to SQL generation, schema-aware query suggestions, and iterative refinement — though it requires configuring an external AI provider. Because pgAdmin is built around Postgres, it understands its object model deeply.
-
-Where pgAdmin stands out is administration. If you manage permissions, extensions, or multiple servers, it gives you full control. Features like pgAgent job scheduling, backup/restore via pg_dump, and a dashboard with server activity monitoring make it a complete operational toolkit.
-
-The tradeoff is weight. The web-based architecture means startup is not instant. The interface can feel dense for developers who mainly write queries.
-
-pgAdmin is best suited for DBAs, platform engineers, and teams that need complete visibility into Postgres environments.
+Best suited for DBAs, platform engineers, and teams that need complete visibility into Postgres environments.
 
 ## Postico 2: A Polished macOS Experience
 
-![postico-screenshot](/content/blog/top-pg-only-sql-editor/postico.webp)
+![postico-screenshot](/content/blog/top-pg-only-sql-editor/postico-screenshot.webp)
 
-[Postico 2](https://eggerapps.at/postico2/) is a macOS-native Postgres client built with native Apple frameworks. It follows macOS design conventions, integrates with iCloud for syncing connection settings, and feels like a first-party Mac application.
+[Postico 2](https://eggerapps.at/postico2/) is a macOS-native Postgres client built with Apple frameworks. It integrates with iCloud for syncing connections and feels like a first-party Mac application.
 
-The SQL editor supports multiple files organized into folders with autosave, and includes built-in formatting via pgFormatter. Query results render inline below the editor. Browsing and editing table data is designed to require minimal SQL: inline row editing, a row detail sidebar, a foreign key picker for navigating related rows, and popup menus for enum and boolean columns.
+The SQL editor supports multi-file organization with autosave and pgFormatter. Data editing requires minimal SQL — inline editing, a row detail sidebar, foreign key picker, and popup menus for enums and booleans. Enum columns get proper dropdowns; JSONB is editable with pretty-print, though JSONB filtering requires manual SQL.
 
-Postico handles some Postgres-specific types well. Enum columns get dropdown menus populated with valid values. JSONB columns are editable with pretty-print support, though filtering by JSONB fields requires writing SQL expressions manually. Arrays and composite types are displayed in their Postgres literal form without specialized editors.
+Postico focuses on development rather than administration. There is no backup/restore, no role management, no visual EXPLAIN, no monitoring, and no AI assistant. It keeps the scope narrow to stay clean and approachable.
 
-Unlike pgAdmin, Postico focuses on day to day development rather than deep server administration. There is no backup/restore integration, no role management, no visual EXPLAIN plan, no performance monitoring, and no AI assistant. It deliberately keeps the scope narrow to stay clean and approachable.
+macOS only (requires macOS 14+), one-time purchase starting at $69. A free evaluation with no time limit is available. Ideal for developers and analysts on macOS.
 
-It runs only on macOS (requires macOS 14 Sonoma or later) and uses a one-time purchase model starting at $69 for a personal license. A free evaluation with no time limit is available.
+## pgConsole: Minimal Postgres Editor for Speed and Collaboration
 
-Postico 2 is ideal for product developers, data analysts, and engineers who primarily work on macOS.
+![pgconsole-screenshot](/content/blog/top-pg-only-sql-editor/pgconsole-screenshot.webp)
 
-## pgConsole: Lightweight and Developer Focused
+[pgConsole](https://www.pgconsole.com/) is a self-hosted PostgreSQL editor with built-in access control, audit logging, and AI assistance — all from a single binary and a TOML config.
 
-![pgconsole-screenshot](/content/blog/top-pg-only-sql-editor/pgconsole.webp)
+Startup is fast, the layout stays out of your way, and the workflow centers on writing and running SQL. It provides schema browsing, connection management, and a built-in AI assistant that supports natural language to SQL, query explanation, error fixing, and change risk assessment. Users bring their own AI provider, so data stays within their infrastructure.
 
-[pgConsole](https://www.pgconsole.com/) takes a minimalist approach. It is lightweight and straightforward. You connect, write queries, and iterate quickly.
-
-Startup is fast. The layout stays out of your way. If your workflow centers on writing and running SQL, pgConsole feels direct and efficient.
-
-It supports Postgres syntax well and provides essential schema browsing and connection management. It does not try to replicate the full administrative depth of pgAdmin. Instead, it prioritizes speed and simplicity. pgConsole also includes a built-in AI assistant that supports natural language to SQL, query explanation, error fixing, and change risk assessment. Users bring their own AI provider, so data stays within their infrastructure.
-
-For developers who value a clean, distraction free environment, this focus is appealing.
-
-Its limitations are clear. Advanced role management, backup workflows, and complex server configuration are outside its main scope.
-
-pgConsole is best for engineers who want a focused Postgres editor for daily development tasks.
+Advanced role management, backup workflows, and server configuration are outside its scope. Best for teams and engineers who want a focused, fast Postgres editor for daily development.
 
 ## Choosing the Right Postgres Editor
 
