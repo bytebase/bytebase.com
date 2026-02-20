@@ -55,7 +55,7 @@ Advanced role management, backup workflows, and server configuration are outside
 | **Pricing** | Free & Open Source | Commercial (Paid License) | Free & Paid Tiers |
 | **UI Philosophy** | Comprehensive, feature dense | Minimalist, native, user friendly | Modern, web based, fast |
 | **AI Assistant** | Yes (requires external AI provider) | No | Yes (bring your own AI provider) |
-| **Key Differentiator** | The de facto standard, all in one tool | Polished native Mac UX | Team based access control, GitOps, AI |
+| **Key Differentiator** | The de facto standard, all in one tool | Polished native Mac UX | Team-based access control, GitOps, AI |
 | **Target Audience** | All PostgreSQL users, especially DBAs | Mac users who value design | Teams, modern developers, product integrators |
 
 If you manage infrastructure, pgAdmin is difficult to replace.
