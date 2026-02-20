@@ -9,7 +9,7 @@ description: Postgres-only SQL editors are designed specifically for Postgres da
 
 Postgres has its own identity — JSONB, arrays, custom types, extensions, advanced indexing. Generic database tools get close, but never quite right.
 
-A dedicated Postgres editor treats these features as first class citizens rather than hiding them behind a lowest-common-denominator abstraction. That focus reduces friction and improves precision.
+A dedicated Postgres editor treats these features as first-class citizens rather than hiding them behind a lowest-common-denominator abstraction. That focus reduces friction and improves precision.
 
 In this article, we look at three Postgres-only SQL editors, each serving a different type of user.
 
