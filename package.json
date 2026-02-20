@@ -47,7 +47,7 @@
     "react-paginate": "^8.2.0",
     "react-syntax-highlighter": "^15.6.1",
     "react-use": "^17.5.1",
-    "remark-gfm": "^3.0.1",
+    "remark-gfm": "^4.0.1",
     "sharp": "^0.32.6",
     "slug": "^8.2.3",
     "yup": "^1.4.0"
