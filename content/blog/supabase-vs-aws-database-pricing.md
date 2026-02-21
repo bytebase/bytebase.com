@@ -1,17 +1,17 @@
 ---
-title: 'Supabase vs AWS: Database Pricing Comparison in 2026'
+title: 'Supabase Pricing vs AWS RDS: Is Supabase Free? Full Cost Comparison (2026)'
 author: Adela
-updated_at: 2026/02/06 18:00:00
+updated_at: 2026/02/20 18:00:00
 feature_image: /content/blog/supabase-vs-aws-database-pricing/cover.webp
 tags: Comparison
-description: 'We compare Supabase vs AWS (RDS and Aurora) across free, entry-level, and production tiers'
+description: 'Is Supabase free? Compare Supabase pricing vs AWS RDS and Aurora across free tier, Pro, and production plans. Includes Supabase free tier limits, storage costs, and compute pricing for 2026.'
 ---
 
-When choosing a PostgreSQL database platform, whether for a side project or a production app, you need to look beyond features and assess the **total cost of ownership** — including compute, storage, backups, and bandwidth.
+When choosing a PostgreSQL database platform, whether for a side project or a production app, you need to look beyond features and assess the **total cost of ownership** — including compute, storage, backups, and bandwidth. One of the most common questions developers ask is: **is Supabase free?** The short answer is yes — Supabase offers a generous free tier with no time limit, but there are important limits to understand.
 
-In this guide, we compare **Supabase vs AWS (RDS and Aurora)** across **free, entry-level, and production tiers**. We focus strictly on database-related costs and explain **on-demand vs reserved pricing** where applicable.
+In this guide, we compare **Supabase pricing vs AWS (RDS and Aurora)** across **free, entry-level, and production tiers**. We focus strictly on database-related costs and explain **on-demand vs reserved pricing** where applicable.
 
-## 0. Free Plans: What Do You Get for \$0?
+## Supabase Free Tier vs AWS Free Tier: What Do You Get for \$0?
 
 Both platforms offer free tiers, but they differ significantly in **duration**, **compute power**, and **resource isolation**.
 
@@ -137,3 +137,25 @@ For mission-critical workloads with large storage, high concurrency, and peak tr
 Choose based on your need for **simplicity vs control**, and how stable your usage will be. Supabase works well for early-stage apps; AWS shines for scaled, mature systems.
 
 Need more than a database? Our next post will compare [Supabase vs AWS pricing across auth, messaging, and more](/blog/supabase-vs-aws-pricing/).
+
+## FAQ
+
+### Is Supabase free?
+
+Yes, Supabase offers a free tier that lasts forever (no time limit). It includes a shared CPU with 500MB RAM, 500MB database storage, 7-day backup snapshots, and 5GB outbound bandwidth. It is ideal for hobby projects, quick MVPs, or internal tools with light traffic.
+
+### What is included in the Supabase free tier?
+
+The Supabase free tier includes shared CPU / 500MB RAM compute, 500MB database storage, 7-day snapshot backups, and 5GB outbound bandwidth. There is no time limit on the free tier, unlike AWS which limits its free tier to 12 months.
+
+### How much does Supabase Pro cost?
+
+Supabase Pro costs $25/month (includes $10 compute credit). It provides 2-core ARM shared compute with 1GB RAM, 8GB storage included, 250GB outbound bandwidth, and 7-day backup snapshots.
+
+### Is Supabase cheaper than AWS RDS?
+
+For small to mid-sized projects, Supabase is often simpler and more predictable in pricing. At the entry level, Supabase Pro ($25/month) is more expensive than RDS t4g.micro on-demand ($11.68/month), but Supabase bundles compute, storage, and bandwidth into one flat rate. For mid-tier production workloads (100GB storage), Supabase ($145/month) is comparable to RDS 1-year reserved ($138/month).
+
+### Does Supabase have storage pricing limits?
+
+Supabase charges $0.125/GB for additional database storage beyond what is included in your plan. The free tier includes 500MB, Pro includes 8GB, and higher tiers include more. By comparison, AWS RDS charges $0.115/GB for gp3 storage.

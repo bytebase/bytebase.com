@@ -1,11 +1,11 @@
 ---
-title: Understanding AWS Aurora Pricing (2025)
+title: 'AWS Aurora Pricing Explained: Instance Types, Serverless, and Cost Optimization (2026)'
 author: Adela
-updated_at: 2025/04/30 18:00:00
+updated_at: 2026/02/20 18:00:00
 feature_image: /content/blog/understanding-aws-aurora-pricing/cover.webp
 tags: Explanation
 featured: true
-description: Explain the pricing details of AWS Aurora
+description: 'Complete guide to AWS Aurora pricing: instance types and costs, Aurora Serverless v2 pricing, I/O-Optimized vs Standard, reserved instance savings, and real-world cost examples. Learn how to optimize your Aurora costs.'
 ---
 
 | Update History | Comment                                             |
@@ -281,3 +281,29 @@ These examples highlight how analyzing costs by component and applying relevant 
 ## Conclusion
 
 Amazon Aurora delivers high performance and availability for MySQL and PostgreSQL workloads, but its flexible pricing model — based on instance type, storage, I/O, and configuration—requires careful planning to avoid surprises. By right-sizing resources, using Reserved Instances, and regularly reviewing usage, you can control costs while maximizing the value Aurora offers.
+
+## FAQ
+
+### How much does AWS Aurora cost per month?
+
+AWS Aurora costs vary based on instance type, storage, and I/O usage. A small Aurora deployment with a db.t3.medium instance starts at approximately $69/month for compute alone (on-demand), plus storage ($0.10/GB-month) and I/O charges. A typical mid-sized production setup costs $400-$900/month.
+
+### Is Aurora Serverless cheaper than provisioned?
+
+Aurora Serverless v2 is cheaper for variable or unpredictable workloads because it scales down to 0.5 ACU when idle (~$0.06/hour). For steady, high-utilization workloads, provisioned instances with Reserved Instance discounts (up to 72% savings) are more cost-effective.
+
+### What Aurora instance types are available?
+
+Aurora offers T-class instances (burstable, e.g., db.t3.medium) for development and light workloads, and R-class instances (memory-optimized, e.g., db.r6g.large, db.r6g.xlarge, db.r6g.2xlarge) for production workloads. R6g instances use AWS Graviton2 processors for better price-performance.
+
+### What is the difference between Aurora Standard and I/O-Optimized?
+
+Aurora Standard charges $0.10/GB-month for storage plus $0.20 per million I/O requests. Aurora I/O-Optimized charges $0.225/GB-month with no I/O charges. Switch to I/O-Optimized when I/O costs exceed 25% of your total Aurora bill.
+
+### How much can I save with Aurora Reserved Instances?
+
+Aurora Reserved Instances can save up to 72% compared to on-demand pricing with a 3-year All Upfront commitment. A 1-year No Upfront reservation saves approximately 40%. Reserved Instances are ideal for stable, predictable workloads.
+
+### Is Aurora more expensive than RDS?
+
+Yes, Aurora is generally more expensive than standard RDS instances. However, Aurora provides better performance, automatic storage scaling up to 128TB, built-in multi-AZ replication, and up to 15 read replicas. For high-availability or I/O-heavy workloads, Aurora can be more cost-effective overall. For a detailed comparison, see our [Aurora vs RDS pricing](/blog/aws-aurora-vs-rds-pricing/) guide.
