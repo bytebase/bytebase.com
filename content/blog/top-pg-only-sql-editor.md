@@ -37,11 +37,11 @@ Postico focuses on development rather than administration. There is no backup/re
 
 macOS only (requires macOS 14+), one-time purchase starting at $69. A free evaluation with no time limit is available. Ideal for developers and analysts on macOS.
 
-## pgConsole: Minimal Postgres Editor for Speed and Collaboration
+## pgconsole: Minimal Postgres Editor for Speed and Collaboration
 
 ![pgconsole-screenshot](/content/blog/top-pg-only-sql-editor/pgconsole-screenshot.webp)
 
-[pgConsole](https://www.pgconsole.com/) is a self-hosted PostgreSQL editor with built-in access control, audit logging, and AI assistance — all from a single binary and a TOML config.
+[pgconsole](https://www.pgconsole.com/) is a self-hosted PostgreSQL editor with built-in access control, audit logging, and AI assistance — all from a single binary and a TOML config.
 
 Startup is fast, the layout stays out of your way, and the workflow centers on writing and running SQL. It provides schema browsing, connection management, and a built-in AI assistant that supports natural language to SQL, query explanation, error fixing, and change risk assessment. Users bring their own AI provider, so data stays within their infrastructure.
 
@@ -49,17 +49,17 @@ Advanced role management, backup workflows, and server configuration are outside
 
 ## Choosing the Right Postgres Editor
 
-| Feature | pgAdmin | Postico 2 | pgConsole |
-| --- | --- | --- | --- |
-| **Platform** | Windows, macOS, Linux, Web | macOS only | Web (Self-Hosted) |
-| **Pricing** | Free & Open Source | Commercial (Paid License) | Free & Paid Tiers |
-| **UI Philosophy** | Comprehensive, feature-dense | Minimalist, native, user friendly | Modern, web based, fast |
-| **AI Assistant** | Yes (requires external AI provider) | No | Yes (bring your own AI provider) |
-| **Key Differentiator** | The de facto standard, all in one tool | Polished native Mac UX | Team-based access control, GitOps, AI |
-| **Target Audience** | All PostgreSQL users, especially DBAs | Mac users who value design | Teams, modern developers, product integrators |
+| Feature                | pgAdmin                                | Postico 2                         | pgconsole                                     |
+| ---------------------- | -------------------------------------- | --------------------------------- | --------------------------------------------- |
+| **Platform**           | Windows, macOS, Linux, Web             | macOS only                        | Web (Self-Hosted)                             |
+| **Pricing**            | Free & Open Source                     | Commercial (Paid License)         | Free & Paid Tiers                             |
+| **UI Philosophy**      | Comprehensive, feature-dense           | Minimalist, native, user friendly | Modern, web based, fast                       |
+| **AI Assistant**       | Yes (requires external AI provider)    | No                                | Yes (bring your own AI provider)              |
+| **Key Differentiator** | The de facto standard, all in one tool | Polished native Mac UX            | Team-based access control, GitOps, AI         |
+| **Target Audience**    | All PostgreSQL users, especially DBAs  | Mac users who value design        | Teams, modern developers, product integrators |
 
 If you manage infrastructure, pgAdmin is difficult to replace.
 If you develop on macOS and care about usability, Postico 2 feels natural.
-If you want a fast, focused query tool with AI and team features, pgConsole keeps things simple.
+If you want a fast, focused query tool with AI and team features, pgconsole keeps things simple.
 
 When Postgres is your main database, using a tool built specifically for it makes everyday work clearer and more efficient.

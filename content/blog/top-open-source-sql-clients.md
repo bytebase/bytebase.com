@@ -5,7 +5,7 @@ updated_at: 2026/02/20 10:00:00
 feature_image: /content/blog/top-open-source-sql-clients/cover.webp
 tags: Industry
 featured: true
-description: 'The best free SQL clients and database management software in 2026. Compare DBeaver, Beekeeper Studio, DbGate, HeidiSQL, phpMyAdmin, pgAdmin, and Bytebase — open-source SQL GUI tools for Mac, Windows, and Linux.'
+description: 'The best free SQL clients and database management software in 2026. Compare DBeaver, Beekeeper Studio, DbGate, HeidiSQL, phpMyAdmin, pgconsole, and Bytebase — open-source SQL GUI tools for Mac, Windows, and Linux.'
 ---
 
 <HintBlock type="info">
@@ -21,6 +21,7 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool. We 
 | 2025/03/03     | Remove Sqlectron as it's no longer maintained.            |
 | 2025/08/27     | Update GitHub star growth and wording.                    |
 | 2025/12/05     | Remove SQL Chat as it's covered by the text-to-sql topic. |
+| 2026/02/21     | Replace pgAdmin with pgconsole.                           |
 
 This is a series articles about SQL Clients / SQL Editors:
 
@@ -31,7 +32,7 @@ This is a series articles about SQL Clients / SQL Editors:
 
 When database systems debuted about 40 years ago, the only way to access or modify a database was through the command line, which was not only unintuitive but also prone to errors that could lead to major problems. As a result, people began developing tools with graphical user interfaces (GUIs), which became what we now know as SQL clients — essentially front-end applications for database services. Whether you need a free database management software for Mac, Windows, or Linux, these open-source SQL GUI tools offer powerful alternatives to commercial database clients. In this post, we are taking a look at some of the best free SQL client options for you to try.
 
-[![star-history](/content/blog/top-open-source-sql-clients/star-history.webp)](https://star-history.com/#dbgate/dbgate&dbeaver/dbeaver&beekeeper-studio/beekeeper-studio&heidisql/heidisql&phpmyadmin/phpmyadmin&pgadmin-org/pgadmin4&bytebase/bytebase&Date)
+[![star-history](/content/blog/top-open-source-sql-clients/star-history.webp)](https://star-history.com/#dbgate/dbgate&dbeaver/dbeaver&beekeeper-studio/beekeeper-studio&heidisql/heidisql&phpmyadmin/phpmyadmin&pgplex/pgconsole&bytebase/bytebase&Date)
 
 ## DBeaver
 
@@ -71,13 +72,13 @@ The codebase for HeidiSQL [originally came from](https://www.heidisql.com/forum.
 
 ![phpmyadmin](/content/blog/top-open-source-sql-clients/phpmyadmin.webp)
 
-## pgAdmin 4
+## pgconsole
 
-[pgAdmin](https://github.com/pgadmin-org/pgadmin4) to PostgreSQL is what phpMyAdmin is to MySQL, and it can be used on Linux, Unix, macOS and Windows to manage PostgreSQL. pgAdmin 4, the latest pgAdmin, is a complete rewrite of pgAdmin using Python and Javascript/jQuery.
+[pgconsole](https://github.com/pgplex/pgconsole) is an open-source, self-hosted PostgreSQL editor built as a single binary with no separate database required. All configuration — connections, users, groups, and access rules — lives in a single `pgconsole.toml` file, making it GitOps-friendly. It features a SQL editor with real-time autocomplete powered by a full PostgreSQL parser, fine-grained access control, audit logging, and a built-in AI assistant that supports OpenAI, Anthropic Claude, and Google Gemini.
 
-![pgadmin](/content/blog/top-open-source-sql-clients/pgadmin.webp)
+![pgconsole](/content/blog/top-open-source-sql-clients/pgconsole.webp)
 
-After taking a look at [the history of pgAdmin](https://www.enterprisedb.com/blog/story-pgadmin), apparently the author came up with pgAdmin from scratch because the only option for managing PostgreSQL at that time (late 90s) was not working very well on Windows, which has since gone through many iterations.
+The creators of pgconsole identified a gap in the market: most database tools were either heavyweight platforms requiring substantial infrastructure, or lightweight editors lacking access controls. pgconsole was built to fill that middle ground — a modern, PostgreSQL-specific editor optimized for team use with security built in from the start.
 
 ## Bytebase
 
@@ -95,15 +96,15 @@ All above requirements call for a server-side solution. And that's what [Bytebas
 
 ## SQL Client Comparison Table
 
-| Tool | Platform | Database Support | Best For |
-|------|----------|-----------------|----------|
-| DBeaver | Mac, Windows, Linux | 80+ databases (SQL & NoSQL) | Power users needing broad database support |
-| Beekeeper Studio | Mac, Windows, Linux | MySQL, Postgres, SQLite, SQL Server | Developers wanting a clean, modern UI |
-| DbGate | Mac, Windows, Linux, Web | MySQL, PostgreSQL, SQL Server, MongoDB, SQLite | Cross-platform use including web browsers |
-| HeidiSQL | Windows (Linux via Wine) | MySQL, MariaDB, SQL Server, PostgreSQL, SQLite | Windows users managing multiple databases |
-| phpMyAdmin | Web-based | MySQL, MariaDB | Web hosting and LAMP stack environments |
-| pgAdmin | Mac, Windows, Linux, Web | PostgreSQL only | PostgreSQL-specific administration |
-| Bytebase | Web-based (server-side) | MySQL, PostgreSQL, SQL Server, Oracle, and more | Team collaboration with access control |
+| Tool             | Platform                 | Database Support                                | Best For                                                      |
+| ---------------- | ------------------------ | ----------------------------------------------- | ------------------------------------------------------------- |
+| DBeaver          | Mac, Windows, Linux      | 80+ databases (SQL & NoSQL)                     | Power users needing broad database support                    |
+| Beekeeper Studio | Mac, Windows, Linux      | MySQL, Postgres, SQLite, SQL Server             | Developers wanting a clean, modern UI                         |
+| DbGate           | Mac, Windows, Linux, Web | MySQL, PostgreSQL, SQL Server, MongoDB, SQLite  | Cross-platform use including web browsers                     |
+| HeidiSQL         | Windows (Linux via Wine) | MySQL, MariaDB, SQL Server, PostgreSQL, SQLite  | Windows users managing multiple databases                     |
+| phpMyAdmin       | Web-based                | MySQL, MariaDB                                  | Web hosting and LAMP stack environments                       |
+| pgconsole        | Web-based (self-hosted)  | PostgreSQL only                                 | Teams needing access control and audit logging for PostgreSQL |
+| Bytebase         | Web-based (server-side)  | MySQL, PostgreSQL, SQL Server, Oracle, and more | Team collaboration with access control                        |
 
 ## Summary
 
@@ -130,7 +131,7 @@ A SQL client (also called a database client or SQL GUI tool) is a front-end appl
 
 ### What is the best free database management software for Mac?
 
-The best free database management tools for Mac include DBeaver (supports all major databases), Beekeeper Studio (modern UI), and pgAdmin (PostgreSQL-specific). All three are open-source and available on macOS.
+The best free database management tools for Mac include DBeaver (supports all major databases), Beekeeper Studio (modern UI), and pgconsole (PostgreSQL-specific, self-hosted). All three are open-source.
 
 ### Is there a free alternative to DataGrip?
 
