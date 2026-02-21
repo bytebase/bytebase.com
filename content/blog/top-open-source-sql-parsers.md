@@ -17,6 +17,7 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 | -------------- | ---------------- |
 | 2025/04/16     | Initial version. |
 | 2025/04/21     | Fix wrong link.  |
+| 2026/02/21     | Add pgparser.    |
 
 SQL (Structured Query Language) remains the dominant language for database interactions, powering everything from traditional relational databases to modern data warehouses and analytics platforms. Behind the scenes, SQL parsers play a crucial role in interpreting, validating, and processing SQL statements.
 
@@ -54,13 +55,15 @@ SQL parsers are used in a wide range of applications, including:
 
 ## PostgreSQL Parsers
 
-- [libpg_query by pganalyze](https://github.com/pganalyze/libpg_query). This is not a parser by itself. It's a C library that facilitates building the language-binding parsers such as:
+- [libpg_query by pganalyze](https://github.com/pganalyze/libpg_query). This is not a parser by itself. It's a C library that facilitates building the language-binding parsers (note: the language bindings require CGO or equivalent FFI to link with the C library):
 
   - Python: [pglast](https://github.com/pganalyze/pg_query)
   - Ruby: [pg_query](https://github.com/pganalyze/pg_query)
   - Golang: [pg_query_go](https://github.com/pganalyze/pg_query_go)
   - JavaScript: [psql-parser](https://github.com/launchql/pgsql-parser)
   - Rust: [pg_query.rs](https://github.com/pganalyze/pg_query.rs)
+
+- [pgparser](https://github.com/pgplex/pgparser). A pure Go PostgreSQL parser that translates PostgreSQL's grammar (`gram.y`) into Go using goyacc with no CGO dependency. Its AST is 100% compatible with PostgreSQL's internal Node structures. Targeting PostgreSQL 17, it has been validated against ~45,000 SQL statements from PostgreSQL's regression suite with a 99.6% pass rate.
 
 ## Oracle Parsers
 
