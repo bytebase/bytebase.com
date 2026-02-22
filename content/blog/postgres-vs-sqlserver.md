@@ -13,9 +13,10 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 
 </HintBlock>
 
-| Update History | Comment          |
-| -------------- | ---------------- |
-| 2025/03/26     | Initial version. |
+| Update History | Comment                         |
+| -------------- | ------------------------------- |
+| 2026/02/21     | Add Query Optimization section. |
+| 2025/03/26     | Initial version.                |
 
 ## Why Comparing PostgreSQL and SQL Server
 
@@ -102,6 +103,14 @@ This comparison reflects the current state of both systems as of 2025, including
 - Lock manager for concurrency control
 - Query processor with cost-based optimizer
 - Storage engine with support for multiple storage formats
+
+### Query Optimization
+
+Both PostgreSQL and SQL Server use cost-based query optimizers that rely on table statistics to generate execution plans. However, they differ significantly in how they handle plan stability and regression prevention.
+
+One notable weakness of PostgreSQL is its susceptibility to **query plan flips**. PostgreSQL's `ANALYZE` function gathers statistics through random sampling, and when the sample is insufficient or unrepresentative, the query planner can abruptly switch to a catastrophically inefficient plan. A [real-world incident in February 2026](https://clerk.com/blog/2026-02-19-system-outage-postmortem) demonstrated this risk: a column where 99.9996% of values were NULL was incorrectly estimated as 100% NULL due to sampling error, causing a plan flip that consumed nearly all database resources and led to a 90-minute outage for a major SaaS provider.
+
+SQL Server's Query Store and Automatic Plan Correction are designed to detect and revert exactly this kind of plan regression automatically, making it more resilient to statistics-driven plan instability out of the box.
 
 ### Index Capabilities
 
@@ -270,3 +279,4 @@ As both systems continue to evolve, they are likely to address their respective 
 1. [Microsoft SQL Server Documentation](https://docs.microsoft.com/en-us/sql/)
 1. [Stack Overflow Developer Survey 2024](https://survey.stackoverflow.co/2024/)
 1. [Microsoft SQL Server 2025 Preview Announcement (November 2024)](https://www.microsoft.com/en-us/sql-server/blog/2024/11/19/announcing-microsoft-sql-server-2025-apply-for-the-preview-for-the-enterprise-ai-ready-database/)
+1. [Postmortem: System Outage Caused by PostgreSQL Query Plan Flip (February 2026)](https://clerk.com/blog/2026-02-19-system-outage-postmortem)
