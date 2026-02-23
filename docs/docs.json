@@ -231,12 +231,14 @@
           {
             "group": "Security",
             "pages": [
+              "administration/user-groups/overview",
+              "administration/service-account",
               {
-                "group": "Users & Groups",
+                "group": "Workload Identity",
                 "pages": [
-                  "administration/user-groups/overview",
-                  "administration/user-groups/workload-identity/github-actions",
-                  "administration/user-groups/workload-identity/gitlab-ci"
+                  "administration/workload-identity/overview",
+                  "administration/workload-identity/github-actions",
+                  "administration/workload-identity/gitlab-ci"
                 ]
               },
               "administration/roles",
