@@ -232,6 +232,15 @@
             "group": "Security",
             "pages": [
               {
+                "group": "Users & Groups",
+                "pages": [
+                  "administration/user-groups/overview",
+                  "administration/user-groups/workload-identity/github-actions",
+                  "administration/user-groups/workload-identity/gitlab-ci"
+                ]
+              },
+              "administration/roles",
+              {
                 "group": "Single Sign-On",
                 "pages": [
                   "administration/sso/overview",
@@ -243,15 +252,6 @@
                 ]
               },
               {
-                "group": "Users & Groups",
-                "pages": [
-                  "administration/user-groups/overview",
-                  "administration/user-groups/workload-identity/github-actions",
-                  "administration/user-groups/workload-identity/gitlab-ci"
-                ]
-              },
-              "administration/roles",
-              {
                 "group": "SCIM",
                 "pages": [
                   "administration/scim/overview",
@@ -259,8 +259,8 @@
                   "administration/scim/okta"
                 ]
               },
-              "administration/2fa",
               "administration/password",
+              "administration/2fa",
               "administration/sign-in-restriction"
             ]
           },
