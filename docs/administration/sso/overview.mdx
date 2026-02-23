@@ -4,13 +4,34 @@ title: Overview
 
 Single Sign-On (SSO) is an authentication method that enables users to securely authenticate with multiple applications and websites by using just one set of credentials.
 
-Bytebase supports the following standard protocols that provide SSO:
+## Supported Protocols
 
-- [OAuth 2.0](/administration/sso/oauth2)
-- [OpenID Connect (OIDC)](/administration/sso/oidc)
-- [Microsoft Entra ID (Azure AD) OIDC](/administration/sso/oidc-entra-id)
-- [Lightweight Directory Access Protocol (LDAP)](/administration/sso/ldap)
-- [IdP-Initiated Flow](/administration/sso/idp-initiated) - Access Bytebase directly from your identity provider's dashboard
+Bytebase supports three SSO protocols:
+
+- **[OAuth 2.0](/administration/sso/oauth2)** — Authorization protocol. Bytebase gets a token and fetches your profile from the provider. Good for providers that don't support OIDC (e.g. GitHub).
+- **[OpenID Connect (OIDC)](/administration/sso/oidc)** — Identity layer built on top of OAuth 2.0. Adds a standardized ID token so Bytebase gets user info directly. Preferred when available.
+- **[LDAP](/administration/sso/ldap)** — Directory lookup protocol. Bytebase queries a user directory directly with username/password. No browser redirects involved.
+
+## Authentication Flow
+
+There are two ways SSO authentication can start:
+
+- **SP-Initiated (default)** — User visits Bytebase, clicks "Sign in with X", gets redirected to the identity provider, then back to Bytebase after authentication.
+- **[IdP-Initiated](/administration/sso/idp-initiated)** — User clicks the Bytebase tile directly from their identity provider's dashboard (e.g. Okta portal) and lands in Bytebase already authenticated. Works with OAuth 2.0 and OIDC providers.
+
+## Which Protocol to Use
+
+| Identity Provider | Recommended Protocol | Notes |
+|---|---|---|
+| Google | [OIDC](/administration/sso/oidc#google) | Also available via [OAuth 2.0](/administration/sso/oauth2#google) |
+| GitHub | [OAuth 2.0](/administration/sso/oauth2#github) | GitHub does not support OIDC |
+| GitLab | [OIDC](/administration/sso/oidc#gitlab) | Also available via [OAuth 2.0](/administration/sso/oauth2#gitlab) |
+| Microsoft Entra ID (Azure AD) | [OIDC](/administration/sso/oidc-entra-id) | Dedicated guide with group sync. Also available via [OAuth 2.0](/administration/sso/oauth2#microsoft-entra-azure-ad) |
+| Okta | [OIDC](/administration/sso/oidc#okta) | Also available via [LDAP](/administration/sso/ldap#okta) |
+| Keycloak | [OIDC](/administration/sso/oidc#keycloak) | |
+| Casdoor | [OIDC](/administration/sso/oidc#casdoor) | |
+| Authing | [OIDC](/administration/sso/oidc#authing) | |
+| JumpCloud | [LDAP](/administration/sso/ldap#jumpcloud) | |
 
 ## Prerequisites
 
