@@ -69,10 +69,10 @@ deploy-database:
         -H "Content-Type: application/json" \
         -d "{\"token\": \"${GITLAB_OIDC_TOKEN}\", \"email\": \"${WORKLOAD_IDENTITY_EMAIL}\"}")
 
-      ACCESS_TOKEN=$(echo $RESPONSE | jq -r '.accessToken')
+      ACCESS_TOKEN=$(echo "$RESPONSE" | jq -r '.accessToken')
       if [ "$ACCESS_TOKEN" = "null" ] || [ -z "$ACCESS_TOKEN" ]; then
         echo "Failed to get access token"
-        echo $RESPONSE
+        echo "$RESPONSE"
         exit 1
       fi
 
