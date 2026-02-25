@@ -17,7 +17,7 @@ Bytebase does not support nested groups. A group can only contain users, it can'
 </Note>
 
 <Note>
-Service accounts cannot be part of user groups. Since service accounts are for automated processes with specific access needs, including them in groups could grant unintended permissions. This is considered an [anti-pattern](https://cloud.google.com/iam/docs/best-practices-service-accounts#groups).
+Machine identities (service accounts and workload identities) cannot be part of user groups. Since they are for automated processes with specific access needs, including them in groups could grant unintended permissions. This is considered an [anti-pattern](https://cloud.google.com/iam/docs/best-practices-service-accounts#groups).
 </Note>
 
 ## Add group
