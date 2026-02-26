@@ -1,39 +1,23 @@
 ---
-title: Overview
+title: Users & Groups
 ---
 
 ## User
 
-A `User` represents anyone who can access and perform operations in Bytebase. Users include both human team members and service accounts.
+A `User` represents a human team member who can access and perform operations in Bytebase.
 
-## Service Account
-
-Service accounts are special users designed for automated processes and applications.
-
-## Workload Identity
-
-Workload Identity is a secure authentication method for CI/CD pipelines and external services using OpenID Connect (OIDC) tokens, eliminating the need for long-lived credentials.
-
-Unlike traditional Service Accounts that require storing API keys as secrets, Workload Identity:
-- Uses short-lived tokens generated per job
-- Validates tokens against your CI/CD platform's identity provider  
-- Restricts access to specific repositories, branches, and workflows
-
-### Setup Workload Identity
-
-<CardGroup cols={2}>
-  <Card title="GitHub Actions" icon="github" href="/administration/user-groups/workload-identity/github-actions">
-    Configure OIDC authentication for GitHub Actions workflows
-  </Card>
-</CardGroup>
+For machine identities, see [Service Accounts](/administration/service-account) and [Workload Identity](/administration/workload-identity/overview).
 
 ## User Group
 
 A `User Group` organizes multiple users together for easier permission management. Workspace admins create groups and add users, then assign these groups to roles within projects.
 
 <Note>
-- Bytebase does not support nested groups. A group can only contain users, it can't contain another group.
-- Service accounts cannot be part of user groups. Since service accounts are for automated processes with specific access needs, including them in groups could grant unintended permissions. This is considered an [anti-pattern](https://cloud.google.com/iam/docs/best-practices-service-accounts#groups).
+Bytebase does not support nested groups. A group can only contain users, it can't contain another group.
+</Note>
+
+<Note>
+Machine identities (service accounts and workload identities) cannot be part of user groups. Since they are for automated processes with specific access needs, including them in groups could grant unintended permissions. This is considered an [anti-pattern](https://cloud.google.com/iam/docs/best-practices-service-accounts#groups).
 </Note>
 
 ## Add group

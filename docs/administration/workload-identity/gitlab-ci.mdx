@@ -13,8 +13,8 @@ This guide explains how to configure Workload Identity for GitLab CI/CD to authe
 
 | Field | Description | Example |
 |-------|-------------|---------|
-| **Name** | Display name for this identity | `GitLab Deploy` |
-| **Email** | Unique email prefix (automatically appended with `@workload.bytebase.com`) | `gitlab-deploy` |
+| **Name** | Display name for this identity | `GitLab CI Deploy` |
+| **Email** | Unique email prefix (automatically appended with `@workload.bytebase.com`) | `gitlab-ci-deploy` |
 | **Platform** | Select GitLab CI | `GitLab CI` |
 | **Group / Username** | GitLab group or username (required) | `my-group` |
 | **Project** | Project name (leave empty to allow all projects) | `my-project` |
@@ -69,10 +69,10 @@ deploy-database:
         -H "Content-Type: application/json" \
         -d "{\"token\": \"${GITLAB_OIDC_TOKEN}\", \"email\": \"${WORKLOAD_IDENTITY_EMAIL}\"}")
 
-      ACCESS_TOKEN=$(echo $RESPONSE | jq -r '.accessToken')
+      ACCESS_TOKEN=$(echo "$RESPONSE" | jq -r '.accessToken')
       if [ "$ACCESS_TOKEN" = "null" ] || [ -z "$ACCESS_TOKEN" ]; then
         echo "Failed to get access token"
-        echo $RESPONSE
+        echo "$RESPONSE"
         exit 1
       fi
 

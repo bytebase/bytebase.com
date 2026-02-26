@@ -2,32 +2,7 @@
 title: IdP-Initiated Flow
 ---
 
-Identity Provider-initiated (IdP-initiated) flow allows users to access Bytebase directly from their identity provider's dashboard or portal, without needing to first visit Bytebase and click a "Sign in with..." button.
-
-## Overview
-
-In a traditional Service Provider-initiated (SP-initiated) flow, the authentication process starts when a user tries to access Bytebase and clicks the SSO login button. With IdP-initiated flow, the process begins at the identity provider's side—for example, when a user clicks the Bytebase tile in their Okta dashboard.
-
-### IdP-Initiated vs SP-Initiated
-
-**SP-Initiated (Traditional Flow)**:
-
-1. User visits Bytebase
-2. User clicks "Sign in with Okta" button
-3. User is redirected to Okta for authentication
-4. After authentication, user is redirected back to Bytebase
-
-**IdP-Initiated Flow**:
-
-1. User is already logged into their IdP (e.g., Okta)
-2. User clicks Bytebase tile/bookmark in their IdP dashboard
-3. User is directly authenticated and redirected to Bytebase
-
-### Benefits
-
-- **Streamlined user experience**: Users can access Bytebase with a single click from their IdP dashboard
-- **Centralized access**: All applications are accessible from one place (the IdP portal)
-- **Reduced friction**: Eliminates the extra step of clicking the SSO button in Bytebase
+By default, SSO uses a **Service Provider-initiated (SP-initiated)** flow: users visit Bytebase, click "Sign in with X", get redirected to the identity provider, then back. **IdP-initiated** flow reverses this — users click the Bytebase tile directly from their identity provider's dashboard (e.g. Okta portal) and land in Bytebase already authenticated. This eliminates the extra step of visiting Bytebase first and works with both OAuth 2.0 and OIDC providers.
 
 ## Prerequisites
 

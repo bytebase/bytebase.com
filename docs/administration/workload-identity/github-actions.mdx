@@ -84,7 +84,7 @@ jobs:
             -H "Content-Type: application/json" \
             -d "{\"token\": \"${{ steps.bytebase-token.outputs.token }}\", \"email\": \"${WORKLOAD_IDENTITY_EMAIL}\"}")
 
-          ACCESS_TOKEN=$(echo $RESPONSE | jq -r '.accessToken')
+          ACCESS_TOKEN=$(echo "$RESPONSE" | jq -r '.accessToken')
           echo "::add-mask::$ACCESS_TOKEN"
           echo "access_token=$ACCESS_TOKEN" >> $GITHUB_OUTPUT
 
@@ -113,7 +113,7 @@ permissions:
 
 env:
   BYTEBASE_URL: https://bytebase.example.com
-  WORKLOAD_IDENTITY_EMAIL: github-deploy@workload.bytebase.com
+  WORKLOAD_IDENTITY_EMAIL: github-actions-deploy@workload.bytebase.com
   PROJECT: projects/my-project
 
 jobs:

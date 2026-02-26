@@ -1,0 +1,29 @@
+---
+title: Overview
+---
+
+Workload Identity is a secure authentication method for CI/CD pipelines and external services using OpenID Connect (OIDC) tokens, eliminating the need for long-lived credentials.
+
+Unlike [Service Accounts](/administration/service-account) that require storing API keys as secrets, Workload Identity:
+
+- Uses short-lived tokens generated per job
+- Validates tokens against your CI/CD platform's identity provider
+- Restricts access to specific repositories, branches, and workflows
+
+## Workspace vs Project Level
+
+Workload identities can be created at two levels:
+
+- **Workspace level** — Has access governed by workspace IAM policies. Suitable for cross-project CI/CD workflows.
+- **Project level** — Scoped to a single project, following the principle of least privilege. Suitable for project-specific pipelines.
+
+## Supported Platforms
+
+<CardGroup cols={2}>
+  <Card title="GitHub Actions" icon="github" href="/administration/workload-identity/github-actions">
+    Configure OIDC authentication for GitHub Actions workflows
+  </Card>
+  <Card title="GitLab CI/CD" icon="gitlab" href="/administration/workload-identity/gitlab-ci">
+    Configure OIDC authentication for GitLab CI/CD pipelines
+  </Card>
+</CardGroup>
