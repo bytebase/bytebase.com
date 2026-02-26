@@ -25,6 +25,8 @@
 
 ## [How to use AUTO_INCREMENT](/reference/mysql/how-to/how-to-use-auto-increment-mysql)
 
+## [How to create a database](/reference/mysql/how-to/how-to-create-database-mysql)
+
 ## [How to CREATE TABLE](/reference/mysql/how-to/how-to-create-table-mysql)
 
 ## [How to ALTER TABLE](/reference/mysql/how-to/how-to-alter-table-mysql)
