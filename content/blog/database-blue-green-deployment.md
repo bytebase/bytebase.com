@@ -15,7 +15,7 @@ That model works cleanly for stateless application servers. Databases are statef
 
 Blue-green deployment is a release strategy that maintains two production-equivalent environments. At any moment, one environment (say, blue) handles live traffic. The other (green) is idle and used for staging the next release.
 
-![Blue-green deployment architecture: load balancer routing traffic to active blue environment while green receives the new release](/content/blog/database-blue-green-deployment/blue-green-architecture.webp)
+![Blue-green deployment architecture: load balancer routing traffic to active blue environment while green receives the new release](/content/blog/database-blue-green-deployment/blue-green-architecture-mmd.webp)
 
 The release sequence:
 1. Deploy the new version to the idle environment (green).
@@ -44,7 +44,6 @@ These aren't problems you can solve at the infrastructure layer. They require a 
 
 The expand/contract pattern (sometimes called parallel change) is the standard way to make schema migrations safe for blue-green and rolling deployments. The principle: a schema change is split into phases, each of which is compatible with both the old and new application code.
 
-![Expand/contract pattern: three phases, expand (add new column), migrate data, contract (remove old column)](/content/blog/database-blue-green-deployment/expand-contract-pattern.webp)
 
 ### Phase 1: Expand
 
@@ -103,7 +102,6 @@ Bytebase maps directly to the blue-green pattern through its multi-environment d
 
 In Bytebase, create four environments in order: `Dev`, `Staging`, `Production-Blue`, `Production-Green`. Each environment maps to a database instance.
 
-![Bytebase environment pipeline showing Dev → Staging → Production-Blue → Production-Green deployment stages](/content/blog/database-blue-green-deployment/bytebase-environments.webp)
 
 ### Submit a migration
 
