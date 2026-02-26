@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" font-family="Courier New, monospace" font-size="13">
+  <style>
+    text { fill: #e0e0e0; }
+    .title { font-size: 11px; fill: #888; font-weight: bold; letter-spacing: 1px; }
+    .box { fill: none; stroke: #555; stroke-width: 1.5; rx: 3; }
+    .inner-box { fill: none; stroke: #444; stroke-width: 1; rx: 2; }
+    .arrow { stroke: #666; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    .bg { fill: #1a1a2e; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="900" height="340" rx="8"/>
+
+  <!-- Column 1: Requester -->
+  <rect class="box" x="40" y="60" width="170" height="220"/>
+  <text x="125" y="105" text-anchor="middle">👤  Human</text>
+  <line x1="75" y1="168" x2="175" y2="168" stroke="#444" stroke-width="0.5" stroke-dasharray="4,3"/>
+  <text x="125" y="195" text-anchor="middle">🤖  Agent</text>
+  <text class="title" x="125" y="310" text-anchor="middle">REQUESTER</text>
+
+  <!-- Arrow 1 -->
+  <line class="arrow" x1="220" y1="170" x2="295" y2="170"/>
+
+  <!-- Column 2: Bytebase -->
+  <rect class="box" x="305" y="60" width="260" height="220"/>
+  <text x="435" y="90" text-anchor="middle" font-weight="bold" font-size="14" fill="#f0f0f0">Bytebase</text>
+  <rect class="inner-box" x="325" y="105" width="220" height="30"/>
+  <text x="435" y="125" text-anchor="middle" font-size="12">Access Control</text>
+  <rect class="inner-box" x="325" y="145" width="220" height="30"/>
+  <text x="435" y="165" text-anchor="middle" font-size="12">Dynamic Data Masking</text>
+  <rect class="inner-box" x="325" y="185" width="220" height="30"/>
+  <text x="435" y="205" text-anchor="middle" font-size="12">Just-in-Time Access</text>
+  <rect class="inner-box" x="325" y="225" width="220" height="30"/>
+  <text x="435" y="245" text-anchor="middle" font-size="12">Audit Log</text>
+  <text class="title" x="435" y="310" text-anchor="middle">GATEWAY</text>
+
+  <!-- Arrow 2 -->
+  <line class="arrow" x1="575" y1="170" x2="650" y2="170"/>
+
+  <!-- Column 3: Databases -->
+  <rect class="box" x="660" y="60" width="200" height="220"/>
+  <text x="760" y="95" text-anchor="middle" font-size="12">PostgreSQL</text>
+  <text x="760" y="120" text-anchor="middle" font-size="12">MySQL</text>
+  <text x="760" y="145" text-anchor="middle" font-size="12">SQL Server</text>
+  <text x="760" y="170" text-anchor="middle" font-size="12">Oracle</text>
+  <text x="760" y="195" text-anchor="middle" font-size="12">Snowflake</text>
+  <text x="760" y="220" text-anchor="middle" font-size="12">BigQuery</text>
+  <text x="760" y="250" text-anchor="middle" font-size="12" fill="#888">and more ...</text>
+  <text class="title" x="760" y="310" text-anchor="middle">DATABASES</text>
+</svg>
