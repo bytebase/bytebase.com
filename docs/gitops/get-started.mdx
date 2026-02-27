@@ -2,4 +2,143 @@
 title: Get Started
 ---
 
-TODO: This page will guide users through setting up GitOps with Bytebase.
+This guide walks you through setting up a GitOps workflow with Bytebase and GitHub Actions. By the end, you'll have SQL review on pull requests and automated database deployment on merge.
+
+## Prerequisites
+
+- A running Bytebase instance ([Cloud](https://hub.bytebase.com/) or [self-hosted](/get-started/self-host/deploy-with-docker))
+- A GitHub repository for your database migrations
+- At least one database instance registered in Bytebase
+
+## Step 1 — Authenticate GitHub Actions with Bytebase
+
+GitHub Actions needs to call the Bytebase API. Choose one of the following methods:
+
+<Tabs>
+  <Tab title="Workload Identity (recommended)">
+    Workload Identity uses short-lived OIDC tokens — no secrets to store or rotate.
+
+    1. In Bytebase, go to **IAM & Admin > Workload Identity** and create a new identity for your GitHub repository.
+    2. Assign it the **GitOps Service Agent** role in your project.
+    3. See [GitHub Actions Workload Identity](/administration/workload-identity/github-actions) for detailed setup.
+  </Tab>
+  <Tab title="Service Account">
+    Service accounts use long-lived API keys stored as GitHub secrets.
+
+    1. In Bytebase, go to **IAM & Admin > Users & Groups** and click **+ Add User**.
+    2. Create a service account (e.g., `api-gitops`) and assign it the **Workspace Member** and **GitOps Service Agent** roles.
+    3. Copy the service key and add it as a repository secret (e.g., `BYTEBASE_SERVICE_ACCOUNT_SECRET`) in **GitHub Settings > Secrets and Variables > Actions**.
+    4. See [Service Account](/administration/service-account) for more details.
+  </Tab>
+</Tabs>
+
+## Step 2 — Configure Runners
+
+GitHub Actions workflows run on **runners**. Choose based on your Bytebase deployment:
+
+| Bytebase Setup | Runner Type | Why |
+|---|---|---|
+| Bytebase Cloud | GitHub-hosted runners | Cloud runners can reach Bytebase Cloud directly |
+| Self-hosted (public) | GitHub-hosted runners | Cloud runners can reach your public Bytebase URL |
+| Self-hosted (private network) | [Self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners) | Runners must be in the same network as Bytebase |
+
+For self-hosted runners, install the runner on a machine that can reach your Bytebase instance, then register it with your GitHub repository. See [GitHub's self-hosted runner guide](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
+
+## Step 3 — Add Workflow Configuration Files
+
+You need two GitHub Actions workflow files — one for SQL review (CI) and one for release (CD).
+
+<Info>
+**Coming soon:** The Bytebase GitOps page will provide a tool to generate these workflow files for your project configuration.
+</Info>
+
+Add the following files to your repository:
+
+### `.github/workflows/sql-review.yml` — SQL Review on PR
+
+This workflow triggers when a pull request is created or updated, runs SQL review against the changed migration files, and posts results as PR comments.
+
+See the [example sql-review workflow](https://github.com/bytebase/example-gitops-github-flow/blob/main/.github/workflows/sql-review-action.yml) for a complete configuration. Key variables to set in the `env` section:
+
+- **`BYTEBASE_URL`** — Your Bytebase instance URL
+- **`BYTEBASE_SERVICE_ACCOUNT`** — The service account email (e.g., `api-gitops@service.bytebase.com`)
+- **`BYTEBASE_PROJECT`** — Your project resource name (e.g., `projects/my-project`)
+- **`FILE_PATTERN`** — Migration file glob pattern (e.g., `migrations/*.sql`)
+
+### `.github/workflows/release.yml` — Release on Merge
+
+This workflow triggers when a pull request is merged to `main`, creates a Bytebase release, and rolls out changes to your target databases.
+
+See the [example release workflow](https://github.com/bytebase/example-gitops-github-flow/blob/main/.github/workflows/release-action.yml) for a complete configuration. In addition to the variables above, set:
+
+- **`BYTEBASE_TARGETS`** — Comma-separated database resource names (e.g., `instances/test/databases/mydb,instances/prod/databases/mydb`)
+
+Commit both files to your `main` branch.
+
+## Step 4 — Try Your First GitOps Migration
+
+### Create a migration file
+
+1. Create a new branch:
+
+   ```bash
+   git checkout -b add-employees-table
+   ```
+
+2. Add a migration file under your migrations directory (e.g., `migrations/`):
+
+   **`migrations/20260227000000_create_employees_ddl.sql`**
+   ```sql
+   CREATE TABLE employees (
+       id SERIAL PRIMARY KEY,
+       name TEXT NOT NULL,
+       email TEXT NOT NULL
+   );
+   ```
+
+   <Accordion title="Migration file naming convention">
+   Migration files must start with digits (the version number), e.g.:
+   - Timestamp-based: `20260227000000_create_employees_ddl.sql`
+   - Semver-based: `1.0.0_create_employees_ddl.sql`
+
+   Files may end with `_ddl` or `_dml` to indicate the change type. If omitted, DDL is assumed.
+   </Accordion>
+
+3. Commit and push:
+
+   ```bash
+   git add . && git commit -m "Add employees table" && git push -u origin add-employees-table
+   ```
+
+### Review — SQL Review triggers on PR
+
+4. Open a pull request on GitHub. The **sql-review** workflow triggers automatically and posts review results as a PR comment.
+
+   ![GitHub PR SQL Review](/content/docs/gitops/sql-review-ci/github-pr-sql-review.webp)
+
+   If there are warnings or errors, update your SQL file, push again, and the review re-runs.
+
+### Deploy — Release triggers on merge
+
+5. Once SQL review passes, merge the pull request. The **release** workflow triggers, creates a Bytebase release, and rolls out to your target databases.
+
+6. Go to the **Actions** tab in GitHub to see the workflow run. The job summary shows the release created and applied to each database.
+
+You now have a working GitOps pipeline — SQL review on every PR, automated deployment on merge.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Migration-Based Workflow" icon="file-code" href="/gitops/migration-based-workflow/overview">
+    Manage databases with incremental migration scripts
+  </Card>
+  <Card title="State-Based Workflow" icon="sparkles" href="/gitops/state-based-workflow/overview">
+    Declarative schema management for PostgreSQL
+  </Card>
+  <Card title="SQL Review Policy" icon="shield-check" href="/sql-review/review-policy">
+    Configure SQL review rules for your organization
+  </Card>
+  <Card title="Full Tutorial" icon="graduation-cap" href="/tutorials/gitops-github-workflow">
+    Step-by-step tutorial with manual rollout and ChatOps
+  </Card>
+</CardGroup>
