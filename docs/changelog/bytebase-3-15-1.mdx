@@ -1,0 +1,27 @@
+---
+title: Bytebase 3.15.1 - Feb 26, 2026
+author: Adela
+updated_at: 2026/02/26 18:00:00
+description: 'Improvements and Bug Fixes'
+
+---
+
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
+## 🎄 Enhancements
+
+- Add **SQL Editor Read User** role for read-only SQL Editor access (SELECT, EXPLAIN, INFO — no DDL/DML).
+
+- Enforce `bb.issues.update` permission requirement to edit issues, even for issue creators.
+
+## 🐞 Bug Fixes
+
+- Fix DDL/DML error modal not showing.
+
+- Fix REST API `GetSchemaString` endpoint returning parse error.
+
+- Fix SQL Editor double-click-drag word selection in reverse direction.
+
+- **PostgreSQL** — Fix schema dump losing overloaded functions and missing quotes for CamelCase columns in index/constraint DDL.
+
+<InstallUpgrade />
