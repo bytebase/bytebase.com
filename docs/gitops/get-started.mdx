@@ -10,34 +10,12 @@ This guide walks you through setting up a GitOps workflow with Bytebase. By the 
 - A GitHub or GitLab repository
 - At least one database registered in a Bytebase project
 
-## Step 1 — Set Up Workload Identity
+## Step 1 — Set Up Authentication
 
-Your CI/CD pipeline needs to authenticate with the Bytebase API. [Workload Identity](/administration/workload-identity/overview) is the recommended approach — it uses short-lived OIDC tokens so there are no secrets to store or rotate.
+Your CI/CD pipeline needs to authenticate with the Bytebase API. We recommend [Workload Identity](/administration/workload-identity/overview) — it uses short-lived OIDC tokens so there are no secrets to store or rotate. Follow the setup guide for your platform:
 
-<Tabs>
-  <Tab title="GitHub">
-    1. In Bytebase, go to **IAM & Admin > Users & Groups** and click **Add User**.
-    2. Select **Workload Identity** as the type.
-    3. Choose **GitHub Actions** as the platform.
-    4. Fill in your repository owner and name. You can restrict to specific branches if needed.
-    5. Assign the **GitOps Service Agent** role.
-    6. Go to your project's **Settings > Members**, grant this workload identity access with the **GitOps Service Agent** role.
-
-    See [GitHub Actions Workload Identity](/administration/workload-identity/github-actions) for the complete setup guide.
-  </Tab>
-  <Tab title="GitLab">
-    1. In Bytebase, go to **IAM & Admin > Users & Groups** and click **Add User**.
-    2. Select **Workload Identity** as the type.
-    3. Choose **GitLab CI** as the platform.
-    4. Fill in your group or username and project name. You can restrict to specific branches if needed.
-    5. Assign the **GitOps Service Agent** role.
-    6. Go to your project's **Settings > Members**, grant this workload identity access with the **GitOps Service Agent** role.
-
-    For self-hosted GitLab, update the OIDC audience to match your instance URL (e.g., `https://gitlab.your-company.com`).
-
-    See [GitLab CI Workload Identity](/administration/workload-identity/gitlab-ci) for the complete setup guide.
-  </Tab>
-</Tabs>
+- [GitHub Actions Workload Identity](/administration/workload-identity/github-actions)
+- [GitLab CI Workload Identity](/administration/workload-identity/gitlab-ci)
 
 <Accordion title="Alternative: Service Account">
 If you use a VCS platform that doesn't support Workload Identity (e.g., Azure DevOps, Bitbucket), you can use a [Service Account](/administration/service-account) instead. Create a service account in **IAM & Admin > Users & Groups** with the **GitOps Service Agent** role, then store the API key as a CI/CD secret in your platform.
@@ -78,18 +56,7 @@ CI/CD workflows execute on **runners** — machines that run your pipeline jobs.
 
 ## Step 3 — Generate Workflow Files
 
-Bytebase provides a **GitOps** page in each project to help you generate the CI/CD configuration files for your repository. The page walks you through selecting your VCS platform, target databases, and migration file pattern, then generates ready-to-use workflow files.
-
-In Bytebase, go to your project and open the **GitOps** page.
-
-{/* TODO: Add screenshot of GitOps landing page */}
-
-The page generates two workflow configurations:
-
-- **SQL Review (CI)** — Triggers on every pull/merge request to review SQL changes and post results back as comments.
-- **Release (CD)** — Triggers on merge to `main` to create a Bytebase release and deploy changes to your target databases.
-
-Download the generated files and place them in your repository:
+In Bytebase, go to your project and open the **GitOps** page. Follow the steps to select your VCS platform, target databases, and migration file pattern. Download the generated workflow files and place them in your repository:
 
 <Tabs>
   <Tab title="GitHub">
@@ -122,28 +89,23 @@ With authentication, runners, and workflow files in place, you're ready to run y
 
 ### Create a migration file
 
-1. Create a new branch:
-
-   ```bash
-   git checkout -b add-employees-table
-   ```
+1. Create a new branch in your repository.
 
 2. Add a migration file under your migrations directory. The file name must start with a version number and may end with `_ddl` or `_dml` to indicate the change type (default is DDL):
 
-   **`migrations/20260227000000_create_employees_ddl.sql`**
+   **`migrations/202503131500_create_table_t1_ddl.sql`**
 
    ```sql
-   CREATE TABLE employees (
-       id SERIAL PRIMARY KEY,
-       name TEXT NOT NULL,
-       email TEXT NOT NULL
+   CREATE TABLE t1 (
+    id SERIAL PRIMARY KEY,
+    name TEXT
    );
    ```
 
    <Accordion title="File naming convention">
    Migration files must start with a version number. Two common patterns:
-   - **Timestamp-based:** `20260227000000_create_employees_ddl.sql`
-   - **Semver-based:** `1.0.0_create_employees_ddl.sql`
+   - **Timestamp-based:** `202503131500_create_table_t1_ddl.sql`
+   - **Semver-based:** `1.0.0_create_table_t1_ddl.sql`
 
    The suffix indicates the change type:
    - `_ddl` — Schema changes (CREATE, ALTER, DROP)
@@ -151,56 +113,60 @@ With authentication, runners, and workflow files in place, you're ready to run y
    - No suffix — Defaults to DDL
    </Accordion>
 
-3. Commit, push, and open a pull/merge request:
-
-   ```bash
-   git add . && git commit -m "Add employees table" && git push -u origin add-employees-table
-   ```
-
-   <Tabs>
-     <Tab title="GitHub">
-       Open a **Pull Request** from `add-employees-table` to `main` on GitHub.
-     </Tab>
-     <Tab title="GitLab">
-       Open a **Merge Request** from `add-employees-table` to `main` on GitLab.
-     </Tab>
-   </Tabs>
+3. Commit, push, and open a pull request (GitHub) or merge request (GitLab) against `main`.
 
 ### SQL review runs automatically
 
-4. The SQL review workflow triggers and posts results back to your pull/merge request as comments. You'll see a summary of any warnings or errors detected by your SQL review policy.
+4. The SQL review workflow triggers and posts results back to your pull/merge request. You'll see a warning because the `name` column allows NULL.
 
    <Tabs>
      <Tab title="GitHub">
-       The review results appear as a check and comment on your PR:
-
-       ![GitHub PR SQL Review](/content/docs/gitops/sql-review-ci/github-pr-sql-review.webp)
+       ![GitHub PR SQL Review](/content/docs/tutorials/gitops-github-workflow/gh-sql-review-warning.webp)
      </Tab>
      <Tab title="GitLab">
-       The review results appear in the merge request pipeline:
-
-       ![GitLab MR SQL Review](/content/docs/gitops/sql-review-ci/gitlab-pr-sql-review.webp)
+       ![GitLab MR SQL Review](/content/docs/tutorials/gitops-gitlab-workflow/gl-sql-review-warning.webp)
      </Tab>
    </Tabs>
 
-   If there are issues, update your SQL file, push again, and the review re-runs automatically.
+5. Fix the SQL based on the review feedback — add `NOT NULL` to the `name` column:
+
+   ```sql
+   CREATE TABLE t1 (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL
+   );
+   ```
+
+   Push the fix. The review re-runs and passes.
 
 ### Merge triggers deployment
 
-5. Once SQL review passes, merge the pull/merge request. The release workflow triggers automatically — it creates a Bytebase release and rolls out the changes to your target databases.
+6. Once SQL review passes, merge the pull/merge request. The release workflow triggers automatically — it creates a Bytebase release and rolls out the changes to your target databases.
 
-6. Check the CI/CD pipeline to verify the release was created and applied to each database:
+7. Verify the deployment in your CI/CD pipeline:
 
    <Tabs>
      <Tab title="GitHub">
-       Go to the **Actions** tab in your repository. Click into the workflow run to see the job summary showing which databases were updated.
+       Go to the **Actions** tab. You'll see the release workflow triggered by the merge.
 
-       {/* TODO: Add screenshot of GitHub Actions release summary */}
+       ![GitHub Actions workflow run](/content/docs/tutorials/gitops-github-workflow/gh-merge-run.webp)
+
+       Click into the workflow run to see the job summary — build, deploy-to-test, and deploy-to-prod all completed.
+
+       ![GitHub deploy automatic](/content/docs/tutorials/gitops-github-workflow/gh-deploy-automatic.webp)
+
+       Expand the deploy-to-test stage to see the Bytebase release and rollout links.
+
+       ![GitHub deploy details](/content/docs/tutorials/gitops-github-workflow/gh-deploy-to-test-expand.webp)
      </Tab>
      <Tab title="GitLab">
-       Go to **CI/CD > Pipelines** in your project. Click into the pipeline to see the stages and deployment logs.
+       Go to **Build > Pipelines**. You'll see the release pipeline triggered by the merge.
 
-       {/* TODO: Add screenshot of GitLab pipeline stages */}
+       ![GitLab pipelines](/content/docs/tutorials/gitops-gitlab-workflow/gl-pipelines.webp)
+
+       Click into the pipeline to see the stages — sql-review, deploy-to-test, and deploy-to-prod.
+
+       ![GitLab pipeline stages](/content/docs/tutorials/gitops-gitlab-workflow/gl-pipelines-stages.webp)
      </Tab>
    </Tabs>
 
