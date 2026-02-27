@@ -126,6 +126,7 @@
             "group": "GitOps Workflow",
             "pages": [
               "gitops/overview",
+              "gitops/get-started",
               "gitops/installation",
               {
                 "group": "Migration-Based Workflow",
