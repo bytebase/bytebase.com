@@ -2,78 +2,107 @@
 title: Get Started
 ---
 
-This guide walks you through setting up a GitOps workflow with Bytebase and GitHub Actions. By the end, you'll have SQL review on pull requests and automated database deployment on merge.
+This guide walks you through setting up a GitOps workflow with Bytebase. By the end, you'll have automated SQL review on pull/merge requests and automated database deployment on merge.
 
 ## Prerequisites
 
 - A running Bytebase instance ([Cloud](https://hub.bytebase.com/) or [self-hosted](/get-started/self-host/deploy-with-docker))
-- A GitHub repository for your database migrations
+- A GitHub or GitLab repository for your database migrations
 - At least one database instance registered in Bytebase
 
-## Step 1 — Authenticate GitHub Actions with Bytebase
+## Step 1 — Authenticate CI/CD with Bytebase
 
-GitHub Actions needs to call the Bytebase API. Choose one of the following methods:
+Your CI/CD pipeline needs to call the Bytebase API. Choose one of the following methods:
 
 <Tabs>
   <Tab title="Workload Identity (recommended)">
     Workload Identity uses short-lived OIDC tokens — no secrets to store or rotate.
 
-    1. In Bytebase, go to **IAM & Admin > Workload Identity** and create a new identity for your GitHub repository.
+    1. In Bytebase, go to **IAM & Admin > Workload Identity** and create a new identity for your repository.
     2. Assign it the **GitOps Service Agent** role in your project.
-    3. See [GitHub Actions Workload Identity](/administration/workload-identity/github-actions) for detailed setup.
+
+    See the setup guide for your platform:
+    - [GitHub Actions Workload Identity](/administration/workload-identity/github-actions)
+    - [GitLab CI Workload Identity](/administration/workload-identity/gitlab-ci)
   </Tab>
   <Tab title="Service Account">
-    Service accounts use long-lived API keys stored as GitHub secrets.
+    Service accounts use long-lived API keys stored as CI/CD secrets.
 
     1. In Bytebase, go to **IAM & Admin > Users & Groups** and click **+ Add User**.
     2. Create a service account (e.g., `api-gitops`) and assign it the **Workspace Member** and **GitOps Service Agent** roles.
-    3. Copy the service key and add it as a repository secret (e.g., `BYTEBASE_SERVICE_ACCOUNT_SECRET`) in **GitHub Settings > Secrets and Variables > Actions**.
-    4. See [Service Account](/administration/service-account) for more details.
+    3. Copy the service key and add it as a secret in your CI/CD platform:
+
+    <Tabs>
+      <Tab title="GitHub">
+        Go to **Settings > Secrets and Variables > Actions** and add `BYTEBASE_SERVICE_ACCOUNT_SECRET`.
+      </Tab>
+      <Tab title="GitLab">
+        Go to **Settings > CI/CD > Variables** and add `BYTEBASE_SERVICE_ACCOUNT_SECRET` (masked).
+      </Tab>
+    </Tabs>
+
+    See [Service Account](/administration/service-account) for more details.
   </Tab>
 </Tabs>
 
 ## Step 2 — Configure Runners
 
-GitHub Actions workflows run on **runners**. Choose based on your Bytebase deployment:
+CI/CD workflows run on **runners** that need network access to your Bytebase instance.
 
-| Bytebase Setup | Runner Type | Why |
-|---|---|---|
-| Bytebase Cloud | GitHub-hosted runners | Cloud runners can reach Bytebase Cloud directly |
-| Self-hosted (public) | GitHub-hosted runners | Cloud runners can reach your public Bytebase URL |
-| Self-hosted (private network) | [Self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners) | Runners must be in the same network as Bytebase |
+<Tabs>
+  <Tab title="GitHub">
+    | Bytebase Setup | Runner Type |
+    |---|---|
+    | Bytebase Cloud or public URL | GitHub-hosted runners (default, no setup needed) |
+    | Private network | [Self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners) in the same network |
+  </Tab>
+  <Tab title="GitLab">
+    | Bytebase Setup | Runner Type |
+    |---|---|
+    | Bytebase Cloud or public URL | GitLab shared runners (default on GitLab.com, no setup needed) |
+    | Private network | [Self-managed runners](https://docs.gitlab.com/runner/install/) in the same network |
 
-For self-hosted runners, install the runner on a machine that can reach your Bytebase instance, then register it with your GitHub repository. See [GitHub's self-hosted runner guide](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
+    For self-hosted GitLab with no internet access, you'll need to pre-load the `bytebase/bytebase-action` Docker image on your runner. See the [GitLab tutorial](/tutorials/gitops-gitlab-workflow#self-hosted-gitlab-considerations) for details.
+  </Tab>
+</Tabs>
 
-## Step 3 — Add Workflow Configuration Files
+## Step 3 — Generate Workflow Configuration Files
 
-You need two GitHub Actions workflow files — one for SQL review (CI) and one for release (CD).
+Go to the **GitOps** page in your Bytebase project to generate the CI and CD configuration files for your repository.
 
-<Info>
-**Coming soon:** The Bytebase GitOps page will provide a tool to generate these workflow files for your project configuration.
-</Info>
+{/* TODO: Add screenshot of GitOps landing page */}
 
-Add the following files to your repository:
+The tool generates two workflow files:
 
-### `.github/workflows/sql-review.yml` — SQL Review on PR
+- **SQL Review (CI)** — Triggers on pull/merge requests to review SQL changes and post results.
+- **Release (CD)** — Triggers on merge to `main` to create a Bytebase release and roll out changes.
 
-This workflow triggers when a pull request is created or updated, runs SQL review against the changed migration files, and posts results as PR comments.
+Download the generated files and place them in your repository:
 
-See the [example sql-review workflow](https://github.com/bytebase/example-gitops-github-flow/blob/main/.github/workflows/sql-review-action.yml) for a complete configuration. Key variables to set in the `env` section:
+<Tabs>
+  <Tab title="GitHub">
+    - `.github/workflows/sql-review.yml`
+    - `.github/workflows/release.yml`
+  </Tab>
+  <Tab title="GitLab">
+    - `.gitlab-ci.yml` (includes both review and rollout stages)
+  </Tab>
+</Tabs>
 
+Commit and push to your `main` branch.
+
+<Accordion title="Advanced: manual configuration">
+If you prefer to configure the workflow files manually, see the example repositories:
+- GitHub: [bytebase/example-gitops-github-flow](https://github.com/bytebase/example-gitops-github-flow)
+- GitLab: [bytebase-sample/gitops-example](https://gitlab.com/bytebase-sample/gitops-example)
+
+Key environment variables to set:
 - **`BYTEBASE_URL`** — Your Bytebase instance URL
-- **`BYTEBASE_SERVICE_ACCOUNT`** — The service account email (e.g., `api-gitops@service.bytebase.com`)
-- **`BYTEBASE_PROJECT`** — Your project resource name (e.g., `projects/my-project`)
+- **`BYTEBASE_SERVICE_ACCOUNT`** — Service account email
+- **`BYTEBASE_PROJECT`** — Project resource name (e.g., `projects/my-project`)
+- **`BYTEBASE_TARGETS`** — Comma-separated database resource names
 - **`FILE_PATTERN`** — Migration file glob pattern (e.g., `migrations/*.sql`)
-
-### `.github/workflows/release.yml` — Release on Merge
-
-This workflow triggers when a pull request is merged to `main`, creates a Bytebase release, and rolls out changes to your target databases.
-
-See the [example release workflow](https://github.com/bytebase/example-gitops-github-flow/blob/main/.github/workflows/release-action.yml) for a complete configuration. In addition to the variables above, set:
-
-- **`BYTEBASE_TARGETS`** — Comma-separated database resource names (e.g., `instances/test/databases/mydb,instances/prod/databases/mydb`)
-
-Commit both files to your `main` branch.
+</Accordion>
 
 ## Step 4 — Try Your First GitOps Migration
 
@@ -110,21 +139,37 @@ Commit both files to your `main` branch.
    git add . && git commit -m "Add employees table" && git push -u origin add-employees-table
    ```
 
-### Review — SQL Review triggers on PR
+### Review — SQL review triggers automatically
 
-4. Open a pull request on GitHub. The **sql-review** workflow triggers automatically and posts review results as a PR comment.
+4. Open a pull request (GitHub) or merge request (GitLab). The SQL review workflow triggers and posts results.
 
-   ![GitHub PR SQL Review](/content/docs/gitops/sql-review-ci/github-pr-sql-review.webp)
+   <Tabs>
+     <Tab title="GitHub">
+       ![GitHub PR SQL Review](/content/docs/gitops/sql-review-ci/github-pr-sql-review.webp)
+     </Tab>
+     <Tab title="GitLab">
+       ![GitLab MR SQL Review](/content/docs/gitops/sql-review-ci/gitlab-pr-sql-review.webp)
+     </Tab>
+   </Tabs>
 
-   If there are warnings or errors, update your SQL file, push again, and the review re-runs.
+   If there are warnings or errors, update your SQL file and push again — the review re-runs automatically.
 
 ### Deploy — Release triggers on merge
 
-5. Once SQL review passes, merge the pull request. The **release** workflow triggers, creates a Bytebase release, and rolls out to your target databases.
+5. Once SQL review passes, merge. The release workflow triggers, creates a Bytebase release, and rolls out to your target databases.
 
-6. Go to the **Actions** tab in GitHub to see the workflow run. The job summary shows the release created and applied to each database.
+6. Check the CI/CD pipeline to see the release created and applied to each database.
 
-You now have a working GitOps pipeline — SQL review on every PR, automated deployment on merge.
+   <Tabs>
+     <Tab title="GitHub">
+       Go to the **Actions** tab to see the workflow run and job summary.
+     </Tab>
+     <Tab title="GitLab">
+       Go to **CI/CD > Pipelines** to see the pipeline stages and logs.
+     </Tab>
+   </Tabs>
+
+You now have a working GitOps pipeline — SQL review on every change, automated deployment on merge.
 
 ## Next Steps
 
