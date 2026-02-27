@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" fill="none">
+  <style>
+    .phase { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; }
+    .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14px; font-weight: 600; }
+    .desc { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11.5px; fill: #6B7280; }
+    .badge { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.04em; }
+    .connector { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; fill: #9CA3AF; }
+  </style>
+
+  <!-- Background -->
+  <rect width="820" height="460" rx="12" fill="#FAFAFA" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- ════════════════════════════════════ -->
+  <!-- ROW 1: DEVELOP                       -->
+  <!-- ════════════════════════════════════ -->
+
+  <g transform="translate(160, 32)">
+    <rect x="0" y="0" width="500" height="58" rx="10" fill="white" stroke="#E5E7EB" stroke-width="1.5"/>
+    <rect x="14" y="16" width="38" height="20" rx="4" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="33" y="30" text-anchor="middle" class="badge" fill="#6B7280">GIT</text>
+    <text x="64" y="25" class="title" fill="#111827">Write migration or schema files</text>
+    <text x="64" y="43" class="desc">Push SQL changes to a feature branch in your Git repository</text>
+  </g>
+
+  <!-- Arrow down -->
+  <path d="M410 90 L410 128" stroke="#D1D5DB" stroke-width="1.5"/>
+  <polygon points="405,125 410,134 415,125" fill="#D1D5DB"/>
+
+  <!-- ════════════════════════════════════ -->
+  <!-- ROW 2: CI PHASE                      -->
+  <!-- ════════════════════════════════════ -->
+
+  <!-- CI badge (vertical) -->
+  <rect x="28" y="148" width="32" height="120" rx="6" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1"/>
+  <text x="44" y="218" text-anchor="middle" class="phase" fill="#4F46E5" transform="rotate(-90 44 218)">CI PHASE</text>
+
+  <!-- CI container -->
+  <rect x="76" y="136" width="716" height="144" rx="10" fill="white" stroke="#C7D2FE" stroke-width="1.5" stroke-dasharray="6 3"/>
+
+  <!-- Create PR node -->
+  <g transform="translate(100, 152)">
+    <rect x="0" y="0" width="260" height="50" rx="8" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1"/>
+    <rect x="12" y="12" width="38" height="20" rx="4" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="31" y="26" text-anchor="middle" class="badge" fill="#6B7280">GIT</text>
+    <text x="60" y="22" class="title" fill="#111827" font-size="13">Create Pull Request</text>
+    <text x="60" y="38" class="desc">Open PR/MR with SQL changes</text>
+  </g>
+
+  <!-- Arrow right with "triggers" label -->
+  <path d="M360 177 L420 177" stroke="#D1D5DB" stroke-width="1.5"/>
+  <polygon points="416,172 426,177 416,182" fill="#D1D5DB"/>
+  <text x="390" y="170" text-anchor="middle" class="connector">triggers</text>
+
+  <!-- SQL Review node -->
+  <g transform="translate(430, 152)">
+    <rect x="0" y="0" width="340" height="50" rx="8" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1"/>
+    <rect x="12" y="12" width="66" height="20" rx="4" fill="#4F46E5"/>
+    <text x="45" y="26" text-anchor="middle" class="badge" fill="white">BYTEBASE</text>
+    <text x="90" y="22" class="title" fill="#312E81" font-size="13">SQL Review</text>
+    <text x="90" y="38" class="desc" fill="#4338CA">Check syntax, lint, and enforce policy</text>
+  </g>
+
+  <!-- Arrow from SQL Review back to PR results -->
+  <path d="M600 202 L600 220 L260 220 L260 236" stroke="#D1D5DB" stroke-width="1.5"/>
+  <polygon points="255,233 260,242 265,233" fill="#D1D5DB"/>
+
+  <!-- Review results node (spanning width) -->
+  <g transform="translate(100, 244)">
+    <rect x="0" y="0" width="670" height="24" rx="6" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+    <text x="335" y="16" text-anchor="middle" class="desc" fill="#166534" font-weight="500">Review results posted as PR comments — blocks merge if critical issues found</text>
+  </g>
+
+  <!-- Arrow down -->
+  <path d="M410 280 L410 318" stroke="#D1D5DB" stroke-width="1.5"/>
+  <polygon points="405,315 410,324 415,315" fill="#D1D5DB"/>
+
+  <!-- Merge badge on arrow -->
+  <rect x="372" y="288" width="76" height="20" rx="10" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
+  <text x="410" y="302" text-anchor="middle" class="badge" fill="#166534">PR MERGED</text>
+
+  <!-- ════════════════════════════════════ -->
+  <!-- ROW 3: CD PHASE                      -->
+  <!-- ════════════════════════════════════ -->
+
+  <!-- CD badge (vertical) -->
+  <rect x="28" y="340" width="32" height="94" rx="6" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+  <text x="44" y="396" text-anchor="middle" class="phase" fill="#059669" transform="rotate(-90 44 396)">CD PHASE</text>
+
+  <!-- CD container -->
+  <rect x="76" y="326" width="716" height="112" rx="10" fill="white" stroke="#A7F3D0" stroke-width="1.5" stroke-dasharray="6 3"/>
+
+  <!-- Merge triggers release node -->
+  <g transform="translate(100, 348)">
+    <rect x="0" y="0" width="190" height="50" rx="8" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1"/>
+    <rect x="12" y="12" width="38" height="20" rx="4" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="31" y="26" text-anchor="middle" class="badge" fill="#6B7280">GIT</text>
+    <text x="60" y="22" class="title" fill="#111827" font-size="13">Merge to branch</text>
+    <text x="60" y="38" class="desc">Webhook notifies Bytebase</text>
+  </g>
+
+  <!-- Arrow right -->
+  <path d="M290 373 L340 373" stroke="#D1D5DB" stroke-width="1.5"/>
+  <polygon points="336,368 346,373 336,378" fill="#D1D5DB"/>
+  <text x="315" y="366" text-anchor="middle" class="connector">triggers</text>
+
+  <!-- Create Rollout node -->
+  <g transform="translate(350, 348)">
+    <rect x="0" y="0" width="210" height="50" rx="8" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1"/>
+    <rect x="12" y="12" width="66" height="20" rx="4" fill="#4F46E5"/>
+    <text x="45" y="26" text-anchor="middle" class="badge" fill="white">BYTEBASE</text>
+    <text x="90" y="22" class="title" fill="#312E81" font-size="13">Create Rollout</text>
+    <text x="90" y="38" class="desc" fill="#4338CA">Plan and stage changes</text>
+  </g>
+
+  <!-- Arrow right -->
+  <path d="M560 373 L610 373" stroke="#D1D5DB" stroke-width="1.5"/>
+  <polygon points="606,368 616,373 606,378" fill="#D1D5DB"/>
+
+  <!-- Apply to databases node -->
+  <g transform="translate(620, 340)">
+    <rect x="0" y="0" width="150" height="76" rx="8" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
+    <rect x="12" y="10" width="66" height="20" rx="4" fill="#059669"/>
+    <text x="45" y="24" text-anchor="middle" class="badge" fill="white">BYTEBASE</text>
+    <text x="12" y="46" class="title" fill="#065F46" font-size="13">Apply to Databases</text>
+    <text x="12" y="64" class="desc" fill="#047857">dev → staging → prod</text>
+  </g>
+</svg>
