@@ -139,7 +139,6 @@ Supabase's pricing maps to database size and user counts — metrics teams alrea
 - You need full SQL power (complex queries, joins, aggregations, stored procedures)
 - Your team already knows PostgreSQL and wants to stay in that ecosystem
 - Self-hosting or data-residency compliance is a requirement
-- You are building a product with a large and growing dataset where analytical queries matter
 - You want access to the broader Postgres extension ecosystem (PostGIS, pgvector, TimescaleDB, etc.)
 - You need a predictable monthly bill rather than usage-based pricing
 
