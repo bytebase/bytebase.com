@@ -245,7 +245,7 @@ SELECT * FROM sys.statements_with_runtimes_in_95th_percentile
 LIMIT 10;
 ```
 
-**[Top SQL Server Monitoring Tools](/blog/top-sql-server-monitoring-tools/)** and equivalent MySQL monitoring tools (Percona Monitoring and Management, VividCortex, datadog's MySQL integration) pull these metrics continuously and alert when query latency spikes.
+**[Top SQL Server Monitoring Tools](/blog/top-sql-server-monitoring-tools/)** and equivalent MySQL monitoring tools (Percona Monitoring and Management, VividCortex, Datadog's MySQL integration) pull these metrics continuously and alert when query latency spikes.
 
 For timeouts that are intermittent rather than consistent, [MySQL Timeout Explained](/blog/mysql-timeout/) covers the difference between `wait_timeout`, `interactive_timeout`, `innodb_lock_wait_timeout`, and `net_read_timeout`; each governs a different failure mode.
 
