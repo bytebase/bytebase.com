@@ -110,13 +110,16 @@ Neither approach is objectively better; it depends on where your team is more co
 
 Both platforms offer a free tier suitable for prototypes and personal projects.
 
-**Convex** free tier includes a compute and storage allowance, but projects are not automatically paused for inactivity. Paid plans are usage-based, billed on function execution time and storage volume. There is no fixed monthly floor on the starter paid tier; billing is strictly pay-as-you-go. This can make Convex cheaper than Supabase for very low-traffic apps, but unpredictable for apps with spiky or sustained high-query loads.
+| | Convex | Supabase |
+|---|---|---|
+| **Free tier** | Compute + storage allowance, no auto-pause | 500MB DB, 1GB storage, 50K MAUs; pauses after 7 days inactivity |
+| **Paid plan** | Usage-based (function execution + storage) | $25/month per project + overages |
+| **Team plan** | Custom | $599/month |
+| **Enterprise** | Custom | Custom |
+| **Billing model** | Pay-as-you-go | Predictable tiered |
+| **Self-hosting** | Not available | Available (reduces cost) |
 
-**Supabase** free tier gives you 500MB database storage, 1GB file storage, and 50K monthly active users per project. Free-tier projects pause after 7 consecutive days with no database activity, which is a friction point for demos and staging environments where developers check in occasionally. The Pro plan is $25/month per project (with included resource limits), the Team plan is $599/month, and Enterprise is custom-priced.
-
-At small scale (a personal app or early startup), both platforms cost roughly the same or less than $30/month. At medium scale (10K MAUs, 20GB database, moderate function usage), Supabase Pro is typically $27-$50/month with overages; Convex's cost depends heavily on how query-heavy your app is. Compute-intensive apps with many concurrent subscriptions may find Convex more expensive at scale than a fixed Supabase Pro plan.
-
-One practical difference: Supabase's pricing model is predictable because it maps to database size and user counts, metrics teams already track. Convex bills on function execution time, which requires more effort to forecast before a product launches.
+Supabase's pricing maps to database size and user counts — metrics teams already track — making it easier to forecast. Convex bills on function execution time, which is harder to estimate before launch. At medium scale (10K MAUs, 20GB database), Supabase Pro typically runs $27-$50/month with overages; Convex's cost depends heavily on how query-heavy your app is.
 
 ## Open source and self-hosting
 
