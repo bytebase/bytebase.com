@@ -4,8 +4,8 @@ author: Adela
 updated_at: 2026/03/02 18:00:00
 feature_image: /content/blog/convex-vs-supabase/banner.webp
 tags: Comparison
-keypage: true
 description: 'A detailed comparison of Convex and Supabase covering architecture, real-time capabilities, data model, pricing, and schema management to help you choose.'
+keypage: true
 ---
 
 Convex and Supabase are both "backend in a box" platforms, but built on fundamentally different ideas. Supabase wraps PostgreSQL with auth, storage, and real-time subscriptions into one managed service. Convex is a reactive document database where TypeScript functions are your entire backend (no SQL, no ORM, no separate caching layer). 
