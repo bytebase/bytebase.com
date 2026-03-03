@@ -158,8 +158,6 @@ Both platforms support vector search. Supabase uses the `pgvector` PostgreSQL ex
 
 ---
 
-If you are already evaluating Supabase and want to understand how it compares to AWS-managed Postgres, see [Supabase vs AWS: Feature and Pricing Comparison](/blog/supabase-vs-aws-pricing/). For a broader comparison of the Firebase-vs-Supabase debate that often comes up alongside Convex discussions, see [Supabase vs Firebase](/blog/supabase-vs-firebase/). If TypeScript ORM choice is your next decision after picking a backend, [Drizzle vs Prisma](/blog/drizzle-vs-prisma/) covers that comparison in depth. For questions about the underlying database, [PostgreSQL vs MongoDB](/blog/postgres-vs-mongodb/) explains the relational-vs-document tradeoffs in more detail.
-
 If you have already decided and need to migrate, here are the most useful resources:
 
 **Supabase → Convex**
@@ -176,3 +174,10 @@ No genuine third-party migration stories exist yet — Convex is still relativel
 - [How hard is it to migrate away from Convex?](https://stack.convex.dev/how-hard-is-it-to-migrate-away-from-convex) – Convex's honest take on lock-in
 - [Convex limitations](https://www.convex.sucks/) – Convex's own page on where the platform falls short
 - [Migrating to Supabase](https://supabase.com/docs/guides/platform/migrating-to-supabase) – official Supabase migration docs
+
+Related comparisons:
+
+- [Supabase vs Firebase](/blog/supabase-vs-firebase/)
+- [Supabase vs AWS: Feature and Pricing Comparison](/blog/supabase-vs-aws-pricing/)
+- [Drizzle vs Prisma](/blog/drizzle-vs-prisma/)
+- [PostgreSQL vs MongoDB](/blog/postgres-vs-mongodb/)
