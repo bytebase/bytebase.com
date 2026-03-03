@@ -8,7 +8,7 @@ description: 'A detailed comparison of Convex and Supabase covering architecture
 keypage: true
 ---
 
-Convex and Supabase are both "backend in a box" platforms, but built on fundamentally different ideas. Supabase wraps PostgreSQL with auth, storage, and real-time subscriptions into one managed service. Convex is a reactive document database where TypeScript functions are your entire backend (no SQL, no ORM, no separate caching layer). 
+[Convex](https://www.convex.dev/) and [Supabase](https://supabase.com/) are both "backend in a box" platforms, but built on fundamentally different ideas. Supabase wraps PostgreSQL with auth, storage, and real-time subscriptions into one managed service. Convex is a reactive document database where TypeScript functions are your entire backend (no SQL, no ORM, no separate caching layer). 
 
 Choose Convex for real-time collaborative apps built TypeScript-first; choose Supabase for SQL power, Postgres extensions, or self-hosting.
 
