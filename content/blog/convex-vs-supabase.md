@@ -159,3 +159,20 @@ Both platforms support vector search. Supabase uses the `pgvector` PostgreSQL ex
 ---
 
 If you are already evaluating Supabase and want to understand how it compares to AWS-managed Postgres, see [Supabase vs AWS: Feature and Pricing Comparison](/blog/supabase-vs-aws-pricing/). For a broader comparison of the Firebase-vs-Supabase debate that often comes up alongside Convex discussions, see [Supabase vs Firebase](/blog/supabase-vs-firebase/). If TypeScript ORM choice is your next decision after picking a backend, [Drizzle vs Prisma](/blog/drizzle-vs-prisma/) covers that comparison in depth. For questions about the underlying database, [PostgreSQL vs MongoDB](/blog/postgres-vs-mongodb/) explains the relational-vs-document tradeoffs in more detail.
+
+If you have already decided and need to migrate, here are the most useful resources:
+
+**Supabase → Convex**
+
+- [Migrating from Supabase and Prisma to Convex](https://dev.to/ricardogesteves/migrating-from-supabase-and-prisma-accelerate-to-convex-jdk) – community walkthrough on dev.to
+- [Is BaaS enterprise-ready? Hands-on review of Convex and Supabase](https://senacor.blog/is-backend-as-a-service-baas-enterprise-ready-a-hands-on-review-of-convex-and-supabase/) – independent engineering blog comparison
+- [Why I picked Convex over Firebase, Supabase, and Neon](https://stack.convex.dev/why-choose-convex-database-for-backend) – developer story on the Convex blog
+- [Migrating data from Postgres to Convex](https://stack.convex.dev/migrate-data-postgres-to-convex) – official Convex migration guide
+
+**Convex → Supabase**
+
+No genuine third-party migration stories exist yet — Convex is still relatively new and the community is small. The resources below are official ones from Convex and Supabase:
+
+- [How hard is it to migrate away from Convex?](https://stack.convex.dev/how-hard-is-it-to-migrate-away-from-convex) – Convex's honest take on lock-in
+- [Convex limitations](https://www.convex.sucks/) – Convex's own page on where the platform falls short
+- [Migrating to Supabase](https://supabase.com/docs/guides/platform/migrating-to-supabase) – official Supabase migration docs
