@@ -35,10 +35,13 @@ The slow query log records any query that takes longer than `long_query_time` se
 SHOW VARIABLES LIKE 'slow_query%';
 SHOW VARIABLES LIKE 'long_query_time';
 
--- Enable the log for the current session (no restart required)
+-- Enable globally (affects all connections, no restart required, requires SYSTEM_VARIABLES_ADMIN)
 SET GLOBAL slow_query_log = 'ON';
 SET GLOBAL long_query_time = 1;
 SET GLOBAL log_queries_not_using_indexes = 'ON';
+
+-- Or lower long_query_time for your session only (does not affect other connections)
+SET SESSION long_query_time = 1;
 ```
 
 `log_queries_not_using_indexes` logs any query that skips an index, even if it finishes fast on a small table. This is useful during development to catch bad query patterns before the table grows.
