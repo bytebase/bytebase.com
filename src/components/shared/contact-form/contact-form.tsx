@@ -11,7 +11,6 @@ import Link from '@/components/shared/link/link';
 import {
   BUTTON_SUCCESS_TIMEOUT_MS,
   ENTERPRISE_INQUIRY,
-  VIEW_LIVE_DEMO,
   WHITE_PAPER,
 } from '@/lib/forms';
 import { STATES } from '@/lib/states';
@@ -23,37 +22,36 @@ const feishuWebhookList = [
 ];
 
 type ValueType = {
-  firstname: string;
-  lastname: string;
+  name: string;
   email: string;
   company: string;
-  message?: string;
+  databaseUsers: string;
+  message: string;
   website?: string; // Honeypot field
 };
 
+const DATABASE_USERS_OPTIONS = ['1-10', '11-50', '51-200', '200+'];
+
 const validationSchema = yup.object().shape({
-  firstname: yup.string().trim().required('First name is a required field'),
-  lastname: yup.string().trim().required('Last name is a required field'),
+  name: yup.string().trim().required('Name is a required field'),
   email: yup
     .string()
     .trim()
     .email('Please provide a valid email')
     .required('Work email is a required field'),
   company: yup.string().trim().required('Company name is a required field'),
-  message: yup.string().trim().optional(),
-  website: yup.string().trim().optional(), // Honeypot field - should be empty
+  databaseUsers: yup.string().trim().required('Please select the number of database users'),
+  message: yup.string().trim().required('Please tell us how we can help'),
+  website: yup.string().trim().optional(),
 });
 
 const getButtonTitle = (formId: string) => {
   switch (formId) {
-    case VIEW_LIVE_DEMO:
-      return 'View Live Demo';
     case WHITE_PAPER:
       return 'Download White Paper';
     case ENTERPRISE_INQUIRY:
-      return 'Submit Inquiry';
     default:
-      return 'Submit';
+      return 'Contact Us';
   }
 };
 
@@ -106,7 +104,7 @@ const ContactForm = ({
   } = useForm<ValueType>({ resolver: yupResolver(validationSchema) });
 
   const onSubmit = async (values: ValueType) => {
-    const { firstname, lastname, email, company, message, website } = values;
+    const { name, email, company, databaseUsers, message, website } = values;
 
     // Honeypot check - if filled, it's a bot
     if (website?.trim()) {
@@ -124,14 +122,11 @@ const ContactForm = ({
 
     try {
       if (
-        formId == VIEW_LIVE_DEMO ||
         formId == ENTERPRISE_INQUIRY ||
         formId.startsWith(WHITE_PAPER)
       ) {
         let tag = '';
-        if (formId == VIEW_LIVE_DEMO) {
-          tag = 'demo';
-        } else if (formId == ENTERPRISE_INQUIRY) {
+        if (formId == ENTERPRISE_INQUIRY) {
           tag = 'enterprise-inquiry';
         } else if (formId.startsWith(WHITE_PAPER)) {
           tag = 'white-paper';
@@ -150,10 +145,10 @@ const ContactForm = ({
         },
         body: JSON.stringify({
           formId,
-          firstname,
-          lastname,
+          name,
           email,
           company,
+          databaseUsers,
           message,
         }),
       });
@@ -169,7 +164,7 @@ const ContactForm = ({
           body: JSON.stringify({
             msg_type: 'text',
             content: {
-              text: `${formId} by ${firstname} ${lastname} (${email}) from ${company}\n\n${message}`,
+              text: `${formId} by ${name} (${email}) from ${company} [${databaseUsers} DB users]\n\n${message}`,
             },
           }),
         }).catch(() => {
@@ -182,11 +177,6 @@ const ContactForm = ({
         const slackResult = await slackPromise;
         if (!slackResult.ok) {
           throw new Error('Slack webhook failed');
-        }
-
-        // Success - redirect user
-        if (formId == VIEW_LIVE_DEMO) {
-          window.open(Route.LIVE_DEMO, '_blank');
         }
 
         setButtonState(STATES.SUCCESS);
@@ -217,21 +207,16 @@ const ContactForm = ({
         onSubmit={handleSubmit(onSubmit)}
       >
         <Field
+          className="col-span-full"
           type="text"
-          placeholder="First name*"
-          error={errors?.firstname?.message}
-          {...register('firstname')}
-        />
-        <Field
-          type="text"
-          placeholder="Last name*"
-          error={errors?.lastname?.message}
-          {...register('lastname')}
+          placeholder="Full name*"
+          error={errors?.name?.message}
+          {...register('name')}
         />
         <Field
           className="col-span-full"
           type="email"
-          placeholder="Work email*"
+          placeholder="name@company.com*"
           error={errors?.email?.message}
           {...register('email')}
         />
@@ -244,9 +229,25 @@ const ContactForm = ({
         />
         <Field
           className="col-span-full"
+          tag="select"
+          error={errors?.databaseUsers?.message}
+          defaultValue=""
+          {...register('databaseUsers')}
+        >
+          <option value="" disabled>
+            Database Users*
+          </option>
+          {DATABASE_USERS_OPTIONS.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </Field>
+        <Field
+          className="col-span-full"
           inputClassName="p-4 pt-3 md:pt-2"
           tag="textarea"
-          placeholder="I'm interested in (e.g. Database CI/CD, GitOps, Data Access Control, Dynamic Data Masking)"
+          placeholder="e.g. database CI/CD, data access control, dynamic data masking, just-in-time database access, one-off data change"
           error={errors?.message?.message}
           {...register('message')}
         />
