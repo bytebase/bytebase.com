@@ -13,10 +13,11 @@ export default function Page() {
     <div className="container gap-x-grid relative grid grid-cols-12 sm:grid-cols-4">
       <div className="col-span-5 lg:col-span-8 sm:col-span-full">
         <h1 className="font-title text-80 font-semibold leading-none 2xl:text-64 lg:text-56 sm:text-40">
-          Contact Us
+          Talk to Us
         </h1>
         <p className="mt-3 text-18">
-          Tell us about your database challenges and we&apos;ll get back to you shortly.
+          Get a personalized demo, discuss pricing, or learn how Bytebase fits your database
+          workflow.
         </p>
       </div>
       <ContactForm
