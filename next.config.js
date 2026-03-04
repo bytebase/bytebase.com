@@ -48,6 +48,31 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/request-demo',
+        destination: '/contact-us',
+        permanent: true,
+      },
+      {
+        source: '/demo',
+        destination: '/contact-us',
+        permanent: true,
+      },
+      {
+        source: '/view-live-demo',
+        destination: '/contact-us',
+        permanent: true,
+      },
+      {
+        source: '/confirm-demo',
+        destination: '/contact-us',
+        permanent: true,
+      },
+      {
+        source: '/confirm-view-live-demo',
+        destination: '/contact-us',
+        permanent: true,
+      },
+      {
         source: '/docs',
         destination: '/docs/introduction/what-is-bytebase',
         permanent: true,

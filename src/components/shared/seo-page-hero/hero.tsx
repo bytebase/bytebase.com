@@ -31,7 +31,7 @@ const Hero = ({ title, description, linkText, linkUrl, linkTarget }: HeroProps) 
       <Integrations className="sm:order-2" />
       <div className="mt-11 flex items-center gap-9 2xl:gap-8 xl:mt-10 md:mt-9 md:gap-5 sm:order-1 sm:mt-8">
         <Button
-          href={Route.REQUEST_DEMO}
+          href={Route.CONTACTS}
           theme="primary-filled"
           size="lg"
           className="sm:!w-fit sm:!px-6"
