@@ -10,14 +10,15 @@ title: Approval
 
 ## Overview
 
-Custom Approval enables organizations to implement multi-stage approval workflows for database changes based on their risk levels. This ensures that potentially impactful changes receive appropriate review before deployment.
+Custom Approval enables organizations to implement approval workflows for database operations including schema and data changes, database creation, data export, and role requests. You define conditions and approval nodes directly on each approval flow to determine when it applies and who needs to approve.
 
 ### Key Features
 
-- **Risk-based routing**: Different approval flows for different risk levels
+- **Condition-based routing**: Define conditions on each approval flow to match specific changes
 - **Multi-stage approvals**: Chain multiple approval nodes in sequence
 - **Role-based authorization**: Leverage built-in or custom roles for approvals
-- **Flexible configuration**: Skip approvals for low-risk changes or require multiple approvers for critical ones
+- **First-match-wins ordering**: Drag-and-drop to reorder flows; the first matching flow applies
+- **No approval required**: Optionally skip approval for certain changes
 
 <Tip>
 **Workflow Compatibility:**
@@ -29,55 +30,67 @@ Custom Approval enables organizations to implement multi-stage approval workflow
 
 ### The Approval Process
 
-1. **Risk Assessment**: When a database change is created, Bytebase evaluates its risk level
-2. **Flow Assignment**: Based on the risk level, the appropriate approval flow is triggered
+1. **Condition Matching**: When a database change is created, Bytebase evaluates the approval flows in order under the matching source type. The first flow whose condition matches is used
+2. **Fallback**: If no source-specific flow matches, fallback flows are evaluated
 3. **Sequential Approval**: Approvers review and approve each node in order
 4. **Rollout**: After all approvals, changes proceed to deployment
 
-### Understanding Risk Levels
+### Source Types
 
-Bytebase categorizes database changes into risk levels based on:
-- Operation type (DDL vs DML)
-- Affected data volume
-- Target environment
-- Custom risk rules
+Approval flows are organized by source type:
+
+| Source | Description |
+|---|---|
+| **Change Database** | DDL and DML operations (schema changes and data modifications) |
+| **Create Database** | Database creation operations |
+| **Export Data** | Data export operations |
+| **Request Role** | Role/permission request operations |
+| **Fallback** | Catch-all flows when no source-specific flow matches |
+
+### Conditions
+
+Each approval flow uses a condition expression built from variables like environment, project, database engine, SQL type, and affected rows. The available variables depend on the source type, and the condition builder dropdown in the UI shows all options.
 
 <Info>
-Learn more about configuring risk levels in [Risks](/administration/risks) to fine-tune how changes are categorized and routed for approval.
+For **Change Database**, a `risk_level` variable (`"HIGH"`, `"MODERATE"`, `"LOW"`) is also available. It is automatically calculated by Bytebase based on the statement type.
 </Info>
 
-## Configuration Guide
+## Configuration
 
-### Step 1: Design Your Approval Flows
+Navigate to **CI/CD > Custom Approval**.
 
-Navigate to **Settings > Custom Approval > Approval Flows**
+Approval flows are grouped by source type. For each source type, click **Add Rule** to create a new approval flow.
 
-#### Creating an Approval Flow
+### Creating an Approval Flow
 
-1. Click **Create** to add a new flow
-2. Name your flow descriptively (e.g., "Production DDL Review")
-3. Add approval nodes:
-   - Each node represents one approval stage
-   - Specify the required role for each node (built-in or [custom role](/administration/roles))
-   - Nodes execute in the order you define
+1. **Title** (required): Name the flow descriptively (e.g., "Production DDL Review")
+2. **Description**: Optionally describe when and why this flow applies
+3. **Condition** (required): Define when this flow triggers. You can build conditions using the visual condition builder, or click **Add raw expression** to write a CEL expression directly. Combine multiple conditions with **Add condition** or group them with **Add condition group**
+4. **Approval nodes**: Add one or more approval stages. Each node specifies a required role (built-in or [custom role](/administration/roles)). Toggle **No approval required** to skip manual approval for matching changes
 
-![Approval Flow](/content/docs/administration/custom-approval/edit-approval-flow.webp)
+Click **Create** to save the flow.
 
-### Step 2: Map Flows to Risk Levels
+### Ordering and Priority
 
-Navigate to **Settings > Custom Approval > Rules**
+Flows are evaluated in order (top to bottom) under each source type. **The first matching flow wins.** Drag-and-drop to reorder flows. Place more specific conditions above broader ones.
 
-1. For each risk level (Low, Moderate, High), select:
-   - An approval flow to enforce
-   - Or "Skip manual approval" for automated processing
-2. Save your configuration
+If no source-specific flow matches, fallback flows are evaluated.
 
-### Step 3: Configure Project Settings
+### Preset Templates
 
-In your project settings, consider:
+When creating a flow, preset templates are available for common scenarios. Click a template to populate the title, condition, and approval nodes automatically.
 
-- **Self-approval**: By default, users cannot approve their own changes. [Enable self-approval](/change-database/settings#self-approval) only if your process allows it
-- **Rollout Policy**: Configure rollout requirements and permissions via [rollout policy](/change-database/environment-policy/rollout-policy/), including:
-  - Whether issue approval is required before rollout
-  - How plan checks should be enforced (block on errors only, errors and warnings, or allow rollout regardless)
-  - Whether changes deploy automatically or require manual trigger
+### Examples
+
+| Source | Condition | Approval Nodes |
+|---|---|---|
+| Change Database | `resource.environment_id == "prod"` | Project Owner -> DBA |
+| Change Database | `resource.environment_id == "dev"` | No approval required |
+| Create Database | `resource.environment_id == "prod"` | DBA |
+| Export Data | `resource.table_name == "salary"` | Project Owner |
+| Request Role | `resource.environment_id == "prod"` | Project Owner -> DBA |
+
+### Related Settings
+
+- [Self-approval](/change-database/settings#self-approval) — allow issue creators to approve their own changes (disabled by default)
+- [Rollout policy](/change-database/environment-policy/rollout-policy/) — configure automatic vs manual rollout and plan check enforcement
