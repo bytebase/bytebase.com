@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 560" font-family="Courier New, monospace" font-size="13">
+  <style>
+    text { fill: #e0e0e0; }
+    .title { font-size: 11px; fill: #888; font-weight: bold; letter-spacing: 1px; }
+    .heading { font-size: 15px; fill: #f0f0f0; font-weight: bold; }
+    .sub { font-size: 11px; fill: #777; }
+    .box { fill: none; stroke: #555; stroke-width: 1.5; rx: 3; }
+    .inner-box { fill: none; stroke: #444; stroke-width: 1; rx: 2; }
+    .highlight-box { fill: none; stroke: #5b7fff; stroke-width: 1; rx: 2; }
+    .consumer-box { fill: none; stroke: #555; stroke-width: 1.5; rx: 3; }
+    .consumer-highlight { fill: rgba(91,127,255,0.08); stroke: #5b7fff; stroke-width: 1.5; rx: 3; }
+    .dim { fill: #666; }
+    .accent { fill: #7ba4ff; }
+    .arrow { stroke: #666; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    .transition-arrow { stroke: #5b7fff; stroke-width: 2; fill: none; marker-end: url(#arrowBlue); }
+    .bg { fill: #1a1a2e; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#666"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#5b7fff"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="1060" height="560" rx="8"/>
+
+  <!-- ======================== -->
+  <!-- LEFT SIDE: Schema as Code -->
+  <!-- ======================== -->
+  <text class="heading" x="205" y="40" text-anchor="middle">Schema as Code</text>
+  <text class="sub" x="205" y="58" text-anchor="middle">what we had</text>
+
+  <!-- DDL Box -->
+  <rect class="box" x="100" y="80" width="210" height="220"/>
+  <text x="205" y="110" text-anchor="middle" font-weight="bold" fill="#f0f0f0">DDL</text>
+
+  <rect class="inner-box" x="120" y="125" width="170" height="28"/>
+  <text x="205" y="144" text-anchor="middle" font-size="12">CREATE TABLE</text>
+
+  <rect class="inner-box" x="120" y="161" width="170" height="28"/>
+  <text x="205" y="180" text-anchor="middle" font-size="12">ALTER TABLE</text>
+
+  <rect class="inner-box" x="120" y="197" width="170" height="28"/>
+  <text x="205" y="216" text-anchor="middle" font-size="12">CREATE INDEX</text>
+
+  <rect class="inner-box" x="120" y="233" width="170" height="28"/>
+  <text x="205" y="252" text-anchor="middle" font-size="12">Migration Files</text>
+
+  <!-- Arrow: DDL → Consumers -->
+  <line class="arrow" x1="205" y1="305" x2="205" y2="390"/>
+
+  <!-- CONSUMERS label (left) -->
+  <text class="title" x="205" y="415" text-anchor="middle">CONSUMERS</text>
+
+  <!-- Individual consumer cards (left) -->
+  <rect class="consumer-box" x="90" y="430" width="110" height="65"/>
+  <text x="145" y="457" text-anchor="middle" font-size="20">👤</text>
+  <text x="145" y="481" text-anchor="middle" font-size="11">Developers</text>
+
+  <rect class="consumer-box" x="210" y="430" width="110" height="65"/>
+  <text x="265" y="457" text-anchor="middle" font-size="20">⚙️</text>
+  <text x="265" y="481" text-anchor="middle" font-size="11">CI/CD</text>
+
+  <!-- ======================== -->
+  <!-- CENTER: Transition Arrow -->
+  <!-- ======================== -->
+  <line class="transition-arrow" x1="370" y1="190" x2="460" y2="190"/>
+
+  <!-- ======================== -->
+  <!-- RIGHT SIDE: Schema as Context -->
+  <!-- ======================== -->
+  <text class="heading" x="730" y="40" text-anchor="middle">Schema as Context</text>
+  <text class="sub" x="730" y="58" text-anchor="middle">what agents need</text>
+
+  <!-- Main Context Box -->
+  <rect class="box" x="475" y="80" width="510" height="300"/>
+
+  <!-- DDL sub-section (carried over, dimmer) -->
+  <rect class="inner-box" x="500" y="100" width="220" height="130"/>
+  <text x="610" y="123" text-anchor="middle" font-size="12" fill="#999">DDL</text>
+  <text x="610" y="145" text-anchor="middle" font-size="11" class="dim">CREATE / ALTER TABLE</text>
+  <text x="610" y="163" text-anchor="middle" font-size="11" class="dim">CREATE INDEX</text>
+  <text x="610" y="181" text-anchor="middle" font-size="11" class="dim">Migration Files</text>
+
+  <!-- Data Classification -->
+  <rect class="highlight-box" x="740" y="100" width="220" height="28"/>
+  <text x="850" y="119" text-anchor="middle" font-size="12" class="accent">Data Classification</text>
+
+  <!-- Dynamic Data Masking -->
+  <rect class="highlight-box" x="740" y="136" width="220" height="28"/>
+  <text x="850" y="155" text-anchor="middle" font-size="12" class="accent">Dynamic Data Masking</text>
+
+  <!-- Access Control -->
+  <rect class="highlight-box" x="740" y="172" width="220" height="28"/>
+  <text x="850" y="191" text-anchor="middle" font-size="12" class="accent">Access Control</text>
+
+  <!-- Temporary Exemption -->
+  <rect class="highlight-box" x="740" y="208" width="220" height="28"/>
+  <text x="850" y="227" text-anchor="middle" font-size="12" class="accent">Temporary Exemption</text>
+
+  <!-- SQL Review Policies -->
+  <rect class="highlight-box" x="500" y="245" width="220" height="28"/>
+  <text x="610" y="264" text-anchor="middle" font-size="12" class="accent">SQL Review (200+ Rules)</text>
+
+  <!-- Change Workflows -->
+  <rect class="highlight-box" x="740" y="245" width="220" height="28"/>
+  <text x="850" y="264" text-anchor="middle" font-size="12" class="accent">Change Workflows</text>
+
+  <!-- Codification layer -->
+  <rect class="inner-box" x="500" y="295" width="460" height="55" style="stroke-dasharray: 4,3"/>
+  <text x="730" y="316" text-anchor="middle" font-size="11" fill="#888">codified via</text>
+  <text x="620" y="338" text-anchor="middle" font-size="12" fill="#9bb4ff">Terraform Provider</text>
+  <text x="730" y="338" text-anchor="middle" font-size="12" fill="#666">│</text>
+  <text x="840" y="338" text-anchor="middle" font-size="12" fill="#9bb4ff">Bytebase API</text>
+
+  <!-- Output format label -->
+  <text x="730" y="400" text-anchor="middle" font-size="10" fill="#555">↓  JSON, TOML, YAML, ...</text>
+
+  <!-- CONSUMERS label (right) -->
+  <text class="title" x="730" y="425" text-anchor="middle">CONSUMERS</text>
+
+  <!-- Individual consumer cards (right) -->
+  <rect class="consumer-box" x="495" y="440" width="120" height="65"/>
+  <text x="555" y="467" text-anchor="middle" font-size="20">👤</text>
+  <text x="555" y="491" text-anchor="middle" font-size="11">Developers</text>
+
+  <rect class="consumer-box" x="625" y="440" width="120" height="65"/>
+  <text x="685" y="467" text-anchor="middle" font-size="20">⚙️</text>
+  <text x="685" y="491" text-anchor="middle" font-size="11">CI/CD</text>
+
+  <!-- Agent card: highlighted with blue border and fill -->
+  <rect class="consumer-highlight" x="755" y="440" width="190" height="65"/>
+  <text x="850" y="467" text-anchor="middle" font-size="20">🤖</text>
+  <text x="850" y="491" text-anchor="middle" font-size="13" class="accent" font-weight="bold">AI Agents / LLMs</text>
+
+  <!-- Blue arrow specifically to Agent card -->
+  <line class="transition-arrow" x1="850" y1="385" x2="850" y2="435"/>
+
+</svg>
