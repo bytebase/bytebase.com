@@ -1,21 +1,20 @@
 'use client';
 
-import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter } from 'next/navigation';
+
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import Button from '@/components/shared/button';
 import Field from '@/components/shared/field';
 import Link from '@/components/shared/link/link';
-import {
-  BUTTON_SUCCESS_TIMEOUT_MS,
-  ENTERPRISE_INQUIRY,
-  WHITE_PAPER,
-} from '@/lib/forms';
-import { STATES } from '@/lib/states';
+
+import { BUTTON_SUCCESS_TIMEOUT_MS, ENTERPRISE_INQUIRY, WHITE_PAPER } from '@/lib/forms';
 import Route from '@/lib/route';
-import { useRouter } from 'next/navigation';
+import { STATES } from '@/lib/states';
 
 const feishuWebhookList = [
   'https://open.feishu.cn/open-apis/bot/v2/hook/5a2a1fe6-2ed8-4c0b-8621-0be9ebd188ec',
@@ -90,7 +89,6 @@ const ContactForm = ({
   className: string;
   formId: string;
   redirectURL: string;
-  comment?: string;
 }) => {
   const [buttonState, setButtonState] = useState(STATES.DEFAULT);
   const [formError, setFormError] = useState('');
@@ -121,10 +119,7 @@ const ContactForm = ({
     setFormError('');
 
     try {
-      if (
-        formId == ENTERPRISE_INQUIRY ||
-        formId.startsWith(WHITE_PAPER)
-      ) {
+      if (formId == ENTERPRISE_INQUIRY || formId.startsWith(WHITE_PAPER)) {
         let tag = '';
         if (formId == ENTERPRISE_INQUIRY) {
           tag = 'enterprise-inquiry';
@@ -283,7 +278,7 @@ const ContactForm = ({
             )}
           </div>
           <p className="w-full max-w-[300px] text-14 text-gray-50 lg:max-w-full">
-            By submiting, you agree with Bytebase&apos;s{' '}
+            By submitting, you agree with Bytebase&apos;s{' '}
             <Link className="font-semibold" theme="underline" size="xs" href={Route.TERMS}>
               Terms of Service
             </Link>{' '}

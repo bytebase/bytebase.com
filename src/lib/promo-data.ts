@@ -14,8 +14,8 @@ const PROMO_DATA = {
     title: ' All-in-One Database Workflows',
     description:
       'Schema migration, data fix, just-in-time access, data masking, and audit logging in one place.',
-    cta: '🕹️ Live Demo',
-    pathname: `/view-live-demo/?source=blog`,
+    cta: '💬 Contact Us',
+    pathname: `/contact-us/?source=docs`,
   },
 };
 

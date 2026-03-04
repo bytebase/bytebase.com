@@ -1,3 +1,3 @@
-import ContacForm from './contact-form';
+import ContactForm from './contact-form';
 
-export default ContacForm;
+export default ContactForm;
