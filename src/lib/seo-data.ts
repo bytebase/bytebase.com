@@ -35,12 +35,6 @@ const SEO_DATA = {
       'Schema migration and database security for developer, security, DBA, and platform engineering teams.',
     pathname: `${Route.ABOUT}/`,
   },
-  DEMO: {
-    title: 'Demo',
-    description:
-      'Schema migration and database security for developer, security, DBA, and platform engineering teams.',
-    pathname: `${Route.DEMO}/`,
-  },
   PRICING: {
     title: 'Bytebase Pricing',
     description:
@@ -121,30 +115,6 @@ const SEO_DATA = {
     description:
       'Schema migration and database security for developer, security, DBA, and platform engineering teams.',
     pathname: `${Route.CONTACTS}/`,
-  },
-  VIEW_LIVE_DEMO: {
-    title: 'View Live Demo',
-    description:
-      'Schema migration and database security for developer, security, DBA, and platform engineering teams.',
-    pathname: `${Route.VIEW_LIVE_DEMO}/`,
-  },
-  REQUEST_DEMO: {
-    title: 'Request a Demo',
-    description:
-      'Schema migration and database security for developer, security, DBA, and platform engineering teams.',
-    pathname: `${Route.REQUEST_DEMO}/`,
-  },
-  CONFIRM_DEMO: {
-    title: 'Demo Booking Confirmed',
-    description:
-      'Schema migration and database security for developer, security, DBA, and platform engineering teams.',
-    pathname: `${Route.CONFIRM_DEMO}/`,
-  },
-  CONFIRM_VIEW_LIVE_DEMO: {
-    title: 'Live Demo is Activated',
-    description:
-      'Schema migration and database security for developer, security, DBA, and platform engineering teams.',
-    pathname: `${Route.CONFIRM_VIEW_LIVE_DEMO}/`,
   },
   CONFIRM_INQUIRY: {
     title: 'We Have Received Your Inquiry',

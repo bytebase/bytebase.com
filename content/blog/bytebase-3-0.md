@@ -63,6 +63,6 @@ It has been downloaded over 4 million times worldwide, reaching users from [a sm
 
 ---
 
-_You can obtain Bytebase directly or through the [AWS](https://aws.amazon.com/marketplace/seller-profile?id=seller-mqp4ph2m6bzzc) and [GCP](https://console.cloud.google.com/marketplace/product/bytebase-public/bytebase) marketplaces. To learn more, [schedule a demo](/request-demo/) with us._
+_You can obtain Bytebase directly or through the [AWS](https://aws.amazon.com/marketplace/seller-profile?id=seller-mqp4ph2m6bzzc) and [GCP](https://console.cloud.google.com/marketplace/product/bytebase-public/bytebase) marketplaces. To learn more, [contact us](/contact-us/)._
 
 _Upgrading to version 3.0 is designed to be straightforward—just increase the version number and restart (but don’t forget to back up your data as a precaution), please refer to the [upgrade guide](https://docs.bytebase.com/get-started/upgrade/)._

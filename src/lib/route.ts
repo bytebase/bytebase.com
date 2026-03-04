@@ -11,11 +11,6 @@ const Route = {
   SQL_EDITOR: '/sql-editor',
   DATA_MASKING: '/data-masking',
   BATCH_CHANGE: '/batch-change',
-  DEMO: '/demo',
-  VIEW_LIVE_DEMO: '/view-live-demo',
-  CONFIRM_VIEW_LIVE_DEMO: '/confirm-view-live-demo',
-  REQUEST_DEMO: '/request-demo',
-  CONFIRM_DEMO: '/confirm-demo',
   // Pair with Enterprise inquiry
   CONFIRM_INQUIRY: '/confirm-inquiry',
   // General confirm
