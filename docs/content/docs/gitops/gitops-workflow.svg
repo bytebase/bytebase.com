@@ -97,9 +97,9 @@
 
   <line x1="572" y1="76" x2="706" y2="76" stroke="#D1D5DB" stroke-width="1.5"/>
   <polygon points="702,71 712,76 702,81" fill="#D1D5DB"/>
-  <rect x="593" y="82" width="88" height="30" rx="9" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
-  <text x="637" y="94" text-anchor="middle" class="trans" fill="#166534">Trigger</text>
-  <text x="637" y="106" text-anchor="middle" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 7.5px; fill: #4B5563;">merge, cron, manual, etc.</text>
+  <rect x="597" y="82" width="80" height="30" rx="9" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
+  <text x="637" y="95" text-anchor="middle" class="trans" fill="#166534">Trigger</text>
+  <text x="637" y="107" text-anchor="middle" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 7px; fill: #4B5563;">merge, cron, etc.</text>
 
   <!-- ═══════════════════════════════ -->
   <!-- COL 3: CD (714–1002)           -->
@@ -109,13 +109,13 @@
 
   <rect x="714" y="38" width="288" height="242" rx="10" fill="white" stroke="#A7F3D0" stroke-width="1.5" stroke-dasharray="6 3"/>
 
-  <!-- CI/CD row: Trigger workflow -->
+  <!-- Release workflow row -->
   <g transform="translate(728, 52)">
     <rect x="0" y="0" width="260" height="48" rx="8" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1"/>
     <g transform="translate(12, 14)">
       <use href="#github" width="16" height="16" color="#24292f"/>
     </g>
-    <text x="36" y="24" class="title" fill="#111827" font-size="12">Run CI/CD workflow</text>
+    <text x="36" y="24" class="title" fill="#111827" font-size="12">Run release workflow</text>
     <text x="36" y="39" class="desc">Call Bytebase API</text>
   </g>
 
