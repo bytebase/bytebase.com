@@ -5,7 +5,6 @@ import ContactForm from '@/components/shared/contact-form';
 
 import SEO_DATA from '@/lib/seo-data';
 import Route from '@/lib/route';
-import { ENTERPRISE_INQUIRY } from '@/lib/forms';
 export const metadata = getMetadata(SEO_DATA.CONTACTS);
 
 export default function Page() {
@@ -22,7 +21,6 @@ export default function Page() {
       </div>
       <ContactForm
         className="col-span-6 col-start-7 row-span-4 rounded-2xl bg-white p-8 shadow-dark-big lg:col-span-full lg:my-10 md:my-8 md:p-6 sm:p-5 sm:px-4 xs:my-7"
-        formId={ENTERPRISE_INQUIRY}
         redirectURL={Route.CONFIRM_INQUIRY}
       />
       <Logos />

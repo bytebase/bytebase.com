@@ -12,13 +12,8 @@ import Button from '@/components/shared/button';
 import Field from '@/components/shared/field';
 import Link from '@/components/shared/link/link';
 
-import { BUTTON_SUCCESS_TIMEOUT_MS, ENTERPRISE_INQUIRY, WHITE_PAPER } from '@/lib/forms';
 import Route from '@/lib/route';
 import { STATES } from '@/lib/states';
-
-const feishuWebhookList = [
-  'https://open.feishu.cn/open-apis/bot/v2/hook/5a2a1fe6-2ed8-4c0b-8621-0be9ebd188ec',
-];
 
 type ValueType = {
   name: string;
@@ -43,16 +38,6 @@ const validationSchema = yup.object().shape({
   message: yup.string().trim().required('Please tell us how we can help'),
   website: yup.string().trim().optional(),
 });
-
-const getButtonTitle = (formId: string) => {
-  switch (formId) {
-    case WHITE_PAPER:
-      return 'Download White Paper';
-    case ENTERPRISE_INQUIRY:
-    default:
-      return 'Contact Us';
-  }
-};
 
 // Retry a fetch request up to 3 times with exponential backoff
 const fetchWithRetry = async (url: string, options: RequestInit): Promise<Response> => {
@@ -81,15 +66,7 @@ const fetchWithRetry = async (url: string, options: RequestInit): Promise<Respon
   throw lastError || new Error('Request failed');
 };
 
-const ContactForm = ({
-  className,
-  formId,
-  redirectURL,
-}: {
-  className: string;
-  formId: string;
-  redirectURL: string;
-}) => {
+const ContactForm = ({ className, redirectURL }: { className: string; redirectURL: string }) => {
   const [buttonState, setButtonState] = useState(STATES.DEFAULT);
   const [formError, setFormError] = useState('');
   const router = useRouter();
@@ -111,7 +88,7 @@ const ContactForm = ({
       setTimeout(() => {
         setButtonState(STATES.DEFAULT);
         reset();
-      }, BUTTON_SUCCESS_TIMEOUT_MS);
+      }, 1000);
       return;
     }
 
@@ -119,27 +96,19 @@ const ContactForm = ({
     setFormError('');
 
     try {
-      if (formId == ENTERPRISE_INQUIRY || formId.startsWith(WHITE_PAPER)) {
-        let tag = '';
-        if (formId == ENTERPRISE_INQUIRY) {
-          tag = 'enterprise-inquiry';
-        } else if (formId.startsWith(WHITE_PAPER)) {
-          tag = 'white-paper';
-        }
-        await fetch('/api/subscribe', {
-          method: 'POST',
-          body: JSON.stringify({ email, tag }),
-        });
-      }
+      // Fire-and-forget: subscribe failure should not block Slack notification
+      void fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, tag: 'enterprise-inquiry' }),
+      }).catch(() => undefined);
 
-      // Send to Feishu (fire-and-forget) and Slack (must succeed) in parallel with retries
-      const slackPromise = fetchWithRetry('/api/slack', {
+      await fetchWithRetry('/api/slack', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          formId,
           name,
           email,
           company,
@@ -148,50 +117,18 @@ const ContactForm = ({
         }),
       });
 
-      // Feishu: fire-and-forget, ignore failures
-      feishuWebhookList.forEach((url) => {
-        void fetchWithRetry(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json, text/plain, */*',
-          },
-          body: JSON.stringify({
-            msg_type: 'text',
-            content: {
-              text: `${formId} by ${name} (${email}) from ${company} [${databaseUsers} DB users]\n\n${message}`,
-            },
-          }),
-        }).catch(() => {
-          // Ignore Feishu failures
-        });
-      });
-
-      // Wait for Slack to complete (throws on failure after retries)
-      try {
-        const slackResult = await slackPromise;
-        if (!slackResult.ok) {
-          throw new Error('Slack webhook failed');
-        }
-
-        setButtonState(STATES.SUCCESS);
-        setTimeout(() => {
-          router.push(redirectURL);
-          setButtonState(STATES.DEFAULT);
-          reset();
-        }, BUTTON_SUCCESS_TIMEOUT_MS);
-      } catch (slackError) {
-        // Slack failed after retries - show error
-        setButtonState(STATES.ERROR);
-        setTimeout(() => {
-          setButtonState(STATES.DEFAULT);
-        }, BUTTON_SUCCESS_TIMEOUT_MS);
-        setFormError('Something went wrong. Please try again later.');
-      }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (error: any) {
-      setButtonState(STATES.DEFAULT);
-      setFormError(error?.message ?? error.toString());
+      setButtonState(STATES.SUCCESS);
+      setTimeout(() => {
+        router.push(redirectURL);
+        setButtonState(STATES.DEFAULT);
+        reset();
+      }, 1000);
+    } catch {
+      setButtonState(STATES.ERROR);
+      setTimeout(() => {
+        setButtonState(STATES.DEFAULT);
+      }, 1000);
+      setFormError('Something went wrong. Please try again later.');
     }
   };
 
@@ -269,7 +206,7 @@ const ContactForm = ({
               type="submit"
               state={buttonState}
             >
-              {getButtonTitle(formId)}
+              Contact Us
             </Button>
             {formError && (
               <span className="mt-1.5 text-12 leading-none text-secondary-6 sm:text-center 2xs:max-w-[144px]">
