@@ -129,6 +129,14 @@ Before using Prior Backup functionality, you must create the `bbdataarchive` sto
    GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA bbdataarchive TO your_user;
    ```
 
+1. **If using `SET ROLE`, grant permissions to that role:**
+
+   Replace `your_role` with the role used in `SET ROLE`.
+
+   ```sql
+   GRANT USAGE, CREATE ON SCHEMA bbdataarchive TO your_role;
+   ```
+
 ### Oracle
 
 1. **Create the backup user:**
