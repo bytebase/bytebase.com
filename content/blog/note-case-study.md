@@ -98,6 +98,3 @@ After implementing Bytebase's database access control, note identified additiona
 
 ---
 
-_To learn more, check out our JIT Database Access Whitepaper👇_
-
-[![jit-whitepaper-cover](/content/whitepaper/just-in-time-database-access/cover-horizontal.webp)](/content/whitepaper/just-in-time-database-access/bytebase-whitepaper-just-in-time-database-access-best-practices.pdf)
