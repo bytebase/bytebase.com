@@ -30,7 +30,7 @@ MySQL's upsert syntax:
 ```sql
 INSERT INTO table (col1, col2, ...)
 VALUES (val1, val2, ...)
-ON DUPLICATE KEY UPDATE col2 = val2, ...;
+ON DUPLICATE KEY UPDATE col2 = VALUES(col2), ...;
 ```
 
 When the row you're inserting would conflict with an existing primary key or unique index, MySQL runs the `UPDATE` clause instead of failing. The `VALUES()` function (MySQL 5.x) or column aliases (MySQL 8.0.19+) let you reference the new values inside the `UPDATE` clause:
