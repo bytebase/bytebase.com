@@ -1,7 +1,7 @@
 ---
 title: 'Upsert in SQL: INSERT ON DUPLICATE KEY vs ON CONFLICT Explained'
 author: Adela
-updated_at: 2026/03/04 09:00:00
+updated_at: 2026/03/06 09:00:00
 feature_image: /content/blog/sql-upsert/banner.webp
 tags: Explanation
 description: 'Upsert inserts or updates a row based on key conflicts. Learn MySQL INSERT ON DUPLICATE KEY UPDATE, PostgreSQL ON CONFLICT, and SQL Server MERGE.'
@@ -195,6 +195,8 @@ ON CONFLICT (email) DO UPDATE SET name = EXCLUDED.name
 RETURNING xmax;
 -- xmax = 0 → row was inserted; non-zero → row was updated
 ```
+
+> **Caveat:** `xmax` is an internal system column tied to PostgreSQL's MVCC implementation. Its behavior is not part of the SQL standard or PostgreSQL's public API contract and could change in a future major version. This trick is fine for debugging, but for production code prefer an explicit approach such as adding a `status` column in `RETURNING` via a `CASE` expression or handling the result in application logic.
 
 ## Upsert in application code and migrations
 
