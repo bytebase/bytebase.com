@@ -118,7 +118,7 @@ ON CONFLICT ON CONSTRAINT users_email_key DO NOTHING
 ON CONFLICT (user_id) WHERE is_active = true DO UPDATE SET ...
 ```
 
-Using a column name is safer than a constraint name. If the index is ever rebuilt, the column reference still works; a constraint-name reference breaks.
+Using column names is usually safer than hard-coding a constraint name: `ON CONFLICT (email)` keeps working if you drop and recreate the unique constraint (or PostgreSQL rebuilds the underlying index), while `ON CONFLICT ON CONSTRAINT users_email_key` breaks if that specific constraint name no longer exists.
 
 **Safe under concurrent writes**
 
