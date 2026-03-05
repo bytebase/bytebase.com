@@ -163,7 +163,6 @@ If you have already decided and need to migrate, here are the most useful resour
 **Supabase → Convex**
 
 - [Migrating from Supabase and Prisma to Convex](https://dev.to/ricardogesteves/migrating-from-supabase-and-prisma-accelerate-to-convex-jdk) – community walkthrough on dev.to
-- [Is BaaS enterprise-ready? Hands-on review of Convex and Supabase](https://senacor.blog/is-backend-as-a-service-baas-enterprise-ready-a-hands-on-review-of-convex-and-supabase/) – independent engineering blog comparison
 - [Why I picked Convex over Firebase, Supabase, and Neon](https://stack.convex.dev/why-choose-convex-database-for-backend) – developer story on the Convex blog
 - [Migrating data from Postgres to Convex](https://stack.convex.dev/migrate-data-postgres-to-convex) – official Convex migration guide
 
