@@ -104,7 +104,13 @@
                 ]
               },
               "change-database/review",
-              "change-database/approval",
+              {
+                "group": "Approval",
+                "pages": [
+                  "change-database/approval",
+                  "administration/risks"
+                ]
+              },
               {
                 "group": "Rollout",
                 "pages": [
@@ -273,7 +279,6 @@
               "administration/license",
               "administration/mode",
               "ai-assistant",
-              "administration/risks",
               "change-database/environment-policy/overview",
               "administration/database-group",
               "administration/customize-logo",
