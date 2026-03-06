@@ -27,7 +27,7 @@ Custom Approval enables organizations to implement approval workflows for databa
 ### The Approval Process
 
 1. **Condition Matching**: When a request is created, Bytebase evaluates the approval flows in order under the matching source type. The first flow whose condition matches is used
-2. **Fallback**: If no source-specific flow matches, fallback flows are evaluated
+2. **Fallback**: If no flow matches under the source type, the **Fallback** source type flows are evaluated as a catch-all. You can also add a catch-all flow at the end of each source type (with a broad or empty condition) to serve as a per-source-type fallback
 3. **Sequential Approval**: Approvers review and approve each node in order
 4. **Execution**: After all approvals, the request proceeds to execution (for example, deployment, database creation, data export, or role change)
 
