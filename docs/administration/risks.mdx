@@ -6,6 +6,8 @@ The **Risk Center** (**CI/CD > Risk Center**) shows how Bytebase evaluates the r
 
 Bytebase automatically assigns one of three risk levels — **High**, **Moderate**, or **Low** — to each database change. Currently, the risk level is determined purely based on the SQL statement types, with more sophisticated analysis planned.
 
+<Expandable title="Current Risk Level Assignment">
+
 | Risk Level | Statement Types |
 | --- | --- |
 | **High** | `DROP_DATABASE`, `DROP_TABLE`, `DROP_SCHEMA`, `TRUNCATE` |
@@ -13,6 +15,8 @@ Bytebase automatically assigns one of three risk levels — **High**, **Moderate
 | **Low** | Everything else |
 
 If a change contains multiple statements, Bytebase takes the highest risk level found across all statements.
+
+</Expandable>
 
 ## Usage
 
