@@ -1,7 +1,7 @@
 ---
-title: 'Database Change with Risk-Based Approval Flow'
+title: 'Database Change with Custom Approval Flow'
 author: Adela
-updated_at: 2023/06/01 16:15
+updated_at: 2026/03/04 16:15
 tags: Tutorial
 integrations: General
 category: 'UI-Driven Workflow'
@@ -13,14 +13,13 @@ import TerminalDockerRunVolume from '/snippets/install/terminal-docker-run-volum
 
 Bytebase provides a basic yet configurable rollout mechanism by default. This means that manual rollout is skipped for **Test** environments and required for **Prod** environments.
 
-However, for more complicated enterprise-level cases, users may need different approval flows to handle database changes according to different potential risks. For example, DDL in Prod environments is considered high risk, while DML in Test environments is low risk. Additionally, users may need to involve roles other than **DBA/Developer/Project Leader**, such as **Testers**.
+However, for more complicated enterprise-level cases, users may need different approval flows to handle database changes according to different conditions. For example, DDL that drops tables should require multi-level approval, while creating a new table may only need DBA review. Additionally, users may need to involve roles other than **DBA/Developer/Project Leader**, such as **Testers**.
 
-This tutorial will walk you through how to create custom approval flows based on self-defined risk rules and how to add new roles to be involved.
+This tutorial will walk you through how to create custom approval flows with condition-based rules and how to add new roles to be involved.
 
 ## Feature included
 
 - Custom approval
-- Risk center
 - Custom roles
 
 ## Prerequisites
@@ -74,24 +73,14 @@ This tutorial will walk you through how to create custom approval flows based on
 
    ![bb-issue-no-approval-flow](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-no-approval-flow.webp)
 
-## Step 4 - Configure a Custom Approval and Run a Schema Change
+## Step 4 - Configure Custom Approval Rules and Run a Schema Change
 
-<Tip>
+1. Login as **Admin**. Click **CI/CD > Custom Approval** on the left bar. Under the **Change Database** section, click **Add Rule** to create approval rules with conditions:
 
-To learn the best practice, check out [Risks Best Practice](/tutorials/risks-best-practice/).
+   - Rule 1: Title: `DDL ALTER in Prod`; Condition: `statement.sql_type == "ALTER_TABLE" && resource.environment_id == "prod"`; Approval Flow: `Project Owner -> DBA`
+   - Rule 2: Title: `DDL CREATE in Prod`; Condition: `statement.sql_type == "CREATE_TABLE" && resource.environment_id == "prod"`; Approval Flow: `DBA`
 
-</Tip>
-
-1. Login as **Admin**. Click **CI/CD > Custom Approval** on the left bar. Choose `Project Owner → DBA` for **DDL** > **High Risk** and `DBA` for **DDL** > **Moderate Risk**.
-
-   ![bb-custom-approval](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-custom-approval.webp)
-
-1. Either click **the related risk rules** or **CI/CD > Risks** on the left bar. Add two new rules
-
-   - Name: `DDL ALTER`; Risk Level: `High`; Type: `DDL`; Condition: `sql_type == 'ALTER_TABLE'`
-   - Name: `DDL CREATE`; Risk Level: `Moderate`; Type: `DDL`; Condition: `sql_type == 'CREATE_TABLE'`
-
-   ![bb-risks](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-risks.webp)
+   Rules are evaluated top to bottom - the first matching rule wins. You can drag to reorder them.
 
 1. Logout and login as **Developer**. Go into the project, select both databases and click **Edit Schema**. Paste the same SQL as before and click **Create**.
 
@@ -103,7 +92,7 @@ To learn the best practice, check out [Risks Best Practice](/tutorials/risks-bes
    );
    ```
 
-1. This time, the issue is detected as **Moderate** risk, so it will be reviewed by **DBA** workflow.
+1. This time, the CREATE TABLE statement matches the second rule, so it will be reviewed by the **DBA** approval flow.
 
    ![bb-issue-moderate](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-moderate.webp)
 
@@ -113,7 +102,7 @@ To learn the best practice, check out [Risks Best Practice](/tutorials/risks-bes
    ALTER TABLE employee ADD COLUMN age INT NOT NULL;
    ```
 
-1. This time, the issue is detected as **High** risk, so it will be reviewed by **Project Owner -> DBA** workflow.
+1. This time, the ALTER TABLE statement matches the first rule, so it will be reviewed by the **Project Owner -> DBA** approval flow.
 
    ![bb-issue-high](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-high.webp)
 
@@ -125,13 +114,13 @@ What if there is other roles in the team, for example, a **Tester** . Bytebase h
 
    ![bb-roles-tester](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-roles-tester.webp)
 
-1. Click **CI/CD > Custom Approval**, and click **Approval Flows** tab. Click **Create** and fill in the form like this.
+1. Click **CI/CD > Custom Approval**. Under the **Change Database** section, click **Add Rule** and create a new approval flow with `Tester -> DBA` as the approval nodes.
 
    ![bb-new-approval-flow](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-new-approval-flow.webp)
 
 1. Create a new user with the role **Tester**.
 
-1. Go to **CI/CD > Custom Approval**, and select `Tester->DBA` as the Moderate Risk approval flow.
+1. Go to **CI/CD > Custom Approval**, and edit the CREATE TABLE rule to use the `Tester -> DBA` approval flow instead.
 
 1. Logout and login as **Developer**. Go into the project, select both databases and click **Edit Schema**. Paste the same SQL as before and click **Create**.
 
@@ -143,10 +132,10 @@ What if there is other roles in the team, for example, a **Tester** . Bytebase h
    );
    ```
 
-1. This time, the issue is detected as **Moderate** risk, so it will be reviewed by **Tester -> DBA** workflow.
+1. This time, the CREATE TABLE statement matches the rule and will be reviewed by the **Tester -> DBA** approval flow.
 
    ![bb-issue-tester-dba](/content/docs/tutorials/database-change-management-with-risk-adjusted-approval-flow/bb-issue-tester-dba.webp)
 
 ## Summary
 
-Now you have tried database change with risk-adjusted custom approval flow, and also create your own custom roles as well. Bytebase provides more enterprise-level features regarding data security and data access control. If you're interested in that, follow [Just-in-Time Database Access](/tutorials/just-in-time-database-access-part1/).
+Now you have tried database change with condition-based custom approval flow, and also created your own custom roles. Bytebase provides more enterprise-level features regarding data security and data access control. If you're interested in that, follow [Just-in-Time Database Access](/tutorials/just-in-time-database-access-part1/).
