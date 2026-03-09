@@ -278,57 +278,15 @@
               "security/audit-log",
               "administration/license",
               "administration/mode",
+              "integrations/mcp",
               "ai-assistant",
               "change-database/environment-policy/overview",
               "administration/database-group",
               "administration/customize-logo",
               "security/watermark",
               "administration/announcement",
-              "administration/archive"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Integrations",
-        "groups": [
-          {
-            "group": "API",
-            "pages": [
-              "integrations/api/overview",
-              "integrations/api/authentication",
-              "integrations/api/sql-review",
-              "integrations/api/sql-editor",
-              "integrations/api/release",
-              "integrations/api/plan",
-              "integrations/api/rollout",
-              "integrations/api/issue",
-              "integrations/api/permission",
-              "integrations/api/data-classification",
-              "integrations/api/audit-log"
-            ]
-          },
-          {
-            "group": "Infrastructure as Code",
-            "pages": [
+              "administration/archive",
               "integrations/terraform/overview"
-            ]
-          },
-          {
-            "group": "AI Integration",
-            "pages": [
-              "integrations/mcp"
-            ]
-          },
-          {
-            "group": "3rd Party",
-            "pages": [
-              "integrations/slack",
-              "integrations/jira",
-              "integrations/prisma",
-              "integrations/supabase",
-              "integrations/render",
-              "integrations/neon"
             ]
           }
         ]
