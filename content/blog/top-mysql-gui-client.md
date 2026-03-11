@@ -52,9 +52,9 @@ Below are the five MySQL GUI clients worth evaluating in 2026, followed by a com
 
 - Java-based. DBeaver uses more memory than native apps like TablePlus, and startup is slower, especially on older hardware.
 - The UI is functional but dense. New users can find the toolbar and preferences overwhelming.
-- NoSQL and cloud databases require the paid Pro edition ($250/user/year for Enterprise).
+- NoSQL and cloud databases require a paid edition (Pro or Enterprise).
 
-**Pricing:** Community is free. Enterprise is $250/user/year.
+**Pricing:** Community is free. Paid editions (Pro and Enterprise) start at $250/user/year.
 
 **Best for:** Developers who work with multiple SQL databases daily and want a single free tool that covers all of them. If your stack includes MySQL, Postgres, and maybe a data warehouse like ClickHouse or Snowflake, DBeaver Community can replace three separate clients.
 
