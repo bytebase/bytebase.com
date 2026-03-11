@@ -103,19 +103,19 @@ const ContactForm = ({ className, redirectURL }: { className: string; redirectUR
         body: JSON.stringify({ email, tag: 'enterprise-inquiry' }),
       }).catch(() => undefined);
 
-      await fetchWithRetry('/api/slack', {
+      // Google Sheets is the source of truth — must succeed
+      await fetchWithRetry('/api/google-sheets', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          company,
-          databaseUsers,
-          message,
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, company, databaseUsers, message }),
       });
+
+      // Fire-and-forget: Slack notification failure should not block submission
+      void fetchWithRetry('/api/slack', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, company, databaseUsers, message }),
+      }).catch(() => undefined);
 
       setButtonState(STATES.SUCCESS);
       setTimeout(() => {
