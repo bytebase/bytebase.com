@@ -29,6 +29,7 @@
     "date-fns": "^2.30.0",
     "framer-motion": "^10.18.0",
     "glob": "^10.4.5",
+    "googleapis": "^171.4.0",
     "gray-matter": "^4.0.3",
     "he": "^1.2.0",
     "js-yaml": "^4.1.0",
