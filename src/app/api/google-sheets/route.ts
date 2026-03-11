@@ -30,6 +30,9 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    return NextResponse.json({ error: 'Failed to append to Google Sheets' }, { status: 500 });
+    const message = error instanceof Error ? error.message : String(error);
+    // eslint-disable-next-line no-console
+    console.error('Google Sheets append error:', message);
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
