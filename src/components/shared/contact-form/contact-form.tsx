@@ -96,26 +96,11 @@ const ContactForm = ({ className, redirectURL }: { className: string; redirectUR
     setFormError('');
 
     try {
-      // Fire-and-forget: subscribe failure should not block Slack notification
-      void fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, tag: 'enterprise-inquiry' }),
-      }).catch(() => undefined);
-
-      // Google Sheets is the source of truth — must succeed
-      await fetchWithRetry('/api/google-sheets', {
+      await fetchWithRetry('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, company, databaseUsers, message }),
       });
-
-      // Fire-and-forget: Slack notification failure should not block submission
-      void fetchWithRetry('/api/slack', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, company, databaseUsers, message }),
-      }).catch(() => undefined);
 
       setButtonState(STATES.SUCCESS);
       setTimeout(() => {
