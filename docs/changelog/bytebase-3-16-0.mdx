@@ -1,0 +1,124 @@
+---
+title: Bytebase 3.16.0 - Mar 12, 2026
+author: Adela
+updated_at: 2026/03/12 18:00:00
+description: 'Just-In-Time (JIT) Data Access'
+
+---
+
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
+## 🔔 Notable Changes
+
+- **Workspace API breaking changes** - Policy API: `/v1/policies` → `/v1/workspaces/{id}/policies`. All workspace-scoped APIs now require explicit workspace ID instead of `/v1/workspaces/-`. See [Change Details](<#workspace-api-breaking-changes>).
+
+- **User API breaking changes** - Decouple identity types and migrate Service Accounts and Workload Identities into separate data models. The unified User API no longer handles these identity types; `User.user_type` and `UserType` enum are removed. See [Change Details](<#user-api-breaking-changes>).
+
+- **Legacy service account email migration** - Legacy emails with `{name}@service.bytebase.com` and `{name}@{project}.service.bytebase.com` are auto-migrated. Use the dedicated Service Account and Workload Identity services introduced in 3.15.0.
+
+- **Resource ID migration** - Several API resource IDs migrate from sequential integers to opaque UUID strings (revision, changelog, issue comment, project webhook). Previously bookmarked integer IDs will no longer work. See [Change Details](<#resource-id-migration>).
+
+- Non-release database migrations now run in parallel; only release-based migrations remain sequential per database.
+
+- **Terraform provider 3.16.1 required** - Covers workspace policy API changes, UserType removal, resource ID migration, and JIT approval flow. See [Migration Guide](<https://github.com/bytebase/terraform-provider-bytebase/blob/main/migration/3.16.1.md>)
+
+## 🚀 Features
+
+- **Just-In-Time (JIT) Data Access** - Users without database access can request approval to execute a specific read-only query. Enable JIT in project settings and configure approval rules with the new `REQUEST_ACCESS` source type. Once approved, the grant is scoped to that query and auto-expires after the configured duration.
+
+- Add **GitOps** landing page with guided setup for workload identity selection and CI/CD YAML generation.
+
+- **Elasticsearch & MongoDB** - Support dynamic data masking. Masking is configured per-collection through the Catalog using `objectSchema` (not the column-based configuration used by relational databases). Global masking rules and masking exemption are not supported for document databases at this time.
+
+## 🎄 Enhancements
+
+- Redesign issue list with streamlined layout and improved information density. Support sorting by created/updated time, all approval status options (Checking, Pending, Approved, Rejected, Skipped) in advanced search filter, and more prominent approval status in issue detail.
+
+- Standardize timestamp display to relative time with absolute time tooltip.
+
+- Redesign **Create Instance** page as a full-page layout.
+
+- Support access-token authentication for Bytebase Action, enabling CI/CD pipelines to authenticate to Bytebase via workload identity federation.
+
+- Add pre-execution drift validation that detects schema changes before executing stale tasks.
+
+- Support copying the entire query result in SQL Editor.
+
+- Update default AI model placeholders to current-generation models (GPT-4o, Gemini 2.5 Flash, Claude Sonnet 4).
+
+- **MongoDB & Elasticsearch** - Preview query results in document view or table view. Live syntax checking and auto-complete in SQL Editor.
+
+- **BigQuery & Spanner** - Support Workload Identity Federation credentials for non-GCP hosted Bytebase.
+
+- **Oracle** - Add ROW STORE COMPRESS syntax support.
+
+- **PostgreSQL** - Support `search_path` resolution via current user in schema
+
+- **PostgreSQL & Oracle** - Improve schema sync accuracy.
+
+## 🐞 Bug Fixes
+
+- Fix issues incorrectly moved to DONE by migration 3.14/0034.
+
+- Skip databases without environments during task creation.
+
+- Classify CALL/EXEC stored procedure statements as DML to allow execution in SQL Editor.
+
+- **MariaDB** - Fix SQL review plan check not blocking rollout on ERROR-level violations.
+
+- **MSSQL** - Fix error messages missing line number when rolling out multiple statements.
+
+- **Oracle** - Fix UTF-8 encoding issues in comment fields during schema sync.
+
+- **TiDB** - Fix DROP INDEX IF EXISTS walk-through, CHECK_CONSTRAINTS query compatibility for TiDB < 7.4.0, and SQL export resource extraction.
+
+<InstallUpgrade />
+
+## 📃 Change Details
+
+### Workspace API Breaking Changes
+
+**1. Policy API path changes (workspace-level policies only):**
+
+| Method | Before | After |
+| -- | -- | -- |
+| Get | `/v1/{name=policies/*}` | `/v1/{name=workspaces/*/policies/*}` |
+| List | `/v1/policies` | `/v1/{parent=workspaces/*}/policies` |
+| Create | `/v1/policies` | `/v1/{parent=workspaces/*}/policies` |
+| Update | `/v1/{policy.name=policies/*}` | `/v1/{policy.name=workspaces/*/policies/*}` |
+| Delete | `/v1/{name=policies/*}` | `/v1/{name=workspaces/*/policies/*}` |
+
+Environment, instance, and database-level policy bindings are unchanged.
+
+**2. APIs that no longer accept** `workspaces/-` (must use `workspaces/{id}`):
+
+| Service | Affected Operations |
+| -- | -- |
+| ServiceAccountService | `CreateServiceAccount`, `ListServiceAccounts` |
+| WorkloadIdentityService | `CreateWorkloadIdentity`, `ListWorkloadIdentities` |
+| DatabaseService | `ListDatabases` |
+| WorkspaceService | `GetIamPolicy`, `SetIamPolicy` |
+
+### User API Breaking Changes
+
+| Change | Details |
+| -- | -- |
+| `User.user_type` field removed | Reserved field 5. Use dedicated Service Account / Workload Identity services. |
+| `UserType` enum removed | Deleted from `user_service.proto`. |
+| `WorkloadIdentityConfig` moved | From `User` message to `workload_identity_service.proto`. |
+| `ActuatorInfo.user_stats` removed | Replaced with `int32 activated_user_count`. |
+| `CreateUser` behavior | Only creates end users. Service accounts / workload identities must use their dedicated services. |
+| `ListUsers` behavior | Only returns end users. |
+
+### Resource ID Migration
+
+Resource IDs in the following API resource names change from sequential integers to UUID strings:
+
+| Resource | Resource Name Pattern | ID Format Change |
+| -- | -- | -- |
+| Revision | `instances/{id}/databases/{db}/revisions/{id}` | integer → UUID |
+| Changelog | `instances/{id}/databases/{db}/changelogs/{id}` | integer → UUID |
+| Issue Comment | `projects/{id}/issues/{uid}/issueComments/{id}` | integer → UUID |
+| Project Webhook | `projects/{id}/webhooks/{id}` | integer → UUID |
+
+Existing records receive randomly generated UUIDs during migration. Any previously bookmarked or cached integer IDs will stop working.
