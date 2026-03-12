@@ -26,7 +26,7 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
 - Add **GitOps** landing page with guided setup for workload identity selection and CI/CD YAML generation.
 
-- **Elasticsearch & MongoDB** — Dynamic data masking support.
+- **Elasticsearch & MongoDB** — Support dynamic data masking. Masking is configured per-collection through the Catalog using `objectSchema` (not the column-based configuration used by relational databases). Global masking rules and masking exemption are not supported for document databases at this time.
 
 ## 🎄 Enhancements
 
