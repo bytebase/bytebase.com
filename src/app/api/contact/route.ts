@@ -36,7 +36,7 @@ async function appendToGoogleSheets(row: string[]) {
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: SPREADSHEET_ID,
-    range: 'A:F',
+    range: 'A:E',
     valueInputOption: 'USER_ENTERED',
     requestBody: {
       values: [row],
@@ -80,17 +80,16 @@ export async function POST(request: Request) {
   let name = '';
   let email = '';
   let company = '';
-  let databaseUsers = '';
   let message = '';
 
   try {
     const body = await request.json();
-    ({ name, email, company, databaseUsers, message } = body);
+    ({ name, email, company, message } = body);
 
     const timestamp = new Date().toISOString();
 
     // Google Sheets is the source of truth — must succeed
-    await appendToGoogleSheets([timestamp, name, email, company, databaseUsers, message]);
+    await appendToGoogleSheets([timestamp, name, email, company, message]);
 
     // Fire-and-forget: Slack and Mailchimp failures should not block the response
     void sendSlackMessage([
@@ -98,7 +97,7 @@ export async function POST(request: Request) {
         type: 'section',
         text: {
           type: 'mrkdwn',
-          text: `*${name}* (${email})\n${company} · ${databaseUsers} users\n${message}`,
+          text: `*${name}* (${email})\n${company}\n${message}`,
         },
       },
       {
@@ -124,7 +123,7 @@ export async function POST(request: Request) {
         type: 'section',
         text: {
           type: 'mrkdwn',
-          text: `🚨 *Contact form submission failed*\n*${name}* (${email}) · ${company} · ${databaseUsers} users\n${message}\n\`\`\`${errorMessage}\`\`\``,
+          text: `🚨 *Contact form submission failed*\n*${name}* (${email}) · ${company}\n${message}\n\`\`\`${errorMessage}\`\`\``,
         },
       },
       {
