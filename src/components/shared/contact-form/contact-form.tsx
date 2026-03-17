@@ -19,12 +19,9 @@ type ValueType = {
   name: string;
   email: string;
   company: string;
-  databaseUsers: string;
   message: string;
   website?: string; // Honeypot field
 };
-
-const DATABASE_USERS_OPTIONS = ['1-10', '11-50', '51-200', '200+'];
 
 const validationSchema = yup.object().shape({
   name: yup.string().trim().required('Name is a required field'),
@@ -34,7 +31,6 @@ const validationSchema = yup.object().shape({
     .email('Please provide a valid email')
     .required('Work email is a required field'),
   company: yup.string().trim().required('Company name is a required field'),
-  databaseUsers: yup.string().trim().required('Please select the number of database users'),
   message: yup.string().trim().required('Please tell us how we can help'),
   website: yup.string().trim().optional(),
 });
@@ -79,7 +75,7 @@ const ContactForm = ({ className, redirectURL }: { className: string; redirectUR
   } = useForm<ValueType>({ resolver: yupResolver(validationSchema) });
 
   const onSubmit = async (values: ValueType) => {
-    const { name, email, company, databaseUsers, message, website } = values;
+    const { name, email, company, message, website } = values;
 
     // Honeypot check - if filled, it's a bot
     if (website?.trim()) {
@@ -99,7 +95,7 @@ const ContactForm = ({ className, redirectURL }: { className: string; redirectUR
       await fetchWithRetry('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, company, databaseUsers, message }),
+        body: JSON.stringify({ name, email, company, message }),
       });
 
       setButtonState(STATES.SUCCESS);
@@ -144,22 +140,6 @@ const ContactForm = ({ className, redirectURL }: { className: string; redirectUR
           error={errors?.company?.message}
           {...register('company')}
         />
-        <Field
-          className="col-span-full"
-          tag="select"
-          error={errors?.databaseUsers?.message}
-          defaultValue=""
-          {...register('databaseUsers')}
-        >
-          <option value="" disabled>
-            Database Users*
-          </option>
-          {DATABASE_USERS_OPTIONS.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </Field>
         <Field
           className="col-span-full"
           inputClassName="p-4 pt-3 md:pt-2"
