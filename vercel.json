@@ -1,3 +1,1 @@
-{
-  "ignoreCommand": "if [ -n \"$VERCEL_DEPLOY_HOOK_NAME\" ]; then exit 1; else exit 0; fi"
-}
+{}
