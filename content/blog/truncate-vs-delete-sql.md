@@ -65,7 +65,7 @@ Be careful with CASCADE. It silently empties every table linked by a foreign key
 
 ## TRUNCATE in MySQL
 
-Different story. MySQL's TRUNCATE is a DDL statement that [causes an implicit commit](https://dev.mysql.com/doc/refman/8.0/en/implicit-commit.html). Cannot be rolled back.
+Different story. MySQL's TRUNCATE is a DDL statement that [causes an implicit commit](https://dev.mysql.com/doc/refman/8.0/en/implicit-commit.html), so it cannot be rolled back.
 
 ```sql
 START TRANSACTION;
