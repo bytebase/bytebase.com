@@ -3,7 +3,7 @@ title: "ERROR 1146 (42S02): Table Doesn't Exist"
 updated_at: 2026/03/19 09:00:00
 ---
 
-## Error message
+## Error Message
 
 ```sql
 ERROR 1146 (42S02): Table 'mydb.users' doesn't exist
@@ -56,8 +56,8 @@ MySQL error 1146 means the query references a table that MySQL cannot find in th
    | Value | Behavior |
    |-------|----------|
    | 0 | Case-sensitive (Linux default) |
-   | 1 | Stored lowercase, compared case-insensitively (Windows/macOS default) |
-   | 2 | Stored as given, compared case-insensitively |
+   | 1 | Stored lowercase, compared case-insensitively (Windows default) |
+   | 2 | Stored as given, compared case-insensitively (macOS default) |
 
 4. **Run pending migrations:**
 
@@ -105,6 +105,6 @@ MySQL error 1146 means the query references a table that MySQL cannot find in th
 
 <HintBlock type="info">
 
-Bytebase tracks all schema changes with a full [audit trail](/docs/change-database/change-workflow/), so you can identify when and by whom a table was dropped. For MySQL installation and client setup, see [How to install MySQL client](/reference/mysql/how-to/how-to-install-mysql-client-on-mac-ubuntu-centos-windows/).
+Bytebase tracks all schema changes with a full [audit trail](https://www.bytebase.com/docs/change-database/change-workflow/), so you can identify when and by whom a table was dropped. For MySQL installation and client setup, see [How to install MySQL client](/reference/mysql/how-to/how-to-install-mysql-client-on-mac-ubuntu-centos-windows/).
 
 </HintBlock>

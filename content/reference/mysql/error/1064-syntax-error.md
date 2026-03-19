@@ -3,7 +3,7 @@ title: 'ERROR 1064 (42000): You Have an Error in Your SQL Syntax'
 updated_at: 2026/03/19 09:00:00
 ---
 
-## Error message
+## Error Message
 
 ```sql
 ERROR 1064 (42000): You have an error in your SQL syntax;
@@ -92,6 +92,6 @@ This is the single most common MySQL error. It covers everything from a missing 
 
 <HintBlock type="info">
 
-Bytebase's [SQL Review](/docs/sql-review/review-rules/) checks SQL syntax and common mistakes before changes reach your database. You can configure rules for [MySQL naming conventions](/reference/mysql/how-to/top-mysql-commands-with-examples/) and reserved word usage.
+Bytebase's [SQL Review](https://www.bytebase.com/docs/sql-review/review-rules/) checks SQL syntax and common mistakes before changes reach your database. You can configure rules for [MySQL naming conventions](/reference/mysql/how-to/top-mysql-commands-with-examples/) and reserved word usage.
 
 </HintBlock>

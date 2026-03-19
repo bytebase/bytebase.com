@@ -23,7 +23,7 @@
 
 ## Schema & Object Management
 
-### [ERROR 42P01: relation does not exist](/reference/postgres/error/42P01-undefined-table-postgres)
+### [ERROR 42P01: relation does not exist](/reference/postgres/error/42p01-undefined-table-postgres)
 
 ### [ERROR 42P07: relation already exists](/reference/postgres/error/42p07-relation-already-exists-postgres)
 

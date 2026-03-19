@@ -3,7 +3,7 @@ title: 'ERROR 42P01: Relation Does Not Exist in Postgres'
 updated_at: 2026/03/19 09:00:00
 ---
 
-## Error message
+## Error Message
 
 ```sql
 ERROR: relation "users" does not exist
@@ -89,6 +89,6 @@ PostgreSQL raises error 42P01 when a query references a table, view, or other re
 
 <HintBlock type="info">
 
-Bytebase's [SQL Review](/docs/sql-review/review-rules/) can catch common issues like unqualified table references and missing schema prefixes before they reach production. See also [How to list tables in PostgreSQL](/reference/postgres/how-to/how-to-list-tables-postgres/) for quick ways to verify table existence.
+Bytebase's [SQL Review](https://www.bytebase.com/docs/sql-review/review-rules/) can catch common issues like unqualified table references and missing schema prefixes before they reach production. See also [How to list tables in PostgreSQL](/reference/postgres/how-to/how-to-list-tables-postgres/) for quick ways to verify table existence.
 
 </HintBlock>
