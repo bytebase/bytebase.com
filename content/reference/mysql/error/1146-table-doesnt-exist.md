@@ -1,6 +1,5 @@
 ---
 title: "ERROR 1146 (42S02): Table Doesn't Exist"
-updated_at: 2026/03/19 09:00:00
 ---
 
 ## Error Message

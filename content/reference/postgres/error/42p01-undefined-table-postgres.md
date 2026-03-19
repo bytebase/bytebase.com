@@ -1,6 +1,5 @@
 ---
 title: 'ERROR 42P01: Relation Does Not Exist in Postgres'
-updated_at: 2026/03/19 09:00:00
 ---
 
 ## Error Message

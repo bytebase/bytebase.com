@@ -1,6 +1,5 @@
 ---
 title: 'ERROR 1064 (42000): You Have an Error in Your SQL Syntax'
-updated_at: 2026/03/19 09:00:00
 ---
 
 ## Error Message
