@@ -1,15 +1,15 @@
 ---
-title: Database Audit Logging - The Practical Guide
+title: 'Database Audit Logging Best Practices for Compliance'
 author: Adela
-updated_at: 2025/11/27 18:00:00
+updated_at: 2026/03/19 09:00:00
 feature_image: /content/blog/database-audit-logging/banner.webp
-tags: Industry
-description: A guide to audit logging in databases.
+tags: Explanation
+description: 'How to set up database audit logging for SOC 2, HIPAA, and ISO 27001 compliance across PostgreSQL, MySQL, SQL Server, and Oracle.'
 ---
 
-Database audit logging is now a core security expectation, with standards like SOC 2, ISO 27001, GDPR, HIPAA, and PCI DSS requiring a complete record of **who accessed what, when, and from where**.
+Database audit logging records every query, schema change, and login attempt in your database so you can answer the question: **who did what, when, and from where**. It is a requirement for [SOC 2](/blog/soc2-data-security-and-retention-requirements/), ISO 27001, [GDPR](/blog/database-compliance-for-gdpr/), [HIPAA](/blog/hipaa-data-security-and-retention-requirements/), and PCI DSS compliance.
 
-Yet building a consistent audit trail across different database engines is still challenging. This article explains why, what "good" looks like, and how to design a reliable auditing strategy.
+Building a consistent audit trail across PostgreSQL, MySQL, SQL Server, and Oracle is still hard because each engine handles auditing differently. This guide covers what to log, how each engine works, common mistakes, and how to get a unified audit trail.
 
 ## Why Audit Logging Matters
 
@@ -32,7 +32,7 @@ Without reliable audit logs, organizations lack visibility at the exact moment i
 
 ## The Real-World Pain Today (Across All Major Databases)
 
-All major relational databases — MySQL, PostgreSQL, SQL Server, Oracle and cloud-managed variants like AWS RDS, Google Cloud SQL, and Azure Database — provide audit capabilities. However, *how* they provide these capabilities varies dramatically, and implementing them correctly requires deep expertise.
+All major relational databases (MySQL, PostgreSQL, SQL Server, Oracle, and cloud-managed variants like AWS RDS, Google Cloud SQL, and Azure Database) provide audit capabilities. However, *how* they provide these capabilities varies dramatically, and implementing them correctly requires deep expertise.
 
 Here are common issues teams encounter:
 
@@ -44,9 +44,17 @@ Selective auditing (especially for non-root users) requires additional plugins t
 ### PostgreSQL — Example
 
 PostgreSQL relies on extensions such as `pgaudit` for structured auditing.
-While powerful, these extensions require **careful tuning** to avoid overwhelming log volume while still capturing all critical operations — including SELECTs.
+While powerful, these extensions require **careful tuning** to avoid overwhelming log volume while still capturing all critical operations, including SELECTs.
 
-### Cloud Databases (AWS RDS, Google Cloud SQL, Azure Database) — Example
+### SQL Server
+
+SQL Server has built-in [SQL Server Audit](https://learn.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-database-engine) that writes to Windows Event Log or file targets. It supports fine-grained audit specifications at both server and database level. The main difficulty is managing audit file rotation and shipping logs to a central system, since SQL Server Audit writes binary files that need parsing.
+
+### Oracle
+
+Oracle provides [Unified Auditing](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/introduction-to-auditing.html) (available since 12c), which consolidates all audit records into a single `UNIFIED_AUDIT_TRAIL` view. It replaces the older `AUDIT` command. Oracle's auditing is the most granular of any major engine, but the volume of audit data in high-throughput systems requires careful management of the `AUDSYS` tablespace.
+
+### Cloud databases (AWS RDS, Google Cloud SQL, Azure Database)
 
 Cloud platforms wrap underlying engine audit logs into provider-specific formats.
 Teams often struggle with:
@@ -57,12 +65,12 @@ Teams often struggle with:
 
 **In short:**
 
-> Audit information exists everywhere — but it’s fragmented, inconsistent, and often incomplete.
+> Audit information exists everywhere, but it’s fragmented, inconsistent, and often incomplete.
 
 ## What a Good Audit Log Should Capture
 
 A reliable audit log must capture **every database action**, not just modifications.
-In modern security models, **access is just as important — and often more important — than change**.
+In modern security models, **access is just as important as change, and often more so**.
 
 ### A robust audit log includes:
 
@@ -73,7 +81,7 @@ In modern security models, **access is just as important — and often more impo
 
   - **DDL** (all schema changes)
   - **DML** (INSERT, UPDATE, DELETE)
-  - **SELECT** (all read operations — because viewing sensitive data is a high-risk event)
+  - **SELECT** (all read operations, because viewing sensitive data is a high-risk event)
 
 - **Authentication events**
   Both successful logins and failed login attempts.
@@ -146,11 +154,35 @@ A workflow platform like **Bytebase** produces complete, contextual audit logs b
 
 Regardless of database engine or auditing method, strong audit practices share the same foundations:
 
-- **Use individual identities** — never share DB accounts.
-- **Record all DDL, DML, and SELECT** — access visibility is non-negotiable.
-- **Store logs off-host** — prevents tampering or accidental deletion.
-- **Apply retention policies** (90, 180, or 365+ days).
+- **Use individual identities.** Never share DB accounts.
+- **Record all DDL, DML, and SELECT.** Access visibility is non-negotiable.
+- **Store logs off-host.** This prevents tampering or accidental deletion.
+- **Apply retention policies** (90, 180, or 365+ days depending on framework).
 - **Integrate logs into a SIEM** for alerting and correlation (Datadog, Splunk, CloudWatch, Grafana).
-- **Treat default engine settings cautiously** — they often require substantial tuning.
+- **Treat default engine settings cautiously.** They often require substantial tuning.
 
 A minimal-noise, high-fidelity audit log is better than a noisy one that nobody can use.
+
+## Common mistakes
+
+| Mistake | What goes wrong | Fix |
+|---------|----------------|-----|
+| Logging everything at max verbosity | Log volume explodes, storage costs spike, nobody reads the logs | Start with DDL + DML + failed logins, add SELECTs only for sensitive tables |
+| Shared database accounts | Audit log says "admin" did it, but you have 15 people using that account | Map every query to an individual user identity |
+| Storing logs on the same host | An attacker or accidental `DROP DATABASE` also wipes the audit trail | Ship logs to a separate system (SIEM, S3, or centralized logging) |
+| No retention policy | Logs either fill the disk or get rotated away before the next audit | Set explicit retention (SOC 2 typically requires 90-365 days) |
+| Ignoring SELECT queries | You can prove data was changed but not that it was *read* | Audit SELECTs on tables containing PII, credentials, or financial data |
+
+## FAQ
+
+**What is database audit logging?**
+
+Database audit logging is the process of recording all database activity, including queries, schema changes, logins, and permission changes, into a tamper-resistant log. It answers who accessed what data, when, and from where.
+
+**Which compliance frameworks require database audit logging?**
+
+SOC 2, ISO 27001, HIPAA, PCI DSS, and GDPR all require some form of database audit trail. SOC 2 and ISO 27001 are the most explicit about logging requirements. See [SOC 2 data security requirements](/blog/soc2-data-security-and-retention-requirements/) and [HIPAA database requirements](/blog/hipaa-data-security-and-retention-requirements/) for specifics.
+
+**How do I export database audit logs to Datadog or Splunk?**
+
+Most engines write audit logs to files or system tables. For PostgreSQL, configure `pgaudit` to write to `csvlog` and use a Datadog or Splunk agent to ingest the files. For MySQL, enable the audit plugin and point the log file at your SIEM collector. For SQL Server, parse the `.sqlaudit` files with `fn_get_audit_file()` and forward via a log shipper. Bytebase provides a built-in [audit log API](/docs/security/audit-log/) that exports structured JSON, ready for any SIEM.
