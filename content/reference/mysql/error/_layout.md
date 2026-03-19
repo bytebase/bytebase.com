@@ -31,11 +31,17 @@
 
 ## Query Syntax & Logic
 
+### [ERROR 1064 (42000): You have an error in your SQL syntax](/reference/mysql/error/1064-syntax-error)
+
 ### [ERROR 1055 (42000): SELECT list is not in GROUP BY clause and contains nonaggregated column](/reference/mysql/error/1055-select-list-not-in-group-by)
 
 ### [ERROR 1111 (HY000): Invalid use of group function](/reference/mysql/error/1111-invalid-use-of-group-function)
 
 ### [ERROR 1175 (HY000): You are using safe update mode](/reference/mysql/error/1175-using-safe-update-mode)
+
+## Table & Schema
+
+### [ERROR 1146 (42S02): Table doesn't exist](/reference/mysql/error/1146-table-doesnt-exist)
 
 ## Data Integrity
 
