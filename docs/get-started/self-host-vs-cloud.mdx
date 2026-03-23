@@ -2,76 +2,26 @@
 title: Self-Host vs Cloud
 ---
 
-<Info>
-  **Quick Answer**: Use **Self-Host** for private databases (VPC, on-premises). Use **Cloud** for
-  public cloud databases (Neon, Supabase, RDS with public IP).
-</Info>
+Use **Self-Host** for private databases (VPC, on-premises). Use **Cloud** for public cloud databases (Neon, Supabase, RDS with public IP).
 
-## Key Differences
+|  | Self-Host | Cloud |
+|--|-----------|-------|
+| **Database Access** | Private networks, VPC, on-premises | Public cloud databases only |
+| **Available Plans** | Free, Enterprise | Free, Pro, Enterprise |
+| **Setup** | ~5 minutes (Docker) | Instant |
+| **Maintenance** | You manage updates | Automatic |
+| **Location** | Your infrastructure | Google Cloud US |
 
-<Table>
-  <TableHeader>
-    <TableRow>
-      <TableHeaderItem></TableHeaderItem>
-      <TableHeaderItem>Self-Host</TableHeaderItem>
-      <TableHeaderItem>Cloud</TableHeaderItem>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableItem>**Database Access**</TableItem>
-      <TableItem>Private networks, VPC, on-premises</TableItem>
-      <TableItem>Public cloud databases only</TableItem>
-    </TableRow>
-    <TableRow>
-      <TableItem>**Setup**</TableItem>
-      <TableItem>~5 minutes (Docker/Binary)</TableItem>
-      <TableItem>Instant</TableItem>
-    </TableRow>
-    <TableRow>
-      <TableItem>**Maintenance**</TableItem>
-      <TableItem>You manage updates</TableItem>
-      <TableItem>Automatic updates</TableItem>
-    </TableRow>
-    <TableRow>
-      <TableItem>**Location**</TableItem>
-      <TableItem>Your infrastructure</TableItem>
-      <TableItem>Google Cloud US</TableItem>
-    </TableRow>
-  </TableBody>
-</Table>
-
-### Choose Self-Host For
-
-- **Private databases** without public internet access
-- **VPC environments** (AWS VPC, Google VPC, etc.)
-- **On-premises** corporate databases
-- **Compliance requirements** (data sovereignty, security policies)
-- **Custom configurations** (external PostgreSQL, custom domains)
-
-### Choose Cloud For
-
-- **Cloud databases** with public connectivity:
-  - Neon, Supabase
-  - AWS RDS with public IP
-  - Google CloudSQL with public IP
-  - Azure Database with public access
-- **Quick evaluation** without infrastructure setup
-- **Small teams** wanting zero maintenance
-
-## How to Deploy
+<Note>
+  The **Pro plan** is cloud-only. Self-hosted deployments use the Free plan or require an Enterprise license. Self-hosted Free instances can start a [14-day Enterprise trial](https://www.bytebase.com/contact-us/).
+</Note>
 
 <CardGroup cols={2}>
-  <Card title="Self-Host Guide" href="/get-started/self-host/deploy-with-docker" icon="server">
+  <Card title="Self-Host" href="/get-started/self-host/deploy-with-docker" icon="server">
     Deploy with Docker in 5 minutes
   </Card>
 
-  <Card title="Cloud Signup" href="https://hub.bytebase.com/" icon="cloud">
+  <Card title="Cloud" href="https://hub.bytebase.com/" icon="cloud">
     Start instantly at hub.bytebase.com
   </Card>
 </CardGroup>
-
-<Tip>
-  Not sure? Start with Cloud for testing, then migrate to Self-Host if you need private database
-  access.
-</Tip>

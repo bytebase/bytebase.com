@@ -95,10 +95,10 @@ const PLANS: { free: Plan; pro: Plan; enterprise: Plan } = {
   pro: {
     title: 'pro',
     description: 'Advanced Collaboration',
-    buttonText: 'Buy Now',
+    buttonText: 'Start on Cloud',
     buttonTheme: 'primary-outline',
     buttonUrl: Route.PRO_PAYMENT,
-    additionalDescription: 'Monthly subscription, cancel anytime',
+    additionalDescription: 'Cloud-hosted · Monthly subscription, cancel anytime',
     databaseChangeManagement: {
       'database-change': true,
       'git-based-schema-version-control': true,
