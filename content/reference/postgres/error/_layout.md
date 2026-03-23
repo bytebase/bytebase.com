@@ -23,6 +23,8 @@
 
 ## Schema & Object Management
 
+### [ERROR 42703: column does not exist](/reference/postgres/error/42703-undefined-column-postgres)
+
 ### [ERROR 42P01: relation does not exist](/reference/postgres/error/42p01-undefined-table-postgres)
 
 ### [ERROR 42P07: relation already exists](/reference/postgres/error/42p07-relation-already-exists-postgres)
@@ -38,6 +40,8 @@
 ### [ERROR: cannot change name of input parameter](/reference/postgres/error/cannot-change-name-of-input-parameter)
 
 ## Permission & Authentication
+
+### [ERROR 28P01: password authentication failed](/reference/postgres/error/28p01-invalid-password-postgres)
 
 ### [ERROR 42501: permission denied for table](/reference/postgres/error/42501-permission-denied-for-table-postgres)
 

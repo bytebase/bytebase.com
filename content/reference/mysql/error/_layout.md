@@ -31,6 +31,8 @@
 
 ## Query Syntax & Logic
 
+### [ERROR 1054 (42S22): Unknown column in 'field list'](/reference/mysql/error/1054-unknown-column-in-field-list)
+
 ### [ERROR 1064 (42000): You have an error in your SQL syntax](/reference/mysql/error/1064-syntax-error)
 
 ### [ERROR 1055 (42000): SELECT list is not in GROUP BY clause and contains nonaggregated column](/reference/mysql/error/1055-select-list-not-in-group-by)
