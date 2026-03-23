@@ -126,7 +126,7 @@ PostgreSQL raises error 28P01 when a client provides a password that does not ma
    tail -20 /var/log/postgresql/postgresql-16-main.log
    ```
 
-## Common Scenarios
+## Common scenarios
 
 **In Docker and containers:** The `POSTGRES_PASSWORD` environment variable only sets the superuser password on first initialization. If you change it in `docker-compose.yml` and restart without deleting the volume, the old password persists. Either drop the volume (`docker volume rm ...`) or connect and run `ALTER ROLE`.
 
