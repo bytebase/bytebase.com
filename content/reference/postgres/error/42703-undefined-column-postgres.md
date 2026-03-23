@@ -85,7 +85,7 @@ PostgreSQL raises error 42703 when a query references a column that the database
    # Or check the change history in Bytebase
    ```
 
-## Common Scenarios
+## Common scenarios
 
 **In ORMs and application code:** ORMs map model fields to column names. If you rename a field in your model but forget to generate a migration, or if the migration hasn't been applied, PostgreSQL will report 42703 at runtime. Check `\d tablename` against your model definition.
 
