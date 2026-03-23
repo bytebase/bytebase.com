@@ -106,7 +106,7 @@ SHOW COLUMNS FROM users LIKE 'user_name';
 SHOW COLUMNS FROM users;
 ```
 
-## Common Scenarios
+## Common scenarios
 
 **With `SELECT *` in views:** If a view was created with `SELECT *` and the underlying table later dropped a column, queries against the view will fail with 1054. Recreate the view after schema changes.
 
