@@ -24,7 +24,7 @@ MySQL raises error 1054 when a query references a column that does not exist in 
 
 1. **Typo in the column name**: `SELECT emial FROM users` when the column is `email`
 2. **Missing or wrong table alias**: Referencing a column without qualifying which table it belongs to in a JOIN
-3. **Column alias used in WHERE or HAVING**: MySQL (in default mode) doesn't allow referencing a SELECT alias in the WHERE clause
+3. **Column alias used in WHERE or HAVING**: MySQL doesn't allow referencing a SELECT alias in the WHERE clause; aliases are only usable in ORDER BY (and sometimes HAVING)
 4. **Column dropped or renamed**: A migration changed the column but application queries still use the old name
 5. **Wrong table referenced**: The column exists in a different table than expected
 6. **Backtick quoting issues**: Reserved words used as column names without backticks
