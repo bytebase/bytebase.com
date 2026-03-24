@@ -1,0 +1,76 @@
+---
+title: High Availability
+---
+
+Bytebase supports high availability (HA) for self-hosted deployments.
+
+In HA mode, you run multiple Bytebase replicas behind the same external endpoint. The replicas coordinate through the shared metadata PostgreSQL database, so scheduled work such as rollout tasks, plan checks, schema sync, and cancellation handling remains safe across replicas.
+
+## Requirements
+
+- Use an external PostgreSQL database for Bytebase metadata
+- Start every replica with the `--ha` flag
+- Put all replicas behind the same load balancer / ingress / service
+- Configure the same External URL for the deployment
+- Use a license with HA enabled
+
+<Warning>
+HA mode does not work with Bytebase's embedded PostgreSQL. If `PG_URL` is not set, Bytebase will refuse to start in HA mode.
+</Warning>
+
+## How It Works
+
+- Each replica sends heartbeats to the metadata PostgreSQL database
+- Distributed coordination uses PostgreSQL advisory locks and row-level claiming
+- Long-running tasks are owned by a replica; stale work is detected if that replica stops heartbeating
+- Cancel signals are propagated across replicas through PostgreSQL `NOTIFY/LISTEN`
+
+## Kubernetes Example
+
+The example below shows the minimum HA-specific changes compared with a single-replica deployment:
+
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: bytebase
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bytebase
+  serviceName: bytebase
+  template:
+    metadata:
+      labels:
+        app: bytebase
+    spec:
+      containers:
+        - name: bytebase
+          image: bytebase/bytebase:latest
+          env:
+            - name: PG_URL
+              value: "postgresql://<<user>>:<<secret>>@<<host>>:<<port>>/<<dbname>>"
+          args:
+            - "--port"
+            - "8080"
+            - "--ha"
+          ports:
+            - containerPort: 8080
+```
+
+Use an ingress, gateway, or load balancer in front of the replicas so clients always access Bytebase through one stable URL.
+
+## Operational Notes
+
+- HA is mainly for Kubernetes or other orchestrated environments. A single `docker run` deployment is still a single-node setup.
+- Replicas do not require embedded PostgreSQL or shared local metadata storage.
+- If multiple replicas are running without HA enabled in the license, Bytebase disables backend runners to avoid unsafe execution.
+
+## Related Guides
+
+- [Production Setup](/get-started/self-host/production-setup/)
+- [Deploy with Kubernetes](/get-started/self-host/deploy-with-kubernetes/)
+- [Configure External PostgreSQL](/get-started/self-host/external-postgres/)
+- [Configure External URL](/get-started/self-host/external-url/)

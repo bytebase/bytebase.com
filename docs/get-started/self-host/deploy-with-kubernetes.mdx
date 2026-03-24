@@ -6,8 +6,7 @@ title: Deploy with Kubernetes
 ## Deployment
 
 <Note>
-
-Make sure to set the replicas to **1**, otherwise, it may cause data race issues.
+Single-replica deployment still works as before. For multi-replica deployment, see [High Availability](/get-started/self-host/high-availability/).
 
 </Note>
 
@@ -20,7 +19,6 @@ metadata:
   name: bytebase
   namespace: default
 spec:
-  # To prevent data races, only request one replica.
   replicas: 1
   selector:
     matchLabels:
@@ -92,6 +90,10 @@ spec:
 
 Bytebase provides an official Helm chart for simplified Kubernetes deployments. For comprehensive configuration options and advanced settings, visit the [Bytebase Helm Chart on Artifact Hub](https://artifacthub.io/packages/helm/bytebase/bytebase).
 
+<Note>
+The current official Helm chart deploys a single replica and does not yet expose HA-specific settings such as replica count and the `--ha` flag. If you want to run Bytebase in HA mode today, use a custom manifest based on this guide or customize the chart template before deploying.
+</Note>
+
 ### Installation
 
 Deploy Bytebase using Helm with your external PostgreSQL database:
@@ -109,4 +111,47 @@ To remove the Bytebase deployment:
 
 ```bash
 helm delete --namespace <YOUR_NAMESPACE> <RELEASE_NAME>
+```
+
+## HA Deployment
+
+To run Bytebase with multiple replicas on Kubernetes:
+
+1. Configure an external PostgreSQL database with `PG_URL`.
+2. Set `replicas` to more than `1`.
+3. Add the `--ha` flag to every Bytebase replica.
+4. Put the replicas behind one stable ingress, gateway, or service entrypoint.
+5. Make sure the workspace license has HA enabled.
+
+Example:
+
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: bytebase
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bytebase
+  serviceName: bytebase
+  template:
+    metadata:
+      labels:
+        app: bytebase
+    spec:
+      containers:
+        - name: bytebase
+          image: bytebase/bytebase:latest
+          env:
+            - name: PG_URL
+              value: 'postgresql://<<user>>:<<secret>>@<<host>>:<<port>>/<<dbname>>'
+          args:
+            - '--port'
+            - '8080'
+            - '--ha'
+          ports:
+            - containerPort: 8080
 ```
