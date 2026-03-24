@@ -13,6 +13,9 @@ export default function Page() {
       <h1 className="font-title text-90 font-semibold leading-none lg:text-68 md:text-56 sm:text-40">
         Bytebase Security Details
       </h1>
+      <p className="text-gray-50 sm:my-3">
+        Last modified: <time>Mar 24, 2026</time>
+      </p>
       <h2 id="general">General practices</h2>
       <ul>
         <li>Access to all internal systems is protected by multi-factor authentication.</li>
