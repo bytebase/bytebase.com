@@ -112,6 +112,42 @@ export default function Page() {
           be further enforced in the Enterprise plan.
         </li>
       </ul>
+      <h2 id="policy-retention">Policy and procedure retention</h2>
+      <p>
+        Bytebase retains all privacy, security, and operational policies and procedures for a
+        minimum of seven (7) years from the date of creation or the date when they were last in
+        effect, whichever is later. This retention practice is maintained in accordance with the
+        following regulatory requirements:
+      </p>
+      <ul>
+        <li>
+          <strong>HIPAA §164.530(j)</strong> &mdash; requires retention of policies and procedures,
+          and documentation of required actions, activities, or assessments for six (6) years.
+        </li>
+        <li>
+          <strong>Sarbanes-Oxley Act (SOX) Section 802</strong> &mdash; requires retention of audit
+          workpapers, financial records, and related communications for seven (7) years.
+        </li>
+        <li>
+          <strong>Bank Secrecy Act (BSA) / Anti-Money Laundering (AML)</strong> &mdash; requires
+          retention of transaction records, Suspicious Activity Reports (SARs), Currency Transaction
+          Reports (CTRs), and customer due diligence documentation for five (5) years per 31 CFR
+          §1010.430.
+        </li>
+      </ul>
+      <p>
+        Policy documents are versioned, and prior versions are archived for the full retention
+        period. Bytebase applies the longest applicable retention period across all frameworks to
+        ensure simultaneous compliance.
+      </p>
+      <h2 id="audit-logs">Audit Logs</h2>
+      <p>
+        Bytebase collects audit logs for user operations inside Bytebase. Bytebase retains audit
+        history for a minimum of seven (7) years to satisfy HIPAA, SOX, BSA/AML, and other
+        compliance requirements. The audit logs can be readily accessed for analysis from the{' '}
+        <Link href="/docs/security/audit-log/">Audit Log</Link> section inside the Bytebase product,
+        and can be streamed to external SIEM platforms for long-term archival.
+      </p>
       <h2 id="faq">FAQ</h2>
       <h3>Which certification does Bytebase have?</h3>
       <p> SOC 2 Type II.</p>
