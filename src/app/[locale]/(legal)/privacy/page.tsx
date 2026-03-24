@@ -13,7 +13,7 @@ export default function Page() {
         Privacy Policy
       </h1>
       <p className="text-gray-50 sm:my-3">
-        Last modified: <time>Oct 10, 2023</time>
+        Last modified: <time>Mar 23, 2026</time>
       </p>
       <p className="sm:mt-3">
         This Privacy Policy describes how your personal information is collected, used, and shared
@@ -112,12 +112,21 @@ export default function Page() {
         When you place an order through the Site, we will maintain your Order Information for our
         records unless and until you ask us to delete this information.
       </p>
+      <h2 id="policy-retention">Policy and procedure retention</h2>
+      <p>
+        Bytebase retains all privacy, security, and operational policies and procedures for a
+        minimum of six (6) years from the date of creation or the date when they were last in
+        effect, whichever is later. This retention practice is maintained in accordance with HIPAA
+        §164.530(j) and other applicable regulatory requirements. Policy documents are versioned,
+        and prior versions are archived for the full retention period.
+      </p>
       <h2 id="audit-logs">Audit Logs</h2>
       <p>
-        Bytebase collects audit logs for user operations inside Bytebase. Bytebase conforms with the
-        PCI DSS standards to retain the audit history at least for 1 year. The audit logs can be
-        readily accessed for analysis from the{' '}
-        <Link href="/docs/security/audit-log/">Audit Log</Link> section inside the Bytebase product.
+        Bytebase collects audit logs for user operations inside Bytebase. Bytebase retains audit
+        history for a minimum of six (6) years to satisfy HIPAA and other compliance requirements.
+        The audit logs can be readily accessed for analysis from the{' '}
+        <Link href="/docs/security/audit-log/">Audit Log</Link> section inside the Bytebase product,
+        and can be streamed to external SIEM platforms for long-term archival.
       </p>
       <h2 id="changes">Changes</h2>
       <p>
