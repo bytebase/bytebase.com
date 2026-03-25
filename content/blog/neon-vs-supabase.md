@@ -141,12 +141,12 @@ Both Neon and Supabase offer a free tier and usage-based pricing, but their mode
 
 Post-Databricks acquisition, Neon slashed prices: storage dropped from $1.75 to **$0.35 per GB-month** and compute costs fell ~25%.
 
-| Plan | Monthly Cost | Compute | Storage | Key Limits |
-| ---- | ------------ | ------- | ------- | ---------- |
-| Free | $0 | 100 CU-hours/project | 0.5 GB/project | Up to 2 CU, scale-to-zero |
-| Launch | Usage-based (~$15 typical) | $0.106/CU-hour | $0.35/GB-month | Up to 16 CU, 100 projects |
-| Scale | Usage-based (~$701 typical) | $0.222/CU-hour | $0.35/GB-month | Up to 56 CU, SLA, SOC 2, HIPAA |
-| Business | Custom | Custom | Custom | Dedicated infra, premium support |
+| Plan | Monthly Cost | Included Compute | Compute Rate | Storage | Key Limits |
+| ---- | ------------ | ---------------- | ------------ | ------- | ---------- |
+| Free | $0 | 100 CU-hours/project | N/A | 0.5 GB/project | Up to 2 CU, scale-to-zero |
+| Launch | Usage-based (~$15 typical) | - | $0.106/CU-hour | $0.35/GB-month | Up to 16 CU, 100 projects |
+| Scale | Usage-based (~$701 typical) | - | $0.222/CU-hour | $0.35/GB-month | Up to 56 CU, SLA, SOC 2, HIPAA |
+| Business | Custom | Custom | Custom | Custom | Dedicated infra, premium support |
 
 Neon's scale-to-zero means you pay nothing when the database is idle — a significant advantage for dev/test environments and agentic workloads that spin up many short-lived databases.
 
