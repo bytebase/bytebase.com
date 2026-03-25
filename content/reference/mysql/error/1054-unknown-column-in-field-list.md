@@ -8,7 +8,7 @@ title: "How to Fix MySQL Error 1054: Unknown Column in 'field list'"
 ERROR 1054 (42S22): Unknown column 'emial' in 'field list'
 ```
 
-The error can also appear with different contexts:
+The error also appears with different clause contexts:
 
 ```sql
 ERROR 1054 (42S22): Unknown column 'status' in 'where clause'
@@ -16,46 +16,40 @@ ERROR 1054 (42S22): Unknown column 'u.name' in 'on clause'
 ERROR 1054 (42S22): Unknown column 'total' in 'order clause'
 ```
 
-## Description
+The clause name in the message tells you where to look — `field list` means SELECT, `where clause` means WHERE, `on clause` means a JOIN condition.
 
-MySQL raises error 1054 when a query references a column that does not exist in the specified table or expression. The SQLSTATE code is 42S22. This is the MySQL counterpart to [PostgreSQL error 42703](/reference/postgres/error/42703-undefined-column-postgres). The error message helpfully tells you which clause contains the bad reference — `field list` (SELECT), `where clause`, `on clause`, or `order clause`.
+## What Triggers This Error
 
-## Common Causes
+MySQL 1054 has several distinct causes, and the fix depends on which clause the error points to:
 
-1. **Typo in the column name**: `SELECT emial FROM users` when the column is `email`
-2. **Missing or wrong table alias**: Referencing a column without qualifying which table it belongs to in a JOIN
-3. **Column alias used in WHERE or HAVING**: MySQL doesn't allow referencing a SELECT alias in the WHERE clause; aliases are only usable in ORDER BY (and sometimes HAVING)
-4. **Column dropped or renamed**: A migration changed the column but application queries still use the old name
-5. **Wrong table referenced**: The column exists in a different table than expected
-6. **Backtick quoting issues**: Reserved words used as column names without backticks
-7. **Subquery column not visible**: Referencing a column from an inner query that isn't exposed to the outer query
+- **Typo in column name** — `emial` instead of `email` (any clause)
+- **Column alias used in WHERE or HAVING** — MySQL doesn't resolve SELECT aliases in these clauses
+- **Missing table alias in a JOIN** — column exists but MySQL can't resolve which table owns it
+- **Reserved word used as column name without backticks** — `order`, `group`, `key`, `status`
+- **Wrong column name in ON clause** — JOIN condition references a column that doesn't exist
+- **View broken by schema change** — underlying table dropped a column the view references
+- **Post-migration mismatch** — column renamed or dropped but queries still use the old name
 
-## How to Fix
+## Fix by Scenario
 
-### Solution 1: Check the Actual Column Names
+### Typo in column name (field list, where clause)
+
+Check what columns actually exist:
 
 ```sql
--- List all columns in a table
+-- Quick check
 DESCRIBE users;
 
--- Or use INFORMATION_SCHEMA
+-- Full detail
 SELECT COLUMN_NAME, DATA_TYPE
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'users'
 ORDER BY ORDINAL_POSITION;
 ```
 
-### Solution 2: Qualify Columns with Table Aliases in JOINs
+### Column alias used in WHERE or HAVING
 
-```sql
--- Bad: ambiguous column reference
-SELECT name FROM orders JOIN customers ON orders.customer_id = customers.id;
-
--- Good: use table alias
-SELECT c.name FROM orders o JOIN customers c ON o.customer_id = c.id;
-```
-
-### Solution 3: Don't Use Aliases in WHERE — Repeat the Expression
+MySQL doesn't let you reference a SELECT alias in WHERE. This trips up developers who are used to working in ORDER BY (where aliases are allowed).
 
 ```sql
 -- Bad: alias not visible in WHERE
@@ -66,13 +60,15 @@ FROM users WHERE full_name LIKE '%Smith%';
 SELECT CONCAT(first_name, ' ', last_name) AS full_name
 FROM users WHERE CONCAT(first_name, ' ', last_name) LIKE '%Smith%';
 
--- Alternative: use a subquery
+-- Alternative: wrap in a subquery
 SELECT * FROM (
   SELECT *, CONCAT(first_name, ' ', last_name) AS full_name FROM users
 ) t WHERE full_name LIKE '%Smith%';
 ```
 
-### Solution 4: Quote Reserved Words with Backticks
+### Reserved word used as column name
+
+MySQL has a long list of reserved words. If your column happens to be named `order`, `group`, `key`, `rank`, or `status`, you need backticks:
 
 ```sql
 -- Bad: 'order' is a reserved word
@@ -82,19 +78,53 @@ SELECT order FROM purchases;
 SELECT `order` FROM purchases;
 ```
 
-### Solution 5: Fix ON Clause References
+The full list is at [MySQL Reserved Words](https://dev.mysql.com/doc/refman/8.0/en/keywords.html). Common offenders: `order`, `group`, `key`, `index`, `rank`, `status`, `condition`.
 
-When the error points to `'on clause'`, the column reference in a JOIN condition is wrong:
+### Wrong column name in ON clause (JOIN)
+
+When the error says `in 'on clause'`, the problem is in a JOIN condition:
 
 ```sql
--- Bad: wrong column name in ON clause
+-- Bad: wrong column name
 SELECT * FROM orders o JOIN customers c ON o.cust_id = c.id;
 
 -- Good: use the correct column name
 SELECT * FROM orders o JOIN customers c ON o.customer_id = c.id;
 ```
 
-### Solution 6: Verify After Migrations
+Always qualify columns with table aliases in JOINs:
+
+```sql
+SELECT c.name, o.total
+FROM orders o JOIN customers c ON o.customer_id = c.id;
+```
+
+### View broken by schema change (SELECT *)
+
+If a view was created with `SELECT *` and the underlying table later dropped a column, queries against the view fail with 1054. Recreate the view:
+
+```sql
+-- Check the view definition
+SHOW CREATE VIEW my_view;
+
+-- Recreate after schema change
+CREATE OR REPLACE VIEW my_view AS
+SELECT id, email, name FROM users;  -- explicit columns, not *
+```
+
+### ORDER BY with UNION
+
+UNION queries can only ORDER BY columns from the first SELECT, or use positional numbers:
+
+```sql
+-- Bad: 'email' is ambiguous across UNION
+SELECT id, email FROM users UNION SELECT id, address FROM contacts ORDER BY email;
+
+-- Good: use column position
+SELECT id, email FROM users UNION SELECT id, address FROM contacts ORDER BY 2;
+```
+
+### Post-migration column rename or drop
 
 If a column was recently renamed or dropped:
 
@@ -102,25 +132,19 @@ If a column was recently renamed or dropped:
 -- Check if the old column still exists
 SHOW COLUMNS FROM users LIKE 'user_name';
 
--- Check what columns currently exist
+-- See all current columns
 SHOW COLUMNS FROM users;
 ```
 
-## Common scenarios
+In ORM-based apps (Django, Rails, Laravel), the model fields must match the database columns. If you renamed a column in a migration but didn't update the model, or the migration hasn't been applied to this environment, you get 1054.
 
-**With `SELECT *` in views:** If a view was created with `SELECT *` and the underlying table later dropped a column, queries against the view will fail with 1054. Recreate the view after schema changes.
+## Prevention
 
-**In INSERT statements:** `INSERT INTO users (emial) VALUES ('a@b.com')` fails if the column is `email`. The error message will say `Unknown column 'emial' in 'field list'`.
-
-**In ORDER BY with UNION:** When using UNION, ORDER BY can only reference columns from the first SELECT or use positional numbers:
-
-```sql
--- Bad
-SELECT id, email FROM users UNION SELECT id, address FROM contacts ORDER BY email;
-
--- Good: use column position
-SELECT id, email FROM users UNION SELECT id, address FROM contacts ORDER BY 2;
-```
+- Use `DESCRIBE tablename` to verify column names before writing queries
+- Avoid `SELECT *` in views — use explicit column lists so schema changes surface immediately
+- Backtick any column name that might be a reserved word
+- In ORMs, run pending migrations before deploying code that references new or renamed columns
+- Use positional ORDER BY (`ORDER BY 2`) in UNION queries instead of column names
 
 <HintBlock type="info">
 

@@ -9,132 +9,198 @@ FATAL: password authentication failed for user "app_user"
 SQLSTATE: 28P01
 ```
 
-You may also see a related log entry on the server:
+You may also see variations:
 
 ```
 DETAIL: User "app_user" has no password assigned.
 ```
-
-Or when connecting via `psql` or a driver:
 
 ```
 psql: error: connection to server at "localhost" (127.0.0.1), port 5432 failed:
 FATAL: password authentication failed for user "app_user"
 ```
 
-## Description
+## What Triggers This Error
 
-PostgreSQL raises error 28P01 when a client provides a password that does not match the stored credential for the specified user, or when password authentication is required but no valid password is set. The full SQLSTATE code is 28P01 (`invalid_password`). This is the most common connection error for PostgreSQL and is almost always a configuration issue — not a bug in your application.
+28P01 is the most common PostgreSQL connection error, but the fix varies completely depending on your environment:
 
-## Causes
+- **Wrong password or stale credentials** — password rotated but config not updated
+- **Role has no password set** — created with `CREATE ROLE ... LOGIN` but no `PASSWORD` clause
+- **SCRAM vs MD5 mismatch** — PostgreSQL 14+ changed the default, breaks upgrades
+- **Docker container with stale volume** — `POSTGRES_PASSWORD` only applies on first init
+- **pg_hba.conf method mismatch** — server requires a different auth method than what the client provides
+- **Connection pool (PgBouncer/Pgpool) has old credentials** — database password changed but pool config not updated
+- **Cloud database (RDS, Cloud SQL, Azure)** — password must be changed through the cloud console, not SQL
+- **Special characters in password** — `@`, `#`, `%` misinterpreted in connection strings
 
-- **Wrong password.** The most obvious cause — the password supplied doesn't match what's stored for that role.
-- **Role has no password set.** The role was created with `CREATE ROLE app_user LOGIN` but without a `PASSWORD` clause, so any password attempt fails.
-- **Wrong user.** Connecting as `postgres` when the application should connect as `app_user`, or vice versa.
-- **pg_hba.conf requires password auth but the role uses a different method.** The `pg_hba.conf` entry says `md5` or `scram-sha-256` but the role's password was set with a different encryption method.
-- **Password contains special characters.** Characters like `@`, `#`, `%` in the password may be misinterpreted by connection strings if not properly escaped or quoted.
-- **Environment variable or config file has stale credentials.** The password was rotated but `.pgpass`, `PGPASSWORD`, or the application config still has the old one.
-- **Connecting to the wrong server.** The credentials are valid on staging but you're connecting to production (or vice versa).
-- **SCRAM vs MD5 mismatch.** PostgreSQL 14+ defaults to `scram-sha-256`. If the password was stored as MD5 and `pg_hba.conf` requires SCRAM, authentication fails.
+## Fix by Scenario
 
-## Solutions
+### Wrong password or stale credentials
 
-1. **Reset the password:**
+The most common case. Reset the password and verify:
 
-   ```sql
-   -- Connect as a superuser
-   ALTER ROLE app_user WITH PASSWORD 'new_secure_password';
-   ```
+```sql
+-- Connect as a superuser
+ALTER ROLE app_user WITH PASSWORD 'new_secure_password';
+```
 
-2. **Verify the role exists and has LOGIN privilege:**
+Then check that the role exists and can log in:
 
-   ```sql
-   SELECT rolname, rolcanlogin
-   FROM pg_roles
-   WHERE rolname = 'app_user';
-   ```
+```sql
+SELECT rolname, rolcanlogin
+FROM pg_roles
+WHERE rolname = 'app_user';
+```
 
-   If `rolcanlogin` is `f`, grant login:
+If `rolcanlogin` is `f`:
 
-   ```sql
-   ALTER ROLE app_user WITH LOGIN;
-   ```
+```sql
+ALTER ROLE app_user WITH LOGIN;
+```
 
-3. **Check pg_hba.conf authentication method:**
+Also check `.pgpass` and environment variables for stale credentials:
 
-   ```bash
-   # Find the active pg_hba.conf
-   psql -U postgres -c "SHOW hba_file;"
-   ```
+```bash
+# .pgpass format: hostname:port:database:username:password
+cat ~/.pgpass
+chmod 600 ~/.pgpass  # must have restricted permissions or PostgreSQL ignores it
+```
 
-   Look for the line matching your connection. Common entries:
+### SCRAM vs MD5 mismatch (common after PostgreSQL 14+ upgrade)
 
-   ```
-   # TYPE  DATABASE  USER       ADDRESS        METHOD
-   host    all       all        127.0.0.1/32   scram-sha-256
-   host    all       all        0.0.0.0/0      md5
-   ```
+PostgreSQL 14 changed the default `password_encryption` from `md5` to `scram-sha-256`. After upgrading, if `pg_hba.conf` now says `scram-sha-256` but the password was originally stored as MD5, authentication fails silently — the error message doesn't mention the mismatch.
 
-   After editing, reload:
+```sql
+-- Check current encryption setting
+SHOW password_encryption;
+```
 
-   ```sql
-   SELECT pg_reload_conf();
-   ```
+Fix: either change pg_hba.conf back to `md5`, or re-set all passwords so they're stored as SCRAM:
 
-4. **Fix SCRAM vs MD5 mismatch:**
+```sql
+-- Option A (recommended): keep scram-sha-256 and reset passwords
+SET password_encryption = 'scram-sha-256';
+ALTER ROLE app_user WITH PASSWORD 'the_same_or_new_password';
 
-   ```sql
-   -- Check current password encryption setting
-   SHOW password_encryption;
+-- Option B: change pg_hba.conf to md5 (less secure but no password resets needed)
+```
 
-   -- If it shows 'scram-sha-256' but pg_hba.conf says 'md5', either:
-   -- Option A: Change pg_hba.conf to scram-sha-256 (recommended)
-   -- Option B: Set encryption to md5 and reset the password
-   SET password_encryption = 'md5';
-   ALTER ROLE app_user WITH PASSWORD 'the_password';
-   ```
+After editing `pg_hba.conf`, reload:
 
-5. **Check .pgpass or connection string:**
+```sql
+SELECT pg_reload_conf();
+```
 
-   ```bash
-   # .pgpass format: hostname:port:database:username:password
-   cat ~/.pgpass
+### Docker container with stale volume
 
-   # Ensure correct permissions
-   chmod 600 ~/.pgpass
-   ```
+The `POSTGRES_PASSWORD` environment variable in `docker-compose.yml` only takes effect on first database initialization. If you change it and restart the container without deleting the volume, the old password persists.
 
-   For connection strings, escape special characters:
+```bash
+# Option A: Drop the volume and reinitialize (destroys data)
+docker compose down -v
+docker compose up -d
 
-   ```
-   postgresql://app_user:p%40ssw0rd@localhost:5432/mydb
-   ```
+# Option B: Connect with the OLD password and change it
+docker exec -it postgres psql -U postgres
+ALTER ROLE postgres WITH PASSWORD 'new_password';
+```
 
-   `@` → `%40`, `#` → `%23`, `%` → `%25`
+This is the single most common cause of 28P01 in development environments.
 
-6. **Verify you're connecting to the right server:**
+### pg_hba.conf requires password but role uses a different method
 
-   ```sql
-   -- After connecting, check where you are
-   SELECT inet_server_addr(), inet_server_port(), current_user, current_database();
-   ```
+Check which auth method the server expects for your connection:
 
-7. **Check server logs for more detail:**
+```bash
+# Find the active pg_hba.conf
+psql -U postgres -c "SHOW hba_file;"
+```
 
-   ```bash
-   # The server log often has a DETAIL line explaining what went wrong
-   tail -20 /var/log/postgresql/postgresql-16-main.log
-   ```
+Look for the line matching your connection type, database, user, and address:
 
-## Common scenarios
+```
+# TYPE  DATABASE  USER       ADDRESS        METHOD
+host    all       all        127.0.0.1/32   scram-sha-256
+host    all       all        0.0.0.0/0      md5
+```
 
-**In Docker and containers:** The `POSTGRES_PASSWORD` environment variable only sets the superuser password on first initialization. If you change it in `docker-compose.yml` and restart without deleting the volume, the old password persists. Either drop the volume (`docker volume rm ...`) or connect and run `ALTER ROLE`.
+If the method is `peer` or `ident` (common for local Unix socket connections), password auth isn't used at all — switch to `md5` or `scram-sha-256` if you need password-based login.
 
-**After PostgreSQL major version upgrade:** PostgreSQL 14 changed the default `password_encryption` from `md5` to `scram-sha-256`. After upgrading, existing MD5 passwords still work if `pg_hba.conf` uses `md5`, but if you change `pg_hba.conf` to `scram-sha-256`, all users must reset their passwords.
+### Connection pool (PgBouncer, Pgpool-II)
 
-**In connection pools (PgBouncer, Pgpool-II):** The pooler authenticates users independently. If the database password is changed but the pooler's `userlist.txt` or auth config isn't updated, connections through the pool fail with 28P01 even though direct connections work.
+The pooler authenticates users independently from PostgreSQL. If the database password changes but the pooler's `userlist.txt` or auth config isn't updated, connections through the pool fail with 28P01 while direct connections work fine.
 
-**With cloud-managed databases (RDS, Cloud SQL, Azure):** Cloud providers manage `pg_hba.conf` internally. If you get 28P01 on RDS, verify the password via the AWS console or `aws rds modify-db-instance`. For Cloud SQL, use `gcloud sql users set-password`.
+```bash
+# PgBouncer: update userlist.txt
+# Format: "username" "password"
+# Then reload
+pgbouncer -R /etc/pgbouncer/pgbouncer.ini
+```
+
+Test by connecting directly (bypassing the pool) to confirm the database password itself is correct.
+
+### Cloud-managed database (RDS, Cloud SQL, Azure)
+
+Cloud providers manage `pg_hba.conf` internally. You can't edit it directly.
+
+```bash
+# AWS RDS
+aws rds modify-db-instance --db-instance-identifier mydb \
+  --master-user-password new_password
+
+# Google Cloud SQL
+gcloud sql users set-password postgres \
+  --instance=mydb --password=new_password
+
+# Azure Database for PostgreSQL
+az postgres flexible-server update \
+  --resource-group mygroup --name mydb --admin-password new_password
+```
+
+For IAM authentication on RDS, make sure `rds.force_ssl` is enabled and the IAM role has the `rds-db:connect` permission.
+
+### Special characters in connection string
+
+Characters like `@`, `#`, `%` in passwords must be URL-encoded in connection strings:
+
+```
+postgresql://app_user:p%40ssw0rd@localhost:5432/mydb
+```
+
+| Character | Encoded |
+|-----------|---------|
+| `@` | `%40` |
+| `#` | `%23` |
+| `%` | `%25` |
+| `/` | `%2F` |
+
+If you're using a key-value connection string instead of a URI, special characters don't need encoding:
+
+```
+host=localhost port=5432 dbname=mydb user=app_user password=p@ssw0rd
+```
+
+### Still stuck? Check server logs
+
+The PostgreSQL server log often has a `DETAIL` line that explains exactly what went wrong — more than the client error message shows:
+
+```bash
+tail -20 /var/log/postgresql/postgresql-16-main.log
+```
+
+Also verify you're connecting to the right server:
+
+```sql
+SELECT inet_server_addr(), inet_server_port(), current_user, current_database();
+```
+
+## Prevention
+
+- Use `.pgpass` or environment variables instead of hardcoding passwords in connection strings
+- Rotate passwords through a centralized secret manager, not manual updates
+- After PostgreSQL major version upgrades, re-set all user passwords to match the new `password_encryption` default
+- In Docker Compose, document that `POSTGRES_PASSWORD` only applies on first init
+- Test direct connections before debugging connection pool issues
 
 <HintBlock type="info">
 
