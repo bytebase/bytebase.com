@@ -7,7 +7,7 @@ tags: Explanation
 description: 'Best practices for database access control covering least privilege, RBAC, just-in-time access, and compliance with SOC 2, HIPAA, and GDPR.'
 ---
 
-Database access control is the set of policies and mechanisms that determine who can connect to a database, what operations they can perform, and how long that access lasts. It covers both authentication (proving identity) and authorization (granting permissions) at the database engine level, independently from application-layer controls.
+Database access control is the set of policies and mechanisms that determine who can connect to a database, what operations they can perform, and how long that access lasts. It covers both authentication (proving identity) and authorization (granting permissions) at the database engine level, independently of application-layer controls.
 
 Get it wrong and you are one `DROP TABLE` away from a production incident, or one leaked credential away from a compliance violation. Most teams start with a shared admin account and a handful of application credentials. That works until the first [SOC 2 audit](/blog/soc2-data-security-and-retention-requirements/) asks *"who ran this query on March 3rd?"* and nobody can answer. This guide covers the principles, engine-specific mechanics, and common mistakes of database access control, along with practical ways to fix them.
 
