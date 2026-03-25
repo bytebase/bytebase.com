@@ -102,7 +102,7 @@ The Databricks acquisition confirmed that Neon’s architecture — instant prov
 
 Neon now offers a unified `neon init` command that configures both its MCP Server and VS Code Extension in one step, giving AI coding assistants like Cursor direct database access. Neon Auth also branches automatically alongside database branches, so preview environments get isolated auth state.
 
-Supabase is responding with its own agentic play. [BKND joined Supabase](https://supabase.com/blog) to build a Lite offering specifically for agentic workloads. AI app builders such as [Lovable](https://lovable.dev/) and [bolt](https://bolt.new/) continue to adopt Supabase as their default backend.
+Supabase is responding with its own agentic play. BKND joined Supabase to build a Lite offering specifically for agentic workloads. AI app builders such as [Lovable](https://lovable.dev/) and [bolt](https://bolt.new/) continue to adopt Supabase as their default backend.
 
 Overall, Neon’s scale-to-zero and instant branching make it better suited for agents that spin up many short-lived databases. Supabase’s full-stack platform is a better fit for AI app builders who need auth, storage, and realtime alongside the database.
 
