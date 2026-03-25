@@ -102,7 +102,8 @@ CREATE ROLE app_readonly NOLOGIN;
 GRANT CONNECT ON DATABASE myapp TO app_readonly;
 GRANT USAGE ON SCHEMA public TO app_readonly;
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO app_readonly;
-ALTER DEFAULT PRIVILEGES IN SCHEMA public
+-- Ensure future tables created by the migration role are also readable
+ALTER DEFAULT PRIVILEGES FOR ROLE migrator IN SCHEMA public
   GRANT SELECT ON TABLES TO app_readonly;
 
 -- Create a user that inherits the role
@@ -110,7 +111,7 @@ CREATE ROLE analyst LOGIN PASSWORD 'strong_password';
 GRANT app_readonly TO analyst;
 ```
 
-PostgreSQL's default is deny-all: a new role has no permissions on objects it does not own. The `ALTER DEFAULT PRIVILEGES` command is easy to forget but is needed to cover tables created in the future.
+PostgreSQL's default is deny-all: a new role has no permissions on objects it does not own. The `ALTER DEFAULT PRIVILEGES` command is easy to forget but is needed to cover tables created in the future. Note that it only applies to objects created by the role that executes the statement. If a separate role (e.g., a migration role) creates tables, you must specify `FOR ROLE <owner>` or run the command as that role.
 
 ### MySQL
 
@@ -184,7 +185,7 @@ Key capabilities:
 - **Two-level RBAC.** Bytebase has workspace-level roles (Admin, DBA, Member) and project-level roles (Owner, Developer, Releaser, SQL Editor User, Viewer). Each role maps to 100+ granular permissions. Organizations can also create custom roles with specific permission sets.
 - **Conditional access with CEL expressions.** IAM bindings support [CEL](https://github.com/google/cel-spec) conditions, so you can scope access by database name, schema, or time window. For example, a binding can grant a developer query access to specific databases that expires on a set date.
 - **Grant requests with expiration.** When a developer needs temporary access, they submit a grant request specifying the database, the role, and a duration. Once approved, the access expires automatically. This is the closest equivalent to just-in-time access.
-- **Approval workflows.** Schema changes and data exports go through configurable approval chains with CEL-based matching rules. Approvers are resolved by role, so the right DBA or project owner is routed the request automatically.
+- **Approval workflows.** Schema changes and data exports go through configurable approval chains with CEL-based matching rules. Approvers are resolved by role, so the request is automatically routed to the right DBA or project owner.
 - **Dynamic data masking.** Masking rules use CEL conditions to match columns by environment, project, instance, database, table, column, or classification level. Masking exemption policies let specific users or groups bypass masking when needed, also with CEL conditions (including time-based expiration).
 - **Query data policies.** Workspace and project-level policies control SQL Editor behavior: maximum result rows, whether data export is allowed, and whether copy-paste is enabled.
 - **Audit logging.** Every query, schema change, and permission change is recorded with the real user identity, request metadata, and RPC latency. Logs are searchable with CEL filters and exportable. This [audit trail](/blog/database-audit-logging/) is what auditors need for SOC 2, HIPAA, and ISO 27001.
