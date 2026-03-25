@@ -101,8 +101,7 @@ docker compose down -v
 docker compose up -d
 
 # Option B: Connect with the OLD password and change it
-docker exec -it postgres psql -U postgres
-ALTER ROLE postgres WITH PASSWORD 'new_password';
+docker exec -it postgres psql -U postgres -c "ALTER ROLE postgres WITH PASSWORD 'new_password';"
 ```
 
 This is the single most common cause of 28P01 in development environments.

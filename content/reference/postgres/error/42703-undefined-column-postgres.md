@@ -87,8 +87,8 @@ ORMs map model fields to column names. If you rename a field in your model but f
 ```bash
 # Check migration status
 flyway info
-# Or verify against the model
-\d tablename
+# Or verify columns against the model
+psql -c "\d tablename"
 ```
 
 If a column was renamed with `ALTER TABLE users RENAME COLUMN user_name TO username`, any view, function, or application query still using the old name fails. Search your codebase for the old column name.
@@ -120,8 +120,9 @@ WHERE prosrc ILIKE '%old_column_name%';
 ## Prevention
 
 - Use `\d tablename` or `information_schema.columns` to verify column names before writing queries
+- Avoid `SELECT *` in application queries and views — use explicit column lists so schema changes surface immediately
 - Avoid creating columns with double-quoted mixed-case names — it creates a permanent quoting requirement
-- Run `ALTER DEFAULT PRIVILEGES` when setting up roles so future tables inherit the right grants
+- Qualify columns with table aliases in JOINs to prevent ambiguous or wrong-table references
 - In ORMs, always generate and apply migrations before deploying code that references new columns
 
 <HintBlock type="info">

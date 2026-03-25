@@ -23,7 +23,7 @@ The clause name in the message tells you where to look — `field list` means SE
 MySQL 1054 has several distinct causes, and the fix depends on which clause the error points to:
 
 - **Typo in column name** — `emial` instead of `email` (any clause)
-- **Column alias used in WHERE or HAVING** — MySQL doesn't resolve SELECT aliases in these clauses
+- **Column alias used in WHERE** — MySQL doesn't resolve SELECT aliases in WHERE (aliases are allowed in HAVING, GROUP BY, and ORDER BY)
 - **Missing table alias in a JOIN** — column exists but MySQL can't resolve which table owns it
 - **Reserved word used as column name without backticks** — `order`, `group`, `key`, `status`
 - **Wrong column name in ON clause** — JOIN condition references a column that doesn't exist
@@ -47,9 +47,9 @@ WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'users'
 ORDER BY ORDINAL_POSITION;
 ```
 
-### Column alias used in WHERE or HAVING
+### Column alias used in WHERE
 
-MySQL doesn't let you reference a SELECT alias in WHERE. This trips up developers who are used to working in ORDER BY (where aliases are allowed).
+MySQL doesn't let you reference a SELECT alias in WHERE. Unlike HAVING (where MySQL does allow aliases), WHERE is evaluated before SELECT, so aliases are not yet available.
 
 ```sql
 -- Bad: alias not visible in WHERE
@@ -114,13 +114,15 @@ SELECT id, email, name FROM users;  -- explicit columns, not *
 
 ### ORDER BY with UNION
 
-UNION queries can only ORDER BY columns from the first SELECT, or use positional numbers:
+In a UNION, the result columns are named after the first SELECT. ORDER BY a name that doesn't appear in that first SELECT triggers 1054:
 
 ```sql
--- Bad: 'email' is ambiguous across UNION
-SELECT id, email FROM users UNION SELECT id, address FROM contacts ORDER BY email;
+-- Bad: 'address' is not a column name in the UNION result
+-- (result columns are 'id' and 'email', taken from the first SELECT)
+SELECT id, email FROM users UNION SELECT id, address FROM contacts ORDER BY address;
 
--- Good: use column position
+-- Good: use the first SELECT's column name, or a positional number
+SELECT id, email FROM users UNION SELECT id, address FROM contacts ORDER BY email;
 SELECT id, email FROM users UNION SELECT id, address FROM contacts ORDER BY 2;
 ```
 
