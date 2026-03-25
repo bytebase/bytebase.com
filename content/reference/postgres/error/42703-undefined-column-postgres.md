@@ -109,9 +109,18 @@ SELECT id FROM active;
 
 ### After ALTER TABLE (views and functions break)
 
-If a column was renamed, any view created with `SELECT *` on that table will keep working until the view is refreshed. But views with explicit column references, stored functions, and triggers will fail with 42703. Grep your database objects:
+PostgreSQL tracks column dependencies. If you drop or rename a column that a view, function, or trigger references, those objects will fail with 42703 on next use. Note that `SELECT *` views expand their column list at creation time — adding new columns to the table won't appear in the view, and dropping a column the view depends on will break it just like an explicit reference.
 
 ```sql
+-- Find views that depend on a specific table
+SELECT dependent_ns.nspname AS view_schema, dependent_view.relname AS view_name
+FROM pg_depend
+JOIN pg_rewrite ON pg_depend.objid = pg_rewrite.oid
+JOIN pg_class AS dependent_view ON pg_rewrite.ev_class = dependent_view.oid
+JOIN pg_namespace AS dependent_ns ON dependent_view.relnamespace = dependent_ns.oid
+JOIN pg_class AS source_table ON pg_depend.refobjid = source_table.oid
+WHERE source_table.relname = 'your_table_name';
+
 -- Find functions referencing the old column name
 SELECT proname, prosrc FROM pg_proc
 WHERE prosrc ILIKE '%old_column_name%';
