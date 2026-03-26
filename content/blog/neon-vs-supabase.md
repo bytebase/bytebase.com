@@ -1,10 +1,10 @@
 ---
 title: 'Neon vs. Supabase: Which One Should I Choose'
 author: Tianzhou
-updated_at: 2025/04/28 09:00
+updated_at: 2026/03/25 09:00
 feature_image: /content/blog/neon-vs-supabase/cover.webp
 tags: Comparison
-description: 'Neon and Supabase are the 2 new generation Postgres service providers. This is an extensive comparison between Neon and Supabase on architecture, compatibility, agentic workload, developer workflow, scalability, operability, integration, compliance, pricing and more.'
+description: 'Neon and Supabase are the 2 new generation Postgres service providers. This is an extensive comparison between Neon and Supabase on architecture, compatibility, agentic workload, developer workflow, scalability, integration, compliance, pricing and more.'
 ---
 
 <HintBlock type="info">
@@ -18,16 +18,19 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 | 2024/07/02     | Initial version.                   |
 | 2025/04/28     | Updated for 2025. Improved pricing |
 | 2025/05/19     | Add agentic workload               |
+| 2026/03/25     | Updated for 2026. Pricing, Neon acquisition, features |
 
-Besides the typical Postgres service providers like AWS RDS, Google Cloud SQL, DigitalOcean Managed Databases, [Neon](https://neon.tech/) and [Supabase](https://supabase.com/) are the two modern Postgres service providers.
+**Neon is a serverless Postgres database; Supabase is a backend-as-a-service platform built on Postgres.** Choose Neon if you want a standalone, scale-to-zero Postgres with instant branching. Choose Supabase if you want a full-stack platform with auth, storage, realtime, and edge functions included alongside your database.
+
+Besides the typical Postgres service providers like AWS RDS, Google Cloud SQL, DigitalOcean Managed Databases, [Neon](https://neon.com/) and [Supabase](https://supabase.com/) are the two modern Postgres service providers.
 
 <HintBlock type="info">
 
-On May 14, 2025, Databricks has [announced](https://www.databricks.com/blog/databricks-neon) to acquire Neon.
+Databricks [completed its acquisition](https://www.databricks.com/blog/databricks-neon) of Neon in 2025 for ~$1 billion, making Neon the Postgres foundation for Databricks' agentic AI platform. Neon continues to operate as an independent product with its own pricing and brand (now at neon.com).
 
 </HintBlock>
 
-On the surface, Neon and Supabase are different products. Neon is a database service. While Supabase is a BaaS (Backend-as-a-Service) and Postgres is one of its included service.
+On the surface, Neon and Supabase are different products. Neon is a database service. Supabase is a BaaS (Backend-as-a-Service) and Postgres is one of its included services.
 
 They are comparable because they both offer a **developer-friendly**, **scalable** Postgres service. In the agentic era, each aims to become the de-facto database for agentic workloads.
 
@@ -47,11 +50,11 @@ the following dimensions:
 - [Compatibility](#compatibility)
 - [Branching](#branching)
 - [Agentic Workload](#agentic-workload)
-- [Operability](#operability)
 - [Integration](#integration)
 - [Compliance](#compliance)
 - [Open Source](#open-source)
 - [Pricing](#pricing)
+- [FAQ](#faq)
 
 ## Architecture
 
@@ -71,7 +74,7 @@ database with various middlewares.
 Neon is mostly compatible with vanilla Postgres whereas Supabase is a dedicated vanilla Postgres instance. They both bear the limitations of
 a hosted database service (e.g. no superuser).
 
-- [Neon compatibility](https://neon.tech/docs/reference/compatibility)
+- [Neon compatibility](https://neon.com/docs/reference/compatibility)
 - [Supabase compatibility](https://supabase.com/docs/guides/database/postgres/roles-superuser)
 
 ## Branching
@@ -93,27 +96,31 @@ Both Neon and Supabase highlight AI agents as a primary use case.
 ![neon-agent](/content/blog/neon-vs-supabase/neon-ai-agent.webp)
 ![supabase-agent](/content/blog/neon-vs-supabase/supabase-ai-agent.webp)
 
-In fact, one of the key reasons Databricks likely acquired Neon is its architecture’s strong alignment with agentic workloads.
+The Databricks acquisition confirmed that Neon’s architecture — instant provisioning, scale-to-zero, and per-agent database branching — is purpose-built for agentic workloads.
 
 ![neon-4x-agent-db](/content/blog/neon-vs-supabase/neon-4x-agent-db.webp)
 
-While more AI app builders today—such as [Lovable](https://lovable.dev/) and [bolt](https://bolt.new/)—are adopting Supabase, Neon's instant provisioning and scale-to-zero capabilities make it better suited for agentic applications.
+Neon now offers a unified `neon init` command that configures both its MCP Server and VS Code Extension in one step, giving AI coding assistants like Cursor direct database access. Neon Auth also branches automatically alongside database branches, so preview environments get isolated auth state.
+
+Supabase is responding with its own agentic play. BKND joined Supabase to build a Lite offering specifically for agentic workloads. AI app builders such as [Lovable](https://lovable.dev/) and [bolt](https://bolt.new/) continue to adopt Supabase as their default backend.
+
+Overall, Neon’s scale-to-zero and instant branching make it better suited for agents that spin up many short-lived databases. Supabase’s full-stack platform is a better fit for AI app builders who need auth, storage, and realtime alongside the database.
 
 ## Integration
 
-Neon integrates with application platforms such as Vercel to provide a high-fidelity preview environment.
+Neon integrates with application platforms such as Vercel to provide a high-fidelity preview environment. The Vercel integration now automatically provisions Neon Auth on preview branches, so authentication works out of the box in preview deployments. Neon is also now part of the Databricks ecosystem, opening up integrations with Databricks' data and AI tools.
 
-Supabase is an application platform by itself. Thus it boasts a wide variety of integrations.
+Supabase is an application platform by itself and boasts a wide variety of integrations.
 
 ![supabase-integration](/content/blog/neon-vs-supabase/supabase-integration.webp)
 
-Also there are quite a few SaaS boilerplates based on Supabase.
+Recent additions include a one-click Stripe Sync Engine integration (query customers, subscriptions, and invoices with SQL) and the Hydra-powered Supabase Warehouse for analytics workloads. There are also quite a few SaaS boilerplates built on Supabase.
 
 ## Compliance
 
-Both Neon and Supabase achieves SOC2 Type 2. Supabase is additionally HIPAA compliant, a requirement for storing health data such as medical records:
+Both Neon and Supabase achieve SOC 2 Type 2. Both now offer HIPAA compliance — Neon added HIPAA eligibility on its Scale plan after the Databricks acquisition.
 
-- [Neon security](https://neon.tech/docs/security/security-overview)
+- [Neon security](https://neon.com/docs/security/security-overview)
 - [Supabase security](https://supabase.com/security)
 
 ## Open Source
@@ -128,30 +135,57 @@ Supabase is one of the most popular repositories on GitHub, while Neon's star gr
 
 ## Pricing
 
-Both Neon and Supabase offer a free tier and tiered pricing models that scale with usage. However, their pricing structures differ significantly in how they charge for resources.
+Both Neon and Supabase offer a free tier and usage-based pricing, but their models differ significantly.
 
-Neon uses a compute-hours model with the ability to scale to zero when not in use. Their pricing is based on:
+### Neon — Usage-Based (Pay for What You Use)
 
-1. **Base subscription fee** (Free, Launch at $19/month, Scale at $69/month, Business at $700/month)
-1. **Compute hours consumed** (each plan includes a set amount)
-1. **Storage used** (regular and archive storage)
+Post-Databricks acquisition, Neon slashed prices: storage dropped from $1.75 to **$0.35 per GB-month** and compute costs fell ~25%.
 
-The Free plan includes 191.9 compute hours per month (enough to run a 0.25 CU compute 24/7) and 0.5 GB of storage. Paid plans include more compute hours and storage, with the option to purchase additional resources as needed.
+| Plan | Monthly Cost | Included Compute | Compute Rate | Storage | Key Limits |
+| ---- | ------------ | ---------------- | ------------ | ------- | ---------- |
+| Free | $0 | 100 CU-hours/project | N/A | 0.5 GB/project | Up to 2 CU, scale-to-zero |
+| Launch | Usage-based (~$15 typical) | - | $0.106/CU-hour | $0.35/GB-month | Up to 16 CU, 100 projects |
+| Scale | Usage-based (~$701 typical) | - | $0.222/CU-hour | $0.35/GB-month | Up to 56 CU, SLA, SOC 2, HIPAA |
+| Business | Custom | Custom | Custom | Custom | Dedicated infra, premium support |
 
-Supabase uses a dedicated compute instance model with hourly billing. Their pricing is based on:
+Neon's scale-to-zero means you pay nothing when the database is idle — a significant advantage for dev/test environments and agentic workloads that spin up many short-lived databases.
 
-1. **Base subscription fee** (Free, Pro at $25/month, Team at $599/month, Enterprise with custom pricing)
-1. **Compute instance size** (from Nano to 16XL)
-1. **Usage-based components** (active users, storage, bandwidth, etc.)
+### Supabase — Platform Fee + Usage
 
-The Free plan includes a Nano compute instance with shared CPU and up to 0.5 GB of memory, 500 MB of database storage, and 50,000 monthly active users. Paid plans include $10/month in compute credits and additional resources.
+Supabase charges a platform subscription fee plus usage-based overages.
+
+| Plan | Monthly Cost | Database | Auth MAU | Storage | Key Features |
+| ---- | ------------ | -------- | -------- | ------- | ------------ |
+| Free | $0 | 500 MB | 50K | 1 GB | 2 projects, paused after 7 days idle |
+| Pro | $25 + usage | 8 GB included | 100K | 100 GB | $10 compute credit, spend cap |
+| Team | $599 + usage | 8 GB included | 100K | 100 GB | SSO, SOC 2, 28-day logs |
+| Enterprise | Custom | Custom | Custom | Custom | SLA, 24/7 support, BYO cloud |
+
+Supabase's pricing includes auth, storage, edge functions, and realtime — all bundled into the platform fee. If you need these services, the value proposition is strong compared to assembling them separately.
 
 ## Neon or Supabase
 
-If you want a Postgres database without whistles and bells, Neon is almost the perfect database a developer would desire. It has serverless, branching, auto-scaling.
+If you want a **standalone Postgres database** with serverless scaling, instant branching, and scale-to-zero, Neon is the stronger choice. It is especially well-suited for agentic workloads and development workflows that benefit from lightweight, ephemeral databases. The Databricks acquisition gives it additional backing for long-term investment.
 
-If you're looking for a dedicated Postgres instance or are looking to build a full-stack application, Supabase has everything
-you need. It has database, auth, APIs, and more, with continuous improvements to its dashboard and developer experience.
+If you are building a **full-stack application** and want auth, file storage, realtime subscriptions, and edge functions included alongside your database, Supabase provides a more complete platform. Its dashboard, growing integration ecosystem, and active community make it a productive choice for shipping quickly.
+
+## FAQ
+
+### Is Neon still independent after the Databricks acquisition?
+
+Yes. Neon continues to operate as an independent product with its own pricing, brand, and roadmap. It is now available at [neon.com](https://neon.com/) (previously neon.tech).
+
+### Can I self-host Neon or Supabase?
+
+Both are open source under Apache 2.0. [Neon](https://github.com/neondatabase/neon) and [Supabase](https://github.com/supabase/supabase) can be self-hosted, though the managed services include features (HA, backups, monitoring) that require additional setup when self-hosting.
+
+### Which is cheaper for a small project?
+
+Both offer generous free tiers. Neon's free plan includes 100 CU-hours and 0.5 GB storage per project. Supabase's free plan includes 500 MB database, 50K MAU, and 1 GB file storage. For hobby projects, both are effectively free. As you scale, Neon's usage-based model can be cheaper if your workload is bursty (scale-to-zero saves cost during idle periods), while Supabase's bundled platform can be cheaper if you would otherwise pay separately for auth, storage, and realtime.
+
+### Which has better performance?
+
+Both run vanilla Postgres, so raw query performance is comparable. Neon's shared-storage architecture adds a small latency overhead on cold starts but enables instant branching and scale-to-zero. Supabase runs dedicated Postgres instances with no cold-start penalty. For latency-sensitive production workloads, Supabase's always-on compute may have a slight edge; for workloads with variable traffic, Neon's autoscaling can be more efficient.
 
 ## Other Comparisons
 
