@@ -83,55 +83,22 @@ This configuration:
 - Restricts users to specific email domains
 - Sets your Bytebase workspace's external URL
 
-### Step 2 - Risk Management Policies
-
-|                       |                                                                                                                        |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Terraform resource    | [bytebase_risk](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/risk)                 |
-| Sample file           | [4-2-risk.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/4-2-risk.tf)                |
-
-Create `4-2-risk.tf` with risk policies to assess the database operations' risk level:
-
-```hcl 4-2-risk.tf
-# Risk management policies
-resource "bytebase_risk" "dml_moderate" {
-  title     = "DML Moderate Risk"
-  source    = "DML"
-  level     = 200
-  active    = true
-  condition = "environment_id == \"prod\" && affected_rows >= 100"
-}
-
-resource "bytebase_risk" "ddl_high" {
-  title     = "DDL High Risk"
-  source    = "DDL"
-  level     = 300
-  active    = true
-  condition = "environment_id == \"prod\""
-}
-```
-
-Risk levels:
-
-- **100 (LOW)**.
-- **200 (MODERATE)**: DML operations in production affecting 100+ rows
-- **300 (HIGH)**: All DDL operations in production
-
-### Step 3 - Approval Flow Settings
+### Step 2 - Approval Flow Settings
 
 |                       |                                                                                                                        |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | Terraform resource    | [bytebase_setting](https://registry.terraform.io/providers/bytebase/bytebase/latest/docs/resources/setting)           |
-| Sample file           | [4-3-approval-flow.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/tutorials/4-3-approval-flow.tf) |
+| Sample file           | [approval_flow.tf](https://github.com/bytebase/terraform-provider-bytebase/blob/main/examples/setup/approval_flow.tf) |
 
-Create `4-3-approval-flow.tf` with approval flow configuration that requires multiple approvals for risky operations:
+Create `4-2-approval-flow.tf` with approval flow configuration. Conditions are defined directly on each rule using CEL expressions:
 
-```hcl 4-3-approval-flow.tf
+```hcl 4-2-approval-flow.tf
 # Approval flow settings
 resource "bytebase_setting" "approval_flow" {
   name = "settings/WORKSPACE_APPROVAL"
 
   approval_flow {
+    # Rule for database changes in production with high impact
     rules {
       flow {
         title       = "Project Owner → DBA → Admin"
@@ -141,25 +108,43 @@ resource "bytebase_setting" "approval_flow" {
         steps { role = "roles/workspaceDBA" }
         steps { role = "roles/workspaceAdmin" }
       }
-      conditions {
-        source = "DML"
-        level  = "MODERATE"
+      source    = "CHANGE_DATABASE"
+      condition = "resource.environment_id == \"prod\" && statement.affected_rows >= 100"
+    }
+
+    # Rule for data exports from sensitive tables
+    rules {
+      flow {
+        title       = "Project Owner review"
+        description = "Need project owner approval"
+
+        steps { role = "roles/projectOwner" }
       }
-      conditions {
-        source = "DDL"
-        level  = "HIGH"
+      source    = "EXPORT_DATA"
+      condition = "resource.environment_id == \"prod\" && resource.table_name == \"employee\""
+    }
+
+    # Fallback rule - catches all unmatched operations
+    rules {
+      flow {
+        title       = "Fallback rule"
+        description = "Default approval for unmatched operations"
+
+        steps { role = "roles/workspaceDBA" }
       }
+      condition = "true"
     }
   }
 }
 ```
 
-This creates a three-step approval flow that triggers for:
+This creates approval rules that:
 
-- DML operations with MODERATE risk level
-- DDL operations with HIGH risk level
+- Require three-step approval (Project Owner -> DBA -> Admin) for database changes in production affecting 100+ rows
+- Require Project Owner approval for exporting data from the `employee` table in production
+- Fall back to DBA approval for all other operations
 
-### Step 4 - Apply Configuration
+### Step 3 - Apply Configuration
 
 ```bash
 terraform plan
@@ -174,39 +159,27 @@ terraform apply
 1. Log out and try to signup which should be disabled.
 1. Visit the external URL to verify it is set.
 
-#### Risk Policies
+#### Approval Rules
 
-1. Go to **CI/CD > Risks** to view risk policies.
-
-   ![risks](/content/docs/tutorials/manage-general-settings-with-terraform/bb-risks.webp)
-
-1. You should see both "DML Moderate Risk" and "DDL High Risk" policies active.
-
-#### Approval Flows
-
-1. Go to **CI/CD > Custom Approval** to see the approval flow.
+1. Go to **CI/CD > Custom Approval** to see the approval rules.
 
    ![custom-approval](/content/docs/tutorials/manage-general-settings-with-terraform/bb-custom-approval.webp)
 
-1. Verify the `Project Owner → DBA → Admin` flow is configured.
+1. Verify the approval rules are configured with their CEL conditions and approval flows.
 
 #### Test the Flow
 
 1. Go to `Project Two`, click **Database > Databases** on the left sidebar.
 1. Check `hr_prod`, click **Edit Schema**, add a new table `t0`.
-1. After creating the issue, you should see:
-
-   - Risk level: `DDL High`
-   - Approval flow: `Project Owner → DBA → Admin`
+1. After creating the issue, you should see the matching approval flow applied.
 
    ![issue-risk-high](/content/docs/tutorials/manage-general-settings-with-terraform/bb-issue-risk-high.webp)
 
 ## Key Points
 
 - **Workspace Profile**: Controls signup, domain restrictions, and external URL for your entire Bytebase workspace
-- **Risk Policies**: Automatically assess database operations based on conditions like environment and affected rows
-- **Approval Flows**: Define multi-step approval processes that trigger based on risk levels
-- **Integration**: Risk policies and approval flows work together to ensure proper governance for database changes
+- **Approval Rules**: Define conditions using CEL expressions to route database operations to the appropriate approval flow
+- **First-match-wins**: Rules are evaluated in order; the first matching rule determines the approval flow
 
 <Tip>
   You can configure additional
