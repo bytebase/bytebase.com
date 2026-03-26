@@ -1,0 +1,35 @@
+---
+title: Bytebase 3.16.1 - Mar 26, 2026
+author: Adela
+updated_at: 2026/03/26 18:00:00
+description: 'Improvements and Bug Fixes'
+
+---
+
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
+## 🚀 Features
+
+- **CosmosDB** — Support dynamic data masking.
+
+## 🎄 Enhancements
+
+- Change issue approval status label from "Done" to "Approved" for clarity.
+
+- Add fast-follow refresh mode so rollout status updates more quickly after user actions.
+
+## 🐞 Bug Fixes
+
+- Fix internal error after login caused by InputOtp null check regression.
+
+- Fix popover dismissing when interacting with label selector during plan/issue creation.
+
+- Fix invalid issue type filter in Export Center.
+
+- Fix webhook detail page broken by UUID resource_id migration.
+
+- Harden 3.16 upgrade migration scripts to be idempotent and handle edge cases.
+
+- **PolarDB** — Fix schema dump incorrectly including pg_bitmapindex system schema.
+
+<InstallUpgrade />
