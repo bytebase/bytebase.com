@@ -8,10 +8,6 @@ description: 'Improvements and Bug Fixes'
 
 import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
-## 🚀 Features
-
-- **CosmosDB** — Support dynamic data masking.
-
 ## 🎄 Enhancements
 
 - Change issue approval status label from "Done" to "Approved" for clarity.
@@ -29,6 +25,8 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 - Fix webhook detail page broken by UUID resource_id migration.
 
 - Harden 3.16 upgrade migration scripts to be idempotent and handle edge cases.
+
+- **CosmosDB** — Fix SQL viewer failing on all query syntax due to incomplete parser grammar.
 
 - **PolarDB** — Fix schema dump incorrectly including pg_bitmapindex system schema.
 
