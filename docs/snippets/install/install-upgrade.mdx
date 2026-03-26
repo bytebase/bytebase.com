@@ -8,4 +8,4 @@ title: Install and Upgrade
 
 - [Upgrade](/get-started/self-host/upgrade)
 
-_Warning 1): Bytebase does not support in-place downgrade. Make sure to back up your metadata before upgrading. 2) Never run multiple containers on the same data directory. Stop and remove the old one first to avoid corruption. 3) Terraform users: upgrade Bytebase server first, then apply the new Terraform config._
+_Before upgrading: 1) Back up the [metadata](https://www.bytebase.com/docs/administration/back-up-restore-metadata/) — in-place downgrade is not supported. 2) Do not run multiple containers on the same data directory. 3) Terraform users: upgrade Bytebase server first, then apply the new Terraform config._
