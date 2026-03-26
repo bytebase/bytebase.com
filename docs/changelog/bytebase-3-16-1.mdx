@@ -14,6 +14,8 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
 - Add fast-follow refresh mode so rollout status updates more quickly after user actions.
 
+- **CosmosDB** — Support more query syntax in SQL viewer.
+
 ## 🐞 Bug Fixes
 
 - Fix internal error after login caused by InputOtp null check regression.
@@ -25,8 +27,6 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 - Fix webhook detail page broken by UUID resource_id migration.
 
 - Harden 3.16 upgrade migration scripts to be idempotent and handle edge cases.
-
-- **CosmosDB** — Fix SQL viewer failing on all query syntax due to incomplete parser grammar.
 
 - **PolarDB** — Fix schema dump incorrectly including pg_bitmapindex system schema.
 
