@@ -11,95 +11,128 @@ LINE 1: SELECT emial FROM users;
 SQLSTATE: 42703
 ```
 
-## Description
+## What Triggers This Error
 
-PostgreSQL raises error 42703 when a query references a column that the database cannot find in the target table or expression. The full SQLSTATE code is 42703 (`undefined_column`). This is one of the most common PostgreSQL errors — closely related to [42P01 (undefined table)](/reference/postgres/error/42p01-undefined-table-postgres) — and usually traces back to a spelling mistake, a missing alias, or a schema mismatch.
+PostgreSQL 42703 has several distinct causes, and the fix depends on which one you hit:
 
-## Causes
+- **Typo in the column name** — `emial` instead of `email`
+- **Missing or wrong table alias in a JOIN** — column exists but PostgreSQL can't resolve which table it belongs to
+- **Case-sensitive column created with double quotes** — `"Status"` won't match `status`
+- **Column alias used in WHERE or HAVING** — PostgreSQL doesn't allow this
+- **Schema mismatch after migration** — column renamed or not yet created
+- **Subquery or CTE column not exposed** — outer query references a name the inner query doesn't return
 
-- **Typo in the column name.** `SELECT emial FROM users` fails because the column is actually `email`.
-- **Missing table alias or wrong alias.** In a multi-table query, referencing `SELECT name FROM orders JOIN customers c ON ...` fails if `name` exists in `customers` but not `orders` and no alias is specified.
-- **Case sensitivity.** If a column was created with double quotes (`"Status"`), you must always reference it as `"Status"`. Without quotes, PostgreSQL folds identifiers to lowercase, so `SELECT Status` becomes `SELECT status` which won't match `"Status"`.
-- **Column dropped or renamed.** A migration renamed `user_name` to `username` but application code still references the old name.
-- **Wrong table in a JOIN.** The column exists in a different table than the one being referenced.
-- **Subquery or CTE column not exposed.** A subquery selects `id` but the outer query references `user_id` from that subquery.
-- **Schema mismatch after migration.** The application expects a column that a migration hasn't created yet, or that was rolled back.
+## Fix by Scenario
 
-## Solutions
+### Typo in column name
 
-1. **Check the actual column names in the table:**
-
-   ```sql
-   SELECT column_name, data_type
-   FROM information_schema.columns
-   WHERE table_name = 'users'
-   ORDER BY ordinal_position;
-   ```
-
-2. **Use a table alias to disambiguate columns in JOINs:**
-
-   ```sql
-   -- Bad: ambiguous or wrong table
-   SELECT name FROM orders JOIN customers ON orders.customer_id = customers.id;
-
-   -- Good: qualify with alias
-   SELECT c.name FROM orders o JOIN customers c ON o.customer_id = c.id;
-   ```
-
-3. **Handle case-sensitive column names:**
-
-   ```sql
-   -- If created with double quotes
-   SELECT "Status" FROM orders;
-
-   -- Check actual casing
-   SELECT column_name FROM information_schema.columns
-   WHERE table_name = 'orders' AND column_name ILIKE '%status%';
-   ```
-
-4. **Verify the column in psql:**
-
-   ```sql
-   \d users
-   ```
-
-5. **Check subquery or CTE column names:**
-
-   ```sql
-   -- Bad: outer query references a column the CTE doesn't expose
-   WITH active AS (SELECT id FROM users WHERE active = true)
-   SELECT user_id FROM active;
-
-   -- Good: match the column name
-   WITH active AS (SELECT id FROM users WHERE active = true)
-   SELECT id FROM active;
-   ```
-
-6. **Run pending migrations:**
-
-   If the column should have been added by a migration, verify it was applied:
-
-   ```bash
-   # Check migration status
-   flyway info
-   # Or check the change history in Bytebase
-   ```
-
-## Common scenarios
-
-**In ORMs and application code:** ORMs map model fields to column names. If you rename a field in your model but forget to generate a migration, or if the migration hasn't been applied, PostgreSQL will report 42703 at runtime. Check `\d tablename` against your model definition.
-
-**In GROUP BY and ORDER BY:** PostgreSQL doesn't allow referencing column aliases in `WHERE` or `HAVING` (though `ORDER BY` is fine). `SELECT email AS e FROM users WHERE e LIKE '%@%'` fails with 42703 because aliases aren't visible in `WHERE`.
+The most common cause. Check what columns actually exist:
 
 ```sql
--- Bad
+SELECT column_name, data_type
+FROM information_schema.columns
+WHERE table_name = 'users'
+ORDER BY ordinal_position;
+```
+
+Or in psql:
+
+```sql
+\d users
+```
+
+### Missing table alias in a JOIN
+
+When multiple tables have columns with similar names, PostgreSQL can't guess which one you mean:
+
+```sql
+-- Bad: ambiguous or wrong table
+SELECT name FROM orders JOIN customers ON orders.customer_id = customers.id;
+
+-- Good: qualify with alias
+SELECT c.name FROM orders o JOIN customers c ON o.customer_id = c.id;
+```
+
+### Case-sensitive column (created with double quotes)
+
+If a column was created as `"Status"` (quoted), PostgreSQL stores it in mixed case. Without quotes, PostgreSQL folds all identifiers to lowercase, so `SELECT Status` becomes `SELECT status` — which doesn't match `"Status"`.
+
+```sql
+-- Must use exact casing with double quotes
+SELECT "Status" FROM orders;
+
+-- Find the actual casing
+SELECT column_name FROM information_schema.columns
+WHERE table_name = 'orders' AND column_name ILIKE '%status%';
+```
+
+This catches people who move from MySQL (case-insensitive identifiers by default) to PostgreSQL.
+
+### Column alias used in WHERE or HAVING
+
+PostgreSQL doesn't allow referencing column aliases in `WHERE` or `HAVING` clauses. Aliases are only visible in `ORDER BY`.
+
+```sql
+-- Bad: alias not visible in WHERE
 SELECT email AS e FROM users WHERE e LIKE '%@%';
 
--- Good
+-- Good: use the original column name
 SELECT email AS e FROM users WHERE email LIKE '%@%';
 ```
 
-**After ALTER TABLE:** If a column was renamed with `ALTER TABLE users RENAME COLUMN user_name TO username`, any view, function, or application query still using the old name will fail with 42703. Search your codebase for the old column name.
+### Schema mismatch after migration (ORM or manual)
+
+ORMs map model fields to column names. If you rename a field in your model but forget to generate a migration, or if the migration hasn't been applied, PostgreSQL reports 42703 at runtime.
+
+```bash
+# Check migration status
+flyway info
+# Or verify columns against the model
+psql -c "\d tablename"
+```
+
+If a column was renamed with `ALTER TABLE users RENAME COLUMN user_name TO username`, any view, function, or application query still using the old name fails. Search your codebase for the old column name.
+
+### Subquery or CTE column not exposed
+
+The outer query references a column name that the inner query doesn't return:
+
+```sql
+-- Bad: outer query references 'user_id' but CTE only returns 'id'
+WITH active AS (SELECT id FROM users WHERE active = true)
+SELECT user_id FROM active;
+
+-- Good: match the column name
+WITH active AS (SELECT id FROM users WHERE active = true)
+SELECT id FROM active;
+```
+
+### After ALTER TABLE (views and functions break)
+
+PostgreSQL tracks column dependencies. If you drop or rename a column that a view, function, or trigger references, those objects will fail with 42703 on next use. Note that `SELECT *` views expand their column list at creation time — adding new columns to the table won't appear in the view, and dropping a column the view depends on will break it just like an explicit reference.
+
+```sql
+-- Find views that depend on a specific table
+SELECT dependent_ns.nspname AS view_schema, dependent_view.relname AS view_name
+FROM pg_depend
+JOIN pg_rewrite ON pg_depend.objid = pg_rewrite.oid
+JOIN pg_class AS dependent_view ON pg_rewrite.ev_class = dependent_view.oid
+JOIN pg_namespace AS dependent_ns ON dependent_view.relnamespace = dependent_ns.oid
+JOIN pg_class AS source_table ON pg_depend.refobjid = source_table.oid
+WHERE source_table.relname = 'your_table_name';
+
+-- Find functions referencing the old column name
+SELECT proname, prosrc FROM pg_proc
+WHERE prosrc ILIKE '%old_column_name%';
+```
+
+## Prevention
+
+- Use `\d tablename` or `information_schema.columns` to verify column names before writing queries
+- Avoid `SELECT *` in application queries and views — use explicit column lists so schema changes surface immediately
+- Avoid creating columns with double-quoted mixed-case names — it creates a permanent quoting requirement
+- Qualify columns with table aliases in JOINs to prevent ambiguous or wrong-table references
+- In ORMs, always generate and apply migrations before deploying code that references new columns
 
 <HintBlock type="info">
 
