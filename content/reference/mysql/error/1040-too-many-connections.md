@@ -100,8 +100,17 @@ KILL QUERY <id>;
 Address the root cause: add indexes, optimize the query, or set a query timeout:
 
 ```sql
--- Set a 30-second query timeout (MySQL 5.7.8+)
+-- Set a 30-second timeout for SELECT statements on NEW connections (MySQL 5.7.8+)
+-- Existing sessions keep their current SESSION max_execution_time value.
 SET GLOBAL max_execution_time = 30000;
+
+-- To apply a 30-second timeout for SELECT statements in the current session only:
+-- SET SESSION max_execution_time = 30000;
+
+-- To enforce a 30-second timeout for a single SELECT statement:
+-- SELECT /*+ MAX_EXECUTION_TIME(30000) */ ...
+-- FROM your_table
+-- WHERE ...;
 ```
 
 ### Connection pooler misconfiguration
