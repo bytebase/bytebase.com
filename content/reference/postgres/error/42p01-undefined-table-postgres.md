@@ -111,7 +111,7 @@ ON COMMIT PRESERVE ROWS;
 
 -- Verify temp tables in current session
 SELECT * FROM pg_catalog.pg_tables
-WHERE tableowner = current_user AND schemaname = 'pg_temp';
+WHERE tableowner = current_user AND schemaname LIKE 'pg_temp%';
 ```
 
 Connection poolers like PgBouncer in transaction mode reset session state between requests, which silently drops temp tables.
