@@ -8,6 +8,10 @@ import TerminalDockerRunPgUrl from '/snippets/install/terminal-docker-run-pg-url
 
 PostgreSQL 14 or above.
 
+<Note>
+External PostgreSQL is required for [High Availability](/get-started/self-host/high-availability/). HA mode is not supported with Bytebase's embedded PostgreSQL.
+</Note>
+
 ### Database
 
 Create a database named `bytebase` with UTF-8 encoding. UTF-8 encoding is required for proper system operation.
@@ -128,4 +132,3 @@ spec:
 <Note>
 When using file-based secrets, Kubernetes automatically updates the mounted file content when the Secret is updated (typically within a minute). Bytebase monitors the file for changes and automatically reloads the connection string, enabling seamless secret rotation without downtime.
 </Note>
-
