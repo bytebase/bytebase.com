@@ -10,17 +10,15 @@ keypage: true
 
 > If Liquibase is Git, then Bytebase is GitHub/GitLab.
 
-The right tool depends on how your team ships database changes — not just which databases you run. A solo developer writing changelogs in a terminal has different needs than a team where DBAs review every production migration. Here's where the two tools diverge, and where they overlap.
+The right tool depends on how your team ships database changes — not just which databases you run. A solo developer writing changelogs in a terminal has different needs than a platform team where DBAs review every production migration.
 
 ## How They Approach Schema Migration
 
-Both Bytebase and Liquibase track and apply schema changes to databases, but they come at the problem from different angles.
+**Liquibase** (v5.0, September 2025) is a CLI-first migration engine. You define changes in XML, YAML, SQL, or JSON changelogs, then run `liquibase update` to apply them. It slots into any CI/CD pipeline as a command-line step. The commercial edition — rebranded from "Liquibase Pro" to **Liquibase Secure** in September 2025 — adds policy checks, flow files for workflow automation, and structured JSON logging.
 
-**Liquibase** (v5.0, September 2025) is a CLI-first migration engine. You define changes in XML, YAML, SQL, or JSON changelogs, then run `liquibase update` to apply them. It fits into any CI/CD pipeline as a command-line step. The commercial edition — now called **Liquibase Secure** (rebranded from "Liquibase Pro" in September 2025) — adds policy checks, flow files for workflow automation, and structured JSON logging.
+**Bytebase** (v3.16, March 2026) is a web-based platform where developers submit changes, DBAs review and approve them, and the system rolls out across environments. Schema migration is one part of it — SQL review, access control, data masking, and audit logging are built in.
 
-**Bytebase** (v3.16, March 2026) is a web-based collaboration platform. Developers create change issues through a GUI, DBAs review and approve them, and the system handles rollout across environments. It wraps schema migration inside a broader workflow that includes SQL review, access control, data masking, and audit logging.
-
-The analogy: **Liquibase is Git for databases; Bytebase is GitHub/GitLab for databases.** Git handles version control locally. GitHub/GitLab adds collaboration, review, permissions, and CI/CD on top.
+Put another way: **Liquibase is Git for databases; Bytebase is GitHub/GitLab for databases.**
 
 ## What They Have in Common
 
@@ -60,7 +58,7 @@ The analogy: **Liquibase is Git for databases; Bytebase is GitHub/GitLab for dat
 
 **Bytebase** supports 23 database engines with deep integration: 9 RDBMS (MySQL, PostgreSQL, Oracle, SQL Server, MariaDB, TiDB, OceanBase, CockroachDB, Spanner), 6 NoSQL (MongoDB, Redis, Cassandra, DocumentDB, DynamoDB, Cosmos DB), 7 data warehouses (Snowflake, BigQuery, Redshift, Hive, ClickHouse, Databricks, StarRocks), and Elasticsearch.
 
-Liquibase covers more databases. Bytebase goes deeper on the databases it supports — features like online schema change, data masking, and AI-powered SQL review work at the database-engine level, not as generic wrappers.
+Liquibase covers more databases. Bytebase goes deeper on each one it supports — online schema change for MySQL, engine-specific SQL review rules for PostgreSQL, column-level data masking that understands each database's type system.
 
 ### Installation
 
@@ -104,13 +102,13 @@ SQL review triggers automatically in three places:
 2. When querying in the SQL Editor.
 3. In GitOps — before SQL is merged into the main branch.
 
-Bytebase also includes AI-powered SQL features: natural language to SQL, AI-based query explanation, and automated problem detection — powered by configurable LLMs (GPT-4o, Gemini, Claude).
+Bytebase also has AI features in the SQL Editor — text-to-SQL, query explanation, and problem detection. You bring your own LLM key.
 
 ### Approval Flow
 
 **Liquibase** has no built-in approval workflow in either edition. Approval happens outside the tool — in your CI/CD pipeline, Jira tickets, or Slack messages.
 
-**Bytebase** provides [risk-based custom approval flows](https://www.bytebase.com/docs/administration/custom-approval/). You define rules like "DDL changes to production require DBA approval" or "any change touching more than 3 databases needs manager sign-off." The system auto-classifies risk and routes approvals accordingly.
+**Bytebase** has [risk-based custom approval flows](https://www.bytebase.com/docs/administration/custom-approval/). You define rules like "DDL on prod needs DBA approval" or "changes touching 3+ databases need manager sign-off," and the system routes each issue to the right reviewers based on what it touches.
 
 ![Bytebase custom approval flow configuration](/content/blog/bytebase-vs-liquibase/bytebase-custom-approval-flow.webp)
 
@@ -138,16 +136,16 @@ Bytebase also includes AI-powered SQL features: natural language to SQL, AI-base
 
 ### Data Access Control and Audit
 
-This is where the tools diverge most. **Liquibase** (both editions) has no access control, data masking, or audit logging features — it's a migration tool, not a governance platform.
+**Liquibase** doesn't touch this area — neither edition has access control, data masking, or audit logging. It's a migration engine, full stop.
 
-**Bytebase** includes:
+**Bytebase** bundles all of this:
 
 - **[RBAC](https://www.bytebase.com/docs/concepts/roles-and-permissions/)** — workspace and project-level roles (Admin, DBA, Developer, Releaser) plus custom roles with granular permissions.
 - **[SQL Editor](https://www.bytebase.com/docs/sql-editor/overview/)** — centralized query interface where data access is controlled and logged.
 - **[Data masking](https://www.bytebase.com/docs/security/data-masking/overview/)** — column-level dynamic masking with multi-level policies, built into the SQL Editor.
 - **[Audit log](https://www.bytebase.com/docs/security/audit-log/)** — every operation is recorded, with integrations to Splunk, Datadog, Elastic, and cloud logging services.
 - **SSO** (Google, GitHub, OIDC, LDAP) and **2FA** for enterprise authentication.
-- **Just-In-Time (JIT) data access** (v3.16) — time-limited, approval-gated query access.
+- **Just-In-Time (JIT) data access** (new in v3.16) — developers request temporary query access, a reviewer approves it, and access expires automatically.
 
 ![Bytebase SQL Editor with controlled data access](/content/blog/bytebase-vs-liquibase/bytebase-sql-editor.webp)
 
@@ -175,7 +173,7 @@ This is where the tools diverge most. **Liquibase** (both editions) has no acces
 
 ### Can I use Liquibase and Bytebase together?
 
-They solve different layers of the problem. Liquibase handles the migration file format and execution engine; Bytebase handles the collaboration, review, and governance workflow. In practice, most teams choose one — but if you already have Liquibase changelogs, you can keep using them while adopting Bytebase for the review and deployment workflow.
+They solve different layers. Liquibase handles the migration file format and execution; Bytebase handles collaboration, review, and governance. Most teams pick one, but if you already have a library of Liquibase changelogs, you don't have to throw them away — Bytebase can manage the review and deployment side while Liquibase stays as the execution engine.
 
 ### Is Liquibase still open source?
 
@@ -183,11 +181,11 @@ Liquibase Community switched from Apache 2.0 to the Functional Source License (F
 
 ### Which tool has better CI/CD integration?
 
-Liquibase has the edge for pure CLI pipelines — it's a single command that drops into any CI/CD system. Bytebase has the edge for GitOps workflows — it natively integrates with GitHub/GitLab and turns committed SQL files into reviewable issues with automated checks.
+Depends on what "CI/CD integration" means to you. If it means "I want a command I can add to my Jenkins/GitHub Actions pipeline," Liquibase wins — it's just a CLI call. If it means "I want SQL files in a repo to automatically become reviewed, approved change issues," Bytebase's GitOps integration does that out of the box.
 
 ### What happened to Liquibase Hub?
 
-Liquibase Hub (the web dashboard) was sunset in April 2023. It was not replaced with a new GUI. Instead, Liquibase Secure provides observability through structured JSON logs that feed into third-party dashboards like Datadog or Splunk, plus a VS Code extension for IDE-based interaction.
+Liquibase Hub (the web dashboard) was sunset in April 2023 and never replaced. There's no Liquibase GUI anymore. The Secure edition compensates with structured JSON logs you can pipe into Datadog or Splunk, and a VS Code extension for IDE-based interaction — but if you want a web UI for database changes, Liquibase doesn't have one.
 
 ---
 
