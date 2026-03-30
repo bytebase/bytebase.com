@@ -15,7 +15,7 @@ Bytebase offers [3 pricing plans](https://www.bytebase.com/pricing): `Free`, `Pr
 </Info>
 
 <Note>
-Running more than one self-hosted Bytebase replica requires HA to be enabled in the license. If multiple replicas are detected without HA enabled, Bytebase disables backend runners for safety.
+Running more than one self-hosted Bytebase replica requires HA to be enabled in the license. If multiple replicas are detected without HA enabled, Bytebase disables backend runners for safety. As a result, background operations such as rollout task execution, plan checks, schema sync, and other scheduled runners will stop progressing until you scale back to a single replica or enable HA in the license.
 </Note>
 
 ## Configure Workspace License
