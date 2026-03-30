@@ -8,89 +8,137 @@ title: 'ERROR 1040 (HY000): Too Many Connections'
 ERROR 1040 (HY000): Too many connections
 ```
 
-## Description
+You may also see this from application code as a connection refused or pool exhaustion error, depending on your driver. The MySQL error log will show `Aborted connection` entries alongside it.
 
-This error occurs when the MySQL server has reached its maximum allowed number of concurrent client connections. The server is unable to accept any new connections until existing connections are closed or terminated.
+## What Triggers This Error
 
-## Causes
+MySQL 1040 means every connection slot is occupied and the server can't accept new ones. The fix depends on why the slots filled up:
 
-- Low `max_connections` setting (default is often too low, typically 151)
-- Connection leaks in applications (not properly closing connections)
-- Inefficient connection pooling configuration
-- Long-running queries holding connections open
-- Sleeping connections consuming connection slots
-- Sudden increases in application traffic
-- Unclosed transactions keeping connections active
-- Insufficient server resources to handle more connections
+- **Connection leak in application code** — connections opened but never closed
+- **`max_connections` set too low for the workload** — the default (151) is often insufficient
+- **Long-running queries holding connections** — slots occupied by queries that haven't finished
+- **Connection pooler misconfiguration** — pool max exceeds server max, or idle connections aren't being reaped
+- **Sudden traffic spike** — legitimate load exceeding capacity
 
-## Solutions
+## Fix by Scenario
 
-1. **Increase max_connections limit**:
+### Connection leak in application code
 
-   ```sql
-   -- Check current max_connections value
-   SHOW VARIABLES LIKE 'max_connections';
+The most common cause. Your application opens connections but doesn't close them — usually because error paths skip the cleanup step, or connections are created inside loops without proper release.
 
-   -- Increase max_connections temporarily
-   SET GLOBAL max_connections = 500;
+```sql
+-- Check how many connections are sleeping (idle)
+SELECT user, host, command, time, state
+FROM information_schema.processlist
+WHERE command = 'Sleep'
+ORDER BY time DESC;
+```
 
-   -- For permanent changes, modify my.cnf/my.ini:
-   # max_connections = 500
-   ```
+If you see hundreds of `Sleep` connections from the same application user with high `time` values, that's a leak. Fix the application code — ensure every connection is closed in a `finally` block (Java/Python) or `defer` (Go):
 
-2. **Implement connection pooling**:
+```python
+# Python example — always close in finally
+conn = mysql.connector.connect(...)
+try:
+    cursor = conn.cursor()
+    cursor.execute("SELECT ...")
+finally:
+    conn.close()
+```
 
-   Configure connection pools in your application:
+As an immediate fix to restore access, kill the sleeping connections:
 
-   ```
-   # Example pool settings:
-   pool_size = 10           # Base connections
-   pool_max_size = 20       # Maximum connections
-   pool_idle_timeout = 300  # Seconds before idle connection is closed
-   ```
+```sql
+-- Kill connections sleeping longer than 5 minutes
+SELECT CONCAT('KILL CONNECTION ', id, ';')
+FROM information_schema.processlist
+WHERE command = 'Sleep' AND time > 300;
+```
 
-3. **Terminate idle connections**:
+### `max_connections` set too low
 
-   ```sql
-   -- Show current connections and their state
-   SHOW PROCESSLIST;
+The default of 151 is a conservative starting point. Production workloads with multiple application instances, background jobs, and monitoring agents can exceed this quickly.
 
-   -- Kill long-running or sleeping connections
-   KILL CONNECTION connection_id;
-   ```
+```sql
+-- Check current setting and usage
+SHOW VARIABLES LIKE 'max_connections';
+SHOW STATUS LIKE 'Threads_connected';
+SHOW STATUS LIKE 'Max_used_connections';
+```
 
-4. **Configure connection timeouts**:
+If `Max_used_connections` is close to or equal to `max_connections`, you're hitting the ceiling:
 
-   ```sql
-   -- Reduce timeout values
-   SET GLOBAL wait_timeout = 300;         -- Close inactive connections after 5 minutes
-   SET GLOBAL interactive_timeout = 300;   -- Close inactive client connections after 5 minutes
-   ```
+```sql
+-- Increase temporarily (takes effect immediately, lost on restart)
+SET GLOBAL max_connections = 500;
+```
+
+For a permanent change, edit `my.cnf`:
+
+```ini
+[mysqld]
+max_connections = 500
+```
+
+Each connection uses memory (roughly 1-10 MB depending on buffers), so don't set this to 10,000 — increase it in proportion to available RAM.
+
+### Long-running queries holding connections
+
+A slow query or stuck transaction can hold a connection for hours. If enough of them pile up, you run out of slots.
+
+```sql
+-- Find queries running longer than 60 seconds
+SELECT id, user, host, db, time, state, LEFT(info, 100) AS query
+FROM information_schema.processlist
+WHERE command != 'Sleep' AND time > 60
+ORDER BY time DESC;
+
+-- Kill a specific long-running query
+KILL QUERY <id>;
+```
+
+Address the root cause: add indexes, optimize the query, or set a query timeout:
+
+```sql
+-- Set a 30-second query timeout (MySQL 5.7.8+)
+SET GLOBAL max_execution_time = 30000;
+```
+
+### Connection pooler misconfiguration
+
+If you're using a connection pool (HikariCP, DBCP, SQLAlchemy pool, ProxySQL), the pool's maximum size multiplied by the number of application instances must not exceed `max_connections`.
+
+Example: 5 app instances × pool max 50 = 250 connections needed, but `max_connections` is 151.
+
+```yaml
+# HikariCP example — keep pool small, set idle timeout
+maximumPoolSize: 20
+minimumIdle: 5
+idleTimeout: 300000    # 5 minutes
+maxLifetime: 1800000   # 30 minutes
+```
+
+For ProxySQL, ensure `mysql-max_connections` on the backend server entry matches the actual MySQL setting.
+
+### Sudden traffic spike
+
+Legitimate load exceeding capacity. Short-term: increase `max_connections` and add connection pooling at the application or proxy layer. Long-term: consider read replicas, query caching, or moving to a managed service with auto-scaling.
+
+```sql
+-- Monitor connection growth in real time
+SHOW STATUS LIKE 'Threads_connected';
+SHOW STATUS LIKE 'Connections';  -- cumulative since startup
+```
 
 ## Prevention
 
-1. **Use connection pooling** in your applications (HikariCP, DBCP, PDO)
-
-2. **Properly manage connections** in application code:
-
-   - Always close connections after use
-   - Use try-finally blocks to ensure connections are released
-   - Implement connection reuse
-
-3. **Monitor active connections**:
-
-   ```sql
-   -- Check current connection count
-   SHOW STATUS LIKE 'Threads_connected';
-   ```
-
-4. **Optimize slow queries** that hold connections open:
-   ```sql
-   -- Enable slow query log
-   SET GLOBAL slow_query_log = 'ON';
-   SET GLOBAL long_query_time = 1;
-   ```
+- Use connection pooling in every application that connects to MySQL — never open raw connections per request
+- Set `wait_timeout` and `interactive_timeout` to close idle connections automatically (300-600 seconds is reasonable)
+- Monitor `Threads_connected` vs `max_connections` and alert at 80% utilization
+- Enable the slow query log (`long_query_time = 1`) to catch queries that hold connections too long
 
 <HintBlock type="info">
-Increasing max_connections requires more memory. Each connection consumes server resources, so simply increasing this value without addressing underlying issues can lead to performance problems. Connection pooling is often a better solution.
+
+Bytebase's [SQL Review](https://www.bytebase.com/docs/sql-review/review-rules/) can catch problematic queries during change review before they cause connection issues in production. See also [ERROR 53300: Too Many Connections in Postgres](/reference/postgres/error/53300-too-many-connections) for the PostgreSQL equivalent.
+
 </HintBlock>
