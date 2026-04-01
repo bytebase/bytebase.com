@@ -31,7 +31,7 @@ This concise guide compares pricing across seven major MySQL hosting providers: 
 | Azure MySQL      | $14.60 (B1ms: 1 vCPU, 2 GiB)            | $99.28 (GP_Gen5_4: 4 vCPU, 16 GiB)          | $794.24 (GP_Gen5_32: 32 vCPU, 128 GiB)       | Yes (12 months) |
 | DigitalOcean     | $15.15 (1 vCPU, 1 GiB)                  | $60.90 (2 vCPU, 4 GiB)                      | $244.35 (6 vCPU, 16 GiB)                     | No              |
 | Aiven            | Free (2 vCPU, 1 GiB)                    | $110 (Startup tier: 2-4 vCPU, 4-8 GiB)      | $435 (Premium tier: 4-8 vCPU, 16-32 GiB)     | Yes             |
-| PlanetScale      | $39 (⅛ vCPU, 1 GiB) - includes 1 primary and 2 replicas | $179 (1 vCPU, 8 GiB) - includes 1 primary and 2 replicas | $999 (8 vCPU, 32 GiB) - includes 1 primary and 2 replicas | No              |
+| PlanetScale      | $39 (1/8 vCPU, 1 GiB) - includes 1 primary and 2 replicas | $179 (1 vCPU, 8 GiB) - includes 1 primary and 2 replicas | $999 (8 vCPU, 32 GiB) - includes 1 primary and 2 replicas | No              |
 
 _Entry-level options provide the most economical starting point, with Google Cloud SQL and AWS RDS offering the lowest prices. DigitalOcean, PlanetScale, and Aiven provide more predictable performance at this tier compared to the burstable instances from hyperscalers. Notably, Aiven offers a completely free tier suitable for development._
 
