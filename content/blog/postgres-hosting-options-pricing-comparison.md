@@ -47,7 +47,7 @@ Most providers mix these models, with key cost factors including compute, storag
 | **Neon**             | Free (1 vCPU, 1 GiB)                    | $59 (2 vCPU, 4 GiB)                         | $299 (8 vCPU, 16 GiB)                        | Yes                 |
 | **Supabase**         | Free (1 vCPU, 0.5 GiB)                  | $25 (2 vCPU, 1 GiB)                         | $99 (4 vCPU, 8 GiB)                          | Yes                 |
 | **Timescale**        | Free (1 vCPU, 1 GiB)                    | $89 (2 vCPU, 4 GiB)                         | $499 (8 vCPU, 16 GiB)                        | Yes                 |
-| **PlanetScale Postgres** | $5 (PS-5: 1/16 vCPU, 512 MB)        | $117 (PS-160: 2 vCPU, 16 GiB)               | $467 (PS-640: 8 vCPU, 64 GiB)                | No                  |
+| **PlanetScale Postgres** | $5 (PS-5: 1/16 vCPU, 512 MiB)       | $117 (PS-160: 2 vCPU, 16 GiB)               | $467 (PS-640: 8 vCPU, 64 GiB)                | No                  |
 | **Heroku Postgres**  | Free (0.5 vCPU, 512 MiB)                | $50 (1 vCPU, 1 GiB)                         | $500+ (8 vCPU, 16 GiB)                       | Yes                 |
 
 ## Major Cloud Providers: The Big Three
