@@ -27,7 +27,7 @@ Put another way: **Liquibase is Git for databases; Bytebase is GitHub/GitLab for
 - Schema synchronization and diff capabilities.
 - Change history tracking.
 - Tiered pricing with a free community edition.
-- Both are open source — though Liquibase switched from Apache 2.0 to the Functional Source License (FSL) in September 2025 with v5.0. Bytebase uses the MIT-like BSL license for its enterprise features.
+- Both are open source — though Liquibase switched from Apache 2.0 to the Functional Source License (FSL) in September 2025 with v5.0. Bytebase is MIT licensed, with enterprise features under a commercial license.
 
 ## Key Differences Between Bytebase and Liquibase
 
@@ -175,7 +175,7 @@ They solve different layers. Liquibase handles the migration file format and exe
 
 ### Is Liquibase still open source?
 
-Liquibase Community switched from Apache 2.0 to the Functional Source License (FSL) in September 2025. FSL is not an OSI-approved open source license — it restricts commercial use in competing products. Each version reverts to Apache 2.0 after two years. Bytebase core is open source under a similar business source license.
+Liquibase Community switched from Apache 2.0 to the Functional Source License (FSL) in September 2025. FSL is not an OSI-approved open source license — it restricts commercial use in competing products. Each version reverts to Apache 2.0 after two years. Bytebase is MIT licensed, with enterprise features under a commercial license.
 
 ### Which tool has better CI/CD integration?
 
