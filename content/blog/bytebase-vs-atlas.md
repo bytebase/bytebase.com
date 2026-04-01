@@ -5,7 +5,6 @@ updated_at: 2026/04/01 12:00:00
 feature_image: /content/blog/bytebase-vs-atlas/banner.webp
 tags: Comparison
 description: 'Bytebase vs. Atlas compared across migration approach, CI/CD, access control, and pricing. Updated for Atlas v1.1 and Bytebase 3.16.'
-keypage: true
 ---
 
 > Atlas is Terraform for databases. Bytebase is GitHub/GitLab for databases.
