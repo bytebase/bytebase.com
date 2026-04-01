@@ -40,7 +40,7 @@ Where does your team actually lose time? If developers keep writing bad migratio
 | [Approval flow](#approval-flow) | Cloud Pro: ad-hoc approval | All tiers: manual rollout; Enterprise: custom multi-tier approval |
 | [CI/CD integration](#cicd-integration) | GitHub Actions, Terraform, K8s operator; Cloud Pro adds managed CI | GitOps (GitHub, GitLab, Bitbucket, Azure DevOps) + API for any platform |
 | [Access control & audit](#access-control-and-audit) | Cloud Pro: audit trails; Enterprise: SSO | All tiers: workspace/project roles; Pro: SSO, audit log; Enterprise: + dynamic data masking, just-in-time data access, custom roles |
-| [License](#pricing) | CLI: Apache 2.0 | MIT + commercial (Enterprise features) |
+| License | CLI: Apache 2.0 | MIT + commercial (Enterprise features) |
 
 ### Pricing Comparison
 
@@ -86,7 +86,7 @@ A team of developers who live in the terminal and deploy their own changes will 
 
 ### Supported Databases
 
-**Atlas** supports 16 databases: PostgreSQL, MySQL, MariaDB, SQLite, SQL Server, ClickHouse, CockroachDB, TiDB, Oracle, Snowflake, Databricks, Spanner, Redshift, Aurora DSQL, Azure Fabric, and CockroachDB Cloud. Several graduated from beta to GA in the v1.0 release (December 2025).
+**Atlas** supports 16 databases: PostgreSQL, MySQL, MariaDB, SQLite, SQL Server, ClickHouse, CockroachDB, TiDB, Oracle, Snowflake, Databricks, Spanner, Redshift, Aurora DSQL, and Azure Fabric. CockroachDB is supported both self-hosted and via CockroachDB Cloud. Several graduated from beta to GA in the v1.0 release (December 2025).
 
 **Bytebase** supports 23 engines: 9 RDBMS (MySQL, PostgreSQL, Oracle, SQL Server, MariaDB, TiDB, OceanBase, CockroachDB, Spanner), 6 NoSQL (MongoDB, Redis, Cassandra, DocumentDB, DynamoDB, Cosmos DB), 7 data warehouses (Snowflake, BigQuery, Redshift, Hive, ClickHouse, Databricks, StarRocks), and Elasticsearch.
 
