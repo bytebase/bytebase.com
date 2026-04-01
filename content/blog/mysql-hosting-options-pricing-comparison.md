@@ -17,7 +17,7 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 | -------------- | ---------------- |
 | 2025/04/28     | Initial version. |
 
-This concise guide compares pricing across six major MySQL hosting providers: AWS RDS, AWS Aurora, Google Cloud SQL, Azure Database for MySQL, DigitalOcean, and Aiven. Assuming you're familiar with these services, we'll focus on pricing structures, cost comparisons, and recommendations for different use cases.
+This concise guide compares pricing across seven major MySQL hosting providers: AWS RDS, AWS Aurora, Google Cloud SQL, Azure Database for MySQL, DigitalOcean, PlanetScale, and Aiven. Assuming you're familiar with these services, we'll focus on pricing structures, cost comparisons, and recommendations for different use cases.
 
 ## Pricing Comparison Tables
 
@@ -31,8 +31,11 @@ This concise guide compares pricing across six major MySQL hosting providers: AW
 | Azure MySQL      | $14.60 (B1ms: 1 vCPU, 2 GiB)            | $99.28 (GP_Gen5_4: 4 vCPU, 16 GiB)          | $794.24 (GP_Gen5_32: 32 vCPU, 128 GiB)       | Yes (12 months) |
 | DigitalOcean     | $15.15 (1 vCPU, 1 GiB)                  | $60.90 (2 vCPU, 4 GiB)                      | $244.35 (6 vCPU, 16 GiB)                     | No              |
 | Aiven            | Free (2 vCPU, 1 GiB)                    | $110 (Startup tier: 2-4 vCPU, 4-8 GiB)      | $435 (Premium tier: 4-8 vCPU, 16-32 GiB)     | Yes             |
+| PlanetScale      | $39 (⅛ vCPU, 1 GiB) - includes 1 primary and 2 replicas | $179 (1 vCPU, 8 GiB) - includes 1 primary and 2 replicas | $999 (8 vCPU, 32 GiB) - includes 1 primary and 2 replicas | No              |
 
-_Entry-level options provide the most economical starting point, with Google Cloud SQL and AWS RDS offering the lowest prices. DigitalOcean and Aiven provide more predictable performance at this tier compared to the burstable instances from hyperscalers. Notably, Aiven offers a completely free tier suitable for development._
+_Entry-level options provide the most economical starting point, with Google Cloud SQL and AWS RDS offering the lowest prices. DigitalOcean, PlanetScale, and Aiven provide more predictable performance at this tier compared to the burstable instances from hyperscalers. Notably, Aiven offers a completely free tier suitable for development._
+
+_PlanetScale has a locally-attached NVMe offering which has a much better price to performance ratio, but we have chosen not to include it here as the specs aren't directly comparable to their network-attached storage product._
 
 ![entry_level_pricing_chart](/content/blog/mysql-hosting-options-pricing-comparison/entry_level_pricing_chart.webp)
 
@@ -42,7 +45,7 @@ _The chart above illustrates the significant price difference between AWS Aurora
 
 ![mid_range_pricing_chart](/content/blog/mysql-hosting-options-pricing-comparison/mid_range_pricing_chart.webp)
 
-_At the mid-range tier, AWS Aurora is significantly more expensive than other options, while DigitalOcean offers the most economical solution. AWS RDS and Azure provide identical pricing at this tier, making them interchangeable from a pure cost perspective._
+_At the mid-range tier, AWS Aurora is significantly more expensive than other options, while DigitalOcean offers the most economical solution. AWS RDS and Azure provide identical pricing at this tier, making them interchangeable from a pure cost perspective. PlanetScale is among the more expensive tiers at first glance, but their clusters include an HA setup by default with 1 primary and 2 replicas distributed across 3 AZs._
 
 ### Enterprise-Level Pricing Comparison
 
@@ -63,6 +66,8 @@ _The enterprise tier shows the most dramatic pricing differences, with AWS Auror
 | Azure MySQL      | Business Critical          | $0.25               | Higher performance          |
 | DigitalOcean     | SSD                        | Included in plan    | Varies by plan              |
 | Aiven            | SSD                        | Included in plan    | Varies by plan              |
+| PlanetScale      | General Purpose             | $0.50               | Scales with instance        |
+| PlanetScale      | NVMe                        | Included            | Extreme performance; No IOPS limits |
 
 _Storage pricing varies significantly between unbundled (AWS, Google, Azure) and bundled (DigitalOcean, Aiven) approaches. For high-performance workloads, AWS's provisioned IOPS offers the most control but at premium pricing. Google Cloud SQL has the highest SSD pricing, while Aurora offers good value with its distributed storage system._
 
@@ -79,6 +84,7 @@ _The chart above shows that Azure Business Critical storage is significantly mor
 | Azure MySQL      | Free    | Free                   | $0.01-$0.05/GB              | $0.05-$0.12/GB       |
 | DigitalOcean     | Free    | Free                   | N/A                         | $0.01/GB (after 1TB) |
 | Aiven            | Free    | Free                   | Included                    | Included             |
+| PlanetScale      | Free    | Free                   | Included                    | Included             |
 
 _Network transfer costs become significant for applications with heavy data movement, especially across regions or to the internet. DigitalOcean offers the most economical outbound internet transfer, while Aiven includes all network transfer in their base pricing, eliminating this variable cost component._
 
@@ -96,8 +102,9 @@ _The chart above highlights the dramatic difference in outbound internet transfe
 | Azure MySQL      | 1.5-2x instance cost               | Included for 7-35 days based on tier | Included               |
 | DigitalOcean     | Additional cost for standby nodes  | Included in plan                     | Included               |
 | Aiven            | Included in Business/Premium tiers | Included in plan                     | Included               |
+| PlanetScale      | Included (1 primary + 2 replicas)  | 2x daily backups included            | Not available           |
 
-_High availability configurations significantly impact total cost, effectively doubling the price for most providers except Aurora (which has built-in HA) and Aiven (which includes it in higher tiers). Backup costs are generally included with limitations, with Google Cloud SQL being the only provider to charge after a certain threshold._
+_High availability configurations significantly impact total cost, effectively doubling the price for most providers except Aurora (which has built-in HA) and Aiven (which includes it in higher tiers). PlanetScale MySQL/Vitess clusters come HA with 3 nodes by default. Backup costs are generally included with limitations, with Google Cloud SQL being the only provider to charge after a certain threshold._
 
 ![ha_backup_pricing_chart](/content/blog/mysql-hosting-options-pricing-comparison/ha_backup_pricing_chart.webp)
 
@@ -114,6 +121,7 @@ _The chart above illustrates two critical cost factors: high availability multip
 | Azure        | 1-3 year Reserved Capacity  | 55%              | Limited to specific instance   |
 | DigitalOcean | None                        | N/A              | Pay-as-you-go only             |
 | Aiven        | Annual commitments          | Custom pricing   | Limited flexibility            |
+| PlanetScale  | Annual commitments          | Discounts for consumption and AWS/GCP Marketplace | Custom                         |
 
 _For predictable, stable workloads, commitment-based discounts from major cloud providers offer substantial savings. AWS provides the highest potential discount but with less flexibility than Google's commitment model._
 
@@ -126,6 +134,7 @@ _For predictable, stable workloads, commitment-based discounts from major cloud 
 | Google Cloud | None (only auto storage scaling) | Full instance cost | N/A                 |
 | DigitalOcean | None                             | Full instance cost | N/A                 |
 | Aiven        | None                             | Full instance cost | N/A                 |
+| PlanetScale  | None                             | Full instance cost | N/A                 |
 
 _For variable or unpredictable workloads, AWS Aurora Serverless offers the most mature consumption-based model, potentially reducing costs during periods of low activity. Azure is developing similar capabilities but with less granularity._
 
@@ -138,6 +147,7 @@ _For variable or unpredictable workloads, AWS Aurora Serverless offers the most 
 | Azure MySQL      | 30+ regions                       | Strong                  | 5-25% variation             |
 | DigitalOcean     | 8 regions                         | Limited                 | Uniform pricing             |
 | Aiven            | 90+ regions (via cloud providers) | Strong                  | Uniform pricing             |
+| PlanetScale      | 18 regions (via cloud providers)  | Strong                  | 5-20% variation             |
 
 _Regional availability directly impacts data sovereignty compliance. The hyperscalers offer the most comprehensive regional coverage, while Aiven leverages underlying cloud providers to offer the widest deployment options with consistent pricing across regions._
 
@@ -149,6 +159,7 @@ The MySQL hosting market in 2025 offers diverse pricing models catering to diffe
 2. **Azure** balances feature richness with moderate pricing complexity.
 3. **DigitalOcean** emphasizes simplicity and predictability at the expense of some flexibility.
 4. **Aiven** offers multi-cloud flexibility with straightforward pricing but at a premium for higher tiers.
+5. **PlanetScale** starts at a higher price, but includes high availability by default and offers better price to performance options with locally-attached NVMe.
 
 ## References
 
@@ -160,6 +171,7 @@ The MySQL hosting market in 2025 offers diverse pricing models catering to diffe
 1. [Azure Database for MySQL Pricing](https://azure.microsoft.com/en-us/pricing/details/mysql/)
 1. [DigitalOcean Managed Databases Pricing](https://www.digitalocean.com/pricing/managed-databases)
 1. [Aiven MySQL Pricing](https://aiven.io/pricing)
+1. [PlanetScale Pricing](https://planetscale.com/pricing)
 
 **Cost Optimization Guides**
 

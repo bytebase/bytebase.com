@@ -19,7 +19,7 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 
 PostgreSQL remains a top choice for relational databases in 2025 due to its reliability, extensibility, and active open-source community. With many hosting options available, choosing the right provider is key to balancing performance, scalability, and cost.
 
-This article compares PostgreSQL hosting solutions from major clouds (AWS, GCP, Azure) and specialized providers (DigitalOcean, Aiven, Neon, Supabase, Timescale, Heroku), focusing on pricing models and key cost factors to help you make an informed decision.
+This article compares PostgreSQL hosting solutions from major clouds (AWS, GCP, Azure) and specialized providers (DigitalOcean, Aiven, Neon, PlanetScale, Supabase, Timescale, Heroku), focusing on pricing models and key cost factors to help you make an informed decision.
 
 ## Understanding Pricing Models
 
@@ -47,6 +47,7 @@ Most providers mix these models, with key cost factors including compute, storag
 | **Neon**             | Free (1 vCPU, 1 GiB)                    | $59 (2 vCPU, 4 GiB)                         | $299 (8 vCPU, 16 GiB)                        | Yes                 |
 | **Supabase**         | Free (1 vCPU, 0.5 GiB)                  | $25 (2 vCPU, 1 GiB)                         | $99 (4 vCPU, 8 GiB)                          | Yes                 |
 | **Timescale**        | Free (1 vCPU, 1 GiB)                    | $89 (2 vCPU, 4 GiB)                         | $499 (8 vCPU, 16 GiB)                        | Yes                 |
+| **PlanetScale Postgres** | $5 (PS-5: 1/16 vCPU, 512 MB)        | $117 (PS-160: 2 vCPU, 16 GiB)               | $467 (PS-640: 8 vCPU, 64 GiB)                | No                  |
 | **Heroku Postgres**  | Free (0.5 vCPU, 512 MiB)                | $50 (1 vCPU, 1 GiB)                         | $500+ (8 vCPU, 16 GiB)                       | Yes                 |
 
 ## Major Cloud Providers: The Big Three
@@ -155,6 +156,18 @@ Neon offers a serverless PostgreSQL platform with a unique architecture separati
 - 💾 **Backups**: Includes time-travel and PITR
 - 🆓 **Free Tier**: ✅ Yes
 
+### PlanetScale Postgres
+
+PlanetScale offers a managed PostgreSQL service with resource-based pricing, pro-rated to the millisecond.
+
+- 💰 **Model**: Resource-based, pro-rated to the millisecond
+- 💵 **Entry Point**: $5/month (1/16 vCPU, 10 GB storage)
+- ⚙️ **Compute**: Billed only when active; scales to zero when idle
+- 📦 **Storage**: 10 GB included, then billed per GB-month
+- 🛡️ **High Availability**: Built-in, cross-AZ replication
+- 💾 **Backups**: 2x per day included + PITR
+- 🆓 **Free Tier**: ❌ No, but startup credits available case-by-case
+
 ### Supabase
 
 Supabase positions itself as an open-source Firebase alternative, providing a suite of backend tools, including a dedicated PostgreSQL database for each project.
@@ -190,6 +203,6 @@ Heroku Postgres is one of the original and well-known managed PostgreSQL service
 
 ## Conclusion
 
-In 2025, PostgreSQL hosting ranges from flexible cloud platforms (AWS, GCP, Azure) to simple, developer-focused options (Neon, Supabase, Aiven, etc.).
+In 2025, PostgreSQL hosting ranges from flexible cloud platforms (AWS, GCP, Azure) to simple, developer-focused options (Neon, PlanetScale, Supabase, Aiven, etc.).
 
 Cloud providers offer power and scale, but with complex pricing. Specialized hosts are easier to use, often with free tiers and clear pricing. Match your choice to workload needs, budget, and team expertise. Start small, test with free plans, and scale as needed.
