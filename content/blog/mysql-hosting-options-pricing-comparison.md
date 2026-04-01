@@ -104,7 +104,7 @@ _The chart above highlights the dramatic difference in outbound internet transfe
 | Aiven            | Included in Business/Premium tiers | Included in plan                     | Included               |
 | PlanetScale      | Included (1 primary + 2 replicas)  | 2x daily backups included            | Not available           |
 
-_High availability configurations significantly impact total cost, effectively doubling the price for most providers except Aurora (which has built-in HA) and Aiven (which includes it in higher tiers). PlanetScale MySQL/Vitess clusters come HA with 3 nodes by default. Backup costs are generally included with limitations, with Google Cloud SQL being the only provider to charge after a certain threshold._
+_High availability configurations significantly impact total cost, effectively doubling the price for most providers except Aurora (which has built-in HA) and Aiven (which includes it in higher tiers). PlanetScale MySQL/Vitess clusters come with HA and 3 nodes by default. Backup costs are generally included with limitations, with Google Cloud SQL being the only provider to charge after a certain threshold._
 
 ![ha_backup_pricing_chart](/content/blog/mysql-hosting-options-pricing-comparison/ha_backup_pricing_chart.webp)
 
