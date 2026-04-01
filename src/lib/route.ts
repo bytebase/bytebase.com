@@ -99,6 +99,7 @@ const Route = {
   // comparison
   VS_LIQUIBASE: '/blog/bytebase-vs-liquibase',
   VS_FLYWAY: '/blog/bytebase-vs-flyway',
+  VS_ATLAS: '/blog/bytebase-vs-atlas',
   VS_DBEAVER: '/blog/bytebase-vs-dbeaver',
   VS_DATAGRIP: '/blog/bytebase-vs-datagrip',
   VS_NAVICAT: '/blog/stop-using-navicat',

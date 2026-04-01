@@ -10,6 +10,7 @@ const FOOTER_MENU = [
     items: [
       { name: 'vs. Liquibase', linkUrl: Route.VS_LIQUIBASE },
       { name: 'vs. Flyway', linkUrl: Route.VS_FLYWAY },
+      { name: 'vs. Atlas', linkUrl: Route.VS_ATLAS },
       { name: 'vs. DataGrip', linkUrl: Route.VS_DATAGRIP },
       { name: 'vs. DBeaver', linkUrl: Route.VS_DBEAVER },
       { name: 'vs. CloudBeaver', linkUrl: Route.VS_CLOUDBEAVER },
