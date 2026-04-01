@@ -1,7 +1,7 @@
 ---
 title: 'MySQL Hosting Options in 2025: Pricing Comparison'
 author: Tianzhou
-updated_at: 2025/04/28 15:00:00
+updated_at: 2026/04/01 15:00:00
 feature_image: /content/blog/mysql-hosting-options-pricing-comparison/banner.webp
 tags: Industry
 description: Compare the price of the mainstream managed MySQL hosting providers
@@ -15,6 +15,7 @@ This post is maintained by Bytebase, an open-source database DevSecOps tool that
 
 | Update History | Comment          |
 | -------------- | ---------------- |
+| 2026/04/01     | Update PlanetScale. |
 | 2025/04/28     | Initial version. |
 
 This concise guide compares pricing across seven major MySQL hosting providers: AWS RDS, AWS Aurora, Google Cloud SQL, Azure Database for MySQL, DigitalOcean, PlanetScale, and Aiven. Assuming you're familiar with these services, we'll focus on pricing structures, cost comparisons, and recommendations for different use cases.
