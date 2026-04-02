@@ -1,7 +1,7 @@
 ---
 title: 'Bytebase vs. Liquibase: a side-by-side comparison for database schema migration'
 author: Cayden
-updated_at: 2026/03/30 12:00:00
+updated_at: 2026/04/01 12:00:00
 feature_image: /content/blog/bytebase-vs-liquibase/bytebase-vs-liquibase-banner.webp
 tags: Comparison
 description: 'Bytebase vs. Liquibase compared across migration workflow, SQL review, access control, pricing, and CI/CD. Updated for Liquibase 5.0 Secure and Bytebase 3.16.'
@@ -29,28 +29,31 @@ Put another way: **Liquibase is Git for databases; Bytebase is GitHub/GitLab for
 - Tiered pricing with a free community edition.
 - Both are open source — though Liquibase switched from Apache 2.0 to the Functional Source License (FSL) in September 2025 with v5.0. Bytebase is MIT licensed, with enterprise features under a commercial license.
 
+![Star history of Bytebase and Liquibase](/content/blog/bytebase-vs-liquibase/star-history.webp)
+
 ## Key Differences Between Bytebase and Liquibase
 
-|                                | Liquibase (Community) | Liquibase Secure | Bytebase |
-| ------------------------------ | --------------------- | ---------------- | -------- |
-| [Developer interface](#developer-interface) | CLI | CLI + VS Code extension | Web GUI + API + Terraform |
-| [Supported databases](#supported-databases) | 60+ | 60+ | 23 |
-| [Installation](#installation) | Java 17 + JVM | Java 17 + JVM | Single Go binary, Docker, or K8s |
-| [Change execution](#change-execution) | Changelog + CLI | Changelog + CLI + Flow files | Issue-based GUI or GitOps |
-| [Batch change](#batch-change) | Manual scripting | Flow files | Built-in multi-env / multi-tenant |
-| [SQL review / policy checks](#sql-review-and-policy-checks) | — | Policy checks (custom rules) | 200+ rules, free tier included |
-| [Approval flow](#approval-flow) | — | — | Risk-based custom approval |
-| [Rollback](#rollback) | Basic (manual scripts) | Granular + automated | Auto-generated rollback + sync to any version |
-| [CI/CD integration](#cicd-integration) | Any CLI-based pipeline | Flow files for orchestration | GitOps + GitHub/GitLab native |
-| [Change history](#change-history) | DATABASECHANGELOG table | + Structured JSON logging | GUI with diff view + issue linkage |
-| [Data access control & audit](#data-access-control-and-audit) | — | — | RBAC, audit log, data masking, SSO |
-| [Pricing](#pricing) | Free | Quote-based (5 tiers) | Free / Pro (cloud) / Enterprise |
+|                                | Liquibase | Bytebase |
+| ------------------------------ | --------- | -------- |
+| [Developer interface](#developer-interface) | CLI; Secure adds VS Code extension | Web GUI + API + Terraform provider |
+| [Supported databases](#supported-databases) | 60+ | 23 |
+| [Installation](#installation) | Java 17 + JVM | Single Go binary, Docker, or K8s |
+| [Change execution](#change-execution) | Changelog + CLI; Secure adds Flow files | Issue-based GUI or GitOps |
+| [Schema sync](#schema-sync) | `liquibase diff` + `diff-changelog` (CLI, 1-to-1) | GUI-based batch sync (1-to-many) |
+| [Batch change](#batch-change) | Manual scripting; Secure adds Flow files | Built-in multi-env / multi-tenant |
+| [SQL review / policy checks](#sql-review-and-policy-checks) | Secure only: policy checks (custom rules) | 200+ rules (all tiers) |
+| [Approval flow](#approval-flow) | — | All tiers: manual rollout; Enterprise: custom approval |
+| [Rollback](#rollback) | Basic (manual scripts); Secure: granular + automated | Auto-generated rollback + sync to any version |
+| [CI/CD integration](#cicd-integration) | Any CLI-based pipeline; Secure adds Flow files | GitOps (GitHub, GitLab, Bitbucket, Azure DevOps) + API |
+| [Change history](#change-history) | DATABASECHANGELOG table; Secure adds structured JSON logging | GUI with diff view + issue linkage |
+| [Data access control & audit](#data-access-control-and-audit) | — | All tiers: workspace/project roles; Pro: SSO, audit log; Enterprise: + dynamic data masking, custom roles, just-in-time data access |
+| [Pricing](#pricing) | Community: free (FSL); Secure: quote-based (5 tiers) | Community: free (MIT); Pro: $20/user/mo; Enterprise: custom |
 
 ### Developer Interface
 
 **Liquibase** is CLI-only for the Community edition. After Liquibase Hub was sunset in April 2023, there is no web dashboard. The Secure edition added a VS Code extension ("Liquibase Secure Developer") for IDE-based interaction, but the primary workflow remains the terminal.
 
-**Bytebase** provides a web-based GUI where developers submit changes, DBAs review them, and the platform handles rollout. It also exposes a full [API](https://www.bytebase.com/docs/api/overview/), a [Terraform provider](https://www.bytebase.com/docs/get-started/terraform/) for infrastructure-as-code workflows, and a [GitHub App](https://www.bytebase.com/docs/sql-review/github-app/) for PR-based SQL review.
+**Bytebase** provides a web-based GUI where developers submit changes, DBAs review them, and the platform handles rollout. It also exposes a full [API](https://api.bytebase.com/), a [Terraform provider](https://docs.bytebase.com/integrations/terraform/overview) for infrastructure-as-code workflows, and [GitOps workflow tutorials](https://docs.bytebase.com/tutorials/gitops-github-workflow) for Git-driven automation.
 
 ### Supported Databases
 
@@ -64,7 +67,7 @@ Liquibase covers more databases. Bytebase goes deeper on each one it supports �
 
 **Liquibase** requires Java 17+ (as of v5.0). Install the JVM, then install Liquibase. The Secure edition includes a one-step certified installer with bundled database drivers.
 
-**Bytebase** ships as a single Go binary with no external dependencies. Deploy via [Docker](https://www.bytebase.com/docs/get-started/deploy-with-docker/) or [Kubernetes](https://www.bytebase.com/docs/get-started/deploy-with-kubernetes/) in under 5 minutes.
+**Bytebase** ships as a single Go binary with no external dependencies. Deploy via [Docker](https://docs.bytebase.com/get-started/deploy-with-docker) or [Kubernetes](https://docs.bytebase.com/get-started/deploy-with-kubernetes) in under 5 minutes.
 
 ### Change Execution
 
@@ -76,13 +79,17 @@ Liquibase covers more databases. Bytebase goes deeper on each one it supports �
 
 ![Bytebase issue-based change workflow](/content/blog/bytebase-vs-liquibase/bytebase-issue.webp)
 
+### Schema Sync
+
+**Liquibase** offers `liquibase diff` to compare two databases and `liquibase diff-changelog` to generate a changelog from the differences. Both are CLI commands — you specify a reference database and a target, and Liquibase outputs the structural differences or the changesets needed to bring the target in line.
+
+**Bytebase** has a built-in [schema sync](https://docs.bytebase.com/change-database/synchronize-schema) through the GUI. Pick a source database and one or more targets — Bytebase generates the DDL diff for each and applies them as a batch change issue, with SQL review, approval, and audit logging included. Useful for keeping staging in sync with prod, or syncing schema across dozens of tenant databases at once.
+
 ### Batch Change
 
 **Liquibase** doesn't have built-in multi-environment orchestration. You run `liquibase update` against each target database separately in your CI/CD pipeline. The Secure edition's Flow files help — you can define a YAML pipeline that runs the same changelog against dev, staging, and prod in sequence, with gates between stages. But it's still you writing the orchestration, not the tool managing it.
 
-**Bytebase** handles this natively. A single issue can roll out changes across [multiple environments](https://www.bytebase.com/docs/change-database/batch-change/#change-databases-from-multiple-environments) (dev → staging → prod) or [multiple tenants](https://www.bytebase.com/docs/change-database/batch-change/#change-databases-from-multiple-tenants) with canary release support.
-
-![Bytebase canary release across tenant databases](/content/blog/bytebase-vs-liquibase/bytebase-canary.webp)
+**Bytebase** handles this natively. A single issue can roll out changes across [multiple environments](https://docs.bytebase.com/change-database/batch-change#change-databases-from-multiple-environments) (dev → staging → prod) or [multiple tenants](https://docs.bytebase.com/change-database/batch-change#change-databases-from-multiple-tenants).
 
 ### SQL Review and Policy Checks
 
@@ -90,37 +97,32 @@ Liquibase covers more databases. Bytebase goes deeper on each one it supports �
 
 ![Liquibase policy check configuration](/content/blog/bytebase-vs-liquibase/liquibase-quality-check.webp)
 
-**Bytebase** includes [SQL Review](https://www.bytebase.com/docs/sql-review/overview/) with 200+ rules across MySQL, PostgreSQL, Oracle, SQL Server, and more — available in the free tier. Rules are database-engine-specific (not generic), and you can configure error levels per environment (warn in dev, block in prod).
+**Bytebase** includes [SQL Review](https://docs.bytebase.com/sql-review/review-rules) with 200+ rules across MySQL, PostgreSQL, Oracle, SQL Server, and more — available in the free tier. Rules are database-engine-specific (not generic), and you can configure error levels per environment (warn in dev, block in prod).
 
 ![Bytebase SQL review rules configuration](/content/blog/bytebase-vs-liquibase/bytebase-sql-review-rules.webp)
 
-SQL review triggers automatically in three places:
+SQL review triggers automatically in two places:
 
 1. When a change issue is created.
-2. When querying in the SQL Editor.
-3. In GitOps — before SQL is merged into the main branch.
-
-Bytebase also has AI features in the SQL Editor — text-to-SQL, query explanation, and problem detection. You bring your own LLM key.
+2. In GitOps — when a new PR containing SQL is created.
 
 ### Approval Flow
 
 **Liquibase** has no built-in approval workflow in either edition. Approval happens outside the tool — in your CI/CD pipeline, Jira tickets, or Slack messages.
 
-**Bytebase** has [risk-based custom approval flows](https://www.bytebase.com/docs/administration/custom-approval/). You define rules like "DDL on prod needs DBA approval" or "changes touching 3+ databases need manager sign-off," and the system routes each issue to the right reviewers based on what it touches.
-
-![Bytebase custom approval flow configuration](/content/blog/bytebase-vs-liquibase/bytebase-custom-approval-flow.webp)
+**Bytebase** Community and Pro include manual rollout — someone explicitly clicks "Deploy" to apply a change. **Bytebase Enterprise** adds [custom approval flows](https://docs.bytebase.com/change-database/approval). You define rules like "DDL on prod needs DBA approval" or "changes touching 3+ databases need manager sign-off," and the system routes each issue to the right reviewers based on what it touches.
 
 ### Rollback
 
 **Liquibase Community** supports basic rollback — you write rollback SQL manually in your changelog and run `liquibase rollback` to a specific tag or date. **Liquibase Secure** improves this with auto-generated rollback scripts for common operations, rollback reports (added in v4.27.0) that show what was rolled back, skipped, or failed, and custom rollback logic for complex cases.
 
-**Bytebase** auto-generates rollback statements for DML changes and supports reverting to any previous schema version via [schema sync](https://www.bytebase.com/docs/change-database/rollback-data-changes/). No manual rollback scripts needed.
+**Bytebase** auto-generates rollback statements for DML changes and supports reverting to any previous schema version via [schema sync](https://docs.bytebase.com/change-database/rollback-data-changes). No manual rollback scripts needed.
 
 ### CI/CD Integration
 
 **Liquibase** fits into any CI/CD pipeline as a CLI step — GitHub Actions, GitLab CI, Jenkins, CircleCI. The Secure edition's Flow files add reusable pipeline definitions with conditional branching based on exit codes.
 
-**Bytebase** offers point-and-click [GitOps setup](https://www.bytebase.com/docs/vcs-integration/overview/) with GitHub and GitLab. SQL files committed to a repo automatically create change issues in Bytebase, with SQL review running as a merge check.
+**Bytebase** offers [GitOps setup](https://docs.bytebase.com/gitops/overview) with GitHub, GitLab, Bitbucket, and Azure DevOps. SQL files committed to a repo automatically create change issues in Bytebase, with SQL review running as a merge check. For other platforms, Bytebase's [API](https://api.bytebase.com/) lets you wire up any CI/CD pipeline.
 
 ![Bytebase GitOps SQL review in GitLab merge request](/content/blog/bytebase-vs-liquibase/bytebase-gitops-merge.webp)
 
@@ -136,14 +138,11 @@ Bytebase also has AI features in the SQL Editor — text-to-SQL, query explanati
 
 **Liquibase** doesn't cover this area. Neither edition has access control, data masking, or audit logging — the Secure edition's structured logs tell you what changed and when, but not who queried what data. If you need database access governance, you'd pair Liquibase with a separate tool.
 
-**Bytebase** bundles all of this:
+**Bytebase** layers access control across its tiers:
 
-- **[RBAC](https://www.bytebase.com/docs/concepts/roles-and-permissions/)** — workspace and project-level roles (Admin, DBA, Developer, Releaser) plus custom roles with granular permissions.
-- **[SQL Editor](https://www.bytebase.com/docs/sql-editor/overview/)** — centralized query interface where data access is controlled and logged.
-- **[Data masking](https://www.bytebase.com/docs/security/data-masking/overview/)** — column-level dynamic masking with multi-level policies, built into the SQL Editor.
-- **[Audit log](https://www.bytebase.com/docs/security/audit-log/)** — every operation is recorded, with integrations to Splunk, Datadog, Elastic, and cloud logging services.
-- **SSO** (Google, GitHub, OIDC, LDAP) and **2FA** for enterprise authentication.
-- **Just-In-Time (JIT) data access** (new in v3.16) — developers request temporary query access, a reviewer approves it, and access expires automatically.
+- **Community** — [workspace and project roles](https://docs.bytebase.com/administration/roles) (Owner, DBA, Developer) with built-in permissions, plus [SQL Editor](https://docs.bytebase.com/sql-editor/overview) for controlled query access.
+- **Pro** — adds SSO, [audit log](https://docs.bytebase.com/security/audit-log), and user groups.
+- **Enterprise** — [custom roles](https://docs.bytebase.com/administration/roles) with granular permissions, [dynamic data masking](https://docs.bytebase.com/security/data-masking/overview) at column level, enterprise SSO (OIDC, LDAP), 2FA, and Just-In-Time data access — developers request temporary query access, a reviewer approves it, and access expires automatically.
 
 ![Bytebase SQL Editor with controlled data access](/content/blog/bytebase-vs-liquibase/bytebase-sql-editor.webp)
 
@@ -151,7 +150,7 @@ Bytebase also has AI features in the SQL Editor — text-to-SQL, query explanati
 
 **Liquibase** restructured its pricing in September 2025 into five tiers: Community (free), Starter, Growth, Business, and Enterprise. All paid tiers are branded "Liquibase Secure." Paid plans are gated by number of applications, database types, and company revenue (Starter and Growth require under $1B revenue). No public pricing — quotes only.
 
-**Bytebase** has three tiers: Community (free, self-hosted), Pro (cloud-hosted, monthly subscription), and Enterprise (self-hosted or cloud, 14-day free trial). [Full pricing details](https://www.bytebase.com/pricing/).
+**Bytebase** has three tiers: Community (free, self-hosted, up to 20 users, 10 instances), Pro ($20/user/month, cloud-only, up to 10 instances), and Enterprise (custom pricing yearly, self-hosted or cloud). [Full pricing details](https://www.bytebase.com/pricing/).
 
 ## When to Choose Liquibase
 
@@ -162,9 +161,9 @@ Bytebase also has AI features in the SQL Editor — text-to-SQL, query explanati
 
 ## When to Choose Bytebase
 
+- You want an all-in-one platform that covers migration, SQL review, access control, data masking, and audit logging — not just a migration CLI.
 - Your team includes DBAs or platform engineers who review database changes before they reach production.
-- You need a collaborative workflow — approval flows, role-based access, audit logging — not just a migration CLI.
-- You want SQL review, data masking, and access control in one platform instead of stitching together separate tools.
+- You need compliance — approval flows, audit trails, and data masking for SOC 2, GDPR, or internal security policies.
 - You're running multi-environment or multi-tenant deployments where batch change orchestration matters.
 
 ## FAQ
@@ -189,6 +188,7 @@ Liquibase Hub (the web dashboard) was sunset in April 2023 and never replaced. T
 
 Related comparisons:
 
+- [Bytebase vs. Atlas](/blog/bytebase-vs-atlas/)
 - [Bytebase vs. Flyway](/blog/bytebase-vs-flyway/)
 - [Flyway vs. Liquibase](/blog/flyway-vs-liquibase/)
 - [Top Database Schema Change Tools](/blog/top-database-schema-change-tool-evolution/)
