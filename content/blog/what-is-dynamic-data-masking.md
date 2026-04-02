@@ -65,8 +65,8 @@ Given the dynamic nature of DDM, one of the critical challenges is minimizing th
 | SQL Server | ✅ [Link](https://learn.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking) |
 | BigQuery   | ✅ [Link](https://cloud.google.com/bigquery/docs/column-data-masking-intro)                         |
 | Snowflake  | ✅ [Link](https://docs.snowflake.com/en/user-guide/security-column-ddm-intro)                       |
-| MySQL      | ❌ Native (✅ via [Bytebase](/blog/mysql-data-masking/))                                             |
-| PostgreSQL | ❌ Native (✅ via [Bytebase](/blog/postgres-data-masking/))                                          |
+| MySQL      | ❌                                                                                                  |
+| PostgreSQL | ❌                                                                                                  |
 
 Mainstream commercial databases all support DDM. On the other hand, neither MySQL nor PostgreSQL, the 2 most popular open-source databases support DDM out-of-the-box. For those supported databases, DDM is exposed via the extended SQL syntax. Taking Snowflake as
 an example:
