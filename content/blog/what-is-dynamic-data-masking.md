@@ -1,7 +1,7 @@
 ---
 title: 'What is Dynamic Data Masking (DDM)'
 author: Tianzhou
-updated_at: 2024/09/02 09:00
+updated_at: 2026/04/02 09:00
 feature_image: /content/blog/what-is-dynamic-data-masking/cover.webp
 tags: Explanation
 featured: true
@@ -65,8 +65,8 @@ Given the dynamic nature of DDM, one of the critical challenges is minimizing th
 | SQL Server | ✅ [Link](https://learn.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking) |
 | BigQuery   | ✅ [Link](https://cloud.google.com/bigquery/docs/column-data-masking-intro)                         |
 | Snowflake  | ✅ [Link](https://docs.snowflake.com/en/user-guide/security-column-ddm-intro)                       |
-| MySQL      | ❌                                                                                                  |
-| PostgreSQL | ❌                                                                                                  |
+| MySQL      | ❌ Native (✅ via [Bytebase](/blog/mysql-data-masking/))                                             |
+| PostgreSQL | ❌ Native (✅ via [Bytebase](/blog/postgres-data-masking/))                                          |
 
 Mainstream commercial databases all support DDM. On the other hand, neither MySQL nor PostgreSQL, the 2 most popular open-source databases support DDM out-of-the-box. For those supported databases, DDM is exposed via the extended SQL syntax. Taking Snowflake as
 an example:
@@ -82,11 +82,62 @@ CREATE OR REPLACE MASKING POLICY email_mask AS (val string) RETURNS string ->
 ALTER TABLE IF EXISTS user_info MODIFY COLUMN email SET MASKING POLICY email_mask;
 ```
 
-Database engine only provides the data masking primitives. Holistically configuring the masking policy for
-an entire organization is still a big challenge.
+Database engines only provide masking primitives. Holistically configuring masking policies for an entire organization — across multiple databases, environments, and user roles — is still a big challenge.
 
-<HintBlock type="info">
+## How Bytebase Handles Dynamic Data Masking
 
-Bytebase provides an UI interface as well as API to [configure Dynamic Data Masking](https://docs.bytebase.com/security/data-masking/overview/). In particular, Bytebase supports MySQL and PostgreSQL.
+[Bytebase](https://docs.bytebase.com/security/data-masking/overview/) implements DDM at the application layer rather than relying on database-native features. All queries through Bytebase's SQL Editor are masked in real-time based on policies you define. This is particularly valuable for MySQL and PostgreSQL, which have no native DDM support.
 
-</HintBlock>
+### Supported databases
+
+Bytebase DDM works with MySQL, PostgreSQL, Oracle, TiDB, and others — the same masking policies apply across all of them, regardless of whether the engine has native DDM.
+
+### How masking is configured
+
+Bytebase uses a three-level policy system:
+
+1. **Global masking rules** — workspace admins apply batch masking to columns matching a name pattern (e.g., all columns named `ssn` or `email` across every database)
+2. **Column-level masking** — project owners set masking on specific table columns
+3. **Masking exemptions** — grant specific users access to unmasked data when needed
+
+Precedence: exemptions > global rules > column masking.
+
+Policies are organized around **semantic types** — you classify columns (e.g., "PII-email", "PII-phone") and attach a masking algorithm to the type. Changing one semantic type updates masking for all columns tagged with it.
+
+### Masking algorithms
+
+Five built-in algorithms:
+
+| Algorithm | Example | Use case |
+|-----------|---------|----------|
+| Full mask | `123456789` → `*` | Completely hide the value |
+| Range mask | `john@example.com` → `john@****` | Preserve prefix for usability |
+| Inner mask | `123456` → `12**56` | Show edges, hide middle |
+| Outer mask | `123456` → `**34**` | Show middle, hide edges |
+| MD5 mask | `value` → `2063c1608d6e0baf80249c42e2be5804` | Irreversible hash for analytics |
+
+### Infrastructure as code
+
+Masking policies can be managed via [Bytebase's Terraform provider](https://docs.bytebase.com/tutorials/manage-data-masking-with-terraform/) — define semantic types, global rules, and column masking in HCL and apply across environments.
+
+### Availability
+
+Dynamic Data Masking is available on the [Enterprise plan](https://www.bytebase.com/pricing/).
+
+## FAQ
+
+**What is Dynamic Data Masking?**
+
+Dynamic Data Masking (DDM) protects sensitive data by altering query results in real-time based on user roles and policies, without changing the data at rest. Unlike static data masking, which creates a permanent sanitized copy, DDM applies masking on-the-fly during query execution.
+
+**Which databases support Dynamic Data Masking natively?**
+
+Oracle, SQL Server, BigQuery, and Snowflake have built-in DDM features. MySQL and PostgreSQL do not support DDM natively. Bytebase provides application-layer DDM for MySQL, PostgreSQL, Oracle, TiDB, and others, using the same policies across all engines.
+
+**How does Bytebase implement DDM for MySQL and PostgreSQL?**
+
+Bytebase applies masking at the application layer when queries run through its SQL Editor. No database extensions, views, or plugins are required. You define masking policies centrally in Bytebase, and they apply consistently across all connected databases.
+
+**What is the difference between Dynamic Data Masking and Static Data Masking?**
+
+Static Data Masking (SDM) creates a permanent, altered copy of production data for use in non-production environments. Dynamic Data Masking (DDM) modifies data on-the-fly as it is queried, without changing the underlying data. SDM is for dev/test environments; DDM is for production access control.
