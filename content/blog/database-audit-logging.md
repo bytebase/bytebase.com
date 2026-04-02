@@ -152,7 +152,7 @@ A workflow platform like **Bytebase** produces complete, contextual audit logs b
 
 ## How Bytebase Handles Audit Logging
 
-[Bytebase](https://docs.bytebase.com/security/audit-log/) takes the proxy/workflow approach: all SQL — DDL, DML, and SELECT — flows through a single gateway before reaching the database. Because Bytebase manages user identity, every audit record is tied to a real person, not a shared `admin` account.
+[Bytebase](https://docs.bytebase.com/security/audit-log/) takes the proxy/workflow approach: SQL executed through Bytebase's SQL Editor or change workflows — DDL, DML, and SELECT — is logged before reaching the database. Because Bytebase manages user identity, every audit record is tied to a real person, not a shared `admin` account. Direct database connections that bypass Bytebase are not captured in these logs.
 
 ### What gets logged
 
@@ -173,7 +173,7 @@ Three ways to get audit data out:
 
 1. **GUI** — filter by user, action type, resource, and date range in Settings → Audit Log
 2. **API** — query `/v1/auditLogs:search` (workspace-level) or `/v1/projects/{project}/auditLogs:search` (project-level). Returns structured JSON ready for any SIEM. See the [API audit log tutorial](https://docs.bytebase.com/tutorials/api-audit-log) for examples.
-3. **Log streaming** — enable `--enable-json-logging` to write structured JSON to stdout, which a Datadog/Splunk/Grafana agent can ingest directly
+3. **Log streaming** — enable audit log export to stdout in Settings → General → Audit Log Export. Add the `--enable-json-logging` flag to output structured JSON, which a Datadog/Splunk/Grafana agent can ingest directly
 
 ### Availability
 
@@ -218,7 +218,7 @@ Most engines write audit logs to files or system tables. For PostgreSQL, configu
 
 **How does Bytebase handle database audit logging?**
 
-Bytebase routes all SQL through a centralized gateway, so every query is automatically logged with the real user's identity, full SQL text, target database, timestamp, and execution result. Logs can be queried via the GUI, exported via API (`/v1/auditLogs:search`), or streamed as JSON to any SIEM. Available on Pro and Enterprise plans.
+All SQL executed through Bytebase — via the SQL Editor or change workflows — is automatically logged with the real user's identity, full SQL text, target database, timestamp, and execution result. Direct database connections that bypass Bytebase are not captured. Logs can be queried via the GUI, exported via API (`/v1/auditLogs:search`), or streamed as JSON to any SIEM. Available on Pro and Enterprise plans.
 
 **Do I still need engine-native auditing if I use Bytebase?**
 
