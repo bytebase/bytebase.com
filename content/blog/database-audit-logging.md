@@ -1,7 +1,7 @@
 ---
 title: 'Database Audit Logging Best Practices for Compliance'
 author: Adela
-updated_at: 2026/03/19 09:00:00
+updated_at: 2026/04/02 09:00:00
 feature_image: /content/blog/database-audit-logging/banner.webp
 tags: Explanation
 description: 'How to set up database audit logging for SOC 2, HIPAA, and ISO 27001 compliance across PostgreSQL, MySQL, SQL Server, and Oracle.'
@@ -150,6 +150,35 @@ SQL is routed through a centralized gateway or workflow before executing.
 *For example:*
 A workflow platform like **Bytebase** produces complete, contextual audit logs because all SQL flows through a single, identity-aware pipeline.
 
+## How Bytebase Handles Audit Logging
+
+[Bytebase](https://docs.bytebase.com/security/audit-log/) takes the proxy/workflow approach: SQL executed through Bytebase's SQL Editor or change workflows — DDL, DML, and SELECT — is logged before reaching the database. Because Bytebase manages user identity, every audit record is tied to a real person, not a shared `admin` account. Direct database connections that bypass Bytebase are not captured in these logs.
+
+### What gets logged
+
+Bytebase records:
+
+- **SQL execution** — every query that flows through the system, including the full SQL text, target database, and execution result
+- **Schema changes** — issue creation, approval decisions, rollout status
+- **Data access** — data queries and exports, with the requesting user's identity
+- **Authentication** — login, logout, SSO token exchange
+- **Permission changes** — role grants, project membership updates, policy modifications
+- **System configuration** — instance connection changes, environment settings, workspace policies
+
+Each entry includes the user's email, IP address, timestamp, operation duration, affected resource, and request/response payloads. Sensitive fields (passwords, certificates, SSH keys) are automatically redacted.
+
+### Export and integration
+
+Three ways to get audit data out:
+
+1. **GUI** — filter by user, action type, resource, and date range in Settings → Audit Log
+2. **API** — query `/v1/auditLogs:search` (workspace-level) or `/v1/projects/{project}/auditLogs:search` (project-level). Returns structured JSON ready for any SIEM. See the [API audit log tutorial](https://docs.bytebase.com/tutorials/api-audit-log) for examples.
+3. **Log streaming** — enable audit log export to stdout in Settings → General → Audit Log Export. Add the `--enable-json-logging` flag to output structured JSON, which a Datadog/Splunk/Grafana agent can ingest directly
+
+### Availability
+
+Audit logging is available on [Pro and Enterprise plans](https://www.bytebase.com/pricing/). The Pro plan covers most audit needs; Enterprise adds custom approval workflows and advanced access control that generate additional audit events.
+
 ## Recommended Best Practices
 
 Regardless of database engine or auditing method, strong audit practices share the same foundations:
@@ -185,4 +214,12 @@ SOC 2, ISO 27001, HIPAA, PCI DSS, and GDPR all require some form of database aud
 
 **How do I export database audit logs to Datadog or Splunk?**
 
-Most engines write audit logs to files or system tables. For PostgreSQL, configure `pgaudit` to write to `csvlog` and use a Datadog or Splunk agent to ingest the files. For MySQL, enable the audit plugin and point the log file at your SIEM collector. For SQL Server, parse the `.sqlaudit` files with `fn_get_audit_file()` and forward via a log shipper. Bytebase provides a built-in [audit log API](/docs/security/audit-log/) that exports structured JSON, ready for any SIEM.
+Most engines write audit logs to files or system tables. For PostgreSQL, configure `pgaudit` to write to `csvlog` and use a Datadog or Splunk agent to ingest the files. For MySQL, enable the audit plugin and point the log file at your SIEM collector. For SQL Server, parse the `.sqlaudit` files with `fn_get_audit_file()` and forward via a log shipper. Bytebase provides a built-in [audit log API](https://docs.bytebase.com/security/audit-log/) that exports structured JSON, ready for any SIEM.
+
+**How does Bytebase handle database audit logging?**
+
+All SQL executed through Bytebase — via the SQL Editor or change workflows — is automatically logged with the real user's identity, full SQL text, target database, timestamp, and execution result. Direct database connections that bypass Bytebase are not captured. Logs can be queried via the GUI, exported via API (`/v1/auditLogs:search`), or streamed as JSON to any SIEM. Available on Pro and Enterprise plans.
+
+**Do I still need engine-native auditing if I use Bytebase?**
+
+It depends on your compliance scope. Bytebase captures all SQL that flows through its gateway — schema changes, data queries, exports, and admin actions. If you also have direct database connections that bypass Bytebase (e.g., emergency SSH access or application service accounts), you should keep engine-native auditing enabled for those paths. Many teams use Bytebase as the primary audit trail and engine-native logs as a secondary safety net.
