@@ -63,21 +63,23 @@ import psycopg2
 from psycopg2 import OperationalError
 import time
 
-def execute_with_retry(query, max_retries=3):
+def execute_with_retry(dsn, query, max_retries=3):
     for attempt in range(max_retries):
+        conn = None
         try:
             conn = psycopg2.connect(dsn)
             cur = conn.cursor()
             cur.execute(query)
             conn.commit()
             return cur.fetchall()
-        except OperationalError as e:
+        except OperationalError:
             if attempt < max_retries - 1:
                 time.sleep(2 ** attempt)  # exponential backoff
             else:
                 raise
         finally:
-            conn.close()
+            if conn is not None:
+                conn.close()
 ```
 
 ### `pg_terminate_backend()` called by another session
