@@ -20,6 +20,11 @@ node_modules
 *.pem
 .idea
 
+# GitButler hooks
+.husky/post-checkout
+.husky/pre-commit
+.husky/pre-commit-user
+
 # debug
 npm-debug.log*
 yarn-debug.log*
