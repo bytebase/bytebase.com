@@ -1,7 +1,7 @@
 ---
 title: 'Data Access Governance: Why It Matters and How to Get it Right'
 author: Adela
-updated_at: 2025/04/04 18:00
+updated_at: 2026/04/07 09:00
 feature_image: /content/blog/data-access-governance/cover.webp
 tags: Explanation
 description: "Data access governance is a critical component of any organization's security strategy. By implementing the right tools and policies, you can protect sensitive data, ensure regulatory compliance, and maintain a secure and productive work environment."
@@ -82,8 +82,53 @@ Various specialized tools can help implement robust data access governance:
 - **Data Classification and Discovery**
   Tools like Varonis, AWS Macie, and Microsoft Purview automatically discover and classify sensitive data, helping you enforce appropriate protection policies.
 
-For teams looking for an integrated solution, **Bytebase** offers unified database DevSecOps capabilities — combining query access control, data masking, change management, auditing, and security in a single place.
+## How Bytebase Handles Data Access Governance
+
+[Bytebase](https://docs.bytebase.com/) is a database DevSecOps platform that implements data access governance across 23+ databases from a single control plane. Instead of stitching together separate tools for IAM, auditing, masking, and access requests, Bytebase handles them in one place.
+
+### Role-based access control
+
+Bytebase enforces access at two levels:
+
+- **Workspace roles** — control who can manage database instances, configure policies, and administer the platform
+- **Project roles** — control who can view, query, or modify specific databases within a project
+
+Roles are tied to individual identities via SSO (Okta, Azure AD, Google Workspace) on Pro and Enterprise plans. No shared `admin` accounts.
+
+### Just-in-time data access
+
+Instead of granting standing access to sensitive databases, Bytebase supports [just-in-time (JIT) access](/blog/just-in-time-database-access/). A developer requests temporary access, it goes through approval, and the access expires automatically after a set duration. This eliminates the problem of over-privileged users accumulating permissions over time.
+
+### Dynamic data masking
+
+Bytebase applies [dynamic data masking](https://docs.bytebase.com/security/data-masking/overview/) at the application layer — sensitive columns are masked in real-time based on the user's role and semantic type classifications. A DBA sees full data; an analyst sees partial masks; a contractor sees full masks. No data is changed at rest. Available on Enterprise plan.
+
+### Query access control via SQL Editor
+
+All queries run through Bytebase's SQL Editor, which enforces access policies before execution. Users can only query databases and tables they have permission to access. Every query is logged with the user's identity.
+
+### Audit trail
+
+Every action in Bytebase — queries, schema changes, logins, permission changes, approval decisions — is recorded in the [audit log](https://docs.bytebase.com/security/audit-log/) with the real user's identity, timestamp, and full SQL text. Logs can be exported via API or streamed as JSON to any SIEM (Datadog, Splunk, Grafana). Available on Pro and Enterprise plans.
+
+### Change review and approval
+
+Database changes go through a structured workflow: submit SQL → automated [SQL review](https://docs.bytebase.com/sql-review/review-rules/) (200+ rules) → approval → deployment. This enforces separation of duties — the person who writes the SQL cannot be the same person who approves it. Enterprise tier adds [custom multi-tier approval workflows](https://docs.bytebase.com/change-database/approval/).
 
 ## Summary
 
 Data access governance is a critical component of any organization's security strategy. By implementing the right tools and policies, you can protect sensitive data, ensure regulatory compliance, and maintain a secure and productive work environment.
+
+## FAQ
+
+**What is data access governance?**
+
+Data access governance is the framework of policies, tools, and processes that ensures the right people have the right access to the right data at the right time. It covers access control, auditing, compliance, and data protection across an organization's databases and data systems.
+
+**How does data access governance differ from data security?**
+
+Data security focuses on protecting data from external threats (encryption, firewalls, intrusion detection). Data access governance focuses on controlling internal access — who can see, query, or modify which data, through what approval process, and with what audit trail. Both are necessary; governance addresses the insider risk that security tools don't cover.
+
+**How does Bytebase help with data access governance?**
+
+Bytebase provides role-based access control, just-in-time temporary access, dynamic data masking, query-level access control via its SQL Editor, audit logging, and change approval workflows — all from a single platform supporting 23+ databases. It eliminates the need to configure access controls separately in each database engine.
