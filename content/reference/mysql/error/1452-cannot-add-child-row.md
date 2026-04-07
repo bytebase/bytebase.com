@@ -65,8 +65,8 @@ The FK column and the referenced column must have the exact same data type. A co
 SELECT TABLE_NAME, COLUMN_NAME, COLUMN_TYPE
 FROM information_schema.COLUMNS
 WHERE TABLE_SCHEMA = 'mydb'
-  AND (TABLE_NAME = 'customers' AND COLUMN_NAME = 'id')
-   OR (TABLE_NAME = 'orders' AND COLUMN_NAME = 'customer_id');
+  AND ((TABLE_NAME = 'customers' AND COLUMN_NAME = 'id')
+    OR (TABLE_NAME = 'orders' AND COLUMN_NAME = 'customer_id'));
 
 -- Example output showing the mismatch:
 -- customers | id          | int unsigned
