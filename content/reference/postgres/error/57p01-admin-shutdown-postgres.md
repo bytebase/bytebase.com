@@ -89,9 +89,10 @@ Another user or automated process explicitly terminated your connection. This is
 -- LOG: terminating connection because of administrator command
 
 -- See currently active termination-capable sessions
-SELECT pid, usename, application_name, state, query
-FROM pg_stat_activity
-WHERE usename = 'postgres' OR usesuper = true;
+SELECT a.pid, a.usename, a.application_name, a.state, a.query
+FROM pg_stat_activity AS a
+JOIN pg_roles AS r ON r.rolname = a.usename
+WHERE a.usename = 'postgres' OR r.rolsuper = true;
 ```
 
 **Fix:**
