@@ -74,7 +74,8 @@ Bytebase is MIT-licensed with commercial features (Enterprise) for advanced gove
 - **OpenMetadata** excels with its modern architecture and comprehensive connector ecosystem, ideal for organizations seeking an API-first approach with rich collaboration features;
 - **DataHub** provides enterprise-grade scalability with strong lineage capabilities, making it suitable for complex data environments requiring detailed context;
 - **Apache Atlas** remains the go-to solution for Hadoop-centric organizations and highly regulated industries needing robust classification and security integration;
-- **Amundsen** offers the most accessible entry point for teams prioritizing data discovery and user adoption over comprehensive governance.
+- **Amundsen** offers the most accessible entry point for teams prioritizing data discovery and user adoption over comprehensive governance;
+- **Bytebase** covers the operational governance side — change review, approval workflows, access control, audit logging, and data masking — complementing the metadata-focused tools above.
 
 As database estates grow increasingly complex, these open-source tools continue to evolve to meet emerging challenges. Many organizations start with targeted implementations addressing specific pain points before expanding to full governance frameworks.
 
