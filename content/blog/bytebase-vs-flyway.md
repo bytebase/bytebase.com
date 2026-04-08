@@ -28,16 +28,16 @@ Flyway and Bytebase both handle database schema migration, but they solve differ
 |                                | Flyway | Bytebase |
 | ------------------------------ | ------ | -------- |
 | [Developer interface](#developer-interface) | CLI + Flyway Desktop (GUI) | Web GUI + API + Terraform provider |
-| [Supported databases](#supported-databases) | 50+ | 23 |
+| [Supported databases](#supported-databases) | 30+ | 23 |
 | [Installation](#installation) | Java 17 + JVM | Single Go binary, Docker, or K8s |
 | [Change execution](#change-execution) | SQL scripts + CLI | Issue-based GUI or GitOps |
 | [Schema sync](#schema-sync) | Flyway Desktop (1-to-1 comparison) | GUI-based batch sync (1-to-many) |
 | [Batch change](#batch-change) | Manual scripting per target | Built-in multi-env / multi-tenant |
-| [SQL review / code analysis](#sql-review-and-code-analysis) | Enterprise: 74+ rules (SQLFluff + Redgate rules) | 200+ rules (all tiers) |
+| [SQL review / code analysis](#sql-review-and-code-analysis) | Enterprise only: 74+ rules (SQLFluff + Redgate rules) | 200+ rules (all tiers) |
 | [Approval flow](#approval-flow) | — | All tiers: manual rollout; Enterprise: custom approval |
-| [Rollback](#rollback) | Manual scripts; Enterprise: auto undo scripts | Auto-generated rollback + sync to any version |
+| [Rollback](#rollback) | Enterprise only: manual + auto undo scripts | Auto-generated rollback + sync to any version |
 | [CI/CD integration](#cicd-integration) | GitHub Actions, GitLab, Jenkins, Azure DevOps, Octopus Deploy, TeamCity | GitOps (GitHub, GitLab, Bitbucket, Azure DevOps) + API |
-| [Change history](#change-history) | DATABASECHANGELOG table | GUI with diff view + issue linkage |
+| [Change history](#change-history) | flyway_schema_history table | GUI with diff view + issue linkage |
 | [Data access control & audit](#data-access-control-and-audit) | — | All tiers: workspace/project roles; Pro: SSO, audit log; Enterprise: + dynamic data masking, custom roles, just-in-time data access |
 | License | Apache 2.0 | MIT + commercial (Enterprise features) |
 
@@ -45,7 +45,7 @@ Flyway and Bytebase both handle database schema migration, but they solve differ
 
 |  | Free | Paid |
 | --- | --- | --- |
-| **Flyway** | Community (Apache 2.0, CLI + Desktop, 50+ DBs) | Enterprise: contact for pricing (AI features, code review policies, state-based deployment, undo scripts, change reports, drift detection) |
+| **Flyway** | Community (Apache 2.0, CLI + Desktop, 30+ DBs) | Enterprise: contact for pricing (AI features, code review policies, state-based deployment, undo scripts, change reports, drift detection) |
 | **Bytebase** | Community (self-hosted, up to 20 users, 10 instances) | Pro: $20/user/mo (cloud-only, up to 10 instances); Enterprise: custom yearly (self-hosted or cloud) |
 
 ### Developer Interface
@@ -56,7 +56,7 @@ Flyway and Bytebase both handle database schema migration, but they solve differ
 
 ### Supported Databases
 
-**Flyway** supports 50+ databases including PostgreSQL, MySQL, Oracle, SQL Server, MariaDB, Snowflake, BigQuery, Redshift, CockroachDB, ClickHouse, MongoDB, DuckDB, and many more. Database support is modular — some engines are community-contributed extensions.
+**Flyway** supports 30+ databases including PostgreSQL, MySQL, Oracle, SQL Server, MariaDB, Snowflake, BigQuery, Redshift, CockroachDB, ClickHouse, MongoDB, DuckDB, and many more. Database support is modular — some engines are community-contributed extensions.
 
 **Bytebase** supports 23 database engines with deep integration: 9 RDBMS (MySQL, PostgreSQL, Oracle, SQL Server, MariaDB, TiDB, OceanBase, CockroachDB, Spanner), 6 NoSQL (MongoDB, Redis, Cassandra, DocumentDB, DynamoDB, Cosmos DB), 7 data warehouses (Snowflake, BigQuery, Redshift, Hive, ClickHouse, Databricks, StarRocks), and Elasticsearch.
 
@@ -90,7 +90,7 @@ Flyway covers more databases. Bytebase goes deeper on each one it supports — o
 
 ### SQL Review and Code Analysis
 
-**Flyway Community** has a built-in code review engine. **Flyway Enterprise** adds 74+ rules — 60+ SQLFluff rules (open-source linter) plus 14+ Redgate-specific rules for code quality and security. Enterprise also includes a policy library and custom policy integration.
+**Flyway Community** has no built-in SQL quality checks. **Flyway Enterprise** includes code analysis with 74+ rules — 60+ SQLFluff rules (open-source linter) plus 14+ Redgate-specific rules for code quality and security. Enterprise also includes a policy library and custom policy integration.
 
 **Bytebase** includes [SQL Review](https://docs.bytebase.com/sql-review/review-rules) with 200+ rules across MySQL, PostgreSQL, Oracle, SQL Server, and more — available in the free tier. Rules are database-engine-specific, and you can configure error levels per environment (warn in dev, block in prod).
 
@@ -107,7 +107,7 @@ SQL review triggers automatically in two places:
 
 ### Rollback
 
-**Flyway Community** supports undo migrations — you write `U1__undo_create_users.sql` manually. **Flyway Enterprise** adds auto-generated undo scripts, so you don't have to write rollback SQL by hand for common operations.
+**Flyway Community** does not support rollback. **Flyway Enterprise** adds undo migrations — you write `U1__undo_create_users.sql` or use auto-generated undo scripts for common operations.
 
 **Bytebase** auto-generates rollback statements for DML changes and supports reverting to any previous schema version via [schema sync](https://docs.bytebase.com/change-database/rollback-data-changes). No manual rollback scripts needed.
 
@@ -119,7 +119,7 @@ SQL review triggers automatically in two places:
 
 ### Change History
 
-**Flyway** tracks changes in the `DATABASECHANGELOG` table — a record of which migrations were applied, when, and their checksums. You query it directly with SQL or run `flyway info` to see a summary.
+**Flyway** tracks changes in the `flyway_schema_history` table — a record of which migrations were applied, when, and their checksums. You query it directly with SQL or run `flyway info` to see a summary.
 
 **Bytebase** provides a visual change history with schema diffs and links back to the originating issue, reviewer, and approval chain.
 
@@ -136,7 +136,7 @@ SQL review triggers automatically in two places:
 ## When to Choose Flyway
 
 - Your team is CLI-first and wants to embed migrations directly into existing CI/CD pipelines.
-- You need to support a wide range of databases (50+), including niche or legacy systems.
+- You need to support a wide range of databases (30+), including niche or legacy systems.
 - Your developers already work in Java/JVM ecosystems.
 - You want Flyway Desktop's visual schema comparison for SQL Server development.
 - You need a migration engine, not a governance platform — access control and approval happen in other tools.
