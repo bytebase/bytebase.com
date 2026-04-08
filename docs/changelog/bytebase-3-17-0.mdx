@@ -1,0 +1,120 @@
+---
+title: Bytebase 3.17.0 - Apr 9, 2026
+author: Adela
+updated_at: 2026/04/09 18:00:00
+description: 'Unified Plan Lifecycle View, High Availability'
+
+---
+
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
+## 🔔 Notable Changes
+
+- **Unified Plan lifecycle view** — Review and rollout now appear in a single Plan detail page, giving developers one place to follow a change from draft to deployment.
+
+- **Remove Pro plan 20-user seat cap** — Pro plan no longer has a user limit.
+
+- **API breaking changes** — Worksheet API moves to project scope (`/v1/projects/{id}/worksheets`), `ListDatabases` now requires workspace ID (`/v1/workspaces/{id}/databases`), `branding_logo` moves from workspace profile setting to workspace message, `GRANT_REQUEST` issue type renamed to `ROLE_GRANT`, and `UpdateSubscription` API replaced by `UploadLicense`. See [Change Details](<#api-breaking-changes>).
+
+- **CEL filter syntax change** — Substring-search filters now use `contains()` instead of `matches()` across plan, database, instance, project, group, user, service account, workload identity, query history, access grant, and database metadata table filters. See [Change Details](<#cel-filter-syntax-change>).
+
+- **Classification setting API breaking changes** — Classification description and level description fields removed. Classification level type changes from string to number.
+
+- **Terraform provider** — Migrate for 3.17.0 API breaking changes. Support get, create, update, and list identity provider.
+
+## 🚀 Features
+
+- **High Availability (HA)** — Support licensed multi-replica deployments backed by a shared external PostgreSQL metadata database. Active replicas are tracked via heartbeats, and background runners coordinate safely across replicas.
+
+- **Page Agent** — Add an in-app AI assistant with tool-calling, threaded resumable conversations, DOM-aware autocomplete, and token usage tracking.
+
+- **Issue Approved webhook event** — Support a new webhook event type for issue approval, with redesigned Slack message format.
+
+- **MCP `query_database` tool** — Add a new MCP tool for executing SQL queries against managed databases with automatic database resolution.
+
+- **CosmosDB** — Support local emulator connection and dynamic data masking for all 13 query feature areas.
+
+## 🎄 Enhancements
+
+- Support executing stored procedures (`CALL` / `EXEC`) in SQL Editor by classifying stored procedure execution as DML.
+
+- Support issue type filter in advanced search (Database Change, Role Grant, Database Export, Access Grant).
+
+- Replace data classification file upload with an inline JSON editor and enhance the data classification editor.
+
+- Redesign masking exemption list page with classification level support.
+
+- Auto-expand sidebar group for the active route.
+
+- Migrate the frontend from Vue to React across all major pages including settings, projects, databases, instances, plans, issues, and audit logs.
+
+- Upgrade SQL parsing engine for PostgreSQL, MySQL, MSSQL, MongoDB, and CosmosDB from ANTLR to omni parser, improving SQL syntax coverage, consistency across SQL review / schema diff / auto-completion, and error message quality.
+
+- Add configurable `--timeout` flag for `bytebase-action` for large SQL checks.
+
+- Expose `--enable-json-logging` flag in the Helm chart for structured log output.
+
+
+## 🐞 Bug Fixes
+
+- Fix false schema diff noise caused by PostgreSQL trigger ordering and CRLF / whitespace normalization.
+
+- Fix automatic rollout not working.
+
+- Fix startup crash from nil licenseService and non-idempotent migration.
+
+- Fix SQL editor metadata sync retry flood.
+
+- Fix OAuth discovery to return usable URLs in self-hosted mode.
+
+- Fix SSO GitHub email fetch.
+
+- Fix stale debounced query reverts in advanced search.
+
+- Fix data export creation to issue-scoped flow and initialize export format correctly.
+
+- Fix gh-ost directives in versioned release workflow.
+
+- Fix various UI issues: dropdown z-index clipping, popover dismiss on label selector interaction, CEL constraint preservation after role deletion, environment dashboard responsive layout, and button label standardization.
+
+- **PostgreSQL** — Fix CRLF line endings causing query truncation in SQL splitter, schema load failure by excluding aggregates from function sync, array subscript handling in column reference normalization, whitespace between LIMIT and FOR UPDATE clause, nested SELECTs in wrapper statements and CTEs for SQL review, and PolarDB `pg_bitmapindex` schema appearing in dumps.
+
+- **MySQL** — Fix unqualified SET columns in prior backup for UPDATE JOIN, missing `multiStatements` param in IAM auth DSN, and role sync for anonymous users.
+
+- **TiDB** — Remove non-transaction statement handling.
+
+- **Oracle** — Strip trailing null bytes from schema definitions.
+
+<InstallUpgrade />
+
+## 📃 Change Details
+
+### API Breaking Changes
+
+| Change | Before | After |
+| -- | -- | -- |
+| Worksheet API path | `/v1/worksheets` | `/v1/projects/{id}/worksheets` |
+| ListDatabases scope | `/v1/workspaces/-/databases` | `/v1/workspaces/{id}/databases` |
+| Branding logo | `branding_logo` in workspace profile setting | `logo` field on workspace message |
+| Issue type enum | `GRANT_REQUEST` | `ROLE_GRANT` |
+| Subscription API | `PATCH /v1/subscription` | `PATCH /v1/subscription/license` (renamed to `UploadLicense`) |
+| Data source ID | Required explicit `data_source_id` in query API | Auto-resolved server-side; at most one read-only data source per instance (extra read-only data sources removed during migration) |
+| Classification level | `string` type with `description` field | `int` type, `description` removed |
+
+### CEL Filter Syntax Change
+
+Substring-search CEL filters now use `contains()` instead of `matches()`. Affected fields:
+
+| Field | Example Before | Example After |
+| -- | -- | -- |
+| `title` | `title.matches("database migration")` | `title.contains("database migration")` |
+| `name` | `name.matches("employee")` | `name.contains("employee")` |
+| `resource_id` | `resource_id.matches("prod")` | `resource_id.contains("prod")` |
+| `email` | `email.matches("admin")` | `email.contains("admin")` |
+| `host` | `host.matches("10.0")` | `host.contains("10.0")` |
+| `port` | `port.matches("5432")` | `port.contains("5432")` |
+| `statement` | `statement.matches("select")` | `statement.contains("select")` |
+| `query` | `query.matches("insert")` | `query.contains("insert")` |
+| `table` | `table.matches("users")` | `table.contains("users")` |
+
+Applies to: plan, database, instance, project, group, user, service account, workload identity, query history, access grant, and database metadata table filters.
