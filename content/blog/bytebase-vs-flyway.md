@@ -1,220 +1,180 @@
 ---
 title: 'Bytebase vs. Flyway: a side-by-side comparison for database schema migration'
 author: Cayden
-updated_at: 2023/06/14 19:21:21
+updated_at: 2026/04/07 12:00:00
 feature_image: /content/blog/bytebase-vs-flyway/bytebase-vs-flyway-banner.webp
 tags: Comparison
-description: 'When looking for a database CI/CD and schema migration change tool, Bytebase and flyway are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.'
+description: 'Bytebase vs. Flyway compared across migration workflow, SQL review, access control, pricing, and CI/CD. Updated for Flyway Desktop and Bytebase 3.16.'
 keypage: true
 ---
 
 > If Flyway is Git, then Bytebase is GitHub/GitLab.
 
-When looking for a database CI/CD and schema migration change tool, Bytebase and flyway are two common options. Understanding the differences between these two tools can help potential users choose the one that best meets their needs.
+Flyway and Bytebase both handle database schema migration, but they solve different problems. Flyway is a migration engine — you write SQL scripts, run `flyway migrate`, and it tracks what's been applied. Bytebase is an all-in-one database DevSecOps platform — migration is one part, alongside SQL review, approval workflows, access control, data masking, and audit logging. If your team needs a CLI to slot into existing CI/CD pipelines, Flyway does that well. If you need to control who can change what, enforce review before deployment, and keep an audit trail — that's the problem Bytebase solves.
 
-## What Bytebase and Flyway have in common
+## What They Have in Common
 
-- Native SQL supported.
-- Database DevOps with version control system #GitOps (see [Database GitOps configuration](#database-gitops-configuration)).
-- Schema Synchronization (see [Sync schema](#sync-schema)).
-- Tiered pricing, offering both free and paid plan.
-- Open source, Flyway has a long history, while Bytebase is growing faster.
-  ![star-history](/content/blog/bytebase-vs-flyway/star-history.webp)
+- Native SQL support for defining schema changes.
+- GitOps integration — trigger migrations from pull requests.
+- Schema synchronization and diff capabilities.
+- Change history tracking.
+- Tiered pricing with a free community edition.
+- Both are open source — Flyway Community is Apache 2.0 (Redgate acquired Flyway in 2019). Bytebase is MIT licensed, with enterprise features under a commercial license.
 
-## What are the differences between Bytebase and Flyway?
+![Star history of Bytebase and Flyway](/content/blog/bytebase-vs-flyway/star-history.webp)
 
-While both Bytebase and Flyway are tools for database DevOps, there are some key differences between the two. Flyway main
-product is its CLI and the java library. Bytebase also provides a CLI, while its main product is the GUI-based workspace
-for developers and DBAs to collaborate.
+## Key Differences Between Bytebase and Flyway
 
-|                                                                                                            | Flyway           | Bytebase                             |
-| ---------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------ |
-| [Product position](#product-position)                                                                      | Schema change    | Schema Change, Data Query and Secure |
-| [Developer interface](#developer-interface)                                                                | CLI              | GUI, API                             |
-| [Supported databases](#supported-databases)                                                                | 22 Only SQL DB   | 22 SQL & NoSQL DB                    |
-| [Programming language and installation](#installation)                                                     | Java + JVM       | Golang and no other dependency       |
-| [Change execution](#change-execution)                                                                      | SQL script + CLI | Issue, GUI                           |
-| [Database GitOps](#database-gitops-configuration)                                                          | ✅               | ✅                                   |
-| [Change history](#change-history)                                                                          | ✅               | ✅                                   |
-| [Sync schema](#sync-schema)                                                                                | ✅               | ✅                                   |
-| [SQL auto check](#sql-auto-check)                                                                          | ⚠️ Paid version  | ✅ Available in Free version         |
-| [Rollback](#rollback)                                                                                      | ⚠️ Manual        | ✅ Auto generated rollback statement |
-| [Schema drift detection](#schema-drift-detection)                                                          | ⚠️ Manual        | ✅ Auto                              |
-| [Approval flow](#approval-flow)                                                                            | -                | ✅                                   |
-| [Batch Change](#change-execution)                                                                          | -                | ✅ Multi-environment / Multi-tenant  |
-| [Slow query detection and advisor](#slow-query-detection-and-advisor)                                      | -                | ✅                                   |
-| [Data access control, data masking, security and compliance](#data-access-control-security-and-compliance) | -                | ✅                                   |
-| [Webhook](#webhook)                                                                                        | -                | ✅                                   |
+|                                | Flyway | Bytebase |
+| ------------------------------ | ------ | -------- |
+| [Developer interface](#developer-interface) | CLI + Flyway Desktop (GUI) | Web GUI + API + Terraform provider |
+| [Supported databases](#supported-databases) | 50+ | 23 |
+| [Installation](#installation) | Java 17 + JVM | Single Go binary, Docker, or K8s |
+| [Change execution](#change-execution) | SQL scripts + CLI | Issue-based GUI or GitOps |
+| [Schema sync](#schema-sync) | Flyway Desktop (1-to-1 comparison) | GUI-based batch sync (1-to-many) |
+| [Batch change](#batch-change) | Manual scripting per target | Built-in multi-env / multi-tenant |
+| [SQL review / code analysis](#sql-review-and-code-analysis) | Enterprise: 74+ rules (SQLFluff + Redgate rules) | 200+ rules (all tiers) |
+| [Approval flow](#approval-flow) | — | All tiers: manual rollout; Enterprise: custom approval |
+| [Rollback](#rollback) | Manual scripts; Enterprise: auto undo scripts | Auto-generated rollback + sync to any version |
+| [CI/CD integration](#cicd-integration) | GitHub Actions, GitLab, Jenkins, Azure DevOps, Octopus Deploy, TeamCity | GitOps (GitHub, GitLab, Bitbucket, Azure DevOps) + API |
+| [Change history](#change-history) | DATABASECHANGELOG table | GUI with diff view + issue linkage |
+| [Data access control & audit](#data-access-control-and-audit) | — | All tiers: workspace/project roles; Pro: SSO, audit log; Enterprise: + dynamic data masking, custom roles, just-in-time data access |
+| License | Apache 2.0 | MIT + commercial (Enterprise features) |
 
-### Product position
+### Pricing Comparison
 
-- **Flyway**: A database schema change and version control tool.
-  ![flyway-position](/content/blog/bytebase-vs-flyway/flyway-position.webp)
+|  | Free | Paid |
+| --- | --- | --- |
+| **Flyway** | Community (Apache 2.0, CLI + Desktop, 50+ DBs) | Enterprise: contact for pricing (AI features, code review policies, state-based deployment, undo scripts, change reports, drift detection) |
+| **Bytebase** | Community (self-hosted, up to 20 users, 10 instances) | Pro: $20/user/mo (cloud-only, up to 10 instances); Enterprise: custom yearly (self-hosted or cloud) |
 
-- **Bytebase**: In addition to database schema change and version control, Bytebase also provides data query, security, and governance features. It provides a GUI based collaboration workspace that helps DBAs and Developers manage the database development lifecycle.
-  ![bytebase-position](/content/blog/bytebase-vs-flyway/bytebase-position.webp)
+### Developer Interface
 
-### Developer interface
+**Flyway** offers two interfaces. The CLI is the primary tool — write SQL migration scripts, run `flyway migrate`, and it handles versioning and execution. **Flyway Desktop** (added after the Redgate acquisition) is a GUI application with a schema model view, built-in Git client, and visual diff tools. Desktop supports SQL Server, PostgreSQL, and MySQL.
 
-- **Flyway**: A command-line tool. With JVM, it also provides Java API, Maven plugin and Gradle plugin. A simple graphical user interface (GUI) called Flyway Desktop is available for SQL Server, PostgreSQL and MySQL.
-- **Bytebase**: A web-based GUI tool. It also provides [application programming interface (API)](https://docs.bytebase.com/api/overview/), [Terraform Provider](https://docs.bytebase.com/integrations/terraform/overview/), and [GitHub App](https://docs.bytebase.com/sql-review/github-app).
+**Bytebase** provides a web-based GUI where developers submit changes, DBAs review them, and the platform handles rollout. It also exposes a full [API](https://api.bytebase.com/), a [Terraform provider](https://docs.bytebase.com/integrations/terraform/overview) for infrastructure-as-code workflows, and [GitOps workflow tutorials](https://docs.bytebase.com/tutorials/gitops-github-workflow) for Git-driven automation.
 
-### Supported databases
+### Supported Databases
 
-- **Flyway**: 22 SQL databases - MySQL, PostgreSQL, IBM DB2, MS SQL Server, Oracle, PostgreSQL, MySQL, Snowflake ...
-- **Bytebase**: 22 SQL and NoSQL databases - MySQL, PostgreSQL, Oracle, MS SQL Server, ClickHouse, MongoDB, Redis, Redshift, Snowflake, ...
+**Flyway** supports 50+ databases including PostgreSQL, MySQL, Oracle, SQL Server, MariaDB, Snowflake, BigQuery, Redshift, CockroachDB, ClickHouse, MongoDB, DuckDB, and many more. Database support is modular — some engines are community-contributed extensions.
+
+**Bytebase** supports 23 database engines with deep integration: 9 RDBMS (MySQL, PostgreSQL, Oracle, SQL Server, MariaDB, TiDB, OceanBase, CockroachDB, Spanner), 6 NoSQL (MongoDB, Redis, Cassandra, DocumentDB, DynamoDB, Cosmos DB), 7 data warehouses (Snowflake, BigQuery, Redshift, Hive, ClickHouse, Databricks, StarRocks), and Elasticsearch.
+
+Flyway covers more databases. Bytebase goes deeper on each one it supports — online schema change for MySQL, engine-specific SQL review rules for PostgreSQL, column-level data masking that understands each database's type system.
 
 ### Installation
 
-- **Flyway**: Java-based tool, so you need to install a Java Virtual Machine (JVM) before users can install Flyway.
-- **Bytebase**: Go-based tool, a self-contained binary with no external dependency. Also provides [Docker](https://docs.bytebase.com/get-started/deploy-with-docker/) and [Kubernetes](https://docs.bytebase.com/get-started/deploy-with-kubernetes/) deployment.
+**Flyway** requires Java 17+ (JVM). Install the JVM, then install Flyway. Flyway Desktop is a separate installer for the GUI.
 
-### Change execution
+**Bytebase** ships as a single Go binary with no external dependencies. Deploy via [Docker](https://docs.bytebase.com/get-started/deploy-with-docker) or [Kubernetes](https://docs.bytebase.com/get-started/deploy-with-kubernetes) in under 5 minutes.
 
-- **Flyway**: CLI or GitOps. Users write SQL files and then run command `flyway migrate`.
+### Change Execution
 
-![flyway-change](/content/blog/bytebase-vs-flyway/flyway-change.webp)
+**Flyway** uses versioned SQL migration scripts. Name them `V1__create_users.sql`, `V2__add_email_column.sql`, and run `flyway migrate`. Flyway tracks which versions have been applied in a metadata table and runs only the new ones. You can also use repeatable migrations (prefix `R__`) for views and stored procedures that get reapplied when their checksum changes.
 
-- **Bytebase**: Web-based GUI or GitOps. Users create issues with SQL which could be approved. An issue may include SQL running against one database, or batch change against multiple databases span across different [development environments](https://docs.bytebase.com/change-database/batch-change/#change-databases-from-multiple-environments) and [different tenants](https://docs.bytebase.com/change-database/batch-change/#change-databases-from-multiple-tenants).
-  ![bytebase-issue](/content/blog/bytebase-vs-flyway/bytebase-issue.webp)
+**Bytebase** uses an issue-based workflow. A developer creates an issue containing SQL statements, which goes through review and approval before execution. Issues can target a single database or batch across environments. Bytebase also supports online schema change for MySQL — large table migrations that would normally lock the table for hours complete in seconds with zero downtime.
 
-  Users can create tenant project to facilitate batch change. In tenant mode, users can do advanced canary release.
-  ![bytebase-canary](/content/blog/bytebase-vs-flyway/bytebase-canary.webp)
+![Bytebase issue-based change workflow](/content/blog/bytebase-vs-flyway/bytebase-issue.webp)
 
-  Users can also do online schema change for large tables to reduce downtime from hours to seconds.
-  ![bytebase-online-schema-change](/content/blog/bytebase-vs-flyway/bytebase-online-schema-change.webp)
+### Schema Sync
 
-### Database GitOps configuration
+**Flyway Desktop** provides visual schema comparison between a development database and a schema model. It generates migration scripts from the diff. This is a 1-to-1 comparison — you compare one source against one target.
 
-- **Flyway**: Configure with VCS CI/CD workflow manually.
-  ![flyway-ci-cd](/content/blog/bytebase-vs-flyway/flyway-ci-cd.webp)
+**Bytebase** has a built-in [schema sync](https://docs.bytebase.com/change-database/synchronize-schema) through the GUI. Pick a source database and one or more targets — Bytebase generates the DDL diff for each and applies them as a batch change issue, with SQL review, approval, and audit logging included. Useful for keeping staging in sync with prod, or syncing schema across dozens of tenant databases at once.
 
-- **Bytebase**: Point-and-Click GitOps workflow setup.
-  ![bytebase-gitlab-gitops](/content/blog/bytebase-vs-flyway/bytebase-gitlab-gitops.webp)
+### Batch Change
 
-  You may even enable SQL Review in GitLab automatically by clicking a checkbox while configuring GitOps workflow. (which is not in the video)
-  ![bytebase-gitops-sql-review](/content/blog/bytebase-vs-flyway/bytebase-gitops-sql-review.webp)
+**Flyway** doesn't have built-in multi-environment orchestration. You run `flyway migrate` against each target database separately in your CI/CD pipeline. You can script this, but it's you writing the orchestration.
 
-  Check the video: [Setting up GitLab VCS integration for Bytebase (GitOps)](https://www.youtube.com/watch?v=51_bL7Vnqww&t=221s)
+**Bytebase** handles this natively. A single issue can roll out changes across [multiple environments](https://docs.bytebase.com/change-database/batch-change#change-databases-from-multiple-environments) (dev → staging → prod) or [multiple tenants](https://docs.bytebase.com/change-database/batch-change#change-databases-from-multiple-tenants).
 
-  Because Bytebase has the similar project concept as seen in GitLab/GitHub, the GitOps integration is nature to the developers.
+### SQL Review and Code Analysis
 
-### Change history
+**Flyway Community** has a built-in code review engine. **Flyway Enterprise** adds 74+ rules — 60+ SQLFluff rules (open-source linter) plus 14+ Redgate-specific rules for code quality and security. Enterprise also includes a policy library and custom policy integration.
 
-- **Flyway**: Run `flyway info` to show a simple history table.
-  ![flyway-info](/content/blog/bytebase-vs-flyway/flyway-info.webp)
+**Bytebase** includes [SQL Review](https://docs.bytebase.com/sql-review/review-rules) with 200+ rules across MySQL, PostgreSQL, Oracle, SQL Server, and more — available in the free tier. Rules are database-engine-specific, and you can configure error levels per environment (warn in dev, block in prod).
 
-- **Bytebase**: Change History tracking diffs and the originated issue.
-  ![bytebase-change-history](/content/blog/bytebase-vs-flyway/bytebase-change-history.webp)
-  ![bytebase-change-diff](/content/blog/bytebase-vs-flyway/bytebase-change-diff.webp)
+SQL review triggers automatically in two places:
 
-### Sync schema
+1. When a change issue is created.
+2. In GitOps — when a new PR containing SQL is created.
 
-- **Flyway**: Via the flyway desktop, there is a way to generate a migration script to bring the target database schema in sync with the one you already created (usually dev).
-  ![flyway-sync-schema](/content/blog/bytebase-vs-flyway/flyway-sync-schema.webp)
+### Approval Flow
 
-- **Bytebase**: Choose a specific schema version, auto calculate the diff with selected databases.
-  ![bytebase-sync-schema-step1](/content/blog/bytebase-vs-flyway/bytebase-sync-schema-step1.webp)
-  ![bytebase-sync-schema-step2](/content/blog/bytebase-vs-flyway/bytebase-sync-schema-step2.webp)
+**Flyway** has no built-in approval workflow. Approval happens outside the tool — in your CI/CD pipeline, Jira tickets, or Slack messages.
 
-### SQL auto check
-
-SQL auto check helps developers write less buggy SQL and save DBAs manual review efforts.
-
-- **Flyway**: Code Analysis
-- **Bytebase**: [SQL Review](https://docs.bytebase.com/sql-review/overview/)
-
-#### Supported Plan
-
-- **Flyway**: Only in Team Plan or above
-- **Bytebase**: Available in Free Plan
-
-#### Number of rules
-
-- **Flyway**: 10+ general rules or integrate a python app called SQLFluff to get more rules.
-- **Bytebase**: 49 rules for MySQL, 38 rules for PostgreSQL, 18 rules for Oracle ...
-
-#### How to configure
-
-- **Flyway**: Predefined, users may set them active or not.
-  ![flyway-code-analysis-rules](/content/blog/bytebase-vs-flyway/flyway-code-analysis-rules.webp)
-- **Bytebase**: Rules are predefined, users can activate and choose error level for specific rules. The picked rule set will make a reusable policy which can be applied to environment, e.g. `Test`, `Staging`, `Prod`.
-  ![bytebase-sql-review-rules](/content/blog/bytebase-vs-flyway/bytebase-sql-review-rules.webp)
-
-#### How to trigger
-
-- **Flyway**: Run `flyway check -code ....` command to produce a report.
-  ![flyway-check-code](/content/blog/bytebase-vs-flyway/flyway-check-code.webp)
-  ![flyway-code-analysis-report](/content/blog/bytebase-vs-flyway/flyway-code-analysis-report.webp)
-
-- **Bytebase**: Three places to trigger SQL review by default, users may manually integrate it to other scenarios by API as well:
-
-  1. When a database change is created as an issue.
-     ![bytebase-issue-auto-sql-review](/content/blog/bytebase-vs-flyway/bytebase-issue-auto-sql-review.webp)
-
-  2. When users query data from SQL Editor.
-     ![bytebase-sql-editor-review](/content/blog/bytebase-vs-flyway/bytebase-sql-editor-review.webp)
-
-  3. When users enable GitOps workflow, before a new SQL is merged into the main branch.
-     ![bytebase-gitops-merge](/content/blog/bytebase-vs-flyway/bytebase-gitops-merge.webp)
+**Bytebase** Community and Pro include manual rollout — someone explicitly clicks "Deploy" to apply a change. **Bytebase Enterprise** adds [custom approval flows](https://docs.bytebase.com/change-database/approval). You define rules like "DDL on prod needs DBA approval" or "changes touching 3+ databases need manager sign-off," and the system routes each issue to the right reviewers.
 
 ### Rollback
 
-- **Flyway**: Write rollback scripts manually. Supported in Team version or above.
-- **Bytebase**: By using sync schema, users may revert to a specific version. Also support [auto rollback](https://docs.bytebase.com/change-database/rollback-data-changes/). For Free version, users can revert to the latest version, while for Pro version or above, users can choose any version.
+**Flyway Community** supports undo migrations — you write `U1__undo_create_users.sql` manually. **Flyway Enterprise** adds auto-generated undo scripts, so you don't have to write rollback SQL by hand for common operations.
 
-### Schema drift detection
+**Bytebase** auto-generates rollback statements for DML changes and supports reverting to any previous schema version via [schema sync](https://docs.bytebase.com/change-database/rollback-data-changes). No manual rollback scripts needed.
 
-- **Flyway**: Run `flyway check -drift ...` to produce a report indicating difference between target database and the one created by the migrations applied by Flyway.
-- **Bytebase**: Will auto detect schema diff if someone manipulates the schemas out of Bytebase.
-  ![bytebase-schema-drift](/content/blog/bytebase-vs-flyway/bytebase-schema-drift.webp)
+### CI/CD Integration
 
-### Approval flow
+**Flyway** fits into any CI/CD pipeline as a CLI step — GitHub Actions, GitLab CI, Jenkins, Azure DevOps, Octopus Deploy, Harness, TeamCity. It's a command-line tool, so it works anywhere you can run a shell command.
 
-- **Flyway**: Not supported.
-- **Bytebase**: Basic rollout and [risk-based custom approval flow](https://docs.bytebase.com/administration/custom-approval/).
-  ![bytebase-rollout-policy](/content/blog/bytebase-vs-flyway/bytebase-rollout-policy.webp)
-  ![bytebase-custom-approval-flow](/content/blog/bytebase-vs-flyway/bytebase-custom-approval-flow.webp)
-  ![bytebase-risk-center](/content/blog/bytebase-vs-flyway/bytebase-risk-center.webp)
+**Bytebase** offers [GitOps setup](https://docs.bytebase.com/gitops/overview) with GitHub, GitLab, Bitbucket, and Azure DevOps. SQL files committed to a repo automatically create change issues in Bytebase, with SQL review running as a merge check. For other platforms, Bytebase's [API](https://api.bytebase.com/) lets you wire up any CI/CD pipeline.
 
-### Slow query detection and advisor
+### Change History
 
-- **Flyway**: Not supported.
-- **Bytebase**: Will auto detect slow queries and send weekly summary report. Provide an AI-based index advisor to provide query optimization advice.
-  ![bytebase-slow-query](/content/blog/bytebase-vs-flyway/bytebase-slow-query.webp)
+**Flyway** tracks changes in the `DATABASECHANGELOG` table — a record of which migrations were applied, when, and their checksums. You query it directly with SQL or run `flyway info` to see a summary.
 
-### Data access control, data masking, security and compliance
+**Bytebase** provides a visual change history with schema diffs and links back to the originating issue, reviewer, and approval chain.
 
-- **Flyway**: Not supported.
+### Data Access Control and Audit
 
-- **Bytebase**: With centralized [SQL Editor](https://docs.bytebase.com/sql-editor/overview/), data access is [controlled](https://docs.bytebase.com/security/database-permission/overview/), [reviewed](https://docs.bytebase.com/security/database-permission/query/), [audit-logged](https://docs.bytebase.com/security/audit-log/). Also provide [data masking](https://docs.bytebase.com/sql-editor/mask-data/), [watermark](https://docs.bytebase.com/security/watermark/).
+**Flyway** doesn't cover this area. It's a migration tool — access control, data masking, and audit logging are outside its scope.
 
-  ![bytebase-sql-editor](/content/blog/bytebase-vs-flyway/bytebase-sql-editor.webp)
+**Bytebase** layers access control across its tiers:
 
-  Bytebase supports [RBAC](https://docs.bytebase.com/concepts/roles-and-permissions/), e.g. developers need to require permission to access or export databases via SQL Editor.
-  ![bytebase-request-query-export](/content/blog/bytebase-vs-flyway/bytebase-request-query-export.webp)
+- **Community** — [workspace and project roles](https://docs.bytebase.com/administration/roles) (Owner, DBA, Developer) with built-in permissions, plus [SQL Editor](https://docs.bytebase.com/sql-editor/overview) for controlled query access.
+- **Pro** — adds SSO, [audit log](https://docs.bytebase.com/security/audit-log), and user groups.
+- **Enterprise** — [custom roles](https://docs.bytebase.com/administration/roles) with granular permissions, [dynamic data masking](https://docs.bytebase.com/security/data-masking/overview) at column level, enterprise SSO (OIDC, LDAP), 2FA, and just-in-time data access — developers request temporary query access, a reviewer approves it, and access expires automatically.
 
-  Everything that happened within Bytebase will be recorded for audit purposes.
-  ![bytebase-audit](/content/blog/bytebase-vs-flyway/bytebase-audit.webp)
+## When to Choose Flyway
 
-  Bytebase also supports [SSO](https://docs.bytebase.com/administration/sso/overview/).
+- Your team is CLI-first and wants to embed migrations directly into existing CI/CD pipelines.
+- You need to support a wide range of databases (50+), including niche or legacy systems.
+- Your developers already work in Java/JVM ecosystems.
+- You want Flyway Desktop's visual schema comparison for SQL Server development.
+- You need a migration engine, not a governance platform — access control and approval happen in other tools.
 
-### Webhook
+## When to Choose Bytebase
 
-- **Flyway**: Not supported.
+- You want an all-in-one platform that covers migration, SQL review, access control, data masking, and audit logging.
+- Your team includes DBAs or platform engineers who review database changes before they reach production.
+- You need compliance — approval flows, audit trails, and data masking for SOC 2, GDPR, or internal security policies.
+- You're running multi-environment or multi-tenant deployments where batch change orchestration matters.
 
-- **Bytebase**: [IM webhook](https://docs.bytebase.com/change-database/webhook/).
+## FAQ
 
-## Summary
+### Is Flyway still open source?
 
-To summarize, Bytebase and Flyway are both viable options for database CI/CD. Flyway deliver its feature via its CLI, while Bytebase
-offers a GUI-based collaboration space.
+Flyway Community remains Apache 2.0 licensed. Redgate acquired Flyway in 2019 and maintains both the open-source edition and commercial Flyway Enterprise with additional features (AI-powered summaries, auto undo scripts, policy library, state-based deployment).
 
-As an analogy, **Flyway is Git for database, and Bytebase is GitHub/GitLab for database**. Git is good for local and personal use. On the other hand, for team development which needs collaboration, review, access control and etc, GitHub/GitLab is more suitable.
+### Can I use Flyway and Bytebase together?
+
+They solve different layers. Flyway handles the migration file format and execution; Bytebase handles collaboration, review, and governance. If you already have a library of Flyway migration scripts, you don't have to throw them away — Bytebase can manage the review and deployment side while Flyway stays as the execution engine.
+
+### What is Flyway Desktop?
+
+Flyway Desktop is Redgate's GUI application for database development. It provides a visual schema model, built-in Git client, and schema comparison tools. It currently supports SQL Server, PostgreSQL, and MySQL. It's included in both Community and Enterprise editions.
+
+### Which tool has better CI/CD integration?
+
+Depends on what "CI/CD integration" means to you. If it means "I want a command I can add to my Jenkins/GitHub Actions pipeline," Flyway wins — it's a CLI call that works anywhere. If it means "I want SQL files in a repo to automatically become reviewed, approved change issues," Bytebase's GitOps integration does that out of the box.
+
+### How does Flyway pricing compare to Bytebase?
+
+Flyway Community is free. Flyway Enterprise requires contacting Redgate for a quote — no public pricing. Bytebase Community is free (up to 20 users), Pro is $20/user/month, and Enterprise is custom pricing. [Bytebase pricing details](https://www.bytebase.com/pricing/).
 
 ---
 
 Related comparisons:
 
+- [Bytebase vs. Atlas](/blog/bytebase-vs-atlas/)
 - [Bytebase vs. Liquibase](/blog/bytebase-vs-liquibase/)
 - [Flyway vs. Liquibase](/blog/flyway-vs-liquibase/)
+- [Top Database Schema Change Tools](/blog/top-database-schema-change-tool-evolution/)
