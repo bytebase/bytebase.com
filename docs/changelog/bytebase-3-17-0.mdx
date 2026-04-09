@@ -83,15 +83,31 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
 ### API Breaking Changes
 
-| Change | Affected Routes | Before | After |
-| -- | -- | -- | -- |
-| Worksheet API path | All worksheet endpoints | `/v1/worksheets` | `/v1/projects/{id}/worksheets` |
-| ListDatabases scope | `GET /v1/{parent=workspaces/*}/databases` | `/v1/workspaces/-/databases` | `/v1/workspaces/{id}/databases` |
-| Branding logo | `GET/PATCH /v1/workspaces/{id}` | `branding_logo` in workspace profile setting | `logo` field on workspace message |
-| Issue type enum | `POST /v1/{parent=projects/*}/issues`, `GET /v1/{parent=projects/*}/issues`, `POST /v1/{parent=projects/*}/issues:search` | `GRANT_REQUEST` | `ROLE_GRANT` |
-| Subscription API | `PATCH /v1/subscription` | `PATCH /v1/subscription` | `PATCH /v1/subscription/license` (deprecated, use `UploadLicense`) |
-| Data source ID | `POST /v1/{name=instances/*/databases/*}:query`, `POST /v1/{name=instances/*/databases/*}:export` | Required explicit `data_source_id` | Auto-resolved server-side; at most one read-only data source per instance (extra removed during migration) |
-| Classification level | `GET/PATCH /v1/settings/{name}`, `POST /v1/queryHistories:search` | `string` type with `description` field | `int` type, `description` removed |
+**1. Worksheet API moves to project scope:**
+
+| Method | Before | After |
+| -- | -- | -- |
+| List | `/v1/worksheets` | `/v1/{parent=projects/*}/worksheets` |
+| Get | `/v1/{name=worksheets/*}` | `/v1/{name=projects/*/worksheets/*}` |
+| Create | `/v1/worksheets` | `/v1/{parent=projects/*}/worksheets` |
+| Update | `/v1/{worksheet.name=worksheets/*}` | `/v1/{worksheet.name=projects/*/worksheets/*}` |
+| Delete | `/v1/{name=worksheets/*}` | `/v1/{name=projects/*/worksheets/*}` |
+
+**2. APIs that no longer accept** `workspaces/-` (must use `workspaces/{id}`):
+
+| Service | Affected Operations |
+| -- | -- |
+| DatabaseService | `ListDatabases` |
+
+**3. Other breaking changes:**
+
+| Change | Affected Routes | Details |
+| -- | -- | -- |
+| Branding logo | `GET/PATCH /v1/workspaces/{id}` | `branding_logo` removed from workspace profile setting; use `logo` field on workspace message |
+| Issue type enum | `POST /v1/{parent=projects/*}/issues`, `GET /v1/{parent=projects/*}/issues`, `POST /v1/{parent=projects/*}/issues:search` | `GRANT_REQUEST` renamed to `ROLE_GRANT` |
+| Subscription API | `PATCH /v1/subscription` | Deprecated; use `PATCH /v1/subscription/license` (`UploadLicense`) |
+| Data source ID | `POST /v1/{name=instances/*/databases/*}:query`, `POST /v1/{name=instances/*/databases/*}:export` | `data_source_id` auto-resolved server-side; at most one read-only data source per instance (extra removed during migration) |
+| Classification level | `GET/PATCH /v1/settings/{name}`, `POST /v1/queryHistories:search` | Level type changed from `string` to `int`; `description` field removed |
 
 ### CEL Filter Syntax Change
 
