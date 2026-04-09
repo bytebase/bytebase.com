@@ -1,0 +1,116 @@
+---
+title: Bytebase 3.17.0 - Apr 9, 2026
+author: Adela
+updated_at: 2026/04/09 18:00:00
+description: 'Unified Plan Lifecycle View & High Availability'
+
+---
+
+import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
+
+## 🔔 Notable Changes
+
+- **Unified Plan lifecycle view** — the Plan detail page shows the full lifecycle of a database change, giving developers one place to follow a change from draft to deployment.
+  - The three phases of a database change — change, review, deploy — are shown in sections, allowing developers to edit change, view approval result, and execute deployment in this single page.
+  - Issue page is now dedicated primarily for review and approval. Developers will need to go to the plan page to edit changes and create a rollout when needed.
+
+- **API breaking changes** — Worksheet API moves to project scope (`/v1/projects/{id}/worksheets`), `ListDatabases` now requires workspace ID (`/v1/workspaces/{id}/databases`), `branding_logo` moves from workspace profile setting to workspace message, `GRANT_REQUEST` issue type renamed to `ROLE_GRANT`, `UpdateSubscription` API deprecated in favor of `UploadLicense`, and classification description and level description fields removed with level type changed from string to number. See [Change Details](<#api-breaking-changes>).
+
+- **CEL filter syntax change** — Substring-search filters now use `contains()` instead of `matches()` across plan, database, instance, project, group, user, service account, workload identity, query history, access grant, and database metadata table filters. See [Change Details](<#cel-filter-syntax-change>).
+
+- **Read-only data source consolidation** — Each instance now allows at most one read-only data source. If more than one is configured, only the first is kept after migration; extra read-only data sources are removed.
+
+- **Remove Pro plan 20-user seat cap** — Pro plan no longer has a user limit.
+
+- **Terraform provider** — Updated for 3.17.0 API breaking changes. Supports get, create, update, and list identity providers. See [Migration Guide](https://github.com/bytebase/terraform-provider-bytebase/blob/main/migration/3.17.0.md).
+
+## 🚀 Features
+
+- **High Availability (HA)** — Support licensed multi-replica deployments backed by a shared external PostgreSQL metadata database. Active replicas are tracked via heartbeats, and background runners coordinate safely across replicas.
+
+- **Page Agent** — Add an in-app AI assistant with tool-calling, threaded resumable conversations, DOM-aware autocomplete, and token usage tracking.
+
+- **Issue Approved webhook event** — Support a new webhook event type for issue approval, with redesigned Slack message format.
+
+- **MCP `query_database` tool** — Add a new MCP tool for executing SQL queries against managed databases with automatic database resolution.
+
+- **CosmosDB** — Support local emulator connection and dynamic data masking for all 13 query feature areas.
+
+## 🎄 Enhancements
+
+- Support executing stored procedures (`CALL` / `EXEC`) in SQL Editor by classifying stored procedure execution as DML.
+
+- Support issue type filter in advanced search (Database Change, Role Grant, Database Export, Access Grant).
+
+- Replace data classification file upload with an inline JSON editor and enhance the data classification editor.
+
+- Support masking exemption by classification level, and redesign masking exemption list page.
+
+- Redesign data export creation UI.
+
+- Migrate the frontend from Vue to React across all major pages including settings, projects, databases, instances, plans, issues, and audit logs.
+
+- Upgrade SQL parsing engine for PostgreSQL, MySQL, MongoDB, and CosmosDB from ANTLR to omni parser, improving SQL syntax coverage, consistency across SQL review / schema diff / auto-completion, and error message quality.
+
+- Add configurable `--timeout` flag for `bytebase-action` for large SQL checks.
+
+- Expose `--enable-json-logging` flag in the Helm chart for structured log output.
+
+
+## 🐞 Bug Fixes
+
+- Fix false schema diff noise caused by PostgreSQL trigger ordering and CRLF / whitespace normalization.
+
+- Fix SQL editor metadata sync retry flood.
+
+- Fix OAuth discovery to return usable URLs in self-hosted mode.
+
+- Fix stale debounced query reverts in advanced search.
+
+- Fix gh-ost directives in migration-based GitOps workflow.
+
+- **PostgreSQL** — Fix CRLF line endings causing query truncation in SQL splitter, schema load failure by excluding aggregates from function sync, array subscript handling in column reference normalization, whitespace between LIMIT and FOR UPDATE clause, and nested SELECTs in wrapper statements and CTEs for SQL review.
+
+- **MySQL** — Fix unqualified SET columns in prior backup for UPDATE JOIN, missing `multiStatements` param in IAM auth DSN, and role sync for anonymous users.
+
+- **TiDB** — Remove non-transaction statement handling.
+
+- **Oracle** — Strip trailing null bytes from schema definitions.
+
+<InstallUpgrade />
+
+## 📃 Change Details
+
+### API Breaking Changes
+
+**1. Worksheet API moves to project scope:**
+
+| Method | Before | After |
+| -- | -- | -- |
+| List | `/v1/worksheets` | `/v1/{parent=projects/*}/worksheets` |
+| Get | `/v1/{name=worksheets/*}` | `/v1/{name=projects/*/worksheets/*}` |
+| Create | `/v1/worksheets` | `/v1/{parent=projects/*}/worksheets` |
+| Update | `/v1/{worksheet.name=worksheets/*}` | `/v1/{worksheet.name=projects/*/worksheets/*}` |
+| Delete | `/v1/{name=worksheets/*}` | `/v1/{name=projects/*/worksheets/*}` |
+
+**2. APIs that no longer accept** `workspaces/-` (must use `workspaces/{id}`):
+
+| Service | Affected Operations |
+| -- | -- |
+| DatabaseService | `ListDatabases` |
+
+**3. Other breaking changes:**
+
+| Change | Affected Routes | Details |
+| -- | -- | -- |
+| Branding logo | `GET/PATCH /v1/workspaces/{id}` | `branding_logo` removed from workspace profile setting; use `logo` field on workspace message |
+| Issue type enum | `POST /v1/{parent=projects/*}/issues`, `GET /v1/{parent=projects/*}/issues`, `POST /v1/{parent=projects/*}/issues:search` | `GRANT_REQUEST` renamed to `ROLE_GRANT` |
+| Subscription API | `PATCH /v1/subscription` | Deprecated; use `PATCH /v1/subscription/license` (`UploadLicense`) |
+| Data source ID | `POST /v1/{name=instances/*/databases/*}:query`, `POST /v1/{name=instances/*/databases/*}:export` | `data_source_id` auto-resolved server-side; at most one read-only data source per instance (extra removed during migration) |
+| Classification level | `GET/PATCH /v1/settings/{name}`, `POST /v1/queryHistories:search` | Level type changed from `string` to `int`; `description` field removed |
+
+### CEL Filter Syntax Change
+
+Substring-search CEL filters now use `contains()` instead of `matches()`. Existing clients that send filters such as `title.matches("...")`, `name.matches("...")`, `resource_id.matches("...")`, `email.matches("...")`, `host.matches("...")`, `port.matches("...")`, `statement.matches("...")`, `query.matches("...")`, or `table.matches("...")` must switch to the corresponding `contains()` form.
+
+This applies to plan, database, instance, project, group, user, service account, workload identity, query history, access grant, and database metadata table filters.
