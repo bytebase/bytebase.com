@@ -125,4 +125,4 @@ Substring-search CEL filters now use `contains()` instead of `matches()`. Affect
 | `query` | `query.matches("insert")` | `query.contains("insert")` |
 | `table` | `table.matches("users")` | `table.contains("users")` |
 
-Affected routes: `GET /v1/{parent=projects/*}/plans` (ListPlans), `GET /v1/{parent=projects/*}/databases` (ListDatabases), `GET /v1/{parent=workspaces/*}/databases` (ListDatabases), `GET /v1/instances` (ListInstances), and other list endpoints for project, group, user, service account, workload identity, query history, and access grant.
+Applies to all list endpoints that support CEL filter: plan, database, instance, project, group, user, service account, workload identity, query history, access grant, and database metadata table.
