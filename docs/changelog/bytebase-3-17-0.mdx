@@ -111,18 +111,6 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
 ### CEL Filter Syntax Change
 
-Substring-search CEL filters now use `contains()` instead of `matches()`. Affected fields:
+Substring-search CEL filters now use `contains()` instead of `matches()`. Existing clients that send filters such as `title.matches("...")`, `name.matches("...")`, `resource_id.matches("...")`, `email.matches("...")`, `host.matches("...")`, `port.matches("...")`, `statement.matches("...")`, `query.matches("...")`, or `table.matches("...")` must switch to the corresponding `contains()` form.
 
-| Field | Example Before | Example After |
-| -- | -- | -- |
-| `title` | `title.matches("database migration")` | `title.contains("database migration")` |
-| `name` | `name.matches("employee")` | `name.contains("employee")` |
-| `resource_id` | `resource_id.matches("prod")` | `resource_id.contains("prod")` |
-| `email` | `email.matches("admin")` | `email.contains("admin")` |
-| `host` | `host.matches("10.0")` | `host.contains("10.0")` |
-| `port` | `port.matches("5432")` | `port.contains("5432")` |
-| `statement` | `statement.matches("select")` | `statement.contains("select")` |
-| `query` | `query.matches("insert")` | `query.contains("insert")` |
-| `table` | `table.matches("users")` | `table.contains("users")` |
-
-Applies to all list endpoints that support CEL filter: plan, database, instance, project, group, user, service account, workload identity, query history, access grant, and database metadata table.
+This applies to plan, database, instance, project, group, user, service account, workload identity, query history, access grant, and database metadata table filters.
