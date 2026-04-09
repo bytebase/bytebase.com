@@ -10,7 +10,9 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
 ## 🔔 Notable Changes
 
-- **Unified Plan lifecycle view** — The Plan detail page now shows the full lifecycle of a database change — change, review, deploy — in sections, allowing developers to edit change, view approval result, and execute deployment in this single page. Issue page is now dedicated primarily for review and approval. Developer will need to go to plan page to edit changes and create rollout when needed.
+- **Unified Plan lifecycle view** — the Plan detail page shows the full lifecycle of a database change, giving developers one place to follow a change from draft to deployment.
+  - The three phases of a database change — change, review, deploy — are shown in sections, allowing developers to edit change, view approval result, and execute deployment in this single page.
+  - Issue page is now dedicated primarily for review and approval. Developer will need to go to plan page to edit changes and create rollout when needed.
 
 - **API breaking changes** — Worksheet API moves to project scope (`/v1/projects/{id}/worksheets`), `ListDatabases` now requires workspace ID (`/v1/workspaces/{id}/databases`), `branding_logo` moves from workspace profile setting to workspace message, `GRANT_REQUEST` issue type renamed to `ROLE_GRANT`, `UpdateSubscription` API deprecated in favor of `UploadLicense`, and classification description and level description fields removed with level type changed from string to number. See [Change Details](<#api-breaking-changes>).
 
