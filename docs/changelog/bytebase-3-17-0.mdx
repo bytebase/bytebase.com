@@ -14,7 +14,9 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
 - **Remove Pro plan 20-user seat cap** — Pro plan no longer has a user limit.
 
-- **API breaking changes** — Worksheet API moves to project scope (`/v1/projects/{id}/worksheets`), `ListDatabases` now requires workspace ID (`/v1/workspaces/{id}/databases`), `branding_logo` moves from workspace profile setting to workspace message, `GRANT_REQUEST` issue type renamed to `ROLE_GRANT`, and `UpdateSubscription` API replaced by `UploadLicense`. See [Change Details](<#api-breaking-changes>).
+- **Read-only data source consolidation** — Each instance now allows at most one read-only data source. If more than one is configured, only the first is kept after migration; extra read-only data sources are removed.
+
+- **API breaking changes** — Worksheet API moves to project scope (`/v1/projects/{id}/worksheets`), `ListDatabases` now requires workspace ID (`/v1/workspaces/{id}/databases`), `branding_logo` moves from workspace profile setting to workspace message, `GRANT_REQUEST` issue type renamed to `ROLE_GRANT`, and `UpdateSubscription` API deprecated in favor of `UploadLicense`. See [Change Details](<#api-breaking-changes>).
 
 - **CEL filter syntax change** — Substring-search filters now use `contains()` instead of `matches()` across plan, database, instance, project, group, user, service account, workload identity, query history, access grant, and database metadata table filters. See [Change Details](<#cel-filter-syntax-change>).
 
