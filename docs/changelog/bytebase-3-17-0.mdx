@@ -12,7 +12,7 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
 - **Unified Plan lifecycle view** — the Plan detail page shows the full lifecycle of a database change, giving developers one place to follow a change from draft to deployment.
   - The three phases of a database change — change, review, deploy — are shown in sections, allowing developers to edit change, view approval result, and execute deployment in this single page.
-  - Issue page is now dedicated primarily for review and approval. Developer will need to go to plan page to edit changes and create rollout when needed.
+  - Issue page is now dedicated primarily for review and approval. Developers will need to go to the plan page to edit changes and create a rollout when needed.
 
 - **API breaking changes** — Worksheet API moves to project scope (`/v1/projects/{id}/worksheets`), `ListDatabases` now requires workspace ID (`/v1/workspaces/{id}/databases`), `branding_logo` moves from workspace profile setting to workspace message, `GRANT_REQUEST` issue type renamed to `ROLE_GRANT`, `UpdateSubscription` API deprecated in favor of `UploadLicense`, and classification description and level description fields removed with level type changed from string to number. See [Change Details](<#api-breaking-changes>).
 
@@ -22,7 +22,7 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
 - **Remove Pro plan 20-user seat cap** — Pro plan no longer has a user limit.
 
-- **Terraform provider** — Migrate for 3.17.0 API breaking changes. Support get, create, update, and list identity provider. See [Migration Guide](https://github.com/bytebase/terraform-provider-bytebase/blob/main/migration/3.17.0.md).
+- **Terraform provider** — Updated for 3.17.0 API breaking changes. Supports get, create, update, and list identity providers. See [Migration Guide](https://github.com/bytebase/terraform-provider-bytebase/blob/main/migration/3.17.0.md).
 
 ## 🚀 Features
 
