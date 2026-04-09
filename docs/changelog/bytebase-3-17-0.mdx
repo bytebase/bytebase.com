@@ -12,15 +12,13 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
 - **Unified Plan lifecycle view** — Review and rollout now appear in a single Plan detail page, giving developers one place to follow a change from draft to deployment.
 
-- **Remove Pro plan 20-user seat cap** — Pro plan no longer has a user limit.
-
-- **Read-only data source consolidation** — Each instance now allows at most one read-only data source. If more than one is configured, only the first is kept after migration; extra read-only data sources are removed.
-
-- **API breaking changes** — Worksheet API moves to project scope (`/v1/projects/{id}/worksheets`), `ListDatabases` now requires workspace ID (`/v1/workspaces/{id}/databases`), `branding_logo` moves from workspace profile setting to workspace message, `GRANT_REQUEST` issue type renamed to `ROLE_GRANT`, and `UpdateSubscription` API deprecated in favor of `UploadLicense`. See [Change Details](<#api-breaking-changes>).
+- **API breaking changes** — Worksheet API moves to project scope (`/v1/projects/{id}/worksheets`), `ListDatabases` now requires workspace ID (`/v1/workspaces/{id}/databases`), `branding_logo` moves from workspace profile setting to workspace message, `GRANT_REQUEST` issue type renamed to `ROLE_GRANT`, `UpdateSubscription` API deprecated in favor of `UploadLicense`, and classification description and level description fields removed with level type changed from string to number. See [Change Details](<#api-breaking-changes>).
 
 - **CEL filter syntax change** — Substring-search filters now use `contains()` instead of `matches()` across plan, database, instance, project, group, user, service account, workload identity, query history, access grant, and database metadata table filters. See [Change Details](<#cel-filter-syntax-change>).
 
-- **Classification setting API breaking changes** — Classification description and level description fields removed. Classification level type changes from string to number.
+- **Read-only data source consolidation** — Each instance now allows at most one read-only data source. If more than one is configured, only the first is kept after migration; extra read-only data sources are removed.
+
+- **Remove Pro plan 20-user seat cap** — Pro plan no longer has a user limit.
 
 - **Terraform provider** — Migrate for 3.17.0 API breaking changes. Support get, create, update, and list identity provider. See [Migration Guide](https://github.com/bytebase/terraform-provider-bytebase/blob/main/migration/3.17.0.md).
 
@@ -44,9 +42,9 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
 - Replace data classification file upload with an inline JSON editor and enhance the data classification editor.
 
-- Redesign masking exemption list page with classification level support.
+- Support masking exemption by classification level, and redesign masking exemption list page.
 
-- Auto-expand sidebar group for the active route.
+- Redesign data export creation UI.
 
 - Migrate the frontend from Vue to React across all major pages including settings, projects, databases, instances, plans, issues, and audit logs.
 
@@ -63,23 +61,15 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
 - Fix automatic rollout not working.
 
-- Fix startup crash from nil licenseService and non-idempotent migration.
-
 - Fix SQL editor metadata sync retry flood.
 
 - Fix OAuth discovery to return usable URLs in self-hosted mode.
 
-- Fix SSO GitHub email fetch.
-
 - Fix stale debounced query reverts in advanced search.
 
-- Fix data export creation to issue-scoped flow and initialize export format correctly.
+- Fix gh-ost directives in migration-based GitOps workflow.
 
-- Fix gh-ost directives in versioned release workflow.
-
-- Fix various UI issues: dropdown z-index clipping, popover dismiss on label selector interaction, CEL constraint preservation after role deletion, environment dashboard responsive layout, and button label standardization.
-
-- **PostgreSQL** — Fix CRLF line endings causing query truncation in SQL splitter, schema load failure by excluding aggregates from function sync, array subscript handling in column reference normalization, whitespace between LIMIT and FOR UPDATE clause, nested SELECTs in wrapper statements and CTEs for SQL review, and PolarDB `pg_bitmapindex` schema appearing in dumps.
+- **PostgreSQL** — Fix CRLF line endings causing query truncation in SQL splitter, schema load failure by excluding aggregates from function sync, array subscript handling in column reference normalization, whitespace between LIMIT and FOR UPDATE clause, and nested SELECTs in wrapper statements and CTEs for SQL review.
 
 - **MySQL** — Fix unqualified SET columns in prior backup for UPDATE JOIN, missing `multiStatements` param in IAM auth DSN, and role sync for anonymous users.
 
@@ -93,15 +83,15 @@ import InstallUpgrade from '/snippets/install/install-upgrade.mdx';
 
 ### API Breaking Changes
 
-| Change | Before | After |
-| -- | -- | -- |
-| Worksheet API path | `/v1/worksheets` | `/v1/projects/{id}/worksheets` |
-| ListDatabases scope | `/v1/workspaces/-/databases` | `/v1/workspaces/{id}/databases` |
-| Branding logo | `branding_logo` in workspace profile setting | `logo` field on workspace message |
-| Issue type enum | `GRANT_REQUEST` | `ROLE_GRANT` |
-| Subscription API | `PATCH /v1/subscription` | `PATCH /v1/subscription/license` (renamed to `UploadLicense`) |
-| Data source ID | Required explicit `data_source_id` in query API | Auto-resolved server-side; at most one read-only data source per instance (extra read-only data sources removed during migration) |
-| Classification level | `string` type with `description` field | `int` type, `description` removed |
+| Change | Affected Routes | Before | After |
+| -- | -- | -- | -- |
+| Worksheet API path | All worksheet endpoints | `/v1/worksheets` | `/v1/projects/{id}/worksheets` |
+| ListDatabases scope | `GET /v1/{parent=workspaces/*}/databases` | `/v1/workspaces/-/databases` | `/v1/workspaces/{id}/databases` |
+| Branding logo | `GET/PATCH /v1/workspaces/{id}` | `branding_logo` in workspace profile setting | `logo` field on workspace message |
+| Issue type enum | `POST /v1/{parent=projects/*}/issues`, `GET /v1/{parent=projects/*}/issues`, `POST /v1/{parent=projects/*}/issues:search` | `GRANT_REQUEST` | `ROLE_GRANT` |
+| Subscription API | `PATCH /v1/subscription` | `PATCH /v1/subscription` | `PATCH /v1/subscription/license` (deprecated, use `UploadLicense`) |
+| Data source ID | `POST /v1/{name=instances/*/databases/*}:query`, `POST /v1/{name=instances/*/databases/*}:export` | Required explicit `data_source_id` | Auto-resolved server-side; at most one read-only data source per instance (extra removed during migration) |
+| Classification level | `GET/PATCH /v1/settings/{name}`, `POST /v1/queryHistories:search` | `string` type with `description` field | `int` type, `description` removed |
 
 ### CEL Filter Syntax Change
 
@@ -119,4 +109,4 @@ Substring-search CEL filters now use `contains()` instead of `matches()`. Affect
 | `query` | `query.matches("insert")` | `query.contains("insert")` |
 | `table` | `table.matches("users")` | `table.contains("users")` |
 
-Applies to: plan, database, instance, project, group, user, service account, workload identity, query history, access grant, and database metadata table filters.
+Affected routes: `GET /v1/{parent=projects/*}/plans` (ListPlans), `GET /v1/{parent=projects/*}/databases` (ListDatabases), `GET /v1/{parent=workspaces/*}/databases` (ListDatabases), `GET /v1/instances` (ListInstances), and other list endpoints for project, group, user, service account, workload identity, query history, and access grant.
