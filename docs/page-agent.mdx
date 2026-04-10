@@ -1,0 +1,140 @@
+---
+title: Page Agent
+---
+
+The Page Agent is an AI assistant built into Bytebase. It lives in a floating chat window that's available on every page — ask it anything in plain language, and it helps you get it done.
+
+## Why we built it
+
+Bytebase has a lot of features, and it's not always obvious how to accomplish what you're trying to do — even when the feature you need is already there. You might know what you want (archive old rows, grant a teammate access to a project, fix a failing plan check) but not which page to open, which buttons to click, or which settings control the behavior you're after. Or maybe you know exactly how to do it — you'd just rather hand it off and review the result instead of clicking through the flow yourself.
+
+The Page Agent is designed for both. It understands how Bytebase works end to end, so it can:
+
+- **Show you the way** — walk you through a workflow step by step when you want to do it yourself.
+- **Do it for you** — take the actions directly when you'd rather describe the outcome and check the result.
+
+You stay in control: the agent shows each step it takes so you can follow along, and you can stop or redirect it at any time.
+
+## Setup
+
+The Page Agent uses the same AI provider configuration as the rest of Bytebase. If you haven't enabled it yet, follow the steps in [AI Assistant](/ai-assistant) to configure your OpenAI, Claude, Gemini, or Azure OpenAI credentials.
+
+Once AI is configured, the Page Agent is available from any page in the Bytebase console. Click the agent toggle in the dashboard header to open the chat window.
+
+## How it works
+
+![Page Agent Architecture](/content/docs/page-agent/architecture.svg)
+
+The Page Agent has three layers:
+
+1. **Chat window** — A floating panel available from any page in the console. It stays open as you move between pages.
+2. **Agent loop** — Runs in your browser. When you ask a question, the agent thinks about what to do, takes an action (reading the page, calling an API, navigating somewhere), observes the result, and repeats until it has a complete answer. Each step is shown in the chat.
+3. **AI backend** — Bytebase routes your conversation to the AI provider configured in your workspace settings. Your credentials never leave your server.
+
+## Capabilities
+
+| Capability | Description |
+|---|---|
+| **Read the current page** | Understands which page you're on, what project, database, or issue you're viewing, and what state the UI is in |
+| **Call Bytebase APIs** | Queries and updates data directly — listing databases, creating issues, checking deployment status, and more |
+| **Navigate** | Goes to any page in the console on your behalf |
+| **Interact with the UI** | Clicks buttons, fills form fields, selects options — useful on pages with unsaved state like editors and creation forms |
+| **Discover APIs** | Browses the full Bytebase API catalog to find the right endpoint for a task |
+| **Load workflow guides** | Pulls in step-by-step instructions for common multi-step tasks like running queries, creating schema changes, or granting permissions |
+
+## Controls and audit
+
+The Page Agent operates within Bytebase's existing safety mechanisms:
+
+- **Uses your permissions.** The agent can only perform actions your account is authorized for. If you can't drop a table, neither can the agent.
+- **Goes through the normal approval flow.** Schema changes the agent creates are regular Bytebase issues — they respect your project's approval policies, plan checks, and rollout gates. The agent cannot bypass these.
+- **Audit-logged under your account.** Every API call, issue creation, and permission change is recorded in the audit log with your user name.
+- **Controlled by workspace AI settings.** The Page Agent is available only when AI is enabled in your workspace. Disabling [AI Assistant](/ai-assistant) in **Settings > General** turns off the Page Agent along with other AI features.
+
+## Use cases
+
+### Fixing a plan check error
+
+Your issue failed a SQL review check and you want help understanding and fixing the violation.
+
+> **You:** Help me fix this plan check error.
+>
+> **Agent:** *(Reads the current page to inspect the issue and SQL review results)*
+>
+> **Agent:** The SQL review flagged a violation: **"Do not apply functions or perform calculations on indexed fields in the WHERE clause."** The problem is in your INSERT...SELECT statement:
+> ```sql
+> INSERT INTO orders_archive (id, customer_id, created_at)
+> SELECT id, customer_id, created_at
+> FROM orders
+> WHERE YEAR(created_at) = 2023;
+> ```
+> Wrapping `created_at` in `YEAR()` prevents the database from using the index on that column, forcing a full table scan. Here's a rewrite that keeps the index usable:
+> ```sql
+> INSERT INTO orders_archive (id, customer_id, created_at)
+> SELECT id, customer_id, created_at
+> FROM orders
+> WHERE created_at >= '2023-01-01' AND created_at < '2024-01-01';
+> ```
+> Want me to update the SQL in the editor and re-run the check?
+
+Other things you can ask:
+
+- "Why did the SQL review fail on this issue?"
+- "The plan check says I have a naming convention error — can you fix it?"
+- "Rewrite my migration to pass all the review checks"
+
+### Granting permissions
+
+A teammate needs access to a project, and you want to set it up without navigating to settings.
+
+> **You:** Give alice@example.com developer access to the Payment project.
+>
+> **Agent:** I'll add Alice as a project developer. Let me look up the project members API.
+> *(Discovers the project IAM API → calls it to add the role binding)*
+>
+> **Agent:** Done! alice@example.com now has the **Project Developer** role on the Payment project. She can view databases, create issues, and run queries in SQL Editor.
+
+Other things you can ask:
+
+- "Who has access to the Production environment?"
+- "Remove bob@example.com from the HR project"
+- "What roles does alice@example.com have?"
+
+### Querying data across your workspace
+
+Get a quick overview of resources without clicking through multiple pages.
+
+> **You:** What databases are in the "Payment" project?
+>
+> **Agent:** Let me check.
+> *(Calls the Bytebase API to list databases in the Payment project)*
+>
+> **Agent:** The Payment project has 4 databases:
+>
+> | Database | Environment | Engine |
+> |---|---|---|
+> | payment_prod | Production | PostgreSQL 15 |
+> | payment_staging | Staging | PostgreSQL 15 |
+> | payment_dev | Dev | PostgreSQL 15 |
+> | payment_analytics | Production | ClickHouse |
+
+Other things you can ask:
+
+- "How many pending issues are there in the HR project?"
+- "Show me all PostgreSQL instances"
+- "What SQL review policies are configured for production?"
+
+## Tips
+
+- **Be specific.** "Add a NOT NULL varchar(255) column called `display_name` to the `users` table in staging" works better than "change the users table."
+- **Ask follow-ups.** The agent remembers the full conversation, so "now do the same for production" works after a staging change.
+- **Let it navigate.** You don't need to be on the right page first — the agent will go where it needs to.
+- **Watch the tool calls.** The chat shows each API call or UI action the agent takes, so you always know what happened.
+
+## Important notes
+
+<Warning>
+
+The agent uses AI to plan and execute actions. Always review what it did — issue created, SQL written, permissions granted — before moving on.
+
+</Warning>

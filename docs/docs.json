@@ -281,6 +281,7 @@
               "administration/mode",
               "integrations/mcp",
               "ai-assistant",
+              "page-agent",
               "change-database/environment-policy/overview",
               "administration/database-group",
               "administration/customize-logo",
