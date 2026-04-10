@@ -24,7 +24,7 @@ PostgreSQL 22P02 fires when a value cannot be parsed into the expected data type
 
 - **String where integer expected** — a query passes text like `'abc'` to an integer column or parameter
 - **Malformed UUID** — a string that doesn't match the UUID format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-- **Invalid boolean value** — using `'yes'`/`'no'` instead of PostgreSQL's accepted boolean literals
+- **Invalid boolean value** — using unrecognized strings like `'Y'`, `'active'`, or `'enabled'` instead of PostgreSQL's accepted boolean literals
 - **Timestamp format mismatch** — date string doesn't match the expected format or `datestyle` setting
 - **Invalid JSON literal** — malformed JSON in a `json` or `jsonb` column
 
@@ -132,18 +132,19 @@ SELECT * FROM sessions WHERE session_id = try_cast_uuid(:input);
 
 ### Invalid boolean value
 
-PostgreSQL accepts `true`/`false`, `t`/`f`, `yes`/`no`, `on`/`off`, `1`/`0` — but not arbitrary strings.
+PostgreSQL accepts `true`/`false`, `t`/`f`, `y`/`n`, `yes`/`no`, `on`/`off`, `1`/`0` (all case-insensitive) — but not arbitrary strings.
 
 ```sql
 -- These work
 SELECT * FROM users WHERE active = true;
 SELECT * FROM users WHERE active = 'yes';
+SELECT * FROM users WHERE active = 'Y';
 SELECT * FROM users WHERE active = '1';
 
 -- These fail
-SELECT * FROM users WHERE active = 'Y';
 SELECT * FROM users WHERE active = 'active';
 SELECT * FROM users WHERE active = 'enabled';
+SELECT * FROM users WHERE active = 'TRUE1';
 ```
 
 **Fix:**
@@ -151,7 +152,7 @@ SELECT * FROM users WHERE active = 'enabled';
 1. Map application values to PostgreSQL booleans:
 
 ```python
-bool_map = {'Y': True, 'N': False, 'active': True, 'inactive': False}
+bool_map = {'active': True, 'inactive': False, 'enabled': True, 'disabled': False}
 active = bool_map.get(request.args.get('active'))
 if active is None:
     return {"error": "Invalid boolean value"}, 400
@@ -163,10 +164,10 @@ cursor.execute("SELECT * FROM users WHERE active = %s", (active,))
 ```sql
 SELECT * FROM users
 WHERE active = CASE :input
-  WHEN 'Y' THEN true
-  WHEN 'N' THEN false
   WHEN 'active' THEN true
   WHEN 'inactive' THEN false
+  WHEN 'enabled' THEN true
+  WHEN 'disabled' THEN false
 END;
 ```
 
@@ -218,7 +219,7 @@ Inserting or casting malformed JSON into a `json` or `jsonb` column triggers 22P
 -- These fail
 SELECT '{ name: "test" }'::jsonb;       -- keys must be quoted
 SELECT '{ "name": undefined }'::jsonb;  -- undefined is not valid JSON
-SELECT "{ \"name\": \"test\" }"::jsonb; -- double-quoted string, not a literal
+SELECT '{ "name": "test", }'::jsonb;   -- trailing comma is not valid JSON
 
 -- This works
 SELECT '{ "name": "test" }'::jsonb;
@@ -240,11 +241,20 @@ except (TypeError, ValueError) as e:
 cursor.execute("INSERT INTO configs (data) VALUES (%s::jsonb)", (json_str,))
 ```
 
-2. Use `jsonb_typeof` to test if a string is valid JSON:
+2. If you need server-side validation, create a helper function:
 
 ```sql
--- Returns NULL for invalid JSON instead of raising an error
-SELECT jsonb_typeof(:input::jsonb);
+CREATE OR REPLACE FUNCTION try_cast_jsonb(text)
+RETURNS jsonb AS $$
+BEGIN
+  RETURN $1::jsonb;
+EXCEPTION WHEN invalid_text_representation THEN
+  RETURN NULL;
+END;
+$$ LANGUAGE plpgsql IMMUTABLE;
+
+-- Returns NULL instead of raising an error
+SELECT try_cast_jsonb('{ invalid }');
 ```
 
 ## Prevention

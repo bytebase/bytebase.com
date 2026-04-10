@@ -90,28 +90,12 @@ connection.commit()
 A single `UPDATE` or `DELETE` affecting thousands of rows locks them all for the duration of the statement. Other transactions waiting for any of those rows will time out.
 
 ```sql
--- This locks every row in the table for the entire execution
+-- This locks the rows matched by the WHERE clause for the duration of the statement
 UPDATE orders SET status = 'archived' WHERE created_at < '2025-01-01';
--- Could take minutes — every other transaction touching `orders` waits
+-- Could take minutes — other transactions touching those rows may wait
 ```
 
-**Fix:** Break the operation into smaller batches:
-
-```sql
--- Process 1000 rows at a time
-SET @batch_size = 1000;
-SET @rows_affected = 1;
-
-WHILE @rows_affected > 0 DO
-  UPDATE orders SET status = 'archived'
-  WHERE created_at < '2025-01-01' AND status != 'archived'
-  LIMIT 1000;
-  SET @rows_affected = ROW_COUNT();
-  -- Brief pause to let other transactions through
-END WHILE;
-```
-
-Or in application code:
+**Fix:** Break the operation into smaller batches in application code:
 
 ```python
 batch_size = 1000
