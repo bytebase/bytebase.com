@@ -57,10 +57,8 @@ The Page Agent operates within Bytebase's existing safety mechanisms:
 
 Your issue failed a SQL review check and you want help understanding and fixing the violation.
 
-> **You:** Help me fix this plan check error.
->
-> **Agent:** *(Reads the current page to inspect the issue and SQL review results)*
->
+> **You:** Help me fix this plan check error.<br /><br />
+> **Agent:** *(Reads the current page to inspect the issue and SQL review results)*<br /><br />
 > **Agent:** The SQL review flagged a violation: **"Do not apply functions or perform calculations on indexed fields in the WHERE clause."** The problem is in your INSERT...SELECT statement:
 > ```sql
 > INSERT INTO orders_archive (id, customer_id, created_at)
@@ -87,11 +85,9 @@ Other things you can ask:
 
 A teammate needs access to a project, and you want to set it up without navigating to settings.
 
-> **You:** Give alice@example.com developer access to the Payment project.
->
+> **You:** Give alice@example.com developer access to the Payment project.<br /><br />
 > **Agent:** I'll add Alice as a project developer. Let me look up the project members API.
-> *(Discovers the project IAM API → calls it to add the role binding)*
->
+> *(Discovers the project IAM API → calls it to add the role binding)*<br /><br />
 > **Agent:** Done! alice@example.com now has the **Project Developer** role on the Payment project. She can view databases, create issues, and run queries in SQL Editor.
 
 Other things you can ask:
@@ -104,11 +100,9 @@ Other things you can ask:
 
 Get a quick overview of resources without clicking through multiple pages.
 
-> **You:** What databases are in the "Payment" project?
->
+> **You:** What databases are in the "Payment" project?<br /><br />
 > **Agent:** Let me check.
-> *(Calls the Bytebase API to list databases in the Payment project)*
->
+> *(Calls the Bytebase API to list databases in the Payment project)*<br /><br />
 > **Agent:** The Payment project has 4 databases:
 >
 > | Database | Environment | Engine |
