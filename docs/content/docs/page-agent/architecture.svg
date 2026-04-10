@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1070 320" style="font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="535" y="18" text-anchor="middle" font-size="14" font-weight="700" fill="#1E293B">Page Agent Architecture</text>
+
+  <!-- COL 1: You -->
+  <g transform="translate(18, 36)">
+    <rect width="190" height="260" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <text x="95" y="24" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="0.1em" fill="#64748B">YOU</text>
+
+    <!-- Chat window mockup -->
+    <rect x="25" y="40" width="140" height="200" rx="8" fill="white" stroke="#C7D2FE" stroke-width="1"/>
+    <!-- Title bar -->
+    <rect x="25" y="40" width="140" height="24" rx="8" fill="#EEF2FF"/>
+    <rect x="25" y="56" width="140" height="8" fill="#EEF2FF"/>
+    <text x="95" y="56" text-anchor="middle" font-size="9" font-weight="600" fill="#312E81">Page Agent</text>
+    <!-- User message -->
+    <rect x="35" y="74" width="120" height="18" rx="4" fill="#EEF2FF"/>
+    <text x="95" y="87" text-anchor="middle" font-size="8" fill="#4338CA">Fix this plan check error</text>
+    <!-- Tool call: reading page -->
+    <rect x="50" y="100" width="105" height="18" rx="4" fill="#FFF7ED"/>
+    <text x="102" y="113" text-anchor="middle" font-size="7.5" fill="#9A3412">Reading page state...</text>
+    <!-- Agent analysis -->
+    <rect x="50" y="126" width="105" height="30" rx="4" fill="#F0FDF4"/>
+    <text x="102" y="139" text-anchor="middle" font-size="8" fill="#166534">Found it! Line 3 has</text>
+    <text x="102" y="150" text-anchor="middle" font-size="8" fill="#166534">a missing semicolon.</text>
+    <!-- Tool call: fixing -->
+    <rect x="50" y="164" width="105" height="18" rx="4" fill="#FFF7ED"/>
+    <text x="102" y="177" text-anchor="middle" font-size="7.5" fill="#9A3412">Updating SQL...</text>
+    <!-- Final response -->
+    <rect x="50" y="190" width="105" height="18" rx="4" fill="#F0FDF4"/>
+    <text x="102" y="203" text-anchor="middle" font-size="8" fill="#166534">Fixed! Re-run the check.</text>
+    <!-- Input bar -->
+    <rect x="30" y="216" width="130" height="18" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8"/>
+    <text x="95" y="229" text-anchor="middle" font-size="8" fill="#94A3B8">Ask anything...</text>
+  </g>
+
+  <!-- Arrows: You ↔ Agent -->
+  <line x1="208" y1="146" x2="306" y2="146" stroke="#94A3B8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="257" y="140" text-anchor="middle" font-size="8" fill="#94A3B8">ask</text>
+  <line x1="306" y1="178" x2="208" y2="178" stroke="#94A3B8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="257" y="194" text-anchor="middle" font-size="8" fill="#94A3B8">answer</text>
+
+  <!-- COL 2: Page Agent -->
+  <g transform="translate(316, 36)">
+    <rect width="410" height="260" rx="12" fill="white" stroke="#C7D2FE" stroke-width="1.5" stroke-dasharray="6 3"/>
+    <text x="205" y="24" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="0.1em" fill="#4F46E5">PAGE AGENT</text>
+
+    <!-- Agent loop box -->
+    <rect x="125" y="38" width="160" height="36" rx="8" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1"/>
+    <text x="205" y="55" text-anchor="middle" font-size="11" font-weight="600" fill="#312E81">Agent Loop</text>
+    <text x="205" y="68" text-anchor="middle" font-size="8" fill="#4338CA">Think → Act → Observe → Repeat</text>
+
+    <!-- Connector lines from agent to tool rows -->
+    <line x1="205" y1="74" x2="205" y2="108" stroke="#C7D2FE" stroke-width="1"/>
+    <line x1="75" y1="108" x2="335" y2="108" stroke="#C7D2FE" stroke-width="0.8"/>
+    <line x1="75" y1="108" x2="75" y2="114" stroke="#C7D2FE" stroke-width="0.8"/>
+    <line x1="205" y1="108" x2="205" y2="114" stroke="#C7D2FE" stroke-width="0.8"/>
+    <line x1="335" y1="108" x2="335" y2="114" stroke="#C7D2FE" stroke-width="0.8"/>
+
+    <!-- Tools grid 2×3 -->
+    <!-- Color key: Green = read/observe, Amber = act/execute, Blue = navigate/guide -->
+    <!-- Row 1 -->
+    <rect x="15" y="114" width="120" height="42" rx="6" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+    <text x="75" y="133" text-anchor="middle" font-size="10" font-weight="600" fill="#166534">Read Pages</text>
+    <text x="75" y="148" text-anchor="middle" font-size="8" fill="#15803D">Current page context</text>
+
+    <rect x="145" y="114" width="120" height="42" rx="6" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1"/>
+    <text x="205" y="133" text-anchor="middle" font-size="10" font-weight="600" fill="#9A3412">Call APIs</text>
+    <text x="205" y="148" text-anchor="middle" font-size="8" fill="#C2410C">Query and update data</text>
+
+    <rect x="275" y="114" width="120" height="42" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+    <text x="335" y="133" text-anchor="middle" font-size="10" font-weight="600" fill="#1E40AF">Navigate</text>
+    <text x="335" y="148" text-anchor="middle" font-size="8" fill="#1D4ED8">Go to any page</text>
+
+    <!-- Row 2 -->
+    <rect x="15" y="168" width="120" height="42" rx="6" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+    <text x="75" y="187" text-anchor="middle" font-size="10" font-weight="600" fill="#166534">Discover APIs</text>
+    <text x="75" y="202" text-anchor="middle" font-size="8" fill="#15803D">Find the right endpoint</text>
+
+    <rect x="145" y="168" width="120" height="42" rx="6" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1"/>
+    <text x="205" y="187" text-anchor="middle" font-size="10" font-weight="600" fill="#9A3412">Interact with UI</text>
+    <text x="205" y="202" text-anchor="middle" font-size="8" fill="#C2410C">Click, type, select</text>
+
+    <rect x="275" y="168" width="120" height="42" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+    <text x="335" y="187" text-anchor="middle" font-size="10" font-weight="600" fill="#1E40AF">Workflow Guides</text>
+    <text x="335" y="202" text-anchor="middle" font-size="8" fill="#1D4ED8">Step-by-step skills</text>
+
+    <text x="205" y="238" text-anchor="middle" font-size="9" fill="#94A3B8">Combines capabilities autonomously to complete your request</text>
+  </g>
+
+  <!-- Arrows: Agent ↔ Backend -->
+  <line x1="726" y1="146" x2="828" y2="146" stroke="#94A3B8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="777" y="140" text-anchor="middle" font-size="8" fill="#94A3B8">request</text>
+  <line x1="828" y1="178" x2="726" y2="178" stroke="#94A3B8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="777" y="194" text-anchor="middle" font-size="8" fill="#94A3B8">response</text>
+
+  <!-- COL 3: AI Backend -->
+  <g transform="translate(838, 36)">
+    <rect width="210" height="260" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <text x="105" y="24" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="0.08em" fill="#64748B">AI BACKEND</text>
+
+    <rect x="25" y="42" width="160" height="40" rx="8" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1"/>
+    <text x="105" y="60" text-anchor="middle" font-size="11" font-weight="600" fill="#312E81">Bytebase Proxy</text>
+    <text x="105" y="74" text-anchor="middle" font-size="8" fill="#4338CA">Secure provider routing</text>
+
+    <!-- Connector line -->
+    <line x1="105" y1="82" x2="105" y2="104" stroke="#C7D2FE" stroke-width="1"/>
+
+    <text x="105" y="118" text-anchor="middle" font-size="9" font-weight="600" fill="#64748B">PROVIDERS</text>
+
+    <!-- Provider pills -->
+    <rect x="20" y="128" width="80" height="30" rx="6" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+    <text x="60" y="147" text-anchor="middle" font-size="10" font-weight="500" fill="#166534">OpenAI</text>
+
+    <rect x="110" y="128" width="80" height="30" rx="6" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1"/>
+    <text x="150" y="147" text-anchor="middle" font-size="10" font-weight="500" fill="#9A3412">Claude</text>
+
+    <rect x="20" y="168" width="80" height="30" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+    <text x="60" y="187" text-anchor="middle" font-size="10" font-weight="500" fill="#1E40AF">Gemini</text>
+
+    <rect x="110" y="168" width="80" height="30" rx="6" fill="#F5F3FF" stroke="#DDD6FE" stroke-width="1"/>
+    <text x="150" y="187" text-anchor="middle" font-size="10" font-weight="500" fill="#5B21B6">Azure</text>
+
+    <text x="105" y="228" text-anchor="middle" font-size="9" fill="#94A3B8">Your credentials</text>
+    <text x="105" y="242" text-anchor="middle" font-size="9" fill="#94A3B8">stay on your server</text>
+  </g>
+</svg>
